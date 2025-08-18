@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/group.proto
+// file: proto/gcommon/v1/common/messages/group.proto
+// version: 1.0.0
+// guid: 3d1addaa-66d2-4768-9214-6f57d3dea222
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.group;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/enums/resource_status.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/group";
 
 /**
  * Group entity for organizing users into collections.

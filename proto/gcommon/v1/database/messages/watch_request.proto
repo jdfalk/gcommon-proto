@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/database/config/watch_request.proto
+// file: proto/gcommon/v1/database/messages/watch_request.proto
+// version: 1.0.0
+// guid: ec773ec9-0060-4165-a6a0-7d33894d0f75
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.watch_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/watch_request";
 
 /**
  * Request to watch a cache key for changes.

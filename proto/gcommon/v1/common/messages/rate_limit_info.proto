@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/types/rate_limit_info.proto
+// file: proto/gcommon/v1/common/messages/rate_limit_info.proto
 // version: 1.0.0
 // guid: f124ed67-fd26-47d4-a6f7-c318a926d5f2
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.rate_limit_info;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/rate_limit_info";
 
 message RateLimitInfo {
   // Number of requests remaining in the current window

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/permission_condition.proto
+// file: proto/gcommon/v1/common/messages/permission_condition.proto
 // version: 1.0.0
 // guid: 54038d4d-21ce-4ccb-a735-255fae2bcd86
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.permission_condition;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/permission_condition";
 
 message PermissionCondition {
   string key = 1;

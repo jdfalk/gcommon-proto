@@ -1,14 +1,16 @@
 // file: proto/gcommon/v1/database/schema/list_schemas_request.proto
+// version: 1.0.0
+// guid: 98a59d16-8985-401b-96a8-07c9f542435d
 
 edition = "2023";
 
-package gcommon.v1.database.schema;
+package gcommon.v1.database.schema.list_schemas_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/schema";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/schema/list_schemas_request";
 
 message ListSchemasRequest {
   // Database name to list schemas from

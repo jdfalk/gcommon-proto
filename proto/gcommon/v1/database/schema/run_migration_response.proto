@@ -1,13 +1,15 @@
 // file: proto/gcommon/v1/database/schema/run_migration_response.proto
+// version: 1.0.0
+// guid: 661b4f25-d546-44b6-b066-0838d3631589
 edition = "2023";
 
-package gcommon.v1.database.schema;
+package gcommon.v1.database.schema.run_migration_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/schema";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/schema/run_migration_response";
 
 /**
  * RunMigrationResponse contains the result of executing database migrations.

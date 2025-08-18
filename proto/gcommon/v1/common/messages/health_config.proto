@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/health_config.proto
+// file: proto/gcommon/v1/common/messages/health_config.proto
+// version: 1.0.0
+// guid: ebed5c7e-06be-4527-8d87-41afd0b1320d
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_config";
 
 /**
  * HealthConfig represents health configuration

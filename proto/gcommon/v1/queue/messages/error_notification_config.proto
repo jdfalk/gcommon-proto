@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/error_notification_config.proto
+// file: proto/gcommon/v1/queue/messages/error_notification_config.proto
 // version: 1.0.0
 // guid: 0fffcb32-c66a-4876-acb0-c7d756601f4d
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.error_notification_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/error_notification_config";
 
 message ErrorNotificationConfig {
   // Enable error notifications

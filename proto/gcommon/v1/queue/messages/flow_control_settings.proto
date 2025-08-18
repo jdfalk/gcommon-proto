@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/flow_control_settings.proto
+// file: proto/gcommon/v1/queue/messages/flow_control_settings.proto
 // version: 1.0.0
 // guid: 072cab5f-9831-4a0e-8727-f69e8354fe4a
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.flow_control_settings;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/flow_control_settings";
 
 message FlowControlSettings {
   // Maximum outstanding messages

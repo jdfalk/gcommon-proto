@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/delivery_retry_config.proto
+// file: proto/gcommon/v1/queue/messages/delivery_retry_config.proto
 // version: 1.0.0
 // guid: b4d42c13-fbcd-4e8b-a74d-ac360b2f5814
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.delivery_retry_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/delivery_retry_config";
 
 message DeliveryRetryConfig {
   // Enable retry on delivery failures

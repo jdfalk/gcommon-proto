@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/commit_offset_response.proto
+// file: proto/gcommon/v1/queue/messages/commit_offset_response.proto
 // version: 1.0.0
 // guid: 748d3d88-f8aa-4f39-9a7a-5feb16d005d9
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.commit_offset_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/queue/messages/partition_commit_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/commit_offset_response";
 
 message CommitOffsetResponse {
   // Overall success status

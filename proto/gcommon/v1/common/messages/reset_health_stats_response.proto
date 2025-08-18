@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/reset_health_stats_response.proto
+// file: proto/gcommon/v1/common/messages/reset_health_stats_response.proto
+// version: 1.0.0
+// guid: 6b989b99-80f9-42fe-8a61-817a735351b1
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.reset_health_stats_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/reset_health_stats_response";
 
 /**
  * Response message for resetting health statistics.

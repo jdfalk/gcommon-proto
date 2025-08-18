@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/session_config.proto
+// file: proto/gcommon/v1/common/messages/session_config.proto
 // version: 1.0.0
 // guid: cf31dcbd-ba1f-402c-a37c-c1a2afe2dba8
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.session_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/session_config";
 
 /**
  * Configuration parameters for user sessions.

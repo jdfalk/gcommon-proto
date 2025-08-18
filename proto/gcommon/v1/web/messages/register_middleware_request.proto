@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/api/register_middleware_request.proto
+// file: proto/gcommon/v1/web/messages/register_middleware_request.proto
 // version: 1.1.0
 // guid: c136f229-3eee-476f-87b9-6417ec8bb8b0
 // RegisterMiddlewareRequest request definition.
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.register_middleware_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/web/messages/middleware_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/register_middleware_request";
 
 message RegisterMiddlewareRequest {
   // Target server identifier

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/config/api/value_validation_result_type.proto
+// file: proto/gcommon/v1/config/enums/value_validation_result_type.proto
 // version: 1.0.0
 // guid: 6558f48c-96da-4dc8-b0f1-691f0e0e8999
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.enums.value_validation_result_type;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/enums/value_validation_result_type";
 
 enum ValueValidationResultType {
   VALUE_VALIDATION_RESULT_TYPE_UNSPECIFIED = 0;

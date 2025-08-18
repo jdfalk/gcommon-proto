@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/filter_value.proto
+// file: proto/gcommon/v1/common/messages/filter_value.proto
+// version: 1.0.0
+// guid: e873017a-bb7e-4509-bb4b-ba7a2d08bb2b
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.filter_value;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/filter_operation.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/messages/int64_array.proto";
 import "proto/gcommon/v1/common/messages/string_array.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/filter_value";
 
 /**
  * Filter value with multiple type support and operation specification.

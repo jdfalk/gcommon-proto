@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/config/webhook_config.proto
+// file: proto/gcommon/v1/organization/messages/webhook_config.proto
 // version: 1.0.0
 // guid: 831d7bab-450b-45fb-b41f-63cde7f89926
 
 edition = "2023";
 
-package gcommon.v1.organization.config;
+package gcommon.v1.organization.messages.webhook_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/webhook_config";
 
 message WebhookConfig {
   // Webhook URL

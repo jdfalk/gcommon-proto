@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/delete_queue_request.proto
-// file: proto/gcommon/v1/queue/api/delete_queue_request.proto
+// file: proto/gcommon/v1/queue/messages/delete_queue_request.proto
 // version: 1.0.0
 // guid: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
 //
@@ -7,13 +7,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.delete_queue_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/delete_queue_request";
 
 message DeleteQueueRequest {
   // Queue ID or name to delete

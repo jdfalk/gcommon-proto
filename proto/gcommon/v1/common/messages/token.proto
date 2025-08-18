@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/token.proto
+// file: proto/gcommon/v1/common/messages/token.proto
+// version: 1.0.0
+// guid: caf60cc1-beab-4119-bb01-f426fbb8b680
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.token;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/enums/token_status.proto";
 import "proto/gcommon/v1/common/enums/token_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/token";
 
 /**
  * Token entity representing authentication and authorization tokens.

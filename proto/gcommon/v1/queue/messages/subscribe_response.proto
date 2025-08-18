@@ -1,10 +1,11 @@
-// file: proto/gcommon/v1/queue/api/subscribe_response.proto
+// file: proto/gcommon/v1/queue/messages/subscribe_response.proto
 // version: 1.0.0
+// guid: 0d059538-5ecd-4438-9e3e-8aca86b7cf82
 // Response for queue subscription with messages
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.subscribe_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/messages/connection_details.proto";
@@ -12,7 +13,7 @@ import "proto/gcommon/v1/queue/messages/partition_offset.proto";
 import "proto/gcommon/v1/queue/messages/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/subscribe_response";
 
 // Response for subscription requests
 message SubscribeResponse {

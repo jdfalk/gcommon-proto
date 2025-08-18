@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/subscribe_request.proto
+// file: proto/gcommon/v1/queue/messages/subscribe_request.proto
 // version: 1.0.0
 // guid: 6a573217-0297-4408-bcce-72b9172dd071
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.subscribe_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/ack_level.proto";
@@ -15,7 +15,7 @@ import "proto/gcommon/v1/queue/messages/message_filter_config.proto";
 import "proto/gcommon/v1/queue/messages/subscription_configuration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/subscribe_request";
 
 message QueueSubscribeRequest {
   // Topic or queue to subscribe to

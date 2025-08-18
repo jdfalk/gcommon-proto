@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/api/hierarchy_path.proto
+// file: proto/gcommon/v1/organization/messages/hierarchy_path.proto
 // version: 1.0.0
 // guid: f805b922-255a-475f-86d7-a4420903d7ad
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.hierarchy_path;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/hierarchy_path";
 
 message HierarchyPath {
   // Descendant node ID

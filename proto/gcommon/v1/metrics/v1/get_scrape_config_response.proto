@@ -1,18 +1,20 @@
 // file: proto/gcommon/v1/metrics/v1/get_scrape_config_response.proto
+// version: 1.0.0
+// guid: fa33c699-3eb3-4466-82b0-f7983815994e
 // file: proto/gcommon/v1/metrics/v1/get_scrape_config_response.proto
 //
 // Response containing scraping configuration for a provider.
 //
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.get_scrape_config_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/metrics/v1/scrape_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/get_scrape_config_response";
 
 /**
  * GetScrapeConfigResponse returns provider scrape configuration.

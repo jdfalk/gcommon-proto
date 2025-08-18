@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/health_status.proto
+// file: proto/gcommon/v1/queue/enums/health_status.proto
 // version: 1.0.0
 // guid: c5459257-5e52-46bb-a6f6-fb2b6a1e315d
 //
 // HealthStatus enumeration for the queue module
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.health_status;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/health_status";
 
 /**
  * HealthStatus represents queue service availability.

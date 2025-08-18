@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/auth_provider.proto
+// file: proto/gcommon/v1/common/messages/auth_provider.proto
 // version: 1.0.0
 // guid: 7293f6cc-7049-493d-9e7c-b17f00dd8a76
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.auth_provider;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/metrics/enums/provider_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/auth_provider";
 
 /**
  * AuthProvider represents an external authentication provider configuration.

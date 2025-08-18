@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/web.proto
+// file: proto/gcommon/v1/web/messages/web.proto
 // version: 1.0.0
 // guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.web;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/web";
 
 /**
  * Web represents basic web server information and metadata.

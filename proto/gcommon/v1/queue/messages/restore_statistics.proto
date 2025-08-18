@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/restore_statistics.proto
+// file: proto/gcommon/v1/queue/messages/restore_statistics.proto
 // version: 1.0.0
 // guid: f83290f6-3fb7-42fe-9473-6cf7028461e1
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.restore_statistics;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/restore_statistics";
 
 message RestoreStatistics {
   // Total messages restored

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/cookie_same_site.proto
+// file: proto/gcommon/v1/web/enums/cookie_same_site.proto
 // version: 1.0.0
 // guid: b38945ee-58e0-4d5a-9637-f2c57a5a9b31
 //
 // CookieSameSite defines SameSite settings for cookies.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.cookie_same_site;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/cookie_same_site";
 
 enum CookieSameSite {
   COOKIE_SAME_SITE_UNSPECIFIED = 0;

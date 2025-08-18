@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/auth_cache_config.proto
+// file: proto/gcommon/v1/queue/messages/auth_cache_config.proto
 // version: 1.0.0
 // guid: 4282b3d6-375a-4b30-aaad-1763d882936a
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.auth_cache_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/auth_cache_config";
 
 message AuthCacheConfig {
   // Enable caching

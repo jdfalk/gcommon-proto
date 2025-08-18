@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/database/services/database_service.proto
+// version: 1.0.0
+// guid: 29fba4b4-7bdc-4792-b145-968271984ce0
 edition = "2023";
 
-package gcommon.v1.database.services;
+package gcommon.v1.database.services.database_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/database/messages/execute_batch_request.proto";
@@ -18,7 +20,7 @@ import "proto/gcommon/v1/metrics/v1/health_check_request.proto";
 import "proto/gcommon/v1/metrics/v1/health_check_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/services/database_service";
 
 /**
  * DatabaseService provides comprehensive database operations including

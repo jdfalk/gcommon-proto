@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/config/dns_config.proto
+// file: proto/gcommon/v1/organization/messages/dns_config.proto
 // version: 1.0.0
 // guid: 4ce13993-ded9-4ed1-852c-8e73989b5baa
 
 edition = "2023";
 
-package gcommon.v1.organization.config;
+package gcommon.v1.organization.messages.dns_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/organization/messages/dns_record.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/dns_config";
 
 message DNSConfig {
   // DNS provider

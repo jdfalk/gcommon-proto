@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/database/config/begin_transaction_response.proto
+// file: proto/gcommon/v1/database/messages/begin_transaction_response.proto
+// version: 1.0.0
+// guid: 438f9345-ddb5-4696-9238-03275c33eb39
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.begin_transaction_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/begin_transaction_response";
 
 /**
  * BeginTransactionResponse contains the result of starting a new transaction.

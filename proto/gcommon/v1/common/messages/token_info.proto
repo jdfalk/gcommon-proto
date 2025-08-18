@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/token_info.proto
+// file: proto/gcommon/v1/common/messages/token_info.proto
+// version: 1.0.0
+// guid: 4c29c1f8-c076-4308-b035-5ac388999383
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.token_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/enums/token_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/token_info";
 
 /**
  * Token information for lightweight token tracking.

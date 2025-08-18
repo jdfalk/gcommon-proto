@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/api/compliance_settings.proto
+// file: proto/gcommon/v1/organization/messages/compliance_settings.proto
 // version: 1.0.0
 // guid: 01fb3d5c-a366-4271-a336-2312368dd4f2
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.compliance_settings;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/compliance_settings";
 
 message OrganizationComplianceSettings {
   // GDPR compliance enabled

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/config/load_balancer_config.proto
+// file: proto/gcommon/v1/organization/messages/load_balancer_config.proto
 // version: 1.0.0
 // guid: 9e0df8a1-fd1a-4173-89ed-7bcdc82cdb6f
 
 edition = "2023";
 
-package gcommon.v1.organization.config;
+package gcommon.v1.organization.messages.load_balancer_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/organization/messages/health_check_config.proto";
 import "proto/gcommon/v1/organization/messages/ssl_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/load_balancer_config";
 
 message OrganizationLoadBalancerConfig {
   // Load balancer type (application, network)

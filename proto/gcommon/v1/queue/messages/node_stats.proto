@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/node_stats.proto
+// file: proto/gcommon/v1/queue/messages/node_stats.proto
 // version: 1.0.0
 // guid: f64f009b-e23d-4540-9785-817fe7acb9f3
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.node_stats;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/node_stats";
 
 /**
  * Statistics for a single node.

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/check_permission_response.proto
+// file: proto/gcommon/v1/common/messages/check_permission_response.proto
 // version: 1.0.0
 // guid: 909a647b-cd2d-44d1-b612-5ea1e54bda39
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.check_permission_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/check_permission_response";
 
 /**
  * Response indicating whether the user has the requested permission.

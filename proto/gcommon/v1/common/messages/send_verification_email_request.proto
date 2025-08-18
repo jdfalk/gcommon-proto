@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/send_verification_email_request.proto
-// file: proto/gcommon/v1/common/types/send_verification_email_request.proto
+// version: 1.0.0
+// guid: 0e006386-d269-49b5-b99f-3794275714db
+// file: proto/gcommon/v1/common/messages/send_verification_email_request.proto
 //
 // Request definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.send_verification_email_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/send_verification_email_request";
 
 message SendVerificationEmailRequest {
   // User ID or email address

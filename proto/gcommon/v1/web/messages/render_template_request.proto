@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/render_template_request.proto
+// file: proto/gcommon/v1/web/messages/render_template_request.proto
 // version: 1.0.0
 // guid: 7af6bf58-6fbd-443a-a1b4-bbff1986136c
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.render_template_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/render_template_request";
 
 // RenderTemplateRequest request definition.
 message RenderTemplateRequest {

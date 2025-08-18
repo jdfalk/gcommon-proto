@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/validation_config.proto
+// file: proto/gcommon/v1/queue/messages/validation_config.proto
 // version: 1.0.0
 // guid: 50a55c81-98ea-49a5-8d18-c188a48acc5f
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.validation_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/validation_config";
 
 // ValidationConfig defines rules for validating queued messages.
 message ValidationConfig {

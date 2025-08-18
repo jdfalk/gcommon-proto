@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/organization/types/member_role.proto
+// file: proto/gcommon/v1/organization/enums/member_role.proto
 // version: 1.0.0
 // guid: b6c7d8e9-012b-467a-1234-789012345678
 
 edition = "2023";
 
-package gcommon.v1.organization.types;
+package gcommon.v1.organization.enums.member_role;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/enums/member_role";
 
 enum MemberRole {
   MEMBER_ROLE_UNSPECIFIED = 0;

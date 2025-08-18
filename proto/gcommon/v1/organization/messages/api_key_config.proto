@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/api/api_key_config.proto
+// file: proto/gcommon/v1/organization/messages/api_key_config.proto
 // version: 1.0.0
 // guid: 28bb1e15-1e3c-4ae1-bb4f-9daa15fcdf1b
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.api_key_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/key_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/api_key_config";
 
 message OrganizationAPIKeyConfig {
   // API key name/identifier

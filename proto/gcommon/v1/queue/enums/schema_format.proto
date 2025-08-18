@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/schema_format.proto
+// file: proto/gcommon/v1/queue/enums/schema_format.proto
 // version: 1.0.0
 // guid: 8dbf53aa-e92d-4de4-84a8-ec3fb37ce521
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.schema_format;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/serialization_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/schema_format";
 
 /**
  * Schema format types.

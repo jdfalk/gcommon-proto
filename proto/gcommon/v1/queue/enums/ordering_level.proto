@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/ordering_level.proto
+// file: proto/gcommon/v1/queue/enums/ordering_level.proto
 // version: 1.0.0
 // guid: e1d35748-c24e-4dd1-91e8-edd9e4b62959
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.ordering_level;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/ordering_level";
 
 enum OrderingLevel {
   ORDERING_LEVEL_UNSPECIFIED = 0;

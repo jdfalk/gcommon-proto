@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/reset_details.proto
+// file: proto/gcommon/v1/queue/messages/reset_details.proto
 // version: 1.0.0
 // guid: b0e2cbdc-ca09-41a1-81b3-771cf6e15072
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.reset_details;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/reset_details";
 
 message ResetDetails {
   // Number of metrics reset

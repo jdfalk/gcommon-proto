@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/error_stats.proto
+// file: proto/gcommon/v1/queue/messages/error_stats.proto
 // version: 1.0.0
 // guid: f679dd1a-539c-42a7-aa4e-0c14ef8adac2
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.error_stats;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/queue/messages/error_type_stat.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/error_stats";
 
 message QueueErrorStats {
   int64 total_errors = 1;

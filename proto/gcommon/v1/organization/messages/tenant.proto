@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/organization/api/tenant.proto
+// file: proto/gcommon/v1/organization/messages/tenant.proto
+// version: 1.0.0
+// guid: 560b99c3-131a-4c92-bcaf-034974f1561a
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.tenant;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -11,7 +13,7 @@ import "proto/gcommon/v1/organization/enums/tenant_status.proto";
 import "proto/gcommon/v1/organization/messages/tenant_quota.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/tenant";
 
 /**
  * Tenant message representing a tenant within an organization.

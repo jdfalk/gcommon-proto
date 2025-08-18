@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/time_range.proto
-// file: proto/gcommon/v1/queue/api/time_range.proto
+// file: proto/gcommon/v1/queue/messages/time_range.proto
 // version: 1.0.0
 // guid: 2a1b0c9d-8e7f-6a5b-4c3d-2e1f0a9b8c7d
 //
@@ -7,14 +7,14 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.time_range;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/v1/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/time_range";
 
 /**
  * Time range for filtering messages.

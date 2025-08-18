@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/config/origin_config.proto
+// file: proto/gcommon/v1/organization/messages/origin_config.proto
 // version: 1.0.0
 // guid: b84e3243-3ef5-4beb-94d1-db2bb8831611
 
 edition = "2023";
 
-package gcommon.v1.organization.config;
+package gcommon.v1.organization.messages.origin_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/enums/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/origin_config";
 
 message OriginConfig {
   // Origin domain name

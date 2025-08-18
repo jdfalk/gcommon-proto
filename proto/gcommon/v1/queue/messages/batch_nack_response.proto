@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/batch_nack_response.proto
+// file: proto/gcommon/v1/queue/messages/batch_nack_response.proto
 // version: 1.0.0
+// guid: c89cb423-a81c-4024-b081-c61406804442
 // Response for batch negative acknowledgment operations
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.batch_nack_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/batch_nack_response";
 
 // Response for batch negative acknowledgment operations
 message BatchNackResponse {

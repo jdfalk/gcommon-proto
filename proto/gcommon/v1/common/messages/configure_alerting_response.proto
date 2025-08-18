@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/configure_alerting_response.proto
+// file: proto/gcommon/v1/common/messages/configure_alerting_response.proto
+// version: 1.0.0
+// guid: f996c2ec-cfc9-45c8-8d78-97eef22d2df4
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.configure_alerting_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/configure_alerting_response";
 
 /**
  * Response message for configuring alerting settings.

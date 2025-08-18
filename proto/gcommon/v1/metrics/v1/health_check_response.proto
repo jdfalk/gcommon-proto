@@ -5,7 +5,7 @@
 // HealthCheckResponse for the metrics module
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.health_check_response;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/metrics/v1/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/health_check_response";
 
 /**
  * HealthCheckResponse contains the result of a metrics subsystem health check.

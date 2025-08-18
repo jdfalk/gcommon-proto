@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/api/list_organizations_request.proto
+// file: proto/gcommon/v1/organization/messages/list_organizations_request.proto
+// version: 1.0.0
+// guid: cdeed5f8-bf7f-4184-9599-edc8ff33cabe
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.list_organizations_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/list_organizations_request";
 
 message ListOrganizationsRequest {
   // Request metadata for tracing and context

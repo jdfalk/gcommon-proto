@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/template_hook.proto
+// file: proto/gcommon/v1/config/messages/template_hook.proto
 // version: 1.0.0
 // guid: 48a58147-b1e9-4c28-ad50-58952adc0ffe
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.template_hook;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/config/enums/hook_error_handling.proto";
 import "proto/gcommon/v1/config/enums/hook_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/template_hook";
 
 message TemplateHook {
   // Hook name

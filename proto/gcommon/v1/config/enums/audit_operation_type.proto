@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/api/audit_operation_type.proto
+// file: proto/gcommon/v1/config/enums/audit_operation_type.proto
 // version: 1.0.0
 // guid: d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.enums.audit_operation_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/enums/audit_operation_type";
 
 /**
  * AuditOperationType represents the type of configuration operation.

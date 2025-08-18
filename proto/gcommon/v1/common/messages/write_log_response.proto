@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/write_log_response.proto
+// file: proto/gcommon/v1/common/messages/write_log_response.proto
 // version: 1.0.0
 // guid: 8f9e0d1c-2b3a-4756-8e9f-0a1b2c3d4e5f
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.write_log_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/write_log_response";
 
 /**
  * WriteLogResponse defines the response from writing a log entry.

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/api/remove_middleware_request.proto
+// file: proto/gcommon/v1/web/messages/remove_middleware_request.proto
 // version: 1.0.0
 // guid: 8a7398c4-58cc-47b4-a4db-e53da72f74d5
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.remove_middleware_request;
 
 import "google/protobuf/go_features.proto";
 // Standard imports
@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/remove_middleware_request";
 
 /**
  * RemoveMiddlewareRequest message for web service operations.

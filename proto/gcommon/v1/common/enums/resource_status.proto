@@ -1,12 +1,15 @@
 // file: proto/gcommon/v1/common/enums/resource_status.proto
+// version: 1.0.1
+// guid: 789abc12-3456-7890-abcd-ef1234567890
+
 edition = "2023";
 
-package gcommon.v1.common.enums;
+package gcommon.v1.common.enums.resource_status;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/resource_status";
 
 /**
  * Common resource status enumeration used across all GCommon modules.

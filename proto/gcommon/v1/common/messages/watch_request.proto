@@ -1,17 +1,19 @@
-// file: proto/gcommon/v1/common/types/watch_request.proto
+// file: proto/gcommon/v1/common/messages/watch_request.proto
+// version: 1.0.0
+// guid: dc2cc626-d629-4419-8765-3f7cd4010a51
 //
 // Watch request message definition for streaming health updates
 //
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.watch_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/watch_request";
 
 message HealthWatchRequest {
   // Service name to watch (empty for all services)

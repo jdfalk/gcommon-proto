@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/migrate_queue_request.proto
+// file: proto/gcommon/v1/queue/messages/migrate_queue_request.proto
 // version: 1.0.0
+// guid: 2d4044aa-7bd3-43a9-91c7-d4f8c0be36f9
 // Request to migrate a queue
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.migrate_queue_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/migrate_queue_request";
 
 // Request to migrate a queue to a new location
 message MigrateQueueRequest {

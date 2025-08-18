@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/api/get_team_request.proto
+// file: proto/gcommon/v1/organization/messages/get_team_request.proto
+// version: 1.0.0
+// guid: fbed9098-fc8c-4afe-8d21-dd883fd0faee
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.get_team_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/get_team_request";
 
 message GetTeamRequest {
   // Request metadata for tracing and context

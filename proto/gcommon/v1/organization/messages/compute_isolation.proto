@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/api/compute_isolation.proto
+// file: proto/gcommon/v1/organization/messages/compute_isolation.proto
 // version: 1.0.0
 // guid: 4d8711b4-c65d-43b7-a0ae-8453f4ffa71f
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.compute_isolation;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/organization/messages/auto_scaling_config.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/organization/messages/memory_allocation.proto";
 import "proto/gcommon/v1/organization/messages/resource_limits.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/compute_isolation";
 
 message ComputeIsolation {
   // Dedicated compute instance identifier

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/external_role_provider.proto
+// file: proto/gcommon/v1/queue/messages/external_role_provider.proto
 // version: 1.0.0
 // guid: 890e55e1-8627-452f-95dc-f799e0316fec
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.external_role_provider;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/external_role_provider";
 
 message ExternalRoleProvider {
   // Provider type (ldap, oauth, etc.)

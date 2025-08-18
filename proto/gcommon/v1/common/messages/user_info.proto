@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/user_info.proto
+// file: proto/gcommon/v1/common/messages/user_info.proto
 // version: 1.0.0
 // guid: a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.user_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/user_info";
 
 /**
  * UserInfo contains information about a user.

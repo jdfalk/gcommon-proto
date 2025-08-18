@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/database/config/touch_expiration_request.proto
+// file: proto/gcommon/v1/database/messages/touch_expiration_request.proto
+// version: 1.0.0
+// guid: bb0056c3-6eb4-4476-a508-c6789653b1f5
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.touch_expiration_request;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/touch_expiration_request";
 
 /**
  * Request to update the TTL of an existing cache key.

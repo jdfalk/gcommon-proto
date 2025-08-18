@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/delivery_settings.proto
+// file: proto/gcommon/v1/queue/messages/delivery_settings.proto
 // version: 1.0.0
 // guid: 90fc8ba9-b70c-41e9-afaf-a90b7097d4dd
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.delivery_settings;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/delivery_settings";
 
 message DeliverySettings {
   // Delivery mode (push, pull, streaming)

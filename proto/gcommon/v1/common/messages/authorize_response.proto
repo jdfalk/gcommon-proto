@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/authorize_response.proto
+// file: proto/gcommon/v1/common/messages/authorize_response.proto
+// version: 1.0.0
+// guid: 698cde09-444b-45ef-abbd-239e622ddc4f
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.authorize_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/authorize_response";
 
 /**
  * Response to authorization request.

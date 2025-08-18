@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/types/queue_consumer_stats.proto
+// file: proto/gcommon/v1/queue/messages/queue_consumer_stats.proto
 // version: 1.0.0
 // guid: b0ed0505-1d76-4961-8937-36fcad7a7185
 
 edition = "2023";
 
-package gcommon.v1.queue.types;
+package gcommon.v1.queue.messages.queue_consumer_stats;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/common/messages/response_metadata.proto";
 import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/queue_consumer_stats";
 
 message QueueConsumerStats {
   string consumer_id = 1;

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/daily_usage.proto
+// file: proto/gcommon/v1/common/messages/daily_usage.proto
 // version: 1.0.0
 // guid: d5da361d-f967-4f15-9afa-951271665ecb
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.daily_usage;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/daily_usage";
 
 message DailyUsage {
   string date = 1; // YYYY-MM-DD format

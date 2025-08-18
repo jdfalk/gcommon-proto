@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/api/stream_server_events_request.proto
+// file: proto/gcommon/v1/web/messages/stream_server_events_request.proto
 // version: 1.0.0
 // guid: 0316e0ad-e7e2-4a26-82d6-0a4b3d92c9ec
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.stream_server_events_request;
 
 import "google/protobuf/go_features.proto";
 // Standard imports
@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/stream_server_events_request";
 
 /**
  * StreamServerEventsRequest message for web service operations.

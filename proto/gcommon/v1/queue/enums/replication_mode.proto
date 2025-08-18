@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/replication_mode.proto
-// file: proto/gcommon/v1/queue/api/replication_mode.proto
+// file: proto/gcommon/v1/queue/enums/replication_mode.proto
 // version: 1.0.0
 // guid: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
 //
@@ -7,12 +7,12 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.replication_mode;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/replication_mode";
 
 /**
  * Replication mode for queue data across multiple nodes.

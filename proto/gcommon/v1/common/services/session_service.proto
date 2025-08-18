@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/common/services/session_service.proto
+// version: 1.0.0
+// guid: cdb77963-bfe4-405f-86a2-e3d6ba7fb232
 edition = "2023";
 
-package gcommon.v1.common.services;
+package gcommon.v1.common.services.session_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/list_user_sessions_request.proto";
@@ -22,7 +24,7 @@ import "proto/gcommon/v1/web/messages/update_session_request.proto";
 import "proto/gcommon/v1/web/messages/update_session_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/services/session_service";
 
 /**
  * SessionService manages user sessions and session lifecycle.

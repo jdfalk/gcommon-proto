@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/get_template_request.proto
+// file: proto/gcommon/v1/common/messages/get_template_request.proto
 // version: 1.0.0
 // guid: 4b8dae31-438b-4407-8f5e-25e99ebd347b
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.get_template_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_template_request";
 
 message GetTemplateRequest {
   // Template identifier to fetch

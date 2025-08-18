@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/api/update_member_response.proto
+// file: proto/gcommon/v1/organization/messages/update_member_response.proto
+// version: 1.0.0
+// guid: 2fbbf7bc-2367-4682-bd06-3dc49bb463ec
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.update_member_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/organization/messages/organization_member.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/update_member_response";
 
 message UpdateMemberResponse {
   // Any errors encountered

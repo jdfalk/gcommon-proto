@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/approval_requirement.proto
+// file: proto/gcommon/v1/config/messages/approval_requirement.proto
 // version: 1.0.0
 // guid: 54ae6b55-a574-4ad5-89ea-9cadf541517a
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.approval_requirement;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/config/enums/notification_trigger.proto";
 import "proto/gcommon/v1/config/v1/config_data_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/approval_requirement";
 
 message ApprovalRequirement {
   // Whether approval is required

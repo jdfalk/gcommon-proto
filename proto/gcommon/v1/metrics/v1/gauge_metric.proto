@@ -1,13 +1,15 @@
 // file: proto/gcommon/v1/metrics/v1/gauge_metric.proto
+// version: 1.0.0
+// guid: 027d4584-4656-45f0-9b73-2493b0ce219b
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.gauge_metric;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/gauge_metric";
 
 /**
  * GaugeMetric represents a value that can go up and down.

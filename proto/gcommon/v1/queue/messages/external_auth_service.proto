@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/services/external_auth_service.proto
+// file: proto/gcommon/v1/queue/messages/external_auth_service.proto
 // version: 1.0.0
 // guid: 888d52ef-a351-4fe1-a31e-6d7085e83b26
 
 edition = "2023";
 
-package gcommon.v1.queue.services;
+package gcommon.v1.queue.messages.external_auth_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/messages/auth_cache_config.proto";
 import "proto/gcommon/v1/queue/messages/retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/external_auth_service";
 
 message ExternalAuthService {
   // Enable external authorization

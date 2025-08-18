@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/messages/notification_service.proto
+// file: proto/gcommon/v1/common/services/notification_service.proto
 // version: 1.0.0
 // guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
 
 edition = "2023";
 
-package gcommon.v1.common.messages;
+package gcommon.v1.common.services.notification_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/delete_notification_request.proto";
@@ -21,7 +21,7 @@ import "proto/gcommon/v1/common/messages/update_preferences_request.proto";
 import "proto/gcommon/v1/common/messages/update_preferences_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/services/notification_service";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.

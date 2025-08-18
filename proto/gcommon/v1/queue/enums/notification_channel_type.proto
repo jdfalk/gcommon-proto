@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/notification_channel_type.proto
+// file: proto/gcommon/v1/queue/enums/notification_channel_type.proto
 // version: 1.0.0
 // guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.notification_channel_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/notification_channel_type";
 
 /**
  * Types of notification channels.

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/api/access_control.proto
+// file: proto/gcommon/v1/organization/messages/access_control.proto
 // version: 1.0.0
 // guid: 0327cd1d-766b-46e4-b980-f039bbde89ef
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.access_control;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/organization/messages/time_restriction.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/access_control";
 
 message OrganizationAccessControl {
   // IP address whitelist for tenant access

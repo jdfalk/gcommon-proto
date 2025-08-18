@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/update_queue_config_request.proto
+// file: proto/gcommon/v1/queue/messages/update_queue_config_request.proto
 // version: 1.0.0
 // guid: e2f3a4b5-c6d7-8e9f-0a1b-2c3d4e5f6a7b
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.update_queue_config_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/queue/messages/queue_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_queue_config_request";
 
 /**
  * Request to update configuration for an existing queue.

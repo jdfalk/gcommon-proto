@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/monitoring_config.proto
+// file: proto/gcommon/v1/queue/messages/monitoring_config.proto
 // version: 1.0.0
 // guid: 81f93ee4-708c-478c-9c19-1baf15830c08
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.monitoring_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/monitoring_config";
 
 // MonitoringConfig controls runtime monitoring for a queue.
 message QueueMonitoringConfig {

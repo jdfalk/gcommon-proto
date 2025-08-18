@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/resource_reference.proto
+// file: proto/gcommon/v1/common/messages/resource_reference.proto
+// version: 1.0.0
+// guid: 3be67606-1200-41ca-ab13-9197830e75c2
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.resource_reference;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/resource_reference";
 
 /**
  * Resource reference for cross-module operations and relationships.

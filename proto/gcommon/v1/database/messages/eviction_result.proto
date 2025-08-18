@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/database/config/eviction_result.proto
+// file: proto/gcommon/v1/database/messages/eviction_result.proto
 // version: 1.0.0
 // guid: op5qrstu-67v8-9w0x-1y2z-3a4b5c6d7e8f
 
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.eviction_result;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/enums/eviction_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/eviction_result";
 
 /**
  * Result of cache eviction operations.

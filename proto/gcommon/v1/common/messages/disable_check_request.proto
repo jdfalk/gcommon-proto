@@ -1,18 +1,20 @@
 // file: proto/gcommon/v1/common/types/disable_check_request.proto
-// file: proto/gcommon/v1/common/types/disable_check_request.proto
+// version: 1.0.0
+// guid: 57c84c2e-3f48-4a3d-a2c3-a910d1956773
+// file: proto/gcommon/v1/common/messages/disable_check_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.disable_check_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/disable_check_request";
 
 message DisableCheckRequest {
   // Name or ID of the check to disable

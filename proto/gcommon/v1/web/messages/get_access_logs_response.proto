@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/api/get_access_logs_response.proto
+// file: proto/gcommon/v1/web/messages/get_access_logs_response.proto
 // version: 1.0.0
 // guid: d3a99c97-12b6-4158-b9b9-339b0aaa8d87
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.get_access_logs_response;
 
 import "google/protobuf/go_features.proto";
 // Standard imports
@@ -14,7 +14,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/get_access_logs_response";
 
 /**
  * GetAccessLogsResponse message for web service operations.

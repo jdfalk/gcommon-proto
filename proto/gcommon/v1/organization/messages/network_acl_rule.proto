@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/api/network_acl_rule.proto
+// file: proto/gcommon/v1/organization/messages/network_acl_rule.proto
 // version: 1.0.0
 // guid: 409bba51-1b42-4988-accf-6e848e8862e2
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.network_acl_rule;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/enums/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/network_acl_rule";
 
 message NetworkACLRule {
   // Rule action (allow, deny)

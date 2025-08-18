@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/claims.proto
-// file: proto/gcommon/v1/common/types/claims.proto
+// version: 1.0.0
+// guid: 47901ef8-6b22-4b73-8bba-9c53ccaa46c8
+// file: proto/gcommon/v1/common/messages/claims.proto
 //
 // Type definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.claims;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/claims";
 
 message Claims {
   // Standard JWT claims

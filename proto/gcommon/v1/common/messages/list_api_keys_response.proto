@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/list_api_keys_response.proto
+// file: proto/gcommon/v1/common/messages/list_api_keys_response.proto
 // version: 1.0.0
 // guid: 1c9b335d-ac56-4d22-aced-e1e6722e9247
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.list_api_keys_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/api_key.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/list_api_keys_response";
 
 message ListApiKeysResponse {
   // List of API keys

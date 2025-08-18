@@ -1,4 +1,6 @@
 // file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
+// version: 1.0.0
+// guid: 2f161084-caee-424c-a121-9b4907586446
 // file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
 //
 // Message definitions for metrics module
@@ -6,13 +8,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.metric_metadata;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_metadata";
 
 /**
  * MetricMetadata contains metadata information about a metric.

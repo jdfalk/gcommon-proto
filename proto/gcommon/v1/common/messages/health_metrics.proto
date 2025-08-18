@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/health_metrics.proto
+// file: proto/gcommon/v1/common/messages/health_metrics.proto
+// version: 1.0.0
+// guid: 5abc1dde-0895-4d4d-b970-d9784a116f26
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_metrics";
 
 /**
  * Health metrics aggregation containing overall system health statistics.

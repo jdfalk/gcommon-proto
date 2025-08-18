@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/database/config/query_row_response.proto
+// file: proto/gcommon/v1/database/messages/query_row_response.proto
 // version: 1.0.0
 // guid: dff9c212-0d7d-4f0a-bcca-8a0a641a29f9
 
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.query_row_response;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/metrics/v1/query_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/query_row_response";
 
 /**
  * QueryRowResponse contains the result of a single-row query.

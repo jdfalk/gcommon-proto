@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.config_change;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/metrics/enums/change_type.proto";
 import "proto/gcommon/v1/metrics/v1/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/config_change";
 
 /**
  * ConfigChange describes a configuration change that was made.

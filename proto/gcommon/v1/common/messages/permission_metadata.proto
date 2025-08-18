@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/types/permission_metadata.proto
+// file: proto/gcommon/v1/common/messages/permission_metadata.proto
 // version: 1.0.0
 // guid: e953942b-bd06-424a-8c5a-2b2b9f60d4ab
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.permission_metadata;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/permission_level.proto";
 import "proto/gcommon/v1/common/messages/permission_condition.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/permission_metadata";
 
 message PermissionMetadata {
   // Permission ID

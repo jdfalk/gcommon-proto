@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/close_websocket_response.proto
+// file: proto/gcommon/v1/web/messages/close_websocket_response.proto
 // version: 1.0.0
 // guid: eca486b9-3dd5-4720-9813-30a5b343bd8a
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.close_websocket_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/close_websocket_response";
 
 // CloseWebsocketResponse response definition.
 message CloseWebsocketResponse {

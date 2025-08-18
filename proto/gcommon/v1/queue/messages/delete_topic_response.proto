@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/delete_topic_response.proto
+// file: proto/gcommon/v1/queue/messages/delete_topic_response.proto
 // version: 1.0.0
+// guid: 321c289e-7bff-430d-b737-60c42c418beb
 // Response for topic deletion operations
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.delete_topic_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/delete_topic_response";
 
 // Response for deleting a topic
 message DeleteTopicResponse {

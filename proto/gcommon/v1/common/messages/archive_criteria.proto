@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/archive_criteria.proto
+// file: proto/gcommon/v1/common/messages/archive_criteria.proto
 // version: 1.0.0
 // guid: b7d23f2c-0017-462f-a6d2-51ca4405bc2c
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.archive_criteria;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/archive_criteria";
 
 // ArchiveCriteria defines rules for selecting log files to archive
 message ArchiveCriteria {

@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/database/config/execute_batch_response.proto
+// file: proto/gcommon/v1/database/messages/execute_batch_response.proto
+// version: 1.0.0
+// guid: 963b8126-4c56-42c0-a78c-6079e70987ed
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.execute_batch_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/database/messages/batch_operation_result.proto";
 import "proto/gcommon/v1/metrics/v1/batch_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/execute_batch_response";
 
 /**
  * ExecuteBatchResponse contains the results of a batch database operation.

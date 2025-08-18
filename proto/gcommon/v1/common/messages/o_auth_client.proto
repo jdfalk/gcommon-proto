@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/o_auth_client.proto
+// file: proto/gcommon/v1/common/messages/o_auth_client.proto
+// version: 1.0.0
+// guid: 436333b4-e6f3-4a6d-ad0c-a4b0cb8975f8
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.o_auth_client;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/enums/resource_status.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/o_auth_client";
 
 /**
  * OAuth2 client configuration for third-party integrations.

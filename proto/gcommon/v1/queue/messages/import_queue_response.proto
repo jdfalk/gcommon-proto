@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/import_queue_response.proto
-// file: proto/gcommon/v1/queue/api/import_queue_response.proto
+// file: proto/gcommon/v1/queue/messages/import_queue_response.proto
 // version: 1.0.0
 // guid: 5d4c3b2a-1f0e-9d8c-7b6a-5e4f3a2b1c0d
 //
@@ -7,13 +7,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.import_queue_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/import_queue_response";
 
 /**
  * Response message for queue import operations.

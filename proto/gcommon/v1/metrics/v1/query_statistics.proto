@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.query_statistics;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -14,7 +14,7 @@ import "proto/gcommon/v1/metrics/v1/metric_data.proto";
 import "proto/gcommon/v1/metrics/v1/metric_query.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/query_statistics";
 
 message QueryStatistics {
   // Total execution time

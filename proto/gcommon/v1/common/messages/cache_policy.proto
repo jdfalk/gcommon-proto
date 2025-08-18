@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/cache_policy.proto
+// file: proto/gcommon/v1/common/messages/cache_policy.proto
+// version: 1.0.0
+// guid: c37fc88f-0b7c-4fa4-9c60-23736d2bed76
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.cache_policy;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/enums/eviction_policy.proto";
 import "proto/gcommon/v1/common/enums/expiration_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/cache_policy";
 
 /**
  * Cache policy configuration for cache behavior and performance tuning.

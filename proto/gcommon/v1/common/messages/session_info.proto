@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/session_info.proto
+// file: proto/gcommon/v1/common/messages/session_info.proto
+// version: 1.0.0
+// guid: 805af1d3-ee56-4be2-9807-baeedd9fc6d3
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.session_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/session_info";
 
 /**
  * Session information for lightweight session tracking.

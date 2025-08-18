@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/partition_assignment.proto
+// file: proto/gcommon/v1/queue/messages/partition_assignment.proto
 // version: 1.0.0
 // guid: 7da7ff24-741c-4f7d-840c-ae433c0bf313
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.partition_assignment;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -14,7 +14,7 @@ import "proto/gcommon/v1/queue/enums/load_balancing_strategy.proto";
 import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/partition_assignment";
 
 message PartitionAssignment {
   // Partition ID

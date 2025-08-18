@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/backup_source.proto
+// file: proto/gcommon/v1/queue/messages/backup_source.proto
 // version: 1.0.0
 // guid: 07747072-2f4d-414e-a232-b282cd58bd5e
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.backup_source;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -15,7 +15,7 @@ import "proto/gcommon/v1/queue/messages/restore_config.proto";
 import "proto/gcommon/v1/queue/messages/restore_queue_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/backup_source";
 
 message BackupSource {
   // Backup identifier

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/partition_commit_result.proto
+// file: proto/gcommon/v1/queue/messages/partition_commit_result.proto
 // version: 1.0.0
 // guid: c39fc412-24d3-4f3f-873f-f825a3dee3af
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.partition_commit_result;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/partition_commit_result";
 
 message PartitionCommitResult {
   // Partition ID

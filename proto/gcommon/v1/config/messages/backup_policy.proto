@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/api/backup_policy.proto
+// file: proto/gcommon/v1/config/messages/backup_policy.proto
 // version: 1.0.0
 // guid: 900e85e2-21f2-4656-84f5-61f198cb79c7
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.backup_policy;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/backup_policy";
 
 message BackupPolicy {
   // Backup enabled

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/types/api_key_stats.proto
+// file: proto/gcommon/v1/common/messages/api_key_stats.proto
 // version: 1.0.0
 // guid: 118f177f-69fa-465e-9cc9-88c6aa87643f
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.api_key_stats;
 
 import "google/protobuf/go_features.proto";
 // TODO FIX THIS
 // import "proto/gcommon/v1/common/messages/daily_usage.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/api_key_stats";
 
 message ApiKeyStats {
   int32 total_requests = 1;

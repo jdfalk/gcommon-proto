@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/mark_as_read_request.proto
+// file: proto/gcommon/v1/common/messages/mark_as_read_request.proto
 // version: 1.0.0
 // guid: 106b287f-61f9-4551-8526-53a606fbd0d1
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.mark_as_read_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/mark_as_read_request";
 
 message MarkAsReadRequest {
   // Identifier of the notification to mark as read.

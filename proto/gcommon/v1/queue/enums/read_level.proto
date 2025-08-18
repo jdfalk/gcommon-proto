@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/read_level.proto
+// file: proto/gcommon/v1/queue/enums/read_level.proto
 // version: 1.0.0
 // guid: 955b2f22-8c91-4d05-98f4-0348ba5bf327
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.read_level;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/read_level";
 
 enum ReadLevel {
   READ_LEVEL_UNSPECIFIED = 0;

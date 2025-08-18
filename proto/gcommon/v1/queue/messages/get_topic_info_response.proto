@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/get_topic_info_response.proto
+// file: proto/gcommon/v1/queue/messages/get_topic_info_response.proto
 // version: 1.0.0
 // guid: 1a5f0bc1-5c84-4d82-9730-028810eadf04
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.get_topic_info_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -16,7 +16,7 @@ import "proto/gcommon/v1/queue/messages/topic_permissions.proto";
 import "proto/gcommon/v1/queue/messages/topic_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/get_topic_info_response";
 
 message GetTopicInfoResponse {
   // Topic identifier

@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.timer_metric;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/metrics/v1/percentile_measurement.proto";
 import "proto/gcommon/v1/metrics/v1/timer_statistics.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/timer_metric";
 
 message TimerMetric {
   // Unique identifier for this timer measurement

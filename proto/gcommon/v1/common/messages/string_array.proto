@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/string_array.proto
+// file: proto/gcommon/v1/common/messages/string_array.proto
+// version: 1.0.0
+// guid: 5ff69d27-5bdf-4475-a029-e9f948b8a078
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.string_array;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/string_array";
 
 /**
  * String array wrapper for oneof usage in filter values and other contexts.

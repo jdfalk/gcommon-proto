@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/log_sort_field.proto
+// file: proto/gcommon/v1/common/enums/log_sort_field.proto
 // version: 1.0.0
 // guid: 8d1776a3-51f0-43c4-8199-698ee5ba98e7
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.enums.log_sort_field;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/log_sort_field";
 
 // LogSortField enumerates fields usable for log sorting
 enum LogSortField {

@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/config/v1/config_service.proto
+// version: 1.0.0
+// guid: 25a56c3e-a656-4d5c-9dde-10fa021e7db6
 edition = "2023";
 
-package gcommon.v1.config.v1;
+package gcommon.v1.config.v1.config_service;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
@@ -24,7 +26,7 @@ import "proto/gcommon/v1/config/messages/watch_config_request.proto";
 import "proto/gcommon/v1/config/messages/watch_config_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/config_service";
 
 /**
  * ConfigService provides configuration management capabilities.

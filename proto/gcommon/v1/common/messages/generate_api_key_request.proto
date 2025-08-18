@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/generate_api_key_request.proto
+// file: proto/gcommon/v1/common/messages/generate_api_key_request.proto
 // version: 1.0.0
 // guid: 5590365e-02f0-4a3d-96eb-15bc615c14ef
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.generate_api_key_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/generate_api_key_request";
 
 /**
  * GenerateAPIKeyRequest requests creation of a new API key for a user.

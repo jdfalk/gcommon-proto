@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/pagination_options.proto
+// file: proto/gcommon/v1/common/messages/pagination_options.proto
 // version: 1.1.0
 // guid: 5c1c9ffd-3554-4f8b-91d6-82d7a453683f
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.pagination_options;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/pagination_options";
 
 // PaginationOptions defines standard paging parameters.
 message PaginationOptions {

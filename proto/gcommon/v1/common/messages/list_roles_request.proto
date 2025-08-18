@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/list_roles_request.proto
+// file: proto/gcommon/v1/common/messages/list_roles_request.proto
+// version: 1.0.0
+// guid: 10d4a32a-06da-4751-965f-97c0d522d456
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.list_roles_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/filter_options.proto";
@@ -10,7 +12,7 @@ import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/common/messages/sort_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/list_roles_request";
 
 /**
  * Request to list roles with filtering and pagination.

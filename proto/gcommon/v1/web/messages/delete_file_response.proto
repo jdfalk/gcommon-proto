@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/delete_file_response.proto
+// file: proto/gcommon/v1/web/messages/delete_file_response.proto
 // version: 1.0.0
 // guid: ece03faf-72a0-4c28-9084-8636a30178d0
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.delete_file_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/delete_file_response";
 
 // DeleteFileResponse response definition.
 message DeleteFileResponse {

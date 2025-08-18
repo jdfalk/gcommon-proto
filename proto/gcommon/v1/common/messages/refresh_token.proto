@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/refresh_token.proto
+// file: proto/gcommon/v1/common/messages/refresh_token.proto
 // version: 1.0.0
 // guid: 19426e54-07ed-40a6-bb1a-739ec97c225f
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.refresh_token;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/refresh_token";
 
 /**
  * Refresh token details for token renewal workflows.

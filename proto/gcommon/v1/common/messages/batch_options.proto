@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/batch_options.proto
+// file: proto/gcommon/v1/common/messages/batch_options.proto
+// version: 1.0.0
+// guid: 66c5dc7e-add8-44b2-8bde-bf1845acbd3f
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.batch_options;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/batch_options";
 
 /**
  * Batch processing options for configuring bulk operation behavior.

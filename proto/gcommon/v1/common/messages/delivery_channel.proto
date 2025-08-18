@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/delivery_channel.proto
+// file: proto/gcommon/v1/common/messages/delivery_channel.proto
 // version: 1.1.0
 // guid: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.delivery_channel;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/delivery_channel_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/delivery_channel";
 
 /**
  * Delivery channel specifying how a notification is sent.

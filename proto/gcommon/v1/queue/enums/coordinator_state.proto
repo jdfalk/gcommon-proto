@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/coordinator_state.proto
+// file: proto/gcommon/v1/queue/enums/coordinator_state.proto
 // version: 1.0.0
 // guid: 834ccf4a-176f-479d-87af-833f052ccf71
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.coordinator_state;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/coordinator_state";
 
 enum CoordinatorState {
   COORDINATOR_STATE_UNSPECIFIED = 0;

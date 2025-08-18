@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/config/subscription_configuration.proto
+// file: proto/gcommon/v1/queue/messages/subscription_configuration.proto
 // version: 1.0.0
 // guid: c1883113-aa7a-4cba-b38a-4d695cefecf3
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.subscription_configuration;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/ack_level.proto";
 import "proto/gcommon/v1/queue/enums/delivery_mode.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/subscription_configuration";
 
 message SubscriptionConfiguration {
   // Acknowledgment level required

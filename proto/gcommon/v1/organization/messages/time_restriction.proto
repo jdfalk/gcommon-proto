@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/api/time_restriction.proto
+// file: proto/gcommon/v1/organization/messages/time_restriction.proto
 // version: 1.0.0
 // guid: e1c0e36e-397a-42c1-a74a-e7aeca18ade2
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.time_restriction;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/time_restriction";
 
 message TimeRestriction {
   // Day of week (0-6, 0=Sunday)

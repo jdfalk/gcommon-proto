@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/types/team.proto
+// file: proto/gcommon/v1/organization/messages/team.proto
+// version: 1.0.0
+// guid: 6af03494-7f90-4ad9-9e30-cb8eaa7ef367
 edition = "2023";
 
-package gcommon.v1.organization.types;
+package gcommon.v1.organization.messages.team;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/key_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/team";
 
 /**
  * Team message representing a team within an organization or department.

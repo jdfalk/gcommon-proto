@@ -1,11 +1,13 @@
 // file: proto/gcommon/v1/web/services/web_admin_service.proto
+// version: 1.0.0
+// guid: 1419b30a-cf4d-4cd5-80ab-8bdd18381d02
 // file: proto/gcommon/v1/web/services/web_admin_service.proto
 //
 // Administrative service for managing web server cache settings.
 //
 edition = "2023";
 
-package gcommon.v1.web.services;
+package gcommon.v1.web.services.web_admin_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/web/messages/flush_cache_request.proto";
@@ -16,7 +18,7 @@ import "proto/gcommon/v1/web/messages/update_cache_config_request.proto";
 import "proto/gcommon/v1/web/messages/update_cache_config_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/services/web_admin_service";
 
 /**
  * WebAdminService provides cache administration endpoints

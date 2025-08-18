@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/config/api/get_multiple_config_response.proto
+// file: proto/gcommon/v1/config/messages/get_multiple_config_response.proto
+// version: 1.0.0
+// guid: 91678eea-cc13-4a84-b125-e494149256fd
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.get_multiple_config_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/config/v1/config_entry.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/get_multiple_config_response";
 
 /**
  * GetMultipleConfigResponse returns multiple configuration entries.

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/partition_strategy.proto
+// file: proto/gcommon/v1/queue/enums/partition_strategy.proto
 // version: 1.0.0
 // guid: f9a0b1c2-d3e4-5f6a-7b8c-9d0e1f2a3b4c
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.partition_strategy;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/partition_strategy";
 
 /**
  * Partitioning strategies for queue messages.

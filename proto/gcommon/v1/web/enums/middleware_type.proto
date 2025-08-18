@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/middleware_type.proto
+// file: proto/gcommon/v1/web/enums/middleware_type.proto
 // version: 1.0.0
 // guid: e6a7b5cb-240b-4636-bb49-9615874e9f9d
 //
 // MiddlewareType represents categories of HTTP middleware.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.middleware_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/middleware_type";
 
 enum MiddlewareType {
   MIDDLEWARE_TYPE_UNSPECIFIED = 0;

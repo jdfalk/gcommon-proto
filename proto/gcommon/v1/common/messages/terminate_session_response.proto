@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/terminate_session_response.proto
+// file: proto/gcommon/v1/common/messages/terminate_session_response.proto
+// version: 1.0.0
+// guid: b183b962-3ed6-499a-8c81-3fd2bcaaf65b
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.terminate_session_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/terminate_session_response";
 
 /**
  * TerminateSessionResponse confirms successful session termination.

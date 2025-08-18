@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/update_subscription_config_response.proto
+// file: proto/gcommon/v1/queue/messages/update_subscription_config_response.proto
 // version: 1.0.0
+// guid: 43035b6d-1872-4b79-af8d-8852b38643e3
 // Response for subscription configuration updates
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.update_subscription_config_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_subscription_config_response";
 
 // Response for subscription configuration updates
 message UpdateSubscriptionConfigResponse {

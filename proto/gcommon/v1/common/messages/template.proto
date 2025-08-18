@@ -1,16 +1,18 @@
 // file: proto/gcommon/v1/common/types/template.proto
-// file: proto/gcommon/v1/common/types/template.proto
+// version: 1.0.0
+// guid: b40be0b3-2832-4999-be82-78423c52b4d3
+// file: proto/gcommon/v1/common/messages/template.proto
 //
 // Notification template definition for reusable messages.
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.template;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/template";
 
 /**
  * Template for rendering notification content.

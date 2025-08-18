@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/organization/api/list_tenants_response.proto
+// file: proto/gcommon/v1/organization/messages/list_tenants_response.proto
+// version: 1.0.0
+// guid: ea50c027-6fc4-450e-911b-8b34c268b827
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.list_tenants_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/messages/paginated_response.proto";
 import "proto/gcommon/v1/organization/messages/tenant.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/list_tenants_response";
 
 message ListTenantsResponse {
   // Any errors encountered

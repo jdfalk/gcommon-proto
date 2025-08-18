@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/config/v1/config_entry.proto
+// version: 1.0.0
+// guid: 9cbaf2b4-aa14-40f2-91cb-a5a0a7f0a87d
 edition = "2023";
 
-package gcommon.v1.config.v1;
+package gcommon.v1.config.v1.config_entry;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/enums/resource_status.proto";
 import "proto/gcommon/v1/common/messages/config_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/config_entry";
 
 /**
  * ConfigEntry represents a single configuration value with metadata.

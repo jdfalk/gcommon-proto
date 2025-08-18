@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/permission_scope.proto
+// file: proto/gcommon/v1/common/enums/permission_scope.proto
+// version: 1.0.0
+// guid: 223f7d62-a27f-4724-8f07-6c99d1afaa17
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.enums.permission_scope;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/permission_scope";
 
 /**
  * Permission scope enumeration defining the level at which permissions apply.

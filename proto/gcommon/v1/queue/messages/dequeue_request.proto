@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/dequeue_request.proto
+// file: proto/gcommon/v1/queue/messages/dequeue_request.proto
 // version: 1.0.0
 // guid: ce6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.dequeue_request;
 
 // Standard imports
 import "google/protobuf/duration.proto";
@@ -13,7 +13,7 @@ import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/dequeue_request";
 
 /**
  * DequeueRequest retrieves one or more messages from a queue.

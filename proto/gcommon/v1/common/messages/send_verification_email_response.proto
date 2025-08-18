@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/send_verification_email_response.proto
-// file: proto/gcommon/v1/common/types/send_verification_email_response.proto
+// version: 1.0.0
+// guid: f17880d2-6f37-4b9d-a6d6-06c70e75e7d6
+// file: proto/gcommon/v1/common/messages/send_verification_email_response.proto
 //
 // Response definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.send_verification_email_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/send_verification_email_response";
 
 message SendVerificationEmailResponse {
   // Send success

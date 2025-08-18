@@ -1,18 +1,20 @@
 // file: proto/gcommon/v1/common/types/get_health_metrics_request.proto
-// file: proto/gcommon/v1/common/types/get_health_metrics_request.proto
+// version: 1.0.0
+// guid: 85ebb0e8-dd6f-4a2d-9e83-386b9d84d776
+// file: proto/gcommon/v1/common/messages/get_health_metrics_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.get_health_metrics_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_health_metrics_request";
 
 message GetHealthMetricsRequest {
   // Service name (optional)

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/api/security_settings.proto
+// file: proto/gcommon/v1/organization/messages/security_settings.proto
 // version: 1.0.0
 // guid: 89b40ea9-8cb2-44a5-ba5e-9cbd6aeb4e24
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.security_settings;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/organization/messages/rate_limit_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/security_settings";
 
 message SecuritySettings {
   // Whether multi-factor authentication is required for all users

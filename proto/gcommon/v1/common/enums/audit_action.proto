@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/messages/audit_action.proto
+// file: proto/gcommon/v1/common/enums/audit_action.proto
+// version: 1.0.0
+// guid: fe20f23e-ff61-4f78-b548-99cc5aded7b4
 edition = "2023";
 
-package gcommon.v1.common.messages;
+package gcommon.v1.common.enums.audit_action;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/role.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/audit_action";
 
 /**
  * Audit action enumeration for tracking user and system actions.

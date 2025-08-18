@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/config/api/template_change.proto
+// file: proto/gcommon/v1/config/messages/template_change.proto
 // version: 1.0.0
 // guid: 801fc1c2-3a27-4a37-a1e2-0d540b0f4dd8
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.template_change;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/enums/change_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/template_change";
 
 message TemplateChange {
   // Change version

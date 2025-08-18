@@ -1,18 +1,20 @@
 // file: proto/gcommon/v1/common/types/reset_health_stats_request.proto
-// file: proto/gcommon/v1/common/types/reset_health_stats_request.proto
+// version: 1.0.0
+// guid: e8903f7e-5da9-40bf-8b9b-1a6747e1391e
+// file: proto/gcommon/v1/common/messages/reset_health_stats_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.reset_health_stats_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/reset_health_stats_request";
 
 message ResetHealthStatsRequest {
   // Service name whose stats should be reset

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/config/timeout_config.proto
-// file: proto/gcommon/v1/queue/config/timeout_config.proto
+// file: proto/gcommon/v1/queue/messages/timeout_config.proto
 // version: 1.0.0
 // guid: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
 //
@@ -7,13 +7,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.timeout_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/timeout_config";
 
 /**
  * Timeout configuration for various queue operations.

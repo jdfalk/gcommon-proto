@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/upload_file_response.proto
+// file: proto/gcommon/v1/web/messages/upload_file_response.proto
 // version: 1.0.0
 // guid: d6f9dad0-3449-4808-b710-f73253ba1b06
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.upload_file_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/upload_file_response";
 
 // UploadFileResponse response definition.
 message UploadFileResponse {

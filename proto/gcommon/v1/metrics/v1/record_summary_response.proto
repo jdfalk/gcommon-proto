@@ -1,11 +1,13 @@
 // file: proto/gcommon/v1/metrics/v1/record_summary_response.proto
+// version: 1.0.0
+// guid: d23c6f17-2028-4070-ad58-01c921f8f75d
 // file: proto/gcommon/v1/metrics/v1/record_summary_response.proto
 //
 // Response after recording a summary metric.
 //
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.record_summary_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
@@ -13,7 +15,7 @@ import "proto/gcommon/v1/metrics/v1/recording_stats.proto";
 import "proto/gcommon/v1/metrics/v1/summary_metric.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/record_summary_response";
 
 /**
  * RecordSummaryResponse returns updated summary stats.

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/restore_queue_response.proto
+// file: proto/gcommon/v1/queue/messages/restore_queue_response.proto
 // version: 1.0.0
 // guid: 949d5078-96a1-43dd-adb1-5e57d6a82a57
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.restore_queue_response;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/queue/messages/restore_status.proto";
 import "proto/gcommon/v1/queue/messages/restore_warning.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/restore_queue_response";
 
 message RestoreQueueResponse {
   // Operation success status

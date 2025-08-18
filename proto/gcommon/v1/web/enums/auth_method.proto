@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/auth_method.proto
+// file: proto/gcommon/v1/web/enums/auth_method.proto
 // version: 1.0.0
 // guid: f8f4a7c2-b0ea-4b6f-8c70-8bd37e0615f9
 //
 // AuthMethod defines supported authentication mechanisms for the web module.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.auth_method;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/auth_method";
 
 // Supported authentication mechanisms for HTTP requests.
 enum WebAuthMethod {

@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/backup_queue_request.proto
+// file: proto/gcommon/v1/queue/messages/backup_queue_request.proto
 // version: 1.0.0
+// guid: 0f505896-49b9-4ca3-8a27-d0f9a79ad1ac
 // Request to backup a queue
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.backup_queue_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/backup_queue_request";
 
 // Request to backup a queue
 message BackupQueueRequest {

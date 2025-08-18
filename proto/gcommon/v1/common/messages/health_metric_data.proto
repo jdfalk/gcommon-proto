@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/health_metric_data.proto
+// file: proto/gcommon/v1/common/messages/health_metric_data.proto
+// version: 1.0.0
+// guid: 2d079e14-0602-4a9a-9b6b-dc8bbf629fe8
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_metric_data;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_metric_data";
 
 /**
  * Individual health metric data point.

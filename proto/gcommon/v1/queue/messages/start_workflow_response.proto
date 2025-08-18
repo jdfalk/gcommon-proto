@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/start_workflow_response.proto
+// file: proto/gcommon/v1/queue/messages/start_workflow_response.proto
 // version: 1.0.0
 // guid: 3f4e5d6c-7b8a-9201-3e4f-5a6b7c8d9e0f
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.start_workflow_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/start_workflow_response";
 
 /**
  * StartWorkflowResponse defines the response from starting a workflow.

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/render_template_response.proto
+// file: proto/gcommon/v1/web/messages/render_template_response.proto
 // version: 1.0.0
 // guid: 97e5b67b-3c0e-46dc-9e4b-66964408d78e
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.render_template_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/render_template_response";
 
 // RenderTemplateResponse response definition.
 message RenderTemplateResponse {

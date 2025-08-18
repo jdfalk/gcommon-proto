@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/api/rate_limits.proto
+// file: proto/gcommon/v1/config/messages/rate_limits.proto
 // version: 1.0.0
 // guid: c2d3e4f5-6a7b-8901-cdef-234567890123
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.rate_limits;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/rate_limits";
 
 message RateLimits {
   // Maximum requests per second

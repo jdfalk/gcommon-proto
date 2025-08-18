@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/config/consistency_config.proto
+// file: proto/gcommon/v1/queue/messages/consistency_config.proto
 // version: 1.0.0
 // guid: 038986e0-4267-432c-99a3-7271a9427b29
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.consistency_config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/config/enums/conflict_resolution.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/queue/messages/replication_consistency.proto";
 import "proto/gcommon/v1/queue/messages/write_consistency.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/consistency_config";
 
 message ConsistencyConfig {
   // Durability level for message persistence

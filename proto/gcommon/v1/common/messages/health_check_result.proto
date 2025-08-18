@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/types/health_check_result.proto
+// file: proto/gcommon/v1/common/messages/health_check_result.proto
 // version: 1.0.0
 // guid: f29a3085-ffb9-4d33-8e60-ee52f8ff4570
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_check_result;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/check_type.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/enums/serving_status.proto";
 import "proto/gcommon/v1/common/messages/component_health.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_check_result";
 
 message HealthHealthCheckResult {
   // Service name being checked

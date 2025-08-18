@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/api/update_ssl_certificate_request.proto
+// file: proto/gcommon/v1/web/messages/update_ssl_certificate_request.proto
 // version: 1.0.0
 // guid: eec70ef5-baf4-4799-ba2d-3b00ad4b2e32
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.update_ssl_certificate_request;
 
 import "google/protobuf/go_features.proto";
 // Standard imports
@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/update_ssl_certificate_request";
 
 /**
  * UpdateSSLCertificateRequest message for web service operations.

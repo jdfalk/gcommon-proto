@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/check_permission_request.proto
+// file: proto/gcommon/v1/common/messages/check_permission_request.proto
 // version: 1.0.0
 // guid: db7aca7d-742a-443b-b641-448ddf4a8518
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.check_permission_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/check_permission_request";
 
 /**
  * Request to verify that a user possesses a specific permission.

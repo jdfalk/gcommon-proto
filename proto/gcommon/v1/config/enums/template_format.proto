@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/api/template_format.proto
+// file: proto/gcommon/v1/config/enums/template_format.proto
 // version: 1.0.0
 // guid: 5633815c-6ddb-47f1-b36e-a761ce96bd90
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.enums.template_format;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/enums/template_format";
 
 enum TemplateFormat {
   TEMPLATE_FORMAT_UNSPECIFIED = 0;

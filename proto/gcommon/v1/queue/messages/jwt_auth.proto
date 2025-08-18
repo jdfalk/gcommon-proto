@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/jwt_auth.proto
+// file: proto/gcommon/v1/queue/messages/jwt_auth.proto
 // version: 1.0.0
 // guid: 105a22e1-20d6-4414-9bf3-36161857c31d
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.jwt_auth;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/jwt_auth";
 
 message JwtAuth {
   // Enable JWT authentication

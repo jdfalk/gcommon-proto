@@ -1,8 +1,10 @@
-// file: proto/gcommon/v1/organization/api/update_member_request.proto
+// file: proto/gcommon/v1/organization/messages/update_member_request.proto
+// version: 1.0.0
+// guid: c91064f2-6854-4e07-83e6-dc6dd90127b9
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.update_member_request;
 
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
@@ -10,7 +12,7 @@ import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/organization/messages/organization_member.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/update_member_request";
 
 message UpdateMemberRequest {
   // Request metadata for tracing and context

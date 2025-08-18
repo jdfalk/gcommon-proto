@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/config/websocket_config.proto
+// file: proto/gcommon/v1/web/messages/websocket_config.proto
 // version: 1.1.0
 // guid: b746de14-1e1e-4faf-812f-0bf9fa38c201
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.websocket_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/websocket_config";
 
 // WebsocketConfig message definition.
 message WebsocketConfig {

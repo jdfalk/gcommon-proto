@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/invalidate_user_sessions_request.proto
+// file: proto/gcommon/v1/common/messages/invalidate_user_sessions_request.proto
 // version: 1.0.0
 // guid: 678e9abc-d1e2-3f4a-5b6c-7d8e9f0a1b2c
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.invalidate_user_sessions_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/invalidate_user_sessions_request";
 
 /**
  * Request to invalidate all sessions for a user.

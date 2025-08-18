@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/routing_key.proto
+// file: proto/gcommon/v1/queue/messages/routing_key.proto
 // version: 1.1.0
 // guid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.routing_key;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/routing_pattern.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/routing_key";
 
 /**
  * Routing key for message delivery.

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/replication_level.proto
+// file: proto/gcommon/v1/queue/enums/replication_level.proto
 // version: 1.0.0
 // guid: 3cf5a48e-2f5f-48ed-a2a9-6322f6010c4c
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.replication_level;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/replication_level";
 
 enum ReplicationLevel {
   REPLICATION_LEVEL_UNSPECIFIED = 0;

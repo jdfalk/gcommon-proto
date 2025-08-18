@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/acknowledge_response.proto
+// file: proto/gcommon/v1/queue/messages/acknowledge_response.proto
 // version: 1.0.0
 // guid: 69fb5b85-226c-407d-9aaf-dd8810a3b662
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.acknowledge_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/queue/messages/message_ack_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/acknowledge_response";
 
 message AcknowledgeResponse {
   // Required fields (1-10)

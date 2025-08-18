@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/push_request.proto
+// file: proto/gcommon/v1/queue/messages/push_request.proto
 // version: 1.0.0
 // guid: ab6bdde8-25b2-424c-a85a-db3364d8cdaf
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.push_request;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -18,7 +18,7 @@ import "proto/gcommon/v1/queue/messages/queue_message.proto";
 import "proto/gcommon/v1/queue/messages/retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/push_request";
 
 message PushRequest {
   // Target topic or queue identifier

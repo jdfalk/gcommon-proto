@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/health_check_all_response.proto
+// file: proto/gcommon/v1/common/messages/health_check_all_response.proto
+// version: 1.0.0
+// guid: 64089a6a-9c0e-43db-a038-6e271809004e
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_check_all_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/serving_status.proto";
 import "proto/gcommon/v1/config/messages/health_check_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_check_all_response";
 
 /**
  * HealthCheckAllResponse contains comprehensive health information for all services

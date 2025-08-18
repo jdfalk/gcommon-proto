@@ -1,4 +1,6 @@
 // file: proto/gcommon/v1/metrics/v1/update_metric_request.proto
+// version: 1.0.0
+// guid: 552e73bb-8b74-4132-a524-46d64cf01d78
 // file: proto/gcommon/v1/metrics/v1/update_metric_request.proto
 //
 // Request message to update an existing metric definition.
@@ -6,14 +8,14 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.update_metric_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/metrics/v1/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/update_metric_request";
 
 message UpdateMetricRequest {
   // Updated metric data

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/api/template_data.proto
+// file: proto/gcommon/v1/web/messages/template_data.proto
 // version: 1.1.0
 // guid: 31c5d8ac-caa3-4a45-816d-b831995e1757
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.template_data;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/template_data";
 
 // TemplateData message definition.
 message TemplateData {

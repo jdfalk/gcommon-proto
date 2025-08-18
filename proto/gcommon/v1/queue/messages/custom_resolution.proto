@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/custom_resolution.proto
+// file: proto/gcommon/v1/queue/messages/custom_resolution.proto
 // version: 1.0.0
 // guid: 94eb8c9d-f368-4910-9841-128a9ceee9c8
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.custom_resolution;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/custom_resolution";
 
 message CustomResolution {
   // Resolution function name or identifier

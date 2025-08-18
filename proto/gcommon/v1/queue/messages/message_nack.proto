@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/types/message_nack.proto
+// file: proto/gcommon/v1/queue/messages/message_nack.proto
 // version: 1.0.0
 // guid: b5bb9e75-3346-4684-9529-764a3cdb3e3d
 
 edition = "2023";
 
-package gcommon.v1.queue.types;
+package gcommon.v1.queue.messages.message_nack;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/nack_error_category.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/message_nack";
 
 message MessageNack {
   // Message identifier

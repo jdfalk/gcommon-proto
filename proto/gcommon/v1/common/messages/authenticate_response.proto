@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/authenticate_response.proto
+// file: proto/gcommon/v1/common/messages/authenticate_response.proto
+// version: 1.0.0
+// guid: c28da8ae-a463-4446-83b2-50a947fd8826
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.authenticate_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/rate_limit.proto";
@@ -10,7 +12,7 @@ import "proto/gcommon/v1/common/messages/session.proto";
 import "proto/gcommon/v1/common/messages/user_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/authenticate_response";
 
 /**
  * Authentication response containing access tokens and user information.

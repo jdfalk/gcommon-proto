@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/get_queue_stats_request.proto
+// file: proto/gcommon/v1/queue/messages/get_queue_stats_request.proto
 // version: 1.0.0
 // guid: 7dc18176-1123-444f-8040-b7e352b501d6
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.get_queue_stats_request;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -19,7 +19,7 @@ import "proto/gcommon/v1/queue/messages/get_queue_stats_response.proto";
 import "proto/gcommon/v1/queue/messages/topic_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/get_queue_stats_request";
 
 message GetQueueStatsRequest {
   // Name of the queue

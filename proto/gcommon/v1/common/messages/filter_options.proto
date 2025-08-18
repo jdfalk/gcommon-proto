@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/filter_options.proto
+// file: proto/gcommon/v1/common/messages/filter_options.proto
+// version: 1.0.0
+// guid: 1c91c5f0-6774-405a-bb94-4a646e1e859d
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.filter_options;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/filter_value.proto";
 import "proto/gcommon/v1/metrics/v1/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/filter_options";
 
 /**
  * Common filtering options for search and query operations.

@@ -1,18 +1,20 @@
 // file: proto/gcommon/v1/common/types/disable_mfa_response.proto
-// file: proto/gcommon/v1/common/types/disable_mfa_response.proto
+// version: 1.0.0
+// guid: 8fa6daf5-aee9-414d-95a0-ed59c3c11334
+// file: proto/gcommon/v1/common/messages/disable_mfa_response.proto
 //
 // Response definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.disable_mfa_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/mfa_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/disable_mfa_response";
 
 message DisableMfaResponse {
   // Success status

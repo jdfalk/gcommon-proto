@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/config/deserialization_config.proto
-// file: proto/gcommon/v1/queue/config/deserialization_config.proto
+// file: proto/gcommon/v1/queue/messages/deserialization_config.proto
 // version: 1.0.0
 // guid: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
 //
@@ -7,13 +7,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.deserialization_config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/serialization_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/deserialization_config";
 
 /**
  * Configuration for message deserialization.

@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.provider_config_update;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/metrics/v1/export_config_update.proto";
@@ -14,7 +14,7 @@ import "proto/gcommon/v1/metrics/v1/security_config_update.proto";
 import "proto/gcommon/v1/metrics/v1/tag_updates.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/provider_config_update";
 
 /**
  * ProviderConfigUpdate contains the configuration updates to apply.

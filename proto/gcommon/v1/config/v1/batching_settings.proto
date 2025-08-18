@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.config.v1;
+package gcommon.v1.config.v1.batching_settings;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/config/enums/notification_trigger.proto";
 import "proto/gcommon/v1/config/v1/config_data_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/batching_settings";
 
 message BatchingSettings {
   // Whether batching is enabled

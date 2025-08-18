@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/types/original_queue_info.proto
+// file: proto/gcommon/v1/queue/messages/original_queue_info.proto
 // version: 1.0.0
 // guid: a939a9d0-aaf5-4d3a-b47d-16dad566fe50
 
 edition = "2023";
 
-package gcommon.v1.queue.types;
+package gcommon.v1.queue.messages.original_queue_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/queue/messages/restore_config.proto";
 import "proto/gcommon/v1/queue/messages/restore_queue_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/original_queue_info";
 
 message OriginalQueueInfo {
   // Original queue ID

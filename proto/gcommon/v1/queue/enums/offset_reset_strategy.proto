@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/offset_reset_strategy.proto
+// file: proto/gcommon/v1/queue/enums/offset_reset_strategy.proto
 // version: 1.0.0
 // guid: edeef434-6f08-4fc1-be80-abdba95096d6
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.offset_reset_strategy;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/offset_reset_strategy";
 
 enum OffsetResetStrategy {
   OFFSET_RESET_STRATEGY_UNSPECIFIED = 0;

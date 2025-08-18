@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/node_info.proto
+// file: proto/gcommon/v1/queue/messages/node_info.proto
 // version: 1.0.0
 // guid: d73ea780-8ed0-4b73-8aae-ab5c4fc1a48f
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.node_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/queue/enums/node_state.proto";
 import "proto/gcommon/v1/queue/messages/node_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/node_info";
 
 /**
  * Information about a single node in the cluster.

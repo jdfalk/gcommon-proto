@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/database/services/cache_service.proto
+// version: 1.0.0
+// guid: 3f067d2a-5942-4a2c-adcf-14b8ac93813b
 edition = "2023";
 
-package gcommon.v1.database.services;
+package gcommon.v1.database.services.cache_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/database/messages/clear_request.proto";
@@ -34,7 +36,7 @@ import "proto/gcommon/v1/metrics/v1/get_stats_request.proto";
 import "proto/gcommon/v1/metrics/v1/get_stats_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/services/cache_service";
 
 /**
  * CacheService provides comprehensive caching capabilities.

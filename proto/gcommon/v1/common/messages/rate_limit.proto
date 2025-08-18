@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/rate_limit.proto
+// file: proto/gcommon/v1/common/messages/rate_limit.proto
+// version: 1.0.0
+// guid: ba20cc02-8ef6-4de0-9c0a-30ddcb8c7b14
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.rate_limit;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/rate_limit";
 
 /**
  * Rate limiting information for API throttling and quota management.

@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/delete_role_response.proto
-// file: proto/gcommon/v1/common/types/delete_role_response.proto
+// version: 1.0.0
+// guid: d7a5181a-727d-4f09-85fb-70407122b1eb
+// file: proto/gcommon/v1/common/messages/delete_role_response.proto
 //
 // Response definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.delete_role_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/delete_role_response";
 
 message DeleteRoleResponse {
   // Deletion success

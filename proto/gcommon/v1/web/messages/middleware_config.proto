@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/config/middleware_config.proto
+// file: proto/gcommon/v1/web/messages/middleware_config.proto
 // version: 1.0.0
 // guid: e9b024e1-e72c-48e4-b1c4-5df34ed3e3ac
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.middleware_config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/web/enums/middleware_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/middleware_config";
 
 // MiddlewareConfig message definition.
 // MiddlewareConfig represents a single middleware's configuration.

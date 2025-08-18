@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/types/log_entry.proto
+// file: proto/gcommon/v1/common/messages/log_entry.proto
 // version: 1.0.0
 // guid: 86cfa864-b9da-428c-9ca9-78f614600049
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.log_entry;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -15,7 +15,7 @@ import "proto/gcommon/v1/common/messages/error_info.proto";
 import "proto/gcommon/v1/common/messages/source_location.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/log_entry";
 
 // LogEntry represents a single structured log event
 message LogEntry {

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/metadata_update.proto
+// file: proto/gcommon/v1/queue/messages/metadata_update.proto
 // version: 1.0.0
 // guid: 6cb1a95a-0fdd-464d-a156-b7cff3414a7d
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.metadata_update;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/metadata_update";
 
 message MetadataUpdate {
   // Metadata fields to add or update

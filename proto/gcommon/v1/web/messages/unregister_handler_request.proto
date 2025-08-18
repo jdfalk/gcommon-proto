@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/unregister_handler_request.proto
+// file: proto/gcommon/v1/web/messages/unregister_handler_request.proto
 // version: 1.0.0
 // guid: b3a2283a-da75-498d-bcd6-73068020f71f
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.unregister_handler_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/unregister_handler_request";
 
 // UnregisterHandlerRequest request definition.
 message UnregisterHandlerRequest {

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/failed_field_update.proto
+// file: proto/gcommon/v1/queue/messages/failed_field_update.proto
 // version: 1.0.0
 // guid: 3fbfa5f5-c2fc-4c93-9fec-823125628ddb
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.failed_field_update;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/failed_field_update";
 
 message FailedFieldUpdate {
   // Field name that failed to update

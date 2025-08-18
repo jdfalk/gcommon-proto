@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/revoke_api_key_response.proto
-// file: proto/gcommon/v1/common/types/revoke_api_key_response.proto
+// version: 1.0.0
+// guid: 408b6755-7ee3-44e4-80c2-af76cc4cf87b
+// file: proto/gcommon/v1/common/messages/revoke_api_key_response.proto
 //
 // Response definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.revoke_api_key_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/revoke_api_key_response";
 
 message RevokeApiKeyResponse {
   // Revocation success

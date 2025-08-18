@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/api/update_middleware_config_request.proto
+// file: proto/gcommon/v1/web/messages/update_middleware_config_request.proto
 // version: 1.0.0
 // guid: 30e082c9-2bd6-4472-ae4a-f71e481f04a3
 // UpdateMiddlewareConfigRequest request definition.
@@ -6,14 +6,14 @@
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.update_middleware_config_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/web/messages/middleware_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/update_middleware_config_request";
 
 message UpdateMiddlewareConfigRequest {
   // Request metadata for tracing and auth

@@ -4,14 +4,14 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages;
+package gcommon.v1.common.messages.send_notification_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/notification_message.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/send_notification_request";
 
 message SendNotificationRequest {
   // Standard request metadata for tracing and auth.

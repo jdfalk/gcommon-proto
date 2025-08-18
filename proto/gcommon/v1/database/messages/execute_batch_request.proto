@@ -1,8 +1,10 @@
-// file: proto/gcommon/v1/database/config/execute_batch_request.proto
+// file: proto/gcommon/v1/database/messages/execute_batch_request.proto
+// version: 1.0.0
+// guid: 2b4354c4-f03a-4317-86b9-57babf767494
 
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.execute_batch_request;
 
 import "google/protobuf/go_features.proto";
 // Use DB-specific batch operation definitions
@@ -11,7 +13,7 @@ import "proto/gcommon/v1/database/messages/batch_execute_options.proto";
 import "proto/gcommon/v1/database/messages/batch_operation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/execute_batch_request";
 
 message ExecuteBatchRequest {
   // List of operations to execute in the batch

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/api/tenant_isolation.proto
+// file: proto/gcommon/v1/organization/messages/tenant_isolation.proto
 // version: 1.0.0
 // guid: 182f08bf-4180-421a-935c-aa065bea181a
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.tenant_isolation;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -19,7 +19,7 @@ import "proto/gcommon/v1/organization/messages/network_isolation.proto";
 import "proto/gcommon/v1/organization/messages/storage_isolation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/tenant_isolation";
 
 message TenantIsolation {
   // Tenant identifier

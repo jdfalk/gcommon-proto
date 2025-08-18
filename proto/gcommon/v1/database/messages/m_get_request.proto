@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/database/config/m_get_request.proto
-// file: proto/gcommon/v1/database/config/m_get_request.proto
+// version: 1.0.0
+// guid: e61074f0-5ce0-44d1-b0e5-b8eb49bc97a3
+// file: proto/gcommon/v1/database/messages/m_get_request.proto
 //
 // Multi-get request definitions for cache module
 //
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.m_get_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/m_get_request";
 
 /**
  * MGetRequest is used to retrieve multiple cache entries in a single operation.

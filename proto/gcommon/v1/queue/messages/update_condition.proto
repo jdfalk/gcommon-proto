@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/update_condition.proto
+// file: proto/gcommon/v1/queue/messages/update_condition.proto
 // version: 1.0.0
 // guid: a5897f37-2d03-405d-b7c0-dc980257f2b4
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.update_condition;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_condition";
 
 message UpdateCondition {
   // Expected current version/etag

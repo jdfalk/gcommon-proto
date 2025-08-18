@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/get_performance_stats_request.proto
+// file: proto/gcommon/v1/web/messages/get_performance_stats_request.proto
 // version: 1.0.0
 // guid: 2858eba1-31b0-47f0-9d29-91c78943323b
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.get_performance_stats_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/get_performance_stats_request";
 
 // GetPerformanceStatsRequest request definition.
 message GetPerformanceStatsRequest {

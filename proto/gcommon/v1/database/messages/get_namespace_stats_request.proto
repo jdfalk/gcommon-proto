@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/database/config/get_namespace_stats_request.proto
+// file: proto/gcommon/v1/database/messages/get_namespace_stats_request.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174017
 
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.get_namespace_stats_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/get_namespace_stats_request";
 
 /**
  * Request to get namespace statistics.

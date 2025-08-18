@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/types/error_info.proto
+// file: proto/gcommon/v1/common/messages/error_info.proto
 // version: 1.0.0
 // guid: ba36f77a-0141-43fc-a77e-fde479168a40
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.error_info;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/error_info";
 
 // ErrorInfo provides structured error details for log entries
 message ErrorInfo {

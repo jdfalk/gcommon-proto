@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/role_based_access_control.proto
+// file: proto/gcommon/v1/queue/messages/role_based_access_control.proto
 // version: 1.0.0
 // guid: 090db6f2-ad16-49c5-aa6c-ef8f279279e2
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.role_based_access_control;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/messages/external_role_provider.proto";
 import "proto/gcommon/v1/queue/messages/role_inheritance.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/role_based_access_control";
 
 message RoleBasedAccessControl {
   // Enable RBAC

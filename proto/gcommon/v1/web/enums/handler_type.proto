@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/handler_type.proto
+// file: proto/gcommon/v1/web/enums/handler_type.proto
 // version: 1.0.0
 // guid: 38fcdb5d-d9f0-4109-b909-c1da72c74948
 //
 // HandlerType categorizes incoming request handlers.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.handler_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/handler_type";
 
 enum HandlerType {
   HANDLER_TYPE_UNSPECIFIED = 0;

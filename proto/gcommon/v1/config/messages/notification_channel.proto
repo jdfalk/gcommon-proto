@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/notification_channel.proto
+// file: proto/gcommon/v1/config/messages/notification_channel.proto
 // version: 1.0.0
 // guid: 81ed59c5-4e0f-499a-97c8-57a2a375fd75
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.notification_channel;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/config/enums/notification_trigger.proto";
 import "proto/gcommon/v1/config/v1/config_data_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/notification_channel";
 
 message ConfigNotificationChannel {
   // Channel type

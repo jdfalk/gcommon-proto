@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/role_inheritance.proto
+// file: proto/gcommon/v1/queue/messages/role_inheritance.proto
 // version: 1.0.0
 // guid: 85442141-e1a3-4392-94b8-44d4f53e79fb
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.role_inheritance;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/role_inheritance";
 
 message RoleInheritance {
   // Parent roles that this role inherits from

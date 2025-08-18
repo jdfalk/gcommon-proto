@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/get_preferences_request.proto
+// file: proto/gcommon/v1/common/messages/get_preferences_request.proto
 // version: 1.0.0
 // guid: fb16c45a-545c-4d05-b3fd-34dbc4a9d0c1
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.get_preferences_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_preferences_request";
 
 message GetPreferencesRequest {
   // Standard request metadata for tracing and auth.

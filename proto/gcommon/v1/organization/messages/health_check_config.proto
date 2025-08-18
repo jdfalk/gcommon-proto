@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/config/health_check_config.proto
+// file: proto/gcommon/v1/organization/messages/health_check_config.proto
 // version: 1.0.0
 // guid: 3d161671-ebd9-42de-857a-2aef7ff4b62a
 
 edition = "2023";
 
-package gcommon.v1.organization.config;
+package gcommon.v1.organization.messages.health_check_config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/enums/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/health_check_config";
 
 message OrganizationHealthCheckConfig {
   // Health check path

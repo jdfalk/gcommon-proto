@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/api/feature_flag.proto
+// file: proto/gcommon/v1/organization/messages/feature_flag.proto
 // version: 1.0.0
 // guid: 3674ee1a-e166-44d0-97f8-2a41ecf03059
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.feature_flag;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/feature_flag";
 
 message FeatureFlag {
   // Feature flag name

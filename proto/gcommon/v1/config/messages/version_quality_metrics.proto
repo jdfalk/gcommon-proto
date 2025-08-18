@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/version_quality_metrics.proto
+// file: proto/gcommon/v1/config/messages/version_quality_metrics.proto
 // version: 1.0.0
 // guid: 2326770b-b97a-4a96-93aa-b093931437a7
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.version_quality_metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/audit_log.proto";
 import "proto/gcommon/v1/config/messages/version_quality_issue.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/version_quality_metrics";
 
 message VersionQualityMetrics {
   // Code quality score

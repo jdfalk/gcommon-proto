@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/database/config/batch_execute_options.proto
+// file: proto/gcommon/v1/database/messages/batch_execute_options.proto
+// version: 1.0.0
+// guid: 7d1e1868-699a-432f-ab30-ba90462e683a
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.batch_execute_options;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/batch_execute_options";
 
 /**
  * BatchExecuteOptions configures behavior for batch database operations.

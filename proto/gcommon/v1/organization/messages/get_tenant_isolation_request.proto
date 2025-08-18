@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/api/get_tenant_isolation_request.proto
+// file: proto/gcommon/v1/organization/messages/get_tenant_isolation_request.proto
+// version: 1.0.0
+// guid: 81d19893-5428-407d-8b0d-29ce71a3f67c
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.get_tenant_isolation_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/get_tenant_isolation_request";
 
 message GetTenantIsolationRequest {
   // Request metadata for tracing and context

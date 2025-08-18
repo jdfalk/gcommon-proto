@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/encryption_info.proto
+// file: proto/gcommon/v1/queue/messages/encryption_info.proto
 // version: 1.0.0
 // guid: 79dc45f4-d25b-40cb-8380-45f54e170aa7
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.encryption_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/encryption_info";
 
 message EncryptionInfo {
   // Encryption enabled

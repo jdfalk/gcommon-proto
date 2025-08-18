@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/types/role.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/common/messages/role.proto
+// version: 1.0.1
 // guid: 456e789a-b1c2-3d4e-5f6a-7b8c9d0e1f2a
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.role;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/enums/resource_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/role";
 
 /**
  * Role definition for role-based access control (RBAC).
@@ -38,5 +38,5 @@ message Role {
   google.protobuf.Timestamp created_at = 6 [lazy = true];
 
   // Role status (active, inactive, etc.)
-  gcommon.v1.common.ResourceStatus status = 7;
+  gcommon.v1.common.enums.ResourceStatus status = 7;
 }

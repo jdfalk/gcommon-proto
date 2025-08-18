@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/api/approval_stage.proto
+// file: proto/gcommon/v1/config/messages/approval_stage.proto
 // version: 1.0.0
 // guid: 40bf0e9f-ef92-44c7-94fe-0b5f3ac6e653
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.approval_stage;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/approval_stage";
 
 message ApprovalStage {
   // Stage name

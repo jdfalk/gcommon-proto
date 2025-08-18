@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/config_value.proto
+// file: proto/gcommon/v1/common/messages/config_value.proto
+// version: 1.0.0
+// guid: 343ca568-969b-4136-953b-7eac76c64553
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.config_value;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/value_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/config_value";
 
 /**
  * Configuration value with type information and metadata.

@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/int64_array.proto
+// file: proto/gcommon/v1/common/messages/int64_array.proto
+// version: 1.0.0
+// guid: 319f8be8-1a6c-4543-b1fe-14beb5e83c0c
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.int64_array;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/int64_array";
 
 /**
  * Int64 array wrapper for oneof usage in filter values and other contexts.

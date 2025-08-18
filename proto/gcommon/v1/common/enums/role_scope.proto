@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/role_scope.proto
+// file: proto/gcommon/v1/common/enums/role_scope.proto
+// version: 1.0.0
+// guid: d731d279-8c61-4854-ae41-17da08e62494
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.enums.role_scope;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/role.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/role_scope";
 
 /**
  * Role scope enumeration defining the level at which roles apply.

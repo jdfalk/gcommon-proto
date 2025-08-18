@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/update_message_request.proto
+// file: proto/gcommon/v1/queue/messages/update_message_request.proto
 // version: 1.0.0
 // guid: 78c4ac61-c4dc-4bfc-bfa1-93a723303fbb
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.update_message_request;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -17,7 +17,7 @@ import "proto/gcommon/v1/queue/messages/update_condition.proto";
 import "proto/gcommon/v1/queue/messages/visibility_update.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_message_request";
 
 message UpdateMessageRequest {
   // Message identifier to update

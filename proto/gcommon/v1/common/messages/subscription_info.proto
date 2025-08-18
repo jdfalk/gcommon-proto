@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/subscription_info.proto
+// file: proto/gcommon/v1/common/messages/subscription_info.proto
+// version: 1.0.0
+// guid: 890b3e39-196c-4fe4-8153-4f73bdf677e6
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.subscription_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -11,7 +13,7 @@ import "proto/gcommon/v1/common/messages/filter_options.proto";
 import "proto/gcommon/v1/common/messages/subscription_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/subscription_info";
 
 /**
  * Subscription information for streaming and event-driven operations.

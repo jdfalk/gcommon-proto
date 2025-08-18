@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/http_method.proto
+// file: proto/gcommon/v1/web/enums/http_method.proto
 // version: 1.0.0
 // guid: 91d1cc0e-2cad-460c-81e9-236116f31e05
 //
 // HTTPMethod enumerates supported request verbs.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.http_method;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/http_method";
 
 enum HTTPMethod {
   HTTP_METHOD_UNSPECIFIED = 0;

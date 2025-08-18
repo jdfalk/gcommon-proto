@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/config/route_info.proto
+// file: proto/gcommon/v1/web/messages/route_info.proto
 // version: 1.1.0
 // guid: 8154bd31-51b0-4043-9a14-f0614adcd523
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.route_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/web/enums/route_type.proto";
 import "proto/gcommon/v1/web/messages/route_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/route_info";
 
 // RouteInfo message definition.
 message RouteInfo {

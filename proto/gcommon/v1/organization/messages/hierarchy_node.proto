@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/organization/api/hierarchy_node.proto
+// file: proto/gcommon/v1/organization/messages/hierarchy_node.proto
 // version: 1.0.0
 // guid: bf24d24c-7e3c-4f4c-b4ea-a8b73c331ed7
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.hierarchy_node;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/enums/hierarchy_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/hierarchy_node";
 
 message HierarchyNode {
   // Unique node identifier

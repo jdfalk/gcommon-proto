@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/formatter_config.proto
+// file: proto/gcommon/v1/common/messages/formatter_config.proto
 // version: 1.0.0
 // guid: d4e8088a-7b07-48cf-b572-0d850b7218e4
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.formatter_config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/formatter_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/formatter_config";
 
 message LogFormatterConfig {
   // Formatting strategy

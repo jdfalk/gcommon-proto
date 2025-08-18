@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/get_security_config_request.proto
+// file: proto/gcommon/v1/web/messages/get_security_config_request.proto
 // version: 1.0.0
 // guid: a5853c6e-88c2-4c4c-962b-c7fc36d4bdef
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.get_security_config_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/get_security_config_request";
 
 // GetSecurityConfigRequest request definition.
 message GetSecurityConfigRequest {

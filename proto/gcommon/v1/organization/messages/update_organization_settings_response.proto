@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/organization/api/update_organization_settings_response.proto
+// file: proto/gcommon/v1/organization/messages/update_organization_settings_response.proto
+// version: 1.0.0
+// guid: 3710df70-cb31-43a6-bd37-7443736307f4
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.update_organization_settings_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/organization/messages/organization_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/update_organization_settings_response";
 
 message UpdateOrganizationSettingsResponse {
   // Any errors encountered

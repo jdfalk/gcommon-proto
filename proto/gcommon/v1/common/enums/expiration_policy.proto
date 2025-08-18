@@ -1,12 +1,14 @@
-// file: proto/gcommon/v1/common/types/expiration_policy.proto
+// file: proto/gcommon/v1/common/enums/expiration_policy.proto
+// version: 1.0.0
+// guid: 788be552-a444-4860-9db6-1004f1f1fabf
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.enums.expiration_policy;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/expiration_policy";
 
 /**
  * Cache expiration policy enumeration for cache management.

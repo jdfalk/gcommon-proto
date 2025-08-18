@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/assign_role_request.proto
+// file: proto/gcommon/v1/common/messages/assign_role_request.proto
 // version: 1.1.0
 // guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.assign_role_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/assign_role_request";
 
 /**
  * Request to assign a role to a user.

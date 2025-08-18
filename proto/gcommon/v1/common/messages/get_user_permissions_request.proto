@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/get_user_permissions_request.proto
+// file: proto/gcommon/v1/common/messages/get_user_permissions_request.proto
+// version: 1.0.0
+// guid: 38097153-2bce-47ac-ab8a-20605ee39939
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.get_user_permissions_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_user_permissions_request";
 
 /**
  * Request to get all permissions for a user.

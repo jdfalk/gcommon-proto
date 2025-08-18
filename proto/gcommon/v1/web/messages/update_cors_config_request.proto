@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/api/update_cors_config_request.proto
+// file: proto/gcommon/v1/web/messages/update_cors_config_request.proto
 // version: 1.0.0
 // guid: 00b7b190-69c5-49c8-8b50-ca9c0e68e231
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.update_cors_config_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/update_cors_config_request";
 
 // UpdateCorsConfigRequest request definition.
 message UpdateCorsConfigRequest {

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/config/timeout_config.proto
+// file: proto/gcommon/v1/web/messages/timeout_config.proto
 // version: 1.0.0
 // guid: e3a21e33-e66f-47e7-b7ff-6c6df8a0e9a1
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.timeout_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/timeout_config";
 
 // TimeoutConfig specifies various timeout settings for the server.
 message WebTimeoutConfig {

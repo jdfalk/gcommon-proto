@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/api/start_server_response.proto
+// file: proto/gcommon/v1/web/messages/start_server_response.proto
 // version: 1.0.1
 // guid: 0655b1fa-e5f9-419d-a4f1-dcd1a5b474b5
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.start_server_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/web/enums/server_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/start_server_response";
 
 // StartServerResponse response definition.
 message StartServerResponse {

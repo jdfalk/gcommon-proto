@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.database.services;
+package gcommon.v1.database.services.transaction_service;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
@@ -16,7 +16,7 @@ import "proto/gcommon/v1/database/messages/transaction_status_request.proto";
 import "proto/gcommon/v1/database/messages/transaction_status_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/services/transaction_service";
 
 /**
  * TransactionService manages database transactions.

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/deletion_stats.proto
+// file: proto/gcommon/v1/queue/messages/deletion_stats.proto
 // version: 1.0.0
 // guid: 671eaddd-dddd-48e2-8910-428b3f80a7d1
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.deletion_stats;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/deletion_stats";
 
 message DeletionStats {
   // Number of messages deleted

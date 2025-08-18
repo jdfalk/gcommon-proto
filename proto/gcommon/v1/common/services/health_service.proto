@@ -1,7 +1,9 @@
 // file: proto/gcommon/v1/common/services/health_service.proto
+// version: 1.0.0
+// guid: 81fada90-f4d6-4bfc-9756-b7b144fcbdf6
 edition = "2023";
 
-package gcommon.v1.common.services;
+package gcommon.v1.common.services.health_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/get_health_metrics_request.proto";
@@ -22,7 +24,7 @@ import "proto/gcommon/v1/metrics/v1/health_check_request.proto";
 import "proto/gcommon/v1/metrics/v1/health_check_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/services/health_service";
 
 /**
  * HealthService provides comprehensive health checking capabilities.

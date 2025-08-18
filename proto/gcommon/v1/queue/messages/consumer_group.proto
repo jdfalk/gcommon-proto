@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/consumer_group.proto
+// file: proto/gcommon/v1/queue/messages/consumer_group.proto
 // version: 1.0.0
 // guid: 04a92687-cec2-4eac-a15d-f6f0c884eab3
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.consumer_group;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -20,7 +20,7 @@ import "proto/gcommon/v1/queue/messages/group_coordinator.proto";
 import "proto/gcommon/v1/queue/messages/partition_assignment.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/consumer_group";
 
 message ConsumerGroup {
   // Unique identifier for the consumer group

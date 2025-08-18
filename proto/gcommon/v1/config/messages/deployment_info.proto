@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/deployment_info.proto
+// file: proto/gcommon/v1/config/messages/deployment_info.proto
 // version: 1.0.0
 // guid: 07fcdb63-0b96-42e8-ab5e-6656870d6f03
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.deployment_info;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -21,7 +21,7 @@ import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
 import "proto/gcommon/v1/organization/messages/notification_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/deployment_info";
 
 message DeploymentInfo {
   // Deployment status

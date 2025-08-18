@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/services/get_service_health_response.proto
+// file: proto/gcommon/v1/common/messages/get_service_health_response.proto
+// version: 1.0.0
+// guid: eb2e3f53-909e-4bd0-a9e8-3162f317a1ae
 edition = "2023";
 
-package gcommon.v1.common.services;
+package gcommon.v1.common.messages.get_service_health_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/metrics/v1/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_service_health_response";
 
 /**
  * Response message for service health status requests.

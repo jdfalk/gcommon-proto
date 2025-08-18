@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/config/csrf_config.proto
+// file: proto/gcommon/v1/web/messages/csrf_config.proto
 // version: 1.1.0
 // guid: b3eaed64-1234-45b9-86c4-e348b91cdbe9
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.csrf_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/csrf_config";
 
 // CsrfConfig message definition.
 message CsrfConfig {

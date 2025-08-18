@@ -1,7 +1,9 @@
-// file: proto/gcommon/v1/common/types/remove_role_response.proto
+// file: proto/gcommon/v1/common/messages/remove_role_response.proto
+// version: 1.0.0
+// guid: d8f9ff14-27d8-4495-bba6-2a8a944df6be
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.remove_role_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -9,7 +11,7 @@ import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/common/messages/role.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/remove_role_response";
 
 /**
  * RemoveRoleResponse confirms successful role removal from a user.

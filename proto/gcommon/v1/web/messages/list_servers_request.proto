@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/api/list_servers_request.proto
+// file: proto/gcommon/v1/web/messages/list_servers_request.proto
 // version: 1.0.0
 // guid: 1b601e51-740d-448e-b1cf-ca06a0180bee
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.list_servers_request;
 
 import "google/protobuf/go_features.proto";
 // Standard imports
@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/list_servers_request";
 
 /**
  * ListServersRequest message for web service operations.

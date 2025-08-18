@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/integrity_validation.proto
+// file: proto/gcommon/v1/queue/messages/integrity_validation.proto
 // version: 1.0.0
 // guid: 98819329-10f2-4edf-85cb-52919123d92f
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.integrity_validation;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/integrity_validation";
 
 message IntegrityValidation {
   // Integrity validation passed

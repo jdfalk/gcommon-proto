@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/serialization_format.proto
-// file: proto/gcommon/v1/queue/api/serialization_format.proto
+// file: proto/gcommon/v1/queue/enums/serialization_format.proto
 // version: 1.0.0
 // guid: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
 //
@@ -7,12 +7,12 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.serialization_format;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/serialization_format";
 
 /**
  * Supported message serialization formats for queue messages.

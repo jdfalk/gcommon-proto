@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/metrics/v1/record_counter_request.proto
+// version: 1.0.0
+// guid: af165336-0041-4c47-a00d-5f0470240fda
 // file: proto/gcommon/v1/metrics/v1/record_counter_request.proto
 //
 // Record counter request definitions for metrics module
 //
 edition = "2023";
 
-package gcommon.v1.metrics.v1;
+package gcommon.v1.metrics.v1.record_counter_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/record_counter_request";
 
 /**
  * RecordCounterRequest is used to record or increment a counter metric.

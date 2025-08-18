@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/web/config/static_config.proto
+// file: proto/gcommon/v1/web/messages/static_config.proto
 // version: 1.1.0
 // guid: e2d0d32a-6b50-42ec-b728-ef60869cf5ac
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.static_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/static_config";
 
 // StaticConfig message definition.
 message StaticConfig {

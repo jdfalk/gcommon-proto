@@ -1,17 +1,19 @@
 // file: proto/gcommon/v1/common/types/revoke_api_key_request.proto
-// file: proto/gcommon/v1/common/types/revoke_api_key_request.proto
+// version: 1.0.0
+// guid: 889f38ad-dde7-41cd-aa20-ec974b0207f1
+// file: proto/gcommon/v1/common/messages/revoke_api_key_request.proto
 //
 // Request definitions for auth module
 
 //
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.revoke_api_key_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/revoke_api_key_request";
 
 message RevokeApiKeyRequest {
   // API key ID to revoke

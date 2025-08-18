@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/api/list_queues_response.proto
+// file: proto/gcommon/v1/queue/messages/list_queues_response.proto
 // version: 1.0.0
 // guid: c2ffc959-d7b5-451f-94f4-a9334e02725f
 
@@ -7,14 +7,14 @@
 // placeholder file generated during the migration.
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.list_queues_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/response_metadata.proto";
 import "proto/gcommon/v1/queue/messages/queue_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/list_queues_response";
 
 message ListQueuesResponse {
   // Collection of queues

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/value_history_entry.proto
+// file: proto/gcommon/v1/config/messages/value_history_entry.proto
 // version: 1.0.0
 // guid: 842c89c0-e045-4b46-8c03-f19d4383edb0
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.value_history_entry;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/enums/change_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/value_history_entry";
 
 message ValueHistoryEntry {
   // Entry ID

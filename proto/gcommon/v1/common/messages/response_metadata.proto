@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/types/response_metadata.proto
+// file: proto/gcommon/v1/common/messages/response_metadata.proto
 // version: 1.0.0
 // guid: ef32bc34-15e2-49e7-82a9-0c0577f76c38
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.response_metadata;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -14,7 +14,7 @@ import "proto/gcommon/v1/common/messages/rate_limit_info.proto";
 import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/response_metadata";
 
 message ResponseMetadata {
   // Trace ID from the corresponding request for correlation

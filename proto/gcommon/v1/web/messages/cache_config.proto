@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/config/cache_config.proto
+// file: proto/gcommon/v1/web/messages/cache_config.proto
 // version: 1.1.0
 // guid: 21e9abdf-bf09-4c22-b45b-eb9c092d9664
 
 edition = "2023";
 
-package gcommon.v1.web.config;
+package gcommon.v1.web.messages.cache_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/cache_policy.proto";
 import "proto/gcommon/v1/web/enums/cache_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/cache_config";
 
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {

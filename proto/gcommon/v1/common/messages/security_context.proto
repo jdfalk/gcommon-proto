@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/security_context.proto
+// file: proto/gcommon/v1/common/messages/security_context.proto
 // version: 1.0.0
 // guid: 80402f15-2486-4290-92b0-77a7f38f1820
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.security_context;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/web/enums/auth_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/security_context";
 
 message SecurityContext {
   // User ID

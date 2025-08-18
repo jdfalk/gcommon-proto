@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/types/queue_message.proto
+// file: proto/gcommon/v1/queue/messages/queue_message.proto
 // version: 1.0.0
 // guid: a2597962-4731-4f47-b6dd-4da9a937c834
 
 edition = "2023";
 
-package gcommon.v1.queue.types;
+package gcommon.v1.queue.messages.queue_message;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/queue_message";
 
 // QueueMessage represents a single item in a queue.
 message QueueMessage {

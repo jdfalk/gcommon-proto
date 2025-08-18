@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/cluster_state.proto
+// file: proto/gcommon/v1/queue/enums/cluster_state.proto
 // version: 1.0.0
 // guid: f68fdc5e-d25f-4790-9362-9bf09eb27f4d
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.cluster_state;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/cluster_state";
 
 /**
  * State of the cluster.

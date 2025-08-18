@@ -1,11 +1,13 @@
 // file: proto/gcommon/v1/common/services/health_admin_service.proto
+// version: 1.0.0
+// guid: 852f060f-cb4f-4a6c-9eb5-1a8cbdf34351
 // file: proto/gcommon/v1/common/services/health_admin_service.proto
 //
 // Administrative service definitions for health module
 //
 edition = "2023";
 
-package gcommon.v1.common.services;
+package gcommon.v1.common.services.health_admin_service;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/configure_alerting_request.proto";
@@ -22,7 +24,7 @@ import "proto/gcommon/v1/common/messages/set_health_request.proto";
 import "proto/gcommon/v1/common/messages/set_health_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/services/health_admin_service";
 
 /**
  * HealthAdminService provides administrative health operations

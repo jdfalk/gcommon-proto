@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/types/api_key.proto
+// file: proto/gcommon/v1/common/messages/api_key.proto
 // version: 1.0.0
 // guid: a1b2c3d4-e5f6-789a-b0c1-d2e3f4a5b6c7
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.api_key;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/api_key";
 
 /**
  * APIKey represents a user-issued API key used for authenticating

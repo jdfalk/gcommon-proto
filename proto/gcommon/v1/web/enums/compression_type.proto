@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/compression_type.proto
+// file: proto/gcommon/v1/web/enums/compression_type.proto
 // version: 1.0.0
 // guid: 0f9ae4d2-05d3-4a49-92e4-3c902a4b8c3e
 //
 // CompressionType enumerates supported HTTP compression algorithms.
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.enums.compression_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/compression_type";
 
 // Supported compression algorithms for responses.
 enum WebCompressionType {

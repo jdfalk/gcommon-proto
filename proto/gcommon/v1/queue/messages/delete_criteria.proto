@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api/delete_criteria.proto
+// file: proto/gcommon/v1/queue/messages/delete_criteria.proto
 // version: 1.0.0
 // guid: 351be276-91ef-4408-9e3d-1931faddc070
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.delete_criteria;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/queue/enums/message_state.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/delete_criteria";
 
 message DeleteCriteria {
   // Delete messages older than this timestamp

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/schema_evolution_strategy.proto
+// file: proto/gcommon/v1/queue/enums/schema_evolution_strategy.proto
 // version: 1.0.0
 // guid: ef5f0572-3b2c-44c1-8e1c-247b8fad9c9c
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.enums.schema_evolution_strategy;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/serialization_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/schema_evolution_strategy";
 
 /**
  * Schema evolution strategies.

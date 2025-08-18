@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/nack_response.proto
+// file: proto/gcommon/v1/queue/messages/nack_response.proto
 // version: 1.0.0
+// guid: 70f01290-1e6f-484c-aa71-1cd5f50aa7f5
 // Response for negative acknowledgment operations
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.nack_response;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/nack_response";
 
 // Response for negative acknowledgment operations
 message NackResponse {

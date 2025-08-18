@@ -1,14 +1,16 @@
-// file: proto/gcommon/v1/common/types/circuit_breaker_config.proto
+// file: proto/gcommon/v1/common/messages/circuit_breaker_config.proto
+// version: 1.0.0
+// guid: 2fa42a3e-78ac-439f-ab85-af2587126423
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.circuit_breaker_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/circuit_breaker_state.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/circuit_breaker_config";
 
 /**
  * Circuit breaker configuration for fault tolerance and system protection.

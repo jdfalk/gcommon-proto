@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/metrics/types/exporter_status.proto
+// file: proto/gcommon/v1/metrics/messages/exporter_status.proto
 // version: 1.0.0
 // guid: 852f34ef-6a24-4d4c-a324-3cd1192428e9
 
 edition = "2023";
 
-package gcommon.v1.metrics.types;
+package gcommon.v1.metrics.messages.exporter_status;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -18,7 +18,7 @@ import "proto/gcommon/v1/metrics/v1/time_range.proto";
 import "proto/gcommon/v1/metrics/v1/top_metrics.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/messages/exporter_status";
 
 message ExporterStatus {
   string exporter_id = 1;

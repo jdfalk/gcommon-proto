@@ -1,15 +1,17 @@
-// file: proto/gcommon/v1/database/config/begin_transaction_request.proto
+// file: proto/gcommon/v1/database/messages/begin_transaction_request.proto
+// version: 1.0.0
+// guid: 32a5d984-3a6f-4a66-a8c8-903a3d8c9bb3
 
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.begin_transaction_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/database/messages/transaction_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/begin_transaction_request";
 
 message BeginTransactionRequest {
   // Database name (optional, uses default if not specified)

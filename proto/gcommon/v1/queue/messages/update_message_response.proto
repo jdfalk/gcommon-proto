@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/update_message_response.proto
+// file: proto/gcommon/v1/queue/messages/update_message_response.proto
 // version: 1.0.0
 // guid: f8af2c52-28d1-49c0-9813-a87e5f5a411d
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.update_message_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/queue/messages/failed_field_update.proto";
 import "proto/gcommon/v1/queue/messages/updated_properties.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_message_response";
 
 message UpdateMessageResponse {
   // Success status of the update operation

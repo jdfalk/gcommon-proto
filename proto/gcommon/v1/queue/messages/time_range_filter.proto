@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/api/time_range_filter.proto
+// file: proto/gcommon/v1/queue/messages/time_range_filter.proto
 // version: 1.0.0
 // guid: a130528f-ed39-48b7-8dbf-b82f4db21916
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.time_range_filter;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/time_range_filter";
 
 message TimeRangeFilter {
   // Start time for the range (ISO 8601)

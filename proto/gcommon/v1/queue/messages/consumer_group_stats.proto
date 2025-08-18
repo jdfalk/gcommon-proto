@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/api/consumer_group_stats.proto
+// file: proto/gcommon/v1/queue/messages/consumer_group_stats.proto
 // version: 1.0.0
 // guid: b8b6993f-38ea-4912-8d9b-b5d70c3968fc
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.consumer_group_stats;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/queue/messages/consumer_error_stats.proto";
 import "proto/gcommon/v1/queue/messages/rebalance_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/consumer_group_stats";
 
 message ConsumerGroupStats {
   // Total number of active consumers

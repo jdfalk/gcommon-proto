@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/config/subscription_config_update.proto
+// file: proto/gcommon/v1/queue/messages/subscription_config_update.proto
 // version: 1.0.0
 // guid: 4ec44184-d7ed-48cf-af8f-5984c57c687d
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.subscription_config_update;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/config/v1/retry_settings.proto";
@@ -13,7 +13,7 @@ import "proto/gcommon/v1/queue/messages/filter_settings.proto";
 import "proto/gcommon/v1/queue/messages/routing_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/subscription_config_update";
 
 message SubscriptionConfigUpdate {
   // Updated subscription name

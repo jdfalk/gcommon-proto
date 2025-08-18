@@ -1,12 +1,14 @@
 // file: proto/gcommon/v1/common/enums/check_type.proto
+// version: 1.0.0
+// guid: 38e1041c-a418-4fe7-8834-b48f3c71f401
 edition = "2023";
 
-package gcommon.v1.common.enums;
+package gcommon.v1.common.enums.check_type;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/check_type";
 
 /**
  * CheckType indicates the type of health check

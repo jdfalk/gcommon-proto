@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/compression_config.proto
+// file: proto/gcommon/v1/queue/messages/compression_config.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174000
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.compression_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/compression_config";
 
 // CompressionConfig message definition.
 message QueueCompressionConfig {

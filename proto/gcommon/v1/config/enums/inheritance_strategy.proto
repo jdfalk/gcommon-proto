@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/config/api/inheritance_strategy.proto
+// file: proto/gcommon/v1/config/enums/inheritance_strategy.proto
 // version: 1.0.0
 // guid: 8dc7386b-afe2-4d9d-804d-2286b8ae6cf7
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.enums.inheritance_strategy;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/enums/inheritance_strategy";
 
 enum InheritanceStrategy {
   INHERITANCE_STRATEGY_UNSPECIFIED = 0;

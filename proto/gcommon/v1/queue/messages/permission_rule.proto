@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/api/permission_rule.proto
+// file: proto/gcommon/v1/queue/messages/permission_rule.proto
 // version: 1.0.0
 // guid: a9f45dd7-43a2-47cd-812c-8a08ee0100e2
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.permission_rule;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/messages/retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/permission_rule";
 
 message PermissionRule {
   // Resource pattern (queue name, topic name, etc.)

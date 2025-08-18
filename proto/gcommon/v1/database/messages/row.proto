@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/database/config/row.proto
+// file: proto/gcommon/v1/database/messages/row.proto
+// version: 1.0.0
+// guid: b3495bf9-4671-40b0-8d44-3fe8f9aac6ca
 edition = "2023";
 
-package gcommon.v1.database.config;
+package gcommon.v1.database.messages.row;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/row";
 
 /**
  * Row represents a single row of data from a database result set.

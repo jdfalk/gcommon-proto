@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/health_check_all_request.proto
+// file: proto/gcommon/v1/common/messages/health_check_all_request.proto
+// version: 1.0.0
+// guid: 6e150288-20ca-4892-9582-6ca93070073b
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.health_check_all_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/enums/check_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_check_all_request";
 
 /**
  * HealthCheckAllRequest requests health status for all services or filtered by type

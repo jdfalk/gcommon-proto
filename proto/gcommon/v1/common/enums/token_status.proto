@@ -1,12 +1,14 @@
 // file: proto/gcommon/v1/common/enums/token_status.proto
+// version: 1.0.0
+// guid: 3d813f39-ef48-4c3e-b551-46ae673e7af1
 edition = "2023";
 
-package gcommon.v1.common.enums;
+package gcommon.v1.common.enums.token_status;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/token_status";
 
 /**
  * Token status enumeration for tracking token lifecycle.

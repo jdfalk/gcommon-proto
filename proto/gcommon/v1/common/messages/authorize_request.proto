@@ -1,13 +1,15 @@
-// file: proto/gcommon/v1/common/types/authorize_request.proto
+// file: proto/gcommon/v1/common/messages/authorize_request.proto
+// version: 1.0.0
+// guid: 06edf238-40f2-4d28-a7dc-0b6a972bf7b2
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.authorize_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/authorize_request";
 
 /**
  * Request to check if a user is authorized for a specific action.

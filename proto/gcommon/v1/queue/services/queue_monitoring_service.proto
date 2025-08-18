@@ -4,7 +4,7 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.services;
+package gcommon.v1.queue.services.queue_monitoring_service;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -25,7 +25,7 @@ import "proto/gcommon/v1/queue/messages/queue_stats_response.proto";
 import "proto/gcommon/v1/queue/messages/topic_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/services";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/services/queue_monitoring_service";
 
 service QueueMonitoringService {
   // Get information about the queue cluster

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/api/list_files_response.proto
+// file: proto/gcommon/v1/web/messages/list_files_response.proto
 // version: 1.1.0
 // guid: 0ee5d62d-df69-4b40-a4ea-a36fb6e16147
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.list_files_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/response_metadata.proto";
 import "proto/gcommon/v1/web/messages/file_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/list_files_response";
 
 /**
  * Response containing a list of files from a directory or file system.

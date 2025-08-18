@@ -1,15 +1,16 @@
-// file: proto/gcommon/v1/queue/api/list_topics_request.proto
+// file: proto/gcommon/v1/queue/messages/list_topics_request.proto
 // version: 1.1.0
+// guid: f939cf46-c0f6-4815-a201-7cebdf9c255d
 // Request to list available topics in the queue system
 
 edition = "2023";
 
-package gcommon.v1.queue.api;
+package gcommon.v1.queue.messages.list_topics_request;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/list_topics_request";
 
 // ListTopicsRequest retrieves a list of available topics
 message ListTopicsRequest {

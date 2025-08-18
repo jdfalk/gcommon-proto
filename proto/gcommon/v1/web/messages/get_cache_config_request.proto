@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/get_cache_config_request.proto
+// file: proto/gcommon/v1/web/messages/get_cache_config_request.proto
 // version: 1.0.0
 // guid: abc12345-6789-0def-1234-567890abcdef
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.get_cache_config_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/get_cache_config_request";
 
 message GetCacheConfigRequest {
   // Request metadata for tracing

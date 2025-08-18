@@ -1,19 +1,21 @@
 // file: proto/gcommon/v1/common/types/register_check_request.proto
-// file: proto/gcommon/v1/common/types/register_check_request.proto
+// version: 1.0.0
+// guid: d0def031-b6c4-482c-8e68-7d395ac76697
+// file: proto/gcommon/v1/common/messages/register_check_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package gcommon.v1.common.types;
+package gcommon.v1.common.messages.register_check_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/metrics/v1/health_check_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/register_check_request";
 
 message RegisterCheckRequest {
   // Service name this check belongs to

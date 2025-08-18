@@ -1,8 +1,10 @@
-// file: proto/gcommon/v1/config/api/list_config_request.proto
+// file: proto/gcommon/v1/config/messages/list_config_request.proto
+// version: 1.0.0
+// guid: f18f6b5b-d699-4e53-a44b-0934ef94b688
 //
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.list_config_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/filter_options.proto";
@@ -11,7 +13,7 @@ import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/common/messages/sort_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/list_config_request";
 
 /**
  * ListConfigRequest lists configuration entries with optional filtering.

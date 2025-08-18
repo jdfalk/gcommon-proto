@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/types/message_id.proto
+// file: proto/gcommon/v1/queue/messages/message_id.proto
 // version: 1.0.0
 // guid: 9bd8b62d-3655-4ff5-9f3a-4d5da241dc77
 
@@ -7,12 +7,12 @@
 // placeholder created during the migration.
 edition = "2023";
 
-package gcommon.v1.queue.types;
+package gcommon.v1.queue.messages.message_id;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/message_id";
 
 // MessageId uniquely identifies a message within a queue.
 // It can be referenced by other messages or API calls.

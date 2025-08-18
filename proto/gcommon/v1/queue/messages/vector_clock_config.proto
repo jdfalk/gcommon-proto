@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/config/vector_clock_config.proto
+// file: proto/gcommon/v1/queue/messages/vector_clock_config.proto
 // version: 1.0.0
 // guid: 3374bcbe-3bf2-4e5f-b46a-03e4131fcd98
 
 edition = "2023";
 
-package gcommon.v1.queue.config;
+package gcommon.v1.queue.messages.vector_clock_config;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/vector_clock_config";
 
 message VectorClockConfig {
   // Enable vector clocks

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/api/template_parameter.proto
+// file: proto/gcommon/v1/config/messages/template_parameter.proto
 // version: 1.0.0
 // guid: 800be7b5-ca05-4137-a8d2-7d1a3fe5cc97
 
 edition = "2023";
 
-package gcommon.v1.config.api;
+package gcommon.v1.config.messages.template_parameter;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "proto/gcommon/v1/config/enums/parameter_type.proto";
 import "proto/gcommon/v1/config/messages/parameter_constraints.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/template_parameter";
 
 message TemplateParameter {
   // Parameter name

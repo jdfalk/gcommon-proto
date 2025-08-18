@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/api/update_cache_config_response.proto
+// file: proto/gcommon/v1/web/messages/update_cache_config_response.proto
 // version: 1.0.0
 // guid: jkl45678-90ab-cdef-1234-567890abcdef
 
 edition = "2023";
 
-package gcommon.v1.web.api;
+package gcommon.v1.web.messages.update_cache_config_response;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/update_cache_config_response";
 
 message UpdateCacheConfigResponse {
   // Whether the update was successful

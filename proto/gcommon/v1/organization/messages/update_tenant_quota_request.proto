@@ -1,15 +1,17 @@
-// file: proto/gcommon/v1/organization/api/update_tenant_quota_request.proto
+// file: proto/gcommon/v1/organization/messages/update_tenant_quota_request.proto
+// version: 1.0.0
+// guid: 3b0b2b76-0e29-4471-8cce-e2f7b4c4f3cf
 
 edition = "2023";
 
-package gcommon.v1.organization.api;
+package gcommon.v1.organization.messages.update_tenant_quota_request;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/request_metadata.proto";
 import "proto/gcommon/v1/organization/messages/tenant_quota.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
+option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/update_tenant_quota_request";
 
 message UpdateTenantQuotaRequest {
   // Request metadata for tracing and context
