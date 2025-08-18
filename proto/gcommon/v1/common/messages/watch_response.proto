@@ -13,10 +13,10 @@ package gcommon.v1.common;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "gcommon/v1/common/messages/check_result.proto";
 import "gcommon/v1/common/messages/health_metrics.proto";
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
 
 
 
@@ -37,7 +37,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 message WatchResponse {
   // Overall health status
-  gcommon.v1.metrics.MetricsHealthStatus status = 1;
+  CommonHealthStatus status = 1;
 
   // Service name
   string service = 2;
