@@ -28,7 +28,7 @@ message ValidationRule {
   string error_message = 4;
 
   // Rule severity
-  ValidationSeverity severity = 5;
+  gcommon.v1.config.ValidationSeverity severity = 5;
 
   // Parameters this rule applies to
   repeated string parameters = 6;

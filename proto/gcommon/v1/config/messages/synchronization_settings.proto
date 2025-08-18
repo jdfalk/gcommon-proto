@@ -23,13 +23,13 @@ message SynchronizationSettings {
   bool enabled = 1;
 
   // Synchronization targets
-  repeated SynchronizationTarget targets = 2;
+  repeated gcommon.v1.config.SynchronizationTarget targets = 2;
 
   // Synchronization frequency
-  SynchronizationFrequency frequency = 3;
+  gcommon.v1.config.SynchronizationFrequency frequency = 3;
 
   // Synchronization conflict resolution
-  ConfigConflictResolution conflict_resolution = 4;
+  gcommon.v1.config.ConfigConflictResolution conflict_resolution = 4;
 
   // Synchronization metadata
   map<string, string> metadata = 5;

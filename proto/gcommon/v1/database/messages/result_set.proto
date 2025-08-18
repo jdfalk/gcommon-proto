@@ -21,10 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 message ResultSet {
   // Metadata for each column in the result set
-  repeated ColumnMetadata columns = 1 [lazy = true];
+  repeated gcommon.v1.database.ColumnMetadata columns = 1 [lazy = true];
 
   // Data rows matching the query
-  repeated Row rows = 2 [lazy = true];
+  repeated gcommon.v1.database.Row rows = 2 [lazy = true];
 
   // Total row count if known (for pagination)
   int64 total_count = 3;

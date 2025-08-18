@@ -22,7 +22,7 @@ message RotationSettings {
   bool enabled = 1;
 
   // Rotation frequency
-  RotationFrequency frequency = 2;
+  gcommon.v1.config.RotationFrequency frequency = 2;
 
   // Rotation schedule (cron expression)
   string schedule = 3;
@@ -46,5 +46,5 @@ message RotationSettings {
   google.protobuf.Timestamp next_rotation_at = 9;
 
   // Rotation history
-  repeated RotationEvent rotation_history = 10;
+  repeated gcommon.v1.config.RotationEvent rotation_history = 10;
 }

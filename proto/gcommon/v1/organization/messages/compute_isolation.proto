@@ -29,10 +29,10 @@ message ComputeIsolation {
   string namespace = 2;
 
   // CPU allocation for this tenant
-  CPUAllocation cpu = 3;
+  gcommon.v1.organization.CPUAllocation cpu = 3;
 
   // Memory allocation for this tenant
-  MemoryAllocation memory = 4;
+  gcommon.v1.organization.MemoryAllocation memory = 4;
 
   // Whether tenant has dedicated compute resources
   bool dedicated_compute = 5;
@@ -41,5 +41,5 @@ message ComputeIsolation {
   gcommon.v1.organization.OrganizationResourceLimits limits = 6;
 
   // Auto-scaling configuration
-  AutoScalingConfig auto_scaling = 7;
+  gcommon.v1.organization.AutoScalingConfig auto_scaling = 7;
 }

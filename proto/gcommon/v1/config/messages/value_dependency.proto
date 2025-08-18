@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message ValueDependency {
   // Dependency type
-  DependencyType type = 1;
+  gcommon.v1.config.DependencyType type = 1;
 
   // Dependent value key
   string dependent_key = 2;

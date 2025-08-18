@@ -47,5 +47,5 @@ message ValueUsageStatistics {
   int64 peak_usage_count = 10;
 
   // Usage trends
-  repeated ValueUsageTrend trends = 11;
+  repeated gcommon.v1.config.ValueUsageTrend trends = 11;
 }

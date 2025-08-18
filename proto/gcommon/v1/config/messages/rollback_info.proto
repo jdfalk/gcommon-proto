@@ -26,7 +26,7 @@ message RollbackInfo {
   string reason = 2;
 
   // Rollback method
-  RollbackMethod method = 3;
+  gcommon.v1.config.RollbackMethod method = 3;
 
   // Target version for rollback
   string target_version = 4;

@@ -33,8 +33,8 @@ message OrganizationNotificationSettings {
   bool in_app_enabled = 5;
 
   // Email template customizations
-  repeated EmailTemplate email_templates = 6;
+  repeated gcommon.v1.organization.EmailTemplate email_templates = 6;
 
   // Notification frequency settings
-  NotificationFrequency frequency = 7;
+  gcommon.v1.organization.NotificationFrequency frequency = 7;
 }

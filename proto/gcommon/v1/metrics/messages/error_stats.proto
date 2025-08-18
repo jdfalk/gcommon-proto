@@ -22,7 +22,7 @@ message MetricsErrorStats {
   double error_rate = 2;
 
   // Most common error types
-  repeated ErrorTypeCount error_types = 3;
+  repeated gcommon.v1.metrics.ErrorTypeCount error_types = 3;
 
   // Recent error trend (increasing/decreasing/stable)
   string error_trend = 4;

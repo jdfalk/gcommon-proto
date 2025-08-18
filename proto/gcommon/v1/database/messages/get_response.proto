@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 message GetResponse {
   // The cached entry (only present if found)
-  CacheEntry entry = 1 [lazy = true];
+  gcommon.v1.database.CacheEntry entry = 1 [lazy = true];
 
   // Whether the key was found in the cache
   bool found = 2;

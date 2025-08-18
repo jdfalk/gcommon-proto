@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message InheritanceTransformation {
   // Transformation type
-  TransformationType type = 1;
+  gcommon.v1.config.TransformationType type = 1;
 
   // Transformation expression
   string expression = 2;

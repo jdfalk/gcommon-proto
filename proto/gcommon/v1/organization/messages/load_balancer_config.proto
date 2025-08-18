@@ -24,8 +24,8 @@ message OrganizationLoadBalancerConfig {
   string algorithm = 2;
 
   // Health check configuration
-  OrganizationHealthCheckConfig health_check = 3;
+  gcommon.v1.organization.OrganizationHealthCheckConfig health_check = 3;
 
   // SSL/TLS configuration
-  SSLConfig ssl = 4;
+  gcommon.v1.organization.SSLConfig ssl = 4;
 }

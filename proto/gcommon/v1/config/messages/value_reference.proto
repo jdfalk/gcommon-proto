@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message ValueReference {
   // Reference type
-  ReferenceType type = 1;
+  gcommon.v1.config.ReferenceType type = 1;
 
   // Referenced value key
   string referenced_key = 2;
