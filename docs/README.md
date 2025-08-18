@@ -23,7 +23,7 @@ This directory contains auto-generated documentation for this project.
 - [Pull Request Description Instructions](.github/instructions/pull-request-descriptions.instructions.md)
 - [Python Coding Instructions](.github/instructions/python.instructions.md)
 - [R Coding Instructions](.github/instructions/r.instructions.md)
-- [Copilot Agent Utility (Rust) - Command Reference](.github/instructions/rust-utility.instructions.md)
+- [Copilot Agent Utility (Rust) - Installation and Command Reference](.github/instructions/rust-utility.instructions.md)
 - [Rust Code Style Guide](.github/instructions/rust.instructions.md)
 - [Security Instructions](.github/instructions/security.instructions.md)
 - [Shell Script Coding Instructions](.github/instructions/shell.instructions.md)
@@ -323,4 +323,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 01:27:41 UTC 2025_
+_Generated on Mon Aug 18 01:45:35 UTC 2025_
