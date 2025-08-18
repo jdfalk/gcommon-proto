@@ -207,9 +207,7 @@ This directory contains auto-generated documentation for this project.
 - [Kubernetes Example](examples/production/kubernetes/README.md)
 - [Microservice Example](examples/production/microservice/README.md)
 - [Monitoring Example](examples/production/monitoring/README.md)
-- [Config Module](pkg/config/README.md)
-- [Metrics Module gRPC Service Implementation](pkg/metrics/README_GRPC.md)
-- [Queue Module\n\nImplements message queuing with in-memory and Redis providers, gRPC services, job scheduling, and monitoring.](pkg/queue/README.md)
+- [ghcommon Repository Labels](labels.md)
 - [auth Module](proto-docs/auth.md)
 - [auth_api_1 Module](proto-docs/auth_api_1.md)
 - [auth_api_2 Module](proto-docs/auth_api_2.md)
@@ -334,4 +332,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 15:29:18 UTC 2025_
+_Generated on Mon Aug 18 23:58:32 UTC 2025_
