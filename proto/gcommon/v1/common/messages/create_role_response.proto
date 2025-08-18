@@ -8,7 +8,10 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/messages/role.proto";
 
 
 
@@ -21,7 +24,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 message CreateRoleResponse {
   // The created role
-  gcommon.v1.auth.Role role = 1;
+  Role role = 1;
 
   // Error information if creation failed
   gcommon.v1.common.Error error = 2;

@@ -7,10 +7,12 @@ edition = "2023";
 package gcommon.v1.organization;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/organization/enums/hierarchy_type.proto";
 import "gcommon/v1/organization/messages/hierarchy_node.proto";
+import "gcommon/v1/common/messages/key_value.proto";
 
 
 

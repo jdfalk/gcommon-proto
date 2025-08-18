@@ -7,9 +7,12 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
-import "google/protobuf/go_features.proto";
+
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/alert_rule.proto";
+import "gcommon/v1/queue/enums/alert_severity.proto";
+import "gcommon/v1/queue/messages/notification_channel.proto";
 
 
 

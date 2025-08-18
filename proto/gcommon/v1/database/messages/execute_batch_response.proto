@@ -6,8 +6,11 @@ edition = "2023";
 package gcommon.v1.database;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/batch_operation_result.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/metrics/messages/batch_stats.proto";
 
 
 

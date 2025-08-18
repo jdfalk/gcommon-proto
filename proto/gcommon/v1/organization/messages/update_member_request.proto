@@ -7,8 +7,11 @@ edition = "2023";
 package gcommon.v1.organization;
 
 
-import "google/protobuf/go_features.proto";
+
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/organization/messages/organization_member.proto";
 
 
 

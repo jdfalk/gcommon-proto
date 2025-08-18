@@ -7,7 +7,10 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/common/messages/response_metadata.proto";
+import "gcommon/v1/common/messages/session_info.proto";
 
 
 
@@ -23,7 +26,7 @@ message AuthUpdateSessionResponse {
   bool success = 1;
 
   // Updated session information
-  gcommon.v1.auth.SessionInfo session = 2;
+  SessionInfo session = 2;
 
   // Error message if update failed
   string error_message = 3;

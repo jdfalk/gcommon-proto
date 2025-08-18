@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/queue/messages/owner_info.proto";
@@ -14,6 +15,7 @@ import "gcommon/v1/queue/messages/partition_info.proto";
 import "gcommon/v1/queue/messages/topic_configuration.proto";
 import "gcommon/v1/queue/messages/topic_permissions.proto";
 import "gcommon/v1/queue/messages/topic_stats.proto";
+import "gcommon/v1/metrics/messages/retention_info.proto";
 
 
 

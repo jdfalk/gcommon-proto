@@ -9,8 +9,10 @@ edition = "2023";
 package gcommon.v1.config;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/config/messages/config_entry.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
 
 
 

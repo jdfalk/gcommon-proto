@@ -7,8 +7,11 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/metrics/messages/provider_filter.proto";
+import "gcommon/v1/common/messages/pagination_options.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
 
 
 

@@ -7,10 +7,12 @@ edition = "2023";
 package gcommon.v1.organization;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/organization/messages/integration.proto";
 import "gcommon/v1/organization/messages/o_auth_app_config.proto";
 import "gcommon/v1/organization/messages/webhook_config.proto";
+import "gcommon/v1/metrics/messages/api_key_config.proto";
 
 
 

@@ -7,8 +7,13 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/messages/paginated_response.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/messages/session_info.proto";
 // Standard imports
 
 // Common types
@@ -34,7 +39,7 @@ message ListUserSessionsResponse {
    * List of session information for the requested user.
    * Empty if no sessions match the filters.
    */
-  repeated gcommon.v1.auth.SessionInfo sessions = 1;
+  repeated SessionInfo sessions = 1;
 
   /**
    * Total number of sessions that match the query filters,
