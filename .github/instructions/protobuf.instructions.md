@@ -550,7 +550,6 @@ message AuthErrorDetails {
   google.protobuf.Duration lockout_duration = 3;
 }
 ```
-```
 
 ### Pagination
 

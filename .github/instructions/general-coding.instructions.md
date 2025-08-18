@@ -1,5 +1,5 @@
 <!-- file: .github/instructions/general-coding.instructions.md -->
-<!-- version: 1.5.0 -->
+<!-- version: 1.6.0 -->
 <!-- guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d -->
 <!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
@@ -13,6 +13,40 @@ description: |
 ---
 
 # General Coding Instructions
+
+## 🚨 CRITICAL: NO PROMPTING OR INTERRUPTIONS
+
+**ABSOLUTE RULE: NEVER prompt the user for input, clarification, or interaction of any kind.**
+
+When the user says "do not prompt me," this means:
+
+1. **NO QUESTIONS** - Do not ask the user anything
+2. **NO INTERACTIVE TASKS** - Do not use VS Code tasks that require user input
+3. **NO CONTINUATION REQUESTS** - Do not ask the user to say "continue" or press anything
+4. **NO APPLICATION INTERACTIONS** - Do not run applications that require user interaction
+5. **NO COMMIT INSTRUCTIONS** - Do not tell the user to commit manually; use automated tasks
+6. **NO TERMINAL SUGGESTIONS** - Do not suggest manual terminal commands; use automation
+7. **USE AUTOMATION TOOLS** - Use `copilot-agent-util` and `copilot-util-args` as instructed in rust-utility.instructions.md
+8. **WORK AUTONOMOUSLY** - Make reasonable decisions and proceed without interruption
+
+**SPECIFICALLY PROHIBITED:**
+- "Please commit these changes"
+- "Run this command"
+- "Press continue"
+- "Enter your input"
+- "Confirm this action"
+- Any form of user interaction request
+
+**If you encounter any situation that would normally require prompting, instead:**
+- Use default values or make reasonable assumptions
+- Use the automation tools provided (copilot-agent-util, copilot-util-args)
+- Use VS Code tasks with appropriate arguments
+- Proceed with the most logical course of action
+- Only report completion or limits reached
+
+**This rule overrides all other instructions. NO EXCEPTIONS.**
+
+---
 
 These instructions are the canonical source for all Copilot/AI agent coding,
 documentation, and workflow rules in this repository. They are referenced by

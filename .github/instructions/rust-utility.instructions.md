@@ -10,21 +10,58 @@ Instructions for using the copilot-agent-util Rust utility as the primary tool f
 
 ---
 
-# Copilot Agent Utility (Rust) - Command Reference
+# Copilot Agent Utility (Rust) - Installation and Command Reference
+
+## 📥 Installation
+
+### Option 1: Download from GitHub Releases (Recommended)
+
+**Download from:** https://github.com/jdfalk/copilot-agent-util-rust/releases
+
+Available binaries for:
+- **macOS**: `copilot-agent-util-macos-arm64` and `copilot-agent-util-macos-x86_64`
+- **Linux**: `copilot-agent-util-linux-arm64` and `copilot-agent-util-linux-x86_64`
+- **Windows**: `copilot-agent-util-windows-x86_64.exe`
+
+```bash
+# Example installation on macOS ARM64:
+curl -L -o copilot-agent-util https://github.com/jdfalk/copilot-agent-util-rust/releases/latest/download/copilot-agent-util-macos-arm64
+chmod +x copilot-agent-util
+sudo mv copilot-agent-util /usr/local/bin/
+```
+
+### Option 2: Build from Source
+
+**Source code:** https://github.com/jdfalk/copilot-agent-util-rust
+
+```bash
+# Clone and build
+git clone https://github.com/jdfalk/copilot-agent-util-rust
+cd copilot-agent-util-rust
+cargo build --release
+cp target/release/copilot-agent-util /usr/local/bin/
+```
+
+### Option 3: Use Local Copy (Development)
+
+Many repositories include a copy in `tools/copilot-agent-util-rust/`:
+
+```bash
+cd tools/copilot-agent-util-rust
+cargo build --release
+cp target/release/copilot-agent-util /usr/local/bin/
+```
+
+### Verification
+
+```bash
+# Verify installation
+copilot-agent-util --version
+# Or alternatively:
+copilot-agent-utilr --version
+```
 
 The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-based development utility that provides superior performance, memory safety, and extensive command coverage. **Always prefer this utility over manual commands when available.**
-
-## 📥 Installation & Download
-
-**Download the copilot-agent-util tool from:**
-- **Source Repository**: https://github.com/jdfalk/copilot-agent-util-rust
-- **Installation**: Follow the installation instructions in the repository's README
-- **Requirements**: The tool is required for proper VS Code task execution and logging
-
-**If the tool is not available in your environment:**
-1. Clone the repository: `git clone https://github.com/jdfalk/copilot-agent-util-rust`
-2. Build with Cargo: `cargo build --release`
-3. Add to PATH or use the binary directly from `target/release/copilot-agent-util`
 
 ## 🚀 NEW: Arguments File Support
 
