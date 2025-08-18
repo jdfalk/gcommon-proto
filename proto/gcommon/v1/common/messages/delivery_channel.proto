@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 message DeliveryChannel {
   // Channel type such as email or SMS
-  DeliveryChannelType type = 1;
+  gcommon.v1.common.DeliveryChannelType type = 1;
 
   // Destination address (email, phone number, webhook URL, etc.)
   string target = 2;

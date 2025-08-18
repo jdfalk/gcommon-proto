@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 message Error {
   // Standardized error code for programmatic handling
-  ErrorCode code = 1;
+  gcommon.v1.common.ErrorCode code = 1;
 
   // Human-readable error message describing what went wrong
   string message = 2;

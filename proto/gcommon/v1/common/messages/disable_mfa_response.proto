@@ -23,7 +23,7 @@ message DisableMfaResponse {
   bool success = 1;
 
   // Methods that were disabled
-  repeated MfaMethod disabled_methods = 2;
+  repeated gcommon.v1.common.MfaMethod disabled_methods = 2;
 
   // Error message if operation failed
   string error_message = 3;

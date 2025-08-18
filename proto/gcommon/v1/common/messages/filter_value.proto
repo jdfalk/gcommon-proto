@@ -40,12 +40,12 @@ message FilterValue {
     bool bool_value = 4;
 
     // Array of strings for multi-value filtering
-    StringArray string_array = 5 [lazy = true];
+    gcommon.v1.common.StringArray string_array = 5 [lazy = true];
 
     // Array of integers for multi-value filtering
-    Int64Array int_array = 6 [lazy = true];
+    gcommon.v1.common.Int64Array int_array = 6 [lazy = true];
   }
 
   // Filter operation type (equals, contains, greater than, etc.)
-  FilterOperation operation = 7;
+  gcommon.v1.common.FilterOperation operation = 7;
 }

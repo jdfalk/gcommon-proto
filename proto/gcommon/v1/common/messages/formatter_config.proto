@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message LogFormatterConfig {
   // Formatting strategy
-  FormatterType type = 1;
+  gcommon.v1.common.FormatterType type = 1;
 
   // Optional format pattern
   string pattern = 2;

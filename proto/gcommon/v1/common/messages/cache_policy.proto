@@ -23,10 +23,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 message CachePolicy {
   // Cache expiration policy strategy
-  ExpirationPolicy expiration = 1;
+  gcommon.v1.common.ExpirationPolicy expiration = 1;
 
   // Eviction policy when cache reaches capacity
-  EvictionPolicy eviction = 2;
+  gcommon.v1.common.EvictionPolicy eviction = 2;
 
   // Maximum cache size in bytes (0 for unlimited)
   int64 max_size_bytes = 3;

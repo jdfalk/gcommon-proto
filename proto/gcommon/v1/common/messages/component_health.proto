@@ -19,7 +19,7 @@ message ComponentHealth {
   // Component name
   string name = 1;
   // Component status
-  ServingStatus status = 2;
+  gcommon.v1.common.ServingStatus status = 2;
   // Component-specific message
   string message = 3;
   // Component check duration in milliseconds
