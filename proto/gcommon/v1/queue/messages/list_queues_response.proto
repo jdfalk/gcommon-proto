@@ -10,8 +10,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/queue_info.proto";
+import "gcommon/v1/common/messages/response_metadata.proto";
 
 
 

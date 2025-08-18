@@ -7,8 +7,10 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/enums/o_auth2_flow_type.proto";
+import "gcommon/v1/common/messages/jwt_config.proto";
 
 
 
@@ -54,5 +56,5 @@ message OAuth2Config {
   bool require_pkce = 11;
 
   // JWT configuration for token validation
-  gcommon.v1.auth.JWTConfig jwt_config = 12;
+  JWTConfig jwt_config = 12;
 }

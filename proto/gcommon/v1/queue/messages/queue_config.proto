@@ -7,9 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/enums/priority_level.proto";
 import "gcommon/v1/queue/enums/queue_type.proto";
+import "gcommon/v1/metrics/messages/retention_policy.proto";
 
 
 

@@ -10,10 +10,12 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/metrics/messages/recording_stats.proto";
 import "gcommon/v1/metrics/messages/validation_result.proto";
+import "gcommon/v1/common/messages/error.proto";
 
 
 

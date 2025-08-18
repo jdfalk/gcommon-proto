@@ -7,8 +7,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/enums/notification_channel_type.proto";
+import "gcommon/v1/metrics/messages/alert_severity.proto";
 
 
 

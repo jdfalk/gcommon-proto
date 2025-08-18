@@ -6,7 +6,10 @@ edition = "2023";
 package gcommon.v1.database;
 
 
+
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/common/messages/pagination.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
 
 
 

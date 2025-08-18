@@ -7,8 +7,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "gcommon/v1/metrics/enums/health_status.proto";
 
 
 

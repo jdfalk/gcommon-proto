@@ -7,11 +7,13 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/metrics/messages/aggregation_spec.proto";
 import "gcommon/v1/metrics/messages/group_by_spec.proto";
 import "gcommon/v1/metrics/messages/metric_filter.proto";
 import "gcommon/v1/metrics/messages/time_range.proto";
+import "gcommon/v1/common/messages/sort_options.proto";
 
 
 

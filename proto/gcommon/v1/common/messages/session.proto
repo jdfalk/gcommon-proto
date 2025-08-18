@@ -6,9 +6,11 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/session_status.proto";
+import "gcommon/v1/common/messages/client_info.proto";
 
 
 

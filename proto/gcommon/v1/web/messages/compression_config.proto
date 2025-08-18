@@ -7,7 +7,9 @@ edition = "2023";
 package gcommon.v1.web;
 
 
+
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/metrics/enums/compression_type.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;

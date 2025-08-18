@@ -9,6 +9,7 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "gcommon/v1/common/enums/resource_status.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -39,5 +40,5 @@ message Role {
   google.protobuf.Timestamp created_at = 6 [lazy = true];
 
   // Role status (active, inactive, etc.)
-  gcommon.v1.common.enums.ResourceStatus status = 7;
+  ResourceStatus status = 7;
 }

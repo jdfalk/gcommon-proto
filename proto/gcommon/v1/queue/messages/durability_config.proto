@@ -10,8 +10,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
-import "google/protobuf/go_features.proto";
+
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "gcommon/v1/queue/enums/ack_level.proto";
+import "gcommon/v1/queue/enums/flush_policy.proto";
 
 
 

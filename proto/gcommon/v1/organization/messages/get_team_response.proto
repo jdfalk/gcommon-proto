@@ -6,7 +6,10 @@ edition = "2023";
 package gcommon.v1.organization;
 
 
+
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/organization/messages/team.proto";
 
 
 

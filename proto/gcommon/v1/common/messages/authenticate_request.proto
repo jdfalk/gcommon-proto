@@ -6,11 +6,14 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/api_key_credentials.proto";
 import "gcommon/v1/common/messages/jwt_credentials.proto";
 import "gcommon/v1/common/messages/o_auth2_credentials.proto";
 import "gcommon/v1/common/messages/password_credentials.proto";
+import "gcommon/v1/common/messages/client_info.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
 
 
 

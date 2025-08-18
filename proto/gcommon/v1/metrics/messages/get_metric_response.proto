@@ -10,8 +10,10 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/metrics/messages/metric_data.proto";
+import "gcommon/v1/common/messages/error.proto";
 
 
 

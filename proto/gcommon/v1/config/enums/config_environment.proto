@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 
+
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/config/enums/environment_status.proto";
@@ -19,6 +20,12 @@ import "gcommon/v1/config/messages/encryption_settings.proto";
 import "gcommon/v1/config/messages/monitoring_config.proto";
 import "gcommon/v1/config/messages/promotion_rule.proto";
 import "gcommon/v1/config/messages/sync_settings.proto";
+import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/metrics/messages/retention_policy.proto";
+import "gcommon/v1/organization/messages/access_control.proto";
+import "gcommon/v1/organization/messages/compliance_settings.proto";
+import "gcommon/v1/organization/messages/notification_settings.proto";
+import "gcommon/v1/organization/messages/resource_limits.proto";
 // Config-local types
 
 

@@ -6,9 +6,11 @@ edition = "2023";
 package gcommon.v1.common;
 
 
+
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/session.proto";
 import "gcommon/v1/common/messages/user_info.proto";
+import "gcommon/v1/common/messages/rate_limit.proto";
 
 
 
