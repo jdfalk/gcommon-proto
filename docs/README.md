@@ -265,6 +265,16 @@ This directory contains auto-generated documentation for this project.
 - [web_config_2 Module](proto-docs/web_config_2.md)
 - [web_events Module](proto-docs/web_events.md)
 - [web_services Module](proto-docs/web_services.md)
+- [Codex Rebase Quick Reference](scripts/CODEX-REBASE-GUIDE.md)
+- [Repository Cleanup Tool](scripts/README-cleanup-tool.md)
+- [Smart Rebase Automation Documentation](scripts/README-rebase.md)
+- [Unified GitHub Project Manager](scripts/README-unified-project-manager.md)
+- [Scripts Directory](scripts/README.md)
+- [file: scripts/copilot-firewall/README.md](scripts/copilot-firewall/README.md)
+- [Workflow Failure Analysis Report](scripts/workflow-debug-output/reports/summary_report_20250811_130247.md)
+- [Workflow Failure Analysis Report](scripts/workflow-debug-output/reports/summary_report_20250811_132335.md)
+- [Workflow Failure Analysis Report](scripts/workflow-debug-output/reports/summary_report_20250811_133609.md)
+- [Workflow Failure Analysis Report](scripts/workflow-debug-output/reports/summary_report_20250811_135842.md)
 - [SDKs Overview](sdks/README.md)
 - [C# Client SDK](sdks/csharp/docs/README.md)
 - [Go Client SDK](sdks/go/docs/README.md)
@@ -323,4 +333,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 01:45:35 UTC 2025_
+_Generated on Mon Aug 18 01:55:58 UTC 2025_
