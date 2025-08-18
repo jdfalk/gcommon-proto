@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/api/metrics_event.proto
+// version: 1.0.0
+// guid: 3d754283-08ab-451e-ad1d-c72c8da71fa4
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/enums/metric_type.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_request.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_response.proto";
+import "proto/gcommon/v1/queue/api/get_queue_stats_response.proto";
+import "proto/gcommon/v1/queue/enums/metric_type.proto";
+import "proto/gcommon/v1/queue/messages/cluster_info.proto";
+import "proto/gcommon/v1/queue/messages/stats_granularity.proto";
+import "proto/gcommon/v1/queue/messages/time_range.proto";
+import "proto/gcommon/v1/queue/messages/topic_info.proto";
+import "proto/gcommon/v1/queue/types/health_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "gcommon.v1.queue.api";
+
+message MetricsEvent {
+  // Timestamp of the event
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Queue name
+  string queue_name = 2;
+
+  // Type of metric
+  gcommon.v1.metrics.MetricsMetricType metric_type = 3;
+
+  // Metric value
+  double value = 4;
+
+  // Additional metadata
+  map<string, string> labels = 5;
+}

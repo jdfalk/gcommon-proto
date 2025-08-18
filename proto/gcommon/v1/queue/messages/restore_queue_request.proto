@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/queue/api/restore_queue_request.proto
+// version: 1.0.0
+// guid: 8dbc0f2d-31af-48e8-9785-3d801a7d7e95
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/api/restore_queue_response.proto";
+import "proto/gcommon/v1/queue/config/restore_config.proto";
+import "proto/gcommon/v1/queue/messages/backup_source.proto";
+import "proto/gcommon/v1/queue/messages/restore_options.proto";
+import "proto/gcommon/v1/queue/messages/time_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "gcommon.v1.queue.api";
+
+message RestoreQueueRequest {
+  // Target queue identifier for restoration
+  string target_queue_id = 1;
+
+  // Backup source information
+  BackupSource backup_source = 2;
+
+  // Restoration configuration
+  RestoreConfig restore_config = 3;
+
+  // Restore to specific point in time
+  google.protobuf.Timestamp restore_point = 4;
+
+  // Overwrite existing queue if it exists
+  bool overwrite_existing = 5;
+
+  // Validate backup integrity before restore
+  bool validate_backup = 6;
+
+  // Restore only specific partitions (empty = all partitions)
+  repeated int32 partition_ids = 7;
+
+  // Restore options
+  RestoreOptions options = 8;
+
+  // Operation metadata
+  map<string, string> metadata = 9;
+}

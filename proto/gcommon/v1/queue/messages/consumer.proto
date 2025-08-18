@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/queue/api/consumer.proto
+// version: 1.0.0
+// guid: 1bb92667-7d61-4aea-b8df-a372aa46cf8a
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/api/subscribe_request.proto";
+import "proto/gcommon/v1/queue/config/consumer_config.proto";
+import "proto/gcommon/v1/queue/messages/consumer_client.proto";
+import "proto/gcommon/v1/queue/messages/consumer_state.proto";
+import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
+import "proto/gcommon/v1/queue/messages/load_balancing_strategy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "gcommon.v1.queue.api";
+
+message Consumer {
+  // Unique consumer identifier
+  string consumer_id = 1;
+
+  // Consumer client information
+  ConsumerClient client_info = 2;
+
+  // Consumer state
+  ConsumerState state = 3;
+
+  // Assigned partitions
+  repeated int32 assigned_partitions = 4;
+
+  // Consumer configuration
+  ConsumerConfig config = 5;
+
+  // Consumer statistics
+  ConsumerStats stats = 6;
+
+  // Last heartbeat timestamp
+  google.protobuf.Timestamp last_heartbeat = 7;
+
+  // Join timestamp
+  google.protobuf.Timestamp joined_at = 8;
+}
