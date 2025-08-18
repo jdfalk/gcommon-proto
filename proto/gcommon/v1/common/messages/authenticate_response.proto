@@ -4,10 +4,10 @@ edition = "2023";
 package gcommon.v1.common.types;
 
 import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/response_metadata.proto";
+import "proto/gcommon/v1/common/messages/rate_limit.proto";
 import "proto/gcommon/v1/common/messages/session.proto";
 import "proto/gcommon/v1/common/messages/user_info.proto";
-import "proto/gcommon/v1/common/messages/rate_limit.proto";
-import "proto/gcommon/v1/common/api/response_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "gcommon.v1.common.types";

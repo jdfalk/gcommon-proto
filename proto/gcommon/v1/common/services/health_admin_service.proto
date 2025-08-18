@@ -8,8 +8,6 @@ edition = "2023";
 package gcommon.v1.common.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/config/configure_alerting_request.proto";
-import "proto/gcommon/v1/common/config/configure_alerting_response.proto";
 import "proto/gcommon/v1/common/api/disable_check_request.proto";
 import "proto/gcommon/v1/common/api/disable_check_response.proto";
 import "proto/gcommon/v1/common/api/enable_check_request.proto";
@@ -20,6 +18,8 @@ import "proto/gcommon/v1/common/api/run_check_request.proto";
 import "proto/gcommon/v1/common/api/run_check_response.proto";
 import "proto/gcommon/v1/common/api/set_health_request.proto";
 import "proto/gcommon/v1/common/api/set_health_response.proto";
+import "proto/gcommon/v1/common/config/configure_alerting_request.proto";
+import "proto/gcommon/v1/common/config/configure_alerting_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "gcommon.v1.common.services";

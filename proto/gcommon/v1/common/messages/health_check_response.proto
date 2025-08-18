@@ -6,8 +6,8 @@ package gcommon.v1.common.types;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/messages/check_result.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/messages/health_metrics.proto";
 import "proto/gcommon/v1/metrics/types/health_status.proto";
 

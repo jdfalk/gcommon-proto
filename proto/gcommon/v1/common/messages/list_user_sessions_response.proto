@@ -9,11 +9,11 @@ package gcommon.v1.common.types;
 import "google/protobuf/go_features.proto";
 // Standard imports
 import "google/protobuf/timestamp.proto";
-// Auth module types
-import "proto/gcommon/v1/common/messages/session_info.proto";
-import "proto/gcommon/v1/common/messages/error.proto";
 // Common types
 import "proto/gcommon/v1/common/api/paginated_response.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+// Auth module types
+import "proto/gcommon/v1/common/messages/session_info.proto";
 import "proto/gcommon/v1/common/types/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
