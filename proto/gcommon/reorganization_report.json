@@ -1,6 +1,6 @@
 {
-  "total_files_moved": 259,
-  "domains_processed": 1,
+  "total_files_moved": 76,
+  "domains_processed": 8,
   "categories_eliminated": [
     "api",
     "config",
@@ -12,11 +12,18 @@
     "services"
   ],
   "moves_by_domain": {
-    "common": 259
+    "common": 21,
+    "config": 0,
+    "database": 0,
+    "media": 0,
+    "metrics": 1,
+    "organization": 1,
+    "queue": 17,
+    "web": 36
   },
   "moves_by_category": {
-    "enums": 10,
-    "messages": 239,
-    "services": 10
+    "enums": 16,
+    "messages": 59,
+    "services": 1
   }
 }
