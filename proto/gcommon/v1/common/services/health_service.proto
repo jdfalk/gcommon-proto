@@ -4,25 +4,25 @@ edition = "2023";
 package gcommon.v1.common.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/api/get_health_metrics_request.proto";
-import "proto/gcommon/v1/common/api/get_health_metrics_response.proto";
-import "proto/gcommon/v1/common/api/health_check_all_request.proto";
-import "proto/gcommon/v1/common/api/health_check_all_response.proto";
-import "proto/gcommon/v1/common/api/health_check_request.proto";
-import "proto/gcommon/v1/common/api/health_check_response.proto";
-import "proto/gcommon/v1/common/api/register_check_request.proto";
-import "proto/gcommon/v1/common/api/register_check_response.proto";
-import "proto/gcommon/v1/common/api/unregister_check_request.proto";
-import "proto/gcommon/v1/common/api/unregister_check_response.proto";
-import "proto/gcommon/v1/common/api/watch_request.proto";
-import "proto/gcommon/v1/common/api/watch_response.proto";
-import "proto/gcommon/v1/common/services/get_service_health_request.proto";
-import "proto/gcommon/v1/common/services/get_service_health_response.proto";
-import "proto/gcommon/v1/common/services/list_services_request.proto";
-import "proto/gcommon/v1/common/services/list_services_response.proto";
+import "proto/gcommon/v1/common/messages/get_health_metrics_request.proto";
+import "proto/gcommon/v1/common/messages/get_health_metrics_response.proto";
+import "proto/gcommon/v1/common/messages/health_check_all_request.proto";
+import "proto/gcommon/v1/common/messages/health_check_all_response.proto";
+import "proto/gcommon/v1/metrics/v1/health_check_request.proto";
+import "proto/gcommon/v1/metrics/v1/health_check_response.proto";
+import "proto/gcommon/v1/common/messages/register_check_request.proto";
+import "proto/gcommon/v1/common/messages/register_check_response.proto";
+import "proto/gcommon/v1/common/messages/unregister_check_request.proto";
+import "proto/gcommon/v1/common/messages/unregister_check_response.proto";
+import "proto/gcommon/v1/database/messages/watch_request.proto";
+import "proto/gcommon/v1/common/messages/watch_response.proto";
+import "proto/gcommon/v1/common/messages/get_service_health_request.proto";
+import "proto/gcommon/v1/common/messages/get_service_health_response.proto";
+import "proto/gcommon/v1/common/messages/list_services_request.proto";
+import "proto/gcommon/v1/common/messages/list_services_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
 
 /**
  * HealthService provides comprehensive health checking capabilities.

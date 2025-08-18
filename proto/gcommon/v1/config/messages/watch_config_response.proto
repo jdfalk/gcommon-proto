@@ -5,11 +5,11 @@ package gcommon.v1.config.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/config/config/config_entry.proto";
-import "proto/gcommon/v1/config/enums/config_change_type.proto";
+import "proto/gcommon/v1/config/v1/config_entry.proto";
+import "proto/gcommon/v1/config/v1/config_change_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.config.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
 
 /**
  * WatchConfigResponse describes a configuration change event.

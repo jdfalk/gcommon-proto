@@ -8,13 +8,13 @@ package gcommon.v1.organization.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/organization/config/cdn_config.proto";
-import "proto/gcommon/v1/organization/config/domain_config.proto";
-import "proto/gcommon/v1/organization/config/load_balancer_config.proto";
+import "proto/gcommon/v1/organization/messages/cdn_config.proto";
+import "proto/gcommon/v1/organization/messages/domain_config.proto";
+import "proto/gcommon/v1/organization/messages/load_balancer_config.proto";
 import "proto/gcommon/v1/organization/messages/network_acl_rule.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message NetworkIsolation {
   // Virtual private cloud (VPC) identifier

@@ -8,12 +8,12 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/pagination_options.proto";
-import "proto/gcommon/v1/common/messages/sort_direction.proto";
-import "proto/gcommon/v1/common/messages/time_range.proto";
-import "proto/gcommon/v1/common/types/request_metadata.proto";
+import "proto/gcommon/v1/common/enums/sort_direction.proto";
+import "proto/gcommon/v1/metrics/v1/time_range.proto";
+import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 message SecondarySortField {
   string field = 1;

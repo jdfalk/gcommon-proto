@@ -8,10 +8,10 @@ package gcommon.v1.web.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/web/messages/session_state.proto";
+import "proto/gcommon/v1/web/enums/session_state.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.web.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
 
 // SessionData message definition.
 message SessionData {

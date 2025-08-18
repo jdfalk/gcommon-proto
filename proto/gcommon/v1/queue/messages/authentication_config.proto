@@ -7,14 +7,14 @@ edition = "2023";
 package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/api/api_key_auth.proto";
+import "proto/gcommon/v1/queue/messages/api_key_auth.proto";
 import "proto/gcommon/v1/queue/messages/o_auth2_auth.proto";
 import "proto/gcommon/v1/queue/messages/sasl_auth.proto";
 import "proto/gcommon/v1/queue/messages/tls_auth.proto";
 import "proto/gcommon/v1/queue/messages/username_password_auth.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message AuthenticationConfig {
   // Authentication type

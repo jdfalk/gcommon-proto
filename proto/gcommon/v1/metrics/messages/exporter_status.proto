@@ -9,16 +9,16 @@ package gcommon.v1.metrics.types;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/common/messages/time_range.proto";
-import "proto/gcommon/v1/metrics/config/retention_policy_config.proto";
-import "proto/gcommon/v1/metrics/messages/error_stats.proto";
-import "proto/gcommon/v1/metrics/messages/performance_stats.proto";
-import "proto/gcommon/v1/metrics/messages/provider_summary.proto";
-import "proto/gcommon/v1/metrics/messages/top_metrics.proto";
-import "proto/gcommon/v1/metrics/types/health_status.proto";
+import "proto/gcommon/v1/metrics/v1/time_range.proto";
+import "proto/gcommon/v1/metrics/v1/retention_policy_config.proto";
+import "proto/gcommon/v1/metrics/v1/error_stats.proto";
+import "proto/gcommon/v1/metrics/v1/performance_stats.proto";
+import "proto/gcommon/v1/metrics/v1/provider_summary.proto";
+import "proto/gcommon/v1/metrics/v1/top_metrics.proto";
+import "proto/gcommon/v1/metrics/v1/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/messages";
 
 message ExporterStatus {
   string exporter_id = 1;

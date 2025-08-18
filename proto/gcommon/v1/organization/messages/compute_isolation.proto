@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.organization.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/organization/config/auto_scaling_config.proto";
+import "proto/gcommon/v1/organization/messages/auto_scaling_config.proto";
 import "proto/gcommon/v1/organization/messages/cpu_allocation.proto";
 import "proto/gcommon/v1/organization/messages/memory_allocation.proto";
 import "proto/gcommon/v1/organization/messages/resource_limits.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message ComputeIsolation {
   // Dedicated compute instance identifier

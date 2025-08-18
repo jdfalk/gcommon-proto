@@ -7,14 +7,14 @@ edition = "2023";
 package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/config/dead_letter_queue_config.proto";
-import "proto/gcommon/v1/queue/config/error_action_config.proto";
-import "proto/gcommon/v1/queue/config/error_notification_config.proto";
-import "proto/gcommon/v1/queue/messages/ack_level.proto";
-import "proto/gcommon/v1/queue/messages/delivery_mode.proto";
+import "proto/gcommon/v1/queue/messages/dead_letter_queue_config.proto";
+import "proto/gcommon/v1/queue/messages/error_action_config.proto";
+import "proto/gcommon/v1/queue/messages/error_notification_config.proto";
+import "proto/gcommon/v1/queue/enums/ack_level.proto";
+import "proto/gcommon/v1/queue/enums/delivery_mode.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message ErrorHandlingConfig {
   // Dead letter queue configuration

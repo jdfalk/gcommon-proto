@@ -5,10 +5,10 @@ package gcommon.v1.common.types;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/messages/ack_mode.proto";
+import "proto/gcommon/v1/common/enums/ack_mode.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 /**
  * Subscription options for configuring streaming behavior.

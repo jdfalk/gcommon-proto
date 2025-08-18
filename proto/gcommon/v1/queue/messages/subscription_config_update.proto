@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/config/config/retry_settings.proto";
-import "proto/gcommon/v1/queue/config/delivery_settings.proto";
-import "proto/gcommon/v1/queue/config/filter_settings.proto";
-import "proto/gcommon/v1/queue/config/routing_settings.proto";
+import "proto/gcommon/v1/config/v1/retry_settings.proto";
+import "proto/gcommon/v1/queue/messages/delivery_settings.proto";
+import "proto/gcommon/v1/queue/messages/filter_settings.proto";
+import "proto/gcommon/v1/queue/messages/routing_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message SubscriptionConfigUpdate {
   // Updated subscription name

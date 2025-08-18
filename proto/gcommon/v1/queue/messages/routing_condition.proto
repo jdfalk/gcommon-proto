@@ -11,7 +11,7 @@ import "proto/gcommon/v1/queue/messages/priority_range.proto";
 import "proto/gcommon/v1/queue/messages/size_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 /**
  * Condition for routing rules.

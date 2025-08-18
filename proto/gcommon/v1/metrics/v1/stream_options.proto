@@ -8,13 +8,13 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/messages/buffer_overflow_strategy.proto";
-import "proto/gcommon/v1/metrics/messages/metric_filter.proto";
-import "proto/gcommon/v1/metrics/messages/stream_compression.proto";
-import "proto/gcommon/v1/metrics/messages/stream_qos.proto";
+import "proto/gcommon/v1/metrics/v1/buffer_overflow_strategy.proto";
+import "proto/gcommon/v1/metrics/v1/metric_filter.proto";
+import "proto/gcommon/v1/metrics/v1/stream_compression.proto";
+import "proto/gcommon/v1/metrics/v1/stream_qos.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 message StreamOptions {
   // Whether to include historical data or only new metrics

@@ -8,10 +8,10 @@ package gcommon.v1.common.messages;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/notification_message.proto";
-import "proto/gcommon/v1/common/types/request_metadata.proto";
+import "proto/gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.messages";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 message SendNotificationRequest {
   // Standard request metadata for tracing and auth.

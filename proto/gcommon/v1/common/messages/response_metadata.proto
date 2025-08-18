@@ -11,10 +11,10 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/messages/rate_limit_info.proto";
-import "proto/gcommon/v1/metrics/messages/pagination_info.proto";
+import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 message ResponseMetadata {
   // Trace ID from the corresponding request for correlation

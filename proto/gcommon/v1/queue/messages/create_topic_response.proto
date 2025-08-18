@@ -11,11 +11,11 @@ package gcommon.v1.queue.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/queue/config/topic_config.proto";
+import "proto/gcommon/v1/queue/messages/topic_config.proto";
 import "proto/gcommon/v1/queue/messages/topic_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 /**
  * Response for topic creation operations.

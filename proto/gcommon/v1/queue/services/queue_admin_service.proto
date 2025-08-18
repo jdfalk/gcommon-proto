@@ -7,23 +7,23 @@ edition = "2023";
 package gcommon.v1.queue.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/api/create_queue_request.proto";
-import "proto/gcommon/v1/queue/api/create_queue_response.proto";
-import "proto/gcommon/v1/queue/api/delete_topic_request.proto";
-import "proto/gcommon/v1/queue/api/delete_topic_response.proto";
-import "proto/gcommon/v1/queue/api/get_queue_info_request.proto";
-import "proto/gcommon/v1/queue/api/get_queue_info_response.proto";
-import "proto/gcommon/v1/queue/api/pause_queue_request.proto";
-import "proto/gcommon/v1/queue/api/pause_queue_response.proto";
-import "proto/gcommon/v1/queue/api/purge_request.proto";
-import "proto/gcommon/v1/queue/api/purge_response.proto";
-import "proto/gcommon/v1/queue/api/reset_queue_stats_request.proto";
-import "proto/gcommon/v1/queue/api/reset_queue_stats_response.proto";
-import "proto/gcommon/v1/queue/api/resume_queue_request.proto";
-import "proto/gcommon/v1/queue/api/resume_queue_response.proto";
+import "proto/gcommon/v1/queue/messages/create_queue_request.proto";
+import "proto/gcommon/v1/queue/messages/create_queue_response.proto";
+import "proto/gcommon/v1/queue/messages/delete_topic_request.proto";
+import "proto/gcommon/v1/queue/messages/delete_topic_response.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_info_request.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_info_response.proto";
+import "proto/gcommon/v1/queue/messages/pause_queue_request.proto";
+import "proto/gcommon/v1/queue/messages/pause_queue_response.proto";
+import "proto/gcommon/v1/queue/messages/purge_request.proto";
+import "proto/gcommon/v1/queue/messages/purge_response.proto";
+import "proto/gcommon/v1/queue/messages/reset_queue_stats_request.proto";
+import "proto/gcommon/v1/queue/messages/reset_queue_stats_response.proto";
+import "proto/gcommon/v1/queue/messages/resume_queue_request.proto";
+import "proto/gcommon/v1/queue/messages/resume_queue_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/services";
 
 // Administrative service for queue management operations
 service QueueAdminService {

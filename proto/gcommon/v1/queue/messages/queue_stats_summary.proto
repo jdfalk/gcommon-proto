@@ -9,11 +9,11 @@ package gcommon.v1.queue.types;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/api/response_metadata.proto";
+import "proto/gcommon/v1/common/messages/response_metadata.proto";
 import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message QueueStatsSummary {
   // Total number of queues

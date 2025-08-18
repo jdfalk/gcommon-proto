@@ -8,13 +8,13 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/config/config/config_change.proto";
-import "proto/gcommon/v1/metrics/config/config_change.proto";
-import "proto/gcommon/v1/metrics/messages/update_action.proto";
-import "proto/gcommon/v1/metrics/messages/validation_result.proto";
+import "proto/gcommon/v1/metrics/v1/config_change.proto";
+import "proto/gcommon/v1/metrics/v1/config_change.proto";
+import "proto/gcommon/v1/metrics/v1/update_action.proto";
+import "proto/gcommon/v1/metrics/v1/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * UpdateResult contains information about what was changed.

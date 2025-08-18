@@ -5,11 +5,11 @@ package gcommon.v1.database.config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/database/messages/query_stats.proto";
+import "proto/gcommon/v1/metrics/v1/query_stats.proto";
 import "proto/gcommon/v1/database/messages/result_set.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.database.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
 
 /**
  * QueryResponse contains the results of a database query operation.

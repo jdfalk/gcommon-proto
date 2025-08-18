@@ -10,7 +10,7 @@ package gcommon.v1.metrics.types;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/enums";
 
 /**
  * AggregationType defines how metrics should be aggregated over time.

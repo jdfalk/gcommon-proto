@@ -9,10 +9,10 @@ package gcommon.v1.config.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/config/enums/hook_type.proto";
-import "proto/gcommon/v1/config/messages/hook_error_handling.proto";
+import "proto/gcommon/v1/config/enums/hook_error_handling.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.config.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
 
 message TemplateHook {
   // Hook name

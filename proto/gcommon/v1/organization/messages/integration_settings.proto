@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.organization.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/config/api_key_config.proto";
-import "proto/gcommon/v1/organization/config/o_auth_app_config.proto";
-import "proto/gcommon/v1/organization/config/webhook_config.proto";
+import "proto/gcommon/v1/organization/messages/api_key_config.proto";
+import "proto/gcommon/v1/organization/messages/o_auth_app_config.proto";
+import "proto/gcommon/v1/organization/messages/webhook_config.proto";
 import "proto/gcommon/v1/organization/messages/integration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message IntegrationSettings {
   // Enabled third-party integrations

@@ -8,7 +8,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/organization/messages/department.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message CreateDepartmentResponse {
   // Any errors encountered

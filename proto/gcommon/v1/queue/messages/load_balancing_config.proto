@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/messages/load_balancing_strategy.proto";
+import "proto/gcommon/v1/queue/enums/load_balancing_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 /**
  * Configuration for load balancing across queue consumers.

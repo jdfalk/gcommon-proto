@@ -7,21 +7,21 @@ edition = "2023";
 package gcommon.v1.common.messages;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/api/delete_notification_request.proto";
-import "proto/gcommon/v1/common/api/delete_notification_response.proto";
-import "proto/gcommon/v1/common/api/get_template_request.proto";
-import "proto/gcommon/v1/common/api/get_template_response.proto";
-import "proto/gcommon/v1/common/api/list_notifications_request.proto";
-import "proto/gcommon/v1/common/api/list_notifications_response.proto";
-import "proto/gcommon/v1/common/api/mark_as_read_request.proto";
-import "proto/gcommon/v1/common/api/mark_as_read_response.proto";
-import "proto/gcommon/v1/common/api/send_notification_request.proto";
-import "proto/gcommon/v1/common/api/send_notification_response.proto";
-import "proto/gcommon/v1/common/api/update_preferences_request.proto";
-import "proto/gcommon/v1/common/api/update_preferences_response.proto";
+import "proto/gcommon/v1/common/messages/delete_notification_request.proto";
+import "proto/gcommon/v1/common/messages/delete_notification_response.proto";
+import "proto/gcommon/v1/common/messages/get_template_request.proto";
+import "proto/gcommon/v1/common/messages/get_template_response.proto";
+import "proto/gcommon/v1/common/messages/list_notifications_request.proto";
+import "proto/gcommon/v1/common/messages/list_notifications_response.proto";
+import "proto/gcommon/v1/common/messages/mark_as_read_request.proto";
+import "proto/gcommon/v1/common/messages/mark_as_read_response.proto";
+import "proto/gcommon/v1/common/messages/send_notification_request.proto";
+import "proto/gcommon/v1/common/messages/send_notification_response.proto";
+import "proto/gcommon/v1/common/messages/update_preferences_request.proto";
+import "proto/gcommon/v1/common/messages/update_preferences_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.messages";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.

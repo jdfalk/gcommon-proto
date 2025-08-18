@@ -8,12 +8,12 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/config/enums/change_type.proto";
 import "proto/gcommon/v1/metrics/enums/change_type.proto";
-import "proto/gcommon/v1/metrics/messages/validation_result.proto";
+import "proto/gcommon/v1/metrics/enums/change_type.proto";
+import "proto/gcommon/v1/metrics/v1/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * ConfigChange describes a configuration change that was made.

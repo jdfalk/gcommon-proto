@@ -10,17 +10,17 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/common/messages/pagination_info.proto";
-import "proto/gcommon/v1/common/messages/time_range.proto";
-import "proto/gcommon/v1/database/messages/query_stats.proto";
-import "proto/gcommon/v1/metrics/messages/metric_data.proto";
-import "proto/gcommon/v1/metrics/messages/metric_metadata.proto";
-import "proto/gcommon/v1/metrics/messages/pagination_info.proto";
-import "proto/gcommon/v1/metrics/messages/query_stats.proto";
-import "proto/gcommon/v1/metrics/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
+import "proto/gcommon/v1/metrics/v1/time_range.proto";
+import "proto/gcommon/v1/metrics/v1/query_stats.proto";
+import "proto/gcommon/v1/metrics/v1/metric_data.proto";
+import "proto/gcommon/v1/metrics/v1/metric_metadata.proto";
+import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
+import "proto/gcommon/v1/metrics/v1/query_stats.proto";
+import "proto/gcommon/v1/metrics/v1/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * GetMetricsResponse contains the retrieved metrics data.

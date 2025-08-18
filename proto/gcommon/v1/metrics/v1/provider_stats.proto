@@ -8,14 +8,14 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/messages/pagination_info.proto";
-import "proto/gcommon/v1/metrics/messages/provider_info.proto";
-import "proto/gcommon/v1/metrics/messages/provider_summary.proto";
-import "proto/gcommon/v1/metrics/messages/resource_limits_summary.proto";
-import "proto/gcommon/v1/metrics/messages/resource_usage.proto";
+import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
+import "proto/gcommon/v1/metrics/v1/provider_info.proto";
+import "proto/gcommon/v1/metrics/v1/provider_summary.proto";
+import "proto/gcommon/v1/metrics/v1/resource_limits_summary.proto";
+import "proto/gcommon/v1/metrics/v1/resource_usage.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 message ProviderStats {
   // Number of metrics managed

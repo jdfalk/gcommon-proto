@@ -11,11 +11,11 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/messages/error_info.proto";
-import "proto/gcommon/v1/common/messages/log_level.proto";
+import "proto/gcommon/v1/common/enums/log_level.proto";
 import "proto/gcommon/v1/common/messages/source_location.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 // LogEntry represents a single structured log event
 message LogEntry {

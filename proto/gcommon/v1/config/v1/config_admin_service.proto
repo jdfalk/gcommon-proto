@@ -8,25 +8,25 @@ package gcommon.v1.config.v1;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/config/api/health_check_request.proto";
-import "proto/gcommon/v1/config/api/health_check_response.proto";
-import "proto/gcommon/v1/config/config/backup_config_request.proto";
-import "proto/gcommon/v1/config/config/config_backup.proto";
-import "proto/gcommon/v1/config/config/config_snapshot.proto";
-import "proto/gcommon/v1/config/config/export_config_request.proto";
-import "proto/gcommon/v1/config/config/get_config_history_request.proto";
-import "proto/gcommon/v1/config/config/get_config_history_response.proto";
-import "proto/gcommon/v1/config/config/get_config_stats_request.proto";
-import "proto/gcommon/v1/config/config/get_config_stats_response.proto";
-import "proto/gcommon/v1/config/config/import_config_request.proto";
-import "proto/gcommon/v1/config/config/reload_config_request.proto";
-import "proto/gcommon/v1/config/config/restore_config_request.proto";
-import "proto/gcommon/v1/config/config/rollback_config_request.proto";
-import "proto/gcommon/v1/config/config/set_config_schema_request.proto";
-import "proto/gcommon/v1/config/config/unwatch_config_request.proto";
+import "proto/gcommon/v1/metrics/v1/health_check_request.proto";
+import "proto/gcommon/v1/metrics/v1/health_check_response.proto";
+import "proto/gcommon/v1/config/messages/backup_config_request.proto";
+import "proto/gcommon/v1/config/v1/config_backup.proto";
+import "proto/gcommon/v1/config/v1/config_snapshot.proto";
+import "proto/gcommon/v1/config/messages/export_config_request.proto";
+import "proto/gcommon/v1/config/messages/get_config_history_request.proto";
+import "proto/gcommon/v1/config/messages/get_config_history_response.proto";
+import "proto/gcommon/v1/config/messages/get_config_stats_request.proto";
+import "proto/gcommon/v1/config/messages/get_config_stats_response.proto";
+import "proto/gcommon/v1/config/messages/import_config_request.proto";
+import "proto/gcommon/v1/config/messages/reload_config_request.proto";
+import "proto/gcommon/v1/config/messages/restore_config_request.proto";
+import "proto/gcommon/v1/config/messages/rollback_config_request.proto";
+import "proto/gcommon/v1/config/messages/set_config_schema_request.proto";
+import "proto/gcommon/v1/config/messages/unwatch_config_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.config.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/v1";
 
 /**
  * ConfigAdminService provides administrative configuration operations.

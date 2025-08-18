@@ -9,15 +9,15 @@ package gcommon.v1.config.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/config/enums/channel_type.proto";
-import "proto/gcommon/v1/config/enums/config_data_type.proto";
-import "proto/gcommon/v1/config/messages/audit_level.proto";
-import "proto/gcommon/v1/config/messages/backup_frequency.proto";
-import "proto/gcommon/v1/config/messages/deprecation_level.proto";
-import "proto/gcommon/v1/config/messages/notification_trigger.proto";
-import "proto/gcommon/v1/config/types/metadata_status.proto";
+import "proto/gcommon/v1/config/v1/config_data_type.proto";
+import "proto/gcommon/v1/config/enums/audit_level.proto";
+import "proto/gcommon/v1/config/enums/backup_frequency.proto";
+import "proto/gcommon/v1/config/enums/deprecation_level.proto";
+import "proto/gcommon/v1/config/enums/notification_trigger.proto";
+import "proto/gcommon/v1/config/enums/metadata_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.config.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
 
 message ApprovalRequirement {
   // Whether approval is required

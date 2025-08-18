@@ -12,7 +12,7 @@ import "proto/gcommon/v1/web/enums/proxy_type.proto";
 import "proto/gcommon/v1/web/messages/http_header.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.web.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
 
 // ProxyConfig message definition.
 message ProxyConfig {

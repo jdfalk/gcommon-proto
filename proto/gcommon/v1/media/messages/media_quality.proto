@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.media.types;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/media/messages/quality_score.proto";
-import "proto/gcommon/v1/media/messages/resolution.proto";
+import "proto/gcommon/v1/media/enums/quality_score.proto";
+import "proto/gcommon/v1/media/enums/resolution.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.media.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/media/messages";
 
 // Media quality assessment.
 message MediaQuality {

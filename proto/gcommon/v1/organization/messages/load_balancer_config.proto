@@ -8,11 +8,11 @@ package gcommon.v1.organization.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/organization/config/health_check_config.proto";
-import "proto/gcommon/v1/organization/config/ssl_config.proto";
+import "proto/gcommon/v1/organization/messages/health_check_config.proto";
+import "proto/gcommon/v1/organization/messages/ssl_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message OrganizationLoadBalancerConfig {
   // Load balancer type (application, network)

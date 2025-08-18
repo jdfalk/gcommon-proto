@@ -8,12 +8,12 @@ package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/queue/config/stream_config.proto";
+import "proto/gcommon/v1/queue/messages/stream_config.proto";
 import "proto/gcommon/v1/queue/enums/offset_type.proto";
-import "proto/gcommon/v1/queue/messages/ack_level.proto";
+import "proto/gcommon/v1/queue/enums/ack_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message OffsetConfig {
   // Offset type (earliest, latest, timestamp, specific)

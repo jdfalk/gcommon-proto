@@ -11,12 +11,12 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/config/messages/validation_result.proto";
-import "proto/gcommon/v1/metrics/messages/validation_result.proto";
-import "proto/gcommon/v1/metrics/types/provider_status.proto";
+import "proto/gcommon/v1/metrics/v1/validation_result.proto";
+import "proto/gcommon/v1/metrics/v1/validation_result.proto";
+import "proto/gcommon/v1/metrics/messages/provider_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * UpdateProviderResponse contains the result of updating a metrics provider.

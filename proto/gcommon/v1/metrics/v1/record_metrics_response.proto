@@ -9,12 +9,12 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/metrics/messages/batch_stats.proto";
-import "proto/gcommon/v1/metrics/messages/metric_result.proto";
-import "proto/gcommon/v1/metrics/messages/validation_summary.proto";
+import "proto/gcommon/v1/metrics/v1/batch_stats.proto";
+import "proto/gcommon/v1/metrics/v1/metric_result.proto";
+import "proto/gcommon/v1/metrics/v1/validation_summary.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 message RecordMetricsResponse {
   // Overall success status of the batch operation

@@ -8,7 +8,7 @@ import "proto/gcommon/v1/database/messages/column_metadata.proto";
 import "proto/gcommon/v1/database/messages/row.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.database.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/database/messages";
 
 /**
  * ResultSet contains the results of a database query operation.

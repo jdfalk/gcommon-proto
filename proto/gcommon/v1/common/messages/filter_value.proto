@@ -4,12 +4,12 @@ edition = "2023";
 package gcommon.v1.common.types;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/messages/filter_operation.proto";
+import "proto/gcommon/v1/common/enums/filter_operation.proto";
 import "proto/gcommon/v1/common/messages/int64_array.proto";
 import "proto/gcommon/v1/common/messages/string_array.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 /**
  * Filter value with multiple type support and operation specification.

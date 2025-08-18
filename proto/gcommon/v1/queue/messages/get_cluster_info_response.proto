@@ -14,7 +14,7 @@ import "proto/gcommon/v1/queue/messages/cluster_info.proto";
 import "proto/gcommon/v1/queue/messages/node_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 /**
  * Response containing cluster information.

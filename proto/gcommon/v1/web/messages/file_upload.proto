@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.web.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/web/enums/mime_type.proto";
+import "proto/gcommon/v1/web/messages/mime_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.web.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
 
 // FileUpload message definition.
 message FileUpload {

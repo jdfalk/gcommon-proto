@@ -8,11 +8,11 @@ package gcommon.v1.queue.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/queue/messages/backup_info.proto";
+import "proto/gcommon/v1/metrics/v1/backup_info.proto";
 import "proto/gcommon/v1/queue/messages/deletion_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message QueueDeleteResponse {
   // Success status of the delete operation

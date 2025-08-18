@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/messages/cleanup_strategy.proto";
+import "proto/gcommon/v1/metrics/v1/cleanup_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * DeletionOptions configure the deletion process.

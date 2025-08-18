@@ -9,10 +9,10 @@ package gcommon.v1.web.config;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/cache_policy.proto";
-import "proto/gcommon/v1/web/messages/cache_strategy.proto";
+import "proto/gcommon/v1/web/enums/cache_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.web.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
 
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {

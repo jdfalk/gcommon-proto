@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/config/metric_config.proto";
+import "proto/gcommon/v1/metrics/v1/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * SetMetricConfigRequest updates configuration for a metric.

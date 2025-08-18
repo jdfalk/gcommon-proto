@@ -8,12 +8,12 @@ package gcommon.v1.organization.api;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/organization/config/organization_settings.proto";
+import "proto/gcommon/v1/organization/messages/organization_settings.proto";
 import "proto/gcommon/v1/organization/messages/organization.proto";
 import "proto/gcommon/v1/organization/messages/tenant.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 /**
  * GetOrganizationResponse message returning organization information.

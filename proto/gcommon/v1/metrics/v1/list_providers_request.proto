@@ -8,11 +8,11 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/pagination_options.proto";
-import "proto/gcommon/v1/common/types/request_metadata.proto";
-import "proto/gcommon/v1/metrics/messages/provider_filter.proto";
+import "proto/gcommon/v1/common/messages/request_metadata.proto";
+import "proto/gcommon/v1/metrics/v1/provider_filter.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 message ListProvidersRequest {
   // Standard request metadata (tracing, auth, etc.)

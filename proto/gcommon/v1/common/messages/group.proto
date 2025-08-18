@@ -5,11 +5,11 @@ package gcommon.v1.common.types;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/types/request_metadata.proto";
-import "proto/gcommon/v1/common/types/resource_status.proto";
+import "proto/gcommon/v1/common/messages/request_metadata.proto";
+import "proto/gcommon/v1/common/enums/resource_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.common.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/messages";
 
 /**
  * Group entity for organizing users into collections.

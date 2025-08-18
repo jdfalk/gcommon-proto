@@ -4,31 +4,31 @@ edition = "2023";
 package gcommon.v1.organization.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/organization/api/add_member_request.proto";
-import "proto/gcommon/v1/organization/api/add_member_response.proto";
-import "proto/gcommon/v1/organization/api/create_organization_request.proto";
-import "proto/gcommon/v1/organization/api/create_organization_response.proto";
-import "proto/gcommon/v1/organization/api/delete_organization_request.proto";
-import "proto/gcommon/v1/organization/api/delete_organization_response.proto";
-import "proto/gcommon/v1/organization/api/get_organization_request.proto";
-import "proto/gcommon/v1/organization/api/get_organization_response.proto";
-import "proto/gcommon/v1/organization/api/list_members_request.proto";
-import "proto/gcommon/v1/organization/api/list_members_response.proto";
-import "proto/gcommon/v1/organization/api/list_organizations_request.proto";
-import "proto/gcommon/v1/organization/api/list_organizations_response.proto";
-import "proto/gcommon/v1/organization/api/remove_member_request.proto";
-import "proto/gcommon/v1/organization/api/remove_member_response.proto";
-import "proto/gcommon/v1/organization/api/update_member_request.proto";
-import "proto/gcommon/v1/organization/api/update_member_response.proto";
-import "proto/gcommon/v1/organization/api/update_organization_request.proto";
-import "proto/gcommon/v1/organization/api/update_organization_response.proto";
-import "proto/gcommon/v1/organization/config/get_organization_settings_request.proto";
-import "proto/gcommon/v1/organization/config/get_organization_settings_response.proto";
-import "proto/gcommon/v1/organization/config/update_organization_settings_request.proto";
-import "proto/gcommon/v1/organization/config/update_organization_settings_response.proto";
+import "proto/gcommon/v1/organization/messages/add_member_request.proto";
+import "proto/gcommon/v1/organization/messages/add_member_response.proto";
+import "proto/gcommon/v1/organization/messages/create_organization_request.proto";
+import "proto/gcommon/v1/organization/messages/create_organization_response.proto";
+import "proto/gcommon/v1/organization/messages/delete_organization_request.proto";
+import "proto/gcommon/v1/organization/messages/delete_organization_response.proto";
+import "proto/gcommon/v1/organization/messages/get_organization_request.proto";
+import "proto/gcommon/v1/organization/messages/get_organization_response.proto";
+import "proto/gcommon/v1/organization/messages/list_members_request.proto";
+import "proto/gcommon/v1/organization/messages/list_members_response.proto";
+import "proto/gcommon/v1/organization/messages/list_organizations_request.proto";
+import "proto/gcommon/v1/organization/messages/list_organizations_response.proto";
+import "proto/gcommon/v1/organization/messages/remove_member_request.proto";
+import "proto/gcommon/v1/organization/messages/remove_member_response.proto";
+import "proto/gcommon/v1/organization/messages/update_member_request.proto";
+import "proto/gcommon/v1/organization/messages/update_member_response.proto";
+import "proto/gcommon/v1/organization/messages/update_organization_request.proto";
+import "proto/gcommon/v1/organization/messages/update_organization_response.proto";
+import "proto/gcommon/v1/organization/messages/get_organization_settings_request.proto";
+import "proto/gcommon/v1/organization/messages/get_organization_settings_response.proto";
+import "proto/gcommon/v1/organization/messages/update_organization_settings_request.proto";
+import "proto/gcommon/v1/organization/messages/update_organization_settings_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/services";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

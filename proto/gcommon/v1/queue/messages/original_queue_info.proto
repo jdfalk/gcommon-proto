@@ -8,12 +8,12 @@ package gcommon.v1.queue.types;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/queue/api/restore_queue_response.proto";
-import "proto/gcommon/v1/queue/config/restore_config.proto";
-import "proto/gcommon/v1/queue/messages/time_range.proto";
+import "proto/gcommon/v1/queue/messages/restore_queue_response.proto";
+import "proto/gcommon/v1/queue/messages/restore_config.proto";
+import "proto/gcommon/v1/metrics/v1/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.types";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message OriginalQueueInfo {
   // Original queue ID

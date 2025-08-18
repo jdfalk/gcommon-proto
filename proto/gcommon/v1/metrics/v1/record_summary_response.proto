@@ -9,11 +9,11 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/metrics/messages/recording_stats.proto";
-import "proto/gcommon/v1/metrics/messages/summary_metric.proto";
+import "proto/gcommon/v1/metrics/v1/recording_stats.proto";
+import "proto/gcommon/v1/metrics/v1/summary_metric.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.metrics.v1";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";
 
 /**
  * RecordSummaryResponse returns updated summary stats.

@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.queue.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/config/multi_value_config.proto";
+import "proto/gcommon/v1/queue/messages/multi_value_config.proto";
 import "proto/gcommon/v1/queue/messages/custom_resolution.proto";
 import "proto/gcommon/v1/queue/messages/last_writer_wins.proto";
-import "proto/gcommon/v1/queue/messages/resolution_strategy.proto";
+import "proto/gcommon/v1/queue/enums/resolution_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";
 
 message QueueConflictResolution {
   // Conflict resolution strategy

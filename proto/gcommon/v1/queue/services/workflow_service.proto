@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.queue.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/api/start_workflow_request.proto";
-import "proto/gcommon/v1/queue/api/start_workflow_response.proto";
-import "proto/gcommon/v1/queue/api/stop_workflow_request.proto";
-import "proto/gcommon/v1/queue/api/stop_workflow_response.proto";
+import "proto/gcommon/v1/queue/messages/start_workflow_request.proto";
+import "proto/gcommon/v1/queue/messages/start_workflow_response.proto";
+import "proto/gcommon/v1/queue/messages/stop_workflow_request.proto";
+import "proto/gcommon/v1/queue/messages/stop_workflow_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/services";
 
 /**
  * WorkflowService provides workflow management operations for

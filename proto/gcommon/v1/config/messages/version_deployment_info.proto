@@ -9,11 +9,11 @@ package gcommon.v1.config.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/audit_log.proto";
-import "proto/gcommon/v1/config/types/version_deployment_status.proto";
-import "proto/gcommon/v1/config/types/version_health_status.proto";
+import "proto/gcommon/v1/config/enums/version_deployment_status.proto";
+import "proto/gcommon/v1/config/enums/version_health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.config.api";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";
 
 message VersionDeploymentInfo {
   // Deployment status

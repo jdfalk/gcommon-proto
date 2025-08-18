@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
 # file: scripts/fix-all-import-paths.py
-# version: 1.0.0
+# version: 2.0.0
 # guid: 6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d
 
 """
-Comprehensive import path fixer for the reorganized protobuf structure.
+Comprehensive import path fixer for protobuf files.
 
-This script fixes all import statements in protobuf files to match the new 3-category structure:
-- pkg/{domain}/enums/
-- pkg/{domain}/messages/
-- pkg/{domain}/services/
+This script fixes all import statements in protobuf files to use correct paths based on the current structure:
+- pkg/{domain}/proto/ (Go packages)
+- proto/gcommon/v1/{domain}/{category}/ (proto definitions)
 
 It handles:
 1. Import statements in .proto files
 2. Go package declarations in .proto files
-3. References in documentation and comments
+3. Cross-references between different structures
 """
 
 import logging
 import re
 import sys
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Set
 
 # Set up logging
 logging.basicConfig(
@@ -32,21 +31,7 @@ logger = logging.getLogger(__name__)
 # Project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
 PKG_DIR = PROJECT_ROOT / "pkg"
-
-# Domain folders
-DOMAINS = [
-    "auth",
-    "backend",
-    "common",
-    "frontend",
-    "infrastructure",
-    "public",
-    "queue",
-    "system",
-]
-
-# Categories in new structure
-CATEGORIES = ["enums", "messages", "services"]
+PROTO_DIR = PROJECT_ROOT / "proto"
 
 
 class ImportPathFixer:

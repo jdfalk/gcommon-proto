@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.web.config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/web/messages/rate_limit_strategy.proto";
+import "proto/gcommon/v1/web/enums/rate_limit_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.web.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/web/messages";
 
 // RateLimitConfig message definition.
 message WebRateLimitConfig {

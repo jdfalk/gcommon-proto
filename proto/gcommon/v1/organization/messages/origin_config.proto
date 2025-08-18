@@ -9,10 +9,10 @@ package gcommon.v1.organization.config;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/messages/isolation_level.proto";
+import "proto/gcommon/v1/organization/enums/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.config";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/messages";
 
 message OriginConfig {
   // Origin domain name

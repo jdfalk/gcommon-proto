@@ -4,33 +4,33 @@ edition = "2023";
 package gcommon.v1.organization.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/organization/api/create_department_request.proto";
-import "proto/gcommon/v1/organization/api/create_department_response.proto";
-import "proto/gcommon/v1/organization/api/create_team_request.proto";
-import "proto/gcommon/v1/organization/api/create_team_response.proto";
-import "proto/gcommon/v1/organization/api/delete_department_request.proto";
-import "proto/gcommon/v1/organization/api/delete_department_response.proto";
-import "proto/gcommon/v1/organization/api/delete_team_request.proto";
-import "proto/gcommon/v1/organization/api/delete_team_response.proto";
-import "proto/gcommon/v1/organization/api/get_department_request.proto";
-import "proto/gcommon/v1/organization/api/get_department_response.proto";
-import "proto/gcommon/v1/organization/api/get_hierarchy_request.proto";
-import "proto/gcommon/v1/organization/api/get_hierarchy_response.proto";
-import "proto/gcommon/v1/organization/api/get_team_request.proto";
-import "proto/gcommon/v1/organization/api/get_team_response.proto";
-import "proto/gcommon/v1/organization/api/list_departments_request.proto";
-import "proto/gcommon/v1/organization/api/list_departments_response.proto";
-import "proto/gcommon/v1/organization/api/list_teams_request.proto";
-import "proto/gcommon/v1/organization/api/list_teams_response.proto";
-import "proto/gcommon/v1/organization/api/update_department_request.proto";
-import "proto/gcommon/v1/organization/api/update_department_response.proto";
-import "proto/gcommon/v1/organization/api/update_hierarchy_request.proto";
-import "proto/gcommon/v1/organization/api/update_hierarchy_response.proto";
-import "proto/gcommon/v1/organization/api/update_team_request.proto";
-import "proto/gcommon/v1/organization/api/update_team_response.proto";
+import "proto/gcommon/v1/organization/messages/create_department_request.proto";
+import "proto/gcommon/v1/organization/messages/create_department_response.proto";
+import "proto/gcommon/v1/organization/messages/create_team_request.proto";
+import "proto/gcommon/v1/organization/messages/create_team_response.proto";
+import "proto/gcommon/v1/organization/messages/delete_department_request.proto";
+import "proto/gcommon/v1/organization/messages/delete_department_response.proto";
+import "proto/gcommon/v1/organization/messages/delete_team_request.proto";
+import "proto/gcommon/v1/organization/messages/delete_team_response.proto";
+import "proto/gcommon/v1/organization/messages/get_department_request.proto";
+import "proto/gcommon/v1/organization/messages/get_department_response.proto";
+import "proto/gcommon/v1/organization/messages/get_hierarchy_request.proto";
+import "proto/gcommon/v1/organization/messages/get_hierarchy_response.proto";
+import "proto/gcommon/v1/organization/messages/get_team_request.proto";
+import "proto/gcommon/v1/organization/messages/get_team_response.proto";
+import "proto/gcommon/v1/organization/messages/list_departments_request.proto";
+import "proto/gcommon/v1/organization/messages/list_departments_response.proto";
+import "proto/gcommon/v1/organization/messages/list_teams_request.proto";
+import "proto/gcommon/v1/organization/messages/list_teams_response.proto";
+import "proto/gcommon/v1/organization/messages/update_department_request.proto";
+import "proto/gcommon/v1/organization/messages/update_department_response.proto";
+import "proto/gcommon/v1/organization/messages/update_hierarchy_request.proto";
+import "proto/gcommon/v1/organization/messages/update_hierarchy_response.proto";
+import "proto/gcommon/v1/organization/messages/update_team_request.proto";
+import "proto/gcommon/v1/organization/messages/update_team_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.organization.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/organization/services";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

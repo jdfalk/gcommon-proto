@@ -7,23 +7,23 @@ edition = "2023";
 package gcommon.v1.queue.services;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/api/dequeue_request.proto";
-import "proto/gcommon/v1/queue/api/dequeue_response.proto";
-import "proto/gcommon/v1/queue/api/enqueue_request.proto";
-import "proto/gcommon/v1/queue/api/enqueue_response.proto";
-import "proto/gcommon/v1/queue/api/get_queue_info_request.proto";
-import "proto/gcommon/v1/queue/api/get_queue_info_response.proto";
-import "proto/gcommon/v1/queue/api/get_queue_stats_request.proto";
-import "proto/gcommon/v1/queue/api/get_queue_stats_response.proto";
-import "proto/gcommon/v1/queue/api/peek_request.proto";
-import "proto/gcommon/v1/queue/api/peek_response.proto";
-import "proto/gcommon/v1/queue/api/publish_request.proto";
-import "proto/gcommon/v1/queue/api/publish_response.proto";
-import "proto/gcommon/v1/queue/api/subscribe_request.proto";
-import "proto/gcommon/v1/queue/api/subscribe_response.proto";
+import "proto/gcommon/v1/queue/messages/dequeue_request.proto";
+import "proto/gcommon/v1/queue/messages/dequeue_response.proto";
+import "proto/gcommon/v1/queue/messages/enqueue_request.proto";
+import "proto/gcommon/v1/queue/messages/enqueue_response.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_info_request.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_info_response.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_stats_request.proto";
+import "proto/gcommon/v1/queue/messages/get_queue_stats_response.proto";
+import "proto/gcommon/v1/queue/messages/peek_request.proto";
+import "proto/gcommon/v1/queue/messages/peek_response.proto";
+import "proto/gcommon/v1/database/messages/publish_request.proto";
+import "proto/gcommon/v1/queue/messages/publish_response.proto";
+import "proto/gcommon/v1/database/messages/subscribe_request.proto";
+import "proto/gcommon/v1/queue/messages/subscribe_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon.v1.queue.services";
+option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/services";
 
 /**
  * QueueService provides core queue operations for message handling,
