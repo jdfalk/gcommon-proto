@@ -25,5 +25,5 @@ message ValidationError {
   int32 partition_id = 3;
 
   // Affected offset range
-  OffsetRange affected_range = 4;
+  gcommon.v1.queue.OffsetRange affected_range = 4;
 }

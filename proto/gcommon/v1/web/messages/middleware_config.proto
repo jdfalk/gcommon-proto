@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web";
 // MiddlewareConfig represents a single middleware's configuration.
 message MiddlewareConfig {
   // Middleware type
-  MiddlewareType type = 1;
+  gcommon.v1.web.MiddlewareType type = 1;
 
   // Whether the middleware is enabled
   bool enabled = 2;

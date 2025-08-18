@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message SubscriptionConfiguration {
   // Acknowledgment level required
-  AckLevel ack_level = 1;
+  gcommon.v1.queue.AckLevel ack_level = 1;
 
   // Delivery mode for messages
   DeliveryMode delivery_mode = 2;

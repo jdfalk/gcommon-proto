@@ -31,7 +31,7 @@ message NodeInfo {
   int32 port = 3;
 
   // Current state of the node
-  NodeState state = 4;
+  gcommon.v1.queue.NodeState state = 4;
 
   // Node roles (leader, follower, etc.)
   repeated string roles = 5;
@@ -40,5 +40,5 @@ message NodeInfo {
   google.protobuf.Timestamp last_heartbeat = 6;
 
   // Node-specific statistics
-  NodeStats stats = 7;
+  gcommon.v1.queue.NodeStats stats = 7;
 }

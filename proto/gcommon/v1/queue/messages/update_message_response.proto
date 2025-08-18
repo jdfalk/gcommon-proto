@@ -34,7 +34,7 @@ message UpdateMessageResponse {
   repeated string updated_fields = 5;
 
   // Fields that failed to update
-  repeated FailedFieldUpdate failed_fields = 6;
+  repeated gcommon.v1.queue.FailedFieldUpdate failed_fields = 6;
 
   // Error message if update failed
   string error_message = 7;
@@ -46,7 +46,7 @@ message UpdateMessageResponse {
   repeated string warnings = 9;
 
   // Updated message properties summary
-  UpdatedProperties updated_properties = 10;
+  gcommon.v1.queue.UpdatedProperties updated_properties = 10;
 
   // Operation metadata
   map<string, string> metadata = 11;

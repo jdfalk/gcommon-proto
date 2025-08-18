@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 // Response with queue information
 message GetQueueInfoResponse {
   // Queue information
-  QueueInfo queue_info = 1;
+  gcommon.v1.queue.QueueInfo queue_info = 1;
 
   // Whether request was successful
   bool success = 2;

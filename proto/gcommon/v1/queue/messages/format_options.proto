@@ -31,7 +31,7 @@ message FormatOptions {
   bool enable_compression = 3;
 
   // Compression algorithm
-  CompressionAlgorithm compression_algorithm = 4;
+  gcommon.v1.queue.CompressionAlgorithm compression_algorithm = 4;
 
   // Maximum message size for this format
   int64 max_message_size = 5;

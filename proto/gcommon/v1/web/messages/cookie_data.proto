@@ -39,5 +39,5 @@ message CookieData {
   bool secure = 7;
 
   // SameSite policy
-  CookieSameSite same_site = 8;
+  gcommon.v1.web.CookieSameSite same_site = 8;
 }

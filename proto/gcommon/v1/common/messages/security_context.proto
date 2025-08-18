@@ -28,7 +28,7 @@ message SecurityContext {
   repeated string permissions = 4;
 
   // Authentication method used
-  AuthAuthMethod auth_method = 5;
+  gcommon.v1.common.AuthAuthMethod auth_method = 5;
 
   // MFA verified
   bool mfa_verified = 6;

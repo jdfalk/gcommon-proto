@@ -22,5 +22,5 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  */
 service LogAdminService {
   // Configure logger settings
-  rpc ConfigureLogger(ConfigureLoggerRequest) returns (ConfigureLoggerResponse);
+  rpc ConfigureLogger(gcommon.v1.common.ConfigureLoggerRequest) returns (gcommon.v1.common.ConfigureLoggerResponse);
 }

@@ -17,6 +17,6 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 message QueueErrorStats {
   int64 total_errors = 1;
   double error_rate = 2;
-  repeated ErrorTypeStat error_types = 3;
+  repeated gcommon.v1.queue.ErrorTypeStat error_types = 3;
   repeated string recent_error_messages = 4;
 }

@@ -28,7 +28,7 @@ message ResetQueueStatsResponse {
   google.protobuf.Timestamp reset_at = 3;
 
   // Statistics that were preserved before reset
-  PreservedStats preserved_stats = 4;
+  gcommon.v1.queue.PreservedStats preserved_stats = 4;
 
   // Types of statistics that were reset
   repeated string reset_stat_types = 5;
@@ -46,7 +46,7 @@ message ResetQueueStatsResponse {
   repeated string warnings = 9;
 
   // Reset operation details
-  ResetDetails reset_details = 10;
+  gcommon.v1.queue.ResetDetails reset_details = 10;
 
   // Operation metadata
   map<string, string> metadata = 11;

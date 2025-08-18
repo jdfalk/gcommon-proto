@@ -25,7 +25,7 @@ message GroupCoordinator {
   int32 port = 3;
 
   // Coordinator state
-  CoordinatorState state = 4;
+  gcommon.v1.queue.CoordinatorState state = 4;
 
   // Leadership epoch
   int64 epoch = 5;

@@ -27,5 +27,5 @@ message AntiAffinityRule {
   repeated string label_values = 2;
 
   // Scope of the anti-affinity rule
-  AntiAffinityScope scope = 3;
+  gcommon.v1.queue.AntiAffinityScope scope = 3;
 }

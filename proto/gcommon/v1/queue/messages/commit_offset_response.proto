@@ -26,7 +26,7 @@ message CommitOffsetResponse {
   string error_code = 3;
 
   // Results for each partition commit
-  repeated PartitionCommitResult partition_results = 4;
+  repeated gcommon.v1.queue.PartitionCommitResult partition_results = 4;
 
   // Total number of offsets committed
   int32 committed_count = 5;

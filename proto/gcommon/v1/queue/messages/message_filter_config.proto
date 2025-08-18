@@ -19,7 +19,7 @@ message MessageFilterConfig {
   map<string, string> header_filters = 1;
 
   // Content-based filters
-  repeated ContentFilter content_filters = 2;
+  repeated gcommon.v1.queue.ContentFilter content_filters = 2;
 
   // Routing key patterns
   repeated string routing_key_patterns = 3;

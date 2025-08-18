@@ -19,7 +19,7 @@ message TokenMetadata {
   string token_id = 1;
 
   // Token type
-  TokenType type = 2;
+  gcommon.v1.common.TokenType type = 2;
 
   // Subject (user ID)
   string subject = 3;

@@ -40,10 +40,10 @@ message SessionMetadata {
   string user_agent = 7;
 
   // Device information
-  DeviceInfo device_info = 8;
+  gcommon.v1.common.DeviceInfo device_info = 8;
 
   // Location information
-  LocationInfo location_info = 9;
+  gcommon.v1.common.LocationInfo location_info = 9;
 
   // Session state
   enum AuthSessionState {
