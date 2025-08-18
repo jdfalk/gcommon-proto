@@ -3,7 +3,8 @@
 // guid: 81fada90-f4d6-4bfc-9756-b7b144fcbdf6
 edition = "2023";
 
-package gcommon.v1.common.services.health_service;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/get_health_metrics_request.proto";
@@ -12,19 +13,33 @@ import "gcommon/v1/common/messages/get_service_health_request.proto";
 import "gcommon/v1/common/messages/get_service_health_response.proto";
 import "gcommon/v1/common/messages/health_check_all_request.proto";
 import "gcommon/v1/common/messages/health_check_all_response.proto";
+import "gcommon/v1/common/messages/health_check_request.proto";
+import "gcommon/v1/common/messages/health_check_response.proto";
 import "gcommon/v1/common/messages/list_services_request.proto";
 import "gcommon/v1/common/messages/list_services_response.proto";
 import "gcommon/v1/common/messages/register_check_request.proto";
 import "gcommon/v1/common/messages/register_check_response.proto";
 import "gcommon/v1/common/messages/unregister_check_request.proto";
 import "gcommon/v1/common/messages/unregister_check_response.proto";
-import "gcommon/v1/common/messages/watch_response.proto";
-import "gcommon/v1/database/messages/watch_request.proto";
-import "gcommon/v1/metrics/v1/health_check_request.proto";
-import "gcommon/v1/metrics/v1/health_check_response.proto";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/services/health_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * HealthService provides comprehensive health checking capabilities.

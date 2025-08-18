@@ -6,13 +6,14 @@
 // empty placeholder created during the 1-1-1 migration.
 edition = "2023";
 
-package gcommon.v1.queue.messages.queue_info;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/queue_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * QueueInfo describes the configuration and current status of a queue.

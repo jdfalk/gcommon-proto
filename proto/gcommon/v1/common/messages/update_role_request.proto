@@ -3,15 +3,17 @@
 // guid: b5502816-55e0-4610-93d1-c0d0d470d118
 edition = "2023";
 
-package gcommon.v1.common.messages.update_role_request;
+package gcommon.v1.common;
 
-import "google/protobuf/field_mask.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/field_mask.proto";
 import "gcommon/v1/common/messages/role.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/update_role_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to update an existing role.

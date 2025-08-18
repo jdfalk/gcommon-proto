@@ -3,13 +3,15 @@
 // guid: 5d1d11c4-d351-47d7-afeb-48167f63e928
 edition = "2023";
 
-package gcommon.v1.database.messages.batch_operation;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/query_parameter.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/batch_operation";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * BatchOperation represents a single operation within a batch execution.

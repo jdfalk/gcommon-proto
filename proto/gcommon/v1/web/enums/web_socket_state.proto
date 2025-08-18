@@ -5,12 +5,13 @@
 // WebSocketState tracks connection lifecycle stages.
 edition = "2023";
 
-package gcommon.v1.web.enums.web_socket_state;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/web_socket_state";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 enum WebSocketState {
   WEB_SOCKET_STATE_UNSPECIFIED = 0;

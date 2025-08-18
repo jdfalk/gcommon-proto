@@ -4,20 +4,29 @@
 
 edition = "2023";
 
-package gcommon.v1.database.services.migration_service;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/database/schema/get_migration_status_request.proto";
-import "gcommon/v1/database/schema/get_migration_status_response.proto";
-import "gcommon/v1/database/schema/list_migrations_request.proto";
-import "gcommon/v1/database/schema/list_migrations_response.proto";
-import "gcommon/v1/database/schema/revert_migration_request.proto";
-import "gcommon/v1/database/schema/revert_migration_response.proto";
-import "gcommon/v1/database/schema/run_migration_request.proto";
-import "gcommon/v1/database/schema/run_migration_response.proto";
+import "gcommon/v1/database/messages/get_migration_status_request.proto";
+import "gcommon/v1/database/messages/get_migration_status_response.proto";
+import "gcommon/v1/database/messages/list_migrations_request.proto";
+import "gcommon/v1/database/messages/list_migrations_response.proto";
+import "gcommon/v1/database/messages/revert_migration_request.proto";
+import "gcommon/v1/database/messages/revert_migration_response.proto";
+import "gcommon/v1/database/messages/run_migration_request.proto";
+import "gcommon/v1/database/messages/run_migration_response.proto";
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/services/migration_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * MigrationService manages database schema migrations.

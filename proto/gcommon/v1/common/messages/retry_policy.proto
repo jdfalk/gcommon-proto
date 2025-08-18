@@ -3,14 +3,16 @@
 // guid: 8377a6ed-7891-46dd-9cc3-88fabf03ddf8
 edition = "2023";
 
-package gcommon.v1.common.messages.retry_policy;
+package gcommon.v1.common;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 import "gcommon/v1/common/enums/error_code.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/retry_policy";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Retry policy configuration for resilient operation handling.

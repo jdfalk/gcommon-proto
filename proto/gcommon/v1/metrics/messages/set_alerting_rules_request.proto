@@ -8,14 +8,16 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.set_alerting_rules_request;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/v1/alerting_rule.proto";
+import "gcommon/v1/metrics/messages/alerting_rule.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/set_alerting_rules_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message SetAlertingRulesRequest {
   // Metric identifier

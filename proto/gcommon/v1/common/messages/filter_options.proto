@@ -3,14 +3,15 @@
 // guid: 1c91c5f0-6774-405a-bb94-4a646e1e859d
 edition = "2023";
 
-package gcommon.v1.common.messages.filter_options;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/filter_value.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/filter_options";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Common filtering options for search and query operations.

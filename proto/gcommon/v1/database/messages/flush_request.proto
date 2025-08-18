@@ -3,13 +3,14 @@
 // guid: dcd310f0-3d3c-4b26-a89a-7d46f912f346
 edition = "2023";
 
-package gcommon.v1.database.messages.flush_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/flush_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to flush the cache to persistent storage.

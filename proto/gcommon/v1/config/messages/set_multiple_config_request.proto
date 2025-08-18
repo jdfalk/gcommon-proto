@@ -3,14 +3,15 @@
 // guid: 94773fcc-1702-4036-be15-d69ba58bcf4f
 edition = "2023";
 
-package gcommon.v1.config.messages.set_multiple_config_request;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/config_value.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/set_multiple_config_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * SetMultipleConfigRequest stores multiple configuration values.

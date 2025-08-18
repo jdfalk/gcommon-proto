@@ -3,12 +3,13 @@
 // guid: 2e23ed6f-5620-4c13-a485-eaeb2d0edf25
 edition = "2023";
 
-package gcommon.v1.common.enums.permission_type;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/permission_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Permission categories for authorization decisions.

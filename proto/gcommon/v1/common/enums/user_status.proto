@@ -3,12 +3,13 @@
 // guid: 8cc7b811-529b-4c10-8615-1593d65d7c0d
 edition = "2023";
 
-package gcommon.v1.common.enums.user_status;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/user_status";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * User account status enumeration defining the state of a user account.

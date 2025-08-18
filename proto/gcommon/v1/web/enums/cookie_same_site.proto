@@ -5,12 +5,13 @@
 // CookieSameSite defines SameSite settings for cookies.
 edition = "2023";
 
-package gcommon.v1.web.enums.cookie_same_site;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/cookie_same_site";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 enum CookieSameSite {
   COOKIE_SAME_SITE_UNSPECIFIED = 0;

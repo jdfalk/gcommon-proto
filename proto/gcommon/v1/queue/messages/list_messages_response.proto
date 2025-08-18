@@ -5,13 +5,15 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.list_messages_response;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/queue_message.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/list_messages_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 // Response for listing messages
 message ListMessagesResponse {

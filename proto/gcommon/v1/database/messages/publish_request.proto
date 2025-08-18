@@ -3,14 +3,15 @@
 // guid: 90c22d73-f181-473b-9344-04cedb5afbbe
 edition = "2023";
 
-package gcommon.v1.database.messages.publish_request;
+package gcommon.v1.database;
 
-import "google/protobuf/any.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/any.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/publish_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to publish a value to cache subscribers.

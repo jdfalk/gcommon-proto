@@ -4,14 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.external_auth_service;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/auth_cache_config.proto";
 import "gcommon/v1/queue/messages/retry_config.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/external_auth_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message ExternalAuthService {
   // Enable external authorization

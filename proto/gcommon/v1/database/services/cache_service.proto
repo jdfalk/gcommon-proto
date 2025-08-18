@@ -3,7 +3,8 @@
 // guid: 3f067d2a-5942-4a2c-adcf-14b8ac93813b
 edition = "2023";
 
-package gcommon.v1.database.services.cache_service;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/clear_request.proto";
@@ -22,6 +23,8 @@ import "gcommon/v1/database/messages/get_multiple_request.proto";
 import "gcommon/v1/database/messages/get_multiple_response.proto";
 import "gcommon/v1/database/messages/get_request.proto";
 import "gcommon/v1/database/messages/get_response.proto";
+import "gcommon/v1/database/messages/get_stats_request.proto";
+import "gcommon/v1/database/messages/get_stats_response.proto";
 import "gcommon/v1/database/messages/increment_request.proto";
 import "gcommon/v1/database/messages/increment_response.proto";
 import "gcommon/v1/database/messages/keys_request.proto";
@@ -32,11 +35,37 @@ import "gcommon/v1/database/messages/set_request.proto";
 import "gcommon/v1/database/messages/set_response.proto";
 import "gcommon/v1/database/messages/touch_expiration_request.proto";
 import "gcommon/v1/database/messages/touch_expiration_response.proto";
-import "gcommon/v1/metrics/v1/get_stats_request.proto";
-import "gcommon/v1/metrics/v1/get_stats_response.proto";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/services/cache_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * CacheService provides comprehensive caching capabilities.

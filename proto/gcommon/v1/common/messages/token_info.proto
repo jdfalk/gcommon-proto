@@ -3,14 +3,16 @@
 // guid: 4c29c1f8-c076-4308-b035-5ac388999383
 edition = "2023";
 
-package gcommon.v1.common.messages.token_info;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/token_type.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/token_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Token information for lightweight token tracking.

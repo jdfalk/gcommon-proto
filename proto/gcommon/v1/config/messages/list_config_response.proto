@@ -3,15 +3,17 @@
 // guid: 38867866-6d7f-4022-a74d-b2c09cdca946
 edition = "2023";
 
-package gcommon.v1.config.messages.list_config_response;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/paginated_response.proto";
-import "gcommon/v1/config/v1/config_entry.proto";
+import "gcommon/v1/config/messages/config_entry.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/list_config_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * ListConfigResponse returns configuration entries for a list operation.

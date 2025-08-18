@@ -3,13 +3,14 @@
 // guid: 41592093-2b89-4742-af88-e1590168c2ee
 edition = "2023";
 
-package gcommon.v1.database.messages.my_sql_status;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/my_sql_status";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * MySQLStatus provides runtime metrics and server version information.

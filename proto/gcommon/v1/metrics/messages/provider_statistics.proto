@@ -4,25 +4,35 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.provider_statistics;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/configuration_summary.proto";
-import "gcommon/v1/metrics/v1/data_volume_stats.proto";
-import "gcommon/v1/metrics/v1/error_stats.proto";
-import "gcommon/v1/metrics/v1/export_stats.proto";
-import "gcommon/v1/metrics/v1/health_status_entry.proto";
-import "gcommon/v1/metrics/v1/performance_stats.proto";
-import "gcommon/v1/metrics/v1/provider_info.proto";
-import "gcommon/v1/metrics/v1/resource_limits_summary.proto";
-import "gcommon/v1/metrics/v1/resource_usage_stats.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
-import "gcommon/v1/metrics/v1/top_metrics.proto";
-import "gcommon/v1/metrics/v1/trend_analysis.proto";
+import "gcommon/v1/metrics/messages/configuration_summary.proto";
+import "gcommon/v1/metrics/messages/data_volume_stats.proto";
+import "gcommon/v1/metrics/messages/error_stats.proto";
+import "gcommon/v1/metrics/messages/export_stats.proto";
+import "gcommon/v1/metrics/messages/health_status_entry.proto";
+import "gcommon/v1/metrics/messages/performance_stats.proto";
+import "gcommon/v1/metrics/messages/provider_info.proto";
+import "gcommon/v1/metrics/messages/resource_usage_stats.proto";
+import "gcommon/v1/metrics/messages/top_metrics.proto";
+import "gcommon/v1/metrics/messages/trend_analysis.proto";
+
+
+
+
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/provider_statistics";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message ProviderStatistics {
   // Basic provider information

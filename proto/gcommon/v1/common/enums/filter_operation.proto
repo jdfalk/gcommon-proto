@@ -3,12 +3,13 @@
 // guid: 792c2366-c261-43b4-8647-d776a7245cc2
 edition = "2023";
 
-package gcommon.v1.common.enums.filter_operation;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/filter_operation";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Filter operation types for query filtering across all GCommon modules.

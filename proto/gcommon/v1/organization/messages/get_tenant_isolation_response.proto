@@ -3,14 +3,15 @@
 // guid: 75f44d74-ae44-4d4c-ac6b-92a9d1b7d643
 edition = "2023";
 
-package gcommon.v1.organization.messages.get_tenant_isolation_response;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/organization/messages/tenant_isolation.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/get_tenant_isolation_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message GetTenantIsolationResponse {
   // Any errors encountered

@@ -3,12 +3,13 @@
 // guid: 61568d14-42ce-4cc7-b55e-a2fedc98db5f
 edition = "2023";
 
-package gcommon.v1.common.enums.serving_status;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/serving_status";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * ServingStatus indicates the current serving status of a service

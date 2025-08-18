@@ -4,20 +4,21 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.list_user_sessions_response;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-// Standard imports
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/error.proto";
+// Standard imports
+
 // Common types
-import "gcommon/v1/common/messages/paginated_response.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
+
 // Auth module types
-import "gcommon/v1/common/messages/session_info.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/list_user_sessions_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * ListUserSessionsResponse returns a list of user sessions.

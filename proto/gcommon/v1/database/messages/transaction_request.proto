@@ -3,13 +3,14 @@
 // guid: 6f47375b-c8cf-45cb-a270-71538e8ae9fd
 edition = "2023";
 
-package gcommon.v1.database.messages.transaction_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/transaction_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to execute multiple cache operations in a transaction.

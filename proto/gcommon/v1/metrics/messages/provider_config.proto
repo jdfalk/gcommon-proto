@@ -4,17 +4,21 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.provider_config;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/enums/provider_type.proto";
-import "gcommon/v1/metrics/v1/export_config.proto";
-import "gcommon/v1/metrics/v1/provider_settings.proto";
-import "gcommon/v1/metrics/v1/security_config.proto";
-import "gcommon/v1/organization/messages/resource_limits.proto";
+import "gcommon/v1/metrics/messages/export_config.proto";
+import "gcommon/v1/metrics/messages/provider_settings.proto";
+import "gcommon/v1/metrics/messages/security_config.proto";
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/provider_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message ProviderConfig {
   // Unique identifier for the provider

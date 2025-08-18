@@ -3,13 +3,14 @@
 // guid: a7bf4302-713a-4025-b81f-63984c540e21
 edition = "2023";
 
-package gcommon.v1.database.messages.scan_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/scan_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to scan cache keys with a cursor.

@@ -4,14 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.resource_limits;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/enums/provider_type.proto";
-import "gcommon/v1/metrics/v1/export_config.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/resource_limits";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message MetricsResourceLimits {
   // Maximum memory usage (bytes)

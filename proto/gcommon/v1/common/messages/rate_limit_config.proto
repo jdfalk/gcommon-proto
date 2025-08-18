@@ -3,13 +3,14 @@
 // guid: 5769fd20-09d6-4038-bf86-8087ee0374a0
 edition = "2023";
 
-package gcommon.v1.common.messages.rate_limit_config;
+package gcommon.v1.common;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/rate_limit_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Rate limiting configuration for authentication operations.

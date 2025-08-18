@@ -3,13 +3,15 @@
 // guid: 82b01a11-1af8-4919-9361-f49aa8b3f822
 edition = "2023";
 
-package gcommon.v1.database.messages.get_database_info_response;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/database_info.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/get_database_info_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * GetDatabaseInfoResponse contains detailed metadata about a database.

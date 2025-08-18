@@ -4,20 +4,20 @@
 
 edition = "2023";
 
-package gcommon.v1.config.messages.approval_requirement;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "gcommon/v1/config/enums/audit_level.proto";
-import "gcommon/v1/config/enums/backup_frequency.proto";
-import "gcommon/v1/config/enums/channel_type.proto";
-import "gcommon/v1/config/enums/deprecation_level.proto";
-import "gcommon/v1/config/enums/metadata_status.proto";
-import "gcommon/v1/config/enums/notification_trigger.proto";
-import "gcommon/v1/config/v1/config_data_type.proto";
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/approval_requirement";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message ApprovalRequirement {
   // Whether approval is required

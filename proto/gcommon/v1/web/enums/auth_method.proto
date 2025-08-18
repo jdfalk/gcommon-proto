@@ -5,12 +5,13 @@
 // AuthMethod defines supported authentication mechanisms for the web module.
 edition = "2023";
 
-package gcommon.v1.web.enums.auth_method;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/auth_method";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // Supported authentication mechanisms for HTTP requests.
 enum WebAuthMethod {

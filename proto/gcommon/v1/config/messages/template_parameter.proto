@@ -4,15 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.config.messages.template_parameter;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/config/enums/parameter_type.proto";
 import "gcommon/v1/config/messages/parameter_constraints.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/template_parameter";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message TemplateParameter {
   // Parameter name

@@ -3,12 +3,13 @@
 // guid: 1d26f112-976e-48db-b531-58892638701d
 edition = "2023";
 
-package gcommon.v1.common.enums.circuit_breaker_state;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/enums/circuit_breaker_state";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Circuit breaker state enumeration for fault tolerance patterns.

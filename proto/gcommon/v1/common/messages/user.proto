@@ -3,14 +3,16 @@
 // guid: 00ae1e1a-a2c9-4e7a-bd91-dda7967d8647
 edition = "2023";
 
-package gcommon.v1.common.messages.user;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/user_status.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/user";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * User entity representing a complete user account.

@@ -3,13 +3,14 @@
 // guid: 5277ac94-ab80-4548-a6ca-3a8b98e038c4
 edition = "2023";
 
-package gcommon.v1.database.messages.get_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/get_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to retrieve a cached value by key.

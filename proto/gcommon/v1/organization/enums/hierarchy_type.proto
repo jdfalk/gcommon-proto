@@ -3,12 +3,13 @@
 // guid: 4618131c-f81c-417c-ba7a-46d3f5a9a06b
 edition = "2023";
 
-package gcommon.v1.organization.enums.hierarchy_type;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/enums/hierarchy_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * Hierarchy type enumeration defining the type of organizational structure.

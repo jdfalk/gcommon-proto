@@ -3,15 +3,16 @@
 // guid: 47c2c3b4-b463-42e9-a479-8e4ac8debd4c
 edition = "2023";
 
-package gcommon.v1.database.messages.set_request;
+package gcommon.v1.database;
 
+
+import "google/protobuf/go_features.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/set_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to store a value in the cache.

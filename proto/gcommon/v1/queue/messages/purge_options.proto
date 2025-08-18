@@ -4,14 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.purge_options;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/purge_options";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message PurgeOptions {
   // Whether to purge all messages (if true, other filters are ignored)

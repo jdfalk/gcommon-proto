@@ -4,13 +4,13 @@
 
 edition = "2023";
 
-package gcommon.v1.organization.messages.time_restriction;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/time_restriction";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message TimeRestriction {
   // Day of week (0-6, 0=Sunday)

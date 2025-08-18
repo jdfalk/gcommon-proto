@@ -3,7 +3,8 @@
 // guid: 7a327e8c-286f-4bf2-9d3d-7917e6de4f86
 edition = "2023";
 
-package gcommon.v1.organization.services.organization_service;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/organization/messages/add_member_request.proto";
@@ -29,8 +30,30 @@ import "gcommon/v1/organization/messages/update_organization_response.proto";
 import "gcommon/v1/organization/messages/update_organization_settings_request.proto";
 import "gcommon/v1/organization/messages/update_organization_settings_response.proto";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/services/organization_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

@@ -4,14 +4,16 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.metric_config;
+package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/export_config.proto";
+import "google/protobuf/duration.proto";
+import "gcommon/v1/metrics/messages/export_config.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * MetricConfig contains configuration settings for a specific metric.

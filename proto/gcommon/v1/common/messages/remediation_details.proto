@@ -3,12 +3,13 @@
 // guid: 6c9c153d-ad84-44c3-978c-b045473b6345
 edition = "2023";
 
-package gcommon.v1.common.messages.remediation_details;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/remediation_details";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * RemediationDetails provides information about health remediation actions

@@ -5,12 +5,13 @@
 // ContentType enumerates common MIME types.
 edition = "2023";
 
-package gcommon.v1.web.enums.content_type;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/content_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // Well-known MIME types supported by the server.
 enum ContentType {

@@ -4,12 +4,13 @@
 
 edition = "2023";
 
-package gcommon.v1.web.messages.get_cors_config_request;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/get_cors_config_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // GetCorsConfigRequest request definition.
 message GetCorsConfigRequest {

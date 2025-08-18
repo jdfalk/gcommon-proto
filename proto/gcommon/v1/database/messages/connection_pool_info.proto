@@ -3,14 +3,16 @@
 // guid: 96aea9f8-77e8-4342-87af-6a00947ef1b0
 edition = "2023";
 
-package gcommon.v1.database.messages.connection_pool_info;
+package gcommon.v1.database;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 import "gcommon/v1/database/messages/pool_stats.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/connection_pool_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * ConnectionPoolInfo provides information about database connection pool status.

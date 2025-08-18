@@ -4,13 +4,14 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.get_permission_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_permission_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to fetch details about a permission entry.

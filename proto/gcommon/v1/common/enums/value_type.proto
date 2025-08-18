@@ -3,12 +3,13 @@
 // guid: ad79b2ed-884b-4399-84c0-f29aa53ca0a3
 edition = "2023";
 
-package gcommon.v1.common.enums.value_type;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/value_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Value type enumeration for configuration values and other typed data.

@@ -4,18 +4,25 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.metric_definition;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/export_config.proto";
-import "gcommon/v1/metrics/v1/label_definition.proto";
-import "gcommon/v1/metrics/v1/metric_type.proto";
-import "gcommon/v1/metrics/v1/metric_type_config.proto";
-import "gcommon/v1/metrics/v1/retention_policy_config.proto";
-import "gcommon/v1/metrics/v1/validation_rules.proto";
+import "gcommon/v1/metrics/enums/metric_type.proto";
+import "gcommon/v1/metrics/messages/export_config.proto";
+import "gcommon/v1/metrics/messages/label_definition.proto";
+import "gcommon/v1/metrics/messages/metric_type_config.proto";
+import "gcommon/v1/metrics/messages/retention_policy_config.proto";
+import "gcommon/v1/metrics/messages/validation_rules.proto";
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_definition";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message MetricDefinition {
   // Unique name for the metric

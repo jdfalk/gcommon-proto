@@ -7,13 +7,14 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.messages.dead_letter_policy;
+package gcommon.v1.queue;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/dead_letter_policy";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * Dead letter policy configuration for handling failed messages.

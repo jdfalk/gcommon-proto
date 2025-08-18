@@ -8,13 +8,14 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.run_check_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/run_check_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message RunCheckRequest {
   // Name or ID of the check to run

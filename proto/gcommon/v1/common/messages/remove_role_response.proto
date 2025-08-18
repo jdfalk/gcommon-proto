@@ -3,15 +3,17 @@
 // guid: d8f9ff14-27d8-4495-bba6-2a8a944df6be
 edition = "2023";
 
-package gcommon.v1.common.messages.remove_role_response;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
 import "gcommon/v1/common/messages/role.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/remove_role_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * RemoveRoleResponse confirms successful role removal from a user.

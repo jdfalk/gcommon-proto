@@ -3,14 +3,17 @@
 // guid: 3a5b4e78-277c-4940-aea5-6407836cbd4f
 edition = "2023";
 
-package gcommon.v1.config.messages.validate_config_response;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/config/v1/config_validation_error.proto";
-import "gcommon/v1/config/v1/config_validation_warning.proto";
+import "gcommon/v1/config/messages/config_validation_error.proto";
+import "gcommon/v1/config/messages/config_validation_warning.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/validate_config_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * ValidateConfigResponse contains validation results for configuration entries.

@@ -3,13 +3,14 @@
 // guid: 97d985af-123a-4048-ae7e-bb36a97c9069
 edition = "2023";
 
-package gcommon.v1.database.messages.get_memory_usage_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/get_memory_usage_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to retrieve cache memory usage statistics.

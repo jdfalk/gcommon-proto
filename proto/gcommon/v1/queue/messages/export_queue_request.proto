@@ -7,14 +7,15 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.messages.export_queue_request;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/export_format.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/export_queue_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * Request to export queue data for backup or migration purposes.

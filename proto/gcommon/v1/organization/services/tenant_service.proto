@@ -3,7 +3,8 @@
 // guid: 56bd37e6-4e4a-4a15-82a6-b392bed64d95
 edition = "2023";
 
-package gcommon.v1.organization.services.tenant_service;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/organization/messages/configure_tenant_isolation_request.proto";
@@ -25,8 +26,26 @@ import "gcommon/v1/organization/messages/update_tenant_quota_response.proto";
 import "gcommon/v1/organization/messages/update_tenant_request.proto";
 import "gcommon/v1/organization/messages/update_tenant_response.proto";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/services/tenant_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * TenantService provides comprehensive tenant management capabilities.

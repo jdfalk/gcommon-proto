@@ -3,13 +3,14 @@
 // guid: 06edf238-40f2-4d28-a7dc-0b6a972bf7b2
 edition = "2023";
 
-package gcommon.v1.common.messages.authorize_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/authorize_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to check if a user is authorized for a specific action.

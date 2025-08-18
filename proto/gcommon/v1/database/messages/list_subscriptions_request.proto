@@ -3,13 +3,14 @@
 // guid: c49e8f0c-687d-4f5f-8261-7550969111d9
 edition = "2023";
 
-package gcommon.v1.database.messages.list_subscriptions_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/list_subscriptions_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to list active cache subscriptions.

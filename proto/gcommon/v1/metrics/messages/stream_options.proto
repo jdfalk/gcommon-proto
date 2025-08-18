@@ -4,17 +4,19 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.stream_options;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/buffer_overflow_strategy.proto";
-import "gcommon/v1/metrics/v1/metric_filter.proto";
-import "gcommon/v1/metrics/v1/stream_compression.proto";
-import "gcommon/v1/metrics/v1/stream_qos.proto";
+import "gcommon/v1/metrics/enums/stream_compression.proto";
+import "gcommon/v1/metrics/enums/stream_qos.proto";
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/stream_options";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message StreamOptions {
   // Whether to include historical data or only new metrics

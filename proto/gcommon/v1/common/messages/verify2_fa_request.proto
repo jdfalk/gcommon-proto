@@ -4,13 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.verify2_fa_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/enums/two_fa_type.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/verify2_fa_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message Verify2FaRequest {
   // User ID

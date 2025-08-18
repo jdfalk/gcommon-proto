@@ -4,14 +4,16 @@
 
 edition = "2023";
 
-package gcommon.v1.config.messages.usage_statistics;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/config/messages/usage_trend.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/usage_statistics";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message UsageStatistics {
   // Total access count

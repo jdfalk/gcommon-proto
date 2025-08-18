@@ -3,14 +3,15 @@
 // guid: c95add2b-ab62-455e-99d1-100c51e3a325
 edition = "2023";
 
-package gcommon.v1.database.messages.cache_entry;
+package gcommon.v1.database;
 
-import "google/protobuf/any.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/cache_entry";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Cache entry containing the cached value and metadata.

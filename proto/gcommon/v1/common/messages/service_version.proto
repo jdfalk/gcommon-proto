@@ -3,13 +3,14 @@
 // guid: c43e033c-3b21-4e79-b0e3-b4eee94d8cf1
 edition = "2023";
 
-package gcommon.v1.common.messages.service_version;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/service_version";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Service version information for deployment tracking and compatibility.

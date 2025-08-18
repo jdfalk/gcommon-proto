@@ -4,16 +4,19 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.metric_value;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/histogram_bucket.proto";
-import "gcommon/v1/metrics/v1/histogram_value.proto";
-import "gcommon/v1/metrics/v1/summary_value.proto";
+import "gcommon/v1/metrics/messages/histogram_value.proto";
+import "gcommon/v1/metrics/messages/summary_value.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_value";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message MetricValue {
   // Timestamp when this metric value was recorded

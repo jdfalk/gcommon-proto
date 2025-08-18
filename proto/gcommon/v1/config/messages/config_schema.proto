@@ -3,13 +3,14 @@
 // guid: 9e149f8a-076f-4c2b-8e8c-ddaf1b41707a
 edition = "2023";
 
-package gcommon.v1.config.v1.config_schema;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/config_schema";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * ConfigSchema defines a configuration schema.

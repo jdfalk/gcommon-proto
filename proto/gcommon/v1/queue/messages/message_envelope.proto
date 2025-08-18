@@ -7,14 +7,15 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.messages.message_envelope;
+package gcommon.v1.queue;
 
-import "google/protobuf/any.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/message_envelope";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * Message envelope that wraps the actual message payload with metadata.

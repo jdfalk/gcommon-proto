@@ -4,15 +4,19 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.provider_settings;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/open_telemetry_settings.proto";
-import "gcommon/v1/metrics/v1/prometheus_settings.proto";
-import "gcommon/v1/metrics/v1/stats_d_settings.proto";
+import "gcommon/v1/metrics/messages/open_telemetry_settings.proto";
+import "gcommon/v1/metrics/messages/prometheus_settings.proto";
+import "gcommon/v1/metrics/messages/stats_d_settings.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/provider_settings";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message ProviderSettings {
   // Prometheus-specific settings

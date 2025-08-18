@@ -4,14 +4,16 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.alert_notification;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/alert_severity.proto";
+import "gcommon/v1/metrics/messages/alert_severity.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/alert_notification";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * AlertNotification represents a notification event generated when an

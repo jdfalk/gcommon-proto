@@ -4,13 +4,14 @@
 
 edition = "2023";
 
-package gcommon.v1.database.schema.create_schema_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/schema/create_schema_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 message CreateSchemaRequest {
   // Database name where the schema will be created

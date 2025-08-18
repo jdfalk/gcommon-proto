@@ -3,12 +3,13 @@
 // guid: 27e8e7bb-a068-4e4b-b7d0-d69c6747f9bc
 edition = "2023";
 
-package gcommon.v1.common.enums.audit_result;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/audit_result";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Audit result enumeration for tracking operation outcomes in audit logs.

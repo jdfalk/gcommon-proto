@@ -3,13 +3,14 @@
 // guid: ab8ca5f1-cb63-41bc-88d5-0aef5bd4f76a
 edition = "2023";
 
-package gcommon.v1.database.messages.unsubscribe_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/unsubscribe_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to unsubscribe from cache events.

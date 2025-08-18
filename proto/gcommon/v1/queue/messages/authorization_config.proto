@@ -4,7 +4,8 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.authorization_config;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/api_key_auth.proto";
@@ -13,8 +14,13 @@ import "gcommon/v1/queue/messages/jwt_auth.proto";
 import "gcommon/v1/queue/messages/permission_rule.proto";
 import "gcommon/v1/queue/messages/role_based_access_control.proto";
 
+
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/authorization_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message AuthorizationConfig {
   // Enable authorization checking

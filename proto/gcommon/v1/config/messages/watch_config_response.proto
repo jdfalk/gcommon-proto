@@ -3,15 +3,18 @@
 // guid: 88670dcd-4cd2-4a07-be66-f2d4db54a4a4
 edition = "2023";
 
-package gcommon.v1.config.messages.watch_config_response;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/config/v1/config_change_type.proto";
-import "gcommon/v1/config/v1/config_entry.proto";
+import "gcommon/v1/config/enums/config_change_type.proto";
+import "gcommon/v1/config/messages/config_entry.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/watch_config_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * WatchConfigResponse describes a configuration change event.

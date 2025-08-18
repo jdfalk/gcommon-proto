@@ -4,14 +4,16 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.histogram_metric;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/histogram_bucket.proto";
+import "gcommon/v1/metrics/messages/histogram_bucket.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/histogram_metric";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 // HistogramMetric represents a histogram metric with buckets
 message HistogramMetric {
