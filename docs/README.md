@@ -207,7 +207,6 @@ This directory contains auto-generated documentation for this project.
 - [Kubernetes Example](examples/production/kubernetes/README.md)
 - [Microservice Example](examples/production/microservice/README.md)
 - [Monitoring Example](examples/production/monitoring/README.md)
-- [gcommon Repository Labels](labels.md)
 - [Config Module](pkg/config/README.md)
 - [Metrics Module gRPC Service Implementation](pkg/metrics/README_GRPC.md)
 - [Queue Module\n\nImplements message queuing with in-memory and Redis providers, gRPC services, job scheduling, and monitoring.](pkg/queue/README.md)
@@ -266,12 +265,6 @@ This directory contains auto-generated documentation for this project.
 - [web_config_2 Module](proto-docs/web_config_2.md)
 - [web_events Module](proto-docs/web_events.md)
 - [web_services Module](proto-docs/web_services.md)
-- [Repository Labels](repository_labels.md)
-- [Repository Labels](repository_labels_json.md)
-- [AGENTS.md](scripts/AGENTS.md)
-- [GitHub Project Scripts Migration Notice](scripts/MIGRATION-NOTICE.md)
-- [Protocol Buffer Reorganization - Migration Guide](scripts/MIGRATION_README.md)
-- [GitHub Project Manager](scripts/README.md)
 - [SDKs Overview](sdks/README.md)
 - [C# Client SDK](sdks/csharp/docs/README.md)
 - [Go Client SDK](sdks/go/docs/README.md)
@@ -330,4 +323,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 01:08:23 UTC 2025_
+_Generated on Mon Aug 18 01:27:41 UTC 2025_
