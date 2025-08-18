@@ -11,7 +11,7 @@ Fix import paths in protobuf files to correctly reference types.
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Set
+from typing import Dict, Set
 
 class ImportPathFixer:
     def __init__(self, proto_root: str):
