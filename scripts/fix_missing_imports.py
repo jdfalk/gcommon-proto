@@ -1,105 +1,171 @@
 #!/usr/bin/env python3
-# file: scripts/fix_missing_imports.py
+# file: fix_missing_imports.py
 # version: 1.0.0
-# guid: 423df8e5-1050-48df-aa97-b3d629e6043e
+# guid: 8a9b7c6d-5e4f-3a2b-1c0d-8e7f6a5b4c3d
 
 """
-Python equivalent of fix_missing_imports.sh
+Proto Missing Imports Fixer
 
-This script was automatically migrated from shell to Python as part of
-the workflow modernization effort. All original functionality is preserved.
-
-Original shell script: /home/runner/work/gcommon/gcommon/fix_missing_imports.sh
-Migration date: 2025-08-16
+This script automatically fixes missing imports in proto files by:
+1. Reading the missing imports analysis output
+2. Adding import statements for types that exist
+3. Processing files in batches for efficiency
 """
 
-import argparse
-import logging
-import os
-import subprocess
-import sys
+import re
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List
 
 
-class FixMissingImports:
-    """Python equivalent of fix_missing_imports.sh shell script."""
-    
-    def __init__(self, dry_run: bool = False):
-        self.dry_run = dry_run
-        self.base_dir = Path.cwd()
-        
-        # Set up logging
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s'
+class ProtoImportFixer:
+    def __init__(self, base_path: Path, analysis_file: Path):
+        self.base_path = base_path
+        self.analysis_file = analysis_file
+        self.fixes_applied = 0
+        self.files_modified = 0
+
+    def _parse_analysis_file(self) -> Dict[str, List[str]]:
+        """Parse the missing imports analysis to get file -> [imports] mapping"""
+        file_imports = {}
+
+        with open(self.analysis_file, "r") as f:
+            content = f.read()
+
+        # Extract import sections
+        import_sections = re.findall(
+            r"📦 IMPORT: ([^\n]+)\n.*?Needed by \d+ files:\n(.*?)(?=📦 IMPORT:|$)",
+            content,
+            re.DOTALL,
         )
-        self.logger = logging.getLogger(__name__)
-    
-    def run_command(self, cmd: List[str], cwd: Path = None) -> subprocess.CompletedProcess:
-        """Run a command with proper error handling."""
-        if cwd is None:
-            cwd = self.base_dir
-            
-        self.logger.info(f"Running: {' '.join(cmd)}")
-        
-        if self.dry_run:
-            self.logger.info(f"[DRY RUN] Would run: {' '.join(cmd)}")
-            return subprocess.CompletedProcess(cmd, 0, '', '')
-        
-        try:
-            result = subprocess.run(
-                cmd,
-                cwd=cwd,
-                capture_output=True,
-                text=True,
-                check=True
-            )
-            return result
-        except subprocess.CalledProcessError as e:
-            self.logger.error(f"Command failed: {e}")
-            self.logger.error(f"stdout: {e.stdout}")
-            self.logger.error(f"stderr: {e.stderr}")
-            raise
 
-    def execute(self) -> bool:
-        """Execute the main functionality."""
-        self.logger.info("Starting execution...")
-        
-        # TODO: Implement the main logic from original shell script
-        # This is a template - specific logic needs to be added based on
-        # the original shell script functionality
-        
-        self.logger.info("Execution completed")
-        return True
+        for import_proto, files_section in import_sections:
+            import_proto = import_proto.strip()
+
+            # Extract file mappings from the section
+            file_mappings = re.findall(r"• ([^→]+) → (\w+)", files_section)
+
+            for file_path, type_name in file_mappings:
+                file_path = file_path.strip()
+                full_file_path = self.base_path / file_path
+
+                if full_file_path not in file_imports:
+                    file_imports[full_file_path] = []
+
+                file_imports[full_file_path].append(import_proto)
+
+        return file_imports
+
+    def _add_import_to_file(self, file_path: Path, import_path: str) -> bool:
+        """Add an import to a proto file if it doesn't already exist"""
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                content = f.read()
+        except Exception as e:
+            print(f"❌ Error reading {file_path}: {e}")
+            return False
+
+        # Check if import already exists
+        import_pattern = f'import "{import_path}";'
+        if import_pattern in content:
+            return False  # Already imported
+
+        # Find where to insert the import (after other imports or after syntax/package)
+        lines = content.split("\n")
+        insert_index = 0
+
+        # Find the best place to insert
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            if stripped.startswith("import "):
+                insert_index = i + 1
+            elif (
+                stripped.startswith("syntax ")
+                or stripped.startswith("package ")
+                or stripped.startswith("edition ")
+            ):
+                if insert_index == 0:  # No imports found yet
+                    insert_index = i + 1
+            elif stripped and not stripped.startswith("//"):
+                # Found first non-comment, non-metadata line
+                break
+
+        # Insert the import
+        lines.insert(insert_index, f'import "{import_path}";')
+
+        # Add blank line after imports if not present
+        if insert_index < len(lines) - 1 and lines[insert_index + 1].strip() != "":
+            lines.insert(insert_index + 1, "")
+
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write("\n".join(lines))
+            return True
+        except Exception as e:
+            print(f"❌ Error writing {file_path}: {e}")
+            return False
+
+    def _verify_import_exists(self, import_path: str) -> bool:
+        """Verify that the import path actually exists"""
+        full_path = self.base_path / import_path
+        return full_path.exists()
+
+    def fix_imports(self, max_files: int = 50) -> None:
+        """Fix missing imports for up to max_files"""
+        print("🔧 PROTO IMPORT FIXER")
+        print("=" * 60)
+
+        file_imports = self._parse_analysis_file()
+        print(f"📊 Found {len(file_imports)} files needing imports")
+
+        files_processed = 0
+        for file_path, imports in file_imports.items():
+            if files_processed >= max_files:
+                print(f"\n⏱️  Reached maximum files limit ({max_files})")
+                break
+
+            if not file_path.exists():
+                print(f"⚠️  File not found: {file_path}")
+                continue
+
+            print(f"\n📁 Processing: {file_path.relative_to(self.base_path)}")
+
+            file_modified = False
+            for import_path in set(imports):  # Remove duplicates
+                if not self._verify_import_exists(import_path):
+                    print(f"   ⚠️  Import not found: {import_path}")
+                    continue
+
+                if self._add_import_to_file(file_path, import_path):
+                    print(f'   ✅ Added: import "{import_path}";')
+                    self.fixes_applied += 1
+                    file_modified = True
+                else:
+                    print(f"   ⏭️  Skipped: {import_path} (already exists)")
+
+            if file_modified:
+                self.files_modified += 1
+
+            files_processed += 1
+
+        print("\n📊 SUMMARY")
+        print("-" * 30)
+        print(f"Files processed: {files_processed}")
+        print(f"Files modified: {self.files_modified}")
+        print(f"Imports added: {self.fixes_applied}")
 
 
 def main():
-    """Main entry point."""
-    parser = argparse.ArgumentParser(description=f'Python equivalent of {script_name}')
-    parser.add_argument('--dry-run', action='store_true', help='Run in dry-run mode')
-    parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
-    
-    args = parser.parse_args()
-    
-    if args.verbose:
-        logging.getLogger().setLevel(logging.DEBUG)
-    
-    script = {self.to_class_name(script_name)}(dry_run=args.dry_run)
-    
-    try:
-        success = script.execute()
-        sys.exit(0 if success else 1)
-    except KeyboardInterrupt:
-        print("\n❌ Operation cancelled by user")
-        sys.exit(1)
-    except Exception as e:
-        print(f"❌ Error: {{e}}")
-        if args.verbose:
-            import traceback
-            traceback.print_exc()
-        sys.exit(1)
+    base_path = Path("pkg")
+    analysis_file = Path("missing-protos-clean")
+
+    if not analysis_file.exists():
+        print(f"❌ Analysis file not found: {analysis_file}")
+        print("Run analyze_missing_imports.py first")
+        return
+
+    fixer = ProtoImportFixer(base_path, analysis_file)
+    fixer.fix_imports(max_files=5000)  # Process remaining files
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
