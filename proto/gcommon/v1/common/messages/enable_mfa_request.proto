@@ -23,7 +23,7 @@ message EnableMfaRequest {
   string user_id = 1;
 
   // MFA methods to enable
-  repeated MfaMethod methods = 2;
+  repeated gcommon.v1.common.MfaMethod methods = 2;
 
   // Primary contact method
   string primary_contact = 3;

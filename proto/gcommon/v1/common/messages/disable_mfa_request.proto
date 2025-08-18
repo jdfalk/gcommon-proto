@@ -29,5 +29,5 @@ message DisableMfaRequest {
   string verification_code = 3;
 
   // Specific methods to disable (empty = all)
-  repeated MfaMethod methods = 4;
+  repeated gcommon.v1.common.MfaMethod methods = 4;
 }

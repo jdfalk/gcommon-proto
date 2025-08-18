@@ -36,5 +36,8 @@ message CommonCircuitBreakerConfig {
   google.protobuf.Duration window_size = 5;
 
   // Current state of the circuit breaker
+  gcommon.v1.common.CircuitBreakerState state = 6;
+}
+ircuit breaker
   CircuitBreakerState state = 6;
 }
