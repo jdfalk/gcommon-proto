@@ -23,7 +23,7 @@ message AppenderConfig {
   string name = 1;
 
   // Appender backend type
-  AppenderType type = 2;
+  gcommon.v1.common.enums.appender_type.AppenderType type = 2;
 
   // Output destination details
   OutputConfig output = 3;
@@ -46,7 +46,7 @@ message AppenderConfig {
   // FormatterConfig defines how log entries are formatted
   message LogFormatterConfig {
     // Formatting strategy
-    FormatterType type = 1;
+    gcommon.v1.common.enums.formatter_type.FormatterType type = 1;
 
     // Optional format pattern
     string pattern = 2;

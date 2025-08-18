@@ -32,7 +32,7 @@ message CommonAuditLog {
   string action = 3;
 
   // Resource that was acted upon
-  ResourceReference resource = 4;
+  gcommon.v1.common.messages.resource_reference.ResourceReference resource = 4;
 
   // Timestamp when the action occurred
   google.protobuf.Timestamp timestamp = 5;
@@ -47,7 +47,7 @@ message CommonAuditLog {
   map<string, string> metadata = 8;
 
   // Result of the action (success, failure, partial)
-  AuditResult result = 9;
+  gcommon.v1.common.enums.audit_result.AuditResult result = 9;
 
   // Session identifier if applicable
   string session_id = 10;
