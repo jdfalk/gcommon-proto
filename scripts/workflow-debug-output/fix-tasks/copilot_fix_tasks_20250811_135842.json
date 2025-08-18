@@ -19,7 +19,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16869653559.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16869653559.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:43:52.284626"
   },
@@ -43,7 +45,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16856413143.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16856413143.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:44:01.180593"
   },
@@ -67,7 +71,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16844409479.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16844409479.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:44:10.407821"
   },
@@ -91,7 +97,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16820595062.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16820595062.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:44:19.848003"
   },
@@ -115,7 +123,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16793740588.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16793740588.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:44:36.399140"
   },
@@ -139,7 +149,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16766195053.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16766195053.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:44:52.423889"
   },
@@ -163,7 +175,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_scratch_16739182003.log"],
+    "related_logs": [
+      "logs/jdfalk_scratch_16739182003.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:09.604689"
   },
@@ -187,7 +201,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16887491553.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16887491553.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:11.322913"
   },
@@ -201,7 +217,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16887491259.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16887491259.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:12.398829"
   },
@@ -225,7 +243,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16887020804.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16887020804.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:13.169636"
   },
@@ -239,7 +259,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16887020237.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16887020237.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:14.320357"
   },
@@ -263,7 +285,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16886878924.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16886878924.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:15.096639"
   },
@@ -277,7 +301,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16886878533.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16886878533.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:16.184561"
   },
@@ -291,7 +317,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16886839402.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16886839402.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:17.413892"
   },
@@ -315,7 +343,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16885436312.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16885436312.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:26.033765"
   },
@@ -329,7 +359,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16885435723.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16885435723.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:27.131236"
   },
@@ -353,7 +385,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16882010429.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16882010429.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:35.098096"
   },
@@ -367,7 +401,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16882009992.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16882009992.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:36.385682"
   },
@@ -391,7 +427,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16870215589.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16870215589.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:38.826325"
   },
@@ -415,7 +453,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16869629981.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16869629981.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:47.258968"
   },
@@ -439,7 +479,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16869120564.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16869120564.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:45:55.807508"
   },
@@ -453,7 +495,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_ghcommon_16869120437.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16869120437.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:45:57.029170"
   },
@@ -477,7 +521,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16868682031.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16868682031.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:04.970514"
   },
@@ -501,7 +547,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16868682061.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16868682061.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:11.329829"
   },
@@ -525,7 +573,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16868682022.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16868682022.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:17.499626"
   },
@@ -549,7 +599,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16868682016.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16868682016.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:23.532908"
   },
@@ -573,7 +625,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ghcommon_16868682047.log"],
+    "related_logs": [
+      "logs/jdfalk_ghcommon_16868682047.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:32.223035"
   },
@@ -591,7 +645,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886936236.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936236.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:39.310762"
   },
@@ -609,7 +665,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886936221.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936221.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:49.330066"
   },
@@ -633,7 +691,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_gcommon_16886936358.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936358.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:46:58.510840"
   },
@@ -651,7 +711,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886936262.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936262.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:12.232131"
   },
@@ -669,7 +731,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886936218.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936218.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:15.128353"
   },
@@ -687,7 +751,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886936226.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886936226.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:21.674557"
   },
@@ -711,7 +777,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_gcommon_16886932323.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886932323.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:30.729082"
   },
@@ -729,7 +797,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886932187.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886932187.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:41.261160"
   },
@@ -747,7 +817,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886932171.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886932171.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:47:47.464223"
   },
@@ -765,7 +837,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886932188.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886932188.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:00.470536"
   },
@@ -783,7 +857,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886932247.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886932247.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:03.356074"
   },
@@ -801,7 +877,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886923857.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886923857.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:13.298391"
   },
@@ -819,7 +897,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886923848.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886923848.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:19.295884"
   },
@@ -843,7 +923,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_gcommon_16886924020.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886924020.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:28.358696"
   },
@@ -861,7 +943,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886923844.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886923844.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:31.496208"
   },
@@ -879,7 +963,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886923860.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886923860.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:44.621453"
   },
@@ -897,7 +983,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886923859.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886923859.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:47.563058"
   },
@@ -921,7 +1009,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_gcommon_16886918557.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886918557.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:48:56.974032"
   },
@@ -939,7 +1029,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886918386.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886918386.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:07.189342"
   },
@@ -957,7 +1049,9 @@
       "Verify repository settings"
     ],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_gcommon_16886918419.log"],
+    "related_logs": [
+      "logs/jdfalk_gcommon_16886918419.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:13.738296"
   },
@@ -981,7 +1075,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16856478337.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16856478337.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:23.403774"
   },
@@ -1005,7 +1101,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16844469231.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16844469231.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:32.500431"
   },
@@ -1029,7 +1127,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16820690702.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16820690702.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:41.291566"
   },
@@ -1053,7 +1153,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16793842631.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16793842631.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:49:57.927882"
   },
@@ -1077,7 +1179,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16766293880.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16766293880.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:50:14.208910"
   },
@@ -1101,7 +1205,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_public-scratch_16739283705.log"],
+    "related_logs": [
+      "logs/jdfalk_public-scratch_16739283705.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:50:30.150026"
   },
@@ -1125,7 +1231,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16870245278.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16870245278.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:50:33.761717"
   },
@@ -1149,7 +1257,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16869688898.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16869688898.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:50:42.637931"
   },
@@ -1163,7 +1273,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16869121961.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16869121961.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:50:51.544072"
   },
@@ -1177,7 +1289,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16866410005.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16866410005.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:00.954778"
   },
@@ -1191,7 +1305,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16865882872.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16865882872.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:10.707577"
   },
@@ -1215,7 +1331,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16856438360.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16856438360.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:51:20.084101"
   },
@@ -1229,7 +1347,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16850557600.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16850557600.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:29.755441"
   },
@@ -1243,7 +1363,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16850244466.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16850244466.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:30.936588"
   },
@@ -1267,7 +1389,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16844434052.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16844434052.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:51:48.371383"
   },
@@ -1281,7 +1405,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16839613487.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16839613487.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:57.041018"
   },
@@ -1295,7 +1421,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16839608976.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16839608976.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:51:58.104538"
   },
@@ -1309,7 +1437,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_copilot-agent-util-rust_16838366685.log"],
+    "related_logs": [
+      "logs/jdfalk_copilot-agent-util-rust_16838366685.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:52:16.458680"
   },
@@ -1333,7 +1463,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16856462035.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16856462035.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:52:26.037752"
   },
@@ -1357,7 +1489,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16844453235.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16844453235.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:52:35.040595"
   },
@@ -1381,7 +1515,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16820667229.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16820667229.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:52:44.078653"
   },
@@ -1405,7 +1541,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16793816462.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16793816462.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:53:00.187821"
   },
@@ -1429,7 +1567,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16766267959.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16766267959.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:53:17.018656"
   },
@@ -1453,7 +1593,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_puppet-thanos_16739256541.log"],
+    "related_logs": [
+      "logs/jdfalk_puppet-thanos_16739256541.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:53:33.956107"
   },
@@ -1477,7 +1619,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_ubuntu-autoinstall-webhook_16855138468.log"],
+    "related_logs": [
+      "logs/jdfalk_ubuntu-autoinstall-webhook_16855138468.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:54:02.304996"
   },
@@ -1501,7 +1645,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16856392650.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16856392650.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:54:50.693865"
   },
@@ -1525,7 +1671,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16844387336.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16844387336.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:54:59.950030"
   },
@@ -1549,7 +1697,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16820563020.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16820563020.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:55:09.664901"
   },
@@ -1573,7 +1723,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16793706874.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16793706874.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:55:27.312937"
   },
@@ -1597,7 +1749,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16766160871.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16766160871.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:55:43.555226"
   },
@@ -1621,7 +1775,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_habk_16739146973.log"],
+    "related_logs": [
+      "logs/jdfalk_habk_16739146973.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:55:59.806062"
   },
@@ -1645,7 +1801,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16856427581.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16856427581.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:56:11.555706"
   },
@@ -1669,7 +1827,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16844421684.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16844421684.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:56:21.514225"
   },
@@ -1693,7 +1853,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16820615499.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16820615499.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:56:30.573409"
   },
@@ -1717,7 +1879,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16793762794.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16793762794.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:56:46.879381"
   },
@@ -1741,7 +1905,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16766215516.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16766215516.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:57:06.342795"
   },
@@ -1765,7 +1931,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_argocd-repo_16739205466.log"],
+    "related_logs": [
+      "logs/jdfalk_argocd-repo_16739205466.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:57:23.281630"
   },
@@ -1789,7 +1957,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16870236877.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16870236877.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:57:27.056614"
   },
@@ -1813,7 +1983,9 @@
         "example": "permissions:\n  contents: read\n  pull-requests: write\n  issues: write"
       }
     ],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790448973.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790448973.log"
+    ],
     "estimated_effort": "simple",
     "created_at": "2025-08-11T13:58:29.111495"
   },
@@ -1827,7 +1999,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790303312.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790303312.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:35.514375"
   },
@@ -1841,7 +2015,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790303265.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790303265.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:35.881398"
   },
@@ -1855,7 +2031,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790303114.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790303114.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:36.204051"
   },
@@ -1869,7 +2047,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790234067.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790234067.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:36.557153"
   },
@@ -1883,7 +2063,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233847.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233847.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:36.901091"
   },
@@ -1897,7 +2079,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233868.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233868.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:37.252680"
   },
@@ -1911,7 +2095,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233861.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233861.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:37.612997"
   },
@@ -1925,7 +2111,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233924.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233924.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:37.961078"
   },
@@ -1939,7 +2127,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233885.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233885.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:38.323487"
   },
@@ -1953,7 +2143,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233429.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233429.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:38.652082"
   },
@@ -1967,7 +2159,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790233492.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790233492.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:39.003723"
   },
@@ -1981,7 +2175,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790228645.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790228645.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:39.344968"
   },
@@ -1995,7 +2191,9 @@
     "priority": "high",
     "suggested_actions": [],
     "code_changes_needed": [],
-    "related_logs": ["logs/jdfalk_audiobook-organizer_16790200906.log"],
+    "related_logs": [
+      "logs/jdfalk_audiobook-organizer_16790200906.log"
+    ],
     "estimated_effort": "moderate",
     "created_at": "2025-08-11T13:58:39.710456"
   }
