@@ -9,8 +9,8 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/metrics/config/export_config_update.proto";
 import "proto/gcommon/v1/metrics/config/provider_settings_update.proto";
-import "proto/gcommon/v1/metrics/messages/resource_limits_update.proto";
 import "proto/gcommon/v1/metrics/config/security_config_update.proto";
+import "proto/gcommon/v1/metrics/messages/resource_limits_update.proto";
 import "proto/gcommon/v1/metrics/messages/tag_updates.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
