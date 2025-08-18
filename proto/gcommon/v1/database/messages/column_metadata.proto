@@ -3,12 +3,13 @@
 // guid: d06d164a-51bd-4f22-b1db-15171a8dd72d
 edition = "2023";
 
-package gcommon.v1.database.messages.column_metadata;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/column_metadata";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * ColumnMetadata describes the structure and properties of a database column.

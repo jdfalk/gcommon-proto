@@ -3,12 +3,13 @@
 // guid: c25c875d-b542-4abd-8778-17d88c9d22cc
 edition = "2023";
 
-package gcommon.v1.database.schema.list_schemas_response;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/schema/list_schemas_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * ListSchemasResponse contains the list of schemas within a database.

@@ -4,14 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.database.messages.cache_metrics;
+package gcommon.v1.database;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/cache_metrics";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Detailed cache performance metrics.

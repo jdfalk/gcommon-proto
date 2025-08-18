@@ -3,13 +3,14 @@
 // guid: b0a6426f-06af-49ad-85eb-2a4eb2bc2de6
 edition = "2023";
 
-package gcommon.v1.common.messages.refresh_token_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/refresh_token_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to refresh an access token using a refresh token.

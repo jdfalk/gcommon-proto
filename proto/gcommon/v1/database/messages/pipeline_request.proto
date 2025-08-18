@@ -3,13 +3,14 @@
 // guid: c4ed1ac6-29fd-4359-851f-e9f73d6926c5
 edition = "2023";
 
-package gcommon.v1.database.messages.pipeline_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/pipeline_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to execute a batch of cache operations atomically.

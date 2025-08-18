@@ -5,12 +5,13 @@
 
 edition = "2023";
 
-package gcommon.v1.organization.messages.tenant_quota;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/tenant_quota";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * TenantQuota defines resource limits and quotas for a tenant.

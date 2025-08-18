@@ -4,15 +4,19 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.health_check_result;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/enums/check_type.proto";
 import "gcommon/v1/common/enums/serving_status.proto";
 import "gcommon/v1/common/messages/component_health.proto";
 
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_check_result";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message HealthHealthCheckResult {
   // Service name being checked

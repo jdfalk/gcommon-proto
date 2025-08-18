@@ -4,13 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.time_series;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/metric_sample.proto";
+import "gcommon/v1/metrics/messages/metric_sample.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/time_series";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * TimeSeries represents a collection of metric samples over time.

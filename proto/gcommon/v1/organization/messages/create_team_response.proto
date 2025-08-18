@@ -3,14 +3,15 @@
 // guid: 58d56337-9058-4fc8-907a-062ae264e556
 edition = "2023";
 
-package gcommon.v1.organization.messages.create_team_response;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/organization/messages/team.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/create_team_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message CreateTeamResponse {
   // Any errors encountered

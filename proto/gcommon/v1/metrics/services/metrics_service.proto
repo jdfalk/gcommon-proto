@@ -4,31 +4,48 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.metrics_service;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/metrics/v1/get_metric_metadata_request.proto";
-import "gcommon/v1/metrics/v1/get_metric_metadata_response.proto";
-import "gcommon/v1/metrics/v1/get_metrics_request.proto";
-import "gcommon/v1/metrics/v1/get_metrics_response.proto";
-import "gcommon/v1/metrics/v1/get_metrics_summary_request.proto";
-import "gcommon/v1/metrics/v1/get_metrics_summary_response.proto";
-import "gcommon/v1/metrics/v1/metric_data.proto";
-import "gcommon/v1/metrics/v1/query_metrics_request.proto";
-import "gcommon/v1/metrics/v1/query_metrics_response.proto";
-import "gcommon/v1/metrics/v1/record_metric_request.proto";
+import "gcommon/v1/metrics/messages/get_metric_metadata_request.proto";
+import "gcommon/v1/metrics/messages/get_metric_metadata_response.proto";
+import "gcommon/v1/metrics/messages/get_metrics_request.proto";
+import "gcommon/v1/metrics/messages/get_metrics_response.proto";
+import "gcommon/v1/metrics/messages/get_metrics_summary_request.proto";
+import "gcommon/v1/metrics/messages/get_metrics_summary_response.proto";
+import "gcommon/v1/metrics/messages/query_metrics_request.proto";
+import "gcommon/v1/metrics/messages/query_metrics_response.proto";
+import "gcommon/v1/metrics/messages/record_metric_request.proto";
+import "gcommon/v1/metrics/messages/record_metric_response.proto";
+import "gcommon/v1/metrics/messages/record_metrics_request.proto";
+import "gcommon/v1/metrics/messages/record_metrics_response.proto";
+import "gcommon/v1/metrics/messages/register_metric_request.proto";
+import "gcommon/v1/metrics/messages/register_metric_response.proto";
+import "gcommon/v1/metrics/messages/unregister_metric_request.proto";
+import "gcommon/v1/metrics/messages/unregister_metric_response.proto";
+
+
+
+
+
+
+
+
+
+
 // Import response messages
-import "gcommon/v1/metrics/v1/record_metric_response.proto";
-import "gcommon/v1/metrics/v1/record_metrics_request.proto";
-import "gcommon/v1/metrics/v1/record_metrics_response.proto";
-import "gcommon/v1/metrics/v1/register_metric_request.proto";
-import "gcommon/v1/metrics/v1/register_metric_response.proto";
-import "gcommon/v1/metrics/v1/stream_metrics_request.proto";
-import "gcommon/v1/metrics/v1/unregister_metric_request.proto";
-import "gcommon/v1/metrics/v1/unregister_metric_response.proto";
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metrics_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * MetricsService provides comprehensive metrics collection and querying capabilities.

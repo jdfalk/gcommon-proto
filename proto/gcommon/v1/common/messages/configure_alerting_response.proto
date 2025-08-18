@@ -3,13 +3,14 @@
 // guid: f996c2ec-cfc9-45c8-8d78-97eef22d2df4
 edition = "2023";
 
-package gcommon.v1.common.messages.configure_alerting_response;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/configure_alerting_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Response message for configuring alerting settings.

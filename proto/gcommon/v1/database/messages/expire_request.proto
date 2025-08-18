@@ -3,14 +3,15 @@
 // guid: 1ae9e0b1-c430-4d0b-9abd-f6d12cb342bb
 edition = "2023";
 
-package gcommon.v1.database.messages.expire_request;
+package gcommon.v1.database;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/duration.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/expire_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to expire a cache key after a specified duration.

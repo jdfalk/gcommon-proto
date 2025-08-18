@@ -3,12 +3,13 @@
 // guid: 0d47edd3-705c-42cb-a851-afe79bc2973d
 edition = "2023";
 
-package gcommon.v1.config.v1.config_change_type;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/config_change_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 /**
  * ConfigChangeType enumerates configuration change events.

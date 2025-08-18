@@ -5,12 +5,13 @@
 // HealthStatus enumeration for the queue module
 edition = "2023";
 
-package gcommon.v1.queue.enums.health_status;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/health_status";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * HealthStatus represents queue service availability.

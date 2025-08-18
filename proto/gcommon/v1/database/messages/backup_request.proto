@@ -3,13 +3,14 @@
 // guid: 86d919cd-de08-4ada-813a-e950b0ad8640
 edition = "2023";
 
-package gcommon.v1.database.messages.backup_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/backup_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to create a backup of the cache contents.

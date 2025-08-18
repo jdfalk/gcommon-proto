@@ -3,14 +3,15 @@
 // guid: 544cb8ef-e8c5-4f3d-9713-9a97b01edc38
 edition = "2023";
 
-package gcommon.v1.organization.messages.get_hierarchy_response;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/organization/messages/organization_hierarchy.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/get_hierarchy_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message GetHierarchyResponse {
   // Any errors encountered

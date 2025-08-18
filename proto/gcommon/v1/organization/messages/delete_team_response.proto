@@ -3,13 +3,14 @@
 // guid: 69568dc0-2615-41c3-9244-1665554ae4ea
 edition = "2023";
 
-package gcommon.v1.organization.messages.delete_team_response;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/delete_team_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message DeleteTeamResponse {
   // Any errors encountered

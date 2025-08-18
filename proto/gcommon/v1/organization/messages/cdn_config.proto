@@ -4,15 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.organization.messages.cdn_config;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/organization/messages/cache_behavior.proto";
 import "gcommon/v1/organization/messages/origin_config.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/cdn_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message CDNConfig {
   // CDN provider

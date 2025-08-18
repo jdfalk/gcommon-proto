@@ -3,13 +3,14 @@
 // guid: 2d1a7b7e-3d9a-44f8-9904-9ed1d77b2ac7
 edition = "2023";
 
-package gcommon.v1.database.messages.exists_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/exists_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to check for the existence of a cache key.

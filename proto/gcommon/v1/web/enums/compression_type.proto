@@ -5,12 +5,13 @@
 // CompressionType enumerates supported HTTP compression algorithms.
 edition = "2023";
 
-package gcommon.v1.web.enums.compression_type;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/compression_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // Supported compression algorithms for responses.
 enum WebCompressionType {

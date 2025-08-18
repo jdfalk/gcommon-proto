@@ -4,15 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.config.messages.access_control;
+package gcommon.v1.config;
+
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/config/messages/access_restriction.proto";
 import "gcommon/v1/config/messages/rate_limits.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/messages/access_control";
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message ConfigAccessControl {
   // Access policy

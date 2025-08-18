@@ -4,23 +4,34 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.metrics_management_service;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
+import "gcommon/v1/metrics/messages/create_provider_request.proto";
+import "gcommon/v1/metrics/messages/create_provider_response.proto";
+import "gcommon/v1/metrics/messages/delete_provider_request.proto";
+import "gcommon/v1/metrics/messages/delete_provider_response.proto";
+import "gcommon/v1/metrics/messages/get_provider_stats_request.proto";
+import "gcommon/v1/metrics/messages/get_provider_stats_response.proto";
+import "gcommon/v1/metrics/messages/list_providers_request.proto";
+import "gcommon/v1/metrics/messages/list_providers_response.proto";
+import "gcommon/v1/metrics/messages/update_provider_request.proto";
+import "gcommon/v1/metrics/messages/update_provider_response.proto";
 // Import all required request and response messages
-import "gcommon/v1/metrics/v1/create_provider_request.proto";
-import "gcommon/v1/metrics/v1/create_provider_response.proto";
-import "gcommon/v1/metrics/v1/delete_provider_request.proto";
-import "gcommon/v1/metrics/v1/delete_provider_response.proto";
-import "gcommon/v1/metrics/v1/get_provider_stats_request.proto";
-import "gcommon/v1/metrics/v1/get_provider_stats_response.proto";
-import "gcommon/v1/metrics/v1/list_providers_request.proto";
-import "gcommon/v1/metrics/v1/list_providers_response.proto";
-import "gcommon/v1/metrics/v1/update_provider_request.proto";
-import "gcommon/v1/metrics/v1/update_provider_response.proto";
+
+
+
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metrics_management_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * MetricsManagementService provides administrative capabilities for metrics providers.

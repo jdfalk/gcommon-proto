@@ -3,14 +3,16 @@
 // guid: 6998154e-e6c6-4156-b1d8-3633dc509d8a
 edition = "2023";
 
-package gcommon.v1.common.messages.error;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/error_code.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/error";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Common error message structure for standardized error handling.

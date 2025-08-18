@@ -3,15 +3,18 @@
 // guid: 5671d63f-77bd-4415-a7ec-3c22d3557b37
 edition = "2023";
 
-package gcommon.v1.common.messages.batch_operation;
+package gcommon.v1.common;
 
-import "google/protobuf/any.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "gcommon/v1/common/messages/batch_options.proto";
 import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/v1/batch_options.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/batch_operation";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Batch operation wrapper for bulk request processing.

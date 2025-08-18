@@ -7,12 +7,13 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.enums.serialization_format;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/enums/serialization_format";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * Supported message serialization formats for queue messages.

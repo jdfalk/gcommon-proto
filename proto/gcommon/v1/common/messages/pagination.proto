@@ -3,12 +3,13 @@
 // guid: 362a2da2-f93c-4652-9287-11938d1af4c3
 edition = "2023";
 
-package gcommon.v1.common.messages.pagination;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/pagination";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Common pagination parameters for list operations.

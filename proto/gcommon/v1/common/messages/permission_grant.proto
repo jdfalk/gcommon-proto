@@ -3,15 +3,17 @@
 // guid: c33e6d90-d966-45f1-ad79-4b6142211caf
 edition = "2023";
 
-package gcommon.v1.common.messages.permission_grant;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/permission_scope.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/permission_grant";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Permission grant entity representing granted permissions.

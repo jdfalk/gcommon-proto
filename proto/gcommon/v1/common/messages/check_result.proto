@@ -3,16 +3,17 @@
 // guid: 0e8f3ad4-be75-42b2-b880-fda7ebd7de1c
 edition = "2023";
 
-package gcommon.v1.common.messages.check_result;
+package gcommon.v1.common;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/v1/health_status.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/check_result";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Individual health check result for a specific component or subsystem.

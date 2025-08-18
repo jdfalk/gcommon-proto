@@ -3,15 +3,17 @@
 // guid: 74375b8f-7a0b-4243-94fe-3c59ed01f5c4
 edition = "2023";
 
-package gcommon.v1.organization.messages.organization_member;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/key_value.proto";
 import "gcommon/v1/organization/enums/member_role.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/organization_member";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * OrganizationMember message representing a user's membership in an organization.

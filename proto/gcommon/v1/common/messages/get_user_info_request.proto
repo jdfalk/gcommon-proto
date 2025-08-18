@@ -3,13 +3,14 @@
 // guid: 43e29c52-26b2-4a16-899e-5eb46029783d
 edition = "2023";
 
-package gcommon.v1.common.messages.get_user_info_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/get_user_info_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to get user information from a valid token.

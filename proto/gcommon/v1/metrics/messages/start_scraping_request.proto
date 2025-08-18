@@ -4,14 +4,16 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.start_scraping_request;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/v1/scrape_config.proto";
+import "gcommon/v1/metrics/messages/scrape_config.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/start_scraping_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message StartScrapingRequest {
   // Standard request metadata

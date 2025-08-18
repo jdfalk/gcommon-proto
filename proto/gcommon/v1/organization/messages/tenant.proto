@@ -3,17 +3,21 @@
 // guid: 560b99c3-131a-4c92-bcaf-034974f1561a
 edition = "2023";
 
-package gcommon.v1.organization.messages.tenant;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/key_value.proto";
 import "gcommon/v1/organization/enums/isolation_level.proto";
 import "gcommon/v1/organization/enums/tenant_status.proto";
 import "gcommon/v1/organization/messages/tenant_quota.proto";
 
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/tenant";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * Tenant message representing a tenant within an organization.

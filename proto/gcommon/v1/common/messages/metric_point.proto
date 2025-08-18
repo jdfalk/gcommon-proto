@@ -3,13 +3,14 @@
 // guid: 33062748-1b9e-47b6-9fbe-be60f9f3fb7d
 edition = "2023";
 
-package gcommon.v1.common.messages.metric_point;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/metric_point";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Common metrics data point for standardized metric collection.

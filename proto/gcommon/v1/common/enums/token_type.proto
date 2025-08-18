@@ -3,12 +3,13 @@
 // guid: fe1ca2c9-528e-4485-8890-6b151d7d47ae
 edition = "2023";
 
-package gcommon.v1.common.enums.token_type;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/token_type";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Token type enumeration for different kinds of authentication tokens.

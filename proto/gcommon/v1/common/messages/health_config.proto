@@ -3,12 +3,13 @@
 // guid: ebed5c7e-06be-4527-8d87-41afd0b1320d
 edition = "2023";
 
-package gcommon.v1.common.messages.health_config;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * HealthConfig represents health configuration

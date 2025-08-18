@@ -3,12 +3,13 @@
 // guid: d1b1396a-9610-4eb4-b5ea-bc7218024dee
 edition = "2023";
 
-package gcommon.v1.common.messages.client_info;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/client_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Client information for request identification and monitoring.

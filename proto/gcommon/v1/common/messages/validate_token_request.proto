@@ -3,13 +3,14 @@
 // guid: 337bc0eb-8b0a-4a0c-b173-506f0eae4f52
 edition = "2023";
 
-package gcommon.v1.common.messages.validate_token_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/validate_token_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to validate an access token.

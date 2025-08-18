@@ -4,15 +4,18 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.query_metrics_request;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/v1/metric_query.proto";
-import "gcommon/v1/metrics/v1/query_output_options.proto";
+import "gcommon/v1/metrics/messages/metric_query.proto";
+import "gcommon/v1/metrics/messages/query_output_options.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/query_metrics_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message QueryMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)

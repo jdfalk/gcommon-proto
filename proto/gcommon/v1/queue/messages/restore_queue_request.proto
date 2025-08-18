@@ -4,18 +4,22 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.restore_queue_request;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
 import "gcommon/v1/queue/messages/backup_source.proto";
 import "gcommon/v1/queue/messages/restore_config.proto";
 import "gcommon/v1/queue/messages/restore_options.proto";
-import "gcommon/v1/queue/messages/restore_queue_response.proto";
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/restore_queue_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message RestoreQueueRequest {
   // Target queue identifier for restoration

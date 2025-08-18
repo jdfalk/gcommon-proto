@@ -3,14 +3,15 @@
 // guid: 52aedf5e-c6a7-42f0-8d7c-8ebc4d679a3b
 edition = "2023";
 
-package gcommon.v1.database.messages.keys_request;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/pagination.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/keys_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to list cache keys matching a pattern.

@@ -3,14 +3,15 @@
 // guid: bb0056c3-6eb4-4476-a508-c6789653b1f5
 edition = "2023";
 
-package gcommon.v1.database.messages.touch_expiration_request;
+package gcommon.v1.database;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/duration.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/touch_expiration_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * Request to update the TTL of an existing cache key.

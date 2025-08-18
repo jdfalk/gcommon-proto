@@ -4,16 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.original_queue_info;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
-import "gcommon/v1/queue/messages/restore_config.proto";
-import "gcommon/v1/queue/messages/restore_queue_response.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/original_queue_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message OriginalQueueInfo {
   // Original queue ID

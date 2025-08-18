@@ -3,15 +3,18 @@
 // guid: caf60cc1-beab-4119-bb01-f426fbb8b680
 edition = "2023";
 
-package gcommon.v1.common.messages.token;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/token_status.proto";
 import "gcommon/v1/common/enums/token_type.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/token";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Token entity representing authentication and authorization tokens.

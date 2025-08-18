@@ -7,14 +7,15 @@
 //
 edition = "2023";
 
-package gcommon.v1.queue.messages.stream_config;
+package gcommon.v1.queue;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/queue/enums/stream_restart_policy.proto";
+import "google/protobuf/duration.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/stream_config";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 /**
  * Configuration for streaming message consumption.

@@ -3,12 +3,13 @@
 // guid: 4bce9e15-4221-4e32-97a0-664f1f5fc777
 edition = "2023";
 
-package gcommon.v1.database.messages.database_info;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/database_info";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * DatabaseInfo provides metadata about a database instance.

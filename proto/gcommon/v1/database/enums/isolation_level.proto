@@ -3,12 +3,13 @@
 // guid: 004cde4c-f6bc-40ff-b341-1408e58e37b6
 edition = "2023";
 
-package gcommon.v1.database.enums.isolation_level;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/enums/isolation_level";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * IsolationLevel defines transaction isolation levels controlling concurrent access.

@@ -3,12 +3,13 @@
 // guid: df65ccac-c72e-48cf-ba09-e50b76276d9e
 edition = "2023";
 
-package gcommon.v1.common.enums.session_status;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/session_status";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Session status enumeration defining the current state of a user session.

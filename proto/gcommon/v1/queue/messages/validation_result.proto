@@ -4,18 +4,22 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.validation_result;
+package gcommon.v1.queue;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
 import "gcommon/v1/queue/messages/checksum_validation.proto";
 import "gcommon/v1/queue/messages/integrity_validation.proto";
 import "gcommon/v1/queue/messages/schema_validation.proto";
 import "gcommon/v1/queue/messages/validation_error.proto";
 
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/validation_result";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message QueueValidationResult {
   // Validation success status

@@ -3,12 +3,13 @@
 // guid: 36e09c07-048c-463e-bd22-902a4dbed6a9
 edition = "2023";
 
-package gcommon.v1.database.messages.list_databases_response;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/list_databases_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * ListDatabasesResponse contains the list of available databases.

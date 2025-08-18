@@ -4,15 +4,19 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.conflict_detection;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/enums/conflict_strategy.proto";
 import "gcommon/v1/queue/messages/timestamp_config.proto";
 import "gcommon/v1/queue/messages/vector_clock_config.proto";
 
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/conflict_detection";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message ConflictDetection {
   // Enable conflict detection

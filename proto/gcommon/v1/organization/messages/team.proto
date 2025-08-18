@@ -3,14 +3,15 @@
 // guid: 6af03494-7f90-4ad9-9e30-cb8eaa7ef367
 edition = "2023";
 
-package gcommon.v1.organization.messages.team;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/key_value.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/team";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * Team message representing a team within an organization or department.

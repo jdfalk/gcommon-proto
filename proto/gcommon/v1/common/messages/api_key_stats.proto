@@ -4,14 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.common.messages.api_key_stats;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 // TODO FIX THIS
-// import "gcommon/v1/common/messages/daily_usage.proto";
+// 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/api_key_stats";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message ApiKeyStats {
   int32 total_requests = 1;

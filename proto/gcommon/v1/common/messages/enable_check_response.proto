@@ -3,13 +3,14 @@
 // guid: e785b271-7a1a-42e8-add6-deda8ce9f5b1
 edition = "2023";
 
-package gcommon.v1.common.messages.enable_check_response;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/enable_check_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Response message for enabling a health check.

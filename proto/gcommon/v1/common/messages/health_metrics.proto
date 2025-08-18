@@ -3,13 +3,14 @@
 // guid: 5abc1dde-0895-4d4d-b970-d9784a116f26
 edition = "2023";
 
-package gcommon.v1.common.messages.health_metrics;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/health_metrics";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Health metrics aggregation containing overall system health statistics.

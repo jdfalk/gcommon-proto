@@ -3,14 +3,15 @@
 // guid: c93fcd4c-7090-4c96-9c04-1e2b77a10337
 edition = "2023";
 
-package gcommon.v1.organization.messages.get_tenant_usage_response;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/key_value.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/get_tenant_usage_response";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message GetTenantUsageResponse {
   // Any errors encountered

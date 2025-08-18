@@ -4,15 +4,17 @@
 
 edition = "2023";
 
-package gcommon.v1.web.messages.list_middleware_request;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/pagination.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
 import "gcommon/v1/web/enums/middleware_type.proto";
 
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/messages/list_middleware_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // ListMiddlewareRequest request definition.
 message ListMiddlewareRequest {

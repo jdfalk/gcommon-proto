@@ -5,7 +5,8 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.services.queue_admin_service;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/create_queue_request.proto";
@@ -23,8 +24,22 @@ import "gcommon/v1/queue/messages/reset_queue_stats_response.proto";
 import "gcommon/v1/queue/messages/resume_queue_request.proto";
 import "gcommon/v1/queue/messages/resume_queue_response.proto";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/services/queue_admin_service";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 // Administrative service for queue management operations
 service QueueAdminService {

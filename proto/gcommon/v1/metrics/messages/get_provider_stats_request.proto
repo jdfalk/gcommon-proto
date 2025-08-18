@@ -4,15 +4,18 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.get_provider_stats_request;
+package gcommon.v1.metrics;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/v1/stats_options.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
+import "gcommon/v1/metrics/messages/stats_options.proto";
+import "gcommon/v1/metrics/messages/time_range.proto";
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/get_provider_stats_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message GetProviderStatsRequest {
   // Standard request metadata (tracing, auth, etc.)

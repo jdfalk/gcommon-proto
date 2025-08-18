@@ -5,12 +5,13 @@
 // CacheStrategy defines caching policies for HTTP handlers.
 edition = "2023";
 
-package gcommon.v1.web.enums.cache_strategy;
+package gcommon.v1.web;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/web/enums/cache_strategy";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 // Available caching policies for responses.
 enum CacheStrategy {

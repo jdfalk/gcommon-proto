@@ -3,14 +3,15 @@
 // guid: 11b263a9-b479-44a3-89ad-5cc707425f8d
 edition = "2023";
 
-package gcommon.v1.organization.messages.department;
+package gcommon.v1.organization;
+
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/common/messages/key_value.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/department";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 /**
  * Department message representing an organizational department.

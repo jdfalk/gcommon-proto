@@ -4,18 +4,20 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics.v1.aggregation_spec;
+package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
+
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 import "gcommon/v1/metrics/enums/aggregation_type.proto";
-import "gcommon/v1/metrics/v1/metric_filter.proto";
-import "gcommon/v1/metrics/v1/query_operation.proto";
-import "gcommon/v1/metrics/v1/time_range.proto";
-import "gcommon/v1/metrics/v1/timestamp_range.proto";
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/aggregation_spec";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message AggregationSpec {
   // Type of aggregation to perform

@@ -4,21 +4,23 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.push_request;
+package gcommon.v1.queue;
 
-import "google/protobuf/any.proto";
+
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "gcommon/v1/queue/enums/delivery_mode.proto";
-import "gcommon/v1/queue/enums/priority_level.proto";
 import "gcommon/v1/queue/messages/batch_settings.proto";
-import "gcommon/v1/queue/messages/message_metadata.proto";
 import "gcommon/v1/queue/messages/publish_config.proto";
 import "gcommon/v1/queue/messages/queue_message.proto";
-import "gcommon/v1/queue/messages/retry_config.proto";
+
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/push_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message PushRequest {
   // Target topic or queue identifier

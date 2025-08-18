@@ -3,14 +3,17 @@
 // guid: b4dc4847-4e57-46b9-bcf0-f74e86882c0a
 edition = "2023";
 
-package gcommon.v1.database.messages.result_set;
+package gcommon.v1.database;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/column_metadata.proto";
 import "gcommon/v1/database/messages/row.proto";
 
+
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/result_set";
+option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 /**
  * ResultSet contains the results of a database query operation.

@@ -3,14 +3,15 @@
 // guid: c6fef1ce-1633-4607-967d-1b42b93dcf8c
 edition = "2023";
 
-package gcommon.v1.common.messages.delete_role_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/common/messages/role.proto";
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/delete_role_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Request to delete a role.

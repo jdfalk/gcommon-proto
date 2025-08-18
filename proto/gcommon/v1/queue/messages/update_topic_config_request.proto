@@ -5,13 +5,15 @@
 
 edition = "2023";
 
-package gcommon.v1.queue.messages.update_topic_config_request;
+package gcommon.v1.queue;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/queue/messages/topic_config.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/update_topic_config_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 // Request to update topic configuration
 message UpdateTopicConfigRequest {

@@ -3,18 +3,23 @@
 // guid: 3662d31f-ad12-4066-be86-6a74f4e4a884
 edition = "2023";
 
-package gcommon.v1.common.messages.authenticate_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/api_key_credentials.proto";
-import "gcommon/v1/common/messages/client_info.proto";
 import "gcommon/v1/common/messages/jwt_credentials.proto";
 import "gcommon/v1/common/messages/o_auth2_credentials.proto";
 import "gcommon/v1/common/messages/password_credentials.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+
+
+
+
+
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/authenticate_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Authentication request supporting multiple credential types.

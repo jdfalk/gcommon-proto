@@ -3,12 +3,13 @@
 // guid: 53ad7b97-17b7-45fc-b834-31d09296f358
 edition = "2023";
 
-package gcommon.v1.common.enums.eviction_policy;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/enums/eviction_policy";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 /**
  * Cache eviction policy enumeration for cache management.

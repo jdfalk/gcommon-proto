@@ -8,13 +8,15 @@
 //
 edition = "2023";
 
-package gcommon.v1.common.messages.enable_mfa_request;
+package gcommon.v1.common;
+
 
 import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/enums/mfa_method.proto";
 
+
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/enable_mfa_request";
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message EnableMfaRequest {
   // User ID requesting MFA enablement
