@@ -38,10 +38,10 @@ message OrganizationMember {
   string display_name = 5;
 
   // Primary role of the user in this organization
-  MemberRole role = 6;
+  gcommon.v1.organization.MemberRole role = 6;
 
   // Additional roles the user may have
-  repeated MemberRole additional_roles = 7;
+  repeated gcommon.v1.organization.MemberRole additional_roles = 7;
 
   // Specific permissions granted to this member
   repeated string permissions = 8;

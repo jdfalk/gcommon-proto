@@ -24,10 +24,10 @@ message ConfigComplianceSettings {
   repeated string policies = 2;
 
   // Compliance audits
-  repeated ComplianceAudit audits = 3;
+  repeated gcommon.v1.config.ComplianceAudit audits = 3;
 
   // Compliance reporting
-  ComplianceReporting reporting = 4;
+  gcommon.v1.config.ComplianceReporting reporting = 4;
 
   // Compliance validation
   bool validation_enabled = 5;

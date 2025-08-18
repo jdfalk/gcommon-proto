@@ -18,13 +18,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config";
 
 message InheritanceFilter {
   // Filter type
-  ConfigFilterType type = 1;
+  gcommon.v1.config.ConfigFilterType type = 1;
 
   // Filter expression
   string expression = 2;
 
   // Filter action
-  FilterAction action = 3;
+  gcommon.v1.config.FilterAction action = 3;
 
   // Filter metadata
   map<string, string> metadata = 4;

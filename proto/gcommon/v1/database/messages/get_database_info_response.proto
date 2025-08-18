@@ -19,5 +19,5 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 message GetDatabaseInfoResponse {
   // Detailed database information and metadata
-  DatabaseInfo info = 1 [lazy = true];
+  gcommon.v1.database.DatabaseInfo info = 1 [lazy = true];
 }

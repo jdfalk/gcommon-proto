@@ -22,5 +22,5 @@ message DatabaseBatchOperation {
   string statement = 1;
 
   // Parameters for the statement
-  repeated QueryParameter parameters = 2 [lazy = true];
+  repeated gcommon.v1.database.QueryParameter parameters = 2 [lazy = true];
 }

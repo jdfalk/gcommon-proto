@@ -32,5 +32,5 @@ message QueryOptions {
   bool include_metadata = 4;
 
   // Read consistency level for the query
-  DatabaseConsistencyLevel consistency = 5;
+  gcommon.v1.database.DatabaseConsistencyLevel consistency = 5;
 }

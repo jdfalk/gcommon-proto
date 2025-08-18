@@ -25,7 +25,7 @@ message ConfigRetrySettings {
   int32 delay_seconds = 3;
 
   // Retry backoff strategy
-  BackoffStrategy backoff_strategy = 4;
+  gcommon.v1.config.BackoffStrategy backoff_strategy = 4;
 
   // Retry conditions
   repeated string conditions = 5;

@@ -44,5 +44,5 @@ message UsageStatistics {
   int64 peak_access_count = 9;
 
   // Usage trends
-  repeated UsageTrend trends = 10;
+  repeated gcommon.v1.config.UsageTrend trends = 10;
 }

@@ -43,10 +43,10 @@ message Tenant {
   string description = 5;
 
   // Current status of the tenant
-  TenantStatus status = 6;
+  gcommon.v1.organization.TenantStatus status = 6;
 
   // Isolation level for this tenant
-  OrganizationIsolationLevel isolation_level = 7;
+  gcommon.v1.organization.OrganizationIsolationLevel isolation_level = 7;
 
   // Tenant metadata and custom attributes
   repeated gcommon.v1.common.KeyValue metadata = 8 [lazy = true];
@@ -70,7 +70,7 @@ message Tenant {
   string network_config = 14;
 
   // Resource quotas for this tenant
-  TenantQuota quota = 15;
+  gcommon.v1.organization.TenantQuota quota = 15;
 
   // Custom domain for this tenant (if applicable)
   string custom_domain = 16;

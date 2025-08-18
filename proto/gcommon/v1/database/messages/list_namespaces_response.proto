@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
 
 message ListNamespacesResponse {
   // List of namespaces
-  repeated NamespaceInfo namespaces = 1;
+  repeated gcommon.v1.database.NamespaceInfo namespaces = 1;
 
   // Total count
   int32 total_count = 2;

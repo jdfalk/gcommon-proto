@@ -19,7 +19,7 @@ message AuditSettings {
   bool enabled = 1;
 
   // Audit log level
-  AuditLevel level = 2;
+  gcommon.v1.config.AuditLevel level = 2;
 
   // Audit log retention period in days
   int32 retention_days = 3;

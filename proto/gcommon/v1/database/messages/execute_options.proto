@@ -26,5 +26,5 @@ message ExecuteOptions {
   bool return_generated_keys = 2;
 
   // Isolation level for transaction operations
-  DatabaseIsolationLevel isolation = 3;
+  gcommon.v1.database.DatabaseIsolationLevel isolation = 3;
 }

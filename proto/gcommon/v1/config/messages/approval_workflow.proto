@@ -22,7 +22,7 @@ message ApprovalWorkflow {
   string type = 2;
 
   // Approval stages
-  repeated ApprovalStage stages = 3;
+  repeated gcommon.v1.config.ApprovalStage stages = 3;
 
   // Workflow timeout
   int32 timeout_hours = 4;

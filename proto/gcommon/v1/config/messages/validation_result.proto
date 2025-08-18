@@ -24,13 +24,13 @@ message ConfigValidationResult {
   string rule_name = 1;
 
   // Validation result
-  ValidationResultType result = 2;
+  gcommon.v1.config.ValidationResultType result = 2;
 
   // Validation message
   string message = 3;
 
   // Severity level
-  ValidationSeverity severity = 4;
+  gcommon.v1.config.ValidationSeverity severity = 4;
 
   // Field that was validated
   string field = 5;
