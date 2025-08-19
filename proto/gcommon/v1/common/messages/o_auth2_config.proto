@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/o_auth2_flow_type.proto";
+import "gcommon/v1/common/enums/oauth2_flow_type.proto";
 import "gcommon/v1/common/messages/jwt_config.proto";
 import "google/protobuf/go_features.proto";
 

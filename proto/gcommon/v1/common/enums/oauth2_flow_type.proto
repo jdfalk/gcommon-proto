@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/common/enums/o_auth2_flow_type.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/common/enums/oauth2_flow_type.proto
+// version: 1.1.0
 // guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
 
 edition = "2023";
@@ -15,6 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
  * OAuth2 flow types.
  * Defines the different OAuth2 authentication flows supported.
  */
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum OAuth2FlowType {
   // Unspecified flow type
   OAUTH2_FLOW_TYPE_UNSPECIFIED = 0;

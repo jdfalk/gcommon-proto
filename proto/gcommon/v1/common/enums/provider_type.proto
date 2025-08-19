@@ -14,6 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
 /**
  * ProviderType enumerates the supported authentication provider backends.
  */
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum AuthProviderType {
   // Default unspecified provider type
   PROVIDER_TYPE_UNSPECIFIED = 0;

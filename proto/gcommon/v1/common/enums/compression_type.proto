@@ -12,6 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 // CompressionType enumerates archive compression formats
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum LogCompressionType {
   COMPRESSION_TYPE_UNSPECIFIED = 0;
   COMPRESSION_TYPE_NONE = 1;

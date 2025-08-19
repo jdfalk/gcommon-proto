@@ -11,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
+// buf:lint:ignore ENUM_VALUE_PREFIX
 enum AuthVerificationType {
   VERIFICATION_TYPE_UNSPECIFIED = 0;
   VERIFICATION_TYPE_EMAIL = 1;

@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/enums/subject_type.proto";
-import "gcommon/v1/common/messages/list_permissions_request.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -18,11 +17,6 @@ message GrantPermissionRequest {
   string subject_id = 1;
 
   // Subject type
-  enum AuthSubjectType {
-    SUBJECT_TYPE_UNSPECIFIED = 0;
-    SUBJECT_TYPE_USER = 1;
-    SUBJECT_TYPE_ROLE = 2;
-  }
   AuthSubjectType subject_type = 2;
 
   // Permission ID to grant
