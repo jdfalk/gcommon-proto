@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/alert_severity.proto";
+import "gcommon/v1/common/enums/alert_severity.proto";
 import "gcommon/v1/queue/messages/alert_rule.proto";
 import "gcommon/v1/queue/messages/notification_channel.proto";
 import "google/protobuf/duration.proto";
@@ -29,7 +29,7 @@ message AlertingConfig {
   repeated gcommon.v1.queue.QueueNotificationChannel channels = 3;
 
   // Default alert severity level
-  gcommon.v1.queue.QueueAlertSeverity default_severity = 4;
+  gcommon.v1.common.CommonAlertSeverity default_severity = 4;
 
   // Alert aggregation window
   google.protobuf.Duration aggregation_window = 5;

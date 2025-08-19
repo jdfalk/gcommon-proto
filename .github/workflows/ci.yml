@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.2.0
+# version: 1.3.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -623,6 +623,14 @@ jobs:
         with:
           name: combined-coverage-report
           path: coverage-artifacts/
+
+  # Run matrix build workflow if needed
+  matrix-build:
+    name: Matrix Build
+    needs: [detect-changes]
+    if: needs.detect-changes.outputs.should-build == 'true'
+    uses: ./.github/workflows/matrix-build.yml
+    secrets: inherit
 
   # Final status check
   ci-status:
