@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,11 +24,11 @@ const (
 )
 
 type UpdateMemberRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_MemberId    *string                   `protobuf:"bytes,2,opt,name=member_id,json=memberId"`
-	xxx_hidden_Member      *OrganizationMember       `protobuf:"bytes,3,opt,name=member"`
-	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask    `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_MemberId    *string                 `protobuf:"bytes,2,opt,name=member_id,json=memberId"`
+	xxx_hidden_Member      *OrganizationMember     `protobuf:"bytes,3,opt,name=member"`
+	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask  `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -60,7 +60,7 @@ func (x *UpdateMemberRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateMemberRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateMemberRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -91,7 +91,7 @@ func (x *UpdateMemberRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateMemberRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateMemberRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -157,7 +157,7 @@ type UpdateMemberRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Identifier of the member to update
 	MemberId *string
 	// Updated member information
@@ -194,10 +194,10 @@ const file_gcommon_v1_organization_messages_update_member_request_proto_rawDesc 
 
 var file_gcommon_v1_organization_messages_update_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_member_request_proto_goTypes = []any{
-	(*UpdateMemberRequest)(nil),      // 0: gcommon.v1.organization.UpdateMemberRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*OrganizationMember)(nil),       // 2: gcommon.v1.organization.OrganizationMember
-	(*fieldmaskpb.FieldMask)(nil),    // 3: google.protobuf.FieldMask
+	(*UpdateMemberRequest)(nil),    // 0: gcommon.v1.organization.UpdateMemberRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationMember)(nil),     // 2: gcommon.v1.organization.OrganizationMember
+	(*fieldmaskpb.FieldMask)(nil),  // 3: google.protobuf.FieldMask
 }
 var file_gcommon_v1_organization_messages_update_member_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateMemberRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

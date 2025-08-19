@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type CreateTeamResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors      *[]*common.Error       `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_Team        *Team                  `protobuf:"bytes,3,opt,name=team"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -58,7 +58,7 @@ func (x *CreateTeamResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateTeamResponse) GetErrors() []*messages.Error {
+func (x *CreateTeamResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -81,7 +81,7 @@ func (x *CreateTeamResponse) GetTeam() *Team {
 	return nil
 }
 
-func (x *CreateTeamResponse) SetErrors(v []*messages.Error) {
+func (x *CreateTeamResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -121,7 +121,7 @@ type CreateTeamResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// Newly created team information
@@ -154,7 +154,7 @@ const file_gcommon_v1_organization_messages_create_team_response_proto_rawDesc =
 var file_gcommon_v1_organization_messages_create_team_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_team_response_proto_goTypes = []any{
 	(*CreateTeamResponse)(nil), // 0: gcommon.v1.organization.CreateTeamResponse
-	(*messages.Error)(nil),     // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),       // 1: gcommon.v1.common.Error
 	(*Team)(nil),               // 2: gcommon.v1.organization.Team
 }
 var file_gcommon_v1_organization_messages_create_team_response_proto_depIdxs = []int32{

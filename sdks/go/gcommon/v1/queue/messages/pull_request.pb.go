@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type PullRequest struct {
-	state                               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata                 *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_QueueName                *string                   `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
-	xxx_hidden_VisibilityTimeoutSeconds int32                     `protobuf:"varint,3,opt,name=visibility_timeout_seconds,json=visibilityTimeoutSeconds"`
+	state                               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata                 *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_QueueName                *string                 `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
+	xxx_hidden_VisibilityTimeoutSeconds int32                   `protobuf:"varint,3,opt,name=visibility_timeout_seconds,json=visibilityTimeoutSeconds"`
 	XXX_raceDetectHookData              protoimpl.RaceDetectHookData
 	XXX_presence                        [1]uint32
 	unknownFields                       protoimpl.UnknownFields
@@ -58,7 +58,7 @@ func (x *PullRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *PullRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PullRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -82,7 +82,7 @@ func (x *PullRequest) GetVisibilityTimeoutSeconds() int32 {
 	return 0
 }
 
-func (x *PullRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *PullRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -135,7 +135,7 @@ type PullRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Queue to pull from
 	QueueName *string
 	// Optional visibility timeout for the pulled message
@@ -167,12 +167,12 @@ const file_gcommon_v1_queue_messages_pull_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1d\n" +
 	"\n" +
 	"queue_name\x18\x02 \x01(\tR\tqueueName\x12<\n" +
-	"\x1avisibility_timeout_seconds\x18\x03 \x01(\x05R\x18visibilityTimeoutSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1avisibility_timeout_seconds\x18\x03 \x01(\x05R\x18visibilityTimeoutSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_pull_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_pull_request_proto_goTypes = []any{
-	(*PullRequest)(nil),              // 0: gcommon.v1.queue.PullRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*PullRequest)(nil),            // 0: gcommon.v1.queue.PullRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_pull_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PullRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

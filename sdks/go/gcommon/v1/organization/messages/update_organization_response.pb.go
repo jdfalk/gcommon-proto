@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type UpdateOrganizationResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Organization *Organization          `protobuf:"bytes,1,opt,name=organization"`
-	xxx_hidden_Errors       *[]*messages.Error     `protobuf:"bytes,2,rep,name=errors"`
+	xxx_hidden_Errors       *[]*common.Error       `protobuf:"bytes,2,rep,name=errors"`
 	xxx_hidden_Success      bool                   `protobuf:"varint,3,opt,name=success"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
@@ -67,7 +67,7 @@ func (x *UpdateOrganizationResponse) GetOrganization() *Organization {
 	return nil
 }
 
-func (x *UpdateOrganizationResponse) GetErrors() []*messages.Error {
+func (x *UpdateOrganizationResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -87,7 +87,7 @@ func (x *UpdateOrganizationResponse) SetOrganization(v *Organization) {
 	x.xxx_hidden_Organization = v
 }
 
-func (x *UpdateOrganizationResponse) SetErrors(v []*messages.Error) {
+func (x *UpdateOrganizationResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -125,7 +125,7 @@ type UpdateOrganizationResponse_builder struct {
 	// Updated organization
 	Organization *Organization
 	// Any errors encountered during update
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 }
@@ -157,7 +157,7 @@ var file_gcommon_v1_organization_messages_update_organization_response_proto_msg
 var file_gcommon_v1_organization_messages_update_organization_response_proto_goTypes = []any{
 	(*UpdateOrganizationResponse)(nil), // 0: gcommon.v1.organization.UpdateOrganizationResponse
 	(*Organization)(nil),               // 1: gcommon.v1.organization.Organization
-	(*messages.Error)(nil),             // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),               // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_organization_messages_update_organization_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateOrganizationResponse.organization:type_name -> gcommon.v1.organization.Organization

@@ -206,7 +206,7 @@ const file_gcommon_v1_queue_messages_key_validation_service_proto_rawDesc = "" +
 	"\bendpoint\x18\x02 \x01(\tR\bendpoint\x12\x1d\n" +
 	"\n" +
 	"timeout_ms\x18\x03 \x01(\x05R\ttimeoutMs\x12*\n" +
-	"\x11cache_ttl_seconds\x18\x04 \x01(\x05R\x0fcacheTtlSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11cache_ttl_seconds\x18\x04 \x01(\x05R\x0fcacheTtlSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_key_validation_service_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_key_validation_service_proto_goTypes = []any{

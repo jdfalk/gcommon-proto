@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type ListTeamsResponse struct {
-	state                 protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_Errors     *[]*messages.Error          `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success    bool                        `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Teams      *[]*Team                    `protobuf:"bytes,3,rep,name=teams"`
-	xxx_hidden_Pagination *messages.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
+	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Errors     *[]*common.Error          `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success    bool                      `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Teams      *[]*Team                  `protobuf:"bytes,3,rep,name=teams"`
+	xxx_hidden_Pagination *common.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -61,7 +61,7 @@ func (x *ListTeamsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListTeamsResponse) GetErrors() []*messages.Error {
+func (x *ListTeamsResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -91,14 +91,14 @@ func (x *ListTeamsResponse) GetTeams() []*Team {
 	return nil
 }
 
-func (x *ListTeamsResponse) GetPagination() *messages.PaginatedResponse {
+func (x *ListTeamsResponse) GetPagination() *common.PaginatedResponse {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTeamsResponse) SetErrors(v []*messages.Error) {
+func (x *ListTeamsResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -118,7 +118,7 @@ func (x *ListTeamsResponse) SetTeams(v []*Team) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *ListTeamsResponse) SetPagination(v *messages.PaginatedResponse) {
+func (x *ListTeamsResponse) SetPagination(v *common.PaginatedResponse) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -149,13 +149,13 @@ type ListTeamsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// List of teams returned
 	Teams []*Team
 	// Pagination metadata
-	Pagination *messages.PaginatedResponse
+	Pagination *common.PaginatedResponse
 }
 
 func (b0 ListTeamsResponse_builder) Build() *ListTeamsResponse {
@@ -190,10 +190,10 @@ const file_gcommon_v1_organization_messages_list_teams_response_proto_rawDesc = 
 
 var file_gcommon_v1_organization_messages_list_teams_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_list_teams_response_proto_goTypes = []any{
-	(*ListTeamsResponse)(nil),          // 0: gcommon.v1.organization.ListTeamsResponse
-	(*messages.Error)(nil),             // 1: gcommon.v1.common.Error
-	(*Team)(nil),                       // 2: gcommon.v1.organization.Team
-	(*messages.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
+	(*ListTeamsResponse)(nil),        // 0: gcommon.v1.organization.ListTeamsResponse
+	(*common.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*Team)(nil),                     // 2: gcommon.v1.organization.Team
+	(*common.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_gcommon_v1_organization_messages_list_teams_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListTeamsResponse.errors:type_name -> gcommon.v1.common.Error

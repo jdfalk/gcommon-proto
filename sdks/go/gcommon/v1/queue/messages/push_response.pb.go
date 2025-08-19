@@ -262,7 +262,7 @@ const file_gcommon_v1_queue_messages_push_response_proto_rawDesc = "" +
 	"\vqueue_depth\x18\x04 \x01(\x03R\n" +
 	"queueDepth\x12\x1c\n" +
 	"\tpersisted\x18\x05 \x01(\bR\tpersisted\x12R\n" +
-	"\x17estimated_delivery_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x15estimatedDeliveryTimeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17estimated_delivery_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x15estimatedDeliveryTimeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_push_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_push_response_proto_goTypes = []any{

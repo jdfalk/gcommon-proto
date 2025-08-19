@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type DeleteOrganizationResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors      *[]*common.Error       `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -57,7 +57,7 @@ func (x *DeleteOrganizationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteOrganizationResponse) GetErrors() []*messages.Error {
+func (x *DeleteOrganizationResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -73,7 +73,7 @@ func (x *DeleteOrganizationResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DeleteOrganizationResponse) SetErrors(v []*messages.Error) {
+func (x *DeleteOrganizationResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -98,7 +98,7 @@ type DeleteOrganizationResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 }
@@ -127,7 +127,7 @@ const file_gcommon_v1_organization_messages_delete_organization_response_proto_r
 var file_gcommon_v1_organization_messages_delete_organization_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_delete_organization_response_proto_goTypes = []any{
 	(*DeleteOrganizationResponse)(nil), // 0: gcommon.v1.organization.DeleteOrganizationResponse
-	(*messages.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),               // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_organization_messages_delete_organization_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.DeleteOrganizationResponse.errors:type_name -> gcommon.v1.common.Error

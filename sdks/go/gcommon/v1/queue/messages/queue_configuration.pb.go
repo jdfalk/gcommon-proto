@@ -217,7 +217,7 @@ const file_gcommon_v1_queue_messages_queue_configuration_proto_rawDesc = "" +
 	"\x12visibility_timeout\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11visibilityTimeout\x12S\n" +
 	"\x18message_retention_period\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x16messageRetentionPeriod\x12,\n" +
 	"\x12max_retry_attempts\x18\x04 \x01(\x05R\x10maxRetryAttempts\x129\n" +
-	"\x19dead_letter_queue_enabled\x18\x05 \x01(\bR\x16deadLetterQueueEnabledB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19dead_letter_queue_enabled\x18\x05 \x01(\bR\x16deadLetterQueueEnabledB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_queue_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_queue_configuration_proto_goTypes = []any{

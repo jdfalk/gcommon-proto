@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,9 +29,9 @@ const (
 //
 // Follows 1-1-1 pattern: one message per file.
 type GetServerHealthRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_RequestMetadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
-	xxx_hidden_RequestedAt     *timestamppb.Timestamp    `protobuf:"bytes,51,opt,name=requested_at,json=requestedAt"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_RequestMetadata *common.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
+	xxx_hidden_RequestedAt     *timestamppb.Timestamp  `protobuf:"bytes,51,opt,name=requested_at,json=requestedAt"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -61,7 +61,7 @@ func (x *GetServerHealthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetServerHealthRequest) GetRequestMetadata() *messages.RequestMetadata {
+func (x *GetServerHealthRequest) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
@@ -75,7 +75,7 @@ func (x *GetServerHealthRequest) GetRequestedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetServerHealthRequest) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *GetServerHealthRequest) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
@@ -111,7 +111,7 @@ type GetServerHealthRequest_builder struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 	// *
 	// Timestamp when this request was created.
 	RequestedAt *timestamppb.Timestamp
@@ -137,9 +137,9 @@ const file_gcommon_v1_web_messages_get_server_health_request_proto_rawDesc = "" 
 
 var file_gcommon_v1_web_messages_get_server_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_get_server_health_request_proto_goTypes = []any{
-	(*GetServerHealthRequest)(nil),   // 0: gcommon.v1.web.GetServerHealthRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
+	(*GetServerHealthRequest)(nil), // 0: gcommon.v1.web.GetServerHealthRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_web_messages_get_server_health_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.GetServerHealthRequest.request_metadata:type_name -> gcommon.v1.common.RequestMetadata

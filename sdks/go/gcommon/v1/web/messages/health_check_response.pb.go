@@ -7,8 +7,7 @@
 package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,10 +25,10 @@ const (
 
 // HealthCheckResponse response definition.
 type WebHealthCheckResponse struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Status       enums.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_ResponseTime *durationpb.Duration     `protobuf:"bytes,2,opt,name=response_time,json=responseTime"`
-	xxx_hidden_Error        *messages.Error          `protobuf:"bytes,3,opt,name=error"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Status       common.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_ResponseTime *durationpb.Duration      `protobuf:"bytes,2,opt,name=response_time,json=responseTime"`
+	xxx_hidden_Error        *common.Error             `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -63,13 +62,13 @@ func (x *WebHealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebHealthCheckResponse) GetStatus() enums.CommonHealthStatus {
+func (x *WebHealthCheckResponse) GetStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *WebHealthCheckResponse) GetResponseTime() *durationpb.Duration {
@@ -86,13 +85,13 @@ func (x *WebHealthCheckResponse) GetResponseTime() *durationpb.Duration {
 	return nil
 }
 
-func (x *WebHealthCheckResponse) GetError() *messages.Error {
+func (x *WebHealthCheckResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -100,7 +99,7 @@ func (x *WebHealthCheckResponse) GetError() *messages.Error {
 	return nil
 }
 
-func (x *WebHealthCheckResponse) SetStatus(v enums.CommonHealthStatus) {
+func (x *WebHealthCheckResponse) SetStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -114,7 +113,7 @@ func (x *WebHealthCheckResponse) SetResponseTime(v *durationpb.Duration) {
 	}
 }
 
-func (x *WebHealthCheckResponse) SetError(v *messages.Error) {
+func (x *WebHealthCheckResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -146,7 +145,7 @@ func (x *WebHealthCheckResponse) HasError() bool {
 
 func (x *WebHealthCheckResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *WebHealthCheckResponse) ClearResponseTime() {
@@ -156,18 +155,18 @@ func (x *WebHealthCheckResponse) ClearResponseTime() {
 
 func (x *WebHealthCheckResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type WebHealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Web server health status.
-	Status *enums.CommonHealthStatus
+	Status *common.CommonHealthStatus
 	// Time taken to respond to the health check.
 	ResponseTime *durationpb.Duration
 	// Error details if the server is unhealthy.
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 WebHealthCheckResponse_builder) Build() *WebHealthCheckResponse {
@@ -202,9 +201,9 @@ const file_gcommon_v1_web_messages_health_check_response_proto_rawDesc = "" +
 var file_gcommon_v1_web_messages_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_health_check_response_proto_goTypes = []any{
 	(*WebHealthCheckResponse)(nil), // 0: gcommon.v1.web.WebHealthCheckResponse
-	(enums.CommonHealthStatus)(0),  // 1: gcommon.v1.common.CommonHealthStatus
+	(common.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
 	(*durationpb.Duration)(nil),    // 2: google.protobuf.Duration
-	(*messages.Error)(nil),         // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),           // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_messages_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.WebHealthCheckResponse.status:type_name -> gcommon.v1.common.CommonHealthStatus

@@ -136,7 +136,7 @@ const file_gcommon_v1_queue_messages_offset_range_proto_rawDesc = "" +
 	"\vOffsetRange\x12!\n" +
 	"\fstart_offset\x18\x01 \x01(\x03R\vstartOffset\x12\x1d\n" +
 	"\n" +
-	"end_offset\x18\x02 \x01(\x03R\tendOffsetB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"end_offset\x18\x02 \x01(\x03R\tendOffsetB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_offset_range_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_offset_range_proto_goTypes = []any{

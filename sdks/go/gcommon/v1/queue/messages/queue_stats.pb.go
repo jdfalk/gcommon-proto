@@ -333,7 +333,7 @@ const file_gcommon_v1_queue_messages_queue_stats_proto_rawDesc = "" +
 	"\rcurrent_depth\x18\x06 \x01(\x03R\fcurrentDepth\x12\x1d\n" +
 	"\n" +
 	"peak_depth\x18\a \x01(\x03R\tpeakDepth\x12?\n" +
-	"\rlast_activity\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\flastActivityB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rlast_activity\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\flastActivityB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_queue_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_queue_stats_proto_goTypes = []any{

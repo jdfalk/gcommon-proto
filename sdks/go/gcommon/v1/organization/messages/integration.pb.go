@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ type Integration struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
 	xxx_hidden_Enabled      bool                   `protobuf:"varint,2,opt,name=enabled"`
-	xxx_hidden_Config       *[]*messages.KeyValue  `protobuf:"bytes,3,rep,name=config"`
+	xxx_hidden_Config       *[]*common.KeyValue    `protobuf:"bytes,3,rep,name=config"`
 	xxx_hidden_CreatedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
 	xxx_hidden_ConfiguredBy *string                `protobuf:"bytes,5,opt,name=configured_by,json=configuredBy"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -80,13 +80,13 @@ func (x *Integration) GetEnabled() bool {
 	return false
 }
 
-func (x *Integration) GetConfig() []*messages.KeyValue {
+func (x *Integration) GetConfig() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Config) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -128,11 +128,11 @@ func (x *Integration) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *Integration) SetConfig(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *Integration) SetConfig(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -209,7 +209,7 @@ type Integration_builder struct {
 	// Whether this integration is currently enabled
 	Enabled *bool
 	// Integration-specific configuration
-	Config []*messages.KeyValue
+	Config []*common.KeyValue
 	// Integration creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// User ID who configured this integration
@@ -259,7 +259,7 @@ const file_gcommon_v1_organization_messages_integration_proto_rawDesc = "" +
 var file_gcommon_v1_organization_messages_integration_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_integration_proto_goTypes = []any{
 	(*Integration)(nil),           // 0: gcommon.v1.organization.Integration
-	(*messages.KeyValue)(nil),     // 1: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),       // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_messages_integration_proto_depIdxs = []int32{

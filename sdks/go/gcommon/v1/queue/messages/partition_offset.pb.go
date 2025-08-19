@@ -196,7 +196,7 @@ const file_gcommon_v1_queue_messages_partition_offset_proto_rawDesc = "" +
 	"\fpartition_id\x18\x01 \x01(\x05R\vpartitionId\x12\x16\n" +
 	"\x06offset\x18\x02 \x01(\x03R\x06offset\x12E\n" +
 	"\x10offset_timestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x0foffsetTimestamp\x12&\n" +
-	"\x0fhigh_water_mark\x18\x04 \x01(\x03R\rhighWaterMarkB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fhigh_water_mark\x18\x04 \x01(\x03R\rhighWaterMarkB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_partition_offset_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_partition_offset_proto_goTypes = []any{

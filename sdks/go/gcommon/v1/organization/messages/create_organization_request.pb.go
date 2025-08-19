@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +23,14 @@ const (
 )
 
 type CreateOrganizationRequest struct {
-	state                           protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata             *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Organization         *Organization             `protobuf:"bytes,2,opt,name=organization"`
-	xxx_hidden_CreateDefaultTenant  bool                      `protobuf:"varint,3,opt,name=create_default_tenant,json=createDefaultTenant"`
-	xxx_hidden_InitialSettingsJson  *string                   `protobuf:"bytes,4,opt,name=initial_settings_json,json=initialSettingsJson"`
-	xxx_hidden_OwnerUserId          *string                   `protobuf:"bytes,5,opt,name=owner_user_id,json=ownerUserId"`
-	xxx_hidden_SendWelcomeEmail     bool                      `protobuf:"varint,6,opt,name=send_welcome_email,json=sendWelcomeEmail"`
-	xxx_hidden_OrganizationTemplate *string                   `protobuf:"bytes,7,opt,name=organization_template,json=organizationTemplate"`
+	state                           protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata             *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Organization         *Organization           `protobuf:"bytes,2,opt,name=organization"`
+	xxx_hidden_CreateDefaultTenant  bool                    `protobuf:"varint,3,opt,name=create_default_tenant,json=createDefaultTenant"`
+	xxx_hidden_InitialSettingsJson  *string                 `protobuf:"bytes,4,opt,name=initial_settings_json,json=initialSettingsJson"`
+	xxx_hidden_OwnerUserId          *string                 `protobuf:"bytes,5,opt,name=owner_user_id,json=ownerUserId"`
+	xxx_hidden_SendWelcomeEmail     bool                    `protobuf:"varint,6,opt,name=send_welcome_email,json=sendWelcomeEmail"`
+	xxx_hidden_OrganizationTemplate *string                 `protobuf:"bytes,7,opt,name=organization_template,json=organizationTemplate"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -62,7 +62,7 @@ func (x *CreateOrganizationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateOrganizationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateOrganizationRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -120,7 +120,7 @@ func (x *CreateOrganizationRequest) GetOrganizationTemplate() string {
 	return ""
 }
 
-func (x *CreateOrganizationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateOrganizationRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -239,7 +239,7 @@ type CreateOrganizationRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Organization information to create
 	Organization *Organization
 	// Whether to create a default tenant for this organization
@@ -300,7 +300,7 @@ const file_gcommon_v1_organization_messages_create_organization_request_proto_ra
 var file_gcommon_v1_organization_messages_create_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_organization_request_proto_goTypes = []any{
 	(*CreateOrganizationRequest)(nil), // 0: gcommon.v1.organization.CreateOrganizationRequest
-	(*messages.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
 	(*Organization)(nil),              // 2: gcommon.v1.organization.Organization
 }
 var file_gcommon_v1_organization_messages_create_organization_request_proto_depIdxs = []int32{

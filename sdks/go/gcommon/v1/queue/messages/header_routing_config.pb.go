@@ -173,7 +173,7 @@ const file_gcommon_v1_queue_messages_header_routing_config_proto_rawDesc = "" +
 	"\x0erouting_header\x18\x01 \x01(\tR\rroutingHeader\x12\x1f\n" +
 	"\vexact_match\x18\x02 \x01(\bR\n" +
 	"exactMatch\x12%\n" +
-	"\x0ecase_sensitive\x18\x03 \x01(\bR\rcaseSensitiveB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecase_sensitive\x18\x03 \x01(\bR\rcaseSensitiveB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_header_routing_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_header_routing_config_proto_goTypes = []any{

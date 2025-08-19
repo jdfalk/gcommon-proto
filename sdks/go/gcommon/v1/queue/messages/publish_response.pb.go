@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +25,11 @@ const (
 // PublishResponse contains the identifier of the published message
 // and success status.
 type PublishResponse struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_MessageId       *string                   `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
-	xxx_hidden_Success         bool                      `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Error           *messages.Error           `protobuf:"bytes,3,opt,name=error"`
-	xxx_hidden_RequestMetadata *messages.RequestMetadata `protobuf:"bytes,4,opt,name=request_metadata,json=requestMetadata"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_MessageId       *string                 `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
+	xxx_hidden_Success         bool                    `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Error           *common.Error           `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_RequestMetadata *common.RequestMetadata `protobuf:"bytes,4,opt,name=request_metadata,json=requestMetadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -78,14 +78,14 @@ func (x *PublishResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PublishResponse) GetError() *messages.Error {
+func (x *PublishResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *PublishResponse) GetRequestMetadata() *messages.RequestMetadata {
+func (x *PublishResponse) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
@@ -102,11 +102,11 @@ func (x *PublishResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *PublishResponse) SetError(v *messages.Error) {
+func (x *PublishResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
-func (x *PublishResponse) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *PublishResponse) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
@@ -164,9 +164,9 @@ type PublishResponse_builder struct {
 	// Whether the publish operation succeeded.
 	Success *bool
 	// Error information when success is false.
-	Error *messages.Error
+	Error *common.Error
 	// Request metadata echoed back for tracing.
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 }
 
 func (b0 PublishResponse_builder) Build() *PublishResponse {
@@ -196,13 +196,13 @@ const file_gcommon_v1_queue_messages_publish_response_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12M\n" +
-	"\x10request_metadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10request_metadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_publish_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_publish_response_proto_goTypes = []any{
-	(*PublishResponse)(nil),          // 0: gcommon.v1.queue.PublishResponse
-	(*messages.Error)(nil),           // 1: gcommon.v1.common.Error
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*PublishResponse)(nil),        // 0: gcommon.v1.queue.PublishResponse
+	(*common.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_publish_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PublishResponse.error:type_name -> gcommon.v1.common.Error

@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type QueueListSubscriptionsRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Parent      *string                   `protobuf:"bytes,2,opt,name=parent"`
-	xxx_hidden_PageSize    int32                     `protobuf:"varint,3,opt,name=page_size,json=pageSize"`
-	xxx_hidden_PageToken   *string                   `protobuf:"bytes,4,opt,name=page_token,json=pageToken"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Parent      *string                 `protobuf:"bytes,2,opt,name=parent"`
+	xxx_hidden_PageSize    int32                   `protobuf:"varint,3,opt,name=page_size,json=pageSize"`
+	xxx_hidden_PageToken   *string                 `protobuf:"bytes,4,opt,name=page_token,json=pageToken"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -59,7 +59,7 @@ func (x *QueueListSubscriptionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueueListSubscriptionsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueueListSubscriptionsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -93,7 +93,7 @@ func (x *QueueListSubscriptionsRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *QueueListSubscriptionsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueueListSubscriptionsRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -163,7 +163,7 @@ type QueueListSubscriptionsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Name of the topic or queue to list subscriptions for
 	Parent *string
 	// Optional page size
@@ -202,12 +202,12 @@ const file_gcommon_v1_queue_messages_list_subscriptions_request_proto_rawDesc = 
 	"\x06parent\x18\x02 \x01(\tR\x06parent\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x04 \x01(\tR\tpageTokenB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"page_token\x18\x04 \x01(\tR\tpageTokenB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_list_subscriptions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_list_subscriptions_request_proto_goTypes = []any{
 	(*QueueListSubscriptionsRequest)(nil), // 0: gcommon.v1.queue.QueueListSubscriptionsRequest
-	(*messages.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),        // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_list_subscriptions_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueListSubscriptionsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

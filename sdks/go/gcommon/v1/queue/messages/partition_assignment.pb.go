@@ -292,7 +292,7 @@ const file_gcommon_v1_queue_messages_partition_assignment_proto_rawDesc = "" +
 	"\vassigned_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"assignedAt\x12;\n" +
 	"\vlast_commit\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastCommitB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"lastCommitB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_partition_assignment_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_partition_assignment_proto_goTypes = []any{

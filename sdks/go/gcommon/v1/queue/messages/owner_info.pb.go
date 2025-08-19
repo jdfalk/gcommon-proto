@@ -240,7 +240,7 @@ const file_gcommon_v1_queue_messages_owner_info_proto_rawDesc = "" +
 	"\x05email\x18\x03 \x01(\tR\x05email\x12\"\n" +
 	"\forganization\x18\x04 \x01(\tR\forganization\x12;\n" +
 	"\vowned_since\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"ownedSinceB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"ownedSinceB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_owner_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_owner_info_proto_goTypes = []any{

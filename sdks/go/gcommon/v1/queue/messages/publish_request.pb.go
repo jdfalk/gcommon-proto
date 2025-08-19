@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type QueuePublishRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_TopicName       *string                   `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
-	xxx_hidden_Message         *QueueMessage             `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_DeliveryOptions *DeliveryOptions          `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_TopicName       *string                 `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
+	xxx_hidden_Message         *QueueMessage           `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_DeliveryOptions *DeliveryOptions        `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
+	xxx_hidden_Metadata        *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -83,7 +83,7 @@ func (x *QueuePublishRequest) GetDeliveryOptions() *DeliveryOptions {
 	return nil
 }
 
-func (x *QueuePublishRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueuePublishRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -103,7 +103,7 @@ func (x *QueuePublishRequest) SetDeliveryOptions(v *DeliveryOptions) {
 	x.xxx_hidden_DeliveryOptions = v
 }
 
-func (x *QueuePublishRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueuePublishRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -162,7 +162,7 @@ type QueuePublishRequest_builder struct {
 	// Optional delivery parameters controlling retries and delays.
 	DeliveryOptions *DeliveryOptions
 	// Standard request metadata for tracing and auth.
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 QueuePublishRequest_builder) Build() *QueuePublishRequest {
@@ -189,14 +189,14 @@ const file_gcommon_v1_queue_messages_publish_request_proto_rawDesc = "" +
 	"topic_name\x18\x01 \x01(\tR\ttopicName\x128\n" +
 	"\amessage\x18\x02 \x01(\v2\x1e.gcommon.v1.queue.QueueMessageR\amessage\x12L\n" +
 	"\x10delivery_options\x18\x03 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_publish_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_publish_request_proto_goTypes = []any{
-	(*QueuePublishRequest)(nil),      // 0: gcommon.v1.queue.QueuePublishRequest
-	(*QueueMessage)(nil),             // 1: gcommon.v1.queue.QueueMessage
-	(*DeliveryOptions)(nil),          // 2: gcommon.v1.queue.DeliveryOptions
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*QueuePublishRequest)(nil),    // 0: gcommon.v1.queue.QueuePublishRequest
+	(*QueueMessage)(nil),           // 1: gcommon.v1.queue.QueueMessage
+	(*DeliveryOptions)(nil),        // 2: gcommon.v1.queue.DeliveryOptions
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_publish_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueuePublishRequest.message:type_name -> gcommon.v1.queue.QueueMessage

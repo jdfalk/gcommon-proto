@@ -7,8 +7,7 @@
 package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,11 +26,11 @@ const (
 // *
 // HealthCheckResponse returns queue service health status.
 type QueueHealthCheckResponse struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Status       enums.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_ConnectionOk bool                     `protobuf:"varint,2,opt,name=connection_ok,json=connectionOk"`
-	xxx_hidden_ResponseTime *durationpb.Duration     `protobuf:"bytes,3,opt,name=response_time,json=responseTime"`
-	xxx_hidden_Error        *messages.Error          `protobuf:"bytes,4,opt,name=error"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Status       common.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_ConnectionOk bool                      `protobuf:"varint,2,opt,name=connection_ok,json=connectionOk"`
+	xxx_hidden_ResponseTime *durationpb.Duration      `protobuf:"bytes,3,opt,name=response_time,json=responseTime"`
+	xxx_hidden_Error        *common.Error             `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -65,13 +64,13 @@ func (x *QueueHealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueueHealthCheckResponse) GetStatus() enums.CommonHealthStatus {
+func (x *QueueHealthCheckResponse) GetStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *QueueHealthCheckResponse) GetConnectionOk() bool {
@@ -95,13 +94,13 @@ func (x *QueueHealthCheckResponse) GetResponseTime() *durationpb.Duration {
 	return nil
 }
 
-func (x *QueueHealthCheckResponse) GetError() *messages.Error {
+func (x *QueueHealthCheckResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -109,7 +108,7 @@ func (x *QueueHealthCheckResponse) GetError() *messages.Error {
 	return nil
 }
 
-func (x *QueueHealthCheckResponse) SetStatus(v enums.CommonHealthStatus) {
+func (x *QueueHealthCheckResponse) SetStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -128,7 +127,7 @@ func (x *QueueHealthCheckResponse) SetResponseTime(v *durationpb.Duration) {
 	}
 }
 
-func (x *QueueHealthCheckResponse) SetError(v *messages.Error) {
+func (x *QueueHealthCheckResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -167,7 +166,7 @@ func (x *QueueHealthCheckResponse) HasError() bool {
 
 func (x *QueueHealthCheckResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *QueueHealthCheckResponse) ClearConnectionOk() {
@@ -182,20 +181,20 @@ func (x *QueueHealthCheckResponse) ClearResponseTime() {
 
 func (x *QueueHealthCheckResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type QueueHealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall queue service health.
-	Status *enums.CommonHealthStatus
+	Status *common.CommonHealthStatus
 	// Whether the queue connection is operational.
 	ConnectionOk *bool
 	// Time taken to check the queue health.
 	ResponseTime *durationpb.Duration
 	// Error information if the check failed.
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 QueueHealthCheckResponse_builder) Build() *QueueHealthCheckResponse {
@@ -230,14 +229,14 @@ const file_gcommon_v1_queue_messages_health_check_response_proto_rawDesc = "" +
 	"\x06status\x18\x01 \x01(\x0e2%.gcommon.v1.common.CommonHealthStatusR\x06status\x12#\n" +
 	"\rconnection_ok\x18\x02 \x01(\bR\fconnectionOk\x12B\n" +
 	"\rresponse_time\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\fresponseTime\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_health_check_response_proto_goTypes = []any{
 	(*QueueHealthCheckResponse)(nil), // 0: gcommon.v1.queue.QueueHealthCheckResponse
-	(enums.CommonHealthStatus)(0),    // 1: gcommon.v1.common.CommonHealthStatus
+	(common.CommonHealthStatus)(0),   // 1: gcommon.v1.common.CommonHealthStatus
 	(*durationpb.Duration)(nil),      // 2: google.protobuf.Duration
-	(*messages.Error)(nil),           // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),             // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_queue_messages_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueHealthCheckResponse.status:type_name -> gcommon.v1.common.CommonHealthStatus

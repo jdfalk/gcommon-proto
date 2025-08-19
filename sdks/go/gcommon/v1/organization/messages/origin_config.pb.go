@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ type OriginConfig struct {
 	xxx_hidden_DomainName     *string                `protobuf:"bytes,1,opt,name=domain_name,json=domainName"`
 	xxx_hidden_OriginPath     *string                `protobuf:"bytes,2,opt,name=origin_path,json=originPath"`
 	xxx_hidden_ProtocolPolicy *string                `protobuf:"bytes,3,opt,name=protocol_policy,json=protocolPolicy"`
-	xxx_hidden_CustomHeaders  *[]*messages.KeyValue  `protobuf:"bytes,4,rep,name=custom_headers,json=customHeaders"`
+	xxx_hidden_CustomHeaders  *[]*common.KeyValue    `protobuf:"bytes,4,rep,name=custom_headers,json=customHeaders"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -89,7 +89,7 @@ func (x *OriginConfig) GetProtocolPolicy() string {
 	return ""
 }
 
-func (x *OriginConfig) GetCustomHeaders() []*messages.KeyValue {
+func (x *OriginConfig) GetCustomHeaders() []*common.KeyValue {
 	if x != nil {
 		if x.xxx_hidden_CustomHeaders != nil {
 			return *x.xxx_hidden_CustomHeaders
@@ -113,7 +113,7 @@ func (x *OriginConfig) SetProtocolPolicy(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *OriginConfig) SetCustomHeaders(v []*messages.KeyValue) {
+func (x *OriginConfig) SetCustomHeaders(v []*common.KeyValue) {
 	x.xxx_hidden_CustomHeaders = &v
 }
 
@@ -163,7 +163,7 @@ type OriginConfig_builder struct {
 	// Origin protocol policy
 	ProtocolPolicy *string
 	// Custom headers to send to origin
-	CustomHeaders []*messages.KeyValue
+	CustomHeaders []*common.KeyValue
 }
 
 func (b0 OriginConfig_builder) Build() *OriginConfig {
@@ -201,8 +201,8 @@ const file_gcommon_v1_organization_messages_origin_config_proto_rawDesc = "" +
 
 var file_gcommon_v1_organization_messages_origin_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_origin_config_proto_goTypes = []any{
-	(*OriginConfig)(nil),      // 0: gcommon.v1.organization.OriginConfig
-	(*messages.KeyValue)(nil), // 1: gcommon.v1.common.KeyValue
+	(*OriginConfig)(nil),    // 0: gcommon.v1.organization.OriginConfig
+	(*common.KeyValue)(nil), // 1: gcommon.v1.common.KeyValue
 }
 var file_gcommon_v1_organization_messages_origin_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.OriginConfig.custom_headers:type_name -> gcommon.v1.common.KeyValue

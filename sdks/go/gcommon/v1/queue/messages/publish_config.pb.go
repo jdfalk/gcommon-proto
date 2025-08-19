@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -295,7 +295,7 @@ const file_gcommon_v1_queue_messages_publish_config_proto_rawDesc = "" +
 	"\x12enable_compression\x18\x04 \x01(\bR\x11enableCompression\x12'\n" +
 	"\x0fenable_ordering\x18\x05 \x01(\bR\x0eenableOrdering\x12I\n" +
 	"\fretry_config\x18\x06 \x01(\v2&.gcommon.v1.metrics.MetricsRetryConfigR\vretryConfig\x12+\n" +
-	"\x11persistence_level\x18\a \x01(\tR\x10persistenceLevelB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11persistence_level\x18\a \x01(\tR\x10persistenceLevelB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_publish_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_publish_config_proto_goTypes = []any{

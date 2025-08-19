@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,8 +26,8 @@ const (
 type ListMiddlewareResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Middleware *[]*MiddlewareInfo     `protobuf:"bytes,1,rep,name=middleware"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination *common.Pagination     `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error      *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -66,14 +66,14 @@ func (x *ListMiddlewareResponse) GetMiddleware() []*MiddlewareInfo {
 	return nil
 }
 
-func (x *ListMiddlewareResponse) GetPagination() *messages.Pagination {
+func (x *ListMiddlewareResponse) GetPagination() *common.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListMiddlewareResponse) GetError() *messages.Error {
+func (x *ListMiddlewareResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -84,11 +84,11 @@ func (x *ListMiddlewareResponse) SetMiddleware(v []*MiddlewareInfo) {
 	x.xxx_hidden_Middleware = &v
 }
 
-func (x *ListMiddlewareResponse) SetPagination(v *messages.Pagination) {
+func (x *ListMiddlewareResponse) SetPagination(v *common.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListMiddlewareResponse) SetError(v *messages.Error) {
+func (x *ListMiddlewareResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -120,9 +120,9 @@ type ListMiddlewareResponse_builder struct {
 	// Middleware information
 	Middleware []*MiddlewareInfo
 	// Pagination details
-	Pagination *messages.Pagination
+	Pagination *common.Pagination
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ListMiddlewareResponse_builder) Build() *ListMiddlewareResponse {
@@ -153,8 +153,8 @@ var file_gcommon_v1_web_messages_list_middleware_response_proto_msgTypes = make(
 var file_gcommon_v1_web_messages_list_middleware_response_proto_goTypes = []any{
 	(*ListMiddlewareResponse)(nil), // 0: gcommon.v1.web.ListMiddlewareResponse
 	(*MiddlewareInfo)(nil),         // 1: gcommon.v1.web.MiddlewareInfo
-	(*messages.Pagination)(nil),    // 2: gcommon.v1.common.Pagination
-	(*messages.Error)(nil),         // 3: gcommon.v1.common.Error
+	(*common.Pagination)(nil),      // 2: gcommon.v1.common.Pagination
+	(*common.Error)(nil),           // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_messages_list_middleware_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.ListMiddlewareResponse.middleware:type_name -> gcommon.v1.web.MiddlewareInfo

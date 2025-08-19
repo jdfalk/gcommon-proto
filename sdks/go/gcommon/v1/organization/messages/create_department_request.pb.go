@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type CreateDepartmentRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Department   *Department               `protobuf:"bytes,2,opt,name=department"`
-	xxx_hidden_ValidateOnly bool                      `protobuf:"varint,3,opt,name=validate_only,json=validateOnly"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Department   *Department             `protobuf:"bytes,2,opt,name=department"`
+	xxx_hidden_ValidateOnly bool                    `protobuf:"varint,3,opt,name=validate_only,json=validateOnly"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -58,7 +58,7 @@ func (x *CreateDepartmentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateDepartmentRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateDepartmentRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -79,7 +79,7 @@ func (x *CreateDepartmentRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *CreateDepartmentRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateDepartmentRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -130,7 +130,7 @@ type CreateDepartmentRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Department information to create
 	Department *Department
 	// Validate only without persisting if true
@@ -164,9 +164,9 @@ const file_gcommon_v1_organization_messages_create_department_request_proto_rawD
 
 var file_gcommon_v1_organization_messages_create_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_department_request_proto_goTypes = []any{
-	(*CreateDepartmentRequest)(nil),  // 0: gcommon.v1.organization.CreateDepartmentRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*Department)(nil),               // 2: gcommon.v1.organization.Department
+	(*CreateDepartmentRequest)(nil), // 0: gcommon.v1.organization.CreateDepartmentRequest
+	(*common.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*Department)(nil),              // 2: gcommon.v1.organization.Department
 }
 var file_gcommon_v1_organization_messages_create_department_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.CreateDepartmentRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

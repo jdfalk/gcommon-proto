@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,15 +26,15 @@ const (
 // Request to publish multiple messages to a queue in a single operation.
 // Provides better performance for high-throughput scenarios.
 type BatchPublishRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName      *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Messages       *[]*QueueMessage          `protobuf:"bytes,2,rep,name=messages"`
-	xxx_hidden_UseTransaction bool                      `protobuf:"varint,3,opt,name=use_transaction,json=useTransaction"`
-	xxx_hidden_TimeoutMs      int32                     `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
-	xxx_hidden_WaitForAll     bool                      `protobuf:"varint,5,opt,name=wait_for_all,json=waitForAll"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
-	xxx_hidden_MaxRetries     int32                     `protobuf:"varint,7,opt,name=max_retries,json=maxRetries"`
-	xxx_hidden_BatchId        *string                   `protobuf:"bytes,8,opt,name=batch_id,json=batchId"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName      *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Messages       *[]*QueueMessage        `protobuf:"bytes,2,rep,name=messages"`
+	xxx_hidden_UseTransaction bool                    `protobuf:"varint,3,opt,name=use_transaction,json=useTransaction"`
+	xxx_hidden_TimeoutMs      int32                   `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
+	xxx_hidden_WaitForAll     bool                    `protobuf:"varint,5,opt,name=wait_for_all,json=waitForAll"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
+	xxx_hidden_MaxRetries     int32                   `protobuf:"varint,7,opt,name=max_retries,json=maxRetries"`
+	xxx_hidden_BatchId        *string                 `protobuf:"bytes,8,opt,name=batch_id,json=batchId"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -106,7 +106,7 @@ func (x *BatchPublishRequest) GetWaitForAll() bool {
 	return false
 }
 
-func (x *BatchPublishRequest) GetMetadata() *messages.RequestMetadata {
+func (x *BatchPublishRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -154,7 +154,7 @@ func (x *BatchPublishRequest) SetWaitForAll(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
 }
 
-func (x *BatchPublishRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *BatchPublishRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -265,7 +265,7 @@ type BatchPublishRequest_builder struct {
 	// Whether to wait for acknowledgment from all brokers
 	WaitForAll *bool
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Maximum number of retries for failed messages
 	MaxRetries *int32
 	// Batch ID for tracking (optional)
@@ -326,9 +326,9 @@ const file_gcommon_v1_queue_messages_batch_publish_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_batch_publish_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_batch_publish_request_proto_goTypes = []any{
-	(*BatchPublishRequest)(nil),      // 0: gcommon.v1.queue.BatchPublishRequest
-	(*QueueMessage)(nil),             // 1: gcommon.v1.queue.QueueMessage
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*BatchPublishRequest)(nil),    // 0: gcommon.v1.queue.BatchPublishRequest
+	(*QueueMessage)(nil),           // 1: gcommon.v1.queue.QueueMessage
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_batch_publish_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.BatchPublishRequest.messages:type_name -> gcommon.v1.queue.QueueMessage

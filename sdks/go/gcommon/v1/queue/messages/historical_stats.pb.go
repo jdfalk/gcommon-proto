@@ -114,7 +114,7 @@ const file_gcommon_v1_queue_messages_historical_stats_proto_rawDesc = "" +
 	"\x0fHistoricalStats\x12F\n" +
 	"\vdata_points\x18\x01 \x03(\v2%.gcommon.v1.queue.HistoricalDataPointR\n" +
 	"dataPoints\x12H\n" +
-	"\x12aggregation_period\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationPeriodB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12aggregation_period\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationPeriodB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_historical_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_historical_stats_proto_goTypes = []any{

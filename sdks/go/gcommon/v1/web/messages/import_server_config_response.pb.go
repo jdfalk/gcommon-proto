@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,11 +29,11 @@ const (
 //
 // Follows 1-1-1 pattern: one message per file.
 type ImportServerConfigResponse struct {
-	state                          protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Success             bool                      `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_RequestMetadata     *messages.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
-	xxx_hidden_Error               *messages.Error           `protobuf:"bytes,61,opt,name=error"`
-	xxx_hidden_ResponseGeneratedAt *timestamppb.Timestamp    `protobuf:"bytes,51,opt,name=response_generated_at,json=responseGeneratedAt"`
+	state                          protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Success             bool                    `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_RequestMetadata     *common.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
+	xxx_hidden_Error               *common.Error           `protobuf:"bytes,61,opt,name=error"`
+	xxx_hidden_ResponseGeneratedAt *timestamppb.Timestamp  `protobuf:"bytes,51,opt,name=response_generated_at,json=responseGeneratedAt"`
 	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
 	XXX_presence                   [1]uint32
 	unknownFields                  protoimpl.UnknownFields
@@ -72,14 +72,14 @@ func (x *ImportServerConfigResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ImportServerConfigResponse) GetRequestMetadata() *messages.RequestMetadata {
+func (x *ImportServerConfigResponse) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
 	return nil
 }
 
-func (x *ImportServerConfigResponse) GetError() *messages.Error {
+func (x *ImportServerConfigResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -98,11 +98,11 @@ func (x *ImportServerConfigResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ImportServerConfigResponse) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *ImportServerConfigResponse) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
-func (x *ImportServerConfigResponse) SetError(v *messages.Error) {
+func (x *ImportServerConfigResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -164,11 +164,11 @@ type ImportServerConfigResponse_builder struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 	// *
 	// Error information if the operation failed
 	// or completed with warnings.
-	Error *messages.Error
+	Error *common.Error
 	// *
 	// Timestamp when this response was generated.
 	ResponseGeneratedAt *timestamppb.Timestamp
@@ -202,8 +202,8 @@ const file_gcommon_v1_web_messages_import_server_config_response_proto_rawDesc =
 var file_gcommon_v1_web_messages_import_server_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_import_server_config_response_proto_goTypes = []any{
 	(*ImportServerConfigResponse)(nil), // 0: gcommon.v1.web.ImportServerConfigResponse
-	(*messages.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
-	(*messages.Error)(nil),             // 2: gcommon.v1.common.Error
+	(*common.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*common.Error)(nil),               // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),      // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_web_messages_import_server_config_response_proto_depIdxs = []int32{

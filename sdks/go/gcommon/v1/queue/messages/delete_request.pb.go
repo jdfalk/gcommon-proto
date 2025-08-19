@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +23,14 @@ const (
 )
 
 type QueueDeleteRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_MessageId   *string                   `protobuf:"bytes,2,opt,name=message_id,json=messageId"`
-	xxx_hidden_AckToken    *string                   `protobuf:"bytes,3,opt,name=ack_token,json=ackToken"`
-	xxx_hidden_Force       bool                      `protobuf:"varint,4,opt,name=force"`
-	xxx_hidden_Reason      *string                   `protobuf:"bytes,5,opt,name=reason"`
-	xxx_hidden_Criteria    *DeleteCriteria           `protobuf:"bytes,6,opt,name=criteria"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,100,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_MessageId   *string                 `protobuf:"bytes,2,opt,name=message_id,json=messageId"`
+	xxx_hidden_AckToken    *string                 `protobuf:"bytes,3,opt,name=ack_token,json=ackToken"`
+	xxx_hidden_Force       bool                    `protobuf:"varint,4,opt,name=force"`
+	xxx_hidden_Reason      *string                 `protobuf:"bytes,5,opt,name=reason"`
+	xxx_hidden_Criteria    *DeleteCriteria         `protobuf:"bytes,6,opt,name=criteria"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,100,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -116,7 +116,7 @@ func (x *QueueDeleteRequest) GetCriteria() *DeleteCriteria {
 	return nil
 }
 
-func (x *QueueDeleteRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueueDeleteRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -152,7 +152,7 @@ func (x *QueueDeleteRequest) SetCriteria(v *DeleteCriteria) {
 	x.xxx_hidden_Criteria = v
 }
 
-func (x *QueueDeleteRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueueDeleteRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -254,7 +254,7 @@ type QueueDeleteRequest_builder struct {
 	// Delete criteria (alternative to message_id)
 	Criteria *DeleteCriteria
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 QueueDeleteRequest_builder) Build() *QueueDeleteRequest {
@@ -304,9 +304,9 @@ const file_gcommon_v1_queue_messages_delete_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_delete_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_delete_request_proto_goTypes = []any{
-	(*QueueDeleteRequest)(nil),       // 0: gcommon.v1.queue.QueueDeleteRequest
-	(*DeleteCriteria)(nil),           // 1: gcommon.v1.queue.DeleteCriteria
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*QueueDeleteRequest)(nil),     // 0: gcommon.v1.queue.QueueDeleteRequest
+	(*DeleteCriteria)(nil),         // 1: gcommon.v1.queue.DeleteCriteria
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_delete_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueDeleteRequest.criteria:type_name -> gcommon.v1.queue.DeleteCriteria

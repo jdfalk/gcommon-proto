@@ -291,7 +291,7 @@ const file_gcommon_v1_queue_messages_latency_metrics_proto_rawDesc = "" +
 	"\x18average_queue_latency_ms\x18\x04 \x01(\x01R\x15averageQueueLatencyMs\x12/\n" +
 	"\x14p95_queue_latency_ms\x18\x05 \x01(\x01R\x11p95QueueLatencyMs\x123\n" +
 	"\x16average_e2e_latency_ms\x18\x06 \x01(\x01R\x13averageE2eLatencyMs\x12+\n" +
-	"\x12p95_e2e_latency_ms\x18\a \x01(\x01R\x0fp95E2eLatencyMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12p95_e2e_latency_ms\x18\a \x01(\x01R\x0fp95E2eLatencyMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_latency_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_latency_metrics_proto_goTypes = []any{

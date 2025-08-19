@@ -7,7 +7,7 @@
 package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,10 +24,10 @@ const (
 
 // CompressionConfig message definition.
 type WebCompressionConfig struct {
-	state                      protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_CompressionType enums.LogCompressionType `protobuf:"varint,1,opt,name=compression_type,json=compressionType,enum=gcommon.v1.common.LogCompressionType"`
-	xxx_hidden_MinLength       int32                    `protobuf:"varint,2,opt,name=min_length,json=minLength"`
-	xxx_hidden_Level           int32                    `protobuf:"varint,3,opt,name=level"`
+	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_CompressionType common.LogCompressionType `protobuf:"varint,1,opt,name=compression_type,json=compressionType,enum=gcommon.v1.common.LogCompressionType"`
+	xxx_hidden_MinLength       int32                     `protobuf:"varint,2,opt,name=min_length,json=minLength"`
+	xxx_hidden_Level           int32                     `protobuf:"varint,3,opt,name=level"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -59,13 +59,13 @@ func (x *WebCompressionConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebCompressionConfig) GetCompressionType() enums.LogCompressionType {
+func (x *WebCompressionConfig) GetCompressionType() common.LogCompressionType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_CompressionType
 		}
 	}
-	return enums.LogCompressionType(0)
+	return common.LogCompressionType(0)
 }
 
 func (x *WebCompressionConfig) GetMinLength() int32 {
@@ -82,7 +82,7 @@ func (x *WebCompressionConfig) GetLevel() int32 {
 	return 0
 }
 
-func (x *WebCompressionConfig) SetCompressionType(v enums.LogCompressionType) {
+func (x *WebCompressionConfig) SetCompressionType(v common.LogCompressionType) {
 	x.xxx_hidden_CompressionType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -120,7 +120,7 @@ func (x *WebCompressionConfig) HasLevel() bool {
 
 func (x *WebCompressionConfig) ClearCompressionType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_CompressionType = enums.LogCompressionType_COMPRESSION_TYPE_UNSPECIFIED
+	x.xxx_hidden_CompressionType = common.LogCompressionType_COMPRESSION_TYPE_UNSPECIFIED
 }
 
 func (x *WebCompressionConfig) ClearMinLength() {
@@ -138,7 +138,7 @@ type WebCompressionConfig_builder struct {
 
 	// Compression algorithm to use for HTTP responses
 	// Compression type to use for responses
-	CompressionType *enums.LogCompressionType
+	CompressionType *common.LogCompressionType
 	// Minimum content length in bytes before compression is applied
 	MinLength *int32
 	// Compression level (implementation specific)
@@ -173,12 +173,12 @@ const file_gcommon_v1_web_messages_compression_config_proto_rawDesc = "" +
 	"\x10compression_type\x18\x01 \x01(\x0e2%.gcommon.v1.common.LogCompressionTypeR\x0fcompressionType\x12\x1d\n" +
 	"\n" +
 	"min_length\x18\x02 \x01(\x05R\tminLength\x12\x14\n" +
-	"\x05level\x18\x03 \x01(\x05R\x05levelB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05level\x18\x03 \x01(\x05R\x05levelB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_compression_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_compression_config_proto_goTypes = []any{
-	(*WebCompressionConfig)(nil),  // 0: gcommon.v1.web.WebCompressionConfig
-	(enums.LogCompressionType)(0), // 1: gcommon.v1.common.LogCompressionType
+	(*WebCompressionConfig)(nil),   // 0: gcommon.v1.web.WebCompressionConfig
+	(common.LogCompressionType)(0), // 1: gcommon.v1.common.LogCompressionType
 }
 var file_gcommon_v1_web_messages_compression_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.WebCompressionConfig.compression_type:type_name -> gcommon.v1.common.LogCompressionType

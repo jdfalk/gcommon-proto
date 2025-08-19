@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,9 +24,9 @@ const (
 
 type GetTenantUsageResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors     *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors     *[]*common.Error       `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success    bool                   `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_UsageStats *[]*messages.KeyValue  `protobuf:"bytes,3,rep,name=usage_stats,json=usageStats"`
+	xxx_hidden_UsageStats *[]*common.KeyValue    `protobuf:"bytes,3,rep,name=usage_stats,json=usageStats"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -60,7 +60,7 @@ func (x *GetTenantUsageResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetTenantUsageResponse) GetErrors() []*messages.Error {
+func (x *GetTenantUsageResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -76,13 +76,13 @@ func (x *GetTenantUsageResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetTenantUsageResponse) GetUsageStats() []*messages.KeyValue {
+func (x *GetTenantUsageResponse) GetUsageStats() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UsageStats) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -90,7 +90,7 @@ func (x *GetTenantUsageResponse) GetUsageStats() []*messages.KeyValue {
 	return nil
 }
 
-func (x *GetTenantUsageResponse) SetErrors(v []*messages.Error) {
+func (x *GetTenantUsageResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -99,11 +99,11 @@ func (x *GetTenantUsageResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *GetTenantUsageResponse) SetUsageStats(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *GetTenantUsageResponse) SetUsageStats(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -126,11 +126,11 @@ type GetTenantUsageResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// Usage statistics for the tenant
-	UsageStats []*messages.KeyValue
+	UsageStats []*common.KeyValue
 }
 
 func (b0 GetTenantUsageResponse_builder) Build() *GetTenantUsageResponse {
@@ -163,8 +163,8 @@ const file_gcommon_v1_organization_messages_get_tenant_usage_response_proto_rawD
 var file_gcommon_v1_organization_messages_get_tenant_usage_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_tenant_usage_response_proto_goTypes = []any{
 	(*GetTenantUsageResponse)(nil), // 0: gcommon.v1.organization.GetTenantUsageResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
-	(*messages.KeyValue)(nil),      // 2: gcommon.v1.common.KeyValue
+	(*common.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*common.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 }
 var file_gcommon_v1_organization_messages_get_tenant_usage_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetTenantUsageResponse.errors:type_name -> gcommon.v1.common.Error

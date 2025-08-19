@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type UpdateTenantQuotaRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_TenantId    *string                   `protobuf:"bytes,2,opt,name=tenant_id,json=tenantId"`
-	xxx_hidden_Quota       *TenantQuota              `protobuf:"bytes,3,opt,name=quota"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_TenantId    *string                 `protobuf:"bytes,2,opt,name=tenant_id,json=tenantId"`
+	xxx_hidden_Quota       *TenantQuota            `protobuf:"bytes,3,opt,name=quota"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,7 +58,7 @@ func (x *UpdateTenantQuotaRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateTenantQuotaRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateTenantQuotaRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -82,7 +82,7 @@ func (x *UpdateTenantQuotaRequest) GetQuota() *TenantQuota {
 	return nil
 }
 
-func (x *UpdateTenantQuotaRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateTenantQuotaRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -133,7 +133,7 @@ type UpdateTenantQuotaRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Tenant identifier
 	TenantId *string
 	// Updated quota configuration
@@ -166,7 +166,7 @@ const file_gcommon_v1_organization_messages_update_tenant_quota_request_proto_ra
 var file_gcommon_v1_organization_messages_update_tenant_quota_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_tenant_quota_request_proto_goTypes = []any{
 	(*UpdateTenantQuotaRequest)(nil), // 0: gcommon.v1.organization.UpdateTenantQuotaRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 	(*TenantQuota)(nil),              // 2: gcommon.v1.organization.TenantQuota
 }
 var file_gcommon_v1_organization_messages_update_tenant_quota_request_proto_depIdxs = []int32{

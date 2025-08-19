@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type GetTenantIsolationResponse struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors    *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors    *[]*common.Error       `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success   bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_Isolation *TenantIsolation       `protobuf:"bytes,3,opt,name=isolation"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -60,7 +60,7 @@ func (x *GetTenantIsolationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetTenantIsolationResponse) GetErrors() []*messages.Error {
+func (x *GetTenantIsolationResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -90,7 +90,7 @@ func (x *GetTenantIsolationResponse) GetIsolation() *TenantIsolation {
 	return nil
 }
 
-func (x *GetTenantIsolationResponse) SetErrors(v []*messages.Error) {
+func (x *GetTenantIsolationResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -136,7 +136,7 @@ type GetTenantIsolationResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// Current isolation configuration
@@ -172,7 +172,7 @@ const file_gcommon_v1_organization_messages_get_tenant_isolation_response_proto_
 var file_gcommon_v1_organization_messages_get_tenant_isolation_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_tenant_isolation_response_proto_goTypes = []any{
 	(*GetTenantIsolationResponse)(nil), // 0: gcommon.v1.organization.GetTenantIsolationResponse
-	(*messages.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),               // 1: gcommon.v1.common.Error
 	(*TenantIsolation)(nil),            // 2: gcommon.v1.organization.TenantIsolation
 }
 var file_gcommon_v1_organization_messages_get_tenant_isolation_response_proto_depIdxs = []int32{

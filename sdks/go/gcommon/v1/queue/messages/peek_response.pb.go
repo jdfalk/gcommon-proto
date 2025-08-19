@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,22 +30,22 @@ const (
 //
 // Follows 1-1-1 pattern: one message per file.
 type PeekResponse struct {
-	state                            protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Messages              *[]*QueueMessage          `protobuf:"bytes,1,rep,name=messages"`
-	xxx_hidden_Success               bool                      `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_RequestMetadata       *messages.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
-	xxx_hidden_QueueName             *string                   `protobuf:"bytes,12,opt,name=queue_name,json=queueName"`
-	xxx_hidden_TotalMatchingMessages int32                     `protobuf:"varint,13,opt,name=total_matching_messages,json=totalMatchingMessages"`
-	xxx_hidden_ApproximateQueueSize  int64                     `protobuf:"varint,14,opt,name=approximate_queue_size,json=approximateQueueSize"`
-	xxx_hidden_StartPosition         int32                     `protobuf:"varint,15,opt,name=start_position,json=startPosition"`
-	xxx_hidden_EndPosition           int32                     `protobuf:"varint,16,opt,name=end_position,json=endPosition"`
-	xxx_hidden_HasMoreMessages       bool                      `protobuf:"varint,17,opt,name=has_more_messages,json=hasMoreMessages"`
-	xxx_hidden_FilteredMessageCount  int32                     `protobuf:"varint,18,opt,name=filtered_message_count,json=filteredMessageCount"`
-	xxx_hidden_OldestMessageTime     *timestamppb.Timestamp    `protobuf:"bytes,19,opt,name=oldest_message_time,json=oldestMessageTime"`
-	xxx_hidden_NewestMessageTime     *timestamppb.Timestamp    `protobuf:"bytes,20,opt,name=newest_message_time,json=newestMessageTime"`
-	xxx_hidden_Error                 *messages.Error           `protobuf:"bytes,61,opt,name=error"`
-	xxx_hidden_PeekedAt              *timestamppb.Timestamp    `protobuf:"bytes,51,opt,name=peeked_at,json=peekedAt"`
-	xxx_hidden_ResponseGeneratedAt   *timestamppb.Timestamp    `protobuf:"bytes,52,opt,name=response_generated_at,json=responseGeneratedAt"`
+	state                            protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Messages              *[]*QueueMessage        `protobuf:"bytes,1,rep,name=messages"`
+	xxx_hidden_Success               bool                    `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_RequestMetadata       *common.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
+	xxx_hidden_QueueName             *string                 `protobuf:"bytes,12,opt,name=queue_name,json=queueName"`
+	xxx_hidden_TotalMatchingMessages int32                   `protobuf:"varint,13,opt,name=total_matching_messages,json=totalMatchingMessages"`
+	xxx_hidden_ApproximateQueueSize  int64                   `protobuf:"varint,14,opt,name=approximate_queue_size,json=approximateQueueSize"`
+	xxx_hidden_StartPosition         int32                   `protobuf:"varint,15,opt,name=start_position,json=startPosition"`
+	xxx_hidden_EndPosition           int32                   `protobuf:"varint,16,opt,name=end_position,json=endPosition"`
+	xxx_hidden_HasMoreMessages       bool                    `protobuf:"varint,17,opt,name=has_more_messages,json=hasMoreMessages"`
+	xxx_hidden_FilteredMessageCount  int32                   `protobuf:"varint,18,opt,name=filtered_message_count,json=filteredMessageCount"`
+	xxx_hidden_OldestMessageTime     *timestamppb.Timestamp  `protobuf:"bytes,19,opt,name=oldest_message_time,json=oldestMessageTime"`
+	xxx_hidden_NewestMessageTime     *timestamppb.Timestamp  `protobuf:"bytes,20,opt,name=newest_message_time,json=newestMessageTime"`
+	xxx_hidden_Error                 *common.Error           `protobuf:"bytes,61,opt,name=error"`
+	xxx_hidden_PeekedAt              *timestamppb.Timestamp  `protobuf:"bytes,51,opt,name=peeked_at,json=peekedAt"`
+	xxx_hidden_ResponseGeneratedAt   *timestamppb.Timestamp  `protobuf:"bytes,52,opt,name=response_generated_at,json=responseGeneratedAt"`
 	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
 	XXX_presence                     [1]uint32
 	unknownFields                    protoimpl.UnknownFields
@@ -93,7 +93,7 @@ func (x *PeekResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PeekResponse) GetRequestMetadata() *messages.RequestMetadata {
+func (x *PeekResponse) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
@@ -166,7 +166,7 @@ func (x *PeekResponse) GetNewestMessageTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *PeekResponse) GetError() *messages.Error {
+func (x *PeekResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -196,7 +196,7 @@ func (x *PeekResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 15)
 }
 
-func (x *PeekResponse) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *PeekResponse) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
@@ -243,7 +243,7 @@ func (x *PeekResponse) SetNewestMessageTime(v *timestamppb.Timestamp) {
 	x.xxx_hidden_NewestMessageTime = v
 }
 
-func (x *PeekResponse) SetError(v *messages.Error) {
+func (x *PeekResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -430,7 +430,7 @@ type PeekResponse_builder struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 	// *
 	// Name of the queue that was peeked.
 	// Echoed from the request for verification.
@@ -469,7 +469,7 @@ type PeekResponse_builder struct {
 	// *
 	// Error information if the peek operation failed
 	// or completed with warnings.
-	Error *messages.Error
+	Error *common.Error
 	// *
 	// Timestamp when the peek operation was performed.
 	PeekedAt *timestamppb.Timestamp
@@ -545,15 +545,15 @@ const file_gcommon_v1_queue_messages_peek_response_proto_rawDesc = "" +
 	"\x13newest_message_time\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampR\x11newestMessageTime\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x127\n" +
 	"\tpeeked_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\bpeekedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_peek_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_peek_response_proto_goTypes = []any{
-	(*PeekResponse)(nil),             // 0: gcommon.v1.queue.PeekResponse
-	(*QueueMessage)(nil),             // 1: gcommon.v1.queue.QueueMessage
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*messages.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*PeekResponse)(nil),           // 0: gcommon.v1.queue.PeekResponse
+	(*QueueMessage)(nil),           // 1: gcommon.v1.queue.QueueMessage
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
+	(*common.Error)(nil),           // 4: gcommon.v1.common.Error
 }
 var file_gcommon_v1_queue_messages_peek_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PeekResponse.messages:type_name -> gcommon.v1.queue.QueueMessage

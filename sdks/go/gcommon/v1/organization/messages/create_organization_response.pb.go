@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type CreateOrganizationResponse struct {
 	xxx_hidden_Organization  *Organization          `protobuf:"bytes,1,opt,name=organization"`
 	xxx_hidden_DefaultTenant *Tenant                `protobuf:"bytes,2,opt,name=default_tenant,json=defaultTenant"`
 	xxx_hidden_OwnerMemberId *string                `protobuf:"bytes,3,opt,name=owner_member_id,json=ownerMemberId"`
-	xxx_hidden_Errors        *[]*messages.Error     `protobuf:"bytes,4,rep,name=errors"`
+	xxx_hidden_Errors        *[]*common.Error       `protobuf:"bytes,4,rep,name=errors"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,5,opt,name=success"`
 	xxx_hidden_Message       *string                `protobuf:"bytes,6,opt,name=message"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
@@ -88,7 +88,7 @@ func (x *CreateOrganizationResponse) GetOwnerMemberId() string {
 	return ""
 }
 
-func (x *CreateOrganizationResponse) GetErrors() []*messages.Error {
+func (x *CreateOrganizationResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -127,7 +127,7 @@ func (x *CreateOrganizationResponse) SetOwnerMemberId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *CreateOrganizationResponse) SetErrors(v []*messages.Error) {
+func (x *CreateOrganizationResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -209,7 +209,7 @@ type CreateOrganizationResponse_builder struct {
 	// Organization member record for the owner
 	OwnerMemberId *string
 	// Any errors encountered during creation
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// Additional information about the creation process
@@ -256,7 +256,7 @@ var file_gcommon_v1_organization_messages_create_organization_response_proto_goT
 	(*CreateOrganizationResponse)(nil), // 0: gcommon.v1.organization.CreateOrganizationResponse
 	(*Organization)(nil),               // 1: gcommon.v1.organization.Organization
 	(*Tenant)(nil),                     // 2: gcommon.v1.organization.Tenant
-	(*messages.Error)(nil),             // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),               // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_organization_messages_create_organization_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.CreateOrganizationResponse.organization:type_name -> gcommon.v1.organization.Organization

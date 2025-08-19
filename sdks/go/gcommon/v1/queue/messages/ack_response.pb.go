@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type AckResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -67,7 +67,7 @@ func (x *AckResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *AckResponse) GetError() *messages.Error {
+func (x *AckResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -79,7 +79,7 @@ func (x *AckResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *AckResponse) SetError(v *messages.Error) {
+func (x *AckResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -112,7 +112,7 @@ type AckResponse_builder struct {
 	// True if the message was removed from the queue.
 	Success *bool
 	// Optional error information when success is false.
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 AckResponse_builder) Build() *AckResponse {
@@ -138,8 +138,8 @@ const file_gcommon_v1_queue_messages_ack_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_ack_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_ack_response_proto_goTypes = []any{
-	(*AckResponse)(nil),    // 0: gcommon.v1.queue.AckResponse
-	(*messages.Error)(nil), // 1: gcommon.v1.common.Error
+	(*AckResponse)(nil),  // 0: gcommon.v1.queue.AckResponse
+	(*common.Error)(nil), // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_queue_messages_ack_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.AckResponse.error:type_name -> gcommon.v1.common.Error

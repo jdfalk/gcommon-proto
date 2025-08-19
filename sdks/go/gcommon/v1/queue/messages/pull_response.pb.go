@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type PullResponse struct {
-	state               protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Message  *ReceivedMessage           `protobuf:"bytes,1,opt,name=message"`
-	xxx_hidden_Metadata *messages.ResponseMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Message  *ReceivedMessage         `protobuf:"bytes,1,opt,name=message"`
+	xxx_hidden_Metadata *common.ResponseMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -62,7 +62,7 @@ func (x *PullResponse) GetMessage() *ReceivedMessage {
 	return nil
 }
 
-func (x *PullResponse) GetMetadata() *messages.ResponseMetadata {
+func (x *PullResponse) GetMetadata() *common.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -73,7 +73,7 @@ func (x *PullResponse) SetMessage(v *ReceivedMessage) {
 	x.xxx_hidden_Message = v
 }
 
-func (x *PullResponse) SetMetadata(v *messages.ResponseMetadata) {
+func (x *PullResponse) SetMetadata(v *common.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -105,7 +105,7 @@ type PullResponse_builder struct {
 	// The received message. May be null if no message was available.
 	Message *ReceivedMessage
 	// Response metadata including error details
-	Metadata *messages.ResponseMetadata
+	Metadata *common.ResponseMetadata
 }
 
 func (b0 PullResponse_builder) Build() *PullResponse {
@@ -124,13 +124,13 @@ const file_gcommon_v1_queue_messages_pull_response_proto_rawDesc = "" +
 	"-gcommon/v1/queue/messages/pull_response.proto\x12\x10gcommon.v1.queue\x1a2gcommon/v1/common/messages/response_metadata.proto\x1a0gcommon/v1/queue/messages/received_message.proto\x1a!google/protobuf/go_features.proto\"\x8c\x01\n" +
 	"\fPullResponse\x12;\n" +
 	"\amessage\x18\x01 \x01(\v2!.gcommon.v1.queue.ReceivedMessageR\amessage\x12?\n" +
-	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_pull_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_pull_response_proto_goTypes = []any{
-	(*PullResponse)(nil),              // 0: gcommon.v1.queue.PullResponse
-	(*ReceivedMessage)(nil),           // 1: gcommon.v1.queue.ReceivedMessage
-	(*messages.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
+	(*PullResponse)(nil),            // 0: gcommon.v1.queue.PullResponse
+	(*ReceivedMessage)(nil),         // 1: gcommon.v1.queue.ReceivedMessage
+	(*common.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
 }
 var file_gcommon_v1_queue_messages_pull_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PullResponse.message:type_name -> gcommon.v1.queue.ReceivedMessage

@@ -7,7 +7,7 @@
 package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type AlertingConfig struct {
 	xxx_hidden_Enabled           bool                         `protobuf:"varint,1,opt,name=enabled"`
 	xxx_hidden_Rules             *[]*AlertRule                `protobuf:"bytes,2,rep,name=rules"`
 	xxx_hidden_Channels          *[]*QueueNotificationChannel `protobuf:"bytes,3,rep,name=channels"`
-	xxx_hidden_DefaultSeverity   enums.CommonAlertSeverity    `protobuf:"varint,4,opt,name=default_severity,json=defaultSeverity,enum=gcommon.v1.common.CommonAlertSeverity"`
+	xxx_hidden_DefaultSeverity   common.CommonAlertSeverity   `protobuf:"varint,4,opt,name=default_severity,json=defaultSeverity,enum=gcommon.v1.common.CommonAlertSeverity"`
 	xxx_hidden_AggregationWindow *durationpb.Duration         `protobuf:"bytes,5,opt,name=aggregation_window,json=aggregationWindow"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
@@ -88,13 +88,13 @@ func (x *AlertingConfig) GetChannels() []*QueueNotificationChannel {
 	return nil
 }
 
-func (x *AlertingConfig) GetDefaultSeverity() enums.CommonAlertSeverity {
+func (x *AlertingConfig) GetDefaultSeverity() common.CommonAlertSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_DefaultSeverity
 		}
 	}
-	return enums.CommonAlertSeverity(0)
+	return common.CommonAlertSeverity(0)
 }
 
 func (x *AlertingConfig) GetAggregationWindow() *durationpb.Duration {
@@ -117,7 +117,7 @@ func (x *AlertingConfig) SetChannels(v []*QueueNotificationChannel) {
 	x.xxx_hidden_Channels = &v
 }
 
-func (x *AlertingConfig) SetDefaultSeverity(v enums.CommonAlertSeverity) {
+func (x *AlertingConfig) SetDefaultSeverity(v common.CommonAlertSeverity) {
 	x.xxx_hidden_DefaultSeverity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -154,7 +154,7 @@ func (x *AlertingConfig) ClearEnabled() {
 
 func (x *AlertingConfig) ClearDefaultSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_DefaultSeverity = enums.CommonAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_DefaultSeverity = common.CommonAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
 }
 
 func (x *AlertingConfig) ClearAggregationWindow() {
@@ -171,7 +171,7 @@ type AlertingConfig_builder struct {
 	// Notification channels for alerts
 	Channels []*QueueNotificationChannel
 	// Default alert severity level
-	DefaultSeverity *enums.CommonAlertSeverity
+	DefaultSeverity *common.CommonAlertSeverity
 	// Alert aggregation window
 	AggregationWindow *durationpb.Duration
 }
@@ -204,14 +204,14 @@ const file_gcommon_v1_queue_messages_alerting_config_proto_rawDesc = "" +
 	"\x05rules\x18\x02 \x03(\v2\x1b.gcommon.v1.queue.AlertRuleR\x05rules\x12F\n" +
 	"\bchannels\x18\x03 \x03(\v2*.gcommon.v1.queue.QueueNotificationChannelR\bchannels\x12Q\n" +
 	"\x10default_severity\x18\x04 \x01(\x0e2&.gcommon.v1.common.CommonAlertSeverityR\x0fdefaultSeverity\x12H\n" +
-	"\x12aggregation_window\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationWindowB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12aggregation_window\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationWindowB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_alerting_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_alerting_config_proto_goTypes = []any{
 	(*AlertingConfig)(nil),           // 0: gcommon.v1.queue.AlertingConfig
 	(*AlertRule)(nil),                // 1: gcommon.v1.queue.AlertRule
 	(*QueueNotificationChannel)(nil), // 2: gcommon.v1.queue.QueueNotificationChannel
-	(enums.CommonAlertSeverity)(0),   // 3: gcommon.v1.common.CommonAlertSeverity
+	(common.CommonAlertSeverity)(0),  // 3: gcommon.v1.common.CommonAlertSeverity
 	(*durationpb.Duration)(nil),      // 4: google.protobuf.Duration
 }
 var file_gcommon_v1_queue_messages_alerting_config_proto_depIdxs = []int32{

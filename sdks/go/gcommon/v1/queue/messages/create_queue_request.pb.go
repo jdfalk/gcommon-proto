@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,13 +26,13 @@ const (
 // Request to create a new queue.
 // Defines the queue name and configuration parameters.
 type CreateQueueRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Config      *QueueConfig              `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_IfNotExists bool                      `protobuf:"varint,3,opt,name=if_not_exists,json=ifNotExists"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	xxx_hidden_Tags        map[string]string         `protobuf:"bytes,5,rep,name=tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Description *string                   `protobuf:"bytes,6,opt,name=description"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Config      *QueueConfig            `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_IfNotExists bool                    `protobuf:"varint,3,opt,name=if_not_exists,json=ifNotExists"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Tags        map[string]string       `protobuf:"bytes,5,rep,name=tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Description *string                 `protobuf:"bytes,6,opt,name=description"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -88,7 +88,7 @@ func (x *CreateQueueRequest) GetIfNotExists() bool {
 	return false
 }
 
-func (x *CreateQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateQueueRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -126,7 +126,7 @@ func (x *CreateQueueRequest) SetIfNotExists(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *CreateQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateQueueRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -207,7 +207,7 @@ type CreateQueueRequest_builder struct {
 	// Whether to create the queue even if it already exists
 	IfNotExists *bool
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Tags to associate with the queue
 	Tags map[string]string
 	// Description of the queue
@@ -255,10 +255,10 @@ const file_gcommon_v1_queue_messages_create_queue_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_create_queue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_create_queue_request_proto_goTypes = []any{
-	(*CreateQueueRequest)(nil),       // 0: gcommon.v1.queue.CreateQueueRequest
-	nil,                              // 1: gcommon.v1.queue.CreateQueueRequest.TagsEntry
-	(*QueueConfig)(nil),              // 2: gcommon.v1.queue.QueueConfig
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*CreateQueueRequest)(nil),     // 0: gcommon.v1.queue.CreateQueueRequest
+	nil,                            // 1: gcommon.v1.queue.CreateQueueRequest.TagsEntry
+	(*QueueConfig)(nil),            // 2: gcommon.v1.queue.QueueConfig
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_create_queue_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.CreateQueueRequest.config:type_name -> gcommon.v1.queue.QueueConfig

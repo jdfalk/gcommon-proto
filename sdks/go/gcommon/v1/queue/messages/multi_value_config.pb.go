@@ -171,7 +171,7 @@ const file_gcommon_v1_queue_messages_multi_value_config_proto_rawDesc = "" +
 	"\n" +
 	"max_values\x18\x01 \x01(\x05R\tmaxValues\x12*\n" +
 	"\x11value_ttl_seconds\x18\x02 \x01(\x05R\x0fvalueTtlSeconds\x12)\n" +
-	"\x10cleanup_strategy\x18\x03 \x01(\tR\x0fcleanupStrategyB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10cleanup_strategy\x18\x03 \x01(\tR\x0fcleanupStrategyB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_multi_value_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_multi_value_config_proto_goTypes = []any{

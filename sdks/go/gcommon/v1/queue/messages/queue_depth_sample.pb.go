@@ -129,7 +129,7 @@ const file_gcommon_v1_queue_messages_queue_depth_sample_proto_rawDesc = "" +
 	"2gcommon/v1/queue/messages/queue_depth_sample.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"b\n" +
 	"\x10QueueDepthSample\x128\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x14\n" +
-	"\x05depth\x18\x02 \x01(\x03R\x05depthB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05depth\x18\x02 \x01(\x03R\x05depthB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_queue_depth_sample_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_queue_depth_sample_proto_goTypes = []any{

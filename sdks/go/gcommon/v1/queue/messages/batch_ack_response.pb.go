@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +23,13 @@ const (
 )
 
 type BatchAckResponse struct {
-	state                        protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Success           bool                       `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_AcknowledgedCount int32                      `protobuf:"varint,2,opt,name=acknowledged_count,json=acknowledgedCount"`
-	xxx_hidden_FailedCount       int32                      `protobuf:"varint,3,opt,name=failed_count,json=failedCount"`
-	xxx_hidden_FailedAcks        *[]*FailedAck              `protobuf:"bytes,4,rep,name=failed_acks,json=failedAcks"`
-	xxx_hidden_Metadata          *messages.ResponseMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	xxx_hidden_BatchId           *string                    `protobuf:"bytes,6,opt,name=batch_id,json=batchId"`
+	state                        protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Success           bool                     `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_AcknowledgedCount int32                    `protobuf:"varint,2,opt,name=acknowledged_count,json=acknowledgedCount"`
+	xxx_hidden_FailedCount       int32                    `protobuf:"varint,3,opt,name=failed_count,json=failedCount"`
+	xxx_hidden_FailedAcks        *[]*FailedAck            `protobuf:"bytes,4,rep,name=failed_acks,json=failedAcks"`
+	xxx_hidden_Metadata          *common.ResponseMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_BatchId           *string                  `protobuf:"bytes,6,opt,name=batch_id,json=batchId"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -91,7 +91,7 @@ func (x *BatchAckResponse) GetFailedAcks() []*FailedAck {
 	return nil
 }
 
-func (x *BatchAckResponse) GetMetadata() *messages.ResponseMetadata {
+func (x *BatchAckResponse) GetMetadata() *common.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -127,7 +127,7 @@ func (x *BatchAckResponse) SetFailedAcks(v []*FailedAck) {
 	x.xxx_hidden_FailedAcks = &v
 }
 
-func (x *BatchAckResponse) SetMetadata(v *messages.ResponseMetadata) {
+func (x *BatchAckResponse) SetMetadata(v *common.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -207,7 +207,7 @@ type BatchAckResponse_builder struct {
 	// Failed message IDs and their error reasons
 	FailedAcks []*FailedAck
 	// Response metadata
-	Metadata *messages.ResponseMetadata
+	Metadata *common.ResponseMetadata
 	// Batch ID for tracking
 	BatchId *string
 }
@@ -253,9 +253,9 @@ const file_gcommon_v1_queue_messages_batch_ack_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_batch_ack_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_batch_ack_response_proto_goTypes = []any{
-	(*BatchAckResponse)(nil),          // 0: gcommon.v1.queue.BatchAckResponse
-	(*FailedAck)(nil),                 // 1: gcommon.v1.queue.FailedAck
-	(*messages.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
+	(*BatchAckResponse)(nil),        // 0: gcommon.v1.queue.BatchAckResponse
+	(*FailedAck)(nil),               // 1: gcommon.v1.queue.FailedAck
+	(*common.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
 }
 var file_gcommon_v1_queue_messages_batch_ack_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.BatchAckResponse.failed_acks:type_name -> gcommon.v1.queue.FailedAck

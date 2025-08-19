@@ -7,7 +7,7 @@
 package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type ClusterHealth struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Status       enums.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_HealthyNodes int32                    `protobuf:"varint,2,opt,name=healthy_nodes,json=healthyNodes"`
-	xxx_hidden_TotalNodes   int32                    `protobuf:"varint,3,opt,name=total_nodes,json=totalNodes"`
-	xxx_hidden_Issues       []string                 `protobuf:"bytes,4,rep,name=issues"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Status       common.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_HealthyNodes int32                     `protobuf:"varint,2,opt,name=healthy_nodes,json=healthyNodes"`
+	xxx_hidden_TotalNodes   int32                     `protobuf:"varint,3,opt,name=total_nodes,json=totalNodes"`
+	xxx_hidden_Issues       []string                  `protobuf:"bytes,4,rep,name=issues"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -59,13 +59,13 @@ func (x *ClusterHealth) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ClusterHealth) GetStatus() enums.CommonHealthStatus {
+func (x *ClusterHealth) GetStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *ClusterHealth) GetHealthyNodes() int32 {
@@ -89,7 +89,7 @@ func (x *ClusterHealth) GetIssues() []string {
 	return nil
 }
 
-func (x *ClusterHealth) SetStatus(v enums.CommonHealthStatus) {
+func (x *ClusterHealth) SetStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -131,7 +131,7 @@ func (x *ClusterHealth) HasTotalNodes() bool {
 
 func (x *ClusterHealth) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *ClusterHealth) ClearHealthyNodes() {
@@ -148,7 +148,7 @@ type ClusterHealth_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status
-	Status *enums.CommonHealthStatus
+	Status *common.CommonHealthStatus
 	// Number of healthy nodes
 	HealthyNodes *int32
 	// Total number of nodes
@@ -191,8 +191,8 @@ const file_gcommon_v1_queue_messages_cluster_health_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_cluster_health_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_cluster_health_proto_goTypes = []any{
-	(*ClusterHealth)(nil),         // 0: gcommon.v1.queue.ClusterHealth
-	(enums.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
+	(*ClusterHealth)(nil),          // 0: gcommon.v1.queue.ClusterHealth
+	(common.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
 }
 var file_gcommon_v1_queue_messages_cluster_health_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ClusterHealth.status:type_name -> gcommon.v1.common.CommonHealthStatus

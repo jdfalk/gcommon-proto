@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +24,12 @@ const (
 )
 
 type UpdateTeamRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_TeamId       *string                   `protobuf:"bytes,2,opt,name=team_id,json=teamId"`
-	xxx_hidden_Team         *Team                     `protobuf:"bytes,3,opt,name=team"`
-	xxx_hidden_UpdateMask   *fieldmaskpb.FieldMask    `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_ValidateOnly bool                      `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_TeamId       *string                 `protobuf:"bytes,2,opt,name=team_id,json=teamId"`
+	xxx_hidden_Team         *Team                   `protobuf:"bytes,3,opt,name=team"`
+	xxx_hidden_UpdateMask   *fieldmaskpb.FieldMask  `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_ValidateOnly bool                    `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *UpdateTeamRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateTeamRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateTeamRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -99,7 +99,7 @@ func (x *UpdateTeamRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateTeamRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateTeamRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -182,7 +182,7 @@ type UpdateTeamRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Team identifier to update
 	TeamId *string
 	// Updated team information
@@ -226,10 +226,10 @@ const file_gcommon_v1_organization_messages_update_team_request_proto_rawDesc = 
 
 var file_gcommon_v1_organization_messages_update_team_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_team_request_proto_goTypes = []any{
-	(*UpdateTeamRequest)(nil),        // 0: gcommon.v1.organization.UpdateTeamRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*Team)(nil),                     // 2: gcommon.v1.organization.Team
-	(*fieldmaskpb.FieldMask)(nil),    // 3: google.protobuf.FieldMask
+	(*UpdateTeamRequest)(nil),      // 0: gcommon.v1.organization.UpdateTeamRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*Team)(nil),                   // 2: gcommon.v1.organization.Team
+	(*fieldmaskpb.FieldMask)(nil),  // 3: google.protobuf.FieldMask
 }
 var file_gcommon_v1_organization_messages_update_team_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateTeamRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type GetOffsetResponse struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Offset      int64                     `protobuf:"varint,1,opt,name=offset"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Offset      int64                   `protobuf:"varint,1,opt,name=offset"`
+	xxx_hidden_QueueName   *string                 `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -75,7 +75,7 @@ func (x *GetOffsetResponse) GetQueueName() string {
 	return ""
 }
 
-func (x *GetOffsetResponse) GetMetadata() *messages.RequestMetadata {
+func (x *GetOffsetResponse) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -92,7 +92,7 @@ func (x *GetOffsetResponse) SetQueueName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *GetOffsetResponse) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetOffsetResponse) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -139,7 +139,7 @@ type GetOffsetResponse_builder struct {
 	// Name of the queue or topic.
 	QueueName *string
 	// Optional request metadata.
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 GetOffsetResponse_builder) Build() *GetOffsetResponse {
@@ -171,8 +171,8 @@ const file_gcommon_v1_queue_messages_get_offset_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_get_offset_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_offset_response_proto_goTypes = []any{
-	(*GetOffsetResponse)(nil),        // 0: gcommon.v1.queue.GetOffsetResponse
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetOffsetResponse)(nil),      // 0: gcommon.v1.queue.GetOffsetResponse
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_get_offset_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.GetOffsetResponse.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type FlushCacheResponse struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Success        bool                      `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_EntriesFlushed int64                     `protobuf:"varint,2,opt,name=entries_flushed,json=entriesFlushed"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Success        bool                    `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_EntriesFlushed int64                   `protobuf:"varint,2,opt,name=entries_flushed,json=entriesFlushed"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -72,7 +72,7 @@ func (x *FlushCacheResponse) GetEntriesFlushed() int64 {
 	return 0
 }
 
-func (x *FlushCacheResponse) GetMetadata() *messages.RequestMetadata {
+func (x *FlushCacheResponse) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -89,7 +89,7 @@ func (x *FlushCacheResponse) SetEntriesFlushed(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *FlushCacheResponse) SetMetadata(v *messages.RequestMetadata) {
+func (x *FlushCacheResponse) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -136,7 +136,7 @@ type FlushCacheResponse_builder struct {
 	// Number of entries flushed
 	EntriesFlushed *int64
 	// Request metadata for tracing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 FlushCacheResponse_builder) Build() *FlushCacheResponse {
@@ -167,8 +167,8 @@ const file_gcommon_v1_web_messages_flush_cache_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_web_messages_flush_cache_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_flush_cache_response_proto_goTypes = []any{
-	(*FlushCacheResponse)(nil),       // 0: gcommon.v1.web.FlushCacheResponse
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*FlushCacheResponse)(nil),     // 0: gcommon.v1.web.FlushCacheResponse
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_flush_cache_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.FlushCacheResponse.metadata:type_name -> gcommon.v1.common.RequestMetadata

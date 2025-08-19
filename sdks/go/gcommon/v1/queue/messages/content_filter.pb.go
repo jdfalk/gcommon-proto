@@ -209,7 +209,7 @@ const file_gcommon_v1_queue_messages_content_filter_proto_rawDesc = "" +
 	"field_path\x18\x01 \x01(\tR\tfieldPath\x12\x1a\n" +
 	"\boperator\x18\x02 \x01(\tR\boperator\x12\x14\n" +
 	"\x05value\x18\x03 \x01(\tR\x05value\x12%\n" +
-	"\x0ecase_sensitive\x18\x04 \x01(\bR\rcaseSensitiveB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecase_sensitive\x18\x04 \x01(\bR\rcaseSensitiveB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_content_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_content_filter_proto_goTypes = []any{

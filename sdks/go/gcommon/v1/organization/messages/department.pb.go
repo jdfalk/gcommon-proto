@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +38,7 @@ type Department struct {
 	xxx_hidden_ManagerId          *string                `protobuf:"bytes,7,opt,name=manager_id,json=managerId"`
 	xxx_hidden_CostCenter         *string                `protobuf:"bytes,8,opt,name=cost_center,json=costCenter"`
 	xxx_hidden_Location           *string                `protobuf:"bytes,9,opt,name=location"`
-	xxx_hidden_Metadata           *[]*messages.KeyValue  `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_Metadata           *[]*common.KeyValue    `protobuf:"bytes,10,rep,name=metadata"`
 	xxx_hidden_CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy          *string                `protobuf:"bytes,13,opt,name=created_by,json=createdBy"`
@@ -174,13 +174,13 @@ func (x *Department) GetLocation() string {
 	return ""
 }
 
-func (x *Department) GetMetadata() []*messages.KeyValue {
+func (x *Department) GetMetadata() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 10)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -346,11 +346,11 @@ func (x *Department) SetLocation(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 22)
 }
 
-func (x *Department) SetMetadata(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *Department) SetMetadata(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -673,7 +673,7 @@ type Department_builder struct {
 	// Physical location or office for this department
 	Location *string
 	// Department metadata and custom attributes
-	Metadata []*messages.KeyValue
+	Metadata []*common.KeyValue
 	// Department creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -830,7 +830,7 @@ const file_gcommon_v1_organization_messages_department_proto_rawDesc = "" +
 var file_gcommon_v1_organization_messages_department_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_department_proto_goTypes = []any{
 	(*Department)(nil),            // 0: gcommon.v1.organization.Department
-	(*messages.KeyValue)(nil),     // 1: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),       // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_messages_department_proto_depIdxs = []int32{

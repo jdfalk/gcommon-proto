@@ -236,7 +236,7 @@ const file_gcommon_v1_queue_messages_get_subscription_info_request_proto_rawDesc
 	"\x18include_consumer_details\x18\x03 \x01(\bR\x16includeConsumerDetails\x12-\n" +
 	"\x12include_partitions\x18\x04 \x01(\bR\x11includePartitions\x12\x1d\n" +
 	"\n" +
-	"timeout_ms\x18\x05 \x01(\x05R\ttimeoutMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"timeout_ms\x18\x05 \x01(\x05R\ttimeoutMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_subscription_info_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_subscription_info_request_proto_goTypes = []any{

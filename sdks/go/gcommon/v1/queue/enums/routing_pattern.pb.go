@@ -28,7 +28,7 @@ type RoutingPattern int32
 
 const (
 	// Exact string match
-	RoutingPattern_ROUTING_PATTERN_EXACT RoutingPattern = 0
+	RoutingPattern_ROUTING_PATTERN_UNSPECIFIED RoutingPattern = 0
 	// Wildcard pattern (* and ?)
 	RoutingPattern_ROUTING_PATTERN_WILDCARD RoutingPattern = 1
 	// Regular expression pattern
@@ -44,7 +44,7 @@ const (
 // Enum value maps for RoutingPattern.
 var (
 	RoutingPattern_name = map[int32]string{
-		0: "ROUTING_PATTERN_EXACT",
+		0: "ROUTING_PATTERN_UNSPECIFIED",
 		1: "ROUTING_PATTERN_WILDCARD",
 		2: "ROUTING_PATTERN_REGEX",
 		3: "ROUTING_PATTERN_TOPIC",
@@ -52,12 +52,12 @@ var (
 		5: "ROUTING_PATTERN_SUFFIX",
 	}
 	RoutingPattern_value = map[string]int32{
-		"ROUTING_PATTERN_EXACT":    0,
-		"ROUTING_PATTERN_WILDCARD": 1,
-		"ROUTING_PATTERN_REGEX":    2,
-		"ROUTING_PATTERN_TOPIC":    3,
-		"ROUTING_PATTERN_PREFIX":   4,
-		"ROUTING_PATTERN_SUFFIX":   5,
+		"ROUTING_PATTERN_UNSPECIFIED": 0,
+		"ROUTING_PATTERN_WILDCARD":    1,
+		"ROUTING_PATTERN_REGEX":       2,
+		"ROUTING_PATTERN_TOPIC":       3,
+		"ROUTING_PATTERN_PREFIX":      4,
+		"ROUTING_PATTERN_SUFFIX":      5,
 	}
 )
 
@@ -87,9 +87,9 @@ var File_gcommon_v1_queue_enums_routing_pattern_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_queue_enums_routing_pattern_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/queue/enums/routing_pattern.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\xb7\x01\n" +
-	"\x0eRoutingPattern\x12\x19\n" +
-	"\x15ROUTING_PATTERN_EXACT\x10\x00\x12\x1c\n" +
+	",gcommon/v1/queue/enums/routing_pattern.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\xbd\x01\n" +
+	"\x0eRoutingPattern\x12\x1f\n" +
+	"\x1bROUTING_PATTERN_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ROUTING_PATTERN_WILDCARD\x10\x01\x12\x19\n" +
 	"\x15ROUTING_PATTERN_REGEX\x10\x02\x12\x19\n" +
 	"\x15ROUTING_PATTERN_TOPIC\x10\x03\x12\x1a\n" +

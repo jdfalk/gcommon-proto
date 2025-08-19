@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type GetHierarchyRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_OrganizationId *string                   `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_HierarchyId    *string                   `protobuf:"bytes,3,opt,name=hierarchy_id,json=hierarchyId"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                 `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_HierarchyId    *string                 `protobuf:"bytes,3,opt,name=hierarchy_id,json=hierarchyId"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -58,7 +58,7 @@ func (x *GetHierarchyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetHierarchyRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetHierarchyRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -85,7 +85,7 @@ func (x *GetHierarchyRequest) GetHierarchyId() string {
 	return ""
 }
 
-func (x *GetHierarchyRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetHierarchyRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -138,7 +138,7 @@ type GetHierarchyRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Hierarchy identifier
@@ -173,8 +173,8 @@ const file_gcommon_v1_organization_messages_get_hierarchy_request_proto_rawDesc 
 
 var file_gcommon_v1_organization_messages_get_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_hierarchy_request_proto_goTypes = []any{
-	(*GetHierarchyRequest)(nil),      // 0: gcommon.v1.organization.GetHierarchyRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetHierarchyRequest)(nil),    // 0: gcommon.v1.organization.GetHierarchyRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_organization_messages_get_hierarchy_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetHierarchyRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

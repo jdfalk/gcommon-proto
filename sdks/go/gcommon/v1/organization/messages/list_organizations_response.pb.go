@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type ListOrganizationsResponse struct {
-	state                    protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_Errors        *[]*messages.Error          `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success       bool                        `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Organizations *[]*Organization            `protobuf:"bytes,3,rep,name=organizations"`
-	xxx_hidden_Pagination    *messages.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
+	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Errors        *[]*common.Error          `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success       bool                      `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Organizations *[]*Organization          `protobuf:"bytes,3,rep,name=organizations"`
+	xxx_hidden_Pagination    *common.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -61,7 +61,7 @@ func (x *ListOrganizationsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListOrganizationsResponse) GetErrors() []*messages.Error {
+func (x *ListOrganizationsResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -91,14 +91,14 @@ func (x *ListOrganizationsResponse) GetOrganizations() []*Organization {
 	return nil
 }
 
-func (x *ListOrganizationsResponse) GetPagination() *messages.PaginatedResponse {
+func (x *ListOrganizationsResponse) GetPagination() *common.PaginatedResponse {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListOrganizationsResponse) SetErrors(v []*messages.Error) {
+func (x *ListOrganizationsResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -118,7 +118,7 @@ func (x *ListOrganizationsResponse) SetOrganizations(v []*Organization) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *ListOrganizationsResponse) SetPagination(v *messages.PaginatedResponse) {
+func (x *ListOrganizationsResponse) SetPagination(v *common.PaginatedResponse) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -149,13 +149,13 @@ type ListOrganizationsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// List of organizations returned
 	Organizations []*Organization
 	// Pagination metadata
-	Pagination *messages.PaginatedResponse
+	Pagination *common.PaginatedResponse
 }
 
 func (b0 ListOrganizationsResponse_builder) Build() *ListOrganizationsResponse {
@@ -190,10 +190,10 @@ const file_gcommon_v1_organization_messages_list_organizations_response_proto_ra
 
 var file_gcommon_v1_organization_messages_list_organizations_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_list_organizations_response_proto_goTypes = []any{
-	(*ListOrganizationsResponse)(nil),  // 0: gcommon.v1.organization.ListOrganizationsResponse
-	(*messages.Error)(nil),             // 1: gcommon.v1.common.Error
-	(*Organization)(nil),               // 2: gcommon.v1.organization.Organization
-	(*messages.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
+	(*ListOrganizationsResponse)(nil), // 0: gcommon.v1.organization.ListOrganizationsResponse
+	(*common.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*Organization)(nil),              // 2: gcommon.v1.organization.Organization
+	(*common.PaginatedResponse)(nil),  // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_gcommon_v1_organization_messages_list_organizations_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListOrganizationsResponse.errors:type_name -> gcommon.v1.common.Error

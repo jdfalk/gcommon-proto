@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ type DatabaseIsolation struct {
 	state                          protoimpl.MessageState    `protogen:"opaque.v1"`
 	xxx_hidden_DatabaseInstance    *string                   `protobuf:"bytes,1,opt,name=database_instance,json=databaseInstance"`
 	xxx_hidden_SchemaName          *string                   `protobuf:"bytes,2,opt,name=schema_name,json=schemaName"`
-	xxx_hidden_ConnectionParams    *[]*messages.KeyValue     `protobuf:"bytes,3,rep,name=connection_params,json=connectionParams"`
+	xxx_hidden_ConnectionParams    *[]*common.KeyValue       `protobuf:"bytes,3,rep,name=connection_params,json=connectionParams"`
 	xxx_hidden_DedicatedDatabase   bool                      `protobuf:"varint,4,opt,name=dedicated_database,json=dedicatedDatabase"`
 	xxx_hidden_Backup              *OrganizationBackupConfig `protobuf:"bytes,5,opt,name=backup"`
 	xxx_hidden_AllowedOperations   []string                  `protobuf:"bytes,6,rep,name=allowed_operations,json=allowedOperations"`
@@ -85,13 +85,13 @@ func (x *DatabaseIsolation) GetSchemaName() string {
 	return ""
 }
 
-func (x *DatabaseIsolation) GetConnectionParams() []*messages.KeyValue {
+func (x *DatabaseIsolation) GetConnectionParams() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ConnectionParams) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -144,11 +144,11 @@ func (x *DatabaseIsolation) SetSchemaName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
 
-func (x *DatabaseIsolation) SetConnectionParams(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *DatabaseIsolation) SetConnectionParams(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -257,7 +257,7 @@ type DatabaseIsolation_builder struct {
 	// Schema or database name for this tenant
 	SchemaName *string
 	// Database connection parameters
-	ConnectionParams []*messages.KeyValue
+	ConnectionParams []*common.KeyValue
 	// Whether tenant has dedicated database
 	DedicatedDatabase *bool
 	// Database backup configuration
@@ -322,7 +322,7 @@ const file_gcommon_v1_organization_messages_database_isolation_proto_rawDesc = "
 var file_gcommon_v1_organization_messages_database_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_database_isolation_proto_goTypes = []any{
 	(*DatabaseIsolation)(nil),        // 0: gcommon.v1.organization.DatabaseIsolation
-	(*messages.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),          // 1: gcommon.v1.common.KeyValue
 	(*OrganizationBackupConfig)(nil), // 2: gcommon.v1.organization.OrganizationBackupConfig
 }
 var file_gcommon_v1_organization_messages_database_isolation_proto_depIdxs = []int32{

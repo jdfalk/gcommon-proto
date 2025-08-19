@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,13 +26,13 @@ const (
 // Request to pause a queue.
 // Stops message processing while keeping messages in the queue.
 type PauseQueueRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName    *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Reason       *string                   `protobuf:"bytes,2,opt,name=reason"`
-	xxx_hidden_Graceful     bool                      `protobuf:"varint,3,opt,name=graceful"`
-	xxx_hidden_TimeoutMs    int32                     `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	xxx_hidden_PartitionIds []int32                   `protobuf:"varint,6,rep,packed,name=partition_ids,json=partitionIds"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName    *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Reason       *string                 `protobuf:"bytes,2,opt,name=reason"`
+	xxx_hidden_Graceful     bool                    `protobuf:"varint,3,opt,name=graceful"`
+	xxx_hidden_TimeoutMs    int32                   `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_PartitionIds []int32                 `protobuf:"varint,6,rep,packed,name=partition_ids,json=partitionIds"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -98,7 +98,7 @@ func (x *PauseQueueRequest) GetTimeoutMs() int32 {
 	return 0
 }
 
-func (x *PauseQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PauseQueueRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -132,7 +132,7 @@ func (x *PauseQueueRequest) SetTimeoutMs(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
-func (x *PauseQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *PauseQueueRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -211,7 +211,7 @@ type PauseQueueRequest_builder struct {
 	// Timeout for graceful pause (milliseconds)
 	TimeoutMs *int32
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Whether to pause specific partitions only
 	PartitionIds []int32
 }
@@ -254,12 +254,12 @@ const file_gcommon_v1_queue_messages_pause_queue_request_proto_rawDesc = "" +
 	"\n" +
 	"timeout_ms\x18\x04 \x01(\x05R\ttimeoutMs\x12>\n" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12#\n" +
-	"\rpartition_ids\x18\x06 \x03(\x05R\fpartitionIdsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rpartition_ids\x18\x06 \x03(\x05R\fpartitionIdsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_pause_queue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_pause_queue_request_proto_goTypes = []any{
-	(*PauseQueueRequest)(nil),        // 0: gcommon.v1.queue.PauseQueueRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*PauseQueueRequest)(nil),      // 0: gcommon.v1.queue.PauseQueueRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_pause_queue_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PauseQueueRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +24,12 @@ const (
 )
 
 type UpdateHierarchyRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_OrganizationId *string                   `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Hierarchy      *OrganizationHierarchy    `protobuf:"bytes,3,opt,name=hierarchy"`
-	xxx_hidden_UpdateMask     *fieldmaskpb.FieldMask    `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_ValidateOnly   bool                      `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                 `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_Hierarchy      *OrganizationHierarchy  `protobuf:"bytes,3,opt,name=hierarchy"`
+	xxx_hidden_UpdateMask     *fieldmaskpb.FieldMask  `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_ValidateOnly   bool                    `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *UpdateHierarchyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateHierarchyRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateHierarchyRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -99,7 +99,7 @@ func (x *UpdateHierarchyRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateHierarchyRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateHierarchyRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -182,7 +182,7 @@ type UpdateHierarchyRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Updated hierarchy data
@@ -226,10 +226,10 @@ const file_gcommon_v1_organization_messages_update_hierarchy_request_proto_rawDe
 
 var file_gcommon_v1_organization_messages_update_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_hierarchy_request_proto_goTypes = []any{
-	(*UpdateHierarchyRequest)(nil),   // 0: gcommon.v1.organization.UpdateHierarchyRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*OrganizationHierarchy)(nil),    // 2: gcommon.v1.organization.OrganizationHierarchy
-	(*fieldmaskpb.FieldMask)(nil),    // 3: google.protobuf.FieldMask
+	(*UpdateHierarchyRequest)(nil), // 0: gcommon.v1.organization.UpdateHierarchyRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationHierarchy)(nil),  // 2: gcommon.v1.organization.OrganizationHierarchy
+	(*fieldmaskpb.FieldMask)(nil),  // 3: google.protobuf.FieldMask
 }
 var file_gcommon_v1_organization_messages_update_hierarchy_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateHierarchyRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

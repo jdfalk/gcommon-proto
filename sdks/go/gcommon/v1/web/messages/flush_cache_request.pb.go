@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type FlushCacheRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Namespace   *string                   `protobuf:"bytes,1,opt,name=namespace"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Namespace   *string                 `protobuf:"bytes,1,opt,name=namespace"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -67,7 +67,7 @@ func (x *FlushCacheRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *FlushCacheRequest) GetMetadata() *messages.RequestMetadata {
+func (x *FlushCacheRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -79,7 +79,7 @@ func (x *FlushCacheRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *FlushCacheRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *FlushCacheRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -112,7 +112,7 @@ type FlushCacheRequest_builder struct {
 	// Optional namespace to flush (if empty, flushes all)
 	Namespace *string
 	// Request metadata for tracing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 FlushCacheRequest_builder) Build() *FlushCacheRequest {
@@ -138,8 +138,8 @@ const file_gcommon_v1_web_messages_flush_cache_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_web_messages_flush_cache_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_flush_cache_request_proto_goTypes = []any{
-	(*FlushCacheRequest)(nil),        // 0: gcommon.v1.web.FlushCacheRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*FlushCacheRequest)(nil),      // 0: gcommon.v1.web.FlushCacheRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_flush_cache_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.FlushCacheRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

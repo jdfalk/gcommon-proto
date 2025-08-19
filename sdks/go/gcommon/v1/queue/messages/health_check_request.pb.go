@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type QueueHealthCheckRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Queue    *string                   `protobuf:"bytes,1,opt,name=queue"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Queue    *string                 `protobuf:"bytes,1,opt,name=queue"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +69,13 @@ func (x *QueueHealthCheckRequest) GetQueue() string {
 	return ""
 }
 
-func (x *QueueHealthCheckRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueueHealthCheckRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -88,7 +88,7 @@ func (x *QueueHealthCheckRequest) SetQueue(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *QueueHealthCheckRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueueHealthCheckRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -118,7 +118,7 @@ func (x *QueueHealthCheckRequest) ClearQueue() {
 
 func (x *QueueHealthCheckRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type QueueHealthCheckRequest_builder struct {
@@ -127,7 +127,7 @@ type QueueHealthCheckRequest_builder struct {
 	// Name of the queue to check.
 	Queue *string
 	// Request metadata for tracing.
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 QueueHealthCheckRequest_builder) Build() *QueueHealthCheckRequest {
@@ -152,12 +152,12 @@ const file_gcommon_v1_queue_messages_health_check_request_proto_rawDesc = "" +
 	"4gcommon/v1/queue/messages/health_check_request.proto\x12\x10gcommon.v1.queue\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"s\n" +
 	"\x17QueueHealthCheckRequest\x12\x14\n" +
 	"\x05queue\x18\x01 \x01(\tR\x05queue\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_health_check_request_proto_goTypes = []any{
-	(*QueueHealthCheckRequest)(nil),  // 0: gcommon.v1.queue.QueueHealthCheckRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*QueueHealthCheckRequest)(nil), // 0: gcommon.v1.queue.QueueHealthCheckRequest
+	(*common.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueHealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

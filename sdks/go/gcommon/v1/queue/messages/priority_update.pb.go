@@ -170,7 +170,7 @@ const file_gcommon_v1_queue_messages_priority_update_proto_rawDesc = "" +
 	"\x0ePriorityUpdate\x12%\n" +
 	"\x0epriority_level\x18\x01 \x01(\x05R\rpriorityLevel\x12'\n" +
 	"\x0fpriority_reason\x18\x02 \x01(\tR\x0epriorityReason\x12%\n" +
-	"\x0emaintain_order\x18\x03 \x01(\bR\rmaintainOrderB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0emaintain_order\x18\x03 \x01(\bR\rmaintainOrderB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_priority_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_priority_update_proto_goTypes = []any{

@@ -7,8 +7,8 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 
 type GetQueueStatsResponse struct {
 	state                         protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Metadata           *messages.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata           *common.ResponseMetadata   `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_Summary            *QueueStatsSummary         `protobuf:"bytes,2,opt,name=summary"`
 	xxx_hidden_QueueStats         *[]*QueueStats             `protobuf:"bytes,3,rep,name=queue_stats,json=queueStats"`
 	xxx_hidden_ConsumerStats      *[]*ConsumerStats          `protobuf:"bytes,4,rep,name=consumer_stats,json=consumerStats"`
@@ -63,7 +63,7 @@ func (x *GetQueueStatsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetQueueStatsResponse) GetMetadata() *messages.ResponseMetadata {
+func (x *GetQueueStatsResponse) GetMetadata() *common.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -123,7 +123,7 @@ func (x *GetQueueStatsResponse) GetGeneratedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetQueueStatsResponse) SetMetadata(v *messages.ResponseMetadata) {
+func (x *GetQueueStatsResponse) SetMetadata(v *common.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -225,7 +225,7 @@ type GetQueueStatsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard response metadata
-	Metadata *messages.ResponseMetadata
+	Metadata *common.ResponseMetadata
 	// Overall statistics summary
 	Summary *QueueStatsSummary
 	// Per-queue statistics (if multiple queues requested)
@@ -272,12 +272,12 @@ const file_gcommon_v1_queue_messages_get_queue_stats_response_proto_rawDesc = ""
 	"\verror_stats\x18\x06 \x01(\v2%.gcommon.v1.metrics.MetricsErrorStatsR\n" +
 	"errorStats\x12U\n" +
 	"\x13performance_metrics\x18\a \x01(\v2$.gcommon.v1.queue.PerformanceMetricsR\x12performanceMetrics\x12=\n" +
-	"\fgenerated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\vgeneratedAtB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fgenerated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\vgeneratedAtB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_queue_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_queue_stats_response_proto_goTypes = []any{
 	(*GetQueueStatsResponse)(nil),     // 0: gcommon.v1.queue.GetQueueStatsResponse
-	(*messages.ResponseMetadata)(nil), // 1: gcommon.v1.common.ResponseMetadata
+	(*common.ResponseMetadata)(nil),   // 1: gcommon.v1.common.ResponseMetadata
 	(*QueueStatsSummary)(nil),         // 2: gcommon.v1.queue.QueueStatsSummary
 	(*QueueStats)(nil),                // 3: gcommon.v1.queue.QueueStats
 	(*ConsumerStats)(nil),             // 4: gcommon.v1.queue.ConsumerStats

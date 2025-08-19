@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,14 +26,14 @@ const (
 // Request to negatively acknowledge (NACK) a message.
 // This indicates that the message could not be processed and may need to be requeued.
 type NackRequest struct {
-	state                          protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_AckToken            *string                   `protobuf:"bytes,1,opt,name=ack_token,json=ackToken"`
-	xxx_hidden_Requeue             bool                      `protobuf:"varint,2,opt,name=requeue"`
-	xxx_hidden_Reason              *string                   `protobuf:"bytes,3,opt,name=reason"`
-	xxx_hidden_Error               *NackError                `protobuf:"bytes,4,opt,name=error"`
-	xxx_hidden_RequeueDelaySeconds int64                     `protobuf:"varint,5,opt,name=requeue_delay_seconds,json=requeueDelaySeconds"`
-	xxx_hidden_MaxRetries          int32                     `protobuf:"varint,6,opt,name=max_retries,json=maxRetries"`
-	xxx_hidden_Metadata            *messages.RequestMetadata `protobuf:"bytes,100,opt,name=metadata"`
+	state                          protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_AckToken            *string                 `protobuf:"bytes,1,opt,name=ack_token,json=ackToken"`
+	xxx_hidden_Requeue             bool                    `protobuf:"varint,2,opt,name=requeue"`
+	xxx_hidden_Reason              *string                 `protobuf:"bytes,3,opt,name=reason"`
+	xxx_hidden_Error               *NackError              `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_RequeueDelaySeconds int64                   `protobuf:"varint,5,opt,name=requeue_delay_seconds,json=requeueDelaySeconds"`
+	xxx_hidden_MaxRetries          int32                   `protobuf:"varint,6,opt,name=max_retries,json=maxRetries"`
+	xxx_hidden_Metadata            *common.RequestMetadata `protobuf:"bytes,100,opt,name=metadata"`
 	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
 	XXX_presence                   [1]uint32
 	unknownFields                  protoimpl.UnknownFields
@@ -113,7 +113,7 @@ func (x *NackRequest) GetMaxRetries() int32 {
 	return 0
 }
 
-func (x *NackRequest) GetMetadata() *messages.RequestMetadata {
+func (x *NackRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -149,7 +149,7 @@ func (x *NackRequest) SetMaxRetries(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *NackRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *NackRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -251,7 +251,7 @@ type NackRequest_builder struct {
 	// Maximum number of retry attempts for this message
 	MaxRetries *int32
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 NackRequest_builder) Build() *NackRequest {
@@ -296,13 +296,13 @@ const file_gcommon_v1_queue_messages_nack_request_proto_rawDesc = "" +
 	"\x15requeue_delay_seconds\x18\x05 \x01(\x03R\x13requeueDelaySeconds\x12\x1f\n" +
 	"\vmax_retries\x18\x06 \x01(\x05R\n" +
 	"maxRetries\x12>\n" +
-	"\bmetadata\x18d \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18d \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_nack_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_nack_request_proto_goTypes = []any{
-	(*NackRequest)(nil),              // 0: gcommon.v1.queue.NackRequest
-	(*NackError)(nil),                // 1: gcommon.v1.queue.NackError
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*NackRequest)(nil),            // 0: gcommon.v1.queue.NackRequest
+	(*NackError)(nil),              // 1: gcommon.v1.queue.NackError
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_nack_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.NackRequest.error:type_name -> gcommon.v1.queue.NackError

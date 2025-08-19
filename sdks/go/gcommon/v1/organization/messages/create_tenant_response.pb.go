@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type CreateTenantResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors      *[]*common.Error       `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_Tenant      *Tenant                `protobuf:"bytes,3,opt,name=tenant"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -58,7 +58,7 @@ func (x *CreateTenantResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateTenantResponse) GetErrors() []*messages.Error {
+func (x *CreateTenantResponse) GetErrors() []*common.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -81,7 +81,7 @@ func (x *CreateTenantResponse) GetTenant() *Tenant {
 	return nil
 }
 
-func (x *CreateTenantResponse) SetErrors(v []*messages.Error) {
+func (x *CreateTenantResponse) SetErrors(v []*common.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -121,7 +121,7 @@ type CreateTenantResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*common.Error
 	// Success status
 	Success *bool
 	// Newly created tenant details
@@ -154,7 +154,7 @@ const file_gcommon_v1_organization_messages_create_tenant_response_proto_rawDesc
 var file_gcommon_v1_organization_messages_create_tenant_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_tenant_response_proto_goTypes = []any{
 	(*CreateTenantResponse)(nil), // 0: gcommon.v1.organization.CreateTenantResponse
-	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),         // 1: gcommon.v1.common.Error
 	(*Tenant)(nil),               // 2: gcommon.v1.organization.Tenant
 }
 var file_gcommon_v1_organization_messages_create_tenant_response_proto_depIdxs = []int32{

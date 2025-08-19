@@ -267,7 +267,7 @@ const file_gcommon_v1_queue_messages_node_stats_proto_rawDesc = "" +
 	"\fmemory_usage\x18\x04 \x01(\x03R\vmemoryUsage\x12\x1d\n" +
 	"\n" +
 	"disk_usage\x18\x05 \x01(\x03R\tdiskUsage\x12-\n" +
-	"\x12network_throughput\x18\x06 \x01(\x01R\x11networkThroughputB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12network_throughput\x18\x06 \x01(\x01R\x11networkThroughputB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_node_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_node_stats_proto_goTypes = []any{
