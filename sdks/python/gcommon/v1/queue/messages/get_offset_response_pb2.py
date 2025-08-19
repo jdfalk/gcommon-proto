@@ -26,14 +26,14 @@ from gcommon.v1.common.messages import request_metadata_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/get_offset_response.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x8a\x01\n\x11GetOffsetResponse\x12\x16\n\x06offset\x18\x01 \x01(\x03R\x06offset\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12>\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/get_offset_response.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x8a\x01\n\x11GetOffsetResponse\x12\x16\n\x06offset\x18\x01 \x01(\x03R\x06offset\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12>\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\xc1\x01\n\x14\x63om.gcommon.v1.queueB\x16GetOffsetResponseProtoP\x01Z\'github.com/jdfalk/gcommon/sdks/go/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.get_offset_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\026GetOffsetResponseProtoP\001Z\'github.com/jdfalk/gcommon/sdks/go/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_GETOFFSETRESPONSE']._serialized_start=160
   _globals['_GETOFFSETRESPONSE']._serialized_end=298
 # @@protoc_insertion_point(module_scope)

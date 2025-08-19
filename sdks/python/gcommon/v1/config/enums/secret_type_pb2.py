@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/config/enums/secret_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xff\x03\n\nSecretType\x12\x1b\n\x17SECRET_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14SECRET_TYPE_PASSWORD\x10\x01\x12\x17\n\x13SECRET_TYPE_API_KEY\x10\x02\x12\x15\n\x11SECRET_TYPE_TOKEN\x10\x03\x12\x1b\n\x17SECRET_TYPE_CERTIFICATE\x10\x04\x12\x1b\n\x17SECRET_TYPE_PRIVATE_KEY\x10\x05\x12\x1a\n\x16SECRET_TYPE_PUBLIC_KEY\x10\x06\x12#\n\x1fSECRET_TYPE_OAUTH_CLIENT_SECRET\x10\x07\x12!\n\x1dSECRET_TYPE_DATABASE_PASSWORD\x10\x08\x12!\n\x1dSECRET_TYPE_CONNECTION_STRING\x10\t\x12\x1e\n\x1aSECRET_TYPE_ENCRYPTION_KEY\x10\n\x12\x1b\n\x17SECRET_TYPE_SIGNING_KEY\x10\x0b\x12\x17\n\x13SECRET_TYPE_SSH_KEY\x10\x0c\x12\x1f\n\x1bSECRET_TYPE_TLS_CERTIFICATE\x10\r\x12\x1a\n\x16SECRET_TYPE_JWT_SECRET\x10\x0e\x12\x1e\n\x1aSECRET_TYPE_WEBHOOK_SECRET\x10\x0f\x12\x16\n\x12SECRET_TYPE_CUSTOM\x10\x10\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/config/enums/secret_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xff\x03\n\nSecretType\x12\x1b\n\x17SECRET_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14SECRET_TYPE_PASSWORD\x10\x01\x12\x17\n\x13SECRET_TYPE_API_KEY\x10\x02\x12\x15\n\x11SECRET_TYPE_TOKEN\x10\x03\x12\x1b\n\x17SECRET_TYPE_CERTIFICATE\x10\x04\x12\x1b\n\x17SECRET_TYPE_PRIVATE_KEY\x10\x05\x12\x1a\n\x16SECRET_TYPE_PUBLIC_KEY\x10\x06\x12#\n\x1fSECRET_TYPE_OAUTH_CLIENT_SECRET\x10\x07\x12!\n\x1dSECRET_TYPE_DATABASE_PASSWORD\x10\x08\x12!\n\x1dSECRET_TYPE_CONNECTION_STRING\x10\t\x12\x1e\n\x1aSECRET_TYPE_ENCRYPTION_KEY\x10\n\x12\x1b\n\x17SECRET_TYPE_SIGNING_KEY\x10\x0b\x12\x17\n\x13SECRET_TYPE_SSH_KEY\x10\x0c\x12\x1f\n\x1bSECRET_TYPE_TLS_CERTIFICATE\x10\r\x12\x1a\n\x16SECRET_TYPE_JWT_SECRET\x10\x0e\x12\x1e\n\x1aSECRET_TYPE_WEBHOOK_SECRET\x10\x0f\x12\x16\n\x12SECRET_TYPE_CUSTOM\x10\x10\x42\xc0\x01\n\x15\x63om.gcommon.v1.configB\x0fSecretTypeProtoP\x01Z(github.com/jdfalk/gcommon/sdks/go/config\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.secret_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\017SecretTypeProtoP\001Z(github.com/jdfalk/gcommon/sdks/go/config\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
   _globals['_SECRETTYPE']._serialized_start=100
   _globals['_SECRETTYPE']._serialized_end=611
 # @@protoc_insertion_point(module_scope)

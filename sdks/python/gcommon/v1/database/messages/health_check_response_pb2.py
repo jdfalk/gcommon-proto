@@ -28,14 +28,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/database/messages/health_check_response.proto\x12\x13gcommon.v1.database\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf9\x01\n\x1b\x44\x61tabaseHealthCheckResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12#\n\rconnection_ok\x18\x02 \x01(\x08R\x0c\x63onnectionOk\x12\x42\n\rresponse_time\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0cresponseTime\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/database/messages/health_check_response.proto\x12\x13gcommon.v1.database\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf9\x01\n\x1b\x44\x61tabaseHealthCheckResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12#\n\rconnection_ok\x18\x02 \x01(\x08R\x0c\x63onnectionOk\x12\x42\n\rresponse_time\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0cresponseTime\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xd5\x01\n\x17\x63om.gcommon.v1.databaseB\x18HealthCheckResponseProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.health_check_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\030HealthCheckResponseProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['response_time']._loaded_options = None
   _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['response_time']._serialized_options = b'(\001'
   _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['error']._loaded_options = None

@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/messages/my_sql_config.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\xa3\x01\n\x0bMySQLConfig\x12\x10\n\x03\x64sn\x18\x01 \x01(\tR\x03\x64sn\x12$\n\x0emax_open_conns\x18\x02 \x01(\x05R\x0cmaxOpenConns\x12$\n\x0emax_idle_conns\x18\x03 \x01(\x05R\x0cmaxIdleConns\x12\x36\n\x17\x63onnect_timeout_seconds\x18\x04 \x01(\x05R\x15\x63onnectTimeoutSecondsB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/messages/my_sql_config.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\xa3\x01\n\x0bMySQLConfig\x12\x10\n\x03\x64sn\x18\x01 \x01(\tR\x03\x64sn\x12$\n\x0emax_open_conns\x18\x02 \x01(\x05R\x0cmaxOpenConns\x12$\n\x0emax_idle_conns\x18\x03 \x01(\x05R\x0cmaxIdleConns\x12\x36\n\x17\x63onnect_timeout_seconds\x18\x04 \x01(\x05R\x15\x63onnectTimeoutSecondsB\xcd\x01\n\x17\x63om.gcommon.v1.databaseB\x10MySqlConfigProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.my_sql_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\020MySqlConfigProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_MYSQLCONFIG']._serialized_start=109
   _globals['_MYSQLCONFIG']._serialized_end=272
 # @@protoc_insertion_point(module_scope)

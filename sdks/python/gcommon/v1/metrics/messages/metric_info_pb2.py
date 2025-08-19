@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/messages/metric_info.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xec\x01\n\nMetricInfo\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n\x0bmetric_type\x18\x02 \x01(\tR\nmetricType\x12\x1f\n\x0b\x64\x61ta_points\x18\x03 \x01(\x03R\ndataPoints\x12*\n\x11\x64\x61ta_volume_bytes\x18\x04 \x01(\x03R\x0f\x64\x61taVolumeBytes\x12\x1d\n\nerror_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n\x0clast_updated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0blastUpdatedB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/messages/metric_info.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xec\x01\n\nMetricInfo\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1f\n\x0bmetric_type\x18\x02 \x01(\tR\nmetricType\x12\x1f\n\x0b\x64\x61ta_points\x18\x03 \x01(\x03R\ndataPoints\x12*\n\x11\x64\x61ta_volume_bytes\x18\x04 \x01(\x03R\x0f\x64\x61taVolumeBytes\x12\x1d\n\nerror_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n\x0clast_updated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0blastUpdatedB\xc6\x01\n\x16\x63om.gcommon.v1.metricsB\x0fMetricInfoProtoP\x01Z)github.com/jdfalk/gcommon/sdks/go/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.metric_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\017MetricInfoProtoP\001Z)github.com/jdfalk/gcommon/sdks/go/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
   _globals['_METRICINFO']._serialized_start=138
   _globals['_METRICINFO']._serialized_end=374
 # @@protoc_insertion_point(module_scope)

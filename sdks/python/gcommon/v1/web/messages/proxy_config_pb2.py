@@ -28,14 +28,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/web/messages/proxy_config.proto\x12\x0egcommon.v1.web\x1a%gcommon/v1/web/enums/proxy_type.proto\x1a)gcommon/v1/web/messages/http_header.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xa3\x02\n\x0bProxyConfig\x12\x38\n\nproxy_type\x18\x01 \x01(\x0e\x32\x19.gcommon.v1.web.ProxyTypeR\tproxyType\x12\x1d\n\ntarget_url\x18\x02 \x01(\tR\ttargetUrl\x12\x43\n\x0f\x66orward_headers\x18\x03 \x03(\x0b\x32\x1a.gcommon.v1.web.HttpHeaderR\x0e\x66orwardHeaders\x12\x42\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onnectTimeout\x12\x32\n\x15trust_forward_headers\x18\x05 \x01(\x08R\x13trustForwardHeadersB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/web/messages/proxy_config.proto\x12\x0egcommon.v1.web\x1a%gcommon/v1/web/enums/proxy_type.proto\x1a)gcommon/v1/web/messages/http_header.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xa3\x02\n\x0bProxyConfig\x12\x38\n\nproxy_type\x18\x01 \x01(\x0e\x32\x19.gcommon.v1.web.ProxyTypeR\tproxyType\x12\x1d\n\ntarget_url\x18\x02 \x01(\tR\ttargetUrl\x12\x43\n\x0f\x66orward_headers\x18\x03 \x03(\x0b\x32\x1a.gcommon.v1.web.HttpHeaderR\x0e\x66orwardHeaders\x12\x42\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onnectTimeout\x12\x32\n\x15trust_forward_headers\x18\x05 \x01(\x08R\x13trustForwardHeadersB\xaf\x01\n\x12\x63om.gcommon.v1.webB\x10ProxyConfigProtoP\x01Z%github.com/jdfalk/gcommon/sdks/go/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.proxy_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/sdks/go/web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\020ProxyConfigProtoP\001Z%github.com/jdfalk/gcommon/sdks/go/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
   _globals['_PROXYCONFIG']._serialized_start=212
   _globals['_PROXYCONFIG']._serialized_end=503
 # @@protoc_insertion_point(module_scope)

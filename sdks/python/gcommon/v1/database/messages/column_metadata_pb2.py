@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/database/messages/column_metadata.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\x8e\x02\n\x0e\x43olumnMetadata\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x1a\n\x08nullable\x18\x03 \x01(\x08R\x08nullable\x12\x12\n\x04size\x18\x04 \x01(\x05R\x04size\x12\x14\n\x05scale\x18\x05 \x01(\x05R\x05scale\x12Q\n\x08metadata\x18\x06 \x03(\x0b\x32\x31.gcommon.v1.database.ColumnMetadata.MetadataEntryB\x02(\x01R\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/database/messages/column_metadata.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\x8e\x02\n\x0e\x43olumnMetadata\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x1a\n\x08nullable\x18\x03 \x01(\x08R\x08nullable\x12\x12\n\x04size\x18\x04 \x01(\x05R\x04size\x12\x14\n\x05scale\x18\x05 \x01(\x05R\x05scale\x12Q\n\x08metadata\x18\x06 \x03(\x0b\x32\x31.gcommon.v1.database.ColumnMetadata.MetadataEntryB\x02(\x01R\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd0\x01\n\x17\x63om.gcommon.v1.databaseB\x13\x43olumnMetadataProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.column_metadata_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\023ColumnMetadataProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_COLUMNMETADATA_METADATAENTRY']._loaded_options = None
   _globals['_COLUMNMETADATA_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_COLUMNMETADATA'].fields_by_name['metadata']._loaded_options = None

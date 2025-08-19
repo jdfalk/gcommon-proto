@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/metrics/messages/scrape_job.proto\x12\x12gcommon.v1.metrics\x1a/gcommon/v1/metrics/messages/scrape_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x02\n\tScrapeJob\x12\x15\n\x06job_id\x18\x01 \x01(\tR\x05jobId\x12\x38\n\x06\x63onfig\x18\x02 \x01(\x0b\x32 .gcommon.v1.metrics.ScrapeConfigR\x06\x63onfig\x12\x16\n\x06\x61\x63tive\x18\x03 \x01(\x08R\x06\x61\x63tive\x12\x44\n\x10last_scrape_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0elastScrapeTime\x12\x44\n\x10next_scrape_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0enextScrapeTimeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/metrics/messages/scrape_job.proto\x12\x12gcommon.v1.metrics\x1a/gcommon/v1/metrics/messages/scrape_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x02\n\tScrapeJob\x12\x15\n\x06job_id\x18\x01 \x01(\tR\x05jobId\x12\x38\n\x06\x63onfig\x18\x02 \x01(\x0b\x32 .gcommon.v1.metrics.ScrapeConfigR\x06\x63onfig\x12\x16\n\x06\x61\x63tive\x18\x03 \x01(\x08R\x06\x61\x63tive\x12\x44\n\x10last_scrape_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0elastScrapeTime\x12\x44\n\x10next_scrape_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0enextScrapeTimeB\xc5\x01\n\x16\x63om.gcommon.v1.metricsB\x0eScrapeJobProtoP\x01Z)github.com/jdfalk/gcommon/sdks/go/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.scrape_job_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\016ScrapeJobProtoP\001Z)github.com/jdfalk/gcommon/sdks/go/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
   _globals['_SCRAPEJOB']._serialized_start=186
   _globals['_SCRAPEJOB']._serialized_end=442
 # @@protoc_insertion_point(module_scope)

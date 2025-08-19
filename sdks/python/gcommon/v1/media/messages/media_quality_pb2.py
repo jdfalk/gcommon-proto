@@ -27,14 +27,14 @@ from gcommon.v1.media.enums import resolution_pb2 as gcommon_dot_v1_dot_media_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/media/messages/media_quality.proto\x12\x10gcommon.v1.media\x1a*gcommon/v1/media/enums/quality_score.proto\x1a\'gcommon/v1/media/enums/resolution.proto\x1a!google/protobuf/go_features.proto\"\x80\x02\n\x0cMediaQuality\x12<\n\nresolution\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.media.ResolutionR\nresolution\x12\x1f\n\x0bvideo_codec\x18\x02 \x01(\tR\nvideoCodec\x12!\n\x0c\x62itrate_kbps\x18\x03 \x01(\x05R\x0b\x62itrateKbps\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x02R\x0f\x64urationSeconds\x12\x43\n\rquality_score\x18\x05 \x01(\x0e\x32\x1e.gcommon.v1.media.QualityScoreR\x0cqualityScoreB1Z\'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/media/messages/media_quality.proto\x12\x10gcommon.v1.media\x1a*gcommon/v1/media/enums/quality_score.proto\x1a\'gcommon/v1/media/enums/resolution.proto\x1a!google/protobuf/go_features.proto\"\x80\x02\n\x0cMediaQuality\x12<\n\nresolution\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.media.ResolutionR\nresolution\x12\x1f\n\x0bvideo_codec\x18\x02 \x01(\tR\nvideoCodec\x12!\n\x0c\x62itrate_kbps\x18\x03 \x01(\x05R\x0b\x62itrateKbps\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x02R\x0f\x64urationSeconds\x12\x43\n\rquality_score\x18\x05 \x01(\x0e\x32\x1e.gcommon.v1.media.QualityScoreR\x0cqualityScoreB\xbc\x01\n\x14\x63om.gcommon.v1.mediaB\x11MediaQualityProtoP\x01Z\'github.com/jdfalk/gcommon/sdks/go/media\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.messages.media_quality_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/media\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.mediaB\021MediaQualityProtoP\001Z\'github.com/jdfalk/gcommon/sdks/go/media\242\002\003GVM\252\002\020Gcommon.V1.Media\312\002\020Gcommon\\V1\\Media\342\002\034Gcommon\\V1\\Media\\GPBMetadata\352\002\022Gcommon::V1::Media\222\003\005\322>\002\020\003'
   _globals['_MEDIAQUALITY']._serialized_start=188
   _globals['_MEDIAQUALITY']._serialized_end=444
 # @@protoc_insertion_point(module_scope)

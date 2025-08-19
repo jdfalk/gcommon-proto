@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n=gcommon/v1/organization/messages/notification_frequency.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xea\x01\n\x15NotificationFrequency\x12!\n\x0c\x64\x61ily_digest\x18\x01 \x01(\x08R\x0b\x64\x61ilyDigest\x12%\n\x0eweekly_summary\x18\x02 \x01(\x08R\rweeklySummary\x12\x33\n\x15instant_notifications\x18\x03 \x01(\x08R\x14instantNotifications\x12*\n\x11quiet_hours_start\x18\x04 \x01(\tR\x0fquietHoursStart\x12&\n\x0fquiet_hours_end\x18\x05 \x01(\tR\rquietHoursEndB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n=gcommon/v1/organization/messages/notification_frequency.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xea\x01\n\x15NotificationFrequency\x12!\n\x0c\x64\x61ily_digest\x18\x01 \x01(\x08R\x0b\x64\x61ilyDigest\x12%\n\x0eweekly_summary\x18\x02 \x01(\x08R\rweeklySummary\x12\x33\n\x15instant_notifications\x18\x03 \x01(\x08R\x14instantNotifications\x12*\n\x11quiet_hours_start\x18\x04 \x01(\tR\x0fquietHoursStart\x12&\n\x0fquiet_hours_end\x18\x05 \x01(\tR\rquietHoursEndB\xef\x01\n\x1b\x63om.gcommon.v1.organizationB\x1aNotificationFrequencyProtoP\x01Z.github.com/jdfalk/gcommon/sdks/go/organization\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.notification_frequency_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\032NotificationFrequencyProtoP\001Z.github.com/jdfalk/gcommon/sdks/go/organization\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
   _globals['_NOTIFICATIONFREQUENCY']._serialized_start=126
   _globals['_NOTIFICATIONFREQUENCY']._serialized_end=360
 # @@protoc_insertion_point(module_scope)

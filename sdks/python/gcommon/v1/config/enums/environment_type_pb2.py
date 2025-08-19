@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/config/enums/environment_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xf8\x02\n\x0f\x45nvironmentType\x12 \n\x1c\x45NVIRONMENT_TYPE_UNSPECIFIED\x10\x00\x12 \n\x1c\x45NVIRONMENT_TYPE_DEVELOPMENT\x10\x01\x12\x1c\n\x18\x45NVIRONMENT_TYPE_TESTING\x10\x02\x12\x1c\n\x18\x45NVIRONMENT_TYPE_STAGING\x10\x03\x12\x1f\n\x1b\x45NVIRONMENT_TYPE_PRODUCTION\x10\x04\x12\x1c\n\x18\x45NVIRONMENT_TYPE_SANDBOX\x10\x05\x12\x1b\n\x17\x45NVIRONMENT_TYPE_CANARY\x10\x06\x12&\n\"ENVIRONMENT_TYPE_DISASTER_RECOVERY\x10\x07\x12 \n\x1c\x45NVIRONMENT_TYPE_INTEGRATION\x10\x08\x12 \n\x1c\x45NVIRONMENT_TYPE_PERFORMANCE\x10\t\x12\x1d\n\x19\x45NVIRONMENT_TYPE_SECURITY\x10\nB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/config/enums/environment_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xf8\x02\n\x0f\x45nvironmentType\x12 \n\x1c\x45NVIRONMENT_TYPE_UNSPECIFIED\x10\x00\x12 \n\x1c\x45NVIRONMENT_TYPE_DEVELOPMENT\x10\x01\x12\x1c\n\x18\x45NVIRONMENT_TYPE_TESTING\x10\x02\x12\x1c\n\x18\x45NVIRONMENT_TYPE_STAGING\x10\x03\x12\x1f\n\x1b\x45NVIRONMENT_TYPE_PRODUCTION\x10\x04\x12\x1c\n\x18\x45NVIRONMENT_TYPE_SANDBOX\x10\x05\x12\x1b\n\x17\x45NVIRONMENT_TYPE_CANARY\x10\x06\x12&\n\"ENVIRONMENT_TYPE_DISASTER_RECOVERY\x10\x07\x12 \n\x1c\x45NVIRONMENT_TYPE_INTEGRATION\x10\x08\x12 \n\x1c\x45NVIRONMENT_TYPE_PERFORMANCE\x10\t\x12\x1d\n\x19\x45NVIRONMENT_TYPE_SECURITY\x10\nB\xc5\x01\n\x15\x63om.gcommon.v1.configB\x14\x45nvironmentTypeProtoP\x01Z(github.com/jdfalk/gcommon/sdks/go/config\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.environment_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\024EnvironmentTypeProtoP\001Z(github.com/jdfalk/gcommon/sdks/go/config\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
   _globals['_ENVIRONMENTTYPE']._serialized_start=105
   _globals['_ENVIRONMENTTYPE']._serialized_end=481
 # @@protoc_insertion_point(module_scope)

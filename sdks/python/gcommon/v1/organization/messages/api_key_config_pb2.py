@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/organization/messages/api_key_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x01\n\x18OrganizationAPIKeyConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nmasked_key\x18\x02 \x01(\tR\tmaskedKey\x12\x16\n\x06scopes\x18\x03 \x03(\tR\x06scopes\x12=\n\nexpires_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAtB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/organization/messages/api_key_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x01\n\x18OrganizationAPIKeyConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nmasked_key\x18\x02 \x01(\tR\tmaskedKey\x12\x16\n\x06scopes\x18\x03 \x03(\tR\x06scopes\x12=\n\nexpires_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAtB\xe6\x01\n\x1b\x63om.gcommon.v1.organizationB\x11\x41piKeyConfigProtoP\x01Z.github.com/jdfalk/gcommon/sdks/go/organization\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.api_key_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\021ApiKeyConfigProtoP\001Z.github.com/jdfalk/gcommon/sdks/go/organization\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
   _globals['_ORGANIZATIONAPIKEYCONFIG'].fields_by_name['expires_at']._loaded_options = None
   _globals['_ORGANIZATIONAPIKEYCONFIG'].fields_by_name['expires_at']._serialized_options = b'(\001'
   _globals['_ORGANIZATIONAPIKEYCONFIG']._serialized_start=151
