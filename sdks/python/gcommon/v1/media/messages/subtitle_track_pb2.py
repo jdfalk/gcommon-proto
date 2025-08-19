@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/messages/subtitle_track.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xd5\x01\n\rSubtitleTrack\x12\x14\n\x05index\x18\x01 \x01(\x05R\x05index\x12\x1a\n\x08language\x18\x02 \x01(\tR\x08language\x12\x14\n\x05\x63odec\x18\x03 \x01(\tR\x05\x63odec\x12\x14\n\x05title\x18\x04 \x01(\tR\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired\x12#\n\rdefault_track\x18\x07 \x01(\x08R\x0c\x64\x65\x66\x61ultTrackB\xcd\x01\n\x14\x63om.gcommon.v1.mediaB\x12SubtitleTrackProtoP\x01Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/messages/subtitle_track.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xd5\x01\n\rSubtitleTrack\x12\x14\n\x05index\x18\x01 \x01(\x05R\x05index\x12\x1a\n\x08language\x18\x02 \x01(\tR\x08language\x12\x14\n\x05\x63odec\x18\x03 \x01(\tR\x05\x63odec\x12\x14\n\x05title\x18\x04 \x01(\tR\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired\x12#\n\rdefault_track\x18\x07 \x01(\x08R\x0c\x64\x65\x66\x61ultTrackB\xd1\x01\n\x14\x63om.gcommon.v1.mediaB\x12SubtitleTrackProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.messages.subtitle_track_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.mediaB\022SubtitleTrackProtoP\001Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/media/messages\242\002\003GVM\252\002\020Gcommon.V1.Media\312\002\020Gcommon\\V1\\Media\342\002\034Gcommon\\V1\\Media\\GPBMetadata\352\002\022Gcommon::V1::Media\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.mediaB\022SubtitleTrackProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\242\002\003GVM\252\002\020Gcommon.V1.Media\312\002\020Gcommon\\V1\\Media\342\002\034Gcommon\\V1\\Media\\GPBMetadata\352\002\022Gcommon::V1::Media\222\003\005\322>\002\020\003'
   _globals['_SUBTITLETRACK']._serialized_start=104
   _globals['_SUBTITLETRACK']._serialized_end=317
 # @@protoc_insertion_point(module_scope)
