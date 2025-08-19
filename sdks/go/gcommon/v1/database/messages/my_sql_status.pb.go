@@ -204,7 +204,7 @@ const file_gcommon_v1_database_messages_my_sql_status_proto_rawDesc = "" +
 	"\n" +
 	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAt\x12)\n" +
 	"\x10open_connections\x18\x03 \x01(\x05R\x0fopenConnections\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04roleB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04role\x18\x04 \x01(\tR\x04roleB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_my_sql_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_my_sql_status_proto_goTypes = []any{

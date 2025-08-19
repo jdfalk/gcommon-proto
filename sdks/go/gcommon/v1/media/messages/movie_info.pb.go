@@ -192,7 +192,7 @@ const file_gcommon_v1_media_messages_movie_info_proto_rawDesc = "" +
 	"\frelease_date\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\vreleaseDate\x12\x16\n" +
 	"\x06budget\x18\x02 \x01(\x03R\x06budget\x12\x18\n" +
 	"\arevenue\x18\x03 \x01(\x03R\arevenue\x12'\n" +
-	"\x0fruntime_minutes\x18\x04 \x01(\x05R\x0eruntimeMinutesB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fruntime_minutes\x18\x04 \x01(\x05R\x0eruntimeMinutesB1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_movie_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_movie_info_proto_goTypes = []any{

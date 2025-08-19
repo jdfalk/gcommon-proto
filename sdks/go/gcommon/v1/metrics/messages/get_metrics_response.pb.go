@@ -334,7 +334,7 @@ const file_gcommon_v1_metrics_messages_get_metrics_response_proto_rawDesc = "" +
 	"\bwarnings\x18\t \x03(\tR\bwarnings\x12\x1f\n" +
 	"\vprovider_id\x18\n" +
 	" \x01(\tR\n" +
-	"providerIdB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"providerIdB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_get_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metrics_response_proto_goTypes = []any{

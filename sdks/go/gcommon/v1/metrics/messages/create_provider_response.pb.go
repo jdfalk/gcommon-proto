@@ -322,7 +322,7 @@ const file_gcommon_v1_metrics_messages_create_provider_response_proto_rawDesc = 
 	"validation\x12H\n" +
 	"\x0eapplied_config\x18\a \x01(\v2!.gcommon.v1.metrics.AppliedConfigR\rappliedConfig\x12\x1a\n" +
 	"\bwarnings\x18\b \x03(\tR\bwarnings\x12C\n" +
-	"\tendpoints\x18\t \x01(\v2%.gcommon.v1.metrics.ProviderEndpointsR\tendpointsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tendpoints\x18\t \x01(\v2%.gcommon.v1.metrics.ProviderEndpointsR\tendpointsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_create_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_create_provider_response_proto_goTypes = []any{

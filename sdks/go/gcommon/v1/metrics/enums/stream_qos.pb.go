@@ -84,7 +84,7 @@ const file_gcommon_v1_metrics_enums_stream_qos_proto_rawDesc = "" +
 	"\x16STREAM_QOS_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16STREAM_QOS_BEST_EFFORT\x10\x01\x12\x1c\n" +
 	"\x18STREAM_QOS_AT_LEAST_ONCE\x10\x02\x12\x1b\n" +
-	"\x17STREAM_QOS_EXACTLY_ONCE\x10\x03B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17STREAM_QOS_EXACTLY_ONCE\x10\x03B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_stream_qos_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_stream_qos_proto_goTypes = []any{

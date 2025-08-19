@@ -205,7 +205,7 @@ const file_gcommon_v1_database_messages_list_namespaces_request_proto_rawDesc = 
 	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12\x1f\n" +
 	"\vname_filter\x18\x03 \x01(\tR\n" +
 	"nameFilter\x12#\n" +
-	"\rinclude_stats\x18\x04 \x01(\bR\fincludeStatsB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rinclude_stats\x18\x04 \x01(\bR\fincludeStatsB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_list_namespaces_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_list_namespaces_request_proto_goTypes = []any{

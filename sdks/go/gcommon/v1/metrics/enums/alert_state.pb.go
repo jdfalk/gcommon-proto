@@ -100,7 +100,7 @@ const file_gcommon_v1_metrics_enums_alert_state_proto_rawDesc = "" +
 	"\x14ALERT_STATE_RESOLVED\x10\x03\x12\x1c\n" +
 	"\x18ALERT_STATE_ACKNOWLEDGED\x10\x04\x12\x18\n" +
 	"\x14ALERT_STATE_SILENCED\x10\x05\x12\x15\n" +
-	"\x11ALERT_STATE_ERROR\x10\x06B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11ALERT_STATE_ERROR\x10\x06B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_alert_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_alert_state_proto_goTypes = []any{

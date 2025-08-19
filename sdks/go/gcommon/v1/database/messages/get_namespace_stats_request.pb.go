@@ -172,7 +172,7 @@ const file_gcommon_v1_database_messages_get_namespace_stats_request_proto_rawDes
 	"\x18GetNamespaceStatsRequest\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x128\n" +
 	"\x18include_detailed_metrics\x18\x02 \x01(\bR\x16includeDetailedMetrics\x128\n" +
-	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_namespace_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_namespace_stats_request_proto_goTypes = []any{

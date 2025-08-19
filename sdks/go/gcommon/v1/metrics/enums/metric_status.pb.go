@@ -88,7 +88,7 @@ const file_gcommon_v1_metrics_enums_metric_status_proto_rawDesc = "" +
 	"\x14METRIC_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
 	"\x16METRIC_STATUS_DISABLED\x10\x02\x12\x17\n" +
 	"\x13METRIC_STATUS_ERROR\x10\x03\x12\x19\n" +
-	"\x15METRIC_STATUS_DELETED\x10\x04B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15METRIC_STATUS_DELETED\x10\x04B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_metric_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_metric_status_proto_goTypes = []any{

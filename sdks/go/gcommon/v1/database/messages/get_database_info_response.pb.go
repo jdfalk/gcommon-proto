@@ -119,7 +119,7 @@ const file_gcommon_v1_database_messages_get_database_info_response_proto_rawDesc
 	"\n" +
 	"=gcommon/v1/database/messages/get_database_info_response.proto\x12\x13gcommon.v1.database\x1a0gcommon/v1/database/messages/database_info.proto\x1a!google/protobuf/go_features.proto\"T\n" +
 	"\x17GetDatabaseInfoResponse\x129\n" +
-	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_database_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_database_info_response_proto_goTypes = []any{

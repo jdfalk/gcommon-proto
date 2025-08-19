@@ -160,7 +160,7 @@ const file_gcommon_v1_metrics_messages_get_metric_config_response_proto_rawDesc 
 	"\x17GetMetricConfigResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x128\n" +
-	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_get_metric_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metric_config_response_proto_goTypes = []any{

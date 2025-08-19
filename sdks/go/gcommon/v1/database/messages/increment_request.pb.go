@@ -297,7 +297,7 @@ const file_gcommon_v1_database_messages_increment_request_proto_rawDesc = "" +
 	"\rinitial_value\x18\x03 \x01(\x03R\finitialValue\x12/\n" +
 	"\x03ttl\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_increment_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_increment_request_proto_goTypes = []any{

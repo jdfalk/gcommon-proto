@@ -135,7 +135,7 @@ const file_gcommon_v1_database_messages_get_multiple_response_proto_rawDesc = ""
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x1a9\n" +
 	"\vValuesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_get_multiple_response_proto_goTypes = []any{

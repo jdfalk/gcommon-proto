@@ -109,7 +109,7 @@ const file_gcommon_v1_metrics_enums_retention_unit_proto_rawDesc = "" +
 	"\x15RETENTION_UNIT_MONTHS\x10\x05\x12\x18\n" +
 	"\x14RETENTION_UNIT_YEARS\x10\x06\x12\x1a\n" +
 	"\x16RETENTION_UNIT_FOREVER\x10\a\x12\x19\n" +
-	"\x15RETENTION_UNIT_CUSTOM\x10\bB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15RETENTION_UNIT_CUSTOM\x10\bB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_retention_unit_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_retention_unit_proto_goTypes = []any{

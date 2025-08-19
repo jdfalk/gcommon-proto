@@ -286,7 +286,7 @@ const file_gcommon_v1_database_messages_eviction_result_proto_rawDesc = "" +
 	"\n" +
 	"evicted_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tevictedAt\x12!\n" +
 	"\fmemory_freed\x18\x06 \x01(\x03R\vmemoryFreed\x12\x18\n" +
-	"\asuccess\x18\a \x01(\bR\asuccessB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\asuccess\x18\a \x01(\bR\asuccessB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_eviction_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_eviction_result_proto_goTypes = []any{

@@ -257,7 +257,7 @@ const file_gcommon_v1_metrics_messages_get_provider_stats_request_proto_rawDesc 
 	"time_range\x18\x03 \x01(\v2$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x12:\n" +
 	"\aoptions\x18\x04 \x01(\v2 .gcommon.v1.metrics.StatsOptionsR\aoptions\x12 \n" +
 	"\vgranularity\x18\x05 \x01(\tR\vgranularity\x12)\n" +
-	"\x10include_realtime\x18\x06 \x01(\bR\x0fincludeRealtimeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10include_realtime\x18\x06 \x01(\bR\x0fincludeRealtimeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_get_provider_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_provider_stats_request_proto_goTypes = []any{

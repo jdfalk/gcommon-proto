@@ -545,7 +545,7 @@ const file_gcommon_v1_metrics_messages_export_config_proto_rawDesc = "" +
 	"maxRetries\x122\n" +
 	"\x15initial_delay_seconds\x18\x02 \x01(\x05R\x13initialDelaySeconds\x12*\n" +
 	"\x11max_delay_seconds\x18\x03 \x01(\x05R\x0fmaxDelaySeconds\x12-\n" +
-	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplierB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplierB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_export_config_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_gcommon_v1_metrics_messages_export_config_proto_goTypes = []any{

@@ -260,7 +260,7 @@ const file_gcommon_v1_metrics_messages_export_destination_stats_proto_rawDesc = 
 	"\x0efailed_exports\x18\x04 \x01(\x03R\rfailedExports\x12!\n" +
 	"\fsuccess_rate\x18\x05 \x01(\x01R\vsuccessRate\x12;\n" +
 	"\vlast_export\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastExportB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"lastExportB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_export_destination_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_export_destination_stats_proto_goTypes = []any{

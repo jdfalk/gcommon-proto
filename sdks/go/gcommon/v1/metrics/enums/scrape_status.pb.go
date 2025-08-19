@@ -125,7 +125,7 @@ const file_gcommon_v1_metrics_enums_scrape_status_proto_rawDesc = "" +
 	"\x1aSCRAPE_STATUS_RATE_LIMITED\x10\t\x12\x1e\n" +
 	"\x1aSCRAPE_STATUS_CONFIG_ERROR\x10\n" +
 	"\x12\x1d\n" +
-	"\x19SCRAPE_STATUS_IN_PROGRESS\x10\vB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19SCRAPE_STATUS_IN_PROGRESS\x10\vB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_scrape_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_scrape_status_proto_goTypes = []any{

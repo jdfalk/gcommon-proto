@@ -128,7 +128,7 @@ const file_gcommon_v1_metrics_enums_alert_channel_type_proto_rawDesc = "" +
 	"\x17ALERT_CHANNEL_TYPE_JIRA\x10\n" +
 	"\x12!\n" +
 	"\x1dALERT_CHANNEL_TYPE_SERVICENOW\x10\v\x12\x1d\n" +
-	"\x19ALERT_CHANNEL_TYPE_CUSTOM\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19ALERT_CHANNEL_TYPE_CUSTOM\x10\fB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_alert_channel_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_alert_channel_type_proto_goTypes = []any{

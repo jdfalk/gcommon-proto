@@ -259,7 +259,7 @@ const file_gcommon_v1_database_messages_connection_pool_info_proto_rawDesc = "" 
 	"\x12active_connections\x18\x02 \x01(\x05R\x11activeConnections\x12)\n" +
 	"\x10idle_connections\x18\x03 \x01(\x05R\x0fidleConnections\x12@\n" +
 	"\favg_lifetime\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\vavgLifetime\x128\n" +
-	"\x05stats\x18\x05 \x01(\v2\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05stats\x18\x05 \x01(\v2\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_connection_pool_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_connection_pool_info_proto_goTypes = []any{

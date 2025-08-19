@@ -126,7 +126,7 @@ const file_gcommon_v1_metrics_messages_get_scrape_config_response_proto_rawDesc 
 	"<gcommon/v1/metrics/messages/get_scrape_config_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a/gcommon/v1/metrics/messages/scrape_config.proto\x1a!google/protobuf/go_features.proto\"\x83\x01\n" +
 	"\x17GetScrapeConfigResponse\x128\n" +
 	"\x06config\x18\x01 \x01(\v2 .gcommon.v1.metrics.ScrapeConfigR\x06config\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_get_scrape_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_scrape_config_response_proto_goTypes = []any{

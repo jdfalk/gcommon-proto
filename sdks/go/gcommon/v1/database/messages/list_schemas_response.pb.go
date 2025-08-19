@@ -88,7 +88,7 @@ const file_gcommon_v1_database_messages_list_schemas_response_proto_rawDesc = ""
 	"\n" +
 	"8gcommon/v1/database/messages/list_schemas_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"/\n" +
 	"\x13ListSchemasResponse\x12\x18\n" +
-	"\aschemas\x18\x01 \x03(\tR\aschemasB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aschemas\x18\x01 \x03(\tR\aschemasB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_list_schemas_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_list_schemas_response_proto_goTypes = []any{

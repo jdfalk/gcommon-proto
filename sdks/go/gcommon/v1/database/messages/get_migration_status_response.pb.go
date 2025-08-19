@@ -141,7 +141,7 @@ const file_gcommon_v1_database_messages_get_migration_status_response_proto_rawD
 	"\x1aGetMigrationStatusResponse\x12'\n" +
 	"\x0fcurrent_version\x18\x01 \x01(\tR\x0ecurrentVersion\x12)\n" +
 	"\x10applied_versions\x18\x02 \x03(\tR\x0fappliedVersions\x12)\n" +
-	"\x10pending_versions\x18\x03 \x03(\tR\x0fpendingVersionsB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10pending_versions\x18\x03 \x03(\tR\x0fpendingVersionsB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_migration_status_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_migration_status_response_proto_goTypes = []any{

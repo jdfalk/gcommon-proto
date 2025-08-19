@@ -120,7 +120,7 @@ const file_gcommon_v1_metrics_enums_time_unit_proto_rawDesc = "" +
 	"\x0fTIME_UNIT_WEEKS\x10\b\x12\x14\n" +
 	"\x10TIME_UNIT_MONTHS\x10\t\x12\x13\n" +
 	"\x0fTIME_UNIT_YEARS\x10\n" +
-	"B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_time_unit_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_time_unit_proto_goTypes = []any{

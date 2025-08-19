@@ -252,7 +252,7 @@ const file_gcommon_v1_metrics_messages_export_metrics_request_proto_rawDesc = ""
 	"\x06format\x18\x03 \x01(\x0e2'.gcommon.v1.metrics.MetricsExportFormatR\x06format\x12 \n" +
 	"\vdestination\x18\x04 \x01(\tR\vdestination\x12!\n" +
 	"\fmetric_names\x18\x05 \x03(\tR\vmetricNames\x12)\n" +
-	"\x10include_metadata\x18\x06 \x01(\bR\x0fincludeMetadataB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10include_metadata\x18\x06 \x01(\bR\x0fincludeMetadataB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_export_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_export_metrics_request_proto_goTypes = []any{

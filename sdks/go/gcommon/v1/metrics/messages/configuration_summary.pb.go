@@ -192,7 +192,7 @@ const file_gcommon_v1_metrics_messages_configuration_summary_proto_rawDesc = "" 
 	"\x0eexporter_count\x18\x01 \x01(\x05R\rexporterCount\x12?\n" +
 	"\bsecurity\x18\x02 \x01(\v2#.gcommon.v1.metrics.SecuritySummaryR\bsecurity\x12R\n" +
 	"\x0fresource_limits\x18\x03 \x01(\v2).gcommon.v1.metrics.ResourceLimitsSummaryR\x0eresourceLimits\x12%\n" +
-	"\x0econfig_version\x18\x04 \x01(\tR\rconfigVersionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0econfig_version\x18\x04 \x01(\tR\rconfigVersionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_configuration_summary_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_configuration_summary_proto_goTypes = []any{

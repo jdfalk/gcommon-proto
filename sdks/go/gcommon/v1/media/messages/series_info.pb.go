@@ -231,7 +231,7 @@ const file_gcommon_v1_media_messages_series_info_proto_rawDesc = "" +
 	"\vseries_name\x18\x03 \x01(\tR\n" +
 	"seriesName\x12#\n" +
 	"\repisode_title\x18\x04 \x01(\tR\fepisodeTitle\x125\n" +
-	"\bair_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aairDateB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bair_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aairDateB1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_series_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_series_info_proto_goTypes = []any{

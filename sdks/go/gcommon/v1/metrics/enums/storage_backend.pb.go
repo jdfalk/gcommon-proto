@@ -125,7 +125,7 @@ const file_gcommon_v1_metrics_enums_storage_backend_proto_rawDesc = "" +
 	"\x1eSTORAGE_BACKEND_GCP_MONITORING\x10\t\x12!\n" +
 	"\x1dSTORAGE_BACKEND_AZURE_MONITOR\x10\n" +
 	"\x12#\n" +
-	"\x1fSTORAGE_BACKEND_VICTORIAMETRICS\x10\vB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fSTORAGE_BACKEND_VICTORIAMETRICS\x10\vB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_storage_backend_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_storage_backend_proto_goTypes = []any{

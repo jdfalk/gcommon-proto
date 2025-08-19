@@ -162,7 +162,7 @@ const file_gcommon_v1_database_messages_get_connection_info_response_proto_rawDe
 	"?gcommon/v1/database/messages/get_connection_info_response.proto\x12\x13gcommon.v1.database\x1a7gcommon/v1/database/messages/connection_pool_info.proto\x1a0gcommon/v1/database/messages/database_info.proto\x1a!google/protobuf/go_features.proto\"\xb1\x01\n" +
 	"\x19GetConnectionInfoResponse\x12H\n" +
 	"\tpool_info\x18\x01 \x01(\v2'.gcommon.v1.database.ConnectionPoolInfoB\x02(\x01R\bpoolInfo\x12J\n" +
-	"\rdatabase_info\x18\x02 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\fdatabaseInfoB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rdatabase_info\x18\x02 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\fdatabaseInfoB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_connection_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_connection_info_response_proto_goTypes = []any{

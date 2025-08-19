@@ -83,7 +83,7 @@ const file_gcommon_v1_metrics_enums_cleanup_strategy_proto_rawDesc = "" +
 	"\x1aCLEANUP_STRATEGY_IMMEDIATE\x10\x01\x12\x1d\n" +
 	"\x19CLEANUP_STRATEGY_GRACEFUL\x10\x02\x12\x1f\n" +
 	"\x1bCLEANUP_STRATEGY_BACKGROUND\x10\x03\x12\x1e\n" +
-	"\x1aCLEANUP_STRATEGY_SCHEDULED\x10\x04B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aCLEANUP_STRATEGY_SCHEDULED\x10\x04B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_cleanup_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_cleanup_strategy_proto_goTypes = []any{

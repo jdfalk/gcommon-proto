@@ -92,7 +92,7 @@ const file_gcommon_v1_metrics_enums_provider_type_proto_rawDesc = "" +
 	"\x14PROVIDER_TYPE_STATSD\x10\x03\x12\x18\n" +
 	"\x14PROVIDER_TYPE_CUSTOM\x10\x04\x12\x18\n" +
 	"\x14PROVIDER_TYPE_MEMORY\x10\x05\x12\x17\n" +
-	"\x13PROVIDER_TYPE_MULTI\x10\x06B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13PROVIDER_TYPE_MULTI\x10\x06B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_provider_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_provider_type_proto_goTypes = []any{

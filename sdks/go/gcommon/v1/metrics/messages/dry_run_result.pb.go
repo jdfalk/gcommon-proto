@@ -236,7 +236,7 @@ const file_gcommon_v1_metrics_messages_dry_run_result_proto_rawDesc = "" +
 	"\x13would_delete_points\x18\x02 \x01(\x03R\x11wouldDeletePoints\x120\n" +
 	"\x14would_delete_indices\x18\x03 \x01(\x03R\x12wouldDeleteIndices\x12,\n" +
 	"\x12would_stop_exports\x18\x04 \x01(\x03R\x10wouldStopExports\x126\n" +
-	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_dry_run_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_dry_run_result_proto_goTypes = []any{

@@ -172,7 +172,7 @@ const file_gcommon_v1_database_messages_delete_namespace_request_proto_rawDesc =
 	"\x16DeleteNamespaceRequest\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x12\x14\n" +
 	"\x05force\x18\x02 \x01(\bR\x05force\x12\x16\n" +
-	"\x06backup\x18\x03 \x01(\bR\x06backupB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06backup\x18\x03 \x01(\bR\x06backupB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_delete_namespace_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_delete_namespace_request_proto_goTypes = []any{

@@ -162,7 +162,7 @@ const file_gcommon_v1_metrics_messages_error_data_point_proto_rawDesc = "" +
 	"\verror_count\x18\x02 \x01(\x03R\n" +
 	"errorCount\x12\x1d\n" +
 	"\n" +
-	"error_rate\x18\x03 \x01(\x01R\terrorRateB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"error_rate\x18\x03 \x01(\x01R\terrorRateB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_error_data_point_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_error_data_point_proto_goTypes = []any{

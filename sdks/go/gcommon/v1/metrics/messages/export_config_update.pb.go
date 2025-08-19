@@ -239,7 +239,7 @@ const file_gcommon_v1_metrics_messages_export_config_update_proto_rawDesc = "" +
 	"\x13destination_removes\x18\x05 \x03(\tR\x12destinationRemoves\x12\x1c\n" +
 	"\tfrequency\x18\x06 \x01(\tR\tfrequency\x12\x1d\n" +
 	"\n" +
-	"batch_size\x18\a \x01(\x05R\tbatchSizeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"batch_size\x18\a \x01(\x05R\tbatchSizeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_export_config_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_export_config_update_proto_goTypes = []any{

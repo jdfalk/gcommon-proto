@@ -238,7 +238,7 @@ const file_gcommon_v1_metrics_messages_backup_info_proto_rawDesc = "" +
 	"\x0fbackup_location\x18\x02 \x01(\tR\x0ebackupLocation\x12*\n" +
 	"\x11backup_size_bytes\x18\x03 \x01(\x03R\x0fbackupSizeBytes\x12F\n" +
 	"\x11backup_created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x0fbackupCreatedAt\x12)\n" +
-	"\x10backup_retention\x18\x05 \x01(\tR\x0fbackupRetentionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10backup_retention\x18\x05 \x01(\tR\x0fbackupRetentionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_backup_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_backup_info_proto_goTypes = []any{

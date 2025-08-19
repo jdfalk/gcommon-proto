@@ -135,7 +135,7 @@ const file_gcommon_v1_metrics_enums_notification_type_proto_rawDesc = "" +
 	"\x12\x1e\n" +
 	"\x1aNOTIFICATION_TYPE_TELEGRAM\x10\v\x12\x1c\n" +
 	"\x18NOTIFICATION_TYPE_MATRIX\x10\f\x12\x1b\n" +
-	"\x17NOTIFICATION_TYPE_VOICE\x10\rB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17NOTIFICATION_TYPE_VOICE\x10\rB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_notification_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_notification_type_proto_goTypes = []any{

@@ -146,7 +146,7 @@ const file_gcommon_v1_database_messages_batch_operation_proto_rawDesc = "" +
 	"\tstatement\x18\x01 \x01(\tR\tstatement\x12G\n" +
 	"\n" +
 	"parameters\x18\x02 \x03(\v2#.gcommon.v1.database.QueryParameterB\x02(\x01R\n" +
-	"parametersB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"parametersB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_batch_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_batch_operation_proto_goTypes = []any{

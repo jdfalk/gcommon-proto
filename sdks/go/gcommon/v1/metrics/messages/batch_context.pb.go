@@ -203,7 +203,7 @@ const file_gcommon_v1_metrics_messages_batch_context_proto_rawDesc = "" +
 	"\x0ebatch_position\x18\x02 \x01(\x05R\rbatchPosition\x12\x1d\n" +
 	"\n" +
 	"batch_size\x18\x03 \x01(\x05R\tbatchSize\x12\x17\n" +
-	"\ais_last\x18\x04 \x01(\bR\x06isLastB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ais_last\x18\x04 \x01(\bR\x06isLastB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_batch_context_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_batch_context_proto_goTypes = []any{

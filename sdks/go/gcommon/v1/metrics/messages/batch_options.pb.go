@@ -299,7 +299,7 @@ const file_gcommon_v1_metrics_messages_batch_options_proto_rawDesc = "" +
 	"\x17return_detailed_results\x18\x04 \x01(\bR\x15returnDetailedResults\x12'\n" +
 	"\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12$\n" +
 	"\rtransactional\x18\x06 \x01(\bR\rtransactional\x12=\n" +
-	"\bpriority\x18\a \x01(\x0e2!.gcommon.v1.metrics.BatchPriorityR\bpriorityB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpriority\x18\a \x01(\x0e2!.gcommon.v1.metrics.BatchPriorityR\bpriorityB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_batch_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_batch_options_proto_goTypes = []any{

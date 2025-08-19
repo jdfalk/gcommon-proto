@@ -473,7 +473,7 @@ const file_gcommon_v1_database_messages_cache_metrics_proto_rawDesc = "" +
 	" \x01(\x03R\x0fnetworkBytesOut\x12*\n" +
 	"\x11cpu_usage_percent\x18\v \x01(\x01R\x0fcpuUsagePercent\x120\n" +
 	"\x14memory_usage_percent\x18\f \x01(\x01R\x12memoryUsagePercent\x12=\n" +
-	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_cache_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_cache_metrics_proto_goTypes = []any{

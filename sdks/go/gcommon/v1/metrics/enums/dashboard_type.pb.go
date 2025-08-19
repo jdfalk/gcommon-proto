@@ -128,7 +128,7 @@ const file_gcommon_v1_metrics_enums_dashboard_type_proto_rawDesc = "" +
 	"\x1dDASHBOARD_TYPE_SERVICE_HEALTH\x10\n" +
 	"\x12$\n" +
 	" DASHBOARD_TYPE_CAPACITY_PLANNING\x10\v\x12\x1a\n" +
-	"\x16DASHBOARD_TYPE_SLA_SLO\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16DASHBOARD_TYPE_SLA_SLO\x10\fB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_dashboard_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_dashboard_type_proto_goTypes = []any{

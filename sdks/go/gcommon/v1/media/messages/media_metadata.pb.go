@@ -419,7 +419,7 @@ const file_gcommon_v1_media_messages_media_metadata_proto_rawDesc = "" +
 	"\vseries_info\x18\f \x01(\v2\x1c.gcommon.v1.media.SeriesInfoR\n" +
 	"seriesInfo\x12:\n" +
 	"\n" +
-	"movie_info\x18\r \x01(\v2\x1b.gcommon.v1.media.MovieInfoR\tmovieInfoB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"movie_info\x18\r \x01(\v2\x1b.gcommon.v1.media.MovieInfoR\tmovieInfoB1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_media_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_media_metadata_proto_goTypes = []any{

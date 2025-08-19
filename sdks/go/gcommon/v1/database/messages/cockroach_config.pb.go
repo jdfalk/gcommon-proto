@@ -381,7 +381,7 @@ const file_gcommon_v1_database_messages_cockroach_config_proto_rawDesc = "" +
 	"\x10application_name\x18\a \x01(\tR\x0fapplicationName\x120\n" +
 	"\x14retry_backoff_factor\x18\b \x01(\x02R\x12retryBackoffFactor\x12\x1f\n" +
 	"\vmax_retries\x18\t \x01(\x05R\n" +
-	"maxRetriesB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"maxRetriesB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_cockroach_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_cockroach_config_proto_goTypes = []any{

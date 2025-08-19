@@ -83,7 +83,7 @@ const file_gcommon_v1_metrics_messages_batch_priority_proto_rawDesc = "" +
 	"\x12BATCH_PRIORITY_LOW\x10\x01\x12\x19\n" +
 	"\x15BATCH_PRIORITY_NORMAL\x10\x02\x12\x17\n" +
 	"\x13BATCH_PRIORITY_HIGH\x10\x03\x12\x19\n" +
-	"\x15BATCH_PRIORITY_URGENT\x10\x04B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15BATCH_PRIORITY_URGENT\x10\x04B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_batch_priority_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_batch_priority_proto_goTypes = []any{

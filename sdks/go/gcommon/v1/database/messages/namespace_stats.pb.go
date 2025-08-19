@@ -357,7 +357,7 @@ const file_gcommon_v1_database_messages_namespace_stats_proto_rawDesc = "" +
 	"\tevictions\x18\x06 \x01(\x03R\tevictions\x12+\n" +
 	"\x12avg_key_size_bytes\x18\a \x01(\x01R\x0favgKeySizeBytes\x12/\n" +
 	"\x14avg_value_size_bytes\x18\b \x01(\x01R\x11avgValueSizeBytes\x12D\n" +
-	"\x10last_access_time\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\x0elastAccessTimeB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10last_access_time\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\x0elastAccessTimeB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_namespace_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_namespace_stats_proto_goTypes = []any{

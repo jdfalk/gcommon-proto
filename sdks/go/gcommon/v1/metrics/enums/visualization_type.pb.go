@@ -138,7 +138,7 @@ const file_gcommon_v1_metrics_enums_visualization_type_proto_rawDesc = "" +
 	"\x18VISUALIZATION_TYPE_GRAPH\x10\v\x12\x1f\n" +
 	"\x1bVISUALIZATION_TYPE_WORLDMAP\x10\f\x12\x1b\n" +
 	"\x17VISUALIZATION_TYPE_TEXT\x10\r\x12\x1d\n" +
-	"\x19VISUALIZATION_TYPE_CUSTOM\x10\x0eB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19VISUALIZATION_TYPE_CUSTOM\x10\x0eB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_visualization_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_visualization_type_proto_goTypes = []any{
