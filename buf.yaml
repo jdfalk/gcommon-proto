@@ -23,6 +23,8 @@ lint:
     - IMPORT_NO_PUBLIC
     - RPC_REQUEST_STANDARD_NAME
     - RPC_RESPONSE_STANDARD_NAME
+    - ENUM_VALUE_PREFIX
+    - PACKAGE_NO_IMPORT_CYCLE
   enum_zero_value_suffix: _UNSPECIFIED
   rpc_allow_google_protobuf_empty_requests: true
   rpc_allow_google_protobuf_empty_responses: true
