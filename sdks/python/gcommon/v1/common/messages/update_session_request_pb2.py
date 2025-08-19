@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/common/messages/update_session_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x02\n\x18\x41uthUpdateSessionRequest\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12U\n\x08metadata\x18\x02 \x03(\x0b\x32\x39.gcommon.v1.common.AuthUpdateSessionRequest.MetadataEntryR\x08metadata\x12\x39\n\nexpires_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd5\x01\n\x15\x63om.gcommon.v1.commonB\x19UpdateSessionRequestProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/common/messages/update_session_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x02\n\x18\x41uthUpdateSessionRequest\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12U\n\x08metadata\x18\x02 \x03(\x0b\x32\x39.gcommon.v1.common.AuthUpdateSessionRequest.MetadataEntryR\x08metadata\x12\x39\n\nexpires_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd5\x01\n\x15\x63om.gcommon.v1.commonB\x19UpdateSessionRequestProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.update_session_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\031UpdateSessionRequestProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\031UpdateSessionRequestProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_AUTHUPDATESESSIONREQUEST_METADATAENTRY']._loaded_options = None
   _globals['_AUTHUPDATESESSIONREQUEST_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_AUTHUPDATESESSIONREQUEST']._serialized_start=147

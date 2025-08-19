@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/enums/auth_method.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xe6\x01\n\x0e\x41uthAuthMethod\x12\x1b\n\x17\x41UTH_METHOD_UNSPECIFIED\x10\x00\x12\x18\n\x14\x41UTH_METHOD_PASSWORD\x10\x01\x12\x17\n\x13\x41UTH_METHOD_API_KEY\x10\x02\x12\x16\n\x12\x41UTH_METHOD_OAUTH2\x10\x03\x12\x14\n\x10\x41UTH_METHOD_SAML\x10\x04\x12\x14\n\x10\x41UTH_METHOD_LDAP\x10\x05\x12\x13\n\x0f\x41UTH_METHOD_MFA\x10\x06\x12\x15\n\x11\x41UTH_METHOD_TOKEN\x10\x07\x12\x14\n\x10\x41UTH_METHOD_NONE\x10\x08\x42\xcb\x01\n\x15\x63om.gcommon.v1.commonB\x0f\x41uthMethodProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/enums/auth_method.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xe6\x01\n\x0e\x41uthAuthMethod\x12\x1b\n\x17\x41UTH_METHOD_UNSPECIFIED\x10\x00\x12\x18\n\x14\x41UTH_METHOD_PASSWORD\x10\x01\x12\x17\n\x13\x41UTH_METHOD_API_KEY\x10\x02\x12\x16\n\x12\x41UTH_METHOD_OAUTH2\x10\x03\x12\x14\n\x10\x41UTH_METHOD_SAML\x10\x04\x12\x14\n\x10\x41UTH_METHOD_LDAP\x10\x05\x12\x13\n\x0f\x41UTH_METHOD_MFA\x10\x06\x12\x15\n\x11\x41UTH_METHOD_TOKEN\x10\x07\x12\x14\n\x10\x41UTH_METHOD_NONE\x10\x08\x42\xcb\x01\n\x15\x63om.gcommon.v1.commonB\x0f\x41uthMethodProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.enums.auth_method_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\017AuthMethodProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\017AuthMethodProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_AUTHAUTHMETHOD']._serialized_start=100
   _globals['_AUTHAUTHMETHOD']._serialized_end=330
 # @@protoc_insertion_point(module_scope)

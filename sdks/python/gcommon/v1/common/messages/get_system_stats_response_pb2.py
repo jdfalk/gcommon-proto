@@ -26,14 +26,14 @@ from gcommon.v1.common.messages import error_pb2 as gcommon_dot_v1_dot_common_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/common/messages/get_system_stats_response.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/messages/error.proto\x1a!google/protobuf/go_features.proto\"\x81\x02\n\x16GetSystemStatsResponse\x12!\n\x0c\x61\x63tive_users\x18\x01 \x01(\x03R\x0b\x61\x63tiveUsers\x12\x1f\n\x0btotal_roles\x18\x02 \x01(\x03R\ntotalRoles\x12\'\n\x0f\x61\x63tive_sessions\x18\x03 \x01(\x03R\x0e\x61\x63tiveSessions\x12#\n\rfailed_logins\x18\x04 \x01(\x03R\x0c\x66\x61iledLogins\x12%\n\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB\xd7\x01\n\x15\x63om.gcommon.v1.commonB\x1bGetSystemStatsResponseProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/common/messages/get_system_stats_response.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/messages/error.proto\x1a!google/protobuf/go_features.proto\"\x81\x02\n\x16GetSystemStatsResponse\x12!\n\x0c\x61\x63tive_users\x18\x01 \x01(\x03R\x0b\x61\x63tiveUsers\x12\x1f\n\x0btotal_roles\x18\x02 \x01(\x03R\ntotalRoles\x12\'\n\x0f\x61\x63tive_sessions\x18\x03 \x01(\x03R\x0e\x61\x63tiveSessions\x12#\n\rfailed_logins\x18\x04 \x01(\x03R\x0c\x66\x61iledLogins\x12%\n\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB\xd7\x01\n\x15\x63om.gcommon.v1.commonB\x1bGetSystemStatsResponseProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/common\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.get_system_stats_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\033GetSystemStatsResponseProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\033GetSystemStatsResponseProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/common\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_GETSYSTEMSTATSRESPONSE']._serialized_start=157
   _globals['_GETSYSTEMSTATSRESPONSE']._serialized_end=414
 # @@protoc_insertion_point(module_scope)
