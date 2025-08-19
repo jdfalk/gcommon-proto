@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web";
 // HealthCheckResponse response definition.
 message WebHealthCheckResponse {
   // Web server health status.
-  gcommon.v1.metrics.MetricsHealthStatus status = 1;
+  gcommon.v1.common.CommonHealthStatus status = 1;
 
   // Time taken to respond to the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];

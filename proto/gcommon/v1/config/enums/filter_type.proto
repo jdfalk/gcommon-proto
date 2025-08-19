@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/config/enums/filter_type.proto
+// version: 1.0.0
+// guid: 12345678-9abc-def0-1234-56789abcdef0
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config";
+
+enum ConfigFilterType {
+  CONFIG_FILTER_TYPE_UNSPECIFIED = 0;
+  CONFIG_FILTER_TYPE_KEY = 1;
+  CONFIG_FILTER_TYPE_VALUE = 2;
+  CONFIG_FILTER_TYPE_ENVIRONMENT = 3;
+  CONFIG_FILTER_TYPE_NAMESPACE = 4;
+  CONFIG_FILTER_TYPE_METADATA = 5;
+}

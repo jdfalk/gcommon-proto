@@ -11,7 +11,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -22,7 +22,7 @@ message SetHealthRequest {
   string service = 1;
 
   // Desired health status
-  gcommon.v1.metrics.MetricsHealthStatus status = 2;
+  gcommon.v1.common.CommonHealthStatus status = 2;
 
   // Request metadata for auditing
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];

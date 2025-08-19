@@ -6,7 +6,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -23,7 +23,7 @@ message CheckResult {
   string name = 1;
 
   // Health status of this specific check
-  gcommon.v1.metrics.MetricsHealthStatus status = 2;
+  gcommon.v1.common.CommonHealthStatus status = 2;
 
   // Check execution timestamp
   google.protobuf.Timestamp timestamp = 3;
