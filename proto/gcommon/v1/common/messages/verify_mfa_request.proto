@@ -14,7 +14,7 @@ import "gcommon/v1/common/enums/mfa_method.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/common";
 
 message VerifyMfaRequest {
   // User ID
