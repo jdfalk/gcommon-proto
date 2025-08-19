@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/message_state_counts.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xc1\x01\n\x12MessageStateCounts\x12\x18\n\x07pending\x18\x01 \x01(\x03R\x07pending\x12\x1e\n\nprocessing\x18\x02 \x01(\x03R\nprocessing\x12\x1c\n\tcompleted\x18\x03 \x01(\x03R\tcompleted\x12\x16\n\x06\x66\x61iled\x18\x04 \x01(\x03R\x06\x66\x61iled\x12\x1a\n\x08retrying\x18\x05 \x01(\x03R\x08retrying\x12\x1f\n\x0b\x64\x65\x61\x64_letter\x18\x06 \x01(\x03R\ndeadLetterB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/message_state_counts.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xc1\x01\n\x12MessageStateCounts\x12\x18\n\x07pending\x18\x01 \x01(\x03R\x07pending\x12\x1e\n\nprocessing\x18\x02 \x01(\x03R\nprocessing\x12\x1c\n\tcompleted\x18\x03 \x01(\x03R\tcompleted\x12\x16\n\x06\x66\x61iled\x18\x04 \x01(\x03R\x06\x66\x61iled\x12\x1a\n\x08retrying\x18\x05 \x01(\x03R\x08retrying\x12\x1f\n\x0b\x64\x65\x61\x64_letter\x18\x06 \x01(\x03R\ndeadLetterB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.message_state_counts_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_MESSAGESTATECOUNTS']._serialized_start=110
   _globals['_MESSAGESTATECOUNTS']._serialized_end=303
 # @@protoc_insertion_point(module_scope)

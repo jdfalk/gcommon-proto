@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/create_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd7\x02\n\x13\x43reateQueueResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12%\n\x0equeue_endpoint\x18\x03 \x01(\tR\rqueueEndpoint\x12\'\n\x0fpartition_count\x18\x04 \x01(\x05R\x0epartitionCount\x12_\n\x0e\x61pplied_config\x18\x05 \x03(\x0b\x32\x38.gcommon.v1.queue.CreateQueueResponse.AppliedConfigEntryR\rappliedConfig\x12\x14\n\x05\x65rror\x18\x06 \x01(\tR\x05\x65rror\x1a@\n\x12\x41ppliedConfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/create_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd7\x02\n\x13\x43reateQueueResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12%\n\x0equeue_endpoint\x18\x03 \x01(\tR\rqueueEndpoint\x12\'\n\x0fpartition_count\x18\x04 \x01(\x05R\x0epartitionCount\x12_\n\x0e\x61pplied_config\x18\x05 \x03(\x0b\x32\x38.gcommon.v1.queue.CreateQueueResponse.AppliedConfigEntryR\rappliedConfig\x12\x14\n\x05\x65rror\x18\x06 \x01(\tR\x05\x65rror\x1a@\n\x12\x41ppliedConfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x31Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.create_queue_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_CREATEQUEUERESPONSE_APPLIEDCONFIGENTRY']._loaded_options = None
   _globals['_CREATEQUEUERESPONSE_APPLIEDCONFIGENTRY']._serialized_options = b'8\001'
   _globals['_CREATEQUEUERESPONSE']._serialized_start=111

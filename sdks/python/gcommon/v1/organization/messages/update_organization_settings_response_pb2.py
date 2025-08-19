@@ -27,14 +27,14 @@ from gcommon.v1.organization.messages import organization_settings_pb2 as gcommo
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nLgcommon/v1/organization/messages/update_organization_settings_response.proto\x12\x17gcommon.v1.organization\x1a&gcommon/v1/common/messages/error.proto\x1a<gcommon/v1/organization/messages/organization_settings.proto\x1a!google/protobuf/go_features.proto\"\xbf\x01\n\"UpdateOrganizationSettingsResponse\x12\x30\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorR\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12M\n\x08settings\x18\x03 \x01(\x0b\x32-.gcommon.v1.organization.OrganizationSettingsB\x02(\x01R\x08settingsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nLgcommon/v1/organization/messages/update_organization_settings_response.proto\x12\x17gcommon.v1.organization\x1a&gcommon/v1/common/messages/error.proto\x1a<gcommon/v1/organization/messages/organization_settings.proto\x1a!google/protobuf/go_features.proto\"\xbf\x01\n\"UpdateOrganizationSettingsResponse\x12\x30\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorR\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12M\n\x08settings\x18\x03 \x01(\x0b\x32-.gcommon.v1.organization.OrganizationSettingsB\x02(\x01R\x08settingsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.update_organization_settings_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_UPDATEORGANIZATIONSETTINGSRESPONSE'].fields_by_name['settings']._loaded_options = None
   _globals['_UPDATEORGANIZATIONSETTINGSRESPONSE'].fields_by_name['settings']._serialized_options = b'(\001'
   _globals['_UPDATEORGANIZATIONSETTINGSRESPONSE']._serialized_start=243

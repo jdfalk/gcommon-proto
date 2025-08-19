@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/web/enums/content_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x9f\x01\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11\x43ONTENT_TYPE_HTML\x10\x01\x12\x15\n\x11\x43ONTENT_TYPE_JSON\x10\x02\x12\x14\n\x10\x43ONTENT_TYPE_XML\x10\x03\x12\x15\n\x11\x43ONTENT_TYPE_TEXT\x10\x04\x12\x17\n\x13\x43ONTENT_TYPE_BINARY\x10\x05\x42+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/web/enums/content_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x9f\x01\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11\x43ONTENT_TYPE_HTML\x10\x01\x12\x15\n\x11\x43ONTENT_TYPE_JSON\x10\x02\x12\x14\n\x10\x43ONTENT_TYPE_XML\x10\x03\x12\x15\n\x11\x43ONTENT_TYPE_TEXT\x10\x04\x12\x17\n\x13\x43ONTENT_TYPE_BINARY\x10\x05\x42/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.enums.content_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z!github.com/jdfalk/gcommon/pkg/web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/sdks/go/web\222\003\005\322>\002\020\003'
   _globals['_CONTENTTYPE']._serialized_start=95
   _globals['_CONTENTTYPE']._serialized_end=254
 # @@protoc_insertion_point(module_scope)

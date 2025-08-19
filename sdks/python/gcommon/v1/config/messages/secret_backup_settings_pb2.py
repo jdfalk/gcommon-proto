@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/config/messages/secret_backup_settings.proto\x12\x11gcommon.v1.config\x1a\x35gcommon/v1/config/enums/secret_backup_frequency.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x03\n\x14SecretBackupSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x46\n\tfrequency\x18\x02 \x01(\x0e\x32(.gcommon.v1.config.SecretBackupFrequencyR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n\tencrypted\x18\x05 \x01(\x08R\tencrypted\x12\x1e\n\ncompressed\x18\x06 \x01(\x08R\ncompressed\x12Q\n\x08metadata\x18\x07 \x03(\x0b\x32\x35.gcommon.v1.config.SecretBackupSettings.MetadataEntryR\x08metadata\x12@\n\x0elast_backup_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastBackupAt\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/config/messages/secret_backup_settings.proto\x12\x11gcommon.v1.config\x1a\x35gcommon/v1/config/enums/secret_backup_frequency.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x03\n\x14SecretBackupSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x46\n\tfrequency\x18\x02 \x01(\x0e\x32(.gcommon.v1.config.SecretBackupFrequencyR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n\tencrypted\x18\x05 \x01(\x08R\tencrypted\x12\x1e\n\ncompressed\x18\x06 \x01(\x08R\ncompressed\x12Q\n\x08metadata\x18\x07 \x03(\x0b\x32\x35.gcommon.v1.config.SecretBackupSettings.MetadataEntryR\x08metadata\x12@\n\x0elast_backup_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastBackupAt\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.secret_backup_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_SECRETBACKUPSETTINGS_METADATAENTRY']._loaded_options = None
   _globals['_SECRETBACKUPSETTINGS_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_SECRETBACKUPSETTINGS']._serialized_start=202

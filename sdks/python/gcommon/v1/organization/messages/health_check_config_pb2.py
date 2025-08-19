@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/health_check_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\x95\x02\n\x1dOrganizationHealthCheckConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x12\n\x04port\x18\x02 \x01(\x05R\x04port\x12\x1a\n\x08protocol\x18\x03 \x01(\tR\x08protocol\x12)\n\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12+\n\x11healthy_threshold\x18\x06 \x01(\x05R\x10healthyThreshold\x12/\n\x13unhealthy_threshold\x18\x07 \x01(\x05R\x12unhealthyThresholdB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/health_check_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\x95\x02\n\x1dOrganizationHealthCheckConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x12\n\x04port\x18\x02 \x01(\x05R\x04port\x12\x1a\n\x08protocol\x18\x03 \x01(\tR\x08protocol\x12)\n\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12+\n\x11healthy_threshold\x18\x06 \x01(\x05R\x10healthyThreshold\x12/\n\x13unhealthy_threshold\x18\x07 \x01(\x05R\x12unhealthyThresholdB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.health_check_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_ORGANIZATIONHEALTHCHECKCONFIG']._serialized_start=123
   _globals['_ORGANIZATIONHEALTHCHECKCONFIG']._serialized_end=400
 # @@protoc_insertion_point(module_scope)

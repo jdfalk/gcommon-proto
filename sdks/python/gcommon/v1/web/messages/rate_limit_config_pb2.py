@@ -26,14 +26,14 @@ from gcommon.v1.web.enums import rate_limit_strategy_pb2 as gcommon_dot_v1_dot_w
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/web/messages/rate_limit_config.proto\x12\x0egcommon.v1.web\x1a.gcommon/v1/web/enums/rate_limit_strategy.proto\x1a!google/protobuf/go_features.proto\"\x8a\x02\n\x12WebRateLimitConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12.\n\x13requests_per_second\x18\x02 \x01(\x05R\x11requestsPerSecond\x12\x1d\n\nburst_size\x18\x03 \x01(\x05R\tburstSize\x12=\n\x08strategy\x18\x04 \x01(\x0e\x32!.gcommon.v1.web.RateLimitStrategyR\x08strategy\x12#\n\rkey_extractor\x18\x05 \x01(\tR\x0ckeyExtractor\x12\'\n\x0fskip_conditions\x18\x06 \x03(\tR\x0eskipConditionsB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/web/messages/rate_limit_config.proto\x12\x0egcommon.v1.web\x1a.gcommon/v1/web/enums/rate_limit_strategy.proto\x1a!google/protobuf/go_features.proto\"\x8a\x02\n\x12WebRateLimitConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12.\n\x13requests_per_second\x18\x02 \x01(\x05R\x11requestsPerSecond\x12\x1d\n\nburst_size\x18\x03 \x01(\x05R\tburstSize\x12=\n\x08strategy\x18\x04 \x01(\x0e\x32!.gcommon.v1.web.RateLimitStrategyR\x08strategy\x12#\n\rkey_extractor\x18\x05 \x01(\tR\x0ckeyExtractor\x12\'\n\x0fskip_conditions\x18\x06 \x03(\tR\x0eskipConditionsB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.rate_limit_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z!github.com/jdfalk/gcommon/pkg/web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/sdks/go/web\222\003\005\322>\002\020\003'
   _globals['_WEBRATELIMITCONFIG']._serialized_start=151
   _globals['_WEBRATELIMITCONFIG']._serialized_end=417
 # @@protoc_insertion_point(module_scope)

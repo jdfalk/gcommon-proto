@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/organization/messages/network_acl_rule.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xb9\x01\n\x0eNetworkACLRule\x12\x16\n\x06\x61\x63tion\x18\x01 \x01(\tR\x06\x61\x63tion\x12\x16\n\x06source\x18\x02 \x01(\tR\x06source\x12 \n\x0b\x64\x65stination\x18\x03 \x01(\tR\x0b\x64\x65stination\x12\x1a\n\x08protocol\x18\x04 \x01(\tR\x08protocol\x12\x1d\n\nport_range\x18\x05 \x01(\tR\tportRange\x12\x1a\n\x08priority\x18\x06 \x01(\x05R\x08priorityB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/organization/messages/network_acl_rule.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xb9\x01\n\x0eNetworkACLRule\x12\x16\n\x06\x61\x63tion\x18\x01 \x01(\tR\x06\x61\x63tion\x12\x16\n\x06source\x18\x02 \x01(\tR\x06source\x12 \n\x0b\x64\x65stination\x18\x03 \x01(\tR\x0b\x64\x65stination\x12\x1a\n\x08protocol\x18\x04 \x01(\tR\x08protocol\x12\x1d\n\nport_range\x18\x05 \x01(\tR\tportRange\x12\x1a\n\x08priority\x18\x06 \x01(\x05R\x08priorityB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.network_acl_rule_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_NETWORKACLRULE']._serialized_start=120
   _globals['_NETWORKACLRULE']._serialized_end=305
 # @@protoc_insertion_point(module_scope)

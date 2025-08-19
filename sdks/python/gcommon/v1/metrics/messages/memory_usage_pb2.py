@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/messages/memory_usage.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x91\x01\n\x0bMemoryUsage\x12\x1d\n\nused_bytes\x18\x01 \x01(\x03R\tusedBytes\x12\x1f\n\x0blimit_bytes\x18\x02 \x01(\x03R\nlimitBytes\x12#\n\rusage_percent\x18\x03 \x01(\x01R\x0cusagePercent\x12\x1d\n\npeak_bytes\x18\x04 \x01(\x03R\tpeakBytesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/messages/memory_usage.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x91\x01\n\x0bMemoryUsage\x12\x1d\n\nused_bytes\x18\x01 \x01(\x03R\tusedBytes\x12\x1f\n\x0blimit_bytes\x18\x02 \x01(\x03R\nlimitBytes\x12#\n\rusage_percent\x18\x03 \x01(\x01R\x0cusagePercent\x12\x1d\n\npeak_bytes\x18\x04 \x01(\x03R\tpeakBytesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.memory_usage_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_MEMORYUSAGE']._serialized_start=106
   _globals['_MEMORYUSAGE']._serialized_end=251
 # @@protoc_insertion_point(module_scope)

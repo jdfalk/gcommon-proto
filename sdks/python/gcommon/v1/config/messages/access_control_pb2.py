@@ -27,14 +27,14 @@ from gcommon.v1.config.messages import rate_limits_pb2 as gcommon_dot_v1_dot_con
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/access_control.proto\x12\x11gcommon.v1.config\x1a\x33gcommon/v1/config/messages/access_restriction.proto\x1a,gcommon/v1/config/messages/rate_limits.proto\x1a!google/protobuf/go_features.proto\"\xdb\x03\n\x13\x43onfigAccessControl\x12\x16\n\x06policy\x18\x01 \x01(\tR\x06policy\x12#\n\rallowed_users\x18\x02 \x03(\tR\x0c\x61llowedUsers\x12#\n\rallowed_roles\x18\x03 \x03(\tR\x0c\x61llowedRoles\x12)\n\x10\x61llowed_services\x18\x04 \x03(\tR\x0f\x61llowedServices\x12\x31\n\x14\x61llowed_environments\x18\x05 \x03(\tR\x13\x61llowedEnvironments\x12H\n\x0crestrictions\x18\x06 \x03(\x0b\x32$.gcommon.v1.config.AccessRestrictionR\x0crestrictions\x12(\n\x10max_access_count\x18\x07 \x01(\x05R\x0emaxAccessCount\x12>\n\x0brate_limits\x18\x08 \x01(\x0b\x32\x1d.gcommon.v1.config.RateLimitsR\nrateLimits\x12+\n\x11\x61pproval_required\x18\t \x01(\x08R\x10\x61pprovalRequired\x12#\n\raudit_enabled\x18\n \x01(\x08R\x0c\x61uditEnabledB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/access_control.proto\x12\x11gcommon.v1.config\x1a\x33gcommon/v1/config/messages/access_restriction.proto\x1a,gcommon/v1/config/messages/rate_limits.proto\x1a!google/protobuf/go_features.proto\"\xdb\x03\n\x13\x43onfigAccessControl\x12\x16\n\x06policy\x18\x01 \x01(\tR\x06policy\x12#\n\rallowed_users\x18\x02 \x03(\tR\x0c\x61llowedUsers\x12#\n\rallowed_roles\x18\x03 \x03(\tR\x0c\x61llowedRoles\x12)\n\x10\x61llowed_services\x18\x04 \x03(\tR\x0f\x61llowedServices\x12\x31\n\x14\x61llowed_environments\x18\x05 \x03(\tR\x13\x61llowedEnvironments\x12H\n\x0crestrictions\x18\x06 \x03(\x0b\x32$.gcommon.v1.config.AccessRestrictionR\x0crestrictions\x12(\n\x10max_access_count\x18\x07 \x01(\x05R\x0emaxAccessCount\x12>\n\x0brate_limits\x18\x08 \x01(\x0b\x32\x1d.gcommon.v1.config.RateLimitsR\nrateLimits\x12+\n\x11\x61pproval_required\x18\t \x01(\x08R\x10\x61pprovalRequired\x12#\n\raudit_enabled\x18\n \x01(\x08R\x0c\x61uditEnabledB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.access_control_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_CONFIGACCESSCONTROL']._serialized_start=205
   _globals['_CONFIGACCESSCONTROL']._serialized_end=680
 # @@protoc_insertion_point(module_scope)

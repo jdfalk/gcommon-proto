@@ -27,14 +27,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/web/messages/session_config.proto\x12\x0egcommon.v1.web\x1a+gcommon/v1/web/enums/cookie_same_site.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb8\x02\n\x10WebSessionConfig\x12<\n\x0cidle_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bidleTimeout\x12\x44\n\x10\x61\x62solute_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0f\x61\x62soluteTimeout\x12\x1f\n\x0b\x63ookie_name\x18\x03 \x01(\tR\ncookieName\x12%\n\x0esecure_cookies\x18\x04 \x01(\x08R\rsecureCookies\x12\x1b\n\thttp_only\x18\x05 \x01(\x08R\x08httpOnly\x12;\n\tsame_site\x18\x06 \x01(\x0e\x32\x1e.gcommon.v1.web.CookieSameSiteR\x08sameSiteB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/web/messages/session_config.proto\x12\x0egcommon.v1.web\x1a+gcommon/v1/web/enums/cookie_same_site.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb8\x02\n\x10WebSessionConfig\x12<\n\x0cidle_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bidleTimeout\x12\x44\n\x10\x61\x62solute_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0f\x61\x62soluteTimeout\x12\x1f\n\x0b\x63ookie_name\x18\x03 \x01(\tR\ncookieName\x12%\n\x0esecure_cookies\x18\x04 \x01(\x08R\rsecureCookies\x12\x1b\n\thttp_only\x18\x05 \x01(\x08R\x08httpOnly\x12;\n\tsame_site\x18\x06 \x01(\x0e\x32\x1e.gcommon.v1.web.CookieSameSiteR\x08sameSiteB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.session_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z!github.com/jdfalk/gcommon/pkg/web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/sdks/go/web\222\003\005\322>\002\020\003'
   _globals['_WEBSESSIONCONFIG']._serialized_start=177
   _globals['_WEBSESSIONCONFIG']._serialized_end=489
 # @@protoc_insertion_point(module_scope)

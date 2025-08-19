@@ -28,14 +28,14 @@ from gcommon.v1.metrics.messages import summary_metric_pb2 as gcommon_dot_v1_dot
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/metrics/messages/record_summary_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/metrics/messages/recording_stats.proto\x1a\x30gcommon/v1/metrics/messages/summary_metric.proto\x1a!google/protobuf/go_features.proto\"\xbc\x01\n\x15RecordSummaryResponse\x12\x39\n\x06metric\x18\x01 \x01(\x0b\x32!.gcommon.v1.metrics.SummaryMetricR\x06metric\x12\x38\n\x05stats\x18\x02 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x05stats\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/metrics/messages/record_summary_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/metrics/messages/recording_stats.proto\x1a\x30gcommon/v1/metrics/messages/summary_metric.proto\x1a!google/protobuf/go_features.proto\"\xbc\x01\n\x15RecordSummaryResponse\x12\x39\n\x06metric\x18\x01 \x01(\x0b\x32!.gcommon.v1.metrics.SummaryMetricR\x06metric\x12\x38\n\x05stats\x18\x02 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x05stats\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.record_summary_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_RECORDSUMMARYRESPONSE']._serialized_start=258
   _globals['_RECORDSUMMARYRESPONSE']._serialized_end=446
 # @@protoc_insertion_point(module_scope)

@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/messages/storage_quota.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xbe\x01\n\x0cStorageQuota\x12$\n\x0emax_size_bytes\x18\x01 \x01(\x03R\x0cmaxSizeBytes\x12\x1f\n\x0bmax_objects\x18\x02 \x01(\x03R\nmaxObjects\x12\x35\n\x17max_requests_per_second\x18\x03 \x01(\x05R\x14maxRequestsPerSecond\x12\x30\n\x14transfer_quota_bytes\x18\x04 \x01(\x03R\x12transferQuotaBytesB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/messages/storage_quota.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xbe\x01\n\x0cStorageQuota\x12$\n\x0emax_size_bytes\x18\x01 \x01(\x03R\x0cmaxSizeBytes\x12\x1f\n\x0bmax_objects\x18\x02 \x01(\x03R\nmaxObjects\x12\x35\n\x17max_requests_per_second\x18\x03 \x01(\x05R\x14maxRequestsPerSecond\x12\x30\n\x14transfer_quota_bytes\x18\x04 \x01(\x03R\x12transferQuotaBytesB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.storage_quota_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_STORAGEQUOTA']._serialized_start=117
   _globals['_STORAGEQUOTA']._serialized_end=307
 # @@protoc_insertion_point(module_scope)

@@ -27,14 +27,14 @@ from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/database/messages/batch_operation_result.proto\x12\x13gcommon.v1.database\x1a&gcommon/v1/common/messages/error.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xca\x01\n\x14\x42\x61tchOperationResult\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12#\n\raffected_rows\x18\x02 \x01(\x03R\x0c\x61\x66\x66\x65\x63tedRows\x12?\n\x0egenerated_keys\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/database/messages/batch_operation_result.proto\x12\x13gcommon.v1.database\x1a&gcommon/v1/common/messages/error.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xca\x01\n\x14\x42\x61tchOperationResult\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12#\n\raffected_rows\x18\x02 \x01(\x03R\x0c\x61\x66\x66\x65\x63tedRows\x12?\n\x0egenerated_keys\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.batch_operation_result_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_BATCHOPERATIONRESULT'].fields_by_name['generated_keys']._loaded_options = None
   _globals['_BATCHOPERATIONRESULT'].fields_by_name['generated_keys']._serialized_options = b'(\001'
   _globals['_BATCHOPERATIONRESULT'].fields_by_name['error']._loaded_options = None

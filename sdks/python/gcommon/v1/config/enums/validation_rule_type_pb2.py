@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/config/enums/validation_rule_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xc0\x02\n\x12ValidationRuleType\x12$\n VALIDATION_RULE_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1aVALIDATION_RULE_TYPE_REGEX\x10\x01\x12\x1e\n\x1aVALIDATION_RULE_TYPE_RANGE\x10\x02\x12\x1f\n\x1bVALIDATION_RULE_TYPE_LENGTH\x10\x03\x12\x1f\n\x1bVALIDATION_RULE_TYPE_FORMAT\x10\x04\x12\x1d\n\x19VALIDATION_RULE_TYPE_ENUM\x10\x05\x12\x1f\n\x1bVALIDATION_RULE_TYPE_CUSTOM\x10\x06\x12!\n\x1dVALIDATION_RULE_TYPE_FUNCTION\x10\x07\x12\x1f\n\x1bVALIDATION_RULE_TYPE_SCHEMA\x10\x08\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/config/enums/validation_rule_type.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xc0\x02\n\x12ValidationRuleType\x12$\n VALIDATION_RULE_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1aVALIDATION_RULE_TYPE_REGEX\x10\x01\x12\x1e\n\x1aVALIDATION_RULE_TYPE_RANGE\x10\x02\x12\x1f\n\x1bVALIDATION_RULE_TYPE_LENGTH\x10\x03\x12\x1f\n\x1bVALIDATION_RULE_TYPE_FORMAT\x10\x04\x12\x1d\n\x19VALIDATION_RULE_TYPE_ENUM\x10\x05\x12\x1f\n\x1bVALIDATION_RULE_TYPE_CUSTOM\x10\x06\x12!\n\x1dVALIDATION_RULE_TYPE_FUNCTION\x10\x07\x12\x1f\n\x1bVALIDATION_RULE_TYPE_SCHEMA\x10\x08\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.validation_rule_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_VALIDATIONRULETYPE']._serialized_start=109
   _globals['_VALIDATIONRULETYPE']._serialized_end=429
 # @@protoc_insertion_point(module_scope)

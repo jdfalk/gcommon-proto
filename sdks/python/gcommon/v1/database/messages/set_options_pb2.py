@@ -26,14 +26,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/database/messages/set_options.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb4\x01\n\nSetOptions\x12$\n\x0eonly_if_absent\x18\x01 \x01(\x08R\x0conlyIfAbsent\x12&\n\x0fonly_if_present\x18\x02 \x01(\x08R\ronlyIfPresent\x12/\n\x03ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12\'\n\x0freturn_previous\x18\x04 \x01(\x08R\x0ereturnPreviousB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/database/messages/set_options.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb4\x01\n\nSetOptions\x12$\n\x0eonly_if_absent\x18\x01 \x01(\x08R\x0conlyIfAbsent\x12&\n\x0fonly_if_present\x18\x02 \x01(\x08R\ronlyIfPresent\x12/\n\x03ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12\'\n\x0freturn_previous\x18\x04 \x01(\x08R\x0ereturnPreviousB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.set_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_SETOPTIONS'].fields_by_name['ttl']._loaded_options = None
   _globals['_SETOPTIONS'].fields_by_name['ttl']._serialized_options = b'(\001'
   _globals['_SETOPTIONS']._serialized_start=139

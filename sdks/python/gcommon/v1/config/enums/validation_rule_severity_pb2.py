@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/config/enums/validation_rule_severity.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xd6\x01\n\x16ValidationRuleSeverity\x12(\n$VALIDATION_RULE_SEVERITY_UNSPECIFIED\x10\x00\x12!\n\x1dVALIDATION_RULE_SEVERITY_INFO\x10\x01\x12$\n VALIDATION_RULE_SEVERITY_WARNING\x10\x02\x12\"\n\x1eVALIDATION_RULE_SEVERITY_ERROR\x10\x03\x12%\n!VALIDATION_RULE_SEVERITY_CRITICAL\x10\x04\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/config/enums/validation_rule_severity.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xd6\x01\n\x16ValidationRuleSeverity\x12(\n$VALIDATION_RULE_SEVERITY_UNSPECIFIED\x10\x00\x12!\n\x1dVALIDATION_RULE_SEVERITY_INFO\x10\x01\x12$\n VALIDATION_RULE_SEVERITY_WARNING\x10\x02\x12\"\n\x1eVALIDATION_RULE_SEVERITY_ERROR\x10\x03\x12%\n!VALIDATION_RULE_SEVERITY_CRITICAL\x10\x04\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.validation_rule_severity_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_VALIDATIONRULESEVERITY']._serialized_start=113
   _globals['_VALIDATIONRULESEVERITY']._serialized_end=327
 # @@protoc_insertion_point(module_scope)

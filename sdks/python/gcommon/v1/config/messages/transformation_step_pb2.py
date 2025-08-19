@@ -26,14 +26,14 @@ from gcommon.v1.config.enums import transformation_type_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/transformation_step.proto\x12\x11gcommon.v1.config\x1a\x31gcommon/v1/config/enums/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xc9\x02\n\x12TransformationStep\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x39\n\x04type\x18\x02 \x01(\x0e\x32%.gcommon.v1.config.TransformationTypeR\x04type\x12\x1e\n\nexpression\x18\x03 \x01(\tR\nexpression\x12U\n\nparameters\x18\x04 \x03(\x0b\x32\x35.gcommon.v1.config.TransformationStep.ParametersEntryR\nparameters\x12\x18\n\x07\x65nabled\x18\x05 \x01(\x08R\x07\x65nabled\x12\x14\n\x05order\x18\x06 \x01(\x05R\x05order\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/transformation_step.proto\x12\x11gcommon.v1.config\x1a\x31gcommon/v1/config/enums/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xc9\x02\n\x12TransformationStep\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x39\n\x04type\x18\x02 \x01(\x0e\x32%.gcommon.v1.config.TransformationTypeR\x04type\x12\x1e\n\nexpression\x18\x03 \x01(\tR\nexpression\x12U\n\nparameters\x18\x04 \x03(\x0b\x32\x35.gcommon.v1.config.TransformationStep.ParametersEntryR\nparameters\x12\x18\n\x07\x65nabled\x18\x05 \x01(\x08R\x07\x65nabled\x12\x14\n\x05order\x18\x06 \x01(\x05R\x05order\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.transformation_step_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_TRANSFORMATIONSTEP_PARAMETERSENTRY']._loaded_options = None
   _globals['_TRANSFORMATIONSTEP_PARAMETERSENTRY']._serialized_options = b'8\001'
   _globals['_TRANSFORMATIONSTEP']._serialized_start=162

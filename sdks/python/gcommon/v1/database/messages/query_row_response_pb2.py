@@ -28,14 +28,14 @@ from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/database/messages/query_row_response.proto\x12\x13gcommon.v1.database\x1a&gcommon/v1/common/messages/error.proto\x1a.gcommon/v1/database/messages/query_stats.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xeb\x01\n\x10QueryRowResponse\x12\x14\n\x05\x66ound\x18\x01 \x01(\x08R\x05\x66ound\x12\x18\n\x07\x63olumns\x18\x02 \x03(\tR\x07\x63olumns\x12\x30\n\x06values\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06values\x12\x41\n\x05stats\x18\x04 \x01(\x0b\x32\'.gcommon.v1.database.DatabaseQueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/database/messages/query_row_response.proto\x12\x13gcommon.v1.database\x1a&gcommon/v1/common/messages/error.proto\x1a.gcommon/v1/database/messages/query_stats.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xeb\x01\n\x10QueryRowResponse\x12\x14\n\x05\x66ound\x18\x01 \x01(\x08R\x05\x66ound\x12\x18\n\x07\x63olumns\x18\x02 \x03(\tR\x07\x63olumns\x12\x30\n\x06values\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06values\x12\x41\n\x05stats\x18\x04 \x01(\x0b\x32\'.gcommon.v1.database.DatabaseQueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.query_row_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_QUERYROWRESPONSE'].fields_by_name['values']._loaded_options = None
   _globals['_QUERYROWRESPONSE'].fields_by_name['values']._serialized_options = b'(\001'
   _globals['_QUERYROWRESPONSE'].fields_by_name['stats']._loaded_options = None

@@ -27,14 +27,14 @@ from gcommon.v1.metrics.messages import unregistration_options_pb2 as gcommon_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;gcommon/v1/metrics/messages/unregister_metric_request.proto\x12\x12gcommon.v1.metrics\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x38gcommon/v1/metrics/messages/unregistration_options.proto\x1a!google/protobuf/go_features.proto\"\x96\x02\n\x17UnregisterMetricRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12!\n\x0bmetric_name\x18\x02 \x01(\tH\x00R\nmetricName\x12\x1d\n\tmetric_id\x18\x03 \x01(\tH\x00R\x08metricId\x12\x1f\n\x0bprovider_id\x18\x04 \x01(\tR\nproviderId\x12\x43\n\x07options\x18\x05 \x01(\x0b\x32).gcommon.v1.metrics.UnregistrationOptionsR\x07optionsB\x13\n\x11metric_identifierB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;gcommon/v1/metrics/messages/unregister_metric_request.proto\x12\x12gcommon.v1.metrics\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x38gcommon/v1/metrics/messages/unregistration_options.proto\x1a!google/protobuf/go_features.proto\"\x96\x02\n\x17UnregisterMetricRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12!\n\x0bmetric_name\x18\x02 \x01(\tH\x00R\nmetricName\x12\x1d\n\tmetric_id\x18\x03 \x01(\tH\x00R\x08metricId\x12\x1f\n\x0bprovider_id\x18\x04 \x01(\tR\nproviderId\x12\x43\n\x07options\x18\x05 \x01(\x0b\x32).gcommon.v1.metrics.UnregistrationOptionsR\x07optionsB\x13\n\x11metric_identifierB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.unregister_metric_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_UNREGISTERMETRICREQUEST']._serialized_start=228
   _globals['_UNREGISTERMETRICREQUEST']._serialized_end=506
 # @@protoc_insertion_point(module_scope)

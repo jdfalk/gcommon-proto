@@ -27,14 +27,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/messages/stream_config.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/queue/enums/stream_restart_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xec\x03\n\x0cStreamConfig\x12\x1f\n\x0b\x62uffer_size\x18\x01 \x01(\x05R\nbufferSize\x12<\n\x0cread_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0breadTimeout\x12\x30\n\x14\x66low_control_enabled\x18\x03 \x01(\x08R\x12\x66lowControlEnabled\x12\x38\n\x18max_outstanding_messages\x18\x04 \x01(\x05R\x16maxOutstandingMessages\x12\x32\n\x15max_outstanding_bytes\x18\x05 \x01(\x03R\x13maxOutstandingBytes\x12\x19\n\x08\x61uto_ack\x18\x06 \x01(\x08R\x07\x61utoAck\x12<\n\x0c\x61\x63k_deadline\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0b\x61\x63kDeadline\x12\x36\n\x17\x65nable_message_ordering\x18\x08 \x01(\x08R\x15\x65nableMessageOrdering\x12L\n\x0erestart_policy\x18\t \x01(\x0e\x32%.gcommon.v1.queue.StreamRestartPolicyR\rrestartPolicyB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/messages/stream_config.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/queue/enums/stream_restart_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xec\x03\n\x0cStreamConfig\x12\x1f\n\x0b\x62uffer_size\x18\x01 \x01(\x05R\nbufferSize\x12<\n\x0cread_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0breadTimeout\x12\x30\n\x14\x66low_control_enabled\x18\x03 \x01(\x08R\x12\x66lowControlEnabled\x12\x38\n\x18max_outstanding_messages\x18\x04 \x01(\x05R\x16maxOutstandingMessages\x12\x32\n\x15max_outstanding_bytes\x18\x05 \x01(\x03R\x13maxOutstandingBytes\x12\x19\n\x08\x61uto_ack\x18\x06 \x01(\x08R\x07\x61utoAck\x12<\n\x0c\x61\x63k_deadline\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0b\x61\x63kDeadline\x12\x36\n\x17\x65nable_message_ordering\x18\x08 \x01(\x08R\x15\x65nableMessageOrdering\x12L\n\x0erestart_policy\x18\t \x01(\x0e\x32%.gcommon.v1.queue.StreamRestartPolicyR\rrestartPolicyB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.stream_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_STREAMCONFIG']._serialized_start=187
   _globals['_STREAMCONFIG']._serialized_end=679
 # @@protoc_insertion_point(module_scope)

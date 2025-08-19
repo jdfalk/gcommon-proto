@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/export_format.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xa2\x01\n\x13MetricsExportFormat\x12\x1d\n\x19\x45XPORT_FORMAT_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x45XPORT_FORMAT_PROMETHEUS\x10\x01\x12\x16\n\x12\x45XPORT_FORMAT_JSON\x10\x02\x12\x15\n\x11\x45XPORT_FORMAT_CSV\x10\x03\x12\x1f\n\x1b\x45XPORT_FORMAT_OPENTELEMETRY\x10\x04\x42/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/export_format.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xa2\x01\n\x13MetricsExportFormat\x12\x1d\n\x19\x45XPORT_FORMAT_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x45XPORT_FORMAT_PROMETHEUS\x10\x01\x12\x16\n\x12\x45XPORT_FORMAT_JSON\x10\x02\x12\x15\n\x11\x45XPORT_FORMAT_CSV\x10\x03\x12\x1f\n\x1b\x45XPORT_FORMAT_OPENTELEMETRY\x10\x04\x42\x33Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.export_format_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_METRICSEXPORTFORMAT']._serialized_start=107
   _globals['_METRICSEXPORTFORMAT']._serialized_end=269
 # @@protoc_insertion_point(module_scope)

@@ -26,14 +26,14 @@ from gcommon.v1.queue.enums import replication_level_pb2 as gcommon_dot_v1_dot_q
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/queue/messages/replication_consistency.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/queue/enums/replication_level.proto\x1a!google/protobuf/go_features.proto\"\xdc\x02\n\x16ReplicationConsistency\x12,\n\x12min_write_replicas\x18\x01 \x01(\x05R\x10minWriteReplicas\x12*\n\x11min_read_replicas\x18\x02 \x01(\x05R\x0fminReadReplicas\x12-\n\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12O\n\x11replication_level\x18\x04 \x01(\x0e\x32\".gcommon.v1.queue.ReplicationLevelR\x10replicationLevel\x12\x30\n\x14\x61nti_entropy_enabled\x18\x05 \x01(\x08R\x12\x61ntiEntropyEnabled\x12\x36\n\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/queue/messages/replication_consistency.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/queue/enums/replication_level.proto\x1a!google/protobuf/go_features.proto\"\xdc\x02\n\x16ReplicationConsistency\x12,\n\x12min_write_replicas\x18\x01 \x01(\x05R\x10minWriteReplicas\x12*\n\x11min_read_replicas\x18\x02 \x01(\x05R\x0fminReadReplicas\x12-\n\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12O\n\x11replication_level\x18\x04 \x01(\x0e\x32\".gcommon.v1.queue.ReplicationLevelR\x10replicationLevel\x12\x30\n\x14\x61nti_entropy_enabled\x18\x05 \x01(\x08R\x12\x61ntiEntropyEnabled\x12\x36\n\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.replication_consistency_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_REPLICATIONCONSISTENCY']._serialized_start=161
   _globals['_REPLICATIONCONSISTENCY']._serialized_end=509
 # @@protoc_insertion_point(module_scope)

@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/metrics/messages/export_destination_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9c\x02\n\x16\x45xportDestinationStats\x12%\n\x0e\x64\x65stination_id\x18\x01 \x01(\tR\rdestinationId\x12)\n\x10\x64\x65stination_type\x18\x02 \x01(\tR\x0f\x64\x65stinationType\x12)\n\x10\x65xported_metrics\x18\x03 \x01(\x03R\x0f\x65xportedMetrics\x12%\n\x0e\x66\x61iled_exports\x18\x04 \x01(\x03R\rfailedExports\x12!\n\x0csuccess_rate\x18\x05 \x01(\x01R\x0bsuccessRate\x12;\n\x0blast_export\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastExportB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/metrics/messages/export_destination_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9c\x02\n\x16\x45xportDestinationStats\x12%\n\x0e\x64\x65stination_id\x18\x01 \x01(\tR\rdestinationId\x12)\n\x10\x64\x65stination_type\x18\x02 \x01(\tR\x0f\x64\x65stinationType\x12)\n\x10\x65xported_metrics\x18\x03 \x01(\x03R\x0f\x65xportedMetrics\x12%\n\x0e\x66\x61iled_exports\x18\x04 \x01(\x03R\rfailedExports\x12!\n\x0csuccess_rate\x18\x05 \x01(\x01R\x0bsuccessRate\x12;\n\x0blast_export\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastExportB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.export_destination_stats_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_EXPORTDESTINATIONSTATS']._serialized_start=151
   _globals['_EXPORTDESTINATIONSTATS']._serialized_end=435
 # @@protoc_insertion_point(module_scope)

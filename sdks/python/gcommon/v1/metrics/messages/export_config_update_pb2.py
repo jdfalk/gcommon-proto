@@ -26,14 +26,14 @@ from gcommon.v1.metrics.messages import export_destination_update_pb2 as gcommon
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/export_config_update.proto\x12\x12gcommon.v1.metrics\x1a;gcommon/v1/metrics/messages/export_destination_update.proto\x1a!google/protobuf/go_features.proto\"\xc8\x02\n\x12\x45xportConfigUpdate\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12%\n\x0e\x66ormat_updates\x18\x02 \x03(\tR\rformatUpdates\x12%\n\x0e\x66ormat_removes\x18\x03 \x03(\tR\rformatRemoves\x12\\\n\x13\x64\x65stination_updates\x18\x04 \x03(\x0b\x32+.gcommon.v1.metrics.ExportDestinationUpdateR\x12\x64\x65stinationUpdates\x12/\n\x13\x64\x65stination_removes\x18\x05 \x03(\tR\x12\x64\x65stinationRemoves\x12\x1c\n\tfrequency\x18\x06 \x01(\tR\tfrequency\x12\x1d\n\nbatch_size\x18\x07 \x01(\x05R\tbatchSizeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/export_config_update.proto\x12\x12gcommon.v1.metrics\x1a;gcommon/v1/metrics/messages/export_destination_update.proto\x1a!google/protobuf/go_features.proto\"\xc8\x02\n\x12\x45xportConfigUpdate\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12%\n\x0e\x66ormat_updates\x18\x02 \x03(\tR\rformatUpdates\x12%\n\x0e\x66ormat_removes\x18\x03 \x03(\tR\rformatRemoves\x12\\\n\x13\x64\x65stination_updates\x18\x04 \x03(\x0b\x32+.gcommon.v1.metrics.ExportDestinationUpdateR\x12\x64\x65stinationUpdates\x12/\n\x13\x64\x65stination_removes\x18\x05 \x03(\tR\x12\x64\x65stinationRemoves\x12\x1c\n\tfrequency\x18\x06 \x01(\tR\tfrequency\x12\x1d\n\nbatch_size\x18\x07 \x01(\x05R\tbatchSizeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.export_config_update_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_EXPORTCONFIGUPDATE']._serialized_start=175
   _globals['_EXPORTCONFIGUPDATE']._serialized_end=503
 # @@protoc_insertion_point(module_scope)

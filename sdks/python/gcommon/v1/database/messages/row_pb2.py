@@ -26,14 +26,14 @@ from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/database/messages/row.proto\x12\x13gcommon.v1.database\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"7\n\x03Row\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06valuesB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/database/messages/row.proto\x12\x13gcommon.v1.database\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"7\n\x03Row\x12\x30\n\x06values\x18\x01 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06valuesB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.row_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_ROW'].fields_by_name['values']._loaded_options = None
   _globals['_ROW'].fields_by_name['values']._serialized_options = b'(\001'
   _globals['_ROW']._serialized_start=125

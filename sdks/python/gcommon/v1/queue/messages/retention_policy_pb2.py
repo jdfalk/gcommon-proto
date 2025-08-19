@@ -26,14 +26,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/retention_policy.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x91\x01\n\x14QueueRetentionPolicy\x12\x32\n\x07max_age\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06maxAge\x12$\n\x0emax_size_bytes\x18\x02 \x01(\x03R\x0cmaxSizeBytes\x12\x1f\n\x0b\x64iscard_old\x18\x03 \x01(\x08R\ndiscardOldB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/retention_policy.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x91\x01\n\x14QueueRetentionPolicy\x12\x32\n\x07max_age\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06maxAge\x12$\n\x0emax_size_bytes\x18\x02 \x01(\x03R\x0cmaxSizeBytes\x12\x1f\n\x0b\x64iscard_old\x18\x03 \x01(\x08R\ndiscardOldB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.retention_policy_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_QUEUERETENTIONPOLICY']._serialized_start=138
   _globals['_QUEUERETENTIONPOLICY']._serialized_end=283
 # @@protoc_insertion_point(module_scope)

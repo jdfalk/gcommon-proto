@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/messages/offset_config.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/enums/offset_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe2\x01\n\x0cOffsetConfig\x12=\n\x0boffset_type\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.queue.OffsetTypeR\noffsetType\x12!\n\x0coffset_value\x18\x02 \x01(\x03R\x0boffsetValue\x12\x43\n\x0fstart_timestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n\x12reset_on_not_found\x18\x04 \x01(\x08R\x0fresetOnNotFoundB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/messages/offset_config.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/enums/offset_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe2\x01\n\x0cOffsetConfig\x12=\n\x0boffset_type\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.queue.OffsetTypeR\noffsetType\x12!\n\x0coffset_value\x18\x02 \x01(\x03R\x0boffsetValue\x12\x43\n\x0fstart_timestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n\x12reset_on_not_found\x18\x04 \x01(\x08R\x0fresetOnNotFoundB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.offset_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_OFFSETCONFIG']._serialized_start=178
   _globals['_OFFSETCONFIG']._serialized_end=404
 # @@protoc_insertion_point(module_scope)

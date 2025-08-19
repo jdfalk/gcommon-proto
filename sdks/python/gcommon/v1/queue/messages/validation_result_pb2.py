@@ -30,14 +30,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/queue/messages/validation_result.proto\x12\x10gcommon.v1.queue\x1a\x33gcommon/v1/queue/messages/checksum_validation.proto\x1a\x34gcommon/v1/queue/messages/integrity_validation.proto\x1a\x31gcommon/v1/queue/messages/schema_validation.proto\x1a\x30gcommon/v1/queue/messages/validation_error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xe2\x03\n\x15QueueValidationResult\x12+\n\x11validation_passed\x18\x01 \x01(\x08R\x10validationPassed\x12U\n\x13\x63hecksum_validation\x18\x02 \x01(\x0b\x32$.gcommon.v1.queue.ChecksumValidationR\x12\x63hecksumValidation\x12O\n\x11schema_validation\x18\x03 \x01(\x0b\x32\".gcommon.v1.queue.SchemaValidationR\x10schemaValidation\x12X\n\x14integrity_validation\x18\x04 \x01(\x0b\x32%.gcommon.v1.queue.IntegrityValidationR\x13integrityValidation\x12N\n\x11validation_errors\x18\x05 \x03(\x0b\x32!.gcommon.v1.queue.ValidationErrorR\x10validationErrors\x12J\n\x13validation_duration\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x12validationDurationB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/queue/messages/validation_result.proto\x12\x10gcommon.v1.queue\x1a\x33gcommon/v1/queue/messages/checksum_validation.proto\x1a\x34gcommon/v1/queue/messages/integrity_validation.proto\x1a\x31gcommon/v1/queue/messages/schema_validation.proto\x1a\x30gcommon/v1/queue/messages/validation_error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xe2\x03\n\x15QueueValidationResult\x12+\n\x11validation_passed\x18\x01 \x01(\x08R\x10validationPassed\x12U\n\x13\x63hecksum_validation\x18\x02 \x01(\x0b\x32$.gcommon.v1.queue.ChecksumValidationR\x12\x63hecksumValidation\x12O\n\x11schema_validation\x18\x03 \x01(\x0b\x32\".gcommon.v1.queue.SchemaValidationR\x10schemaValidation\x12X\n\x14integrity_validation\x18\x04 \x01(\x0b\x32%.gcommon.v1.queue.IntegrityValidationR\x13integrityValidation\x12N\n\x11validation_errors\x18\x05 \x03(\x0b\x32!.gcommon.v1.queue.ValidationErrorR\x10validationErrors\x12J\n\x13validation_duration\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x12validationDurationB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.validation_result_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_QUEUEVALIDATIONRESULT']._serialized_start=347
   _globals['_QUEUEVALIDATIONRESULT']._serialized_end=829
 # @@protoc_insertion_point(module_scope)

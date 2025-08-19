@@ -27,14 +27,14 @@ from gcommon.v1.queue.messages import retention_policy_pb2 as gcommon_dot_v1_dot
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/topic_config.proto\x12\x10gcommon.v1.queue\x1a\x30gcommon/v1/queue/messages/partition_config.proto\x1a\x30gcommon/v1/queue/messages/retention_policy.proto\x1a!google/protobuf/go_features.proto\"\x93\x03\n\x0bTopicConfig\x12!\n\x0cmax_messages\x18\x01 \x01(\x04R\x0bmaxMessages\x12$\n\x0emax_size_bytes\x18\x02 \x01(\x04R\x0cmaxSizeBytes\x12Q\n\x10retention_policy\x18\x03 \x01(\x0b\x32&.gcommon.v1.queue.QueueRetentionPolicyR\x0fretentionPolicy\x12L\n\x10partition_config\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.PartitionConfigR\x0fpartitionConfig\x12\x1e\n\npersistent\x18\x05 \x01(\x08R\npersistent\x12\x1e\n\nreplicated\x18\x06 \x01(\x08R\nreplicated\x12-\n\x12replication_factor\x18\x07 \x01(\rR\x11replicationFactor\x12+\n\x11\x65nable_compaction\x18\x08 \x01(\x08R\x10\x65nableCompactionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/topic_config.proto\x12\x10gcommon.v1.queue\x1a\x30gcommon/v1/queue/messages/partition_config.proto\x1a\x30gcommon/v1/queue/messages/retention_policy.proto\x1a!google/protobuf/go_features.proto\"\x93\x03\n\x0bTopicConfig\x12!\n\x0cmax_messages\x18\x01 \x01(\x04R\x0bmaxMessages\x12$\n\x0emax_size_bytes\x18\x02 \x01(\x04R\x0cmaxSizeBytes\x12Q\n\x10retention_policy\x18\x03 \x01(\x0b\x32&.gcommon.v1.queue.QueueRetentionPolicyR\x0fretentionPolicy\x12L\n\x10partition_config\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.PartitionConfigR\x0fpartitionConfig\x12\x1e\n\npersistent\x18\x05 \x01(\x08R\npersistent\x12\x1e\n\nreplicated\x18\x06 \x01(\x08R\nreplicated\x12-\n\x12replication_factor\x18\x07 \x01(\rR\x11replicationFactor\x12+\n\x11\x65nable_compaction\x18\x08 \x01(\x08R\x10\x65nableCompactionB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.topic_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_TOPICCONFIG']._serialized_start=202
   _globals['_TOPICCONFIG']._serialized_end=605
 # @@protoc_insertion_point(module_scope)

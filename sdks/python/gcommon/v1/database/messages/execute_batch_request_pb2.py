@@ -28,14 +28,14 @@ from gcommon.v1.database.messages import batch_operation_pb2 as gcommon_dot_v1_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/database/messages/execute_batch_request.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x38gcommon/v1/database/messages/batch_execute_options.proto\x1a\x32gcommon/v1/database/messages/batch_operation.proto\x1a!google/protobuf/go_features.proto\"\xb5\x02\n\x13\x45xecuteBatchRequest\x12O\n\noperations\x18\x01 \x03(\x0b\x32+.gcommon.v1.database.DatabaseBatchOperationB\x02(\x01R\noperations\x12\x1a\n\x08\x64\x61tabase\x18\x02 \x01(\tR\x08\x64\x61tabase\x12\x46\n\x07options\x18\x03 \x01(\x0b\x32(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\x07options\x12\x42\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12%\n\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/database/messages/execute_batch_request.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x38gcommon/v1/database/messages/batch_execute_options.proto\x1a\x32gcommon/v1/database/messages/batch_operation.proto\x1a!google/protobuf/go_features.proto\"\xb5\x02\n\x13\x45xecuteBatchRequest\x12O\n\noperations\x18\x01 \x03(\x0b\x32+.gcommon.v1.database.DatabaseBatchOperationB\x02(\x01R\noperations\x12\x1a\n\x08\x64\x61tabase\x18\x02 \x01(\tR\x08\x64\x61tabase\x12\x46\n\x07options\x18\x03 \x01(\x0b\x32(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\x07options\x12\x42\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12%\n\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.execute_batch_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_EXECUTEBATCHREQUEST'].fields_by_name['operations']._loaded_options = None
   _globals['_EXECUTEBATCHREQUEST'].fields_by_name['operations']._serialized_options = b'(\001'
   _globals['_EXECUTEBATCHREQUEST'].fields_by_name['options']._loaded_options = None

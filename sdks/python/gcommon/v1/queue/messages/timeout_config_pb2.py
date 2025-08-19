@@ -26,14 +26,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/queue/messages/timeout_config.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xcb\x04\n\x12QueueTimeoutConfig\x12\x42\n\x0fpublish_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0epublishTimeout\x12\x42\n\x0f\x63onsume_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onsumeTimeout\x12:\n\x0b\x61\x63k_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\nackTimeout\x12\x42\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onnectTimeout\x12H\n\x12processing_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11processingTimeout\x12H\n\x12management_timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11managementTimeout\x12K\n\x14health_check_timeout\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x12healthCheckTimeout\x12L\n\x14subscription_timeout\x18\x08 \x01(\x0b\x32\x19.google.protobuf.DurationR\x13subscriptionTimeoutB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/queue/messages/timeout_config.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xcb\x04\n\x12QueueTimeoutConfig\x12\x42\n\x0fpublish_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0epublishTimeout\x12\x42\n\x0f\x63onsume_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onsumeTimeout\x12:\n\x0b\x61\x63k_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\nackTimeout\x12\x42\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0e\x63onnectTimeout\x12H\n\x12processing_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11processingTimeout\x12H\n\x12management_timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11managementTimeout\x12K\n\x14health_check_timeout\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x12healthCheckTimeout\x12L\n\x14subscription_timeout\x18\x08 \x01(\x0b\x32\x19.google.protobuf.DurationR\x13subscriptionTimeoutB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.timeout_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_QUEUETIMEOUTCONFIG']._serialized_start=136
   _globals['_QUEUETIMEOUTCONFIG']._serialized_end=723
 # @@protoc_insertion_point(module_scope)

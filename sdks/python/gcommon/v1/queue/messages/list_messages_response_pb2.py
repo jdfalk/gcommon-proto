@@ -26,14 +26,14 @@ from gcommon.v1.queue.messages import queue_message_pb2 as gcommon_dot_v1_dot_qu
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/queue/messages/list_messages_response.proto\x12\x10gcommon.v1.queue\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xcc\x01\n\x14ListMessagesResponse\x12:\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x08messages\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x03R\ntotalCount\x12&\n\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n\x08has_more\x18\x04 \x01(\x08R\x07hasMore\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/queue/messages/list_messages_response.proto\x12\x10gcommon.v1.queue\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xcc\x01\n\x14ListMessagesResponse\x12:\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x08messages\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x03R\ntotalCount\x12&\n\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n\x08has_more\x18\x04 \x01(\x08R\x07hasMore\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.list_messages_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_LISTMESSAGESRESPONSE']._serialized_start=159
   _globals['_LISTMESSAGESRESPONSE']._serialized_end=363
 # @@protoc_insertion_point(module_scope)

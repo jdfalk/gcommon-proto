@@ -32,14 +32,14 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/database/services/transaction_service.proto\x12\x13gcommon.v1.database\x1a<gcommon/v1/database/messages/begin_transaction_request.proto\x1a=gcommon/v1/database/messages/begin_transaction_response.proto\x1a=gcommon/v1/database/messages/commit_transaction_request.proto\x1a?gcommon/v1/database/messages/rollback_transaction_request.proto\x1a=gcommon/v1/database/messages/transaction_status_request.proto\x1a>gcommon/v1/database/messages/transaction_status_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xb8\x03\n\x12TransactionService\x12o\n\x10\x42\x65ginTransaction\x12,.gcommon.v1.database.BeginTransactionRequest\x1a-.gcommon.v1.database.BeginTransactionResponse\x12Z\n\x11\x43ommitTransaction\x12-.gcommon.v1.database.CommitTransactionRequest\x1a\x16.google.protobuf.Empty\x12^\n\x13RollbackTransaction\x12/.gcommon.v1.database.RollbackTransactionRequest\x1a\x16.google.protobuf.Empty\x12u\n\x14GetTransactionStatus\x12-.gcommon.v1.database.TransactionStatusRequest\x1a..gcommon.v1.database.TransactionStatusResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/database/services/transaction_service.proto\x12\x13gcommon.v1.database\x1a<gcommon/v1/database/messages/begin_transaction_request.proto\x1a=gcommon/v1/database/messages/begin_transaction_response.proto\x1a=gcommon/v1/database/messages/commit_transaction_request.proto\x1a?gcommon/v1/database/messages/rollback_transaction_request.proto\x1a=gcommon/v1/database/messages/transaction_status_request.proto\x1a>gcommon/v1/database/messages/transaction_status_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xb8\x03\n\x12TransactionService\x12o\n\x10\x42\x65ginTransaction\x12,.gcommon.v1.database.BeginTransactionRequest\x1a-.gcommon.v1.database.BeginTransactionResponse\x12Z\n\x11\x43ommitTransaction\x12-.gcommon.v1.database.CommitTransactionRequest\x1a\x16.google.protobuf.Empty\x12^\n\x13RollbackTransaction\x12/.gcommon.v1.database.RollbackTransactionRequest\x1a\x16.google.protobuf.Empty\x12u\n\x14GetTransactionStatus\x12-.gcommon.v1.database.TransactionStatusRequest\x1a..gcommon.v1.database.TransactionStatusResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.services.transaction_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_TRANSACTIONSERVICE']._serialized_start=524
   _globals['_TRANSACTIONSERVICE']._serialized_end=964
 # @@protoc_insertion_point(module_scope)

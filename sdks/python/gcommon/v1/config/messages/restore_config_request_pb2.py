@@ -26,14 +26,14 @@ from gcommon.v1.common.messages import request_metadata_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/config/messages/restore_config_request.proto\x12\x11gcommon.v1.config\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x9e\x01\n\x14RestoreConfigRequest\x12(\n\x10restore_point_id\x18\x01 \x01(\tR\x0erestorePointId\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/config/messages/restore_config_request.proto\x12\x11gcommon.v1.config\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x9e\x01\n\x14RestoreConfigRequest\x12(\n\x10restore_point_id\x18\x01 \x01(\tR\x0erestorePointId\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.restore_config_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_RESTORECONFIGREQUEST']._serialized_start=165
   _globals['_RESTORECONFIGREQUEST']._serialized_end=323
 # @@protoc_insertion_point(module_scope)

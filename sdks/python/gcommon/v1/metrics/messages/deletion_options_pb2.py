@@ -26,14 +26,14 @@ from gcommon.v1.metrics.enums import cleanup_strategy_pb2 as gcommon_dot_v1_dot_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/metrics/messages/deletion_options.proto\x12\x12gcommon.v1.metrics\x1a/gcommon/v1/metrics/enums/cleanup_strategy.proto\x1a!google/protobuf/go_features.proto\"\xc9\x03\n\x0f\x44\x65letionOptions\x12\x1f\n\x0b\x64\x65lete_data\x18\x01 \x01(\x08R\ndeleteData\x12%\n\x0e\x64\x65lete_indices\x18\x02 \x01(\x08R\rdeleteIndices\x12%\n\x0e\x64\x65lete_backups\x18\x03 \x01(\x08R\rdeleteBackups\x12!\n\x0cstop_exports\x18\x04 \x01(\x08R\x0bstopExports\x12!\n\x0cgrace_period\x18\x05 \x01(\tR\x0bgracePeriod\x12\x17\n\x07\x64ry_run\x18\x06 \x01(\x08R\x06\x64ryRun\x12\x14\n\x05\x66orce\x18\x07 \x01(\x08R\x05\x66orce\x12#\n\rcreate_backup\x18\x08 \x01(\x08R\x0c\x63reateBackup\x12N\n\x10\x63leanup_strategy\x18\t \x01(\x0e\x32#.gcommon.v1.metrics.CleanupStrategyR\x0f\x63leanupStrategy\x12.\n\x13wait_for_completion\x18\n \x01(\x08R\x11waitForCompletion\x12-\n\x12\x63ompletion_timeout\x18\x0b \x01(\tR\x11\x63ompletionTimeoutB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/metrics/messages/deletion_options.proto\x12\x12gcommon.v1.metrics\x1a/gcommon/v1/metrics/enums/cleanup_strategy.proto\x1a!google/protobuf/go_features.proto\"\xc9\x03\n\x0f\x44\x65letionOptions\x12\x1f\n\x0b\x64\x65lete_data\x18\x01 \x01(\x08R\ndeleteData\x12%\n\x0e\x64\x65lete_indices\x18\x02 \x01(\x08R\rdeleteIndices\x12%\n\x0e\x64\x65lete_backups\x18\x03 \x01(\x08R\rdeleteBackups\x12!\n\x0cstop_exports\x18\x04 \x01(\x08R\x0bstopExports\x12!\n\x0cgrace_period\x18\x05 \x01(\tR\x0bgracePeriod\x12\x17\n\x07\x64ry_run\x18\x06 \x01(\x08R\x06\x64ryRun\x12\x14\n\x05\x66orce\x18\x07 \x01(\x08R\x05\x66orce\x12#\n\rcreate_backup\x18\x08 \x01(\x08R\x0c\x63reateBackup\x12N\n\x10\x63leanup_strategy\x18\t \x01(\x0e\x32#.gcommon.v1.metrics.CleanupStrategyR\x0f\x63leanupStrategy\x12.\n\x13wait_for_completion\x18\n \x01(\x08R\x11waitForCompletion\x12-\n\x12\x63ompletion_timeout\x18\x0b \x01(\tR\x11\x63ompletionTimeoutB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.deletion_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_DELETIONOPTIONS']._serialized_start=159
   _globals['_DELETIONOPTIONS']._serialized_end=616
 # @@protoc_insertion_point(module_scope)

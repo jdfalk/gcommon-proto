@@ -28,14 +28,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/queue/messages/durability_config.proto\x12\x10gcommon.v1.queue\x1a&gcommon/v1/queue/enums/ack_level.proto\x1a)gcommon/v1/queue/enums/flush_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb9\x03\n\x10\x44urabilityConfig\x12\x1e\n\npersistent\x18\x01 \x01(\x08R\npersistent\x12@\n\x0c\x66lush_policy\x18\x02 \x01(\x0e\x32\x1d.gcommon.v1.queue.FlushPolicyR\x0b\x66lushPolicy\x12-\n\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12\x37\n\tack_level\x18\x04 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12H\n\x12\x64urability_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11\x64urabilityTimeout\x12&\n\x0fwrite_ahead_log\x18\x06 \x01(\x08R\rwriteAheadLog\x12>\n\rsync_interval\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0csyncInterval\x12)\n\x10verify_checksums\x18\x08 \x01(\x08R\x0fverifyChecksumsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/queue/messages/durability_config.proto\x12\x10gcommon.v1.queue\x1a&gcommon/v1/queue/enums/ack_level.proto\x1a)gcommon/v1/queue/enums/flush_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb9\x03\n\x10\x44urabilityConfig\x12\x1e\n\npersistent\x18\x01 \x01(\x08R\npersistent\x12@\n\x0c\x66lush_policy\x18\x02 \x01(\x0e\x32\x1d.gcommon.v1.queue.FlushPolicyR\x0b\x66lushPolicy\x12-\n\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12\x37\n\tack_level\x18\x04 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12H\n\x12\x64urability_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11\x64urabilityTimeout\x12&\n\x0fwrite_ahead_log\x18\x06 \x01(\x08R\rwriteAheadLog\x12>\n\rsync_interval\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0csyncInterval\x12)\n\x10verify_checksums\x18\x08 \x01(\x08R\x0fverifyChecksumsB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.durability_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_DURABILITYCONFIG']._serialized_start=222
   _globals['_DURABILITYCONFIG']._serialized_end=663
 # @@protoc_insertion_point(module_scope)

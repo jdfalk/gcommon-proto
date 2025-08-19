@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/messages/pebble_config.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\xae\x01\n\x0cPebbleConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x1d\n\ncache_size\x18\x02 \x01(\x03R\tcacheSize\x12#\n\rmemtable_size\x18\x03 \x01(\x03R\x0cmemtableSize\x12$\n\x0emax_open_files\x18\x04 \x01(\x05R\x0cmaxOpenFiles\x12 \n\x0b\x63ompression\x18\x05 \x01(\x08R\x0b\x63ompressionB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/messages/pebble_config.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"\xae\x01\n\x0cPebbleConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x1d\n\ncache_size\x18\x02 \x01(\x03R\tcacheSize\x12#\n\rmemtable_size\x18\x03 \x01(\x03R\x0cmemtableSize\x12$\n\x0emax_open_files\x18\x04 \x01(\x05R\x0cmaxOpenFiles\x12 \n\x0b\x63ompression\x18\x05 \x01(\x08R\x0b\x63ompressionB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.pebble_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/database\222\003\005\322>\002\020\003'
   _globals['_PEBBLECONFIG']._serialized_start=109
   _globals['_PEBBLECONFIG']._serialized_end=283
 # @@protoc_insertion_point(module_scope)

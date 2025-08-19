@@ -27,14 +27,14 @@ from gcommon.v1.organization.messages import organization_pb2 as gcommon_dot_v1_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nBgcommon/v1/organization/messages/create_organization_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x33gcommon/v1/organization/messages/organization.proto\x1a!google/protobuf/go_features.proto\"\x95\x03\n\x19\x43reateOrganizationRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12I\n\x0corganization\x18\x02 \x01(\x0b\x32%.gcommon.v1.organization.OrganizationR\x0corganization\x12\x32\n\x15\x63reate_default_tenant\x18\x03 \x01(\x08R\x13\x63reateDefaultTenant\x12\x32\n\x15initial_settings_json\x18\x04 \x01(\tR\x13initialSettingsJson\x12\"\n\rowner_user_id\x18\x05 \x01(\tR\x0bownerUserId\x12,\n\x12send_welcome_email\x18\x06 \x01(\x08R\x10sendWelcomeEmail\x12\x33\n\x15organization_template\x18\x07 \x01(\tR\x14organizationTemplateB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nBgcommon/v1/organization/messages/create_organization_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x33gcommon/v1/organization/messages/organization.proto\x1a!google/protobuf/go_features.proto\"\x95\x03\n\x19\x43reateOrganizationRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12I\n\x0corganization\x18\x02 \x01(\x0b\x32%.gcommon.v1.organization.OrganizationR\x0corganization\x12\x32\n\x15\x63reate_default_tenant\x18\x03 \x01(\x08R\x13\x63reateDefaultTenant\x12\x32\n\x15initial_settings_json\x18\x04 \x01(\tR\x13initialSettingsJson\x12\"\n\rowner_user_id\x18\x05 \x01(\tR\x0bownerUserId\x12,\n\x12send_welcome_email\x18\x06 \x01(\x08R\x10sendWelcomeEmail\x12\x33\n\x15organization_template\x18\x07 \x01(\tR\x14organizationTemplateB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.create_organization_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_CREATEORGANIZATIONREQUEST']._serialized_start=235
   _globals['_CREATEORGANIZATIONREQUEST']._serialized_end=640
 # @@protoc_insertion_point(module_scope)

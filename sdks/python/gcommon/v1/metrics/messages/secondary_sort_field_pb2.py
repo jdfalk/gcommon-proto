@@ -26,14 +26,14 @@ from gcommon.v1.common.enums import sort_direction_pb2 as gcommon_dot_v1_dot_com
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/secondary_sort_field.proto\x12\x12gcommon.v1.metrics\x1a,gcommon/v1/common/enums/sort_direction.proto\x1a!google/protobuf/go_features.proto\"j\n\x12SecondarySortField\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12>\n\tdirection\x18\x02 \x01(\x0e\x32 .gcommon.v1.common.SortDirectionR\tdirectionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/secondary_sort_field.proto\x12\x12gcommon.v1.metrics\x1a,gcommon/v1/common/enums/sort_direction.proto\x1a!google/protobuf/go_features.proto\"j\n\x12SecondarySortField\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12>\n\tdirection\x18\x02 \x01(\x0e\x32 .gcommon.v1.common.SortDirectionR\tdirectionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.secondary_sort_field_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_SECONDARYSORTFIELD']._serialized_start=159
   _globals['_SECONDARYSORTFIELD']._serialized_end=265
 # @@protoc_insertion_point(module_scope)

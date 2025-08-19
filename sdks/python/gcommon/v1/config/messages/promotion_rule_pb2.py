@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/promotion_rule.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\"\xea\x02\n\rPromotionRule\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12-\n\x12source_environment\x18\x02 \x01(\tR\x11sourceEnvironment\x12-\n\x12target_environment\x18\x03 \x01(\tR\x11targetEnvironment\x12\x1e\n\nconditions\x18\x04 \x03(\tR\nconditions\x12+\n\x11\x61pproval_required\x18\x05 \x01(\x08R\x10\x61pprovalRequired\x12\x1c\n\tapprovers\x18\x06 \x03(\tR\tapprovers\x12\x1c\n\tautomatic\x18\x07 \x01(\x08R\tautomatic\x12\x1a\n\x08schedule\x18\x08 \x01(\tR\x08schedule\x12\x18\n\x07\x66ilters\x18\t \x03(\tR\x07\x66ilters\x12(\n\x0ftransformations\x18\n \x03(\tR\x0ftransformationsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/promotion_rule.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\"\xea\x02\n\rPromotionRule\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12-\n\x12source_environment\x18\x02 \x01(\tR\x11sourceEnvironment\x12-\n\x12target_environment\x18\x03 \x01(\tR\x11targetEnvironment\x12\x1e\n\nconditions\x18\x04 \x03(\tR\nconditions\x12+\n\x11\x61pproval_required\x18\x05 \x01(\x08R\x10\x61pprovalRequired\x12\x1c\n\tapprovers\x18\x06 \x03(\tR\tapprovers\x12\x1c\n\tautomatic\x18\x07 \x01(\x08R\tautomatic\x12\x1a\n\x08schedule\x18\x08 \x01(\tR\x08schedule\x12\x18\n\x07\x66ilters\x18\t \x03(\tR\x07\x66ilters\x12(\n\x0ftransformations\x18\n \x03(\tR\x0ftransformationsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.promotion_rule_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_PROMOTIONRULE']._serialized_start=106
   _globals['_PROMOTIONRULE']._serialized_end=468
 # @@protoc_insertion_point(module_scope)

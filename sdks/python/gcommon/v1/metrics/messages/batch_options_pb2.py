@@ -26,14 +26,14 @@ from gcommon.v1.metrics.messages import batch_priority_pb2 as gcommon_dot_v1_dot
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/batch_options.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/messages/batch_priority.proto\x1a!google/protobuf/go_features.proto\"\xd7\x02\n\x13MetricsBatchOptions\x12/\n\x13parallel_processing\x18\x01 \x01(\x08R\x12parallelProcessing\x12\'\n\x0fmax_concurrency\x18\x02 \x01(\x05R\x0emaxConcurrency\x12 \n\x0b\x64\x65\x64uplicate\x18\x03 \x01(\x08R\x0b\x64\x65\x64uplicate\x12\x36\n\x17return_detailed_results\x18\x04 \x01(\x08R\x15returnDetailedResults\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12$\n\rtransactional\x18\x06 \x01(\x08R\rtransactional\x12=\n\x08priority\x18\x07 \x01(\x0e\x32!.gcommon.v1.metrics.BatchPriorityR\x08priorityB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/batch_options.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/messages/batch_priority.proto\x1a!google/protobuf/go_features.proto\"\xd7\x02\n\x13MetricsBatchOptions\x12/\n\x13parallel_processing\x18\x01 \x01(\x08R\x12parallelProcessing\x12\'\n\x0fmax_concurrency\x18\x02 \x01(\x05R\x0emaxConcurrency\x12 \n\x0b\x64\x65\x64uplicate\x18\x03 \x01(\x08R\x0b\x64\x65\x64uplicate\x12\x36\n\x17return_detailed_results\x18\x04 \x01(\x08R\x15returnDetailedResults\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12$\n\rtransactional\x18\x06 \x01(\x08R\rtransactional\x12=\n\x08priority\x18\x07 \x01(\x0e\x32!.gcommon.v1.metrics.BatchPriorityR\x08priorityB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.batch_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_METRICSBATCHOPTIONS']._serialized_start=157
   _globals['_METRICSBATCHOPTIONS']._serialized_end=500
 # @@protoc_insertion_point(module_scope)

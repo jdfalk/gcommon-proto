@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/performance_options.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd0\x01\n\x12PerformanceOptions\x12!\n\x0cworker_count\x18\x01 \x01(\x05R\x0bworkerCount\x12\x1d\n\nbatch_size\x18\x02 \x01(\x05R\tbatchSize\x12$\n\x0e\x62uffer_size_mb\x18\x03 \x01(\x05R\x0c\x62ufferSizeMb\x12-\n\x12\x65nable_compression\x18\x04 \x01(\x08R\x11\x65nableCompression\x12#\n\rthrottle_rate\x18\x05 \x01(\x05R\x0cthrottleRateB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/performance_options.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd0\x01\n\x12PerformanceOptions\x12!\n\x0cworker_count\x18\x01 \x01(\x05R\x0bworkerCount\x12\x1d\n\nbatch_size\x18\x02 \x01(\x05R\tbatchSize\x12$\n\x0e\x62uffer_size_mb\x18\x03 \x01(\x05R\x0c\x62ufferSizeMb\x12-\n\x12\x65nable_compression\x18\x04 \x01(\x08R\x11\x65nableCompression\x12#\n\rthrottle_rate\x18\x05 \x01(\x05R\x0cthrottleRateB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.performance_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_PERFORMANCEOPTIONS']._serialized_start=109
   _globals['_PERFORMANCEOPTIONS']._serialized_end=317
 # @@protoc_insertion_point(module_scope)

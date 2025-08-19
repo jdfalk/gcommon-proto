@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/messages/metric_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"s\n\x0bMetricStats\x12\x10\n\x03min\x18\x01 \x01(\x01R\x03min\x12\x10\n\x03max\x18\x02 \x01(\x01R\x03max\x12\x18\n\x07\x61verage\x18\x03 \x01(\x01R\x07\x61verage\x12\x10\n\x03sum\x18\x04 \x01(\x01R\x03sum\x12\x14\n\x05\x63ount\x18\x05 \x01(\x03R\x05\x63ountB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/messages/metric_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"s\n\x0bMetricStats\x12\x10\n\x03min\x18\x01 \x01(\x01R\x03min\x12\x10\n\x03max\x18\x02 \x01(\x01R\x03max\x12\x18\n\x07\x61verage\x18\x03 \x01(\x01R\x07\x61verage\x12\x10\n\x03sum\x18\x04 \x01(\x01R\x03sum\x12\x14\n\x05\x63ount\x18\x05 \x01(\x03R\x05\x63ountB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.metric_stats_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z)github.com/jdfalk/gcommon/sdks/go/metrics\222\003\005\322>\002\020\003'
   _globals['_METRICSTATS']._serialized_start=105
   _globals['_METRICSTATS']._serialized_end=220
 # @@protoc_insertion_point(module_scope)

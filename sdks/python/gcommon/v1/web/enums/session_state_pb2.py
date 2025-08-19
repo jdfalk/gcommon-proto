@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/web/enums/session_state.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x80\x01\n\x0fWebSessionState\x12\x1d\n\x19SESSION_STATE_UNSPECIFIED\x10\x00\x12\x18\n\x14SESSION_STATE_ACTIVE\x10\x01\x12\x19\n\x15SESSION_STATE_EXPIRED\x10\x02\x12\x19\n\x15SESSION_STATE_REVOKED\x10\x03\x42+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/web/enums/session_state.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x80\x01\n\x0fWebSessionState\x12\x1d\n\x19SESSION_STATE_UNSPECIFIED\x10\x00\x12\x18\n\x14SESSION_STATE_ACTIVE\x10\x01\x12\x19\n\x15SESSION_STATE_EXPIRED\x10\x02\x12\x19\n\x15SESSION_STATE_REVOKED\x10\x03\x42/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.enums.session_state_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z!github.com/jdfalk/gcommon/pkg/web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/sdks/go/web\222\003\005\322>\002\020\003'
   _globals['_WEBSESSIONSTATE']._serialized_start=96
   _globals['_WEBSESSIONSTATE']._serialized_end=224
 # @@protoc_insertion_point(module_scope)

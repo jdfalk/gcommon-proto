@@ -27,14 +27,14 @@ from gcommon.v1.config.messages import config_validation_warning_pb2 as gcommon_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/config/messages/validate_config_response.proto\x12\x11gcommon.v1.config\x1a\x38gcommon/v1/config/messages/config_validation_error.proto\x1a:gcommon/v1/config/messages/config_validation_warning.proto\x1a!google/protobuf/go_features.proto\"\xb8\x01\n\x16ValidateConfigResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\x12@\n\x06\x65rrors\x18\x02 \x03(\x0b\x32(.gcommon.v1.config.ConfigValidationErrorR\x06\x65rrors\x12\x46\n\x08warnings\x18\x03 \x03(\x0b\x32*.gcommon.v1.config.ConfigValidationWarningR\x08warningsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/config/messages/validate_config_response.proto\x12\x11gcommon.v1.config\x1a\x38gcommon/v1/config/messages/config_validation_error.proto\x1a:gcommon/v1/config/messages/config_validation_warning.proto\x1a!google/protobuf/go_features.proto\"\xb8\x01\n\x16ValidateConfigResponse\x12\x14\n\x05valid\x18\x01 \x01(\x08R\x05valid\x12@\n\x06\x65rrors\x18\x02 \x03(\x0b\x32(.gcommon.v1.config.ConfigValidationErrorR\x06\x65rrors\x12\x46\n\x08warnings\x18\x03 \x03(\x0b\x32*.gcommon.v1.config.ConfigValidationWarningR\x08warningsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.validate_config_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_VALIDATECONFIGRESPONSE']._serialized_start=234
   _globals['_VALIDATECONFIGRESPONSE']._serialized_end=418
 # @@protoc_insertion_point(module_scope)

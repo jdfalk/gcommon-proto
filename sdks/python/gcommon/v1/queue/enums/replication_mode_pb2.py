@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/enums/replication_mode.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\xeb\x01\n\x0fReplicationMode\x12 \n\x1cREPLICATION_MODE_UNSPECIFIED\x10\x00\x12\x19\n\x15REPLICATION_MODE_NONE\x10\x01\x12\x19\n\x15REPLICATION_MODE_SYNC\x10\x02\x12\x1a\n\x16REPLICATION_MODE_ASYNC\x10\x03\x12\x1b\n\x17REPLICATION_MODE_QUORUM\x10\x04\x12$\n REPLICATION_MODE_LEADER_FOLLOWER\x10\x05\x12!\n\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06\x42-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/enums/replication_mode.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\xeb\x01\n\x0fReplicationMode\x12 \n\x1cREPLICATION_MODE_UNSPECIFIED\x10\x00\x12\x19\n\x15REPLICATION_MODE_NONE\x10\x01\x12\x19\n\x15REPLICATION_MODE_SYNC\x10\x02\x12\x1a\n\x16REPLICATION_MODE_ASYNC\x10\x03\x12\x1b\n\x17REPLICATION_MODE_QUORUM\x10\x04\x12$\n REPLICATION_MODE_LEADER_FOLLOWER\x10\x05\x12!\n\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06\x42\x31Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.enums.replication_mode_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_REPLICATIONMODE']._serialized_start=103
   _globals['_REPLICATIONMODE']._serialized_end=338
 # @@protoc_insertion_point(module_scope)

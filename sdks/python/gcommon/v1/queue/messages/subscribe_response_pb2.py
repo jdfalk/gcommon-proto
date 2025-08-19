@@ -28,14 +28,14 @@ from gcommon.v1.queue.messages import queue_message_pb2 as gcommon_dot_v1_dot_qu
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/subscribe_response.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/queue/messages/connection_details.proto\x1a\x30gcommon/v1/queue/messages/partition_offset.proto\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xae\x02\n\x11SubscribeResponse\x12\x38\n\x07message\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x07message\x12L\n\x10partition_offset\x18\x02 \x01(\x0b\x32!.gcommon.v1.queue.PartitionOffsetR\x0fpartitionOffset\x12R\n\x12\x63onnection_details\x18\x03 \x01(\x0b\x32#.gcommon.v1.queue.ConnectionDetailsR\x11\x63onnectionDetails\x12\'\n\x0fsubscription_id\x18\x04 \x01(\tR\x0esubscriptionId\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/subscribe_response.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/queue/messages/connection_details.proto\x1a\x30gcommon/v1/queue/messages/partition_offset.proto\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xae\x02\n\x11SubscribeResponse\x12\x38\n\x07message\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x07message\x12L\n\x10partition_offset\x18\x02 \x01(\x0b\x32!.gcommon.v1.queue.PartitionOffsetR\x0fpartitionOffset\x12R\n\x12\x63onnection_details\x18\x03 \x01(\x0b\x32#.gcommon.v1.queue.ConnectionDetailsR\x11\x63onnectionDetails\x12\'\n\x0fsubscription_id\x18\x04 \x01(\tR\x0esubscriptionId\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.subscribe_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_SUBSCRIBERESPONSE']._serialized_start=257
   _globals['_SUBSCRIBERESPONSE']._serialized_end=559
 # @@protoc_insertion_point(module_scope)

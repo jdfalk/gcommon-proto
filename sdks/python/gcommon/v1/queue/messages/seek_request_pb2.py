@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/seek_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd5\x02\n\x0bSeekRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12+\n\x11subscription_name\x18\x02 \x01(\tR\x10subscriptionName\x12:\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\ttimestamp\x12\x18\n\x06offset\x18\x04 \x01(\x03H\x00R\x06offset\x12\x1e\n\tbeginning\x18\x05 \x01(\x08H\x00R\tbeginning\x12\x12\n\x03\x65nd\x18\x06 \x01(\x08H\x00R\x03\x65nd\x12\x1f\n\nmessage_id\x18\x07 \x01(\tH\x00R\tmessageId\x12>\n\x08metadata\x18\x64 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\x0f\n\rseek_positionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/seek_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd5\x02\n\x0bSeekRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12+\n\x11subscription_name\x18\x02 \x01(\tR\x10subscriptionName\x12:\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00R\ttimestamp\x12\x18\n\x06offset\x18\x04 \x01(\x03H\x00R\x06offset\x12\x1e\n\tbeginning\x18\x05 \x01(\x08H\x00R\tbeginning\x12\x12\n\x03\x65nd\x18\x06 \x01(\x08H\x00R\x03\x65nd\x12\x1f\n\nmessage_id\x18\x07 \x01(\tH\x00R\tmessageId\x12>\n\x08metadata\x18\x64 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\x0f\n\rseek_positionB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.seek_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
   _globals['_SEEKREQUEST']._serialized_start=186
   _globals['_SEEKREQUEST']._serialized_end=527
 # @@protoc_insertion_point(module_scope)

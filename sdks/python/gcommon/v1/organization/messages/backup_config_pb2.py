@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/messages/backup_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xd9\x01\n\x18OrganizationBackupConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1c\n\tfrequency\x18\x02 \x01(\tR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x33\n\x16point_in_time_recovery\x18\x05 \x01(\x08R\x13pointInTimeRecoveryB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/messages/backup_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xd9\x01\n\x18OrganizationBackupConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1c\n\tfrequency\x18\x02 \x01(\tR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x33\n\x16point_in_time_recovery\x18\x05 \x01(\x08R\x13pointInTimeRecoveryB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.backup_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z.github.com/jdfalk/gcommon/sdks/go/organization\222\003\005\322>\002\020\003'
   _globals['_ORGANIZATIONBACKUPCONFIG']._serialized_start=117
   _globals['_ORGANIZATIONBACKUPCONFIG']._serialized_end=334
 # @@protoc_insertion_point(module_scope)

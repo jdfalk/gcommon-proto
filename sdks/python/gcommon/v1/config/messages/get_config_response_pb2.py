@@ -27,14 +27,14 @@ from gcommon.v1.config.messages import config_entry_pb2 as gcommon_dot_v1_dot_co
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/get_config_response.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/messages/error.proto\x1a-gcommon/v1/config/messages/config_entry.proto\x1a!google/protobuf/go_features.proto\"\x8f\x01\n\x11GetConfigResponse\x12\x34\n\x05\x65ntry\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.config.ConfigEntryR\x05\x65ntry\x12\x14\n\x05\x66ound\x18\x02 \x01(\x08R\x05\x66ound\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/get_config_response.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/messages/error.proto\x1a-gcommon/v1/config/messages/config_entry.proto\x1a!google/protobuf/go_features.proto\"\x8f\x01\n\x11GetConfigResponse\x12\x34\n\x05\x65ntry\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.config.ConfigEntryR\x05\x65ntry\x12\x14\n\x05\x66ound\x18\x02 \x01(\x08R\x05\x66ound\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.get_config_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/config\222\003\005\322>\002\020\003'
   _globals['_GETCONFIGRESPONSE']._serialized_start=198
   _globals['_GETCONFIGRESPONSE']._serialized_end=341
 # @@protoc_insertion_point(module_scope)
