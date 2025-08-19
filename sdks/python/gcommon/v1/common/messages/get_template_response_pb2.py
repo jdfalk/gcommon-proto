@@ -26,14 +26,14 @@ from gcommon.v1.common.messages import template_pb2 as gcommon_dot_v1_dot_common
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/common/messages/get_template_response.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/common/messages/template.proto\x1a!google/protobuf/go_features.proto\"R\n\x13GetTemplateResponse\x12;\n\x08template\x18\x01 \x01(\x0b\x32\x1b.gcommon.v1.common.TemplateB\x02(\x01R\x08templateBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/common/messages/get_template_response.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/common/messages/template.proto\x1a!google/protobuf/go_features.proto\"R\n\x13GetTemplateResponse\x12;\n\x08template\x18\x01 \x01(\x0b\x32\x1b.gcommon.v1.common.TemplateB\x02(\x01R\x08templateB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.get_template_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_GETTEMPLATERESPONSE'].fields_by_name['template']._loaded_options = None
   _globals['_GETTEMPLATERESPONSE'].fields_by_name['template']._serialized_options = b'(\001'
   _globals['_GETTEMPLATERESPONSE']._serialized_start=155

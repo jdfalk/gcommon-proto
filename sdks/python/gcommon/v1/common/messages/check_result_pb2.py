@@ -29,14 +29,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/messages/check_result.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n\x0b\x43heckResult\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12=\n\x06status\x18\x02 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12@\n\x0e\x65xecution_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12\x18\n\x07message\x18\x05 \x01(\tR\x07message\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12H\n\x08metadata\x18\x07 \x03(\x0b\x32,.gcommon.v1.common.CheckResult.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x46Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/messages/check_result.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n\x0b\x43heckResult\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12=\n\x06status\x18\x02 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12@\n\x0e\x65xecution_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12\x18\n\x07message\x18\x05 \x01(\tR\x07message\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12H\n\x08metadata\x18\x07 \x03(\x0b\x32,.gcommon.v1.common.CheckResult.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.check_result_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_CHECKRESULT_METADATAENTRY']._loaded_options = None
   _globals['_CHECKRESULT_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_CHECKRESULT']._serialized_start=254

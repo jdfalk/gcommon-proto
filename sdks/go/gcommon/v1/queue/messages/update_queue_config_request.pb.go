@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,13 +26,13 @@ const (
 // Request to update configuration for an existing queue.
 // Allows modification of queue properties after creation.
 type UpdateQueueConfigRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Config      *QueueConfig              `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_UpdateMask  []string                  `protobuf:"bytes,3,rep,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	xxx_hidden_Force       bool                      `protobuf:"varint,5,opt,name=force"`
-	xxx_hidden_Reason      *string                   `protobuf:"bytes,6,opt,name=reason"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Config      *QueueConfig            `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_UpdateMask  []string                `protobuf:"bytes,3,rep,name=update_mask,json=updateMask"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Force       bool                    `protobuf:"varint,5,opt,name=force"`
+	xxx_hidden_Reason      *string                 `protobuf:"bytes,6,opt,name=reason"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -88,7 +88,7 @@ func (x *UpdateQueueConfigRequest) GetUpdateMask() []string {
 	return nil
 }
 
-func (x *UpdateQueueConfigRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateQueueConfigRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -125,7 +125,7 @@ func (x *UpdateQueueConfigRequest) SetUpdateMask(v []string) {
 	x.xxx_hidden_UpdateMask = v
 }
 
-func (x *UpdateQueueConfigRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateQueueConfigRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -207,7 +207,7 @@ type UpdateQueueConfigRequest_builder struct {
 	// Fields to update (field mask)
 	UpdateMask []string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Force update even if it might cause data loss
 	Force *bool
 	// Reason for the configuration update
@@ -255,7 +255,7 @@ var file_gcommon_v1_queue_messages_update_queue_config_request_proto_msgTypes = 
 var file_gcommon_v1_queue_messages_update_queue_config_request_proto_goTypes = []any{
 	(*UpdateQueueConfigRequest)(nil), // 0: gcommon.v1.queue.UpdateQueueConfigRequest
 	(*QueueConfig)(nil),              // 1: gcommon.v1.queue.QueueConfig
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_update_queue_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.UpdateQueueConfigRequest.config:type_name -> gcommon.v1.queue.QueueConfig

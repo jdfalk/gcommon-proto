@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type SendMessageRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName       *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Message         *QueueMessage             `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_DeliveryOptions *DeliveryOptions          `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName       *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Message         *QueueMessage           `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_DeliveryOptions *DeliveryOptions        `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
+	xxx_hidden_Metadata        *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -83,7 +83,7 @@ func (x *SendMessageRequest) GetDeliveryOptions() *DeliveryOptions {
 	return nil
 }
 
-func (x *SendMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SendMessageRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -103,7 +103,7 @@ func (x *SendMessageRequest) SetDeliveryOptions(v *DeliveryOptions) {
 	x.xxx_hidden_DeliveryOptions = v
 }
 
-func (x *SendMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SendMessageRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -162,7 +162,7 @@ type SendMessageRequest_builder struct {
 	// Optional delivery parameters.
 	DeliveryOptions *DeliveryOptions
 	// Standard request metadata.
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 SendMessageRequest_builder) Build() *SendMessageRequest {
@@ -193,10 +193,10 @@ const file_gcommon_v1_queue_messages_send_message_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_send_message_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_send_message_request_proto_goTypes = []any{
-	(*SendMessageRequest)(nil),       // 0: gcommon.v1.queue.SendMessageRequest
-	(*QueueMessage)(nil),             // 1: gcommon.v1.queue.QueueMessage
-	(*DeliveryOptions)(nil),          // 2: gcommon.v1.queue.DeliveryOptions
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*SendMessageRequest)(nil),     // 0: gcommon.v1.queue.SendMessageRequest
+	(*QueueMessage)(nil),           // 1: gcommon.v1.queue.QueueMessage
+	(*DeliveryOptions)(nil),        // 2: gcommon.v1.queue.DeliveryOptions
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_send_message_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.SendMessageRequest.message:type_name -> gcommon.v1.queue.QueueMessage

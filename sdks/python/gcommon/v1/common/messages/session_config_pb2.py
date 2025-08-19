@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/session_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xff\x01\n\x11\x41uthSessionConfig\x12\x30\n\x14idle_timeout_seconds\x18\x01 \x01(\x05R\x12idleTimeoutSeconds\x12:\n\x19\x61\x62solute_lifetime_seconds\x18\x02 \x01(\x05R\x17\x61\x62soluteLifetimeSeconds\x12\x36\n\x17persist_across_restarts\x18\x03 \x01(\x08R\x15persistAcrossRestarts\x12\x1f\n\x0b\x63ookie_name\x18\x04 \x01(\tR\ncookieName\x12#\n\rsecure_cookie\x18\x05 \x01(\x08R\x0csecureCookieBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/session_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xff\x01\n\x11\x41uthSessionConfig\x12\x30\n\x14idle_timeout_seconds\x18\x01 \x01(\x05R\x12idleTimeoutSeconds\x12:\n\x19\x61\x62solute_lifetime_seconds\x18\x02 \x01(\x05R\x17\x61\x62soluteLifetimeSeconds\x12\x36\n\x17persist_across_restarts\x18\x03 \x01(\x08R\x15persistAcrossRestarts\x12\x1f\n\x0b\x63ookie_name\x18\x04 \x01(\tR\ncookieName\x12#\n\rsecure_cookie\x18\x05 \x01(\x08R\x0csecureCookieB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.session_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_AUTHSESSIONCONFIG']._serialized_start=106
   _globals['_AUTHSESSIONCONFIG']._serialized_end=361
 # @@protoc_insertion_point(module_scope)

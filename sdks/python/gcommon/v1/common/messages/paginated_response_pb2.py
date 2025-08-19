@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/messages/paginated_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xe5\x01\n\x11PaginatedResponse\x12&\n\x0fnext_page_token\x18\x01 \x01(\tR\rnextPageToken\x12&\n\x0fprev_page_token\x18\x02 \x01(\tR\rprevPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount\x12!\n\x0c\x63urrent_page\x18\x04 \x01(\x05R\x0b\x63urrentPage\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPages\x12\x1b\n\tpage_size\x18\x06 \x01(\x05R\x08pageSizeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/messages/paginated_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xe5\x01\n\x11PaginatedResponse\x12&\n\x0fnext_page_token\x18\x01 \x01(\tR\rnextPageToken\x12&\n\x0fprev_page_token\x18\x02 \x01(\tR\rprevPageToken\x12\x1f\n\x0btotal_count\x18\x03 \x01(\x05R\ntotalCount\x12!\n\x0c\x63urrent_page\x18\x04 \x01(\x05R\x0b\x63urrentPage\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPages\x12\x1b\n\tpage_size\x18\x06 \x01(\x05R\x08pageSizeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.paginated_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_PAGINATEDRESPONSE']._serialized_start=110
   _globals['_PAGINATEDRESPONSE']._serialized_end=339
 # @@protoc_insertion_point(module_scope)

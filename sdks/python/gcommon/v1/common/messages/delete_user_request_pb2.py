@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/common/messages/delete_user_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xbd\x01\n\x11\x44\x65leteUserRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1f\n\x0bsoft_delete\x18\x02 \x01(\x08R\nsoftDelete\x12\x16\n\x06reason\x18\x03 \x01(\tR\x06reason\x12-\n\x13transfer_to_user_id\x18\x04 \x01(\tR\x10transferToUserId\x12\'\n\x0frevoke_sessions\x18\x05 \x01(\x08R\x0erevokeSessionsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/common/messages/delete_user_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xbd\x01\n\x11\x44\x65leteUserRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1f\n\x0bsoft_delete\x18\x02 \x01(\x08R\nsoftDelete\x12\x16\n\x06reason\x18\x03 \x01(\tR\x06reason\x12-\n\x13transfer_to_user_id\x18\x04 \x01(\tR\x10transferToUserId\x12\'\n\x0frevoke_sessions\x18\x05 \x01(\x08R\x0erevokeSessionsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.delete_user_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_DELETEUSERREQUEST']._serialized_start=111
   _globals['_DELETEUSERREQUEST']._serialized_end=300
 # @@protoc_insertion_point(module_scope)

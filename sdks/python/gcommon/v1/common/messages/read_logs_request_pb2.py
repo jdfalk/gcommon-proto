@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/common/messages/read_logs_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\x8f\x01\n\x0fReadLogsRequest\x12\x14\n\x05level\x18\x01 \x01(\tR\x05level\x12\x16\n\x06source\x18\x02 \x01(\tR\x06source\x12\x1d\n\nstart_time\x18\x03 \x01(\x03R\tstartTime\x12\x19\n\x08\x65nd_time\x18\x04 \x01(\x03R\x07\x65ndTime\x12\x14\n\x05limit\x18\x05 \x01(\x05R\x05limitBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/common/messages/read_logs_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\x8f\x01\n\x0fReadLogsRequest\x12\x14\n\x05level\x18\x01 \x01(\tR\x05level\x12\x16\n\x06source\x18\x02 \x01(\tR\x06source\x12\x1d\n\nstart_time\x18\x03 \x01(\x03R\tstartTime\x12\x19\n\x08\x65nd_time\x18\x04 \x01(\x03R\x07\x65ndTime\x12\x14\n\x05limit\x18\x05 \x01(\x05R\x05limitB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.read_logs_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_READLOGSREQUEST']._serialized_start=109
   _globals['_READLOGSREQUEST']._serialized_end=252
 # @@protoc_insertion_point(module_scope)

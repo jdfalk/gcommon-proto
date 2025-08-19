@@ -1,5 +1,4 @@
 from gcommon.v1.common.enums import subject_type_pb2 as _subject_type_pb2
-from gcommon.v1.common.messages import list_permissions_request_pb2 as _list_permissions_request_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

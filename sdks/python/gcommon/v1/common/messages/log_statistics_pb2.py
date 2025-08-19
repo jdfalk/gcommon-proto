@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/log_statistics.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xea\x01\n\rLogStatistics\x12#\n\rtotal_entries\x18\x01 \x01(\x03R\x0ctotalEntries\x12,\n\x12\x65ntries_per_second\x18\x02 \x01(\x01R\x10\x65ntriesPerSecond\x12!\n\x0c\x61verage_size\x18\x03 \x01(\x03R\x0b\x61verageSize\x12\x1d\n\ntotal_size\x18\x04 \x01(\x03R\ttotalSize\x12\x1f\n\x0b\x65rror_count\x18\x05 \x01(\x03R\nerrorCount\x12#\n\rwarning_count\x18\x06 \x01(\x03R\x0cwarningCountBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/log_statistics.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xea\x01\n\rLogStatistics\x12#\n\rtotal_entries\x18\x01 \x01(\x03R\x0ctotalEntries\x12,\n\x12\x65ntries_per_second\x18\x02 \x01(\x01R\x10\x65ntriesPerSecond\x12!\n\x0c\x61verage_size\x18\x03 \x01(\x03R\x0b\x61verageSize\x12\x1d\n\ntotal_size\x18\x04 \x01(\x03R\ttotalSize\x12\x1f\n\x0b\x65rror_count\x18\x05 \x01(\x03R\nerrorCount\x12#\n\rwarning_count\x18\x06 \x01(\x03R\x0cwarningCountB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.log_statistics_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_LOGSTATISTICS']._serialized_start=106
   _globals['_LOGSTATISTICS']._serialized_end=340
 # @@protoc_insertion_point(module_scope)

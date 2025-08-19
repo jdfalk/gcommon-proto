@@ -28,14 +28,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<gcommon/v1/common/messages/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n\x18GetServiceHealthResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x39\n\nlast_check\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheck\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<gcommon/v1/common/messages/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/enums/health_status.proto\x1a&gcommon/v1/common/messages/error.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n\x18GetServiceHealthResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x39\n\nlast_check\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheck\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.get_service_health_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_GETSERVICEHEALTHRESPONSE']._serialized_start=237
   _globals['_GETSERVICEHEALTHRESPONSE']._serialized_end=433
 # @@protoc_insertion_point(module_scope)

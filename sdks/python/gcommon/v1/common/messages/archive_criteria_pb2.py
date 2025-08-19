@@ -26,14 +26,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/common/messages/archive_criteria.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"}\n\x0f\x41rchiveCriteria\x12\x38\n\nolder_than\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tolderThan\x12\x30\n\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytesBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/common/messages/archive_criteria.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"}\n\x0f\x41rchiveCriteria\x12\x38\n\nolder_than\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tolderThan\x12\x30\n\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytesB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.archive_criteria_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_ARCHIVECRITERIA']._serialized_start=139
   _globals['_ARCHIVECRITERIA']._serialized_end=264
 # @@protoc_insertion_point(module_scope)

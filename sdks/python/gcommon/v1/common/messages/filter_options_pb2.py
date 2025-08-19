@@ -27,14 +27,14 @@ from gcommon.v1.common.messages import time_range_pb2 as gcommon_dot_v1_dot_comm
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a+gcommon/v1/common/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9a\x02\n\rFilterOptions\x12G\n\x07\x66ilters\x18\x01 \x03(\x0b\x32-.gcommon.v1.common.FilterOptions.FiltersEntryR\x07\x66ilters\x12!\n\x0csearch_query\x18\x02 \x01(\tR\x0bsearchQuery\x12\x41\n\ntime_range\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.CommonTimeRangeR\ttimeRange\x1aZ\n\x0c\x46iltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.common.FilterValueR\x05value:\x02\x38\x01\x42\x46Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a+gcommon/v1/common/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9a\x02\n\rFilterOptions\x12G\n\x07\x66ilters\x18\x01 \x03(\x0b\x32-.gcommon.v1.common.FilterOptions.FiltersEntryR\x07\x66ilters\x12!\n\x0csearch_query\x18\x02 \x01(\tR\x0bsearchQuery\x12\x41\n\ntime_range\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.CommonTimeRangeR\ttimeRange\x1aZ\n\x0c\x46iltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.common.FilterValueR\x05value:\x02\x38\x01\x42=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.filter_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_FILTEROPTIONS_FILTERSENTRY']._loaded_options = None
   _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_options = b'8\001'
   _globals['_FILTEROPTIONS']._serialized_start=198

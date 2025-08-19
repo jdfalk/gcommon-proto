@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/common/enums/role_scope.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa1\x01\n\tRoleScope\x12\x1a\n\x16ROLE_SCOPE_UNSPECIFIED\x10\x00\x12\x15\n\x11ROLE_SCOPE_GLOBAL\x10\x01\x12\x1b\n\x17ROLE_SCOPE_ORGANIZATION\x10\x02\x12\x16\n\x12ROLE_SCOPE_PROJECT\x10\x03\x12\x13\n\x0fROLE_SCOPE_TEAM\x10\x04\x12\x17\n\x13ROLE_SCOPE_RESOURCE\x10\x05\x42\x43Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/common/enums/role_scope.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa1\x01\n\tRoleScope\x12\x1a\n\x16ROLE_SCOPE_UNSPECIFIED\x10\x00\x12\x15\n\x11ROLE_SCOPE_GLOBAL\x10\x01\x12\x1b\n\x17ROLE_SCOPE_ORGANIZATION\x10\x02\x12\x16\n\x12ROLE_SCOPE_PROJECT\x10\x03\x12\x13\n\x0fROLE_SCOPE_TEAM\x10\x04\x12\x17\n\x13ROLE_SCOPE_RESOURCE\x10\x05\x42=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.enums.role_scope_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_ROLESCOPE']._serialized_start=99
   _globals['_ROLESCOPE']._serialized_end=260
 # @@protoc_insertion_point(module_scope)

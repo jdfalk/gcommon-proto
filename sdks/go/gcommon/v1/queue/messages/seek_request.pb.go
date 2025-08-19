@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type SeekRequest struct {
 	xxx_hidden_QueueName        *string                    `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
 	xxx_hidden_SubscriptionName *string                    `protobuf:"bytes,2,opt,name=subscription_name,json=subscriptionName"`
 	xxx_hidden_SeekPosition     isSeekRequest_SeekPosition `protobuf_oneof:"seek_position"`
-	xxx_hidden_Metadata         *messages.RequestMetadata  `protobuf:"bytes,100,opt,name=metadata"`
+	xxx_hidden_Metadata         *common.RequestMetadata    `protobuf:"bytes,100,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -128,7 +128,7 @@ func (x *SeekRequest) GetMessageId() string {
 	return ""
 }
 
-func (x *SeekRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SeekRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -169,7 +169,7 @@ func (x *SeekRequest) SetMessageId(v string) {
 	x.xxx_hidden_SeekPosition = &seekRequest_MessageId{v}
 }
 
-func (x *SeekRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SeekRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -338,7 +338,7 @@ type SeekRequest_builder struct {
 	MessageId *string
 	// -- end of xxx_hidden_SeekPosition
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 SeekRequest_builder) Build() *SeekRequest {
@@ -441,9 +441,9 @@ const file_gcommon_v1_queue_messages_seek_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_messages_seek_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_seek_request_proto_goTypes = []any{
-	(*SeekRequest)(nil),              // 0: gcommon.v1.queue.SeekRequest
-	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*SeekRequest)(nil),            // 0: gcommon.v1.queue.SeekRequest
+	(*timestamppb.Timestamp)(nil),  // 1: google.protobuf.Timestamp
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_seek_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.SeekRequest.timestamp:type_name -> google.protobuf.Timestamp

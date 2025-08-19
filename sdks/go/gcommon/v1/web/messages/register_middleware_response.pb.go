@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ type RegisterMiddlewareResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Middleware  *MiddlewareInfo        `protobuf:"bytes,2,opt,name=middleware"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -73,7 +73,7 @@ func (x *RegisterMiddlewareResponse) GetMiddleware() *MiddlewareInfo {
 	return nil
 }
 
-func (x *RegisterMiddlewareResponse) GetError() *messages.Error {
+func (x *RegisterMiddlewareResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -89,7 +89,7 @@ func (x *RegisterMiddlewareResponse) SetMiddleware(v *MiddlewareInfo) {
 	x.xxx_hidden_Middleware = v
 }
 
-func (x *RegisterMiddlewareResponse) SetError(v *messages.Error) {
+func (x *RegisterMiddlewareResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -135,7 +135,7 @@ type RegisterMiddlewareResponse_builder struct {
 	// Details about the registered middleware
 	Middleware *MiddlewareInfo
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 RegisterMiddlewareResponse_builder) Build() *RegisterMiddlewareResponse {
@@ -167,7 +167,7 @@ var file_gcommon_v1_web_messages_register_middleware_response_proto_msgTypes = m
 var file_gcommon_v1_web_messages_register_middleware_response_proto_goTypes = []any{
 	(*RegisterMiddlewareResponse)(nil), // 0: gcommon.v1.web.RegisterMiddlewareResponse
 	(*MiddlewareInfo)(nil),             // 1: gcommon.v1.web.MiddlewareInfo
-	(*messages.Error)(nil),             // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),               // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_messages_register_middleware_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.RegisterMiddlewareResponse.middleware:type_name -> gcommon.v1.web.MiddlewareInfo

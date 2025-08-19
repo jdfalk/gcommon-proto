@@ -23,18 +23,17 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common.enums import subject_type_pb2 as gcommon_dot_v1_dot_common_dot_enums_dot_subject__type__pb2
-from gcommon.v1.common.messages import list_permissions_request_pb2 as gcommon_dot_v1_dot_common_dot_messages_dot_list__permissions__request__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/common/messages/revoke_permission_request.proto\x12\x11gcommon.v1.common\x1a*gcommon/v1/common/enums/subject_type.proto\x1a\x39gcommon/v1/common/messages/list_permissions_request.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n\x17RevokePermissionRequest\x12\x1d\n\nsubject_id\x18\x01 \x01(\tR\tsubjectId\x12\x45\n\x0csubject_type\x18\x02 \x01(\x0e\x32\".gcommon.v1.common.AuthSubjectTypeR\x0bsubjectType\x12#\n\rpermission_id\x18\x03 \x01(\tR\x0cpermissionIdBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/common/messages/revoke_permission_request.proto\x12\x11gcommon.v1.common\x1a*gcommon/v1/common/enums/subject_type.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n\x17RevokePermissionRequest\x12\x1d\n\nsubject_id\x18\x01 \x01(\tR\tsubjectId\x12\x45\n\x0csubject_type\x18\x02 \x01(\x0e\x32\".gcommon.v1.common.AuthSubjectTypeR\x0bsubjectType\x12#\n\rpermission_id\x18\x03 \x01(\tR\x0cpermissionIdB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.revoke_permission_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
-  _globals['_REVOKEPERMISSIONREQUEST']._serialized_start=220
-  _globals['_REVOKEPERMISSIONREQUEST']._serialized_end=384
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
+  _globals['_REVOKEPERMISSIONREQUEST']._serialized_start=161
+  _globals['_REVOKEPERMISSIONREQUEST']._serialized_end=325
 # @@protoc_insertion_point(module_scope)

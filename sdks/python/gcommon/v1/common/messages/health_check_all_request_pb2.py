@@ -26,14 +26,14 @@ from gcommon.v1.common.enums import check_type_pb2 as gcommon_dot_v1_dot_common_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/common/messages/health_check_all_request.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/enums/check_type.proto\x1a!google/protobuf/go_features.proto\"\x9d\x01\n\x15HealthCheckAllRequest\x12\x32\n\x05types\x18\x01 \x03(\x0e\x32\x1c.gcommon.v1.common.CheckTypeR\x05types\x12\'\n\x0finclude_details\x18\x02 \x01(\x08R\x0eincludeDetails\x12\'\n\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/common/messages/health_check_all_request.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/enums/check_type.proto\x1a!google/protobuf/go_features.proto\"\x9d\x01\n\x15HealthCheckAllRequest\x12\x32\n\x05types\x18\x01 \x03(\x0e\x32\x1c.gcommon.v1.common.CheckTypeR\x05types\x12\'\n\x0finclude_details\x18\x02 \x01(\x08R\x0eincludeDetails\x12\'\n\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.health_check_all_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_HEALTHCHECKALLREQUEST']._serialized_start=158
   _globals['_HEALTHCHECKALLREQUEST']._serialized_end=315
 # @@protoc_insertion_point(module_scope)

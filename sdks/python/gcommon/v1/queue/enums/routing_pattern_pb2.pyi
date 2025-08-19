@@ -7,13 +7,13 @@ DESCRIPTOR: _descriptor.FileDescriptor
 
 class RoutingPattern(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
-    ROUTING_PATTERN_EXACT: _ClassVar[RoutingPattern]
+    ROUTING_PATTERN_UNSPECIFIED: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_WILDCARD: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_REGEX: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_TOPIC: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_PREFIX: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_SUFFIX: _ClassVar[RoutingPattern]
-ROUTING_PATTERN_EXACT: RoutingPattern
+ROUTING_PATTERN_UNSPECIFIED: RoutingPattern
 ROUTING_PATTERN_WILDCARD: RoutingPattern
 ROUTING_PATTERN_REGEX: RoutingPattern
 ROUTING_PATTERN_TOPIC: RoutingPattern

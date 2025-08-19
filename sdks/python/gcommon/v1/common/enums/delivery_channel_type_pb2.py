@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/enums/delivery_channel_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc0\x01\n\x13\x44\x65liveryChannelType\x12%\n!DELIVERY_CHANNEL_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x44\x45LIVERY_CHANNEL_TYPE_EMAIL\x10\x01\x12\x1d\n\x19\x44\x45LIVERY_CHANNEL_TYPE_SMS\x10\x02\x12\x1f\n\x1b\x44\x45LIVERY_CHANNEL_TYPE_SLACK\x10\x03\x12!\n\x1d\x44\x45LIVERY_CHANNEL_TYPE_WEBHOOK\x10\x04\x42\x43Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/enums/delivery_channel_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc0\x01\n\x13\x44\x65liveryChannelType\x12%\n!DELIVERY_CHANNEL_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x44\x45LIVERY_CHANNEL_TYPE_EMAIL\x10\x01\x12\x1d\n\x19\x44\x45LIVERY_CHANNEL_TYPE_SMS\x10\x02\x12\x1f\n\x1b\x44\x45LIVERY_CHANNEL_TYPE_SLACK\x10\x03\x12!\n\x1d\x44\x45LIVERY_CHANNEL_TYPE_WEBHOOK\x10\x04\x42=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.enums.delivery_channel_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_DELIVERYCHANNELTYPE']._serialized_start=110
   _globals['_DELIVERYCHANNELTYPE']._serialized_end=302
 # @@protoc_insertion_point(module_scope)

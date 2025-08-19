@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/common/messages/ldap_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xa3\x03\n\nLdapConfig\x12\x12\n\x04host\x18\x01 \x01(\tR\x04host\x12\x12\n\x04port\x18\x02 \x01(\x05R\x04port\x12\x17\n\x07use_tls\x18\x03 \x01(\x08R\x06useTls\x12\x17\n\x07\x62ind_dn\x18\x04 \x01(\tR\x06\x62indDn\x12#\n\rbind_password\x18\x05 \x01(\tR\x0c\x62indPassword\x12\x17\n\x07\x62\x61se_dn\x18\x06 \x01(\tR\x06\x62\x61seDn\x12\x1f\n\x0buser_filter\x18\x07 \x01(\tR\nuserFilter\x12!\n\x0cgroup_filter\x18\x08 \x01(\tR\x0bgroupFilter\x12\'\n\x0ftimeout_seconds\x18\t \x01(\x05R\x0etimeoutSeconds\x12Q\n\nattributes\x18\n \x03(\x0b\x32-.gcommon.v1.common.LdapConfig.AttributesEntryB\x02(\x01R\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x46Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/common/messages/ldap_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xa3\x03\n\nLdapConfig\x12\x12\n\x04host\x18\x01 \x01(\tR\x04host\x12\x12\n\x04port\x18\x02 \x01(\x05R\x04port\x12\x17\n\x07use_tls\x18\x03 \x01(\x08R\x06useTls\x12\x17\n\x07\x62ind_dn\x18\x04 \x01(\tR\x06\x62indDn\x12#\n\rbind_password\x18\x05 \x01(\tR\x0c\x62indPassword\x12\x17\n\x07\x62\x61se_dn\x18\x06 \x01(\tR\x06\x62\x61seDn\x12\x1f\n\x0buser_filter\x18\x07 \x01(\tR\nuserFilter\x12!\n\x0cgroup_filter\x18\x08 \x01(\tR\x0bgroupFilter\x12\'\n\x0ftimeout_seconds\x18\t \x01(\x05R\x0etimeoutSeconds\x12Q\n\nattributes\x18\n \x03(\x0b\x32-.gcommon.v1.common.LdapConfig.AttributesEntryB\x02(\x01R\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.ldap_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\222\003\005\322>\002\020\003'
   _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._loaded_options = None
   _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._serialized_options = b'8\001'
   _globals['_LDAPCONFIG'].fields_by_name['attributes']._loaded_options = None
