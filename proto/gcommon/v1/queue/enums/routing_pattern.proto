@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/queue";
  */
 enum RoutingPattern {
   // Exact string match
-  ROUTING_PATTERN_EXACT = 0;
+  ROUTING_PATTERN_UNSPECIFIED = 0;
 
   // Wildcard pattern (* and ?)
   ROUTING_PATTERN_WILDCARD = 1;
