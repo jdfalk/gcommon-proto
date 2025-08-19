@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/namespace_stats.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -357,8 +357,7 @@ const file_gcommon_v1_database_messages_namespace_stats_proto_rawDesc = "" +
 	"\tevictions\x18\x06 \x01(\x03R\tevictions\x12+\n" +
 	"\x12avg_key_size_bytes\x18\a \x01(\x01R\x0favgKeySizeBytes\x12/\n" +
 	"\x14avg_value_size_bytes\x18\b \x01(\x01R\x11avgValueSizeBytes\x12D\n" +
-	"\x10last_access_time\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\x0elastAccessTimeB\xe4\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13NamespaceStatsProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10last_access_time\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\x0elastAccessTimeB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_namespace_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_namespace_stats_proto_goTypes = []any{

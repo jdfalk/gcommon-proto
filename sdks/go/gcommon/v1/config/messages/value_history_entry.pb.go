@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/value_history_entry.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,15 +23,15 @@ const (
 )
 
 type ValueHistoryEntry struct {
-	state                    protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_EntryId       *string                  `protobuf:"bytes,1,opt,name=entry_id,json=entryId"`
-	xxx_hidden_PreviousValue *string                  `protobuf:"bytes,2,opt,name=previous_value,json=previousValue"`
-	xxx_hidden_NewValue      *string                  `protobuf:"bytes,3,opt,name=new_value,json=newValue"`
-	xxx_hidden_Timestamp     *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=timestamp"`
-	xxx_hidden_ChangedBy     *string                  `protobuf:"bytes,5,opt,name=changed_by,json=changedBy"`
-	xxx_hidden_Reason        *string                  `protobuf:"bytes,6,opt,name=reason"`
-	xxx_hidden_ChangeType    enums.TemplateChangeType `protobuf:"varint,7,opt,name=change_type,json=changeType,enum=gcommon.v1.config.TemplateChangeType"`
-	xxx_hidden_Metadata      map[string]string        `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_EntryId       *string                `protobuf:"bytes,1,opt,name=entry_id,json=entryId"`
+	xxx_hidden_PreviousValue *string                `protobuf:"bytes,2,opt,name=previous_value,json=previousValue"`
+	xxx_hidden_NewValue      *string                `protobuf:"bytes,3,opt,name=new_value,json=newValue"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=timestamp"`
+	xxx_hidden_ChangedBy     *string                `protobuf:"bytes,5,opt,name=changed_by,json=changedBy"`
+	xxx_hidden_Reason        *string                `protobuf:"bytes,6,opt,name=reason"`
+	xxx_hidden_ChangeType    TemplateChangeType     `protobuf:"varint,7,opt,name=change_type,json=changeType,enum=gcommon.v1.config.TemplateChangeType"`
+	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -121,13 +120,13 @@ func (x *ValueHistoryEntry) GetReason() string {
 	return ""
 }
 
-func (x *ValueHistoryEntry) GetChangeType() enums.TemplateChangeType {
+func (x *ValueHistoryEntry) GetChangeType() TemplateChangeType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_ChangeType
 		}
 	}
-	return enums.TemplateChangeType(0)
+	return TemplateChangeType_TEMPLATE_CHANGE_TYPE_UNSPECIFIED
 }
 
 func (x *ValueHistoryEntry) GetMetadata() map[string]string {
@@ -166,7 +165,7 @@ func (x *ValueHistoryEntry) SetReason(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
-func (x *ValueHistoryEntry) SetChangeType(v enums.TemplateChangeType) {
+func (x *ValueHistoryEntry) SetChangeType(v TemplateChangeType) {
 	x.xxx_hidden_ChangeType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -255,7 +254,7 @@ func (x *ValueHistoryEntry) ClearReason() {
 
 func (x *ValueHistoryEntry) ClearChangeType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_ChangeType = enums.TemplateChangeType_TEMPLATE_CHANGE_TYPE_UNSPECIFIED
+	x.xxx_hidden_ChangeType = TemplateChangeType_TEMPLATE_CHANGE_TYPE_UNSPECIFIED
 }
 
 type ValueHistoryEntry_builder struct {
@@ -274,7 +273,7 @@ type ValueHistoryEntry_builder struct {
 	// Change reason
 	Reason *string
 	// Change type (using ChangeType from config_template.proto)
-	ChangeType *enums.TemplateChangeType
+	ChangeType *TemplateChangeType
 	// Change metadata
 	Metadata map[string]string
 }
@@ -330,15 +329,14 @@ const file_gcommon_v1_config_messages_value_history_entry_proto_rawDesc = "" +
 	"\bmetadata\x18\b \x03(\v22.gcommon.v1.config.ValueHistoryEntry.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x16ValueHistoryEntryProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_value_history_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_value_history_entry_proto_goTypes = []any{
 	(*ValueHistoryEntry)(nil),     // 0: gcommon.v1.config.ValueHistoryEntry
 	nil,                           // 1: gcommon.v1.config.ValueHistoryEntry.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(enums.TemplateChangeType)(0), // 3: gcommon.v1.config.TemplateChangeType
+	(TemplateChangeType)(0),       // 3: gcommon.v1.config.TemplateChangeType
 }
 var file_gcommon_v1_config_messages_value_history_entry_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ValueHistoryEntry.timestamp:type_name -> google.protobuf.Timestamp
@@ -356,6 +354,7 @@ func file_gcommon_v1_config_messages_value_history_entry_proto_init() {
 	if File_gcommon_v1_config_messages_value_history_entry_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_change_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

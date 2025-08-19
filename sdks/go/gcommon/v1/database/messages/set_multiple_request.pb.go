@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/set_multiple_request.proto
 
-package messages
+package database
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -183,8 +183,7 @@ const file_gcommon_v1_database_messages_set_multiple_request_proto_rawDesc = "" 
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x1a9\n" +
 	"\vValuesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B\xe8\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17SetMultipleRequestProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_set_multiple_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_set_multiple_request_proto_goTypes = []any{

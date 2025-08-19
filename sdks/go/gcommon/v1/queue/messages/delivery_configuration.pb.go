@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/delivery_configuration.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -270,8 +270,7 @@ const file_gcommon_v1_queue_messages_delivery_configuration_proto_rawDesc = "" +
 	"\fauth_headers\x18\a \x03(\v28.gcommon.v1.queue.DeliveryConfiguration.AuthHeadersEntryR\vauthHeaders\x1a>\n" +
 	"\x10AuthHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd9\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1aDeliveryConfigurationProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_delivery_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_delivery_configuration_proto_goTypes = []any{

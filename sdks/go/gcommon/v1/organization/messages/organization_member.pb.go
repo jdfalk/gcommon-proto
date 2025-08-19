@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/organization_member.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,8 +33,8 @@ type OrganizationMember struct {
 	xxx_hidden_UserId          *string                `protobuf:"bytes,3,opt,name=user_id,json=userId"`
 	xxx_hidden_Email           *string                `protobuf:"bytes,4,opt,name=email"`
 	xxx_hidden_DisplayName     *string                `protobuf:"bytes,5,opt,name=display_name,json=displayName"`
-	xxx_hidden_Role            enums.MemberRole       `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.organization.MemberRole"`
-	xxx_hidden_AdditionalRoles []enums.MemberRole     `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.organization.MemberRole"`
+	xxx_hidden_Role            MemberRole             `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.organization.MemberRole"`
+	xxx_hidden_AdditionalRoles []MemberRole           `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.organization.MemberRole"`
 	xxx_hidden_Permissions     []string               `protobuf:"bytes,8,rep,name=permissions"`
 	xxx_hidden_DepartmentIds   []string               `protobuf:"bytes,9,rep,name=department_ids,json=departmentIds"`
 	xxx_hidden_TeamIds         []string               `protobuf:"bytes,10,rep,name=team_ids,json=teamIds"`
@@ -136,16 +135,16 @@ func (x *OrganizationMember) GetDisplayName() string {
 	return ""
 }
 
-func (x *OrganizationMember) GetRole() enums.MemberRole {
+func (x *OrganizationMember) GetRole() MemberRole {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Role
 		}
 	}
-	return enums.MemberRole(0)
+	return MemberRole_MEMBER_ROLE_UNSPECIFIED
 }
 
-func (x *OrganizationMember) GetAdditionalRoles() []enums.MemberRole {
+func (x *OrganizationMember) GetAdditionalRoles() []MemberRole {
 	if x != nil {
 		return x.xxx_hidden_AdditionalRoles
 	}
@@ -345,12 +344,12 @@ func (x *OrganizationMember) SetDisplayName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 24)
 }
 
-func (x *OrganizationMember) SetRole(v enums.MemberRole) {
+func (x *OrganizationMember) SetRole(v MemberRole) {
 	x.xxx_hidden_Role = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 24)
 }
 
-func (x *OrganizationMember) SetAdditionalRoles(v []enums.MemberRole) {
+func (x *OrganizationMember) SetAdditionalRoles(v []MemberRole) {
 	x.xxx_hidden_AdditionalRoles = v
 }
 
@@ -598,7 +597,7 @@ func (x *OrganizationMember) ClearDisplayName() {
 
 func (x *OrganizationMember) ClearRole() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Role = enums.MemberRole_MEMBER_ROLE_UNSPECIFIED
+	x.xxx_hidden_Role = MemberRole_MEMBER_ROLE_UNSPECIFIED
 }
 
 func (x *OrganizationMember) ClearCreatedAt() {
@@ -670,9 +669,9 @@ type OrganizationMember_builder struct {
 	// User's display name (cached for quick access)
 	DisplayName *string
 	// Primary role of the user in this organization
-	Role *enums.MemberRole
+	Role *MemberRole
 	// Additional roles the user may have
-	AdditionalRoles []enums.MemberRole
+	AdditionalRoles []MemberRole
 	// Specific permissions granted to this member
 	Permissions []string
 	// Department IDs this member belongs to
@@ -831,13 +830,12 @@ const file_gcommon_v1_organization_messages_organization_member_proto_rawDesc = 
 	"\n" +
 	"avatar_url\x18\x16 \x01(\tR\tavatarUrl\x12\x14\n" +
 	"\x05phone\x18\x17 \x01(\tR\x05phone\x12\x1a\n" +
-	"\blocation\x18\x18 \x01(\tR\blocationB\x80\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\blocation\x18\x18 \x01(\tR\blocationB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
-	(enums.MemberRole)(0),         // 1: gcommon.v1.organization.MemberRole
+	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
 	(*messages.KeyValue)(nil),     // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
@@ -860,6 +858,7 @@ func file_gcommon_v1_organization_messages_organization_member_proto_init() {
 	if File_gcommon_v1_organization_messages_organization_member_proto != nil {
 		return
 	}
+	file_gcommon_v1_organization_enums_member_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

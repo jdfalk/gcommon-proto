@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/provider_statistics.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -333,8 +333,7 @@ const file_gcommon_v1_metrics_messages_provider_statistics_proto_rawDesc = "" +
 	"\vtop_metrics\x18\t \x01(\v2\x1e.gcommon.v1.metrics.TopMetricsR\n" +
 	"topMetrics\x129\n" +
 	"\x06trends\x18\n" +
-	" \x01(\v2!.gcommon.v1.metrics.TrendAnalysisR\x06trendsB\xe2\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x17ProviderStatisticsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\v2!.gcommon.v1.metrics.TrendAnalysisR\x06trendsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_statistics_proto_goTypes = []any{

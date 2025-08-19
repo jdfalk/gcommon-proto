@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/historical_stats.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -114,8 +114,7 @@ const file_gcommon_v1_queue_messages_historical_stats_proto_rawDesc = "" +
 	"\x0fHistoricalStats\x12F\n" +
 	"\vdata_points\x18\x01 \x03(\v2%.gcommon.v1.queue.HistoricalDataPointR\n" +
 	"dataPoints\x12H\n" +
-	"\x12aggregation_period\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationPeriodB\xd3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14HistoricalStatsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12aggregation_period\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11aggregationPeriodB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_historical_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_historical_stats_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/historical_data_point.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -225,8 +225,7 @@ const file_gcommon_v1_queue_messages_historical_data_point_proto_rawDesc = "" +
 	"throughput\x12,\n" +
 	"\x12average_latency_ms\x18\x04 \x01(\x01R\x10averageLatencyMs\x12\x1d\n" +
 	"\n" +
-	"error_rate\x18\x05 \x01(\x01R\terrorRateB\xd7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18HistoricalDataPointProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"error_rate\x18\x05 \x01(\x01R\terrorRateB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_historical_data_point_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_historical_data_point_proto_goTypes = []any{

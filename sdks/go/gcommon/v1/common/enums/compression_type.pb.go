@@ -87,8 +87,7 @@ const file_gcommon_v1_common_enums_compression_type_proto_rawDesc = "" +
 	"\x15COMPRESSION_TYPE_GZIP\x10\x02\x12\x18\n" +
 	"\x14COMPRESSION_TYPE_ZIP\x10\x03\x12\x1a\n" +
 	"\x16COMPRESSION_TYPE_BZIP2\x10\x04\x12\x1b\n" +
-	"\x17COMPRESSION_TYPE_TAR_GZ\x10\x05B\xd6\x01\n" +
-	"\x15com.gcommon.v1.commonB\x14CompressionTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17COMPRESSION_TYPE_TAR_GZ\x10\x05BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_compression_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_compression_type_proto_goTypes = []any{

@@ -266,8 +266,7 @@ const file_gcommon_v1_common_messages_log_statistics_proto_rawDesc = "" +
 	"total_size\x18\x04 \x01(\x03R\ttotalSize\x12\x1f\n" +
 	"\verror_count\x18\x05 \x01(\x03R\n" +
 	"errorCount\x12#\n" +
-	"\rwarning_count\x18\x06 \x01(\x03R\fwarningCountB\xd7\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12LogStatisticsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rwarning_count\x18\x06 \x01(\x03R\fwarningCountBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_log_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_log_statistics_proto_goTypes = []any{

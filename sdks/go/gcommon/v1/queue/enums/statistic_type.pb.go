@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/statistic_type.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -106,8 +106,7 @@ const file_gcommon_v1_queue_enums_statistic_type_proto_rawDesc = "" +
 	"\x1bSTATISTIC_TYPE_MESSAGE_SIZE\x10\b\x12#\n" +
 	"\x1fSTATISTIC_TYPE_AGE_DISTRIBUTION\x10\t\x12\x1f\n" +
 	"\x1bSTATISTIC_TYPE_SUCCESS_RATE\x10\n" +
-	"B\xce\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12StatisticTypeProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_statistic_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_statistic_type_proto_goTypes = []any{

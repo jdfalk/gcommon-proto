@@ -142,8 +142,7 @@ const file_gcommon_v1_common_messages_resend_verification_request_proto_rawDesc 
 	"\n" +
 	"identifier\x18\x01 \x01(\tR\n" +
 	"identifier\x12;\n" +
-	"\x04type\x18\x02 \x01(\x0e2'.gcommon.v1.common.AuthVerificationTypeR\x04typeB\xe3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x1eResendVerificationRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04type\x18\x02 \x01(\x0e2'.gcommon.v1.common.AuthVerificationTypeR\x04typeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_resend_verification_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_resend_verification_request_proto_goTypes = []any{

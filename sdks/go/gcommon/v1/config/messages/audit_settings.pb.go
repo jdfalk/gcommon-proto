@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/audit_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type AuditSettings struct {
 	state                           protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled              bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Level                enums.AuditLevel       `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.AuditLevel"`
+	xxx_hidden_Level                AuditLevel             `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.AuditLevel"`
 	xxx_hidden_RetentionDays        int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
 	xxx_hidden_IncludeSensitiveData bool                   `protobuf:"varint,4,opt,name=include_sensitive_data,json=includeSensitiveData"`
 	xxx_hidden_Destinations         []string               `protobuf:"bytes,5,rep,name=destinations"`
@@ -69,13 +68,13 @@ func (x *AuditSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *AuditSettings) GetLevel() enums.AuditLevel {
+func (x *AuditSettings) GetLevel() AuditLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.AuditLevel(0)
+	return AuditLevel_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *AuditSettings) GetRetentionDays() int32 {
@@ -121,7 +120,7 @@ func (x *AuditSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *AuditSettings) SetLevel(v enums.AuditLevel) {
+func (x *AuditSettings) SetLevel(v AuditLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -191,7 +190,7 @@ func (x *AuditSettings) ClearEnabled() {
 
 func (x *AuditSettings) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Level = enums.AuditLevel_AUDIT_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = AuditLevel_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *AuditSettings) ClearRetentionDays() {
@@ -215,7 +214,7 @@ type AuditSettings_builder struct {
 	// Whether audit logging is enabled
 	Enabled *bool
 	// Audit log level
-	Level *enums.AuditLevel
+	Level *AuditLevel
 	// Audit log retention period in days
 	RetentionDays *int32
 	// Whether to include sensitive data in audit logs
@@ -272,14 +271,13 @@ const file_gcommon_v1_config_messages_audit_settings_proto_rawDesc = "" +
 	"\bmetadata\x18\a \x03(\v2..gcommon.v1.config.AuditSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd7\x01\n" +
-	"\x15com.gcommon.v1.configB\x12AuditSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_audit_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_audit_settings_proto_goTypes = []any{
 	(*AuditSettings)(nil), // 0: gcommon.v1.config.AuditSettings
 	nil,                   // 1: gcommon.v1.config.AuditSettings.MetadataEntry
-	(enums.AuditLevel)(0), // 2: gcommon.v1.config.AuditLevel
+	(AuditLevel)(0),       // 2: gcommon.v1.config.AuditLevel
 }
 var file_gcommon_v1_config_messages_audit_settings_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.AuditSettings.level:type_name -> gcommon.v1.config.AuditLevel
@@ -296,6 +294,7 @@ func file_gcommon_v1_config_messages_audit_settings_proto_init() {
 	if File_gcommon_v1_config_messages_audit_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_audit_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

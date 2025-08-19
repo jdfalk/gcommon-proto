@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/rotation_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,17 +23,17 @@ const (
 )
 
 type RotationSettings struct {
-	state                             protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Enabled                bool                    `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Frequency              enums.RotationFrequency `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.RotationFrequency"`
-	xxx_hidden_Schedule               *string                 `protobuf:"bytes,3,opt,name=schedule"`
-	xxx_hidden_GracePeriodDays        int32                   `protobuf:"varint,4,opt,name=grace_period_days,json=gracePeriodDays"`
-	xxx_hidden_AutoRotate             bool                    `protobuf:"varint,5,opt,name=auto_rotate,json=autoRotate"`
-	xxx_hidden_NotificationRecipients []string                `protobuf:"bytes,6,rep,name=notification_recipients,json=notificationRecipients"`
-	xxx_hidden_Workflow               *string                 `protobuf:"bytes,7,opt,name=workflow"`
-	xxx_hidden_LastRotatedAt          *timestamppb.Timestamp  `protobuf:"bytes,8,opt,name=last_rotated_at,json=lastRotatedAt"`
-	xxx_hidden_NextRotationAt         *timestamppb.Timestamp  `protobuf:"bytes,9,opt,name=next_rotation_at,json=nextRotationAt"`
-	xxx_hidden_RotationHistory        *[]*RotationEvent       `protobuf:"bytes,10,rep,name=rotation_history,json=rotationHistory"`
+	state                             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Enabled                bool                   `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Frequency              RotationFrequency      `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.RotationFrequency"`
+	xxx_hidden_Schedule               *string                `protobuf:"bytes,3,opt,name=schedule"`
+	xxx_hidden_GracePeriodDays        int32                  `protobuf:"varint,4,opt,name=grace_period_days,json=gracePeriodDays"`
+	xxx_hidden_AutoRotate             bool                   `protobuf:"varint,5,opt,name=auto_rotate,json=autoRotate"`
+	xxx_hidden_NotificationRecipients []string               `protobuf:"bytes,6,rep,name=notification_recipients,json=notificationRecipients"`
+	xxx_hidden_Workflow               *string                `protobuf:"bytes,7,opt,name=workflow"`
+	xxx_hidden_LastRotatedAt          *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=last_rotated_at,json=lastRotatedAt"`
+	xxx_hidden_NextRotationAt         *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=next_rotation_at,json=nextRotationAt"`
+	xxx_hidden_RotationHistory        *[]*RotationEvent      `protobuf:"bytes,10,rep,name=rotation_history,json=rotationHistory"`
 	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
 	XXX_presence                      [1]uint32
 	unknownFields                     protoimpl.UnknownFields
@@ -73,13 +72,13 @@ func (x *RotationSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *RotationSettings) GetFrequency() enums.RotationFrequency {
+func (x *RotationSettings) GetFrequency() RotationFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return enums.RotationFrequency(0)
+	return RotationFrequency_ROTATION_FREQUENCY_UNSPECIFIED
 }
 
 func (x *RotationSettings) GetSchedule() string {
@@ -151,7 +150,7 @@ func (x *RotationSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *RotationSettings) SetFrequency(v enums.RotationFrequency) {
+func (x *RotationSettings) SetFrequency(v RotationFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
@@ -255,7 +254,7 @@ func (x *RotationSettings) ClearEnabled() {
 
 func (x *RotationSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Frequency = enums.RotationFrequency_ROTATION_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = RotationFrequency_ROTATION_FREQUENCY_UNSPECIFIED
 }
 
 func (x *RotationSettings) ClearSchedule() {
@@ -292,7 +291,7 @@ type RotationSettings_builder struct {
 	// Whether rotation is enabled
 	Enabled *bool
 	// Rotation frequency
-	Frequency *enums.RotationFrequency
+	Frequency *RotationFrequency
 	// Rotation schedule (cron expression)
 	Schedule *string
 	// Grace period before old secret expires
@@ -363,13 +362,12 @@ const file_gcommon_v1_config_messages_rotation_settings_proto_rawDesc = "" +
 	"\x0flast_rotated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\rlastRotatedAt\x12D\n" +
 	"\x10next_rotation_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\x0enextRotationAt\x12K\n" +
 	"\x10rotation_history\x18\n" +
-	" \x03(\v2 .gcommon.v1.config.RotationEventR\x0frotationHistoryB\xda\x01\n" +
-	"\x15com.gcommon.v1.configB\x15RotationSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x03(\v2 .gcommon.v1.config.RotationEventR\x0frotationHistoryB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_rotation_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_rotation_settings_proto_goTypes = []any{
 	(*RotationSettings)(nil),      // 0: gcommon.v1.config.RotationSettings
-	(enums.RotationFrequency)(0),  // 1: gcommon.v1.config.RotationFrequency
+	(RotationFrequency)(0),        // 1: gcommon.v1.config.RotationFrequency
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*RotationEvent)(nil),         // 3: gcommon.v1.config.RotationEvent
 }
@@ -390,6 +388,7 @@ func file_gcommon_v1_config_messages_rotation_settings_proto_init() {
 	if File_gcommon_v1_config_messages_rotation_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_rotation_frequency_proto_init()
 	file_gcommon_v1_config_messages_rotation_event_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

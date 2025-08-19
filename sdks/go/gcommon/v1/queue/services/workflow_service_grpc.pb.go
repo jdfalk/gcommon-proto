@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/queue/services/workflow_service.proto
 
-package services
+package queue
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -33,9 +32,9 @@ const (
 // orchestrating complex, multi-step processes.
 type WorkflowServiceClient interface {
 	// Start a new workflow execution
-	StartWorkflow(ctx context.Context, in *messages.StartWorkflowRequest, opts ...grpc.CallOption) (*messages.StartWorkflowResponse, error)
+	StartWorkflow(ctx context.Context, in *StartWorkflowRequest, opts ...grpc.CallOption) (*StartWorkflowResponse, error)
 	// Stop a running workflow execution
-	StopWorkflow(ctx context.Context, in *messages.StopWorkflowRequest, opts ...grpc.CallOption) (*messages.StopWorkflowResponse, error)
+	StopWorkflow(ctx context.Context, in *StopWorkflowRequest, opts ...grpc.CallOption) (*StopWorkflowResponse, error)
 }
 
 type workflowServiceClient struct {
@@ -46,9 +45,9 @@ func NewWorkflowServiceClient(cc grpc.ClientConnInterface) WorkflowServiceClient
 	return &workflowServiceClient{cc}
 }
 
-func (c *workflowServiceClient) StartWorkflow(ctx context.Context, in *messages.StartWorkflowRequest, opts ...grpc.CallOption) (*messages.StartWorkflowResponse, error) {
+func (c *workflowServiceClient) StartWorkflow(ctx context.Context, in *StartWorkflowRequest, opts ...grpc.CallOption) (*StartWorkflowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.StartWorkflowResponse)
+	out := new(StartWorkflowResponse)
 	err := c.cc.Invoke(ctx, WorkflowService_StartWorkflow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -56,9 +55,9 @@ func (c *workflowServiceClient) StartWorkflow(ctx context.Context, in *messages.
 	return out, nil
 }
 
-func (c *workflowServiceClient) StopWorkflow(ctx context.Context, in *messages.StopWorkflowRequest, opts ...grpc.CallOption) (*messages.StopWorkflowResponse, error) {
+func (c *workflowServiceClient) StopWorkflow(ctx context.Context, in *StopWorkflowRequest, opts ...grpc.CallOption) (*StopWorkflowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.StopWorkflowResponse)
+	out := new(StopWorkflowResponse)
 	err := c.cc.Invoke(ctx, WorkflowService_StopWorkflow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -75,9 +74,9 @@ func (c *workflowServiceClient) StopWorkflow(ctx context.Context, in *messages.S
 // orchestrating complex, multi-step processes.
 type WorkflowServiceServer interface {
 	// Start a new workflow execution
-	StartWorkflow(context.Context, *messages.StartWorkflowRequest) (*messages.StartWorkflowResponse, error)
+	StartWorkflow(context.Context, *StartWorkflowRequest) (*StartWorkflowResponse, error)
 	// Stop a running workflow execution
-	StopWorkflow(context.Context, *messages.StopWorkflowRequest) (*messages.StopWorkflowResponse, error)
+	StopWorkflow(context.Context, *StopWorkflowRequest) (*StopWorkflowResponse, error)
 	mustEmbedUnimplementedWorkflowServiceServer()
 }
 
@@ -88,10 +87,10 @@ type WorkflowServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWorkflowServiceServer struct{}
 
-func (UnimplementedWorkflowServiceServer) StartWorkflow(context.Context, *messages.StartWorkflowRequest) (*messages.StartWorkflowResponse, error) {
+func (UnimplementedWorkflowServiceServer) StartWorkflow(context.Context, *StartWorkflowRequest) (*StartWorkflowResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StartWorkflow not implemented")
 }
-func (UnimplementedWorkflowServiceServer) StopWorkflow(context.Context, *messages.StopWorkflowRequest) (*messages.StopWorkflowResponse, error) {
+func (UnimplementedWorkflowServiceServer) StopWorkflow(context.Context, *StopWorkflowRequest) (*StopWorkflowResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StopWorkflow not implemented")
 }
 func (UnimplementedWorkflowServiceServer) mustEmbedUnimplementedWorkflowServiceServer() {}
@@ -116,7 +115,7 @@ func RegisterWorkflowServiceServer(s grpc.ServiceRegistrar, srv WorkflowServiceS
 }
 
 func _WorkflowService_StartWorkflow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.StartWorkflowRequest)
+	in := new(StartWorkflowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -128,13 +127,13 @@ func _WorkflowService_StartWorkflow_Handler(srv interface{}, ctx context.Context
 		FullMethod: WorkflowService_StartWorkflow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WorkflowServiceServer).StartWorkflow(ctx, req.(*messages.StartWorkflowRequest))
+		return srv.(WorkflowServiceServer).StartWorkflow(ctx, req.(*StartWorkflowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _WorkflowService_StopWorkflow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.StopWorkflowRequest)
+	in := new(StopWorkflowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -146,7 +145,7 @@ func _WorkflowService_StopWorkflow_Handler(srv interface{}, ctx context.Context,
 		FullMethod: WorkflowService_StopWorkflow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WorkflowServiceServer).StopWorkflow(ctx, req.(*messages.StopWorkflowRequest))
+		return srv.(WorkflowServiceServer).StopWorkflow(ctx, req.(*StopWorkflowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

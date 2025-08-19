@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/config_stats.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -199,8 +199,7 @@ const file_gcommon_v1_config_messages_config_stats_proto_rawDesc = "" +
 	"\rtotal_configs\x18\x01 \x01(\x03R\ftotalConfigs\x12%\n" +
 	"\x0eactive_configs\x18\x02 \x01(\x03R\ractiveConfigs\x12-\n" +
 	"\x12deprecated_configs\x18\x03 \x01(\x03R\x11deprecatedConfigs\x120\n" +
-	"\x14avg_access_frequency\x18\x04 \x01(\x01R\x12avgAccessFrequencyB\xd5\x01\n" +
-	"\x15com.gcommon.v1.configB\x10ConfigStatsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14avg_access_frequency\x18\x04 \x01(\x01R\x12avgAccessFrequencyB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_config_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_config_stats_proto_goTypes = []any{

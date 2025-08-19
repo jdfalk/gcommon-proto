@@ -35,8 +35,7 @@ const file_gcommon_v1_common_services_health_service_proto_rawDesc = "" +
 	"\fListServices\x12&.gcommon.v1.common.ListServicesRequest\x1a'.gcommon.v1.common.ListServicesResponse\x12b\n" +
 	"\rRegisterCheck\x12'.gcommon.v1.common.RegisterCheckRequest\x1a(.gcommon.v1.common.RegisterCheckResponse\x12h\n" +
 	"\x0fUnregisterCheck\x12).gcommon.v1.common.UnregisterCheckRequest\x1a*.gcommon.v1.common.UnregisterCheckResponse\x12k\n" +
-	"\x10GetHealthMetrics\x12*.gcommon.v1.common.GetHealthMetricsRequest\x1a+.gcommon.v1.common.GetHealthMetricsResponseB\xd7\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12HealthServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10GetHealthMetrics\x12*.gcommon.v1.common.GetHealthMetricsRequest\x1a+.gcommon.v1.common.GetHealthMetricsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_health_service_proto_goTypes = []any{
 	(*messages.HealthHealthCheckRequest)(nil),  // 0: gcommon.v1.common.HealthHealthCheckRequest

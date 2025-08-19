@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/enums/metric_type.proto
 
-package enums
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -99,8 +99,7 @@ const file_gcommon_v1_metrics_enums_metric_type_proto_rawDesc = "" +
 	"\x15METRIC_TYPE_HISTOGRAM\x10\x03\x12\x17\n" +
 	"\x13METRIC_TYPE_SUMMARY\x10\x04\x12\x15\n" +
 	"\x11METRIC_TYPE_TIMER\x10\x05\x12\x13\n" +
-	"\x0fMETRIC_TYPE_SET\x10\x06B\xd7\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fMetricTypeProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fMETRIC_TYPE_SET\x10\x06B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_metric_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_metric_type_proto_goTypes = []any{

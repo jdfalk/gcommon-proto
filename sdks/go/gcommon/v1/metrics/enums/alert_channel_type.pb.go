@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/enums/alert_channel_type.proto
 
-package enums
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -128,8 +128,7 @@ const file_gcommon_v1_metrics_enums_alert_channel_type_proto_rawDesc = "" +
 	"\x17ALERT_CHANNEL_TYPE_JIRA\x10\n" +
 	"\x12!\n" +
 	"\x1dALERT_CHANNEL_TYPE_SERVICENOW\x10\v\x12\x1d\n" +
-	"\x19ALERT_CHANNEL_TYPE_CUSTOM\x10\fB\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x15AlertChannelTypeProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19ALERT_CHANNEL_TYPE_CUSTOM\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_alert_channel_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_alert_channel_type_proto_goTypes = []any{

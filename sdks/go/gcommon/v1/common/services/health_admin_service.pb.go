@@ -33,8 +33,7 @@ const file_gcommon_v1_common_services_health_admin_service_proto_rawDesc = "" +
 	"\fDisableCheck\x12&.gcommon.v1.common.DisableCheckRequest\x1a'.gcommon.v1.common.DisableCheckResponse\x12S\n" +
 	"\bRunCheck\x12\".gcommon.v1.common.RunCheckRequest\x1a#.gcommon.v1.common.RunCheckResponse\x12k\n" +
 	"\x10ResetHealthStats\x12*.gcommon.v1.common.ResetHealthStatsRequest\x1a+.gcommon.v1.common.ResetHealthStatsResponse\x12V\n" +
-	"\tSetHealth\x12#.gcommon.v1.common.SetHealthRequest\x1a$.gcommon.v1.common.SetHealthResponseB\xdc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x17HealthAdminServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tSetHealth\x12#.gcommon.v1.common.SetHealthRequest\x1a$.gcommon.v1.common.SetHealthResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_health_admin_service_proto_goTypes = []any{
 	(*messages.ConfigureAlertingRequest)(nil),  // 0: gcommon.v1.common.ConfigureAlertingRequest

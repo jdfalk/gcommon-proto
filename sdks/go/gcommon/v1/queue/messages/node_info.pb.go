@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/node_info.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +29,7 @@ type NodeInfo struct {
 	xxx_hidden_NodeId        *string                `protobuf:"bytes,1,opt,name=node_id,json=nodeId"`
 	xxx_hidden_Hostname      *string                `protobuf:"bytes,2,opt,name=hostname"`
 	xxx_hidden_Port          int32                  `protobuf:"varint,3,opt,name=port"`
-	xxx_hidden_State         enums.NodeState        `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.NodeState"`
+	xxx_hidden_State         NodeState              `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.NodeState"`
 	xxx_hidden_Roles         []string               `protobuf:"bytes,5,rep,name=roles"`
 	xxx_hidden_LastHeartbeat *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_heartbeat,json=lastHeartbeat"`
 	xxx_hidden_Stats         *NodeStats             `protobuf:"bytes,7,opt,name=stats"`
@@ -92,13 +91,13 @@ func (x *NodeInfo) GetPort() int32 {
 	return 0
 }
 
-func (x *NodeInfo) GetState() enums.NodeState {
+func (x *NodeInfo) GetState() NodeState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.NodeState(0)
+	return NodeState_NODE_STATE_UNSPECIFIED
 }
 
 func (x *NodeInfo) GetRoles() []string {
@@ -137,7 +136,7 @@ func (x *NodeInfo) SetPort(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
-func (x *NodeInfo) SetState(v enums.NodeState) {
+func (x *NodeInfo) SetState(v NodeState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
@@ -213,7 +212,7 @@ func (x *NodeInfo) ClearPort() {
 
 func (x *NodeInfo) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_State = enums.NodeState_NODE_STATE_UNSPECIFIED
+	x.xxx_hidden_State = NodeState_NODE_STATE_UNSPECIFIED
 }
 
 func (x *NodeInfo) ClearLastHeartbeat() {
@@ -234,7 +233,7 @@ type NodeInfo_builder struct {
 	// Port number for the node
 	Port *int32
 	// Current state of the node
-	State *enums.NodeState
+	State *NodeState
 	// Node roles (leader, follower, etc.)
 	Roles []string
 	// Timestamp when node was last seen
@@ -281,13 +280,12 @@ const file_gcommon_v1_queue_messages_node_info_proto_rawDesc = "" +
 	"\x05state\x18\x04 \x01(\x0e2\x1b.gcommon.v1.queue.NodeStateR\x05state\x12\x14\n" +
 	"\x05roles\x18\x05 \x03(\tR\x05roles\x12A\n" +
 	"\x0elast_heartbeat\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rlastHeartbeat\x121\n" +
-	"\x05stats\x18\a \x01(\v2\x1b.gcommon.v1.queue.NodeStatsR\x05statsB\xcc\x01\n" +
-	"\x14com.gcommon.v1.queueB\rNodeInfoProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05stats\x18\a \x01(\v2\x1b.gcommon.v1.queue.NodeStatsR\x05statsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_node_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_node_info_proto_goTypes = []any{
 	(*NodeInfo)(nil),              // 0: gcommon.v1.queue.NodeInfo
-	(enums.NodeState)(0),          // 1: gcommon.v1.queue.NodeState
+	(NodeState)(0),                // 1: gcommon.v1.queue.NodeState
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*NodeStats)(nil),             // 3: gcommon.v1.queue.NodeStats
 }
@@ -307,6 +305,7 @@ func file_gcommon_v1_queue_messages_node_info_proto_init() {
 	if File_gcommon_v1_queue_messages_node_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_node_state_proto_init()
 	file_gcommon_v1_queue_messages_node_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

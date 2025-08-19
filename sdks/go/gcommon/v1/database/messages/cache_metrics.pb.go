@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/cache_metrics.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -473,8 +473,7 @@ const file_gcommon_v1_database_messages_cache_metrics_proto_rawDesc = "" +
 	" \x01(\x03R\x0fnetworkBytesOut\x12*\n" +
 	"\x11cpu_usage_percent\x18\v \x01(\x01R\x0fcpuUsagePercent\x120\n" +
 	"\x14memory_usage_percent\x18\f \x01(\x01R\x12memoryUsagePercent\x12=\n" +
-	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB\xe2\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x11CacheMetricsProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_cache_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_cache_metrics_proto_goTypes = []any{

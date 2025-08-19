@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/health_check_type.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -104,8 +104,7 @@ const file_gcommon_v1_config_enums_health_check_type_proto_rawDesc = "" +
 	"\x15HEALTH_CHECK_TYPE_UDP\x10\x04\x12\x1a\n" +
 	"\x16HEALTH_CHECK_TYPE_GRPC\x10\x05\x12\x1e\n" +
 	"\x1aHEALTH_CHECK_TYPE_DATABASE\x10\x06\x12\x1c\n" +
-	"\x18HEALTH_CHECK_TYPE_CUSTOM\x10\aB\xd6\x01\n" +
-	"\x15com.gcommon.v1.configB\x14HealthCheckTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18HEALTH_CHECK_TYPE_CUSTOM\x10\aB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_health_check_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_health_check_type_proto_goTypes = []any{

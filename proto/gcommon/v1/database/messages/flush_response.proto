@@ -10,7 +10,7 @@ import "gcommon/v1/common/messages/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/database";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/database";
 
 /**
  * Response for cache flush operations.

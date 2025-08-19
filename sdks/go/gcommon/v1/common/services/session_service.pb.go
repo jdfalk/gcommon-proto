@@ -36,8 +36,7 @@ const file_gcommon_v1_common_services_session_service_proto_rawDesc = "" +
 	"\x10TerminateSession\x12*.gcommon.v1.common.TerminateSessionRequest\x1a+.gcommon.v1.common.TerminateSessionResponse\x12j\n" +
 	"\rDeleteSession\x12+.gcommon.v1.common.AuthDeleteSessionRequest\x1a,.gcommon.v1.common.AuthDeleteSessionResponse\x12k\n" +
 	"\x10ListUserSessions\x12*.gcommon.v1.common.ListUserSessionsRequest\x1a+.gcommon.v1.common.ListUserSessionsResponse\x12g\n" +
-	"\fListSessions\x12*.gcommon.v1.common.AuthListSessionsRequest\x1a+.gcommon.v1.common.AuthListSessionsResponseB\xd8\x01\n" +
-	"\x15com.gcommon.v1.commonB\x13SessionServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fListSessions\x12*.gcommon.v1.common.AuthListSessionsRequest\x1a+.gcommon.v1.common.AuthListSessionsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_session_service_proto_goTypes = []any{
 	(*messages.AuthCreateSessionRequest)(nil),  // 0: gcommon.v1.common.AuthCreateSessionRequest

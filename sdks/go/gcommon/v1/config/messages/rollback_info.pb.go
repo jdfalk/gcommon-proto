@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/rollback_info.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ type RollbackInfo struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_OriginalAuditId *string                `protobuf:"bytes,1,opt,name=original_audit_id,json=originalAuditId"`
 	xxx_hidden_Reason          *string                `protobuf:"bytes,2,opt,name=reason"`
-	xxx_hidden_Method          enums.RollbackMethod   `protobuf:"varint,3,opt,name=method,enum=gcommon.v1.config.RollbackMethod"`
+	xxx_hidden_Method          RollbackMethod         `protobuf:"varint,3,opt,name=method,enum=gcommon.v1.config.RollbackMethod"`
 	xxx_hidden_TargetVersion   *string                `protobuf:"bytes,4,opt,name=target_version,json=targetVersion"`
 	xxx_hidden_Automatic       bool                   `protobuf:"varint,5,opt,name=automatic"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
@@ -80,13 +79,13 @@ func (x *RollbackInfo) GetReason() string {
 	return ""
 }
 
-func (x *RollbackInfo) GetMethod() enums.RollbackMethod {
+func (x *RollbackInfo) GetMethod() RollbackMethod {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Method
 		}
 	}
-	return enums.RollbackMethod(0)
+	return RollbackMethod_ROLLBACK_METHOD_UNSPECIFIED
 }
 
 func (x *RollbackInfo) GetTargetVersion() string {
@@ -116,7 +115,7 @@ func (x *RollbackInfo) SetReason(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *RollbackInfo) SetMethod(v enums.RollbackMethod) {
+func (x *RollbackInfo) SetMethod(v RollbackMethod) {
 	x.xxx_hidden_Method = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
@@ -178,7 +177,7 @@ func (x *RollbackInfo) ClearReason() {
 
 func (x *RollbackInfo) ClearMethod() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Method = enums.RollbackMethod_ROLLBACK_METHOD_UNSPECIFIED
+	x.xxx_hidden_Method = RollbackMethod_ROLLBACK_METHOD_UNSPECIFIED
 }
 
 func (x *RollbackInfo) ClearTargetVersion() {
@@ -199,7 +198,7 @@ type RollbackInfo_builder struct {
 	// Rollback reason
 	Reason *string
 	// Rollback method
-	Method *enums.RollbackMethod
+	Method *RollbackMethod
 	// Target version for rollback
 	TargetVersion *string
 	// Whether rollback was automatic
@@ -243,13 +242,12 @@ const file_gcommon_v1_config_messages_rollback_info_proto_rawDesc = "" +
 	"\x06reason\x18\x02 \x01(\tR\x06reason\x129\n" +
 	"\x06method\x18\x03 \x01(\x0e2!.gcommon.v1.config.RollbackMethodR\x06method\x12%\n" +
 	"\x0etarget_version\x18\x04 \x01(\tR\rtargetVersion\x12\x1c\n" +
-	"\tautomatic\x18\x05 \x01(\bR\tautomaticB\xd6\x01\n" +
-	"\x15com.gcommon.v1.configB\x11RollbackInfoProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tautomatic\x18\x05 \x01(\bR\tautomaticB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_rollback_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_rollback_info_proto_goTypes = []any{
-	(*RollbackInfo)(nil),      // 0: gcommon.v1.config.RollbackInfo
-	(enums.RollbackMethod)(0), // 1: gcommon.v1.config.RollbackMethod
+	(*RollbackInfo)(nil), // 0: gcommon.v1.config.RollbackInfo
+	(RollbackMethod)(0),  // 1: gcommon.v1.config.RollbackMethod
 }
 var file_gcommon_v1_config_messages_rollback_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.RollbackInfo.method:type_name -> gcommon.v1.config.RollbackMethod
@@ -265,6 +263,7 @@ func file_gcommon_v1_config_messages_rollback_info_proto_init() {
 	if File_gcommon_v1_config_messages_rollback_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_rollback_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

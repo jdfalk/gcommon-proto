@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/acknowledgment.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type Acknowledgment struct {
 	xxx_hidden_QueueName            *string                `protobuf:"bytes,3,opt,name=queue_name,json=queueName"`
 	xxx_hidden_PartitionId          int32                  `protobuf:"varint,4,opt,name=partition_id,json=partitionId"`
 	xxx_hidden_Offset               int64                  `protobuf:"varint,5,opt,name=offset"`
-	xxx_hidden_AckType              enums.AckType          `protobuf:"varint,6,opt,name=ack_type,json=ackType,enum=gcommon.v1.queue.AckType"`
+	xxx_hidden_AckType              AckType                `protobuf:"varint,6,opt,name=ack_type,json=ackType,enum=gcommon.v1.queue.AckType"`
 	xxx_hidden_AckTimestamp         *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=ack_timestamp,json=ackTimestamp"`
 	xxx_hidden_ProcessingDurationMs int64                  `protobuf:"varint,8,opt,name=processing_duration_ms,json=processingDurationMs"`
 	xxx_hidden_ErrorMessage         *string                `protobuf:"bytes,9,opt,name=error_message,json=errorMessage"`
@@ -113,13 +112,13 @@ func (x *Acknowledgment) GetOffset() int64 {
 	return 0
 }
 
-func (x *Acknowledgment) GetAckType() enums.AckType {
+func (x *Acknowledgment) GetAckType() AckType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_AckType
 		}
 	}
-	return enums.AckType(0)
+	return AckType_ACK_TYPE_UNSPECIFIED
 }
 
 func (x *Acknowledgment) GetAckTimestamp() *timestamppb.Timestamp {
@@ -178,7 +177,7 @@ func (x *Acknowledgment) SetOffset(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
 }
 
-func (x *Acknowledgment) SetAckType(v enums.AckType) {
+func (x *Acknowledgment) SetAckType(v AckType) {
 	x.xxx_hidden_AckType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
 }
@@ -299,7 +298,7 @@ func (x *Acknowledgment) ClearOffset() {
 
 func (x *Acknowledgment) ClearAckType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_AckType = enums.AckType_ACK_TYPE_UNSPECIFIED
+	x.xxx_hidden_AckType = AckType_ACK_TYPE_UNSPECIFIED
 }
 
 func (x *Acknowledgment) ClearAckTimestamp() {
@@ -335,7 +334,7 @@ type Acknowledgment_builder struct {
 	// Message offset within the partition
 	Offset *int64
 	// Acknowledgment type
-	AckType *enums.AckType
+	AckType *AckType
 	// Timestamp when message was acknowledged
 	AckTimestamp *timestamppb.Timestamp
 	// Processing duration in milliseconds
@@ -410,13 +409,12 @@ const file_gcommon_v1_queue_messages_acknowledgment_proto_rawDesc = "" +
 	"\rerror_message\x18\t \x01(\tR\ferrorMessage\x12\x1f\n" +
 	"\vretry_count\x18\n" +
 	" \x01(\x05R\n" +
-	"retryCountB\xd2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13AcknowledgmentProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"retryCountB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_acknowledgment_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_acknowledgment_proto_goTypes = []any{
 	(*Acknowledgment)(nil),        // 0: gcommon.v1.queue.Acknowledgment
-	(enums.AckType)(0),            // 1: gcommon.v1.queue.AckType
+	(AckType)(0),                  // 1: gcommon.v1.queue.AckType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_messages_acknowledgment_proto_depIdxs = []int32{
@@ -434,6 +432,7 @@ func file_gcommon_v1_queue_messages_acknowledgment_proto_init() {
 	if File_gcommon_v1_queue_messages_acknowledgment_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_ack_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/set_metric_config_request.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -98,8 +98,7 @@ const file_gcommon_v1_metrics_messages_set_metric_config_request_proto_rawDesc =
 	"\n" +
 	";gcommon/v1/metrics/messages/set_metric_config_request.proto\x12\x12gcommon.v1.metrics\x1a/gcommon/v1/metrics/messages/metric_config.proto\x1a!google/protobuf/go_features.proto\"R\n" +
 	"\x16SetMetricConfigRequest\x128\n" +
-	"\x06config\x18\x01 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB\xe6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bSetMetricConfigRequestProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x01 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_set_metric_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_set_metric_config_request_proto_goTypes = []any{

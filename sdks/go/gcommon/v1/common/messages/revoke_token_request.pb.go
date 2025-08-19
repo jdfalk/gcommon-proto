@@ -172,8 +172,7 @@ const file_gcommon_v1_common_messages_revoke_token_request_proto_rawDesc = "" +
 	"\x12RevokeTokenRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12&\n" +
 	"\x0ftoken_type_hint\x18\x02 \x01(\tR\rtokenTypeHint\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xdc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x17RevokeTokenRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_revoke_token_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_revoke_token_request_proto_goTypes = []any{

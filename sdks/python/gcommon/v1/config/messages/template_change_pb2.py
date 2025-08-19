@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/config/messages/template_change.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/enums/change_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb8\x02\n\x0eTemplateChange\x12\x18\n\x07version\x18\x01 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06\x61uthor\x18\x03 \x01(\tR\x06\x61uthor\x12\x38\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x39\n\x04type\x18\x05 \x01(\x0e\x32%.gcommon.v1.config.TemplateChangeTypeR\x04type\x12\x1a\n\x08\x62reaking\x18\x06 \x01(\x08R\x08\x62reaking\x12\x18\n\x07\x64\x65tails\x18\x07 \x03(\tR\x07\x64\x65tails\x12\'\n\x0fmigration_notes\x18\x08 \x01(\tR\x0emigrationNotesB\xd8\x01\n\x15\x63om.gcommon.v1.configB\x13TemplateChangeProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/config/messages/template_change.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/enums/change_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb8\x02\n\x0eTemplateChange\x12\x18\n\x07version\x18\x01 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06\x61uthor\x18\x03 \x01(\tR\x06\x61uthor\x12\x38\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x39\n\x04type\x18\x05 \x01(\x0e\x32%.gcommon.v1.config.TemplateChangeTypeR\x04type\x12\x1a\n\x08\x62reaking\x18\x06 \x01(\x08R\x08\x62reaking\x12\x18\n\x07\x64\x65tails\x18\x07 \x03(\tR\x07\x64\x65tails\x12\'\n\x0fmigration_notes\x18\x08 \x01(\tR\x0emigrationNotesB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.template_change_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\023TemplateChangeProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
   _globals['_TEMPLATECHANGE']._serialized_start=183
   _globals['_TEMPLATECHANGE']._serialized_end=495
 # @@protoc_insertion_point(module_scope)

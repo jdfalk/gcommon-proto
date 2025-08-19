@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/config_data_type.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -166,8 +166,7 @@ const file_gcommon_v1_config_enums_config_data_type_proto_rawDesc = "" +
 	"\x15CONFIG_DATA_TYPE_PORT\x10\x16\x12\x19\n" +
 	"\x15CONFIG_DATA_TYPE_UUID\x10\x17\x12\x1b\n" +
 	"\x17CONFIG_DATA_TYPE_BASE64\x10\x18\x12\x18\n" +
-	"\x14CONFIG_DATA_TYPE_HEX\x10\x19B\xd5\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ConfigDataTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14CONFIG_DATA_TYPE_HEX\x10\x19B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_config_data_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_config_data_type_proto_goTypes = []any{

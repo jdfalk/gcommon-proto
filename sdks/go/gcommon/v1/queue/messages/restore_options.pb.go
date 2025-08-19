@@ -4,10 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/restore_options.proto
 
-package messages
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
+	metrics "github.com/jdfalk/gcommon/pkg/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,15 +23,15 @@ const (
 )
 
 type RestoreOptions struct {
-	state                         protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_SkipMessageContent bool                       `protobuf:"varint,1,opt,name=skip_message_content,json=skipMessageContent"`
-	xxx_hidden_MetadataOnly       bool                       `protobuf:"varint,2,opt,name=metadata_only,json=metadataOnly"`
-	xxx_hidden_MaxMessages        int64                      `protobuf:"varint,3,opt,name=max_messages,json=maxMessages"`
-	xxx_hidden_OffsetRange        *OffsetRange               `protobuf:"bytes,4,opt,name=offset_range,json=offsetRange"`
-	xxx_hidden_TimeRange          *messages.MetricsTimeRange `protobuf:"bytes,5,opt,name=time_range,json=timeRange"`
-	xxx_hidden_PriorityLevels     []int32                    `protobuf:"varint,6,rep,packed,name=priority_levels,json=priorityLevels"`
-	xxx_hidden_FilterCriteria     *FilterCriteria            `protobuf:"bytes,7,opt,name=filter_criteria,json=filterCriteria"`
-	xxx_hidden_Performance        *PerformanceOptions        `protobuf:"bytes,8,opt,name=performance"`
+	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_SkipMessageContent bool                      `protobuf:"varint,1,opt,name=skip_message_content,json=skipMessageContent"`
+	xxx_hidden_MetadataOnly       bool                      `protobuf:"varint,2,opt,name=metadata_only,json=metadataOnly"`
+	xxx_hidden_MaxMessages        int64                     `protobuf:"varint,3,opt,name=max_messages,json=maxMessages"`
+	xxx_hidden_OffsetRange        *OffsetRange              `protobuf:"bytes,4,opt,name=offset_range,json=offsetRange"`
+	xxx_hidden_TimeRange          *metrics.MetricsTimeRange `protobuf:"bytes,5,opt,name=time_range,json=timeRange"`
+	xxx_hidden_PriorityLevels     []int32                   `protobuf:"varint,6,rep,packed,name=priority_levels,json=priorityLevels"`
+	xxx_hidden_FilterCriteria     *FilterCriteria           `protobuf:"bytes,7,opt,name=filter_criteria,json=filterCriteria"`
+	xxx_hidden_Performance        *PerformanceOptions       `protobuf:"bytes,8,opt,name=performance"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -91,7 +91,7 @@ func (x *RestoreOptions) GetOffsetRange() *OffsetRange {
 	return nil
 }
 
-func (x *RestoreOptions) GetTimeRange() *messages.MetricsTimeRange {
+func (x *RestoreOptions) GetTimeRange() *metrics.MetricsTimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -138,7 +138,7 @@ func (x *RestoreOptions) SetOffsetRange(v *OffsetRange) {
 	x.xxx_hidden_OffsetRange = v
 }
 
-func (x *RestoreOptions) SetTimeRange(v *messages.MetricsTimeRange) {
+func (x *RestoreOptions) SetTimeRange(v *metrics.MetricsTimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -246,7 +246,7 @@ type RestoreOptions_builder struct {
 	// Restore messages from specific offset range
 	OffsetRange *OffsetRange
 	// Restore messages within time range
-	TimeRange *messages.MetricsTimeRange
+	TimeRange *metrics.MetricsTimeRange
 	// Restore specific message priorities
 	PriorityLevels []int32
 	// Include/exclude patterns for message filtering
@@ -293,16 +293,15 @@ const file_gcommon_v1_queue_messages_restore_options_proto_rawDesc = "" +
 	"time_range\x18\x05 \x01(\v2$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x12'\n" +
 	"\x0fpriority_levels\x18\x06 \x03(\x05R\x0epriorityLevels\x12I\n" +
 	"\x0ffilter_criteria\x18\a \x01(\v2 .gcommon.v1.queue.FilterCriteriaR\x0efilterCriteria\x12F\n" +
-	"\vperformance\x18\b \x01(\v2$.gcommon.v1.queue.PerformanceOptionsR\vperformanceB\xd2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13RestoreOptionsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vperformance\x18\b \x01(\v2$.gcommon.v1.queue.PerformanceOptionsR\vperformanceB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_restore_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_restore_options_proto_goTypes = []any{
-	(*RestoreOptions)(nil),            // 0: gcommon.v1.queue.RestoreOptions
-	(*OffsetRange)(nil),               // 1: gcommon.v1.queue.OffsetRange
-	(*messages.MetricsTimeRange)(nil), // 2: gcommon.v1.metrics.MetricsTimeRange
-	(*FilterCriteria)(nil),            // 3: gcommon.v1.queue.FilterCriteria
-	(*PerformanceOptions)(nil),        // 4: gcommon.v1.queue.PerformanceOptions
+	(*RestoreOptions)(nil),           // 0: gcommon.v1.queue.RestoreOptions
+	(*OffsetRange)(nil),              // 1: gcommon.v1.queue.OffsetRange
+	(*metrics.MetricsTimeRange)(nil), // 2: gcommon.v1.metrics.MetricsTimeRange
+	(*FilterCriteria)(nil),           // 3: gcommon.v1.queue.FilterCriteria
+	(*PerformanceOptions)(nil),       // 4: gcommon.v1.queue.PerformanceOptions
 }
 var file_gcommon_v1_queue_messages_restore_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.RestoreOptions.offset_range:type_name -> gcommon.v1.queue.OffsetRange

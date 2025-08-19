@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/tenant.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,27 +28,27 @@ const (
 // Supports multi-tenant architecture with configurable isolation levels,
 // resource quotas, and tenant-specific settings.
 type Tenant struct {
-	state                     protoimpl.MessageState           `protogen:"opaque.v1"`
-	xxx_hidden_Id             *string                          `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_OrganizationId *string                          `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Name           *string                          `protobuf:"bytes,3,opt,name=name"`
-	xxx_hidden_Slug           *string                          `protobuf:"bytes,4,opt,name=slug"`
-	xxx_hidden_Description    *string                          `protobuf:"bytes,5,opt,name=description"`
-	xxx_hidden_Status         enums.TenantStatus               `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
-	xxx_hidden_IsolationLevel enums.OrganizationIsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.OrganizationIsolationLevel"`
-	xxx_hidden_Metadata       *[]*messages.KeyValue            `protobuf:"bytes,8,rep,name=metadata"`
-	xxx_hidden_CreatedAt      *timestamppb.Timestamp           `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt      *timestamppb.Timestamp           `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_CreatedBy      *string                          `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
-	xxx_hidden_UpdatedBy      *string                          `protobuf:"bytes,12,opt,name=updated_by,json=updatedBy"`
-	xxx_hidden_DatabaseConfig *string                          `protobuf:"bytes,13,opt,name=database_config,json=databaseConfig"`
-	xxx_hidden_NetworkConfig  *string                          `protobuf:"bytes,14,opt,name=network_config,json=networkConfig"`
-	xxx_hidden_Quota          *TenantQuota                     `protobuf:"bytes,15,opt,name=quota"`
-	xxx_hidden_CustomDomain   *string                          `protobuf:"bytes,16,opt,name=custom_domain,json=customDomain"`
-	xxx_hidden_Timezone       *string                          `protobuf:"bytes,17,opt,name=timezone"`
-	xxx_hidden_Locale         *string                          `protobuf:"bytes,18,opt,name=locale"`
-	xxx_hidden_TrialMode      bool                             `protobuf:"varint,19,opt,name=trial_mode,json=trialMode"`
-	xxx_hidden_TrialExpiresAt *timestamppb.Timestamp           `protobuf:"bytes,20,opt,name=trial_expires_at,json=trialExpiresAt"`
+	state                     protoimpl.MessageState     `protogen:"opaque.v1"`
+	xxx_hidden_Id             *string                    `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_OrganizationId *string                    `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_Name           *string                    `protobuf:"bytes,3,opt,name=name"`
+	xxx_hidden_Slug           *string                    `protobuf:"bytes,4,opt,name=slug"`
+	xxx_hidden_Description    *string                    `protobuf:"bytes,5,opt,name=description"`
+	xxx_hidden_Status         TenantStatus               `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
+	xxx_hidden_IsolationLevel OrganizationIsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.OrganizationIsolationLevel"`
+	xxx_hidden_Metadata       *[]*messages.KeyValue      `protobuf:"bytes,8,rep,name=metadata"`
+	xxx_hidden_CreatedAt      *timestamppb.Timestamp     `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt      *timestamppb.Timestamp     `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_CreatedBy      *string                    `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
+	xxx_hidden_UpdatedBy      *string                    `protobuf:"bytes,12,opt,name=updated_by,json=updatedBy"`
+	xxx_hidden_DatabaseConfig *string                    `protobuf:"bytes,13,opt,name=database_config,json=databaseConfig"`
+	xxx_hidden_NetworkConfig  *string                    `protobuf:"bytes,14,opt,name=network_config,json=networkConfig"`
+	xxx_hidden_Quota          *TenantQuota               `protobuf:"bytes,15,opt,name=quota"`
+	xxx_hidden_CustomDomain   *string                    `protobuf:"bytes,16,opt,name=custom_domain,json=customDomain"`
+	xxx_hidden_Timezone       *string                    `protobuf:"bytes,17,opt,name=timezone"`
+	xxx_hidden_Locale         *string                    `protobuf:"bytes,18,opt,name=locale"`
+	xxx_hidden_TrialMode      bool                       `protobuf:"varint,19,opt,name=trial_mode,json=trialMode"`
+	xxx_hidden_TrialExpiresAt *timestamppb.Timestamp     `protobuf:"bytes,20,opt,name=trial_expires_at,json=trialExpiresAt"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -133,22 +132,22 @@ func (x *Tenant) GetDescription() string {
 	return ""
 }
 
-func (x *Tenant) GetStatus() enums.TenantStatus {
+func (x *Tenant) GetStatus() TenantStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.TenantStatus(0)
+	return TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
-func (x *Tenant) GetIsolationLevel() enums.OrganizationIsolationLevel {
+func (x *Tenant) GetIsolationLevel() OrganizationIsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_IsolationLevel
 		}
 	}
-	return enums.OrganizationIsolationLevel(0)
+	return OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *Tenant) GetMetadata() []*messages.KeyValue {
@@ -316,12 +315,12 @@ func (x *Tenant) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 20)
 }
 
-func (x *Tenant) SetStatus(v enums.TenantStatus) {
+func (x *Tenant) SetStatus(v TenantStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 20)
 }
 
-func (x *Tenant) SetIsolationLevel(v enums.OrganizationIsolationLevel) {
+func (x *Tenant) SetIsolationLevel(v OrganizationIsolationLevel) {
 	x.xxx_hidden_IsolationLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 20)
 }
@@ -568,12 +567,12 @@ func (x *Tenant) ClearDescription() {
 
 func (x *Tenant) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Status = enums.TenantStatus_TENANT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
 func (x *Tenant) ClearIsolationLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_IsolationLevel = enums.OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_IsolationLevel = OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *Tenant) ClearCreatedAt() {
@@ -649,9 +648,9 @@ type Tenant_builder struct {
 	// Tenant description
 	Description *string
 	// Current status of the tenant
-	Status *enums.TenantStatus
+	Status *TenantStatus
 	// Isolation level for this tenant
-	IsolationLevel *enums.OrganizationIsolationLevel
+	IsolationLevel *OrganizationIsolationLevel
 	// Tenant metadata and custom attributes
 	Metadata []*messages.KeyValue
 	// Tenant creation timestamp (immutable)
@@ -795,17 +794,16 @@ const file_gcommon_v1_organization_messages_tenant_proto_rawDesc = "" +
 	"\x06locale\x18\x12 \x01(\tR\x06locale\x12\x1d\n" +
 	"\n" +
 	"trial_mode\x18\x13 \x01(\bR\ttrialMode\x12H\n" +
-	"\x10trial_expires_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x0etrialExpiresAtB\xf4\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10trial_expires_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x0etrialExpiresAtB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_tenant_proto_goTypes = []any{
-	(*Tenant)(nil),                        // 0: gcommon.v1.organization.Tenant
-	(enums.TenantStatus)(0),               // 1: gcommon.v1.organization.TenantStatus
-	(enums.OrganizationIsolationLevel)(0), // 2: gcommon.v1.organization.OrganizationIsolationLevel
-	(*messages.KeyValue)(nil),             // 3: gcommon.v1.common.KeyValue
-	(*timestamppb.Timestamp)(nil),         // 4: google.protobuf.Timestamp
-	(*TenantQuota)(nil),                   // 5: gcommon.v1.organization.TenantQuota
+	(*Tenant)(nil),                  // 0: gcommon.v1.organization.Tenant
+	(TenantStatus)(0),               // 1: gcommon.v1.organization.TenantStatus
+	(OrganizationIsolationLevel)(0), // 2: gcommon.v1.organization.OrganizationIsolationLevel
+	(*messages.KeyValue)(nil),       // 3: gcommon.v1.common.KeyValue
+	(*timestamppb.Timestamp)(nil),   // 4: google.protobuf.Timestamp
+	(*TenantQuota)(nil),             // 5: gcommon.v1.organization.TenantQuota
 }
 var file_gcommon_v1_organization_messages_tenant_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.Tenant.status:type_name -> gcommon.v1.organization.TenantStatus
@@ -827,6 +825,8 @@ func file_gcommon_v1_organization_messages_tenant_proto_init() {
 	if File_gcommon_v1_organization_messages_tenant_proto != nil {
 		return
 	}
+	file_gcommon_v1_organization_enums_isolation_level_proto_init()
+	file_gcommon_v1_organization_enums_tenant_status_proto_init()
 	file_gcommon_v1_organization_messages_tenant_quota_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

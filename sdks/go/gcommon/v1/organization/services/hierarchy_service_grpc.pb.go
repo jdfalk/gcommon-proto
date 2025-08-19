@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/organization/services/hierarchy_service.proto
 
-package services
+package organization
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -44,29 +43,29 @@ const (
 // and organizational structure administration.
 type HierarchyServiceClient interface {
 	// Create a new department
-	CreateDepartment(ctx context.Context, in *messages.CreateDepartmentRequest, opts ...grpc.CallOption) (*messages.CreateDepartmentResponse, error)
+	CreateDepartment(ctx context.Context, in *CreateDepartmentRequest, opts ...grpc.CallOption) (*CreateDepartmentResponse, error)
 	// Get a department by ID
-	GetDepartment(ctx context.Context, in *messages.GetDepartmentRequest, opts ...grpc.CallOption) (*messages.GetDepartmentResponse, error)
+	GetDepartment(ctx context.Context, in *GetDepartmentRequest, opts ...grpc.CallOption) (*GetDepartmentResponse, error)
 	// Update an existing department
-	UpdateDepartment(ctx context.Context, in *messages.UpdateDepartmentRequest, opts ...grpc.CallOption) (*messages.UpdateDepartmentResponse, error)
+	UpdateDepartment(ctx context.Context, in *UpdateDepartmentRequest, opts ...grpc.CallOption) (*UpdateDepartmentResponse, error)
 	// Delete a department (soft delete)
-	DeleteDepartment(ctx context.Context, in *messages.DeleteDepartmentRequest, opts ...grpc.CallOption) (*messages.DeleteDepartmentResponse, error)
+	DeleteDepartment(ctx context.Context, in *DeleteDepartmentRequest, opts ...grpc.CallOption) (*DeleteDepartmentResponse, error)
 	// List departments within an organization (with pagination and filtering)
-	ListDepartments(ctx context.Context, in *messages.ListDepartmentsRequest, opts ...grpc.CallOption) (*messages.ListDepartmentsResponse, error)
+	ListDepartments(ctx context.Context, in *ListDepartmentsRequest, opts ...grpc.CallOption) (*ListDepartmentsResponse, error)
 	// Create a new team
-	CreateTeam(ctx context.Context, in *messages.CreateTeamRequest, opts ...grpc.CallOption) (*messages.CreateTeamResponse, error)
+	CreateTeam(ctx context.Context, in *CreateTeamRequest, opts ...grpc.CallOption) (*CreateTeamResponse, error)
 	// Get a team by ID
-	GetTeam(ctx context.Context, in *messages.GetTeamRequest, opts ...grpc.CallOption) (*messages.GetTeamResponse, error)
+	GetTeam(ctx context.Context, in *GetTeamRequest, opts ...grpc.CallOption) (*GetTeamResponse, error)
 	// Update an existing team
-	UpdateTeam(ctx context.Context, in *messages.UpdateTeamRequest, opts ...grpc.CallOption) (*messages.UpdateTeamResponse, error)
+	UpdateTeam(ctx context.Context, in *UpdateTeamRequest, opts ...grpc.CallOption) (*UpdateTeamResponse, error)
 	// Delete a team (soft delete)
-	DeleteTeam(ctx context.Context, in *messages.DeleteTeamRequest, opts ...grpc.CallOption) (*messages.DeleteTeamResponse, error)
+	DeleteTeam(ctx context.Context, in *DeleteTeamRequest, opts ...grpc.CallOption) (*DeleteTeamResponse, error)
 	// List teams within an organization or department (with pagination and filtering)
-	ListTeams(ctx context.Context, in *messages.ListTeamsRequest, opts ...grpc.CallOption) (*messages.ListTeamsResponse, error)
+	ListTeams(ctx context.Context, in *ListTeamsRequest, opts ...grpc.CallOption) (*ListTeamsResponse, error)
 	// Get organizational hierarchy structure
-	GetHierarchy(ctx context.Context, in *messages.GetHierarchyRequest, opts ...grpc.CallOption) (*messages.GetHierarchyResponse, error)
+	GetHierarchy(ctx context.Context, in *GetHierarchyRequest, opts ...grpc.CallOption) (*GetHierarchyResponse, error)
 	// Update organizational hierarchy structure
-	UpdateHierarchy(ctx context.Context, in *messages.UpdateHierarchyRequest, opts ...grpc.CallOption) (*messages.UpdateHierarchyResponse, error)
+	UpdateHierarchy(ctx context.Context, in *UpdateHierarchyRequest, opts ...grpc.CallOption) (*UpdateHierarchyResponse, error)
 }
 
 type hierarchyServiceClient struct {
@@ -77,9 +76,9 @@ func NewHierarchyServiceClient(cc grpc.ClientConnInterface) HierarchyServiceClie
 	return &hierarchyServiceClient{cc}
 }
 
-func (c *hierarchyServiceClient) CreateDepartment(ctx context.Context, in *messages.CreateDepartmentRequest, opts ...grpc.CallOption) (*messages.CreateDepartmentResponse, error) {
+func (c *hierarchyServiceClient) CreateDepartment(ctx context.Context, in *CreateDepartmentRequest, opts ...grpc.CallOption) (*CreateDepartmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateDepartmentResponse)
+	out := new(CreateDepartmentResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_CreateDepartment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -87,9 +86,9 @@ func (c *hierarchyServiceClient) CreateDepartment(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) GetDepartment(ctx context.Context, in *messages.GetDepartmentRequest, opts ...grpc.CallOption) (*messages.GetDepartmentResponse, error) {
+func (c *hierarchyServiceClient) GetDepartment(ctx context.Context, in *GetDepartmentRequest, opts ...grpc.CallOption) (*GetDepartmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetDepartmentResponse)
+	out := new(GetDepartmentResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_GetDepartment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -97,9 +96,9 @@ func (c *hierarchyServiceClient) GetDepartment(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) UpdateDepartment(ctx context.Context, in *messages.UpdateDepartmentRequest, opts ...grpc.CallOption) (*messages.UpdateDepartmentResponse, error) {
+func (c *hierarchyServiceClient) UpdateDepartment(ctx context.Context, in *UpdateDepartmentRequest, opts ...grpc.CallOption) (*UpdateDepartmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateDepartmentResponse)
+	out := new(UpdateDepartmentResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_UpdateDepartment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -107,9 +106,9 @@ func (c *hierarchyServiceClient) UpdateDepartment(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) DeleteDepartment(ctx context.Context, in *messages.DeleteDepartmentRequest, opts ...grpc.CallOption) (*messages.DeleteDepartmentResponse, error) {
+func (c *hierarchyServiceClient) DeleteDepartment(ctx context.Context, in *DeleteDepartmentRequest, opts ...grpc.CallOption) (*DeleteDepartmentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteDepartmentResponse)
+	out := new(DeleteDepartmentResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_DeleteDepartment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -117,9 +116,9 @@ func (c *hierarchyServiceClient) DeleteDepartment(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) ListDepartments(ctx context.Context, in *messages.ListDepartmentsRequest, opts ...grpc.CallOption) (*messages.ListDepartmentsResponse, error) {
+func (c *hierarchyServiceClient) ListDepartments(ctx context.Context, in *ListDepartmentsRequest, opts ...grpc.CallOption) (*ListDepartmentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListDepartmentsResponse)
+	out := new(ListDepartmentsResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_ListDepartments_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -127,9 +126,9 @@ func (c *hierarchyServiceClient) ListDepartments(ctx context.Context, in *messag
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) CreateTeam(ctx context.Context, in *messages.CreateTeamRequest, opts ...grpc.CallOption) (*messages.CreateTeamResponse, error) {
+func (c *hierarchyServiceClient) CreateTeam(ctx context.Context, in *CreateTeamRequest, opts ...grpc.CallOption) (*CreateTeamResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateTeamResponse)
+	out := new(CreateTeamResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_CreateTeam_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -137,9 +136,9 @@ func (c *hierarchyServiceClient) CreateTeam(ctx context.Context, in *messages.Cr
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) GetTeam(ctx context.Context, in *messages.GetTeamRequest, opts ...grpc.CallOption) (*messages.GetTeamResponse, error) {
+func (c *hierarchyServiceClient) GetTeam(ctx context.Context, in *GetTeamRequest, opts ...grpc.CallOption) (*GetTeamResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetTeamResponse)
+	out := new(GetTeamResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_GetTeam_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -147,9 +146,9 @@ func (c *hierarchyServiceClient) GetTeam(ctx context.Context, in *messages.GetTe
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) UpdateTeam(ctx context.Context, in *messages.UpdateTeamRequest, opts ...grpc.CallOption) (*messages.UpdateTeamResponse, error) {
+func (c *hierarchyServiceClient) UpdateTeam(ctx context.Context, in *UpdateTeamRequest, opts ...grpc.CallOption) (*UpdateTeamResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateTeamResponse)
+	out := new(UpdateTeamResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_UpdateTeam_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -157,9 +156,9 @@ func (c *hierarchyServiceClient) UpdateTeam(ctx context.Context, in *messages.Up
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) DeleteTeam(ctx context.Context, in *messages.DeleteTeamRequest, opts ...grpc.CallOption) (*messages.DeleteTeamResponse, error) {
+func (c *hierarchyServiceClient) DeleteTeam(ctx context.Context, in *DeleteTeamRequest, opts ...grpc.CallOption) (*DeleteTeamResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteTeamResponse)
+	out := new(DeleteTeamResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_DeleteTeam_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -167,9 +166,9 @@ func (c *hierarchyServiceClient) DeleteTeam(ctx context.Context, in *messages.De
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) ListTeams(ctx context.Context, in *messages.ListTeamsRequest, opts ...grpc.CallOption) (*messages.ListTeamsResponse, error) {
+func (c *hierarchyServiceClient) ListTeams(ctx context.Context, in *ListTeamsRequest, opts ...grpc.CallOption) (*ListTeamsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListTeamsResponse)
+	out := new(ListTeamsResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_ListTeams_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -177,9 +176,9 @@ func (c *hierarchyServiceClient) ListTeams(ctx context.Context, in *messages.Lis
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) GetHierarchy(ctx context.Context, in *messages.GetHierarchyRequest, opts ...grpc.CallOption) (*messages.GetHierarchyResponse, error) {
+func (c *hierarchyServiceClient) GetHierarchy(ctx context.Context, in *GetHierarchyRequest, opts ...grpc.CallOption) (*GetHierarchyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetHierarchyResponse)
+	out := new(GetHierarchyResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_GetHierarchy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -187,9 +186,9 @@ func (c *hierarchyServiceClient) GetHierarchy(ctx context.Context, in *messages.
 	return out, nil
 }
 
-func (c *hierarchyServiceClient) UpdateHierarchy(ctx context.Context, in *messages.UpdateHierarchyRequest, opts ...grpc.CallOption) (*messages.UpdateHierarchyResponse, error) {
+func (c *hierarchyServiceClient) UpdateHierarchy(ctx context.Context, in *UpdateHierarchyRequest, opts ...grpc.CallOption) (*UpdateHierarchyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateHierarchyResponse)
+	out := new(UpdateHierarchyResponse)
 	err := c.cc.Invoke(ctx, HierarchyService_UpdateHierarchy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -207,29 +206,29 @@ func (c *hierarchyServiceClient) UpdateHierarchy(ctx context.Context, in *messag
 // and organizational structure administration.
 type HierarchyServiceServer interface {
 	// Create a new department
-	CreateDepartment(context.Context, *messages.CreateDepartmentRequest) (*messages.CreateDepartmentResponse, error)
+	CreateDepartment(context.Context, *CreateDepartmentRequest) (*CreateDepartmentResponse, error)
 	// Get a department by ID
-	GetDepartment(context.Context, *messages.GetDepartmentRequest) (*messages.GetDepartmentResponse, error)
+	GetDepartment(context.Context, *GetDepartmentRequest) (*GetDepartmentResponse, error)
 	// Update an existing department
-	UpdateDepartment(context.Context, *messages.UpdateDepartmentRequest) (*messages.UpdateDepartmentResponse, error)
+	UpdateDepartment(context.Context, *UpdateDepartmentRequest) (*UpdateDepartmentResponse, error)
 	// Delete a department (soft delete)
-	DeleteDepartment(context.Context, *messages.DeleteDepartmentRequest) (*messages.DeleteDepartmentResponse, error)
+	DeleteDepartment(context.Context, *DeleteDepartmentRequest) (*DeleteDepartmentResponse, error)
 	// List departments within an organization (with pagination and filtering)
-	ListDepartments(context.Context, *messages.ListDepartmentsRequest) (*messages.ListDepartmentsResponse, error)
+	ListDepartments(context.Context, *ListDepartmentsRequest) (*ListDepartmentsResponse, error)
 	// Create a new team
-	CreateTeam(context.Context, *messages.CreateTeamRequest) (*messages.CreateTeamResponse, error)
+	CreateTeam(context.Context, *CreateTeamRequest) (*CreateTeamResponse, error)
 	// Get a team by ID
-	GetTeam(context.Context, *messages.GetTeamRequest) (*messages.GetTeamResponse, error)
+	GetTeam(context.Context, *GetTeamRequest) (*GetTeamResponse, error)
 	// Update an existing team
-	UpdateTeam(context.Context, *messages.UpdateTeamRequest) (*messages.UpdateTeamResponse, error)
+	UpdateTeam(context.Context, *UpdateTeamRequest) (*UpdateTeamResponse, error)
 	// Delete a team (soft delete)
-	DeleteTeam(context.Context, *messages.DeleteTeamRequest) (*messages.DeleteTeamResponse, error)
+	DeleteTeam(context.Context, *DeleteTeamRequest) (*DeleteTeamResponse, error)
 	// List teams within an organization or department (with pagination and filtering)
-	ListTeams(context.Context, *messages.ListTeamsRequest) (*messages.ListTeamsResponse, error)
+	ListTeams(context.Context, *ListTeamsRequest) (*ListTeamsResponse, error)
 	// Get organizational hierarchy structure
-	GetHierarchy(context.Context, *messages.GetHierarchyRequest) (*messages.GetHierarchyResponse, error)
+	GetHierarchy(context.Context, *GetHierarchyRequest) (*GetHierarchyResponse, error)
 	// Update organizational hierarchy structure
-	UpdateHierarchy(context.Context, *messages.UpdateHierarchyRequest) (*messages.UpdateHierarchyResponse, error)
+	UpdateHierarchy(context.Context, *UpdateHierarchyRequest) (*UpdateHierarchyResponse, error)
 	mustEmbedUnimplementedHierarchyServiceServer()
 }
 
@@ -240,40 +239,40 @@ type HierarchyServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedHierarchyServiceServer struct{}
 
-func (UnimplementedHierarchyServiceServer) CreateDepartment(context.Context, *messages.CreateDepartmentRequest) (*messages.CreateDepartmentResponse, error) {
+func (UnimplementedHierarchyServiceServer) CreateDepartment(context.Context, *CreateDepartmentRequest) (*CreateDepartmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateDepartment not implemented")
 }
-func (UnimplementedHierarchyServiceServer) GetDepartment(context.Context, *messages.GetDepartmentRequest) (*messages.GetDepartmentResponse, error) {
+func (UnimplementedHierarchyServiceServer) GetDepartment(context.Context, *GetDepartmentRequest) (*GetDepartmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDepartment not implemented")
 }
-func (UnimplementedHierarchyServiceServer) UpdateDepartment(context.Context, *messages.UpdateDepartmentRequest) (*messages.UpdateDepartmentResponse, error) {
+func (UnimplementedHierarchyServiceServer) UpdateDepartment(context.Context, *UpdateDepartmentRequest) (*UpdateDepartmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateDepartment not implemented")
 }
-func (UnimplementedHierarchyServiceServer) DeleteDepartment(context.Context, *messages.DeleteDepartmentRequest) (*messages.DeleteDepartmentResponse, error) {
+func (UnimplementedHierarchyServiceServer) DeleteDepartment(context.Context, *DeleteDepartmentRequest) (*DeleteDepartmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteDepartment not implemented")
 }
-func (UnimplementedHierarchyServiceServer) ListDepartments(context.Context, *messages.ListDepartmentsRequest) (*messages.ListDepartmentsResponse, error) {
+func (UnimplementedHierarchyServiceServer) ListDepartments(context.Context, *ListDepartmentsRequest) (*ListDepartmentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListDepartments not implemented")
 }
-func (UnimplementedHierarchyServiceServer) CreateTeam(context.Context, *messages.CreateTeamRequest) (*messages.CreateTeamResponse, error) {
+func (UnimplementedHierarchyServiceServer) CreateTeam(context.Context, *CreateTeamRequest) (*CreateTeamResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTeam not implemented")
 }
-func (UnimplementedHierarchyServiceServer) GetTeam(context.Context, *messages.GetTeamRequest) (*messages.GetTeamResponse, error) {
+func (UnimplementedHierarchyServiceServer) GetTeam(context.Context, *GetTeamRequest) (*GetTeamResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTeam not implemented")
 }
-func (UnimplementedHierarchyServiceServer) UpdateTeam(context.Context, *messages.UpdateTeamRequest) (*messages.UpdateTeamResponse, error) {
+func (UnimplementedHierarchyServiceServer) UpdateTeam(context.Context, *UpdateTeamRequest) (*UpdateTeamResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTeam not implemented")
 }
-func (UnimplementedHierarchyServiceServer) DeleteTeam(context.Context, *messages.DeleteTeamRequest) (*messages.DeleteTeamResponse, error) {
+func (UnimplementedHierarchyServiceServer) DeleteTeam(context.Context, *DeleteTeamRequest) (*DeleteTeamResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTeam not implemented")
 }
-func (UnimplementedHierarchyServiceServer) ListTeams(context.Context, *messages.ListTeamsRequest) (*messages.ListTeamsResponse, error) {
+func (UnimplementedHierarchyServiceServer) ListTeams(context.Context, *ListTeamsRequest) (*ListTeamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTeams not implemented")
 }
-func (UnimplementedHierarchyServiceServer) GetHierarchy(context.Context, *messages.GetHierarchyRequest) (*messages.GetHierarchyResponse, error) {
+func (UnimplementedHierarchyServiceServer) GetHierarchy(context.Context, *GetHierarchyRequest) (*GetHierarchyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetHierarchy not implemented")
 }
-func (UnimplementedHierarchyServiceServer) UpdateHierarchy(context.Context, *messages.UpdateHierarchyRequest) (*messages.UpdateHierarchyResponse, error) {
+func (UnimplementedHierarchyServiceServer) UpdateHierarchy(context.Context, *UpdateHierarchyRequest) (*UpdateHierarchyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateHierarchy not implemented")
 }
 func (UnimplementedHierarchyServiceServer) mustEmbedUnimplementedHierarchyServiceServer() {}
@@ -298,7 +297,7 @@ func RegisterHierarchyServiceServer(s grpc.ServiceRegistrar, srv HierarchyServic
 }
 
 func _HierarchyService_CreateDepartment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateDepartmentRequest)
+	in := new(CreateDepartmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -310,13 +309,13 @@ func _HierarchyService_CreateDepartment_Handler(srv interface{}, ctx context.Con
 		FullMethod: HierarchyService_CreateDepartment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).CreateDepartment(ctx, req.(*messages.CreateDepartmentRequest))
+		return srv.(HierarchyServiceServer).CreateDepartment(ctx, req.(*CreateDepartmentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_GetDepartment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetDepartmentRequest)
+	in := new(GetDepartmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -328,13 +327,13 @@ func _HierarchyService_GetDepartment_Handler(srv interface{}, ctx context.Contex
 		FullMethod: HierarchyService_GetDepartment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).GetDepartment(ctx, req.(*messages.GetDepartmentRequest))
+		return srv.(HierarchyServiceServer).GetDepartment(ctx, req.(*GetDepartmentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_UpdateDepartment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateDepartmentRequest)
+	in := new(UpdateDepartmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -346,13 +345,13 @@ func _HierarchyService_UpdateDepartment_Handler(srv interface{}, ctx context.Con
 		FullMethod: HierarchyService_UpdateDepartment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).UpdateDepartment(ctx, req.(*messages.UpdateDepartmentRequest))
+		return srv.(HierarchyServiceServer).UpdateDepartment(ctx, req.(*UpdateDepartmentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_DeleteDepartment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteDepartmentRequest)
+	in := new(DeleteDepartmentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -364,13 +363,13 @@ func _HierarchyService_DeleteDepartment_Handler(srv interface{}, ctx context.Con
 		FullMethod: HierarchyService_DeleteDepartment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).DeleteDepartment(ctx, req.(*messages.DeleteDepartmentRequest))
+		return srv.(HierarchyServiceServer).DeleteDepartment(ctx, req.(*DeleteDepartmentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_ListDepartments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListDepartmentsRequest)
+	in := new(ListDepartmentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -382,13 +381,13 @@ func _HierarchyService_ListDepartments_Handler(srv interface{}, ctx context.Cont
 		FullMethod: HierarchyService_ListDepartments_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).ListDepartments(ctx, req.(*messages.ListDepartmentsRequest))
+		return srv.(HierarchyServiceServer).ListDepartments(ctx, req.(*ListDepartmentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_CreateTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateTeamRequest)
+	in := new(CreateTeamRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -400,13 +399,13 @@ func _HierarchyService_CreateTeam_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: HierarchyService_CreateTeam_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).CreateTeam(ctx, req.(*messages.CreateTeamRequest))
+		return srv.(HierarchyServiceServer).CreateTeam(ctx, req.(*CreateTeamRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_GetTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetTeamRequest)
+	in := new(GetTeamRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -418,13 +417,13 @@ func _HierarchyService_GetTeam_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: HierarchyService_GetTeam_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).GetTeam(ctx, req.(*messages.GetTeamRequest))
+		return srv.(HierarchyServiceServer).GetTeam(ctx, req.(*GetTeamRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_UpdateTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateTeamRequest)
+	in := new(UpdateTeamRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -436,13 +435,13 @@ func _HierarchyService_UpdateTeam_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: HierarchyService_UpdateTeam_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).UpdateTeam(ctx, req.(*messages.UpdateTeamRequest))
+		return srv.(HierarchyServiceServer).UpdateTeam(ctx, req.(*UpdateTeamRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_DeleteTeam_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteTeamRequest)
+	in := new(DeleteTeamRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -454,13 +453,13 @@ func _HierarchyService_DeleteTeam_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: HierarchyService_DeleteTeam_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).DeleteTeam(ctx, req.(*messages.DeleteTeamRequest))
+		return srv.(HierarchyServiceServer).DeleteTeam(ctx, req.(*DeleteTeamRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_ListTeams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListTeamsRequest)
+	in := new(ListTeamsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -472,13 +471,13 @@ func _HierarchyService_ListTeams_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: HierarchyService_ListTeams_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).ListTeams(ctx, req.(*messages.ListTeamsRequest))
+		return srv.(HierarchyServiceServer).ListTeams(ctx, req.(*ListTeamsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_GetHierarchy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetHierarchyRequest)
+	in := new(GetHierarchyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -490,13 +489,13 @@ func _HierarchyService_GetHierarchy_Handler(srv interface{}, ctx context.Context
 		FullMethod: HierarchyService_GetHierarchy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).GetHierarchy(ctx, req.(*messages.GetHierarchyRequest))
+		return srv.(HierarchyServiceServer).GetHierarchy(ctx, req.(*GetHierarchyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HierarchyService_UpdateHierarchy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateHierarchyRequest)
+	in := new(UpdateHierarchyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -508,7 +507,7 @@ func _HierarchyService_UpdateHierarchy_Handler(srv interface{}, ctx context.Cont
 		FullMethod: HierarchyService_UpdateHierarchy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HierarchyServiceServer).UpdateHierarchy(ctx, req.(*messages.UpdateHierarchyRequest))
+		return srv.(HierarchyServiceServer).UpdateHierarchy(ctx, req.(*UpdateHierarchyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/get_cache_config_request.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -97,8 +97,7 @@ const file_gcommon_v1_web_messages_get_cache_config_request_proto_rawDesc = "" +
 	"\n" +
 	"6gcommon/v1/web/messages/get_cache_config_request.proto\x12\x0egcommon.v1.web\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"W\n" +
 	"\x15GetCacheConfigRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xcd\x01\n" +
-	"\x12com.gcommon.v1.webB\x1aGetCacheConfigRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_get_cache_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_get_cache_config_request_proto_goTypes = []any{

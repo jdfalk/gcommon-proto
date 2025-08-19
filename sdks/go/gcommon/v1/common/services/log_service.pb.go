@@ -30,8 +30,7 @@ const file_gcommon_v1_common_services_log_service_proto_rawDesc = "" +
 	"\n" +
 	"LogService\x12S\n" +
 	"\bWriteLog\x12\".gcommon.v1.common.WriteLogRequest\x1a#.gcommon.v1.common.WriteLogResponse\x12S\n" +
-	"\bReadLogs\x12\".gcommon.v1.common.ReadLogsRequest\x1a#.gcommon.v1.common.ReadLogsResponseB\xd4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fLogServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bReadLogs\x12\".gcommon.v1.common.ReadLogsRequest\x1a#.gcommon.v1.common.ReadLogsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_log_service_proto_goTypes = []any{
 	(*messages.WriteLogRequest)(nil),  // 0: gcommon.v1.common.WriteLogRequest

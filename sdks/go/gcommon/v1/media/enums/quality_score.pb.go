@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/enums/quality_score.proto
 
-package enums
+package media
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -82,8 +82,7 @@ const file_gcommon_v1_media_enums_quality_score_proto_rawDesc = "" +
 	"\x11QUALITY_SCORE_LOW\x10\x01\x12\x18\n" +
 	"\x14QUALITY_SCORE_MEDIUM\x10\x02\x12\x16\n" +
 	"\x12QUALITY_SCORE_HIGH\x10\x03\x12\x1b\n" +
-	"\x17QUALITY_SCORE_EXCELLENT\x10\x04B\xcd\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x11QualityScoreProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/enums\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17QUALITY_SCORE_EXCELLENT\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_enums_quality_score_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_media_enums_quality_score_proto_goTypes = []any{

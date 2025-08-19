@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/metric_aggregation.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 // Configuration for metric aggregation operations
 type MetricAggregation struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type           enums.AggregationType  `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.metrics.AggregationType"`
+	xxx_hidden_Type           AggregationType        `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.metrics.AggregationType"`
 	xxx_hidden_WindowSeconds  int32                  `protobuf:"varint,2,opt,name=window_seconds,json=windowSeconds"`
 	xxx_hidden_GroupBy        []string               `protobuf:"bytes,3,rep,name=group_by,json=groupBy"`
 	xxx_hidden_Percentiles    []float64              `protobuf:"fixed64,4,rep,packed,name=percentiles"`
@@ -63,13 +62,13 @@ func (x *MetricAggregation) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricAggregation) GetType() enums.AggregationType {
+func (x *MetricAggregation) GetType() AggregationType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.AggregationType(0)
+	return AggregationType_AGGREGATION_TYPE_UNSPECIFIED
 }
 
 func (x *MetricAggregation) GetWindowSeconds() int32 {
@@ -117,7 +116,7 @@ func (x *MetricAggregation) GetMinSamples() int32 {
 	return 0
 }
 
-func (x *MetricAggregation) SetType(v enums.AggregationType) {
+func (x *MetricAggregation) SetType(v AggregationType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
@@ -187,7 +186,7 @@ func (x *MetricAggregation) HasMinSamples() bool {
 
 func (x *MetricAggregation) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.AggregationType_AGGREGATION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AggregationType_AGGREGATION_TYPE_UNSPECIFIED
 }
 
 func (x *MetricAggregation) ClearWindowSeconds() {
@@ -214,7 +213,7 @@ type MetricAggregation_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of aggregation
-	Type *enums.AggregationType
+	Type *AggregationType
 	// Time window for aggregation
 	WindowSeconds *int32
 	// Group by fields
@@ -271,13 +270,12 @@ const file_gcommon_v1_metrics_messages_metric_aggregation_proto_rawDesc = "" +
 	"\x0fcustom_function\x18\x05 \x01(\tR\x0ecustomFunction\x12#\n" +
 	"\rinclude_nulls\x18\x06 \x01(\bR\fincludeNulls\x12\x1f\n" +
 	"\vmin_samples\x18\a \x01(\x05R\n" +
-	"minSamplesB\xe1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"minSamplesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_aggregation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_aggregation_proto_goTypes = []any{
-	(*MetricAggregation)(nil),  // 0: gcommon.v1.metrics.MetricAggregation
-	(enums.AggregationType)(0), // 1: gcommon.v1.metrics.AggregationType
+	(*MetricAggregation)(nil), // 0: gcommon.v1.metrics.MetricAggregation
+	(AggregationType)(0),      // 1: gcommon.v1.metrics.AggregationType
 }
 var file_gcommon_v1_metrics_messages_metric_aggregation_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricAggregation.type:type_name -> gcommon.v1.metrics.AggregationType
@@ -293,6 +291,7 @@ func file_gcommon_v1_metrics_messages_metric_aggregation_proto_init() {
 	if File_gcommon_v1_metrics_messages_metric_aggregation_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_aggregation_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

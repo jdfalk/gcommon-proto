@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/cookie_data.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type CookieData struct {
 	xxx_hidden_ExpiresAt   *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
 	xxx_hidden_HttpOnly    bool                   `protobuf:"varint,6,opt,name=http_only,json=httpOnly"`
 	xxx_hidden_Secure      bool                   `protobuf:"varint,7,opt,name=secure"`
-	xxx_hidden_SameSite    enums.CookieSameSite   `protobuf:"varint,8,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
+	xxx_hidden_SameSite    CookieSameSite         `protobuf:"varint,8,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -125,13 +124,13 @@ func (x *CookieData) GetSecure() bool {
 	return false
 }
 
-func (x *CookieData) GetSameSite() enums.CookieSameSite {
+func (x *CookieData) GetSameSite() CookieSameSite {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_SameSite
 		}
 	}
-	return enums.CookieSameSite(0)
+	return CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 func (x *CookieData) SetName(v string) {
@@ -168,7 +167,7 @@ func (x *CookieData) SetSecure(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
 
-func (x *CookieData) SetSameSite(v enums.CookieSameSite) {
+func (x *CookieData) SetSameSite(v CookieSameSite) {
 	x.xxx_hidden_SameSite = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
 }
@@ -265,7 +264,7 @@ func (x *CookieData) ClearSecure() {
 
 func (x *CookieData) ClearSameSite() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_SameSite = enums.CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+	x.xxx_hidden_SameSite = CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 type CookieData_builder struct {
@@ -286,7 +285,7 @@ type CookieData_builder struct {
 	// Whether cookie is Secure
 	Secure *bool
 	// SameSite policy
-	SameSite *enums.CookieSameSite
+	SameSite *CookieSameSite
 }
 
 func (b0 CookieData_builder) Build() *CookieData {
@@ -340,14 +339,13 @@ const file_gcommon_v1_web_messages_cookie_data_proto_rawDesc = "" +
 	"expires_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
 	"\thttp_only\x18\x06 \x01(\bR\bhttpOnly\x12\x16\n" +
 	"\x06secure\x18\a \x01(\bR\x06secure\x12;\n" +
-	"\tsame_site\x18\b \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB\xc2\x01\n" +
-	"\x12com.gcommon.v1.webB\x0fCookieDataProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tsame_site\x18\b \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_cookie_data_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_cookie_data_proto_goTypes = []any{
 	(*CookieData)(nil),            // 0: gcommon.v1.web.CookieData
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(enums.CookieSameSite)(0),     // 2: gcommon.v1.web.CookieSameSite
+	(CookieSameSite)(0),           // 2: gcommon.v1.web.CookieSameSite
 }
 var file_gcommon_v1_web_messages_cookie_data_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.CookieData.expires_at:type_name -> google.protobuf.Timestamp
@@ -364,6 +362,7 @@ func file_gcommon_v1_web_messages_cookie_data_proto_init() {
 	if File_gcommon_v1_web_messages_cookie_data_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_cookie_same_site_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

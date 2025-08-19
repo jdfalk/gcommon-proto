@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/load_balancer_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +24,11 @@ const (
 
 // LoadBalancerConfig message definition.
 type WebLoadBalancerConfig struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Strategy        enums.LoadBalanceStrategy `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.LoadBalanceStrategy"`
-	xxx_hidden_Upstreams       []string                  `protobuf:"bytes,2,rep,name=upstreams"`
-	xxx_hidden_HealthCheckPath *string                   `protobuf:"bytes,3,opt,name=health_check_path,json=healthCheckPath"`
-	xxx_hidden_Timeout         *durationpb.Duration      `protobuf:"bytes,4,opt,name=timeout"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Strategy        LoadBalanceStrategy    `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.LoadBalanceStrategy"`
+	xxx_hidden_Upstreams       []string               `protobuf:"bytes,2,rep,name=upstreams"`
+	xxx_hidden_HealthCheckPath *string                `protobuf:"bytes,3,opt,name=health_check_path,json=healthCheckPath"`
+	xxx_hidden_Timeout         *durationpb.Duration   `protobuf:"bytes,4,opt,name=timeout"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -61,13 +60,13 @@ func (x *WebLoadBalancerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebLoadBalancerConfig) GetStrategy() enums.LoadBalanceStrategy {
+func (x *WebLoadBalancerConfig) GetStrategy() LoadBalanceStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return enums.LoadBalanceStrategy(0)
+	return LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebLoadBalancerConfig) GetUpstreams() []string {
@@ -94,7 +93,7 @@ func (x *WebLoadBalancerConfig) GetTimeout() *durationpb.Duration {
 	return nil
 }
 
-func (x *WebLoadBalancerConfig) SetStrategy(v enums.LoadBalanceStrategy) {
+func (x *WebLoadBalancerConfig) SetStrategy(v LoadBalanceStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -135,7 +134,7 @@ func (x *WebLoadBalancerConfig) HasTimeout() bool {
 
 func (x *WebLoadBalancerConfig) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Strategy = enums.LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebLoadBalancerConfig) ClearHealthCheckPath() {
@@ -151,7 +150,7 @@ type WebLoadBalancerConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Load balancing strategy
-	Strategy *enums.LoadBalanceStrategy
+	Strategy *LoadBalanceStrategy
 	// Upstream server addresses
 	Upstreams []string
 	// Health check path
@@ -186,14 +185,13 @@ const file_gcommon_v1_web_messages_load_balancer_config_proto_rawDesc = "" +
 	"\bstrategy\x18\x01 \x01(\x0e2#.gcommon.v1.web.LoadBalanceStrategyR\bstrategy\x12\x1c\n" +
 	"\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n" +
 	"\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x123\n" +
-	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB\xca\x01\n" +
-	"\x12com.gcommon.v1.webB\x17LoadBalancerConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_load_balancer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_load_balancer_config_proto_goTypes = []any{
-	(*WebLoadBalancerConfig)(nil),  // 0: gcommon.v1.web.WebLoadBalancerConfig
-	(enums.LoadBalanceStrategy)(0), // 1: gcommon.v1.web.LoadBalanceStrategy
-	(*durationpb.Duration)(nil),    // 2: google.protobuf.Duration
+	(*WebLoadBalancerConfig)(nil), // 0: gcommon.v1.web.WebLoadBalancerConfig
+	(LoadBalanceStrategy)(0),      // 1: gcommon.v1.web.LoadBalanceStrategy
+	(*durationpb.Duration)(nil),   // 2: google.protobuf.Duration
 }
 var file_gcommon_v1_web_messages_load_balancer_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.WebLoadBalancerConfig.strategy:type_name -> gcommon.v1.web.LoadBalanceStrategy
@@ -210,6 +208,7 @@ func file_gcommon_v1_web_messages_load_balancer_config_proto_init() {
 	if File_gcommon_v1_web_messages_load_balancer_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_load_balance_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

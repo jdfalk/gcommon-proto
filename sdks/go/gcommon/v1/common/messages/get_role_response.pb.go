@@ -161,8 +161,7 @@ const file_gcommon_v1_common_messages_get_role_response_proto_rawDesc = "" +
 	"2gcommon/v1/common/messages/get_role_response.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/messages/error.proto\x1a%gcommon/v1/common/messages/role.proto\x1a!google/protobuf/go_features.proto\"v\n" +
 	"\x0fGetRoleResponse\x12/\n" +
 	"\x04role\x18\x01 \x01(\v2\x17.gcommon.v1.common.RoleB\x02(\x01R\x04role\x122\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd9\x01\n" +
-	"\x15com.gcommon.v1.commonB\x14GetRoleResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_role_response_proto_goTypes = []any{

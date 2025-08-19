@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/messages/media_quality.proto
 
-package messages
+package media
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +24,11 @@ const (
 // Media quality assessment.
 type MediaQuality struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Resolution      enums.Resolution       `protobuf:"varint,1,opt,name=resolution,enum=gcommon.v1.media.Resolution"`
+	xxx_hidden_Resolution      Resolution             `protobuf:"varint,1,opt,name=resolution,enum=gcommon.v1.media.Resolution"`
 	xxx_hidden_VideoCodec      *string                `protobuf:"bytes,2,opt,name=video_codec,json=videoCodec"`
 	xxx_hidden_BitrateKbps     int32                  `protobuf:"varint,3,opt,name=bitrate_kbps,json=bitrateKbps"`
 	xxx_hidden_DurationSeconds float32                `protobuf:"fixed32,4,opt,name=duration_seconds,json=durationSeconds"`
-	xxx_hidden_QualityScore    enums.QualityScore     `protobuf:"varint,5,opt,name=quality_score,json=qualityScore,enum=gcommon.v1.media.QualityScore"`
+	xxx_hidden_QualityScore    QualityScore           `protobuf:"varint,5,opt,name=quality_score,json=qualityScore,enum=gcommon.v1.media.QualityScore"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -61,13 +60,13 @@ func (x *MediaQuality) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MediaQuality) GetResolution() enums.Resolution {
+func (x *MediaQuality) GetResolution() Resolution {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Resolution
 		}
 	}
-	return enums.Resolution(0)
+	return Resolution_RESOLUTION_UNSPECIFIED
 }
 
 func (x *MediaQuality) GetVideoCodec() string {
@@ -94,16 +93,16 @@ func (x *MediaQuality) GetDurationSeconds() float32 {
 	return 0
 }
 
-func (x *MediaQuality) GetQualityScore() enums.QualityScore {
+func (x *MediaQuality) GetQualityScore() QualityScore {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_QualityScore
 		}
 	}
-	return enums.QualityScore(0)
+	return QualityScore_QUALITY_SCORE_UNSPECIFIED
 }
 
-func (x *MediaQuality) SetResolution(v enums.Resolution) {
+func (x *MediaQuality) SetResolution(v Resolution) {
 	x.xxx_hidden_Resolution = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -123,7 +122,7 @@ func (x *MediaQuality) SetDurationSeconds(v float32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *MediaQuality) SetQualityScore(v enums.QualityScore) {
+func (x *MediaQuality) SetQualityScore(v QualityScore) {
 	x.xxx_hidden_QualityScore = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
@@ -165,7 +164,7 @@ func (x *MediaQuality) HasQualityScore() bool {
 
 func (x *MediaQuality) ClearResolution() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Resolution = enums.Resolution_RESOLUTION_UNSPECIFIED
+	x.xxx_hidden_Resolution = Resolution_RESOLUTION_UNSPECIFIED
 }
 
 func (x *MediaQuality) ClearVideoCodec() {
@@ -185,17 +184,17 @@ func (x *MediaQuality) ClearDurationSeconds() {
 
 func (x *MediaQuality) ClearQualityScore() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_QualityScore = enums.QualityScore_QUALITY_SCORE_UNSPECIFIED
+	x.xxx_hidden_QualityScore = QualityScore_QUALITY_SCORE_UNSPECIFIED
 }
 
 type MediaQuality_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Resolution      *enums.Resolution
+	Resolution      *Resolution
 	VideoCodec      *string
 	BitrateKbps     *int32
 	DurationSeconds *float32
-	QualityScore    *enums.QualityScore
+	QualityScore    *QualityScore
 }
 
 func (b0 MediaQuality_builder) Build() *MediaQuality {
@@ -238,14 +237,13 @@ const file_gcommon_v1_media_messages_media_quality_proto_rawDesc = "" +
 	"videoCodec\x12!\n" +
 	"\fbitrate_kbps\x18\x03 \x01(\x05R\vbitrateKbps\x12)\n" +
 	"\x10duration_seconds\x18\x04 \x01(\x02R\x0fdurationSeconds\x12C\n" +
-	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB\xd0\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x11MediaQualityProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_media_quality_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_media_quality_proto_goTypes = []any{
-	(*MediaQuality)(nil),    // 0: gcommon.v1.media.MediaQuality
-	(enums.Resolution)(0),   // 1: gcommon.v1.media.Resolution
-	(enums.QualityScore)(0), // 2: gcommon.v1.media.QualityScore
+	(*MediaQuality)(nil), // 0: gcommon.v1.media.MediaQuality
+	(Resolution)(0),      // 1: gcommon.v1.media.Resolution
+	(QualityScore)(0),    // 2: gcommon.v1.media.QualityScore
 }
 var file_gcommon_v1_media_messages_media_quality_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.media.MediaQuality.resolution:type_name -> gcommon.v1.media.Resolution
@@ -262,6 +260,8 @@ func file_gcommon_v1_media_messages_media_quality_proto_init() {
 	if File_gcommon_v1_media_messages_media_quality_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_enums_quality_score_proto_init()
+	file_gcommon_v1_media_enums_resolution_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

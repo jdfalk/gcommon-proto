@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/import_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x03\n\x13ImportQueueResponse\x12\x1b\n\timport_id\x18\x01 \x01(\tR\x08importId\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12%\n\x0eimported_count\x18\x04 \x01(\x04R\rimportedCount\x12!\n\x0c\x66\x61iled_count\x18\x05 \x01(\x04R\x0b\x66\x61iledCount\x12\x1f\n\x0btotal_count\x18\x06 \x01(\x04R\ntotalCount\x12\x39\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\x12\x1f\n\x0b\x64uration_ms\x18\t \x01(\x04R\ndurationMs\x12)\n\x10progress_percent\x18\n \x01(\x02R\x0fprogressPercentB\xd7\x01\n\x14\x63om.gcommon.v1.queueB\x18ImportQueueResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/import_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x03\n\x13ImportQueueResponse\x12\x1b\n\timport_id\x18\x01 \x01(\tR\x08importId\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12%\n\x0eimported_count\x18\x04 \x01(\x04R\rimportedCount\x12!\n\x0c\x66\x61iled_count\x18\x05 \x01(\x04R\x0b\x66\x61iledCount\x12\x1f\n\x0btotal_count\x18\x06 \x01(\x04R\ntotalCount\x12\x39\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\x12\x1f\n\x0b\x64uration_ms\x18\t \x01(\x04R\ndurationMs\x12)\n\x10progress_percent\x18\n \x01(\x02R\x0fprogressPercentB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.import_queue_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\030ImportQueueResponseProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_IMPORTQUEUERESPONSE']._serialized_start=144
   _globals['_IMPORTQUEUERESPONSE']._serialized_end=554
 # @@protoc_insertion_point(module_scope)

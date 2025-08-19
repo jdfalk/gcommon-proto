@@ -26,14 +26,14 @@ from gcommon.v1.queue.enums import message_state_pb2 as gcommon_dot_v1_dot_queue
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/delete_criteria.proto\x12\x10gcommon.v1.queue\x1a*gcommon/v1/queue/enums/message_state.proto\x1a!google/protobuf/go_features.proto\"\xfc\x02\n\x0e\x44\x65leteCriteria\x12\x30\n\x14older_than_timestamp\x18\x01 \x01(\x03R\x12olderThanTimestamp\x12Z\n\x0eheader_filters\x18\x02 \x03(\x0b\x32\x33.gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntryR\rheaderFilters\x12\x1a\n\x08priority\x18\x03 \x01(\x05R\x08priority\x12%\n\x0e\x63orrelation_id\x18\x04 \x01(\tR\rcorrelationId\x12!\n\x0cmax_messages\x18\x05 \x01(\x05R\x0bmaxMessages\x12\x34\n\x05state\x18\x06 \x01(\x0e\x32\x1e.gcommon.v1.queue.MessageStateR\x05state\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd2\x01\n\x14\x63om.gcommon.v1.queueB\x13\x44\x65leteCriteriaProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/delete_criteria.proto\x12\x10gcommon.v1.queue\x1a*gcommon/v1/queue/enums/message_state.proto\x1a!google/protobuf/go_features.proto\"\xfc\x02\n\x0e\x44\x65leteCriteria\x12\x30\n\x14older_than_timestamp\x18\x01 \x01(\x03R\x12olderThanTimestamp\x12Z\n\x0eheader_filters\x18\x02 \x03(\x0b\x32\x33.gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntryR\rheaderFilters\x12\x1a\n\x08priority\x18\x03 \x01(\x05R\x08priority\x12%\n\x0e\x63orrelation_id\x18\x04 \x01(\tR\rcorrelationId\x12!\n\x0cmax_messages\x18\x05 \x01(\x05R\x0bmaxMessages\x12\x34\n\x05state\x18\x06 \x01(\x0e\x32\x1e.gcommon.v1.queue.MessageStateR\x05state\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.delete_criteria_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\023DeleteCriteriaProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_DELETECRITERIA_HEADERFILTERSENTRY']._loaded_options = None
   _globals['_DELETECRITERIA_HEADERFILTERSENTRY']._serialized_options = b'8\001'
   _globals['_DELETECRITERIA']._serialized_start=149

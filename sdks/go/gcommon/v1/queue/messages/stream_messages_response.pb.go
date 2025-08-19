@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/stream_messages_response.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -254,8 +254,7 @@ const file_gcommon_v1_queue_messages_stream_messages_response_proto_rawDesc = ""
 	"\x12continuation_token\x18\x03 \x01(\tR\x11continuationToken\x12%\n" +
 	"\x0etotal_messages\x18\x04 \x01(\x04R\rtotalMessages\x12'\n" +
 	"\x0fstream_position\x18\x05 \x01(\x04R\x0estreamPosition\x12!\n" +
-	"\fstream_ended\x18\x06 \x01(\bR\vstreamEndedB\xda\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1bStreamMessagesResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fstream_ended\x18\x06 \x01(\bR\vstreamEndedB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_stream_messages_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_stream_messages_response_proto_goTypes = []any{

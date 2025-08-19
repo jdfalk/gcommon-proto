@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/messages/movie_info.proto
 
-package messages
+package media
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -192,8 +192,7 @@ const file_gcommon_v1_media_messages_movie_info_proto_rawDesc = "" +
 	"\frelease_date\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\vreleaseDate\x12\x16\n" +
 	"\x06budget\x18\x02 \x01(\x03R\x06budget\x12\x18\n" +
 	"\arevenue\x18\x03 \x01(\x03R\arevenue\x12'\n" +
-	"\x0fruntime_minutes\x18\x04 \x01(\x05R\x0eruntimeMinutesB\xcd\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0eMovieInfoProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fruntime_minutes\x18\x04 \x01(\x05R\x0eruntimeMinutesB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_movie_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_movie_info_proto_goTypes = []any{

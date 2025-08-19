@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/compliance_settings.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -215,8 +215,7 @@ const file_gcommon_v1_organization_messages_compliance_settings_proto_rawDesc = 
 	"\x13data_retention_days\x18\x02 \x01(\x05R\x11dataRetentionDays\x12.\n" +
 	"\x13data_export_enabled\x18\x03 \x01(\bR\x11dataExportEnabled\x122\n" +
 	"\x15data_deletion_enabled\x18\x04 \x01(\bR\x13dataDeletionEnabled\x12&\n" +
-	"\x0ecertifications\x18\x05 \x03(\tR\x0ecertificationsB\x80\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17ComplianceSettingsProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecertifications\x18\x05 \x03(\tR\x0ecertificationsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_compliance_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_compliance_settings_proto_goTypes = []any{

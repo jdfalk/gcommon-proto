@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/resource_limits_summary.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -394,8 +394,7 @@ const file_gcommon_v1_metrics_messages_resource_limits_summary_proto_rawDesc = "
 	"\x1anetwork_used_bytes_per_sec\x18\b \x01(\x03R\x16networkUsedBytesPerSec\x12'\n" +
 	"\x0flimits_enforced\x18\t \x01(\bR\x0elimitsEnforced\x12)\n" +
 	"\x10violations_count\x18\n" +
-	" \x01(\rR\x0fviolationsCountB\xe5\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aResourceLimitsSummaryProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\rR\x0fviolationsCountB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_resource_limits_summary_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_resource_limits_summary_proto_goTypes = []any{

@@ -10,7 +10,7 @@ import "gcommon/v1/web/messages/session_data.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/web";
 
 // CreateSessionResponse response definition.
 message WebCreateSessionResponse {

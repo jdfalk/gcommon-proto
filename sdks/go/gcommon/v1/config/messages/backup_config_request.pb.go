@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/backup_config_request.proto
 
-package messages
+package config
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -203,8 +203,7 @@ const file_gcommon_v1_config_messages_backup_config_request_proto_rawDesc = "" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12'\n" +
 	"\x0finclude_secrets\x18\x03 \x01(\bR\x0eincludeSecrets\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xdd\x01\n" +
-	"\x15com.gcommon.v1.configB\x18BackupConfigRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_backup_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_backup_config_request_proto_goTypes = []any{

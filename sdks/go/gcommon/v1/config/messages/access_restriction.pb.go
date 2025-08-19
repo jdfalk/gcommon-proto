@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/access_restriction.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type AccessRestriction struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        enums.RestrictionType  `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.RestrictionType"`
+	xxx_hidden_Type        RestrictionType        `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.RestrictionType"`
 	xxx_hidden_Value       *string                `protobuf:"bytes,2,opt,name=value"`
 	xxx_hidden_Operator    *string                `protobuf:"bytes,3,opt,name=operator"`
 	xxx_hidden_Reason      *string                `protobuf:"bytes,4,opt,name=reason"`
@@ -59,13 +58,13 @@ func (x *AccessRestriction) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AccessRestriction) GetType() enums.RestrictionType {
+func (x *AccessRestriction) GetType() RestrictionType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.RestrictionType(0)
+	return RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
 }
 
 func (x *AccessRestriction) GetValue() string {
@@ -98,7 +97,7 @@ func (x *AccessRestriction) GetReason() string {
 	return ""
 }
 
-func (x *AccessRestriction) SetType(v enums.RestrictionType) {
+func (x *AccessRestriction) SetType(v RestrictionType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -148,7 +147,7 @@ func (x *AccessRestriction) HasReason() bool {
 
 func (x *AccessRestriction) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
 }
 
 func (x *AccessRestriction) ClearValue() {
@@ -170,7 +169,7 @@ type AccessRestriction_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Restriction type
-	Type *enums.RestrictionType
+	Type *RestrictionType
 	// Restriction value
 	Value *string
 	// Restriction operator
@@ -211,13 +210,12 @@ const file_gcommon_v1_config_messages_access_restriction_proto_rawDesc = "" +
 	"\x04type\x18\x01 \x01(\x0e2\".gcommon.v1.config.RestrictionTypeR\x04type\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x12\x1a\n" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
-	"\x06reason\x18\x04 \x01(\tR\x06reasonB\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x16AccessRestrictionProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x04 \x01(\tR\x06reasonB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_access_restriction_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_access_restriction_proto_goTypes = []any{
-	(*AccessRestriction)(nil),  // 0: gcommon.v1.config.AccessRestriction
-	(enums.RestrictionType)(0), // 1: gcommon.v1.config.RestrictionType
+	(*AccessRestriction)(nil), // 0: gcommon.v1.config.AccessRestriction
+	(RestrictionType)(0),      // 1: gcommon.v1.config.RestrictionType
 }
 var file_gcommon_v1_config_messages_access_restriction_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.AccessRestriction.type:type_name -> gcommon.v1.config.RestrictionType
@@ -233,6 +231,7 @@ func file_gcommon_v1_config_messages_access_restriction_proto_init() {
 	if File_gcommon_v1_config_messages_access_restriction_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_restriction_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

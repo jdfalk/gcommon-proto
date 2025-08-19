@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/restriction_type.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -85,8 +85,7 @@ const file_gcommon_v1_config_enums_restriction_type_proto_rawDesc = "" +
 	"\x1bRESTRICTION_TYPE_TIME_RANGE\x10\x02\x12\x1d\n" +
 	"\x19RESTRICTION_TYPE_LOCATION\x10\x03\x12\x1f\n" +
 	"\x1bRESTRICTION_TYPE_USER_AGENT\x10\x04\x12\x1b\n" +
-	"\x17RESTRICTION_TYPE_CUSTOM\x10\x05B\xd6\x01\n" +
-	"\x15com.gcommon.v1.configB\x14RestrictionTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17RESTRICTION_TYPE_CUSTOM\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_restriction_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_restriction_type_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/update_result.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ const (
 // UpdateResult contains information about what was changed.
 type UpdateResult struct {
 	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Action          enums.UpdateAction      `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.metrics.UpdateAction"`
+	xxx_hidden_Action          UpdateAction            `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.metrics.UpdateAction"`
 	xxx_hidden_ConfigChanges   *[]*MetricsConfigChange `protobuf:"bytes,2,rep,name=config_changes,json=configChanges"`
 	xxx_hidden_UpdatedSettings []string                `protobuf:"bytes,3,rep,name=updated_settings,json=updatedSettings"`
 	xxx_hidden_RemovedSettings []string                `protobuf:"bytes,4,rep,name=removed_settings,json=removedSettings"`
@@ -64,13 +63,13 @@ func (x *UpdateResult) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateResult) GetAction() enums.UpdateAction {
+func (x *UpdateResult) GetAction() UpdateAction {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Action
 		}
 	}
-	return enums.UpdateAction(0)
+	return UpdateAction_UPDATE_ACTION_UNSPECIFIED
 }
 
 func (x *UpdateResult) GetConfigChanges() []*MetricsConfigChange {
@@ -123,7 +122,7 @@ func (x *UpdateResult) GetUpdateDuration() string {
 	return ""
 }
 
-func (x *UpdateResult) SetAction(v enums.UpdateAction) {
+func (x *UpdateResult) SetAction(v UpdateAction) {
 	x.xxx_hidden_Action = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
@@ -185,7 +184,7 @@ func (x *UpdateResult) HasUpdateDuration() bool {
 
 func (x *UpdateResult) ClearAction() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Action = enums.UpdateAction_UPDATE_ACTION_UNSPECIFIED
+	x.xxx_hidden_Action = UpdateAction_UPDATE_ACTION_UNSPECIFIED
 }
 
 func (x *UpdateResult) ClearRestarted() {
@@ -207,7 +206,7 @@ type UpdateResult_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// What update action was taken
-	Action *enums.UpdateAction
+	Action *UpdateAction
 	// Configuration changes that were applied
 	ConfigChanges []*MetricsConfigChange
 	// Settings that were updated
@@ -260,13 +259,12 @@ const file_gcommon_v1_metrics_messages_update_result_proto_rawDesc = "" +
 	"\x10removed_settings\x18\x04 \x03(\tR\x0fremovedSettings\x12\x1c\n" +
 	"\trestarted\x18\x05 \x01(\bR\trestarted\x12#\n" +
 	"\rstrategy_used\x18\x06 \x01(\tR\fstrategyUsed\x12'\n" +
-	"\x0fupdate_duration\x18\a \x01(\tR\x0eupdateDurationB\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11UpdateResultProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fupdate_duration\x18\a \x01(\tR\x0eupdateDurationB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_result_proto_goTypes = []any{
 	(*UpdateResult)(nil),        // 0: gcommon.v1.metrics.UpdateResult
-	(enums.UpdateAction)(0),     // 1: gcommon.v1.metrics.UpdateAction
+	(UpdateAction)(0),           // 1: gcommon.v1.metrics.UpdateAction
 	(*MetricsConfigChange)(nil), // 2: gcommon.v1.metrics.MetricsConfigChange
 }
 var file_gcommon_v1_metrics_messages_update_result_proto_depIdxs = []int32{
@@ -284,6 +282,7 @@ func file_gcommon_v1_metrics_messages_update_result_proto_init() {
 	if File_gcommon_v1_metrics_messages_update_result_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_update_action_proto_init()
 	file_gcommon_v1_metrics_messages_config_change_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

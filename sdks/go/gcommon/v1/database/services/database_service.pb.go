@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/services/database_service.proto
 
-package services
+package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,22 +32,21 @@ const file_gcommon_v1_database_services_database_service_proto_rawDesc = "" +
 	"\aExecute\x12#.gcommon.v1.database.ExecuteRequest\x1a$.gcommon.v1.database.ExecuteResponse\x12c\n" +
 	"\fExecuteBatch\x12(.gcommon.v1.database.ExecuteBatchRequest\x1a).gcommon.v1.database.ExecuteBatchResponse\x12r\n" +
 	"\x11GetConnectionInfo\x12-.gcommon.v1.database.GetConnectionInfoRequest\x1a..gcommon.v1.database.GetConnectionInfoResponse\x12p\n" +
-	"\vHealthCheck\x12/.gcommon.v1.database.DatabaseHealthCheckRequest\x1a0.gcommon.v1.database.DatabaseHealthCheckResponseB\xe5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vHealthCheck\x12/.gcommon.v1.database.DatabaseHealthCheckRequest\x1a0.gcommon.v1.database.DatabaseHealthCheckResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_database_service_proto_goTypes = []any{
-	(*messages.QueryRequest)(nil),                // 0: gcommon.v1.database.QueryRequest
-	(*messages.QueryRowRequest)(nil),             // 1: gcommon.v1.database.QueryRowRequest
-	(*messages.ExecuteRequest)(nil),              // 2: gcommon.v1.database.ExecuteRequest
-	(*messages.ExecuteBatchRequest)(nil),         // 3: gcommon.v1.database.ExecuteBatchRequest
-	(*messages.GetConnectionInfoRequest)(nil),    // 4: gcommon.v1.database.GetConnectionInfoRequest
-	(*messages.DatabaseHealthCheckRequest)(nil),  // 5: gcommon.v1.database.DatabaseHealthCheckRequest
-	(*messages.QueryResponse)(nil),               // 6: gcommon.v1.database.QueryResponse
-	(*messages.QueryRowResponse)(nil),            // 7: gcommon.v1.database.QueryRowResponse
-	(*messages.ExecuteResponse)(nil),             // 8: gcommon.v1.database.ExecuteResponse
-	(*messages.ExecuteBatchResponse)(nil),        // 9: gcommon.v1.database.ExecuteBatchResponse
-	(*messages.GetConnectionInfoResponse)(nil),   // 10: gcommon.v1.database.GetConnectionInfoResponse
-	(*messages.DatabaseHealthCheckResponse)(nil), // 11: gcommon.v1.database.DatabaseHealthCheckResponse
+	(*QueryRequest)(nil),                // 0: gcommon.v1.database.QueryRequest
+	(*QueryRowRequest)(nil),             // 1: gcommon.v1.database.QueryRowRequest
+	(*ExecuteRequest)(nil),              // 2: gcommon.v1.database.ExecuteRequest
+	(*ExecuteBatchRequest)(nil),         // 3: gcommon.v1.database.ExecuteBatchRequest
+	(*GetConnectionInfoRequest)(nil),    // 4: gcommon.v1.database.GetConnectionInfoRequest
+	(*DatabaseHealthCheckRequest)(nil),  // 5: gcommon.v1.database.DatabaseHealthCheckRequest
+	(*QueryResponse)(nil),               // 6: gcommon.v1.database.QueryResponse
+	(*QueryRowResponse)(nil),            // 7: gcommon.v1.database.QueryRowResponse
+	(*ExecuteResponse)(nil),             // 8: gcommon.v1.database.ExecuteResponse
+	(*ExecuteBatchResponse)(nil),        // 9: gcommon.v1.database.ExecuteBatchResponse
+	(*GetConnectionInfoResponse)(nil),   // 10: gcommon.v1.database.GetConnectionInfoResponse
+	(*DatabaseHealthCheckResponse)(nil), // 11: gcommon.v1.database.DatabaseHealthCheckResponse
 }
 var file_gcommon_v1_database_services_database_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.DatabaseService.Query:input_type -> gcommon.v1.database.QueryRequest
@@ -75,6 +73,18 @@ func file_gcommon_v1_database_services_database_service_proto_init() {
 	if File_gcommon_v1_database_services_database_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_database_messages_execute_batch_request_proto_init()
+	file_gcommon_v1_database_messages_execute_batch_response_proto_init()
+	file_gcommon_v1_database_messages_execute_request_proto_init()
+	file_gcommon_v1_database_messages_execute_response_proto_init()
+	file_gcommon_v1_database_messages_get_connection_info_request_proto_init()
+	file_gcommon_v1_database_messages_get_connection_info_response_proto_init()
+	file_gcommon_v1_database_messages_health_check_request_proto_init()
+	file_gcommon_v1_database_messages_health_check_response_proto_init()
+	file_gcommon_v1_database_messages_query_request_proto_init()
+	file_gcommon_v1_database_messages_query_response_proto_init()
+	file_gcommon_v1_database_messages_query_row_request_proto_init()
+	file_gcommon_v1_database_messages_query_row_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

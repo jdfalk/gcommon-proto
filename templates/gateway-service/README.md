@@ -1,1 +1,0 @@
-# Gateway Service Template\n\nAPI gateway with routing setup.

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/network_usage.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -199,8 +199,7 @@ const file_gcommon_v1_metrics_messages_network_usage_proto_rawDesc = "" +
 	"\x13bytes_in_per_second\x18\x01 \x01(\x03R\x10bytesInPerSecond\x12/\n" +
 	"\x14bytes_out_per_second\x18\x02 \x01(\x03R\x11bytesOutPerSecond\x121\n" +
 	"\x15packets_in_per_second\x18\x03 \x01(\x03R\x12packetsInPerSecond\x123\n" +
-	"\x16packets_out_per_second\x18\x04 \x01(\x03R\x13packetsOutPerSecondB\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11NetworkUsageProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16packets_out_per_second\x18\x04 \x01(\x03R\x13packetsOutPerSecondB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_network_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_network_usage_proto_goTypes = []any{

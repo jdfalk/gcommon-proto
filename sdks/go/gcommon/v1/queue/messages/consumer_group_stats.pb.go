@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/consumer_group_stats.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -318,8 +318,7 @@ const file_gcommon_v1_queue_messages_consumer_group_stats_proto_rawDesc = "" +
 	"\ttotal_lag\x18\x06 \x01(\x03R\btotalLag\x12I\n" +
 	"\x0frebalance_stats\x18\a \x01(\v2 .gcommon.v1.queue.RebalanceStatsR\x0erebalanceStats\x12E\n" +
 	"\verror_stats\x18\b \x01(\v2$.gcommon.v1.queue.ConsumerErrorStatsR\n" +
-	"errorStatsB\xd6\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17ConsumerGroupStatsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"errorStatsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_group_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_group_stats_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/get_metrics_request.proto
 
-package messages
+package metrics
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -337,8 +337,7 @@ const file_gcommon_v1_metrics_messages_get_metrics_request_proto_rawDesc = "" +
 	"providerId\x12H\n" +
 	"\x0eoutput_options\x18\a \x01(\v2!.gcommon.v1.metrics.OutputOptionsR\routputOptions\x12)\n" +
 	"\x10include_metadata\x18\b \x01(\bR\x0fincludeMetadata\x12\x14\n" +
-	"\x05limit\x18\t \x01(\x05R\x05limitB\xe1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16GetMetricsRequestProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05limit\x18\t \x01(\x05R\x05limitB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_get_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metrics_request_proto_goTypes = []any{

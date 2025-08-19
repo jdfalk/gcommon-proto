@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/enums/dashboard_type.proto
 
-package enums
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -128,8 +128,7 @@ const file_gcommon_v1_metrics_enums_dashboard_type_proto_rawDesc = "" +
 	"\x1dDASHBOARD_TYPE_SERVICE_HEALTH\x10\n" +
 	"\x12$\n" +
 	" DASHBOARD_TYPE_CAPACITY_PLANNING\x10\v\x12\x1a\n" +
-	"\x16DASHBOARD_TYPE_SLA_SLO\x10\fB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12DashboardTypeProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16DASHBOARD_TYPE_SLA_SLO\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_dashboard_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_dashboard_type_proto_goTypes = []any{

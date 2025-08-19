@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/enums/member_role.proto
 
-package enums
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -86,8 +86,7 @@ const file_gcommon_v1_organization_enums_member_role_proto_rawDesc = "" +
 	"\x11MEMBER_ROLE_ADMIN\x10\x02\x12\x16\n" +
 	"\x12MEMBER_ROLE_MEMBER\x10\x03\x12\x16\n" +
 	"\x12MEMBER_ROLE_VIEWER\x10\x04\x12\x15\n" +
-	"\x11MEMBER_ROLE_GUEST\x10\x05B\xf5\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x0fMemberRoleProtoP\x01Z?github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/enums\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11MEMBER_ROLE_GUEST\x10\x05B4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_enums_member_role_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_organization_enums_member_role_proto_goTypes = []any{

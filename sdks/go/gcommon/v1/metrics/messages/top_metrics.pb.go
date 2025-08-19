@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/top_metrics.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -169,8 +169,7 @@ const file_gcommon_v1_metrics_messages_top_metrics_proto_rawDesc = "" +
 	"\x0ehighest_errors\x18\x03 \x03(\tR\rhighestErrors\x12!\n" +
 	"\fmost_queried\x18\x04 \x03(\tR\vmostQueried\x12-\n" +
 	"\x12slowest_performing\x18\x05 \x03(\tR\x11slowestPerforming\x126\n" +
-	"\x17most_resource_intensive\x18\x06 \x03(\tR\x15mostResourceIntensiveB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fTopMetricsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17most_resource_intensive\x18\x06 \x03(\tR\x15mostResourceIntensiveB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_top_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_top_metrics_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/parameter_type.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -122,8 +122,7 @@ const file_gcommon_v1_config_enums_parameter_type_proto_rawDesc = "" +
 	"\x17PARAMETER_TYPE_PASSWORD\x10\v\x12\x17\n" +
 	"\x13PARAMETER_TYPE_DATE\x10\f\x12\x17\n" +
 	"\x13PARAMETER_TYPE_TIME\x10\r\x12\x1b\n" +
-	"\x17PARAMETER_TYPE_DATETIME\x10\x0eB\xd4\x01\n" +
-	"\x15com.gcommon.v1.configB\x12ParameterTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17PARAMETER_TYPE_DATETIME\x10\x0eB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_parameter_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_parameter_type_proto_goTypes = []any{

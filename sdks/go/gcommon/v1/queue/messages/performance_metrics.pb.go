@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/performance_metrics.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -324,8 +324,7 @@ const file_gcommon_v1_queue_messages_performance_metrics_proto_rawDesc = "" +
 	"\x14disk_available_bytes\x18\x05 \x01(\x03R\x12diskAvailableBytes\x127\n" +
 	"\x18network_bytes_per_second\x18\x06 \x01(\x01R\x15networkBytesPerSecond\x12-\n" +
 	"\x12active_connections\x18\a \x01(\x05R\x11activeConnections\x12'\n" +
-	"\x0fmax_connections\x18\b \x01(\x05R\x0emaxConnectionsB\xd6\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17PerformanceMetricsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fmax_connections\x18\b \x01(\x05R\x0emaxConnectionsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_performance_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_performance_metrics_proto_goTypes = []any{

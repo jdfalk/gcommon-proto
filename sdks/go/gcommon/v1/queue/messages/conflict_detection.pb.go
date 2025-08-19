@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/conflict_detection.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type ConflictDetection struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Strategy        enums.ConflictStrategy `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.queue.ConflictStrategy"`
+	xxx_hidden_Strategy        ConflictStrategy       `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.queue.ConflictStrategy"`
 	xxx_hidden_VectorClock     *VectorClockConfig     `protobuf:"bytes,3,opt,name=vector_clock,json=vectorClock"`
 	xxx_hidden_TimestampConfig *TimestampConfig       `protobuf:"bytes,4,opt,name=timestamp_config,json=timestampConfig"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
@@ -66,13 +65,13 @@ func (x *ConflictDetection) GetEnabled() bool {
 	return false
 }
 
-func (x *ConflictDetection) GetStrategy() enums.ConflictStrategy {
+func (x *ConflictDetection) GetStrategy() ConflictStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return enums.ConflictStrategy(0)
+	return ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConflictDetection) GetVectorClock() *VectorClockConfig {
@@ -94,7 +93,7 @@ func (x *ConflictDetection) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ConflictDetection) SetStrategy(v enums.ConflictStrategy) {
+func (x *ConflictDetection) SetStrategy(v ConflictStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -142,7 +141,7 @@ func (x *ConflictDetection) ClearEnabled() {
 
 func (x *ConflictDetection) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Strategy = enums.ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConflictDetection) ClearVectorClock() {
@@ -159,7 +158,7 @@ type ConflictDetection_builder struct {
 	// Enable conflict detection
 	Enabled *bool
 	// Conflict detection strategy
-	Strategy *enums.ConflictStrategy
+	Strategy *ConflictStrategy
 	// Vector clock configuration
 	VectorClock *VectorClockConfig
 	// Timestamp-based detection settings
@@ -192,15 +191,14 @@ const file_gcommon_v1_queue_messages_conflict_detection_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12>\n" +
 	"\bstrategy\x18\x02 \x01(\x0e2\".gcommon.v1.queue.ConflictStrategyR\bstrategy\x12F\n" +
 	"\fvector_clock\x18\x03 \x01(\v2#.gcommon.v1.queue.VectorClockConfigR\vvectorClock\x12L\n" +
-	"\x10timestamp_config\x18\x04 \x01(\v2!.gcommon.v1.queue.TimestampConfigR\x0ftimestampConfigB\xd5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16ConflictDetectionProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10timestamp_config\x18\x04 \x01(\v2!.gcommon.v1.queue.TimestampConfigR\x0ftimestampConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_conflict_detection_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_conflict_detection_proto_goTypes = []any{
-	(*ConflictDetection)(nil),   // 0: gcommon.v1.queue.ConflictDetection
-	(enums.ConflictStrategy)(0), // 1: gcommon.v1.queue.ConflictStrategy
-	(*VectorClockConfig)(nil),   // 2: gcommon.v1.queue.VectorClockConfig
-	(*TimestampConfig)(nil),     // 3: gcommon.v1.queue.TimestampConfig
+	(*ConflictDetection)(nil), // 0: gcommon.v1.queue.ConflictDetection
+	(ConflictStrategy)(0),     // 1: gcommon.v1.queue.ConflictStrategy
+	(*VectorClockConfig)(nil), // 2: gcommon.v1.queue.VectorClockConfig
+	(*TimestampConfig)(nil),   // 3: gcommon.v1.queue.TimestampConfig
 }
 var file_gcommon_v1_queue_messages_conflict_detection_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ConflictDetection.strategy:type_name -> gcommon.v1.queue.ConflictStrategy
@@ -218,6 +216,7 @@ func file_gcommon_v1_queue_messages_conflict_detection_proto_init() {
 	if File_gcommon_v1_queue_messages_conflict_detection_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_conflict_strategy_proto_init()
 	file_gcommon_v1_queue_messages_timestamp_config_proto_init()
 	file_gcommon_v1_queue_messages_vector_clock_config_proto_init()
 	type x struct{}

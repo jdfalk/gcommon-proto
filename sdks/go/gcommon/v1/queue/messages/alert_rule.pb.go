@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/alert_rule.proto
 
-package messages
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
+	metrics "github.com/jdfalk/gcommon/pkg/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,16 +26,16 @@ const (
 // *
 // An individual alert rule.
 type AlertRule struct {
-	state                  protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                       `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Description *string                       `protobuf:"bytes,2,opt,name=description"`
-	xxx_hidden_MetricName  *string                       `protobuf:"bytes,3,opt,name=metric_name,json=metricName"`
-	xxx_hidden_Condition   enums.AlertCondition          `protobuf:"varint,4,opt,name=condition,enum=gcommon.v1.queue.AlertCondition"`
-	xxx_hidden_Threshold   float64                       `protobuf:"fixed64,5,opt,name=threshold"`
-	xxx_hidden_Duration    *durationpb.Duration          `protobuf:"bytes,6,opt,name=duration"`
-	xxx_hidden_Severity    messages.MetricsAlertSeverity `protobuf:"varint,7,opt,name=severity,enum=gcommon.v1.metrics.MetricsAlertSeverity"`
-	xxx_hidden_Enabled     bool                          `protobuf:"varint,8,opt,name=enabled"`
-	xxx_hidden_Labels      map[string]string             `protobuf:"bytes,9,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState       `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                      `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Description *string                      `protobuf:"bytes,2,opt,name=description"`
+	xxx_hidden_MetricName  *string                      `protobuf:"bytes,3,opt,name=metric_name,json=metricName"`
+	xxx_hidden_Condition   AlertCondition               `protobuf:"varint,4,opt,name=condition,enum=gcommon.v1.queue.AlertCondition"`
+	xxx_hidden_Threshold   float64                      `protobuf:"fixed64,5,opt,name=threshold"`
+	xxx_hidden_Duration    *durationpb.Duration         `protobuf:"bytes,6,opt,name=duration"`
+	xxx_hidden_Severity    metrics.MetricsAlertSeverity `protobuf:"varint,7,opt,name=severity,enum=gcommon.v1.metrics.MetricsAlertSeverity"`
+	xxx_hidden_Enabled     bool                         `protobuf:"varint,8,opt,name=enabled"`
+	xxx_hidden_Labels      map[string]string            `protobuf:"bytes,9,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -98,13 +97,13 @@ func (x *AlertRule) GetMetricName() string {
 	return ""
 }
 
-func (x *AlertRule) GetCondition() enums.AlertCondition {
+func (x *AlertRule) GetCondition() AlertCondition {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Condition
 		}
 	}
-	return enums.AlertCondition(0)
+	return AlertCondition_ALERT_CONDITION_UNSPECIFIED
 }
 
 func (x *AlertRule) GetThreshold() float64 {
@@ -121,13 +120,13 @@ func (x *AlertRule) GetDuration() *durationpb.Duration {
 	return nil
 }
 
-func (x *AlertRule) GetSeverity() messages.MetricsAlertSeverity {
+func (x *AlertRule) GetSeverity() metrics.MetricsAlertSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return messages.MetricsAlertSeverity(0)
+	return metrics.MetricsAlertSeverity(0)
 }
 
 func (x *AlertRule) GetEnabled() bool {
@@ -159,7 +158,7 @@ func (x *AlertRule) SetMetricName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
 
-func (x *AlertRule) SetCondition(v enums.AlertCondition) {
+func (x *AlertRule) SetCondition(v AlertCondition) {
 	x.xxx_hidden_Condition = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
 }
@@ -173,7 +172,7 @@ func (x *AlertRule) SetDuration(v *durationpb.Duration) {
 	x.xxx_hidden_Duration = v
 }
 
-func (x *AlertRule) SetSeverity(v messages.MetricsAlertSeverity) {
+func (x *AlertRule) SetSeverity(v metrics.MetricsAlertSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 9)
 }
@@ -260,7 +259,7 @@ func (x *AlertRule) ClearMetricName() {
 
 func (x *AlertRule) ClearCondition() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Condition = enums.AlertCondition_ALERT_CONDITION_UNSPECIFIED
+	x.xxx_hidden_Condition = AlertCondition_ALERT_CONDITION_UNSPECIFIED
 }
 
 func (x *AlertRule) ClearThreshold() {
@@ -274,7 +273,7 @@ func (x *AlertRule) ClearDuration() {
 
 func (x *AlertRule) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Severity = messages.MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = metrics.MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
 }
 
 func (x *AlertRule) ClearEnabled() {
@@ -292,13 +291,13 @@ type AlertRule_builder struct {
 	// Metric to monitor
 	MetricName *string
 	// Condition for triggering the alert
-	Condition *enums.AlertCondition
+	Condition *AlertCondition
 	// Threshold value
 	Threshold *float64
 	// Duration the condition must persist before alerting
 	Duration *durationpb.Duration
 	// Severity of the alert
-	Severity *messages.MetricsAlertSeverity
+	Severity *metrics.MetricsAlertSeverity
 	// Whether the rule is enabled
 	Enabled *bool
 	// Labels to attach to the alert
@@ -360,16 +359,15 @@ const file_gcommon_v1_queue_messages_alert_rule_proto_rawDesc = "" +
 	"\x06labels\x18\t \x03(\v2'.gcommon.v1.queue.AlertRule.LabelsEntryR\x06labels\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0eAlertRuleProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_alert_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_alert_rule_proto_goTypes = []any{
-	(*AlertRule)(nil),                  // 0: gcommon.v1.queue.AlertRule
-	nil,                                // 1: gcommon.v1.queue.AlertRule.LabelsEntry
-	(enums.AlertCondition)(0),          // 2: gcommon.v1.queue.AlertCondition
-	(*durationpb.Duration)(nil),        // 3: google.protobuf.Duration
-	(messages.MetricsAlertSeverity)(0), // 4: gcommon.v1.metrics.MetricsAlertSeverity
+	(*AlertRule)(nil),                 // 0: gcommon.v1.queue.AlertRule
+	nil,                               // 1: gcommon.v1.queue.AlertRule.LabelsEntry
+	(AlertCondition)(0),               // 2: gcommon.v1.queue.AlertCondition
+	(*durationpb.Duration)(nil),       // 3: google.protobuf.Duration
+	(metrics.MetricsAlertSeverity)(0), // 4: gcommon.v1.metrics.MetricsAlertSeverity
 }
 var file_gcommon_v1_queue_messages_alert_rule_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.AlertRule.condition:type_name -> gcommon.v1.queue.AlertCondition
@@ -388,6 +386,7 @@ func file_gcommon_v1_queue_messages_alert_rule_proto_init() {
 	if File_gcommon_v1_queue_messages_alert_rule_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_alert_condition_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

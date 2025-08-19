@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/enums/template_status.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xc3\x01\n\x0eTemplateStatus\x12\x1f\n\x1bTEMPLATE_STATUS_UNSPECIFIED\x10\x00\x12\x19\n\x15TEMPLATE_STATUS_DRAFT\x10\x01\x12\x1a\n\x16TEMPLATE_STATUS_ACTIVE\x10\x02\x12\x1e\n\x1aTEMPLATE_STATUS_DEPRECATED\x10\x03\x12\x1c\n\x18TEMPLATE_STATUS_ARCHIVED\x10\x04\x12\x1b\n\x17TEMPLATE_STATUS_DELETED\x10\x05\x42\xd5\x01\n\x15\x63om.gcommon.v1.configB\x13TemplateStatusProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/enums/template_status.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xc3\x01\n\x0eTemplateStatus\x12\x1f\n\x1bTEMPLATE_STATUS_UNSPECIFIED\x10\x00\x12\x19\n\x15TEMPLATE_STATUS_DRAFT\x10\x01\x12\x1a\n\x16TEMPLATE_STATUS_ACTIVE\x10\x02\x12\x1e\n\x1aTEMPLATE_STATUS_DEPRECATED\x10\x03\x12\x1c\n\x18TEMPLATE_STATUS_ARCHIVED\x10\x04\x12\x1b\n\x17TEMPLATE_STATUS_DELETED\x10\x05\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.template_status_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\023TemplateStatusProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
   _globals['_TEMPLATESTATUS']._serialized_start=104
   _globals['_TEMPLATESTATUS']._serialized_end=299
 # @@protoc_insertion_point(module_scope)

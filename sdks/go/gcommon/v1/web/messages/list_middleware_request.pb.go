@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/list_middleware_request.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ const (
 type ListMiddlewareRequest struct {
 	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
 	xxx_hidden_ServerId    *string                   `protobuf:"bytes,1,opt,name=server_id,json=serverId"`
-	xxx_hidden_Type        enums.MiddlewareType      `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
+	xxx_hidden_Type        MiddlewareType            `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
 	xxx_hidden_Enabled     bool                      `protobuf:"varint,3,opt,name=enabled"`
 	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
 	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
@@ -72,13 +71,13 @@ func (x *ListMiddlewareRequest) GetServerId() string {
 	return ""
 }
 
-func (x *ListMiddlewareRequest) GetType() enums.MiddlewareType {
+func (x *ListMiddlewareRequest) GetType() MiddlewareType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.MiddlewareType(0)
+	return MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
 func (x *ListMiddlewareRequest) GetEnabled() bool {
@@ -107,7 +106,7 @@ func (x *ListMiddlewareRequest) SetServerId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *ListMiddlewareRequest) SetType(v enums.MiddlewareType) {
+func (x *ListMiddlewareRequest) SetType(v MiddlewareType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -167,7 +166,7 @@ func (x *ListMiddlewareRequest) ClearServerId() {
 
 func (x *ListMiddlewareRequest) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
 func (x *ListMiddlewareRequest) ClearEnabled() {
@@ -189,7 +188,7 @@ type ListMiddlewareRequest_builder struct {
 	// Server identifier
 	ServerId *string
 	// Filter by middleware type
-	Type *enums.MiddlewareType
+	Type *MiddlewareType
 	// Filter by enabled state
 	Enabled *bool
 	// Pagination options
@@ -231,13 +230,12 @@ const file_gcommon_v1_web_messages_list_middleware_request_proto_rawDesc = "" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
 	"pagination\x12>\n" +
-	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xcd\x01\n" +
-	"\x12com.gcommon.v1.webB\x1aListMiddlewareRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_list_middleware_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_list_middleware_request_proto_goTypes = []any{
 	(*ListMiddlewareRequest)(nil),    // 0: gcommon.v1.web.ListMiddlewareRequest
-	(enums.MiddlewareType)(0),        // 1: gcommon.v1.web.MiddlewareType
+	(MiddlewareType)(0),              // 1: gcommon.v1.web.MiddlewareType
 	(*messages.Pagination)(nil),      // 2: gcommon.v1.common.Pagination
 	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
@@ -257,6 +255,7 @@ func file_gcommon_v1_web_messages_list_middleware_request_proto_init() {
 	if File_gcommon_v1_web_messages_list_middleware_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

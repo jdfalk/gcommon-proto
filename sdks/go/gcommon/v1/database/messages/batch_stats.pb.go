@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/batch_stats.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -217,8 +217,7 @@ const file_gcommon_v1_database_messages_batch_stats_proto_rawDesc = "" +
 	"total_time\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\ttotalTime\x123\n" +
 	"\x15successful_operations\x18\x02 \x01(\x05R\x14successfulOperations\x12+\n" +
 	"\x11failed_operations\x18\x03 \x01(\x05R\x10failedOperations\x12.\n" +
-	"\x13total_affected_rows\x18\x04 \x01(\x03R\x11totalAffectedRowsB\xe0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x0fBatchStatsProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13total_affected_rows\x18\x04 \x01(\x03R\x11totalAffectedRowsB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_batch_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_batch_stats_proto_goTypes = []any{

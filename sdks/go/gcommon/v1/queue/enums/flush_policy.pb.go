@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/flush_policy.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -93,8 +93,7 @@ const file_gcommon_v1_queue_enums_flush_policy_proto_rawDesc = "" +
 	"\x12FLUSH_POLICY_BATCH\x10\x02\x12\x16\n" +
 	"\x12FLUSH_POLICY_TIMED\x10\x03\x12\x1c\n" +
 	"\x18FLUSH_POLICY_BUFFER_FULL\x10\x04\x12\x17\n" +
-	"\x13FLUSH_POLICY_MANUAL\x10\x05B\xcc\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10FlushPolicyProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13FLUSH_POLICY_MANUAL\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_flush_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_flush_policy_proto_goTypes = []any{

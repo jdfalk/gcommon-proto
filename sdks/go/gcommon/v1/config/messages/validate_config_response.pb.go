@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/validate_config_response.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -141,8 +141,7 @@ const file_gcommon_v1_config_messages_validate_config_response_proto_rawDesc = "
 	"\x16ValidateConfigResponse\x12\x14\n" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x12@\n" +
 	"\x06errors\x18\x02 \x03(\v2(.gcommon.v1.config.ConfigValidationErrorR\x06errors\x12F\n" +
-	"\bwarnings\x18\x03 \x03(\v2*.gcommon.v1.config.ConfigValidationWarningR\bwarningsB\xe0\x01\n" +
-	"\x15com.gcommon.v1.configB\x1bValidateConfigResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bwarnings\x18\x03 \x03(\v2*.gcommon.v1.config.ConfigValidationWarningR\bwarningsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_validate_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_validate_config_response_proto_goTypes = []any{

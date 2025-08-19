@@ -28,14 +28,14 @@ from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mas
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<gcommon/v1/organization/messages/update_member_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a:gcommon/v1/organization/messages/organization_member.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n\x13UpdateMemberRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x1b\n\tmember_id\x18\x02 \x01(\tR\x08memberId\x12\x43\n\x06member\x18\x03 \x01(\x0b\x32+.gcommon.v1.organization.OrganizationMemberR\x06member\x12;\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMaskB\x81\x02\n\x1b\x63om.gcommon.v1.organizationB\x18UpdateMemberRequestProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<gcommon/v1/organization/messages/update_member_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a:gcommon/v1/organization/messages/organization_member.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n\x13UpdateMemberRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x1b\n\tmember_id\x18\x02 \x01(\tR\x08memberId\x12\x43\n\x06member\x18\x03 \x01(\x0b\x32+.gcommon.v1.organization.OrganizationMemberR\x06member\x12;\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMaskB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.update_member_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\030UpdateMemberRequestProtoP\001ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
   _globals['_UPDATEMEMBERREQUEST']._serialized_start=270
   _globals['_UPDATEMEMBERREQUEST']._serialized_end=514
 # @@protoc_insertion_point(module_scope)

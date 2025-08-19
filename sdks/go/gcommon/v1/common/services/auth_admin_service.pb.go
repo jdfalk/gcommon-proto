@@ -49,8 +49,7 @@ const file_gcommon_v1_common_services_auth_admin_service_proto_rawDesc = "" +
 	"DeleteRole\x12$.gcommon.v1.common.DeleteRoleRequest\x1a\x16.google.protobuf.Empty\x12V\n" +
 	"\tListRoles\x12#.gcommon.v1.common.ListRolesRequest\x1a$.gcommon.v1.common.ListRolesResponse\x12b\n" +
 	"\x16InvalidateUserSessions\x120.gcommon.v1.common.InvalidateUserSessionsRequest\x1a\x16.google.protobuf.Empty\x12e\n" +
-	"\x0eGetSystemStats\x12(.gcommon.v1.common.GetSystemStatsRequest\x1a).gcommon.v1.common.GetSystemStatsResponseB\xda\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15AuthAdminServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eGetSystemStats\x12(.gcommon.v1.common.GetSystemStatsRequest\x1a).gcommon.v1.common.GetSystemStatsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_auth_admin_service_proto_goTypes = []any{
 	(*messages.CreateUserRequest)(nil),             // 0: gcommon.v1.common.CreateUserRequest

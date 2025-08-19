@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/enums/rate_limit_strategy.proto
 
-package enums
+package web
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -82,8 +82,7 @@ const file_gcommon_v1_web_enums_rate_limit_strategy_proto_rawDesc = "" +
 	" RATE_LIMIT_STRATEGY_TOKEN_BUCKET\x10\x01\x12$\n" +
 	" RATE_LIMIT_STRATEGY_FIXED_WINDOW\x10\x02\x12&\n" +
 	"\"RATE_LIMIT_STRATEGY_SLIDING_WINDOW\x10\x03\x12$\n" +
-	" RATE_LIMIT_STRATEGY_LEAKY_BUCKET\x10\x04B\xc6\x01\n" +
-	"\x12com.gcommon.v1.webB\x16RateLimitStrategyProtoP\x01Z6github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" RATE_LIMIT_STRATEGY_LEAKY_BUCKET\x10\x04B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_rate_limit_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_rate_limit_strategy_proto_goTypes = []any{

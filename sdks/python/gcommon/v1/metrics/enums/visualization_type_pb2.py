@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/enums/visualization_type.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x83\x04\n\x11VisualizationType\x12\"\n\x1eVISUALIZATION_TYPE_UNSPECIFIED\x10\x00\x12!\n\x1dVISUALIZATION_TYPE_LINE_CHART\x10\x01\x12 \n\x1cVISUALIZATION_TYPE_BAR_CHART\x10\x02\x12 \n\x1cVISUALIZATION_TYPE_PIE_CHART\x10\x03\x12!\n\x1dVISUALIZATION_TYPE_AREA_CHART\x10\x04\x12#\n\x1fVISUALIZATION_TYPE_SCATTER_PLOT\x10\x05\x12\x1e\n\x1aVISUALIZATION_TYPE_HEATMAP\x10\x06\x12 \n\x1cVISUALIZATION_TYPE_HISTOGRAM\x10\x07\x12\x1c\n\x18VISUALIZATION_TYPE_GAUGE\x10\x08\x12\x1c\n\x18VISUALIZATION_TYPE_TABLE\x10\t\x12\"\n\x1eVISUALIZATION_TYPE_SINGLE_STAT\x10\n\x12\x1c\n\x18VISUALIZATION_TYPE_GRAPH\x10\x0b\x12\x1f\n\x1bVISUALIZATION_TYPE_WORLDMAP\x10\x0c\x12\x1b\n\x17VISUALIZATION_TYPE_TEXT\x10\r\x12\x1d\n\x19VISUALIZATION_TYPE_CUSTOM\x10\x0e\x42\xde\x01\n\x16\x63om.gcommon.v1.metricsB\x16VisualizationTypeProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/enums/visualization_type.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x83\x04\n\x11VisualizationType\x12\"\n\x1eVISUALIZATION_TYPE_UNSPECIFIED\x10\x00\x12!\n\x1dVISUALIZATION_TYPE_LINE_CHART\x10\x01\x12 \n\x1cVISUALIZATION_TYPE_BAR_CHART\x10\x02\x12 \n\x1cVISUALIZATION_TYPE_PIE_CHART\x10\x03\x12!\n\x1dVISUALIZATION_TYPE_AREA_CHART\x10\x04\x12#\n\x1fVISUALIZATION_TYPE_SCATTER_PLOT\x10\x05\x12\x1e\n\x1aVISUALIZATION_TYPE_HEATMAP\x10\x06\x12 \n\x1cVISUALIZATION_TYPE_HISTOGRAM\x10\x07\x12\x1c\n\x18VISUALIZATION_TYPE_GAUGE\x10\x08\x12\x1c\n\x18VISUALIZATION_TYPE_TABLE\x10\t\x12\"\n\x1eVISUALIZATION_TYPE_SINGLE_STAT\x10\n\x12\x1c\n\x18VISUALIZATION_TYPE_GRAPH\x10\x0b\x12\x1f\n\x1bVISUALIZATION_TYPE_WORLDMAP\x10\x0c\x12\x1b\n\x17VISUALIZATION_TYPE_TEXT\x10\r\x12\x1d\n\x19VISUALIZATION_TYPE_CUSTOM\x10\x0e\x42/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.enums.visualization_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\026VisualizationTypeProtoP\001Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
   _globals['_VISUALIZATIONTYPE']._serialized_start=109
   _globals['_VISUALIZATIONTYPE']._serialized_end=624
 # @@protoc_insertion_point(module_scope)

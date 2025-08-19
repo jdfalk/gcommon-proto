@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/update_options.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +29,7 @@ type UpdateOptions struct {
 	xxx_hidden_DryRun          bool                   `protobuf:"varint,2,opt,name=dry_run,json=dryRun"`
 	xxx_hidden_RestartIfNeeded bool                   `protobuf:"varint,3,opt,name=restart_if_needed,json=restartIfNeeded"`
 	xxx_hidden_BackupConfig    bool                   `protobuf:"varint,4,opt,name=backup_config,json=backupConfig"`
-	xxx_hidden_Strategy        enums.UpdateStrategy   `protobuf:"varint,5,opt,name=strategy,enum=gcommon.v1.metrics.UpdateStrategy"`
+	xxx_hidden_Strategy        UpdateStrategy         `protobuf:"varint,5,opt,name=strategy,enum=gcommon.v1.metrics.UpdateStrategy"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -90,13 +89,13 @@ func (x *UpdateOptions) GetBackupConfig() bool {
 	return false
 }
 
-func (x *UpdateOptions) GetStrategy() enums.UpdateStrategy {
+func (x *UpdateOptions) GetStrategy() UpdateStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return enums.UpdateStrategy(0)
+	return UpdateStrategy_UPDATE_STRATEGY_UNSPECIFIED
 }
 
 func (x *UpdateOptions) SetValidateConfig(v bool) {
@@ -119,7 +118,7 @@ func (x *UpdateOptions) SetBackupConfig(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *UpdateOptions) SetStrategy(v enums.UpdateStrategy) {
+func (x *UpdateOptions) SetStrategy(v UpdateStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
@@ -181,7 +180,7 @@ func (x *UpdateOptions) ClearBackupConfig() {
 
 func (x *UpdateOptions) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Strategy = enums.UpdateStrategy_UPDATE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = UpdateStrategy_UPDATE_STRATEGY_UNSPECIFIED
 }
 
 type UpdateOptions_builder struct {
@@ -196,7 +195,7 @@ type UpdateOptions_builder struct {
 	// Whether to backup current configuration before update
 	BackupConfig *bool
 	// Update strategy
-	Strategy *enums.UpdateStrategy
+	Strategy *UpdateStrategy
 }
 
 func (b0 UpdateOptions_builder) Build() *UpdateOptions {
@@ -236,13 +235,12 @@ const file_gcommon_v1_metrics_messages_update_options_proto_rawDesc = "" +
 	"\adry_run\x18\x02 \x01(\bR\x06dryRun\x12*\n" +
 	"\x11restart_if_needed\x18\x03 \x01(\bR\x0frestartIfNeeded\x12#\n" +
 	"\rbackup_config\x18\x04 \x01(\bR\fbackupConfig\x12>\n" +
-	"\bstrategy\x18\x05 \x01(\x0e2\".gcommon.v1.metrics.UpdateStrategyR\bstrategyB\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12UpdateOptionsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bstrategy\x18\x05 \x01(\x0e2\".gcommon.v1.metrics.UpdateStrategyR\bstrategyB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_options_proto_goTypes = []any{
-	(*UpdateOptions)(nil),     // 0: gcommon.v1.metrics.UpdateOptions
-	(enums.UpdateStrategy)(0), // 1: gcommon.v1.metrics.UpdateStrategy
+	(*UpdateOptions)(nil), // 0: gcommon.v1.metrics.UpdateOptions
+	(UpdateStrategy)(0),   // 1: gcommon.v1.metrics.UpdateStrategy
 }
 var file_gcommon_v1_metrics_messages_update_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.UpdateOptions.strategy:type_name -> gcommon.v1.metrics.UpdateStrategy
@@ -258,6 +256,7 @@ func file_gcommon_v1_metrics_messages_update_options_proto_init() {
 	if File_gcommon_v1_metrics_messages_update_options_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_update_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

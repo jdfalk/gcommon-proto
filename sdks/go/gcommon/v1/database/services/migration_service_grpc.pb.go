@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/database/services/migration_service.proto
 
-package services
+package database
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -34,13 +33,13 @@ const (
 // MigrationService manages database schema migrations.
 type MigrationServiceClient interface {
 	// Apply one or more migration scripts
-	ApplyMigration(ctx context.Context, in *messages.RunMigrationRequest, opts ...grpc.CallOption) (*messages.RunMigrationResponse, error)
+	ApplyMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error)
 	// Revert to a previous migration version
-	RevertMigration(ctx context.Context, in *messages.RevertMigrationRequest, opts ...grpc.CallOption) (*messages.RevertMigrationResponse, error)
+	RevertMigration(ctx context.Context, in *RevertMigrationRequest, opts ...grpc.CallOption) (*RevertMigrationResponse, error)
 	// Retrieve migration status for a database
-	GetMigrationStatus(ctx context.Context, in *messages.GetMigrationStatusRequest, opts ...grpc.CallOption) (*messages.GetMigrationStatusResponse, error)
+	GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error)
 	// List migrations and their status
-	ListMigrations(ctx context.Context, in *messages.ListMigrationsRequest, opts ...grpc.CallOption) (*messages.ListMigrationsResponse, error)
+	ListMigrations(ctx context.Context, in *ListMigrationsRequest, opts ...grpc.CallOption) (*ListMigrationsResponse, error)
 }
 
 type migrationServiceClient struct {
@@ -51,9 +50,9 @@ func NewMigrationServiceClient(cc grpc.ClientConnInterface) MigrationServiceClie
 	return &migrationServiceClient{cc}
 }
 
-func (c *migrationServiceClient) ApplyMigration(ctx context.Context, in *messages.RunMigrationRequest, opts ...grpc.CallOption) (*messages.RunMigrationResponse, error) {
+func (c *migrationServiceClient) ApplyMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.RunMigrationResponse)
+	out := new(RunMigrationResponse)
 	err := c.cc.Invoke(ctx, MigrationService_ApplyMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -61,9 +60,9 @@ func (c *migrationServiceClient) ApplyMigration(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *migrationServiceClient) RevertMigration(ctx context.Context, in *messages.RevertMigrationRequest, opts ...grpc.CallOption) (*messages.RevertMigrationResponse, error) {
+func (c *migrationServiceClient) RevertMigration(ctx context.Context, in *RevertMigrationRequest, opts ...grpc.CallOption) (*RevertMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.RevertMigrationResponse)
+	out := new(RevertMigrationResponse)
 	err := c.cc.Invoke(ctx, MigrationService_RevertMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -71,9 +70,9 @@ func (c *migrationServiceClient) RevertMigration(ctx context.Context, in *messag
 	return out, nil
 }
 
-func (c *migrationServiceClient) GetMigrationStatus(ctx context.Context, in *messages.GetMigrationStatusRequest, opts ...grpc.CallOption) (*messages.GetMigrationStatusResponse, error) {
+func (c *migrationServiceClient) GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetMigrationStatusResponse)
+	out := new(GetMigrationStatusResponse)
 	err := c.cc.Invoke(ctx, MigrationService_GetMigrationStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -81,9 +80,9 @@ func (c *migrationServiceClient) GetMigrationStatus(ctx context.Context, in *mes
 	return out, nil
 }
 
-func (c *migrationServiceClient) ListMigrations(ctx context.Context, in *messages.ListMigrationsRequest, opts ...grpc.CallOption) (*messages.ListMigrationsResponse, error) {
+func (c *migrationServiceClient) ListMigrations(ctx context.Context, in *ListMigrationsRequest, opts ...grpc.CallOption) (*ListMigrationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListMigrationsResponse)
+	out := new(ListMigrationsResponse)
 	err := c.cc.Invoke(ctx, MigrationService_ListMigrations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -99,13 +98,13 @@ func (c *migrationServiceClient) ListMigrations(ctx context.Context, in *message
 // MigrationService manages database schema migrations.
 type MigrationServiceServer interface {
 	// Apply one or more migration scripts
-	ApplyMigration(context.Context, *messages.RunMigrationRequest) (*messages.RunMigrationResponse, error)
+	ApplyMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error)
 	// Revert to a previous migration version
-	RevertMigration(context.Context, *messages.RevertMigrationRequest) (*messages.RevertMigrationResponse, error)
+	RevertMigration(context.Context, *RevertMigrationRequest) (*RevertMigrationResponse, error)
 	// Retrieve migration status for a database
-	GetMigrationStatus(context.Context, *messages.GetMigrationStatusRequest) (*messages.GetMigrationStatusResponse, error)
+	GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error)
 	// List migrations and their status
-	ListMigrations(context.Context, *messages.ListMigrationsRequest) (*messages.ListMigrationsResponse, error)
+	ListMigrations(context.Context, *ListMigrationsRequest) (*ListMigrationsResponse, error)
 	mustEmbedUnimplementedMigrationServiceServer()
 }
 
@@ -116,16 +115,16 @@ type MigrationServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMigrationServiceServer struct{}
 
-func (UnimplementedMigrationServiceServer) ApplyMigration(context.Context, *messages.RunMigrationRequest) (*messages.RunMigrationResponse, error) {
+func (UnimplementedMigrationServiceServer) ApplyMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApplyMigration not implemented")
 }
-func (UnimplementedMigrationServiceServer) RevertMigration(context.Context, *messages.RevertMigrationRequest) (*messages.RevertMigrationResponse, error) {
+func (UnimplementedMigrationServiceServer) RevertMigration(context.Context, *RevertMigrationRequest) (*RevertMigrationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RevertMigration not implemented")
 }
-func (UnimplementedMigrationServiceServer) GetMigrationStatus(context.Context, *messages.GetMigrationStatusRequest) (*messages.GetMigrationStatusResponse, error) {
+func (UnimplementedMigrationServiceServer) GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMigrationStatus not implemented")
 }
-func (UnimplementedMigrationServiceServer) ListMigrations(context.Context, *messages.ListMigrationsRequest) (*messages.ListMigrationsResponse, error) {
+func (UnimplementedMigrationServiceServer) ListMigrations(context.Context, *ListMigrationsRequest) (*ListMigrationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMigrations not implemented")
 }
 func (UnimplementedMigrationServiceServer) mustEmbedUnimplementedMigrationServiceServer() {}
@@ -150,7 +149,7 @@ func RegisterMigrationServiceServer(s grpc.ServiceRegistrar, srv MigrationServic
 }
 
 func _MigrationService_ApplyMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RunMigrationRequest)
+	in := new(RunMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -162,13 +161,13 @@ func _MigrationService_ApplyMigration_Handler(srv interface{}, ctx context.Conte
 		FullMethod: MigrationService_ApplyMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MigrationServiceServer).ApplyMigration(ctx, req.(*messages.RunMigrationRequest))
+		return srv.(MigrationServiceServer).ApplyMigration(ctx, req.(*RunMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MigrationService_RevertMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RevertMigrationRequest)
+	in := new(RevertMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -180,13 +179,13 @@ func _MigrationService_RevertMigration_Handler(srv interface{}, ctx context.Cont
 		FullMethod: MigrationService_RevertMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MigrationServiceServer).RevertMigration(ctx, req.(*messages.RevertMigrationRequest))
+		return srv.(MigrationServiceServer).RevertMigration(ctx, req.(*RevertMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MigrationService_GetMigrationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetMigrationStatusRequest)
+	in := new(GetMigrationStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -198,13 +197,13 @@ func _MigrationService_GetMigrationStatus_Handler(srv interface{}, ctx context.C
 		FullMethod: MigrationService_GetMigrationStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MigrationServiceServer).GetMigrationStatus(ctx, req.(*messages.GetMigrationStatusRequest))
+		return srv.(MigrationServiceServer).GetMigrationStatus(ctx, req.(*GetMigrationStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MigrationService_ListMigrations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListMigrationsRequest)
+	in := new(ListMigrationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -216,7 +215,7 @@ func _MigrationService_ListMigrations_Handler(srv interface{}, ctx context.Conte
 		FullMethod: MigrationService_ListMigrations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MigrationServiceServer).ListMigrations(ctx, req.(*messages.ListMigrationsRequest))
+		return srv.(MigrationServiceServer).ListMigrations(ctx, req.(*ListMigrationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

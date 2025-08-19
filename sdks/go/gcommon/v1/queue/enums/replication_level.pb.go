@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/replication_level.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -77,8 +77,7 @@ const file_gcommon_v1_queue_enums_replication_level_proto_rawDesc = "" +
 	"\x1dREPLICATION_LEVEL_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15REPLICATION_LEVEL_ONE\x10\x01\x12\x1c\n" +
 	"\x18REPLICATION_LEVEL_QUORUM\x10\x02\x12\x19\n" +
-	"\x15REPLICATION_LEVEL_ALL\x10\x03B\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15ReplicationLevelProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15REPLICATION_LEVEL_ALL\x10\x03B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_replication_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_replication_level_proto_goTypes = []any{

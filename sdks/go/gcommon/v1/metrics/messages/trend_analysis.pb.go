@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/trend_analysis.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -178,8 +178,7 @@ const file_gcommon_v1_metrics_messages_trend_analysis_proto_rawDesc = "" +
 	"\x0eresource_usage\x18\x02 \x01(\v2&.gcommon.v1.metrics.ResourceUsageTrendR\rresourceUsage\x126\n" +
 	"\x06errors\x18\x03 \x01(\v2\x1e.gcommon.v1.metrics.ErrorTrendR\x06errors\x12D\n" +
 	"\vdata_volume\x18\x04 \x01(\v2#.gcommon.v1.metrics.DataVolumeTrendR\n" +
-	"dataVolumeB\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12TrendAnalysisProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"dataVolumeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_trend_analysis_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_trend_analysis_proto_goTypes = []any{

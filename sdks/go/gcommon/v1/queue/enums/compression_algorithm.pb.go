@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/compression_algorithm.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -98,8 +98,7 @@ const file_gcommon_v1_queue_enums_compression_algorithm_proto_rawDesc = "" +
 	"\x19COMPRESSION_ALGORITHM_LZ4\x10\x03\x12 \n" +
 	"\x1cCOMPRESSION_ALGORITHM_SNAPPY\x10\x04\x12\x1e\n" +
 	"\x1aCOMPRESSION_ALGORITHM_ZSTD\x10\x05\x12 \n" +
-	"\x1cCOMPRESSION_ALGORITHM_BROTLI\x10\x06B\xd5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x19CompressionAlgorithmProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1cCOMPRESSION_ALGORITHM_BROTLI\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_compression_algorithm_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_compression_algorithm_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/synchronization_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,12 +22,12 @@ const (
 )
 
 type SynchronizationSettings struct {
-	state                         protoimpl.MessageState         `protogen:"opaque.v1"`
-	xxx_hidden_Enabled            bool                           `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Targets            *[]*SynchronizationTarget      `protobuf:"bytes,2,rep,name=targets"`
-	xxx_hidden_Frequency          enums.SynchronizationFrequency `protobuf:"varint,3,opt,name=frequency,enum=gcommon.v1.config.SynchronizationFrequency"`
-	xxx_hidden_ConflictResolution enums.ConfigConflictResolution `protobuf:"varint,4,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.config.ConfigConflictResolution"`
-	xxx_hidden_Metadata           map[string]string              `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Enabled            bool                      `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Targets            *[]*SynchronizationTarget `protobuf:"bytes,2,rep,name=targets"`
+	xxx_hidden_Frequency          SynchronizationFrequency  `protobuf:"varint,3,opt,name=frequency,enum=gcommon.v1.config.SynchronizationFrequency"`
+	xxx_hidden_ConflictResolution ConfigConflictResolution  `protobuf:"varint,4,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.config.ConfigConflictResolution"`
+	xxx_hidden_Metadata           map[string]string         `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -76,22 +75,22 @@ func (x *SynchronizationSettings) GetTargets() []*SynchronizationTarget {
 	return nil
 }
 
-func (x *SynchronizationSettings) GetFrequency() enums.SynchronizationFrequency {
+func (x *SynchronizationSettings) GetFrequency() SynchronizationFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return enums.SynchronizationFrequency(0)
+	return SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
 }
 
-func (x *SynchronizationSettings) GetConflictResolution() enums.ConfigConflictResolution {
+func (x *SynchronizationSettings) GetConflictResolution() ConfigConflictResolution {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_ConflictResolution
 		}
 	}
-	return enums.ConfigConflictResolution(0)
+	return ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
 }
 
 func (x *SynchronizationSettings) GetMetadata() map[string]string {
@@ -110,12 +109,12 @@ func (x *SynchronizationSettings) SetTargets(v []*SynchronizationTarget) {
 	x.xxx_hidden_Targets = &v
 }
 
-func (x *SynchronizationSettings) SetFrequency(v enums.SynchronizationFrequency) {
+func (x *SynchronizationSettings) SetFrequency(v SynchronizationFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *SynchronizationSettings) SetConflictResolution(v enums.ConfigConflictResolution) {
+func (x *SynchronizationSettings) SetConflictResolution(v ConfigConflictResolution) {
 	x.xxx_hidden_ConflictResolution = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -152,12 +151,12 @@ func (x *SynchronizationSettings) ClearEnabled() {
 
 func (x *SynchronizationSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Frequency = enums.SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
 }
 
 func (x *SynchronizationSettings) ClearConflictResolution() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ConflictResolution = enums.ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
+	x.xxx_hidden_ConflictResolution = ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
 }
 
 type SynchronizationSettings_builder struct {
@@ -168,9 +167,9 @@ type SynchronizationSettings_builder struct {
 	// Synchronization targets
 	Targets []*SynchronizationTarget
 	// Synchronization frequency
-	Frequency *enums.SynchronizationFrequency
+	Frequency *SynchronizationFrequency
 	// Synchronization conflict resolution
-	ConflictResolution *enums.ConfigConflictResolution
+	ConflictResolution *ConfigConflictResolution
 	// Synchronization metadata
 	Metadata map[string]string
 }
@@ -209,16 +208,15 @@ const file_gcommon_v1_config_messages_synchronization_settings_proto_rawDesc = "
 	"\bmetadata\x18\x05 \x03(\v28.gcommon.v1.config.SynchronizationSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xe1\x01\n" +
-	"\x15com.gcommon.v1.configB\x1cSynchronizationSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_synchronization_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_synchronization_settings_proto_goTypes = []any{
-	(*SynchronizationSettings)(nil),     // 0: gcommon.v1.config.SynchronizationSettings
-	nil,                                 // 1: gcommon.v1.config.SynchronizationSettings.MetadataEntry
-	(*SynchronizationTarget)(nil),       // 2: gcommon.v1.config.SynchronizationTarget
-	(enums.SynchronizationFrequency)(0), // 3: gcommon.v1.config.SynchronizationFrequency
-	(enums.ConfigConflictResolution)(0), // 4: gcommon.v1.config.ConfigConflictResolution
+	(*SynchronizationSettings)(nil), // 0: gcommon.v1.config.SynchronizationSettings
+	nil,                             // 1: gcommon.v1.config.SynchronizationSettings.MetadataEntry
+	(*SynchronizationTarget)(nil),   // 2: gcommon.v1.config.SynchronizationTarget
+	(SynchronizationFrequency)(0),   // 3: gcommon.v1.config.SynchronizationFrequency
+	(ConfigConflictResolution)(0),   // 4: gcommon.v1.config.ConfigConflictResolution
 }
 var file_gcommon_v1_config_messages_synchronization_settings_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.SynchronizationSettings.targets:type_name -> gcommon.v1.config.SynchronizationTarget
@@ -237,6 +235,8 @@ func file_gcommon_v1_config_messages_synchronization_settings_proto_init() {
 	if File_gcommon_v1_config_messages_synchronization_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_conflict_resolution_proto_init()
+	file_gcommon_v1_config_enums_synchronization_frequency_proto_init()
 	file_gcommon_v1_config_messages_synchronization_target_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

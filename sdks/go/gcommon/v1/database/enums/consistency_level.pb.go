@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/enums/consistency_level.proto
 
-package enums
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -84,8 +84,7 @@ const file_gcommon_v1_database_enums_consistency_level_proto_rawDesc = "" +
 	"\x1dCONSISTENCY_LEVEL_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aCONSISTENCY_LEVEL_EVENTUAL\x10\x01\x12\x1c\n" +
 	"\x18CONSISTENCY_LEVEL_STRONG\x10\x02\x12'\n" +
-	"#CONSISTENCY_LEVEL_BOUNDED_STALENESS\x10\x03B\xe3\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x15ConsistencyLevelProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/enums\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"#CONSISTENCY_LEVEL_BOUNDED_STALENESS\x10\x03B0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_enums_consistency_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_database_enums_consistency_level_proto_goTypes = []any{

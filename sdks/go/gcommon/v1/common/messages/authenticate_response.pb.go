@@ -362,8 +362,7 @@ const file_gcommon_v1_common_messages_authenticate_response_proto_rawDesc = "" +
 	"\tuser_info\x18\x06 \x01(\v2\x1b.gcommon.v1.common.UserInfoB\x02(\x01R\buserInfo\x128\n" +
 	"\asession\x18\a \x01(\v2\x1a.gcommon.v1.common.SessionB\x02(\x01R\asession\x12?\n" +
 	"\n" +
-	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xde\x01\n" +
-	"\x15com.gcommon.v1.commonB\x19AuthenticateResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_authenticate_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_authenticate_response_proto_goTypes = []any{

@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/queue/services/queue_service.proto
 
-package services
+package queue
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -38,19 +37,19 @@ const (
 // task distribution, and asynchronous processing.
 type QueueServiceClient interface {
 	// Enqueue a message or task
-	Enqueue(ctx context.Context, in *messages.EnqueueRequest, opts ...grpc.CallOption) (*messages.EnqueueResponse, error)
+	Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error)
 	// Dequeue a message or task
-	Dequeue(ctx context.Context, in *messages.DequeueRequest, opts ...grpc.CallOption) (*messages.DequeueResponse, error)
+	Dequeue(ctx context.Context, in *DequeueRequest, opts ...grpc.CallOption) (*DequeueResponse, error)
 	// Peek at the next message without removing it
-	Peek(ctx context.Context, in *messages.PeekRequest, opts ...grpc.CallOption) (*messages.PeekResponse, error)
+	Peek(ctx context.Context, in *PeekRequest, opts ...grpc.CallOption) (*PeekResponse, error)
 	// Get information about a queue
-	GetQueueInfo(ctx context.Context, in *messages.GetQueueInfoRequest, opts ...grpc.CallOption) (*messages.GetQueueInfoResponse, error)
+	GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error)
 	// Get queue statistics
-	GetQueueStats(ctx context.Context, in *messages.GetQueueStatsRequest, opts ...grpc.CallOption) (*messages.GetQueueStatsResponse, error)
+	GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*GetQueueStatsResponse, error)
 	// Subscribe to queue messages (streaming)
-	Subscribe(ctx context.Context, in *messages.QueueSubscribeRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.SubscribeResponse], error)
+	Subscribe(ctx context.Context, in *QueueSubscribeRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[SubscribeResponse], error)
 	// Publish message to queue topic
-	Publish(ctx context.Context, in *messages.QueuePublishRequest, opts ...grpc.CallOption) (*messages.PublishResponse, error)
+	Publish(ctx context.Context, in *QueuePublishRequest, opts ...grpc.CallOption) (*PublishResponse, error)
 }
 
 type queueServiceClient struct {
@@ -61,9 +60,9 @@ func NewQueueServiceClient(cc grpc.ClientConnInterface) QueueServiceClient {
 	return &queueServiceClient{cc}
 }
 
-func (c *queueServiceClient) Enqueue(ctx context.Context, in *messages.EnqueueRequest, opts ...grpc.CallOption) (*messages.EnqueueResponse, error) {
+func (c *queueServiceClient) Enqueue(ctx context.Context, in *EnqueueRequest, opts ...grpc.CallOption) (*EnqueueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.EnqueueResponse)
+	out := new(EnqueueResponse)
 	err := c.cc.Invoke(ctx, QueueService_Enqueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -71,9 +70,9 @@ func (c *queueServiceClient) Enqueue(ctx context.Context, in *messages.EnqueueRe
 	return out, nil
 }
 
-func (c *queueServiceClient) Dequeue(ctx context.Context, in *messages.DequeueRequest, opts ...grpc.CallOption) (*messages.DequeueResponse, error) {
+func (c *queueServiceClient) Dequeue(ctx context.Context, in *DequeueRequest, opts ...grpc.CallOption) (*DequeueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DequeueResponse)
+	out := new(DequeueResponse)
 	err := c.cc.Invoke(ctx, QueueService_Dequeue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -81,9 +80,9 @@ func (c *queueServiceClient) Dequeue(ctx context.Context, in *messages.DequeueRe
 	return out, nil
 }
 
-func (c *queueServiceClient) Peek(ctx context.Context, in *messages.PeekRequest, opts ...grpc.CallOption) (*messages.PeekResponse, error) {
+func (c *queueServiceClient) Peek(ctx context.Context, in *PeekRequest, opts ...grpc.CallOption) (*PeekResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.PeekResponse)
+	out := new(PeekResponse)
 	err := c.cc.Invoke(ctx, QueueService_Peek_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -91,9 +90,9 @@ func (c *queueServiceClient) Peek(ctx context.Context, in *messages.PeekRequest,
 	return out, nil
 }
 
-func (c *queueServiceClient) GetQueueInfo(ctx context.Context, in *messages.GetQueueInfoRequest, opts ...grpc.CallOption) (*messages.GetQueueInfoResponse, error) {
+func (c *queueServiceClient) GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetQueueInfoResponse)
+	out := new(GetQueueInfoResponse)
 	err := c.cc.Invoke(ctx, QueueService_GetQueueInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -101,9 +100,9 @@ func (c *queueServiceClient) GetQueueInfo(ctx context.Context, in *messages.GetQ
 	return out, nil
 }
 
-func (c *queueServiceClient) GetQueueStats(ctx context.Context, in *messages.GetQueueStatsRequest, opts ...grpc.CallOption) (*messages.GetQueueStatsResponse, error) {
+func (c *queueServiceClient) GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*GetQueueStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetQueueStatsResponse)
+	out := new(GetQueueStatsResponse)
 	err := c.cc.Invoke(ctx, QueueService_GetQueueStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -111,13 +110,13 @@ func (c *queueServiceClient) GetQueueStats(ctx context.Context, in *messages.Get
 	return out, nil
 }
 
-func (c *queueServiceClient) Subscribe(ctx context.Context, in *messages.QueueSubscribeRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.SubscribeResponse], error) {
+func (c *queueServiceClient) Subscribe(ctx context.Context, in *QueueSubscribeRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[SubscribeResponse], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &QueueService_ServiceDesc.Streams[0], QueueService_Subscribe_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[messages.QueueSubscribeRequest, messages.SubscribeResponse]{ClientStream: stream}
+	x := &grpc.GenericClientStream[QueueSubscribeRequest, SubscribeResponse]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -128,11 +127,11 @@ func (c *queueServiceClient) Subscribe(ctx context.Context, in *messages.QueueSu
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type QueueService_SubscribeClient = grpc.ServerStreamingClient[messages.SubscribeResponse]
+type QueueService_SubscribeClient = grpc.ServerStreamingClient[SubscribeResponse]
 
-func (c *queueServiceClient) Publish(ctx context.Context, in *messages.QueuePublishRequest, opts ...grpc.CallOption) (*messages.PublishResponse, error) {
+func (c *queueServiceClient) Publish(ctx context.Context, in *QueuePublishRequest, opts ...grpc.CallOption) (*PublishResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.PublishResponse)
+	out := new(PublishResponse)
 	err := c.cc.Invoke(ctx, QueueService_Publish_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -149,19 +148,19 @@ func (c *queueServiceClient) Publish(ctx context.Context, in *messages.QueuePubl
 // task distribution, and asynchronous processing.
 type QueueServiceServer interface {
 	// Enqueue a message or task
-	Enqueue(context.Context, *messages.EnqueueRequest) (*messages.EnqueueResponse, error)
+	Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error)
 	// Dequeue a message or task
-	Dequeue(context.Context, *messages.DequeueRequest) (*messages.DequeueResponse, error)
+	Dequeue(context.Context, *DequeueRequest) (*DequeueResponse, error)
 	// Peek at the next message without removing it
-	Peek(context.Context, *messages.PeekRequest) (*messages.PeekResponse, error)
+	Peek(context.Context, *PeekRequest) (*PeekResponse, error)
 	// Get information about a queue
-	GetQueueInfo(context.Context, *messages.GetQueueInfoRequest) (*messages.GetQueueInfoResponse, error)
+	GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error)
 	// Get queue statistics
-	GetQueueStats(context.Context, *messages.GetQueueStatsRequest) (*messages.GetQueueStatsResponse, error)
+	GetQueueStats(context.Context, *GetQueueStatsRequest) (*GetQueueStatsResponse, error)
 	// Subscribe to queue messages (streaming)
-	Subscribe(*messages.QueueSubscribeRequest, grpc.ServerStreamingServer[messages.SubscribeResponse]) error
+	Subscribe(*QueueSubscribeRequest, grpc.ServerStreamingServer[SubscribeResponse]) error
 	// Publish message to queue topic
-	Publish(context.Context, *messages.QueuePublishRequest) (*messages.PublishResponse, error)
+	Publish(context.Context, *QueuePublishRequest) (*PublishResponse, error)
 	mustEmbedUnimplementedQueueServiceServer()
 }
 
@@ -172,25 +171,25 @@ type QueueServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedQueueServiceServer struct{}
 
-func (UnimplementedQueueServiceServer) Enqueue(context.Context, *messages.EnqueueRequest) (*messages.EnqueueResponse, error) {
+func (UnimplementedQueueServiceServer) Enqueue(context.Context, *EnqueueRequest) (*EnqueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Enqueue not implemented")
 }
-func (UnimplementedQueueServiceServer) Dequeue(context.Context, *messages.DequeueRequest) (*messages.DequeueResponse, error) {
+func (UnimplementedQueueServiceServer) Dequeue(context.Context, *DequeueRequest) (*DequeueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Dequeue not implemented")
 }
-func (UnimplementedQueueServiceServer) Peek(context.Context, *messages.PeekRequest) (*messages.PeekResponse, error) {
+func (UnimplementedQueueServiceServer) Peek(context.Context, *PeekRequest) (*PeekResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Peek not implemented")
 }
-func (UnimplementedQueueServiceServer) GetQueueInfo(context.Context, *messages.GetQueueInfoRequest) (*messages.GetQueueInfoResponse, error) {
+func (UnimplementedQueueServiceServer) GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueInfo not implemented")
 }
-func (UnimplementedQueueServiceServer) GetQueueStats(context.Context, *messages.GetQueueStatsRequest) (*messages.GetQueueStatsResponse, error) {
+func (UnimplementedQueueServiceServer) GetQueueStats(context.Context, *GetQueueStatsRequest) (*GetQueueStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueStats not implemented")
 }
-func (UnimplementedQueueServiceServer) Subscribe(*messages.QueueSubscribeRequest, grpc.ServerStreamingServer[messages.SubscribeResponse]) error {
+func (UnimplementedQueueServiceServer) Subscribe(*QueueSubscribeRequest, grpc.ServerStreamingServer[SubscribeResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method Subscribe not implemented")
 }
-func (UnimplementedQueueServiceServer) Publish(context.Context, *messages.QueuePublishRequest) (*messages.PublishResponse, error) {
+func (UnimplementedQueueServiceServer) Publish(context.Context, *QueuePublishRequest) (*PublishResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Publish not implemented")
 }
 func (UnimplementedQueueServiceServer) mustEmbedUnimplementedQueueServiceServer() {}
@@ -215,7 +214,7 @@ func RegisterQueueServiceServer(s grpc.ServiceRegistrar, srv QueueServiceServer)
 }
 
 func _QueueService_Enqueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.EnqueueRequest)
+	in := new(EnqueueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -227,13 +226,13 @@ func _QueueService_Enqueue_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: QueueService_Enqueue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).Enqueue(ctx, req.(*messages.EnqueueRequest))
+		return srv.(QueueServiceServer).Enqueue(ctx, req.(*EnqueueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueService_Dequeue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DequeueRequest)
+	in := new(DequeueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -245,13 +244,13 @@ func _QueueService_Dequeue_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: QueueService_Dequeue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).Dequeue(ctx, req.(*messages.DequeueRequest))
+		return srv.(QueueServiceServer).Dequeue(ctx, req.(*DequeueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueService_Peek_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.PeekRequest)
+	in := new(PeekRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -263,13 +262,13 @@ func _QueueService_Peek_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: QueueService_Peek_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).Peek(ctx, req.(*messages.PeekRequest))
+		return srv.(QueueServiceServer).Peek(ctx, req.(*PeekRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueService_GetQueueInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetQueueInfoRequest)
+	in := new(GetQueueInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -281,13 +280,13 @@ func _QueueService_GetQueueInfo_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: QueueService_GetQueueInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).GetQueueInfo(ctx, req.(*messages.GetQueueInfoRequest))
+		return srv.(QueueServiceServer).GetQueueInfo(ctx, req.(*GetQueueInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueService_GetQueueStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetQueueStatsRequest)
+	in := new(GetQueueStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -299,24 +298,24 @@ func _QueueService_GetQueueStats_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: QueueService_GetQueueStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).GetQueueStats(ctx, req.(*messages.GetQueueStatsRequest))
+		return srv.(QueueServiceServer).GetQueueStats(ctx, req.(*GetQueueStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueService_Subscribe_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(messages.QueueSubscribeRequest)
+	m := new(QueueSubscribeRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(QueueServiceServer).Subscribe(m, &grpc.GenericServerStream[messages.QueueSubscribeRequest, messages.SubscribeResponse]{ServerStream: stream})
+	return srv.(QueueServiceServer).Subscribe(m, &grpc.GenericServerStream[QueueSubscribeRequest, SubscribeResponse]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type QueueService_SubscribeServer = grpc.ServerStreamingServer[messages.SubscribeResponse]
+type QueueService_SubscribeServer = grpc.ServerStreamingServer[SubscribeResponse]
 
 func _QueueService_Publish_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.QueuePublishRequest)
+	in := new(QueuePublishRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -328,7 +327,7 @@ func _QueueService_Publish_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: QueueService_Publish_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).Publish(ctx, req.(*messages.QueuePublishRequest))
+		return srv.(QueueServiceServer).Publish(ctx, req.(*QueuePublishRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

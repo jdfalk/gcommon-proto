@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/services/config_admin_service.proto
 
-package services
+package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,27 +38,26 @@ const file_gcommon_v1_config_services_config_admin_service_proto_rawDesc = "" +
 	"\x10GetConfigHistory\x12*.gcommon.v1.config.GetConfigHistoryRequest\x1a+.gcommon.v1.config.GetConfigHistoryResponse\x12e\n" +
 	"\x0eGetConfigStats\x12(.gcommon.v1.config.GetConfigStatsRequest\x1a).gcommon.v1.config.GetConfigStatsResponse\x12h\n" +
 	"\vHealthCheck\x12+.gcommon.v1.config.ConfigHealthCheckRequest\x1a,.gcommon.v1.config.ConfigHealthCheckResponse\x12P\n" +
-	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB\xdc\x01\n" +
-	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_services_config_admin_service_proto_goTypes = []any{
-	(*messages.BackupConfigRequest)(nil),       // 0: gcommon.v1.config.BackupConfigRequest
-	(*messages.RestoreConfigRequest)(nil),      // 1: gcommon.v1.config.RestoreConfigRequest
-	(*messages.ImportConfigRequest)(nil),       // 2: gcommon.v1.config.ImportConfigRequest
-	(*messages.ExportConfigRequest)(nil),       // 3: gcommon.v1.config.ExportConfigRequest
-	(*messages.ReloadConfigRequest)(nil),       // 4: gcommon.v1.config.ReloadConfigRequest
-	(*messages.RollbackConfigRequest)(nil),     // 5: gcommon.v1.config.RollbackConfigRequest
-	(*messages.SetConfigSchemaRequest)(nil),    // 6: gcommon.v1.config.SetConfigSchemaRequest
-	(*messages.GetConfigHistoryRequest)(nil),   // 7: gcommon.v1.config.GetConfigHistoryRequest
-	(*messages.GetConfigStatsRequest)(nil),     // 8: gcommon.v1.config.GetConfigStatsRequest
-	(*messages.ConfigHealthCheckRequest)(nil),  // 9: gcommon.v1.config.ConfigHealthCheckRequest
-	(*messages.UnwatchConfigRequest)(nil),      // 10: gcommon.v1.config.UnwatchConfigRequest
-	(*messages.ConfigBackup)(nil),              // 11: gcommon.v1.config.ConfigBackup
-	(*emptypb.Empty)(nil),                      // 12: google.protobuf.Empty
-	(*messages.ConfigSnapshot)(nil),            // 13: gcommon.v1.config.ConfigSnapshot
-	(*messages.GetConfigHistoryResponse)(nil),  // 14: gcommon.v1.config.GetConfigHistoryResponse
-	(*messages.GetConfigStatsResponse)(nil),    // 15: gcommon.v1.config.GetConfigStatsResponse
-	(*messages.ConfigHealthCheckResponse)(nil), // 16: gcommon.v1.config.ConfigHealthCheckResponse
+	(*BackupConfigRequest)(nil),       // 0: gcommon.v1.config.BackupConfigRequest
+	(*RestoreConfigRequest)(nil),      // 1: gcommon.v1.config.RestoreConfigRequest
+	(*ImportConfigRequest)(nil),       // 2: gcommon.v1.config.ImportConfigRequest
+	(*ExportConfigRequest)(nil),       // 3: gcommon.v1.config.ExportConfigRequest
+	(*ReloadConfigRequest)(nil),       // 4: gcommon.v1.config.ReloadConfigRequest
+	(*RollbackConfigRequest)(nil),     // 5: gcommon.v1.config.RollbackConfigRequest
+	(*SetConfigSchemaRequest)(nil),    // 6: gcommon.v1.config.SetConfigSchemaRequest
+	(*GetConfigHistoryRequest)(nil),   // 7: gcommon.v1.config.GetConfigHistoryRequest
+	(*GetConfigStatsRequest)(nil),     // 8: gcommon.v1.config.GetConfigStatsRequest
+	(*ConfigHealthCheckRequest)(nil),  // 9: gcommon.v1.config.ConfigHealthCheckRequest
+	(*UnwatchConfigRequest)(nil),      // 10: gcommon.v1.config.UnwatchConfigRequest
+	(*ConfigBackup)(nil),              // 11: gcommon.v1.config.ConfigBackup
+	(*emptypb.Empty)(nil),             // 12: google.protobuf.Empty
+	(*ConfigSnapshot)(nil),            // 13: gcommon.v1.config.ConfigSnapshot
+	(*GetConfigHistoryResponse)(nil),  // 14: gcommon.v1.config.GetConfigHistoryResponse
+	(*GetConfigStatsResponse)(nil),    // 15: gcommon.v1.config.GetConfigStatsResponse
+	(*ConfigHealthCheckResponse)(nil), // 16: gcommon.v1.config.ConfigHealthCheckResponse
 }
 var file_gcommon_v1_config_services_config_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.config.ConfigAdminService.BackupConfig:input_type -> gcommon.v1.config.BackupConfigRequest
@@ -96,6 +94,22 @@ func file_gcommon_v1_config_services_config_admin_service_proto_init() {
 	if File_gcommon_v1_config_services_config_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_messages_backup_config_request_proto_init()
+	file_gcommon_v1_config_messages_config_backup_proto_init()
+	file_gcommon_v1_config_messages_config_snapshot_proto_init()
+	file_gcommon_v1_config_messages_export_config_request_proto_init()
+	file_gcommon_v1_config_messages_get_config_history_request_proto_init()
+	file_gcommon_v1_config_messages_get_config_history_response_proto_init()
+	file_gcommon_v1_config_messages_get_config_stats_request_proto_init()
+	file_gcommon_v1_config_messages_get_config_stats_response_proto_init()
+	file_gcommon_v1_config_messages_health_check_request_proto_init()
+	file_gcommon_v1_config_messages_health_check_response_proto_init()
+	file_gcommon_v1_config_messages_import_config_request_proto_init()
+	file_gcommon_v1_config_messages_reload_config_request_proto_init()
+	file_gcommon_v1_config_messages_restore_config_request_proto_init()
+	file_gcommon_v1_config_messages_rollback_config_request_proto_init()
+	file_gcommon_v1_config_messages_set_config_schema_request_proto_init()
+	file_gcommon_v1_config_messages_unwatch_config_request_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

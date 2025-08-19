@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/value_reference.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type ValueReference struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type          enums.ReferenceType    `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.ReferenceType"`
+	xxx_hidden_Type          ReferenceType          `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.ReferenceType"`
 	xxx_hidden_ReferencedKey *string                `protobuf:"bytes,2,opt,name=referenced_key,json=referencedKey"`
 	xxx_hidden_Path          *string                `protobuf:"bytes,3,opt,name=path"`
 	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -59,13 +58,13 @@ func (x *ValueReference) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValueReference) GetType() enums.ReferenceType {
+func (x *ValueReference) GetType() ReferenceType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.ReferenceType(0)
+	return ReferenceType_REFERENCE_TYPE_UNSPECIFIED
 }
 
 func (x *ValueReference) GetReferencedKey() string {
@@ -95,7 +94,7 @@ func (x *ValueReference) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *ValueReference) SetType(v enums.ReferenceType) {
+func (x *ValueReference) SetType(v ReferenceType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -137,7 +136,7 @@ func (x *ValueReference) HasPath() bool {
 
 func (x *ValueReference) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.ReferenceType_REFERENCE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = ReferenceType_REFERENCE_TYPE_UNSPECIFIED
 }
 
 func (x *ValueReference) ClearReferencedKey() {
@@ -154,7 +153,7 @@ type ValueReference_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Reference type
-	Type *enums.ReferenceType
+	Type *ReferenceType
 	// Referenced value key
 	ReferencedKey *string
 	// Reference path
@@ -195,14 +194,13 @@ const file_gcommon_v1_config_messages_value_reference_proto_rawDesc = "" +
 	"\bmetadata\x18\x04 \x03(\v2/.gcommon.v1.config.ValueReference.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ValueReferenceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_value_reference_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_value_reference_proto_goTypes = []any{
-	(*ValueReference)(nil),   // 0: gcommon.v1.config.ValueReference
-	nil,                      // 1: gcommon.v1.config.ValueReference.MetadataEntry
-	(enums.ReferenceType)(0), // 2: gcommon.v1.config.ReferenceType
+	(*ValueReference)(nil), // 0: gcommon.v1.config.ValueReference
+	nil,                    // 1: gcommon.v1.config.ValueReference.MetadataEntry
+	(ReferenceType)(0),     // 2: gcommon.v1.config.ReferenceType
 }
 var file_gcommon_v1_config_messages_value_reference_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ValueReference.type:type_name -> gcommon.v1.config.ReferenceType
@@ -219,6 +217,7 @@ func file_gcommon_v1_config_messages_value_reference_proto_init() {
 	if File_gcommon_v1_config_messages_value_reference_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_reference_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

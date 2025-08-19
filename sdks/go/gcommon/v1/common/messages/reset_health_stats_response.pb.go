@@ -209,8 +209,7 @@ const file_gcommon_v1_common_messages_reset_health_stats_response_proto_rawDesc 
 	"\x0fcleared_entries\x18\x02 \x01(\x05R\x0eclearedEntries\x125\n" +
 	"\breset_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\aresetAt\x12.\n" +
 	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12)\n" +
-	"\x10reset_categories\x18\x05 \x03(\tR\x0fresetCategoriesB\xe2\x01\n" +
-	"\x15com.gcommon.v1.commonB\x1dResetHealthStatsResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10reset_categories\x18\x05 \x03(\tR\x0fresetCategoriesBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_reset_health_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_reset_health_stats_response_proto_goTypes = []any{

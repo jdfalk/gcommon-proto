@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/alert_severity.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -88,8 +88,7 @@ const file_gcommon_v1_queue_enums_alert_severity_proto_rawDesc = "" +
 	"\x13ALERT_SEVERITY_INFO\x10\x01\x12\x1a\n" +
 	"\x16ALERT_SEVERITY_WARNING\x10\x02\x12\x18\n" +
 	"\x14ALERT_SEVERITY_ERROR\x10\x03\x12\x1b\n" +
-	"\x17ALERT_SEVERITY_CRITICAL\x10\x04B\xce\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12AlertSeverityProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17ALERT_SEVERITY_CRITICAL\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_alert_severity_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_alert_severity_proto_goTypes = []any{

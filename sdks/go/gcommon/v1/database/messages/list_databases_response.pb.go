@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/list_databases_response.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -88,8 +88,7 @@ const file_gcommon_v1_database_messages_list_databases_response_proto_rawDesc = 
 	"\n" +
 	":gcommon/v1/database/messages/list_databases_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\"5\n" +
 	"\x15ListDatabasesResponse\x12\x1c\n" +
-	"\tdatabases\x18\x01 \x03(\tR\tdatabasesB\xeb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1aListDatabasesResponseProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tdatabases\x18\x01 \x03(\tR\tdatabasesB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_list_databases_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_list_databases_response_proto_goTypes = []any{

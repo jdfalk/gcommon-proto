@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/metrics";
 
 message GroupBySpec {
   // Label keys to group by

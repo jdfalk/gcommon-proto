@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/queue/services/queue_monitoring_service.proto
 
-package services
+package queue
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -31,13 +30,13 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QueueMonitoringServiceClient interface {
 	// Get information about the queue cluster
-	GetClusterInfo(ctx context.Context, in *messages.GetClusterInfoRequest, opts ...grpc.CallOption) (*messages.GetClusterInfoResponse, error)
+	GetClusterInfo(ctx context.Context, in *GetClusterInfoRequest, opts ...grpc.CallOption) (*GetClusterInfoResponse, error)
 	// Get health status of all queues
-	GetQueueHealth(ctx context.Context, in *messages.GetQueueHealthRequest, opts ...grpc.CallOption) (*messages.GetQueueHealthResponse, error)
+	GetQueueHealth(ctx context.Context, in *GetQueueHealthRequest, opts ...grpc.CallOption) (*GetQueueHealthResponse, error)
 	// Get detailed statistics for a specific queue
-	GetQueueStats(ctx context.Context, in *messages.GetQueueStatsRequest, opts ...grpc.CallOption) (*messages.QueueStatsResponse, error)
+	GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*QueueStatsResponse, error)
 	// Get real-time metrics stream
-	StreamMetrics(ctx context.Context, in *messages.QueueStreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.MetricsEvent], error)
+	StreamMetrics(ctx context.Context, in *QueueStreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[MetricsEvent], error)
 }
 
 type queueMonitoringServiceClient struct {
@@ -48,9 +47,9 @@ func NewQueueMonitoringServiceClient(cc grpc.ClientConnInterface) QueueMonitorin
 	return &queueMonitoringServiceClient{cc}
 }
 
-func (c *queueMonitoringServiceClient) GetClusterInfo(ctx context.Context, in *messages.GetClusterInfoRequest, opts ...grpc.CallOption) (*messages.GetClusterInfoResponse, error) {
+func (c *queueMonitoringServiceClient) GetClusterInfo(ctx context.Context, in *GetClusterInfoRequest, opts ...grpc.CallOption) (*GetClusterInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetClusterInfoResponse)
+	out := new(GetClusterInfoResponse)
 	err := c.cc.Invoke(ctx, QueueMonitoringService_GetClusterInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -58,9 +57,9 @@ func (c *queueMonitoringServiceClient) GetClusterInfo(ctx context.Context, in *m
 	return out, nil
 }
 
-func (c *queueMonitoringServiceClient) GetQueueHealth(ctx context.Context, in *messages.GetQueueHealthRequest, opts ...grpc.CallOption) (*messages.GetQueueHealthResponse, error) {
+func (c *queueMonitoringServiceClient) GetQueueHealth(ctx context.Context, in *GetQueueHealthRequest, opts ...grpc.CallOption) (*GetQueueHealthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetQueueHealthResponse)
+	out := new(GetQueueHealthResponse)
 	err := c.cc.Invoke(ctx, QueueMonitoringService_GetQueueHealth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -68,9 +67,9 @@ func (c *queueMonitoringServiceClient) GetQueueHealth(ctx context.Context, in *m
 	return out, nil
 }
 
-func (c *queueMonitoringServiceClient) GetQueueStats(ctx context.Context, in *messages.GetQueueStatsRequest, opts ...grpc.CallOption) (*messages.QueueStatsResponse, error) {
+func (c *queueMonitoringServiceClient) GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*QueueStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.QueueStatsResponse)
+	out := new(QueueStatsResponse)
 	err := c.cc.Invoke(ctx, QueueMonitoringService_GetQueueStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -78,13 +77,13 @@ func (c *queueMonitoringServiceClient) GetQueueStats(ctx context.Context, in *me
 	return out, nil
 }
 
-func (c *queueMonitoringServiceClient) StreamMetrics(ctx context.Context, in *messages.QueueStreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.MetricsEvent], error) {
+func (c *queueMonitoringServiceClient) StreamMetrics(ctx context.Context, in *QueueStreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[MetricsEvent], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &QueueMonitoringService_ServiceDesc.Streams[0], QueueMonitoringService_StreamMetrics_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[messages.QueueStreamMetricsRequest, messages.MetricsEvent]{ClientStream: stream}
+	x := &grpc.GenericClientStream[QueueStreamMetricsRequest, MetricsEvent]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -95,20 +94,20 @@ func (c *queueMonitoringServiceClient) StreamMetrics(ctx context.Context, in *me
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type QueueMonitoringService_StreamMetricsClient = grpc.ServerStreamingClient[messages.MetricsEvent]
+type QueueMonitoringService_StreamMetricsClient = grpc.ServerStreamingClient[MetricsEvent]
 
 // QueueMonitoringServiceServer is the server API for QueueMonitoringService service.
 // All implementations must embed UnimplementedQueueMonitoringServiceServer
 // for forward compatibility.
 type QueueMonitoringServiceServer interface {
 	// Get information about the queue cluster
-	GetClusterInfo(context.Context, *messages.GetClusterInfoRequest) (*messages.GetClusterInfoResponse, error)
+	GetClusterInfo(context.Context, *GetClusterInfoRequest) (*GetClusterInfoResponse, error)
 	// Get health status of all queues
-	GetQueueHealth(context.Context, *messages.GetQueueHealthRequest) (*messages.GetQueueHealthResponse, error)
+	GetQueueHealth(context.Context, *GetQueueHealthRequest) (*GetQueueHealthResponse, error)
 	// Get detailed statistics for a specific queue
-	GetQueueStats(context.Context, *messages.GetQueueStatsRequest) (*messages.QueueStatsResponse, error)
+	GetQueueStats(context.Context, *GetQueueStatsRequest) (*QueueStatsResponse, error)
 	// Get real-time metrics stream
-	StreamMetrics(*messages.QueueStreamMetricsRequest, grpc.ServerStreamingServer[messages.MetricsEvent]) error
+	StreamMetrics(*QueueStreamMetricsRequest, grpc.ServerStreamingServer[MetricsEvent]) error
 	mustEmbedUnimplementedQueueMonitoringServiceServer()
 }
 
@@ -119,16 +118,16 @@ type QueueMonitoringServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedQueueMonitoringServiceServer struct{}
 
-func (UnimplementedQueueMonitoringServiceServer) GetClusterInfo(context.Context, *messages.GetClusterInfoRequest) (*messages.GetClusterInfoResponse, error) {
+func (UnimplementedQueueMonitoringServiceServer) GetClusterInfo(context.Context, *GetClusterInfoRequest) (*GetClusterInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetClusterInfo not implemented")
 }
-func (UnimplementedQueueMonitoringServiceServer) GetQueueHealth(context.Context, *messages.GetQueueHealthRequest) (*messages.GetQueueHealthResponse, error) {
+func (UnimplementedQueueMonitoringServiceServer) GetQueueHealth(context.Context, *GetQueueHealthRequest) (*GetQueueHealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueHealth not implemented")
 }
-func (UnimplementedQueueMonitoringServiceServer) GetQueueStats(context.Context, *messages.GetQueueStatsRequest) (*messages.QueueStatsResponse, error) {
+func (UnimplementedQueueMonitoringServiceServer) GetQueueStats(context.Context, *GetQueueStatsRequest) (*QueueStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueStats not implemented")
 }
-func (UnimplementedQueueMonitoringServiceServer) StreamMetrics(*messages.QueueStreamMetricsRequest, grpc.ServerStreamingServer[messages.MetricsEvent]) error {
+func (UnimplementedQueueMonitoringServiceServer) StreamMetrics(*QueueStreamMetricsRequest, grpc.ServerStreamingServer[MetricsEvent]) error {
 	return status.Errorf(codes.Unimplemented, "method StreamMetrics not implemented")
 }
 func (UnimplementedQueueMonitoringServiceServer) mustEmbedUnimplementedQueueMonitoringServiceServer() {
@@ -154,7 +153,7 @@ func RegisterQueueMonitoringServiceServer(s grpc.ServiceRegistrar, srv QueueMoni
 }
 
 func _QueueMonitoringService_GetClusterInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetClusterInfoRequest)
+	in := new(GetClusterInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -166,13 +165,13 @@ func _QueueMonitoringService_GetClusterInfo_Handler(srv interface{}, ctx context
 		FullMethod: QueueMonitoringService_GetClusterInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueMonitoringServiceServer).GetClusterInfo(ctx, req.(*messages.GetClusterInfoRequest))
+		return srv.(QueueMonitoringServiceServer).GetClusterInfo(ctx, req.(*GetClusterInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueMonitoringService_GetQueueHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetQueueHealthRequest)
+	in := new(GetQueueHealthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -184,13 +183,13 @@ func _QueueMonitoringService_GetQueueHealth_Handler(srv interface{}, ctx context
 		FullMethod: QueueMonitoringService_GetQueueHealth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueMonitoringServiceServer).GetQueueHealth(ctx, req.(*messages.GetQueueHealthRequest))
+		return srv.(QueueMonitoringServiceServer).GetQueueHealth(ctx, req.(*GetQueueHealthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueMonitoringService_GetQueueStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetQueueStatsRequest)
+	in := new(GetQueueStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -202,21 +201,21 @@ func _QueueMonitoringService_GetQueueStats_Handler(srv interface{}, ctx context.
 		FullMethod: QueueMonitoringService_GetQueueStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueMonitoringServiceServer).GetQueueStats(ctx, req.(*messages.GetQueueStatsRequest))
+		return srv.(QueueMonitoringServiceServer).GetQueueStats(ctx, req.(*GetQueueStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueMonitoringService_StreamMetrics_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(messages.QueueStreamMetricsRequest)
+	m := new(QueueStreamMetricsRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(QueueMonitoringServiceServer).StreamMetrics(m, &grpc.GenericServerStream[messages.QueueStreamMetricsRequest, messages.MetricsEvent]{ServerStream: stream})
+	return srv.(QueueMonitoringServiceServer).StreamMetrics(m, &grpc.GenericServerStream[QueueStreamMetricsRequest, MetricsEvent]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type QueueMonitoringService_StreamMetricsServer = grpc.ServerStreamingServer[messages.MetricsEvent]
+type QueueMonitoringService_StreamMetricsServer = grpc.ServerStreamingServer[MetricsEvent]
 
 // QueueMonitoringService_ServiceDesc is the grpc.ServiceDesc for QueueMonitoringService service.
 // It's only intended for direct use with grpc.RegisterService,

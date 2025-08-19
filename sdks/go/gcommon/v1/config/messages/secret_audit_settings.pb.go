@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/secret_audit_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type SecretAuditSettings struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Level           enums.SecretAuditLevel `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.SecretAuditLevel"`
+	xxx_hidden_Level           SecretAuditLevel       `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.SecretAuditLevel"`
 	xxx_hidden_RetentionDays   int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
 	xxx_hidden_LogAccess       bool                   `protobuf:"varint,4,opt,name=log_access,json=logAccess"`
 	xxx_hidden_LogRotation     bool                   `protobuf:"varint,5,opt,name=log_rotation,json=logRotation"`
@@ -71,13 +70,13 @@ func (x *SecretAuditSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *SecretAuditSettings) GetLevel() enums.SecretAuditLevel {
+func (x *SecretAuditSettings) GetLevel() SecretAuditLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.SecretAuditLevel(0)
+	return SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *SecretAuditSettings) GetRetentionDays() int32 {
@@ -137,7 +136,7 @@ func (x *SecretAuditSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *SecretAuditSettings) SetLevel(v enums.SecretAuditLevel) {
+func (x *SecretAuditSettings) SetLevel(v SecretAuditLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
 }
@@ -231,7 +230,7 @@ func (x *SecretAuditSettings) ClearEnabled() {
 
 func (x *SecretAuditSettings) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Level = enums.SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *SecretAuditSettings) ClearRetentionDays() {
@@ -265,7 +264,7 @@ type SecretAuditSettings_builder struct {
 	// Whether audit logging is enabled
 	Enabled *bool
 	// Audit log level
-	Level *enums.SecretAuditLevel
+	Level *SecretAuditLevel
 	// Audit log retention period in days
 	RetentionDays *int32
 	// Whether to log access events
@@ -337,14 +336,13 @@ const file_gcommon_v1_config_messages_secret_audit_settings_proto_rawDesc = "" +
 	"\bmetadata\x18\t \x03(\v24.gcommon.v1.config.SecretAuditSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xdd\x01\n" +
-	"\x15com.gcommon.v1.configB\x18SecretAuditSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_secret_audit_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_secret_audit_settings_proto_goTypes = []any{
 	(*SecretAuditSettings)(nil), // 0: gcommon.v1.config.SecretAuditSettings
 	nil,                         // 1: gcommon.v1.config.SecretAuditSettings.MetadataEntry
-	(enums.SecretAuditLevel)(0), // 2: gcommon.v1.config.SecretAuditLevel
+	(SecretAuditLevel)(0),       // 2: gcommon.v1.config.SecretAuditLevel
 }
 var file_gcommon_v1_config_messages_secret_audit_settings_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.SecretAuditSettings.level:type_name -> gcommon.v1.config.SecretAuditLevel
@@ -361,6 +359,7 @@ func file_gcommon_v1_config_messages_secret_audit_settings_proto_init() {
 	if File_gcommon_v1_config_messages_secret_audit_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_secret_audit_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

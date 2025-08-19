@@ -403,8 +403,7 @@ const file_gcommon_v1_common_messages_remove_role_response_proto_rawDesc = "" +
 	"\x13has_remaining_roles\x18\b \x01(\bR\x11hasRemainingRoles\x120\n" +
 	"\x14remaining_role_count\x18\t \x01(\x05R\x12remainingRoleCount\x12\x18\n" +
 	"\amessage\x18\n" +
-	" \x01(\tR\amessageB\xdc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x17RemoveRoleResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\tR\amessageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_remove_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_remove_role_response_proto_goTypes = []any{

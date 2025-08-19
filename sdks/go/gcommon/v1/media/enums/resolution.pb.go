@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/enums/resolution.proto
 
-package enums
+package media
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -83,8 +83,7 @@ const file_gcommon_v1_media_enums_resolution_proto_rawDesc = "" +
 	"\x0fRESOLUTION_480P\x10\x01\x12\x13\n" +
 	"\x0fRESOLUTION_720P\x10\x02\x12\x14\n" +
 	"\x10RESOLUTION_1080P\x10\x03\x12\x11\n" +
-	"\rRESOLUTION_4K\x10\x04B\xcb\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0fResolutionProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/enums\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rRESOLUTION_4K\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_enums_resolution_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_media_enums_resolution_proto_goTypes = []any{

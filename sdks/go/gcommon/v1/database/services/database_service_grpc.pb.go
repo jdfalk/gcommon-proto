@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/database/services/database_service.proto
 
-package services
+package database
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -37,17 +36,17 @@ const (
 // queries, transactions, batch operations, and health monitoring.
 type DatabaseServiceClient interface {
 	// Execute a read-only query and return results
-	Query(ctx context.Context, in *messages.QueryRequest, opts ...grpc.CallOption) (*messages.QueryResponse, error)
+	Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error)
 	// Execute a query expected to return at most one row
-	QueryRow(ctx context.Context, in *messages.QueryRowRequest, opts ...grpc.CallOption) (*messages.QueryRowResponse, error)
+	QueryRow(ctx context.Context, in *QueryRowRequest, opts ...grpc.CallOption) (*QueryRowResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
-	Execute(ctx context.Context, in *messages.ExecuteRequest, opts ...grpc.CallOption) (*messages.ExecuteResponse, error)
+	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
-	ExecuteBatch(ctx context.Context, in *messages.ExecuteBatchRequest, opts ...grpc.CallOption) (*messages.ExecuteBatchResponse, error)
+	ExecuteBatch(ctx context.Context, in *ExecuteBatchRequest, opts ...grpc.CallOption) (*ExecuteBatchResponse, error)
 	// Get information about database connection pool
-	GetConnectionInfo(ctx context.Context, in *messages.GetConnectionInfoRequest, opts ...grpc.CallOption) (*messages.GetConnectionInfoResponse, error)
+	GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error)
 	// Check database connectivity and health
-	HealthCheck(ctx context.Context, in *messages.DatabaseHealthCheckRequest, opts ...grpc.CallOption) (*messages.DatabaseHealthCheckResponse, error)
+	HealthCheck(ctx context.Context, in *DatabaseHealthCheckRequest, opts ...grpc.CallOption) (*DatabaseHealthCheckResponse, error)
 }
 
 type databaseServiceClient struct {
@@ -58,9 +57,9 @@ func NewDatabaseServiceClient(cc grpc.ClientConnInterface) DatabaseServiceClient
 	return &databaseServiceClient{cc}
 }
 
-func (c *databaseServiceClient) Query(ctx context.Context, in *messages.QueryRequest, opts ...grpc.CallOption) (*messages.QueryResponse, error) {
+func (c *databaseServiceClient) Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.QueryResponse)
+	out := new(QueryResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_Query_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -68,9 +67,9 @@ func (c *databaseServiceClient) Query(ctx context.Context, in *messages.QueryReq
 	return out, nil
 }
 
-func (c *databaseServiceClient) QueryRow(ctx context.Context, in *messages.QueryRowRequest, opts ...grpc.CallOption) (*messages.QueryRowResponse, error) {
+func (c *databaseServiceClient) QueryRow(ctx context.Context, in *QueryRowRequest, opts ...grpc.CallOption) (*QueryRowResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.QueryRowResponse)
+	out := new(QueryRowResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_QueryRow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -78,9 +77,9 @@ func (c *databaseServiceClient) QueryRow(ctx context.Context, in *messages.Query
 	return out, nil
 }
 
-func (c *databaseServiceClient) Execute(ctx context.Context, in *messages.ExecuteRequest, opts ...grpc.CallOption) (*messages.ExecuteResponse, error) {
+func (c *databaseServiceClient) Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ExecuteResponse)
+	out := new(ExecuteResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_Execute_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -88,9 +87,9 @@ func (c *databaseServiceClient) Execute(ctx context.Context, in *messages.Execut
 	return out, nil
 }
 
-func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *messages.ExecuteBatchRequest, opts ...grpc.CallOption) (*messages.ExecuteBatchResponse, error) {
+func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *ExecuteBatchRequest, opts ...grpc.CallOption) (*ExecuteBatchResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ExecuteBatchResponse)
+	out := new(ExecuteBatchResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_ExecuteBatch_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -98,9 +97,9 @@ func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *messages.E
 	return out, nil
 }
 
-func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *messages.GetConnectionInfoRequest, opts ...grpc.CallOption) (*messages.GetConnectionInfoResponse, error) {
+func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetConnectionInfoResponse)
+	out := new(GetConnectionInfoResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_GetConnectionInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -108,9 +107,9 @@ func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *messages.DatabaseHealthCheckRequest, opts ...grpc.CallOption) (*messages.DatabaseHealthCheckResponse, error) {
+func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *DatabaseHealthCheckRequest, opts ...grpc.CallOption) (*DatabaseHealthCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DatabaseHealthCheckResponse)
+	out := new(DatabaseHealthCheckResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_HealthCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -127,17 +126,17 @@ func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *messages.Da
 // queries, transactions, batch operations, and health monitoring.
 type DatabaseServiceServer interface {
 	// Execute a read-only query and return results
-	Query(context.Context, *messages.QueryRequest) (*messages.QueryResponse, error)
+	Query(context.Context, *QueryRequest) (*QueryResponse, error)
 	// Execute a query expected to return at most one row
-	QueryRow(context.Context, *messages.QueryRowRequest) (*messages.QueryRowResponse, error)
+	QueryRow(context.Context, *QueryRowRequest) (*QueryRowResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
-	Execute(context.Context, *messages.ExecuteRequest) (*messages.ExecuteResponse, error)
+	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
-	ExecuteBatch(context.Context, *messages.ExecuteBatchRequest) (*messages.ExecuteBatchResponse, error)
+	ExecuteBatch(context.Context, *ExecuteBatchRequest) (*ExecuteBatchResponse, error)
 	// Get information about database connection pool
-	GetConnectionInfo(context.Context, *messages.GetConnectionInfoRequest) (*messages.GetConnectionInfoResponse, error)
+	GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error)
 	// Check database connectivity and health
-	HealthCheck(context.Context, *messages.DatabaseHealthCheckRequest) (*messages.DatabaseHealthCheckResponse, error)
+	HealthCheck(context.Context, *DatabaseHealthCheckRequest) (*DatabaseHealthCheckResponse, error)
 	mustEmbedUnimplementedDatabaseServiceServer()
 }
 
@@ -148,22 +147,22 @@ type DatabaseServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDatabaseServiceServer struct{}
 
-func (UnimplementedDatabaseServiceServer) Query(context.Context, *messages.QueryRequest) (*messages.QueryResponse, error) {
+func (UnimplementedDatabaseServiceServer) Query(context.Context, *QueryRequest) (*QueryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
 }
-func (UnimplementedDatabaseServiceServer) QueryRow(context.Context, *messages.QueryRowRequest) (*messages.QueryRowResponse, error) {
+func (UnimplementedDatabaseServiceServer) QueryRow(context.Context, *QueryRowRequest) (*QueryRowResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueryRow not implemented")
 }
-func (UnimplementedDatabaseServiceServer) Execute(context.Context, *messages.ExecuteRequest) (*messages.ExecuteResponse, error) {
+func (UnimplementedDatabaseServiceServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Execute not implemented")
 }
-func (UnimplementedDatabaseServiceServer) ExecuteBatch(context.Context, *messages.ExecuteBatchRequest) (*messages.ExecuteBatchResponse, error) {
+func (UnimplementedDatabaseServiceServer) ExecuteBatch(context.Context, *ExecuteBatchRequest) (*ExecuteBatchResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExecuteBatch not implemented")
 }
-func (UnimplementedDatabaseServiceServer) GetConnectionInfo(context.Context, *messages.GetConnectionInfoRequest) (*messages.GetConnectionInfoResponse, error) {
+func (UnimplementedDatabaseServiceServer) GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConnectionInfo not implemented")
 }
-func (UnimplementedDatabaseServiceServer) HealthCheck(context.Context, *messages.DatabaseHealthCheckRequest) (*messages.DatabaseHealthCheckResponse, error) {
+func (UnimplementedDatabaseServiceServer) HealthCheck(context.Context, *DatabaseHealthCheckRequest) (*DatabaseHealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
 func (UnimplementedDatabaseServiceServer) mustEmbedUnimplementedDatabaseServiceServer() {}
@@ -188,7 +187,7 @@ func RegisterDatabaseServiceServer(s grpc.ServiceRegistrar, srv DatabaseServiceS
 }
 
 func _DatabaseService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.QueryRequest)
+	in := new(QueryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -200,13 +199,13 @@ func _DatabaseService_Query_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: DatabaseService_Query_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).Query(ctx, req.(*messages.QueryRequest))
+		return srv.(DatabaseServiceServer).Query(ctx, req.(*QueryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_QueryRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.QueryRowRequest)
+	in := new(QueryRowRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -218,13 +217,13 @@ func _DatabaseService_QueryRow_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: DatabaseService_QueryRow_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).QueryRow(ctx, req.(*messages.QueryRowRequest))
+		return srv.(DatabaseServiceServer).QueryRow(ctx, req.(*QueryRowRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_Execute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ExecuteRequest)
+	in := new(ExecuteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -236,13 +235,13 @@ func _DatabaseService_Execute_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: DatabaseService_Execute_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).Execute(ctx, req.(*messages.ExecuteRequest))
+		return srv.(DatabaseServiceServer).Execute(ctx, req.(*ExecuteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_ExecuteBatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ExecuteBatchRequest)
+	in := new(ExecuteBatchRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -254,13 +253,13 @@ func _DatabaseService_ExecuteBatch_Handler(srv interface{}, ctx context.Context,
 		FullMethod: DatabaseService_ExecuteBatch_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).ExecuteBatch(ctx, req.(*messages.ExecuteBatchRequest))
+		return srv.(DatabaseServiceServer).ExecuteBatch(ctx, req.(*ExecuteBatchRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_GetConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetConnectionInfoRequest)
+	in := new(GetConnectionInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -272,13 +271,13 @@ func _DatabaseService_GetConnectionInfo_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseService_GetConnectionInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).GetConnectionInfo(ctx, req.(*messages.GetConnectionInfoRequest))
+		return srv.(DatabaseServiceServer).GetConnectionInfo(ctx, req.(*GetConnectionInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DatabaseHealthCheckRequest)
+	in := new(DatabaseHealthCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -290,7 +289,7 @@ func _DatabaseService_HealthCheck_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: DatabaseService_HealthCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).HealthCheck(ctx, req.(*messages.DatabaseHealthCheckRequest))
+		return srv.(DatabaseServiceServer).HealthCheck(ctx, req.(*DatabaseHealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -1,8 +1,0 @@
-# file: templates/event-driven-service/monitoring/prometheus.yaml
-# version: 1.0.0
-# guid: f4c586ea-564b-4465-b9b1-d61077d1bb9b
-
-scrape_configs:
-  - job_name: event-driven-service
-    static_configs:
-      - targets: ["localhost:9090"]

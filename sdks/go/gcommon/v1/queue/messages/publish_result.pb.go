@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/publish_result.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -271,8 +271,7 @@ const file_gcommon_v1_queue_messages_publish_result_proto_rawDesc = "" +
 	"\x05error\x18\x03 \x01(\tR\x05error\x12!\n" +
 	"\fpartition_id\x18\x04 \x01(\x05R\vpartitionId\x12\x16\n" +
 	"\x06offset\x18\x05 \x01(\x03R\x06offset\x12\x1c\n" +
-	"\ttimestamp\x18\x06 \x01(\x03R\ttimestampB\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12PublishResultProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ttimestamp\x18\x06 \x01(\x03R\ttimestampB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_publish_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_publish_result_proto_goTypes = []any{

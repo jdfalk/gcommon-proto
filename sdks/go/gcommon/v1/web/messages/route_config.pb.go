@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/route_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,9 +25,9 @@ const (
 type RouteConfig struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Path          *string                `protobuf:"bytes,1,opt,name=path"`
-	xxx_hidden_Methods       []enums.HTTPMethod     `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.web.HTTPMethod"`
+	xxx_hidden_Methods       []HTTPMethod           `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.web.HTTPMethod"`
 	xxx_hidden_Handler       *string                `protobuf:"bytes,3,opt,name=handler"`
-	xxx_hidden_HandlerType   enums.HandlerType      `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.web.HandlerType"`
+	xxx_hidden_HandlerType   HandlerType            `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.web.HandlerType"`
 	xxx_hidden_MiddlewareIds []string               `protobuf:"bytes,5,rep,name=middleware_ids,json=middlewareIds"`
 	xxx_hidden_AuthRequired  bool                   `protobuf:"varint,6,opt,name=auth_required,json=authRequired"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
@@ -72,7 +71,7 @@ func (x *RouteConfig) GetPath() string {
 	return ""
 }
 
-func (x *RouteConfig) GetMethods() []enums.HTTPMethod {
+func (x *RouteConfig) GetMethods() []HTTPMethod {
 	if x != nil {
 		return x.xxx_hidden_Methods
 	}
@@ -89,13 +88,13 @@ func (x *RouteConfig) GetHandler() string {
 	return ""
 }
 
-func (x *RouteConfig) GetHandlerType() enums.HandlerType {
+func (x *RouteConfig) GetHandlerType() HandlerType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_HandlerType
 		}
 	}
-	return enums.HandlerType(0)
+	return HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *RouteConfig) GetMiddlewareIds() []string {
@@ -117,7 +116,7 @@ func (x *RouteConfig) SetPath(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *RouteConfig) SetMethods(v []enums.HTTPMethod) {
+func (x *RouteConfig) SetMethods(v []HTTPMethod) {
 	x.xxx_hidden_Methods = v
 }
 
@@ -126,7 +125,7 @@ func (x *RouteConfig) SetHandler(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *RouteConfig) SetHandlerType(v enums.HandlerType) {
+func (x *RouteConfig) SetHandlerType(v HandlerType) {
 	x.xxx_hidden_HandlerType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -180,7 +179,7 @@ func (x *RouteConfig) ClearHandler() {
 
 func (x *RouteConfig) ClearHandlerType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_HandlerType = enums.HandlerType_HANDLER_TYPE_UNSPECIFIED
+	x.xxx_hidden_HandlerType = HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *RouteConfig) ClearAuthRequired() {
@@ -194,11 +193,11 @@ type RouteConfig_builder struct {
 	// URL path pattern
 	Path *string
 	// Allowed HTTP methods
-	Methods []enums.HTTPMethod
+	Methods []HTTPMethod
 	// Handler name or identifier
 	Handler *string
 	// Handler type implementation
-	HandlerType *enums.HandlerType
+	HandlerType *HandlerType
 	// Middleware IDs applied to this route
 	MiddlewareIds []string
 	// Require authentication for route
@@ -241,14 +240,13 @@ const file_gcommon_v1_web_messages_route_config_proto_rawDesc = "" +
 	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
 	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
 	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
-	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB\xc3\x01\n" +
-	"\x12com.gcommon.v1.webB\x10RouteConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_route_config_proto_goTypes = []any{
-	(*RouteConfig)(nil),    // 0: gcommon.v1.web.RouteConfig
-	(enums.HTTPMethod)(0),  // 1: gcommon.v1.web.HTTPMethod
-	(enums.HandlerType)(0), // 2: gcommon.v1.web.HandlerType
+	(*RouteConfig)(nil), // 0: gcommon.v1.web.RouteConfig
+	(HTTPMethod)(0),     // 1: gcommon.v1.web.HTTPMethod
+	(HandlerType)(0),    // 2: gcommon.v1.web.HandlerType
 }
 var file_gcommon_v1_web_messages_route_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.RouteConfig.methods:type_name -> gcommon.v1.web.HTTPMethod
@@ -265,6 +263,8 @@ func file_gcommon_v1_web_messages_route_config_proto_init() {
 	if File_gcommon_v1_web_messages_route_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_handler_type_proto_init()
+	file_gcommon_v1_web_enums_http_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

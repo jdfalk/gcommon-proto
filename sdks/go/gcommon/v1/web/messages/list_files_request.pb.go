@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/list_files_request.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +33,7 @@ type ListFilesRequest struct {
 	xxx_hidden_Limit         int32                     `protobuf:"varint,4,opt,name=limit"`
 	xxx_hidden_Offset        int32                     `protobuf:"varint,5,opt,name=offset"`
 	xxx_hidden_IncludeHidden bool                      `protobuf:"varint,6,opt,name=include_hidden,json=includeHidden"`
-	xxx_hidden_SortOrder     enums.FileSortOrder       `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.web.FileSortOrder"`
+	xxx_hidden_SortOrder     FileSortOrder             `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.web.FileSortOrder"`
 	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
@@ -115,13 +114,13 @@ func (x *ListFilesRequest) GetIncludeHidden() bool {
 	return false
 }
 
-func (x *ListFilesRequest) GetSortOrder() enums.FileSortOrder {
+func (x *ListFilesRequest) GetSortOrder() FileSortOrder {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_SortOrder
 		}
 	}
-	return enums.FileSortOrder(0)
+	return FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
 }
 
 func (x *ListFilesRequest) GetMetadata() *messages.RequestMetadata {
@@ -161,7 +160,7 @@ func (x *ListFilesRequest) SetIncludeHidden(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
-func (x *ListFilesRequest) SetSortOrder(v enums.FileSortOrder) {
+func (x *ListFilesRequest) SetSortOrder(v FileSortOrder) {
 	x.xxx_hidden_SortOrder = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -258,7 +257,7 @@ func (x *ListFilesRequest) ClearIncludeHidden() {
 
 func (x *ListFilesRequest) ClearSortOrder() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_SortOrder = enums.FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
+	x.xxx_hidden_SortOrder = FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
 }
 
 func (x *ListFilesRequest) ClearMetadata() {
@@ -281,7 +280,7 @@ type ListFilesRequest_builder struct {
 	// Whether to include hidden files (starting with .)
 	IncludeHidden *bool
 	// Sort order for the files
-	SortOrder *enums.FileSortOrder
+	SortOrder *FileSortOrder
 	// Request metadata for tracing and correlation
 	Metadata *messages.RequestMetadata
 }
@@ -336,13 +335,12 @@ const file_gcommon_v1_web_messages_list_files_request_proto_rawDesc = "" +
 	"\x0einclude_hidden\x18\x06 \x01(\bR\rincludeHidden\x12<\n" +
 	"\n" +
 	"sort_order\x18\a \x01(\x0e2\x1d.gcommon.v1.web.FileSortOrderR\tsortOrder\x12>\n" +
-	"\bmetadata\x18\b \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc8\x01\n" +
-	"\x12com.gcommon.v1.webB\x15ListFilesRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\b \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_list_files_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_list_files_request_proto_goTypes = []any{
 	(*ListFilesRequest)(nil),         // 0: gcommon.v1.web.ListFilesRequest
-	(enums.FileSortOrder)(0),         // 1: gcommon.v1.web.FileSortOrder
+	(FileSortOrder)(0),               // 1: gcommon.v1.web.FileSortOrder
 	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_list_files_request_proto_depIdxs = []int32{
@@ -360,6 +358,7 @@ func file_gcommon_v1_web_messages_list_files_request_proto_init() {
 	if File_gcommon_v1_web_messages_list_files_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_file_sort_order_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

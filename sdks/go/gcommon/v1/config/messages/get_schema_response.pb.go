@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/get_schema_response.proto
 
-package messages
+package config
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -126,8 +126,7 @@ const file_gcommon_v1_config_messages_get_schema_response_proto_rawDesc = "" +
 	"4gcommon/v1/config/messages/get_schema_response.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/messages/error.proto\x1a.gcommon/v1/config/messages/config_schema.proto\x1a!google/protobuf/go_features.proto\"|\n" +
 	"\x11GetSchemaResponse\x127\n" +
 	"\x06schema\x18\x01 \x01(\v2\x1f.gcommon.v1.config.ConfigSchemaR\x06schema\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x16GetSchemaResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_get_schema_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_schema_response_proto_goTypes = []any{

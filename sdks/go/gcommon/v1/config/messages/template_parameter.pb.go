@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/template_parameter.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ type TemplateParameter struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name              *string                `protobuf:"bytes,1,opt,name=name"`
 	xxx_hidden_Description       *string                `protobuf:"bytes,2,opt,name=description"`
-	xxx_hidden_Type              enums.ParameterType    `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.config.ParameterType"`
+	xxx_hidden_Type              ParameterType          `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.config.ParameterType"`
 	xxx_hidden_Required          bool                   `protobuf:"varint,4,opt,name=required"`
 	xxx_hidden_DefaultValue      *string                `protobuf:"bytes,5,opt,name=default_value,json=defaultValue"`
 	xxx_hidden_AllowedValues     []string               `protobuf:"bytes,6,rep,name=allowed_values,json=allowedValues"`
@@ -90,13 +89,13 @@ func (x *TemplateParameter) GetDescription() string {
 	return ""
 }
 
-func (x *TemplateParameter) GetType() enums.ParameterType {
+func (x *TemplateParameter) GetType() ParameterType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.ParameterType(0)
+	return ParameterType_PARAMETER_TYPE_UNSPECIFIED
 }
 
 func (x *TemplateParameter) GetRequired() bool {
@@ -211,7 +210,7 @@ func (x *TemplateParameter) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 15)
 }
 
-func (x *TemplateParameter) SetType(v enums.ParameterType) {
+func (x *TemplateParameter) SetType(v ParameterType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 15)
 }
@@ -376,7 +375,7 @@ func (x *TemplateParameter) ClearDescription() {
 
 func (x *TemplateParameter) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = enums.ParameterType_PARAMETER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = ParameterType_PARAMETER_TYPE_UNSPECIFIED
 }
 
 func (x *TemplateParameter) ClearRequired() {
@@ -436,7 +435,7 @@ type TemplateParameter_builder struct {
 	// Parameter description
 	Description *string
 	// Parameter type
-	Type *enums.ParameterType
+	Type *ParameterType
 	// Whether parameter is required
 	Required *bool
 	// Default value
@@ -542,13 +541,12 @@ const file_gcommon_v1_config_messages_template_parameter_proto_rawDesc = "" +
 	"\bexamples\x18\f \x03(\tR\bexamples\x12$\n" +
 	"\rdocumentation\x18\r \x01(\tR\rdocumentation\x12!\n" +
 	"\fdisplay_name\x18\x0e \x01(\tR\vdisplayName\x12 \n" +
-	"\vplaceholder\x18\x0f \x01(\tR\vplaceholderB\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x16TemplateParameterProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vplaceholder\x18\x0f \x01(\tR\vplaceholderB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_template_parameter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_template_parameter_proto_goTypes = []any{
 	(*TemplateParameter)(nil),    // 0: gcommon.v1.config.TemplateParameter
-	(enums.ParameterType)(0),     // 1: gcommon.v1.config.ParameterType
+	(ParameterType)(0),           // 1: gcommon.v1.config.ParameterType
 	(*ParameterConstraints)(nil), // 2: gcommon.v1.config.ParameterConstraints
 }
 var file_gcommon_v1_config_messages_template_parameter_proto_depIdxs = []int32{
@@ -566,6 +564,7 @@ func file_gcommon_v1_config_messages_template_parameter_proto_init() {
 	if File_gcommon_v1_config_messages_template_parameter_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_parameter_type_proto_init()
 	file_gcommon_v1_config_messages_parameter_constraints_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

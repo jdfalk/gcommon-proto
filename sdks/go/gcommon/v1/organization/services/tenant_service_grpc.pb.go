@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/organization/services/tenant_service.proto
 
-package services
+package organization
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -41,23 +40,23 @@ const (
 // and multi-tenant resource administration.
 type TenantServiceClient interface {
 	// Create a new tenant within an organization
-	CreateTenant(ctx context.Context, in *messages.CreateTenantRequest, opts ...grpc.CallOption) (*messages.CreateTenantResponse, error)
+	CreateTenant(ctx context.Context, in *CreateTenantRequest, opts ...grpc.CallOption) (*CreateTenantResponse, error)
 	// Get a tenant by ID
-	GetTenant(ctx context.Context, in *messages.GetTenantRequest, opts ...grpc.CallOption) (*messages.GetTenantResponse, error)
+	GetTenant(ctx context.Context, in *GetTenantRequest, opts ...grpc.CallOption) (*GetTenantResponse, error)
 	// Update an existing tenant
-	UpdateTenant(ctx context.Context, in *messages.UpdateTenantRequest, opts ...grpc.CallOption) (*messages.UpdateTenantResponse, error)
+	UpdateTenant(ctx context.Context, in *UpdateTenantRequest, opts ...grpc.CallOption) (*UpdateTenantResponse, error)
 	// Delete a tenant (soft delete)
-	DeleteTenant(ctx context.Context, in *messages.DeleteTenantRequest, opts ...grpc.CallOption) (*messages.DeleteTenantResponse, error)
+	DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*DeleteTenantResponse, error)
 	// List tenants within an organization (with pagination and filtering)
-	ListTenants(ctx context.Context, in *messages.ListTenantsRequest, opts ...grpc.CallOption) (*messages.ListTenantsResponse, error)
+	ListTenants(ctx context.Context, in *ListTenantsRequest, opts ...grpc.CallOption) (*ListTenantsResponse, error)
 	// Configure tenant isolation settings
-	ConfigureTenantIsolation(ctx context.Context, in *messages.ConfigureTenantIsolationRequest, opts ...grpc.CallOption) (*messages.ConfigureTenantIsolationResponse, error)
+	ConfigureTenantIsolation(ctx context.Context, in *ConfigureTenantIsolationRequest, opts ...grpc.CallOption) (*ConfigureTenantIsolationResponse, error)
 	// Get tenant isolation configuration
-	GetTenantIsolation(ctx context.Context, in *messages.GetTenantIsolationRequest, opts ...grpc.CallOption) (*messages.GetTenantIsolationResponse, error)
+	GetTenantIsolation(ctx context.Context, in *GetTenantIsolationRequest, opts ...grpc.CallOption) (*GetTenantIsolationResponse, error)
 	// Update tenant resource quotas
-	UpdateTenantQuota(ctx context.Context, in *messages.UpdateTenantQuotaRequest, opts ...grpc.CallOption) (*messages.UpdateTenantQuotaResponse, error)
+	UpdateTenantQuota(ctx context.Context, in *UpdateTenantQuotaRequest, opts ...grpc.CallOption) (*UpdateTenantQuotaResponse, error)
 	// Get tenant resource usage statistics
-	GetTenantUsage(ctx context.Context, in *messages.GetTenantUsageRequest, opts ...grpc.CallOption) (*messages.GetTenantUsageResponse, error)
+	GetTenantUsage(ctx context.Context, in *GetTenantUsageRequest, opts ...grpc.CallOption) (*GetTenantUsageResponse, error)
 }
 
 type tenantServiceClient struct {
@@ -68,9 +67,9 @@ func NewTenantServiceClient(cc grpc.ClientConnInterface) TenantServiceClient {
 	return &tenantServiceClient{cc}
 }
 
-func (c *tenantServiceClient) CreateTenant(ctx context.Context, in *messages.CreateTenantRequest, opts ...grpc.CallOption) (*messages.CreateTenantResponse, error) {
+func (c *tenantServiceClient) CreateTenant(ctx context.Context, in *CreateTenantRequest, opts ...grpc.CallOption) (*CreateTenantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateTenantResponse)
+	out := new(CreateTenantResponse)
 	err := c.cc.Invoke(ctx, TenantService_CreateTenant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -78,9 +77,9 @@ func (c *tenantServiceClient) CreateTenant(ctx context.Context, in *messages.Cre
 	return out, nil
 }
 
-func (c *tenantServiceClient) GetTenant(ctx context.Context, in *messages.GetTenantRequest, opts ...grpc.CallOption) (*messages.GetTenantResponse, error) {
+func (c *tenantServiceClient) GetTenant(ctx context.Context, in *GetTenantRequest, opts ...grpc.CallOption) (*GetTenantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetTenantResponse)
+	out := new(GetTenantResponse)
 	err := c.cc.Invoke(ctx, TenantService_GetTenant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -88,9 +87,9 @@ func (c *tenantServiceClient) GetTenant(ctx context.Context, in *messages.GetTen
 	return out, nil
 }
 
-func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *messages.UpdateTenantRequest, opts ...grpc.CallOption) (*messages.UpdateTenantResponse, error) {
+func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *UpdateTenantRequest, opts ...grpc.CallOption) (*UpdateTenantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateTenantResponse)
+	out := new(UpdateTenantResponse)
 	err := c.cc.Invoke(ctx, TenantService_UpdateTenant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -98,9 +97,9 @@ func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *messages.Upd
 	return out, nil
 }
 
-func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *messages.DeleteTenantRequest, opts ...grpc.CallOption) (*messages.DeleteTenantResponse, error) {
+func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*DeleteTenantResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteTenantResponse)
+	out := new(DeleteTenantResponse)
 	err := c.cc.Invoke(ctx, TenantService_DeleteTenant_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -108,9 +107,9 @@ func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *messages.Del
 	return out, nil
 }
 
-func (c *tenantServiceClient) ListTenants(ctx context.Context, in *messages.ListTenantsRequest, opts ...grpc.CallOption) (*messages.ListTenantsResponse, error) {
+func (c *tenantServiceClient) ListTenants(ctx context.Context, in *ListTenantsRequest, opts ...grpc.CallOption) (*ListTenantsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListTenantsResponse)
+	out := new(ListTenantsResponse)
 	err := c.cc.Invoke(ctx, TenantService_ListTenants_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -118,9 +117,9 @@ func (c *tenantServiceClient) ListTenants(ctx context.Context, in *messages.List
 	return out, nil
 }
 
-func (c *tenantServiceClient) ConfigureTenantIsolation(ctx context.Context, in *messages.ConfigureTenantIsolationRequest, opts ...grpc.CallOption) (*messages.ConfigureTenantIsolationResponse, error) {
+func (c *tenantServiceClient) ConfigureTenantIsolation(ctx context.Context, in *ConfigureTenantIsolationRequest, opts ...grpc.CallOption) (*ConfigureTenantIsolationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigureTenantIsolationResponse)
+	out := new(ConfigureTenantIsolationResponse)
 	err := c.cc.Invoke(ctx, TenantService_ConfigureTenantIsolation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -128,9 +127,9 @@ func (c *tenantServiceClient) ConfigureTenantIsolation(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *tenantServiceClient) GetTenantIsolation(ctx context.Context, in *messages.GetTenantIsolationRequest, opts ...grpc.CallOption) (*messages.GetTenantIsolationResponse, error) {
+func (c *tenantServiceClient) GetTenantIsolation(ctx context.Context, in *GetTenantIsolationRequest, opts ...grpc.CallOption) (*GetTenantIsolationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetTenantIsolationResponse)
+	out := new(GetTenantIsolationResponse)
 	err := c.cc.Invoke(ctx, TenantService_GetTenantIsolation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -138,9 +137,9 @@ func (c *tenantServiceClient) GetTenantIsolation(ctx context.Context, in *messag
 	return out, nil
 }
 
-func (c *tenantServiceClient) UpdateTenantQuota(ctx context.Context, in *messages.UpdateTenantQuotaRequest, opts ...grpc.CallOption) (*messages.UpdateTenantQuotaResponse, error) {
+func (c *tenantServiceClient) UpdateTenantQuota(ctx context.Context, in *UpdateTenantQuotaRequest, opts ...grpc.CallOption) (*UpdateTenantQuotaResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateTenantQuotaResponse)
+	out := new(UpdateTenantQuotaResponse)
 	err := c.cc.Invoke(ctx, TenantService_UpdateTenantQuota_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -148,9 +147,9 @@ func (c *tenantServiceClient) UpdateTenantQuota(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *tenantServiceClient) GetTenantUsage(ctx context.Context, in *messages.GetTenantUsageRequest, opts ...grpc.CallOption) (*messages.GetTenantUsageResponse, error) {
+func (c *tenantServiceClient) GetTenantUsage(ctx context.Context, in *GetTenantUsageRequest, opts ...grpc.CallOption) (*GetTenantUsageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetTenantUsageResponse)
+	out := new(GetTenantUsageResponse)
 	err := c.cc.Invoke(ctx, TenantService_GetTenantUsage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -168,23 +167,23 @@ func (c *tenantServiceClient) GetTenantUsage(ctx context.Context, in *messages.G
 // and multi-tenant resource administration.
 type TenantServiceServer interface {
 	// Create a new tenant within an organization
-	CreateTenant(context.Context, *messages.CreateTenantRequest) (*messages.CreateTenantResponse, error)
+	CreateTenant(context.Context, *CreateTenantRequest) (*CreateTenantResponse, error)
 	// Get a tenant by ID
-	GetTenant(context.Context, *messages.GetTenantRequest) (*messages.GetTenantResponse, error)
+	GetTenant(context.Context, *GetTenantRequest) (*GetTenantResponse, error)
 	// Update an existing tenant
-	UpdateTenant(context.Context, *messages.UpdateTenantRequest) (*messages.UpdateTenantResponse, error)
+	UpdateTenant(context.Context, *UpdateTenantRequest) (*UpdateTenantResponse, error)
 	// Delete a tenant (soft delete)
-	DeleteTenant(context.Context, *messages.DeleteTenantRequest) (*messages.DeleteTenantResponse, error)
+	DeleteTenant(context.Context, *DeleteTenantRequest) (*DeleteTenantResponse, error)
 	// List tenants within an organization (with pagination and filtering)
-	ListTenants(context.Context, *messages.ListTenantsRequest) (*messages.ListTenantsResponse, error)
+	ListTenants(context.Context, *ListTenantsRequest) (*ListTenantsResponse, error)
 	// Configure tenant isolation settings
-	ConfigureTenantIsolation(context.Context, *messages.ConfigureTenantIsolationRequest) (*messages.ConfigureTenantIsolationResponse, error)
+	ConfigureTenantIsolation(context.Context, *ConfigureTenantIsolationRequest) (*ConfigureTenantIsolationResponse, error)
 	// Get tenant isolation configuration
-	GetTenantIsolation(context.Context, *messages.GetTenantIsolationRequest) (*messages.GetTenantIsolationResponse, error)
+	GetTenantIsolation(context.Context, *GetTenantIsolationRequest) (*GetTenantIsolationResponse, error)
 	// Update tenant resource quotas
-	UpdateTenantQuota(context.Context, *messages.UpdateTenantQuotaRequest) (*messages.UpdateTenantQuotaResponse, error)
+	UpdateTenantQuota(context.Context, *UpdateTenantQuotaRequest) (*UpdateTenantQuotaResponse, error)
 	// Get tenant resource usage statistics
-	GetTenantUsage(context.Context, *messages.GetTenantUsageRequest) (*messages.GetTenantUsageResponse, error)
+	GetTenantUsage(context.Context, *GetTenantUsageRequest) (*GetTenantUsageResponse, error)
 	mustEmbedUnimplementedTenantServiceServer()
 }
 
@@ -195,31 +194,31 @@ type TenantServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedTenantServiceServer struct{}
 
-func (UnimplementedTenantServiceServer) CreateTenant(context.Context, *messages.CreateTenantRequest) (*messages.CreateTenantResponse, error) {
+func (UnimplementedTenantServiceServer) CreateTenant(context.Context, *CreateTenantRequest) (*CreateTenantResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTenant not implemented")
 }
-func (UnimplementedTenantServiceServer) GetTenant(context.Context, *messages.GetTenantRequest) (*messages.GetTenantResponse, error) {
+func (UnimplementedTenantServiceServer) GetTenant(context.Context, *GetTenantRequest) (*GetTenantResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTenant not implemented")
 }
-func (UnimplementedTenantServiceServer) UpdateTenant(context.Context, *messages.UpdateTenantRequest) (*messages.UpdateTenantResponse, error) {
+func (UnimplementedTenantServiceServer) UpdateTenant(context.Context, *UpdateTenantRequest) (*UpdateTenantResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTenant not implemented")
 }
-func (UnimplementedTenantServiceServer) DeleteTenant(context.Context, *messages.DeleteTenantRequest) (*messages.DeleteTenantResponse, error) {
+func (UnimplementedTenantServiceServer) DeleteTenant(context.Context, *DeleteTenantRequest) (*DeleteTenantResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTenant not implemented")
 }
-func (UnimplementedTenantServiceServer) ListTenants(context.Context, *messages.ListTenantsRequest) (*messages.ListTenantsResponse, error) {
+func (UnimplementedTenantServiceServer) ListTenants(context.Context, *ListTenantsRequest) (*ListTenantsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTenants not implemented")
 }
-func (UnimplementedTenantServiceServer) ConfigureTenantIsolation(context.Context, *messages.ConfigureTenantIsolationRequest) (*messages.ConfigureTenantIsolationResponse, error) {
+func (UnimplementedTenantServiceServer) ConfigureTenantIsolation(context.Context, *ConfigureTenantIsolationRequest) (*ConfigureTenantIsolationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigureTenantIsolation not implemented")
 }
-func (UnimplementedTenantServiceServer) GetTenantIsolation(context.Context, *messages.GetTenantIsolationRequest) (*messages.GetTenantIsolationResponse, error) {
+func (UnimplementedTenantServiceServer) GetTenantIsolation(context.Context, *GetTenantIsolationRequest) (*GetTenantIsolationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTenantIsolation not implemented")
 }
-func (UnimplementedTenantServiceServer) UpdateTenantQuota(context.Context, *messages.UpdateTenantQuotaRequest) (*messages.UpdateTenantQuotaResponse, error) {
+func (UnimplementedTenantServiceServer) UpdateTenantQuota(context.Context, *UpdateTenantQuotaRequest) (*UpdateTenantQuotaResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTenantQuota not implemented")
 }
-func (UnimplementedTenantServiceServer) GetTenantUsage(context.Context, *messages.GetTenantUsageRequest) (*messages.GetTenantUsageResponse, error) {
+func (UnimplementedTenantServiceServer) GetTenantUsage(context.Context, *GetTenantUsageRequest) (*GetTenantUsageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTenantUsage not implemented")
 }
 func (UnimplementedTenantServiceServer) mustEmbedUnimplementedTenantServiceServer() {}
@@ -244,7 +243,7 @@ func RegisterTenantServiceServer(s grpc.ServiceRegistrar, srv TenantServiceServe
 }
 
 func _TenantService_CreateTenant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateTenantRequest)
+	in := new(CreateTenantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -256,13 +255,13 @@ func _TenantService_CreateTenant_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TenantService_CreateTenant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).CreateTenant(ctx, req.(*messages.CreateTenantRequest))
+		return srv.(TenantServiceServer).CreateTenant(ctx, req.(*CreateTenantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_GetTenant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetTenantRequest)
+	in := new(GetTenantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -274,13 +273,13 @@ func _TenantService_GetTenant_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: TenantService_GetTenant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).GetTenant(ctx, req.(*messages.GetTenantRequest))
+		return srv.(TenantServiceServer).GetTenant(ctx, req.(*GetTenantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_UpdateTenant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateTenantRequest)
+	in := new(UpdateTenantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -292,13 +291,13 @@ func _TenantService_UpdateTenant_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TenantService_UpdateTenant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).UpdateTenant(ctx, req.(*messages.UpdateTenantRequest))
+		return srv.(TenantServiceServer).UpdateTenant(ctx, req.(*UpdateTenantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_DeleteTenant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteTenantRequest)
+	in := new(DeleteTenantRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -310,13 +309,13 @@ func _TenantService_DeleteTenant_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TenantService_DeleteTenant_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).DeleteTenant(ctx, req.(*messages.DeleteTenantRequest))
+		return srv.(TenantServiceServer).DeleteTenant(ctx, req.(*DeleteTenantRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_ListTenants_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListTenantsRequest)
+	in := new(ListTenantsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -328,13 +327,13 @@ func _TenantService_ListTenants_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: TenantService_ListTenants_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).ListTenants(ctx, req.(*messages.ListTenantsRequest))
+		return srv.(TenantServiceServer).ListTenants(ctx, req.(*ListTenantsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_ConfigureTenantIsolation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ConfigureTenantIsolationRequest)
+	in := new(ConfigureTenantIsolationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -346,13 +345,13 @@ func _TenantService_ConfigureTenantIsolation_Handler(srv interface{}, ctx contex
 		FullMethod: TenantService_ConfigureTenantIsolation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).ConfigureTenantIsolation(ctx, req.(*messages.ConfigureTenantIsolationRequest))
+		return srv.(TenantServiceServer).ConfigureTenantIsolation(ctx, req.(*ConfigureTenantIsolationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_GetTenantIsolation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetTenantIsolationRequest)
+	in := new(GetTenantIsolationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -364,13 +363,13 @@ func _TenantService_GetTenantIsolation_Handler(srv interface{}, ctx context.Cont
 		FullMethod: TenantService_GetTenantIsolation_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).GetTenantIsolation(ctx, req.(*messages.GetTenantIsolationRequest))
+		return srv.(TenantServiceServer).GetTenantIsolation(ctx, req.(*GetTenantIsolationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_UpdateTenantQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateTenantQuotaRequest)
+	in := new(UpdateTenantQuotaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -382,13 +381,13 @@ func _TenantService_UpdateTenantQuota_Handler(srv interface{}, ctx context.Conte
 		FullMethod: TenantService_UpdateTenantQuota_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).UpdateTenantQuota(ctx, req.(*messages.UpdateTenantQuotaRequest))
+		return srv.(TenantServiceServer).UpdateTenantQuota(ctx, req.(*UpdateTenantQuotaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TenantService_GetTenantUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetTenantUsageRequest)
+	in := new(GetTenantUsageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -400,7 +399,7 @@ func _TenantService_GetTenantUsage_Handler(srv interface{}, ctx context.Context,
 		FullMethod: TenantService_GetTenantUsage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).GetTenantUsage(ctx, req.(*messages.GetTenantUsageRequest))
+		return srv.(TenantServiceServer).GetTenantUsage(ctx, req.(*GetTenantUsageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

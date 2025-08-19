@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/configure_tenant_isolation_response.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -167,8 +167,7 @@ const file_gcommon_v1_organization_messages_configure_tenant_isolation_response_
 	" ConfigureTenantIsolationResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12J\n" +
-	"\tisolation\x18\x03 \x01(\v2(.gcommon.v1.organization.TenantIsolationB\x02(\x01R\tisolationB\x8e\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB%ConfigureTenantIsolationResponseProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tisolation\x18\x03 \x01(\v2(.gcommon.v1.organization.TenantIsolationB\x02(\x01R\tisolationB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_configure_tenant_isolation_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_configure_tenant_isolation_response_proto_goTypes = []any{

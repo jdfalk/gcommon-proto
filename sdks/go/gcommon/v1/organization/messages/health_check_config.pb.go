@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/health_check_config.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -301,8 +301,7 @@ const file_gcommon_v1_organization_messages_health_check_config_proto_rawDesc = 
 	"\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12'\n" +
 	"\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12+\n" +
 	"\x11healthy_threshold\x18\x06 \x01(\x05R\x10healthyThreshold\x12/\n" +
-	"\x13unhealthy_threshold\x18\a \x01(\x05R\x12unhealthyThresholdB\xff\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x16HealthCheckConfigProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13unhealthy_threshold\x18\a \x01(\x05R\x12unhealthyThresholdB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_health_check_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_health_check_config_proto_goTypes = []any{

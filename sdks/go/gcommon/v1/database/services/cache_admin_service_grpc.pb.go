@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/database/services/cache_admin_service.proto
 
-package services
+package database
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -36,15 +35,15 @@ const (
 // Administrative cache management operations.
 type CacheAdminServiceClient interface {
 	// CreateNamespace creates a new cache namespace
-	CreateNamespace(ctx context.Context, in *messages.CreateNamespaceRequest, opts ...grpc.CallOption) (*messages.CreateNamespaceResponse, error)
+	CreateNamespace(ctx context.Context, in *CreateNamespaceRequest, opts ...grpc.CallOption) (*CreateNamespaceResponse, error)
 	// DeleteNamespace removes a cache namespace
-	DeleteNamespace(ctx context.Context, in *messages.DeleteNamespaceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteNamespace(ctx context.Context, in *DeleteNamespaceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// ListNamespaces returns all available namespaces
-	ListNamespaces(ctx context.Context, in *messages.ListNamespacesRequest, opts ...grpc.CallOption) (*messages.ListNamespacesResponse, error)
+	ListNamespaces(ctx context.Context, in *ListNamespacesRequest, opts ...grpc.CallOption) (*ListNamespacesResponse, error)
 	// GetNamespaceStats returns statistics for a namespace
-	GetNamespaceStats(ctx context.Context, in *messages.GetNamespaceStatsRequest, opts ...grpc.CallOption) (*messages.GetNamespaceStatsResponse, error)
+	GetNamespaceStats(ctx context.Context, in *GetNamespaceStatsRequest, opts ...grpc.CallOption) (*GetNamespaceStatsResponse, error)
 	// ConfigurePolicy sets cache policies for a namespace
-	ConfigurePolicy(ctx context.Context, in *messages.ConfigurePolicyRequest, opts ...grpc.CallOption) (*messages.ConfigurePolicyResponse, error)
+	ConfigurePolicy(ctx context.Context, in *ConfigurePolicyRequest, opts ...grpc.CallOption) (*ConfigurePolicyResponse, error)
 }
 
 type cacheAdminServiceClient struct {
@@ -55,9 +54,9 @@ func NewCacheAdminServiceClient(cc grpc.ClientConnInterface) CacheAdminServiceCl
 	return &cacheAdminServiceClient{cc}
 }
 
-func (c *cacheAdminServiceClient) CreateNamespace(ctx context.Context, in *messages.CreateNamespaceRequest, opts ...grpc.CallOption) (*messages.CreateNamespaceResponse, error) {
+func (c *cacheAdminServiceClient) CreateNamespace(ctx context.Context, in *CreateNamespaceRequest, opts ...grpc.CallOption) (*CreateNamespaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateNamespaceResponse)
+	out := new(CreateNamespaceResponse)
 	err := c.cc.Invoke(ctx, CacheAdminService_CreateNamespace_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -65,7 +64,7 @@ func (c *cacheAdminServiceClient) CreateNamespace(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *cacheAdminServiceClient) DeleteNamespace(ctx context.Context, in *messages.DeleteNamespaceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *cacheAdminServiceClient) DeleteNamespace(ctx context.Context, in *DeleteNamespaceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, CacheAdminService_DeleteNamespace_FullMethodName, in, out, cOpts...)
@@ -75,9 +74,9 @@ func (c *cacheAdminServiceClient) DeleteNamespace(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *cacheAdminServiceClient) ListNamespaces(ctx context.Context, in *messages.ListNamespacesRequest, opts ...grpc.CallOption) (*messages.ListNamespacesResponse, error) {
+func (c *cacheAdminServiceClient) ListNamespaces(ctx context.Context, in *ListNamespacesRequest, opts ...grpc.CallOption) (*ListNamespacesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListNamespacesResponse)
+	out := new(ListNamespacesResponse)
 	err := c.cc.Invoke(ctx, CacheAdminService_ListNamespaces_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -85,9 +84,9 @@ func (c *cacheAdminServiceClient) ListNamespaces(ctx context.Context, in *messag
 	return out, nil
 }
 
-func (c *cacheAdminServiceClient) GetNamespaceStats(ctx context.Context, in *messages.GetNamespaceStatsRequest, opts ...grpc.CallOption) (*messages.GetNamespaceStatsResponse, error) {
+func (c *cacheAdminServiceClient) GetNamespaceStats(ctx context.Context, in *GetNamespaceStatsRequest, opts ...grpc.CallOption) (*GetNamespaceStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetNamespaceStatsResponse)
+	out := new(GetNamespaceStatsResponse)
 	err := c.cc.Invoke(ctx, CacheAdminService_GetNamespaceStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -95,9 +94,9 @@ func (c *cacheAdminServiceClient) GetNamespaceStats(ctx context.Context, in *mes
 	return out, nil
 }
 
-func (c *cacheAdminServiceClient) ConfigurePolicy(ctx context.Context, in *messages.ConfigurePolicyRequest, opts ...grpc.CallOption) (*messages.ConfigurePolicyResponse, error) {
+func (c *cacheAdminServiceClient) ConfigurePolicy(ctx context.Context, in *ConfigurePolicyRequest, opts ...grpc.CallOption) (*ConfigurePolicyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigurePolicyResponse)
+	out := new(ConfigurePolicyResponse)
 	err := c.cc.Invoke(ctx, CacheAdminService_ConfigurePolicy_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -113,15 +112,15 @@ func (c *cacheAdminServiceClient) ConfigurePolicy(ctx context.Context, in *messa
 // Administrative cache management operations.
 type CacheAdminServiceServer interface {
 	// CreateNamespace creates a new cache namespace
-	CreateNamespace(context.Context, *messages.CreateNamespaceRequest) (*messages.CreateNamespaceResponse, error)
+	CreateNamespace(context.Context, *CreateNamespaceRequest) (*CreateNamespaceResponse, error)
 	// DeleteNamespace removes a cache namespace
-	DeleteNamespace(context.Context, *messages.DeleteNamespaceRequest) (*emptypb.Empty, error)
+	DeleteNamespace(context.Context, *DeleteNamespaceRequest) (*emptypb.Empty, error)
 	// ListNamespaces returns all available namespaces
-	ListNamespaces(context.Context, *messages.ListNamespacesRequest) (*messages.ListNamespacesResponse, error)
+	ListNamespaces(context.Context, *ListNamespacesRequest) (*ListNamespacesResponse, error)
 	// GetNamespaceStats returns statistics for a namespace
-	GetNamespaceStats(context.Context, *messages.GetNamespaceStatsRequest) (*messages.GetNamespaceStatsResponse, error)
+	GetNamespaceStats(context.Context, *GetNamespaceStatsRequest) (*GetNamespaceStatsResponse, error)
 	// ConfigurePolicy sets cache policies for a namespace
-	ConfigurePolicy(context.Context, *messages.ConfigurePolicyRequest) (*messages.ConfigurePolicyResponse, error)
+	ConfigurePolicy(context.Context, *ConfigurePolicyRequest) (*ConfigurePolicyResponse, error)
 	mustEmbedUnimplementedCacheAdminServiceServer()
 }
 
@@ -132,19 +131,19 @@ type CacheAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCacheAdminServiceServer struct{}
 
-func (UnimplementedCacheAdminServiceServer) CreateNamespace(context.Context, *messages.CreateNamespaceRequest) (*messages.CreateNamespaceResponse, error) {
+func (UnimplementedCacheAdminServiceServer) CreateNamespace(context.Context, *CreateNamespaceRequest) (*CreateNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateNamespace not implemented")
 }
-func (UnimplementedCacheAdminServiceServer) DeleteNamespace(context.Context, *messages.DeleteNamespaceRequest) (*emptypb.Empty, error) {
+func (UnimplementedCacheAdminServiceServer) DeleteNamespace(context.Context, *DeleteNamespaceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteNamespace not implemented")
 }
-func (UnimplementedCacheAdminServiceServer) ListNamespaces(context.Context, *messages.ListNamespacesRequest) (*messages.ListNamespacesResponse, error) {
+func (UnimplementedCacheAdminServiceServer) ListNamespaces(context.Context, *ListNamespacesRequest) (*ListNamespacesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListNamespaces not implemented")
 }
-func (UnimplementedCacheAdminServiceServer) GetNamespaceStats(context.Context, *messages.GetNamespaceStatsRequest) (*messages.GetNamespaceStatsResponse, error) {
+func (UnimplementedCacheAdminServiceServer) GetNamespaceStats(context.Context, *GetNamespaceStatsRequest) (*GetNamespaceStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNamespaceStats not implemented")
 }
-func (UnimplementedCacheAdminServiceServer) ConfigurePolicy(context.Context, *messages.ConfigurePolicyRequest) (*messages.ConfigurePolicyResponse, error) {
+func (UnimplementedCacheAdminServiceServer) ConfigurePolicy(context.Context, *ConfigurePolicyRequest) (*ConfigurePolicyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigurePolicy not implemented")
 }
 func (UnimplementedCacheAdminServiceServer) mustEmbedUnimplementedCacheAdminServiceServer() {}
@@ -169,7 +168,7 @@ func RegisterCacheAdminServiceServer(s grpc.ServiceRegistrar, srv CacheAdminServ
 }
 
 func _CacheAdminService_CreateNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateNamespaceRequest)
+	in := new(CreateNamespaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -181,13 +180,13 @@ func _CacheAdminService_CreateNamespace_Handler(srv interface{}, ctx context.Con
 		FullMethod: CacheAdminService_CreateNamespace_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheAdminServiceServer).CreateNamespace(ctx, req.(*messages.CreateNamespaceRequest))
+		return srv.(CacheAdminServiceServer).CreateNamespace(ctx, req.(*CreateNamespaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheAdminService_DeleteNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteNamespaceRequest)
+	in := new(DeleteNamespaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -199,13 +198,13 @@ func _CacheAdminService_DeleteNamespace_Handler(srv interface{}, ctx context.Con
 		FullMethod: CacheAdminService_DeleteNamespace_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheAdminServiceServer).DeleteNamespace(ctx, req.(*messages.DeleteNamespaceRequest))
+		return srv.(CacheAdminServiceServer).DeleteNamespace(ctx, req.(*DeleteNamespaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheAdminService_ListNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListNamespacesRequest)
+	in := new(ListNamespacesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -217,13 +216,13 @@ func _CacheAdminService_ListNamespaces_Handler(srv interface{}, ctx context.Cont
 		FullMethod: CacheAdminService_ListNamespaces_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheAdminServiceServer).ListNamespaces(ctx, req.(*messages.ListNamespacesRequest))
+		return srv.(CacheAdminServiceServer).ListNamespaces(ctx, req.(*ListNamespacesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheAdminService_GetNamespaceStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetNamespaceStatsRequest)
+	in := new(GetNamespaceStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -235,13 +234,13 @@ func _CacheAdminService_GetNamespaceStats_Handler(srv interface{}, ctx context.C
 		FullMethod: CacheAdminService_GetNamespaceStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheAdminServiceServer).GetNamespaceStats(ctx, req.(*messages.GetNamespaceStatsRequest))
+		return srv.(CacheAdminServiceServer).GetNamespaceStats(ctx, req.(*GetNamespaceStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheAdminService_ConfigurePolicy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ConfigurePolicyRequest)
+	in := new(ConfigurePolicyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -253,7 +252,7 @@ func _CacheAdminService_ConfigurePolicy_Handler(srv interface{}, ctx context.Con
 		FullMethod: CacheAdminService_ConfigurePolicy_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheAdminServiceServer).ConfigurePolicy(ctx, req.(*messages.ConfigurePolicyRequest))
+		return srv.(CacheAdminServiceServer).ConfigurePolicy(ctx, req.(*ConfigurePolicyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

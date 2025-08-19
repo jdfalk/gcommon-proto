@@ -28,14 +28,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/web/messages/list_servers_response.proto\x12\x0egcommon.v1.web\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x01\n\x13ListServersResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12M\n\x10request_metadata\x18\x0b \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12.\n\x05\x65rror\x18= \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12N\n\x15response_generated_at\x18\x33 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xcb\x01\n\x12\x63om.gcommon.v1.webB\x18ListServersResponseProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/web/messages/list_servers_response.proto\x12\x0egcommon.v1.web\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x01\n\x13ListServersResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12M\n\x10request_metadata\x18\x0b \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12.\n\x05\x65rror\x18= \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12N\n\x15response_generated_at\x18\x33 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.list_servers_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\030ListServersResponseProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z!github.com/jdfalk/gcommon/pkg/web\222\003\005\322>\002\020\003'
   _globals['_LISTSERVERSRESPONSE']._serialized_start=231
   _globals['_LISTSERVERSRESPONSE']._serialized_end=485
 # @@protoc_insertion_point(module_scope)

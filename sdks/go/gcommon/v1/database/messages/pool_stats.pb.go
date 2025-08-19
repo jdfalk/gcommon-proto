@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/pool_stats.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -216,8 +216,7 @@ const file_gcommon_v1_database_messages_pool_stats_proto_rawDesc = "" +
 	"\rtotal_created\x18\x01 \x01(\x03R\ftotalCreated\x12!\n" +
 	"\ftotal_closed\x18\x02 \x01(\x03R\vtotalClosed\x121\n" +
 	"\x14acquisition_failures\x18\x03 \x01(\x03R\x13acquisitionFailures\x12O\n" +
-	"\x14avg_acquisition_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x12avgAcquisitionTimeB\xdf\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x0ePoolStatsProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14avg_acquisition_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x12avgAcquisitionTimeB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_pool_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_pool_stats_proto_goTypes = []any{

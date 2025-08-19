@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/secret_backup_frequency.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -89,8 +89,7 @@ const file_gcommon_v1_config_enums_secret_backup_frequency_proto_rawDesc = "" +
 	"\x1dSECRET_BACKUP_FREQUENCY_DAILY\x10\x03\x12\"\n" +
 	"\x1eSECRET_BACKUP_FREQUENCY_WEEKLY\x10\x04\x12#\n" +
 	"\x1fSECRET_BACKUP_FREQUENCY_MONTHLY\x10\x05\x12%\n" +
-	"!SECRET_BACKUP_FREQUENCY_ON_CHANGE\x10\x06B\xdc\x01\n" +
-	"\x15com.gcommon.v1.configB\x1aSecretBackupFrequencyProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"!SECRET_BACKUP_FREQUENCY_ON_CHANGE\x10\x06B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_secret_backup_frequency_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_secret_backup_frequency_proto_goTypes = []any{

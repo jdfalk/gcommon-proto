@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/query_row_response.proto
 
-package messages
+package database
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -245,8 +245,7 @@ const file_gcommon_v1_database_messages_query_row_response_proto_rawDesc = "" +
 	"\acolumns\x18\x02 \x03(\tR\acolumns\x120\n" +
 	"\x06values\x18\x03 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\x06values\x12A\n" +
 	"\x05stats\x18\x04 \x01(\v2'.gcommon.v1.database.DatabaseQueryStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x05 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xe6\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x15QueryRowResponseProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x05 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_query_row_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_query_row_response_proto_goTypes = []any{

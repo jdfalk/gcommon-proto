@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/validation_config.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -168,8 +168,7 @@ const file_gcommon_v1_queue_messages_validation_config_proto_rawDesc = "" +
 	"\x10ValidationConfig\x12'\n" +
 	"\x0fvalidate_schema\x18\x01 \x01(\bR\x0evalidateSchema\x12$\n" +
 	"\x0emax_body_bytes\x18\x02 \x01(\x03R\fmaxBodyBytes\x12%\n" +
-	"\x0ereject_invalid\x18\x03 \x01(\bR\rrejectInvalidB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15ValidationConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ereject_invalid\x18\x03 \x01(\bR\rrejectInvalidB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_validation_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_validation_config_proto_goTypes = []any{

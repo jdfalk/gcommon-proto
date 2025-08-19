@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/replication_mode.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -98,8 +98,7 @@ const file_gcommon_v1_queue_enums_replication_mode_proto_rawDesc = "" +
 	"\x16REPLICATION_MODE_ASYNC\x10\x03\x12\x1b\n" +
 	"\x17REPLICATION_MODE_QUORUM\x10\x04\x12$\n" +
 	" REPLICATION_MODE_LEADER_FOLLOWER\x10\x05\x12!\n" +
-	"\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06B\xd0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14ReplicationModeProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_replication_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_replication_mode_proto_goTypes = []any{

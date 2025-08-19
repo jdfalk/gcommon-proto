@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/replication_consistency.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type ReplicationConsistency struct {
 	xxx_hidden_MinWriteReplicas      int32                  `protobuf:"varint,1,opt,name=min_write_replicas,json=minWriteReplicas"`
 	xxx_hidden_MinReadReplicas       int32                  `protobuf:"varint,2,opt,name=min_read_replicas,json=minReadReplicas"`
 	xxx_hidden_ReplicationFactor     int32                  `protobuf:"varint,3,opt,name=replication_factor,json=replicationFactor"`
-	xxx_hidden_ReplicationLevel      enums.ReplicationLevel `protobuf:"varint,4,opt,name=replication_level,json=replicationLevel,enum=gcommon.v1.queue.ReplicationLevel"`
+	xxx_hidden_ReplicationLevel      ReplicationLevel       `protobuf:"varint,4,opt,name=replication_level,json=replicationLevel,enum=gcommon.v1.queue.ReplicationLevel"`
 	xxx_hidden_AntiEntropyEnabled    bool                   `protobuf:"varint,5,opt,name=anti_entropy_enabled,json=antiEntropyEnabled"`
 	xxx_hidden_RepairIntervalSeconds int32                  `protobuf:"varint,6,opt,name=repair_interval_seconds,json=repairIntervalSeconds"`
 	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
@@ -82,13 +81,13 @@ func (x *ReplicationConsistency) GetReplicationFactor() int32 {
 	return 0
 }
 
-func (x *ReplicationConsistency) GetReplicationLevel() enums.ReplicationLevel {
+func (x *ReplicationConsistency) GetReplicationLevel() ReplicationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_ReplicationLevel
 		}
 	}
-	return enums.ReplicationLevel(0)
+	return ReplicationLevel_REPLICATION_LEVEL_UNSPECIFIED
 }
 
 func (x *ReplicationConsistency) GetAntiEntropyEnabled() bool {
@@ -120,7 +119,7 @@ func (x *ReplicationConsistency) SetReplicationFactor(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *ReplicationConsistency) SetReplicationLevel(v enums.ReplicationLevel) {
+func (x *ReplicationConsistency) SetReplicationLevel(v ReplicationLevel) {
 	x.xxx_hidden_ReplicationLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -194,7 +193,7 @@ func (x *ReplicationConsistency) ClearReplicationFactor() {
 
 func (x *ReplicationConsistency) ClearReplicationLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ReplicationLevel = enums.ReplicationLevel_REPLICATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_ReplicationLevel = ReplicationLevel_REPLICATION_LEVEL_UNSPECIFIED
 }
 
 func (x *ReplicationConsistency) ClearAntiEntropyEnabled() {
@@ -217,7 +216,7 @@ type ReplicationConsistency_builder struct {
 	// Replication factor (total number of replicas)
 	ReplicationFactor *int32
 	// Consistency level for replication
-	ReplicationLevel *enums.ReplicationLevel
+	ReplicationLevel *ReplicationLevel
 	// Enable anti-entropy repair
 	AntiEntropyEnabled *bool
 	// Anti-entropy repair interval (seconds)
@@ -266,13 +265,12 @@ const file_gcommon_v1_queue_messages_replication_consistency_proto_rawDesc = "" 
 	"\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12O\n" +
 	"\x11replication_level\x18\x04 \x01(\x0e2\".gcommon.v1.queue.ReplicationLevelR\x10replicationLevel\x120\n" +
 	"\x14anti_entropy_enabled\x18\x05 \x01(\bR\x12antiEntropyEnabled\x126\n" +
-	"\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB\xda\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1bReplicationConsistencyProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_replication_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_replication_consistency_proto_goTypes = []any{
 	(*ReplicationConsistency)(nil), // 0: gcommon.v1.queue.ReplicationConsistency
-	(enums.ReplicationLevel)(0),    // 1: gcommon.v1.queue.ReplicationLevel
+	(ReplicationLevel)(0),          // 1: gcommon.v1.queue.ReplicationLevel
 }
 var file_gcommon_v1_queue_messages_replication_consistency_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ReplicationConsistency.replication_level:type_name -> gcommon.v1.queue.ReplicationLevel
@@ -288,6 +286,7 @@ func file_gcommon_v1_queue_messages_replication_consistency_proto_init() {
 	if File_gcommon_v1_queue_messages_replication_consistency_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_replication_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

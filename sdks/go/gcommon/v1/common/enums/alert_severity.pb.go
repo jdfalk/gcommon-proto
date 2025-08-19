@@ -95,8 +95,7 @@ const file_gcommon_v1_common_enums_alert_severity_proto_rawDesc = "" +
 	"\x17ALERT_SEVERITY_CRITICAL\x10\x04\x12\x17\n" +
 	"\x13ALERT_SEVERITY_INFO\x10\x05\x12\x1a\n" +
 	"\x16ALERT_SEVERITY_WARNING\x10\x06\x12\x18\n" +
-	"\x14ALERT_SEVERITY_ERROR\x10\aB\xd4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12AlertSeverityProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14ALERT_SEVERITY_ERROR\x10\aBCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_alert_severity_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_alert_severity_proto_goTypes = []any{

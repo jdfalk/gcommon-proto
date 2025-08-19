@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/histogram_value.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -153,8 +153,7 @@ const file_gcommon_v1_metrics_messages_histogram_value_proto_rawDesc = "" +
 	"\x0eHistogramValue\x12=\n" +
 	"\abuckets\x18\x01 \x03(\v2#.gcommon.v1.metrics.HistogramBucketR\abuckets\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x04R\x05count\x12\x10\n" +
-	"\x03sum\x18\x03 \x01(\x01R\x03sumB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13HistogramValueProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x03sum\x18\x03 \x01(\x01R\x03sumB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_histogram_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_histogram_value_proto_goTypes = []any{

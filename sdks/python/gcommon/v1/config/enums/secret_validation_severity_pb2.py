@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/config/enums/secret_validation_severity.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xe2\x01\n\x18SecretValidationSeverity\x12*\n&SECRET_VALIDATION_SEVERITY_UNSPECIFIED\x10\x00\x12#\n\x1fSECRET_VALIDATION_SEVERITY_INFO\x10\x01\x12&\n\"SECRET_VALIDATION_SEVERITY_WARNING\x10\x02\x12$\n SECRET_VALIDATION_SEVERITY_ERROR\x10\x03\x12\'\n#SECRET_VALIDATION_SEVERITY_CRITICAL\x10\x04\x42\xdf\x01\n\x15\x63om.gcommon.v1.configB\x1dSecretValidationSeverityProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/config/enums/secret_validation_severity.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto*\xe2\x01\n\x18SecretValidationSeverity\x12*\n&SECRET_VALIDATION_SEVERITY_UNSPECIFIED\x10\x00\x12#\n\x1fSECRET_VALIDATION_SEVERITY_INFO\x10\x01\x12&\n\"SECRET_VALIDATION_SEVERITY_WARNING\x10\x02\x12$\n SECRET_VALIDATION_SEVERITY_ERROR\x10\x03\x12\'\n#SECRET_VALIDATION_SEVERITY_CRITICAL\x10\x04\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.enums.secret_validation_severity_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\035SecretValidationSeverityProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
   _globals['_SECRETVALIDATIONSEVERITY']._serialized_start=115
   _globals['_SECRETVALIDATIONSEVERITY']._serialized_end=341
 # @@protoc_insertion_point(module_scope)

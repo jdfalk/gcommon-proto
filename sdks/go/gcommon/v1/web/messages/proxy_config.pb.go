@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/proxy_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ const (
 // ProxyConfig message definition.
 type ProxyConfig struct {
 	state                          protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_ProxyType           enums.ProxyType        `protobuf:"varint,1,opt,name=proxy_type,json=proxyType,enum=gcommon.v1.web.ProxyType"`
+	xxx_hidden_ProxyType           ProxyType              `protobuf:"varint,1,opt,name=proxy_type,json=proxyType,enum=gcommon.v1.web.ProxyType"`
 	xxx_hidden_TargetUrl           *string                `protobuf:"bytes,2,opt,name=target_url,json=targetUrl"`
 	xxx_hidden_ForwardHeaders      *[]*HttpHeader         `protobuf:"bytes,3,rep,name=forward_headers,json=forwardHeaders"`
 	xxx_hidden_ConnectTimeout      *durationpb.Duration   `protobuf:"bytes,4,opt,name=connect_timeout,json=connectTimeout"`
@@ -62,13 +61,13 @@ func (x *ProxyConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ProxyConfig) GetProxyType() enums.ProxyType {
+func (x *ProxyConfig) GetProxyType() ProxyType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_ProxyType
 		}
 	}
-	return enums.ProxyType(0)
+	return ProxyType_PROXY_TYPE_UNSPECIFIED
 }
 
 func (x *ProxyConfig) GetTargetUrl() string {
@@ -104,7 +103,7 @@ func (x *ProxyConfig) GetTrustForwardHeaders() bool {
 	return false
 }
 
-func (x *ProxyConfig) SetProxyType(v enums.ProxyType) {
+func (x *ProxyConfig) SetProxyType(v ProxyType) {
 	x.xxx_hidden_ProxyType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -157,7 +156,7 @@ func (x *ProxyConfig) HasTrustForwardHeaders() bool {
 
 func (x *ProxyConfig) ClearProxyType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_ProxyType = enums.ProxyType_PROXY_TYPE_UNSPECIFIED
+	x.xxx_hidden_ProxyType = ProxyType_PROXY_TYPE_UNSPECIFIED
 }
 
 func (x *ProxyConfig) ClearTargetUrl() {
@@ -178,7 +177,7 @@ type ProxyConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of proxy
-	ProxyType *enums.ProxyType
+	ProxyType *ProxyType
 	// Target backend URL
 	TargetUrl *string
 	// Headers to forward to the backend
@@ -222,13 +221,12 @@ const file_gcommon_v1_web_messages_proxy_config_proto_rawDesc = "" +
 	"target_url\x18\x02 \x01(\tR\ttargetUrl\x12C\n" +
 	"\x0fforward_headers\x18\x03 \x03(\v2\x1a.gcommon.v1.web.HttpHeaderR\x0eforwardHeaders\x12B\n" +
 	"\x0fconnect_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\x0econnectTimeout\x122\n" +
-	"\x15trust_forward_headers\x18\x05 \x01(\bR\x13trustForwardHeadersB\xc3\x01\n" +
-	"\x12com.gcommon.v1.webB\x10ProxyConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15trust_forward_headers\x18\x05 \x01(\bR\x13trustForwardHeadersB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_proxy_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_proxy_config_proto_goTypes = []any{
 	(*ProxyConfig)(nil),         // 0: gcommon.v1.web.ProxyConfig
-	(enums.ProxyType)(0),        // 1: gcommon.v1.web.ProxyType
+	(ProxyType)(0),              // 1: gcommon.v1.web.ProxyType
 	(*HttpHeader)(nil),          // 2: gcommon.v1.web.HttpHeader
 	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
@@ -248,6 +246,7 @@ func file_gcommon_v1_web_messages_proxy_config_proto_init() {
 	if File_gcommon_v1_web_messages_proxy_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_proxy_type_proto_init()
 	file_gcommon_v1_web_messages_http_header_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

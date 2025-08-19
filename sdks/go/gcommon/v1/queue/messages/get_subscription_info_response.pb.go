@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/get_subscription_info_response.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -498,8 +498,7 @@ const file_gcommon_v1_queue_messages_get_subscription_info_response_proto_rawDes
 	" \x01(\v2\x1a.google.protobuf.TimestampR\flastActivity\x12)\n" +
 	"\x10active_consumers\x18\v \x01(\rR\x0factiveConsumers\x12%\n" +
 	"\x0etotal_consumed\x18\f \x01(\x04R\rtotalConsumed\x12)\n" +
-	"\x10consumption_rate\x18\r \x01(\x01R\x0fconsumptionRateB\xdf\x01\n" +
-	"\x14com.gcommon.v1.queueB GetSubscriptionInfoResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10consumption_rate\x18\r \x01(\x01R\x0fconsumptionRateB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_subscription_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_subscription_info_response_proto_goTypes = []any{

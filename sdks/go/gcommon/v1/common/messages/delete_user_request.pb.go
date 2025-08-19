@@ -243,8 +243,7 @@ const file_gcommon_v1_common_messages_delete_user_request_proto_rawDesc = "" +
 	"softDelete\x12\x16\n" +
 	"\x06reason\x18\x03 \x01(\tR\x06reason\x12-\n" +
 	"\x13transfer_to_user_id\x18\x04 \x01(\tR\x10transferToUserId\x12'\n" +
-	"\x0frevoke_sessions\x18\x05 \x01(\bR\x0erevokeSessionsB\xdb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16DeleteUserRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0frevoke_sessions\x18\x05 \x01(\bR\x0erevokeSessionsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_delete_user_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_delete_user_request_proto_goTypes = []any{

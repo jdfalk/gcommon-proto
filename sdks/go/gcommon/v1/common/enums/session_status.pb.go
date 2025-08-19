@@ -89,8 +89,7 @@ const file_gcommon_v1_common_enums_session_status_proto_rawDesc = "" +
 	"\x15SESSION_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
 	"\x16SESSION_STATUS_EXPIRED\x10\x02\x12\x1d\n" +
 	"\x19SESSION_STATUS_TERMINATED\x10\x03\x12\x1a\n" +
-	"\x16SESSION_STATUS_INVALID\x10\x04B\xd4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12SessionStatusProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16SESSION_STATUS_INVALID\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_session_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_session_status_proto_goTypes = []any{

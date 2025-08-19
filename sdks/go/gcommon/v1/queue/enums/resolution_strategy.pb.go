@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/resolution_strategy.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -85,8 +85,7 @@ const file_gcommon_v1_queue_enums_resolution_strategy_proto_rawDesc = "" +
 	"%RESOLUTION_STRATEGY_FIRST_WRITER_WINS\x10\x02\x12\x1d\n" +
 	"\x19RESOLUTION_STRATEGY_MERGE\x10\x03\x12\x1e\n" +
 	"\x1aRESOLUTION_STRATEGY_CUSTOM\x10\x04\x12#\n" +
-	"\x1fRESOLUTION_STRATEGY_MULTI_VALUE\x10\x05B\xd3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17ResolutionStrategyProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fRESOLUTION_STRATEGY_MULTI_VALUE\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_resolution_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_resolution_strategy_proto_goTypes = []any{

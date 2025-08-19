@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/format_options.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +24,12 @@ const (
 // *
 // Serialization options for a specific format.
 type FormatOptions struct {
-	state                           protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Format               enums.SerializationFormat  `protobuf:"varint,1,opt,name=format,enum=gcommon.v1.queue.SerializationFormat"`
-	xxx_hidden_Options              map[string]string          `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_EnableCompression    bool                       `protobuf:"varint,3,opt,name=enable_compression,json=enableCompression"`
-	xxx_hidden_CompressionAlgorithm enums.CompressionAlgorithm `protobuf:"varint,4,opt,name=compression_algorithm,json=compressionAlgorithm,enum=gcommon.v1.queue.CompressionAlgorithm"`
-	xxx_hidden_MaxMessageSize       int64                      `protobuf:"varint,5,opt,name=max_message_size,json=maxMessageSize"`
+	state                           protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Format               SerializationFormat    `protobuf:"varint,1,opt,name=format,enum=gcommon.v1.queue.SerializationFormat"`
+	xxx_hidden_Options              map[string]string      `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_EnableCompression    bool                   `protobuf:"varint,3,opt,name=enable_compression,json=enableCompression"`
+	xxx_hidden_CompressionAlgorithm CompressionAlgorithm   `protobuf:"varint,4,opt,name=compression_algorithm,json=compressionAlgorithm,enum=gcommon.v1.queue.CompressionAlgorithm"`
+	xxx_hidden_MaxMessageSize       int64                  `protobuf:"varint,5,opt,name=max_message_size,json=maxMessageSize"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -62,13 +61,13 @@ func (x *FormatOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *FormatOptions) GetFormat() enums.SerializationFormat {
+func (x *FormatOptions) GetFormat() SerializationFormat {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Format
 		}
 	}
-	return enums.SerializationFormat(0)
+	return SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
 }
 
 func (x *FormatOptions) GetOptions() map[string]string {
@@ -85,13 +84,13 @@ func (x *FormatOptions) GetEnableCompression() bool {
 	return false
 }
 
-func (x *FormatOptions) GetCompressionAlgorithm() enums.CompressionAlgorithm {
+func (x *FormatOptions) GetCompressionAlgorithm() CompressionAlgorithm {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_CompressionAlgorithm
 		}
 	}
-	return enums.CompressionAlgorithm(0)
+	return CompressionAlgorithm_COMPRESSION_ALGORITHM_UNSPECIFIED
 }
 
 func (x *FormatOptions) GetMaxMessageSize() int64 {
@@ -101,7 +100,7 @@ func (x *FormatOptions) GetMaxMessageSize() int64 {
 	return 0
 }
 
-func (x *FormatOptions) SetFormat(v enums.SerializationFormat) {
+func (x *FormatOptions) SetFormat(v SerializationFormat) {
 	x.xxx_hidden_Format = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -115,7 +114,7 @@ func (x *FormatOptions) SetEnableCompression(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *FormatOptions) SetCompressionAlgorithm(v enums.CompressionAlgorithm) {
+func (x *FormatOptions) SetCompressionAlgorithm(v CompressionAlgorithm) {
 	x.xxx_hidden_CompressionAlgorithm = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -155,7 +154,7 @@ func (x *FormatOptions) HasMaxMessageSize() bool {
 
 func (x *FormatOptions) ClearFormat() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Format = enums.SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
+	x.xxx_hidden_Format = SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
 }
 
 func (x *FormatOptions) ClearEnableCompression() {
@@ -165,7 +164,7 @@ func (x *FormatOptions) ClearEnableCompression() {
 
 func (x *FormatOptions) ClearCompressionAlgorithm() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_CompressionAlgorithm = enums.CompressionAlgorithm_COMPRESSION_ALGORITHM_UNSPECIFIED
+	x.xxx_hidden_CompressionAlgorithm = CompressionAlgorithm_COMPRESSION_ALGORITHM_UNSPECIFIED
 }
 
 func (x *FormatOptions) ClearMaxMessageSize() {
@@ -177,13 +176,13 @@ type FormatOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Serialization format
-	Format *enums.SerializationFormat
+	Format *SerializationFormat
 	// Format-specific configuration
 	Options map[string]string
 	// Whether to enable compression for this format
 	EnableCompression *bool
 	// Compression algorithm
-	CompressionAlgorithm *enums.CompressionAlgorithm
+	CompressionAlgorithm *CompressionAlgorithm
 	// Maximum message size for this format
 	MaxMessageSize *int64
 }
@@ -225,15 +224,14 @@ const file_gcommon_v1_queue_messages_format_options_proto_rawDesc = "" +
 	"\x10max_message_size\x18\x05 \x01(\x03R\x0emaxMessageSize\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12FormatOptionsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_format_options_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_format_options_proto_goTypes = []any{
-	(*FormatOptions)(nil),           // 0: gcommon.v1.queue.FormatOptions
-	nil,                             // 1: gcommon.v1.queue.FormatOptions.OptionsEntry
-	(enums.SerializationFormat)(0),  // 2: gcommon.v1.queue.SerializationFormat
-	(enums.CompressionAlgorithm)(0), // 3: gcommon.v1.queue.CompressionAlgorithm
+	(*FormatOptions)(nil),     // 0: gcommon.v1.queue.FormatOptions
+	nil,                       // 1: gcommon.v1.queue.FormatOptions.OptionsEntry
+	(SerializationFormat)(0),  // 2: gcommon.v1.queue.SerializationFormat
+	(CompressionAlgorithm)(0), // 3: gcommon.v1.queue.CompressionAlgorithm
 }
 var file_gcommon_v1_queue_messages_format_options_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.FormatOptions.format:type_name -> gcommon.v1.queue.SerializationFormat
@@ -251,6 +249,8 @@ func file_gcommon_v1_queue_messages_format_options_proto_init() {
 	if File_gcommon_v1_queue_messages_format_options_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_compression_algorithm_proto_init()
+	file_gcommon_v1_queue_enums_serialization_format_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

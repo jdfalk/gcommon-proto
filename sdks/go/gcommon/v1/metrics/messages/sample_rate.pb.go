@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/sample_rate.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -113,8 +113,7 @@ const file_gcommon_v1_metrics_messages_sample_rate_proto_rawDesc = "" +
 	"\x15SAMPLE_RATE_HUNDREDTH\x10\x06\x12\x1a\n" +
 	"\x16SAMPLE_RATE_THOUSANDTH\x10\a\x12\x18\n" +
 	"\x14SAMPLE_RATE_ADAPTIVE\x10\b\x12\x16\n" +
-	"\x12SAMPLE_RATE_CUSTOM\x10\tB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fSampleRateProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12SAMPLE_RATE_CUSTOM\x10\tB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_sample_rate_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_sample_rate_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/get_hierarchy_request.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -169,8 +169,7 @@ const file_gcommon_v1_organization_messages_get_hierarchy_request_proto_rawDesc 
 	"\x13GetHierarchyRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12!\n" +
-	"\fhierarchy_id\x18\x03 \x01(\tR\vhierarchyIdB\x81\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18GetHierarchyRequestProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fhierarchy_id\x18\x03 \x01(\tR\vhierarchyIdB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_get_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_hierarchy_request_proto_goTypes = []any{

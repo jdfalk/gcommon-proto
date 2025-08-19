@@ -1,41 +1,21 @@
 version: v2
 clean: true
-managed:
-  enabled: true
-  disable:
-    # Don't rewrite go_package for external deps so imports stay correct
-    - file_option: go_package_prefix
-      module: buf.build/googleapis/googleapis
-    - file_option: go_package_prefix
-      module: buf.build/protocolbuffers/wellknowntypes
-    - file_option: go_package_prefix
-      module: buf.build/grpc-ecosystem/grpc-gateway
-  override:
-    # Set the default Go import prefix for our module
-    - file_option: go_package_prefix
-      value: github.com/jdfalk/gcommon/pkg
 plugins:
-  # Go: use local protoc-gen-go so generation happens via local protoc toolchain
+  # Go: use local protoc-gen-go with source_relative paths
   - local: protoc-gen-go
-    out: pkg
+    out: sdks/go
     opt:
       - paths=source_relative
     strategy: directory
   # Go gRPC services
   - local: protoc-gen-go-grpc
-    out: pkg
+    out: sdks/go
     opt:
       - paths=source_relative
     strategy: directory
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python
-    strategy: directory
-  # Python gRPC services
-  - local: protoc-gen-python-grpc
-    out: sdks/python
-    opt:
-      - paths=source_relative
     strategy: directory
   # Optional: Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
   - protoc_builtin: pyi

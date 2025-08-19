@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/list_messages_request.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -335,8 +335,7 @@ const file_gcommon_v1_queue_messages_list_messages_request_proto_rawDesc = "" +
 	"\x10include_metadata\x18\x06 \x01(\bR\x0fincludeMetadata\x12#\n" +
 	"\rstatus_filter\x18\a \x01(\tR\fstatusFilter\x12\x1d\n" +
 	"\n" +
-	"timeout_ms\x18\b \x01(\x05R\ttimeoutMsB\xd7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18ListMessagesRequestProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"timeout_ms\x18\b \x01(\x05R\ttimeoutMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_list_messages_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_list_messages_request_proto_goTypes = []any{

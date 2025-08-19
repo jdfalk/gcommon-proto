@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/database/services/cache_service.proto
 
-package services
+package database
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -46,33 +45,33 @@ const (
 // and cache management with flexible expiration policies.
 type CacheServiceClient interface {
 	// Get retrieves a value from the cache by key
-	Get(ctx context.Context, in *messages.GetRequest, opts ...grpc.CallOption) (*messages.GetResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	// Set stores a value in the cache with optional expiration
-	Set(ctx context.Context, in *messages.SetRequest, opts ...grpc.CallOption) (*messages.SetResponse, error)
+	Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error)
 	// Delete removes a value from the cache
-	Delete(ctx context.Context, in *messages.CacheDeleteRequest, opts ...grpc.CallOption) (*messages.CacheDeleteResponse, error)
+	Delete(ctx context.Context, in *CacheDeleteRequest, opts ...grpc.CallOption) (*CacheDeleteResponse, error)
 	// Exists checks if a key exists in the cache
-	Exists(ctx context.Context, in *messages.ExistsRequest, opts ...grpc.CallOption) (*messages.ExistsResponse, error)
+	Exists(ctx context.Context, in *ExistsRequest, opts ...grpc.CallOption) (*ExistsResponse, error)
 	// GetMultiple retrieves multiple values from the cache in a single operation
-	GetMultiple(ctx context.Context, in *messages.GetMultipleRequest, opts ...grpc.CallOption) (*messages.GetMultipleResponse, error)
+	GetMultiple(ctx context.Context, in *GetMultipleRequest, opts ...grpc.CallOption) (*GetMultipleResponse, error)
 	// SetMultiple stores multiple values in the cache atomically
-	SetMultiple(ctx context.Context, in *messages.SetMultipleRequest, opts ...grpc.CallOption) (*messages.SetMultipleResponse, error)
+	SetMultiple(ctx context.Context, in *SetMultipleRequest, opts ...grpc.CallOption) (*SetMultipleResponse, error)
 	// DeleteMultiple removes multiple values from the cache atomically
-	DeleteMultiple(ctx context.Context, in *messages.DeleteMultipleRequest, opts ...grpc.CallOption) (*messages.DeleteMultipleResponse, error)
+	DeleteMultiple(ctx context.Context, in *DeleteMultipleRequest, opts ...grpc.CallOption) (*DeleteMultipleResponse, error)
 	// Increment atomically increments a numeric value
-	Increment(ctx context.Context, in *messages.IncrementRequest, opts ...grpc.CallOption) (*messages.IncrementResponse, error)
+	Increment(ctx context.Context, in *IncrementRequest, opts ...grpc.CallOption) (*IncrementResponse, error)
 	// Decrement atomically decrements a numeric value
-	Decrement(ctx context.Context, in *messages.DecrementRequest, opts ...grpc.CallOption) (*messages.DecrementResponse, error)
+	Decrement(ctx context.Context, in *DecrementRequest, opts ...grpc.CallOption) (*DecrementResponse, error)
 	// Clear removes all entries from the cache or by pattern
-	Clear(ctx context.Context, in *messages.ClearRequest, opts ...grpc.CallOption) (*messages.ClearResponse, error)
+	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
 	// Keys returns all keys matching a pattern
-	Keys(ctx context.Context, in *messages.KeysRequest, opts ...grpc.CallOption) (*messages.KeysResponse, error)
+	Keys(ctx context.Context, in *KeysRequest, opts ...grpc.CallOption) (*KeysResponse, error)
 	// GetStats returns cache statistics and performance metrics
-	GetStats(ctx context.Context, in *messages.CacheGetStatsRequest, opts ...grpc.CallOption) (*messages.CacheGetStatsResponse, error)
+	GetStats(ctx context.Context, in *CacheGetStatsRequest, opts ...grpc.CallOption) (*CacheGetStatsResponse, error)
 	// Flush forces cache persistence if supported by the backend
-	Flush(ctx context.Context, in *messages.FlushRequest, opts ...grpc.CallOption) (*messages.FlushResponse, error)
+	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
 	// TouchExpiration updates the expiration time of an existing key
-	TouchExpiration(ctx context.Context, in *messages.TouchExpirationRequest, opts ...grpc.CallOption) (*messages.TouchExpirationResponse, error)
+	TouchExpiration(ctx context.Context, in *TouchExpirationRequest, opts ...grpc.CallOption) (*TouchExpirationResponse, error)
 }
 
 type cacheServiceClient struct {
@@ -83,9 +82,9 @@ func NewCacheServiceClient(cc grpc.ClientConnInterface) CacheServiceClient {
 	return &cacheServiceClient{cc}
 }
 
-func (c *cacheServiceClient) Get(ctx context.Context, in *messages.GetRequest, opts ...grpc.CallOption) (*messages.GetResponse, error) {
+func (c *cacheServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetResponse)
+	out := new(GetResponse)
 	err := c.cc.Invoke(ctx, CacheService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -93,9 +92,9 @@ func (c *cacheServiceClient) Get(ctx context.Context, in *messages.GetRequest, o
 	return out, nil
 }
 
-func (c *cacheServiceClient) Set(ctx context.Context, in *messages.SetRequest, opts ...grpc.CallOption) (*messages.SetResponse, error) {
+func (c *cacheServiceClient) Set(ctx context.Context, in *SetRequest, opts ...grpc.CallOption) (*SetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.SetResponse)
+	out := new(SetResponse)
 	err := c.cc.Invoke(ctx, CacheService_Set_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -103,9 +102,9 @@ func (c *cacheServiceClient) Set(ctx context.Context, in *messages.SetRequest, o
 	return out, nil
 }
 
-func (c *cacheServiceClient) Delete(ctx context.Context, in *messages.CacheDeleteRequest, opts ...grpc.CallOption) (*messages.CacheDeleteResponse, error) {
+func (c *cacheServiceClient) Delete(ctx context.Context, in *CacheDeleteRequest, opts ...grpc.CallOption) (*CacheDeleteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CacheDeleteResponse)
+	out := new(CacheDeleteResponse)
 	err := c.cc.Invoke(ctx, CacheService_Delete_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -113,9 +112,9 @@ func (c *cacheServiceClient) Delete(ctx context.Context, in *messages.CacheDelet
 	return out, nil
 }
 
-func (c *cacheServiceClient) Exists(ctx context.Context, in *messages.ExistsRequest, opts ...grpc.CallOption) (*messages.ExistsResponse, error) {
+func (c *cacheServiceClient) Exists(ctx context.Context, in *ExistsRequest, opts ...grpc.CallOption) (*ExistsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ExistsResponse)
+	out := new(ExistsResponse)
 	err := c.cc.Invoke(ctx, CacheService_Exists_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -123,9 +122,9 @@ func (c *cacheServiceClient) Exists(ctx context.Context, in *messages.ExistsRequ
 	return out, nil
 }
 
-func (c *cacheServiceClient) GetMultiple(ctx context.Context, in *messages.GetMultipleRequest, opts ...grpc.CallOption) (*messages.GetMultipleResponse, error) {
+func (c *cacheServiceClient) GetMultiple(ctx context.Context, in *GetMultipleRequest, opts ...grpc.CallOption) (*GetMultipleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetMultipleResponse)
+	out := new(GetMultipleResponse)
 	err := c.cc.Invoke(ctx, CacheService_GetMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -133,9 +132,9 @@ func (c *cacheServiceClient) GetMultiple(ctx context.Context, in *messages.GetMu
 	return out, nil
 }
 
-func (c *cacheServiceClient) SetMultiple(ctx context.Context, in *messages.SetMultipleRequest, opts ...grpc.CallOption) (*messages.SetMultipleResponse, error) {
+func (c *cacheServiceClient) SetMultiple(ctx context.Context, in *SetMultipleRequest, opts ...grpc.CallOption) (*SetMultipleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.SetMultipleResponse)
+	out := new(SetMultipleResponse)
 	err := c.cc.Invoke(ctx, CacheService_SetMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -143,9 +142,9 @@ func (c *cacheServiceClient) SetMultiple(ctx context.Context, in *messages.SetMu
 	return out, nil
 }
 
-func (c *cacheServiceClient) DeleteMultiple(ctx context.Context, in *messages.DeleteMultipleRequest, opts ...grpc.CallOption) (*messages.DeleteMultipleResponse, error) {
+func (c *cacheServiceClient) DeleteMultiple(ctx context.Context, in *DeleteMultipleRequest, opts ...grpc.CallOption) (*DeleteMultipleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteMultipleResponse)
+	out := new(DeleteMultipleResponse)
 	err := c.cc.Invoke(ctx, CacheService_DeleteMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -153,9 +152,9 @@ func (c *cacheServiceClient) DeleteMultiple(ctx context.Context, in *messages.De
 	return out, nil
 }
 
-func (c *cacheServiceClient) Increment(ctx context.Context, in *messages.IncrementRequest, opts ...grpc.CallOption) (*messages.IncrementResponse, error) {
+func (c *cacheServiceClient) Increment(ctx context.Context, in *IncrementRequest, opts ...grpc.CallOption) (*IncrementResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.IncrementResponse)
+	out := new(IncrementResponse)
 	err := c.cc.Invoke(ctx, CacheService_Increment_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -163,9 +162,9 @@ func (c *cacheServiceClient) Increment(ctx context.Context, in *messages.Increme
 	return out, nil
 }
 
-func (c *cacheServiceClient) Decrement(ctx context.Context, in *messages.DecrementRequest, opts ...grpc.CallOption) (*messages.DecrementResponse, error) {
+func (c *cacheServiceClient) Decrement(ctx context.Context, in *DecrementRequest, opts ...grpc.CallOption) (*DecrementResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DecrementResponse)
+	out := new(DecrementResponse)
 	err := c.cc.Invoke(ctx, CacheService_Decrement_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -173,9 +172,9 @@ func (c *cacheServiceClient) Decrement(ctx context.Context, in *messages.Decreme
 	return out, nil
 }
 
-func (c *cacheServiceClient) Clear(ctx context.Context, in *messages.ClearRequest, opts ...grpc.CallOption) (*messages.ClearResponse, error) {
+func (c *cacheServiceClient) Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ClearResponse)
+	out := new(ClearResponse)
 	err := c.cc.Invoke(ctx, CacheService_Clear_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -183,9 +182,9 @@ func (c *cacheServiceClient) Clear(ctx context.Context, in *messages.ClearReques
 	return out, nil
 }
 
-func (c *cacheServiceClient) Keys(ctx context.Context, in *messages.KeysRequest, opts ...grpc.CallOption) (*messages.KeysResponse, error) {
+func (c *cacheServiceClient) Keys(ctx context.Context, in *KeysRequest, opts ...grpc.CallOption) (*KeysResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.KeysResponse)
+	out := new(KeysResponse)
 	err := c.cc.Invoke(ctx, CacheService_Keys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -193,9 +192,9 @@ func (c *cacheServiceClient) Keys(ctx context.Context, in *messages.KeysRequest,
 	return out, nil
 }
 
-func (c *cacheServiceClient) GetStats(ctx context.Context, in *messages.CacheGetStatsRequest, opts ...grpc.CallOption) (*messages.CacheGetStatsResponse, error) {
+func (c *cacheServiceClient) GetStats(ctx context.Context, in *CacheGetStatsRequest, opts ...grpc.CallOption) (*CacheGetStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CacheGetStatsResponse)
+	out := new(CacheGetStatsResponse)
 	err := c.cc.Invoke(ctx, CacheService_GetStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -203,9 +202,9 @@ func (c *cacheServiceClient) GetStats(ctx context.Context, in *messages.CacheGet
 	return out, nil
 }
 
-func (c *cacheServiceClient) Flush(ctx context.Context, in *messages.FlushRequest, opts ...grpc.CallOption) (*messages.FlushResponse, error) {
+func (c *cacheServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.FlushResponse)
+	out := new(FlushResponse)
 	err := c.cc.Invoke(ctx, CacheService_Flush_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -213,9 +212,9 @@ func (c *cacheServiceClient) Flush(ctx context.Context, in *messages.FlushReques
 	return out, nil
 }
 
-func (c *cacheServiceClient) TouchExpiration(ctx context.Context, in *messages.TouchExpirationRequest, opts ...grpc.CallOption) (*messages.TouchExpirationResponse, error) {
+func (c *cacheServiceClient) TouchExpiration(ctx context.Context, in *TouchExpirationRequest, opts ...grpc.CallOption) (*TouchExpirationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.TouchExpirationResponse)
+	out := new(TouchExpirationResponse)
 	err := c.cc.Invoke(ctx, CacheService_TouchExpiration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -233,33 +232,33 @@ func (c *cacheServiceClient) TouchExpiration(ctx context.Context, in *messages.T
 // and cache management with flexible expiration policies.
 type CacheServiceServer interface {
 	// Get retrieves a value from the cache by key
-	Get(context.Context, *messages.GetRequest) (*messages.GetResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
 	// Set stores a value in the cache with optional expiration
-	Set(context.Context, *messages.SetRequest) (*messages.SetResponse, error)
+	Set(context.Context, *SetRequest) (*SetResponse, error)
 	// Delete removes a value from the cache
-	Delete(context.Context, *messages.CacheDeleteRequest) (*messages.CacheDeleteResponse, error)
+	Delete(context.Context, *CacheDeleteRequest) (*CacheDeleteResponse, error)
 	// Exists checks if a key exists in the cache
-	Exists(context.Context, *messages.ExistsRequest) (*messages.ExistsResponse, error)
+	Exists(context.Context, *ExistsRequest) (*ExistsResponse, error)
 	// GetMultiple retrieves multiple values from the cache in a single operation
-	GetMultiple(context.Context, *messages.GetMultipleRequest) (*messages.GetMultipleResponse, error)
+	GetMultiple(context.Context, *GetMultipleRequest) (*GetMultipleResponse, error)
 	// SetMultiple stores multiple values in the cache atomically
-	SetMultiple(context.Context, *messages.SetMultipleRequest) (*messages.SetMultipleResponse, error)
+	SetMultiple(context.Context, *SetMultipleRequest) (*SetMultipleResponse, error)
 	// DeleteMultiple removes multiple values from the cache atomically
-	DeleteMultiple(context.Context, *messages.DeleteMultipleRequest) (*messages.DeleteMultipleResponse, error)
+	DeleteMultiple(context.Context, *DeleteMultipleRequest) (*DeleteMultipleResponse, error)
 	// Increment atomically increments a numeric value
-	Increment(context.Context, *messages.IncrementRequest) (*messages.IncrementResponse, error)
+	Increment(context.Context, *IncrementRequest) (*IncrementResponse, error)
 	// Decrement atomically decrements a numeric value
-	Decrement(context.Context, *messages.DecrementRequest) (*messages.DecrementResponse, error)
+	Decrement(context.Context, *DecrementRequest) (*DecrementResponse, error)
 	// Clear removes all entries from the cache or by pattern
-	Clear(context.Context, *messages.ClearRequest) (*messages.ClearResponse, error)
+	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
 	// Keys returns all keys matching a pattern
-	Keys(context.Context, *messages.KeysRequest) (*messages.KeysResponse, error)
+	Keys(context.Context, *KeysRequest) (*KeysResponse, error)
 	// GetStats returns cache statistics and performance metrics
-	GetStats(context.Context, *messages.CacheGetStatsRequest) (*messages.CacheGetStatsResponse, error)
+	GetStats(context.Context, *CacheGetStatsRequest) (*CacheGetStatsResponse, error)
 	// Flush forces cache persistence if supported by the backend
-	Flush(context.Context, *messages.FlushRequest) (*messages.FlushResponse, error)
+	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
 	// TouchExpiration updates the expiration time of an existing key
-	TouchExpiration(context.Context, *messages.TouchExpirationRequest) (*messages.TouchExpirationResponse, error)
+	TouchExpiration(context.Context, *TouchExpirationRequest) (*TouchExpirationResponse, error)
 	mustEmbedUnimplementedCacheServiceServer()
 }
 
@@ -270,46 +269,46 @@ type CacheServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCacheServiceServer struct{}
 
-func (UnimplementedCacheServiceServer) Get(context.Context, *messages.GetRequest) (*messages.GetResponse, error) {
+func (UnimplementedCacheServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedCacheServiceServer) Set(context.Context, *messages.SetRequest) (*messages.SetResponse, error) {
+func (UnimplementedCacheServiceServer) Set(context.Context, *SetRequest) (*SetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Set not implemented")
 }
-func (UnimplementedCacheServiceServer) Delete(context.Context, *messages.CacheDeleteRequest) (*messages.CacheDeleteResponse, error) {
+func (UnimplementedCacheServiceServer) Delete(context.Context, *CacheDeleteRequest) (*CacheDeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (UnimplementedCacheServiceServer) Exists(context.Context, *messages.ExistsRequest) (*messages.ExistsResponse, error) {
+func (UnimplementedCacheServiceServer) Exists(context.Context, *ExistsRequest) (*ExistsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Exists not implemented")
 }
-func (UnimplementedCacheServiceServer) GetMultiple(context.Context, *messages.GetMultipleRequest) (*messages.GetMultipleResponse, error) {
+func (UnimplementedCacheServiceServer) GetMultiple(context.Context, *GetMultipleRequest) (*GetMultipleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMultiple not implemented")
 }
-func (UnimplementedCacheServiceServer) SetMultiple(context.Context, *messages.SetMultipleRequest) (*messages.SetMultipleResponse, error) {
+func (UnimplementedCacheServiceServer) SetMultiple(context.Context, *SetMultipleRequest) (*SetMultipleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetMultiple not implemented")
 }
-func (UnimplementedCacheServiceServer) DeleteMultiple(context.Context, *messages.DeleteMultipleRequest) (*messages.DeleteMultipleResponse, error) {
+func (UnimplementedCacheServiceServer) DeleteMultiple(context.Context, *DeleteMultipleRequest) (*DeleteMultipleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteMultiple not implemented")
 }
-func (UnimplementedCacheServiceServer) Increment(context.Context, *messages.IncrementRequest) (*messages.IncrementResponse, error) {
+func (UnimplementedCacheServiceServer) Increment(context.Context, *IncrementRequest) (*IncrementResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Increment not implemented")
 }
-func (UnimplementedCacheServiceServer) Decrement(context.Context, *messages.DecrementRequest) (*messages.DecrementResponse, error) {
+func (UnimplementedCacheServiceServer) Decrement(context.Context, *DecrementRequest) (*DecrementResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Decrement not implemented")
 }
-func (UnimplementedCacheServiceServer) Clear(context.Context, *messages.ClearRequest) (*messages.ClearResponse, error) {
+func (UnimplementedCacheServiceServer) Clear(context.Context, *ClearRequest) (*ClearResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Clear not implemented")
 }
-func (UnimplementedCacheServiceServer) Keys(context.Context, *messages.KeysRequest) (*messages.KeysResponse, error) {
+func (UnimplementedCacheServiceServer) Keys(context.Context, *KeysRequest) (*KeysResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Keys not implemented")
 }
-func (UnimplementedCacheServiceServer) GetStats(context.Context, *messages.CacheGetStatsRequest) (*messages.CacheGetStatsResponse, error) {
+func (UnimplementedCacheServiceServer) GetStats(context.Context, *CacheGetStatsRequest) (*CacheGetStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStats not implemented")
 }
-func (UnimplementedCacheServiceServer) Flush(context.Context, *messages.FlushRequest) (*messages.FlushResponse, error) {
+func (UnimplementedCacheServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Flush not implemented")
 }
-func (UnimplementedCacheServiceServer) TouchExpiration(context.Context, *messages.TouchExpirationRequest) (*messages.TouchExpirationResponse, error) {
+func (UnimplementedCacheServiceServer) TouchExpiration(context.Context, *TouchExpirationRequest) (*TouchExpirationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TouchExpiration not implemented")
 }
 func (UnimplementedCacheServiceServer) mustEmbedUnimplementedCacheServiceServer() {}
@@ -334,7 +333,7 @@ func RegisterCacheServiceServer(s grpc.ServiceRegistrar, srv CacheServiceServer)
 }
 
 func _CacheService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetRequest)
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -346,13 +345,13 @@ func _CacheService_Get_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: CacheService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Get(ctx, req.(*messages.GetRequest))
+		return srv.(CacheServiceServer).Get(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Set_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetRequest)
+	in := new(SetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -364,13 +363,13 @@ func _CacheService_Set_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: CacheService_Set_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Set(ctx, req.(*messages.SetRequest))
+		return srv.(CacheServiceServer).Set(ctx, req.(*SetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CacheDeleteRequest)
+	in := new(CacheDeleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -382,13 +381,13 @@ func _CacheService_Delete_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: CacheService_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Delete(ctx, req.(*messages.CacheDeleteRequest))
+		return srv.(CacheServiceServer).Delete(ctx, req.(*CacheDeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Exists_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ExistsRequest)
+	in := new(ExistsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -400,13 +399,13 @@ func _CacheService_Exists_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: CacheService_Exists_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Exists(ctx, req.(*messages.ExistsRequest))
+		return srv.(CacheServiceServer).Exists(ctx, req.(*ExistsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_GetMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetMultipleRequest)
+	in := new(GetMultipleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -418,13 +417,13 @@ func _CacheService_GetMultiple_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: CacheService_GetMultiple_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).GetMultiple(ctx, req.(*messages.GetMultipleRequest))
+		return srv.(CacheServiceServer).GetMultiple(ctx, req.(*GetMultipleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_SetMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetMultipleRequest)
+	in := new(SetMultipleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -436,13 +435,13 @@ func _CacheService_SetMultiple_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: CacheService_SetMultiple_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).SetMultiple(ctx, req.(*messages.SetMultipleRequest))
+		return srv.(CacheServiceServer).SetMultiple(ctx, req.(*SetMultipleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_DeleteMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteMultipleRequest)
+	in := new(DeleteMultipleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -454,13 +453,13 @@ func _CacheService_DeleteMultiple_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: CacheService_DeleteMultiple_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).DeleteMultiple(ctx, req.(*messages.DeleteMultipleRequest))
+		return srv.(CacheServiceServer).DeleteMultiple(ctx, req.(*DeleteMultipleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Increment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.IncrementRequest)
+	in := new(IncrementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -472,13 +471,13 @@ func _CacheService_Increment_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: CacheService_Increment_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Increment(ctx, req.(*messages.IncrementRequest))
+		return srv.(CacheServiceServer).Increment(ctx, req.(*IncrementRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Decrement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DecrementRequest)
+	in := new(DecrementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -490,13 +489,13 @@ func _CacheService_Decrement_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: CacheService_Decrement_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Decrement(ctx, req.(*messages.DecrementRequest))
+		return srv.(CacheServiceServer).Decrement(ctx, req.(*DecrementRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Clear_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ClearRequest)
+	in := new(ClearRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -508,13 +507,13 @@ func _CacheService_Clear_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: CacheService_Clear_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Clear(ctx, req.(*messages.ClearRequest))
+		return srv.(CacheServiceServer).Clear(ctx, req.(*ClearRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Keys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.KeysRequest)
+	in := new(KeysRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -526,13 +525,13 @@ func _CacheService_Keys_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: CacheService_Keys_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Keys(ctx, req.(*messages.KeysRequest))
+		return srv.(CacheServiceServer).Keys(ctx, req.(*KeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_GetStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CacheGetStatsRequest)
+	in := new(CacheGetStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -544,13 +543,13 @@ func _CacheService_GetStats_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: CacheService_GetStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).GetStats(ctx, req.(*messages.CacheGetStatsRequest))
+		return srv.(CacheServiceServer).GetStats(ctx, req.(*CacheGetStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.FlushRequest)
+	in := new(FlushRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -562,13 +561,13 @@ func _CacheService_Flush_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: CacheService_Flush_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).Flush(ctx, req.(*messages.FlushRequest))
+		return srv.(CacheServiceServer).Flush(ctx, req.(*FlushRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CacheService_TouchExpiration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.TouchExpirationRequest)
+	in := new(TouchExpirationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -580,7 +579,7 @@ func _CacheService_TouchExpiration_Handler(srv interface{}, ctx context.Context,
 		FullMethod: CacheService_TouchExpiration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CacheServiceServer).TouchExpiration(ctx, req.(*messages.TouchExpirationRequest))
+		return srv.(CacheServiceServer).TouchExpiration(ctx, req.(*TouchExpirationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

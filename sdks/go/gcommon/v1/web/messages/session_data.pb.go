@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/session_data.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ type SessionData struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_SessionId    *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
 	xxx_hidden_UserId       *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_State        enums.WebSessionState  `protobuf:"varint,3,opt,name=state,enum=gcommon.v1.web.WebSessionState"`
+	xxx_hidden_State        WebSessionState        `protobuf:"varint,3,opt,name=state,enum=gcommon.v1.web.WebSessionState"`
 	xxx_hidden_CreatedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
 	xxx_hidden_LastAccessAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=last_access_at,json=lastAccessAt"`
 	xxx_hidden_ExpiresAt    *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=expires_at,json=expiresAt"`
@@ -88,13 +87,13 @@ func (x *SessionData) GetUserId() string {
 	return ""
 }
 
-func (x *SessionData) GetState() enums.WebSessionState {
+func (x *SessionData) GetState() WebSessionState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.WebSessionState(0)
+	return WebSessionState_SESSION_STATE_UNSPECIFIED
 }
 
 func (x *SessionData) GetCreatedAt() *timestamppb.Timestamp {
@@ -176,7 +175,7 @@ func (x *SessionData) SetUserId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
 }
 
-func (x *SessionData) SetState(v enums.WebSessionState) {
+func (x *SessionData) SetState(v WebSessionState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
@@ -290,7 +289,7 @@ func (x *SessionData) ClearUserId() {
 
 func (x *SessionData) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_State = enums.WebSessionState_SESSION_STATE_UNSPECIFIED
+	x.xxx_hidden_State = WebSessionState_SESSION_STATE_UNSPECIFIED
 }
 
 func (x *SessionData) ClearCreatedAt() {
@@ -326,7 +325,7 @@ type SessionData_builder struct {
 	// User ID associated with the session
 	UserId *string
 	// Current session state
-	State *enums.WebSessionState
+	State *WebSessionState
 	// Session creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last access timestamp
@@ -403,14 +402,13 @@ const file_gcommon_v1_web_messages_session_data_proto_rawDesc = "" +
 	"\bmetadata\x18\t \x03(\v2).gcommon.v1.web.SessionData.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc3\x01\n" +
-	"\x12com.gcommon.v1.webB\x10SessionDataProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_session_data_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_messages_session_data_proto_goTypes = []any{
 	(*SessionData)(nil),           // 0: gcommon.v1.web.SessionData
 	nil,                           // 1: gcommon.v1.web.SessionData.MetadataEntry
-	(enums.WebSessionState)(0),    // 2: gcommon.v1.web.WebSessionState
+	(WebSessionState)(0),          // 2: gcommon.v1.web.WebSessionState
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_web_messages_session_data_proto_depIdxs = []int32{
@@ -431,6 +429,7 @@ func file_gcommon_v1_web_messages_session_data_proto_init() {
 	if File_gcommon_v1_web_messages_session_data_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_session_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

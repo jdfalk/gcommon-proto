@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/messages/error_trend.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x93\x01\n\nErrorTrend\x12(\n\x10\x65rror_rate_trend\x18\x01 \x01(\tR\x0e\x65rrorRateTrend\x12)\n\x10trend_confidence\x18\x02 \x01(\x01R\x0ftrendConfidence\x12\x30\n\x14\x65merging_error_types\x18\x03 \x03(\tR\x12\x65mergingErrorTypesB\xda\x01\n\x16\x63om.gcommon.v1.metricsB\x0f\x45rrorTrendProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/messages/error_trend.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x93\x01\n\nErrorTrend\x12(\n\x10\x65rror_rate_trend\x18\x01 \x01(\tR\x0e\x65rrorRateTrend\x12)\n\x10trend_confidence\x18\x02 \x01(\x01R\x0ftrendConfidence\x12\x30\n\x14\x65merging_error_types\x18\x03 \x03(\tR\x12\x65mergingErrorTypesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.error_trend_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\017ErrorTrendProtoP\001Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
   _globals['_ERRORTREND']._serialized_start=105
   _globals['_ERRORTREND']._serialized_end=252
 # @@protoc_insertion_point(module_scope)

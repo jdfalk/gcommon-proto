@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/services/organization_service.proto
 
-package services
+package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,32 +38,31 @@ const file_gcommon_v1_organization_services_organization_service_proto_rawDesc =
 	"\fUpdateMember\x12,.gcommon.v1.organization.UpdateMemberRequest\x1a-.gcommon.v1.organization.UpdateMemberResponse\x12h\n" +
 	"\vListMembers\x12+.gcommon.v1.organization.ListMembersRequest\x1a,.gcommon.v1.organization.ListMembersResponse\x12\x8c\x01\n" +
 	"\x17GetOrganizationSettings\x127.gcommon.v1.organization.GetOrganizationSettingsRequest\x1a8.gcommon.v1.organization.GetOrganizationSettingsResponse\x12\x95\x01\n" +
-	"\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB\x81\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18OrganizationServiceProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/services\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_services_organization_service_proto_goTypes = []any{
-	(*messages.CreateOrganizationRequest)(nil),          // 0: gcommon.v1.organization.CreateOrganizationRequest
-	(*messages.GetOrganizationRequest)(nil),             // 1: gcommon.v1.organization.GetOrganizationRequest
-	(*messages.UpdateOrganizationRequest)(nil),          // 2: gcommon.v1.organization.UpdateOrganizationRequest
-	(*messages.DeleteOrganizationRequest)(nil),          // 3: gcommon.v1.organization.DeleteOrganizationRequest
-	(*messages.ListOrganizationsRequest)(nil),           // 4: gcommon.v1.organization.ListOrganizationsRequest
-	(*messages.AddMemberRequest)(nil),                   // 5: gcommon.v1.organization.AddMemberRequest
-	(*messages.RemoveMemberRequest)(nil),                // 6: gcommon.v1.organization.RemoveMemberRequest
-	(*messages.UpdateMemberRequest)(nil),                // 7: gcommon.v1.organization.UpdateMemberRequest
-	(*messages.ListMembersRequest)(nil),                 // 8: gcommon.v1.organization.ListMembersRequest
-	(*messages.GetOrganizationSettingsRequest)(nil),     // 9: gcommon.v1.organization.GetOrganizationSettingsRequest
-	(*messages.UpdateOrganizationSettingsRequest)(nil),  // 10: gcommon.v1.organization.UpdateOrganizationSettingsRequest
-	(*messages.CreateOrganizationResponse)(nil),         // 11: gcommon.v1.organization.CreateOrganizationResponse
-	(*messages.GetOrganizationResponse)(nil),            // 12: gcommon.v1.organization.GetOrganizationResponse
-	(*messages.UpdateOrganizationResponse)(nil),         // 13: gcommon.v1.organization.UpdateOrganizationResponse
-	(*messages.DeleteOrganizationResponse)(nil),         // 14: gcommon.v1.organization.DeleteOrganizationResponse
-	(*messages.ListOrganizationsResponse)(nil),          // 15: gcommon.v1.organization.ListOrganizationsResponse
-	(*messages.AddMemberResponse)(nil),                  // 16: gcommon.v1.organization.AddMemberResponse
-	(*messages.RemoveMemberResponse)(nil),               // 17: gcommon.v1.organization.RemoveMemberResponse
-	(*messages.UpdateMemberResponse)(nil),               // 18: gcommon.v1.organization.UpdateMemberResponse
-	(*messages.ListMembersResponse)(nil),                // 19: gcommon.v1.organization.ListMembersResponse
-	(*messages.GetOrganizationSettingsResponse)(nil),    // 20: gcommon.v1.organization.GetOrganizationSettingsResponse
-	(*messages.UpdateOrganizationSettingsResponse)(nil), // 21: gcommon.v1.organization.UpdateOrganizationSettingsResponse
+	(*CreateOrganizationRequest)(nil),          // 0: gcommon.v1.organization.CreateOrganizationRequest
+	(*GetOrganizationRequest)(nil),             // 1: gcommon.v1.organization.GetOrganizationRequest
+	(*UpdateOrganizationRequest)(nil),          // 2: gcommon.v1.organization.UpdateOrganizationRequest
+	(*DeleteOrganizationRequest)(nil),          // 3: gcommon.v1.organization.DeleteOrganizationRequest
+	(*ListOrganizationsRequest)(nil),           // 4: gcommon.v1.organization.ListOrganizationsRequest
+	(*AddMemberRequest)(nil),                   // 5: gcommon.v1.organization.AddMemberRequest
+	(*RemoveMemberRequest)(nil),                // 6: gcommon.v1.organization.RemoveMemberRequest
+	(*UpdateMemberRequest)(nil),                // 7: gcommon.v1.organization.UpdateMemberRequest
+	(*ListMembersRequest)(nil),                 // 8: gcommon.v1.organization.ListMembersRequest
+	(*GetOrganizationSettingsRequest)(nil),     // 9: gcommon.v1.organization.GetOrganizationSettingsRequest
+	(*UpdateOrganizationSettingsRequest)(nil),  // 10: gcommon.v1.organization.UpdateOrganizationSettingsRequest
+	(*CreateOrganizationResponse)(nil),         // 11: gcommon.v1.organization.CreateOrganizationResponse
+	(*GetOrganizationResponse)(nil),            // 12: gcommon.v1.organization.GetOrganizationResponse
+	(*UpdateOrganizationResponse)(nil),         // 13: gcommon.v1.organization.UpdateOrganizationResponse
+	(*DeleteOrganizationResponse)(nil),         // 14: gcommon.v1.organization.DeleteOrganizationResponse
+	(*ListOrganizationsResponse)(nil),          // 15: gcommon.v1.organization.ListOrganizationsResponse
+	(*AddMemberResponse)(nil),                  // 16: gcommon.v1.organization.AddMemberResponse
+	(*RemoveMemberResponse)(nil),               // 17: gcommon.v1.organization.RemoveMemberResponse
+	(*UpdateMemberResponse)(nil),               // 18: gcommon.v1.organization.UpdateMemberResponse
+	(*ListMembersResponse)(nil),                // 19: gcommon.v1.organization.ListMembersResponse
+	(*GetOrganizationSettingsResponse)(nil),    // 20: gcommon.v1.organization.GetOrganizationSettingsResponse
+	(*UpdateOrganizationSettingsResponse)(nil), // 21: gcommon.v1.organization.UpdateOrganizationSettingsResponse
 }
 var file_gcommon_v1_organization_services_organization_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.organization.OrganizationService.CreateOrganization:input_type -> gcommon.v1.organization.CreateOrganizationRequest
@@ -101,6 +99,28 @@ func file_gcommon_v1_organization_services_organization_service_proto_init() {
 	if File_gcommon_v1_organization_services_organization_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_organization_messages_add_member_request_proto_init()
+	file_gcommon_v1_organization_messages_add_member_response_proto_init()
+	file_gcommon_v1_organization_messages_create_organization_request_proto_init()
+	file_gcommon_v1_organization_messages_create_organization_response_proto_init()
+	file_gcommon_v1_organization_messages_delete_organization_request_proto_init()
+	file_gcommon_v1_organization_messages_delete_organization_response_proto_init()
+	file_gcommon_v1_organization_messages_get_organization_request_proto_init()
+	file_gcommon_v1_organization_messages_get_organization_response_proto_init()
+	file_gcommon_v1_organization_messages_get_organization_settings_request_proto_init()
+	file_gcommon_v1_organization_messages_get_organization_settings_response_proto_init()
+	file_gcommon_v1_organization_messages_list_members_request_proto_init()
+	file_gcommon_v1_organization_messages_list_members_response_proto_init()
+	file_gcommon_v1_organization_messages_list_organizations_request_proto_init()
+	file_gcommon_v1_organization_messages_list_organizations_response_proto_init()
+	file_gcommon_v1_organization_messages_remove_member_request_proto_init()
+	file_gcommon_v1_organization_messages_remove_member_response_proto_init()
+	file_gcommon_v1_organization_messages_update_member_request_proto_init()
+	file_gcommon_v1_organization_messages_update_member_response_proto_init()
+	file_gcommon_v1_organization_messages_update_organization_request_proto_init()
+	file_gcommon_v1_organization_messages_update_organization_response_proto_init()
+	file_gcommon_v1_organization_messages_update_organization_settings_request_proto_init()
+	file_gcommon_v1_organization_messages_update_organization_settings_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/security_settings.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -389,8 +389,7 @@ const file_gcommon_v1_organization_messages_security_settings_proto_rawDesc = ""
 	"\x12api_access_enabled\x18\t \x01(\bR\x10apiAccessEnabled\x12Z\n" +
 	"\x0eapi_rate_limit\x18\n" +
 	" \x01(\v24.gcommon.v1.organization.OrganizationRateLimitConfigR\fapiRateLimit\x127\n" +
-	"\x18audit_log_retention_days\x18\v \x01(\x05R\x15auditLogRetentionDaysB\xfe\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x15SecuritySettingsProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18audit_log_retention_days\x18\v \x01(\x05R\x15auditLogRetentionDaysB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_security_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_security_settings_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/list_subscriptions_request.proto
 
-package messages
+package database
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -119,8 +119,7 @@ const file_gcommon_v1_database_messages_list_subscriptions_request_proto_rawDesc
 	"\n" +
 	"=gcommon/v1/database/messages/list_subscriptions_request.proto\x12\x13gcommon.v1.database\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"c\n" +
 	"\x1dCacheListSubscriptionsRequest\x12B\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xee\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1dListSubscriptionsRequestProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_list_subscriptions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_list_subscriptions_request_proto_goTypes = []any{

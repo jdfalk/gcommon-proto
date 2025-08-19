@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/organization_settings.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -406,8 +406,7 @@ const file_gcommon_v1_organization_messages_organization_settings_proto_rawDesc 
 	"updated_at\x18\n" +
 	" \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\v \x01(\tR\tupdatedByB\x82\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x19OrganizationSettingsProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"updated_by\x18\v \x01(\tR\tupdatedByB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_settings_proto_goTypes = []any{

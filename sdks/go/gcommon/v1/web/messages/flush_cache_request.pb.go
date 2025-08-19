@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/flush_cache_request.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -134,8 +134,7 @@ const file_gcommon_v1_web_messages_flush_cache_request_proto_rawDesc = "" +
 	"1gcommon/v1/web/messages/flush_cache_request.proto\x12\x0egcommon.v1.web\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"q\n" +
 	"\x11FlushCacheRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc9\x01\n" +
-	"\x12com.gcommon.v1.webB\x16FlushCacheRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_flush_cache_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_flush_cache_request_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/summary_options.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -327,8 +327,7 @@ const file_gcommon_v1_metrics_messages_summary_options_proto_rawDesc = "" +
 	"\x13include_top_metrics\x18\x05 \x01(\bR\x11includeTopMetrics\x12+\n" +
 	"\x11include_retention\x18\x06 \x01(\bR\x10includeRetention\x122\n" +
 	"\x15include_export_status\x18\a \x01(\bR\x13includeExportStatus\x12*\n" +
-	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13SummaryOptionsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_summary_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_summary_options_proto_goTypes = []any{

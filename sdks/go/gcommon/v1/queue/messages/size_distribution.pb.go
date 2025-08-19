@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/size_distribution.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -214,8 +214,7 @@ const file_gcommon_v1_queue_messages_size_distribution_proto_rawDesc = "" +
 	"\x0emin_size_bytes\x18\x02 \x01(\x03R\fminSizeBytes\x12$\n" +
 	"\x0emax_size_bytes\x18\x03 \x01(\x03R\fmaxSizeBytes\x12,\n" +
 	"\x12average_size_bytes\x18\x04 \x01(\x01R\x10averageSizeBytes\x12*\n" +
-	"\x11median_size_bytes\x18\x05 \x01(\x01R\x0fmedianSizeBytesB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15SizeDistributionProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11median_size_bytes\x18\x05 \x01(\x01R\x0fmedianSizeBytesB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_size_distribution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_size_distribution_proto_goTypes = []any{

@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/get_offset_request.proto
 
-package messages
+package queue
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type GetOffsetRequest struct {
 	xxx_hidden_PartitionId   int32                     `protobuf:"varint,2,opt,name=partition_id,json=partitionId"`
 	xxx_hidden_ConsumerGroup *string                   `protobuf:"bytes,3,opt,name=consumer_group,json=consumerGroup"`
 	xxx_hidden_ConsumerId    *string                   `protobuf:"bytes,4,opt,name=consumer_id,json=consumerId"`
-	xxx_hidden_OffsetType    enums.OffsetType          `protobuf:"varint,5,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
+	xxx_hidden_OffsetType    OffsetType                `protobuf:"varint,5,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
 	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
@@ -102,13 +101,13 @@ func (x *GetOffsetRequest) GetConsumerId() string {
 	return ""
 }
 
-func (x *GetOffsetRequest) GetOffsetType() enums.OffsetType {
+func (x *GetOffsetRequest) GetOffsetType() OffsetType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_OffsetType
 		}
 	}
-	return enums.OffsetType(0)
+	return OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *GetOffsetRequest) GetMetadata() *messages.RequestMetadata {
@@ -138,7 +137,7 @@ func (x *GetOffsetRequest) SetConsumerId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
-func (x *GetOffsetRequest) SetOffsetType(v enums.OffsetType) {
+func (x *GetOffsetRequest) SetOffsetType(v OffsetType) {
 	x.xxx_hidden_OffsetType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
@@ -211,7 +210,7 @@ func (x *GetOffsetRequest) ClearConsumerId() {
 
 func (x *GetOffsetRequest) ClearOffsetType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_OffsetType = enums.OffsetType_OFFSET_TYPE_UNSPECIFIED
+	x.xxx_hidden_OffsetType = OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *GetOffsetRequest) ClearMetadata() {
@@ -230,7 +229,7 @@ type GetOffsetRequest_builder struct {
 	// Consumer ID within the group (optional)
 	ConsumerId *string
 	// Type of offset to retrieve
-	OffsetType *enums.OffsetType
+	OffsetType *OffsetType
 	// Request metadata for tracing and correlation
 	Metadata *messages.RequestMetadata
 }
@@ -277,13 +276,12 @@ const file_gcommon_v1_queue_messages_get_offset_request_proto_rawDesc = "" +
 	"consumerId\x12=\n" +
 	"\voffset_type\x18\x05 \x01(\x0e2\x1c.gcommon.v1.queue.OffsetTypeR\n" +
 	"offsetType\x12>\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15GetOffsetRequestProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_offset_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_offset_request_proto_goTypes = []any{
 	(*GetOffsetRequest)(nil),         // 0: gcommon.v1.queue.GetOffsetRequest
-	(enums.OffsetType)(0),            // 1: gcommon.v1.queue.OffsetType
+	(OffsetType)(0),                  // 1: gcommon.v1.queue.OffsetType
 	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_get_offset_request_proto_depIdxs = []int32{
@@ -301,6 +299,7 @@ func file_gcommon_v1_queue_messages_get_offset_request_proto_init() {
 	if File_gcommon_v1_queue_messages_get_offset_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_offset_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

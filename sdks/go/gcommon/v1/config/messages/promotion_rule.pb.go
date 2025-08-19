@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/promotion_rule.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -342,8 +342,7 @@ const file_gcommon_v1_config_messages_promotion_rule_proto_rawDesc = "" +
 	"\bschedule\x18\b \x01(\tR\bschedule\x12\x18\n" +
 	"\afilters\x18\t \x03(\tR\afilters\x12(\n" +
 	"\x0ftransformations\x18\n" +
-	" \x03(\tR\x0ftransformationsB\xd7\x01\n" +
-	"\x15com.gcommon.v1.configB\x12PromotionRuleProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x03(\tR\x0ftransformationsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_promotion_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_promotion_rule_proto_goTypes = []any{

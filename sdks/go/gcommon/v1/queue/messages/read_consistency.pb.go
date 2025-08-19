@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/read_consistency.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type ReadConsistency struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level          enums.ReadLevel        `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.ReadLevel"`
+	xxx_hidden_Level          ReadLevel              `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.ReadLevel"`
 	xxx_hidden_MaxStalenessMs int64                  `protobuf:"varint,2,opt,name=max_staleness_ms,json=maxStalenessMs"`
 	xxx_hidden_ReadYourWrites bool                   `protobuf:"varint,3,opt,name=read_your_writes,json=readYourWrites"`
 	xxx_hidden_MonotonicReads bool                   `protobuf:"varint,4,opt,name=monotonic_reads,json=monotonicReads"`
@@ -61,13 +60,13 @@ func (x *ReadConsistency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ReadConsistency) GetLevel() enums.ReadLevel {
+func (x *ReadConsistency) GetLevel() ReadLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.ReadLevel(0)
+	return ReadLevel_READ_LEVEL_UNSPECIFIED
 }
 
 func (x *ReadConsistency) GetMaxStalenessMs() int64 {
@@ -105,7 +104,7 @@ func (x *ReadConsistency) GetRetryConfig() *ReadRetryConfig {
 	return nil
 }
 
-func (x *ReadConsistency) SetLevel(v enums.ReadLevel) {
+func (x *ReadConsistency) SetLevel(v ReadLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
@@ -178,7 +177,7 @@ func (x *ReadConsistency) HasRetryConfig() bool {
 
 func (x *ReadConsistency) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = enums.ReadLevel_READ_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = ReadLevel_READ_LEVEL_UNSPECIFIED
 }
 
 func (x *ReadConsistency) ClearMaxStalenessMs() {
@@ -209,7 +208,7 @@ type ReadConsistency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Read consistency level
-	Level *enums.ReadLevel
+	Level *ReadLevel
 	// Maximum staleness allowed for reads (milliseconds)
 	MaxStalenessMs *int64
 	// Enable read-your-writes consistency
@@ -262,13 +261,12 @@ const file_gcommon_v1_queue_messages_read_consistency_proto_rawDesc = "" +
 	"\x0fmonotonic_reads\x18\x04 \x01(\bR\x0emonotonicReads\x12\x1d\n" +
 	"\n" +
 	"timeout_ms\x18\x05 \x01(\x05R\ttimeoutMs\x12D\n" +
-	"\fretry_config\x18\x06 \x01(\v2!.gcommon.v1.queue.ReadRetryConfigR\vretryConfigB\xd3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14ReadConsistencyProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fretry_config\x18\x06 \x01(\v2!.gcommon.v1.queue.ReadRetryConfigR\vretryConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_read_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_read_consistency_proto_goTypes = []any{
 	(*ReadConsistency)(nil), // 0: gcommon.v1.queue.ReadConsistency
-	(enums.ReadLevel)(0),    // 1: gcommon.v1.queue.ReadLevel
+	(ReadLevel)(0),          // 1: gcommon.v1.queue.ReadLevel
 	(*ReadRetryConfig)(nil), // 2: gcommon.v1.queue.ReadRetryConfig
 }
 var file_gcommon_v1_queue_messages_read_consistency_proto_depIdxs = []int32{
@@ -286,6 +284,7 @@ func file_gcommon_v1_queue_messages_read_consistency_proto_init() {
 	if File_gcommon_v1_queue_messages_read_consistency_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_read_level_proto_init()
 	file_gcommon_v1_queue_messages_read_retry_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

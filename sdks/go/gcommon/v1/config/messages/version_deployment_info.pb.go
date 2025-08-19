@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/version_deployment_info.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,16 +23,16 @@ const (
 )
 
 type VersionDeploymentInfo struct {
-	state                  protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_Status      enums.VersionDeploymentStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.VersionDeploymentStatus"`
-	xxx_hidden_DeployedAt  *timestamppb.Timestamp        `protobuf:"bytes,2,opt,name=deployed_at,json=deployedAt"`
-	xxx_hidden_Environment *string                       `protobuf:"bytes,3,opt,name=environment"`
-	xxx_hidden_Method      *string                       `protobuf:"bytes,4,opt,name=method"`
-	xxx_hidden_DeployedBy  *string                       `protobuf:"bytes,5,opt,name=deployed_by,json=deployedBy"`
-	xxx_hidden_Config      map[string]string             `protobuf:"bytes,6,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Artifacts   []string                      `protobuf:"bytes,7,rep,name=artifacts"`
-	xxx_hidden_Health      enums.VersionHealthStatus     `protobuf:"varint,8,opt,name=health,enum=gcommon.v1.config.VersionHealthStatus"`
-	xxx_hidden_Metrics     map[string]float64            `protobuf:"bytes,9,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Status      VersionDeploymentStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.VersionDeploymentStatus"`
+	xxx_hidden_DeployedAt  *timestamppb.Timestamp  `protobuf:"bytes,2,opt,name=deployed_at,json=deployedAt"`
+	xxx_hidden_Environment *string                 `protobuf:"bytes,3,opt,name=environment"`
+	xxx_hidden_Method      *string                 `protobuf:"bytes,4,opt,name=method"`
+	xxx_hidden_DeployedBy  *string                 `protobuf:"bytes,5,opt,name=deployed_by,json=deployedBy"`
+	xxx_hidden_Config      map[string]string       `protobuf:"bytes,6,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Artifacts   []string                `protobuf:"bytes,7,rep,name=artifacts"`
+	xxx_hidden_Health      VersionHealthStatus     `protobuf:"varint,8,opt,name=health,enum=gcommon.v1.config.VersionHealthStatus"`
+	xxx_hidden_Metrics     map[string]float64      `protobuf:"bytes,9,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -65,13 +64,13 @@ func (x *VersionDeploymentInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *VersionDeploymentInfo) GetStatus() enums.VersionDeploymentStatus {
+func (x *VersionDeploymentInfo) GetStatus() VersionDeploymentStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.VersionDeploymentStatus(0)
+	return VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *VersionDeploymentInfo) GetDeployedAt() *timestamppb.Timestamp {
@@ -125,13 +124,13 @@ func (x *VersionDeploymentInfo) GetArtifacts() []string {
 	return nil
 }
 
-func (x *VersionDeploymentInfo) GetHealth() enums.VersionHealthStatus {
+func (x *VersionDeploymentInfo) GetHealth() VersionHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_Health
 		}
 	}
-	return enums.VersionHealthStatus(0)
+	return VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *VersionDeploymentInfo) GetMetrics() map[string]float64 {
@@ -141,7 +140,7 @@ func (x *VersionDeploymentInfo) GetMetrics() map[string]float64 {
 	return nil
 }
 
-func (x *VersionDeploymentInfo) SetStatus(v enums.VersionDeploymentStatus) {
+func (x *VersionDeploymentInfo) SetStatus(v VersionDeploymentStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
@@ -173,7 +172,7 @@ func (x *VersionDeploymentInfo) SetArtifacts(v []string) {
 	x.xxx_hidden_Artifacts = v
 }
 
-func (x *VersionDeploymentInfo) SetHealth(v enums.VersionHealthStatus) {
+func (x *VersionDeploymentInfo) SetHealth(v VersionHealthStatus) {
 	x.xxx_hidden_Health = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 9)
 }
@@ -226,7 +225,7 @@ func (x *VersionDeploymentInfo) HasHealth() bool {
 
 func (x *VersionDeploymentInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *VersionDeploymentInfo) ClearDeployedAt() {
@@ -250,14 +249,14 @@ func (x *VersionDeploymentInfo) ClearDeployedBy() {
 
 func (x *VersionDeploymentInfo) ClearHealth() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Health = enums.VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Health = VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
 }
 
 type VersionDeploymentInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Deployment status
-	Status *enums.VersionDeploymentStatus
+	Status *VersionDeploymentStatus
 	// Deployment timestamp
 	DeployedAt *timestamppb.Timestamp
 	// Deployment environment
@@ -271,7 +270,7 @@ type VersionDeploymentInfo_builder struct {
 	// Deployment artifacts
 	Artifacts []string
 	// Deployment health
-	Health *enums.VersionHealthStatus
+	Health *VersionHealthStatus
 	// Deployment metrics
 	Metrics map[string]float64
 }
@@ -329,17 +328,16 @@ const file_gcommon_v1_config_messages_version_deployment_info_proto_rawDesc = ""
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fMetricsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B\xdf\x01\n" +
-	"\x15com.gcommon.v1.configB\x1aVersionDeploymentInfoProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_version_deployment_info_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_config_messages_version_deployment_info_proto_goTypes = []any{
-	(*VersionDeploymentInfo)(nil),      // 0: gcommon.v1.config.VersionDeploymentInfo
-	nil,                                // 1: gcommon.v1.config.VersionDeploymentInfo.ConfigEntry
-	nil,                                // 2: gcommon.v1.config.VersionDeploymentInfo.MetricsEntry
-	(enums.VersionDeploymentStatus)(0), // 3: gcommon.v1.config.VersionDeploymentStatus
-	(*timestamppb.Timestamp)(nil),      // 4: google.protobuf.Timestamp
-	(enums.VersionHealthStatus)(0),     // 5: gcommon.v1.config.VersionHealthStatus
+	(*VersionDeploymentInfo)(nil), // 0: gcommon.v1.config.VersionDeploymentInfo
+	nil,                           // 1: gcommon.v1.config.VersionDeploymentInfo.ConfigEntry
+	nil,                           // 2: gcommon.v1.config.VersionDeploymentInfo.MetricsEntry
+	(VersionDeploymentStatus)(0),  // 3: gcommon.v1.config.VersionDeploymentStatus
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
+	(VersionHealthStatus)(0),      // 5: gcommon.v1.config.VersionHealthStatus
 }
 var file_gcommon_v1_config_messages_version_deployment_info_proto_depIdxs = []int32{
 	3, // 0: gcommon.v1.config.VersionDeploymentInfo.status:type_name -> gcommon.v1.config.VersionDeploymentStatus
@@ -359,6 +357,8 @@ func file_gcommon_v1_config_messages_version_deployment_info_proto_init() {
 	if File_gcommon_v1_config_messages_version_deployment_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_version_deployment_status_proto_init()
+	file_gcommon_v1_config_enums_version_health_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

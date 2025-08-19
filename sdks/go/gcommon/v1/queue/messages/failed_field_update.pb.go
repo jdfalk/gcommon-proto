@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/failed_field_update.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -248,8 +248,7 @@ const file_gcommon_v1_queue_messages_failed_field_update_proto_rawDesc = "" +
 	"\n" +
 	"error_code\x18\x03 \x01(\tR\terrorCode\x12%\n" +
 	"\x0eoriginal_value\x18\x04 \x01(\tR\roriginalValue\x12'\n" +
-	"\x0fattempted_value\x18\x05 \x01(\tR\x0eattemptedValueB\xd5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16FailedFieldUpdateProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fattempted_value\x18\x05 \x01(\tR\x0eattemptedValueB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_failed_field_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_failed_field_update_proto_goTypes = []any{

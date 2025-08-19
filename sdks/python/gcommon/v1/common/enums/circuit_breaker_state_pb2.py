@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/enums/circuit_breaker_state.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa3\x01\n\x13\x43ircuitBreakerState\x12%\n!CIRCUIT_BREAKER_STATE_UNSPECIFIED\x10\x00\x12 \n\x1c\x43IRCUIT_BREAKER_STATE_CLOSED\x10\x01\x12\x1e\n\x1a\x43IRCUIT_BREAKER_STATE_OPEN\x10\x02\x12#\n\x1f\x43IRCUIT_BREAKER_STATE_HALF_OPEN\x10\x03\x42\xda\x01\n\x15\x63om.gcommon.v1.commonB\x18\x43ircuitBreakerStateProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/enums/circuit_breaker_state.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa3\x01\n\x13\x43ircuitBreakerState\x12%\n!CIRCUIT_BREAKER_STATE_UNSPECIFIED\x10\x00\x12 \n\x1c\x43IRCUIT_BREAKER_STATE_CLOSED\x10\x01\x12\x1e\n\x1a\x43IRCUIT_BREAKER_STATE_OPEN\x10\x02\x12#\n\x1f\x43IRCUIT_BREAKER_STATE_HALF_OPEN\x10\x03\x42\x43Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.enums.circuit_breaker_state_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\030CircuitBreakerStateProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\222\003\005\322>\002\020\003'
   _globals['_CIRCUITBREAKERSTATE']._serialized_start=110
   _globals['_CIRCUITBREAKERSTATE']._serialized_end=273
 # @@protoc_insertion_point(module_scope)

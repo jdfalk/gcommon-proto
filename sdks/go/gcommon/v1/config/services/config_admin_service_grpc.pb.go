@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/config/services/config_admin_service.proto
 
-package services
+package config
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -42,27 +41,27 @@ const (
 // ConfigAdminService provides administrative configuration operations.
 type ConfigAdminServiceClient interface {
 	// Create a configuration backup
-	BackupConfig(ctx context.Context, in *messages.BackupConfigRequest, opts ...grpc.CallOption) (*messages.ConfigBackup, error)
+	BackupConfig(ctx context.Context, in *BackupConfigRequest, opts ...grpc.CallOption) (*ConfigBackup, error)
 	// Restore configuration from a backup or restore point
-	RestoreConfig(ctx context.Context, in *messages.RestoreConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RestoreConfig(ctx context.Context, in *RestoreConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Import configuration values
-	ImportConfig(ctx context.Context, in *messages.ImportConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ImportConfig(ctx context.Context, in *ImportConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Export configuration snapshot
-	ExportConfig(ctx context.Context, in *messages.ExportConfigRequest, opts ...grpc.CallOption) (*messages.ConfigSnapshot, error)
+	ExportConfig(ctx context.Context, in *ExportConfigRequest, opts ...grpc.CallOption) (*ConfigSnapshot, error)
 	// Reload configuration from persistent storage
-	ReloadConfig(ctx context.Context, in *messages.ReloadConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ReloadConfig(ctx context.Context, in *ReloadConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Roll back configuration to a previous restore point
-	RollbackConfig(ctx context.Context, in *messages.RollbackConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RollbackConfig(ctx context.Context, in *RollbackConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Update configuration schema
-	SetConfigSchema(ctx context.Context, in *messages.SetConfigSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	SetConfigSchema(ctx context.Context, in *SetConfigSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Retrieve configuration change history
-	GetConfigHistory(ctx context.Context, in *messages.GetConfigHistoryRequest, opts ...grpc.CallOption) (*messages.GetConfigHistoryResponse, error)
+	GetConfigHistory(ctx context.Context, in *GetConfigHistoryRequest, opts ...grpc.CallOption) (*GetConfigHistoryResponse, error)
 	// Retrieve configuration statistics
-	GetConfigStats(ctx context.Context, in *messages.GetConfigStatsRequest, opts ...grpc.CallOption) (*messages.GetConfigStatsResponse, error)
+	GetConfigStats(ctx context.Context, in *GetConfigStatsRequest, opts ...grpc.CallOption) (*GetConfigStatsResponse, error)
 	// Perform service health check
-	HealthCheck(ctx context.Context, in *messages.ConfigHealthCheckRequest, opts ...grpc.CallOption) (*messages.ConfigHealthCheckResponse, error)
+	HealthCheck(ctx context.Context, in *ConfigHealthCheckRequest, opts ...grpc.CallOption) (*ConfigHealthCheckResponse, error)
 	// Stop watching configuration changes
-	UnwatchConfig(ctx context.Context, in *messages.UnwatchConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UnwatchConfig(ctx context.Context, in *UnwatchConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type configAdminServiceClient struct {
@@ -73,9 +72,9 @@ func NewConfigAdminServiceClient(cc grpc.ClientConnInterface) ConfigAdminService
 	return &configAdminServiceClient{cc}
 }
 
-func (c *configAdminServiceClient) BackupConfig(ctx context.Context, in *messages.BackupConfigRequest, opts ...grpc.CallOption) (*messages.ConfigBackup, error) {
+func (c *configAdminServiceClient) BackupConfig(ctx context.Context, in *BackupConfigRequest, opts ...grpc.CallOption) (*ConfigBackup, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigBackup)
+	out := new(ConfigBackup)
 	err := c.cc.Invoke(ctx, ConfigAdminService_BackupConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -83,7 +82,7 @@ func (c *configAdminServiceClient) BackupConfig(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *configAdminServiceClient) RestoreConfig(ctx context.Context, in *messages.RestoreConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) RestoreConfig(ctx context.Context, in *RestoreConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_RestoreConfig_FullMethodName, in, out, cOpts...)
@@ -93,7 +92,7 @@ func (c *configAdminServiceClient) RestoreConfig(ctx context.Context, in *messag
 	return out, nil
 }
 
-func (c *configAdminServiceClient) ImportConfig(ctx context.Context, in *messages.ImportConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) ImportConfig(ctx context.Context, in *ImportConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_ImportConfig_FullMethodName, in, out, cOpts...)
@@ -103,9 +102,9 @@ func (c *configAdminServiceClient) ImportConfig(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *configAdminServiceClient) ExportConfig(ctx context.Context, in *messages.ExportConfigRequest, opts ...grpc.CallOption) (*messages.ConfigSnapshot, error) {
+func (c *configAdminServiceClient) ExportConfig(ctx context.Context, in *ExportConfigRequest, opts ...grpc.CallOption) (*ConfigSnapshot, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigSnapshot)
+	out := new(ConfigSnapshot)
 	err := c.cc.Invoke(ctx, ConfigAdminService_ExportConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -113,7 +112,7 @@ func (c *configAdminServiceClient) ExportConfig(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *configAdminServiceClient) ReloadConfig(ctx context.Context, in *messages.ReloadConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) ReloadConfig(ctx context.Context, in *ReloadConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_ReloadConfig_FullMethodName, in, out, cOpts...)
@@ -123,7 +122,7 @@ func (c *configAdminServiceClient) ReloadConfig(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *configAdminServiceClient) RollbackConfig(ctx context.Context, in *messages.RollbackConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) RollbackConfig(ctx context.Context, in *RollbackConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_RollbackConfig_FullMethodName, in, out, cOpts...)
@@ -133,7 +132,7 @@ func (c *configAdminServiceClient) RollbackConfig(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *configAdminServiceClient) SetConfigSchema(ctx context.Context, in *messages.SetConfigSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) SetConfigSchema(ctx context.Context, in *SetConfigSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_SetConfigSchema_FullMethodName, in, out, cOpts...)
@@ -143,9 +142,9 @@ func (c *configAdminServiceClient) SetConfigSchema(ctx context.Context, in *mess
 	return out, nil
 }
 
-func (c *configAdminServiceClient) GetConfigHistory(ctx context.Context, in *messages.GetConfigHistoryRequest, opts ...grpc.CallOption) (*messages.GetConfigHistoryResponse, error) {
+func (c *configAdminServiceClient) GetConfigHistory(ctx context.Context, in *GetConfigHistoryRequest, opts ...grpc.CallOption) (*GetConfigHistoryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetConfigHistoryResponse)
+	out := new(GetConfigHistoryResponse)
 	err := c.cc.Invoke(ctx, ConfigAdminService_GetConfigHistory_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -153,9 +152,9 @@ func (c *configAdminServiceClient) GetConfigHistory(ctx context.Context, in *mes
 	return out, nil
 }
 
-func (c *configAdminServiceClient) GetConfigStats(ctx context.Context, in *messages.GetConfigStatsRequest, opts ...grpc.CallOption) (*messages.GetConfigStatsResponse, error) {
+func (c *configAdminServiceClient) GetConfigStats(ctx context.Context, in *GetConfigStatsRequest, opts ...grpc.CallOption) (*GetConfigStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetConfigStatsResponse)
+	out := new(GetConfigStatsResponse)
 	err := c.cc.Invoke(ctx, ConfigAdminService_GetConfigStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -163,9 +162,9 @@ func (c *configAdminServiceClient) GetConfigStats(ctx context.Context, in *messa
 	return out, nil
 }
 
-func (c *configAdminServiceClient) HealthCheck(ctx context.Context, in *messages.ConfigHealthCheckRequest, opts ...grpc.CallOption) (*messages.ConfigHealthCheckResponse, error) {
+func (c *configAdminServiceClient) HealthCheck(ctx context.Context, in *ConfigHealthCheckRequest, opts ...grpc.CallOption) (*ConfigHealthCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigHealthCheckResponse)
+	out := new(ConfigHealthCheckResponse)
 	err := c.cc.Invoke(ctx, ConfigAdminService_HealthCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -173,7 +172,7 @@ func (c *configAdminServiceClient) HealthCheck(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *configAdminServiceClient) UnwatchConfig(ctx context.Context, in *messages.UnwatchConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configAdminServiceClient) UnwatchConfig(ctx context.Context, in *UnwatchConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigAdminService_UnwatchConfig_FullMethodName, in, out, cOpts...)
@@ -191,27 +190,27 @@ func (c *configAdminServiceClient) UnwatchConfig(ctx context.Context, in *messag
 // ConfigAdminService provides administrative configuration operations.
 type ConfigAdminServiceServer interface {
 	// Create a configuration backup
-	BackupConfig(context.Context, *messages.BackupConfigRequest) (*messages.ConfigBackup, error)
+	BackupConfig(context.Context, *BackupConfigRequest) (*ConfigBackup, error)
 	// Restore configuration from a backup or restore point
-	RestoreConfig(context.Context, *messages.RestoreConfigRequest) (*emptypb.Empty, error)
+	RestoreConfig(context.Context, *RestoreConfigRequest) (*emptypb.Empty, error)
 	// Import configuration values
-	ImportConfig(context.Context, *messages.ImportConfigRequest) (*emptypb.Empty, error)
+	ImportConfig(context.Context, *ImportConfigRequest) (*emptypb.Empty, error)
 	// Export configuration snapshot
-	ExportConfig(context.Context, *messages.ExportConfigRequest) (*messages.ConfigSnapshot, error)
+	ExportConfig(context.Context, *ExportConfigRequest) (*ConfigSnapshot, error)
 	// Reload configuration from persistent storage
-	ReloadConfig(context.Context, *messages.ReloadConfigRequest) (*emptypb.Empty, error)
+	ReloadConfig(context.Context, *ReloadConfigRequest) (*emptypb.Empty, error)
 	// Roll back configuration to a previous restore point
-	RollbackConfig(context.Context, *messages.RollbackConfigRequest) (*emptypb.Empty, error)
+	RollbackConfig(context.Context, *RollbackConfigRequest) (*emptypb.Empty, error)
 	// Update configuration schema
-	SetConfigSchema(context.Context, *messages.SetConfigSchemaRequest) (*emptypb.Empty, error)
+	SetConfigSchema(context.Context, *SetConfigSchemaRequest) (*emptypb.Empty, error)
 	// Retrieve configuration change history
-	GetConfigHistory(context.Context, *messages.GetConfigHistoryRequest) (*messages.GetConfigHistoryResponse, error)
+	GetConfigHistory(context.Context, *GetConfigHistoryRequest) (*GetConfigHistoryResponse, error)
 	// Retrieve configuration statistics
-	GetConfigStats(context.Context, *messages.GetConfigStatsRequest) (*messages.GetConfigStatsResponse, error)
+	GetConfigStats(context.Context, *GetConfigStatsRequest) (*GetConfigStatsResponse, error)
 	// Perform service health check
-	HealthCheck(context.Context, *messages.ConfigHealthCheckRequest) (*messages.ConfigHealthCheckResponse, error)
+	HealthCheck(context.Context, *ConfigHealthCheckRequest) (*ConfigHealthCheckResponse, error)
 	// Stop watching configuration changes
-	UnwatchConfig(context.Context, *messages.UnwatchConfigRequest) (*emptypb.Empty, error)
+	UnwatchConfig(context.Context, *UnwatchConfigRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedConfigAdminServiceServer()
 }
 
@@ -222,37 +221,37 @@ type ConfigAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedConfigAdminServiceServer struct{}
 
-func (UnimplementedConfigAdminServiceServer) BackupConfig(context.Context, *messages.BackupConfigRequest) (*messages.ConfigBackup, error) {
+func (UnimplementedConfigAdminServiceServer) BackupConfig(context.Context, *BackupConfigRequest) (*ConfigBackup, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BackupConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) RestoreConfig(context.Context, *messages.RestoreConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) RestoreConfig(context.Context, *RestoreConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RestoreConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) ImportConfig(context.Context, *messages.ImportConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) ImportConfig(context.Context, *ImportConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ImportConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) ExportConfig(context.Context, *messages.ExportConfigRequest) (*messages.ConfigSnapshot, error) {
+func (UnimplementedConfigAdminServiceServer) ExportConfig(context.Context, *ExportConfigRequest) (*ConfigSnapshot, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExportConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) ReloadConfig(context.Context, *messages.ReloadConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) ReloadConfig(context.Context, *ReloadConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReloadConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) RollbackConfig(context.Context, *messages.RollbackConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) RollbackConfig(context.Context, *RollbackConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackConfig not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) SetConfigSchema(context.Context, *messages.SetConfigSchemaRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) SetConfigSchema(context.Context, *SetConfigSchemaRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetConfigSchema not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) GetConfigHistory(context.Context, *messages.GetConfigHistoryRequest) (*messages.GetConfigHistoryResponse, error) {
+func (UnimplementedConfigAdminServiceServer) GetConfigHistory(context.Context, *GetConfigHistoryRequest) (*GetConfigHistoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConfigHistory not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) GetConfigStats(context.Context, *messages.GetConfigStatsRequest) (*messages.GetConfigStatsResponse, error) {
+func (UnimplementedConfigAdminServiceServer) GetConfigStats(context.Context, *GetConfigStatsRequest) (*GetConfigStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConfigStats not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) HealthCheck(context.Context, *messages.ConfigHealthCheckRequest) (*messages.ConfigHealthCheckResponse, error) {
+func (UnimplementedConfigAdminServiceServer) HealthCheck(context.Context, *ConfigHealthCheckRequest) (*ConfigHealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
-func (UnimplementedConfigAdminServiceServer) UnwatchConfig(context.Context, *messages.UnwatchConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigAdminServiceServer) UnwatchConfig(context.Context, *UnwatchConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnwatchConfig not implemented")
 }
 func (UnimplementedConfigAdminServiceServer) mustEmbedUnimplementedConfigAdminServiceServer() {}
@@ -277,7 +276,7 @@ func RegisterConfigAdminServiceServer(s grpc.ServiceRegistrar, srv ConfigAdminSe
 }
 
 func _ConfigAdminService_BackupConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.BackupConfigRequest)
+	in := new(BackupConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -289,13 +288,13 @@ func _ConfigAdminService_BackupConfig_Handler(srv interface{}, ctx context.Conte
 		FullMethod: ConfigAdminService_BackupConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).BackupConfig(ctx, req.(*messages.BackupConfigRequest))
+		return srv.(ConfigAdminServiceServer).BackupConfig(ctx, req.(*BackupConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_RestoreConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RestoreConfigRequest)
+	in := new(RestoreConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -307,13 +306,13 @@ func _ConfigAdminService_RestoreConfig_Handler(srv interface{}, ctx context.Cont
 		FullMethod: ConfigAdminService_RestoreConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).RestoreConfig(ctx, req.(*messages.RestoreConfigRequest))
+		return srv.(ConfigAdminServiceServer).RestoreConfig(ctx, req.(*RestoreConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_ImportConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ImportConfigRequest)
+	in := new(ImportConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -325,13 +324,13 @@ func _ConfigAdminService_ImportConfig_Handler(srv interface{}, ctx context.Conte
 		FullMethod: ConfigAdminService_ImportConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).ImportConfig(ctx, req.(*messages.ImportConfigRequest))
+		return srv.(ConfigAdminServiceServer).ImportConfig(ctx, req.(*ImportConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_ExportConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ExportConfigRequest)
+	in := new(ExportConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -343,13 +342,13 @@ func _ConfigAdminService_ExportConfig_Handler(srv interface{}, ctx context.Conte
 		FullMethod: ConfigAdminService_ExportConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).ExportConfig(ctx, req.(*messages.ExportConfigRequest))
+		return srv.(ConfigAdminServiceServer).ExportConfig(ctx, req.(*ExportConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_ReloadConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ReloadConfigRequest)
+	in := new(ReloadConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -361,13 +360,13 @@ func _ConfigAdminService_ReloadConfig_Handler(srv interface{}, ctx context.Conte
 		FullMethod: ConfigAdminService_ReloadConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).ReloadConfig(ctx, req.(*messages.ReloadConfigRequest))
+		return srv.(ConfigAdminServiceServer).ReloadConfig(ctx, req.(*ReloadConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_RollbackConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RollbackConfigRequest)
+	in := new(RollbackConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -379,13 +378,13 @@ func _ConfigAdminService_RollbackConfig_Handler(srv interface{}, ctx context.Con
 		FullMethod: ConfigAdminService_RollbackConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).RollbackConfig(ctx, req.(*messages.RollbackConfigRequest))
+		return srv.(ConfigAdminServiceServer).RollbackConfig(ctx, req.(*RollbackConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_SetConfigSchema_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetConfigSchemaRequest)
+	in := new(SetConfigSchemaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -397,13 +396,13 @@ func _ConfigAdminService_SetConfigSchema_Handler(srv interface{}, ctx context.Co
 		FullMethod: ConfigAdminService_SetConfigSchema_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).SetConfigSchema(ctx, req.(*messages.SetConfigSchemaRequest))
+		return srv.(ConfigAdminServiceServer).SetConfigSchema(ctx, req.(*SetConfigSchemaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_GetConfigHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetConfigHistoryRequest)
+	in := new(GetConfigHistoryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -415,13 +414,13 @@ func _ConfigAdminService_GetConfigHistory_Handler(srv interface{}, ctx context.C
 		FullMethod: ConfigAdminService_GetConfigHistory_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).GetConfigHistory(ctx, req.(*messages.GetConfigHistoryRequest))
+		return srv.(ConfigAdminServiceServer).GetConfigHistory(ctx, req.(*GetConfigHistoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_GetConfigStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetConfigStatsRequest)
+	in := new(GetConfigStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -433,13 +432,13 @@ func _ConfigAdminService_GetConfigStats_Handler(srv interface{}, ctx context.Con
 		FullMethod: ConfigAdminService_GetConfigStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).GetConfigStats(ctx, req.(*messages.GetConfigStatsRequest))
+		return srv.(ConfigAdminServiceServer).GetConfigStats(ctx, req.(*GetConfigStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ConfigHealthCheckRequest)
+	in := new(ConfigHealthCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -451,13 +450,13 @@ func _ConfigAdminService_HealthCheck_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ConfigAdminService_HealthCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).HealthCheck(ctx, req.(*messages.ConfigHealthCheckRequest))
+		return srv.(ConfigAdminServiceServer).HealthCheck(ctx, req.(*ConfigHealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigAdminService_UnwatchConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UnwatchConfigRequest)
+	in := new(UnwatchConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -469,7 +468,7 @@ func _ConfigAdminService_UnwatchConfig_Handler(srv interface{}, ctx context.Cont
 		FullMethod: ConfigAdminService_UnwatchConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigAdminServiceServer).UnwatchConfig(ctx, req.(*messages.UnwatchConfigRequest))
+		return srv.(ConfigAdminServiceServer).UnwatchConfig(ctx, req.(*UnwatchConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/write_consistency.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type WriteConsistency struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level             enums.WriteLevel       `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.WriteLevel"`
+	xxx_hidden_Level             WriteLevel             `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.WriteLevel"`
 	xxx_hidden_SyncReplication   *SyncReplication       `protobuf:"bytes,2,opt,name=sync_replication,json=syncReplication"`
 	xxx_hidden_ConflictDetection *ConflictDetection     `protobuf:"bytes,3,opt,name=conflict_detection,json=conflictDetection"`
 	xxx_hidden_TimeoutMs         int32                  `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
@@ -60,13 +59,13 @@ func (x *WriteConsistency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WriteConsistency) GetLevel() enums.WriteLevel {
+func (x *WriteConsistency) GetLevel() WriteLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.WriteLevel(0)
+	return WriteLevel_WRITE_LEVEL_UNSPECIFIED
 }
 
 func (x *WriteConsistency) GetSyncReplication() *SyncReplication {
@@ -97,7 +96,7 @@ func (x *WriteConsistency) GetRetryConfig() *WriteRetryConfig {
 	return nil
 }
 
-func (x *WriteConsistency) SetLevel(v enums.WriteLevel) {
+func (x *WriteConsistency) SetLevel(v WriteLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -156,7 +155,7 @@ func (x *WriteConsistency) HasRetryConfig() bool {
 
 func (x *WriteConsistency) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = enums.WriteLevel_WRITE_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = WriteLevel_WRITE_LEVEL_UNSPECIFIED
 }
 
 func (x *WriteConsistency) ClearSyncReplication() {
@@ -180,7 +179,7 @@ type WriteConsistency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Write consistency level
-	Level *enums.WriteLevel
+	Level *WriteLevel
 	// Synchronous replication requirements
 	SyncReplication *SyncReplication
 	// Write conflict detection
@@ -220,13 +219,12 @@ const file_gcommon_v1_queue_messages_write_consistency_proto_rawDesc = "" +
 	"\x12conflict_detection\x18\x03 \x01(\v2#.gcommon.v1.queue.ConflictDetectionR\x11conflictDetection\x12\x1d\n" +
 	"\n" +
 	"timeout_ms\x18\x04 \x01(\x05R\ttimeoutMs\x12E\n" +
-	"\fretry_config\x18\x05 \x01(\v2\".gcommon.v1.queue.WriteRetryConfigR\vretryConfigB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15WriteConsistencyProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fretry_config\x18\x05 \x01(\v2\".gcommon.v1.queue.WriteRetryConfigR\vretryConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_write_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_write_consistency_proto_goTypes = []any{
 	(*WriteConsistency)(nil),  // 0: gcommon.v1.queue.WriteConsistency
-	(enums.WriteLevel)(0),     // 1: gcommon.v1.queue.WriteLevel
+	(WriteLevel)(0),           // 1: gcommon.v1.queue.WriteLevel
 	(*SyncReplication)(nil),   // 2: gcommon.v1.queue.SyncReplication
 	(*ConflictDetection)(nil), // 3: gcommon.v1.queue.ConflictDetection
 	(*WriteRetryConfig)(nil),  // 4: gcommon.v1.queue.WriteRetryConfig
@@ -248,6 +246,7 @@ func file_gcommon_v1_queue_messages_write_consistency_proto_init() {
 	if File_gcommon_v1_queue_messages_write_consistency_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_write_level_proto_init()
 	file_gcommon_v1_queue_messages_conflict_detection_proto_init()
 	file_gcommon_v1_queue_messages_sync_replication_proto_init()
 	file_gcommon_v1_queue_messages_write_retry_config_proto_init()

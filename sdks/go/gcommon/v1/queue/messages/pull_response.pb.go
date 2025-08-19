@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/pull_response.proto
 
-package messages
+package queue
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -124,8 +124,7 @@ const file_gcommon_v1_queue_messages_pull_response_proto_rawDesc = "" +
 	"-gcommon/v1/queue/messages/pull_response.proto\x12\x10gcommon.v1.queue\x1a2gcommon/v1/common/messages/response_metadata.proto\x1a0gcommon/v1/queue/messages/received_message.proto\x1a!google/protobuf/go_features.proto\"\x8c\x01\n" +
 	"\fPullResponse\x12;\n" +
 	"\amessage\x18\x01 \x01(\v2!.gcommon.v1.queue.ReceivedMessageR\amessage\x12?\n" +
-	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xd0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11PullResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_pull_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_pull_response_proto_goTypes = []any{

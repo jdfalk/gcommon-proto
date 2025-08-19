@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/services/queue_admin_service.proto
 
-package services
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,24 +35,23 @@ const file_gcommon_v1_queue_services_queue_admin_service_proto_rawDesc = "" +
 	"\vResumeQueue\x12$.gcommon.v1.queue.ResumeQueueRequest\x1a%.gcommon.v1.queue.ResumeQueueResponse\x12M\n" +
 	"\n" +
 	"PurgeQueue\x12\x1e.gcommon.v1.queue.PurgeRequest\x1a\x1f.gcommon.v1.queue.PurgeResponse\x12f\n" +
-	"\x0fResetQueueStats\x12(.gcommon.v1.queue.ResetQueueStatsRequest\x1a).gcommon.v1.queue.ResetQueueStatsResponseB\xd5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16QueueAdminServiceProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/services\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fResetQueueStats\x12(.gcommon.v1.queue.ResetQueueStatsRequest\x1a).gcommon.v1.queue.ResetQueueStatsResponseB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_queue_admin_service_proto_goTypes = []any{
-	(*messages.CreateQueueRequest)(nil),      // 0: gcommon.v1.queue.CreateQueueRequest
-	(*messages.DeleteTopicRequest)(nil),      // 1: gcommon.v1.queue.DeleteTopicRequest
-	(*messages.GetQueueInfoRequest)(nil),     // 2: gcommon.v1.queue.GetQueueInfoRequest
-	(*messages.PauseQueueRequest)(nil),       // 3: gcommon.v1.queue.PauseQueueRequest
-	(*messages.ResumeQueueRequest)(nil),      // 4: gcommon.v1.queue.ResumeQueueRequest
-	(*messages.PurgeRequest)(nil),            // 5: gcommon.v1.queue.PurgeRequest
-	(*messages.ResetQueueStatsRequest)(nil),  // 6: gcommon.v1.queue.ResetQueueStatsRequest
-	(*messages.CreateQueueResponse)(nil),     // 7: gcommon.v1.queue.CreateQueueResponse
-	(*messages.DeleteTopicResponse)(nil),     // 8: gcommon.v1.queue.DeleteTopicResponse
-	(*messages.GetQueueInfoResponse)(nil),    // 9: gcommon.v1.queue.GetQueueInfoResponse
-	(*messages.PauseQueueResponse)(nil),      // 10: gcommon.v1.queue.PauseQueueResponse
-	(*messages.ResumeQueueResponse)(nil),     // 11: gcommon.v1.queue.ResumeQueueResponse
-	(*messages.PurgeResponse)(nil),           // 12: gcommon.v1.queue.PurgeResponse
-	(*messages.ResetQueueStatsResponse)(nil), // 13: gcommon.v1.queue.ResetQueueStatsResponse
+	(*CreateQueueRequest)(nil),      // 0: gcommon.v1.queue.CreateQueueRequest
+	(*DeleteTopicRequest)(nil),      // 1: gcommon.v1.queue.DeleteTopicRequest
+	(*GetQueueInfoRequest)(nil),     // 2: gcommon.v1.queue.GetQueueInfoRequest
+	(*PauseQueueRequest)(nil),       // 3: gcommon.v1.queue.PauseQueueRequest
+	(*ResumeQueueRequest)(nil),      // 4: gcommon.v1.queue.ResumeQueueRequest
+	(*PurgeRequest)(nil),            // 5: gcommon.v1.queue.PurgeRequest
+	(*ResetQueueStatsRequest)(nil),  // 6: gcommon.v1.queue.ResetQueueStatsRequest
+	(*CreateQueueResponse)(nil),     // 7: gcommon.v1.queue.CreateQueueResponse
+	(*DeleteTopicResponse)(nil),     // 8: gcommon.v1.queue.DeleteTopicResponse
+	(*GetQueueInfoResponse)(nil),    // 9: gcommon.v1.queue.GetQueueInfoResponse
+	(*PauseQueueResponse)(nil),      // 10: gcommon.v1.queue.PauseQueueResponse
+	(*ResumeQueueResponse)(nil),     // 11: gcommon.v1.queue.ResumeQueueResponse
+	(*PurgeResponse)(nil),           // 12: gcommon.v1.queue.PurgeResponse
+	(*ResetQueueStatsResponse)(nil), // 13: gcommon.v1.queue.ResetQueueStatsResponse
 }
 var file_gcommon_v1_queue_services_queue_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.queue.QueueAdminService.CreateQueue:input_type -> gcommon.v1.queue.CreateQueueRequest
@@ -82,6 +80,20 @@ func file_gcommon_v1_queue_services_queue_admin_service_proto_init() {
 	if File_gcommon_v1_queue_services_queue_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_messages_create_queue_request_proto_init()
+	file_gcommon_v1_queue_messages_create_queue_response_proto_init()
+	file_gcommon_v1_queue_messages_delete_topic_request_proto_init()
+	file_gcommon_v1_queue_messages_delete_topic_response_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_info_request_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_info_response_proto_init()
+	file_gcommon_v1_queue_messages_pause_queue_request_proto_init()
+	file_gcommon_v1_queue_messages_pause_queue_response_proto_init()
+	file_gcommon_v1_queue_messages_purge_request_proto_init()
+	file_gcommon_v1_queue_messages_purge_response_proto_init()
+	file_gcommon_v1_queue_messages_reset_queue_stats_request_proto_init()
+	file_gcommon_v1_queue_messages_reset_queue_stats_response_proto_init()
+	file_gcommon_v1_queue_messages_resume_queue_request_proto_init()
+	file_gcommon_v1_queue_messages_resume_queue_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

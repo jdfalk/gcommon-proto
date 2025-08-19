@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/services/transaction_service.proto
 
-package services
+package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,17 +31,16 @@ const file_gcommon_v1_database_services_transaction_service_proto_rawDesc = "" +
 	"\x10BeginTransaction\x12,.gcommon.v1.database.BeginTransactionRequest\x1a-.gcommon.v1.database.BeginTransactionResponse\x12Z\n" +
 	"\x11CommitTransaction\x12-.gcommon.v1.database.CommitTransactionRequest\x1a\x16.google.protobuf.Empty\x12^\n" +
 	"\x13RollbackTransaction\x12/.gcommon.v1.database.RollbackTransactionRequest\x1a\x16.google.protobuf.Empty\x12u\n" +
-	"\x14GetTransactionStatus\x12-.gcommon.v1.database.TransactionStatusRequest\x1a..gcommon.v1.database.TransactionStatusResponseB\xe8\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17TransactionServiceProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14GetTransactionStatus\x12-.gcommon.v1.database.TransactionStatusRequest\x1a..gcommon.v1.database.TransactionStatusResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_transaction_service_proto_goTypes = []any{
-	(*messages.BeginTransactionRequest)(nil),    // 0: gcommon.v1.database.BeginTransactionRequest
-	(*messages.CommitTransactionRequest)(nil),   // 1: gcommon.v1.database.CommitTransactionRequest
-	(*messages.RollbackTransactionRequest)(nil), // 2: gcommon.v1.database.RollbackTransactionRequest
-	(*messages.TransactionStatusRequest)(nil),   // 3: gcommon.v1.database.TransactionStatusRequest
-	(*messages.BeginTransactionResponse)(nil),   // 4: gcommon.v1.database.BeginTransactionResponse
-	(*emptypb.Empty)(nil),                       // 5: google.protobuf.Empty
-	(*messages.TransactionStatusResponse)(nil),  // 6: gcommon.v1.database.TransactionStatusResponse
+	(*BeginTransactionRequest)(nil),    // 0: gcommon.v1.database.BeginTransactionRequest
+	(*CommitTransactionRequest)(nil),   // 1: gcommon.v1.database.CommitTransactionRequest
+	(*RollbackTransactionRequest)(nil), // 2: gcommon.v1.database.RollbackTransactionRequest
+	(*TransactionStatusRequest)(nil),   // 3: gcommon.v1.database.TransactionStatusRequest
+	(*BeginTransactionResponse)(nil),   // 4: gcommon.v1.database.BeginTransactionResponse
+	(*emptypb.Empty)(nil),              // 5: google.protobuf.Empty
+	(*TransactionStatusResponse)(nil),  // 6: gcommon.v1.database.TransactionStatusResponse
 }
 var file_gcommon_v1_database_services_transaction_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.database.TransactionService.BeginTransaction:input_type -> gcommon.v1.database.BeginTransactionRequest
@@ -65,6 +63,12 @@ func file_gcommon_v1_database_services_transaction_service_proto_init() {
 	if File_gcommon_v1_database_services_transaction_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_database_messages_begin_transaction_request_proto_init()
+	file_gcommon_v1_database_messages_begin_transaction_response_proto_init()
+	file_gcommon_v1_database_messages_commit_transaction_request_proto_init()
+	file_gcommon_v1_database_messages_rollback_transaction_request_proto_init()
+	file_gcommon_v1_database_messages_transaction_status_request_proto_init()
+	file_gcommon_v1_database_messages_transaction_status_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

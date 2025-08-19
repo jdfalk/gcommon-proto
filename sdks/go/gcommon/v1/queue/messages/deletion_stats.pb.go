@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/deletion_stats.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -231,8 +231,7 @@ const file_gcommon_v1_queue_messages_deletion_stats_proto_rawDesc = "" +
 	"\x12data_deleted_bytes\x18\x02 \x01(\x03R\x10dataDeletedBytes\x123\n" +
 	"\x15subscriptions_deleted\x18\x03 \x01(\x05R\x14subscriptionsDeleted\x12-\n" +
 	"\x12partitions_deleted\x18\x04 \x01(\x05R\x11partitionsDeleted\x120\n" +
-	"\x14deletion_duration_ms\x18\x05 \x01(\x03R\x12deletionDurationMsB\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12DeletionStatsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14deletion_duration_ms\x18\x05 \x01(\x03R\x12deletionDurationMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_deletion_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_deletion_stats_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/retention_policy_info.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -135,8 +135,7 @@ const file_gcommon_v1_metrics_messages_retention_policy_info_proto_rawDesc = "" 
 	"7gcommon/v1/metrics/messages/retention_policy_info.proto\x12\x12gcommon.v1.metrics\x1a2gcommon/v1/metrics/messages/retention_policy.proto\x1a9gcommon/v1/metrics/messages/retention_policy_config.proto\x1a!google/protobuf/go_features.proto\"\x9c\x01\n" +
 	"\x13RetentionPolicyInfo\x12B\n" +
 	"\x06policy\x18\x01 \x01(\x0e2*.gcommon.v1.metrics.MetricsRetentionPolicyR\x06policy\x12A\n" +
-	"\x06config\x18\x02 \x01(\v2).gcommon.v1.metrics.RetentionPolicyConfigR\x06configB\xe3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18RetentionPolicyInfoProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x02 \x01(\v2).gcommon.v1.metrics.RetentionPolicyConfigR\x06configB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_retention_policy_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_retention_policy_info_proto_goTypes = []any{

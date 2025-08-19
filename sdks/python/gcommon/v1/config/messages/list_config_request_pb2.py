@@ -29,14 +29,14 @@ from gcommon.v1.common.messages import sort_options_pb2 as gcommon_dot_v1_dot_co
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/list_config_request.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/common/messages/filter_options.proto\x1a+gcommon/v1/common/messages/pagination.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a-gcommon/v1/common/messages/sort_options.proto\x1a!google/protobuf/go_features.proto\"\xb6\x02\n\x11ListConfigRequest\x12\x16\n\x06prefix\x18\x01 \x01(\tR\x06prefix\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12=\n\npagination\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.PaginationR\npagination\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x32\n\x04sort\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\xdb\x01\n\x15\x63om.gcommon.v1.configB\x16ListConfigRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/config/messages/list_config_request.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/common/messages/filter_options.proto\x1a+gcommon/v1/common/messages/pagination.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a-gcommon/v1/common/messages/sort_options.proto\x1a!google/protobuf/go_features.proto\"\xb6\x02\n\x11ListConfigRequest\x12\x16\n\x06prefix\x18\x01 \x01(\tR\x06prefix\x12\x1c\n\tnamespace\x18\x02 \x01(\tR\tnamespace\x12=\n\npagination\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.PaginationR\npagination\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x32\n\x04sort\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.list_config_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\026ListConfigRequestProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
   _globals['_LISTCONFIGREQUEST']._serialized_start=303
   _globals['_LISTCONFIGREQUEST']._serialized_end=613
 # @@protoc_insertion_point(module_scope)

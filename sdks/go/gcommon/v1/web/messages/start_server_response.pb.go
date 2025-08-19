@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/start_server_response.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ const (
 type StartServerResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Status        enums.ServerStatus     `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.web.ServerStatus"`
+	xxx_hidden_Status        ServerStatus           `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.web.ServerStatus"`
 	xxx_hidden_ListenAddress *string                `protobuf:"bytes,3,opt,name=listen_address,json=listenAddress"`
 	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
@@ -68,13 +67,13 @@ func (x *StartServerResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *StartServerResponse) GetStatus() enums.ServerStatus {
+func (x *StartServerResponse) GetStatus() ServerStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ServerStatus(0)
+	return ServerStatus_SERVER_STATUS_UNSPECIFIED
 }
 
 func (x *StartServerResponse) GetListenAddress() string {
@@ -99,7 +98,7 @@ func (x *StartServerResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *StartServerResponse) SetStatus(v enums.ServerStatus) {
+func (x *StartServerResponse) SetStatus(v ServerStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -148,7 +147,7 @@ func (x *StartServerResponse) ClearSuccess() {
 
 func (x *StartServerResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = enums.ServerStatus_SERVER_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = ServerStatus_SERVER_STATUS_UNSPECIFIED
 }
 
 func (x *StartServerResponse) ClearListenAddress() {
@@ -166,7 +165,7 @@ type StartServerResponse_builder struct {
 	// Success status
 	Success *bool
 	// Server status
-	Status *enums.ServerStatus
+	Status *ServerStatus
 	// Listen address
 	ListenAddress *string
 	// Error information
@@ -202,13 +201,12 @@ const file_gcommon_v1_web_messages_start_server_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x124\n" +
 	"\x06status\x18\x02 \x01(\x0e2\x1c.gcommon.v1.web.ServerStatusR\x06status\x12%\n" +
 	"\x0elisten_address\x18\x03 \x01(\tR\rlistenAddress\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcb\x01\n" +
-	"\x12com.gcommon.v1.webB\x18StartServerResponseProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_start_server_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_start_server_response_proto_goTypes = []any{
 	(*StartServerResponse)(nil), // 0: gcommon.v1.web.StartServerResponse
-	(enums.ServerStatus)(0),     // 1: gcommon.v1.web.ServerStatus
+	(ServerStatus)(0),           // 1: gcommon.v1.web.ServerStatus
 	(*messages.Error)(nil),      // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_messages_start_server_response_proto_depIdxs = []int32{
@@ -226,6 +224,7 @@ func file_gcommon_v1_web_messages_start_server_response_proto_init() {
 	if File_gcommon_v1_web_messages_start_server_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_server_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -83,8 +83,7 @@ const file_gcommon_v1_common_enums_filter_type_proto_rawDesc = "" +
 	"\x11FILTER_TYPE_LEVEL\x10\x01\x12\x16\n" +
 	"\x12FILTER_TYPE_LOGGER\x10\x02\x12\x17\n" +
 	"\x13FILTER_TYPE_MESSAGE\x10\x03\x12\x15\n" +
-	"\x11FILTER_TYPE_FIELD\x10\x04B\xd1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fFilterTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11FILTER_TYPE_FIELD\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_filter_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_filter_type_proto_goTypes = []any{

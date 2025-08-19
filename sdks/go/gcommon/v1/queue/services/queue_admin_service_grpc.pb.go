@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/queue/services/queue_admin_service.proto
 
-package services
+package queue
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -36,19 +35,19 @@ const (
 // Administrative service for queue management operations
 type QueueAdminServiceClient interface {
 	// Create a new queue
-	CreateQueue(ctx context.Context, in *messages.CreateQueueRequest, opts ...grpc.CallOption) (*messages.CreateQueueResponse, error)
+	CreateQueue(ctx context.Context, in *CreateQueueRequest, opts ...grpc.CallOption) (*CreateQueueResponse, error)
 	// Delete a queue/topic
-	DeleteTopic(ctx context.Context, in *messages.DeleteTopicRequest, opts ...grpc.CallOption) (*messages.DeleteTopicResponse, error)
+	DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*DeleteTopicResponse, error)
 	// Get queue information
-	GetQueueInfo(ctx context.Context, in *messages.GetQueueInfoRequest, opts ...grpc.CallOption) (*messages.GetQueueInfoResponse, error)
+	GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error)
 	// Pause queue operations
-	PauseQueue(ctx context.Context, in *messages.PauseQueueRequest, opts ...grpc.CallOption) (*messages.PauseQueueResponse, error)
+	PauseQueue(ctx context.Context, in *PauseQueueRequest, opts ...grpc.CallOption) (*PauseQueueResponse, error)
 	// Resume queue operations
-	ResumeQueue(ctx context.Context, in *messages.ResumeQueueRequest, opts ...grpc.CallOption) (*messages.ResumeQueueResponse, error)
+	ResumeQueue(ctx context.Context, in *ResumeQueueRequest, opts ...grpc.CallOption) (*ResumeQueueResponse, error)
 	// Purge queue contents
-	PurgeQueue(ctx context.Context, in *messages.PurgeRequest, opts ...grpc.CallOption) (*messages.PurgeResponse, error)
+	PurgeQueue(ctx context.Context, in *PurgeRequest, opts ...grpc.CallOption) (*PurgeResponse, error)
 	// Reset queue statistics
-	ResetQueueStats(ctx context.Context, in *messages.ResetQueueStatsRequest, opts ...grpc.CallOption) (*messages.ResetQueueStatsResponse, error)
+	ResetQueueStats(ctx context.Context, in *ResetQueueStatsRequest, opts ...grpc.CallOption) (*ResetQueueStatsResponse, error)
 }
 
 type queueAdminServiceClient struct {
@@ -59,9 +58,9 @@ func NewQueueAdminServiceClient(cc grpc.ClientConnInterface) QueueAdminServiceCl
 	return &queueAdminServiceClient{cc}
 }
 
-func (c *queueAdminServiceClient) CreateQueue(ctx context.Context, in *messages.CreateQueueRequest, opts ...grpc.CallOption) (*messages.CreateQueueResponse, error) {
+func (c *queueAdminServiceClient) CreateQueue(ctx context.Context, in *CreateQueueRequest, opts ...grpc.CallOption) (*CreateQueueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateQueueResponse)
+	out := new(CreateQueueResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_CreateQueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -69,9 +68,9 @@ func (c *queueAdminServiceClient) CreateQueue(ctx context.Context, in *messages.
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *messages.DeleteTopicRequest, opts ...grpc.CallOption) (*messages.DeleteTopicResponse, error) {
+func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*DeleteTopicResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteTopicResponse)
+	out := new(DeleteTopicResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_DeleteTopic_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -79,9 +78,9 @@ func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *messages.
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) GetQueueInfo(ctx context.Context, in *messages.GetQueueInfoRequest, opts ...grpc.CallOption) (*messages.GetQueueInfoResponse, error) {
+func (c *queueAdminServiceClient) GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetQueueInfoResponse)
+	out := new(GetQueueInfoResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_GetQueueInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -89,9 +88,9 @@ func (c *queueAdminServiceClient) GetQueueInfo(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) PauseQueue(ctx context.Context, in *messages.PauseQueueRequest, opts ...grpc.CallOption) (*messages.PauseQueueResponse, error) {
+func (c *queueAdminServiceClient) PauseQueue(ctx context.Context, in *PauseQueueRequest, opts ...grpc.CallOption) (*PauseQueueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.PauseQueueResponse)
+	out := new(PauseQueueResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_PauseQueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -99,9 +98,9 @@ func (c *queueAdminServiceClient) PauseQueue(ctx context.Context, in *messages.P
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) ResumeQueue(ctx context.Context, in *messages.ResumeQueueRequest, opts ...grpc.CallOption) (*messages.ResumeQueueResponse, error) {
+func (c *queueAdminServiceClient) ResumeQueue(ctx context.Context, in *ResumeQueueRequest, opts ...grpc.CallOption) (*ResumeQueueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ResumeQueueResponse)
+	out := new(ResumeQueueResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_ResumeQueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -109,9 +108,9 @@ func (c *queueAdminServiceClient) ResumeQueue(ctx context.Context, in *messages.
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) PurgeQueue(ctx context.Context, in *messages.PurgeRequest, opts ...grpc.CallOption) (*messages.PurgeResponse, error) {
+func (c *queueAdminServiceClient) PurgeQueue(ctx context.Context, in *PurgeRequest, opts ...grpc.CallOption) (*PurgeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.PurgeResponse)
+	out := new(PurgeResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_PurgeQueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -119,9 +118,9 @@ func (c *queueAdminServiceClient) PurgeQueue(ctx context.Context, in *messages.P
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) ResetQueueStats(ctx context.Context, in *messages.ResetQueueStatsRequest, opts ...grpc.CallOption) (*messages.ResetQueueStatsResponse, error) {
+func (c *queueAdminServiceClient) ResetQueueStats(ctx context.Context, in *ResetQueueStatsRequest, opts ...grpc.CallOption) (*ResetQueueStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ResetQueueStatsResponse)
+	out := new(ResetQueueStatsResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_ResetQueueStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -136,19 +135,19 @@ func (c *queueAdminServiceClient) ResetQueueStats(ctx context.Context, in *messa
 // Administrative service for queue management operations
 type QueueAdminServiceServer interface {
 	// Create a new queue
-	CreateQueue(context.Context, *messages.CreateQueueRequest) (*messages.CreateQueueResponse, error)
+	CreateQueue(context.Context, *CreateQueueRequest) (*CreateQueueResponse, error)
 	// Delete a queue/topic
-	DeleteTopic(context.Context, *messages.DeleteTopicRequest) (*messages.DeleteTopicResponse, error)
+	DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error)
 	// Get queue information
-	GetQueueInfo(context.Context, *messages.GetQueueInfoRequest) (*messages.GetQueueInfoResponse, error)
+	GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error)
 	// Pause queue operations
-	PauseQueue(context.Context, *messages.PauseQueueRequest) (*messages.PauseQueueResponse, error)
+	PauseQueue(context.Context, *PauseQueueRequest) (*PauseQueueResponse, error)
 	// Resume queue operations
-	ResumeQueue(context.Context, *messages.ResumeQueueRequest) (*messages.ResumeQueueResponse, error)
+	ResumeQueue(context.Context, *ResumeQueueRequest) (*ResumeQueueResponse, error)
 	// Purge queue contents
-	PurgeQueue(context.Context, *messages.PurgeRequest) (*messages.PurgeResponse, error)
+	PurgeQueue(context.Context, *PurgeRequest) (*PurgeResponse, error)
 	// Reset queue statistics
-	ResetQueueStats(context.Context, *messages.ResetQueueStatsRequest) (*messages.ResetQueueStatsResponse, error)
+	ResetQueueStats(context.Context, *ResetQueueStatsRequest) (*ResetQueueStatsResponse, error)
 	mustEmbedUnimplementedQueueAdminServiceServer()
 }
 
@@ -159,25 +158,25 @@ type QueueAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedQueueAdminServiceServer struct{}
 
-func (UnimplementedQueueAdminServiceServer) CreateQueue(context.Context, *messages.CreateQueueRequest) (*messages.CreateQueueResponse, error) {
+func (UnimplementedQueueAdminServiceServer) CreateQueue(context.Context, *CreateQueueRequest) (*CreateQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateQueue not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) DeleteTopic(context.Context, *messages.DeleteTopicRequest) (*messages.DeleteTopicResponse, error) {
+func (UnimplementedQueueAdminServiceServer) DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTopic not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) GetQueueInfo(context.Context, *messages.GetQueueInfoRequest) (*messages.GetQueueInfoResponse, error) {
+func (UnimplementedQueueAdminServiceServer) GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueInfo not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) PauseQueue(context.Context, *messages.PauseQueueRequest) (*messages.PauseQueueResponse, error) {
+func (UnimplementedQueueAdminServiceServer) PauseQueue(context.Context, *PauseQueueRequest) (*PauseQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PauseQueue not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) ResumeQueue(context.Context, *messages.ResumeQueueRequest) (*messages.ResumeQueueResponse, error) {
+func (UnimplementedQueueAdminServiceServer) ResumeQueue(context.Context, *ResumeQueueRequest) (*ResumeQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResumeQueue not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) PurgeQueue(context.Context, *messages.PurgeRequest) (*messages.PurgeResponse, error) {
+func (UnimplementedQueueAdminServiceServer) PurgeQueue(context.Context, *PurgeRequest) (*PurgeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PurgeQueue not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) ResetQueueStats(context.Context, *messages.ResetQueueStatsRequest) (*messages.ResetQueueStatsResponse, error) {
+func (UnimplementedQueueAdminServiceServer) ResetQueueStats(context.Context, *ResetQueueStatsRequest) (*ResetQueueStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResetQueueStats not implemented")
 }
 func (UnimplementedQueueAdminServiceServer) mustEmbedUnimplementedQueueAdminServiceServer() {}
@@ -202,7 +201,7 @@ func RegisterQueueAdminServiceServer(s grpc.ServiceRegistrar, srv QueueAdminServ
 }
 
 func _QueueAdminService_CreateQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateQueueRequest)
+	in := new(CreateQueueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -214,13 +213,13 @@ func _QueueAdminService_CreateQueue_Handler(srv interface{}, ctx context.Context
 		FullMethod: QueueAdminService_CreateQueue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).CreateQueue(ctx, req.(*messages.CreateQueueRequest))
+		return srv.(QueueAdminServiceServer).CreateQueue(ctx, req.(*CreateQueueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_DeleteTopic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteTopicRequest)
+	in := new(DeleteTopicRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -232,13 +231,13 @@ func _QueueAdminService_DeleteTopic_Handler(srv interface{}, ctx context.Context
 		FullMethod: QueueAdminService_DeleteTopic_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).DeleteTopic(ctx, req.(*messages.DeleteTopicRequest))
+		return srv.(QueueAdminServiceServer).DeleteTopic(ctx, req.(*DeleteTopicRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_GetQueueInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetQueueInfoRequest)
+	in := new(GetQueueInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -250,13 +249,13 @@ func _QueueAdminService_GetQueueInfo_Handler(srv interface{}, ctx context.Contex
 		FullMethod: QueueAdminService_GetQueueInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).GetQueueInfo(ctx, req.(*messages.GetQueueInfoRequest))
+		return srv.(QueueAdminServiceServer).GetQueueInfo(ctx, req.(*GetQueueInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_PauseQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.PauseQueueRequest)
+	in := new(PauseQueueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -268,13 +267,13 @@ func _QueueAdminService_PauseQueue_Handler(srv interface{}, ctx context.Context,
 		FullMethod: QueueAdminService_PauseQueue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).PauseQueue(ctx, req.(*messages.PauseQueueRequest))
+		return srv.(QueueAdminServiceServer).PauseQueue(ctx, req.(*PauseQueueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_ResumeQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ResumeQueueRequest)
+	in := new(ResumeQueueRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -286,13 +285,13 @@ func _QueueAdminService_ResumeQueue_Handler(srv interface{}, ctx context.Context
 		FullMethod: QueueAdminService_ResumeQueue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).ResumeQueue(ctx, req.(*messages.ResumeQueueRequest))
+		return srv.(QueueAdminServiceServer).ResumeQueue(ctx, req.(*ResumeQueueRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_PurgeQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.PurgeRequest)
+	in := new(PurgeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -304,13 +303,13 @@ func _QueueAdminService_PurgeQueue_Handler(srv interface{}, ctx context.Context,
 		FullMethod: QueueAdminService_PurgeQueue_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).PurgeQueue(ctx, req.(*messages.PurgeRequest))
+		return srv.(QueueAdminServiceServer).PurgeQueue(ctx, req.(*PurgeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _QueueAdminService_ResetQueueStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ResetQueueStatsRequest)
+	in := new(ResetQueueStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -322,7 +321,7 @@ func _QueueAdminService_ResetQueueStats_Handler(srv interface{}, ctx context.Con
 		FullMethod: QueueAdminService_ResetQueueStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).ResetQueueStats(ctx, req.(*messages.ResetQueueStatsRequest))
+		return srv.(QueueAdminServiceServer).ResetQueueStats(ctx, req.(*ResetQueueStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

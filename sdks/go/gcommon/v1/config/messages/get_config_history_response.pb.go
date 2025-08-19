@@ -4,10 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/get_config_history_response.proto
 
-package messages
+package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
+	metrics "github.com/jdfalk/gcommon/pkg/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,8 +25,8 @@ const (
 // *
 // GetConfigHistoryResponse returns configuration change history.
 type GetConfigHistoryResponse struct {
-	state              protoimpl.MessageState           `protogen:"opaque.v1"`
-	xxx_hidden_Changes *[]*messages.MetricsConfigChange `protobuf:"bytes,1,rep,name=changes"`
+	state              protoimpl.MessageState          `protogen:"opaque.v1"`
+	xxx_hidden_Changes *[]*metrics.MetricsConfigChange `protobuf:"bytes,1,rep,name=changes"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -56,7 +56,7 @@ func (x *GetConfigHistoryResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetConfigHistoryResponse) GetChanges() []*messages.MetricsConfigChange {
+func (x *GetConfigHistoryResponse) GetChanges() []*metrics.MetricsConfigChange {
 	if x != nil {
 		if x.xxx_hidden_Changes != nil {
 			return *x.xxx_hidden_Changes
@@ -65,7 +65,7 @@ func (x *GetConfigHistoryResponse) GetChanges() []*messages.MetricsConfigChange 
 	return nil
 }
 
-func (x *GetConfigHistoryResponse) SetChanges(v []*messages.MetricsConfigChange) {
+func (x *GetConfigHistoryResponse) SetChanges(v []*metrics.MetricsConfigChange) {
 	x.xxx_hidden_Changes = &v
 }
 
@@ -73,7 +73,7 @@ type GetConfigHistoryResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// List of configuration changes
-	Changes []*messages.MetricsConfigChange
+	Changes []*metrics.MetricsConfigChange
 }
 
 func (b0 GetConfigHistoryResponse_builder) Build() *GetConfigHistoryResponse {
@@ -90,13 +90,12 @@ const file_gcommon_v1_config_messages_get_config_history_response_proto_rawDesc 
 	"\n" +
 	"<gcommon/v1/config/messages/get_config_history_response.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/metrics/messages/config_change.proto\x1a!google/protobuf/go_features.proto\"]\n" +
 	"\x18GetConfigHistoryResponse\x12A\n" +
-	"\achanges\x18\x01 \x03(\v2'.gcommon.v1.metrics.MetricsConfigChangeR\achangesB\xe2\x01\n" +
-	"\x15com.gcommon.v1.configB\x1dGetConfigHistoryResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\achanges\x18\x01 \x03(\v2'.gcommon.v1.metrics.MetricsConfigChangeR\achangesB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_get_config_history_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_config_history_response_proto_goTypes = []any{
-	(*GetConfigHistoryResponse)(nil),     // 0: gcommon.v1.config.GetConfigHistoryResponse
-	(*messages.MetricsConfigChange)(nil), // 1: gcommon.v1.metrics.MetricsConfigChange
+	(*GetConfigHistoryResponse)(nil),    // 0: gcommon.v1.config.GetConfigHistoryResponse
+	(*metrics.MetricsConfigChange)(nil), // 1: gcommon.v1.metrics.MetricsConfigChange
 }
 var file_gcommon_v1_config_messages_get_config_history_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigHistoryResponse.changes:type_name -> gcommon.v1.metrics.MetricsConfigChange

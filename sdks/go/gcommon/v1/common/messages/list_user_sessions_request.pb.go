@@ -380,8 +380,7 @@ const file_gcommon_v1_common_messages_list_user_sessions_request_proto_rawDesc =
 	"\x0ecreated_before\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\rcreatedBefore\x12'\n" +
 	"\x0finclude_details\x18\x11 \x01(\bR\x0eincludeDetails\x12\x1d\n" +
 	"\n" +
-	"sort_order\x18\x12 \x01(\tR\tsortOrderB\xe1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x1cListUserSessionsRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"sort_order\x18\x12 \x01(\tR\tsortOrderBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_user_sessions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_user_sessions_request_proto_goTypes = []any{

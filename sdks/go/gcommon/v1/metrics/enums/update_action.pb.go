@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/enums/update_action.proto
 
-package enums
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -83,8 +83,7 @@ const file_gcommon_v1_metrics_enums_update_action_proto_rawDesc = "" +
 	"\x15UPDATE_ACTION_UPDATED\x10\x01\x12\x1b\n" +
 	"\x17UPDATE_ACTION_NO_CHANGE\x10\x02\x12\x1b\n" +
 	"\x17UPDATE_ACTION_RESTARTED\x10\x03\x12\x1b\n" +
-	"\x17UPDATE_ACTION_RECREATED\x10\x04B\xd9\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11UpdateActionProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17UPDATE_ACTION_RECREATED\x10\x04B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_update_action_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_update_action_proto_goTypes = []any{

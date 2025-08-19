@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/role_inheritance.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -101,8 +101,7 @@ const file_gcommon_v1_queue_messages_role_inheritance_proto_rawDesc = "" +
 	"0gcommon/v1/queue/messages/role_inheritance.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"m\n" +
 	"\x0fRoleInheritance\x12#\n" +
 	"\rinherits_from\x18\x01 \x03(\tR\finheritsFrom\x125\n" +
-	"\x16additional_permissions\x18\x02 \x03(\tR\x15additionalPermissionsB\xd3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14RoleInheritanceProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16additional_permissions\x18\x02 \x03(\tR\x15additionalPermissionsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_role_inheritance_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_role_inheritance_proto_goTypes = []any{

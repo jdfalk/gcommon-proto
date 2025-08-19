@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/services/queue_service.proto
 
-package services
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,24 +33,23 @@ const file_gcommon_v1_queue_services_queue_service_proto_rawDesc = "" +
 	"\fGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12`\n" +
 	"\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a'.gcommon.v1.queue.GetQueueStatsResponse\x12[\n" +
 	"\tSubscribe\x12'.gcommon.v1.queue.QueueSubscribeRequest\x1a#.gcommon.v1.queue.SubscribeResponse0\x01\x12S\n" +
-	"\aPublish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB\xd0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11QueueServiceProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/services\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aPublish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_queue_service_proto_goTypes = []any{
-	(*messages.EnqueueRequest)(nil),        // 0: gcommon.v1.queue.EnqueueRequest
-	(*messages.DequeueRequest)(nil),        // 1: gcommon.v1.queue.DequeueRequest
-	(*messages.PeekRequest)(nil),           // 2: gcommon.v1.queue.PeekRequest
-	(*messages.GetQueueInfoRequest)(nil),   // 3: gcommon.v1.queue.GetQueueInfoRequest
-	(*messages.GetQueueStatsRequest)(nil),  // 4: gcommon.v1.queue.GetQueueStatsRequest
-	(*messages.QueueSubscribeRequest)(nil), // 5: gcommon.v1.queue.QueueSubscribeRequest
-	(*messages.QueuePublishRequest)(nil),   // 6: gcommon.v1.queue.QueuePublishRequest
-	(*messages.EnqueueResponse)(nil),       // 7: gcommon.v1.queue.EnqueueResponse
-	(*messages.DequeueResponse)(nil),       // 8: gcommon.v1.queue.DequeueResponse
-	(*messages.PeekResponse)(nil),          // 9: gcommon.v1.queue.PeekResponse
-	(*messages.GetQueueInfoResponse)(nil),  // 10: gcommon.v1.queue.GetQueueInfoResponse
-	(*messages.GetQueueStatsResponse)(nil), // 11: gcommon.v1.queue.GetQueueStatsResponse
-	(*messages.SubscribeResponse)(nil),     // 12: gcommon.v1.queue.SubscribeResponse
-	(*messages.PublishResponse)(nil),       // 13: gcommon.v1.queue.PublishResponse
+	(*EnqueueRequest)(nil),        // 0: gcommon.v1.queue.EnqueueRequest
+	(*DequeueRequest)(nil),        // 1: gcommon.v1.queue.DequeueRequest
+	(*PeekRequest)(nil),           // 2: gcommon.v1.queue.PeekRequest
+	(*GetQueueInfoRequest)(nil),   // 3: gcommon.v1.queue.GetQueueInfoRequest
+	(*GetQueueStatsRequest)(nil),  // 4: gcommon.v1.queue.GetQueueStatsRequest
+	(*QueueSubscribeRequest)(nil), // 5: gcommon.v1.queue.QueueSubscribeRequest
+	(*QueuePublishRequest)(nil),   // 6: gcommon.v1.queue.QueuePublishRequest
+	(*EnqueueResponse)(nil),       // 7: gcommon.v1.queue.EnqueueResponse
+	(*DequeueResponse)(nil),       // 8: gcommon.v1.queue.DequeueResponse
+	(*PeekResponse)(nil),          // 9: gcommon.v1.queue.PeekResponse
+	(*GetQueueInfoResponse)(nil),  // 10: gcommon.v1.queue.GetQueueInfoResponse
+	(*GetQueueStatsResponse)(nil), // 11: gcommon.v1.queue.GetQueueStatsResponse
+	(*SubscribeResponse)(nil),     // 12: gcommon.v1.queue.SubscribeResponse
+	(*PublishResponse)(nil),       // 13: gcommon.v1.queue.PublishResponse
 }
 var file_gcommon_v1_queue_services_queue_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.queue.QueueService.Enqueue:input_type -> gcommon.v1.queue.EnqueueRequest
@@ -80,6 +78,20 @@ func file_gcommon_v1_queue_services_queue_service_proto_init() {
 	if File_gcommon_v1_queue_services_queue_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_messages_dequeue_request_proto_init()
+	file_gcommon_v1_queue_messages_dequeue_response_proto_init()
+	file_gcommon_v1_queue_messages_enqueue_request_proto_init()
+	file_gcommon_v1_queue_messages_enqueue_response_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_info_request_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_info_response_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_stats_request_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_stats_response_proto_init()
+	file_gcommon_v1_queue_messages_peek_request_proto_init()
+	file_gcommon_v1_queue_messages_peek_response_proto_init()
+	file_gcommon_v1_queue_messages_publish_request_proto_init()
+	file_gcommon_v1_queue_messages_publish_response_proto_init()
+	file_gcommon_v1_queue_messages_subscribe_request_proto_init()
+	file_gcommon_v1_queue_messages_subscribe_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/get_response.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -183,8 +183,7 @@ const file_gcommon_v1_database_messages_get_response_proto_rawDesc = "" +
 	"\vGetResponse\x129\n" +
 	"\x05entry\x18\x01 \x01(\v2\x1f.gcommon.v1.database.CacheEntryB\x02(\x01R\x05entry\x12\x14\n" +
 	"\x05found\x18\x02 \x01(\bR\x05found\x12\x1b\n" +
-	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB\xe1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x10GetResponseProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_response_proto_goTypes = []any{

@@ -27,14 +27,14 @@ from gcommon.v1.queue.messages import queue_config_pb2 as gcommon_dot_v1_dot_que
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/create_queue_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a,gcommon/v1/queue/messages/queue_config.proto\x1a!google/protobuf/go_features.proto\"\xed\x02\n\x12\x43reateQueueRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12\x35\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x1d.gcommon.v1.queue.QueueConfigR\x06\x63onfig\x12\"\n\rif_not_exists\x18\x03 \x01(\x08R\x0bifNotExists\x12>\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x42\n\x04tags\x18\x05 \x03(\x0b\x32..gcommon.v1.queue.CreateQueueRequest.TagsEntryR\x04tags\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x1a\x37\n\tTagsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd6\x01\n\x14\x63om.gcommon.v1.queueB\x17\x43reateQueueRequestProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/create_queue_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a,gcommon/v1/queue/messages/queue_config.proto\x1a!google/protobuf/go_features.proto\"\xed\x02\n\x12\x43reateQueueRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12\x35\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x1d.gcommon.v1.queue.QueueConfigR\x06\x63onfig\x12\"\n\rif_not_exists\x18\x03 \x01(\x08R\x0bifNotExists\x12>\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x42\n\x04tags\x18\x05 \x03(\x0b\x32..gcommon.v1.queue.CreateQueueRequest.TagsEntryR\x04tags\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x1a\x37\n\tTagsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.create_queue_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\027CreateQueueRequestProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_CREATEQUEUEREQUEST_TAGSENTRY']._loaded_options = None
   _globals['_CREATEQUEUEREQUEST_TAGSENTRY']._serialized_options = b'8\001'
   _globals['_CREATEQUEUEREQUEST']._serialized_start=207

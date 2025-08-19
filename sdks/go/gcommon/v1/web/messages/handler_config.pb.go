@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/handler_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ const (
 // HandlerConfig message definition.
 type HandlerConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        enums.HandlerType      `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.web.HandlerType"`
+	xxx_hidden_Type        HandlerType            `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.web.HandlerType"`
 	xxx_hidden_Config      *anypb.Any             `protobuf:"bytes,2,opt,name=config"`
 	xxx_hidden_Target      *string                `protobuf:"bytes,3,opt,name=target"`
 	xxx_hidden_Options     map[string]string      `protobuf:"bytes,4,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -61,13 +60,13 @@ func (x *HandlerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HandlerConfig) GetType() enums.HandlerType {
+func (x *HandlerConfig) GetType() HandlerType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.HandlerType(0)
+	return HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *HandlerConfig) GetConfig() *anypb.Any {
@@ -94,7 +93,7 @@ func (x *HandlerConfig) GetOptions() map[string]string {
 	return nil
 }
 
-func (x *HandlerConfig) SetType(v enums.HandlerType) {
+func (x *HandlerConfig) SetType(v HandlerType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -135,7 +134,7 @@ func (x *HandlerConfig) HasTarget() bool {
 
 func (x *HandlerConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.HandlerType_HANDLER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *HandlerConfig) ClearConfig() {
@@ -151,7 +150,7 @@ type HandlerConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Handler type
-	Type *enums.HandlerType
+	Type *HandlerType
 	// Handler-specific configuration
 	Config *anypb.Any
 	// Target for the handler (URL, function name, etc.)
@@ -189,15 +188,14 @@ const file_gcommon_v1_web_messages_handler_config_proto_rawDesc = "" +
 	"\aoptions\x18\x04 \x03(\v2*.gcommon.v1.web.HandlerConfig.OptionsEntryR\aoptions\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc5\x01\n" +
-	"\x12com.gcommon.v1.webB\x12HandlerConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_handler_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_messages_handler_config_proto_goTypes = []any{
-	(*HandlerConfig)(nil),  // 0: gcommon.v1.web.HandlerConfig
-	nil,                    // 1: gcommon.v1.web.HandlerConfig.OptionsEntry
-	(enums.HandlerType)(0), // 2: gcommon.v1.web.HandlerType
-	(*anypb.Any)(nil),      // 3: google.protobuf.Any
+	(*HandlerConfig)(nil), // 0: gcommon.v1.web.HandlerConfig
+	nil,                   // 1: gcommon.v1.web.HandlerConfig.OptionsEntry
+	(HandlerType)(0),      // 2: gcommon.v1.web.HandlerType
+	(*anypb.Any)(nil),     // 3: google.protobuf.Any
 }
 var file_gcommon_v1_web_messages_handler_config_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.web.HandlerConfig.type:type_name -> gcommon.v1.web.HandlerType
@@ -215,6 +213,7 @@ func file_gcommon_v1_web_messages_handler_config_proto_init() {
 	if File_gcommon_v1_web_messages_handler_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_handler_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

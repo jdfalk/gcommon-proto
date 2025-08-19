@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/organization_hierarchy.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ type OrganizationHierarchy struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Id             *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_HierarchyType  enums.HierarchyType    `protobuf:"varint,3,opt,name=hierarchy_type,json=hierarchyType,enum=gcommon.v1.organization.HierarchyType"`
+	xxx_hidden_HierarchyType  HierarchyType          `protobuf:"varint,3,opt,name=hierarchy_type,json=hierarchyType,enum=gcommon.v1.organization.HierarchyType"`
 	xxx_hidden_Name           *string                `protobuf:"bytes,4,opt,name=name"`
 	xxx_hidden_Description    *string                `protobuf:"bytes,5,opt,name=description"`
 	xxx_hidden_RootNode       *HierarchyNode         `protobuf:"bytes,6,opt,name=root_node,json=rootNode"`
@@ -91,13 +90,13 @@ func (x *OrganizationHierarchy) GetOrganizationId() string {
 	return ""
 }
 
-func (x *OrganizationHierarchy) GetHierarchyType() enums.HierarchyType {
+func (x *OrganizationHierarchy) GetHierarchyType() HierarchyType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_HierarchyType
 		}
 	}
-	return enums.HierarchyType(0)
+	return HierarchyType_HIERARCHY_TYPE_UNSPECIFIED
 }
 
 func (x *OrganizationHierarchy) GetName() string {
@@ -206,7 +205,7 @@ func (x *OrganizationHierarchy) SetOrganizationId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 12)
 }
 
-func (x *OrganizationHierarchy) SetHierarchyType(v enums.HierarchyType) {
+func (x *OrganizationHierarchy) SetHierarchyType(v HierarchyType) {
 	x.xxx_hidden_HierarchyType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 12)
 }
@@ -358,7 +357,7 @@ func (x *OrganizationHierarchy) ClearOrganizationId() {
 
 func (x *OrganizationHierarchy) ClearHierarchyType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_HierarchyType = enums.HierarchyType_HIERARCHY_TYPE_UNSPECIFIED
+	x.xxx_hidden_HierarchyType = HierarchyType_HIERARCHY_TYPE_UNSPECIFIED
 }
 
 func (x *OrganizationHierarchy) ClearName() {
@@ -408,7 +407,7 @@ type OrganizationHierarchy_builder struct {
 	// Organization identifier
 	OrganizationId *string
 	// Type of hierarchy structure
-	HierarchyType *enums.HierarchyType
+	HierarchyType *HierarchyType
 	// Name of this hierarchy configuration
 	Name *string
 	// Description of this hierarchy structure
@@ -503,13 +502,12 @@ const file_gcommon_v1_organization_messages_organization_hierarchy_proto_rawDesc
 	"\n" +
 	"created_by\x18\v \x01(\tR\tcreatedBy\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\f \x01(\tR\tupdatedByB\x83\x02\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1aOrganizationHierarchyProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"updated_by\x18\f \x01(\tR\tupdatedByB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_hierarchy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_hierarchy_proto_goTypes = []any{
 	(*OrganizationHierarchy)(nil), // 0: gcommon.v1.organization.OrganizationHierarchy
-	(enums.HierarchyType)(0),      // 1: gcommon.v1.organization.HierarchyType
+	(HierarchyType)(0),            // 1: gcommon.v1.organization.HierarchyType
 	(*HierarchyNode)(nil),         // 2: gcommon.v1.organization.HierarchyNode
 	(*messages.KeyValue)(nil),     // 3: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
@@ -532,6 +530,7 @@ func file_gcommon_v1_organization_messages_organization_hierarchy_proto_init() {
 	if File_gcommon_v1_organization_messages_organization_hierarchy_proto != nil {
 		return
 	}
+	file_gcommon_v1_organization_enums_hierarchy_type_proto_init()
 	file_gcommon_v1_organization_messages_hierarchy_node_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/consumer.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type Consumer struct {
 	state                         protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ConsumerId         *string                `protobuf:"bytes,1,opt,name=consumer_id,json=consumerId"`
 	xxx_hidden_ClientInfo         *ConsumerClient        `protobuf:"bytes,2,opt,name=client_info,json=clientInfo"`
-	xxx_hidden_State              enums.ConsumerState    `protobuf:"varint,3,opt,name=state,enum=gcommon.v1.queue.ConsumerState"`
+	xxx_hidden_State              ConsumerState          `protobuf:"varint,3,opt,name=state,enum=gcommon.v1.queue.ConsumerState"`
 	xxx_hidden_AssignedPartitions []int32                `protobuf:"varint,4,rep,packed,name=assigned_partitions,json=assignedPartitions"`
 	xxx_hidden_Config             *ConsumerConfig        `protobuf:"bytes,5,opt,name=config"`
 	xxx_hidden_Stats              *ConsumerStats         `protobuf:"bytes,6,opt,name=stats"`
@@ -81,13 +80,13 @@ func (x *Consumer) GetClientInfo() *ConsumerClient {
 	return nil
 }
 
-func (x *Consumer) GetState() enums.ConsumerState {
+func (x *Consumer) GetState() ConsumerState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.ConsumerState(0)
+	return ConsumerState_CONSUMER_STATE_UNSPECIFIED
 }
 
 func (x *Consumer) GetAssignedPartitions() []int32 {
@@ -134,7 +133,7 @@ func (x *Consumer) SetClientInfo(v *ConsumerClient) {
 	x.xxx_hidden_ClientInfo = v
 }
 
-func (x *Consumer) SetState(v enums.ConsumerState) {
+func (x *Consumer) SetState(v ConsumerState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
 }
@@ -219,7 +218,7 @@ func (x *Consumer) ClearClientInfo() {
 
 func (x *Consumer) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_State = enums.ConsumerState_CONSUMER_STATE_UNSPECIFIED
+	x.xxx_hidden_State = ConsumerState_CONSUMER_STATE_UNSPECIFIED
 }
 
 func (x *Consumer) ClearConfig() {
@@ -246,7 +245,7 @@ type Consumer_builder struct {
 	// Consumer client information
 	ClientInfo *ConsumerClient
 	// Consumer state
-	State *enums.ConsumerState
+	State *ConsumerState
 	// Assigned partitions
 	AssignedPartitions []int32
 	// Consumer configuration
@@ -295,14 +294,13 @@ const file_gcommon_v1_queue_messages_consumer_proto_rawDesc = "" +
 	"\x06config\x18\x05 \x01(\v2 .gcommon.v1.queue.ConsumerConfigR\x06config\x125\n" +
 	"\x05stats\x18\x06 \x01(\v2\x1f.gcommon.v1.queue.ConsumerStatsR\x05stats\x12A\n" +
 	"\x0elast_heartbeat\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\rlastHeartbeat\x127\n" +
-	"\tjoined_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\bjoinedAtB\xcc\x01\n" +
-	"\x14com.gcommon.v1.queueB\rConsumerProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tjoined_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\bjoinedAtB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_proto_goTypes = []any{
 	(*Consumer)(nil),              // 0: gcommon.v1.queue.Consumer
 	(*ConsumerClient)(nil),        // 1: gcommon.v1.queue.ConsumerClient
-	(enums.ConsumerState)(0),      // 2: gcommon.v1.queue.ConsumerState
+	(ConsumerState)(0),            // 2: gcommon.v1.queue.ConsumerState
 	(*ConsumerConfig)(nil),        // 3: gcommon.v1.queue.ConsumerConfig
 	(*ConsumerStats)(nil),         // 4: gcommon.v1.queue.ConsumerStats
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
@@ -326,6 +324,7 @@ func file_gcommon_v1_queue_messages_consumer_proto_init() {
 	if File_gcommon_v1_queue_messages_consumer_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_consumer_state_proto_init()
 	file_gcommon_v1_queue_messages_consumer_client_proto_init()
 	file_gcommon_v1_queue_messages_consumer_config_proto_init()
 	file_gcommon_v1_queue_messages_consumer_stats_proto_init()

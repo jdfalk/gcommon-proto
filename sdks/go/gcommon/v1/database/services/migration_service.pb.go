@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/services/migration_service.proto
 
-package services
+package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,18 +30,17 @@ const file_gcommon_v1_database_services_migration_service_proto_rawDesc = "" +
 	"\x0eApplyMigration\x12(.gcommon.v1.database.RunMigrationRequest\x1a).gcommon.v1.database.RunMigrationResponse\x12l\n" +
 	"\x0fRevertMigration\x12+.gcommon.v1.database.RevertMigrationRequest\x1a,.gcommon.v1.database.RevertMigrationResponse\x12u\n" +
 	"\x12GetMigrationStatus\x12..gcommon.v1.database.GetMigrationStatusRequest\x1a/.gcommon.v1.database.GetMigrationStatusResponse\x12i\n" +
-	"\x0eListMigrations\x12*.gcommon.v1.database.ListMigrationsRequest\x1a+.gcommon.v1.database.ListMigrationsResponseB\xe6\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x15MigrationServiceProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eListMigrations\x12*.gcommon.v1.database.ListMigrationsRequest\x1a+.gcommon.v1.database.ListMigrationsResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_migration_service_proto_goTypes = []any{
-	(*messages.RunMigrationRequest)(nil),        // 0: gcommon.v1.database.RunMigrationRequest
-	(*messages.RevertMigrationRequest)(nil),     // 1: gcommon.v1.database.RevertMigrationRequest
-	(*messages.GetMigrationStatusRequest)(nil),  // 2: gcommon.v1.database.GetMigrationStatusRequest
-	(*messages.ListMigrationsRequest)(nil),      // 3: gcommon.v1.database.ListMigrationsRequest
-	(*messages.RunMigrationResponse)(nil),       // 4: gcommon.v1.database.RunMigrationResponse
-	(*messages.RevertMigrationResponse)(nil),    // 5: gcommon.v1.database.RevertMigrationResponse
-	(*messages.GetMigrationStatusResponse)(nil), // 6: gcommon.v1.database.GetMigrationStatusResponse
-	(*messages.ListMigrationsResponse)(nil),     // 7: gcommon.v1.database.ListMigrationsResponse
+	(*RunMigrationRequest)(nil),        // 0: gcommon.v1.database.RunMigrationRequest
+	(*RevertMigrationRequest)(nil),     // 1: gcommon.v1.database.RevertMigrationRequest
+	(*GetMigrationStatusRequest)(nil),  // 2: gcommon.v1.database.GetMigrationStatusRequest
+	(*ListMigrationsRequest)(nil),      // 3: gcommon.v1.database.ListMigrationsRequest
+	(*RunMigrationResponse)(nil),       // 4: gcommon.v1.database.RunMigrationResponse
+	(*RevertMigrationResponse)(nil),    // 5: gcommon.v1.database.RevertMigrationResponse
+	(*GetMigrationStatusResponse)(nil), // 6: gcommon.v1.database.GetMigrationStatusResponse
+	(*ListMigrationsResponse)(nil),     // 7: gcommon.v1.database.ListMigrationsResponse
 }
 var file_gcommon_v1_database_services_migration_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.database.MigrationService.ApplyMigration:input_type -> gcommon.v1.database.RunMigrationRequest
@@ -65,6 +63,14 @@ func file_gcommon_v1_database_services_migration_service_proto_init() {
 	if File_gcommon_v1_database_services_migration_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_database_messages_get_migration_status_request_proto_init()
+	file_gcommon_v1_database_messages_get_migration_status_response_proto_init()
+	file_gcommon_v1_database_messages_list_migrations_request_proto_init()
+	file_gcommon_v1_database_messages_list_migrations_response_proto_init()
+	file_gcommon_v1_database_messages_revert_migration_request_proto_init()
+	file_gcommon_v1_database_messages_revert_migration_response_proto_init()
+	file_gcommon_v1_database_messages_run_migration_request_proto_init()
+	file_gcommon_v1_database_messages_run_migration_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

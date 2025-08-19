@@ -107,8 +107,7 @@ const file_gcommon_v1_common_enums_auth_method_proto_rawDesc = "" +
 	"\x10AUTH_METHOD_LDAP\x10\x05\x12\x13\n" +
 	"\x0fAUTH_METHOD_MFA\x10\x06\x12\x15\n" +
 	"\x11AUTH_METHOD_TOKEN\x10\a\x12\x14\n" +
-	"\x10AUTH_METHOD_NONE\x10\bB\xd1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fAuthMethodProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10AUTH_METHOD_NONE\x10\bBCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_auth_method_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_auth_method_proto_goTypes = []any{

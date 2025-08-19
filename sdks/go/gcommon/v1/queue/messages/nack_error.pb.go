@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/nack_error.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +24,12 @@ const (
 // *
 // Error information for NACK operations.
 type NackError struct {
-	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Code        *string                 `protobuf:"bytes,1,opt,name=code"`
-	xxx_hidden_Message     *string                 `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_Category    enums.NackErrorCategory `protobuf:"varint,3,opt,name=category,enum=gcommon.v1.queue.NackErrorCategory"`
-	xxx_hidden_Retryable   bool                    `protobuf:"varint,4,opt,name=retryable"`
-	xxx_hidden_Details     *string                 `protobuf:"bytes,5,opt,name=details"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Code        *string                `protobuf:"bytes,1,opt,name=code"`
+	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_Category    NackErrorCategory      `protobuf:"varint,3,opt,name=category,enum=gcommon.v1.queue.NackErrorCategory"`
+	xxx_hidden_Retryable   bool                   `protobuf:"varint,4,opt,name=retryable"`
+	xxx_hidden_Details     *string                `protobuf:"bytes,5,opt,name=details"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -82,13 +81,13 @@ func (x *NackError) GetMessage() string {
 	return ""
 }
 
-func (x *NackError) GetCategory() enums.NackErrorCategory {
+func (x *NackError) GetCategory() NackErrorCategory {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Category
 		}
 	}
-	return enums.NackErrorCategory(0)
+	return NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
 }
 
 func (x *NackError) GetRetryable() bool {
@@ -118,7 +117,7 @@ func (x *NackError) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *NackError) SetCategory(v enums.NackErrorCategory) {
+func (x *NackError) SetCategory(v NackErrorCategory) {
 	x.xxx_hidden_Category = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
@@ -180,7 +179,7 @@ func (x *NackError) ClearMessage() {
 
 func (x *NackError) ClearCategory() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Category = enums.NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
+	x.xxx_hidden_Category = NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
 }
 
 func (x *NackError) ClearRetryable() {
@@ -201,7 +200,7 @@ type NackError_builder struct {
 	// Error message
 	Message *string
 	// Error category
-	Category *enums.NackErrorCategory
+	Category *NackErrorCategory
 	// Whether the error is retryable
 	Retryable *bool
 	// Stack trace or additional details
@@ -245,13 +244,12 @@ const file_gcommon_v1_queue_messages_nack_error_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12?\n" +
 	"\bcategory\x18\x03 \x01(\x0e2#.gcommon.v1.queue.NackErrorCategoryR\bcategory\x12\x1c\n" +
 	"\tretryable\x18\x04 \x01(\bR\tretryable\x12\x18\n" +
-	"\adetails\x18\x05 \x01(\tR\adetailsB\xcd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0eNackErrorProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\adetails\x18\x05 \x01(\tR\adetailsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_nack_error_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_nack_error_proto_goTypes = []any{
-	(*NackError)(nil),            // 0: gcommon.v1.queue.NackError
-	(enums.NackErrorCategory)(0), // 1: gcommon.v1.queue.NackErrorCategory
+	(*NackError)(nil),      // 0: gcommon.v1.queue.NackError
+	(NackErrorCategory)(0), // 1: gcommon.v1.queue.NackErrorCategory
 }
 var file_gcommon_v1_queue_messages_nack_error_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.NackError.category:type_name -> gcommon.v1.queue.NackErrorCategory
@@ -267,6 +265,7 @@ func file_gcommon_v1_queue_messages_nack_error_proto_init() {
 	if File_gcommon_v1_queue_messages_nack_error_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_nack_error_category_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -278,8 +278,7 @@ const file_gcommon_v1_common_messages_event_notification_proto_rawDesc = "" +
 	"\revent_payload\x18\x03 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\feventPayload\x12N\n" +
 	"\fnotification\x18\x04 \x01(\v2&.gcommon.v1.common.NotificationMessageB\x02(\x01R\fnotification\x12=\n" +
 	"\n" +
-	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeB\xdb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16EventNotificationProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_event_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_event_notification_proto_goTypes = []any{

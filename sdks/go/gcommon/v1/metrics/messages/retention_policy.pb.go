@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/retention_policy.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -118,8 +118,7 @@ const file_gcommon_v1_metrics_messages_retention_policy_proto_rawDesc = "" +
 	"\x1bRETENTION_POLICY_COMPLIANCE\x10\b\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_REAL_TIME\x10\t\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_AGGREGATE\x10\n" +
-	"B\xdf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_retention_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_retention_policy_proto_goTypes = []any{

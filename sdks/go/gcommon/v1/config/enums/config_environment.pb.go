@@ -4,13 +4,12 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/config_environment.proto
 
-package enums
+package config
 
 import (
+	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	organization "github.com/jdfalk/gcommon/pkg/organization"
 	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages"
-	messages2 "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
-	messages1 "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,37 +26,37 @@ const (
 )
 
 type ConfigEnvironment struct {
-	state                           protoimpl.MessageState                      `protogen:"opaque.v1"`
-	xxx_hidden_EnvironmentId        *string                                     `protobuf:"bytes,1,opt,name=environment_id,json=environmentId"`
-	xxx_hidden_Name                 *string                                     `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Description          *string                                     `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Type                 EnvironmentType                             `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.config.EnvironmentType"`
-	xxx_hidden_Status               EnvironmentStatus                           `protobuf:"varint,5,opt,name=status,enum=gcommon.v1.config.EnvironmentStatus"`
-	xxx_hidden_CreatedAt            *timestamppb.Timestamp                      `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt            *timestamppb.Timestamp                      `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_Owner                *string                                     `protobuf:"bytes,8,opt,name=owner"`
-	xxx_hidden_Tags                 []string                                    `protobuf:"bytes,9,rep,name=tags"`
-	xxx_hidden_Metadata             map[string]string                           `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Config               map[string]string                           `protobuf:"bytes,11,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Secrets              map[string]string                           `protobuf:"bytes,12,rep,name=secrets" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Variables            map[string]string                           `protobuf:"bytes,13,rep,name=variables" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_ParentEnvironmentId  *string                                     `protobuf:"bytes,14,opt,name=parent_environment_id,json=parentEnvironmentId"`
-	xxx_hidden_ChildEnvironmentIds  []string                                    `protobuf:"bytes,15,rep,name=child_environment_ids,json=childEnvironmentIds"`
-	xxx_hidden_PromotionRules       *[]*messages.PromotionRule                  `protobuf:"bytes,16,rep,name=promotion_rules,json=promotionRules"`
-	xxx_hidden_AccessControls       *[]*messages1.OrganizationAccessControl     `protobuf:"bytes,17,rep,name=access_controls,json=accessControls"`
-	xxx_hidden_DeploymentInfo       *messages.DeploymentInfo                    `protobuf:"bytes,18,opt,name=deployment_info,json=deploymentInfo"`
-	xxx_hidden_HealthStatus         enums.CommonHealthStatus                    `protobuf:"varint,19,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_ResourceLimits       *messages1.OrganizationResourceLimits       `protobuf:"bytes,20,opt,name=resource_limits,json=resourceLimits"`
-	xxx_hidden_BackupPolicy         *messages.BackupPolicy                      `protobuf:"bytes,21,opt,name=backup_policy,json=backupPolicy"`
-	xxx_hidden_ApprovalWorkflow     *messages.ApprovalWorkflow                  `protobuf:"bytes,22,opt,name=approval_workflow,json=approvalWorkflow"`
-	xxx_hidden_MonitoringConfig     *messages.ConfigMonitoringConfig            `protobuf:"bytes,23,opt,name=monitoring_config,json=monitoringConfig"`
-	xxx_hidden_RetentionPolicy      messages2.MetricsRetentionPolicy            `protobuf:"varint,24,opt,name=retention_policy,json=retentionPolicy,enum=gcommon.v1.metrics.MetricsRetentionPolicy"`
-	xxx_hidden_ComplianceSettings   *messages1.OrganizationComplianceSettings   `protobuf:"bytes,25,opt,name=compliance_settings,json=complianceSettings"`
-	xxx_hidden_EncryptionSettings   *messages.EncryptionSettings                `protobuf:"bytes,26,opt,name=encryption_settings,json=encryptionSettings"`
-	xxx_hidden_AuditSettings        *messages.AuditSettings                     `protobuf:"bytes,27,opt,name=audit_settings,json=auditSettings"`
-	xxx_hidden_NotificationSettings *messages1.OrganizationNotificationSettings `protobuf:"bytes,28,opt,name=notification_settings,json=notificationSettings"`
-	xxx_hidden_SyncSettings         *messages.SyncSettings                      `protobuf:"bytes,29,opt,name=sync_settings,json=syncSettings"`
-	xxx_hidden_Version              *string                                     `protobuf:"bytes,30,opt,name=version"`
+	state                           protoimpl.MessageState                         `protogen:"opaque.v1"`
+	xxx_hidden_EnvironmentId        *string                                        `protobuf:"bytes,1,opt,name=environment_id,json=environmentId"`
+	xxx_hidden_Name                 *string                                        `protobuf:"bytes,2,opt,name=name"`
+	xxx_hidden_Description          *string                                        `protobuf:"bytes,3,opt,name=description"`
+	xxx_hidden_Type                 EnvironmentType                                `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.config.EnvironmentType"`
+	xxx_hidden_Status               EnvironmentStatus                              `protobuf:"varint,5,opt,name=status,enum=gcommon.v1.config.EnvironmentStatus"`
+	xxx_hidden_CreatedAt            *timestamppb.Timestamp                         `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt            *timestamppb.Timestamp                         `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_Owner                *string                                        `protobuf:"bytes,8,opt,name=owner"`
+	xxx_hidden_Tags                 []string                                       `protobuf:"bytes,9,rep,name=tags"`
+	xxx_hidden_Metadata             map[string]string                              `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Config               map[string]string                              `protobuf:"bytes,11,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Secrets              map[string]string                              `protobuf:"bytes,12,rep,name=secrets" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Variables            map[string]string                              `protobuf:"bytes,13,rep,name=variables" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_ParentEnvironmentId  *string                                        `protobuf:"bytes,14,opt,name=parent_environment_id,json=parentEnvironmentId"`
+	xxx_hidden_ChildEnvironmentIds  []string                                       `protobuf:"bytes,15,rep,name=child_environment_ids,json=childEnvironmentIds"`
+	xxx_hidden_PromotionRules       *[]*PromotionRule                              `protobuf:"bytes,16,rep,name=promotion_rules,json=promotionRules"`
+	xxx_hidden_AccessControls       *[]*organization.OrganizationAccessControl     `protobuf:"bytes,17,rep,name=access_controls,json=accessControls"`
+	xxx_hidden_DeploymentInfo       *DeploymentInfo                                `protobuf:"bytes,18,opt,name=deployment_info,json=deploymentInfo"`
+	xxx_hidden_HealthStatus         enums.CommonHealthStatus                       `protobuf:"varint,19,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_ResourceLimits       *organization.OrganizationResourceLimits       `protobuf:"bytes,20,opt,name=resource_limits,json=resourceLimits"`
+	xxx_hidden_BackupPolicy         *BackupPolicy                                  `protobuf:"bytes,21,opt,name=backup_policy,json=backupPolicy"`
+	xxx_hidden_ApprovalWorkflow     *ApprovalWorkflow                              `protobuf:"bytes,22,opt,name=approval_workflow,json=approvalWorkflow"`
+	xxx_hidden_MonitoringConfig     *ConfigMonitoringConfig                        `protobuf:"bytes,23,opt,name=monitoring_config,json=monitoringConfig"`
+	xxx_hidden_RetentionPolicy      metrics.MetricsRetentionPolicy                 `protobuf:"varint,24,opt,name=retention_policy,json=retentionPolicy,enum=gcommon.v1.metrics.MetricsRetentionPolicy"`
+	xxx_hidden_ComplianceSettings   *organization.OrganizationComplianceSettings   `protobuf:"bytes,25,opt,name=compliance_settings,json=complianceSettings"`
+	xxx_hidden_EncryptionSettings   *EncryptionSettings                            `protobuf:"bytes,26,opt,name=encryption_settings,json=encryptionSettings"`
+	xxx_hidden_AuditSettings        *AuditSettings                                 `protobuf:"bytes,27,opt,name=audit_settings,json=auditSettings"`
+	xxx_hidden_NotificationSettings *organization.OrganizationNotificationSettings `protobuf:"bytes,28,opt,name=notification_settings,json=notificationSettings"`
+	xxx_hidden_SyncSettings         *SyncSettings                                  `protobuf:"bytes,29,opt,name=sync_settings,json=syncSettings"`
+	xxx_hidden_Version              *string                                        `protobuf:"bytes,30,opt,name=version"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -213,7 +212,7 @@ func (x *ConfigEnvironment) GetChildEnvironmentIds() []string {
 	return nil
 }
 
-func (x *ConfigEnvironment) GetPromotionRules() []*messages.PromotionRule {
+func (x *ConfigEnvironment) GetPromotionRules() []*PromotionRule {
 	if x != nil {
 		if x.xxx_hidden_PromotionRules != nil {
 			return *x.xxx_hidden_PromotionRules
@@ -222,7 +221,7 @@ func (x *ConfigEnvironment) GetPromotionRules() []*messages.PromotionRule {
 	return nil
 }
 
-func (x *ConfigEnvironment) GetAccessControls() []*messages1.OrganizationAccessControl {
+func (x *ConfigEnvironment) GetAccessControls() []*organization.OrganizationAccessControl {
 	if x != nil {
 		if x.xxx_hidden_AccessControls != nil {
 			return *x.xxx_hidden_AccessControls
@@ -231,7 +230,7 @@ func (x *ConfigEnvironment) GetAccessControls() []*messages1.OrganizationAccessC
 	return nil
 }
 
-func (x *ConfigEnvironment) GetDeploymentInfo() *messages.DeploymentInfo {
+func (x *ConfigEnvironment) GetDeploymentInfo() *DeploymentInfo {
 	if x != nil {
 		return x.xxx_hidden_DeploymentInfo
 	}
@@ -247,72 +246,72 @@ func (x *ConfigEnvironment) GetHealthStatus() enums.CommonHealthStatus {
 	return enums.CommonHealthStatus(0)
 }
 
-func (x *ConfigEnvironment) GetResourceLimits() *messages1.OrganizationResourceLimits {
+func (x *ConfigEnvironment) GetResourceLimits() *organization.OrganizationResourceLimits {
 	if x != nil {
 		return x.xxx_hidden_ResourceLimits
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetBackupPolicy() *messages.BackupPolicy {
+func (x *ConfigEnvironment) GetBackupPolicy() *BackupPolicy {
 	if x != nil {
 		return x.xxx_hidden_BackupPolicy
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetApprovalWorkflow() *messages.ApprovalWorkflow {
+func (x *ConfigEnvironment) GetApprovalWorkflow() *ApprovalWorkflow {
 	if x != nil {
 		return x.xxx_hidden_ApprovalWorkflow
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetMonitoringConfig() *messages.ConfigMonitoringConfig {
+func (x *ConfigEnvironment) GetMonitoringConfig() *ConfigMonitoringConfig {
 	if x != nil {
 		return x.xxx_hidden_MonitoringConfig
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetRetentionPolicy() messages2.MetricsRetentionPolicy {
+func (x *ConfigEnvironment) GetRetentionPolicy() metrics.MetricsRetentionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 23) {
 			return x.xxx_hidden_RetentionPolicy
 		}
 	}
-	return messages2.MetricsRetentionPolicy(0)
+	return metrics.MetricsRetentionPolicy(0)
 }
 
-func (x *ConfigEnvironment) GetComplianceSettings() *messages1.OrganizationComplianceSettings {
+func (x *ConfigEnvironment) GetComplianceSettings() *organization.OrganizationComplianceSettings {
 	if x != nil {
 		return x.xxx_hidden_ComplianceSettings
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetEncryptionSettings() *messages.EncryptionSettings {
+func (x *ConfigEnvironment) GetEncryptionSettings() *EncryptionSettings {
 	if x != nil {
 		return x.xxx_hidden_EncryptionSettings
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetAuditSettings() *messages.AuditSettings {
+func (x *ConfigEnvironment) GetAuditSettings() *AuditSettings {
 	if x != nil {
 		return x.xxx_hidden_AuditSettings
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetNotificationSettings() *messages1.OrganizationNotificationSettings {
+func (x *ConfigEnvironment) GetNotificationSettings() *organization.OrganizationNotificationSettings {
 	if x != nil {
 		return x.xxx_hidden_NotificationSettings
 	}
 	return nil
 }
 
-func (x *ConfigEnvironment) GetSyncSettings() *messages.SyncSettings {
+func (x *ConfigEnvironment) GetSyncSettings() *SyncSettings {
 	if x != nil {
 		return x.xxx_hidden_SyncSettings
 	}
@@ -396,15 +395,15 @@ func (x *ConfigEnvironment) SetChildEnvironmentIds(v []string) {
 	x.xxx_hidden_ChildEnvironmentIds = v
 }
 
-func (x *ConfigEnvironment) SetPromotionRules(v []*messages.PromotionRule) {
+func (x *ConfigEnvironment) SetPromotionRules(v []*PromotionRule) {
 	x.xxx_hidden_PromotionRules = &v
 }
 
-func (x *ConfigEnvironment) SetAccessControls(v []*messages1.OrganizationAccessControl) {
+func (x *ConfigEnvironment) SetAccessControls(v []*organization.OrganizationAccessControl) {
 	x.xxx_hidden_AccessControls = &v
 }
 
-func (x *ConfigEnvironment) SetDeploymentInfo(v *messages.DeploymentInfo) {
+func (x *ConfigEnvironment) SetDeploymentInfo(v *DeploymentInfo) {
 	x.xxx_hidden_DeploymentInfo = v
 }
 
@@ -413,44 +412,44 @@ func (x *ConfigEnvironment) SetHealthStatus(v enums.CommonHealthStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 18, 30)
 }
 
-func (x *ConfigEnvironment) SetResourceLimits(v *messages1.OrganizationResourceLimits) {
+func (x *ConfigEnvironment) SetResourceLimits(v *organization.OrganizationResourceLimits) {
 	x.xxx_hidden_ResourceLimits = v
 }
 
-func (x *ConfigEnvironment) SetBackupPolicy(v *messages.BackupPolicy) {
+func (x *ConfigEnvironment) SetBackupPolicy(v *BackupPolicy) {
 	x.xxx_hidden_BackupPolicy = v
 }
 
-func (x *ConfigEnvironment) SetApprovalWorkflow(v *messages.ApprovalWorkflow) {
+func (x *ConfigEnvironment) SetApprovalWorkflow(v *ApprovalWorkflow) {
 	x.xxx_hidden_ApprovalWorkflow = v
 }
 
-func (x *ConfigEnvironment) SetMonitoringConfig(v *messages.ConfigMonitoringConfig) {
+func (x *ConfigEnvironment) SetMonitoringConfig(v *ConfigMonitoringConfig) {
 	x.xxx_hidden_MonitoringConfig = v
 }
 
-func (x *ConfigEnvironment) SetRetentionPolicy(v messages2.MetricsRetentionPolicy) {
+func (x *ConfigEnvironment) SetRetentionPolicy(v metrics.MetricsRetentionPolicy) {
 	x.xxx_hidden_RetentionPolicy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 23, 30)
 }
 
-func (x *ConfigEnvironment) SetComplianceSettings(v *messages1.OrganizationComplianceSettings) {
+func (x *ConfigEnvironment) SetComplianceSettings(v *organization.OrganizationComplianceSettings) {
 	x.xxx_hidden_ComplianceSettings = v
 }
 
-func (x *ConfigEnvironment) SetEncryptionSettings(v *messages.EncryptionSettings) {
+func (x *ConfigEnvironment) SetEncryptionSettings(v *EncryptionSettings) {
 	x.xxx_hidden_EncryptionSettings = v
 }
 
-func (x *ConfigEnvironment) SetAuditSettings(v *messages.AuditSettings) {
+func (x *ConfigEnvironment) SetAuditSettings(v *AuditSettings) {
 	x.xxx_hidden_AuditSettings = v
 }
 
-func (x *ConfigEnvironment) SetNotificationSettings(v *messages1.OrganizationNotificationSettings) {
+func (x *ConfigEnvironment) SetNotificationSettings(v *organization.OrganizationNotificationSettings) {
 	x.xxx_hidden_NotificationSettings = v
 }
 
-func (x *ConfigEnvironment) SetSyncSettings(v *messages.SyncSettings) {
+func (x *ConfigEnvironment) SetSyncSettings(v *SyncSettings) {
 	x.xxx_hidden_SyncSettings = v
 }
 
@@ -683,7 +682,7 @@ func (x *ConfigEnvironment) ClearMonitoringConfig() {
 
 func (x *ConfigEnvironment) ClearRetentionPolicy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 23)
-	x.xxx_hidden_RetentionPolicy = messages2.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_RetentionPolicy = metrics.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
 }
 
 func (x *ConfigEnvironment) ClearComplianceSettings() {
@@ -745,33 +744,33 @@ type ConfigEnvironment_builder struct {
 	// Child environments
 	ChildEnvironmentIds []string
 	// Environment promotion rules
-	PromotionRules []*messages.PromotionRule
+	PromotionRules []*PromotionRule
 	// Environment access control
-	AccessControls []*messages1.OrganizationAccessControl
+	AccessControls []*organization.OrganizationAccessControl
 	// Environment deployment info
-	DeploymentInfo *messages.DeploymentInfo
+	DeploymentInfo *DeploymentInfo
 	// Environment health status
 	HealthStatus *enums.CommonHealthStatus
 	// Environment resource limits
-	ResourceLimits *messages1.OrganizationResourceLimits
+	ResourceLimits *organization.OrganizationResourceLimits
 	// Environment backup policy
-	BackupPolicy *messages.BackupPolicy
+	BackupPolicy *BackupPolicy
 	// Environment approval workflow
-	ApprovalWorkflow *messages.ApprovalWorkflow
+	ApprovalWorkflow *ApprovalWorkflow
 	// Environment monitoring config
-	MonitoringConfig *messages.ConfigMonitoringConfig
+	MonitoringConfig *ConfigMonitoringConfig
 	// Environment retention policy
-	RetentionPolicy *messages2.MetricsRetentionPolicy
+	RetentionPolicy *metrics.MetricsRetentionPolicy
 	// Environment compliance settings
-	ComplianceSettings *messages1.OrganizationComplianceSettings
+	ComplianceSettings *organization.OrganizationComplianceSettings
 	// Environment encryption settings
-	EncryptionSettings *messages.EncryptionSettings
+	EncryptionSettings *EncryptionSettings
 	// Environment audit settings
-	AuditSettings *messages.AuditSettings
+	AuditSettings *AuditSettings
 	// Environment notification settings
-	NotificationSettings *messages1.OrganizationNotificationSettings
+	NotificationSettings *organization.OrganizationNotificationSettings
 	// Environment sync settings
-	SyncSettings *messages.SyncSettings
+	SyncSettings *SyncSettings
 	// Environment version
 	Version *string
 }
@@ -893,33 +892,32 @@ const file_gcommon_v1_config_enums_config_environment_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a<\n" +
 	"\x0eVariablesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x16ConfigEnvironmentProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_config_environment_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gcommon_v1_config_enums_config_environment_proto_goTypes = []any{
-	(*ConfigEnvironment)(nil),      // 0: gcommon.v1.config.ConfigEnvironment
-	nil,                            // 1: gcommon.v1.config.ConfigEnvironment.MetadataEntry
-	nil,                            // 2: gcommon.v1.config.ConfigEnvironment.ConfigEntry
-	nil,                            // 3: gcommon.v1.config.ConfigEnvironment.SecretsEntry
-	nil,                            // 4: gcommon.v1.config.ConfigEnvironment.VariablesEntry
-	(EnvironmentType)(0),           // 5: gcommon.v1.config.EnvironmentType
-	(EnvironmentStatus)(0),         // 6: gcommon.v1.config.EnvironmentStatus
-	(*timestamppb.Timestamp)(nil),  // 7: google.protobuf.Timestamp
-	(*messages.PromotionRule)(nil), // 8: gcommon.v1.config.PromotionRule
-	(*messages1.OrganizationAccessControl)(nil),        // 9: gcommon.v1.organization.OrganizationAccessControl
-	(*messages.DeploymentInfo)(nil),                    // 10: gcommon.v1.config.DeploymentInfo
-	(enums.CommonHealthStatus)(0),                      // 11: gcommon.v1.common.CommonHealthStatus
-	(*messages1.OrganizationResourceLimits)(nil),       // 12: gcommon.v1.organization.OrganizationResourceLimits
-	(*messages.BackupPolicy)(nil),                      // 13: gcommon.v1.config.BackupPolicy
-	(*messages.ApprovalWorkflow)(nil),                  // 14: gcommon.v1.config.ApprovalWorkflow
-	(*messages.ConfigMonitoringConfig)(nil),            // 15: gcommon.v1.config.ConfigMonitoringConfig
-	(messages2.MetricsRetentionPolicy)(0),              // 16: gcommon.v1.metrics.MetricsRetentionPolicy
-	(*messages1.OrganizationComplianceSettings)(nil),   // 17: gcommon.v1.organization.OrganizationComplianceSettings
-	(*messages.EncryptionSettings)(nil),                // 18: gcommon.v1.config.EncryptionSettings
-	(*messages.AuditSettings)(nil),                     // 19: gcommon.v1.config.AuditSettings
-	(*messages1.OrganizationNotificationSettings)(nil), // 20: gcommon.v1.organization.OrganizationNotificationSettings
-	(*messages.SyncSettings)(nil),                      // 21: gcommon.v1.config.SyncSettings
+	(*ConfigEnvironment)(nil),     // 0: gcommon.v1.config.ConfigEnvironment
+	nil,                           // 1: gcommon.v1.config.ConfigEnvironment.MetadataEntry
+	nil,                           // 2: gcommon.v1.config.ConfigEnvironment.ConfigEntry
+	nil,                           // 3: gcommon.v1.config.ConfigEnvironment.SecretsEntry
+	nil,                           // 4: gcommon.v1.config.ConfigEnvironment.VariablesEntry
+	(EnvironmentType)(0),          // 5: gcommon.v1.config.EnvironmentType
+	(EnvironmentStatus)(0),        // 6: gcommon.v1.config.EnvironmentStatus
+	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	(*PromotionRule)(nil),         // 8: gcommon.v1.config.PromotionRule
+	(*organization.OrganizationAccessControl)(nil),        // 9: gcommon.v1.organization.OrganizationAccessControl
+	(*DeploymentInfo)(nil),                                // 10: gcommon.v1.config.DeploymentInfo
+	(enums.CommonHealthStatus)(0),                         // 11: gcommon.v1.common.CommonHealthStatus
+	(*organization.OrganizationResourceLimits)(nil),       // 12: gcommon.v1.organization.OrganizationResourceLimits
+	(*BackupPolicy)(nil),                                  // 13: gcommon.v1.config.BackupPolicy
+	(*ApprovalWorkflow)(nil),                              // 14: gcommon.v1.config.ApprovalWorkflow
+	(*ConfigMonitoringConfig)(nil),                        // 15: gcommon.v1.config.ConfigMonitoringConfig
+	(metrics.MetricsRetentionPolicy)(0),                   // 16: gcommon.v1.metrics.MetricsRetentionPolicy
+	(*organization.OrganizationComplianceSettings)(nil),   // 17: gcommon.v1.organization.OrganizationComplianceSettings
+	(*EncryptionSettings)(nil),                            // 18: gcommon.v1.config.EncryptionSettings
+	(*AuditSettings)(nil),                                 // 19: gcommon.v1.config.AuditSettings
+	(*organization.OrganizationNotificationSettings)(nil), // 20: gcommon.v1.organization.OrganizationNotificationSettings
+	(*SyncSettings)(nil),                                  // 21: gcommon.v1.config.SyncSettings
 }
 var file_gcommon_v1_config_enums_config_environment_proto_depIdxs = []int32{
 	5,  // 0: gcommon.v1.config.ConfigEnvironment.type:type_name -> gcommon.v1.config.EnvironmentType
@@ -958,6 +956,14 @@ func file_gcommon_v1_config_enums_config_environment_proto_init() {
 	}
 	file_gcommon_v1_config_enums_environment_status_proto_init()
 	file_gcommon_v1_config_enums_environment_type_proto_init()
+	file_gcommon_v1_config_messages_approval_workflow_proto_init()
+	file_gcommon_v1_config_messages_audit_settings_proto_init()
+	file_gcommon_v1_config_messages_backup_policy_proto_init()
+	file_gcommon_v1_config_messages_deployment_info_proto_init()
+	file_gcommon_v1_config_messages_encryption_settings_proto_init()
+	file_gcommon_v1_config_messages_monitoring_config_proto_init()
+	file_gcommon_v1_config_messages_promotion_rule_proto_init()
+	file_gcommon_v1_config_messages_sync_settings_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

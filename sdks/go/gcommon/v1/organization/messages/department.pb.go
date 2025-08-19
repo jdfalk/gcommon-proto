@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/department.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -825,8 +825,7 @@ const file_gcommon_v1_organization_messages_department_proto_rawDesc = "" +
 	"\rannual_budget\x18\x13 \x01(\x01R\fannualBudget\x12\x1a\n" +
 	"\btimezone\x18\x14 \x01(\tR\btimezone\x120\n" +
 	"\x14child_department_ids\x18\x15 \x03(\tR\x12childDepartmentIds\x12\x19\n" +
-	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB\xf8\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x0fDepartmentProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_department_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_department_proto_goTypes = []any{

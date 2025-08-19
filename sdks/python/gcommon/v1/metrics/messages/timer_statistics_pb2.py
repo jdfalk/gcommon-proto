@@ -26,14 +26,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/metrics/messages/timer_statistics.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xad\x03\n\x0fTimerStatistics\x12<\n\x0cmin_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bminDuration\x12<\n\x0cmax_duration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bmaxDuration\x12>\n\rmean_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0cmeanDuration\x12\x32\n\x15standard_deviation_ms\x18\x04 \x01(\x01R\x13standardDeviationMs\x12\x1f\n\x0bvariance_ms\x18\x05 \x01(\x01R\nvarianceMs\x12!\n\x0csample_count\x18\x06 \x01(\x03R\x0bsampleCount\x12&\n\x0frate_per_second\x18\x07 \x01(\x01R\rratePerSecond\x12>\n\rlast_duration\x18\x08 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0clastDurationB\xdf\x01\n\x16\x63om.gcommon.v1.metricsB\x14TimerStatisticsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/metrics/messages/timer_statistics.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xad\x03\n\x0fTimerStatistics\x12<\n\x0cmin_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bminDuration\x12<\n\x0cmax_duration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0bmaxDuration\x12>\n\rmean_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0cmeanDuration\x12\x32\n\x15standard_deviation_ms\x18\x04 \x01(\x01R\x13standardDeviationMs\x12\x1f\n\x0bvariance_ms\x18\x05 \x01(\x01R\nvarianceMs\x12!\n\x0csample_count\x18\x06 \x01(\x03R\x0bsampleCount\x12&\n\x0frate_per_second\x18\x07 \x01(\x01R\rratePerSecond\x12>\n\rlast_duration\x18\x08 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0clastDurationB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.timer_statistics_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\024TimerStatisticsProtoP\001Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
   _globals['_TIMERSTATISTICS']._serialized_start=142
   _globals['_TIMERSTATISTICS']._serialized_end=571
 # @@protoc_insertion_point(module_scope)

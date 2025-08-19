@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/services/cache_admin_service.proto
 
-package services
+package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,20 +32,19 @@ const file_gcommon_v1_database_services_cache_admin_service_proto_rawDesc = "" +
 	"\x0fDeleteNamespace\x12+.gcommon.v1.database.DeleteNamespaceRequest\x1a\x16.google.protobuf.Empty\x12i\n" +
 	"\x0eListNamespaces\x12*.gcommon.v1.database.ListNamespacesRequest\x1a+.gcommon.v1.database.ListNamespacesResponse\x12r\n" +
 	"\x11GetNamespaceStats\x12-.gcommon.v1.database.GetNamespaceStatsRequest\x1a..gcommon.v1.database.GetNamespaceStatsResponse\x12l\n" +
-	"\x0fConfigurePolicy\x12+.gcommon.v1.database.ConfigurePolicyRequest\x1a,.gcommon.v1.database.ConfigurePolicyResponseB\xe7\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x16CacheAdminServiceProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fConfigurePolicy\x12+.gcommon.v1.database.ConfigurePolicyRequest\x1a,.gcommon.v1.database.ConfigurePolicyResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_cache_admin_service_proto_goTypes = []any{
-	(*messages.CreateNamespaceRequest)(nil),    // 0: gcommon.v1.database.CreateNamespaceRequest
-	(*messages.DeleteNamespaceRequest)(nil),    // 1: gcommon.v1.database.DeleteNamespaceRequest
-	(*messages.ListNamespacesRequest)(nil),     // 2: gcommon.v1.database.ListNamespacesRequest
-	(*messages.GetNamespaceStatsRequest)(nil),  // 3: gcommon.v1.database.GetNamespaceStatsRequest
-	(*messages.ConfigurePolicyRequest)(nil),    // 4: gcommon.v1.database.ConfigurePolicyRequest
-	(*messages.CreateNamespaceResponse)(nil),   // 5: gcommon.v1.database.CreateNamespaceResponse
-	(*emptypb.Empty)(nil),                      // 6: google.protobuf.Empty
-	(*messages.ListNamespacesResponse)(nil),    // 7: gcommon.v1.database.ListNamespacesResponse
-	(*messages.GetNamespaceStatsResponse)(nil), // 8: gcommon.v1.database.GetNamespaceStatsResponse
-	(*messages.ConfigurePolicyResponse)(nil),   // 9: gcommon.v1.database.ConfigurePolicyResponse
+	(*CreateNamespaceRequest)(nil),    // 0: gcommon.v1.database.CreateNamespaceRequest
+	(*DeleteNamespaceRequest)(nil),    // 1: gcommon.v1.database.DeleteNamespaceRequest
+	(*ListNamespacesRequest)(nil),     // 2: gcommon.v1.database.ListNamespacesRequest
+	(*GetNamespaceStatsRequest)(nil),  // 3: gcommon.v1.database.GetNamespaceStatsRequest
+	(*ConfigurePolicyRequest)(nil),    // 4: gcommon.v1.database.ConfigurePolicyRequest
+	(*CreateNamespaceResponse)(nil),   // 5: gcommon.v1.database.CreateNamespaceResponse
+	(*emptypb.Empty)(nil),             // 6: google.protobuf.Empty
+	(*ListNamespacesResponse)(nil),    // 7: gcommon.v1.database.ListNamespacesResponse
+	(*GetNamespaceStatsResponse)(nil), // 8: gcommon.v1.database.GetNamespaceStatsResponse
+	(*ConfigurePolicyResponse)(nil),   // 9: gcommon.v1.database.ConfigurePolicyResponse
 }
 var file_gcommon_v1_database_services_cache_admin_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.database.CacheAdminService.CreateNamespace:input_type -> gcommon.v1.database.CreateNamespaceRequest
@@ -71,6 +69,15 @@ func file_gcommon_v1_database_services_cache_admin_service_proto_init() {
 	if File_gcommon_v1_database_services_cache_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_database_messages_configure_policy_request_proto_init()
+	file_gcommon_v1_database_messages_configure_policy_response_proto_init()
+	file_gcommon_v1_database_messages_create_namespace_request_proto_init()
+	file_gcommon_v1_database_messages_create_namespace_response_proto_init()
+	file_gcommon_v1_database_messages_delete_namespace_request_proto_init()
+	file_gcommon_v1_database_messages_get_namespace_stats_request_proto_init()
+	file_gcommon_v1_database_messages_get_namespace_stats_response_proto_init()
+	file_gcommon_v1_database_messages_list_namespaces_request_proto_init()
+	file_gcommon_v1_database_messages_list_namespaces_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

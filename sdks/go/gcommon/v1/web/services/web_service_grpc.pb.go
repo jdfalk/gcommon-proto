@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/web/services/web_service.proto
 
-package services
+package web
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -33,9 +32,9 @@ const (
 // handling HTTP requests and managing web services.
 type WebServiceClient interface {
 	// Handle an incoming web request
-	HandleRequest(ctx context.Context, in *messages.HandleRequestRequest, opts ...grpc.CallOption) (*messages.HandleRequestResponse, error)
+	HandleRequest(ctx context.Context, in *HandleRequestRequest, opts ...grpc.CallOption) (*HandleRequestResponse, error)
 	// Check health of web service
-	HealthCheck(ctx context.Context, in *messages.WebHealthCheckRequest, opts ...grpc.CallOption) (*messages.WebHealthCheckResponse, error)
+	HealthCheck(ctx context.Context, in *WebHealthCheckRequest, opts ...grpc.CallOption) (*WebHealthCheckResponse, error)
 }
 
 type webServiceClient struct {
@@ -46,9 +45,9 @@ func NewWebServiceClient(cc grpc.ClientConnInterface) WebServiceClient {
 	return &webServiceClient{cc}
 }
 
-func (c *webServiceClient) HandleRequest(ctx context.Context, in *messages.HandleRequestRequest, opts ...grpc.CallOption) (*messages.HandleRequestResponse, error) {
+func (c *webServiceClient) HandleRequest(ctx context.Context, in *HandleRequestRequest, opts ...grpc.CallOption) (*HandleRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.HandleRequestResponse)
+	out := new(HandleRequestResponse)
 	err := c.cc.Invoke(ctx, WebService_HandleRequest_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -56,9 +55,9 @@ func (c *webServiceClient) HandleRequest(ctx context.Context, in *messages.Handl
 	return out, nil
 }
 
-func (c *webServiceClient) HealthCheck(ctx context.Context, in *messages.WebHealthCheckRequest, opts ...grpc.CallOption) (*messages.WebHealthCheckResponse, error) {
+func (c *webServiceClient) HealthCheck(ctx context.Context, in *WebHealthCheckRequest, opts ...grpc.CallOption) (*WebHealthCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.WebHealthCheckResponse)
+	out := new(WebHealthCheckResponse)
 	err := c.cc.Invoke(ctx, WebService_HealthCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -75,9 +74,9 @@ func (c *webServiceClient) HealthCheck(ctx context.Context, in *messages.WebHeal
 // handling HTTP requests and managing web services.
 type WebServiceServer interface {
 	// Handle an incoming web request
-	HandleRequest(context.Context, *messages.HandleRequestRequest) (*messages.HandleRequestResponse, error)
+	HandleRequest(context.Context, *HandleRequestRequest) (*HandleRequestResponse, error)
 	// Check health of web service
-	HealthCheck(context.Context, *messages.WebHealthCheckRequest) (*messages.WebHealthCheckResponse, error)
+	HealthCheck(context.Context, *WebHealthCheckRequest) (*WebHealthCheckResponse, error)
 	mustEmbedUnimplementedWebServiceServer()
 }
 
@@ -88,10 +87,10 @@ type WebServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWebServiceServer struct{}
 
-func (UnimplementedWebServiceServer) HandleRequest(context.Context, *messages.HandleRequestRequest) (*messages.HandleRequestResponse, error) {
+func (UnimplementedWebServiceServer) HandleRequest(context.Context, *HandleRequestRequest) (*HandleRequestResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HandleRequest not implemented")
 }
-func (UnimplementedWebServiceServer) HealthCheck(context.Context, *messages.WebHealthCheckRequest) (*messages.WebHealthCheckResponse, error) {
+func (UnimplementedWebServiceServer) HealthCheck(context.Context, *WebHealthCheckRequest) (*WebHealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
 func (UnimplementedWebServiceServer) mustEmbedUnimplementedWebServiceServer() {}
@@ -116,7 +115,7 @@ func RegisterWebServiceServer(s grpc.ServiceRegistrar, srv WebServiceServer) {
 }
 
 func _WebService_HandleRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.HandleRequestRequest)
+	in := new(HandleRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -128,13 +127,13 @@ func _WebService_HandleRequest_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: WebService_HandleRequest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebServiceServer).HandleRequest(ctx, req.(*messages.HandleRequestRequest))
+		return srv.(WebServiceServer).HandleRequest(ctx, req.(*HandleRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _WebService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.WebHealthCheckRequest)
+	in := new(WebHealthCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -146,7 +145,7 @@ func _WebService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: WebService_HealthCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebServiceServer).HealthCheck(ctx, req.(*messages.WebHealthCheckRequest))
+		return srv.(WebServiceServer).HealthCheck(ctx, req.(*WebHealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

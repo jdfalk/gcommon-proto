@@ -74,8 +74,7 @@ const file_gcommon_v1_common_enums_verification_type_proto_rawDesc = "" +
 	"\x14AuthVerificationType\x12!\n" +
 	"\x1dVERIFICATION_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17VERIFICATION_TYPE_EMAIL\x10\x01\x12\x19\n" +
-	"\x15VERIFICATION_TYPE_SMS\x10\x02B\xd7\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15VerificationTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15VERIFICATION_TYPE_SMS\x10\x02BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_verification_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_verification_type_proto_goTypes = []any{

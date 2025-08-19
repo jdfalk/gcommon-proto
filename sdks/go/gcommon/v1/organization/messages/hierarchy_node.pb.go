@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/hierarchy_node.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -466,8 +466,7 @@ const file_gcommon_v1_organization_messages_hierarchy_node_proto_rawDesc = "" +
 	"manager_id\x18\n" +
 	" \x01(\tR\tmanagerId\x12;\n" +
 	"\bmetadata\x18\v \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\bmetadata\x12\x16\n" +
-	"\x06active\x18\f \x01(\bR\x06activeB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12HierarchyNodeProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06active\x18\f \x01(\bR\x06activeB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_hierarchy_node_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_hierarchy_node_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/routing_info.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -225,8 +225,7 @@ const file_gcommon_v1_queue_messages_routing_info_proto_rawDesc = "" +
 	"\fpartition_id\x18\x02 \x01(\x05R\vpartitionId\x12#\n" +
 	"\rpartition_key\x18\x03 \x01(\tR\fpartitionKey\x12#\n" +
 	"\rexchange_name\x18\x04 \x01(\tR\fexchangeName\x12!\n" +
-	"\frouting_tags\x18\x05 \x03(\tR\vroutingTagsB\xcf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10RoutingInfoProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\frouting_tags\x18\x05 \x03(\tR\vroutingTagsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_routing_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_routing_info_proto_goTypes = []any{

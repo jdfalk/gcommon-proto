@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/session_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ type WebSessionConfig struct {
 	xxx_hidden_CookieName      *string                `protobuf:"bytes,3,opt,name=cookie_name,json=cookieName"`
 	xxx_hidden_SecureCookies   bool                   `protobuf:"varint,4,opt,name=secure_cookies,json=secureCookies"`
 	xxx_hidden_HttpOnly        bool                   `protobuf:"varint,5,opt,name=http_only,json=httpOnly"`
-	xxx_hidden_SameSite        enums.CookieSameSite   `protobuf:"varint,6,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
+	xxx_hidden_SameSite        CookieSameSite         `protobuf:"varint,6,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -101,13 +100,13 @@ func (x *WebSessionConfig) GetHttpOnly() bool {
 	return false
 }
 
-func (x *WebSessionConfig) GetSameSite() enums.CookieSameSite {
+func (x *WebSessionConfig) GetSameSite() CookieSameSite {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_SameSite
 		}
 	}
-	return enums.CookieSameSite(0)
+	return CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 func (x *WebSessionConfig) SetIdleTimeout(v *durationpb.Duration) {
@@ -133,7 +132,7 @@ func (x *WebSessionConfig) SetHttpOnly(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
-func (x *WebSessionConfig) SetSameSite(v enums.CookieSameSite) {
+func (x *WebSessionConfig) SetSameSite(v CookieSameSite) {
 	x.xxx_hidden_SameSite = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
@@ -205,7 +204,7 @@ func (x *WebSessionConfig) ClearHttpOnly() {
 
 func (x *WebSessionConfig) ClearSameSite() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_SameSite = enums.CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+	x.xxx_hidden_SameSite = CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 type WebSessionConfig_builder struct {
@@ -222,7 +221,7 @@ type WebSessionConfig_builder struct {
 	// Restrict cookie to HTTP only
 	HttpOnly *bool
 	// Cookie SameSite policy
-	SameSite *enums.CookieSameSite
+	SameSite *CookieSameSite
 }
 
 func (b0 WebSessionConfig_builder) Build() *WebSessionConfig {
@@ -262,14 +261,13 @@ const file_gcommon_v1_web_messages_session_config_proto_rawDesc = "" +
 	"cookieName\x12%\n" +
 	"\x0esecure_cookies\x18\x04 \x01(\bR\rsecureCookies\x12\x1b\n" +
 	"\thttp_only\x18\x05 \x01(\bR\bhttpOnly\x12;\n" +
-	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB\xc5\x01\n" +
-	"\x12com.gcommon.v1.webB\x12SessionConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_session_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_session_config_proto_goTypes = []any{
 	(*WebSessionConfig)(nil),    // 0: gcommon.v1.web.WebSessionConfig
 	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(enums.CookieSameSite)(0),   // 2: gcommon.v1.web.CookieSameSite
+	(CookieSameSite)(0),         // 2: gcommon.v1.web.CookieSameSite
 }
 var file_gcommon_v1_web_messages_session_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.WebSessionConfig.idle_timeout:type_name -> google.protobuf.Duration
@@ -287,6 +285,7 @@ func file_gcommon_v1_web_messages_session_config_proto_init() {
 	if File_gcommon_v1_web_messages_session_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_cookie_same_site_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

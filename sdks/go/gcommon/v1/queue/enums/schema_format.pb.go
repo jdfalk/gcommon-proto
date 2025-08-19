@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/schema_format.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -93,8 +93,7 @@ const file_gcommon_v1_queue_enums_schema_format_proto_rawDesc = "" +
 	"\x12SCHEMA_FORMAT_AVRO\x10\x02\x12\x1a\n" +
 	"\x16SCHEMA_FORMAT_PROTOBUF\x10\x03\x12\x1c\n" +
 	"\x18SCHEMA_FORMAT_XML_SCHEMA\x10\x04\x12\x18\n" +
-	"\x14SCHEMA_FORMAT_CUSTOM\x10\x05B\xcd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11SchemaFormatProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14SCHEMA_FORMAT_CUSTOM\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_schema_format_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_schema_format_proto_goTypes = []any{

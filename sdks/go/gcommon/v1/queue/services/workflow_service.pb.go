@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/services/workflow_service.proto
 
-package services
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,14 +28,13 @@ const file_gcommon_v1_queue_services_workflow_service_proto_rawDesc = "" +
 	"0gcommon/v1/queue/services/workflow_service.proto\x12\x10gcommon.v1.queue\x1a6gcommon/v1/queue/messages/start_workflow_request.proto\x1a7gcommon/v1/queue/messages/start_workflow_response.proto\x1a5gcommon/v1/queue/messages/stop_workflow_request.proto\x1a6gcommon/v1/queue/messages/stop_workflow_response.proto\x1a!google/protobuf/go_features.proto2\xd2\x01\n" +
 	"\x0fWorkflowService\x12`\n" +
 	"\rStartWorkflow\x12&.gcommon.v1.queue.StartWorkflowRequest\x1a'.gcommon.v1.queue.StartWorkflowResponse\x12]\n" +
-	"\fStopWorkflow\x12%.gcommon.v1.queue.StopWorkflowRequest\x1a&.gcommon.v1.queue.StopWorkflowResponseB\xd3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14WorkflowServiceProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/services\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fStopWorkflow\x12%.gcommon.v1.queue.StopWorkflowRequest\x1a&.gcommon.v1.queue.StopWorkflowResponseB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_workflow_service_proto_goTypes = []any{
-	(*messages.StartWorkflowRequest)(nil),  // 0: gcommon.v1.queue.StartWorkflowRequest
-	(*messages.StopWorkflowRequest)(nil),   // 1: gcommon.v1.queue.StopWorkflowRequest
-	(*messages.StartWorkflowResponse)(nil), // 2: gcommon.v1.queue.StartWorkflowResponse
-	(*messages.StopWorkflowResponse)(nil),  // 3: gcommon.v1.queue.StopWorkflowResponse
+	(*StartWorkflowRequest)(nil),  // 0: gcommon.v1.queue.StartWorkflowRequest
+	(*StopWorkflowRequest)(nil),   // 1: gcommon.v1.queue.StopWorkflowRequest
+	(*StartWorkflowResponse)(nil), // 2: gcommon.v1.queue.StartWorkflowResponse
+	(*StopWorkflowResponse)(nil),  // 3: gcommon.v1.queue.StopWorkflowResponse
 }
 var file_gcommon_v1_queue_services_workflow_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.queue.WorkflowService.StartWorkflow:input_type -> gcommon.v1.queue.StartWorkflowRequest
@@ -55,6 +53,10 @@ func file_gcommon_v1_queue_services_workflow_service_proto_init() {
 	if File_gcommon_v1_queue_services_workflow_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_messages_start_workflow_request_proto_init()
+	file_gcommon_v1_queue_messages_start_workflow_response_proto_init()
+	file_gcommon_v1_queue_messages_stop_workflow_request_proto_init()
+	file_gcommon_v1_queue_messages_stop_workflow_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

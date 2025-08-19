@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/conflict_resolution.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +22,11 @@ const (
 )
 
 type QueueConflictResolution struct {
-	state                       protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Strategy         enums.ResolutionStrategy `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.queue.ResolutionStrategy"`
-	xxx_hidden_CustomResolution *CustomResolution        `protobuf:"bytes,2,opt,name=custom_resolution,json=customResolution"`
-	xxx_hidden_LwwConfig        *LastWriterWins          `protobuf:"bytes,3,opt,name=lww_config,json=lwwConfig"`
-	xxx_hidden_MultiValue       *MultiValueConfig        `protobuf:"bytes,4,opt,name=multi_value,json=multiValue"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Strategy         ResolutionStrategy     `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.queue.ResolutionStrategy"`
+	xxx_hidden_CustomResolution *CustomResolution      `protobuf:"bytes,2,opt,name=custom_resolution,json=customResolution"`
+	xxx_hidden_LwwConfig        *LastWriterWins        `protobuf:"bytes,3,opt,name=lww_config,json=lwwConfig"`
+	xxx_hidden_MultiValue       *MultiValueConfig      `protobuf:"bytes,4,opt,name=multi_value,json=multiValue"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -59,13 +58,13 @@ func (x *QueueConflictResolution) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueueConflictResolution) GetStrategy() enums.ResolutionStrategy {
+func (x *QueueConflictResolution) GetStrategy() ResolutionStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return enums.ResolutionStrategy(0)
+	return ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueConflictResolution) GetCustomResolution() *CustomResolution {
@@ -89,7 +88,7 @@ func (x *QueueConflictResolution) GetMultiValue() *MultiValueConfig {
 	return nil
 }
 
-func (x *QueueConflictResolution) SetStrategy(v enums.ResolutionStrategy) {
+func (x *QueueConflictResolution) SetStrategy(v ResolutionStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -136,7 +135,7 @@ func (x *QueueConflictResolution) HasMultiValue() bool {
 
 func (x *QueueConflictResolution) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Strategy = enums.ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueConflictResolution) ClearCustomResolution() {
@@ -155,7 +154,7 @@ type QueueConflictResolution_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Conflict resolution strategy
-	Strategy *enums.ResolutionStrategy
+	Strategy *ResolutionStrategy
 	// Custom resolution function settings
 	CustomResolution *CustomResolution
 	// Last-writer-wins settings
@@ -189,13 +188,12 @@ const file_gcommon_v1_queue_messages_conflict_resolution_proto_rawDesc = "" +
 	"\n" +
 	"lww_config\x18\x03 \x01(\v2 .gcommon.v1.queue.LastWriterWinsR\tlwwConfig\x12C\n" +
 	"\vmulti_value\x18\x04 \x01(\v2\".gcommon.v1.queue.MultiValueConfigR\n" +
-	"multiValueB\xd6\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17ConflictResolutionProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"multiValueB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_conflict_resolution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_conflict_resolution_proto_goTypes = []any{
 	(*QueueConflictResolution)(nil), // 0: gcommon.v1.queue.QueueConflictResolution
-	(enums.ResolutionStrategy)(0),   // 1: gcommon.v1.queue.ResolutionStrategy
+	(ResolutionStrategy)(0),         // 1: gcommon.v1.queue.ResolutionStrategy
 	(*CustomResolution)(nil),        // 2: gcommon.v1.queue.CustomResolution
 	(*LastWriterWins)(nil),          // 3: gcommon.v1.queue.LastWriterWins
 	(*MultiValueConfig)(nil),        // 4: gcommon.v1.queue.MultiValueConfig
@@ -217,6 +215,7 @@ func file_gcommon_v1_queue_messages_conflict_resolution_proto_init() {
 	if File_gcommon_v1_queue_messages_conflict_resolution_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_resolution_strategy_proto_init()
 	file_gcommon_v1_queue_messages_custom_resolution_proto_init()
 	file_gcommon_v1_queue_messages_last_writer_wins_proto_init()
 	file_gcommon_v1_queue_messages_multi_value_config_proto_init()

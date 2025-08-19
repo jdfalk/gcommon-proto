@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/services/queue_monitoring_service.proto
 
-package services
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,18 +30,17 @@ const file_gcommon_v1_queue_services_queue_monitoring_service_proto_rawDesc = ""
 	"\x0eGetClusterInfo\x12'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12c\n" +
 	"\x0eGetQueueHealth\x12'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n" +
 	"\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12^\n" +
-	"\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01B\xda\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1bQueueMonitoringServiceProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/services\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_queue_monitoring_service_proto_goTypes = []any{
-	(*messages.GetClusterInfoRequest)(nil),     // 0: gcommon.v1.queue.GetClusterInfoRequest
-	(*messages.GetQueueHealthRequest)(nil),     // 1: gcommon.v1.queue.GetQueueHealthRequest
-	(*messages.GetQueueStatsRequest)(nil),      // 2: gcommon.v1.queue.GetQueueStatsRequest
-	(*messages.QueueStreamMetricsRequest)(nil), // 3: gcommon.v1.queue.QueueStreamMetricsRequest
-	(*messages.GetClusterInfoResponse)(nil),    // 4: gcommon.v1.queue.GetClusterInfoResponse
-	(*messages.GetQueueHealthResponse)(nil),    // 5: gcommon.v1.queue.GetQueueHealthResponse
-	(*messages.QueueStatsResponse)(nil),        // 6: gcommon.v1.queue.QueueStatsResponse
-	(*messages.MetricsEvent)(nil),              // 7: gcommon.v1.queue.MetricsEvent
+	(*GetClusterInfoRequest)(nil),     // 0: gcommon.v1.queue.GetClusterInfoRequest
+	(*GetQueueHealthRequest)(nil),     // 1: gcommon.v1.queue.GetQueueHealthRequest
+	(*GetQueueStatsRequest)(nil),      // 2: gcommon.v1.queue.GetQueueStatsRequest
+	(*QueueStreamMetricsRequest)(nil), // 3: gcommon.v1.queue.QueueStreamMetricsRequest
+	(*GetClusterInfoResponse)(nil),    // 4: gcommon.v1.queue.GetClusterInfoResponse
+	(*GetQueueHealthResponse)(nil),    // 5: gcommon.v1.queue.GetQueueHealthResponse
+	(*QueueStatsResponse)(nil),        // 6: gcommon.v1.queue.QueueStatsResponse
+	(*MetricsEvent)(nil),              // 7: gcommon.v1.queue.MetricsEvent
 }
 var file_gcommon_v1_queue_services_queue_monitoring_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.queue.QueueMonitoringService.GetClusterInfo:input_type -> gcommon.v1.queue.GetClusterInfoRequest
@@ -65,6 +63,14 @@ func file_gcommon_v1_queue_services_queue_monitoring_service_proto_init() {
 	if File_gcommon_v1_queue_services_queue_monitoring_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_messages_get_cluster_info_request_proto_init()
+	file_gcommon_v1_queue_messages_get_cluster_info_response_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_health_request_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_health_response_proto_init()
+	file_gcommon_v1_queue_messages_get_queue_stats_request_proto_init()
+	file_gcommon_v1_queue_messages_metrics_event_proto_init()
+	file_gcommon_v1_queue_messages_queue_stats_response_proto_init()
+	file_gcommon_v1_queue_messages_stream_metrics_request_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

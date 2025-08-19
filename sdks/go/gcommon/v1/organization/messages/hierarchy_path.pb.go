@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/hierarchy_path.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -191,8 +191,7 @@ const file_gcommon_v1_organization_messages_hierarchy_path_proto_rawDesc = "" +
 	"ancestorId\x12\x1a\n" +
 	"\bdistance\x18\x03 \x01(\x05R\bdistance\x12\x1d\n" +
 	"\n" +
-	"path_nodes\x18\x04 \x03(\tR\tpathNodesB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12HierarchyPathProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"path_nodes\x18\x04 \x03(\tR\tpathNodesB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_hierarchy_path_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_hierarchy_path_proto_goTypes = []any{

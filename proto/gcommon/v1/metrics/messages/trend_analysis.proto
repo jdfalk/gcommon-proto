@@ -13,7 +13,7 @@ import "gcommon/v1/metrics/messages/resource_usage_trend.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/metrics";
 
 message TrendAnalysis {
   // Performance trends

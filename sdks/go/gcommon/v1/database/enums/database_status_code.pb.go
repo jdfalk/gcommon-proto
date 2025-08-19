@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/enums/database_status_code.proto
 
-package enums
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -79,8 +79,7 @@ const file_gcommon_v1_database_enums_database_status_code_proto_rawDesc = "" +
 	"\x12DatabaseStatusCode\x12$\n" +
 	" DATABASE_STATUS_CODE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17DATABASE_STATUS_CODE_OK\x10\x01\x12\x1e\n" +
-	"\x1aDATABASE_STATUS_CODE_ERROR\x10\x02B\xe5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17DatabaseStatusCodeProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/enums\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aDATABASE_STATUS_CODE_ERROR\x10\x02B0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_enums_database_status_code_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_database_enums_database_status_code_proto_goTypes = []any{

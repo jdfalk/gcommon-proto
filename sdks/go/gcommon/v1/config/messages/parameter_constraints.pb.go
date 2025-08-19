@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/parameter_constraints.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -243,8 +243,7 @@ const file_gcommon_v1_config_messages_parameter_constraints_proto_rawDesc = "" +
 	"\tmax_value\x18\x02 \x01(\tR\bmaxValue\x12\x18\n" +
 	"\apattern\x18\x03 \x01(\tR\apattern\x12\x1a\n" +
 	"\brequired\x18\x04 \x01(\bR\brequired\x12#\n" +
-	"\rdefault_value\x18\x05 \x01(\tR\fdefaultValueB\xde\x01\n" +
-	"\x15com.gcommon.v1.configB\x19ParameterConstraintsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rdefault_value\x18\x05 \x01(\tR\fdefaultValueB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_parameter_constraints_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_parameter_constraints_proto_goTypes = []any{

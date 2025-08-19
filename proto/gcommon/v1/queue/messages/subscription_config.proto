@@ -13,7 +13,7 @@ import "gcommon/v1/queue/messages/delivery_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/queue";
 
 // SubscriptionConfig describes how a consumer subscribes to a queue.
 message SubscriptionConfig {

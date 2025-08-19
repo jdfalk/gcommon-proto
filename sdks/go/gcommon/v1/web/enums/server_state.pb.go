@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/enums/server_state.proto
 
-package enums
+package web
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -81,8 +81,7 @@ const file_gcommon_v1_web_enums_server_state_proto_rawDesc = "" +
 	"\x15SERVER_STATE_STARTING\x10\x01\x12\x18\n" +
 	"\x14SERVER_STATE_RUNNING\x10\x02\x12\x19\n" +
 	"\x15SERVER_STATE_STOPPING\x10\x03\x12\x18\n" +
-	"\x14SERVER_STATE_STOPPED\x10\x04B\xc0\x01\n" +
-	"\x12com.gcommon.v1.webB\x10ServerStateProtoP\x01Z6github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14SERVER_STATE_STOPPED\x10\x04B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_server_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_server_state_proto_goTypes = []any{

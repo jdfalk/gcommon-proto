@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/import_queue_response.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -394,8 +394,7 @@ const file_gcommon_v1_queue_messages_import_queue_response_proto_rawDesc = "" +
 	"\vduration_ms\x18\t \x01(\x04R\n" +
 	"durationMs\x12)\n" +
 	"\x10progress_percent\x18\n" +
-	" \x01(\x02R\x0fprogressPercentB\xd7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18ImportQueueResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x02R\x0fprogressPercentB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_import_queue_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_import_queue_response_proto_goTypes = []any{

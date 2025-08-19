@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/enums/middleware_type.proto
 
-package enums
+package web
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -89,8 +89,7 @@ const file_gcommon_v1_web_enums_middleware_type_proto_rawDesc = "" +
 	"\x17MIDDLEWARE_TYPE_METRICS\x10\x03\x12\x1f\n" +
 	"\x1bMIDDLEWARE_TYPE_COMPRESSION\x10\x04\x12\x18\n" +
 	"\x14MIDDLEWARE_TYPE_CORS\x10\x05\x12\x1e\n" +
-	"\x1aMIDDLEWARE_TYPE_RATE_LIMIT\x10\x06B\xc3\x01\n" +
-	"\x12com.gcommon.v1.webB\x13MiddlewareTypeProtoP\x01Z6github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aMIDDLEWARE_TYPE_RATE_LIMIT\x10\x06B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_middleware_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_middleware_type_proto_goTypes = []any{

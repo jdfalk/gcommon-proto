@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/value_usage_statistics.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -399,8 +399,7 @@ const file_gcommon_v1_config_messages_value_usage_statistics_proto_rawDesc = "" 
 	"\rpeak_usage_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\vpeakUsageAt\x12(\n" +
 	"\x10peak_usage_count\x18\n" +
 	" \x01(\x03R\x0epeakUsageCount\x12:\n" +
-	"\x06trends\x18\v \x03(\v2\".gcommon.v1.config.ValueUsageTrendR\x06trendsB\xde\x01\n" +
-	"\x15com.gcommon.v1.configB\x19ValueUsageStatisticsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06trends\x18\v \x03(\v2\".gcommon.v1.config.ValueUsageTrendR\x06trendsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_value_usage_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_value_usage_statistics_proto_goTypes = []any{

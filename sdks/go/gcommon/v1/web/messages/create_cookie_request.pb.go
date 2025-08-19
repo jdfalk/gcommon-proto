@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/create_cookie_request.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +36,7 @@ type CreateCookieRequest struct {
 	xxx_hidden_MaxAge      int32                     `protobuf:"varint,6,opt,name=max_age,json=maxAge"`
 	xxx_hidden_Secure      bool                      `protobuf:"varint,7,opt,name=secure"`
 	xxx_hidden_HttpOnly    bool                      `protobuf:"varint,8,opt,name=http_only,json=httpOnly"`
-	xxx_hidden_SameSite    enums.SameSitePolicy      `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.SameSitePolicy"`
+	xxx_hidden_SameSite    SameSitePolicy            `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.SameSitePolicy"`
 	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -138,13 +137,13 @@ func (x *CreateCookieRequest) GetHttpOnly() bool {
 	return false
 }
 
-func (x *CreateCookieRequest) GetSameSite() enums.SameSitePolicy {
+func (x *CreateCookieRequest) GetSameSite() SameSitePolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_SameSite
 		}
 	}
-	return enums.SameSitePolicy(0)
+	return SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
 }
 
 func (x *CreateCookieRequest) GetMetadata() *messages.RequestMetadata {
@@ -193,7 +192,7 @@ func (x *CreateCookieRequest) SetHttpOnly(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
 }
 
-func (x *CreateCookieRequest) SetSameSite(v enums.SameSitePolicy) {
+func (x *CreateCookieRequest) SetSameSite(v SameSitePolicy) {
 	x.xxx_hidden_SameSite = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
@@ -313,7 +312,7 @@ func (x *CreateCookieRequest) ClearHttpOnly() {
 
 func (x *CreateCookieRequest) ClearSameSite() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_SameSite = enums.SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
+	x.xxx_hidden_SameSite = SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
 }
 
 func (x *CreateCookieRequest) ClearMetadata() {
@@ -340,7 +339,7 @@ type CreateCookieRequest_builder struct {
 	// Whether cookie is HTTP only
 	HttpOnly *bool
 	// Cookie SameSite attribute
-	SameSite *enums.SameSitePolicy
+	SameSite *SameSitePolicy
 	// Request metadata for tracing and correlation
 	Metadata *messages.RequestMetadata
 }
@@ -402,14 +401,13 @@ const file_gcommon_v1_web_messages_create_cookie_request_proto_rawDesc = "" +
 	"\thttp_only\x18\b \x01(\bR\bhttpOnly\x12;\n" +
 	"\tsame_site\x18\t \x01(\x0e2\x1e.gcommon.v1.web.SameSitePolicyR\bsameSite\x12>\n" +
 	"\bmetadata\x18\n" +
-	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xcb\x01\n" +
-	"\x12com.gcommon.v1.webB\x18CreateCookieRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_create_cookie_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_create_cookie_request_proto_goTypes = []any{
 	(*CreateCookieRequest)(nil),      // 0: gcommon.v1.web.CreateCookieRequest
 	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(enums.SameSitePolicy)(0),        // 2: gcommon.v1.web.SameSitePolicy
+	(SameSitePolicy)(0),              // 2: gcommon.v1.web.SameSitePolicy
 	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_create_cookie_request_proto_depIdxs = []int32{
@@ -428,6 +426,7 @@ func file_gcommon_v1_web_messages_create_cookie_request_proto_init() {
 	if File_gcommon_v1_web_messages_create_cookie_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_same_site_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

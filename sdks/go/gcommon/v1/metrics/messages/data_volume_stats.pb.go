@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/data_volume_stats.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -282,8 +282,7 @@ const file_gcommon_v1_metrics_messages_data_volume_stats_proto_rawDesc = "" +
 	"\x1fingestion_rate_bytes_per_second\x18\x04 \x01(\x01R\x1bingestionRateBytesPerSecond\x12F\n" +
 	" ingestion_rate_points_per_second\x18\x05 \x01(\x01R\x1cingestionRatePointsPerSecond\x12+\n" +
 	"\x11compression_ratio\x18\x06 \x01(\x01R\x10compressionRatio\x12T\n" +
-	"\x11volume_timeseries\x18\a \x03(\v2'.gcommon.v1.metrics.DataVolumeDataPointR\x10volumeTimeseriesB\xdf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14DataVolumeStatsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11volume_timeseries\x18\a \x03(\v2'.gcommon.v1.metrics.DataVolumeDataPointR\x10volumeTimeseriesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_data_volume_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_data_volume_stats_proto_goTypes = []any{

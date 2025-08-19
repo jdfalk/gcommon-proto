@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/ssl_config.proto
 
-package messages
+package web
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 // SslConfig message definition.
 type SslConfig struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Protocol          enums.SSLProtocol      `protobuf:"varint,1,opt,name=protocol,enum=gcommon.v1.web.SSLProtocol"`
+	xxx_hidden_Protocol          SSLProtocol            `protobuf:"varint,1,opt,name=protocol,enum=gcommon.v1.web.SSLProtocol"`
 	xxx_hidden_CertFile          *string                `protobuf:"bytes,2,opt,name=cert_file,json=certFile"`
 	xxx_hidden_KeyFile           *string                `protobuf:"bytes,3,opt,name=key_file,json=keyFile"`
 	xxx_hidden_CaFile            *string                `protobuf:"bytes,4,opt,name=ca_file,json=caFile"`
@@ -61,13 +60,13 @@ func (x *SslConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SslConfig) GetProtocol() enums.SSLProtocol {
+func (x *SslConfig) GetProtocol() SSLProtocol {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Protocol
 		}
 	}
-	return enums.SSLProtocol(0)
+	return SSLProtocol_SSL_PROTOCOL_UNSPECIFIED
 }
 
 func (x *SslConfig) GetCertFile() string {
@@ -107,7 +106,7 @@ func (x *SslConfig) GetRequireClientAuth() bool {
 	return false
 }
 
-func (x *SslConfig) SetProtocol(v enums.SSLProtocol) {
+func (x *SslConfig) SetProtocol(v SSLProtocol) {
 	x.xxx_hidden_Protocol = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -169,7 +168,7 @@ func (x *SslConfig) HasRequireClientAuth() bool {
 
 func (x *SslConfig) ClearProtocol() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Protocol = enums.SSLProtocol_SSL_PROTOCOL_UNSPECIFIED
+	x.xxx_hidden_Protocol = SSLProtocol_SSL_PROTOCOL_UNSPECIFIED
 }
 
 func (x *SslConfig) ClearCertFile() {
@@ -196,7 +195,7 @@ type SslConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// TLS protocol version
-	Protocol *enums.SSLProtocol
+	Protocol *SSLProtocol
 	// Path to certificate file
 	CertFile *string
 	// Path to key file
@@ -244,13 +243,12 @@ const file_gcommon_v1_web_messages_ssl_config_proto_rawDesc = "" +
 	"\tcert_file\x18\x02 \x01(\tR\bcertFile\x12\x19\n" +
 	"\bkey_file\x18\x03 \x01(\tR\akeyFile\x12\x17\n" +
 	"\aca_file\x18\x04 \x01(\tR\x06caFile\x12.\n" +
-	"\x13require_client_auth\x18\x05 \x01(\bR\x11requireClientAuthB\xc1\x01\n" +
-	"\x12com.gcommon.v1.webB\x0eSslConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13require_client_auth\x18\x05 \x01(\bR\x11requireClientAuthB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_ssl_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_ssl_config_proto_goTypes = []any{
-	(*SslConfig)(nil),      // 0: gcommon.v1.web.SslConfig
-	(enums.SSLProtocol)(0), // 1: gcommon.v1.web.SSLProtocol
+	(*SslConfig)(nil), // 0: gcommon.v1.web.SslConfig
+	(SSLProtocol)(0),  // 1: gcommon.v1.web.SSLProtocol
 }
 var file_gcommon_v1_web_messages_ssl_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.SslConfig.protocol:type_name -> gcommon.v1.web.SSLProtocol
@@ -266,6 +264,7 @@ func file_gcommon_v1_web_messages_ssl_config_proto_init() {
 	if File_gcommon_v1_web_messages_ssl_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_ssl_protocol_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

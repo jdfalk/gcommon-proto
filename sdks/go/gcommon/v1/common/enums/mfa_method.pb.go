@@ -88,8 +88,7 @@ const file_gcommon_v1_common_enums_mfa_method_proto_rawDesc = "" +
 	"\x0eMFA_METHOD_SMS\x10\x01\x12\x14\n" +
 	"\x10MFA_METHOD_EMAIL\x10\x02\x12\x13\n" +
 	"\x0fMFA_METHOD_TOTP\x10\x03\x12\x1b\n" +
-	"\x17MFA_METHOD_HARDWARE_KEY\x10\x04B\xd0\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0eMfaMethodProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17MFA_METHOD_HARDWARE_KEY\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_mfa_method_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_mfa_method_proto_goTypes = []any{

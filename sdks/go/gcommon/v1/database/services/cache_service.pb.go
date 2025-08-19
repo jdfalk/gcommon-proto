@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/services/cache_service.proto
 
-package services
+package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,38 +40,37 @@ const file_gcommon_v1_database_services_cache_service_proto_rawDesc = "" +
 	"\x04Keys\x12 .gcommon.v1.database.KeysRequest\x1a!.gcommon.v1.database.KeysResponse\x12a\n" +
 	"\bGetStats\x12).gcommon.v1.database.CacheGetStatsRequest\x1a*.gcommon.v1.database.CacheGetStatsResponse\x12N\n" +
 	"\x05Flush\x12!.gcommon.v1.database.FlushRequest\x1a\".gcommon.v1.database.FlushResponse\x12l\n" +
-	"\x0fTouchExpiration\x12+.gcommon.v1.database.TouchExpirationRequest\x1a,.gcommon.v1.database.TouchExpirationResponseB\xe2\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x11CacheServiceProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fTouchExpiration\x12+.gcommon.v1.database.TouchExpirationRequest\x1a,.gcommon.v1.database.TouchExpirationResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_cache_service_proto_goTypes = []any{
-	(*messages.GetRequest)(nil),              // 0: gcommon.v1.database.GetRequest
-	(*messages.SetRequest)(nil),              // 1: gcommon.v1.database.SetRequest
-	(*messages.CacheDeleteRequest)(nil),      // 2: gcommon.v1.database.CacheDeleteRequest
-	(*messages.ExistsRequest)(nil),           // 3: gcommon.v1.database.ExistsRequest
-	(*messages.GetMultipleRequest)(nil),      // 4: gcommon.v1.database.GetMultipleRequest
-	(*messages.SetMultipleRequest)(nil),      // 5: gcommon.v1.database.SetMultipleRequest
-	(*messages.DeleteMultipleRequest)(nil),   // 6: gcommon.v1.database.DeleteMultipleRequest
-	(*messages.IncrementRequest)(nil),        // 7: gcommon.v1.database.IncrementRequest
-	(*messages.DecrementRequest)(nil),        // 8: gcommon.v1.database.DecrementRequest
-	(*messages.ClearRequest)(nil),            // 9: gcommon.v1.database.ClearRequest
-	(*messages.KeysRequest)(nil),             // 10: gcommon.v1.database.KeysRequest
-	(*messages.CacheGetStatsRequest)(nil),    // 11: gcommon.v1.database.CacheGetStatsRequest
-	(*messages.FlushRequest)(nil),            // 12: gcommon.v1.database.FlushRequest
-	(*messages.TouchExpirationRequest)(nil),  // 13: gcommon.v1.database.TouchExpirationRequest
-	(*messages.GetResponse)(nil),             // 14: gcommon.v1.database.GetResponse
-	(*messages.SetResponse)(nil),             // 15: gcommon.v1.database.SetResponse
-	(*messages.CacheDeleteResponse)(nil),     // 16: gcommon.v1.database.CacheDeleteResponse
-	(*messages.ExistsResponse)(nil),          // 17: gcommon.v1.database.ExistsResponse
-	(*messages.GetMultipleResponse)(nil),     // 18: gcommon.v1.database.GetMultipleResponse
-	(*messages.SetMultipleResponse)(nil),     // 19: gcommon.v1.database.SetMultipleResponse
-	(*messages.DeleteMultipleResponse)(nil),  // 20: gcommon.v1.database.DeleteMultipleResponse
-	(*messages.IncrementResponse)(nil),       // 21: gcommon.v1.database.IncrementResponse
-	(*messages.DecrementResponse)(nil),       // 22: gcommon.v1.database.DecrementResponse
-	(*messages.ClearResponse)(nil),           // 23: gcommon.v1.database.ClearResponse
-	(*messages.KeysResponse)(nil),            // 24: gcommon.v1.database.KeysResponse
-	(*messages.CacheGetStatsResponse)(nil),   // 25: gcommon.v1.database.CacheGetStatsResponse
-	(*messages.FlushResponse)(nil),           // 26: gcommon.v1.database.FlushResponse
-	(*messages.TouchExpirationResponse)(nil), // 27: gcommon.v1.database.TouchExpirationResponse
+	(*GetRequest)(nil),              // 0: gcommon.v1.database.GetRequest
+	(*SetRequest)(nil),              // 1: gcommon.v1.database.SetRequest
+	(*CacheDeleteRequest)(nil),      // 2: gcommon.v1.database.CacheDeleteRequest
+	(*ExistsRequest)(nil),           // 3: gcommon.v1.database.ExistsRequest
+	(*GetMultipleRequest)(nil),      // 4: gcommon.v1.database.GetMultipleRequest
+	(*SetMultipleRequest)(nil),      // 5: gcommon.v1.database.SetMultipleRequest
+	(*DeleteMultipleRequest)(nil),   // 6: gcommon.v1.database.DeleteMultipleRequest
+	(*IncrementRequest)(nil),        // 7: gcommon.v1.database.IncrementRequest
+	(*DecrementRequest)(nil),        // 8: gcommon.v1.database.DecrementRequest
+	(*ClearRequest)(nil),            // 9: gcommon.v1.database.ClearRequest
+	(*KeysRequest)(nil),             // 10: gcommon.v1.database.KeysRequest
+	(*CacheGetStatsRequest)(nil),    // 11: gcommon.v1.database.CacheGetStatsRequest
+	(*FlushRequest)(nil),            // 12: gcommon.v1.database.FlushRequest
+	(*TouchExpirationRequest)(nil),  // 13: gcommon.v1.database.TouchExpirationRequest
+	(*GetResponse)(nil),             // 14: gcommon.v1.database.GetResponse
+	(*SetResponse)(nil),             // 15: gcommon.v1.database.SetResponse
+	(*CacheDeleteResponse)(nil),     // 16: gcommon.v1.database.CacheDeleteResponse
+	(*ExistsResponse)(nil),          // 17: gcommon.v1.database.ExistsResponse
+	(*GetMultipleResponse)(nil),     // 18: gcommon.v1.database.GetMultipleResponse
+	(*SetMultipleResponse)(nil),     // 19: gcommon.v1.database.SetMultipleResponse
+	(*DeleteMultipleResponse)(nil),  // 20: gcommon.v1.database.DeleteMultipleResponse
+	(*IncrementResponse)(nil),       // 21: gcommon.v1.database.IncrementResponse
+	(*DecrementResponse)(nil),       // 22: gcommon.v1.database.DecrementResponse
+	(*ClearResponse)(nil),           // 23: gcommon.v1.database.ClearResponse
+	(*KeysResponse)(nil),            // 24: gcommon.v1.database.KeysResponse
+	(*CacheGetStatsResponse)(nil),   // 25: gcommon.v1.database.CacheGetStatsResponse
+	(*FlushResponse)(nil),           // 26: gcommon.v1.database.FlushResponse
+	(*TouchExpirationResponse)(nil), // 27: gcommon.v1.database.TouchExpirationResponse
 }
 var file_gcommon_v1_database_services_cache_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.CacheService.Get:input_type -> gcommon.v1.database.GetRequest
@@ -115,6 +113,34 @@ func file_gcommon_v1_database_services_cache_service_proto_init() {
 	if File_gcommon_v1_database_services_cache_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_database_messages_clear_request_proto_init()
+	file_gcommon_v1_database_messages_clear_response_proto_init()
+	file_gcommon_v1_database_messages_decrement_request_proto_init()
+	file_gcommon_v1_database_messages_decrement_response_proto_init()
+	file_gcommon_v1_database_messages_delete_multiple_request_proto_init()
+	file_gcommon_v1_database_messages_delete_multiple_response_proto_init()
+	file_gcommon_v1_database_messages_delete_request_proto_init()
+	file_gcommon_v1_database_messages_delete_response_proto_init()
+	file_gcommon_v1_database_messages_exists_request_proto_init()
+	file_gcommon_v1_database_messages_exists_response_proto_init()
+	file_gcommon_v1_database_messages_flush_request_proto_init()
+	file_gcommon_v1_database_messages_flush_response_proto_init()
+	file_gcommon_v1_database_messages_get_multiple_request_proto_init()
+	file_gcommon_v1_database_messages_get_multiple_response_proto_init()
+	file_gcommon_v1_database_messages_get_request_proto_init()
+	file_gcommon_v1_database_messages_get_response_proto_init()
+	file_gcommon_v1_database_messages_get_stats_request_proto_init()
+	file_gcommon_v1_database_messages_get_stats_response_proto_init()
+	file_gcommon_v1_database_messages_increment_request_proto_init()
+	file_gcommon_v1_database_messages_increment_response_proto_init()
+	file_gcommon_v1_database_messages_keys_request_proto_init()
+	file_gcommon_v1_database_messages_keys_response_proto_init()
+	file_gcommon_v1_database_messages_set_multiple_request_proto_init()
+	file_gcommon_v1_database_messages_set_multiple_response_proto_init()
+	file_gcommon_v1_database_messages_set_request_proto_init()
+	file_gcommon_v1_database_messages_set_response_proto_init()
+	file_gcommon_v1_database_messages_touch_expiration_request_proto_init()
+	file_gcommon_v1_database_messages_touch_expiration_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

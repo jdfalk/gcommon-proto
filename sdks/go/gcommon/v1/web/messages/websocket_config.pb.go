@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/websocket_config.proto
 
-package messages
+package web
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -219,8 +219,7 @@ const file_gcommon_v1_web_messages_websocket_config_proto_rawDesc = "" +
 	"\x0fallowed_origins\x18\x02 \x03(\tR\x0eallowedOrigins\x12-\n" +
 	"\x12enable_compression\x18\x03 \x01(\bR\x11enableCompression\x12(\n" +
 	"\x10read_buffer_size\x18\x04 \x01(\x05R\x0ereadBufferSize\x12*\n" +
-	"\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB\xc7\x01\n" +
-	"\x12com.gcommon.v1.webB\x14WebsocketConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_websocket_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_websocket_config_proto_goTypes = []any{

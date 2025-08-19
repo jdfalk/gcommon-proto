@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/organization/messages/cache_key_policy.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xa2\x02\n\x0e\x43\x61\x63heKeyPolicy\x12\x32\n\x15include_query_strings\x18\x01 \x01(\x08R\x13includeQueryStrings\x12\x34\n\x16query_string_whitelist\x18\x02 \x03(\tR\x14queryStringWhitelist\x12\'\n\x0finclude_headers\x18\x03 \x01(\x08R\x0eincludeHeaders\x12)\n\x10header_whitelist\x18\x04 \x03(\tR\x0fheaderWhitelist\x12\'\n\x0finclude_cookies\x18\x05 \x01(\x08R\x0eincludeCookies\x12)\n\x10\x63ookie_whitelist\x18\x06 \x03(\tR\x0f\x63ookieWhitelistB\xfc\x01\n\x1b\x63om.gcommon.v1.organizationB\x13\x43\x61\x63heKeyPolicyProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/organization/messages/cache_key_policy.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\"\xa2\x02\n\x0e\x43\x61\x63heKeyPolicy\x12\x32\n\x15include_query_strings\x18\x01 \x01(\x08R\x13includeQueryStrings\x12\x34\n\x16query_string_whitelist\x18\x02 \x03(\tR\x14queryStringWhitelist\x12\'\n\x0finclude_headers\x18\x03 \x01(\x08R\x0eincludeHeaders\x12)\n\x10header_whitelist\x18\x04 \x03(\tR\x0fheaderWhitelist\x12\'\n\x0finclude_cookies\x18\x05 \x01(\x08R\x0eincludeCookies\x12)\n\x10\x63ookie_whitelist\x18\x06 \x03(\tR\x0f\x63ookieWhitelistB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.cache_key_policy_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\023CacheKeyPolicyProtoP\001ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/pkg/organization\222\003\005\322>\002\020\003'
   _globals['_CACHEKEYPOLICY']._serialized_start=120
   _globals['_CACHEKEYPOLICY']._serialized_end=410
 # @@protoc_insertion_point(module_scope)

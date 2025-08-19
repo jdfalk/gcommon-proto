@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/cache_config.proto
 
-package messages
+package database
 
 import (
 	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
@@ -337,8 +337,7 @@ const file_gcommon_v1_database_messages_cache_config_proto_rawDesc = "" +
 	"\fenable_stats\x18\x05 \x01(\bR\venableStats\x12-\n" +
 	"\x12enable_persistence\x18\x06 \x01(\bR\x11enablePersistence\x12)\n" +
 	"\x10persistence_file\x18\a \x01(\tR\x0fpersistenceFile\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04nameB\xe1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x10CacheConfigProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04name\x18\b \x01(\tR\x04nameB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_cache_config_proto_goTypes = []any{

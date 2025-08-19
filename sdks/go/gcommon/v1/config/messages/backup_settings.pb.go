@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/backup_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type BackupSettings struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Frequency       enums.BackupFrequency  `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.BackupFrequency"`
+	xxx_hidden_Frequency       BackupFrequency        `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.BackupFrequency"`
 	xxx_hidden_RetentionDays   int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
 	xxx_hidden_StorageLocation *string                `protobuf:"bytes,4,opt,name=storage_location,json=storageLocation"`
 	xxx_hidden_Encrypted       bool                   `protobuf:"varint,5,opt,name=encrypted"`
@@ -69,13 +68,13 @@ func (x *BackupSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *BackupSettings) GetFrequency() enums.BackupFrequency {
+func (x *BackupSettings) GetFrequency() BackupFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return enums.BackupFrequency(0)
+	return BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
 }
 
 func (x *BackupSettings) GetRetentionDays() int32 {
@@ -121,7 +120,7 @@ func (x *BackupSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *BackupSettings) SetFrequency(v enums.BackupFrequency) {
+func (x *BackupSettings) SetFrequency(v BackupFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -199,7 +198,7 @@ func (x *BackupSettings) ClearEnabled() {
 
 func (x *BackupSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Frequency = enums.BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
 }
 
 func (x *BackupSettings) ClearRetentionDays() {
@@ -228,7 +227,7 @@ type BackupSettings_builder struct {
 	// Whether backup is enabled
 	Enabled *bool
 	// Backup frequency
-	Frequency *enums.BackupFrequency
+	Frequency *BackupFrequency
 	// Backup retention period in days
 	RetentionDays *int32
 	// Backup storage location
@@ -290,14 +289,13 @@ const file_gcommon_v1_config_messages_backup_settings_proto_rawDesc = "" +
 	"\bmetadata\x18\a \x03(\v2/.gcommon.v1.config.BackupSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x13BackupSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_backup_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_backup_settings_proto_goTypes = []any{
-	(*BackupSettings)(nil),     // 0: gcommon.v1.config.BackupSettings
-	nil,                        // 1: gcommon.v1.config.BackupSettings.MetadataEntry
-	(enums.BackupFrequency)(0), // 2: gcommon.v1.config.BackupFrequency
+	(*BackupSettings)(nil), // 0: gcommon.v1.config.BackupSettings
+	nil,                    // 1: gcommon.v1.config.BackupSettings.MetadataEntry
+	(BackupFrequency)(0),   // 2: gcommon.v1.config.BackupFrequency
 }
 var file_gcommon_v1_config_messages_backup_settings_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.BackupSettings.frequency:type_name -> gcommon.v1.config.BackupFrequency
@@ -314,6 +312,7 @@ func file_gcommon_v1_config_messages_backup_settings_proto_init() {
 	if File_gcommon_v1_config_messages_backup_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_backup_frequency_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/dead_letter_queue_config.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -202,8 +202,7 @@ const file_gcommon_v1_queue_messages_dead_letter_queue_config_proto_rawDesc = ""
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x1b\n" +
 	"\tdlq_topic\x18\x02 \x01(\tR\bdlqTopic\x12-\n" +
 	"\x13dlq_max_age_seconds\x18\x03 \x01(\x03R\x10dlqMaxAgeSeconds\x12,\n" +
-	"\x12include_error_info\x18\x04 \x01(\bR\x10includeErrorInfoB\xd9\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1aDeadLetterQueueConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12include_error_info\x18\x04 \x01(\bR\x10includeErrorInfoB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_dead_letter_queue_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_dead_letter_queue_config_proto_goTypes = []any{

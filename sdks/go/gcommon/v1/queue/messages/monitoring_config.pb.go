@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/monitoring_config.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -139,8 +139,7 @@ const file_gcommon_v1_queue_messages_monitoring_config_proto_rawDesc = "" +
 	"1gcommon/v1/queue/messages/monitoring_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\\\n" +
 	"\x15QueueMonitoringConfig\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12)\n" +
-	"\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpointB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15MonitoringConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpointB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_monitoring_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_monitoring_config_proto_goTypes = []any{

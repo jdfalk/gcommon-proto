@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/message_state.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -97,8 +97,7 @@ const file_gcommon_v1_queue_enums_message_state_proto_rawDesc = "" +
 	"\x1aMESSAGE_STATE_ACKNOWLEDGED\x10\x03\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x04\x12\x1d\n" +
 	"\x19MESSAGE_STATE_DEAD_LETTER\x10\x05\x12\x19\n" +
-	"\x15MESSAGE_STATE_EXPIRED\x10\x06B\xcd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11MessageStateProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15MESSAGE_STATE_EXPIRED\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_message_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_message_state_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/webhook_config.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -189,8 +189,7 @@ const file_gcommon_v1_organization_messages_webhook_config_proto_rawDesc = "" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x16\n" +
 	"\x06events\x18\x02 \x03(\tR\x06events\x12\x16\n" +
 	"\x06active\x18\x03 \x01(\bR\x06active\x12\x16\n" +
-	"\x06secret\x18\x04 \x01(\tR\x06secretB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12WebhookConfigProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06secret\x18\x04 \x01(\tR\x06secretB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_webhook_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_webhook_config_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/messages/subtitle_track.proto
 
-package messages
+package media
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -298,8 +298,7 @@ const file_gcommon_v1_media_messages_subtitle_track_proto_rawDesc = "" +
 	"\x05title\x18\x04 \x01(\tR\x05title\x12\x16\n" +
 	"\x06forced\x18\x05 \x01(\bR\x06forced\x12)\n" +
 	"\x10hearing_impaired\x18\x06 \x01(\bR\x0fhearingImpaired\x12#\n" +
-	"\rdefault_track\x18\a \x01(\bR\fdefaultTrackB\xd1\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x12SubtitleTrackProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rdefault_track\x18\a \x01(\bR\fdefaultTrackB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_subtitle_track_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_subtitle_track_proto_goTypes = []any{

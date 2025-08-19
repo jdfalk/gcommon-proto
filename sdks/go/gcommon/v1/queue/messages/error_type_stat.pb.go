@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/error_type_stat.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -202,8 +202,7 @@ const file_gcommon_v1_queue_messages_error_type_stat_proto_rawDesc = "" +
 	"error_type\x18\x01 \x01(\tR\terrorType\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x03R\x05count\x12\x12\n" +
 	"\x04rate\x18\x03 \x01(\x01R\x04rate\x12'\n" +
-	"\x0flast_occurrence\x18\x04 \x01(\tR\x0elastOccurrenceB\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12ErrorTypeStatProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0flast_occurrence\x18\x04 \x01(\tR\x0elastOccurrenceB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_error_type_stat_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_error_type_stat_proto_goTypes = []any{

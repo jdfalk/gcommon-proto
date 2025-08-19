@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/gauge_operation.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -94,8 +94,7 @@ const file_gcommon_v1_metrics_messages_gauge_operation_proto_rawDesc = "" +
 	"\x13GAUGE_OPERATION_ADD\x10\x02\x12\x1c\n" +
 	"\x18GAUGE_OPERATION_SUBTRACT\x10\x03\x12\x1d\n" +
 	"\x19GAUGE_OPERATION_INCREMENT\x10\x04\x12\x1d\n" +
-	"\x19GAUGE_OPERATION_DECREMENT\x10\x05B\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13GaugeOperationProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19GAUGE_OPERATION_DECREMENT\x10\x05B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_gauge_operation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_gauge_operation_proto_goTypes = []any{

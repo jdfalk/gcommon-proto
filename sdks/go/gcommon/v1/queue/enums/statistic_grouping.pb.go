@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/statistic_grouping.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -85,8 +85,7 @@ const file_gcommon_v1_queue_enums_statistic_grouping_proto_rawDesc = "" +
 	"\x1bSTATISTIC_GROUPING_BY_QUEUE\x10\x02\x12\"\n" +
 	"\x1eSTATISTIC_GROUPING_BY_CONSUMER\x10\x03\x12%\n" +
 	"!STATISTIC_GROUPING_BY_TIME_PERIOD\x10\x04\x12&\n" +
-	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B\xd2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16StatisticGroupingProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_statistic_grouping_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_statistic_grouping_proto_goTypes = []any{

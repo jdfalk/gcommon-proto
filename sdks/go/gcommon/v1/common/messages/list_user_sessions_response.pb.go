@@ -385,8 +385,7 @@ const file_gcommon_v1_common_messages_list_user_sessions_response_proto_rawDesc 
 	"\auser_id\x18\x0f \x01(\tR\x06userId\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12=\n" +
 	"\fgenerated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\vgeneratedAt\x12F\n" +
-	"\x11data_refreshed_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x0fdataRefreshedAtB\xe2\x01\n" +
-	"\x15com.gcommon.v1.commonB\x1dListUserSessionsResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11data_refreshed_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x0fdataRefreshedAtBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_user_sessions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_user_sessions_response_proto_goTypes = []any{

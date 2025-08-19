@@ -27,14 +27,14 @@ from gcommon.v1.metrics.messages import schema_change_pb2 as gcommon_dot_v1_dot_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/metrics/messages/registration_result.proto\x12\x12gcommon.v1.metrics\x1a\x32gcommon/v1/metrics/enums/registration_action.proto\x1a/gcommon/v1/metrics/messages/schema_change.proto\x1a!google/protobuf/go_features.proto\"\xda\x02\n\x12RegistrationResult\x12>\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32&.gcommon.v1.metrics.RegistrationActionR\x06\x61\x63tion\x12\'\n\x0f\x63reated_indices\x18\x02 \x03(\tR\x0e\x63reatedIndices\x12%\n\x0e\x63reated_alerts\x18\x03 \x03(\tR\rcreatedAlerts\x12-\n\x12\x63onfigured_exports\x18\x04 \x03(\tR\x11\x63onfiguredExports\x12<\n\x1a\x61pplied_retention_policies\x18\x05 \x03(\tR\x18\x61ppliedRetentionPolicies\x12G\n\x0eschema_changes\x18\x06 \x03(\x0b\x32 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB\xe2\x01\n\x16\x63om.gcommon.v1.metricsB\x17RegistrationResultProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/metrics/messages/registration_result.proto\x12\x12gcommon.v1.metrics\x1a\x32gcommon/v1/metrics/enums/registration_action.proto\x1a/gcommon/v1/metrics/messages/schema_change.proto\x1a!google/protobuf/go_features.proto\"\xda\x02\n\x12RegistrationResult\x12>\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32&.gcommon.v1.metrics.RegistrationActionR\x06\x61\x63tion\x12\'\n\x0f\x63reated_indices\x18\x02 \x03(\tR\x0e\x63reatedIndices\x12%\n\x0e\x63reated_alerts\x18\x03 \x03(\tR\rcreatedAlerts\x12-\n\x12\x63onfigured_exports\x18\x04 \x03(\tR\x11\x63onfiguredExports\x12<\n\x1a\x61pplied_retention_policies\x18\x05 \x03(\tR\x18\x61ppliedRetentionPolicies\x12G\n\x0eschema_changes\x18\x06 \x03(\x0b\x32 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.registration_result_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\027RegistrationResultProtoP\001Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z%github.com/jdfalk/gcommon/pkg/metrics\222\003\005\322>\002\020\003'
   _globals['_REGISTRATIONRESULT']._serialized_start=214
   _globals['_REGISTRATIONRESULT']._serialized_end=560
 # @@protoc_insertion_point(module_scope)

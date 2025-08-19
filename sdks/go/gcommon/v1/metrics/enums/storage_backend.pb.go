@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/enums/storage_backend.proto
 
-package enums
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -125,8 +125,7 @@ const file_gcommon_v1_metrics_enums_storage_backend_proto_rawDesc = "" +
 	"\x1eSTORAGE_BACKEND_GCP_MONITORING\x10\t\x12!\n" +
 	"\x1dSTORAGE_BACKEND_AZURE_MONITOR\x10\n" +
 	"\x12#\n" +
-	"\x1fSTORAGE_BACKEND_VICTORIAMETRICS\x10\vB\xdb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13StorageBackendProtoP\x01Z:github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fSTORAGE_BACKEND_VICTORIAMETRICS\x10\vB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_storage_backend_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_storage_backend_proto_goTypes = []any{

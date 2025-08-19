@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/offset_reset_strategy.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -81,8 +81,7 @@ const file_gcommon_v1_queue_enums_offset_reset_strategy_proto_rawDesc = "" +
 	"\x1eOFFSET_RESET_STRATEGY_EARLIEST\x10\x01\x12 \n" +
 	"\x1cOFFSET_RESET_STRATEGY_LATEST\x10\x02\x12\x1e\n" +
 	"\x1aOFFSET_RESET_STRATEGY_NONE\x10\x03\x12#\n" +
-	"\x1fOFFSET_RESET_STRATEGY_TIMESTAMP\x10\x04B\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18OffsetResetStrategyProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fOFFSET_RESET_STRATEGY_TIMESTAMP\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_offset_reset_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_offset_reset_strategy_proto_goTypes = []any{

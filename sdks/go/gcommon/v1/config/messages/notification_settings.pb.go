@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/notification_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ type ConfigNotificationSettings struct {
 	state                   protoimpl.MessageState        `protogen:"opaque.v1"`
 	xxx_hidden_Enabled      bool                          `protobuf:"varint,1,opt,name=enabled"`
 	xxx_hidden_Channels     *[]*ConfigNotificationChannel `protobuf:"bytes,2,rep,name=channels"`
-	xxx_hidden_Triggers     []enums.NotificationTrigger   `protobuf:"varint,3,rep,packed,name=triggers,enum=gcommon.v1.config.NotificationTrigger"`
+	xxx_hidden_Triggers     []NotificationTrigger         `protobuf:"varint,3,rep,packed,name=triggers,enum=gcommon.v1.config.NotificationTrigger"`
 	xxx_hidden_Template     *string                       `protobuf:"bytes,4,opt,name=template"`
 	xxx_hidden_Recipients   []string                      `protobuf:"bytes,5,rep,name=recipients"`
 	xxx_hidden_DelayMinutes int32                         `protobuf:"varint,6,opt,name=delay_minutes,json=delayMinutes"`
@@ -78,7 +77,7 @@ func (x *ConfigNotificationSettings) GetChannels() []*ConfigNotificationChannel 
 	return nil
 }
 
-func (x *ConfigNotificationSettings) GetTriggers() []enums.NotificationTrigger {
+func (x *ConfigNotificationSettings) GetTriggers() []NotificationTrigger {
 	if x != nil {
 		return x.xxx_hidden_Triggers
 	}
@@ -125,7 +124,7 @@ func (x *ConfigNotificationSettings) SetChannels(v []*ConfigNotificationChannel)
 	x.xxx_hidden_Channels = &v
 }
 
-func (x *ConfigNotificationSettings) SetTriggers(v []enums.NotificationTrigger) {
+func (x *ConfigNotificationSettings) SetTriggers(v []NotificationTrigger) {
 	x.xxx_hidden_Triggers = v
 }
 
@@ -202,7 +201,7 @@ type ConfigNotificationSettings_builder struct {
 	// Notification channels
 	Channels []*ConfigNotificationChannel
 	// Notification triggers
-	Triggers []enums.NotificationTrigger
+	Triggers []NotificationTrigger
 	// Notification template
 	Template *string
 	// Notification recipients
@@ -250,14 +249,13 @@ const file_gcommon_v1_config_messages_notification_settings_proto_rawDesc = "" +
 	"recipients\x18\x05 \x03(\tR\n" +
 	"recipients\x12#\n" +
 	"\rdelay_minutes\x18\x06 \x01(\x05R\fdelayMinutes\x12?\n" +
-	"\bbatching\x18\a \x01(\v2#.gcommon.v1.config.BatchingSettingsR\bbatchingB\xde\x01\n" +
-	"\x15com.gcommon.v1.configB\x19NotificationSettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bbatching\x18\a \x01(\v2#.gcommon.v1.config.BatchingSettingsR\bbatchingB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_notification_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_notification_settings_proto_goTypes = []any{
 	(*ConfigNotificationSettings)(nil), // 0: gcommon.v1.config.ConfigNotificationSettings
 	(*ConfigNotificationChannel)(nil),  // 1: gcommon.v1.config.ConfigNotificationChannel
-	(enums.NotificationTrigger)(0),     // 2: gcommon.v1.config.NotificationTrigger
+	(NotificationTrigger)(0),           // 2: gcommon.v1.config.NotificationTrigger
 	(*BatchingSettings)(nil),           // 3: gcommon.v1.config.BatchingSettings
 }
 var file_gcommon_v1_config_messages_notification_settings_proto_depIdxs = []int32{
@@ -276,6 +274,7 @@ func file_gcommon_v1_config_messages_notification_settings_proto_init() {
 	if File_gcommon_v1_config_messages_notification_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_notification_trigger_proto_init()
 	file_gcommon_v1_config_messages_batching_settings_proto_init()
 	file_gcommon_v1_config_messages_notification_channel_proto_init()
 	type x struct{}

@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/queue/messages/queue_stats.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x02\n\nQueueStats\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12#\n\rmessage_count\x18\x02 \x01(\x03R\x0cmessageCount\x12\x1f\n\x0btotal_bytes\x18\x03 \x01(\x03R\ntotalBytes\x12(\n\x10\x61vg_message_size\x18\x04 \x01(\x01R\x0e\x61vgMessageSize\x12\x1e\n\nthroughput\x18\x05 \x01(\x01R\nthroughput\x12#\n\rcurrent_depth\x18\x06 \x01(\x03R\x0c\x63urrentDepth\x12\x1d\n\npeak_depth\x18\x07 \x01(\x03R\tpeakDepth\x12?\n\rlast_activity\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastActivityB\xce\x01\n\x14\x63om.gcommon.v1.queueB\x0fQueueStatsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/queue/messages/queue_stats.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x02\n\nQueueStats\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12#\n\rmessage_count\x18\x02 \x01(\x03R\x0cmessageCount\x12\x1f\n\x0btotal_bytes\x18\x03 \x01(\x03R\ntotalBytes\x12(\n\x10\x61vg_message_size\x18\x04 \x01(\x01R\x0e\x61vgMessageSize\x12\x1e\n\nthroughput\x18\x05 \x01(\x01R\nthroughput\x12#\n\rcurrent_depth\x18\x06 \x01(\x03R\x0c\x63urrentDepth\x12\x1d\n\npeak_depth\x18\x07 \x01(\x03R\tpeakDepth\x12?\n\rlast_activity\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastActivityB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.queue_stats_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\017QueueStatsProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_QUEUESTATS']._serialized_start=134
   _globals['_QUEUESTATS']._serialized_end=454
 # @@protoc_insertion_point(module_scope)

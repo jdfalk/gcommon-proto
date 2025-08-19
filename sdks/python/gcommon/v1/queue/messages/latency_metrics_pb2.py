@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/latency_metrics.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x8d\x03\n\x0eLatencyMetrics\x12\x39\n\x19p50_processing_latency_ms\x18\x01 \x01(\x01R\x16p50ProcessingLatencyMs\x12\x39\n\x19p95_processing_latency_ms\x18\x02 \x01(\x01R\x16p95ProcessingLatencyMs\x12\x39\n\x19p99_processing_latency_ms\x18\x03 \x01(\x01R\x16p99ProcessingLatencyMs\x12\x37\n\x18\x61verage_queue_latency_ms\x18\x04 \x01(\x01R\x15\x61verageQueueLatencyMs\x12/\n\x14p95_queue_latency_ms\x18\x05 \x01(\x01R\x11p95QueueLatencyMs\x12\x33\n\x16\x61verage_e2e_latency_ms\x18\x06 \x01(\x01R\x13\x61verageE2eLatencyMs\x12+\n\x12p95_e2e_latency_ms\x18\x07 \x01(\x01R\x0fp95E2eLatencyMsB\xd2\x01\n\x14\x63om.gcommon.v1.queueB\x13LatencyMetricsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/latency_metrics.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x8d\x03\n\x0eLatencyMetrics\x12\x39\n\x19p50_processing_latency_ms\x18\x01 \x01(\x01R\x16p50ProcessingLatencyMs\x12\x39\n\x19p95_processing_latency_ms\x18\x02 \x01(\x01R\x16p95ProcessingLatencyMs\x12\x39\n\x19p99_processing_latency_ms\x18\x03 \x01(\x01R\x16p99ProcessingLatencyMs\x12\x37\n\x18\x61verage_queue_latency_ms\x18\x04 \x01(\x01R\x15\x61verageQueueLatencyMs\x12/\n\x14p95_queue_latency_ms\x18\x05 \x01(\x01R\x11p95QueueLatencyMs\x12\x33\n\x16\x61verage_e2e_latency_ms\x18\x06 \x01(\x01R\x13\x61verageE2eLatencyMs\x12+\n\x12p95_e2e_latency_ms\x18\x07 \x01(\x01R\x0fp95E2eLatencyMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.latency_metrics_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\023LatencyMetricsProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_LATENCYMETRICS']._serialized_start=105
   _globals['_LATENCYMETRICS']._serialized_end=502
 # @@protoc_insertion_point(module_scope)

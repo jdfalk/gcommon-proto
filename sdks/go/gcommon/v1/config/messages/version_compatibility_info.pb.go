@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/version_compatibility_info.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -309,8 +309,7 @@ const file_gcommon_v1_config_messages_version_compatibility_info_proto_rawDesc =
 	"\vmax_version\x18\x06 \x01(\tR\n" +
 	"maxVersion\x12/\n" +
 	"\x13deprecated_features\x18\a \x03(\tR\x12deprecatedFeatures\x12'\n" +
-	"\x0fmigration_guide\x18\b \x01(\tR\x0emigrationGuideB\xe2\x01\n" +
-	"\x15com.gcommon.v1.configB\x1dVersionCompatibilityInfoProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fmigration_guide\x18\b \x01(\tR\x0emigrationGuideB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_version_compatibility_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_version_compatibility_info_proto_goTypes = []any{

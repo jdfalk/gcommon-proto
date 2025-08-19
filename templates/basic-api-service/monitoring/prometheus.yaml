@@ -1,8 +1,0 @@
-# file: templates/basic-api-service/monitoring/prometheus.yaml
-# version: 1.0.0
-# guid: 490e553c-f63e-4e6b-89e3-0af22bd2529c
-
-scrape_configs:
-  - job_name: basic-api-service
-    static_configs:
-      - targets: ["localhost:9090"]

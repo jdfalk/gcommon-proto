@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/retry_policy.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,14 +27,14 @@ const (
 // Defines how failed messages should be retried before being
 // sent to dead letter queue.
 type QueueRetryPolicy struct {
-	state                        protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_MaxAttempts       int32                    `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
-	xxx_hidden_InitialDelay      *durationpb.Duration     `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
-	xxx_hidden_MaxDelay          *durationpb.Duration     `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
-	xxx_hidden_BackoffMultiplier float64                  `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
-	xxx_hidden_DelayStrategy     enums.RetryDelayStrategy `protobuf:"varint,5,opt,name=delay_strategy,json=delayStrategy,enum=gcommon.v1.queue.RetryDelayStrategy"`
-	xxx_hidden_EnableJitter      bool                     `protobuf:"varint,6,opt,name=enable_jitter,json=enableJitter"`
-	xxx_hidden_JitterFactor      float64                  `protobuf:"fixed64,7,opt,name=jitter_factor,json=jitterFactor"`
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_MaxAttempts       int32                  `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
+	xxx_hidden_InitialDelay      *durationpb.Duration   `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
+	xxx_hidden_MaxDelay          *durationpb.Duration   `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
+	xxx_hidden_BackoffMultiplier float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
+	xxx_hidden_DelayStrategy     RetryDelayStrategy     `protobuf:"varint,5,opt,name=delay_strategy,json=delayStrategy,enum=gcommon.v1.queue.RetryDelayStrategy"`
+	xxx_hidden_EnableJitter      bool                   `protobuf:"varint,6,opt,name=enable_jitter,json=enableJitter"`
+	xxx_hidden_JitterFactor      float64                `protobuf:"fixed64,7,opt,name=jitter_factor,json=jitterFactor"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -95,13 +94,13 @@ func (x *QueueRetryPolicy) GetBackoffMultiplier() float64 {
 	return 0
 }
 
-func (x *QueueRetryPolicy) GetDelayStrategy() enums.RetryDelayStrategy {
+func (x *QueueRetryPolicy) GetDelayStrategy() RetryDelayStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_DelayStrategy
 		}
 	}
-	return enums.RetryDelayStrategy(0)
+	return RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueRetryPolicy) GetEnableJitter() bool {
@@ -136,7 +135,7 @@ func (x *QueueRetryPolicy) SetBackoffMultiplier(v float64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
-func (x *QueueRetryPolicy) SetDelayStrategy(v enums.RetryDelayStrategy) {
+func (x *QueueRetryPolicy) SetDelayStrategy(v RetryDelayStrategy) {
 	x.xxx_hidden_DelayStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
@@ -220,7 +219,7 @@ func (x *QueueRetryPolicy) ClearBackoffMultiplier() {
 
 func (x *QueueRetryPolicy) ClearDelayStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_DelayStrategy = enums.RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_DelayStrategy = RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueRetryPolicy) ClearEnableJitter() {
@@ -245,7 +244,7 @@ type QueueRetryPolicy_builder struct {
 	// Backoff multiplier for exponential backoff
 	BackoffMultiplier *float64
 	// Retry delay strategy
-	DelayStrategy *enums.RetryDelayStrategy
+	DelayStrategy *RetryDelayStrategy
 	// Whether to enable jitter in retry delays
 	EnableJitter *bool
 	// Jitter factor (0.0 to 1.0) for randomizing delays
@@ -293,14 +292,13 @@ const file_gcommon_v1_queue_messages_retry_policy_proto_rawDesc = "" +
 	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12K\n" +
 	"\x0edelay_strategy\x18\x05 \x01(\x0e2$.gcommon.v1.queue.RetryDelayStrategyR\rdelayStrategy\x12#\n" +
 	"\renable_jitter\x18\x06 \x01(\bR\fenableJitter\x12#\n" +
-	"\rjitter_factor\x18\a \x01(\x01R\fjitterFactorB\xcf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10RetryPolicyProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rjitter_factor\x18\a \x01(\x01R\fjitterFactorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_retry_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_retry_policy_proto_goTypes = []any{
-	(*QueueRetryPolicy)(nil),      // 0: gcommon.v1.queue.QueueRetryPolicy
-	(*durationpb.Duration)(nil),   // 1: google.protobuf.Duration
-	(enums.RetryDelayStrategy)(0), // 2: gcommon.v1.queue.RetryDelayStrategy
+	(*QueueRetryPolicy)(nil),    // 0: gcommon.v1.queue.QueueRetryPolicy
+	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(RetryDelayStrategy)(0),     // 2: gcommon.v1.queue.RetryDelayStrategy
 }
 var file_gcommon_v1_queue_messages_retry_policy_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueRetryPolicy.initial_delay:type_name -> google.protobuf.Duration
@@ -318,6 +316,7 @@ func file_gcommon_v1_queue_messages_retry_policy_proto_init() {
 	if File_gcommon_v1_queue_messages_retry_policy_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_retry_delay_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

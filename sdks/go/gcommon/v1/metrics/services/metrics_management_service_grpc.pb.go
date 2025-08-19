@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/metrics/services/metrics_management_service.proto
 
-package services
+package metrics
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -36,15 +35,15 @@ const (
 // This service handles provider lifecycle, configuration, and monitoring.
 type MetricsManagementServiceClient interface {
 	// Create a new metrics provider
-	CreateMetricsProvider(ctx context.Context, in *messages.CreateProviderRequest, opts ...grpc.CallOption) (*messages.CreateProviderResponse, error)
+	CreateMetricsProvider(ctx context.Context, in *CreateProviderRequest, opts ...grpc.CallOption) (*CreateProviderResponse, error)
 	// Update an existing metrics provider configuration
-	UpdateMetricsProvider(ctx context.Context, in *messages.UpdateProviderRequest, opts ...grpc.CallOption) (*messages.UpdateProviderResponse, error)
+	UpdateMetricsProvider(ctx context.Context, in *UpdateProviderRequest, opts ...grpc.CallOption) (*UpdateProviderResponse, error)
 	// Delete a metrics provider and optionally its data
-	DeleteMetricsProvider(ctx context.Context, in *messages.DeleteProviderRequest, opts ...grpc.CallOption) (*messages.DeleteProviderResponse, error)
+	DeleteMetricsProvider(ctx context.Context, in *DeleteProviderRequest, opts ...grpc.CallOption) (*DeleteProviderResponse, error)
 	// List all configured metrics providers
-	ListMetricsProviders(ctx context.Context, in *messages.ListProvidersRequest, opts ...grpc.CallOption) (*messages.ListProvidersResponse, error)
+	ListMetricsProviders(ctx context.Context, in *ListProvidersRequest, opts ...grpc.CallOption) (*ListProvidersResponse, error)
 	// Get statistics and status for a specific provider
-	GetProviderStats(ctx context.Context, in *messages.GetProviderStatsRequest, opts ...grpc.CallOption) (*messages.GetProviderStatsResponse, error)
+	GetProviderStats(ctx context.Context, in *GetProviderStatsRequest, opts ...grpc.CallOption) (*GetProviderStatsResponse, error)
 }
 
 type metricsManagementServiceClient struct {
@@ -55,9 +54,9 @@ func NewMetricsManagementServiceClient(cc grpc.ClientConnInterface) MetricsManag
 	return &metricsManagementServiceClient{cc}
 }
 
-func (c *metricsManagementServiceClient) CreateMetricsProvider(ctx context.Context, in *messages.CreateProviderRequest, opts ...grpc.CallOption) (*messages.CreateProviderResponse, error) {
+func (c *metricsManagementServiceClient) CreateMetricsProvider(ctx context.Context, in *CreateProviderRequest, opts ...grpc.CallOption) (*CreateProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateProviderResponse)
+	out := new(CreateProviderResponse)
 	err := c.cc.Invoke(ctx, MetricsManagementService_CreateMetricsProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -65,9 +64,9 @@ func (c *metricsManagementServiceClient) CreateMetricsProvider(ctx context.Conte
 	return out, nil
 }
 
-func (c *metricsManagementServiceClient) UpdateMetricsProvider(ctx context.Context, in *messages.UpdateProviderRequest, opts ...grpc.CallOption) (*messages.UpdateProviderResponse, error) {
+func (c *metricsManagementServiceClient) UpdateMetricsProvider(ctx context.Context, in *UpdateProviderRequest, opts ...grpc.CallOption) (*UpdateProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateProviderResponse)
+	out := new(UpdateProviderResponse)
 	err := c.cc.Invoke(ctx, MetricsManagementService_UpdateMetricsProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -75,9 +74,9 @@ func (c *metricsManagementServiceClient) UpdateMetricsProvider(ctx context.Conte
 	return out, nil
 }
 
-func (c *metricsManagementServiceClient) DeleteMetricsProvider(ctx context.Context, in *messages.DeleteProviderRequest, opts ...grpc.CallOption) (*messages.DeleteProviderResponse, error) {
+func (c *metricsManagementServiceClient) DeleteMetricsProvider(ctx context.Context, in *DeleteProviderRequest, opts ...grpc.CallOption) (*DeleteProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DeleteProviderResponse)
+	out := new(DeleteProviderResponse)
 	err := c.cc.Invoke(ctx, MetricsManagementService_DeleteMetricsProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -85,9 +84,9 @@ func (c *metricsManagementServiceClient) DeleteMetricsProvider(ctx context.Conte
 	return out, nil
 }
 
-func (c *metricsManagementServiceClient) ListMetricsProviders(ctx context.Context, in *messages.ListProvidersRequest, opts ...grpc.CallOption) (*messages.ListProvidersResponse, error) {
+func (c *metricsManagementServiceClient) ListMetricsProviders(ctx context.Context, in *ListProvidersRequest, opts ...grpc.CallOption) (*ListProvidersResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListProvidersResponse)
+	out := new(ListProvidersResponse)
 	err := c.cc.Invoke(ctx, MetricsManagementService_ListMetricsProviders_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -95,9 +94,9 @@ func (c *metricsManagementServiceClient) ListMetricsProviders(ctx context.Contex
 	return out, nil
 }
 
-func (c *metricsManagementServiceClient) GetProviderStats(ctx context.Context, in *messages.GetProviderStatsRequest, opts ...grpc.CallOption) (*messages.GetProviderStatsResponse, error) {
+func (c *metricsManagementServiceClient) GetProviderStats(ctx context.Context, in *GetProviderStatsRequest, opts ...grpc.CallOption) (*GetProviderStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetProviderStatsResponse)
+	out := new(GetProviderStatsResponse)
 	err := c.cc.Invoke(ctx, MetricsManagementService_GetProviderStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -114,15 +113,15 @@ func (c *metricsManagementServiceClient) GetProviderStats(ctx context.Context, i
 // This service handles provider lifecycle, configuration, and monitoring.
 type MetricsManagementServiceServer interface {
 	// Create a new metrics provider
-	CreateMetricsProvider(context.Context, *messages.CreateProviderRequest) (*messages.CreateProviderResponse, error)
+	CreateMetricsProvider(context.Context, *CreateProviderRequest) (*CreateProviderResponse, error)
 	// Update an existing metrics provider configuration
-	UpdateMetricsProvider(context.Context, *messages.UpdateProviderRequest) (*messages.UpdateProviderResponse, error)
+	UpdateMetricsProvider(context.Context, *UpdateProviderRequest) (*UpdateProviderResponse, error)
 	// Delete a metrics provider and optionally its data
-	DeleteMetricsProvider(context.Context, *messages.DeleteProviderRequest) (*messages.DeleteProviderResponse, error)
+	DeleteMetricsProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error)
 	// List all configured metrics providers
-	ListMetricsProviders(context.Context, *messages.ListProvidersRequest) (*messages.ListProvidersResponse, error)
+	ListMetricsProviders(context.Context, *ListProvidersRequest) (*ListProvidersResponse, error)
 	// Get statistics and status for a specific provider
-	GetProviderStats(context.Context, *messages.GetProviderStatsRequest) (*messages.GetProviderStatsResponse, error)
+	GetProviderStats(context.Context, *GetProviderStatsRequest) (*GetProviderStatsResponse, error)
 	mustEmbedUnimplementedMetricsManagementServiceServer()
 }
 
@@ -133,19 +132,19 @@ type MetricsManagementServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMetricsManagementServiceServer struct{}
 
-func (UnimplementedMetricsManagementServiceServer) CreateMetricsProvider(context.Context, *messages.CreateProviderRequest) (*messages.CreateProviderResponse, error) {
+func (UnimplementedMetricsManagementServiceServer) CreateMetricsProvider(context.Context, *CreateProviderRequest) (*CreateProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateMetricsProvider not implemented")
 }
-func (UnimplementedMetricsManagementServiceServer) UpdateMetricsProvider(context.Context, *messages.UpdateProviderRequest) (*messages.UpdateProviderResponse, error) {
+func (UnimplementedMetricsManagementServiceServer) UpdateMetricsProvider(context.Context, *UpdateProviderRequest) (*UpdateProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetricsProvider not implemented")
 }
-func (UnimplementedMetricsManagementServiceServer) DeleteMetricsProvider(context.Context, *messages.DeleteProviderRequest) (*messages.DeleteProviderResponse, error) {
+func (UnimplementedMetricsManagementServiceServer) DeleteMetricsProvider(context.Context, *DeleteProviderRequest) (*DeleteProviderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteMetricsProvider not implemented")
 }
-func (UnimplementedMetricsManagementServiceServer) ListMetricsProviders(context.Context, *messages.ListProvidersRequest) (*messages.ListProvidersResponse, error) {
+func (UnimplementedMetricsManagementServiceServer) ListMetricsProviders(context.Context, *ListProvidersRequest) (*ListProvidersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMetricsProviders not implemented")
 }
-func (UnimplementedMetricsManagementServiceServer) GetProviderStats(context.Context, *messages.GetProviderStatsRequest) (*messages.GetProviderStatsResponse, error) {
+func (UnimplementedMetricsManagementServiceServer) GetProviderStats(context.Context, *GetProviderStatsRequest) (*GetProviderStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProviderStats not implemented")
 }
 func (UnimplementedMetricsManagementServiceServer) mustEmbedUnimplementedMetricsManagementServiceServer() {
@@ -171,7 +170,7 @@ func RegisterMetricsManagementServiceServer(s grpc.ServiceRegistrar, srv Metrics
 }
 
 func _MetricsManagementService_CreateMetricsProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateProviderRequest)
+	in := new(CreateProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -183,13 +182,13 @@ func _MetricsManagementService_CreateMetricsProvider_Handler(srv interface{}, ct
 		FullMethod: MetricsManagementService_CreateMetricsProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsManagementServiceServer).CreateMetricsProvider(ctx, req.(*messages.CreateProviderRequest))
+		return srv.(MetricsManagementServiceServer).CreateMetricsProvider(ctx, req.(*CreateProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsManagementService_UpdateMetricsProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateProviderRequest)
+	in := new(UpdateProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -201,13 +200,13 @@ func _MetricsManagementService_UpdateMetricsProvider_Handler(srv interface{}, ct
 		FullMethod: MetricsManagementService_UpdateMetricsProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsManagementServiceServer).UpdateMetricsProvider(ctx, req.(*messages.UpdateProviderRequest))
+		return srv.(MetricsManagementServiceServer).UpdateMetricsProvider(ctx, req.(*UpdateProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsManagementService_DeleteMetricsProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteProviderRequest)
+	in := new(DeleteProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -219,13 +218,13 @@ func _MetricsManagementService_DeleteMetricsProvider_Handler(srv interface{}, ct
 		FullMethod: MetricsManagementService_DeleteMetricsProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsManagementServiceServer).DeleteMetricsProvider(ctx, req.(*messages.DeleteProviderRequest))
+		return srv.(MetricsManagementServiceServer).DeleteMetricsProvider(ctx, req.(*DeleteProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsManagementService_ListMetricsProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListProvidersRequest)
+	in := new(ListProvidersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -237,13 +236,13 @@ func _MetricsManagementService_ListMetricsProviders_Handler(srv interface{}, ctx
 		FullMethod: MetricsManagementService_ListMetricsProviders_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsManagementServiceServer).ListMetricsProviders(ctx, req.(*messages.ListProvidersRequest))
+		return srv.(MetricsManagementServiceServer).ListMetricsProviders(ctx, req.(*ListProvidersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsManagementService_GetProviderStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetProviderStatsRequest)
+	in := new(GetProviderStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -255,7 +254,7 @@ func _MetricsManagementService_GetProviderStats_Handler(srv interface{}, ctx con
 		FullMethod: MetricsManagementService_GetProviderStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsManagementServiceServer).GetProviderStats(ctx, req.(*messages.GetProviderStatsRequest))
+		return srv.(MetricsManagementServiceServer).GetProviderStats(ctx, req.(*GetProviderStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

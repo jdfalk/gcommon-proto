@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/environment_type.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -120,8 +120,7 @@ const file_gcommon_v1_config_enums_environment_type_proto_rawDesc = "" +
 	"\x1cENVIRONMENT_TYPE_INTEGRATION\x10\b\x12 \n" +
 	"\x1cENVIRONMENT_TYPE_PERFORMANCE\x10\t\x12\x1d\n" +
 	"\x19ENVIRONMENT_TYPE_SECURITY\x10\n" +
-	"B\xd6\x01\n" +
-	"\x15com.gcommon.v1.configB\x14EnvironmentTypeProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_environment_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_environment_type_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/consumer_group.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,19 +23,19 @@ const (
 )
 
 type ConsumerGroup struct {
-	state                           protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_GroupId              *string                  `protobuf:"bytes,1,opt,name=group_id,json=groupId"`
-	xxx_hidden_GroupName            *string                  `protobuf:"bytes,2,opt,name=group_name,json=groupName"`
-	xxx_hidden_Topic                *string                  `protobuf:"bytes,3,opt,name=topic"`
-	xxx_hidden_Config               *ConsumerGroupConfig     `protobuf:"bytes,4,opt,name=config"`
-	xxx_hidden_State                enums.ConsumerGroupState `protobuf:"varint,5,opt,name=state,enum=gcommon.v1.queue.ConsumerGroupState"`
-	xxx_hidden_Consumers            *[]*Consumer             `protobuf:"bytes,6,rep,name=consumers"`
-	xxx_hidden_PartitionAssignments *[]*PartitionAssignment  `protobuf:"bytes,7,rep,name=partition_assignments,json=partitionAssignments"`
-	xxx_hidden_Coordinator          *GroupCoordinator        `protobuf:"bytes,8,opt,name=coordinator"`
-	xxx_hidden_Stats                *ConsumerGroupStats      `protobuf:"bytes,9,opt,name=stats"`
-	xxx_hidden_Metadata             map[string]string        `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_CreatedAt            *timestamppb.Timestamp   `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt            *timestamppb.Timestamp   `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
+	state                           protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_GroupId              *string                 `protobuf:"bytes,1,opt,name=group_id,json=groupId"`
+	xxx_hidden_GroupName            *string                 `protobuf:"bytes,2,opt,name=group_name,json=groupName"`
+	xxx_hidden_Topic                *string                 `protobuf:"bytes,3,opt,name=topic"`
+	xxx_hidden_Config               *ConsumerGroupConfig    `protobuf:"bytes,4,opt,name=config"`
+	xxx_hidden_State                ConsumerGroupState      `protobuf:"varint,5,opt,name=state,enum=gcommon.v1.queue.ConsumerGroupState"`
+	xxx_hidden_Consumers            *[]*Consumer            `protobuf:"bytes,6,rep,name=consumers"`
+	xxx_hidden_PartitionAssignments *[]*PartitionAssignment `protobuf:"bytes,7,rep,name=partition_assignments,json=partitionAssignments"`
+	xxx_hidden_Coordinator          *GroupCoordinator       `protobuf:"bytes,8,opt,name=coordinator"`
+	xxx_hidden_Stats                *ConsumerGroupStats     `protobuf:"bytes,9,opt,name=stats"`
+	xxx_hidden_Metadata             map[string]string       `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_CreatedAt            *timestamppb.Timestamp  `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt            *timestamppb.Timestamp  `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -105,13 +104,13 @@ func (x *ConsumerGroup) GetConfig() *ConsumerGroupConfig {
 	return nil
 }
 
-func (x *ConsumerGroup) GetState() enums.ConsumerGroupState {
+func (x *ConsumerGroup) GetState() ConsumerGroupState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.ConsumerGroupState(0)
+	return ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
 }
 
 func (x *ConsumerGroup) GetConsumers() []*Consumer {
@@ -186,7 +185,7 @@ func (x *ConsumerGroup) SetConfig(v *ConsumerGroupConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *ConsumerGroup) SetState(v enums.ConsumerGroupState) {
+func (x *ConsumerGroup) SetState(v ConsumerGroupState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 12)
 }
@@ -303,7 +302,7 @@ func (x *ConsumerGroup) ClearConfig() {
 
 func (x *ConsumerGroup) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_State = enums.ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
+	x.xxx_hidden_State = ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
 }
 
 func (x *ConsumerGroup) ClearCoordinator() {
@@ -334,7 +333,7 @@ type ConsumerGroup_builder struct {
 	// Consumer group configuration
 	Config *ConsumerGroupConfig
 	// Current group state
-	State *enums.ConsumerGroupState
+	State *ConsumerGroupState
 	// List of active consumers in the group
 	Consumers []*Consumer
 	// Partition assignments
@@ -406,15 +405,14 @@ const file_gcommon_v1_queue_messages_consumer_group_proto_rawDesc = "" +
 	"updated_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12ConsumerGroupProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_group_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_consumer_group_proto_goTypes = []any{
 	(*ConsumerGroup)(nil),         // 0: gcommon.v1.queue.ConsumerGroup
 	nil,                           // 1: gcommon.v1.queue.ConsumerGroup.MetadataEntry
 	(*ConsumerGroupConfig)(nil),   // 2: gcommon.v1.queue.ConsumerGroupConfig
-	(enums.ConsumerGroupState)(0), // 3: gcommon.v1.queue.ConsumerGroupState
+	(ConsumerGroupState)(0),       // 3: gcommon.v1.queue.ConsumerGroupState
 	(*Consumer)(nil),              // 4: gcommon.v1.queue.Consumer
 	(*PartitionAssignment)(nil),   // 5: gcommon.v1.queue.PartitionAssignment
 	(*GroupCoordinator)(nil),      // 6: gcommon.v1.queue.GroupCoordinator
@@ -443,6 +441,7 @@ func file_gcommon_v1_queue_messages_consumer_group_proto_init() {
 	if File_gcommon_v1_queue_messages_consumer_group_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_consumer_group_state_proto_init()
 	file_gcommon_v1_queue_messages_consumer_proto_init()
 	file_gcommon_v1_queue_messages_consumer_group_config_proto_init()
 	file_gcommon_v1_queue_messages_consumer_group_stats_proto_init()

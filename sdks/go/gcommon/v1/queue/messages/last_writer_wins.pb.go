@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/last_writer_wins.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -138,8 +138,7 @@ const file_gcommon_v1_queue_messages_last_writer_wins_proto_rawDesc = "" +
 	"0gcommon/v1/queue/messages/last_writer_wins.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"s\n" +
 	"\x0eLastWriterWins\x120\n" +
 	"\x14use_server_timestamp\x18\x01 \x01(\bR\x12useServerTimestamp\x12/\n" +
-	"\x13timestamp_precision\x18\x02 \x01(\tR\x12timestampPrecisionB\xd2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13LastWriterWinsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13timestamp_precision\x18\x02 \x01(\tR\x12timestampPrecisionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_last_writer_wins_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_last_writer_wins_proto_goTypes = []any{

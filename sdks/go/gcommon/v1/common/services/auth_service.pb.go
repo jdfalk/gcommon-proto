@@ -36,8 +36,7 @@ const file_gcommon_v1_common_services_auth_service_proto_rawDesc = "" +
 	"\vGetUserInfo\x12%.gcommon.v1.common.GetUserInfoRequest\x1a&.gcommon.v1.common.GetUserInfoResponse\x12z\n" +
 	"\x15InitiatePasswordReset\x12/.gcommon.v1.common.InitiatePasswordResetRequest\x1a0.gcommon.v1.common.InitiatePasswordResetResponse\x12z\n" +
 	"\x15CompletePasswordReset\x12/.gcommon.v1.common.CompletePasswordResetRequest\x1a0.gcommon.v1.common.CompletePasswordResetResponse\x12e\n" +
-	"\x0eChangePassword\x12(.gcommon.v1.common.ChangePasswordRequest\x1a).gcommon.v1.common.ChangePasswordResponseB\xd5\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10AuthServiceProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eChangePassword\x12(.gcommon.v1.common.ChangePasswordRequest\x1a).gcommon.v1.common.ChangePasswordResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_auth_service_proto_goTypes = []any{
 	(*messages.AuthAuthenticateRequest)(nil),       // 0: gcommon.v1.common.AuthAuthenticateRequest

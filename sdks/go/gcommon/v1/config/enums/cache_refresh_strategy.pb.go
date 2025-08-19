@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/enums/cache_refresh_strategy.proto
 
-package enums
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -81,8 +81,7 @@ const file_gcommon_v1_config_enums_cache_refresh_strategy_proto_rawDesc = "" +
 	"\x1aCACHE_REFRESH_STRATEGY_TTL\x10\x01\x12\x1f\n" +
 	"\x1bCACHE_REFRESH_STRATEGY_LAZY\x10\x02\x12$\n" +
 	" CACHE_REFRESH_STRATEGY_PROACTIVE\x10\x03\x12%\n" +
-	"!CACHE_REFRESH_STRATEGY_BACKGROUND\x10\x04B\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x19CacheRefreshStrategyProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"!CACHE_REFRESH_STRATEGY_BACKGROUND\x10\x04B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_cache_refresh_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_cache_refresh_strategy_proto_goTypes = []any{

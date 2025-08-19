@@ -1,9 +1,0 @@
-# file: deploy/helm/gcommon-app/Chart.yaml
-# version: 1.0.0
-# guid: bf3632fb-c949-407e-bd0d-cddb505132ad
-
-apiVersion: v2
-name: gcommon-app
-description: Helm chart for deploying gcommon-based applications
-version: 0.1.0
-appVersion: "1.0"

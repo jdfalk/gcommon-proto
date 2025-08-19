@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/provider_status.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ const (
 // Status of a metrics provider.
 type ProviderStatus struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_State       enums.ProviderState    `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.metrics.ProviderState"`
+	xxx_hidden_State       ProviderState          `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.metrics.ProviderState"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
 	xxx_hidden_Health      *string                `protobuf:"bytes,3,opt,name=health"`
 	xxx_hidden_LastUpdated *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_updated,json=lastUpdated"`
@@ -63,13 +62,13 @@ func (x *ProviderStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ProviderStatus) GetState() enums.ProviderState {
+func (x *ProviderStatus) GetState() ProviderState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.ProviderState(0)
+	return ProviderState_PROVIDER_STATE_UNSPECIFIED
 }
 
 func (x *ProviderStatus) GetMessage() string {
@@ -109,7 +108,7 @@ func (x *ProviderStatus) GetVersion() string {
 	return ""
 }
 
-func (x *ProviderStatus) SetState(v enums.ProviderState) {
+func (x *ProviderStatus) SetState(v ProviderState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -170,7 +169,7 @@ func (x *ProviderStatus) HasVersion() bool {
 
 func (x *ProviderStatus) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_State = enums.ProviderState_PROVIDER_STATE_UNSPECIFIED
+	x.xxx_hidden_State = ProviderState_PROVIDER_STATE_UNSPECIFIED
 }
 
 func (x *ProviderStatus) ClearMessage() {
@@ -196,7 +195,7 @@ type ProviderStatus_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Current state
-	State *enums.ProviderState
+	State *ProviderState
 	// Status message
 	Message *string
 	// Health check status
@@ -241,13 +240,12 @@ const file_gcommon_v1_metrics_messages_provider_status_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x16\n" +
 	"\x06health\x18\x03 \x01(\tR\x06health\x12=\n" +
 	"\flast_updated\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\x12\x18\n" +
-	"\aversion\x18\x05 \x01(\tR\aversionB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13ProviderStatusProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aversion\x18\x05 \x01(\tR\aversionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_status_proto_goTypes = []any{
 	(*ProviderStatus)(nil),        // 0: gcommon.v1.metrics.ProviderStatus
-	(enums.ProviderState)(0),      // 1: gcommon.v1.metrics.ProviderState
+	(ProviderState)(0),            // 1: gcommon.v1.metrics.ProviderState
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_messages_provider_status_proto_depIdxs = []int32{
@@ -265,6 +263,7 @@ func file_gcommon_v1_metrics_messages_provider_status_proto_init() {
 	if File_gcommon_v1_metrics_messages_provider_status_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_provider_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

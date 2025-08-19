@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/validation_rule.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +22,14 @@ const (
 )
 
 type ValidationRule struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Name         *string                  `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Description  *string                  `protobuf:"bytes,2,opt,name=description"`
-	xxx_hidden_Expression   *string                  `protobuf:"bytes,3,opt,name=expression"`
-	xxx_hidden_ErrorMessage *string                  `protobuf:"bytes,4,opt,name=error_message,json=errorMessage"`
-	xxx_hidden_Severity     enums.ValidationSeverity `protobuf:"varint,5,opt,name=severity,enum=gcommon.v1.config.ValidationSeverity"`
-	xxx_hidden_Parameters   []string                 `protobuf:"bytes,6,rep,name=parameters"`
-	xxx_hidden_Conditions   map[string]string        `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Description  *string                `protobuf:"bytes,2,opt,name=description"`
+	xxx_hidden_Expression   *string                `protobuf:"bytes,3,opt,name=expression"`
+	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,4,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_Severity     ValidationSeverity     `protobuf:"varint,5,opt,name=severity,enum=gcommon.v1.config.ValidationSeverity"`
+	xxx_hidden_Parameters   []string               `protobuf:"bytes,6,rep,name=parameters"`
+	xxx_hidden_Conditions   map[string]string      `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -102,13 +101,13 @@ func (x *ValidationRule) GetErrorMessage() string {
 	return ""
 }
 
-func (x *ValidationRule) GetSeverity() enums.ValidationSeverity {
+func (x *ValidationRule) GetSeverity() ValidationSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return enums.ValidationSeverity(0)
+	return ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 func (x *ValidationRule) GetParameters() []string {
@@ -145,7 +144,7 @@ func (x *ValidationRule) SetErrorMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
-func (x *ValidationRule) SetSeverity(v enums.ValidationSeverity) {
+func (x *ValidationRule) SetSeverity(v ValidationSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
@@ -215,7 +214,7 @@ func (x *ValidationRule) ClearErrorMessage() {
 
 func (x *ValidationRule) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Severity = enums.ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 type ValidationRule_builder struct {
@@ -230,7 +229,7 @@ type ValidationRule_builder struct {
 	// Error message if validation fails
 	ErrorMessage *string
 	// Rule severity
-	Severity *enums.ValidationSeverity
+	Severity *ValidationSeverity
 	// Parameters this rule applies to
 	Parameters []string
 	// Rule conditions
@@ -287,14 +286,13 @@ const file_gcommon_v1_config_messages_validation_rule_proto_rawDesc = "" +
 	"conditions\x1a=\n" +
 	"\x0fConditionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ValidationRuleProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_validation_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_validation_rule_proto_goTypes = []any{
-	(*ValidationRule)(nil),        // 0: gcommon.v1.config.ValidationRule
-	nil,                           // 1: gcommon.v1.config.ValidationRule.ConditionsEntry
-	(enums.ValidationSeverity)(0), // 2: gcommon.v1.config.ValidationSeverity
+	(*ValidationRule)(nil),  // 0: gcommon.v1.config.ValidationRule
+	nil,                     // 1: gcommon.v1.config.ValidationRule.ConditionsEntry
+	(ValidationSeverity)(0), // 2: gcommon.v1.config.ValidationSeverity
 }
 var file_gcommon_v1_config_messages_validation_rule_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ValidationRule.severity:type_name -> gcommon.v1.config.ValidationSeverity
@@ -311,6 +309,7 @@ func file_gcommon_v1_config_messages_validation_rule_proto_init() {
 	if File_gcommon_v1_config_messages_validation_rule_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_validation_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

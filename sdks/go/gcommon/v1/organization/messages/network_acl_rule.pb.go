@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/network_acl_rule.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -279,8 +279,7 @@ const file_gcommon_v1_organization_messages_network_acl_rule_proto_rawDesc = "" 
 	"\bprotocol\x18\x04 \x01(\tR\bprotocol\x12\x1d\n" +
 	"\n" +
 	"port_range\x18\x05 \x01(\tR\tportRange\x12\x1a\n" +
-	"\bpriority\x18\x06 \x01(\x05R\bpriorityB\xfc\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x13NetworkAclRuleProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpriority\x18\x06 \x01(\x05R\bpriorityB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_network_acl_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_network_acl_rule_proto_goTypes = []any{

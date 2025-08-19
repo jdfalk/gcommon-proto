@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/batch_nack_response.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -219,8 +219,7 @@ const file_gcommon_v1_queue_messages_batch_nack_response_proto_rawDesc = "" +
 	"\x16successful_message_ids\x18\x03 \x03(\tR\x14successfulMessageIds\x12,\n" +
 	"\x12failed_message_ids\x18\x04 \x03(\tR\x10failedMessageIds\x12%\n" +
 	"\x0eerror_messages\x18\x05 \x03(\tR\rerrorMessages\x12\x14\n" +
-	"\x05error\x18\x06 \x01(\tR\x05errorB\xd5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16BatchNackResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x06 \x01(\tR\x05errorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_batch_nack_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_batch_nack_response_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/value_dependency.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type ValueDependency struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type          enums.DependencyType   `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.DependencyType"`
+	xxx_hidden_Type          DependencyType         `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.DependencyType"`
 	xxx_hidden_DependentKey  *string                `protobuf:"bytes,2,opt,name=dependent_key,json=dependentKey"`
 	xxx_hidden_DependencyKey *string                `protobuf:"bytes,3,opt,name=dependency_key,json=dependencyKey"`
 	xxx_hidden_Condition     *string                `protobuf:"bytes,4,opt,name=condition"`
@@ -60,13 +59,13 @@ func (x *ValueDependency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValueDependency) GetType() enums.DependencyType {
+func (x *ValueDependency) GetType() DependencyType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.DependencyType(0)
+	return DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
 }
 
 func (x *ValueDependency) GetDependentKey() string {
@@ -106,7 +105,7 @@ func (x *ValueDependency) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *ValueDependency) SetType(v enums.DependencyType) {
+func (x *ValueDependency) SetType(v DependencyType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -160,7 +159,7 @@ func (x *ValueDependency) HasCondition() bool {
 
 func (x *ValueDependency) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
 }
 
 func (x *ValueDependency) ClearDependentKey() {
@@ -182,7 +181,7 @@ type ValueDependency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Dependency type
-	Type *enums.DependencyType
+	Type *DependencyType
 	// Dependent value key
 	DependentKey *string
 	// Dependency key
@@ -230,14 +229,13 @@ const file_gcommon_v1_config_messages_value_dependency_proto_rawDesc = "" +
 	"\bmetadata\x18\x05 \x03(\v20.gcommon.v1.config.ValueDependency.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd9\x01\n" +
-	"\x15com.gcommon.v1.configB\x14ValueDependencyProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_value_dependency_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_value_dependency_proto_goTypes = []any{
-	(*ValueDependency)(nil),   // 0: gcommon.v1.config.ValueDependency
-	nil,                       // 1: gcommon.v1.config.ValueDependency.MetadataEntry
-	(enums.DependencyType)(0), // 2: gcommon.v1.config.DependencyType
+	(*ValueDependency)(nil), // 0: gcommon.v1.config.ValueDependency
+	nil,                     // 1: gcommon.v1.config.ValueDependency.MetadataEntry
+	(DependencyType)(0),     // 2: gcommon.v1.config.DependencyType
 }
 var file_gcommon_v1_config_messages_value_dependency_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ValueDependency.type:type_name -> gcommon.v1.config.DependencyType
@@ -254,6 +252,7 @@ func file_gcommon_v1_config_messages_value_dependency_proto_init() {
 	if File_gcommon_v1_config_messages_value_dependency_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_dependency_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

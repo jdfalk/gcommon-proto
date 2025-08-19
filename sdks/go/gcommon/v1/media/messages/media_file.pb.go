@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/messages/media_file.proto
 
-package messages
+package media
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +28,7 @@ type MediaFile struct {
 	xxx_hidden_Id             *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_Path           *string                `protobuf:"bytes,2,opt,name=path"`
 	xxx_hidden_Filename       *string                `protobuf:"bytes,3,opt,name=filename"`
-	xxx_hidden_Type           enums.MediaType        `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.media.MediaType"`
+	xxx_hidden_Type           MediaType              `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.media.MediaType"`
 	xxx_hidden_SizeBytes      int64                  `protobuf:"varint,5,opt,name=size_bytes,json=sizeBytes"`
 	xxx_hidden_CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
 	xxx_hidden_ModifiedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=modified_at,json=modifiedAt"`
@@ -100,13 +99,13 @@ func (x *MediaFile) GetFilename() string {
 	return ""
 }
 
-func (x *MediaFile) GetType() enums.MediaType {
+func (x *MediaFile) GetType() MediaType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.MediaType(0)
+	return MediaType_MEDIA_TYPE_UNSPECIFIED
 }
 
 func (x *MediaFile) GetSizeBytes() int64 {
@@ -191,7 +190,7 @@ func (x *MediaFile) SetFilename(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 11)
 }
 
-func (x *MediaFile) SetType(v enums.MediaType) {
+func (x *MediaFile) SetType(v MediaType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 11)
 }
@@ -315,7 +314,7 @@ func (x *MediaFile) ClearFilename() {
 
 func (x *MediaFile) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Type = enums.MediaType_MEDIA_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = MediaType_MEDIA_TYPE_UNSPECIFIED
 }
 
 func (x *MediaFile) ClearSizeBytes() {
@@ -347,7 +346,7 @@ type MediaFile_builder struct {
 	Id             *string
 	Path           *string
 	Filename       *string
-	Type           *enums.MediaType
+	Type           *MediaType
 	SizeBytes      *int64
 	CreatedAt      *timestamppb.Timestamp
 	ModifiedAt     *timestamppb.Timestamp
@@ -416,13 +415,12 @@ const file_gcommon_v1_media_messages_media_file_proto_rawDesc = "" +
 	"\x0fsubtitle_tracks\x18\t \x03(\v2\x1f.gcommon.v1.media.SubtitleTrackR\x0esubtitleTracks\x12?\n" +
 	"\faudio_tracks\x18\n" +
 	" \x03(\v2\x1c.gcommon.v1.media.AudioTrackR\vaudioTracks\x128\n" +
-	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB\xcd\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0eMediaFileProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_media_file_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_media_file_proto_goTypes = []any{
 	(*MediaFile)(nil),             // 0: gcommon.v1.media.MediaFile
-	(enums.MediaType)(0),          // 1: gcommon.v1.media.MediaType
+	(MediaType)(0),                // 1: gcommon.v1.media.MediaType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*MediaMetadata)(nil),         // 3: gcommon.v1.media.MediaMetadata
 	(*SubtitleTrack)(nil),         // 4: gcommon.v1.media.SubtitleTrack
@@ -449,6 +447,7 @@ func file_gcommon_v1_media_messages_media_file_proto_init() {
 	if File_gcommon_v1_media_messages_media_file_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_enums_media_type_proto_init()
 	file_gcommon_v1_media_messages_audio_track_proto_init()
 	file_gcommon_v1_media_messages_media_metadata_proto_init()
 	file_gcommon_v1_media_messages_media_quality_proto_init()

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/database/messages/get_namespace_stats_request.proto
 
-package messages
+package database
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -172,8 +172,7 @@ const file_gcommon_v1_database_messages_get_namespace_stats_request_proto_rawDes
 	"\x18GetNamespaceStatsRequest\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x128\n" +
 	"\x18include_detailed_metrics\x18\x02 \x01(\bR\x16includeDetailedMetrics\x128\n" +
-	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB\xee\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1dGetNamespaceStatsRequestProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_get_namespace_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_namespace_stats_request_proto_goTypes = []any{

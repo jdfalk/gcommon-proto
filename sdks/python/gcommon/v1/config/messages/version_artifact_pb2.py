@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/config/messages/version_artifact.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc2\x02\n\x0fVersionArtifact\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\x12\x12\n\x04size\x18\x04 \x01(\x03R\x04size\x12\x1a\n\x08\x63hecksum\x18\x05 \x01(\tR\x08\x63hecksum\x12L\n\x08metadata\x18\x06 \x03(\x0b\x32\x30.gcommon.v1.config.VersionArtifact.MetadataEntryR\x08metadata\x12\x38\n\ttimestamp\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd9\x01\n\x15\x63om.gcommon.v1.configB\x14VersionArtifactProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/config/messages/version_artifact.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc2\x02\n\x0fVersionArtifact\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\x12\x12\n\x04size\x18\x04 \x01(\x03R\x04size\x12\x1a\n\x08\x63hecksum\x18\x05 \x01(\tR\x08\x63hecksum\x12L\n\x08metadata\x18\x06 \x03(\x0b\x32\x30.gcommon.v1.config.VersionArtifact.MetadataEntryR\x08metadata\x12\x38\n\ttimestamp\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.version_artifact_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\024VersionArtifactProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z$github.com/jdfalk/gcommon/pkg/config\222\003\005\322>\002\020\003'
   _globals['_VERSIONARTIFACT_METADATAENTRY']._loaded_options = None
   _globals['_VERSIONARTIFACT_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_VERSIONARTIFACT']._serialized_start=141

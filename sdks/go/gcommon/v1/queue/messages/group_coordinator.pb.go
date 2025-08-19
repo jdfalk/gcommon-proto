@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/group_coordinator.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type GroupCoordinator struct {
 	xxx_hidden_NodeId      *string                `protobuf:"bytes,1,opt,name=node_id,json=nodeId"`
 	xxx_hidden_Host        *string                `protobuf:"bytes,2,opt,name=host"`
 	xxx_hidden_Port        int32                  `protobuf:"varint,3,opt,name=port"`
-	xxx_hidden_State       enums.CoordinatorState `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.CoordinatorState"`
+	xxx_hidden_State       CoordinatorState       `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.CoordinatorState"`
 	xxx_hidden_Epoch       int64                  `protobuf:"varint,5,opt,name=epoch"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -87,13 +86,13 @@ func (x *GroupCoordinator) GetPort() int32 {
 	return 0
 }
 
-func (x *GroupCoordinator) GetState() enums.CoordinatorState {
+func (x *GroupCoordinator) GetState() CoordinatorState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.CoordinatorState(0)
+	return CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
 }
 
 func (x *GroupCoordinator) GetEpoch() int64 {
@@ -118,7 +117,7 @@ func (x *GroupCoordinator) SetPort(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *GroupCoordinator) SetState(v enums.CoordinatorState) {
+func (x *GroupCoordinator) SetState(v CoordinatorState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -180,7 +179,7 @@ func (x *GroupCoordinator) ClearPort() {
 
 func (x *GroupCoordinator) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_State = enums.CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
+	x.xxx_hidden_State = CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
 }
 
 func (x *GroupCoordinator) ClearEpoch() {
@@ -198,7 +197,7 @@ type GroupCoordinator_builder struct {
 	// Coordinator port
 	Port *int32
 	// Coordinator state
-	State *enums.CoordinatorState
+	State *CoordinatorState
 	// Leadership epoch
 	Epoch *int64
 }
@@ -240,13 +239,12 @@ const file_gcommon_v1_queue_messages_group_coordinator_proto_rawDesc = "" +
 	"\x04host\x18\x02 \x01(\tR\x04host\x12\x12\n" +
 	"\x04port\x18\x03 \x01(\x05R\x04port\x128\n" +
 	"\x05state\x18\x04 \x01(\x0e2\".gcommon.v1.queue.CoordinatorStateR\x05state\x12\x14\n" +
-	"\x05epoch\x18\x05 \x01(\x03R\x05epochB\xd4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15GroupCoordinatorProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05epoch\x18\x05 \x01(\x03R\x05epochB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_group_coordinator_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_group_coordinator_proto_goTypes = []any{
-	(*GroupCoordinator)(nil),    // 0: gcommon.v1.queue.GroupCoordinator
-	(enums.CoordinatorState)(0), // 1: gcommon.v1.queue.CoordinatorState
+	(*GroupCoordinator)(nil), // 0: gcommon.v1.queue.GroupCoordinator
+	(CoordinatorState)(0),    // 1: gcommon.v1.queue.CoordinatorState
 }
 var file_gcommon_v1_queue_messages_group_coordinator_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.GroupCoordinator.state:type_name -> gcommon.v1.queue.CoordinatorState
@@ -262,6 +260,7 @@ func file_gcommon_v1_queue_messages_group_coordinator_proto_init() {
 	if File_gcommon_v1_queue_messages_group_coordinator_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_coordinator_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

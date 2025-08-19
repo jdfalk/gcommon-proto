@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/enums/delivery_mode.proto
 
-package enums
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -88,8 +88,7 @@ const file_gcommon_v1_queue_enums_delivery_mode_proto_rawDesc = "" +
 	"\x1aDELIVERY_MODE_AT_MOST_ONCE\x10\x01\x12\x1f\n" +
 	"\x1bDELIVERY_MODE_AT_LEAST_ONCE\x10\x02\x12\x1e\n" +
 	"\x1aDELIVERY_MODE_EXACTLY_ONCE\x10\x03\x12\x1d\n" +
-	"\x19DELIVERY_MODE_BEST_EFFORT\x10\x04B\xcd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11DeliveryModeProtoP\x01Z8github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19DELIVERY_MODE_BEST_EFFORT\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_delivery_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_delivery_mode_proto_goTypes = []any{

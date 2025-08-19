@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/retry_settings.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type ConfigRetrySettings struct {
 	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
 	xxx_hidden_MaxRetries      int32                  `protobuf:"varint,2,opt,name=max_retries,json=maxRetries"`
 	xxx_hidden_DelaySeconds    int32                  `protobuf:"varint,3,opt,name=delay_seconds,json=delaySeconds"`
-	xxx_hidden_BackoffStrategy enums.BackoffStrategy  `protobuf:"varint,4,opt,name=backoff_strategy,json=backoffStrategy,enum=gcommon.v1.config.BackoffStrategy"`
+	xxx_hidden_BackoffStrategy BackoffStrategy        `protobuf:"varint,4,opt,name=backoff_strategy,json=backoffStrategy,enum=gcommon.v1.config.BackoffStrategy"`
 	xxx_hidden_Conditions      []string               `protobuf:"bytes,5,rep,name=conditions"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
@@ -81,13 +80,13 @@ func (x *ConfigRetrySettings) GetDelaySeconds() int32 {
 	return 0
 }
 
-func (x *ConfigRetrySettings) GetBackoffStrategy() enums.BackoffStrategy {
+func (x *ConfigRetrySettings) GetBackoffStrategy() BackoffStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_BackoffStrategy
 		}
 	}
-	return enums.BackoffStrategy(0)
+	return BackoffStrategy_BACKOFF_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConfigRetrySettings) GetConditions() []string {
@@ -112,7 +111,7 @@ func (x *ConfigRetrySettings) SetDelaySeconds(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *ConfigRetrySettings) SetBackoffStrategy(v enums.BackoffStrategy) {
+func (x *ConfigRetrySettings) SetBackoffStrategy(v BackoffStrategy) {
 	x.xxx_hidden_BackoffStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -166,7 +165,7 @@ func (x *ConfigRetrySettings) ClearDelaySeconds() {
 
 func (x *ConfigRetrySettings) ClearBackoffStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_BackoffStrategy = enums.BackoffStrategy_BACKOFF_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_BackoffStrategy = BackoffStrategy_BACKOFF_STRATEGY_UNSPECIFIED
 }
 
 type ConfigRetrySettings_builder struct {
@@ -179,7 +178,7 @@ type ConfigRetrySettings_builder struct {
 	// Retry delay in seconds
 	DelaySeconds *int32
 	// Retry backoff strategy
-	BackoffStrategy *enums.BackoffStrategy
+	BackoffStrategy *BackoffStrategy
 	// Retry conditions
 	Conditions []string
 }
@@ -221,13 +220,12 @@ const file_gcommon_v1_config_messages_retry_settings_proto_rawDesc = "" +
 	"\x10backoff_strategy\x18\x04 \x01(\x0e2\".gcommon.v1.config.BackoffStrategyR\x0fbackoffStrategy\x12\x1e\n" +
 	"\n" +
 	"conditions\x18\x05 \x03(\tR\n" +
-	"conditionsB\xd7\x01\n" +
-	"\x15com.gcommon.v1.configB\x12RetrySettingsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"conditionsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_retry_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_retry_settings_proto_goTypes = []any{
 	(*ConfigRetrySettings)(nil), // 0: gcommon.v1.config.ConfigRetrySettings
-	(enums.BackoffStrategy)(0),  // 1: gcommon.v1.config.BackoffStrategy
+	(BackoffStrategy)(0),        // 1: gcommon.v1.config.BackoffStrategy
 }
 var file_gcommon_v1_config_messages_retry_settings_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ConfigRetrySettings.backoff_strategy:type_name -> gcommon.v1.config.BackoffStrategy
@@ -243,6 +241,7 @@ func file_gcommon_v1_config_messages_retry_settings_proto_init() {
 	if File_gcommon_v1_config_messages_retry_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_backoff_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

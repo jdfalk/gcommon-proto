@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/offset_config.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 
 type OffsetConfig struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_OffsetType      enums.OffsetType       `protobuf:"varint,1,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
+	xxx_hidden_OffsetType      OffsetType             `protobuf:"varint,1,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
 	xxx_hidden_OffsetValue     int64                  `protobuf:"varint,2,opt,name=offset_value,json=offsetValue"`
 	xxx_hidden_StartTimestamp  *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_timestamp,json=startTimestamp"`
 	xxx_hidden_ResetOnNotFound bool                   `protobuf:"varint,4,opt,name=reset_on_not_found,json=resetOnNotFound"`
@@ -60,13 +59,13 @@ func (x *OffsetConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *OffsetConfig) GetOffsetType() enums.OffsetType {
+func (x *OffsetConfig) GetOffsetType() OffsetType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_OffsetType
 		}
 	}
-	return enums.OffsetType(0)
+	return OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *OffsetConfig) GetOffsetValue() int64 {
@@ -90,7 +89,7 @@ func (x *OffsetConfig) GetResetOnNotFound() bool {
 	return false
 }
 
-func (x *OffsetConfig) SetOffsetType(v enums.OffsetType) {
+func (x *OffsetConfig) SetOffsetType(v OffsetType) {
 	x.xxx_hidden_OffsetType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -139,7 +138,7 @@ func (x *OffsetConfig) HasResetOnNotFound() bool {
 
 func (x *OffsetConfig) ClearOffsetType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OffsetType = enums.OffsetType_OFFSET_TYPE_UNSPECIFIED
+	x.xxx_hidden_OffsetType = OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *OffsetConfig) ClearOffsetValue() {
@@ -160,7 +159,7 @@ type OffsetConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Offset type (earliest, latest, timestamp, specific)
-	OffsetType *enums.OffsetType
+	OffsetType *OffsetType
 	// Specific offset value (when offset_type = specific)
 	OffsetValue *int64
 	// Timestamp to start from (when offset_type = timestamp)
@@ -199,13 +198,12 @@ const file_gcommon_v1_queue_messages_offset_config_proto_rawDesc = "" +
 	"offsetType\x12!\n" +
 	"\foffset_value\x18\x02 \x01(\x03R\voffsetValue\x12C\n" +
 	"\x0fstart_timestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n" +
-	"\x12reset_on_not_found\x18\x04 \x01(\bR\x0fresetOnNotFoundB\xd0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11OffsetConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12reset_on_not_found\x18\x04 \x01(\bR\x0fresetOnNotFoundB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_offset_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_offset_config_proto_goTypes = []any{
 	(*OffsetConfig)(nil),          // 0: gcommon.v1.queue.OffsetConfig
-	(enums.OffsetType)(0),         // 1: gcommon.v1.queue.OffsetType
+	(OffsetType)(0),               // 1: gcommon.v1.queue.OffsetType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_messages_offset_config_proto_depIdxs = []int32{
@@ -223,6 +221,7 @@ func file_gcommon_v1_queue_messages_offset_config_proto_init() {
 	if File_gcommon_v1_queue_messages_offset_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_offset_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

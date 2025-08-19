@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/consumer_config.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -264,8 +264,7 @@ const file_gcommon_v1_queue_messages_consumer_config_proto_rawDesc = "" +
 	"\x0ffetch_min_bytes\x18\x03 \x01(\x05R\rfetchMinBytes\x12)\n" +
 	"\x11fetch_max_wait_ms\x18\x04 \x01(\x05R\x0efetchMaxWaitMs\x12*\n" +
 	"\x11auto_offset_reset\x18\x05 \x01(\bR\x0fautoOffsetReset\x12\x1a\n" +
-	"\bpriority\x18\x06 \x01(\x05R\bpriorityB\xd2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13ConsumerConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpriority\x18\x06 \x01(\x05R\bpriorityB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_config_proto_goTypes = []any{

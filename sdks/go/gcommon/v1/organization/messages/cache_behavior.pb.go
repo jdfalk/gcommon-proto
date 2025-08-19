@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/cache_behavior.proto
 
-package messages
+package organization
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -214,8 +214,7 @@ const file_gcommon_v1_organization_messages_cache_behavior_proto_rawDesc = "" +
 	"ttlSeconds\x12\x1a\n" +
 	"\bcompress\x18\x03 \x01(\bR\bcompress\x12'\n" +
 	"\x0fallowed_methods\x18\x04 \x03(\tR\x0eallowedMethods\x12D\n" +
-	"\tcache_key\x18\x05 \x01(\v2'.gcommon.v1.organization.CacheKeyPolicyR\bcacheKeyB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12CacheBehaviorProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tcache_key\x18\x05 \x01(\v2'.gcommon.v1.organization.CacheKeyPolicyR\bcacheKeyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_cache_behavior_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_cache_behavior_proto_goTypes = []any{

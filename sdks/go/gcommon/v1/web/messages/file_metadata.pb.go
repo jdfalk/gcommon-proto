@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/file_metadata.proto
 
-package messages
+package web
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -231,8 +231,7 @@ const file_gcommon_v1_web_messages_file_metadata_proto_rawDesc = "" +
 	"\tmime_type\x18\x03 \x01(\v2\x18.gcommon.v1.web.MimeTypeR\bmimeType\x12\x1a\n" +
 	"\bchecksum\x18\x04 \x01(\tR\bchecksum\x12;\n" +
 	"\vmodified_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"modifiedAtB\xc4\x01\n" +
-	"\x12com.gcommon.v1.webB\x11FileMetadataProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"modifiedAtB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_file_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_file_metadata_proto_goTypes = []any{

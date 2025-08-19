@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/registration_result.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +22,13 @@ const (
 )
 
 type RegistrationResult struct {
-	state                               protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Action                   enums.RegistrationAction `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.metrics.RegistrationAction"`
-	xxx_hidden_CreatedIndices           []string                 `protobuf:"bytes,2,rep,name=created_indices,json=createdIndices"`
-	xxx_hidden_CreatedAlerts            []string                 `protobuf:"bytes,3,rep,name=created_alerts,json=createdAlerts"`
-	xxx_hidden_ConfiguredExports        []string                 `protobuf:"bytes,4,rep,name=configured_exports,json=configuredExports"`
-	xxx_hidden_AppliedRetentionPolicies []string                 `protobuf:"bytes,5,rep,name=applied_retention_policies,json=appliedRetentionPolicies"`
-	xxx_hidden_SchemaChanges            *[]*SchemaChange         `protobuf:"bytes,6,rep,name=schema_changes,json=schemaChanges"`
+	state                               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Action                   RegistrationAction     `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.metrics.RegistrationAction"`
+	xxx_hidden_CreatedIndices           []string               `protobuf:"bytes,2,rep,name=created_indices,json=createdIndices"`
+	xxx_hidden_CreatedAlerts            []string               `protobuf:"bytes,3,rep,name=created_alerts,json=createdAlerts"`
+	xxx_hidden_ConfiguredExports        []string               `protobuf:"bytes,4,rep,name=configured_exports,json=configuredExports"`
+	xxx_hidden_AppliedRetentionPolicies []string               `protobuf:"bytes,5,rep,name=applied_retention_policies,json=appliedRetentionPolicies"`
+	xxx_hidden_SchemaChanges            *[]*SchemaChange       `protobuf:"bytes,6,rep,name=schema_changes,json=schemaChanges"`
 	XXX_raceDetectHookData              protoimpl.RaceDetectHookData
 	XXX_presence                        [1]uint32
 	unknownFields                       protoimpl.UnknownFields
@@ -61,13 +60,13 @@ func (x *RegistrationResult) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RegistrationResult) GetAction() enums.RegistrationAction {
+func (x *RegistrationResult) GetAction() RegistrationAction {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Action
 		}
 	}
-	return enums.RegistrationAction(0)
+	return RegistrationAction_REGISTRATION_ACTION_UNSPECIFIED
 }
 
 func (x *RegistrationResult) GetCreatedIndices() []string {
@@ -107,7 +106,7 @@ func (x *RegistrationResult) GetSchemaChanges() []*SchemaChange {
 	return nil
 }
 
-func (x *RegistrationResult) SetAction(v enums.RegistrationAction) {
+func (x *RegistrationResult) SetAction(v RegistrationAction) {
 	x.xxx_hidden_Action = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
@@ -141,14 +140,14 @@ func (x *RegistrationResult) HasAction() bool {
 
 func (x *RegistrationResult) ClearAction() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Action = enums.RegistrationAction_REGISTRATION_ACTION_UNSPECIFIED
+	x.xxx_hidden_Action = RegistrationAction_REGISTRATION_ACTION_UNSPECIFIED
 }
 
 type RegistrationResult_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Whether a new metric was created or existing one updated
-	Action *enums.RegistrationAction
+	Action *RegistrationAction
 	// Indices that were created for the metric
 	CreatedIndices []string
 	// Alert rules that were created (if alerting was enabled)
@@ -188,14 +187,13 @@ const file_gcommon_v1_metrics_messages_registration_result_proto_rawDesc = "" +
 	"\x0ecreated_alerts\x18\x03 \x03(\tR\rcreatedAlerts\x12-\n" +
 	"\x12configured_exports\x18\x04 \x03(\tR\x11configuredExports\x12<\n" +
 	"\x1aapplied_retention_policies\x18\x05 \x03(\tR\x18appliedRetentionPolicies\x12G\n" +
-	"\x0eschema_changes\x18\x06 \x03(\v2 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB\xe2\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x17RegistrationResultProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eschema_changes\x18\x06 \x03(\v2 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_registration_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_registration_result_proto_goTypes = []any{
-	(*RegistrationResult)(nil),    // 0: gcommon.v1.metrics.RegistrationResult
-	(enums.RegistrationAction)(0), // 1: gcommon.v1.metrics.RegistrationAction
-	(*SchemaChange)(nil),          // 2: gcommon.v1.metrics.SchemaChange
+	(*RegistrationResult)(nil), // 0: gcommon.v1.metrics.RegistrationResult
+	(RegistrationAction)(0),    // 1: gcommon.v1.metrics.RegistrationAction
+	(*SchemaChange)(nil),       // 2: gcommon.v1.metrics.SchemaChange
 }
 var file_gcommon_v1_metrics_messages_registration_result_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RegistrationResult.action:type_name -> gcommon.v1.metrics.RegistrationAction
@@ -212,6 +210,7 @@ func file_gcommon_v1_metrics_messages_registration_result_proto_init() {
 	if File_gcommon_v1_metrics_messages_registration_result_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_registration_action_proto_init()
 	file_gcommon_v1_metrics_messages_schema_change_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

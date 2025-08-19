@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/config/services/config_service.proto
 
-package services
+package config
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -41,23 +40,23 @@ const (
 // Supports hierarchical configuration, validation, and real-time updates.
 type ConfigServiceClient interface {
 	// Get retrieves a configuration value
-	Get(ctx context.Context, in *messages.GetConfigRequest, opts ...grpc.CallOption) (*messages.GetConfigResponse, error)
+	Get(ctx context.Context, in *GetConfigRequest, opts ...grpc.CallOption) (*GetConfigResponse, error)
 	// Set stores a configuration value
-	Set(ctx context.Context, in *messages.SetConfigRequest, opts ...grpc.CallOption) (*messages.SetConfigResponse, error)
+	Set(ctx context.Context, in *SetConfigRequest, opts ...grpc.CallOption) (*SetConfigResponse, error)
 	// Delete removes a configuration value
-	Delete(ctx context.Context, in *messages.DeleteConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Delete(ctx context.Context, in *DeleteConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List configuration keys with optional filtering
-	List(ctx context.Context, in *messages.ListConfigRequest, opts ...grpc.CallOption) (*messages.ListConfigResponse, error)
+	List(ctx context.Context, in *ListConfigRequest, opts ...grpc.CallOption) (*ListConfigResponse, error)
 	// Watch for configuration changes
-	Watch(ctx context.Context, in *messages.WatchConfigRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.WatchConfigResponse], error)
+	Watch(ctx context.Context, in *WatchConfigRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchConfigResponse], error)
 	// GetMultiple retrieves multiple configuration values
-	GetMultiple(ctx context.Context, in *messages.GetMultipleConfigRequest, opts ...grpc.CallOption) (*messages.GetMultipleConfigResponse, error)
+	GetMultiple(ctx context.Context, in *GetMultipleConfigRequest, opts ...grpc.CallOption) (*GetMultipleConfigResponse, error)
 	// SetMultiple stores multiple configuration values
-	SetMultiple(ctx context.Context, in *messages.SetMultipleConfigRequest, opts ...grpc.CallOption) (*messages.SetMultipleConfigResponse, error)
+	SetMultiple(ctx context.Context, in *SetMultipleConfigRequest, opts ...grpc.CallOption) (*SetMultipleConfigResponse, error)
 	// Validate configuration values
-	Validate(ctx context.Context, in *messages.ValidateConfigRequest, opts ...grpc.CallOption) (*messages.ValidateConfigResponse, error)
+	Validate(ctx context.Context, in *ValidateConfigRequest, opts ...grpc.CallOption) (*ValidateConfigResponse, error)
 	// GetSchema retrieves configuration schema
-	GetSchema(ctx context.Context, in *messages.GetSchemaRequest, opts ...grpc.CallOption) (*messages.GetSchemaResponse, error)
+	GetSchema(ctx context.Context, in *GetSchemaRequest, opts ...grpc.CallOption) (*GetSchemaResponse, error)
 }
 
 type configServiceClient struct {
@@ -68,9 +67,9 @@ func NewConfigServiceClient(cc grpc.ClientConnInterface) ConfigServiceClient {
 	return &configServiceClient{cc}
 }
 
-func (c *configServiceClient) Get(ctx context.Context, in *messages.GetConfigRequest, opts ...grpc.CallOption) (*messages.GetConfigResponse, error) {
+func (c *configServiceClient) Get(ctx context.Context, in *GetConfigRequest, opts ...grpc.CallOption) (*GetConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetConfigResponse)
+	out := new(GetConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_Get_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -78,9 +77,9 @@ func (c *configServiceClient) Get(ctx context.Context, in *messages.GetConfigReq
 	return out, nil
 }
 
-func (c *configServiceClient) Set(ctx context.Context, in *messages.SetConfigRequest, opts ...grpc.CallOption) (*messages.SetConfigResponse, error) {
+func (c *configServiceClient) Set(ctx context.Context, in *SetConfigRequest, opts ...grpc.CallOption) (*SetConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.SetConfigResponse)
+	out := new(SetConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_Set_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -88,7 +87,7 @@ func (c *configServiceClient) Set(ctx context.Context, in *messages.SetConfigReq
 	return out, nil
 }
 
-func (c *configServiceClient) Delete(ctx context.Context, in *messages.DeleteConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *configServiceClient) Delete(ctx context.Context, in *DeleteConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ConfigService_Delete_FullMethodName, in, out, cOpts...)
@@ -98,9 +97,9 @@ func (c *configServiceClient) Delete(ctx context.Context, in *messages.DeleteCon
 	return out, nil
 }
 
-func (c *configServiceClient) List(ctx context.Context, in *messages.ListConfigRequest, opts ...grpc.CallOption) (*messages.ListConfigResponse, error) {
+func (c *configServiceClient) List(ctx context.Context, in *ListConfigRequest, opts ...grpc.CallOption) (*ListConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListConfigResponse)
+	out := new(ListConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_List_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -108,13 +107,13 @@ func (c *configServiceClient) List(ctx context.Context, in *messages.ListConfigR
 	return out, nil
 }
 
-func (c *configServiceClient) Watch(ctx context.Context, in *messages.WatchConfigRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.WatchConfigResponse], error) {
+func (c *configServiceClient) Watch(ctx context.Context, in *WatchConfigRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchConfigResponse], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &ConfigService_ServiceDesc.Streams[0], ConfigService_Watch_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[messages.WatchConfigRequest, messages.WatchConfigResponse]{ClientStream: stream}
+	x := &grpc.GenericClientStream[WatchConfigRequest, WatchConfigResponse]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -125,11 +124,11 @@ func (c *configServiceClient) Watch(ctx context.Context, in *messages.WatchConfi
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type ConfigService_WatchClient = grpc.ServerStreamingClient[messages.WatchConfigResponse]
+type ConfigService_WatchClient = grpc.ServerStreamingClient[WatchConfigResponse]
 
-func (c *configServiceClient) GetMultiple(ctx context.Context, in *messages.GetMultipleConfigRequest, opts ...grpc.CallOption) (*messages.GetMultipleConfigResponse, error) {
+func (c *configServiceClient) GetMultiple(ctx context.Context, in *GetMultipleConfigRequest, opts ...grpc.CallOption) (*GetMultipleConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetMultipleConfigResponse)
+	out := new(GetMultipleConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_GetMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -137,9 +136,9 @@ func (c *configServiceClient) GetMultiple(ctx context.Context, in *messages.GetM
 	return out, nil
 }
 
-func (c *configServiceClient) SetMultiple(ctx context.Context, in *messages.SetMultipleConfigRequest, opts ...grpc.CallOption) (*messages.SetMultipleConfigResponse, error) {
+func (c *configServiceClient) SetMultiple(ctx context.Context, in *SetMultipleConfigRequest, opts ...grpc.CallOption) (*SetMultipleConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.SetMultipleConfigResponse)
+	out := new(SetMultipleConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_SetMultiple_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -147,9 +146,9 @@ func (c *configServiceClient) SetMultiple(ctx context.Context, in *messages.SetM
 	return out, nil
 }
 
-func (c *configServiceClient) Validate(ctx context.Context, in *messages.ValidateConfigRequest, opts ...grpc.CallOption) (*messages.ValidateConfigResponse, error) {
+func (c *configServiceClient) Validate(ctx context.Context, in *ValidateConfigRequest, opts ...grpc.CallOption) (*ValidateConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ValidateConfigResponse)
+	out := new(ValidateConfigResponse)
 	err := c.cc.Invoke(ctx, ConfigService_Validate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -157,9 +156,9 @@ func (c *configServiceClient) Validate(ctx context.Context, in *messages.Validat
 	return out, nil
 }
 
-func (c *configServiceClient) GetSchema(ctx context.Context, in *messages.GetSchemaRequest, opts ...grpc.CallOption) (*messages.GetSchemaResponse, error) {
+func (c *configServiceClient) GetSchema(ctx context.Context, in *GetSchemaRequest, opts ...grpc.CallOption) (*GetSchemaResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetSchemaResponse)
+	out := new(GetSchemaResponse)
 	err := c.cc.Invoke(ctx, ConfigService_GetSchema_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -176,23 +175,23 @@ func (c *configServiceClient) GetSchema(ctx context.Context, in *messages.GetSch
 // Supports hierarchical configuration, validation, and real-time updates.
 type ConfigServiceServer interface {
 	// Get retrieves a configuration value
-	Get(context.Context, *messages.GetConfigRequest) (*messages.GetConfigResponse, error)
+	Get(context.Context, *GetConfigRequest) (*GetConfigResponse, error)
 	// Set stores a configuration value
-	Set(context.Context, *messages.SetConfigRequest) (*messages.SetConfigResponse, error)
+	Set(context.Context, *SetConfigRequest) (*SetConfigResponse, error)
 	// Delete removes a configuration value
-	Delete(context.Context, *messages.DeleteConfigRequest) (*emptypb.Empty, error)
+	Delete(context.Context, *DeleteConfigRequest) (*emptypb.Empty, error)
 	// List configuration keys with optional filtering
-	List(context.Context, *messages.ListConfigRequest) (*messages.ListConfigResponse, error)
+	List(context.Context, *ListConfigRequest) (*ListConfigResponse, error)
 	// Watch for configuration changes
-	Watch(*messages.WatchConfigRequest, grpc.ServerStreamingServer[messages.WatchConfigResponse]) error
+	Watch(*WatchConfigRequest, grpc.ServerStreamingServer[WatchConfigResponse]) error
 	// GetMultiple retrieves multiple configuration values
-	GetMultiple(context.Context, *messages.GetMultipleConfigRequest) (*messages.GetMultipleConfigResponse, error)
+	GetMultiple(context.Context, *GetMultipleConfigRequest) (*GetMultipleConfigResponse, error)
 	// SetMultiple stores multiple configuration values
-	SetMultiple(context.Context, *messages.SetMultipleConfigRequest) (*messages.SetMultipleConfigResponse, error)
+	SetMultiple(context.Context, *SetMultipleConfigRequest) (*SetMultipleConfigResponse, error)
 	// Validate configuration values
-	Validate(context.Context, *messages.ValidateConfigRequest) (*messages.ValidateConfigResponse, error)
+	Validate(context.Context, *ValidateConfigRequest) (*ValidateConfigResponse, error)
 	// GetSchema retrieves configuration schema
-	GetSchema(context.Context, *messages.GetSchemaRequest) (*messages.GetSchemaResponse, error)
+	GetSchema(context.Context, *GetSchemaRequest) (*GetSchemaResponse, error)
 	mustEmbedUnimplementedConfigServiceServer()
 }
 
@@ -203,31 +202,31 @@ type ConfigServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedConfigServiceServer struct{}
 
-func (UnimplementedConfigServiceServer) Get(context.Context, *messages.GetConfigRequest) (*messages.GetConfigResponse, error) {
+func (UnimplementedConfigServiceServer) Get(context.Context, *GetConfigRequest) (*GetConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedConfigServiceServer) Set(context.Context, *messages.SetConfigRequest) (*messages.SetConfigResponse, error) {
+func (UnimplementedConfigServiceServer) Set(context.Context, *SetConfigRequest) (*SetConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Set not implemented")
 }
-func (UnimplementedConfigServiceServer) Delete(context.Context, *messages.DeleteConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedConfigServiceServer) Delete(context.Context, *DeleteConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (UnimplementedConfigServiceServer) List(context.Context, *messages.ListConfigRequest) (*messages.ListConfigResponse, error) {
+func (UnimplementedConfigServiceServer) List(context.Context, *ListConfigRequest) (*ListConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedConfigServiceServer) Watch(*messages.WatchConfigRequest, grpc.ServerStreamingServer[messages.WatchConfigResponse]) error {
+func (UnimplementedConfigServiceServer) Watch(*WatchConfigRequest, grpc.ServerStreamingServer[WatchConfigResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method Watch not implemented")
 }
-func (UnimplementedConfigServiceServer) GetMultiple(context.Context, *messages.GetMultipleConfigRequest) (*messages.GetMultipleConfigResponse, error) {
+func (UnimplementedConfigServiceServer) GetMultiple(context.Context, *GetMultipleConfigRequest) (*GetMultipleConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMultiple not implemented")
 }
-func (UnimplementedConfigServiceServer) SetMultiple(context.Context, *messages.SetMultipleConfigRequest) (*messages.SetMultipleConfigResponse, error) {
+func (UnimplementedConfigServiceServer) SetMultiple(context.Context, *SetMultipleConfigRequest) (*SetMultipleConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetMultiple not implemented")
 }
-func (UnimplementedConfigServiceServer) Validate(context.Context, *messages.ValidateConfigRequest) (*messages.ValidateConfigResponse, error) {
+func (UnimplementedConfigServiceServer) Validate(context.Context, *ValidateConfigRequest) (*ValidateConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Validate not implemented")
 }
-func (UnimplementedConfigServiceServer) GetSchema(context.Context, *messages.GetSchemaRequest) (*messages.GetSchemaResponse, error) {
+func (UnimplementedConfigServiceServer) GetSchema(context.Context, *GetSchemaRequest) (*GetSchemaResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSchema not implemented")
 }
 func (UnimplementedConfigServiceServer) mustEmbedUnimplementedConfigServiceServer() {}
@@ -252,7 +251,7 @@ func RegisterConfigServiceServer(s grpc.ServiceRegistrar, srv ConfigServiceServe
 }
 
 func _ConfigService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetConfigRequest)
+	in := new(GetConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -264,13 +263,13 @@ func _ConfigService_Get_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: ConfigService_Get_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).Get(ctx, req.(*messages.GetConfigRequest))
+		return srv.(ConfigServiceServer).Get(ctx, req.(*GetConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_Set_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetConfigRequest)
+	in := new(SetConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -282,13 +281,13 @@ func _ConfigService_Set_Handler(srv interface{}, ctx context.Context, dec func(i
 		FullMethod: ConfigService_Set_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).Set(ctx, req.(*messages.SetConfigRequest))
+		return srv.(ConfigServiceServer).Set(ctx, req.(*SetConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteConfigRequest)
+	in := new(DeleteConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -300,13 +299,13 @@ func _ConfigService_Delete_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: ConfigService_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).Delete(ctx, req.(*messages.DeleteConfigRequest))
+		return srv.(ConfigServiceServer).Delete(ctx, req.(*DeleteConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListConfigRequest)
+	in := new(ListConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -318,24 +317,24 @@ func _ConfigService_List_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: ConfigService_List_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).List(ctx, req.(*messages.ListConfigRequest))
+		return srv.(ConfigServiceServer).List(ctx, req.(*ListConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_Watch_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(messages.WatchConfigRequest)
+	m := new(WatchConfigRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(ConfigServiceServer).Watch(m, &grpc.GenericServerStream[messages.WatchConfigRequest, messages.WatchConfigResponse]{ServerStream: stream})
+	return srv.(ConfigServiceServer).Watch(m, &grpc.GenericServerStream[WatchConfigRequest, WatchConfigResponse]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type ConfigService_WatchServer = grpc.ServerStreamingServer[messages.WatchConfigResponse]
+type ConfigService_WatchServer = grpc.ServerStreamingServer[WatchConfigResponse]
 
 func _ConfigService_GetMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetMultipleConfigRequest)
+	in := new(GetMultipleConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -347,13 +346,13 @@ func _ConfigService_GetMultiple_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: ConfigService_GetMultiple_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).GetMultiple(ctx, req.(*messages.GetMultipleConfigRequest))
+		return srv.(ConfigServiceServer).GetMultiple(ctx, req.(*GetMultipleConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_SetMultiple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetMultipleConfigRequest)
+	in := new(SetMultipleConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -365,13 +364,13 @@ func _ConfigService_SetMultiple_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: ConfigService_SetMultiple_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).SetMultiple(ctx, req.(*messages.SetMultipleConfigRequest))
+		return srv.(ConfigServiceServer).SetMultiple(ctx, req.(*SetMultipleConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_Validate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ValidateConfigRequest)
+	in := new(ValidateConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -383,13 +382,13 @@ func _ConfigService_Validate_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: ConfigService_Validate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).Validate(ctx, req.(*messages.ValidateConfigRequest))
+		return srv.(ConfigServiceServer).Validate(ctx, req.(*ValidateConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ConfigService_GetSchema_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetSchemaRequest)
+	in := new(GetSchemaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -401,7 +400,7 @@ func _ConfigService_GetSchema_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: ConfigService_GetSchema_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigServiceServer).GetSchema(ctx, req.(*messages.GetSchemaRequest))
+		return srv.(ConfigServiceServer).GetSchema(ctx, req.(*GetSchemaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

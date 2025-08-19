@@ -27,14 +27,14 @@ from gcommon.v1.queue.messages import failed_ack_pb2 as gcommon_dot_v1_dot_queue
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/batch_ack_response.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/common/messages/response_metadata.proto\x1a*gcommon/v1/queue/messages/failed_ack.proto\x1a!google/protobuf/go_features.proto\"\x98\x02\n\x10\x42\x61tchAckResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12-\n\x12\x61\x63knowledged_count\x18\x02 \x01(\x05R\x11\x61\x63knowledgedCount\x12!\n\x0c\x66\x61iled_count\x18\x03 \x01(\x05R\x0b\x66\x61iledCount\x12<\n\x0b\x66\x61iled_acks\x18\x04 \x03(\x0b\x32\x1b.gcommon.v1.queue.FailedAckR\nfailedAcks\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadata\x12\x19\n\x08\x62\x61tch_id\x18\x06 \x01(\tR\x07\x62\x61tchIdB\xd4\x01\n\x14\x63om.gcommon.v1.queueB\x15\x42\x61tchAckResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/batch_ack_response.proto\x12\x10gcommon.v1.queue\x1a\x32gcommon/v1/common/messages/response_metadata.proto\x1a*gcommon/v1/queue/messages/failed_ack.proto\x1a!google/protobuf/go_features.proto\"\x98\x02\n\x10\x42\x61tchAckResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12-\n\x12\x61\x63knowledged_count\x18\x02 \x01(\x05R\x11\x61\x63knowledgedCount\x12!\n\x0c\x66\x61iled_count\x18\x03 \x01(\x05R\x0b\x66\x61iledCount\x12<\n\x0b\x66\x61iled_acks\x18\x04 \x03(\x0b\x32\x1b.gcommon.v1.queue.FailedAckR\nfailedAcks\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadata\x12\x19\n\x08\x62\x61tch_id\x18\x06 \x01(\tR\x07\x62\x61tchIdB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.batch_ack_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\025BatchAckResponseProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_BATCHACKRESPONSE']._serialized_start=204
   _globals['_BATCHACKRESPONSE']._serialized_end=484
 # @@protoc_insertion_point(module_scope)

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/organization/messages/database_isolation.proto
 
-package messages
+package organization
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
@@ -317,8 +317,7 @@ const file_gcommon_v1_organization_messages_database_isolation_proto_rawDesc = "
 	"\x06backup\x18\x05 \x01(\v21.gcommon.v1.organization.OrganizationBackupConfigR\x06backup\x12-\n" +
 	"\x12allowed_operations\x18\x06 \x03(\tR\x11allowedOperations\x12'\n" +
 	"\x0fmax_connections\x18\a \x01(\x05R\x0emaxConnections\x122\n" +
-	"\x15query_timeout_seconds\x18\b \x01(\x05R\x13queryTimeoutSecondsB\xff\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x16DatabaseIsolationProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15query_timeout_seconds\x18\b \x01(\x05R\x13queryTimeoutSecondsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_database_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_database_isolation_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/get_config_stats_response.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -98,8 +98,7 @@ const file_gcommon_v1_config_messages_get_config_stats_response_proto_rawDesc = 
 	"\n" +
 	":gcommon/v1/config/messages/get_config_stats_response.proto\x12\x11gcommon.v1.config\x1a-gcommon/v1/config/messages/config_stats.proto\x1a!google/protobuf/go_features.proto\"N\n" +
 	"\x16GetConfigStatsResponse\x124\n" +
-	"\x05stats\x18\x01 \x01(\v2\x1e.gcommon.v1.config.ConfigStatsR\x05statsB\xe0\x01\n" +
-	"\x15com.gcommon.v1.configB\x1bGetConfigStatsResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05stats\x18\x01 \x01(\v2\x1e.gcommon.v1.config.ConfigStatsR\x05statsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_get_config_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_config_stats_response_proto_goTypes = []any{

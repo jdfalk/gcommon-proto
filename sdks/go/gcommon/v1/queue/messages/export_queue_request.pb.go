@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/export_queue_request.proto
 
-package messages
+package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
+	metrics "github.com/jdfalk/gcommon/pkg/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,15 +25,15 @@ const (
 // *
 // Request to export queue data for backup or migration purposes.
 type ExportQueueRequest struct {
-	state                         protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_QueueName          *string                    `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Destination        *string                    `protobuf:"bytes,2,opt,name=destination"`
-	xxx_hidden_Format             enums.QueueExportFormat    `protobuf:"varint,3,opt,name=format,enum=gcommon.v1.queue.QueueExportFormat"`
-	xxx_hidden_IncludeMessageData bool                       `protobuf:"varint,4,opt,name=include_message_data,json=includeMessageData"`
-	xxx_hidden_TimeRange          *messages.MetricsTimeRange `protobuf:"bytes,5,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Compress           bool                       `protobuf:"varint,6,opt,name=compress"`
-	xxx_hidden_MaxMessages        int64                      `protobuf:"varint,7,opt,name=max_messages,json=maxMessages"`
-	xxx_hidden_Options            map[string]string          `protobuf:"bytes,8,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_QueueName          *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Destination        *string                   `protobuf:"bytes,2,opt,name=destination"`
+	xxx_hidden_Format             QueueExportFormat         `protobuf:"varint,3,opt,name=format,enum=gcommon.v1.queue.QueueExportFormat"`
+	xxx_hidden_IncludeMessageData bool                      `protobuf:"varint,4,opt,name=include_message_data,json=includeMessageData"`
+	xxx_hidden_TimeRange          *metrics.MetricsTimeRange `protobuf:"bytes,5,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Compress           bool                      `protobuf:"varint,6,opt,name=compress"`
+	xxx_hidden_MaxMessages        int64                     `protobuf:"varint,7,opt,name=max_messages,json=maxMessages"`
+	xxx_hidden_Options            map[string]string         `protobuf:"bytes,8,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -86,13 +85,13 @@ func (x *ExportQueueRequest) GetDestination() string {
 	return ""
 }
 
-func (x *ExportQueueRequest) GetFormat() enums.QueueExportFormat {
+func (x *ExportQueueRequest) GetFormat() QueueExportFormat {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Format
 		}
 	}
-	return enums.QueueExportFormat(0)
+	return QueueExportFormat_EXPORT_FORMAT_UNSPECIFIED
 }
 
 func (x *ExportQueueRequest) GetIncludeMessageData() bool {
@@ -102,7 +101,7 @@ func (x *ExportQueueRequest) GetIncludeMessageData() bool {
 	return false
 }
 
-func (x *ExportQueueRequest) GetTimeRange() *messages.MetricsTimeRange {
+func (x *ExportQueueRequest) GetTimeRange() *metrics.MetricsTimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -140,7 +139,7 @@ func (x *ExportQueueRequest) SetDestination(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
 
-func (x *ExportQueueRequest) SetFormat(v enums.QueueExportFormat) {
+func (x *ExportQueueRequest) SetFormat(v QueueExportFormat) {
 	x.xxx_hidden_Format = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
 }
@@ -150,7 +149,7 @@ func (x *ExportQueueRequest) SetIncludeMessageData(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
 }
 
-func (x *ExportQueueRequest) SetTimeRange(v *messages.MetricsTimeRange) {
+func (x *ExportQueueRequest) SetTimeRange(v *metrics.MetricsTimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -229,7 +228,7 @@ func (x *ExportQueueRequest) ClearDestination() {
 
 func (x *ExportQueueRequest) ClearFormat() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Format = enums.QueueExportFormat_EXPORT_FORMAT_UNSPECIFIED
+	x.xxx_hidden_Format = QueueExportFormat_EXPORT_FORMAT_UNSPECIFIED
 }
 
 func (x *ExportQueueRequest) ClearIncludeMessageData() {
@@ -259,11 +258,11 @@ type ExportQueueRequest_builder struct {
 	// Export destination (file path, cloud storage URI, etc.)
 	Destination *string
 	// Export format
-	Format *enums.QueueExportFormat
+	Format *QueueExportFormat
 	// Whether to include message data or just metadata
 	IncludeMessageData *bool
 	// Time range for export (optional)
-	TimeRange *messages.MetricsTimeRange
+	TimeRange *metrics.MetricsTimeRange
 	// Whether to compress the export
 	Compress *bool
 	// Maximum number of messages to export (0 = no limit)
@@ -323,15 +322,14 @@ const file_gcommon_v1_queue_messages_export_queue_request_proto_rawDesc = "" +
 	"\aoptions\x18\b \x03(\v21.gcommon.v1.queue.ExportQueueRequest.OptionsEntryR\aoptions\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd6\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17ExportQueueRequestProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_export_queue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_export_queue_request_proto_goTypes = []any{
-	(*ExportQueueRequest)(nil),        // 0: gcommon.v1.queue.ExportQueueRequest
-	nil,                               // 1: gcommon.v1.queue.ExportQueueRequest.OptionsEntry
-	(enums.QueueExportFormat)(0),      // 2: gcommon.v1.queue.QueueExportFormat
-	(*messages.MetricsTimeRange)(nil), // 3: gcommon.v1.metrics.MetricsTimeRange
+	(*ExportQueueRequest)(nil),       // 0: gcommon.v1.queue.ExportQueueRequest
+	nil,                              // 1: gcommon.v1.queue.ExportQueueRequest.OptionsEntry
+	(QueueExportFormat)(0),           // 2: gcommon.v1.queue.QueueExportFormat
+	(*metrics.MetricsTimeRange)(nil), // 3: gcommon.v1.metrics.MetricsTimeRange
 }
 var file_gcommon_v1_queue_messages_export_queue_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.ExportQueueRequest.format:type_name -> gcommon.v1.queue.QueueExportFormat
@@ -349,6 +347,7 @@ func file_gcommon_v1_queue_messages_export_queue_request_proto_init() {
 	if File_gcommon_v1_queue_messages_export_queue_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_export_format_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

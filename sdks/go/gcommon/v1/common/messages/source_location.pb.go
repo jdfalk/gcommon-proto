@@ -209,8 +209,7 @@ const file_gcommon_v1_common_messages_source_location_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\tR\x04file\x12\x12\n" +
 	"\x04line\x18\x02 \x01(\x05R\x04line\x12\x1a\n" +
 	"\bfunction\x18\x03 \x01(\tR\bfunction\x12\x18\n" +
-	"\apackage\x18\x04 \x01(\tR\apackageB\xd8\x01\n" +
-	"\x15com.gcommon.v1.commonB\x13SourceLocationProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\apackage\x18\x04 \x01(\tR\apackageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_source_location_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_source_location_proto_goTypes = []any{

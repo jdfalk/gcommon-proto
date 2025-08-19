@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/label_definition.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -259,8 +259,7 @@ const file_gcommon_v1_metrics_messages_label_definition_proto_rawDesc = "" +
 	"\brequired\x18\x03 \x01(\bR\brequired\x12%\n" +
 	"\x0eallowed_values\x18\x04 \x03(\tR\rallowedValues\x12-\n" +
 	"\x12validation_pattern\x18\x05 \x01(\tR\x11validationPattern\x12#\n" +
-	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValueB\xdf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14LabelDefinitionProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValueB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_label_definition_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_label_definition_proto_goTypes = []any{

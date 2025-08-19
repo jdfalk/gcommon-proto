@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/deployment_info.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 
 type DeploymentInfo struct {
 	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Status         enums.DeploymentStatus  `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.DeploymentStatus"`
+	xxx_hidden_Status         DeploymentStatus        `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.DeploymentStatus"`
 	xxx_hidden_LastDeployedAt *timestamppb.Timestamp  `protobuf:"bytes,2,opt,name=last_deployed_at,json=lastDeployedAt"`
 	xxx_hidden_Version        *string                 `protobuf:"bytes,3,opt,name=version"`
 	xxx_hidden_Method         *string                 `protobuf:"bytes,4,opt,name=method"`
@@ -64,13 +63,13 @@ func (x *DeploymentInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeploymentInfo) GetStatus() enums.DeploymentStatus {
+func (x *DeploymentInfo) GetStatus() DeploymentStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.DeploymentStatus(0)
+	return DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *DeploymentInfo) GetLastDeployedAt() *timestamppb.Timestamp {
@@ -133,7 +132,7 @@ func (x *DeploymentInfo) GetRollbackInfo() *DeploymentRollbackInfo {
 	return nil
 }
 
-func (x *DeploymentInfo) SetStatus(v enums.DeploymentStatus) {
+func (x *DeploymentInfo) SetStatus(v DeploymentStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
@@ -213,7 +212,7 @@ func (x *DeploymentInfo) HasRollbackInfo() bool {
 
 func (x *DeploymentInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *DeploymentInfo) ClearLastDeployedAt() {
@@ -243,7 +242,7 @@ type DeploymentInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Deployment status
-	Status *enums.DeploymentStatus
+	Status *DeploymentStatus
 	// Last deployment timestamp
 	LastDeployedAt *timestamppb.Timestamp
 	// Deployment version
@@ -303,14 +302,13 @@ const file_gcommon_v1_config_messages_deployment_info_proto_rawDesc = "" +
 	"\rrollback_info\x18\b \x01(\v2).gcommon.v1.config.DeploymentRollbackInfoR\frollbackInfo\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x13DeploymentInfoProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_deployment_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_deployment_info_proto_goTypes = []any{
 	(*DeploymentInfo)(nil),         // 0: gcommon.v1.config.DeploymentInfo
 	nil,                            // 1: gcommon.v1.config.DeploymentInfo.ConfigEntry
-	(enums.DeploymentStatus)(0),    // 2: gcommon.v1.config.DeploymentStatus
+	(DeploymentStatus)(0),          // 2: gcommon.v1.config.DeploymentStatus
 	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
 	(*HealthCheck)(nil),            // 4: gcommon.v1.config.HealthCheck
 	(*DeploymentRollbackInfo)(nil), // 5: gcommon.v1.config.DeploymentRollbackInfo
@@ -333,6 +331,7 @@ func file_gcommon_v1_config_messages_deployment_info_proto_init() {
 	if File_gcommon_v1_config_messages_deployment_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_deployment_status_proto_init()
 	file_gcommon_v1_config_messages_deployment_rollback_info_proto_init()
 	file_gcommon_v1_config_messages_health_check_proto_init()
 	type x struct{}

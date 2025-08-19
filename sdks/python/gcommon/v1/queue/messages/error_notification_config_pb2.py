@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/queue/messages/error_notification_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd7\x01\n\x17\x45rrorNotificationConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x33\n\x15notification_channels\x18\x02 \x03(\tR\x14notificationChannels\x12\'\n\x0f\x65rror_threshold\x18\x03 \x01(\x05R\x0e\x65rrorThreshold\x12\x44\n\x1enotification_frequency_seconds\x18\x04 \x01(\x05R\x1cnotificationFrequencySecondsB\xdb\x01\n\x14\x63om.gcommon.v1.queueB\x1c\x45rrorNotificationConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n9gcommon/v1/queue/messages/error_notification_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xd7\x01\n\x17\x45rrorNotificationConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x33\n\x15notification_channels\x18\x02 \x03(\tR\x14notificationChannels\x12\'\n\x0f\x65rror_threshold\x18\x03 \x01(\x05R\x0e\x65rrorThreshold\x12\x44\n\x1enotification_frequency_seconds\x18\x04 \x01(\x05R\x1cnotificationFrequencySecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.error_notification_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\034ErrorNotificationConfigProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z#github.com/jdfalk/gcommon/pkg/queue\222\003\005\322>\002\020\003'
   _globals['_ERRORNOTIFICATIONCONFIG']._serialized_start=115
   _globals['_ERRORNOTIFICATIONCONFIG']._serialized_end=330
 # @@protoc_insertion_point(module_scope)

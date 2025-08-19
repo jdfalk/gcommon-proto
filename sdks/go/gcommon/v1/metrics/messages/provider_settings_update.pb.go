@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/provider_settings_update.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -152,8 +152,7 @@ const file_gcommon_v1_metrics_messages_provider_settings_update_proto_rawDesc = 
 	"prometheus\x18\x01 \x01(\v2,.gcommon.v1.metrics.PrometheusSettingsUpdateR\n" +
 	"prometheus\x12U\n" +
 	"\ropentelemetry\x18\x02 \x01(\v2/.gcommon.v1.metrics.OpenTelemetrySettingsUpdateR\ropentelemetry\x12@\n" +
-	"\x06statsd\x18\x03 \x01(\v2(.gcommon.v1.metrics.StatsDSettingsUpdateR\x06statsdB\xe6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bProviderSettingsUpdateProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06statsd\x18\x03 \x01(\v2(.gcommon.v1.metrics.StatsDSettingsUpdateR\x06statsdB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_settings_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_settings_update_proto_goTypes = []any{

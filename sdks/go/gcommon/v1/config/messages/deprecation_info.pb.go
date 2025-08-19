@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/deprecation_info.proto
 
-package messages
+package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ type DeprecationInfo struct {
 	xxx_hidden_ReplacementKey *string                `protobuf:"bytes,4,opt,name=replacement_key,json=replacementKey"`
 	xxx_hidden_RemovalDate    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=removal_date,json=removalDate"`
 	xxx_hidden_MigrationGuide *string                `protobuf:"bytes,6,opt,name=migration_guide,json=migrationGuide"`
-	xxx_hidden_Level          enums.DeprecationLevel `protobuf:"varint,7,opt,name=level,enum=gcommon.v1.config.DeprecationLevel"`
+	xxx_hidden_Level          DeprecationLevel       `protobuf:"varint,7,opt,name=level,enum=gcommon.v1.config.DeprecationLevel"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -114,13 +113,13 @@ func (x *DeprecationInfo) GetMigrationGuide() string {
 	return ""
 }
 
-func (x *DeprecationInfo) GetLevel() enums.DeprecationLevel {
+func (x *DeprecationInfo) GetLevel() DeprecationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.DeprecationLevel(0)
+	return DeprecationLevel_DEPRECATION_LEVEL_UNSPECIFIED
 }
 
 func (x *DeprecationInfo) SetDeprecated(v bool) {
@@ -151,7 +150,7 @@ func (x *DeprecationInfo) SetMigrationGuide(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *DeprecationInfo) SetLevel(v enums.DeprecationLevel) {
+func (x *DeprecationInfo) SetLevel(v DeprecationLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
@@ -235,7 +234,7 @@ func (x *DeprecationInfo) ClearMigrationGuide() {
 
 func (x *DeprecationInfo) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Level = enums.DeprecationLevel_DEPRECATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = DeprecationLevel_DEPRECATION_LEVEL_UNSPECIFIED
 }
 
 type DeprecationInfo_builder struct {
@@ -254,7 +253,7 @@ type DeprecationInfo_builder struct {
 	// Migration guide
 	MigrationGuide *string
 	// Deprecation level
-	Level *enums.DeprecationLevel
+	Level *DeprecationLevel
 }
 
 func (b0 DeprecationInfo_builder) Build() *DeprecationInfo {
@@ -300,14 +299,13 @@ const file_gcommon_v1_config_messages_deprecation_info_proto_rawDesc = "" +
 	"\x0freplacement_key\x18\x04 \x01(\tR\x0ereplacementKey\x12=\n" +
 	"\fremoval_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\vremovalDate\x12'\n" +
 	"\x0fmigration_guide\x18\x06 \x01(\tR\x0emigrationGuide\x129\n" +
-	"\x05level\x18\a \x01(\x0e2#.gcommon.v1.config.DeprecationLevelR\x05levelB\xd9\x01\n" +
-	"\x15com.gcommon.v1.configB\x14DeprecationInfoProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05level\x18\a \x01(\x0e2#.gcommon.v1.config.DeprecationLevelR\x05levelB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_deprecation_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_deprecation_info_proto_goTypes = []any{
 	(*DeprecationInfo)(nil),       // 0: gcommon.v1.config.DeprecationInfo
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(enums.DeprecationLevel)(0),   // 2: gcommon.v1.config.DeprecationLevel
+	(DeprecationLevel)(0),         // 2: gcommon.v1.config.DeprecationLevel
 }
 var file_gcommon_v1_config_messages_deprecation_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.DeprecationInfo.deprecated_at:type_name -> google.protobuf.Timestamp
@@ -325,6 +323,7 @@ func file_gcommon_v1_config_messages_deprecation_info_proto_init() {
 	if File_gcommon_v1_config_messages_deprecation_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_config_enums_deprecation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

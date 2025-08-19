@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/config/messages/rate_limits.proto
 
-package messages
+package config
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -169,8 +169,7 @@ const file_gcommon_v1_config_messages_rate_limits_proto_rawDesc = "" +
 	"\x13requests_per_second\x18\x01 \x01(\x05R\x11requestsPerSecond\x12\x1d\n" +
 	"\n" +
 	"burst_size\x18\x02 \x01(\x05R\tburstSize\x12%\n" +
-	"\x0ewindow_seconds\x18\x03 \x01(\x05R\rwindowSecondsB\xd4\x01\n" +
-	"\x15com.gcommon.v1.configB\x0fRateLimitsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ewindow_seconds\x18\x03 \x01(\x05R\rwindowSecondsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_rate_limits_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_rate_limits_proto_goTypes = []any{

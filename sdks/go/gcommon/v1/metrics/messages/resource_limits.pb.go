@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/resource_limits.proto
 
-package messages
+package metrics
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -232,8 +232,7 @@ const file_gcommon_v1_metrics_messages_resource_limits_proto_rawDesc = "" +
 	"\x0emax_disk_bytes\x18\x03 \x01(\x03R\fmaxDiskBytes\x12\x1f\n" +
 	"\vmax_metrics\x18\x04 \x01(\x03R\n" +
 	"maxMetrics\x12:\n" +
-	"\x1amax_data_points_per_metric\x18\x05 \x01(\x03R\x16maxDataPointsPerMetricB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13ResourceLimitsProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1amax_data_points_per_metric\x18\x05 \x01(\x03R\x16maxDataPointsPerMetricB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_resource_limits_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_resource_limits_proto_goTypes = []any{

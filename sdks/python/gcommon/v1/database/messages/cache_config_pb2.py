@@ -27,14 +27,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/database/messages/cache_config.proto\x12\x13gcommon.v1.database\x1a-gcommon/v1/common/enums/eviction_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf6\x02\n\x10\x43\x61\x63heCacheConfig\x12\x1f\n\x0bmax_entries\x18\x01 \x01(\x03R\nmaxEntries\x12(\n\x10max_memory_bytes\x18\x02 \x01(\x03R\x0emaxMemoryBytes\x12:\n\x0b\x64\x65\x66\x61ult_ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\ndefaultTtl\x12J\n\x0f\x65viction_policy\x18\x04 \x01(\x0e\x32!.gcommon.v1.common.EvictionPolicyR\x0e\x65victionPolicy\x12!\n\x0c\x65nable_stats\x18\x05 \x01(\x08R\x0b\x65nableStats\x12-\n\x12\x65nable_persistence\x18\x06 \x01(\x08R\x11\x65nablePersistence\x12)\n\x10persistence_file\x18\x07 \x01(\tR\x0fpersistenceFile\x12\x12\n\x04name\x18\x08 \x01(\tR\x04nameB\xe1\x01\n\x17\x63om.gcommon.v1.databaseB\x10\x43\x61\x63heConfigProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/database/messages/cache_config.proto\x12\x13gcommon.v1.database\x1a-gcommon/v1/common/enums/eviction_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf6\x02\n\x10\x43\x61\x63heCacheConfig\x12\x1f\n\x0bmax_entries\x18\x01 \x01(\x03R\nmaxEntries\x12(\n\x10max_memory_bytes\x18\x02 \x01(\x03R\x0emaxMemoryBytes\x12:\n\x0b\x64\x65\x66\x61ult_ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\ndefaultTtl\x12J\n\x0f\x65viction_policy\x18\x04 \x01(\x0e\x32!.gcommon.v1.common.EvictionPolicyR\x0e\x65victionPolicy\x12!\n\x0c\x65nable_stats\x18\x05 \x01(\x08R\x0b\x65nableStats\x12-\n\x12\x65nable_persistence\x18\x06 \x01(\x08R\x11\x65nablePersistence\x12)\n\x10persistence_file\x18\x07 \x01(\tR\x0fpersistenceFile\x12\x12\n\x04name\x18\x08 \x01(\tR\x04nameB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.cache_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\020CacheConfigProtoP\001Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z&github.com/jdfalk/gcommon/pkg/database\222\003\005\322>\002\020\003'
   _globals['_CACHECACHECONFIG']._serialized_start=187
   _globals['_CACHECACHECONFIG']._serialized_end=561
 # @@protoc_insertion_point(module_scope)

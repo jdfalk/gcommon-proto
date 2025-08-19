@@ -154,8 +154,7 @@ const file_gcommon_v1_common_messages_health_check_all_request_proto_rawDesc = "
 	"\x15HealthCheckAllRequest\x122\n" +
 	"\x05types\x18\x01 \x03(\x0e2\x1c.gcommon.v1.common.CheckTypeR\x05types\x12'\n" +
 	"\x0finclude_details\x18\x02 \x01(\bR\x0eincludeDetails\x12'\n" +
-	"\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsB\xdf\x01\n" +
-	"\x15com.gcommon.v1.commonB\x1aHealthCheckAllRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_health_check_all_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_health_check_all_request_proto_goTypes = []any{

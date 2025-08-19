@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/topic_stats.proto
 
-package messages
+package queue
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -366,8 +366,7 @@ const file_gcommon_v1_queue_messages_topic_stats_proto_rawDesc = "" +
 	"\x13messages_per_second\x18\x06 \x01(\x01R\x11messagesPerSecond\x12(\n" +
 	"\x10bytes_per_second\x18\a \x01(\x01R\x0ebytesPerSecond\x12*\n" +
 	"\x11last_message_time\x18\b \x01(\x04R\x0flastMessageTime\x120\n" +
-	"\x14average_message_size\x18\t \x01(\x01R\x12averageMessageSizeB\xce\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0fTopicStatsProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14average_message_size\x18\t \x01(\x01R\x12averageMessageSizeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_topic_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_topic_stats_proto_goTypes = []any{

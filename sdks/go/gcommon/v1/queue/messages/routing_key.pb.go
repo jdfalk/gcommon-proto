@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/routing_key.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ const (
 type RoutingKey struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Key           *string                `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_PatternType   enums.RoutingPattern   `protobuf:"varint,2,opt,name=pattern_type,json=patternType,enum=gcommon.v1.queue.RoutingPattern"`
+	xxx_hidden_PatternType   RoutingPattern         `protobuf:"varint,2,opt,name=pattern_type,json=patternType,enum=gcommon.v1.queue.RoutingPattern"`
 	xxx_hidden_CaseSensitive bool                   `protobuf:"varint,3,opt,name=case_sensitive,json=caseSensitive"`
 	xxx_hidden_Priority      int32                  `protobuf:"varint,4,opt,name=priority"`
 	xxx_hidden_Attributes    map[string]string      `protobuf:"bytes,5,rep,name=attributes" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -73,13 +72,13 @@ func (x *RoutingKey) GetKey() string {
 	return ""
 }
 
-func (x *RoutingKey) GetPatternType() enums.RoutingPattern {
+func (x *RoutingKey) GetPatternType() RoutingPattern {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_PatternType
 		}
 	}
-	return enums.RoutingPattern(0)
+	return RoutingPattern_ROUTING_PATTERN_EXACT
 }
 
 func (x *RoutingKey) GetCaseSensitive() bool {
@@ -108,7 +107,7 @@ func (x *RoutingKey) SetKey(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *RoutingKey) SetPatternType(v enums.RoutingPattern) {
+func (x *RoutingKey) SetPatternType(v RoutingPattern) {
 	x.xxx_hidden_PatternType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -162,7 +161,7 @@ func (x *RoutingKey) ClearKey() {
 
 func (x *RoutingKey) ClearPatternType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PatternType = enums.RoutingPattern_ROUTING_PATTERN_EXACT
+	x.xxx_hidden_PatternType = RoutingPattern_ROUTING_PATTERN_EXACT
 }
 
 func (x *RoutingKey) ClearCaseSensitive() {
@@ -181,7 +180,7 @@ type RoutingKey_builder struct {
 	// The routing key string
 	Key *string
 	// Pattern type for key matching
-	PatternType *enums.RoutingPattern
+	PatternType *RoutingPattern
 	// Whether the pattern is case sensitive
 	CaseSensitive *bool
 	// Priority for routing (higher numbers = higher priority)
@@ -230,14 +229,13 @@ const file_gcommon_v1_queue_messages_routing_key_proto_rawDesc = "" +
 	"attributes\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xce\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0fRoutingKeyProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_routing_key_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_routing_key_proto_goTypes = []any{
-	(*RoutingKey)(nil),        // 0: gcommon.v1.queue.RoutingKey
-	nil,                       // 1: gcommon.v1.queue.RoutingKey.AttributesEntry
-	(enums.RoutingPattern)(0), // 2: gcommon.v1.queue.RoutingPattern
+	(*RoutingKey)(nil),  // 0: gcommon.v1.queue.RoutingKey
+	nil,                 // 1: gcommon.v1.queue.RoutingKey.AttributesEntry
+	(RoutingPattern)(0), // 2: gcommon.v1.queue.RoutingPattern
 }
 var file_gcommon_v1_queue_messages_routing_key_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.RoutingKey.pattern_type:type_name -> gcommon.v1.queue.RoutingPattern
@@ -254,6 +252,7 @@ func file_gcommon_v1_queue_messages_routing_key_proto_init() {
 	if File_gcommon_v1_queue_messages_routing_key_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_routing_pattern_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

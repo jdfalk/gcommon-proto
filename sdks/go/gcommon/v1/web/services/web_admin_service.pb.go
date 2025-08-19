@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/services/web_admin_service.proto
 
-package services
+package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,16 +30,15 @@ const file_gcommon_v1_web_services_web_admin_service_proto_rawDesc = "" +
 	"\x0eGetCacheConfig\x12%.gcommon.v1.web.GetCacheConfigRequest\x1a&.gcommon.v1.web.GetCacheConfigResponse\x12h\n" +
 	"\x11UpdateCacheConfig\x12(.gcommon.v1.web.UpdateCacheConfigRequest\x1a).gcommon.v1.web.UpdateCacheConfigResponse\x12S\n" +
 	"\n" +
-	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB\xc7\x01\n" +
-	"\x12com.gcommon.v1.webB\x14WebAdminServiceProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/services\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_services_web_admin_service_proto_goTypes = []any{
-	(*messages.GetCacheConfigRequest)(nil),     // 0: gcommon.v1.web.GetCacheConfigRequest
-	(*messages.UpdateCacheConfigRequest)(nil),  // 1: gcommon.v1.web.UpdateCacheConfigRequest
-	(*messages.FlushCacheRequest)(nil),         // 2: gcommon.v1.web.FlushCacheRequest
-	(*messages.GetCacheConfigResponse)(nil),    // 3: gcommon.v1.web.GetCacheConfigResponse
-	(*messages.UpdateCacheConfigResponse)(nil), // 4: gcommon.v1.web.UpdateCacheConfigResponse
-	(*messages.FlushCacheResponse)(nil),        // 5: gcommon.v1.web.FlushCacheResponse
+	(*GetCacheConfigRequest)(nil),     // 0: gcommon.v1.web.GetCacheConfigRequest
+	(*UpdateCacheConfigRequest)(nil),  // 1: gcommon.v1.web.UpdateCacheConfigRequest
+	(*FlushCacheRequest)(nil),         // 2: gcommon.v1.web.FlushCacheRequest
+	(*GetCacheConfigResponse)(nil),    // 3: gcommon.v1.web.GetCacheConfigResponse
+	(*UpdateCacheConfigResponse)(nil), // 4: gcommon.v1.web.UpdateCacheConfigResponse
+	(*FlushCacheResponse)(nil),        // 5: gcommon.v1.web.FlushCacheResponse
 }
 var file_gcommon_v1_web_services_web_admin_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.web.WebAdminService.GetCacheConfig:input_type -> gcommon.v1.web.GetCacheConfigRequest
@@ -61,6 +59,12 @@ func file_gcommon_v1_web_services_web_admin_service_proto_init() {
 	if File_gcommon_v1_web_services_web_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_messages_flush_cache_request_proto_init()
+	file_gcommon_v1_web_messages_flush_cache_response_proto_init()
+	file_gcommon_v1_web_messages_get_cache_config_request_proto_init()
+	file_gcommon_v1_web_messages_get_cache_config_response_proto_init()
+	file_gcommon_v1_web_messages_update_cache_config_request_proto_init()
+	file_gcommon_v1_web_messages_update_cache_config_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

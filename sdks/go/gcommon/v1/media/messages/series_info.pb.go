@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/media/messages/series_info.proto
 
-package messages
+package media
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -231,8 +231,7 @@ const file_gcommon_v1_media_messages_series_info_proto_rawDesc = "" +
 	"\vseries_name\x18\x03 \x01(\tR\n" +
 	"seriesName\x12#\n" +
 	"\repisode_title\x18\x04 \x01(\tR\fepisodeTitle\x125\n" +
-	"\bair_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aairDateB\xce\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0fSeriesInfoProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media/messages\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bair_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aairDateB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_series_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_series_info_proto_goTypes = []any{

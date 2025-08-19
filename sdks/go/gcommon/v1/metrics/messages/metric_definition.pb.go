@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/metrics/messages/metric_definition.proto
 
-package messages
+package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,17 +22,17 @@ const (
 )
 
 type MetricDefinition struct {
-	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Name         *string                 `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type         enums.MetricsMetricType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricsMetricType"`
-	xxx_hidden_Description  *string                 `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Unit         *string                 `protobuf:"bytes,4,opt,name=unit"`
-	xxx_hidden_Labels       *[]*LabelDefinition     `protobuf:"bytes,5,rep,name=labels"`
-	xxx_hidden_Config       *MetricTypeConfig       `protobuf:"bytes,6,opt,name=config"`
-	xxx_hidden_Retention    *RetentionPolicyConfig  `protobuf:"bytes,7,opt,name=retention"`
-	xxx_hidden_ExportConfig *ExportConfig           `protobuf:"bytes,8,opt,name=export_config,json=exportConfig"`
-	xxx_hidden_Validation   *ValidationRules        `protobuf:"bytes,9,opt,name=validation"`
-	xxx_hidden_Tags         map[string]string       `protobuf:"bytes,10,rep,name=tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type         MetricsMetricType      `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricsMetricType"`
+	xxx_hidden_Description  *string                `protobuf:"bytes,3,opt,name=description"`
+	xxx_hidden_Unit         *string                `protobuf:"bytes,4,opt,name=unit"`
+	xxx_hidden_Labels       *[]*LabelDefinition    `protobuf:"bytes,5,rep,name=labels"`
+	xxx_hidden_Config       *MetricTypeConfig      `protobuf:"bytes,6,opt,name=config"`
+	xxx_hidden_Retention    *RetentionPolicyConfig `protobuf:"bytes,7,opt,name=retention"`
+	xxx_hidden_ExportConfig *ExportConfig          `protobuf:"bytes,8,opt,name=export_config,json=exportConfig"`
+	xxx_hidden_Validation   *ValidationRules       `protobuf:"bytes,9,opt,name=validation"`
+	xxx_hidden_Tags         map[string]string      `protobuf:"bytes,10,rep,name=tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -75,13 +74,13 @@ func (x *MetricDefinition) GetName() string {
 	return ""
 }
 
-func (x *MetricDefinition) GetType() enums.MetricsMetricType {
+func (x *MetricDefinition) GetType() MetricsMetricType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.MetricsMetricType(0)
+	return MetricsMetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricDefinition) GetDescription() string {
@@ -153,7 +152,7 @@ func (x *MetricDefinition) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *MetricDefinition) SetType(v enums.MetricsMetricType) {
+func (x *MetricDefinition) SetType(v MetricsMetricType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
@@ -255,7 +254,7 @@ func (x *MetricDefinition) ClearName() {
 
 func (x *MetricDefinition) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = MetricsMetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricDefinition) ClearDescription() {
@@ -290,7 +289,7 @@ type MetricDefinition_builder struct {
 	// Unique name for the metric
 	Name *string
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *enums.MetricsMetricType
+	Type *MetricsMetricType
 	// Human-readable description
 	Description *string
 	// Unit of measurement (e.g., "bytes", "requests", "seconds")
@@ -359,14 +358,13 @@ const file_gcommon_v1_metrics_messages_metric_definition_proto_rawDesc = "" +
 	" \x03(\v2..gcommon.v1.metrics.MetricDefinition.TagsEntryR\x04tags\x1a7\n" +
 	"\tTagsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xe0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x15MetricDefinitionProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_definition_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_messages_metric_definition_proto_goTypes = []any{
 	(*MetricDefinition)(nil),      // 0: gcommon.v1.metrics.MetricDefinition
 	nil,                           // 1: gcommon.v1.metrics.MetricDefinition.TagsEntry
-	(enums.MetricsMetricType)(0),  // 2: gcommon.v1.metrics.MetricsMetricType
+	(MetricsMetricType)(0),        // 2: gcommon.v1.metrics.MetricsMetricType
 	(*LabelDefinition)(nil),       // 3: gcommon.v1.metrics.LabelDefinition
 	(*MetricTypeConfig)(nil),      // 4: gcommon.v1.metrics.MetricTypeConfig
 	(*RetentionPolicyConfig)(nil), // 5: gcommon.v1.metrics.RetentionPolicyConfig
@@ -393,6 +391,7 @@ func file_gcommon_v1_metrics_messages_metric_definition_proto_init() {
 	if File_gcommon_v1_metrics_messages_metric_definition_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_enums_metric_type_proto_init()
 	file_gcommon_v1_metrics_messages_export_config_proto_init()
 	file_gcommon_v1_metrics_messages_label_definition_proto_init()
 	file_gcommon_v1_metrics_messages_metric_type_config_proto_init()

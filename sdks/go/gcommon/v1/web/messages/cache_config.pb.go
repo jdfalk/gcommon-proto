@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/web/messages/cache_config.proto
 
-package messages
+package web
 
 import (
 	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ const (
 // CacheConfig defines caching behavior for web responses.
 type WebCacheConfig struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Strategy  enums.CacheStrategy    `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.CacheStrategy"`
+	xxx_hidden_Strategy  CacheStrategy          `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.CacheStrategy"`
 	xxx_hidden_Policy    *messages.CachePolicy  `protobuf:"bytes,2,opt,name=policy"`
 	xxx_hidden_Ttl       *durationpb.Duration   `protobuf:"bytes,3,opt,name=ttl"`
 	xxx_hidden_Enabled   bool                   `protobuf:"varint,4,opt,name=enabled"`
@@ -65,13 +64,13 @@ func (x *WebCacheConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebCacheConfig) GetStrategy() enums.CacheStrategy {
+func (x *WebCacheConfig) GetStrategy() CacheStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return enums.CacheStrategy(0)
+	return CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebCacheConfig) GetPolicy() *messages.CachePolicy {
@@ -112,7 +111,7 @@ func (x *WebCacheConfig) GetCacheName() string {
 	return ""
 }
 
-func (x *WebCacheConfig) SetStrategy(v enums.CacheStrategy) {
+func (x *WebCacheConfig) SetStrategy(v CacheStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -177,7 +176,7 @@ func (x *WebCacheConfig) HasCacheName() bool {
 
 func (x *WebCacheConfig) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Strategy = enums.CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebCacheConfig) ClearPolicy() {
@@ -203,7 +202,7 @@ type WebCacheConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Selected cache strategy for responses
-	Strategy *enums.CacheStrategy
+	Strategy *CacheStrategy
 	// Detailed cache policy settings
 	Policy *messages.CachePolicy
 	// Override time to live for web resources
@@ -249,13 +248,12 @@ const file_gcommon_v1_web_messages_cache_config_proto_rawDesc = "" +
 	"\x03ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x03ttl\x12\x18\n" +
 	"\aenabled\x18\x04 \x01(\bR\aenabled\x12\x1d\n" +
 	"\n" +
-	"cache_name\x18\x05 \x01(\tR\tcacheNameB\xc3\x01\n" +
-	"\x12com.gcommon.v1.webB\x10CacheConfigProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"cache_name\x18\x05 \x01(\tR\tcacheNameB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_cache_config_proto_goTypes = []any{
 	(*WebCacheConfig)(nil),       // 0: gcommon.v1.web.WebCacheConfig
-	(enums.CacheStrategy)(0),     // 1: gcommon.v1.web.CacheStrategy
+	(CacheStrategy)(0),           // 1: gcommon.v1.web.CacheStrategy
 	(*messages.CachePolicy)(nil), // 2: gcommon.v1.common.CachePolicy
 	(*durationpb.Duration)(nil),  // 3: google.protobuf.Duration
 }
@@ -275,6 +273,7 @@ func file_gcommon_v1_web_messages_cache_config_proto_init() {
 	if File_gcommon_v1_web_messages_cache_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_web_enums_cache_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

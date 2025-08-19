@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/queue/messages/consumer_group_config.proto
 
-package messages
+package queue
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,17 +22,17 @@ const (
 )
 
 type ConsumerGroupConfig struct {
-	state                            protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_LoadBalancingStrategy enums.LoadBalancingStrategy `protobuf:"varint,1,opt,name=load_balancing_strategy,json=loadBalancingStrategy,enum=gcommon.v1.queue.LoadBalancingStrategy"`
-	xxx_hidden_RebalanceStrategy     enums.RebalanceStrategy     `protobuf:"varint,2,opt,name=rebalance_strategy,json=rebalanceStrategy,enum=gcommon.v1.queue.RebalanceStrategy"`
-	xxx_hidden_SessionTimeoutMs      int32                       `protobuf:"varint,3,opt,name=session_timeout_ms,json=sessionTimeoutMs"`
-	xxx_hidden_HeartbeatIntervalMs   int32                       `protobuf:"varint,4,opt,name=heartbeat_interval_ms,json=heartbeatIntervalMs"`
-	xxx_hidden_MaxPollIntervalMs     int32                       `protobuf:"varint,5,opt,name=max_poll_interval_ms,json=maxPollIntervalMs"`
-	xxx_hidden_AutoCommit            *AutoCommitConfig           `protobuf:"bytes,6,opt,name=auto_commit,json=autoCommit"`
-	xxx_hidden_OffsetResetStrategy   enums.OffsetResetStrategy   `protobuf:"varint,7,opt,name=offset_reset_strategy,json=offsetResetStrategy,enum=gcommon.v1.queue.OffsetResetStrategy"`
-	xxx_hidden_MaxConsumers          int32                       `protobuf:"varint,8,opt,name=max_consumers,json=maxConsumers"`
-	xxx_hidden_ExactlyOnceEnabled    bool                        `protobuf:"varint,9,opt,name=exactly_once_enabled,json=exactlyOnceEnabled"`
-	xxx_hidden_DlqConfig             *DeadLetterQueueConfig      `protobuf:"bytes,10,opt,name=dlq_config,json=dlqConfig"`
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_LoadBalancingStrategy LoadBalancingStrategy  `protobuf:"varint,1,opt,name=load_balancing_strategy,json=loadBalancingStrategy,enum=gcommon.v1.queue.LoadBalancingStrategy"`
+	xxx_hidden_RebalanceStrategy     RebalanceStrategy      `protobuf:"varint,2,opt,name=rebalance_strategy,json=rebalanceStrategy,enum=gcommon.v1.queue.RebalanceStrategy"`
+	xxx_hidden_SessionTimeoutMs      int32                  `protobuf:"varint,3,opt,name=session_timeout_ms,json=sessionTimeoutMs"`
+	xxx_hidden_HeartbeatIntervalMs   int32                  `protobuf:"varint,4,opt,name=heartbeat_interval_ms,json=heartbeatIntervalMs"`
+	xxx_hidden_MaxPollIntervalMs     int32                  `protobuf:"varint,5,opt,name=max_poll_interval_ms,json=maxPollIntervalMs"`
+	xxx_hidden_AutoCommit            *AutoCommitConfig      `protobuf:"bytes,6,opt,name=auto_commit,json=autoCommit"`
+	xxx_hidden_OffsetResetStrategy   OffsetResetStrategy    `protobuf:"varint,7,opt,name=offset_reset_strategy,json=offsetResetStrategy,enum=gcommon.v1.queue.OffsetResetStrategy"`
+	xxx_hidden_MaxConsumers          int32                  `protobuf:"varint,8,opt,name=max_consumers,json=maxConsumers"`
+	xxx_hidden_ExactlyOnceEnabled    bool                   `protobuf:"varint,9,opt,name=exactly_once_enabled,json=exactlyOnceEnabled"`
+	xxx_hidden_DlqConfig             *DeadLetterQueueConfig `protobuf:"bytes,10,opt,name=dlq_config,json=dlqConfig"`
 	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
 	XXX_presence                     [1]uint32
 	unknownFields                    protoimpl.UnknownFields
@@ -65,22 +64,22 @@ func (x *ConsumerGroupConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ConsumerGroupConfig) GetLoadBalancingStrategy() enums.LoadBalancingStrategy {
+func (x *ConsumerGroupConfig) GetLoadBalancingStrategy() LoadBalancingStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_LoadBalancingStrategy
 		}
 	}
-	return enums.LoadBalancingStrategy(0)
+	return LoadBalancingStrategy_LOAD_BALANCING_STRATEGY_UNSPECIFIED
 }
 
-func (x *ConsumerGroupConfig) GetRebalanceStrategy() enums.RebalanceStrategy {
+func (x *ConsumerGroupConfig) GetRebalanceStrategy() RebalanceStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_RebalanceStrategy
 		}
 	}
-	return enums.RebalanceStrategy(0)
+	return RebalanceStrategy_REBALANCE_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConsumerGroupConfig) GetSessionTimeoutMs() int32 {
@@ -111,13 +110,13 @@ func (x *ConsumerGroupConfig) GetAutoCommit() *AutoCommitConfig {
 	return nil
 }
 
-func (x *ConsumerGroupConfig) GetOffsetResetStrategy() enums.OffsetResetStrategy {
+func (x *ConsumerGroupConfig) GetOffsetResetStrategy() OffsetResetStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_OffsetResetStrategy
 		}
 	}
-	return enums.OffsetResetStrategy(0)
+	return OffsetResetStrategy_OFFSET_RESET_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConsumerGroupConfig) GetMaxConsumers() int32 {
@@ -141,12 +140,12 @@ func (x *ConsumerGroupConfig) GetDlqConfig() *DeadLetterQueueConfig {
 	return nil
 }
 
-func (x *ConsumerGroupConfig) SetLoadBalancingStrategy(v enums.LoadBalancingStrategy) {
+func (x *ConsumerGroupConfig) SetLoadBalancingStrategy(v LoadBalancingStrategy) {
 	x.xxx_hidden_LoadBalancingStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *ConsumerGroupConfig) SetRebalanceStrategy(v enums.RebalanceStrategy) {
+func (x *ConsumerGroupConfig) SetRebalanceStrategy(v RebalanceStrategy) {
 	x.xxx_hidden_RebalanceStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
@@ -170,7 +169,7 @@ func (x *ConsumerGroupConfig) SetAutoCommit(v *AutoCommitConfig) {
 	x.xxx_hidden_AutoCommit = v
 }
 
-func (x *ConsumerGroupConfig) SetOffsetResetStrategy(v enums.OffsetResetStrategy) {
+func (x *ConsumerGroupConfig) SetOffsetResetStrategy(v OffsetResetStrategy) {
 	x.xxx_hidden_OffsetResetStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
 }
@@ -261,12 +260,12 @@ func (x *ConsumerGroupConfig) HasDlqConfig() bool {
 
 func (x *ConsumerGroupConfig) ClearLoadBalancingStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_LoadBalancingStrategy = enums.LoadBalancingStrategy_LOAD_BALANCING_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_LoadBalancingStrategy = LoadBalancingStrategy_LOAD_BALANCING_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConsumerGroupConfig) ClearRebalanceStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RebalanceStrategy = enums.RebalanceStrategy_REBALANCE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_RebalanceStrategy = RebalanceStrategy_REBALANCE_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConsumerGroupConfig) ClearSessionTimeoutMs() {
@@ -290,7 +289,7 @@ func (x *ConsumerGroupConfig) ClearAutoCommit() {
 
 func (x *ConsumerGroupConfig) ClearOffsetResetStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_OffsetResetStrategy = enums.OffsetResetStrategy_OFFSET_RESET_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_OffsetResetStrategy = OffsetResetStrategy_OFFSET_RESET_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConsumerGroupConfig) ClearMaxConsumers() {
@@ -311,9 +310,9 @@ type ConsumerGroupConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Load balancing strategy for partition assignment
-	LoadBalancingStrategy *enums.LoadBalancingStrategy
+	LoadBalancingStrategy *LoadBalancingStrategy
 	// Rebalance strategy when consumers join/leave
-	RebalanceStrategy *enums.RebalanceStrategy
+	RebalanceStrategy *RebalanceStrategy
 	// Session timeout for consumer heartbeats (milliseconds)
 	SessionTimeoutMs *int32
 	// Heartbeat interval (milliseconds)
@@ -323,7 +322,7 @@ type ConsumerGroupConfig_builder struct {
 	// Auto-commit configuration
 	AutoCommit *AutoCommitConfig
 	// Offset reset strategy for new consumers
-	OffsetResetStrategy *enums.OffsetResetStrategy
+	OffsetResetStrategy *OffsetResetStrategy
 	// Maximum number of consumers allowed in the group
 	MaxConsumers *int32
 	// Enable exactly-once semantics
@@ -391,17 +390,16 @@ const file_gcommon_v1_queue_messages_consumer_group_config_proto_rawDesc = "" +
 	"\x14exactly_once_enabled\x18\t \x01(\bR\x12exactlyOnceEnabled\x12F\n" +
 	"\n" +
 	"dlq_config\x18\n" +
-	" \x01(\v2'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfigB\xd7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18ConsumerGroupConfigProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\v2'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_group_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_group_config_proto_goTypes = []any{
-	(*ConsumerGroupConfig)(nil),      // 0: gcommon.v1.queue.ConsumerGroupConfig
-	(enums.LoadBalancingStrategy)(0), // 1: gcommon.v1.queue.LoadBalancingStrategy
-	(enums.RebalanceStrategy)(0),     // 2: gcommon.v1.queue.RebalanceStrategy
-	(*AutoCommitConfig)(nil),         // 3: gcommon.v1.queue.AutoCommitConfig
-	(enums.OffsetResetStrategy)(0),   // 4: gcommon.v1.queue.OffsetResetStrategy
-	(*DeadLetterQueueConfig)(nil),    // 5: gcommon.v1.queue.DeadLetterQueueConfig
+	(*ConsumerGroupConfig)(nil),   // 0: gcommon.v1.queue.ConsumerGroupConfig
+	(LoadBalancingStrategy)(0),    // 1: gcommon.v1.queue.LoadBalancingStrategy
+	(RebalanceStrategy)(0),        // 2: gcommon.v1.queue.RebalanceStrategy
+	(*AutoCommitConfig)(nil),      // 3: gcommon.v1.queue.AutoCommitConfig
+	(OffsetResetStrategy)(0),      // 4: gcommon.v1.queue.OffsetResetStrategy
+	(*DeadLetterQueueConfig)(nil), // 5: gcommon.v1.queue.DeadLetterQueueConfig
 }
 var file_gcommon_v1_queue_messages_consumer_group_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ConsumerGroupConfig.load_balancing_strategy:type_name -> gcommon.v1.queue.LoadBalancingStrategy
@@ -421,6 +419,9 @@ func file_gcommon_v1_queue_messages_consumer_group_config_proto_init() {
 	if File_gcommon_v1_queue_messages_consumer_group_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_queue_enums_load_balancing_strategy_proto_init()
+	file_gcommon_v1_queue_enums_offset_reset_strategy_proto_init()
+	file_gcommon_v1_queue_enums_rebalance_strategy_proto_init()
 	file_gcommon_v1_queue_messages_auto_commit_config_proto_init()
 	file_gcommon_v1_queue_messages_dead_letter_queue_config_proto_init()
 	type x struct{}
