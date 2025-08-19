@@ -17,7 +17,7 @@ def fix_common_package_paths():
     """Fix go_package paths for the common package."""
 
     # All common package files should use this go_package
-    target_go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
+    target_go_package = "github.com/jdfalk/gcommon/sdks/go/common"
 
     # Find all proto files in the common package
     common_proto_files = []

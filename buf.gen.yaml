@@ -1,17 +1,18 @@
 version: v2
 clean: true
+managed:
+  enabled: true
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/googleapis/googleapis
 plugins:
-  # Go: use local protoc-gen-go with source_relative paths
+  # Go: use local protoc-gen-go with managed mode
   - local: protoc-gen-go
     out: sdks/go
-    opt:
-      - paths=source_relative
     strategy: directory
   # Go gRPC services
   - local: protoc-gen-go-grpc
     out: sdks/go
-    opt:
-      - paths=source_relative
     strategy: directory
   # Python messages via protoc built-in generator
   - protoc_builtin: python

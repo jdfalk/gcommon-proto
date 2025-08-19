@@ -11,7 +11,7 @@ def fix_common_go_packages():
     """Fix all go_package options in common proto files to use unified path."""
 
     # Define the unified go_package for common
-    unified_go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
+    unified_go_package = "github.com/jdfalk/gcommon/sdks/go/common"
 
     # Pattern to match go_package options with common paths
     pattern = r'option go_package = "github\.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/(?:enums|messages|services)";'

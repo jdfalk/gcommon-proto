@@ -9,7 +9,7 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/common";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common";
 
 // FormatterType enumerates log formatting strategies
 enum FormatterType {
