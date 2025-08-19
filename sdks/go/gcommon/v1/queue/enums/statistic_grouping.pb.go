@@ -85,7 +85,7 @@ const file_gcommon_v1_queue_enums_statistic_grouping_proto_rawDesc = "" +
 	"\x1bSTATISTIC_GROUPING_BY_QUEUE\x10\x02\x12\"\n" +
 	"\x1eSTATISTIC_GROUPING_BY_CONSUMER\x10\x03\x12%\n" +
 	"!STATISTIC_GROUPING_BY_TIME_PERIOD\x10\x04\x12&\n" +
-	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_statistic_grouping_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_statistic_grouping_proto_goTypes = []any{

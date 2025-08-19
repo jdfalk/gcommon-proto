@@ -106,7 +106,7 @@ const file_gcommon_v1_queue_enums_statistic_type_proto_rawDesc = "" +
 	"\x1bSTATISTIC_TYPE_MESSAGE_SIZE\x10\b\x12#\n" +
 	"\x1fSTATISTIC_TYPE_AGE_DISTRIBUTION\x10\t\x12\x1f\n" +
 	"\x1bSTATISTIC_TYPE_SUCCESS_RATE\x10\n" +
-	"B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_statistic_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_statistic_type_proto_goTypes = []any{

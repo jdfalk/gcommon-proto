@@ -114,7 +114,7 @@ const file_gcommon_v1_queue_messages_get_queue_health_response_proto_rawDesc = "
 	"9gcommon/v1/queue/messages/get_queue_health_response.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/queue/messages/cluster_health.proto\x1a,gcommon/v1/queue/messages/queue_health.proto\x1a!google/protobuf/go_features.proto\"\xa2\x01\n" +
 	"\x16GetQueueHealthResponse\x12@\n" +
 	"\fqueue_health\x18\x01 \x03(\v2\x1d.gcommon.v1.queue.QueueHealthR\vqueueHealth\x12F\n" +
-	"\x0ecluster_health\x18\x02 \x01(\v2\x1f.gcommon.v1.queue.ClusterHealthR\rclusterHealthB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecluster_health\x18\x02 \x01(\v2\x1f.gcommon.v1.queue.ClusterHealthR\rclusterHealthB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_queue_health_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_queue_health_response_proto_goTypes = []any{

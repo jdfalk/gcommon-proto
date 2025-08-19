@@ -199,7 +199,7 @@ const file_gcommon_v1_queue_messages_batch_delivery_config_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12$\n" +
 	"\x0emax_batch_size\x18\x02 \x01(\x05R\fmaxBatchSize\x12&\n" +
 	"\x0fmax_batch_bytes\x18\x03 \x01(\x03R\rmaxBatchBytes\x12(\n" +
-	"\x10batch_timeout_ms\x18\x04 \x01(\x05R\x0ebatchTimeoutMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10batch_timeout_ms\x18\x04 \x01(\x05R\x0ebatchTimeoutMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_batch_delivery_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_batch_delivery_config_proto_goTypes = []any{

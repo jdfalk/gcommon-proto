@@ -205,7 +205,7 @@ const file_gcommon_v1_queue_messages_delivery_settings_proto_rawDesc = "" +
 	"\rdelivery_mode\x18\x01 \x01(\tR\fdeliveryMode\x12#\n" +
 	"\rpush_endpoint\x18\x02 \x01(\tR\fpushEndpoint\x12.\n" +
 	"\x13delivery_timeout_ms\x18\x03 \x01(\x05R\x11deliveryTimeoutMs\x12)\n" +
-	"\x10ordered_delivery\x18\x04 \x01(\bR\x0forderedDeliveryB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10ordered_delivery\x18\x04 \x01(\bR\x0forderedDeliveryB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_delivery_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_delivery_settings_proto_goTypes = []any{

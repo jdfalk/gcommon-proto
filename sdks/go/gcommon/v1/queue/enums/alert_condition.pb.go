@@ -98,7 +98,7 @@ const file_gcommon_v1_queue_enums_alert_condition_proto_rawDesc = "" +
 	"\x16ALERT_CONDITION_EQUALS\x10\x03\x12\x1e\n" +
 	"\x1aALERT_CONDITION_NOT_EQUALS\x10\x04\x12\x1e\n" +
 	"\x1aALERT_CONDITION_INCREASING\x10\x05\x12\x1e\n" +
-	"\x1aALERT_CONDITION_DECREASING\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aALERT_CONDITION_DECREASING\x10\x06B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_alert_condition_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_alert_condition_proto_goTypes = []any{

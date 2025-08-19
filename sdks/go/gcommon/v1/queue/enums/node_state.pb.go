@@ -93,7 +93,7 @@ const file_gcommon_v1_queue_enums_node_state_proto_rawDesc = "" +
 	"\x13NODE_STATE_INACTIVE\x10\x02\x12\x1a\n" +
 	"\x16NODE_STATE_UNREACHABLE\x10\x03\x12\x16\n" +
 	"\x12NODE_STATE_JOINING\x10\x04\x12\x16\n" +
-	"\x12NODE_STATE_LEAVING\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12NODE_STATE_LEAVING\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_node_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_node_state_proto_goTypes = []any{

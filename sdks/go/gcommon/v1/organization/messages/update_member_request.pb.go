@@ -190,7 +190,7 @@ const file_gcommon_v1_organization_messages_update_member_request_proto_rawDesc 
 	"\tmember_id\x18\x02 \x01(\tR\bmemberId\x12C\n" +
 	"\x06member\x18\x03 \x01(\v2+.gcommon.v1.organization.OrganizationMemberR\x06member\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
-	"updateMaskB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"updateMaskB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_update_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_member_request_proto_goTypes = []any{

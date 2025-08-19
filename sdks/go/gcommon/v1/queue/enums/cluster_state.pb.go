@@ -93,7 +93,7 @@ const file_gcommon_v1_queue_enums_cluster_state_proto_rawDesc = "" +
 	"\x16CLUSTER_STATE_DEGRADED\x10\x02\x12\x1c\n" +
 	"\x18CLUSTER_STATE_RECOVERING\x10\x03\x12\x16\n" +
 	"\x12CLUSTER_STATE_DOWN\x10\x04\x12\x1d\n" +
-	"\x19CLUSTER_STATE_MAINTENANCE\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19CLUSTER_STATE_MAINTENANCE\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_cluster_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_cluster_state_proto_goTypes = []any{

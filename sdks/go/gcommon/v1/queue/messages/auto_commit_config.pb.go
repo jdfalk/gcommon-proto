@@ -201,7 +201,7 @@ const file_gcommon_v1_queue_messages_auto_commit_config_proto_rawDesc = "" +
 	"intervalMs\x120\n" +
 	"\x14commit_on_completion\x18\x03 \x01(\bR\x12commitOnCompletion\x12\x1d\n" +
 	"\n" +
-	"batch_size\x18\x04 \x01(\x05R\tbatchSizeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"batch_size\x18\x04 \x01(\x05R\tbatchSizeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_auto_commit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_auto_commit_config_proto_goTypes = []any{

@@ -138,7 +138,7 @@ const file_gcommon_v1_queue_messages_delete_topic_request_proto_rawDesc = "" +
 	"4gcommon/v1/queue/messages/delete_topic_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"@\n" +
 	"\x12DeleteTopicRequest\x12\x14\n" +
 	"\x05topic\x18\x01 \x01(\tR\x05topic\x12\x14\n" +
-	"\x05force\x18\x02 \x01(\bR\x05forceB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05force\x18\x02 \x01(\bR\x05forceB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_delete_topic_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_delete_topic_request_proto_goTypes = []any{

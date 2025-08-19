@@ -222,7 +222,7 @@ const file_gcommon_v1_organization_messages_update_hierarchy_request_proto_rawDe
 	"\thierarchy\x18\x03 \x01(\v2..gcommon.v1.organization.OrganizationHierarchyR\thierarchy\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_update_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_hierarchy_request_proto_goTypes = []any{

@@ -85,7 +85,7 @@ const file_gcommon_v1_queue_enums_resolution_strategy_proto_rawDesc = "" +
 	"%RESOLUTION_STRATEGY_FIRST_WRITER_WINS\x10\x02\x12\x1d\n" +
 	"\x19RESOLUTION_STRATEGY_MERGE\x10\x03\x12\x1e\n" +
 	"\x1aRESOLUTION_STRATEGY_CUSTOM\x10\x04\x12#\n" +
-	"\x1fRESOLUTION_STRATEGY_MULTI_VALUE\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fRESOLUTION_STRATEGY_MULTI_VALUE\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_resolution_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_resolution_strategy_proto_goTypes = []any{

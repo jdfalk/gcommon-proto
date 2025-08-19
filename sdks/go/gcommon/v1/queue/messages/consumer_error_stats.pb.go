@@ -228,7 +228,7 @@ const file_gcommon_v1_queue_messages_consumer_error_stats_proto_rawDesc = "" +
 	"\x0etimeout_errors\x18\x03 \x01(\x03R\rtimeoutErrors\x121\n" +
 	"\x14serialization_errors\x18\x04 \x01(\x03R\x13serializationErrors\x129\n" +
 	"\n" +
-	"last_error\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tlastErrorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"last_error\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tlastErrorB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_error_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_error_stats_proto_goTypes = []any{

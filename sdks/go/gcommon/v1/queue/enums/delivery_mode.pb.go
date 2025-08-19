@@ -88,7 +88,7 @@ const file_gcommon_v1_queue_enums_delivery_mode_proto_rawDesc = "" +
 	"\x1aDELIVERY_MODE_AT_MOST_ONCE\x10\x01\x12\x1f\n" +
 	"\x1bDELIVERY_MODE_AT_LEAST_ONCE\x10\x02\x12\x1e\n" +
 	"\x1aDELIVERY_MODE_EXACTLY_ONCE\x10\x03\x12\x1d\n" +
-	"\x19DELIVERY_MODE_BEST_EFFORT\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19DELIVERY_MODE_BEST_EFFORT\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_delivery_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_delivery_mode_proto_goTypes = []any{

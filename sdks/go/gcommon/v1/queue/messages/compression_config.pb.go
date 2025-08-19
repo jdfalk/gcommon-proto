@@ -203,7 +203,7 @@ const file_gcommon_v1_queue_messages_compression_config_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x1c\n" +
 	"\talgorithm\x18\x02 \x01(\tR\talgorithm\x12\x14\n" +
 	"\x05level\x18\x03 \x01(\x05R\x05level\x12$\n" +
-	"\x0emin_size_bytes\x18\x04 \x01(\x05R\fminSizeBytesB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0emin_size_bytes\x18\x04 \x01(\x05R\fminSizeBytesB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_compression_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_compression_config_proto_goTypes = []any{

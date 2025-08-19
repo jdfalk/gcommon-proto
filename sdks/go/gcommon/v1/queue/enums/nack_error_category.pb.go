@@ -98,7 +98,7 @@ const file_gcommon_v1_queue_enums_nack_error_category_proto_rawDesc = "" +
 	"!NACK_ERROR_CATEGORY_CONFIGURATION\x10\x03\x12\x1f\n" +
 	"\x1bNACK_ERROR_CATEGORY_NETWORK\x10\x04\x12\x1c\n" +
 	"\x18NACK_ERROR_CATEGORY_AUTH\x10\x05\x12\"\n" +
-	"\x1eNACK_ERROR_CATEGORY_RATE_LIMIT\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1eNACK_ERROR_CATEGORY_RATE_LIMIT\x10\x06B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_nack_error_category_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_nack_error_category_proto_goTypes = []any{

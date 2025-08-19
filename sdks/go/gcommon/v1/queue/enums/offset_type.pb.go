@@ -90,7 +90,7 @@ const file_gcommon_v1_queue_enums_offset_type_proto_rawDesc = "" +
 	"\x14OFFSET_TYPE_EARLIEST\x10\x01\x12\x16\n" +
 	"\x12OFFSET_TYPE_LATEST\x10\x02\x12\x17\n" +
 	"\x13OFFSET_TYPE_CURRENT\x10\x03\x12\x19\n" +
-	"\x15OFFSET_TYPE_COMMITTED\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15OFFSET_TYPE_COMMITTED\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_offset_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_offset_type_proto_goTypes = []any{

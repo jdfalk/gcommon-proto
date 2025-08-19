@@ -152,7 +152,7 @@ const file_gcommon_v1_queue_messages_age_distribution_proto_rawDesc = "" +
 	"\x0fAgeDistribution\x125\n" +
 	"\abuckets\x18\x01 \x03(\v2\x1b.gcommon.v1.queue.AgeBucketR\abuckets\x12.\n" +
 	"\x13average_age_seconds\x18\x02 \x01(\x01R\x11averageAgeSeconds\x12;\n" +
-	"\x1aoldest_message_age_seconds\x18\x03 \x01(\x01R\x17oldestMessageAgeSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aoldest_message_age_seconds\x18\x03 \x01(\x01R\x17oldestMessageAgeSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_age_distribution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_age_distribution_proto_goTypes = []any{

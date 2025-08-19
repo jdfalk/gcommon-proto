@@ -275,7 +275,7 @@ const file_gcommon_v1_queue_messages_create_subscription_response_proto_rawDesc 
 	"\x11subscription_name\x18\x04 \x01(\tR\x10subscriptionName\x12\x1d\n" +
 	"\n" +
 	"created_at\x18\x05 \x01(\x04R\tcreatedAt\x12)\n" +
-	"\x10initial_position\x18\x06 \x01(\x04R\x0finitialPositionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10initial_position\x18\x06 \x01(\x04R\x0finitialPositionB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_create_subscription_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_create_subscription_response_proto_goTypes = []any{

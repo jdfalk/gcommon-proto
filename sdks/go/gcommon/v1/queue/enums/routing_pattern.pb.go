@@ -94,7 +94,7 @@ const file_gcommon_v1_queue_enums_routing_pattern_proto_rawDesc = "" +
 	"\x15ROUTING_PATTERN_REGEX\x10\x02\x12\x19\n" +
 	"\x15ROUTING_PATTERN_TOPIC\x10\x03\x12\x1a\n" +
 	"\x16ROUTING_PATTERN_PREFIX\x10\x04\x12\x1a\n" +
-	"\x16ROUTING_PATTERN_SUFFIX\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16ROUTING_PATTERN_SUFFIX\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_routing_pattern_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_routing_pattern_proto_goTypes = []any{

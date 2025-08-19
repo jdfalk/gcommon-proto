@@ -88,7 +88,7 @@ const file_gcommon_v1_queue_enums_stream_restart_policy_proto_rawDesc = "" +
 	"\x1bSTREAM_RESTART_POLICY_NEVER\x10\x01\x12#\n" +
 	"\x1fSTREAM_RESTART_POLICY_IMMEDIATE\x10\x02\x12-\n" +
 	")STREAM_RESTART_POLICY_EXPONENTIAL_BACKOFF\x10\x03\x12%\n" +
-	"!STREAM_RESTART_POLICY_FIXED_DELAY\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"!STREAM_RESTART_POLICY_FIXED_DELAY\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_stream_restart_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_stream_restart_policy_proto_goTypes = []any{

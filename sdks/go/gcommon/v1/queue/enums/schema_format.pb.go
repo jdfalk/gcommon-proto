@@ -93,7 +93,7 @@ const file_gcommon_v1_queue_enums_schema_format_proto_rawDesc = "" +
 	"\x12SCHEMA_FORMAT_AVRO\x10\x02\x12\x1a\n" +
 	"\x16SCHEMA_FORMAT_PROTOBUF\x10\x03\x12\x1c\n" +
 	"\x18SCHEMA_FORMAT_XML_SCHEMA\x10\x04\x12\x18\n" +
-	"\x14SCHEMA_FORMAT_CUSTOM\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14SCHEMA_FORMAT_CUSTOM\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_schema_format_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_schema_format_proto_goTypes = []any{

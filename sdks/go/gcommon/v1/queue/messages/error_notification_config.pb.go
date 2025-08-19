@@ -183,7 +183,7 @@ const file_gcommon_v1_queue_messages_error_notification_config_proto_rawDesc = "
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x123\n" +
 	"\x15notification_channels\x18\x02 \x03(\tR\x14notificationChannels\x12'\n" +
 	"\x0ferror_threshold\x18\x03 \x01(\x05R\x0eerrorThreshold\x12D\n" +
-	"\x1enotification_frequency_seconds\x18\x04 \x01(\x05R\x1cnotificationFrequencySecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1enotification_frequency_seconds\x18\x04 \x01(\x05R\x1cnotificationFrequencySecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_error_notification_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_error_notification_config_proto_goTypes = []any{

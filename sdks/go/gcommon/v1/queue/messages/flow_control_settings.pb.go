@@ -170,7 +170,7 @@ const file_gcommon_v1_queue_messages_flow_control_settings_proto_rawDesc = "" +
 	"\x13FlowControlSettings\x128\n" +
 	"\x18max_outstanding_messages\x18\x01 \x01(\x05R\x16maxOutstandingMessages\x122\n" +
 	"\x15max_outstanding_bytes\x18\x02 \x01(\x03R\x13maxOutstandingBytes\x12\x1c\n" +
-	"\talgorithm\x18\x03 \x01(\tR\talgorithmB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\talgorithm\x18\x03 \x01(\tR\talgorithmB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_flow_control_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_flow_control_settings_proto_goTypes = []any{

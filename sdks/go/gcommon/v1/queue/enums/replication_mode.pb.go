@@ -98,7 +98,7 @@ const file_gcommon_v1_queue_enums_replication_mode_proto_rawDesc = "" +
 	"\x16REPLICATION_MODE_ASYNC\x10\x03\x12\x1b\n" +
 	"\x17REPLICATION_MODE_QUORUM\x10\x04\x12$\n" +
 	" REPLICATION_MODE_LEADER_FOLLOWER\x10\x05\x12!\n" +
-	"\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dREPLICATION_MODE_MASTER_SLAVE\x10\x06B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_replication_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_replication_mode_proto_goTypes = []any{

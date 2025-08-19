@@ -88,7 +88,7 @@ const file_gcommon_v1_queue_enums_export_format_proto_rawDesc = "" +
 	"\x12EXPORT_FORMAT_JSON\x10\x01\x12\x1a\n" +
 	"\x16EXPORT_FORMAT_PROTOBUF\x10\x02\x12\x15\n" +
 	"\x11EXPORT_FORMAT_CSV\x10\x03\x12\x18\n" +
-	"\x14EXPORT_FORMAT_CUSTOM\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14EXPORT_FORMAT_CUSTOM\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_export_format_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_export_format_proto_goTypes = []any{

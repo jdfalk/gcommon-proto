@@ -201,7 +201,7 @@ const file_gcommon_v1_queue_messages_cluster_stats_proto_rawDesc = "" +
 	"\ftotal_queues\x18\x01 \x01(\x03R\vtotalQueues\x12%\n" +
 	"\x0etotal_messages\x18\x02 \x01(\x03R\rtotalMessages\x12)\n" +
 	"\x10total_throughput\x18\x03 \x01(\x01R\x0ftotalThroughput\x12-\n" +
-	"\x12active_connections\x18\x04 \x01(\x03R\x11activeConnectionsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12active_connections\x18\x04 \x01(\x03R\x11activeConnectionsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_cluster_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_cluster_stats_proto_goTypes = []any{

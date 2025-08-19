@@ -200,7 +200,7 @@ const file_gcommon_v1_queue_messages_auth_cache_config_proto_rawDesc = "" +
 	"\vttl_seconds\x18\x02 \x01(\x05R\n" +
 	"ttlSeconds\x12\x19\n" +
 	"\bmax_size\x18\x03 \x01(\x05R\amaxSize\x128\n" +
-	"\x18cleanup_interval_seconds\x18\x04 \x01(\x05R\x16cleanupIntervalSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18cleanup_interval_seconds\x18\x04 \x01(\x05R\x16cleanupIntervalSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_auth_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_auth_cache_config_proto_goTypes = []any{

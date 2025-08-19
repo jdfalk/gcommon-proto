@@ -77,7 +77,7 @@ const file_gcommon_v1_queue_enums_coordinator_state_proto_rawDesc = "" +
 	"\x1dCOORDINATOR_STATE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18COORDINATOR_STATE_ACTIVE\x10\x01\x12\x1d\n" +
 	"\x19COORDINATOR_STATE_LOADING\x10\x02\x12%\n" +
-	"!COORDINATOR_STATE_NOT_COORDINATOR\x10\x03B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"!COORDINATOR_STATE_NOT_COORDINATOR\x10\x03B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_coordinator_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_coordinator_state_proto_goTypes = []any{

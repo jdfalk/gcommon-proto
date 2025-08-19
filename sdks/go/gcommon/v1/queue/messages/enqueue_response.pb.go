@@ -579,7 +579,7 @@ const file_gcommon_v1_queue_messages_enqueue_response_proto_rawDesc = "" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12;\n" +
 	"\venqueued_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"enqueuedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_enqueue_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_enqueue_response_proto_goTypes = []any{

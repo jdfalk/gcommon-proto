@@ -202,7 +202,7 @@ const file_gcommon_v1_queue_messages_get_cluster_info_response_proto_rawDesc = "
 	"\n" +
 	"is_healthy\x18\x03 \x01(\bR\tisHealthy\x12\x1a\n" +
 	"\bwarnings\x18\x04 \x03(\tR\bwarnings\x12#\n" +
-	"\rerror_message\x18\x05 \x01(\tR\ferrorMessageB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rerror_message\x18\x05 \x01(\tR\ferrorMessageB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_cluster_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_cluster_info_response_proto_goTypes = []any{

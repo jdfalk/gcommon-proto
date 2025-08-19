@@ -189,7 +189,7 @@ const file_gcommon_v1_organization_messages_webhook_config_proto_rawDesc = "" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x16\n" +
 	"\x06events\x18\x02 \x03(\tR\x06events\x12\x16\n" +
 	"\x06active\x18\x03 \x01(\bR\x06active\x12\x16\n" +
-	"\x06secret\x18\x04 \x01(\tR\x06secretB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06secret\x18\x04 \x01(\tR\x06secretB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_webhook_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_webhook_config_proto_goTypes = []any{

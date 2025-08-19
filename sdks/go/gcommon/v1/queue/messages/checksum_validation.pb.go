@@ -208,7 +208,7 @@ const file_gcommon_v1_queue_messages_checksum_validation_proto_rawDesc = "" +
 	"\x06passed\x18\x01 \x01(\bR\x06passed\x12+\n" +
 	"\x11expected_checksum\x18\x02 \x01(\tR\x10expectedChecksum\x12'\n" +
 	"\x0factual_checksum\x18\x03 \x01(\tR\x0eactualChecksum\x12-\n" +
-	"\x12checksum_algorithm\x18\x04 \x01(\tR\x11checksumAlgorithmB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12checksum_algorithm\x18\x04 \x01(\tR\x11checksumAlgorithmB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_checksum_validation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_checksum_validation_proto_goTypes = []any{

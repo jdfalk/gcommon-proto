@@ -85,7 +85,7 @@ const file_gcommon_v1_queue_enums_consumer_group_state_proto_rawDesc = "" +
 	"(CONSUMER_GROUP_STATE_PREPARING_REBALANCE\x10\x02\x12-\n" +
 	")CONSUMER_GROUP_STATE_COMPLETING_REBALANCE\x10\x03\x12\x1d\n" +
 	"\x19CONSUMER_GROUP_STATE_DEAD\x10\x04\x12\x1e\n" +
-	"\x1aCONSUMER_GROUP_STATE_EMPTY\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aCONSUMER_GROUP_STATE_EMPTY\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_consumer_group_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_consumer_group_state_proto_goTypes = []any{

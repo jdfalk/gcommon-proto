@@ -202,7 +202,7 @@ const file_gcommon_v1_queue_messages_commit_offset_request_proto_rawDesc = "" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12%\n" +
 	"\x0econsumer_group\x18\x02 \x01(\tR\rconsumerGroup\x12\x16\n" +
 	"\x06offset\x18\x03 \x01(\x03R\x06offset\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_commit_offset_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_commit_offset_request_proto_goTypes = []any{

@@ -88,7 +88,7 @@ const file_gcommon_v1_queue_enums_priority_level_proto_rawDesc = "" +
 	"\x18QUEUE_PRIORITY_LEVEL_LOW\x10\x01\x12\x1f\n" +
 	"\x1bQUEUE_PRIORITY_LEVEL_MEDIUM\x10\x02\x12\x1d\n" +
 	"\x19QUEUE_PRIORITY_LEVEL_HIGH\x10\x03\x12!\n" +
-	"\x1dQUEUE_PRIORITY_LEVEL_CRITICAL\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dQUEUE_PRIORITY_LEVEL_CRITICAL\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_priority_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_priority_level_proto_goTypes = []any{

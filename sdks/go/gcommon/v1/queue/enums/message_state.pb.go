@@ -97,7 +97,7 @@ const file_gcommon_v1_queue_enums_message_state_proto_rawDesc = "" +
 	"\x1aMESSAGE_STATE_ACKNOWLEDGED\x10\x03\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x04\x12\x1d\n" +
 	"\x19MESSAGE_STATE_DEAD_LETTER\x10\x05\x12\x19\n" +
-	"\x15MESSAGE_STATE_EXPIRED\x10\x06B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15MESSAGE_STATE_EXPIRED\x10\x06B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_message_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_message_state_proto_goTypes = []any{

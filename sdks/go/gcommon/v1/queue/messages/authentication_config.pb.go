@@ -390,7 +390,7 @@ const file_gcommon_v1_queue_messages_authentication_config_proto_rawDesc = "" +
 	"\x03tls\x18\x04 \x01(\v2\x19.gcommon.v1.queue.TLSAuthH\x00R\x03tls\x120\n" +
 	"\x04sasl\x18\x05 \x01(\v2\x1a.gcommon.v1.queue.SASLAuthH\x00R\x04sasl\x126\n" +
 	"\x06oauth2\x18\x06 \x01(\v2\x1c.gcommon.v1.queue.OAuth2AuthH\x00R\x06oauth2B\v\n" +
-	"\tauth_typeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tauth_typeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_authentication_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_authentication_config_proto_goTypes = []any{

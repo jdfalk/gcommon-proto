@@ -165,7 +165,7 @@ const file_gcommon_v1_queue_messages_flow_control_proto_rawDesc = "" +
 	"\vFlowControl\x12\"\n" +
 	"\rmax_in_flight\x18\x01 \x01(\x05R\vmaxInFlight\x12-\n" +
 	"\x13max_bytes_in_flight\x18\x02 \x01(\x03R\x10maxBytesInFlight\x12<\n" +
-	"\fack_deadline\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\vackDeadlineB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fack_deadline\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\vackDeadlineB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_flow_control_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_flow_control_proto_goTypes = []any{

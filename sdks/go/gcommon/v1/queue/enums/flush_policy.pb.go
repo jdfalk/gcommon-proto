@@ -93,7 +93,7 @@ const file_gcommon_v1_queue_enums_flush_policy_proto_rawDesc = "" +
 	"\x12FLUSH_POLICY_BATCH\x10\x02\x12\x16\n" +
 	"\x12FLUSH_POLICY_TIMED\x10\x03\x12\x1c\n" +
 	"\x18FLUSH_POLICY_BUFFER_FULL\x10\x04\x12\x17\n" +
-	"\x13FLUSH_POLICY_MANUAL\x10\x05B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13FLUSH_POLICY_MANUAL\x10\x05B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_enums_flush_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_queue_enums_flush_policy_proto_goTypes = []any{

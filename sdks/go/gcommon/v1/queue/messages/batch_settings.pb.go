@@ -231,7 +231,7 @@ const file_gcommon_v1_queue_messages_batch_settings_proto_rawDesc = "" +
 	"\x0emax_batch_size\x18\x02 \x01(\x05R\fmaxBatchSize\x12&\n" +
 	"\x0fmax_batch_bytes\x18\x03 \x01(\x03R\rmaxBatchBytes\x12(\n" +
 	"\x10batch_timeout_ms\x18\x04 \x01(\x05R\x0ebatchTimeoutMs\x12*\n" +
-	"\x11flush_on_complete\x18\x05 \x01(\bR\x0fflushOnCompleteB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11flush_on_complete\x18\x05 \x01(\bR\x0fflushOnCompleteB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_batch_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_batch_settings_proto_goTypes = []any{

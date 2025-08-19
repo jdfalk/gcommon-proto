@@ -120,7 +120,7 @@ const file_gcommon_v1_queue_messages_get_queue_health_request_proto_rawDesc = ""
 	"\x15GetQueueHealthRequest\x12\x1f\n" +
 	"\vqueue_names\x18\x01 \x03(\tR\n" +
 	"queueNames\x12'\n" +
-	"\x0finclude_details\x18\x02 \x01(\bR\x0eincludeDetailsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0finclude_details\x18\x02 \x01(\bR\x0eincludeDetailsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_get_queue_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_get_queue_health_request_proto_goTypes = []any{
