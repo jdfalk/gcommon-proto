@@ -1,0 +1,23 @@
+from gcommon.v1.common.messages import request_metadata_pb2 as _request_metadata_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class ListTeamsRequest(_message.Message):
+    __slots__ = ("metadata", "organization_id", "department_id", "page_size", "page_token", "filter")
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
+    DEPARTMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    metadata: _request_metadata_pb2.RequestMetadata
+    organization_id: str
+    department_id: str
+    page_size: int
+    page_token: str
+    filter: str
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., department_id: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., filter: _Optional[str] = ...) -> None: ...

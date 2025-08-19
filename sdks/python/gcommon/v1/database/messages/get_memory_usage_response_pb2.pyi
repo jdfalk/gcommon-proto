@@ -1,0 +1,17 @@
+from gcommon.v1.common.messages import error_pb2 as _error_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class GetMemoryUsageResponse(_message.Message):
+    __slots__ = ("memory_usage_bytes", "memory_usage_percent", "error")
+    MEMORY_USAGE_BYTES_FIELD_NUMBER: _ClassVar[int]
+    MEMORY_USAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    memory_usage_bytes: int
+    memory_usage_percent: float
+    error: _error_pb2.Error
+    def __init__(self, memory_usage_bytes: _Optional[int] = ..., memory_usage_percent: _Optional[float] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

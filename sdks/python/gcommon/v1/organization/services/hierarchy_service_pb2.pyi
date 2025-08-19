@@ -1,0 +1,29 @@
+from gcommon.v1.organization.messages import create_department_request_pb2 as _create_department_request_pb2
+from gcommon.v1.organization.messages import create_department_response_pb2 as _create_department_response_pb2
+from gcommon.v1.organization.messages import create_team_request_pb2 as _create_team_request_pb2
+from gcommon.v1.organization.messages import create_team_response_pb2 as _create_team_response_pb2
+from gcommon.v1.organization.messages import delete_department_request_pb2 as _delete_department_request_pb2
+from gcommon.v1.organization.messages import delete_department_response_pb2 as _delete_department_response_pb2
+from gcommon.v1.organization.messages import delete_team_request_pb2 as _delete_team_request_pb2
+from gcommon.v1.organization.messages import delete_team_response_pb2 as _delete_team_response_pb2
+from gcommon.v1.organization.messages import get_department_request_pb2 as _get_department_request_pb2
+from gcommon.v1.organization.messages import get_department_response_pb2 as _get_department_response_pb2
+from gcommon.v1.organization.messages import get_hierarchy_request_pb2 as _get_hierarchy_request_pb2
+from gcommon.v1.organization.messages import get_hierarchy_response_pb2 as _get_hierarchy_response_pb2
+from gcommon.v1.organization.messages import get_team_request_pb2 as _get_team_request_pb2
+from gcommon.v1.organization.messages import get_team_response_pb2 as _get_team_response_pb2
+from gcommon.v1.organization.messages import list_departments_request_pb2 as _list_departments_request_pb2
+from gcommon.v1.organization.messages import list_departments_response_pb2 as _list_departments_response_pb2
+from gcommon.v1.organization.messages import list_teams_request_pb2 as _list_teams_request_pb2
+from gcommon.v1.organization.messages import list_teams_response_pb2 as _list_teams_response_pb2
+from gcommon.v1.organization.messages import update_department_request_pb2 as _update_department_request_pb2
+from gcommon.v1.organization.messages import update_department_response_pb2 as _update_department_response_pb2
+from gcommon.v1.organization.messages import update_hierarchy_request_pb2 as _update_hierarchy_request_pb2
+from gcommon.v1.organization.messages import update_hierarchy_response_pb2 as _update_hierarchy_response_pb2
+from gcommon.v1.organization.messages import update_team_request_pb2 as _update_team_request_pb2
+from gcommon.v1.organization.messages import update_team_response_pb2 as _update_team_response_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+
+DESCRIPTOR: _descriptor.FileDescriptor

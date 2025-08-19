@@ -1,0 +1,27 @@
+from gcommon.v1.common.messages import assign_role_request_pb2 as _assign_role_request_pb2
+from gcommon.v1.common.messages import create_role_request_pb2 as _create_role_request_pb2
+from gcommon.v1.common.messages import create_role_response_pb2 as _create_role_response_pb2
+from gcommon.v1.common.messages import create_user_request_pb2 as _create_user_request_pb2
+from gcommon.v1.common.messages import create_user_response_pb2 as _create_user_response_pb2
+from gcommon.v1.common.messages import delete_role_request_pb2 as _delete_role_request_pb2
+from gcommon.v1.common.messages import delete_user_request_pb2 as _delete_user_request_pb2
+from gcommon.v1.common.messages import get_system_stats_request_pb2 as _get_system_stats_request_pb2
+from gcommon.v1.common.messages import get_system_stats_response_pb2 as _get_system_stats_response_pb2
+from gcommon.v1.common.messages import get_user_request_pb2 as _get_user_request_pb2
+from gcommon.v1.common.messages import get_user_response_pb2 as _get_user_response_pb2
+from gcommon.v1.common.messages import invalidate_user_sessions_request_pb2 as _invalidate_user_sessions_request_pb2
+from gcommon.v1.common.messages import list_roles_request_pb2 as _list_roles_request_pb2
+from gcommon.v1.common.messages import list_roles_response_pb2 as _list_roles_response_pb2
+from gcommon.v1.common.messages import list_users_request_pb2 as _list_users_request_pb2
+from gcommon.v1.common.messages import list_users_response_pb2 as _list_users_response_pb2
+from gcommon.v1.common.messages import remove_role_request_pb2 as _remove_role_request_pb2
+from gcommon.v1.common.messages import update_role_request_pb2 as _update_role_request_pb2
+from gcommon.v1.common.messages import update_role_response_pb2 as _update_role_response_pb2
+from gcommon.v1.common.messages import update_user_request_pb2 as _update_user_request_pb2
+from gcommon.v1.common.messages import update_user_response_pb2 as _update_user_response_pb2
+from google.protobuf import empty_pb2 as _empty_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+
+DESCRIPTOR: _descriptor.FileDescriptor
