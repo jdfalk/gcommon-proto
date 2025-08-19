@@ -158,7 +158,7 @@ const file_gcommon_v1_queue_messages_anti_affinity_rule_proto_rawDesc = "" +
 	"\x10AntiAffinityRule\x12\x1b\n" +
 	"\tlabel_key\x18\x01 \x01(\tR\blabelKey\x12!\n" +
 	"\flabel_values\x18\x02 \x03(\tR\vlabelValues\x129\n" +
-	"\x05scope\x18\x03 \x01(\x0e2#.gcommon.v1.queue.AntiAffinityScopeR\x05scopeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05scope\x18\x03 \x01(\x0e2#.gcommon.v1.queue.AntiAffinityScopeR\x05scopeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_anti_affinity_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_anti_affinity_rule_proto_goTypes = []any{

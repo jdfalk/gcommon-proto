@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type TenantIsolation struct {
 	xxx_hidden_Encryption    *OrganizationEncryptionConfig `protobuf:"bytes,7,opt,name=encryption"`
 	xxx_hidden_AccessControl *OrganizationAccessControl    `protobuf:"bytes,8,opt,name=access_control,json=accessControl"`
 	xxx_hidden_Audit         *AuditConfig                  `protobuf:"bytes,9,opt,name=audit"`
-	xxx_hidden_Metadata      *[]*messages.KeyValue         `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_Metadata      *[]*common.KeyValue           `protobuf:"bytes,10,rep,name=metadata"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp        `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt     *timestamppb.Timestamp        `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_ConfiguredBy  *string                       `protobuf:"bytes,13,opt,name=configured_by,json=configuredBy"`
@@ -139,13 +139,13 @@ func (x *TenantIsolation) GetAudit() *AuditConfig {
 	return nil
 }
 
-func (x *TenantIsolation) GetMetadata() []*messages.KeyValue {
+func (x *TenantIsolation) GetMetadata() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 10)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -229,11 +229,11 @@ func (x *TenantIsolation) SetAudit(v *AuditConfig) {
 	x.xxx_hidden_Audit = v
 }
 
-func (x *TenantIsolation) SetMetadata(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *TenantIsolation) SetMetadata(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -422,7 +422,7 @@ type TenantIsolation_builder struct {
 	// Audit and compliance configuration
 	Audit *AuditConfig
 	// Isolation metadata and custom settings
-	Metadata []*messages.KeyValue
+	Metadata []*common.KeyValue
 	// Isolation configuration creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -492,7 +492,7 @@ const file_gcommon_v1_organization_messages_tenant_isolation_proto_rawDesc = "" 
 	"created_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
 	"\n" +
 	"updated_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12#\n" +
-	"\rconfigured_by\x18\r \x01(\tR\fconfiguredByB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rconfigured_by\x18\r \x01(\tR\fconfiguredByB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_tenant_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_tenant_isolation_proto_goTypes = []any{
@@ -505,7 +505,7 @@ var file_gcommon_v1_organization_messages_tenant_isolation_proto_goTypes = []any
 	(*OrganizationEncryptionConfig)(nil), // 6: gcommon.v1.organization.OrganizationEncryptionConfig
 	(*OrganizationAccessControl)(nil),    // 7: gcommon.v1.organization.OrganizationAccessControl
 	(*AuditConfig)(nil),                  // 8: gcommon.v1.organization.AuditConfig
-	(*messages.KeyValue)(nil),            // 9: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),              // 9: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil),        // 10: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_messages_tenant_isolation_proto_depIdxs = []int32{

@@ -28,7 +28,7 @@ const file_gcommon_v1_queue_services_workflow_service_proto_rawDesc = "" +
 	"0gcommon/v1/queue/services/workflow_service.proto\x12\x10gcommon.v1.queue\x1a6gcommon/v1/queue/messages/start_workflow_request.proto\x1a7gcommon/v1/queue/messages/start_workflow_response.proto\x1a5gcommon/v1/queue/messages/stop_workflow_request.proto\x1a6gcommon/v1/queue/messages/stop_workflow_response.proto\x1a!google/protobuf/go_features.proto2\xd2\x01\n" +
 	"\x0fWorkflowService\x12`\n" +
 	"\rStartWorkflow\x12&.gcommon.v1.queue.StartWorkflowRequest\x1a'.gcommon.v1.queue.StartWorkflowResponse\x12]\n" +
-	"\fStopWorkflow\x12%.gcommon.v1.queue.StopWorkflowRequest\x1a&.gcommon.v1.queue.StopWorkflowResponseB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fStopWorkflow\x12%.gcommon.v1.queue.StopWorkflowRequest\x1a&.gcommon.v1.queue.StopWorkflowResponseB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_workflow_service_proto_goTypes = []any{
 	(*StartWorkflowRequest)(nil),  // 0: gcommon.v1.queue.StartWorkflowRequest

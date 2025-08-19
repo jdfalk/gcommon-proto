@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,17 +27,17 @@ const (
 // Request to create an HTTP cookie.
 // Used for session management and client state storage.
 type CreateCookieRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Value       *string                   `protobuf:"bytes,2,opt,name=value"`
-	xxx_hidden_Domain      *string                   `protobuf:"bytes,3,opt,name=domain"`
-	xxx_hidden_Path        *string                   `protobuf:"bytes,4,opt,name=path"`
-	xxx_hidden_Expires     *timestamppb.Timestamp    `protobuf:"bytes,5,opt,name=expires"`
-	xxx_hidden_MaxAge      int32                     `protobuf:"varint,6,opt,name=max_age,json=maxAge"`
-	xxx_hidden_Secure      bool                      `protobuf:"varint,7,opt,name=secure"`
-	xxx_hidden_HttpOnly    bool                      `protobuf:"varint,8,opt,name=http_only,json=httpOnly"`
-	xxx_hidden_SameSite    SameSitePolicy            `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.SameSitePolicy"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                 `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value       *string                 `protobuf:"bytes,2,opt,name=value"`
+	xxx_hidden_Domain      *string                 `protobuf:"bytes,3,opt,name=domain"`
+	xxx_hidden_Path        *string                 `protobuf:"bytes,4,opt,name=path"`
+	xxx_hidden_Expires     *timestamppb.Timestamp  `protobuf:"bytes,5,opt,name=expires"`
+	xxx_hidden_MaxAge      int32                   `protobuf:"varint,6,opt,name=max_age,json=maxAge"`
+	xxx_hidden_Secure      bool                    `protobuf:"varint,7,opt,name=secure"`
+	xxx_hidden_HttpOnly    bool                    `protobuf:"varint,8,opt,name=http_only,json=httpOnly"`
+	xxx_hidden_SameSite    SameSitePolicy          `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.SameSitePolicy"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -146,7 +146,7 @@ func (x *CreateCookieRequest) GetSameSite() SameSitePolicy {
 	return SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
 }
 
-func (x *CreateCookieRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateCookieRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -197,7 +197,7 @@ func (x *CreateCookieRequest) SetSameSite(v SameSitePolicy) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
 
-func (x *CreateCookieRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateCookieRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -341,7 +341,7 @@ type CreateCookieRequest_builder struct {
 	// Cookie SameSite attribute
 	SameSite *SameSitePolicy
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 CreateCookieRequest_builder) Build() *CreateCookieRequest {
@@ -401,14 +401,14 @@ const file_gcommon_v1_web_messages_create_cookie_request_proto_rawDesc = "" +
 	"\thttp_only\x18\b \x01(\bR\bhttpOnly\x12;\n" +
 	"\tsame_site\x18\t \x01(\x0e2\x1e.gcommon.v1.web.SameSitePolicyR\bsameSite\x12>\n" +
 	"\bmetadata\x18\n" +
-	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_create_cookie_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_create_cookie_request_proto_goTypes = []any{
-	(*CreateCookieRequest)(nil),      // 0: gcommon.v1.web.CreateCookieRequest
-	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(SameSitePolicy)(0),              // 2: gcommon.v1.web.SameSitePolicy
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*CreateCookieRequest)(nil),    // 0: gcommon.v1.web.CreateCookieRequest
+	(*timestamppb.Timestamp)(nil),  // 1: google.protobuf.Timestamp
+	(SameSitePolicy)(0),            // 2: gcommon.v1.web.SameSitePolicy
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_create_cookie_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.CreateCookieRequest.expires:type_name -> google.protobuf.Timestamp

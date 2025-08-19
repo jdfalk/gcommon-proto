@@ -240,7 +240,7 @@ const file_gcommon_v1_queue_messages_content_update_proto_rawDesc = "" +
 	"\x10content_encoding\x18\x02 \x01(\tR\x0fcontentEncoding\x12!\n" +
 	"\fcontent_type\x18\x03 \x01(\tR\vcontentType\x12 \n" +
 	"\vcompression\x18\x04 \x01(\tR\vcompression\x12)\n" +
-	"\x10content_checksum\x18\x05 \x01(\tR\x0fcontentChecksumB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10content_checksum\x18\x05 \x01(\tR\x0fcontentChecksumB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_content_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_content_update_proto_goTypes = []any{

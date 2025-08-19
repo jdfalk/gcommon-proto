@@ -415,7 +415,7 @@ const file_gcommon_v1_media_messages_media_file_proto_rawDesc = "" +
 	"\x0fsubtitle_tracks\x18\t \x03(\v2\x1f.gcommon.v1.media.SubtitleTrackR\x0esubtitleTracks\x12?\n" +
 	"\faudio_tracks\x18\n" +
 	" \x03(\v2\x1c.gcommon.v1.media.AudioTrackR\vaudioTracks\x128\n" +
-	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_media_file_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_media_file_proto_goTypes = []any{

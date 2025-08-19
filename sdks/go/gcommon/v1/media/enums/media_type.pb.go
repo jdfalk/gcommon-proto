@@ -82,7 +82,7 @@ const file_gcommon_v1_media_enums_media_type_proto_rawDesc = "" +
 	"\x10MEDIA_TYPE_MOVIE\x10\x01\x12\x19\n" +
 	"\x15MEDIA_TYPE_TV_EPISODE\x10\x02\x12\x1a\n" +
 	"\x16MEDIA_TYPE_DOCUMENTARY\x10\x03\x12\x14\n" +
-	"\x10MEDIA_TYPE_ANIME\x10\x04B-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10MEDIA_TYPE_ANIME\x10\x04B1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_enums_media_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_media_enums_media_type_proto_goTypes = []any{

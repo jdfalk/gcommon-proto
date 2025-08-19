@@ -2,8 +2,6 @@ from gcommon.v1.queue.messages import create_queue_request_pb2 as _create_queue_
 from gcommon.v1.queue.messages import create_queue_response_pb2 as _create_queue_response_pb2
 from gcommon.v1.queue.messages import delete_topic_request_pb2 as _delete_topic_request_pb2
 from gcommon.v1.queue.messages import delete_topic_response_pb2 as _delete_topic_response_pb2
-from gcommon.v1.queue.messages import get_queue_info_request_pb2 as _get_queue_info_request_pb2
-from gcommon.v1.queue.messages import get_queue_info_response_pb2 as _get_queue_info_response_pb2
 from gcommon.v1.queue.messages import pause_queue_request_pb2 as _pause_queue_request_pb2
 from gcommon.v1.queue.messages import pause_queue_response_pb2 as _pause_queue_response_pb2
 from gcommon.v1.queue.messages import purge_request_pb2 as _purge_request_pb2

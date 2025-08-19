@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +40,7 @@ type Organization struct {
 	xxx_hidden_TaxId              *string                `protobuf:"bytes,9,opt,name=tax_id,json=taxId"`
 	xxx_hidden_Industry           *string                `protobuf:"bytes,10,opt,name=industry"`
 	xxx_hidden_Status             OrganizationStatus     `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus"`
-	xxx_hidden_Metadata           *[]*messages.KeyValue  `protobuf:"bytes,12,rep,name=metadata"`
+	xxx_hidden_Metadata           *[]*common.KeyValue    `protobuf:"bytes,12,rep,name=metadata"`
 	xxx_hidden_CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy          *string                `protobuf:"bytes,15,opt,name=created_by,json=createdBy"`
@@ -193,13 +193,13 @@ func (x *Organization) GetStatus() OrganizationStatus {
 	return OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
 }
 
-func (x *Organization) GetMetadata() []*messages.KeyValue {
+func (x *Organization) GetMetadata() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 12)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -364,11 +364,11 @@ func (x *Organization) SetStatus(v OrganizationStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 22)
 }
 
-func (x *Organization) SetMetadata(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *Organization) SetMetadata(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -711,7 +711,7 @@ type Organization_builder struct {
 	// Current operational status of the organization
 	Status *OrganizationStatus
 	// Organization metadata and custom attributes
-	Metadata []*messages.KeyValue
+	Metadata []*common.KeyValue
 	// Organization creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -863,13 +863,13 @@ const file_gcommon_v1_organization_messages_organization_proto_rawDesc = "" +
 	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x15 \x01(\tR\tavatarUrl\x12#\n" +
-	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_proto_goTypes = []any{
 	(*Organization)(nil),          // 0: gcommon.v1.organization.Organization
 	(OrganizationStatus)(0),       // 1: gcommon.v1.organization.OrganizationStatus
-	(*messages.KeyValue)(nil),     // 2: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),       // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_messages_organization_proto_depIdxs = []int32{

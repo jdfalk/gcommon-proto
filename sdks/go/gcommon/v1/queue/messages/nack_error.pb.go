@@ -244,7 +244,7 @@ const file_gcommon_v1_queue_messages_nack_error_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12?\n" +
 	"\bcategory\x18\x03 \x01(\x0e2#.gcommon.v1.queue.NackErrorCategoryR\bcategory\x12\x1c\n" +
 	"\tretryable\x18\x04 \x01(\bR\tretryable\x12\x18\n" +
-	"\adetails\x18\x05 \x01(\tR\adetailsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\adetails\x18\x05 \x01(\tR\adetailsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_nack_error_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_nack_error_proto_goTypes = []any{

@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +36,7 @@ type Tenant struct {
 	xxx_hidden_Description    *string                    `protobuf:"bytes,5,opt,name=description"`
 	xxx_hidden_Status         TenantStatus               `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
 	xxx_hidden_IsolationLevel OrganizationIsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.OrganizationIsolationLevel"`
-	xxx_hidden_Metadata       *[]*messages.KeyValue      `protobuf:"bytes,8,rep,name=metadata"`
+	xxx_hidden_Metadata       *[]*common.KeyValue        `protobuf:"bytes,8,rep,name=metadata"`
 	xxx_hidden_CreatedAt      *timestamppb.Timestamp     `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt      *timestamppb.Timestamp     `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy      *string                    `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
@@ -150,13 +150,13 @@ func (x *Tenant) GetIsolationLevel() OrganizationIsolationLevel {
 	return OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
-func (x *Tenant) GetMetadata() []*messages.KeyValue {
+func (x *Tenant) GetMetadata() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 8)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -325,11 +325,11 @@ func (x *Tenant) SetIsolationLevel(v OrganizationIsolationLevel) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 20)
 }
 
-func (x *Tenant) SetMetadata(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *Tenant) SetMetadata(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -652,7 +652,7 @@ type Tenant_builder struct {
 	// Isolation level for this tenant
 	IsolationLevel *OrganizationIsolationLevel
 	// Tenant metadata and custom attributes
-	Metadata []*messages.KeyValue
+	Metadata []*common.KeyValue
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -794,14 +794,14 @@ const file_gcommon_v1_organization_messages_tenant_proto_rawDesc = "" +
 	"\x06locale\x18\x12 \x01(\tR\x06locale\x12\x1d\n" +
 	"\n" +
 	"trial_mode\x18\x13 \x01(\bR\ttrialMode\x12H\n" +
-	"\x10trial_expires_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x0etrialExpiresAtB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10trial_expires_at\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x0etrialExpiresAtB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_tenant_proto_goTypes = []any{
 	(*Tenant)(nil),                  // 0: gcommon.v1.organization.Tenant
 	(TenantStatus)(0),               // 1: gcommon.v1.organization.TenantStatus
 	(OrganizationIsolationLevel)(0), // 2: gcommon.v1.organization.OrganizationIsolationLevel
-	(*messages.KeyValue)(nil),       // 3: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),         // 3: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil),   // 4: google.protobuf.Timestamp
 	(*TenantQuota)(nil),             // 5: gcommon.v1.organization.TenantQuota
 }

@@ -268,7 +268,7 @@ const file_gcommon_v1_queue_messages_subscription_config_proto_rawDesc = "" +
 	"\x10routing_strategy\x18\x03 \x01(\x0e2!.gcommon.v1.queue.RoutingStrategyR\x0froutingStrategy\x12J\n" +
 	"\x10default_priority\x18\x04 \x01(\x0e2\x1f.gcommon.v1.queue.PriorityLevelR\x0fdefaultPriority\x12L\n" +
 	"\x10delivery_options\x18\x05 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12!\n" +
-	"\fmax_inflight\x18\x06 \x01(\x05R\vmaxInflightB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fmax_inflight\x18\x06 \x01(\x05R\vmaxInflightB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_subscription_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_subscription_config_proto_goTypes = []any{

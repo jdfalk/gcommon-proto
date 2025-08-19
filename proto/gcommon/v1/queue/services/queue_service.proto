@@ -12,8 +12,6 @@ import "gcommon/v1/queue/messages/enqueue_request.proto";
 import "gcommon/v1/queue/messages/enqueue_response.proto";
 import "gcommon/v1/queue/messages/get_queue_info_request.proto";
 import "gcommon/v1/queue/messages/get_queue_info_response.proto";
-import "gcommon/v1/queue/messages/get_queue_stats_request.proto";
-import "gcommon/v1/queue/messages/get_queue_stats_response.proto";
 import "gcommon/v1/queue/messages/peek_request.proto";
 import "gcommon/v1/queue/messages/peek_response.proto";
 import "gcommon/v1/queue/messages/publish_request.proto";
@@ -41,9 +39,6 @@ service QueueService {
 
   // Get information about a queue
   rpc GetQueueInfo(GetQueueInfoRequest) returns (GetQueueInfoResponse);
-
-  // Get queue statistics
-  rpc GetQueueStats(GetQueueStatsRequest) returns (GetQueueStatsResponse);
 
   // Subscribe to queue messages (streaming)
   rpc Subscribe(QueueSubscribeRequest) returns (stream SubscribeResponse);

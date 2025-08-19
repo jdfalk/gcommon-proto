@@ -104,7 +104,7 @@ const file_gcommon_v1_organization_enums_hierarchy_type_proto_rawDesc = "" +
 	"\x19HIERARCHY_TYPE_GEOGRAPHIC\x10\x04\x12\x1d\n" +
 	"\x19HIERARCHY_TYPE_FUNCTIONAL\x10\x05\x12\x19\n" +
 	"\x15HIERARCHY_TYPE_MATRIX\x10\x06\x12\x17\n" +
-	"\x13HIERARCHY_TYPE_FLAT\x10\aB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13HIERARCHY_TYPE_FLAT\x10\aB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_enums_hierarchy_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_organization_enums_hierarchy_type_proto_goTypes = []any{

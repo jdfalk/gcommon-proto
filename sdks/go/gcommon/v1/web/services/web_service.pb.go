@@ -29,7 +29,7 @@ const file_gcommon_v1_web_services_web_service_proto_rawDesc = "" +
 	"\n" +
 	"WebService\x12\\\n" +
 	"\rHandleRequest\x12$.gcommon.v1.web.HandleRequestRequest\x1a%.gcommon.v1.web.HandleRequestResponse\x12\\\n" +
-	"\vHealthCheck\x12%.gcommon.v1.web.WebHealthCheckRequest\x1a&.gcommon.v1.web.WebHealthCheckResponseB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vHealthCheck\x12%.gcommon.v1.web.WebHealthCheckRequest\x1a&.gcommon.v1.web.WebHealthCheckResponseB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_services_web_service_proto_goTypes = []any{
 	(*HandleRequestRequest)(nil),   // 0: gcommon.v1.web.HandleRequestRequest

@@ -198,7 +198,7 @@ const file_gcommon_v1_queue_messages_offset_config_proto_rawDesc = "" +
 	"offsetType\x12!\n" +
 	"\foffset_value\x18\x02 \x01(\x03R\voffsetValue\x12C\n" +
 	"\x0fstart_timestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n" +
-	"\x12reset_on_not_found\x18\x04 \x01(\bR\x0fresetOnNotFoundB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12reset_on_not_found\x18\x04 \x01(\bR\x0fresetOnNotFoundB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_offset_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_offset_config_proto_goTypes = []any{

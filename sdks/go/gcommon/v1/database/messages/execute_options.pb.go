@@ -186,7 +186,7 @@ const file_gcommon_v1_database_messages_execute_options_proto_rawDesc = "" +
 	"\x0eExecuteOptions\x127\n" +
 	"\atimeout\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x122\n" +
 	"\x15return_generated_keys\x18\x02 \x01(\bR\x13returnGeneratedKeys\x12I\n" +
-	"\tisolation\x18\x03 \x01(\x0e2+.gcommon.v1.database.DatabaseIsolationLevelR\tisolationB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tisolation\x18\x03 \x01(\x0e2+.gcommon.v1.database.DatabaseIsolationLevelR\tisolationB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_execute_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_execute_options_proto_goTypes = []any{

@@ -143,7 +143,7 @@ const file_gcommon_v1_database_messages_database_status_proto_rawDesc = "" +
 	"2gcommon/v1/database/messages/database_status.proto\x12\x13gcommon.v1.database\x1a4gcommon/v1/database/enums/database_status_code.proto\x1a!google/protobuf/go_features.proto\"g\n" +
 	"\x0eDatabaseStatus\x12;\n" +
 	"\x04code\x18\x01 \x01(\x0e2'.gcommon.v1.database.DatabaseStatusCodeR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\amessage\x18\x02 \x01(\tR\amessageB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_database_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_database_status_proto_goTypes = []any{

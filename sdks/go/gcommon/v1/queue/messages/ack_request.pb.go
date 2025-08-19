@@ -7,7 +7,7 @@
 package queue
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type AckRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName     *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_ReceiptHandle *string                   `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_QueueName     *string                 `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiptHandle *string                 `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -78,7 +78,7 @@ func (x *AckRequest) GetReceiptHandle() string {
 	return ""
 }
 
-func (x *AckRequest) GetMetadata() *messages.RequestMetadata {
+func (x *AckRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -95,7 +95,7 @@ func (x *AckRequest) SetReceiptHandle(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *AckRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *AckRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -142,7 +142,7 @@ type AckRequest_builder struct {
 	// Receipt handle identifying the message instance.
 	ReceiptHandle *string
 	// Standard request metadata including authentication and tracing.
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 AckRequest_builder) Build() *AckRequest {
@@ -171,12 +171,12 @@ const file_gcommon_v1_queue_messages_ack_request_proto_rawDesc = "" +
 	"\n" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12%\n" +
 	"\x0ereceipt_handle\x18\x02 \x01(\tR\rreceiptHandle\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_ack_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_ack_request_proto_goTypes = []any{
-	(*AckRequest)(nil),               // 0: gcommon.v1.queue.AckRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*AckRequest)(nil),             // 0: gcommon.v1.queue.AckRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_messages_ack_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.AckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

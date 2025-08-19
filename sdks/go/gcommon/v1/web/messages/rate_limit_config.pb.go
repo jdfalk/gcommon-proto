@@ -254,7 +254,7 @@ const file_gcommon_v1_web_messages_rate_limit_config_proto_rawDesc = "" +
 	"burst_size\x18\x03 \x01(\x05R\tburstSize\x12=\n" +
 	"\bstrategy\x18\x04 \x01(\x0e2!.gcommon.v1.web.RateLimitStrategyR\bstrategy\x12#\n" +
 	"\rkey_extractor\x18\x05 \x01(\tR\fkeyExtractor\x12'\n" +
-	"\x0fskip_conditions\x18\x06 \x03(\tR\x0eskipConditionsB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fskip_conditions\x18\x06 \x03(\tR\x0eskipConditionsB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_rate_limit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_rate_limit_config_proto_goTypes = []any{

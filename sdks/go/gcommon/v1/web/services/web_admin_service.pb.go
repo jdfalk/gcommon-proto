@@ -30,7 +30,7 @@ const file_gcommon_v1_web_services_web_admin_service_proto_rawDesc = "" +
 	"\x0eGetCacheConfig\x12%.gcommon.v1.web.GetCacheConfigRequest\x1a&.gcommon.v1.web.GetCacheConfigResponse\x12h\n" +
 	"\x11UpdateCacheConfig\x12(.gcommon.v1.web.UpdateCacheConfigRequest\x1a).gcommon.v1.web.UpdateCacheConfigResponse\x12S\n" +
 	"\n" +
-	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_services_web_admin_service_proto_goTypes = []any{
 	(*GetCacheConfigRequest)(nil),     // 0: gcommon.v1.web.GetCacheConfigRequest

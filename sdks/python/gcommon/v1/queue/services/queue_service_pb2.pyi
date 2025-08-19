@@ -4,8 +4,6 @@ from gcommon.v1.queue.messages import enqueue_request_pb2 as _enqueue_request_pb
 from gcommon.v1.queue.messages import enqueue_response_pb2 as _enqueue_response_pb2
 from gcommon.v1.queue.messages import get_queue_info_request_pb2 as _get_queue_info_request_pb2
 from gcommon.v1.queue.messages import get_queue_info_response_pb2 as _get_queue_info_response_pb2
-from gcommon.v1.queue.messages import get_queue_stats_request_pb2 as _get_queue_stats_request_pb2
-from gcommon.v1.queue.messages import get_queue_stats_response_pb2 as _get_queue_stats_response_pb2
 from gcommon.v1.queue.messages import peek_request_pb2 as _peek_request_pb2
 from gcommon.v1.queue.messages import peek_response_pb2 as _peek_response_pb2
 from gcommon.v1.queue.messages import publish_request_pb2 as _publish_request_pb2

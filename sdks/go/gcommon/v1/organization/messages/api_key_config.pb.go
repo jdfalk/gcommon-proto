@@ -205,7 +205,7 @@ const file_gcommon_v1_organization_messages_api_key_config_proto_rawDesc = "" +
 	"masked_key\x18\x02 \x01(\tR\tmaskedKey\x12\x16\n" +
 	"\x06scopes\x18\x03 \x03(\tR\x06scopes\x12=\n" +
 	"\n" +
-	"expires_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAtB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"expires_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAtB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_api_key_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_api_key_config_proto_goTypes = []any{

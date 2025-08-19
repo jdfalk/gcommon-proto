@@ -30,7 +30,7 @@ const file_gcommon_v1_queue_services_queue_monitoring_service_proto_rawDesc = ""
 	"\x0eGetClusterInfo\x12'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12c\n" +
 	"\x0eGetQueueHealth\x12'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n" +
 	"\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12^\n" +
-	"\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_queue_monitoring_service_proto_goTypes = []any{
 	(*GetClusterInfoRequest)(nil),     // 0: gcommon.v1.queue.GetClusterInfoRequest

@@ -129,7 +129,7 @@ const file_gcommon_v1_metrics_enums_aggregation_type_proto_rawDesc = "" +
 	"\x14AGGREGATION_TYPE_P99\x10\n" +
 	"\x12\x19\n" +
 	"\x15AGGREGATION_TYPE_RATE\x10\v\x12\x1d\n" +
-	"\x19AGGREGATION_TYPE_INCREASE\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19AGGREGATION_TYPE_INCREASE\x10\fB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_enums_aggregation_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_enums_aggregation_type_proto_goTypes = []any{

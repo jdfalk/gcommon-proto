@@ -201,7 +201,7 @@ const file_gcommon_v1_metrics_messages_buffer_config_proto_rawDesc = "" +
 	"\x0fmax_buffer_size\x18\x01 \x01(\x05R\rmaxBufferSize\x12W\n" +
 	"\x11overflow_strategy\x18\x02 \x01(\x0e2*.gcommon.v1.metrics.BufferOverflowStrategyR\x10overflowStrategy\x12%\n" +
 	"\x0epersist_buffer\x18\x03 \x01(\bR\rpersistBuffer\x12(\n" +
-	"\x10max_memory_bytes\x18\x04 \x01(\x03R\x0emaxMemoryBytesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10max_memory_bytes\x18\x04 \x01(\x03R\x0emaxMemoryBytesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_buffer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_buffer_config_proto_goTypes = []any{

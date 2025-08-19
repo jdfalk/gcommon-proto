@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +23,11 @@ const (
 )
 
 type AddMemberRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_OrganizationId *string                   `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Member         *OrganizationMember       `protobuf:"bytes,3,opt,name=member"`
-	xxx_hidden_SendInvite     bool                      `protobuf:"varint,4,opt,name=send_invite,json=sendInvite"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                 `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_Member         *OrganizationMember     `protobuf:"bytes,3,opt,name=member"`
+	xxx_hidden_SendInvite     bool                    `protobuf:"varint,4,opt,name=send_invite,json=sendInvite"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -59,7 +59,7 @@ func (x *AddMemberRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AddMemberRequest) GetMetadata() *messages.RequestMetadata {
+func (x *AddMemberRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -90,7 +90,7 @@ func (x *AddMemberRequest) GetSendInvite() bool {
 	return false
 }
 
-func (x *AddMemberRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *AddMemberRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -158,7 +158,7 @@ type AddMemberRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Member information to add
@@ -194,13 +194,13 @@ const file_gcommon_v1_organization_messages_add_member_request_proto_rawDesc = "
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12C\n" +
 	"\x06member\x18\x03 \x01(\v2+.gcommon.v1.organization.OrganizationMemberR\x06member\x12\x1f\n" +
 	"\vsend_invite\x18\x04 \x01(\bR\n" +
-	"sendInviteB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"sendInviteB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_add_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_add_member_request_proto_goTypes = []any{
-	(*AddMemberRequest)(nil),         // 0: gcommon.v1.organization.AddMemberRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*OrganizationMember)(nil),       // 2: gcommon.v1.organization.OrganizationMember
+	(*AddMemberRequest)(nil),       // 0: gcommon.v1.organization.AddMemberRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationMember)(nil),     // 2: gcommon.v1.organization.OrganizationMember
 }
 var file_gcommon_v1_organization_messages_add_member_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.AddMemberRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -240,7 +240,7 @@ const file_gcommon_v1_web_messages_route_config_proto_rawDesc = "" +
 	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
 	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
 	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
-	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_route_config_proto_goTypes = []any{

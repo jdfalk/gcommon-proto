@@ -21,7 +21,6 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	QueueAdminService_CreateQueue_FullMethodName     = "/gcommon.v1.queue.QueueAdminService/CreateQueue"
 	QueueAdminService_DeleteTopic_FullMethodName     = "/gcommon.v1.queue.QueueAdminService/DeleteTopic"
-	QueueAdminService_GetQueueInfo_FullMethodName    = "/gcommon.v1.queue.QueueAdminService/GetQueueInfo"
 	QueueAdminService_PauseQueue_FullMethodName      = "/gcommon.v1.queue.QueueAdminService/PauseQueue"
 	QueueAdminService_ResumeQueue_FullMethodName     = "/gcommon.v1.queue.QueueAdminService/ResumeQueue"
 	QueueAdminService_PurgeQueue_FullMethodName      = "/gcommon.v1.queue.QueueAdminService/PurgeQueue"
@@ -38,8 +37,6 @@ type QueueAdminServiceClient interface {
 	CreateQueue(ctx context.Context, in *CreateQueueRequest, opts ...grpc.CallOption) (*CreateQueueResponse, error)
 	// Delete a queue/topic
 	DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*DeleteTopicResponse, error)
-	// Get queue information
-	GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error)
 	// Pause queue operations
 	PauseQueue(ctx context.Context, in *PauseQueueRequest, opts ...grpc.CallOption) (*PauseQueueResponse, error)
 	// Resume queue operations
@@ -72,16 +69,6 @@ func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *DeleteTop
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DeleteTopicResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_DeleteTopic_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *queueAdminServiceClient) GetQueueInfo(ctx context.Context, in *GetQueueInfoRequest, opts ...grpc.CallOption) (*GetQueueInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetQueueInfoResponse)
-	err := c.cc.Invoke(ctx, QueueAdminService_GetQueueInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,8 +125,6 @@ type QueueAdminServiceServer interface {
 	CreateQueue(context.Context, *CreateQueueRequest) (*CreateQueueResponse, error)
 	// Delete a queue/topic
 	DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error)
-	// Get queue information
-	GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error)
 	// Pause queue operations
 	PauseQueue(context.Context, *PauseQueueRequest) (*PauseQueueResponse, error)
 	// Resume queue operations
@@ -163,9 +148,6 @@ func (UnimplementedQueueAdminServiceServer) CreateQueue(context.Context, *Create
 }
 func (UnimplementedQueueAdminServiceServer) DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTopic not implemented")
-}
-func (UnimplementedQueueAdminServiceServer) GetQueueInfo(context.Context, *GetQueueInfoRequest) (*GetQueueInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetQueueInfo not implemented")
 }
 func (UnimplementedQueueAdminServiceServer) PauseQueue(context.Context, *PauseQueueRequest) (*PauseQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PauseQueue not implemented")
@@ -232,24 +214,6 @@ func _QueueAdminService_DeleteTopic_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueueAdminServiceServer).DeleteTopic(ctx, req.(*DeleteTopicRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QueueAdminService_GetQueueInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetQueueInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QueueAdminServiceServer).GetQueueInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QueueAdminService_GetQueueInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueAdminServiceServer).GetQueueInfo(ctx, req.(*GetQueueInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -340,10 +304,6 @@ var QueueAdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteTopic",
 			Handler:    _QueueAdminService_DeleteTopic_Handler,
-		},
-		{
-			MethodName: "GetQueueInfo",
-			Handler:    _QueueAdminService_GetQueueInfo_Handler,
 		},
 		{
 			MethodName: "PauseQueue",

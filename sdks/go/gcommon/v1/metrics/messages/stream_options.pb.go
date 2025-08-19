@@ -365,7 +365,7 @@ const file_gcommon_v1_metrics_messages_stream_options_proto_rawDesc = "" +
 	"\x1aheartbeat_interval_seconds\x18\a \x01(\x05R\x18heartbeatIntervalSeconds\x12\x1d\n" +
 	"\n" +
 	"auto_retry\x18\b \x01(\bR\tautoRetry\x12/\n" +
-	"\x03qos\x18\t \x01(\x0e2\x1d.gcommon.v1.metrics.StreamQOSR\x03qosB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x03qos\x18\t \x01(\x0e2\x1d.gcommon.v1.metrics.StreamQOSR\x03qosB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_stream_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_stream_options_proto_goTypes = []any{

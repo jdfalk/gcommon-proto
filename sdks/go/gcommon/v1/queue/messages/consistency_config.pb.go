@@ -7,7 +7,7 @@
 package queue
 
 import (
-	config "github.com/jdfalk/gcommon/pkg/config"
+	config "github.com/jdfalk/gcommon/sdks/go/config"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -311,7 +311,7 @@ const file_gcommon_v1_queue_messages_consistency_config_proto_rawDesc = "" +
 	"\x13conflict_resolution\x18\a \x01(\x0e2+.gcommon.v1.config.ConfigConflictResolutionR\x12conflictResolution\x12G\n" +
 	"\n" +
 	"validation\x18\b \x01(\v2'.gcommon.v1.queue.ConsistencyValidationR\n" +
-	"validationB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"validationB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consistency_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consistency_config_proto_goTypes = []any{

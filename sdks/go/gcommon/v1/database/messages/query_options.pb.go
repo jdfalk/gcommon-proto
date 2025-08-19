@@ -250,7 +250,7 @@ const file_gcommon_v1_database_messages_query_options_proto_rawDesc = "" +
 	"\x06offset\x18\x02 \x01(\x05R\x06offset\x127\n" +
 	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12)\n" +
 	"\x10include_metadata\x18\x04 \x01(\bR\x0fincludeMetadata\x12O\n" +
-	"\vconsistency\x18\x05 \x01(\x0e2-.gcommon.v1.database.DatabaseConsistencyLevelR\vconsistencyB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vconsistency\x18\x05 \x01(\x0e2-.gcommon.v1.database.DatabaseConsistencyLevelR\vconsistencyB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_query_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_query_options_proto_goTypes = []any{

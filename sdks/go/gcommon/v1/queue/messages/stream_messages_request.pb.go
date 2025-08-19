@@ -502,7 +502,7 @@ const file_gcommon_v1_queue_messages_stream_messages_request_proto_rawDesc = "" 
 	"\x0epause_on_error\x18\v \x01(\bR\fpauseOnError\x12)\n" +
 	"\x10include_metadata\x18\f \x01(\bR\x0fincludeMetadata\x12#\n" +
 	"\rpartition_ids\x18\r \x03(\x05R\fpartitionIds\x12C\n" +
-	"\rstream_config\x18\x0e \x01(\v2\x1e.gcommon.v1.queue.StreamConfigR\fstreamConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rstream_config\x18\x0e \x01(\v2\x1e.gcommon.v1.queue.StreamConfigR\fstreamConfigB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_stream_messages_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_stream_messages_request_proto_goTypes = []any{

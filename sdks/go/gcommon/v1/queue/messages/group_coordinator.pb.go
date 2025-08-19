@@ -239,7 +239,7 @@ const file_gcommon_v1_queue_messages_group_coordinator_proto_rawDesc = "" +
 	"\x04host\x18\x02 \x01(\tR\x04host\x12\x12\n" +
 	"\x04port\x18\x03 \x01(\x05R\x04port\x128\n" +
 	"\x05state\x18\x04 \x01(\x0e2\".gcommon.v1.queue.CoordinatorStateR\x05state\x12\x14\n" +
-	"\x05epoch\x18\x05 \x01(\x03R\x05epochB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05epoch\x18\x05 \x01(\x03R\x05epochB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_group_coordinator_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_group_coordinator_proto_goTypes = []any{

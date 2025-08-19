@@ -261,7 +261,7 @@ const file_gcommon_v1_web_messages_session_config_proto_rawDesc = "" +
 	"cookieName\x12%\n" +
 	"\x0esecure_cookies\x18\x04 \x01(\bR\rsecureCookies\x12\x1b\n" +
 	"\thttp_only\x18\x05 \x01(\bR\bhttpOnly\x12;\n" +
-	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_session_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_session_config_proto_goTypes = []any{

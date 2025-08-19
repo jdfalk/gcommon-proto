@@ -28,8 +28,6 @@ from gcommon.v1.queue.messages import enqueue_request_pb2 as gcommon_dot_v1_dot_
 from gcommon.v1.queue.messages import enqueue_response_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_enqueue__response__pb2
 from gcommon.v1.queue.messages import get_queue_info_request_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_get__queue__info__request__pb2
 from gcommon.v1.queue.messages import get_queue_info_response_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_get__queue__info__response__pb2
-from gcommon.v1.queue.messages import get_queue_stats_request_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_get__queue__stats__request__pb2
-from gcommon.v1.queue.messages import get_queue_stats_response_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_get__queue__stats__response__pb2
 from gcommon.v1.queue.messages import peek_request_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_peek__request__pb2
 from gcommon.v1.queue.messages import peek_response_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_peek__response__pb2
 from gcommon.v1.queue.messages import publish_request_pb2 as gcommon_dot_v1_dot_queue_dot_messages_dot_publish__request__pb2
@@ -39,7 +37,7 @@ from gcommon.v1.queue.messages import subscribe_response_pb2 as gcommon_dot_v1_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/services/queue_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/messages/dequeue_request.proto\x1a\x30gcommon/v1/queue/messages/dequeue_response.proto\x1a/gcommon/v1/queue/messages/enqueue_request.proto\x1a\x30gcommon/v1/queue/messages/enqueue_response.proto\x1a\x36gcommon/v1/queue/messages/get_queue_info_request.proto\x1a\x37gcommon/v1/queue/messages/get_queue_info_response.proto\x1a\x37gcommon/v1/queue/messages/get_queue_stats_request.proto\x1a\x38gcommon/v1/queue/messages/get_queue_stats_response.proto\x1a,gcommon/v1/queue/messages/peek_request.proto\x1a-gcommon/v1/queue/messages/peek_response.proto\x1a/gcommon/v1/queue/messages/publish_request.proto\x1a\x30gcommon/v1/queue/messages/publish_response.proto\x1a\x31gcommon/v1/queue/messages/subscribe_request.proto\x1a\x32gcommon/v1/queue/messages/subscribe_response.proto\x1a!google/protobuf/go_features.proto2\xe8\x04\n\x0cQueueService\x12N\n\x07\x45nqueue\x12 .gcommon.v1.queue.EnqueueRequest\x1a!.gcommon.v1.queue.EnqueueResponse\x12N\n\x07\x44\x65queue\x12 .gcommon.v1.queue.DequeueRequest\x1a!.gcommon.v1.queue.DequeueResponse\x12\x45\n\x04Peek\x12\x1d.gcommon.v1.queue.PeekRequest\x1a\x1e.gcommon.v1.queue.PeekResponse\x12]\n\x0cGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12`\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a\'.gcommon.v1.queue.GetQueueStatsResponse\x12[\n\tSubscribe\x12\'.gcommon.v1.queue.QueueSubscribeRequest\x1a#.gcommon.v1.queue.SubscribeResponse0\x01\x12S\n\x07Publish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/services/queue_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/messages/dequeue_request.proto\x1a\x30gcommon/v1/queue/messages/dequeue_response.proto\x1a/gcommon/v1/queue/messages/enqueue_request.proto\x1a\x30gcommon/v1/queue/messages/enqueue_response.proto\x1a\x36gcommon/v1/queue/messages/get_queue_info_request.proto\x1a\x37gcommon/v1/queue/messages/get_queue_info_response.proto\x1a,gcommon/v1/queue/messages/peek_request.proto\x1a-gcommon/v1/queue/messages/peek_response.proto\x1a/gcommon/v1/queue/messages/publish_request.proto\x1a\x30gcommon/v1/queue/messages/publish_response.proto\x1a\x31gcommon/v1/queue/messages/subscribe_request.proto\x1a\x32gcommon/v1/queue/messages/subscribe_response.proto\x1a!google/protobuf/go_features.proto2\x86\x04\n\x0cQueueService\x12N\n\x07\x45nqueue\x12 .gcommon.v1.queue.EnqueueRequest\x1a!.gcommon.v1.queue.EnqueueResponse\x12N\n\x07\x44\x65queue\x12 .gcommon.v1.queue.DequeueRequest\x1a!.gcommon.v1.queue.DequeueResponse\x12\x45\n\x04Peek\x12\x1d.gcommon.v1.queue.PeekRequest\x1a\x1e.gcommon.v1.queue.PeekResponse\x12]\n\x0cGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12[\n\tSubscribe\x12\'.gcommon.v1.queue.QueueSubscribeRequest\x1a#.gcommon.v1.queue.SubscribeResponse0\x01\x12S\n\x07Publish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB1Z\'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -47,6 +45,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.services.q
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/jdfalk/gcommon/sdks/go/queue\222\003\005\322>\002\020\003'
-  _globals['_QUEUESERVICE']._serialized_start=824
-  _globals['_QUEUESERVICE']._serialized_end=1440
+  _globals['_QUEUESERVICE']._serialized_start=709
+  _globals['_QUEUESERVICE']._serialized_end=1227
 # @@protoc_insertion_point(module_scope)

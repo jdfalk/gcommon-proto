@@ -35,7 +35,7 @@ const file_gcommon_v1_database_services_database_admin_service_proto_rawDesc = "
 	"\fCreateSchema\x12(.gcommon.v1.database.CreateSchemaRequest\x1a).gcommon.v1.database.CreateSchemaResponse\x12L\n" +
 	"\n" +
 	"DropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n" +
-	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_database_admin_service_proto_goTypes = []any{
 	(*CreateDatabaseRequest)(nil),   // 0: gcommon.v1.database.CreateDatabaseRequest

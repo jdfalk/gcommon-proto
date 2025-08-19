@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +24,12 @@ const (
 )
 
 type UpdateDepartmentRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_DepartmentId *string                   `protobuf:"bytes,2,opt,name=department_id,json=departmentId"`
-	xxx_hidden_Department   *Department               `protobuf:"bytes,3,opt,name=department"`
-	xxx_hidden_UpdateMask   *fieldmaskpb.FieldMask    `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_ValidateOnly bool                      `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_DepartmentId *string                 `protobuf:"bytes,2,opt,name=department_id,json=departmentId"`
+	xxx_hidden_Department   *Department             `protobuf:"bytes,3,opt,name=department"`
+	xxx_hidden_UpdateMask   *fieldmaskpb.FieldMask  `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_ValidateOnly bool                    `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *UpdateDepartmentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateDepartmentRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateDepartmentRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -99,7 +99,7 @@ func (x *UpdateDepartmentRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateDepartmentRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateDepartmentRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -182,7 +182,7 @@ type UpdateDepartmentRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Department identifier to update
 	DepartmentId *string
 	// Updated department information
@@ -224,14 +224,14 @@ const file_gcommon_v1_organization_messages_update_department_request_proto_rawD
 	"department\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_update_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_update_department_request_proto_goTypes = []any{
-	(*UpdateDepartmentRequest)(nil),  // 0: gcommon.v1.organization.UpdateDepartmentRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*Department)(nil),               // 2: gcommon.v1.organization.Department
-	(*fieldmaskpb.FieldMask)(nil),    // 3: google.protobuf.FieldMask
+	(*UpdateDepartmentRequest)(nil), // 0: gcommon.v1.organization.UpdateDepartmentRequest
+	(*common.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*Department)(nil),              // 2: gcommon.v1.organization.Department
+	(*fieldmaskpb.FieldMask)(nil),   // 3: google.protobuf.FieldMask
 }
 var file_gcommon_v1_organization_messages_update_department_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateDepartmentRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

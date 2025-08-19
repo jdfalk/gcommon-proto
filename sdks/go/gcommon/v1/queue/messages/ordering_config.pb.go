@@ -237,7 +237,7 @@ const file_gcommon_v1_queue_messages_ordering_config_proto_rawDesc = "" +
 	"\x12partition_ordering\x18\x02 \x01(\x0e2\x1f.gcommon.v1.queue.OrderingLevelR\x11partitionOrdering\x12L\n" +
 	"\x11producer_ordering\x18\x03 \x01(\x0e2\x1f.gcommon.v1.queue.OrderingLevelR\x10producerOrdering\x12'\n" +
 	"\x0fcausal_ordering\x18\x04 \x01(\bR\x0ecausalOrdering\x12.\n" +
-	"\x13ordering_timeout_ms\x18\x05 \x01(\x05R\x11orderingTimeoutMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13ordering_timeout_ms\x18\x05 \x01(\x05R\x11orderingTimeoutMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_ordering_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_ordering_config_proto_goTypes = []any{

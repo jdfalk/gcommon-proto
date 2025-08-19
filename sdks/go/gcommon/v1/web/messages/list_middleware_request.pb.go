@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +24,12 @@ const (
 
 // ListMiddlewareRequest request definition.
 type ListMiddlewareRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_ServerId    *string                   `protobuf:"bytes,1,opt,name=server_id,json=serverId"`
-	xxx_hidden_Type        MiddlewareType            `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
-	xxx_hidden_Enabled     bool                      `protobuf:"varint,3,opt,name=enabled"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_ServerId    *string                 `protobuf:"bytes,1,opt,name=server_id,json=serverId"`
+	xxx_hidden_Type        MiddlewareType          `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
+	xxx_hidden_Enabled     bool                    `protobuf:"varint,3,opt,name=enabled"`
+	xxx_hidden_Pagination  *common.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -87,14 +87,14 @@ func (x *ListMiddlewareRequest) GetEnabled() bool {
 	return false
 }
 
-func (x *ListMiddlewareRequest) GetPagination() *messages.Pagination {
+func (x *ListMiddlewareRequest) GetPagination() *common.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListMiddlewareRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListMiddlewareRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -116,11 +116,11 @@ func (x *ListMiddlewareRequest) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *ListMiddlewareRequest) SetPagination(v *messages.Pagination) {
+func (x *ListMiddlewareRequest) SetPagination(v *common.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListMiddlewareRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListMiddlewareRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -192,9 +192,9 @@ type ListMiddlewareRequest_builder struct {
 	// Filter by enabled state
 	Enabled *bool
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *common.Pagination
 	// Standard request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 ListMiddlewareRequest_builder) Build() *ListMiddlewareRequest {
@@ -230,14 +230,14 @@ const file_gcommon_v1_web_messages_list_middleware_request_proto_rawDesc = "" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
 	"pagination\x12>\n" +
-	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_list_middleware_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_list_middleware_request_proto_goTypes = []any{
-	(*ListMiddlewareRequest)(nil),    // 0: gcommon.v1.web.ListMiddlewareRequest
-	(MiddlewareType)(0),              // 1: gcommon.v1.web.MiddlewareType
-	(*messages.Pagination)(nil),      // 2: gcommon.v1.common.Pagination
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*ListMiddlewareRequest)(nil),  // 0: gcommon.v1.web.ListMiddlewareRequest
+	(MiddlewareType)(0),            // 1: gcommon.v1.web.MiddlewareType
+	(*common.Pagination)(nil),      // 2: gcommon.v1.common.Pagination
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_list_middleware_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.ListMiddlewareRequest.type:type_name -> gcommon.v1.web.MiddlewareType

@@ -435,7 +435,7 @@ const file_gcommon_v1_metrics_messages_deletion_options_proto_rawDesc = "" +
 	"\x10cleanup_strategy\x18\t \x01(\x0e2#.gcommon.v1.metrics.CleanupStrategyR\x0fcleanupStrategy\x12.\n" +
 	"\x13wait_for_completion\x18\n" +
 	" \x01(\bR\x11waitForCompletion\x12-\n" +
-	"\x12completion_timeout\x18\v \x01(\tR\x11completionTimeoutB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12completion_timeout\x18\v \x01(\tR\x11completionTimeoutB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_deletion_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_deletion_options_proto_goTypes = []any{

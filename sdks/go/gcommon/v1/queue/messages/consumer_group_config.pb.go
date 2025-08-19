@@ -390,7 +390,7 @@ const file_gcommon_v1_queue_messages_consumer_group_config_proto_rawDesc = "" +
 	"\x14exactly_once_enabled\x18\t \x01(\bR\x12exactlyOnceEnabled\x12F\n" +
 	"\n" +
 	"dlq_config\x18\n" +
-	" \x01(\v2'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfigB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\v2'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfigB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_group_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_group_config_proto_goTypes = []any{

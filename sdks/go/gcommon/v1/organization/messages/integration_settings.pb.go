@@ -7,7 +7,7 @@
 package organization
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -162,7 +162,7 @@ const file_gcommon_v1_organization_messages_integration_settings_proto_rawDesc =
 	"\bwebhooks\x18\x02 \x03(\v2&.gcommon.v1.organization.WebhookConfigR\bwebhooks\x12F\n" +
 	"\bapi_keys\x18\x03 \x03(\v2'.gcommon.v1.metrics.MetricsAPIKeyConfigB\x02(\x01R\aapiKeys\x12F\n" +
 	"\n" +
-	"oauth_apps\x18\x04 \x03(\v2'.gcommon.v1.organization.OAuthAppConfigR\toauthAppsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"oauth_apps\x18\x04 \x03(\v2'.gcommon.v1.organization.OAuthAppConfigR\toauthAppsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_integration_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_integration_settings_proto_goTypes = []any{

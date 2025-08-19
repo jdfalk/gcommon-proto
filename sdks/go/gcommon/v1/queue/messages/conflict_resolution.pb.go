@@ -188,7 +188,7 @@ const file_gcommon_v1_queue_messages_conflict_resolution_proto_rawDesc = "" +
 	"\n" +
 	"lww_config\x18\x03 \x01(\v2 .gcommon.v1.queue.LastWriterWinsR\tlwwConfig\x12C\n" +
 	"\vmulti_value\x18\x04 \x01(\v2\".gcommon.v1.queue.MultiValueConfigR\n" +
-	"multiValueB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"multiValueB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_conflict_resolution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_conflict_resolution_proto_goTypes = []any{

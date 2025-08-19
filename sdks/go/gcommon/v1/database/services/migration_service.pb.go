@@ -30,7 +30,7 @@ const file_gcommon_v1_database_services_migration_service_proto_rawDesc = "" +
 	"\x0eApplyMigration\x12(.gcommon.v1.database.RunMigrationRequest\x1a).gcommon.v1.database.RunMigrationResponse\x12l\n" +
 	"\x0fRevertMigration\x12+.gcommon.v1.database.RevertMigrationRequest\x1a,.gcommon.v1.database.RevertMigrationResponse\x12u\n" +
 	"\x12GetMigrationStatus\x12..gcommon.v1.database.GetMigrationStatusRequest\x1a/.gcommon.v1.database.GetMigrationStatusResponse\x12i\n" +
-	"\x0eListMigrations\x12*.gcommon.v1.database.ListMigrationsRequest\x1a+.gcommon.v1.database.ListMigrationsResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eListMigrations\x12*.gcommon.v1.database.ListMigrationsRequest\x1a+.gcommon.v1.database.ListMigrationsResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_migration_service_proto_goTypes = []any{
 	(*RunMigrationRequest)(nil),        // 0: gcommon.v1.database.RunMigrationRequest

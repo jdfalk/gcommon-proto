@@ -355,7 +355,7 @@ const file_gcommon_v1_queue_messages_stream_config_proto_rawDesc = "" +
 	"\bauto_ack\x18\x06 \x01(\bR\aautoAck\x12<\n" +
 	"\fack_deadline\x18\a \x01(\v2\x19.google.protobuf.DurationR\vackDeadline\x126\n" +
 	"\x17enable_message_ordering\x18\b \x01(\bR\x15enableMessageOrdering\x12L\n" +
-	"\x0erestart_policy\x18\t \x01(\x0e2%.gcommon.v1.queue.StreamRestartPolicyR\rrestartPolicyB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0erestart_policy\x18\t \x01(\x0e2%.gcommon.v1.queue.StreamRestartPolicyR\rrestartPolicyB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_stream_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_stream_config_proto_goTypes = []any{

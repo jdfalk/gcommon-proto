@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type WebCacheConfig struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Strategy  CacheStrategy          `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.CacheStrategy"`
-	xxx_hidden_Policy    *messages.CachePolicy  `protobuf:"bytes,2,opt,name=policy"`
+	xxx_hidden_Policy    *common.CachePolicy    `protobuf:"bytes,2,opt,name=policy"`
 	xxx_hidden_Ttl       *durationpb.Duration   `protobuf:"bytes,3,opt,name=ttl"`
 	xxx_hidden_Enabled   bool                   `protobuf:"varint,4,opt,name=enabled"`
 	xxx_hidden_CacheName *string                `protobuf:"bytes,5,opt,name=cache_name,json=cacheName"`
@@ -73,13 +73,13 @@ func (x *WebCacheConfig) GetStrategy() CacheStrategy {
 	return CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
 }
 
-func (x *WebCacheConfig) GetPolicy() *messages.CachePolicy {
+func (x *WebCacheConfig) GetPolicy() *common.CachePolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Policy) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.CachePolicy
+			var rv *common.CachePolicy
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Policy), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -116,7 +116,7 @@ func (x *WebCacheConfig) SetStrategy(v CacheStrategy) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *WebCacheConfig) SetPolicy(v *messages.CachePolicy) {
+func (x *WebCacheConfig) SetPolicy(v *common.CachePolicy) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Policy, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -181,7 +181,7 @@ func (x *WebCacheConfig) ClearStrategy() {
 
 func (x *WebCacheConfig) ClearPolicy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Policy, (*messages.CachePolicy)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Policy, (*common.CachePolicy)(nil))
 }
 
 func (x *WebCacheConfig) ClearTtl() {
@@ -204,7 +204,7 @@ type WebCacheConfig_builder struct {
 	// Selected cache strategy for responses
 	Strategy *CacheStrategy
 	// Detailed cache policy settings
-	Policy *messages.CachePolicy
+	Policy *common.CachePolicy
 	// Override time to live for web resources
 	Ttl *durationpb.Duration
 	// Whether caching is enabled for this server
@@ -248,14 +248,14 @@ const file_gcommon_v1_web_messages_cache_config_proto_rawDesc = "" +
 	"\x03ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x03ttl\x12\x18\n" +
 	"\aenabled\x18\x04 \x01(\bR\aenabled\x12\x1d\n" +
 	"\n" +
-	"cache_name\x18\x05 \x01(\tR\tcacheNameB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"cache_name\x18\x05 \x01(\tR\tcacheNameB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_cache_config_proto_goTypes = []any{
-	(*WebCacheConfig)(nil),       // 0: gcommon.v1.web.WebCacheConfig
-	(CacheStrategy)(0),           // 1: gcommon.v1.web.CacheStrategy
-	(*messages.CachePolicy)(nil), // 2: gcommon.v1.common.CachePolicy
-	(*durationpb.Duration)(nil),  // 3: google.protobuf.Duration
+	(*WebCacheConfig)(nil),      // 0: gcommon.v1.web.WebCacheConfig
+	(CacheStrategy)(0),          // 1: gcommon.v1.web.CacheStrategy
+	(*common.CachePolicy)(nil),  // 2: gcommon.v1.common.CachePolicy
+	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
 var file_gcommon_v1_web_messages_cache_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.WebCacheConfig.strategy:type_name -> gcommon.v1.web.CacheStrategy

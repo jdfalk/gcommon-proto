@@ -25,49 +25,44 @@ var File_gcommon_v1_queue_services_queue_service_proto protoreflect.FileDescript
 
 const file_gcommon_v1_queue_services_queue_service_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/queue/services/queue_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/messages/dequeue_request.proto\x1a0gcommon/v1/queue/messages/dequeue_response.proto\x1a/gcommon/v1/queue/messages/enqueue_request.proto\x1a0gcommon/v1/queue/messages/enqueue_response.proto\x1a6gcommon/v1/queue/messages/get_queue_info_request.proto\x1a7gcommon/v1/queue/messages/get_queue_info_response.proto\x1a7gcommon/v1/queue/messages/get_queue_stats_request.proto\x1a8gcommon/v1/queue/messages/get_queue_stats_response.proto\x1a,gcommon/v1/queue/messages/peek_request.proto\x1a-gcommon/v1/queue/messages/peek_response.proto\x1a/gcommon/v1/queue/messages/publish_request.proto\x1a0gcommon/v1/queue/messages/publish_response.proto\x1a1gcommon/v1/queue/messages/subscribe_request.proto\x1a2gcommon/v1/queue/messages/subscribe_response.proto\x1a!google/protobuf/go_features.proto2\xe8\x04\n" +
+	"-gcommon/v1/queue/services/queue_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/messages/dequeue_request.proto\x1a0gcommon/v1/queue/messages/dequeue_response.proto\x1a/gcommon/v1/queue/messages/enqueue_request.proto\x1a0gcommon/v1/queue/messages/enqueue_response.proto\x1a6gcommon/v1/queue/messages/get_queue_info_request.proto\x1a7gcommon/v1/queue/messages/get_queue_info_response.proto\x1a,gcommon/v1/queue/messages/peek_request.proto\x1a-gcommon/v1/queue/messages/peek_response.proto\x1a/gcommon/v1/queue/messages/publish_request.proto\x1a0gcommon/v1/queue/messages/publish_response.proto\x1a1gcommon/v1/queue/messages/subscribe_request.proto\x1a2gcommon/v1/queue/messages/subscribe_response.proto\x1a!google/protobuf/go_features.proto2\x86\x04\n" +
 	"\fQueueService\x12N\n" +
 	"\aEnqueue\x12 .gcommon.v1.queue.EnqueueRequest\x1a!.gcommon.v1.queue.EnqueueResponse\x12N\n" +
 	"\aDequeue\x12 .gcommon.v1.queue.DequeueRequest\x1a!.gcommon.v1.queue.DequeueResponse\x12E\n" +
 	"\x04Peek\x12\x1d.gcommon.v1.queue.PeekRequest\x1a\x1e.gcommon.v1.queue.PeekResponse\x12]\n" +
-	"\fGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12`\n" +
-	"\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a'.gcommon.v1.queue.GetQueueStatsResponse\x12[\n" +
+	"\fGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12[\n" +
 	"\tSubscribe\x12'.gcommon.v1.queue.QueueSubscribeRequest\x1a#.gcommon.v1.queue.SubscribeResponse0\x01\x12S\n" +
-	"\aPublish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aPublish\x12%.gcommon.v1.queue.QueuePublishRequest\x1a!.gcommon.v1.queue.PublishResponseB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_services_queue_service_proto_goTypes = []any{
 	(*EnqueueRequest)(nil),        // 0: gcommon.v1.queue.EnqueueRequest
 	(*DequeueRequest)(nil),        // 1: gcommon.v1.queue.DequeueRequest
 	(*PeekRequest)(nil),           // 2: gcommon.v1.queue.PeekRequest
 	(*GetQueueInfoRequest)(nil),   // 3: gcommon.v1.queue.GetQueueInfoRequest
-	(*GetQueueStatsRequest)(nil),  // 4: gcommon.v1.queue.GetQueueStatsRequest
-	(*QueueSubscribeRequest)(nil), // 5: gcommon.v1.queue.QueueSubscribeRequest
-	(*QueuePublishRequest)(nil),   // 6: gcommon.v1.queue.QueuePublishRequest
-	(*EnqueueResponse)(nil),       // 7: gcommon.v1.queue.EnqueueResponse
-	(*DequeueResponse)(nil),       // 8: gcommon.v1.queue.DequeueResponse
-	(*PeekResponse)(nil),          // 9: gcommon.v1.queue.PeekResponse
-	(*GetQueueInfoResponse)(nil),  // 10: gcommon.v1.queue.GetQueueInfoResponse
-	(*GetQueueStatsResponse)(nil), // 11: gcommon.v1.queue.GetQueueStatsResponse
-	(*SubscribeResponse)(nil),     // 12: gcommon.v1.queue.SubscribeResponse
-	(*PublishResponse)(nil),       // 13: gcommon.v1.queue.PublishResponse
+	(*QueueSubscribeRequest)(nil), // 4: gcommon.v1.queue.QueueSubscribeRequest
+	(*QueuePublishRequest)(nil),   // 5: gcommon.v1.queue.QueuePublishRequest
+	(*EnqueueResponse)(nil),       // 6: gcommon.v1.queue.EnqueueResponse
+	(*DequeueResponse)(nil),       // 7: gcommon.v1.queue.DequeueResponse
+	(*PeekResponse)(nil),          // 8: gcommon.v1.queue.PeekResponse
+	(*GetQueueInfoResponse)(nil),  // 9: gcommon.v1.queue.GetQueueInfoResponse
+	(*SubscribeResponse)(nil),     // 10: gcommon.v1.queue.SubscribeResponse
+	(*PublishResponse)(nil),       // 11: gcommon.v1.queue.PublishResponse
 }
 var file_gcommon_v1_queue_services_queue_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.queue.QueueService.Enqueue:input_type -> gcommon.v1.queue.EnqueueRequest
 	1,  // 1: gcommon.v1.queue.QueueService.Dequeue:input_type -> gcommon.v1.queue.DequeueRequest
 	2,  // 2: gcommon.v1.queue.QueueService.Peek:input_type -> gcommon.v1.queue.PeekRequest
 	3,  // 3: gcommon.v1.queue.QueueService.GetQueueInfo:input_type -> gcommon.v1.queue.GetQueueInfoRequest
-	4,  // 4: gcommon.v1.queue.QueueService.GetQueueStats:input_type -> gcommon.v1.queue.GetQueueStatsRequest
-	5,  // 5: gcommon.v1.queue.QueueService.Subscribe:input_type -> gcommon.v1.queue.QueueSubscribeRequest
-	6,  // 6: gcommon.v1.queue.QueueService.Publish:input_type -> gcommon.v1.queue.QueuePublishRequest
-	7,  // 7: gcommon.v1.queue.QueueService.Enqueue:output_type -> gcommon.v1.queue.EnqueueResponse
-	8,  // 8: gcommon.v1.queue.QueueService.Dequeue:output_type -> gcommon.v1.queue.DequeueResponse
-	9,  // 9: gcommon.v1.queue.QueueService.Peek:output_type -> gcommon.v1.queue.PeekResponse
-	10, // 10: gcommon.v1.queue.QueueService.GetQueueInfo:output_type -> gcommon.v1.queue.GetQueueInfoResponse
-	11, // 11: gcommon.v1.queue.QueueService.GetQueueStats:output_type -> gcommon.v1.queue.GetQueueStatsResponse
-	12, // 12: gcommon.v1.queue.QueueService.Subscribe:output_type -> gcommon.v1.queue.SubscribeResponse
-	13, // 13: gcommon.v1.queue.QueueService.Publish:output_type -> gcommon.v1.queue.PublishResponse
-	7,  // [7:14] is the sub-list for method output_type
-	0,  // [0:7] is the sub-list for method input_type
+	4,  // 4: gcommon.v1.queue.QueueService.Subscribe:input_type -> gcommon.v1.queue.QueueSubscribeRequest
+	5,  // 5: gcommon.v1.queue.QueueService.Publish:input_type -> gcommon.v1.queue.QueuePublishRequest
+	6,  // 6: gcommon.v1.queue.QueueService.Enqueue:output_type -> gcommon.v1.queue.EnqueueResponse
+	7,  // 7: gcommon.v1.queue.QueueService.Dequeue:output_type -> gcommon.v1.queue.DequeueResponse
+	8,  // 8: gcommon.v1.queue.QueueService.Peek:output_type -> gcommon.v1.queue.PeekResponse
+	9,  // 9: gcommon.v1.queue.QueueService.GetQueueInfo:output_type -> gcommon.v1.queue.GetQueueInfoResponse
+	10, // 10: gcommon.v1.queue.QueueService.Subscribe:output_type -> gcommon.v1.queue.SubscribeResponse
+	11, // 11: gcommon.v1.queue.QueueService.Publish:output_type -> gcommon.v1.queue.PublishResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -84,8 +79,6 @@ func file_gcommon_v1_queue_services_queue_service_proto_init() {
 	file_gcommon_v1_queue_messages_enqueue_response_proto_init()
 	file_gcommon_v1_queue_messages_get_queue_info_request_proto_init()
 	file_gcommon_v1_queue_messages_get_queue_info_response_proto_init()
-	file_gcommon_v1_queue_messages_get_queue_stats_request_proto_init()
-	file_gcommon_v1_queue_messages_get_queue_stats_response_proto_init()
 	file_gcommon_v1_queue_messages_peek_request_proto_init()
 	file_gcommon_v1_queue_messages_peek_response_proto_init()
 	file_gcommon_v1_queue_messages_publish_request_proto_init()

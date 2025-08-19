@@ -7,9 +7,9 @@
 package config
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
-	organization "github.com/jdfalk/gcommon/pkg/organization"
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
+	organization "github.com/jdfalk/gcommon/sdks/go/organization"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -45,7 +45,7 @@ type ConfigEnvironment struct {
 	xxx_hidden_PromotionRules       *[]*PromotionRule                              `protobuf:"bytes,16,rep,name=promotion_rules,json=promotionRules"`
 	xxx_hidden_AccessControls       *[]*organization.OrganizationAccessControl     `protobuf:"bytes,17,rep,name=access_controls,json=accessControls"`
 	xxx_hidden_DeploymentInfo       *DeploymentInfo                                `protobuf:"bytes,18,opt,name=deployment_info,json=deploymentInfo"`
-	xxx_hidden_HealthStatus         enums.CommonHealthStatus                       `protobuf:"varint,19,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_HealthStatus         common.CommonHealthStatus                      `protobuf:"varint,19,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
 	xxx_hidden_ResourceLimits       *organization.OrganizationResourceLimits       `protobuf:"bytes,20,opt,name=resource_limits,json=resourceLimits"`
 	xxx_hidden_BackupPolicy         *BackupPolicy                                  `protobuf:"bytes,21,opt,name=backup_policy,json=backupPolicy"`
 	xxx_hidden_ApprovalWorkflow     *ApprovalWorkflow                              `protobuf:"bytes,22,opt,name=approval_workflow,json=approvalWorkflow"`
@@ -237,13 +237,13 @@ func (x *ConfigEnvironment) GetDeploymentInfo() *DeploymentInfo {
 	return nil
 }
 
-func (x *ConfigEnvironment) GetHealthStatus() enums.CommonHealthStatus {
+func (x *ConfigEnvironment) GetHealthStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 18) {
 			return x.xxx_hidden_HealthStatus
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *ConfigEnvironment) GetResourceLimits() *organization.OrganizationResourceLimits {
@@ -407,7 +407,7 @@ func (x *ConfigEnvironment) SetDeploymentInfo(v *DeploymentInfo) {
 	x.xxx_hidden_DeploymentInfo = v
 }
 
-func (x *ConfigEnvironment) SetHealthStatus(v enums.CommonHealthStatus) {
+func (x *ConfigEnvironment) SetHealthStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_HealthStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 18, 30)
 }
@@ -661,7 +661,7 @@ func (x *ConfigEnvironment) ClearDeploymentInfo() {
 
 func (x *ConfigEnvironment) ClearHealthStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 18)
-	x.xxx_hidden_HealthStatus = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_HealthStatus = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *ConfigEnvironment) ClearResourceLimits() {
@@ -750,7 +750,7 @@ type ConfigEnvironment_builder struct {
 	// Environment deployment info
 	DeploymentInfo *DeploymentInfo
 	// Environment health status
-	HealthStatus *enums.CommonHealthStatus
+	HealthStatus *common.CommonHealthStatus
 	// Environment resource limits
 	ResourceLimits *organization.OrganizationResourceLimits
 	// Environment backup policy
@@ -892,7 +892,7 @@ const file_gcommon_v1_config_enums_config_environment_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a<\n" +
 	"\x0eVariablesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_config_environment_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gcommon_v1_config_enums_config_environment_proto_goTypes = []any{
@@ -907,7 +907,7 @@ var file_gcommon_v1_config_enums_config_environment_proto_goTypes = []any{
 	(*PromotionRule)(nil),         // 8: gcommon.v1.config.PromotionRule
 	(*organization.OrganizationAccessControl)(nil),        // 9: gcommon.v1.organization.OrganizationAccessControl
 	(*DeploymentInfo)(nil),                                // 10: gcommon.v1.config.DeploymentInfo
-	(enums.CommonHealthStatus)(0),                         // 11: gcommon.v1.common.CommonHealthStatus
+	(common.CommonHealthStatus)(0),                        // 11: gcommon.v1.common.CommonHealthStatus
 	(*organization.OrganizationResourceLimits)(nil),       // 12: gcommon.v1.organization.OrganizationResourceLimits
 	(*BackupPolicy)(nil),                                  // 13: gcommon.v1.config.BackupPolicy
 	(*ApprovalWorkflow)(nil),                              // 14: gcommon.v1.config.ApprovalWorkflow

@@ -156,7 +156,7 @@ const file_gcommon_v1_database_messages_begin_transaction_response_proto_rawDesc
 	"\x18BeginTransactionResponse\x12%\n" +
 	"\x0etransaction_id\x18\x01 \x01(\tR\rtransactionId\x12=\n" +
 	"\n" +
-	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tstartedAtB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tstartedAtB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_begin_transaction_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_begin_transaction_response_proto_goTypes = []any{

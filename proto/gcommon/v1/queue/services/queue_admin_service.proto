@@ -11,8 +11,6 @@ import "gcommon/v1/queue/messages/create_queue_request.proto";
 import "gcommon/v1/queue/messages/create_queue_response.proto";
 import "gcommon/v1/queue/messages/delete_topic_request.proto";
 import "gcommon/v1/queue/messages/delete_topic_response.proto";
-import "gcommon/v1/queue/messages/get_queue_info_request.proto";
-import "gcommon/v1/queue/messages/get_queue_info_response.proto";
 import "gcommon/v1/queue/messages/pause_queue_request.proto";
 import "gcommon/v1/queue/messages/pause_queue_response.proto";
 import "gcommon/v1/queue/messages/purge_request.proto";
@@ -33,9 +31,6 @@ service QueueAdminService {
 
   // Delete a queue/topic
   rpc DeleteTopic(DeleteTopicRequest) returns (DeleteTopicResponse);
-
-  // Get queue information
-  rpc GetQueueInfo(GetQueueInfoRequest) returns (GetQueueInfoResponse);
 
   // Pause queue operations
   rpc PauseQueue(PauseQueueRequest) returns (PauseQueueResponse);

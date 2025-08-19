@@ -40,7 +40,7 @@ const file_gcommon_v1_database_services_cache_service_proto_rawDesc = "" +
 	"\x04Keys\x12 .gcommon.v1.database.KeysRequest\x1a!.gcommon.v1.database.KeysResponse\x12a\n" +
 	"\bGetStats\x12).gcommon.v1.database.CacheGetStatsRequest\x1a*.gcommon.v1.database.CacheGetStatsResponse\x12N\n" +
 	"\x05Flush\x12!.gcommon.v1.database.FlushRequest\x1a\".gcommon.v1.database.FlushResponse\x12l\n" +
-	"\x0fTouchExpiration\x12+.gcommon.v1.database.TouchExpirationRequest\x1a,.gcommon.v1.database.TouchExpirationResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fTouchExpiration\x12+.gcommon.v1.database.TouchExpirationRequest\x1a,.gcommon.v1.database.TouchExpirationResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_cache_service_proto_goTypes = []any{
 	(*GetRequest)(nil),              // 0: gcommon.v1.database.GetRequest

@@ -7,7 +7,7 @@
 package organization
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,7 +39,7 @@ type OrganizationMember struct {
 	xxx_hidden_DepartmentIds   []string               `protobuf:"bytes,9,rep,name=department_ids,json=departmentIds"`
 	xxx_hidden_TeamIds         []string               `protobuf:"bytes,10,rep,name=team_ids,json=teamIds"`
 	xxx_hidden_TenantIds       []string               `protobuf:"bytes,11,rep,name=tenant_ids,json=tenantIds"`
-	xxx_hidden_Metadata        *[]*messages.KeyValue  `protobuf:"bytes,12,rep,name=metadata"`
+	xxx_hidden_Metadata        *[]*common.KeyValue    `protobuf:"bytes,12,rep,name=metadata"`
 	xxx_hidden_CreatedAt       *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt       *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_LastActiveAt    *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=last_active_at,json=lastActiveAt"`
@@ -179,13 +179,13 @@ func (x *OrganizationMember) GetTenantIds() []string {
 	return nil
 }
 
-func (x *OrganizationMember) GetMetadata() []*messages.KeyValue {
+func (x *OrganizationMember) GetMetadata() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 12)
 			}
-			var rv *[]*messages.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -369,11 +369,11 @@ func (x *OrganizationMember) SetTenantIds(v []string) {
 	x.xxx_hidden_TenantIds = v
 }
 
-func (x *OrganizationMember) SetMetadata(v []*messages.KeyValue) {
-	var sv *[]*messages.KeyValue
+func (x *OrganizationMember) SetMetadata(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -681,7 +681,7 @@ type OrganizationMember_builder struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string
 	// Member metadata and custom attributes
-	Metadata []*messages.KeyValue
+	Metadata []*common.KeyValue
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -830,13 +830,13 @@ const file_gcommon_v1_organization_messages_organization_member_proto_rawDesc = 
 	"\n" +
 	"avatar_url\x18\x16 \x01(\tR\tavatarUrl\x12\x14\n" +
 	"\x05phone\x18\x17 \x01(\tR\x05phone\x12\x1a\n" +
-	"\blocation\x18\x18 \x01(\tR\blocationB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\blocation\x18\x18 \x01(\tR\blocationB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
 	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
-	(*messages.KeyValue)(nil),     // 2: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),       // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_messages_organization_member_proto_depIdxs = []int32{

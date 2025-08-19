@@ -31,7 +31,7 @@ const file_gcommon_v1_metrics_services_metrics_management_service_proto_rawDesc 
 	"\x15UpdateMetricsProvider\x12).gcommon.v1.metrics.UpdateProviderRequest\x1a*.gcommon.v1.metrics.UpdateProviderResponse\x12n\n" +
 	"\x15DeleteMetricsProvider\x12).gcommon.v1.metrics.DeleteProviderRequest\x1a*.gcommon.v1.metrics.DeleteProviderResponse\x12k\n" +
 	"\x14ListMetricsProviders\x12(.gcommon.v1.metrics.ListProvidersRequest\x1a).gcommon.v1.metrics.ListProvidersResponse\x12m\n" +
-	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_services_metrics_management_service_proto_goTypes = []any{
 	(*CreateProviderRequest)(nil),    // 0: gcommon.v1.metrics.CreateProviderRequest

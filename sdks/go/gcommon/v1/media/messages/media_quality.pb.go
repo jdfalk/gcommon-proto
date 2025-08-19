@@ -237,7 +237,7 @@ const file_gcommon_v1_media_messages_media_quality_proto_rawDesc = "" +
 	"videoCodec\x12!\n" +
 	"\fbitrate_kbps\x18\x03 \x01(\x05R\vbitrateKbps\x12)\n" +
 	"\x10duration_seconds\x18\x04 \x01(\x02R\x0fdurationSeconds\x12C\n" +
-	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB-Z#github.com/jdfalk/gcommon/pkg/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB1Z'github.com/jdfalk/gcommon/sdks/go/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_messages_media_quality_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_messages_media_quality_proto_goTypes = []any{

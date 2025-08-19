@@ -185,7 +185,7 @@ const file_gcommon_v1_web_messages_load_balancer_config_proto_rawDesc = "" +
 	"\bstrategy\x18\x01 \x01(\x0e2#.gcommon.v1.web.LoadBalanceStrategyR\bstrategy\x12\x1c\n" +
 	"\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n" +
 	"\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x123\n" +
-	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_load_balancer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_load_balancer_config_proto_goTypes = []any{

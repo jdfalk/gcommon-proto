@@ -259,7 +259,7 @@ const file_gcommon_v1_metrics_messages_update_result_proto_rawDesc = "" +
 	"\x10removed_settings\x18\x04 \x03(\tR\x0fremovedSettings\x12\x1c\n" +
 	"\trestarted\x18\x05 \x01(\bR\trestarted\x12#\n" +
 	"\rstrategy_used\x18\x06 \x01(\tR\fstrategyUsed\x12'\n" +
-	"\x0fupdate_duration\x18\a \x01(\tR\x0eupdateDurationB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fupdate_duration\x18\a \x01(\tR\x0eupdateDurationB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_result_proto_goTypes = []any{

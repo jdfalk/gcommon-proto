@@ -36,7 +36,7 @@ const file_gcommon_v1_metrics_services_metrics_service_proto_rawDesc = "" +
 	"\x10UnregisterMetric\x12+.gcommon.v1.metrics.UnregisterMetricRequest\x1a,.gcommon.v1.metrics.UnregisterMetricResponse\x12p\n" +
 	"\x11GetMetricMetadata\x12,.gcommon.v1.metrics.GetMetricMetadataRequest\x1a-.gcommon.v1.metrics.GetMetricMetadataResponse\x12a\n" +
 	"\fQueryMetrics\x12'.gcommon.v1.metrics.QueryMetricsRequest\x1a(.gcommon.v1.metrics.QueryMetricsResponse\x12p\n" +
-	"\x11GetMetricsSummary\x12,.gcommon.v1.metrics.GetMetricsSummaryRequest\x1a-.gcommon.v1.metrics.GetMetricsSummaryResponseB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11GetMetricsSummary\x12,.gcommon.v1.metrics.GetMetricsSummaryRequest\x1a-.gcommon.v1.metrics.GetMetricsSummaryResponseB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_services_metrics_service_proto_goTypes = []any{
 	(*RecordMetricRequest)(nil),         // 0: gcommon.v1.metrics.RecordMetricRequest

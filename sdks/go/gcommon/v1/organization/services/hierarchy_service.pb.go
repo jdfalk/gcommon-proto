@@ -42,7 +42,7 @@ const file_gcommon_v1_organization_services_hierarchy_service_proto_rawDesc = ""
 	"DeleteTeam\x12*.gcommon.v1.organization.DeleteTeamRequest\x1a+.gcommon.v1.organization.DeleteTeamResponse\x12b\n" +
 	"\tListTeams\x12).gcommon.v1.organization.ListTeamsRequest\x1a*.gcommon.v1.organization.ListTeamsResponse\x12k\n" +
 	"\fGetHierarchy\x12,.gcommon.v1.organization.GetHierarchyRequest\x1a-.gcommon.v1.organization.GetHierarchyResponse\x12t\n" +
-	"\x0fUpdateHierarchy\x12/.gcommon.v1.organization.UpdateHierarchyRequest\x1a0.gcommon.v1.organization.UpdateHierarchyResponseB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fUpdateHierarchy\x12/.gcommon.v1.organization.UpdateHierarchyRequest\x1a0.gcommon.v1.organization.UpdateHierarchyResponseB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_services_hierarchy_service_proto_goTypes = []any{
 	(*CreateDepartmentRequest)(nil),  // 0: gcommon.v1.organization.CreateDepartmentRequest

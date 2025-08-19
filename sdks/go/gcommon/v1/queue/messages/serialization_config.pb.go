@@ -353,7 +353,7 @@ const file_gcommon_v1_queue_messages_serialization_config_proto_rawDesc = "" +
 	" \x01(\bR\x13backwardsCompatible\x1aa\n" +
 	"\x12FormatOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x125\n" +
-	"\x05value\x18\x02 \x01(\v2\x1f.gcommon.v1.queue.FormatOptionsR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x1f.gcommon.v1.queue.FormatOptionsR\x05value:\x028\x01B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_serialization_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_serialization_config_proto_goTypes = []any{

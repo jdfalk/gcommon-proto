@@ -32,7 +32,7 @@ const file_gcommon_v1_database_services_cache_admin_service_proto_rawDesc = "" +
 	"\x0fDeleteNamespace\x12+.gcommon.v1.database.DeleteNamespaceRequest\x1a\x16.google.protobuf.Empty\x12i\n" +
 	"\x0eListNamespaces\x12*.gcommon.v1.database.ListNamespacesRequest\x1a+.gcommon.v1.database.ListNamespacesResponse\x12r\n" +
 	"\x11GetNamespaceStats\x12-.gcommon.v1.database.GetNamespaceStatsRequest\x1a..gcommon.v1.database.GetNamespaceStatsResponse\x12l\n" +
-	"\x0fConfigurePolicy\x12+.gcommon.v1.database.ConfigurePolicyRequest\x1a,.gcommon.v1.database.ConfigurePolicyResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fConfigurePolicy\x12+.gcommon.v1.database.ConfigurePolicyRequest\x1a,.gcommon.v1.database.ConfigurePolicyResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_cache_admin_service_proto_goTypes = []any{
 	(*CreateNamespaceRequest)(nil),    // 0: gcommon.v1.database.CreateNamespaceRequest

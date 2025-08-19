@@ -410,7 +410,7 @@ const file_gcommon_v1_queue_messages_message_properties_proto_rawDesc = "" +
 	"\vcompression\x18\b \x01(\tR\vcompression\x12)\n" +
 	"\x10deduplication_id\x18\t \x01(\tR\x0fdeduplicationId\x12*\n" +
 	"\x11delivery_delay_ms\x18\n" +
-	" \x01(\x03R\x0fdeliveryDelayMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x03R\x0fdeliveryDelayMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_message_properties_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_message_properties_proto_goTypes = []any{

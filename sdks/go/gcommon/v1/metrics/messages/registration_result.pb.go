@@ -187,7 +187,7 @@ const file_gcommon_v1_metrics_messages_registration_result_proto_rawDesc = "" +
 	"\x0ecreated_alerts\x18\x03 \x03(\tR\rcreatedAlerts\x12-\n" +
 	"\x12configured_exports\x18\x04 \x03(\tR\x11configuredExports\x12<\n" +
 	"\x1aapplied_retention_policies\x18\x05 \x03(\tR\x18appliedRetentionPolicies\x12G\n" +
-	"\x0eschema_changes\x18\x06 \x03(\v2 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eschema_changes\x18\x06 \x03(\v2 .gcommon.v1.metrics.SchemaChangeR\rschemaChangesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_registration_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_registration_result_proto_goTypes = []any{

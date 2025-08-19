@@ -280,7 +280,7 @@ const file_gcommon_v1_queue_messages_node_info_proto_rawDesc = "" +
 	"\x05state\x18\x04 \x01(\x0e2\x1b.gcommon.v1.queue.NodeStateR\x05state\x12\x14\n" +
 	"\x05roles\x18\x05 \x03(\tR\x05roles\x12A\n" +
 	"\x0elast_heartbeat\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rlastHeartbeat\x121\n" +
-	"\x05stats\x18\a \x01(\v2\x1b.gcommon.v1.queue.NodeStatsR\x05statsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05stats\x18\a \x01(\v2\x1b.gcommon.v1.queue.NodeStatsR\x05statsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_node_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_node_info_proto_goTypes = []any{

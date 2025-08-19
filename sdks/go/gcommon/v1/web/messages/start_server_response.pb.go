@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type StartServerResponse struct {
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Status        ServerStatus           `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.web.ServerStatus"`
 	xxx_hidden_ListenAddress *string                `protobuf:"bytes,3,opt,name=listen_address,json=listenAddress"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *common.Error          `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -86,7 +86,7 @@ func (x *StartServerResponse) GetListenAddress() string {
 	return ""
 }
 
-func (x *StartServerResponse) GetError() *messages.Error {
+func (x *StartServerResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -108,7 +108,7 @@ func (x *StartServerResponse) SetListenAddress(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *StartServerResponse) SetError(v *messages.Error) {
+func (x *StartServerResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -169,7 +169,7 @@ type StartServerResponse_builder struct {
 	// Listen address
 	ListenAddress *string
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 StartServerResponse_builder) Build() *StartServerResponse {
@@ -201,13 +201,13 @@ const file_gcommon_v1_web_messages_start_server_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x124\n" +
 	"\x06status\x18\x02 \x01(\x0e2\x1c.gcommon.v1.web.ServerStatusR\x06status\x12%\n" +
 	"\x0elisten_address\x18\x03 \x01(\tR\rlistenAddress\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_start_server_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_start_server_response_proto_goTypes = []any{
 	(*StartServerResponse)(nil), // 0: gcommon.v1.web.StartServerResponse
 	(ServerStatus)(0),           // 1: gcommon.v1.web.ServerStatus
-	(*messages.Error)(nil),      // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_messages_start_server_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.StartServerResponse.status:type_name -> gcommon.v1.web.ServerStatus

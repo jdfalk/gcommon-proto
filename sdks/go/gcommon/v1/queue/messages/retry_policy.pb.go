@@ -292,7 +292,7 @@ const file_gcommon_v1_queue_messages_retry_policy_proto_rawDesc = "" +
 	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12K\n" +
 	"\x0edelay_strategy\x18\x05 \x01(\x0e2$.gcommon.v1.queue.RetryDelayStrategyR\rdelayStrategy\x12#\n" +
 	"\renable_jitter\x18\x06 \x01(\bR\fenableJitter\x12#\n" +
-	"\rjitter_factor\x18\a \x01(\x01R\fjitterFactorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rjitter_factor\x18\a \x01(\x01R\fjitterFactorB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_retry_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_retry_policy_proto_goTypes = []any{

@@ -265,7 +265,7 @@ const file_gcommon_v1_queue_messages_replication_consistency_proto_rawDesc = "" 
 	"\x12replication_factor\x18\x03 \x01(\x05R\x11replicationFactor\x12O\n" +
 	"\x11replication_level\x18\x04 \x01(\x0e2\".gcommon.v1.queue.ReplicationLevelR\x10replicationLevel\x120\n" +
 	"\x14anti_entropy_enabled\x18\x05 \x01(\bR\x12antiEntropyEnabled\x126\n" +
-	"\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17repair_interval_seconds\x18\x06 \x01(\x05R\x15repairIntervalSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_replication_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_replication_consistency_proto_goTypes = []any{

@@ -32,7 +32,7 @@ const file_gcommon_v1_database_services_database_service_proto_rawDesc = "" +
 	"\aExecute\x12#.gcommon.v1.database.ExecuteRequest\x1a$.gcommon.v1.database.ExecuteResponse\x12c\n" +
 	"\fExecuteBatch\x12(.gcommon.v1.database.ExecuteBatchRequest\x1a).gcommon.v1.database.ExecuteBatchResponse\x12r\n" +
 	"\x11GetConnectionInfo\x12-.gcommon.v1.database.GetConnectionInfoRequest\x1a..gcommon.v1.database.GetConnectionInfoResponse\x12p\n" +
-	"\vHealthCheck\x12/.gcommon.v1.database.DatabaseHealthCheckRequest\x1a0.gcommon.v1.database.DatabaseHealthCheckResponseB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vHealthCheck\x12/.gcommon.v1.database.DatabaseHealthCheckRequest\x1a0.gcommon.v1.database.DatabaseHealthCheckResponseB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_services_database_service_proto_goTypes = []any{
 	(*QueryRequest)(nil),                // 0: gcommon.v1.database.QueryRequest

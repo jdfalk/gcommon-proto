@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,15 +26,15 @@ const (
 // Request to list files in a directory.
 // Used for static file serving and directory browsing.
 type ListFilesRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_DirectoryPath *string                   `protobuf:"bytes,1,opt,name=directory_path,json=directoryPath"`
-	xxx_hidden_Recursive     bool                      `protobuf:"varint,2,opt,name=recursive"`
-	xxx_hidden_Pattern       *string                   `protobuf:"bytes,3,opt,name=pattern"`
-	xxx_hidden_Limit         int32                     `protobuf:"varint,4,opt,name=limit"`
-	xxx_hidden_Offset        int32                     `protobuf:"varint,5,opt,name=offset"`
-	xxx_hidden_IncludeHidden bool                      `protobuf:"varint,6,opt,name=include_hidden,json=includeHidden"`
-	xxx_hidden_SortOrder     FileSortOrder             `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.web.FileSortOrder"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_DirectoryPath *string                 `protobuf:"bytes,1,opt,name=directory_path,json=directoryPath"`
+	xxx_hidden_Recursive     bool                    `protobuf:"varint,2,opt,name=recursive"`
+	xxx_hidden_Pattern       *string                 `protobuf:"bytes,3,opt,name=pattern"`
+	xxx_hidden_Limit         int32                   `protobuf:"varint,4,opt,name=limit"`
+	xxx_hidden_Offset        int32                   `protobuf:"varint,5,opt,name=offset"`
+	xxx_hidden_IncludeHidden bool                    `protobuf:"varint,6,opt,name=include_hidden,json=includeHidden"`
+	xxx_hidden_SortOrder     FileSortOrder           `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.web.FileSortOrder"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -123,7 +123,7 @@ func (x *ListFilesRequest) GetSortOrder() FileSortOrder {
 	return FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
 }
 
-func (x *ListFilesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListFilesRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -165,7 +165,7 @@ func (x *ListFilesRequest) SetSortOrder(v FileSortOrder) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
 
-func (x *ListFilesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListFilesRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -282,7 +282,7 @@ type ListFilesRequest_builder struct {
 	// Sort order for the files
 	SortOrder *FileSortOrder
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 ListFilesRequest_builder) Build() *ListFilesRequest {
@@ -335,13 +335,13 @@ const file_gcommon_v1_web_messages_list_files_request_proto_rawDesc = "" +
 	"\x0einclude_hidden\x18\x06 \x01(\bR\rincludeHidden\x12<\n" +
 	"\n" +
 	"sort_order\x18\a \x01(\x0e2\x1d.gcommon.v1.web.FileSortOrderR\tsortOrder\x12>\n" +
-	"\bmetadata\x18\b \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\b \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_list_files_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_list_files_request_proto_goTypes = []any{
-	(*ListFilesRequest)(nil),         // 0: gcommon.v1.web.ListFilesRequest
-	(FileSortOrder)(0),               // 1: gcommon.v1.web.FileSortOrder
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*ListFilesRequest)(nil),       // 0: gcommon.v1.web.ListFilesRequest
+	(FileSortOrder)(0),             // 1: gcommon.v1.web.FileSortOrder
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_messages_list_files_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.ListFilesRequest.sort_order:type_name -> gcommon.v1.web.FileSortOrder

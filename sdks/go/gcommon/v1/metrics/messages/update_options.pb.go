@@ -235,7 +235,7 @@ const file_gcommon_v1_metrics_messages_update_options_proto_rawDesc = "" +
 	"\adry_run\x18\x02 \x01(\bR\x06dryRun\x12*\n" +
 	"\x11restart_if_needed\x18\x03 \x01(\bR\x0frestartIfNeeded\x12#\n" +
 	"\rbackup_config\x18\x04 \x01(\bR\fbackupConfig\x12>\n" +
-	"\bstrategy\x18\x05 \x01(\x0e2\".gcommon.v1.metrics.UpdateStrategyR\bstrategyB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bstrategy\x18\x05 \x01(\x0e2\".gcommon.v1.metrics.UpdateStrategyR\bstrategyB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_options_proto_goTypes = []any{

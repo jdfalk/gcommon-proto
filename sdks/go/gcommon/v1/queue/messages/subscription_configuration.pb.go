@@ -396,7 +396,7 @@ const file_gcommon_v1_queue_messages_subscription_configuration_proto_rawDesc = 
 	"\x12expiration_seconds\x18\b \x01(\x03R\x11expirationSeconds\x12/\n" +
 	"\x13duplicate_detection\x18\t \x01(\bR\x12duplicateDetection\x125\n" +
 	"\x17max_message_age_seconds\x18\n" +
-	" \x01(\x03R\x14maxMessageAgeSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x03R\x14maxMessageAgeSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_subscription_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_subscription_configuration_proto_goTypes = []any{

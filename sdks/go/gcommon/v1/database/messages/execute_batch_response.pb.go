@@ -7,8 +7,8 @@
 package database
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type ExecuteBatchResponse struct {
 	state              protoimpl.MessageState     `protogen:"opaque.v1"`
 	xxx_hidden_Results *[]*BatchOperationResult   `protobuf:"bytes,1,rep,name=results"`
 	xxx_hidden_Stats   *metrics.MetricsBatchStats `protobuf:"bytes,2,opt,name=stats"`
-	xxx_hidden_Error   *messages.Error            `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error   *common.Error              `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -92,13 +92,13 @@ func (x *ExecuteBatchResponse) GetStats() *metrics.MetricsBatchStats {
 	return nil
 }
 
-func (x *ExecuteBatchResponse) GetError() *messages.Error {
+func (x *ExecuteBatchResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -126,7 +126,7 @@ func (x *ExecuteBatchResponse) SetStats(v *metrics.MetricsBatchStats) {
 	}
 }
 
-func (x *ExecuteBatchResponse) SetError(v *messages.Error) {
+func (x *ExecuteBatchResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -156,7 +156,7 @@ func (x *ExecuteBatchResponse) ClearStats() {
 
 func (x *ExecuteBatchResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type ExecuteBatchResponse_builder struct {
@@ -167,7 +167,7 @@ type ExecuteBatchResponse_builder struct {
 	// Overall batch execution statistics
 	Stats *metrics.MetricsBatchStats
 	// Error information if the batch failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ExecuteBatchResponse_builder) Build() *ExecuteBatchResponse {
@@ -197,14 +197,14 @@ const file_gcommon_v1_database_messages_execute_batch_response_proto_rawDesc = "
 	"\x14ExecuteBatchResponse\x12G\n" +
 	"\aresults\x18\x01 \x03(\v2).gcommon.v1.database.BatchOperationResultB\x02(\x01R\aresults\x12?\n" +
 	"\x05stats\x18\x02 \x01(\v2%.gcommon.v1.metrics.MetricsBatchStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB0Z&github.com/jdfalk/gcommon/pkg/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB4Z*github.com/jdfalk/gcommon/sdks/go/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_messages_execute_batch_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_execute_batch_response_proto_goTypes = []any{
 	(*ExecuteBatchResponse)(nil),      // 0: gcommon.v1.database.ExecuteBatchResponse
 	(*BatchOperationResult)(nil),      // 1: gcommon.v1.database.BatchOperationResult
 	(*metrics.MetricsBatchStats)(nil), // 2: gcommon.v1.metrics.MetricsBatchStats
-	(*messages.Error)(nil),            // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),              // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_execute_batch_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchResponse.results:type_name -> gcommon.v1.database.BatchOperationResult

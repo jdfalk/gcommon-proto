@@ -240,7 +240,7 @@ const file_gcommon_v1_metrics_messages_provider_status_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x16\n" +
 	"\x06health\x18\x03 \x01(\tR\x06health\x12=\n" +
 	"\flast_updated\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\x12\x18\n" +
-	"\aversion\x18\x05 \x01(\tR\aversionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aversion\x18\x05 \x01(\tR\aversionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_status_proto_goTypes = []any{

@@ -270,7 +270,7 @@ const file_gcommon_v1_metrics_messages_output_options_proto_rawDesc = "" +
 	"\x0einclude_labels\x18\x03 \x01(\bR\rincludeLabels\x12I\n" +
 	"\vcompression\x18\x04 \x01(\x0e2'.gcommon.v1.metrics.ResponseCompressionR\vcompression\x12)\n" +
 	"\x10flatten_response\x18\x05 \x01(\bR\x0fflattenResponse\x12\x1a\n" +
-	"\btimezone\x18\x06 \x01(\tR\btimezoneB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\btimezone\x18\x06 \x01(\tR\btimezoneB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_output_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_output_options_proto_goTypes = []any{

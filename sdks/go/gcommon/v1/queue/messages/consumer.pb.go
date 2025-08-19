@@ -294,7 +294,7 @@ const file_gcommon_v1_queue_messages_consumer_proto_rawDesc = "" +
 	"\x06config\x18\x05 \x01(\v2 .gcommon.v1.queue.ConsumerConfigR\x06config\x125\n" +
 	"\x05stats\x18\x06 \x01(\v2\x1f.gcommon.v1.queue.ConsumerStatsR\x05stats\x12A\n" +
 	"\x0elast_heartbeat\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\rlastHeartbeat\x127\n" +
-	"\tjoined_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\bjoinedAtB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tjoined_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\bjoinedAtB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_consumer_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_consumer_proto_goTypes = []any{

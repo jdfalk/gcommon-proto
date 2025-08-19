@@ -270,7 +270,7 @@ const file_gcommon_v1_metrics_messages_metric_aggregation_proto_rawDesc = "" +
 	"\x0fcustom_function\x18\x05 \x01(\tR\x0ecustomFunction\x12#\n" +
 	"\rinclude_nulls\x18\x06 \x01(\bR\fincludeNulls\x12\x1f\n" +
 	"\vmin_samples\x18\a \x01(\x05R\n" +
-	"minSamplesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"minSamplesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_aggregation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_aggregation_proto_goTypes = []any{

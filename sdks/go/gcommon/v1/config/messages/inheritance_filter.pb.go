@@ -7,7 +7,7 @@
 package config
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type InheritanceFilter struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        enums.LogFilterType    `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.LogFilterType"`
+	xxx_hidden_Type        common.LogFilterType   `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.LogFilterType"`
 	xxx_hidden_Expression  *string                `protobuf:"bytes,2,opt,name=expression"`
 	xxx_hidden_Action      FilterAction           `protobuf:"varint,3,opt,name=action,enum=gcommon.v1.config.FilterAction"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -59,13 +59,13 @@ func (x *InheritanceFilter) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *InheritanceFilter) GetType() enums.LogFilterType {
+func (x *InheritanceFilter) GetType() common.LogFilterType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.LogFilterType(0)
+	return common.LogFilterType(0)
 }
 
 func (x *InheritanceFilter) GetExpression() string {
@@ -94,7 +94,7 @@ func (x *InheritanceFilter) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *InheritanceFilter) SetType(v enums.LogFilterType) {
+func (x *InheritanceFilter) SetType(v common.LogFilterType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -136,7 +136,7 @@ func (x *InheritanceFilter) HasAction() bool {
 
 func (x *InheritanceFilter) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.LogFilterType_FILTER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.LogFilterType_FILTER_TYPE_UNSPECIFIED
 }
 
 func (x *InheritanceFilter) ClearExpression() {
@@ -153,7 +153,7 @@ type InheritanceFilter_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Filter type
-	Type *enums.LogFilterType
+	Type *common.LogFilterType
 	// Filter expression
 	Expression *string
 	// Filter action
@@ -202,7 +202,7 @@ var file_gcommon_v1_config_messages_inheritance_filter_proto_msgTypes = make([]p
 var file_gcommon_v1_config_messages_inheritance_filter_proto_goTypes = []any{
 	(*InheritanceFilter)(nil), // 0: gcommon.v1.config.InheritanceFilter
 	nil,                       // 1: gcommon.v1.config.InheritanceFilter.MetadataEntry
-	(enums.LogFilterType)(0),  // 2: gcommon.v1.common.LogFilterType
+	(common.LogFilterType)(0), // 2: gcommon.v1.common.LogFilterType
 	(FilterAction)(0),         // 3: gcommon.v1.config.FilterAction
 }
 var file_gcommon_v1_config_messages_inheritance_filter_proto_depIdxs = []int32{

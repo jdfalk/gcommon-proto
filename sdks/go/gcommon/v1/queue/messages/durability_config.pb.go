@@ -326,7 +326,7 @@ const file_gcommon_v1_queue_messages_durability_config_proto_rawDesc = "" +
 	"\x12durability_timeout\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\x11durabilityTimeout\x12&\n" +
 	"\x0fwrite_ahead_log\x18\x06 \x01(\bR\rwriteAheadLog\x12>\n" +
 	"\rsync_interval\x18\a \x01(\v2\x19.google.protobuf.DurationR\fsyncInterval\x12)\n" +
-	"\x10verify_checksums\x18\b \x01(\bR\x0fverifyChecksumsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10verify_checksums\x18\b \x01(\bR\x0fverifyChecksumsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_durability_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_durability_config_proto_goTypes = []any{
