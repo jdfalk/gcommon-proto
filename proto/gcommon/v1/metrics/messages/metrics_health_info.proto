@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -14,7 +14,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 message MetricsHealthInfo {
-  MetricsHealthStatus overall_status = 1;
+  gcommon.v1.common.CommonHealthStatus overall_status = 1;
   repeated string health_checks = 2;
   repeated string warnings = 3;
   google.protobuf.Timestamp last_check = 4;

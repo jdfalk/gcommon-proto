@@ -5,8 +5,8 @@ edition = "2023";
 
 package gcommon.v1.database;
 
+import "gcommon/v1/common/enums/health_status.proto";
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 message DatabaseHealthCheckResponse {
   // Overall health status of the database
-  gcommon.v1.metrics.MetricsHealthStatus status = 1;
+  gcommon.v1.common.CommonHealthStatus status = 1;
 
   // Whether the database connection is operational
   bool connection_ok = 2;

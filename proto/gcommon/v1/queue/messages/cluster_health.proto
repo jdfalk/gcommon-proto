@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message ClusterHealth {
   // Overall health status
-  gcommon.v1.metrics.MetricsHealthStatus status = 1;
+  gcommon.v1.common.CommonHealthStatus status = 1;
 
   // Number of healthy nodes
   int32 healthy_nodes = 2;

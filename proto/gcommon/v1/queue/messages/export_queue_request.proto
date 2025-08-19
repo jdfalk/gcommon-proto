@@ -10,7 +10,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/metrics/messages/time_range.proto";
-import "gcommon/v1/common/enums/export_format.proto";
+import "gcommon/v1/queue/enums/export_format.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -27,7 +27,7 @@ message ExportQueueRequest {
   string destination = 2;
 
   // Export format
-  gcommon.v1.queue.QueueExportFormat format = 3;
+  QueueExportFormat format = 3;
 
   // Whether to include message data or just metadata
   bool include_message_data = 4;

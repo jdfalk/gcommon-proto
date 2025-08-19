@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/enums/health_status.proto";
+import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -18,7 +18,7 @@ message QueueHealth {
   string queue_name = 1;
 
   // Health status
-  gcommon.v1.metrics.MetricsHealthStatus status = 2;
+  gcommon.v1.common.CommonHealthStatus status = 2;
 
   // Health score (0-100)
   int32 health_score = 3;

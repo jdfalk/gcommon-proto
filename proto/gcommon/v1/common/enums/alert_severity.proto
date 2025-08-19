@@ -19,7 +19,7 @@ enum CommonAlertSeverity {
   ALERT_SEVERITY_MEDIUM = 2;
   ALERT_SEVERITY_HIGH = 3;
   ALERT_SEVERITY_CRITICAL = 4;
-  ALERT_SEVERITY_INFO = 5;  // From queue version
-  ALERT_SEVERITY_WARNING = 6;  // From queue version
-  ALERT_SEVERITY_ERROR = 7;  // From queue version
+  ALERT_SEVERITY_INFO = 5; // From queue version
+  ALERT_SEVERITY_WARNING = 6; // From queue version
+  ALERT_SEVERITY_ERROR = 7; // From queue version
 }

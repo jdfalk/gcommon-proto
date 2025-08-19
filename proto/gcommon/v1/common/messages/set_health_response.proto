@@ -5,8 +5,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
+import "gcommon/v1/common/enums/health_status.proto";
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -22,10 +22,10 @@ message SetHealthResponse {
   bool success = 1;
 
   // Previous health status before the change
-  gcommon.v1.metrics.MetricsHealthStatus previous_status = 2;
+  gcommon.v1.common.CommonHealthStatus previous_status = 2;
 
   // New health status after the change
-  gcommon.v1.metrics.MetricsHealthStatus new_status = 3;
+  gcommon.v1.common.CommonHealthStatus new_status = 3;
 
   // Timestamp when status was changed
   google.protobuf.Timestamp changed_at = 4;

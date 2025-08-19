@@ -9,7 +9,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/enums/export_format.proto";
+import "gcommon/v1/queue/enums/export_format.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -26,7 +26,7 @@ message ImportQueueRequest {
   string source_path = 2;
 
   // Format of the import data
-  gcommon.v1.queue.QueueExportFormat format = 3;
+  QueueExportFormat format = 3;
 
   // Whether to overwrite existing data
   bool overwrite = 4;

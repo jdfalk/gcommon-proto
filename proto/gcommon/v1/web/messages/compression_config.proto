@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/metrics/enums/compression_type.proto";
+import "gcommon/v1/common/enums/compression_type.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -15,7 +15,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web";
 // CompressionConfig message definition.
 message WebCompressionConfig {
   // Compression algorithm to use for HTTP responses
-  gcommon.v1.metrics.MetricsCompressionType compression_type = 1;
+  // Compression type to use for responses
+  gcommon.v1.common.LogCompressionType compression_type = 1;
 
   // Minimum content length in bytes before compression is applied
   int32 min_length = 2;
