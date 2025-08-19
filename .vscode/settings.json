@@ -3,7 +3,9 @@
   "go.useLanguageServer": true,
   "go.lintTool": "golangci-lint",
   "go.formatTool": "goimports",
-  "go.testFlags": ["-v"],
+  "go.testFlags": [
+    "-v"
+  ],
   "go.buildFlags": [],
   "go.vetFlags": [],
   "go.coverOnSave": false,
@@ -52,6 +54,7 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "git.autofetch": true,
   "git.enableSmartCommit": true,
-  "git.confirmSync": false,
-  "extensions.ignoreRecommendations": false
+  "git.autoStash": true,
+  "git.rebaseWhenSync": true,
+  "diffEditor.ignoreTrimWhitespace": false
 }
