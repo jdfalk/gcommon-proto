@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,14 +24,14 @@ const (
 
 // Set configuration request
 type SetConfigRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key             *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Value           *messages.ConfigValue     `protobuf:"bytes,2,opt,name=value"`
-	xxx_hidden_Namespace       *string                   `protobuf:"bytes,3,opt,name=namespace"`
-	xxx_hidden_Metadata        map[string]string         `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Encrypt         bool                      `protobuf:"varint,5,opt,name=encrypt"`
-	xxx_hidden_Tags            []string                  `protobuf:"bytes,6,rep,name=tags"`
-	xxx_hidden_RequestMetadata *messages.RequestMetadata `protobuf:"bytes,7,opt,name=request_metadata,json=requestMetadata"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key             *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Value           *common.ConfigValue     `protobuf:"bytes,2,opt,name=value"`
+	xxx_hidden_Namespace       *string                 `protobuf:"bytes,3,opt,name=namespace"`
+	xxx_hidden_Metadata        map[string]string       `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Encrypt         bool                    `protobuf:"varint,5,opt,name=encrypt"`
+	xxx_hidden_Tags            []string                `protobuf:"bytes,6,rep,name=tags"`
+	xxx_hidden_RequestMetadata *common.RequestMetadata `protobuf:"bytes,7,opt,name=request_metadata,json=requestMetadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -73,7 +73,7 @@ func (x *SetConfigRequest) GetKey() string {
 	return ""
 }
 
-func (x *SetConfigRequest) GetValue() *messages.ConfigValue {
+func (x *SetConfigRequest) GetValue() *common.ConfigValue {
 	if x != nil {
 		return x.xxx_hidden_Value
 	}
@@ -111,7 +111,7 @@ func (x *SetConfigRequest) GetTags() []string {
 	return nil
 }
 
-func (x *SetConfigRequest) GetRequestMetadata() *messages.RequestMetadata {
+func (x *SetConfigRequest) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
@@ -123,7 +123,7 @@ func (x *SetConfigRequest) SetKey(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *SetConfigRequest) SetValue(v *messages.ConfigValue) {
+func (x *SetConfigRequest) SetValue(v *common.ConfigValue) {
 	x.xxx_hidden_Value = v
 }
 
@@ -145,7 +145,7 @@ func (x *SetConfigRequest) SetTags(v []string) {
 	x.xxx_hidden_Tags = v
 }
 
-func (x *SetConfigRequest) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *SetConfigRequest) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
@@ -213,7 +213,7 @@ type SetConfigRequest_builder struct {
 	// Configuration key
 	Key *string
 	// Configuration value
-	Value *messages.ConfigValue
+	Value *common.ConfigValue
 	// Optional namespace/environment
 	Namespace *string
 	// Configuration metadata
@@ -223,7 +223,7 @@ type SetConfigRequest_builder struct {
 	// Tags for categorization
 	Tags []string
 	// Request metadata
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 }
 
 func (b0 SetConfigRequest_builder) Build() *SetConfigRequest {
@@ -268,10 +268,10 @@ const file_gcommon_v1_config_messages_set_config_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_messages_set_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_messages_set_config_request_proto_goTypes = []any{
-	(*SetConfigRequest)(nil),         // 0: gcommon.v1.config.SetConfigRequest
-	nil,                              // 1: gcommon.v1.config.SetConfigRequest.MetadataEntry
-	(*messages.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*SetConfigRequest)(nil),       // 0: gcommon.v1.config.SetConfigRequest
+	nil,                            // 1: gcommon.v1.config.SetConfigRequest.MetadataEntry
+	(*common.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_config_messages_set_config_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.SetConfigRequest.value:type_name -> gcommon.v1.common.ConfigValue

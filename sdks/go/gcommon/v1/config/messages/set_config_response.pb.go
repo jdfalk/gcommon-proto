@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type SetConfigResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_PreviousEntry *ConfigEntry           `protobuf:"bytes,2,opt,name=previous_entry,json=previousEntry"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error         *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -74,7 +74,7 @@ func (x *SetConfigResponse) GetPreviousEntry() *ConfigEntry {
 	return nil
 }
 
-func (x *SetConfigResponse) GetError() *messages.Error {
+func (x *SetConfigResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -90,7 +90,7 @@ func (x *SetConfigResponse) SetPreviousEntry(v *ConfigEntry) {
 	x.xxx_hidden_PreviousEntry = v
 }
 
-func (x *SetConfigResponse) SetError(v *messages.Error) {
+func (x *SetConfigResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -136,7 +136,7 @@ type SetConfigResponse_builder struct {
 	// Previous value if it existed
 	PreviousEntry *ConfigEntry
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 SetConfigResponse_builder) Build() *SetConfigResponse {
@@ -166,7 +166,7 @@ var file_gcommon_v1_config_messages_set_config_response_proto_msgTypes = make([]
 var file_gcommon_v1_config_messages_set_config_response_proto_goTypes = []any{
 	(*SetConfigResponse)(nil), // 0: gcommon.v1.config.SetConfigResponse
 	(*ConfigEntry)(nil),       // 1: gcommon.v1.config.ConfigEntry
-	(*messages.Error)(nil),    // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),      // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_config_messages_set_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.SetConfigResponse.previous_entry:type_name -> gcommon.v1.config.ConfigEntry

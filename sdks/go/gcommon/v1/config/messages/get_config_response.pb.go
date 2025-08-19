@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type GetConfigResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Entry       *ConfigEntry           `protobuf:"bytes,1,opt,name=entry"`
 	xxx_hidden_Found       bool                   `protobuf:"varint,2,opt,name=found"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -74,7 +74,7 @@ func (x *GetConfigResponse) GetFound() bool {
 	return false
 }
 
-func (x *GetConfigResponse) GetError() *messages.Error {
+func (x *GetConfigResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -90,7 +90,7 @@ func (x *GetConfigResponse) SetFound(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *GetConfigResponse) SetError(v *messages.Error) {
+func (x *GetConfigResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -136,7 +136,7 @@ type GetConfigResponse_builder struct {
 	// Whether the key was found
 	Found *bool
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 GetConfigResponse_builder) Build() *GetConfigResponse {
@@ -166,7 +166,7 @@ var file_gcommon_v1_config_messages_get_config_response_proto_msgTypes = make([]
 var file_gcommon_v1_config_messages_get_config_response_proto_goTypes = []any{
 	(*GetConfigResponse)(nil), // 0: gcommon.v1.config.GetConfigResponse
 	(*ConfigEntry)(nil),       // 1: gcommon.v1.config.ConfigEntry
-	(*messages.Error)(nil),    // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),      // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_config_messages_get_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigResponse.entry:type_name -> gcommon.v1.config.ConfigEntry

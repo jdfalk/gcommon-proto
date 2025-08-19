@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type GetSchemaResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Schema *ConfigSchema          `protobuf:"bytes,1,opt,name=schema"`
-	xxx_hidden_Error  *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error  *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -64,7 +64,7 @@ func (x *GetSchemaResponse) GetSchema() *ConfigSchema {
 	return nil
 }
 
-func (x *GetSchemaResponse) GetError() *messages.Error {
+func (x *GetSchemaResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -75,7 +75,7 @@ func (x *GetSchemaResponse) SetSchema(v *ConfigSchema) {
 	x.xxx_hidden_Schema = v
 }
 
-func (x *GetSchemaResponse) SetError(v *messages.Error) {
+func (x *GetSchemaResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -107,7 +107,7 @@ type GetSchemaResponse_builder struct {
 	// Configuration schema
 	Schema *ConfigSchema
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 GetSchemaResponse_builder) Build() *GetSchemaResponse {
@@ -132,7 +132,7 @@ var file_gcommon_v1_config_messages_get_schema_response_proto_msgTypes = make([]
 var file_gcommon_v1_config_messages_get_schema_response_proto_goTypes = []any{
 	(*GetSchemaResponse)(nil), // 0: gcommon.v1.config.GetSchemaResponse
 	(*ConfigSchema)(nil),      // 1: gcommon.v1.config.ConfigSchema
-	(*messages.Error)(nil),    // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),      // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_config_messages_get_schema_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetSchemaResponse.schema:type_name -> gcommon.v1.config.ConfigSchema

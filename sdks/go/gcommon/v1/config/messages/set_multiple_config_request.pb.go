@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +25,12 @@ const (
 // *
 // SetMultipleConfigRequest stores multiple configuration values.
 type SetMultipleConfigRequest struct {
-	state                      protoimpl.MessageState           `protogen:"opaque.v1"`
-	xxx_hidden_Entries         map[string]*messages.ConfigValue `protobuf:"bytes,1,rep,name=entries" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Namespace       *string                          `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata        map[string]string                `protobuf:"bytes,3,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Encrypt         bool                             `protobuf:"varint,4,opt,name=encrypt"`
-	xxx_hidden_RequestMetadata *messages.RequestMetadata        `protobuf:"bytes,5,opt,name=request_metadata,json=requestMetadata"`
+	state                      protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_Entries         map[string]*common.ConfigValue `protobuf:"bytes,1,rep,name=entries" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Namespace       *string                        `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata        map[string]string              `protobuf:"bytes,3,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Encrypt         bool                           `protobuf:"varint,4,opt,name=encrypt"`
+	xxx_hidden_RequestMetadata *common.RequestMetadata        `protobuf:"bytes,5,opt,name=request_metadata,json=requestMetadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -62,7 +62,7 @@ func (x *SetMultipleConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SetMultipleConfigRequest) GetEntries() map[string]*messages.ConfigValue {
+func (x *SetMultipleConfigRequest) GetEntries() map[string]*common.ConfigValue {
 	if x != nil {
 		return x.xxx_hidden_Entries
 	}
@@ -93,14 +93,14 @@ func (x *SetMultipleConfigRequest) GetEncrypt() bool {
 	return false
 }
 
-func (x *SetMultipleConfigRequest) GetRequestMetadata() *messages.RequestMetadata {
+func (x *SetMultipleConfigRequest) GetRequestMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_RequestMetadata
 	}
 	return nil
 }
 
-func (x *SetMultipleConfigRequest) SetEntries(v map[string]*messages.ConfigValue) {
+func (x *SetMultipleConfigRequest) SetEntries(v map[string]*common.ConfigValue) {
 	x.xxx_hidden_Entries = v
 }
 
@@ -118,7 +118,7 @@ func (x *SetMultipleConfigRequest) SetEncrypt(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *SetMultipleConfigRequest) SetRequestMetadata(v *messages.RequestMetadata) {
+func (x *SetMultipleConfigRequest) SetRequestMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_RequestMetadata = v
 }
 
@@ -161,7 +161,7 @@ type SetMultipleConfigRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Configuration entries to set
-	Entries map[string]*messages.ConfigValue
+	Entries map[string]*common.ConfigValue
 	// Optional namespace/environment
 	Namespace *string
 	// Common metadata for all entries
@@ -169,7 +169,7 @@ type SetMultipleConfigRequest_builder struct {
 	// Whether to encrypt values
 	Encrypt *bool
 	// Request metadata
-	RequestMetadata *messages.RequestMetadata
+	RequestMetadata *common.RequestMetadata
 }
 
 func (b0 SetMultipleConfigRequest_builder) Build() *SetMultipleConfigRequest {
@@ -213,8 +213,8 @@ var file_gcommon_v1_config_messages_set_multiple_config_request_proto_goTypes = 
 	(*SetMultipleConfigRequest)(nil), // 0: gcommon.v1.config.SetMultipleConfigRequest
 	nil,                              // 1: gcommon.v1.config.SetMultipleConfigRequest.EntriesEntry
 	nil,                              // 2: gcommon.v1.config.SetMultipleConfigRequest.MetadataEntry
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
-	(*messages.ConfigValue)(nil),     // 4: gcommon.v1.common.ConfigValue
+	(*common.RequestMetadata)(nil),   // 3: gcommon.v1.common.RequestMetadata
+	(*common.ConfigValue)(nil),       // 4: gcommon.v1.common.ConfigValue
 }
 var file_gcommon_v1_config_messages_set_multiple_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.SetMultipleConfigRequest.entries:type_name -> gcommon.v1.config.SetMultipleConfigRequest.EntriesEntry

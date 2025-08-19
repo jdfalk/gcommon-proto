@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,11 +26,11 @@ const (
 // *
 // GetConfigHistoryRequest retrieves change history for a configuration key.
 type GetConfigHistoryRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key         *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Namespace   *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Since       *timestamppb.Timestamp    `protobuf:"bytes,3,opt,name=since"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key         *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Namespace   *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Since       *timestamppb.Timestamp  `protobuf:"bytes,3,opt,name=since"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -89,7 +89,7 @@ func (x *GetConfigHistoryRequest) GetSince() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetConfigHistoryRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetConfigHistoryRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -110,7 +110,7 @@ func (x *GetConfigHistoryRequest) SetSince(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Since = v
 }
 
-func (x *GetConfigHistoryRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetConfigHistoryRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -170,7 +170,7 @@ type GetConfigHistoryRequest_builder struct {
 	// Only return changes after this time
 	Since *timestamppb.Timestamp
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 GetConfigHistoryRequest_builder) Build() *GetConfigHistoryRequest {
@@ -203,9 +203,9 @@ const file_gcommon_v1_config_messages_get_config_history_request_proto_rawDesc =
 
 var file_gcommon_v1_config_messages_get_config_history_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_config_history_request_proto_goTypes = []any{
-	(*GetConfigHistoryRequest)(nil),  // 0: gcommon.v1.config.GetConfigHistoryRequest
-	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*GetConfigHistoryRequest)(nil), // 0: gcommon.v1.config.GetConfigHistoryRequest
+	(*timestamppb.Timestamp)(nil),   // 1: google.protobuf.Timestamp
+	(*common.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_config_messages_get_config_history_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigHistoryRequest.since:type_name -> google.protobuf.Timestamp

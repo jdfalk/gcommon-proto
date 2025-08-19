@@ -7,7 +7,7 @@
 package config
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type GetMultipleConfigResponse struct {
 	state               protoimpl.MessageState  `protogen:"opaque.v1"`
 	xxx_hidden_Entries  map[string]*ConfigEntry `protobuf:"bytes,1,rep,name=entries" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_NotFound []string                `protobuf:"bytes,2,rep,name=not_found,json=notFound"`
-	xxx_hidden_Error    *messages.Error         `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error    *common.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -72,7 +72,7 @@ func (x *GetMultipleConfigResponse) GetNotFound() []string {
 	return nil
 }
 
-func (x *GetMultipleConfigResponse) GetError() *messages.Error {
+func (x *GetMultipleConfigResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -87,7 +87,7 @@ func (x *GetMultipleConfigResponse) SetNotFound(v []string) {
 	x.xxx_hidden_NotFound = v
 }
 
-func (x *GetMultipleConfigResponse) SetError(v *messages.Error) {
+func (x *GetMultipleConfigResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -110,7 +110,7 @@ type GetMultipleConfigResponse_builder struct {
 	// Keys that were not found
 	NotFound []string
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 GetMultipleConfigResponse_builder) Build() *GetMultipleConfigResponse {
@@ -140,7 +140,7 @@ var file_gcommon_v1_config_messages_get_multiple_config_response_proto_msgTypes 
 var file_gcommon_v1_config_messages_get_multiple_config_response_proto_goTypes = []any{
 	(*GetMultipleConfigResponse)(nil), // 0: gcommon.v1.config.GetMultipleConfigResponse
 	nil,                               // 1: gcommon.v1.config.GetMultipleConfigResponse.EntriesEntry
-	(*messages.Error)(nil),            // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),              // 2: gcommon.v1.common.Error
 	(*ConfigEntry)(nil),               // 3: gcommon.v1.config.ConfigEntry
 }
 var file_gcommon_v1_config_messages_get_multiple_config_response_proto_depIdxs = []int32{
