@@ -59,6 +59,7 @@ This directory contains auto-generated documentation for this project.
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
 - [🚀 PROTOBUF COMPLETION PROJECT - CODING AGENT INSTRUCTIONS](CODING_AGENT_INSTRUCTIONS.md)
 - [Contributing to GCommon](CONTRIBUTING.md)
+- [Protobuf Consolidation and Lint Fixes - Status Report](PROTOBUF_CONSOLIDATION_STATUS.md)
 - [Install the Rust version](README.md)
 - [GCommon Project Roadmap & Implementation Plan](TODO.md)
 - [Task 01: Config Module Implementation](completed/v0.1-01-config-module-implementation.md)
@@ -277,7 +278,6 @@ This directory contains auto-generated documentation for this project.
 - [C# Client SDK](sdks/csharp/docs/README.md)
 - [Go Client SDK](sdks/go/docs/README.md)
 - [Java Client SDK](sdks/java/docs/README.md)
-- [Python Client SDK](sdks/python/docs/README.md)
 - [Rust Client SDK](sdks/rust/docs/README.md)
 - [TypeScript Client SDK](sdks/typescript/docs/README.md)
 - [Sync-Receiver Manual Dispatch Implementation & Bug Fixes Summary](sync-receiver-manual-dispatch-summary.md)
@@ -332,4 +332,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 23:58:32 UTC 2025_
+_Generated on Tue Aug 19 01:02:01 UTC 2025_
