@@ -169,7 +169,7 @@ const file_gcommon_v1_metrics_messages_top_metrics_proto_rawDesc = "" +
 	"\x0ehighest_errors\x18\x03 \x03(\tR\rhighestErrors\x12!\n" +
 	"\fmost_queried\x18\x04 \x03(\tR\vmostQueried\x12-\n" +
 	"\x12slowest_performing\x18\x05 \x03(\tR\x11slowestPerforming\x126\n" +
-	"\x17most_resource_intensive\x18\x06 \x03(\tR\x15mostResourceIntensiveB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17most_resource_intensive\x18\x06 \x03(\tR\x15mostResourceIntensiveB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_top_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_top_metrics_proto_goTypes = []any{

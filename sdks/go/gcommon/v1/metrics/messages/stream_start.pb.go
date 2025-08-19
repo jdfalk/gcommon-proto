@@ -199,7 +199,7 @@ const file_gcommon_v1_metrics_messages_stream_start_proto_rawDesc = "" +
 	"\x0efrom_beginning\x18\x02 \x01(\bR\rfromBeginning\x12\x19\n" +
 	"\bfrom_now\x18\x03 \x01(\bR\afromNow\x12\x1f\n" +
 	"\vfrom_offset\x18\x04 \x01(\tR\n" +
-	"fromOffsetB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"fromOffsetB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_stream_start_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_stream_start_proto_goTypes = []any{

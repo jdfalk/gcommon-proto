@@ -237,7 +237,7 @@ const file_gcommon_v1_web_messages_csrf_config_proto_rawDesc = "" +
 	"cookieName\x12!\n" +
 	"\ftoken_length\x18\x03 \x01(\x05R\vtokenLength\x126\n" +
 	"\ttoken_ttl\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\btokenTtl\x12\x16\n" +
-	"\x06secure\x18\x05 \x01(\bR\x06secureB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06secure\x18\x05 \x01(\bR\x06secureB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_csrf_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_csrf_config_proto_goTypes = []any{

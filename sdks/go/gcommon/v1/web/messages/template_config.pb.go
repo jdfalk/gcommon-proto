@@ -190,7 +190,7 @@ const file_gcommon_v1_web_messages_template_config_proto_rawDesc = "" +
 	"\tdirectory\x18\x01 \x01(\tR\tdirectory\x12\x1c\n" +
 	"\textension\x18\x02 \x01(\tR\textension\x12\x16\n" +
 	"\x06reload\x18\x03 \x01(\bR\x06reload\x12\x1c\n" +
-	"\tfunctions\x18\x04 \x03(\tR\tfunctionsB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tfunctions\x18\x04 \x03(\tR\tfunctionsB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_template_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_template_config_proto_goTypes = []any{

@@ -337,7 +337,7 @@ const file_gcommon_v1_metrics_messages_unregister_metric_response_proto_rawDesc 
 	"\x06result\x18\a \x01(\v2(.gcommon.v1.metrics.UnregistrationResultR\x06result\x12\x1a\n" +
 	"\bwarnings\x18\b \x03(\tR\bwarnings\x12F\n" +
 	"\vbackup_info\x18\t \x01(\v2%.gcommon.v1.metrics.MetricsBackupInfoR\n" +
-	"backupInfoB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"backupInfoB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_unregister_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_unregister_metric_response_proto_goTypes = []any{

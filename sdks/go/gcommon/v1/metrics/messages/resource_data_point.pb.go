@@ -222,7 +222,7 @@ const file_gcommon_v1_metrics_messages_resource_data_point_proto_rawDesc = "" +
 	"\x14memory_usage_percent\x18\x02 \x01(\x01R\x12memoryUsagePercent\x12*\n" +
 	"\x11cpu_usage_percent\x18\x03 \x01(\x01R\x0fcpuUsagePercent\x12,\n" +
 	"\x12disk_usage_percent\x18\x04 \x01(\x01R\x10diskUsagePercent\x127\n" +
-	"\x18network_bytes_per_second\x18\x05 \x01(\x03R\x15networkBytesPerSecondB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18network_bytes_per_second\x18\x05 \x01(\x03R\x15networkBytesPerSecondB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_resource_data_point_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_resource_data_point_proto_goTypes = []any{

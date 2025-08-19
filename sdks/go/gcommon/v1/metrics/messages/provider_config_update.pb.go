@@ -279,7 +279,7 @@ const file_gcommon_v1_metrics_messages_provider_config_update_proto_rawDesc = ""
 	"\x16resource_limits_update\x18\x05 \x01(\v2(.gcommon.v1.metrics.ResourceLimitsUpdateR\x14resourceLimitsUpdate\x12^\n" +
 	"\x16security_config_update\x18\x06 \x01(\v2(.gcommon.v1.metrics.SecurityConfigUpdateR\x14securityConfigUpdate\x12?\n" +
 	"\vtag_updates\x18\a \x01(\v2\x1e.gcommon.v1.metrics.TagUpdatesR\n" +
-	"tagUpdatesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"tagUpdatesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_config_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_config_update_proto_goTypes = []any{

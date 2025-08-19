@@ -209,7 +209,7 @@ const file_gcommon_v1_organization_messages_time_restriction_proto_rawDesc = "" 
 	"\n" +
 	"start_time\x18\x02 \x01(\tR\tstartTime\x12\x19\n" +
 	"\bend_time\x18\x03 \x01(\tR\aendTime\x12\x1a\n" +
-	"\btimezone\x18\x04 \x01(\tR\btimezoneB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\btimezone\x18\x04 \x01(\tR\btimezoneB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_time_restriction_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_time_restriction_proto_goTypes = []any{

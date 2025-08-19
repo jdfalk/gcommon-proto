@@ -97,7 +97,7 @@ const file_gcommon_v1_web_messages_create_session_response_proto_rawDesc = "" +
 	"\n" +
 	"5gcommon/v1/web/messages/create_session_response.proto\x12\x0egcommon.v1.web\x1a*gcommon/v1/web/messages/session_data.proto\x1a!google/protobuf/go_features.proto\"Q\n" +
 	"\x18WebCreateSessionResponse\x125\n" +
-	"\asession\x18\x01 \x01(\v2\x1b.gcommon.v1.web.SessionDataR\asessionB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\asession\x18\x01 \x01(\v2\x1b.gcommon.v1.web.SessionDataR\asessionB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_create_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_create_session_response_proto_goTypes = []any{

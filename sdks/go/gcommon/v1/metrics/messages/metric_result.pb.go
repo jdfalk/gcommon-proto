@@ -275,7 +275,7 @@ const file_gcommon_v1_metrics_messages_metric_result_proto_rawDesc = "" +
 	"\vrecorded_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"recordedAt\x12\x1a\n" +
 	"\bwarnings\x18\x06 \x03(\tR\bwarnings\x12\"\n" +
-	"\fdeduplicated\x18\a \x01(\bR\fdeduplicatedB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fdeduplicated\x18\a \x01(\bR\fdeduplicatedB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_result_proto_goTypes = []any{

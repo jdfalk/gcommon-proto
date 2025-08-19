@@ -331,7 +331,7 @@ const file_gcommon_v1_metrics_messages_unregistration_options_proto_rawDesc = ""
 	"\fgrace_period\x18\x05 \x01(\tR\vgracePeriod\x12\x17\n" +
 	"\adry_run\x18\x06 \x01(\bR\x06dryRun\x12\x14\n" +
 	"\x05force\x18\a \x01(\bR\x05force\x12#\n" +
-	"\rcreate_backup\x18\b \x01(\bR\fcreateBackupB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rcreate_backup\x18\b \x01(\bR\fcreateBackupB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_unregistration_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_unregistration_options_proto_goTypes = []any{

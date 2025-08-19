@@ -891,7 +891,7 @@ const file_gcommon_v1_organization_messages_team_proto_rawDesc = "" +
 	"objectives\x18\x17 \x03(\tR\n" +
 	"objectives\x12\x12\n" +
 	"\x04kpis\x18\x18 \x03(\tR\x04kpis\x12)\n" +
-	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_team_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_team_proto_goTypes = []any{

@@ -275,7 +275,7 @@ const file_gcommon_v1_organization_messages_storage_isolation_proto_rawDesc = ""
 	"encryption\x12B\n" +
 	"\bpolicies\x18\x05 \x03(\v2&.gcommon.v1.organization.StoragePolicyR\bpolicies\x12D\n" +
 	"\x06backup\x18\x06 \x01(\v2,.gcommon.v1.organization.StorageBackupConfigR\x06backup\x12;\n" +
-	"\x05quota\x18\a \x01(\v2%.gcommon.v1.organization.StorageQuotaR\x05quotaB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05quota\x18\a \x01(\v2%.gcommon.v1.organization.StorageQuotaR\x05quotaB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_storage_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_storage_isolation_proto_goTypes = []any{

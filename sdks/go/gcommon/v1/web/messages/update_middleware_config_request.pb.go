@@ -124,7 +124,7 @@ const file_gcommon_v1_web_messages_update_middleware_config_request_proto_rawDes
 	">gcommon/v1/web/messages/update_middleware_config_request.proto\x12\x0egcommon.v1.web\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a/gcommon/v1/web/messages/middleware_config.proto\x1a!google/protobuf/go_features.proto\"\x99\x01\n" +
 	"\x1dUpdateMiddlewareConfigRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x128\n" +
-	"\x06config\x18\x02 \x01(\v2 .gcommon.v1.web.MiddlewareConfigR\x06configB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x02 \x01(\v2 .gcommon.v1.web.MiddlewareConfigR\x06configB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_update_middleware_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_update_middleware_config_request_proto_goTypes = []any{

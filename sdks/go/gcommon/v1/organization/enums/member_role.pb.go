@@ -86,7 +86,7 @@ const file_gcommon_v1_organization_enums_member_role_proto_rawDesc = "" +
 	"\x11MEMBER_ROLE_ADMIN\x10\x02\x12\x16\n" +
 	"\x12MEMBER_ROLE_MEMBER\x10\x03\x12\x16\n" +
 	"\x12MEMBER_ROLE_VIEWER\x10\x04\x12\x15\n" +
-	"\x11MEMBER_ROLE_GUEST\x10\x05B4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11MEMBER_ROLE_GUEST\x10\x05B8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_enums_member_role_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_organization_enums_member_role_proto_goTypes = []any{

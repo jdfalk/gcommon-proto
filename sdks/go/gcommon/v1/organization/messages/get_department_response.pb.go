@@ -151,7 +151,7 @@ const file_gcommon_v1_organization_messages_get_department_response_proto_rawDes
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12C\n" +
 	"\n" +
 	"department\x18\x03 \x01(\v2#.gcommon.v1.organization.DepartmentR\n" +
-	"departmentB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"departmentB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_get_department_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_department_response_proto_goTypes = []any{

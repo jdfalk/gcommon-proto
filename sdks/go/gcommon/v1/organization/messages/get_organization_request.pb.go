@@ -230,7 +230,7 @@ const file_gcommon_v1_organization_messages_get_organization_request_proto_rawDe
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12)\n" +
 	"\x10include_settings\x18\x03 \x01(\bR\x0fincludeSettings\x120\n" +
 	"\x14include_member_count\x18\x04 \x01(\bR\x12includeMemberCount\x12'\n" +
-	"\x0finclude_tenants\x18\x05 \x01(\bR\x0eincludeTenantsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0finclude_tenants\x18\x05 \x01(\bR\x0eincludeTenantsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_get_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_organization_request_proto_goTypes = []any{

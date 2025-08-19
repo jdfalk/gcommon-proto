@@ -259,7 +259,7 @@ const file_gcommon_v1_metrics_messages_label_definition_proto_rawDesc = "" +
 	"\brequired\x18\x03 \x01(\bR\brequired\x12%\n" +
 	"\x0eallowed_values\x18\x04 \x03(\tR\rallowedValues\x12-\n" +
 	"\x12validation_pattern\x18\x05 \x01(\tR\x11validationPattern\x12#\n" +
-	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValueB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValueB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_label_definition_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_label_definition_proto_goTypes = []any{

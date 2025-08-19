@@ -139,7 +139,7 @@ const file_gcommon_v1_metrics_messages_secondary_sort_field_proto_rawDesc = "" +
 	"6gcommon/v1/metrics/messages/secondary_sort_field.proto\x12\x12gcommon.v1.metrics\x1a,gcommon/v1/common/enums/sort_direction.proto\x1a!google/protobuf/go_features.proto\"j\n" +
 	"\x12SecondarySortField\x12\x14\n" +
 	"\x05field\x18\x01 \x01(\tR\x05field\x12>\n" +
-	"\tdirection\x18\x02 \x01(\x0e2 .gcommon.v1.common.SortDirectionR\tdirectionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tdirection\x18\x02 \x01(\x0e2 .gcommon.v1.common.SortDirectionR\tdirectionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_secondary_sort_field_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_secondary_sort_field_proto_goTypes = []any{

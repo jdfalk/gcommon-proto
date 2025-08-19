@@ -86,7 +86,7 @@ const file_gcommon_v1_web_messages_url_path_proto_rawDesc = "" +
 	"\n" +
 	"&gcommon/v1/web/messages/url_path.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"%\n" +
 	"\aUrlPath\x12\x1a\n" +
-	"\bsegments\x18\x01 \x03(\tR\bsegmentsB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bsegments\x18\x01 \x03(\tR\bsegmentsB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_url_path_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_url_path_proto_goTypes = []any{

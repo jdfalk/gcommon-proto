@@ -158,7 +158,7 @@ const file_gcommon_v1_organization_messages_create_tenant_request_proto_rawDesc 
 	"\x13CreateTenantRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x127\n" +
 	"\x06tenant\x18\x02 \x01(\v2\x1f.gcommon.v1.organization.TenantR\x06tenant\x12#\n" +
-	"\rvalidate_only\x18\x03 \x01(\bR\fvalidateOnlyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x03 \x01(\bR\fvalidateOnlyB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_create_tenant_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_tenant_request_proto_goTypes = []any{

@@ -191,7 +191,7 @@ const file_gcommon_v1_organization_messages_hierarchy_path_proto_rawDesc = "" +
 	"ancestorId\x12\x1a\n" +
 	"\bdistance\x18\x03 \x01(\x05R\bdistance\x12\x1d\n" +
 	"\n" +
-	"path_nodes\x18\x04 \x03(\tR\tpathNodesB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"path_nodes\x18\x04 \x03(\tR\tpathNodesB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_hierarchy_path_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_hierarchy_path_proto_goTypes = []any{

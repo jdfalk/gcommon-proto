@@ -261,7 +261,7 @@ const file_gcommon_v1_metrics_messages_metric_summary_proto_rawDesc = "" +
 	"\x11data_volume_bytes\x18\x04 \x01(\x03R\x0fdataVolumeBytes\x12\x1d\n" +
 	"\n" +
 	"error_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n" +
-	"\flast_updated\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdatedB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\flast_updated\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdatedB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_summary_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_summary_proto_goTypes = []any{

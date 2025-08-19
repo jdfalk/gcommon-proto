@@ -288,7 +288,7 @@ const file_gcommon_v1_organization_messages_network_isolation_proto_rawDesc = ""
 	"\x11dedicated_network\x18\x05 \x01(\bR\x10dedicatedNetwork\x12\\\n" +
 	"\rload_balancer\x18\x06 \x01(\v27.gcommon.v1.organization.OrganizationLoadBalancerConfigR\floadBalancer\x124\n" +
 	"\x03cdn\x18\a \x01(\v2\".gcommon.v1.organization.CDNConfigR\x03cdn\x12=\n" +
-	"\x06domain\x18\b \x01(\v2%.gcommon.v1.organization.DomainConfigR\x06domainB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06domain\x18\b \x01(\v2%.gcommon.v1.organization.DomainConfigR\x06domainB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_network_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_network_isolation_proto_goTypes = []any{

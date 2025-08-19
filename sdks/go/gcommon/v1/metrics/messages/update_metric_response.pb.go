@@ -126,7 +126,7 @@ const file_gcommon_v1_metrics_messages_update_metric_response_proto_rawDesc = ""
 	"8gcommon/v1/metrics/messages/update_metric_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a1gcommon/v1/metrics/messages/metric_metadata.proto\x1a!google/protobuf/go_features.proto\"\x86\x01\n" +
 	"\x14UpdateMetricResponse\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.metrics.MetricMetadataR\bmetadata\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_metric_response_proto_goTypes = []any{

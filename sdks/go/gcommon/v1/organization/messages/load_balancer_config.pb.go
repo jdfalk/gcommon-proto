@@ -195,7 +195,7 @@ const file_gcommon_v1_organization_messages_load_balancer_config_proto_rawDesc =
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1c\n" +
 	"\talgorithm\x18\x02 \x01(\tR\talgorithm\x12Y\n" +
 	"\fhealth_check\x18\x03 \x01(\v26.gcommon.v1.organization.OrganizationHealthCheckConfigR\vhealthCheck\x124\n" +
-	"\x03ssl\x18\x04 \x01(\v2\".gcommon.v1.organization.SSLConfigR\x03sslB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x03ssl\x18\x04 \x01(\v2\".gcommon.v1.organization.SSLConfigR\x03sslB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_load_balancer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_load_balancer_config_proto_goTypes = []any{

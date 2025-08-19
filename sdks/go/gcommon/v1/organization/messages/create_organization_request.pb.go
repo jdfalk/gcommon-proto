@@ -295,7 +295,7 @@ const file_gcommon_v1_organization_messages_create_organization_request_proto_ra
 	"\x15initial_settings_json\x18\x04 \x01(\tR\x13initialSettingsJson\x12\"\n" +
 	"\rowner_user_id\x18\x05 \x01(\tR\vownerUserId\x12,\n" +
 	"\x12send_welcome_email\x18\x06 \x01(\bR\x10sendWelcomeEmail\x123\n" +
-	"\x15organization_template\x18\a \x01(\tR\x14organizationTemplateB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15organization_template\x18\a \x01(\tR\x14organizationTemplateB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_create_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_create_organization_request_proto_goTypes = []any{

@@ -279,7 +279,7 @@ const file_gcommon_v1_organization_messages_network_acl_rule_proto_rawDesc = "" 
 	"\bprotocol\x18\x04 \x01(\tR\bprotocol\x12\x1d\n" +
 	"\n" +
 	"port_range\x18\x05 \x01(\tR\tportRange\x12\x1a\n" +
-	"\bpriority\x18\x06 \x01(\x05R\bpriorityB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpriority\x18\x06 \x01(\x05R\bpriorityB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_network_acl_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_network_acl_rule_proto_goTypes = []any{

@@ -233,7 +233,7 @@ const file_gcommon_v1_metrics_messages_metric_stats_proto_rawDesc = "" +
 	"\x03max\x18\x02 \x01(\x01R\x03max\x12\x18\n" +
 	"\aaverage\x18\x03 \x01(\x01R\aaverage\x12\x10\n" +
 	"\x03sum\x18\x04 \x01(\x01R\x03sum\x12\x14\n" +
-	"\x05count\x18\x05 \x01(\x03R\x05countB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05count\x18\x05 \x01(\x03R\x05countB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_stats_proto_goTypes = []any{

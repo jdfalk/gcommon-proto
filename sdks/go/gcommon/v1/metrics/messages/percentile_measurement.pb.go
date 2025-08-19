@@ -165,7 +165,7 @@ const file_gcommon_v1_metrics_messages_percentile_measurement_proto_rawDesc = ""
 	"percentile\x18\x01 \x01(\x01R\n" +
 	"percentile\x125\n" +
 	"\bduration\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12!\n" +
-	"\fsample_count\x18\x03 \x01(\x03R\vsampleCountB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fsample_count\x18\x03 \x01(\x03R\vsampleCountB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_percentile_measurement_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_percentile_measurement_proto_goTypes = []any{

@@ -167,7 +167,7 @@ const file_gcommon_v1_organization_messages_rate_limit_config_proto_rawDesc = ""
 	"\x1bOrganizationRateLimitConfig\x12.\n" +
 	"\x13requests_per_minute\x18\x01 \x01(\x05R\x11requestsPerMinute\x12*\n" +
 	"\x11requests_per_hour\x18\x02 \x01(\x05R\x0frequestsPerHour\x12(\n" +
-	"\x10requests_per_day\x18\x03 \x01(\x05R\x0erequestsPerDayB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10requests_per_day\x18\x03 \x01(\x05R\x0erequestsPerDayB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_rate_limit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_rate_limit_config_proto_goTypes = []any{

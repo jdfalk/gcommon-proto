@@ -186,7 +186,7 @@ const file_gcommon_v1_organization_messages_list_members_response_proto_rawDesc 
 	"\amembers\x18\x03 \x03(\v2+.gcommon.v1.organization.OrganizationMemberB\x02(\x01R\amembers\x12D\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"paginationB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_list_members_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_list_members_response_proto_goTypes = []any{

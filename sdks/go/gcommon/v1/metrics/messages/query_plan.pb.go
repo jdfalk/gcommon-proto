@@ -200,7 +200,7 @@ const file_gcommon_v1_metrics_messages_query_plan_proto_rawDesc = "" +
 	"\x12estimated_duration\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x11estimatedDuration\x122\n" +
 	"\x15estimated_data_points\x18\x03 \x01(\x03R\x13estimatedDataPoints\x123\n" +
 	"\x05steps\x18\x04 \x03(\v2\x1d.gcommon.v1.metrics.QueryStepR\x05steps\x12)\n" +
-	"\x10storage_backends\x18\x05 \x03(\tR\x0fstorageBackendsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10storage_backends\x18\x05 \x03(\tR\x0fstorageBackendsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_query_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_query_plan_proto_goTypes = []any{

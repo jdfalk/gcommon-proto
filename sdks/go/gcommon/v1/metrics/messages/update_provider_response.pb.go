@@ -275,7 +275,7 @@ const file_gcommon_v1_metrics_messages_update_provider_response_proto_rawDesc = 
 	"\n" +
 	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12'\n" +
 	"\x0fapplied_changes\x18\a \x03(\tR\x0eappliedChanges\x12\x1a\n" +
-	"\bwarnings\x18\b \x03(\tR\bwarningsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bwarnings\x18\b \x03(\tR\bwarningsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_update_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_provider_response_proto_goTypes = []any{

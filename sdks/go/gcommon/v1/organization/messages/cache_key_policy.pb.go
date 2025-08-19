@@ -215,7 +215,7 @@ const file_gcommon_v1_organization_messages_cache_key_policy_proto_rawDesc = "" 
 	"\x0finclude_headers\x18\x03 \x01(\bR\x0eincludeHeaders\x12)\n" +
 	"\x10header_whitelist\x18\x04 \x03(\tR\x0fheaderWhitelist\x12'\n" +
 	"\x0finclude_cookies\x18\x05 \x01(\bR\x0eincludeCookies\x12)\n" +
-	"\x10cookie_whitelist\x18\x06 \x03(\tR\x0fcookieWhitelistB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10cookie_whitelist\x18\x06 \x03(\tR\x0fcookieWhitelistB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_cache_key_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_cache_key_policy_proto_goTypes = []any{

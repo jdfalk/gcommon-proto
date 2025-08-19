@@ -263,7 +263,7 @@ const file_gcommon_v1_organization_messages_resource_limits_proto_rawDesc = "" +
 	"\rmax_disk_iops\x18\x03 \x01(\x05R\vmaxDiskIops\x12(\n" +
 	"\x10max_network_mbps\x18\x04 \x01(\x05R\x0emaxNetworkMbps\x12#\n" +
 	"\rmax_processes\x18\x05 \x01(\x05R\fmaxProcesses\x120\n" +
-	"\x14max_file_descriptors\x18\x06 \x01(\x05R\x12maxFileDescriptorsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14max_file_descriptors\x18\x06 \x01(\x05R\x12maxFileDescriptorsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_resource_limits_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_resource_limits_proto_goTypes = []any{

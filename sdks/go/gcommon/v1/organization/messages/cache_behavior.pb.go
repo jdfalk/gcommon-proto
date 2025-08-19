@@ -214,7 +214,7 @@ const file_gcommon_v1_organization_messages_cache_behavior_proto_rawDesc = "" +
 	"ttlSeconds\x12\x1a\n" +
 	"\bcompress\x18\x03 \x01(\bR\bcompress\x12'\n" +
 	"\x0fallowed_methods\x18\x04 \x03(\tR\x0eallowedMethods\x12D\n" +
-	"\tcache_key\x18\x05 \x01(\v2'.gcommon.v1.organization.CacheKeyPolicyR\bcacheKeyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tcache_key\x18\x05 \x01(\v2'.gcommon.v1.organization.CacheKeyPolicyR\bcacheKeyB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_cache_behavior_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_cache_behavior_proto_goTypes = []any{

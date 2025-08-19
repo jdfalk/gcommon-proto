@@ -134,7 +134,7 @@ const file_gcommon_v1_organization_messages_get_tenant_request_proto_rawDesc = "
 	"9gcommon/v1/organization/messages/get_tenant_request.proto\x12\x17gcommon.v1.organization\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"o\n" +
 	"\x10GetTenantRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1b\n" +
-	"\ttenant_id\x18\x02 \x01(\tR\btenantIdB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ttenant_id\x18\x02 \x01(\tR\btenantIdB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_get_tenant_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_tenant_request_proto_goTypes = []any{

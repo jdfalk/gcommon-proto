@@ -144,7 +144,7 @@ const file_gcommon_v1_metrics_messages_metric_label_proto_rawDesc = "" +
 	".gcommon/v1/metrics/messages/metric_label.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"5\n" +
 	"\vMetricLabel\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05valueB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05valueB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_metric_label_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_label_proto_goTypes = []any{

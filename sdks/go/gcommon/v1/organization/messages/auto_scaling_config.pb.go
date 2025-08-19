@@ -295,7 +295,7 @@ const file_gcommon_v1_organization_messages_auto_scaling_config_proto_rawDesc = 
 	"\x12target_cpu_percent\x18\x04 \x01(\x05R\x10targetCpuPercent\x122\n" +
 	"\x15target_memory_percent\x18\x05 \x01(\x05R\x13targetMemoryPercent\x12*\n" +
 	"\x11scale_up_cooldown\x18\x06 \x01(\x05R\x0fscaleUpCooldown\x12.\n" +
-	"\x13scale_down_cooldown\x18\a \x01(\x05R\x11scaleDownCooldownB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13scale_down_cooldown\x18\a \x01(\x05R\x11scaleDownCooldownB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_auto_scaling_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_auto_scaling_config_proto_goTypes = []any{

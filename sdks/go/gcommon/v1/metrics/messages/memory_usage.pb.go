@@ -202,7 +202,7 @@ const file_gcommon_v1_metrics_messages_memory_usage_proto_rawDesc = "" +
 	"limitBytes\x12#\n" +
 	"\rusage_percent\x18\x03 \x01(\x01R\fusagePercent\x12\x1d\n" +
 	"\n" +
-	"peak_bytes\x18\x04 \x01(\x03R\tpeakBytesB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"peak_bytes\x18\x04 \x01(\x03R\tpeakBytesB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_memory_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_memory_usage_proto_goTypes = []any{

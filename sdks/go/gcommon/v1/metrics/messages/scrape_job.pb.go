@@ -222,7 +222,7 @@ const file_gcommon_v1_metrics_messages_scrape_job_proto_rawDesc = "" +
 	"\x06config\x18\x02 \x01(\v2 .gcommon.v1.metrics.ScrapeConfigR\x06config\x12\x16\n" +
 	"\x06active\x18\x03 \x01(\bR\x06active\x12D\n" +
 	"\x10last_scrape_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x0elastScrapeTime\x12D\n" +
-	"\x10next_scrape_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x0enextScrapeTimeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10next_scrape_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x0enextScrapeTimeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_scrape_job_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_scrape_job_proto_goTypes = []any{

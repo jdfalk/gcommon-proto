@@ -284,7 +284,7 @@ const file_gcommon_v1_organization_messages_notification_settings_proto_rawDesc 
 	"smsEnabled\x12$\n" +
 	"\x0ein_app_enabled\x18\x05 \x01(\bR\finAppEnabled\x12O\n" +
 	"\x0femail_templates\x18\x06 \x03(\v2&.gcommon.v1.organization.EmailTemplateR\x0eemailTemplates\x12L\n" +
-	"\tfrequency\x18\a \x01(\v2..gcommon.v1.organization.NotificationFrequencyR\tfrequencyB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tfrequency\x18\a \x01(\v2..gcommon.v1.organization.NotificationFrequencyR\tfrequencyB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_notification_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_notification_settings_proto_goTypes = []any{

@@ -113,7 +113,7 @@ const file_gcommon_v1_metrics_messages_sample_rate_proto_rawDesc = "" +
 	"\x15SAMPLE_RATE_HUNDREDTH\x10\x06\x12\x1a\n" +
 	"\x16SAMPLE_RATE_THOUSANDTH\x10\a\x12\x18\n" +
 	"\x14SAMPLE_RATE_ADAPTIVE\x10\b\x12\x16\n" +
-	"\x12SAMPLE_RATE_CUSTOM\x10\tB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12SAMPLE_RATE_CUSTOM\x10\tB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_sample_rate_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_sample_rate_proto_goTypes = []any{

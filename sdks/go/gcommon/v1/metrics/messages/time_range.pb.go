@@ -158,7 +158,7 @@ const file_gcommon_v1_metrics_messages_time_range_proto_rawDesc = "" +
 	"\x10MetricsTimeRange\x120\n" +
 	"\x05start\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x05start\x12,\n" +
 	"\x03end\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x03end\x12)\n" +
-	"\x10duration_seconds\x18\x03 \x01(\x03R\x0fdurationSecondsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10duration_seconds\x18\x03 \x01(\x03R\x0fdurationSecondsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_time_range_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_time_range_proto_goTypes = []any{

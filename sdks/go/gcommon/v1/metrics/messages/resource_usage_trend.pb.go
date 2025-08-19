@@ -205,7 +205,7 @@ const file_gcommon_v1_metrics_messages_resource_usage_trend_proto_rawDesc = "" +
 	"\tcpu_trend\x18\x02 \x01(\tR\bcpuTrend\x12\x1d\n" +
 	"\n" +
 	"disk_trend\x18\x03 \x01(\tR\tdiskTrend\x12)\n" +
-	"\x10trend_confidence\x18\x04 \x01(\x01R\x0ftrendConfidenceB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10trend_confidence\x18\x04 \x01(\x01R\x0ftrendConfidenceB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_resource_usage_trend_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_resource_usage_trend_proto_goTypes = []any{

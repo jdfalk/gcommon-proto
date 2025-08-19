@@ -209,7 +209,7 @@ const file_gcommon_v1_organization_messages_ssl_config_proto_rawDesc = "" +
 	"\n" +
 	"ssl_policy\x18\x02 \x01(\tR\tsslPolicy\x12#\n" +
 	"\rredirect_http\x18\x03 \x01(\bR\fredirectHttp\x12&\n" +
-	"\x0fmin_tls_version\x18\x04 \x01(\tR\rminTlsVersionB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fmin_tls_version\x18\x04 \x01(\tR\rminTlsVersionB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_ssl_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_ssl_config_proto_goTypes = []any{

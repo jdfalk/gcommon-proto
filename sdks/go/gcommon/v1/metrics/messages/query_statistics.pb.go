@@ -304,7 +304,7 @@ const file_gcommon_v1_metrics_messages_query_statistics_proto_rawDesc = "" +
 	"\x15storage_backends_used\x18\x06 \x03(\tR\x13storageBackendsUsed\x12$\n" +
 	"\x0ecache_hit_rate\x18\a \x01(\x01R\fcacheHitRate\x129\n" +
 	"\n" +
-	"query_time\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tqueryTimeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"query_time\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tqueryTimeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_query_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_query_statistics_proto_goTypes = []any{

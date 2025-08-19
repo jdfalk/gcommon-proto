@@ -129,7 +129,7 @@ const file_gcommon_v1_metrics_messages_time_window_proto_rawDesc = "" +
 	"\x13TIME_WINDOW_1_MONTH\x10\n" +
 	"\x12\x16\n" +
 	"\x12TIME_WINDOW_1_YEAR\x10\v\x12\x16\n" +
-	"\x12TIME_WINDOW_CUSTOM\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12TIME_WINDOW_CUSTOM\x10\fB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_time_window_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_time_window_proto_goTypes = []any{

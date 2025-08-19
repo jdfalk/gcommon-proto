@@ -237,7 +237,7 @@ const file_gcommon_v1_organization_messages_backup_config_proto_rawDesc = "" +
 	"\tfrequency\x18\x02 \x01(\tR\tfrequency\x12%\n" +
 	"\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n" +
 	"\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x123\n" +
-	"\x16point_in_time_recovery\x18\x05 \x01(\bR\x13pointInTimeRecoveryB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16point_in_time_recovery\x18\x05 \x01(\bR\x13pointInTimeRecoveryB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_backup_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_backup_config_proto_goTypes = []any{

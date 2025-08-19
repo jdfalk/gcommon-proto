@@ -215,7 +215,7 @@ const file_gcommon_v1_organization_messages_compliance_settings_proto_rawDesc = 
 	"\x13data_retention_days\x18\x02 \x01(\x05R\x11dataRetentionDays\x12.\n" +
 	"\x13data_export_enabled\x18\x03 \x01(\bR\x11dataExportEnabled\x122\n" +
 	"\x15data_deletion_enabled\x18\x04 \x01(\bR\x13dataDeletionEnabled\x12&\n" +
-	"\x0ecertifications\x18\x05 \x03(\tR\x0ecertificationsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecertifications\x18\x05 \x03(\tR\x0ecertificationsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_compliance_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_compliance_settings_proto_goTypes = []any{

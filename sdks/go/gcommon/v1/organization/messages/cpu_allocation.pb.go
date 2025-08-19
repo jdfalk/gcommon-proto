@@ -199,7 +199,7 @@ const file_gcommon_v1_organization_messages_cpu_allocation_proto_rawDesc = "" +
 	"\x05cores\x18\x01 \x01(\x05R\x05cores\x12#\n" +
 	"\rfrequency_mhz\x18\x02 \x01(\x05R\ffrequencyMhz\x12.\n" +
 	"\x13usage_limit_percent\x18\x03 \x01(\x05R\x11usageLimitPercent\x12\x1a\n" +
-	"\bpriority\x18\x04 \x01(\x05R\bpriorityB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpriority\x18\x04 \x01(\x05R\bpriorityB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_cpu_allocation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_cpu_allocation_proto_goTypes = []any{

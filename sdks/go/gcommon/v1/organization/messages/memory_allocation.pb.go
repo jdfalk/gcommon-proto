@@ -167,7 +167,7 @@ const file_gcommon_v1_organization_messages_memory_allocation_proto_rawDesc = ""
 	"\x10MemoryAllocation\x12\x17\n" +
 	"\asize_mb\x18\x01 \x01(\x03R\x06sizeMb\x12.\n" +
 	"\x13usage_limit_percent\x18\x02 \x01(\x05R\x11usageLimitPercent\x12\x17\n" +
-	"\aswap_mb\x18\x03 \x01(\x03R\x06swapMbB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aswap_mb\x18\x03 \x01(\x03R\x06swapMbB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_memory_allocation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_memory_allocation_proto_goTypes = []any{

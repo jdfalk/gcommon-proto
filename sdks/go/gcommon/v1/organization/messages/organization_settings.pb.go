@@ -406,7 +406,7 @@ const file_gcommon_v1_organization_messages_organization_settings_proto_rawDesc 
 	"updated_at\x18\n" +
 	" \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"updated_by\x18\v \x01(\tR\tupdatedByB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"updated_by\x18\v \x01(\tR\tupdatedByB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_organization_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_organization_settings_proto_goTypes = []any{

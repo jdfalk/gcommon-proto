@@ -199,7 +199,7 @@ const file_gcommon_v1_metrics_messages_resource_usage_proto_rawDesc = "" +
 	"\x11memory_used_bytes\x18\x01 \x01(\x03R\x0fmemoryUsedBytes\x12(\n" +
 	"\x10cpu_used_percent\x18\x02 \x01(\x01R\x0ecpuUsedPercent\x12&\n" +
 	"\x0fdisk_used_bytes\x18\x03 \x01(\x03R\rdiskUsedBytes\x12D\n" +
-	"\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03R\x1bnetworkBandwidthBytesPerSecB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03R\x1bnetworkBandwidthBytesPerSecB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_resource_usage_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_resource_usage_proto_goTypes = []any{

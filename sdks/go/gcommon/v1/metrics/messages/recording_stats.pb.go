@@ -202,7 +202,7 @@ const file_gcommon_v1_metrics_messages_recording_stats_proto_rawDesc = "" +
 	"\vretry_count\x18\x02 \x01(\x05R\n" +
 	"retryCount\x12\x1a\n" +
 	"\bbuffered\x18\x03 \x01(\bR\bbuffered\x12\x1c\n" +
-	"\tpersisted\x18\x04 \x01(\bR\tpersistedB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tpersisted\x18\x04 \x01(\bR\tpersistedB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_recording_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_recording_stats_proto_goTypes = []any{

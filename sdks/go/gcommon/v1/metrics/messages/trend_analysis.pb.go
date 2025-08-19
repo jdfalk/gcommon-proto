@@ -178,7 +178,7 @@ const file_gcommon_v1_metrics_messages_trend_analysis_proto_rawDesc = "" +
 	"\x0eresource_usage\x18\x02 \x01(\v2&.gcommon.v1.metrics.ResourceUsageTrendR\rresourceUsage\x126\n" +
 	"\x06errors\x18\x03 \x01(\v2\x1e.gcommon.v1.metrics.ErrorTrendR\x06errors\x12D\n" +
 	"\vdata_volume\x18\x04 \x01(\v2#.gcommon.v1.metrics.DataVolumeTrendR\n" +
-	"dataVolumeB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"dataVolumeB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_trend_analysis_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_trend_analysis_proto_goTypes = []any{

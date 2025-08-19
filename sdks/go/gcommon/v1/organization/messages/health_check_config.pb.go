@@ -301,7 +301,7 @@ const file_gcommon_v1_organization_messages_health_check_config_proto_rawDesc = 
 	"\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12'\n" +
 	"\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12+\n" +
 	"\x11healthy_threshold\x18\x06 \x01(\x05R\x10healthyThreshold\x12/\n" +
-	"\x13unhealthy_threshold\x18\a \x01(\x05R\x12unhealthyThresholdB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13unhealthy_threshold\x18\a \x01(\x05R\x12unhealthyThresholdB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_health_check_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_health_check_config_proto_goTypes = []any{

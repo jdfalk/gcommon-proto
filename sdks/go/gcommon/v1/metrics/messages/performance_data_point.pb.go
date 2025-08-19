@@ -192,7 +192,7 @@ const file_gcommon_v1_metrics_messages_performance_data_point_proto_rawDesc = ""
 	"\x0eops_per_second\x18\x02 \x01(\x01R\fopsPerSecond\x12\x1d\n" +
 	"\n" +
 	"latency_ms\x18\x03 \x01(\x01R\tlatencyMs\x12=\n" +
-	"\x1bthroughput_bytes_per_second\x18\x04 \x01(\x01R\x18throughputBytesPerSecondB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1bthroughput_bytes_per_second\x18\x04 \x01(\x01R\x18throughputBytesPerSecondB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_performance_data_point_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_performance_data_point_proto_goTypes = []any{

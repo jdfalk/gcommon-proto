@@ -133,7 +133,7 @@ const file_gcommon_v1_web_messages_update_middleware_config_response_proto_rawDe
 	"?gcommon/v1/web/messages/update_middleware_config_response.proto\x12\x0egcommon.v1.web\x1a2gcommon/v1/common/messages/response_metadata.proto\x1a!google/protobuf/go_features.proto\"{\n" +
 	"\x1eUpdateMiddlewareConfigResponse\x12?\n" +
 	"\bmetadata\x18\x01 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadata\x12\x18\n" +
-	"\aupdated\x18\x02 \x01(\bR\aupdatedB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aupdated\x18\x02 \x01(\bR\aupdatedB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_update_middleware_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_update_middleware_config_response_proto_goTypes = []any{

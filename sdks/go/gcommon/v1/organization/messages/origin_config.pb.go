@@ -197,7 +197,7 @@ const file_gcommon_v1_organization_messages_origin_config_proto_rawDesc = "" +
 	"\vorigin_path\x18\x02 \x01(\tR\n" +
 	"originPath\x12'\n" +
 	"\x0fprotocol_policy\x18\x03 \x01(\tR\x0eprotocolPolicy\x12B\n" +
-	"\x0ecustom_headers\x18\x04 \x03(\v2\x1b.gcommon.v1.common.KeyValueR\rcustomHeadersB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ecustom_headers\x18\x04 \x03(\v2\x1b.gcommon.v1.common.KeyValueR\rcustomHeadersB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_origin_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_origin_config_proto_goTypes = []any{

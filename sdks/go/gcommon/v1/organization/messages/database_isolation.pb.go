@@ -317,7 +317,7 @@ const file_gcommon_v1_organization_messages_database_isolation_proto_rawDesc = "
 	"\x06backup\x18\x05 \x01(\v21.gcommon.v1.organization.OrganizationBackupConfigR\x06backup\x12-\n" +
 	"\x12allowed_operations\x18\x06 \x03(\tR\x11allowedOperations\x12'\n" +
 	"\x0fmax_connections\x18\a \x01(\x05R\x0emaxConnections\x122\n" +
-	"\x15query_timeout_seconds\x18\b \x01(\x05R\x13queryTimeoutSecondsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15query_timeout_seconds\x18\b \x01(\x05R\x13queryTimeoutSecondsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_database_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_database_isolation_proto_goTypes = []any{

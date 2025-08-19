@@ -281,7 +281,7 @@ const file_gcommon_v1_organization_messages_compute_isolation_proto_rawDesc = ""
 	"\x06memory\x18\x04 \x01(\v2).gcommon.v1.organization.MemoryAllocationR\x06memory\x12+\n" +
 	"\x11dedicated_compute\x18\x05 \x01(\bR\x10dedicatedCompute\x12K\n" +
 	"\x06limits\x18\x06 \x01(\v23.gcommon.v1.organization.OrganizationResourceLimitsR\x06limits\x12M\n" +
-	"\fauto_scaling\x18\a \x01(\v2*.gcommon.v1.organization.AutoScalingConfigR\vautoScalingB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fauto_scaling\x18\a \x01(\v2*.gcommon.v1.organization.AutoScalingConfigR\vautoScalingB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_compute_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_compute_isolation_proto_goTypes = []any{

@@ -186,7 +186,7 @@ const file_gcommon_v1_organization_messages_cdn_config_proto_rawDesc = "" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12'\n" +
 	"\x0fdistribution_id\x18\x02 \x01(\tR\x0edistributionId\x12O\n" +
 	"\x0fcache_behaviors\x18\x03 \x03(\v2&.gcommon.v1.organization.CacheBehaviorR\x0ecacheBehaviors\x12=\n" +
-	"\x06origin\x18\x04 \x01(\v2%.gcommon.v1.organization.OriginConfigR\x06originB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06origin\x18\x04 \x01(\v2%.gcommon.v1.organization.OriginConfigR\x06originB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_cdn_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_cdn_config_proto_goTypes = []any{

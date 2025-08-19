@@ -280,7 +280,7 @@ const file_gcommon_v1_metrics_messages_record_gauge_response_proto_rawDesc = "" 
 	"\vrecorded_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"recordedAt\x12\"\n" +
 	"\ris_new_metric\x18\x06 \x01(\bR\visNewMetric\x128\n" +
-	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05statsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05statsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_record_gauge_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_record_gauge_response_proto_goTypes = []any{

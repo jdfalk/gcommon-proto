@@ -89,7 +89,7 @@ const file_gcommon_v1_metrics_messages_comparison_operator_proto_rawDesc = "" +
 	" COMPARISON_OPERATOR_GREATER_THAN\x10\x03\x12-\n" +
 	")COMPARISON_OPERATOR_GREATER_THAN_OR_EQUAL\x10\x04\x12!\n" +
 	"\x1dCOMPARISON_OPERATOR_LESS_THAN\x10\x05\x12*\n" +
-	"&COMPARISON_OPERATOR_LESS_THAN_OR_EQUAL\x10\x06B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"&COMPARISON_OPERATOR_LESS_THAN_OR_EQUAL\x10\x06B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_comparison_operator_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_comparison_operator_proto_goTypes = []any{

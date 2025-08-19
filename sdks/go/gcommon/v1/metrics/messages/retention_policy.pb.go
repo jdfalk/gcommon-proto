@@ -118,7 +118,7 @@ const file_gcommon_v1_metrics_messages_retention_policy_proto_rawDesc = "" +
 	"\x1bRETENTION_POLICY_COMPLIANCE\x10\b\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_REAL_TIME\x10\t\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_AGGREGATE\x10\n" +
-	"B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_retention_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_retention_policy_proto_goTypes = []any{

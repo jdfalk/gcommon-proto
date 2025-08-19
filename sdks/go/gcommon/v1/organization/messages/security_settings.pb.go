@@ -389,7 +389,7 @@ const file_gcommon_v1_organization_messages_security_settings_proto_rawDesc = ""
 	"\x12api_access_enabled\x18\t \x01(\bR\x10apiAccessEnabled\x12Z\n" +
 	"\x0eapi_rate_limit\x18\n" +
 	" \x01(\v24.gcommon.v1.organization.OrganizationRateLimitConfigR\fapiRateLimit\x127\n" +
-	"\x18audit_log_retention_days\x18\v \x01(\x05R\x15auditLogRetentionDaysB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18audit_log_retention_days\x18\v \x01(\x05R\x15auditLogRetentionDaysB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_security_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_security_settings_proto_goTypes = []any{

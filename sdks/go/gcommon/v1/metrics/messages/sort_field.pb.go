@@ -94,7 +94,7 @@ const file_gcommon_v1_metrics_messages_sort_field_proto_rawDesc = "" +
 	"\x0fSORT_FIELD_TYPE\x10\x02\x12\x19\n" +
 	"\x15SORT_FIELD_CREATED_AT\x10\x03\x12\x14\n" +
 	"\x10SORT_FIELD_STATE\x10\x04\x12\x15\n" +
-	"\x11SORT_FIELD_HEALTH\x10\x05B/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11SORT_FIELD_HEALTH\x10\x05B3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_sort_field_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_sort_field_proto_goTypes = []any{

@@ -205,7 +205,7 @@ const file_gcommon_v1_web_messages_file_upload_proto_rawDesc = "" +
 	"\tfile_name\x18\x01 \x01(\tR\bfileName\x12;\n" +
 	"\fcontent_type\x18\x02 \x01(\v2\x18.gcommon.v1.web.MimeTypeR\vcontentType\x12\x12\n" +
 	"\x04data\x18\x03 \x01(\fR\x04data\x12 \n" +
-	"\vdestination\x18\x04 \x01(\tR\vdestinationB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vdestination\x18\x04 \x01(\tR\vdestinationB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_file_upload_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_file_upload_proto_goTypes = []any{

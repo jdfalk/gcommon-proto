@@ -191,7 +191,7 @@ const file_gcommon_v1_organization_messages_dns_config_proto_rawDesc = "" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12\x17\n" +
 	"\azone_id\x18\x02 \x01(\tR\x06zoneId\x12<\n" +
 	"\arecords\x18\x03 \x03(\v2\".gcommon.v1.organization.DNSRecordR\arecords\x12\x10\n" +
-	"\x03ttl\x18\x04 \x01(\x05R\x03ttlB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x03ttl\x18\x04 \x01(\x05R\x03ttlB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_dns_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_dns_config_proto_goTypes = []any{

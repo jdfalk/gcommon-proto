@@ -106,7 +106,7 @@ const file_gcommon_v1_web_messages_stop_server_response_proto_rawDesc = "" +
 	"\n" +
 	"2gcommon/v1/web/messages/stop_server_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"6\n" +
 	"\x12StopServerResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_stop_server_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_stop_server_response_proto_goTypes = []any{

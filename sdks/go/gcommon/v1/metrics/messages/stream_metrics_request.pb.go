@@ -243,7 +243,7 @@ const file_gcommon_v1_metrics_messages_stream_metrics_request_proto_rawDesc = ""
 	"\vprovider_id\x18\x04 \x01(\tR\n" +
 	"providerId\x125\n" +
 	"\x05start\x18\x05 \x01(\v2\x1f.gcommon.v1.metrics.StreamStartR\x05start\x12E\n" +
-	"\rbuffer_config\x18\x06 \x01(\v2 .gcommon.v1.metrics.BufferConfigR\fbufferConfigB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rbuffer_config\x18\x06 \x01(\v2 .gcommon.v1.metrics.BufferConfigR\fbufferConfigB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_stream_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_stream_metrics_request_proto_goTypes = []any{

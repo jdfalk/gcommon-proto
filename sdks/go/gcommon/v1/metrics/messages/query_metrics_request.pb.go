@@ -249,7 +249,7 @@ const file_gcommon_v1_metrics_messages_query_metrics_request_proto_rawDesc = "" 
 	"\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSeconds\x12,\n" +
 	"\x12include_query_plan\x18\x04 \x01(\bR\x10includeQueryPlan\x12#\n" +
 	"\rmetadata_only\x18\x05 \x01(\bR\fmetadataOnly\x12M\n" +
-	"\x0eoutput_options\x18\x06 \x01(\v2&.gcommon.v1.metrics.QueryOutputOptionsR\routputOptionsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eoutput_options\x18\x06 \x01(\v2&.gcommon.v1.metrics.QueryOutputOptionsR\routputOptionsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_query_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_query_metrics_request_proto_goTypes = []any{

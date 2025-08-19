@@ -210,7 +210,7 @@ const file_gcommon_v1_metrics_messages_tls_config_update_proto_rawDesc = "" +
 	"\tcert_file\x18\x01 \x01(\tR\bcertFile\x12\x19\n" +
 	"\bkey_file\x18\x02 \x01(\tR\akeyFile\x12\x17\n" +
 	"\aca_file\x18\x03 \x01(\tR\x06caFile\x12!\n" +
-	"\fverify_certs\x18\x04 \x01(\bR\vverifyCertsB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fverify_certs\x18\x04 \x01(\bR\vverifyCertsB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_tls_config_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_tls_config_update_proto_goTypes = []any{

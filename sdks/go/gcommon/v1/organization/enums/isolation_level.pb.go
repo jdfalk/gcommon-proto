@@ -94,7 +94,7 @@ const file_gcommon_v1_organization_enums_isolation_level_proto_rawDesc = "" +
 	"\x18ISOLATION_LEVEL_DATABASE\x10\x02\x12\"\n" +
 	"\x1eISOLATION_LEVEL_INFRASTRUCTURE\x10\x03\x12\x1b\n" +
 	"\x17ISOLATION_LEVEL_NETWORK\x10\x04\x12\x1c\n" +
-	"\x18ISOLATION_LEVEL_PHYSICAL\x10\x05B4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18ISOLATION_LEVEL_PHYSICAL\x10\x05B8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_enums_isolation_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_organization_enums_isolation_level_proto_goTypes = []any{

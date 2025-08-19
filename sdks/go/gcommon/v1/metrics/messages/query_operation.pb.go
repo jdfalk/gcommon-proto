@@ -130,7 +130,7 @@ const file_gcommon_v1_metrics_messages_query_operation_proto_rawDesc = "" +
 	"\x14QUERY_OPERATION_SORT\x10\n" +
 	"\x12\x19\n" +
 	"\x15QUERY_OPERATION_LIMIT\x10\v\x12\x18\n" +
-	"\x14QUERY_OPERATION_JOIN\x10\fB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14QUERY_OPERATION_JOIN\x10\fB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_query_operation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_metrics_messages_query_operation_proto_goTypes = []any{

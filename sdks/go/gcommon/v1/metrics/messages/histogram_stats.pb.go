@@ -264,7 +264,7 @@ const file_gcommon_v1_metrics_messages_histogram_stats_proto_rawDesc = "" +
 	"\x04mean\x18\x03 \x01(\x01R\x04mean\x12\x1b\n" +
 	"\tmin_value\x18\x04 \x01(\x01R\bminValue\x12\x1b\n" +
 	"\tmax_value\x18\x05 \x01(\x01R\bmaxValue\x12#\n" +
-	"\rstd_deviation\x18\x06 \x01(\x01R\fstdDeviationB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rstd_deviation\x18\x06 \x01(\x01R\fstdDeviationB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_histogram_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_histogram_stats_proto_goTypes = []any{

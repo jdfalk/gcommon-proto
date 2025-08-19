@@ -505,7 +505,7 @@ const file_gcommon_v1_metrics_messages_provider_summary_proto_rawDesc = "" +
 	"\x11performance_score\x18\v \x01(\x01R\x10performanceScore\x12!\n" +
 	"\fhealth_score\x18\f \x01(\x01R\vhealthScore\x12\x12\n" +
 	"\x04tags\x18\r \x03(\tR\x04tags\x12 \n" +
-	"\vdescription\x18\x0e \x01(\tR\vdescriptionB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vdescription\x18\x0e \x01(\tR\vdescriptionB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_provider_summary_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_provider_summary_proto_goTypes = []any{

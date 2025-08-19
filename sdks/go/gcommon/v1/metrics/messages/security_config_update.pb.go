@@ -208,7 +208,7 @@ const file_gcommon_v1_metrics_messages_security_config_update_proto_rawDesc = ""
 	"\vrequire_tls\x18\x03 \x01(\bR\n" +
 	"requireTls\x12O\n" +
 	"\x11tls_config_update\x18\x04 \x01(\v2#.gcommon.v1.metrics.TLSConfigUpdateR\x0ftlsConfigUpdate\x12Y\n" +
-	"\x15api_key_config_update\x18\x05 \x01(\v2&.gcommon.v1.metrics.APIKeyConfigUpdateR\x12apiKeyConfigUpdateB/Z%github.com/jdfalk/gcommon/pkg/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15api_key_config_update\x18\x05 \x01(\v2&.gcommon.v1.metrics.APIKeyConfigUpdateR\x12apiKeyConfigUpdateB3Z)github.com/jdfalk/gcommon/sdks/go/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_messages_security_config_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_security_config_update_proto_goTypes = []any{

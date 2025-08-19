@@ -466,7 +466,7 @@ const file_gcommon_v1_organization_messages_hierarchy_node_proto_rawDesc = "" +
 	"manager_id\x18\n" +
 	" \x01(\tR\tmanagerId\x12;\n" +
 	"\bmetadata\x18\v \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\bmetadata\x12\x16\n" +
-	"\x06active\x18\f \x01(\bR\x06activeB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06active\x18\f \x01(\bR\x06activeB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_hierarchy_node_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_hierarchy_node_proto_goTypes = []any{

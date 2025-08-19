@@ -167,7 +167,7 @@ const file_gcommon_v1_organization_messages_get_organization_settings_response_p
 	"\x1fGetOrganizationSettingsResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12M\n" +
-	"\bsettings\x18\x03 \x01(\v2-.gcommon.v1.organization.OrganizationSettingsB\x02(\x01R\bsettingsB4Z*github.com/jdfalk/gcommon/pkg/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bsettings\x18\x03 \x01(\v2-.gcommon.v1.organization.OrganizationSettingsB\x02(\x01R\bsettingsB8Z.github.com/jdfalk/gcommon/sdks/go/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_messages_get_organization_settings_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_messages_get_organization_settings_response_proto_goTypes = []any{
