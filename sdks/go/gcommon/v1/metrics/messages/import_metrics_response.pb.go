@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type ImportMetricsResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ImportedCount int32                  `protobuf:"varint,1,opt,name=imported_count,json=importedCount"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -66,7 +66,7 @@ func (x *ImportMetricsResponse) GetImportedCount() int32 {
 	return 0
 }
 
-func (x *ImportMetricsResponse) GetError() *messages.Error {
+func (x *ImportMetricsResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -78,7 +78,7 @@ func (x *ImportMetricsResponse) SetImportedCount(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ImportMetricsResponse) SetError(v *messages.Error) {
+func (x *ImportMetricsResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -111,7 +111,7 @@ type ImportMetricsResponse_builder struct {
 	// Number of metrics successfully imported
 	ImportedCount *int32
 	// Error information if the import failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ImportMetricsResponse_builder) Build() *ImportMetricsResponse {
@@ -138,7 +138,7 @@ const file_gcommon_v1_metrics_messages_import_metrics_response_proto_rawDesc = "
 var file_gcommon_v1_metrics_messages_import_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_import_metrics_response_proto_goTypes = []any{
 	(*ImportMetricsResponse)(nil), // 0: gcommon.v1.metrics.ImportMetricsResponse
-	(*messages.Error)(nil),        // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),          // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_import_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ImportMetricsResponse.error:type_name -> gcommon.v1.common.Error

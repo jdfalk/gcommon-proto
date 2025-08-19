@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,12 +23,12 @@ const (
 )
 
 type CreateProviderRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Config         *ProviderConfig           `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_ValidateConfig bool                      `protobuf:"varint,3,opt,name=validate_config,json=validateConfig"`
-	xxx_hidden_DryRun         bool                      `protobuf:"varint,4,opt,name=dry_run,json=dryRun"`
-	xxx_hidden_AutoStart      bool                      `protobuf:"varint,5,opt,name=auto_start,json=autoStart"`
+	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Config         *ProviderConfig         `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_ValidateConfig bool                    `protobuf:"varint,3,opt,name=validate_config,json=validateConfig"`
+	xxx_hidden_DryRun         bool                    `protobuf:"varint,4,opt,name=dry_run,json=dryRun"`
+	xxx_hidden_AutoStart      bool                    `protobuf:"varint,5,opt,name=auto_start,json=autoStart"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -60,7 +60,7 @@ func (x *CreateProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateProviderRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateProviderRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -95,7 +95,7 @@ func (x *CreateProviderRequest) GetAutoStart() bool {
 	return false
 }
 
-func (x *CreateProviderRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateProviderRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -180,7 +180,7 @@ type CreateProviderRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Provider configuration
 	Config *ProviderConfig
 	// Whether to validate the configuration before creating
@@ -227,9 +227,9 @@ const file_gcommon_v1_metrics_messages_create_provider_request_proto_rawDesc = "
 
 var file_gcommon_v1_metrics_messages_create_provider_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_create_provider_request_proto_goTypes = []any{
-	(*CreateProviderRequest)(nil),    // 0: gcommon.v1.metrics.CreateProviderRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*ProviderConfig)(nil),           // 2: gcommon.v1.metrics.ProviderConfig
+	(*CreateProviderRequest)(nil),  // 0: gcommon.v1.metrics.CreateProviderRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ProviderConfig)(nil),         // 2: gcommon.v1.metrics.ProviderConfig
 }
 var file_gcommon_v1_metrics_messages_create_provider_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.CreateProviderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

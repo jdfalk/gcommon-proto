@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,11 +26,11 @@ const (
 // *
 // Request to update the TTL of an existing cache key.
 type TouchExpirationRequest struct {
-	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key       *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Ttl       *durationpb.Duration      `protobuf:"bytes,2,opt,name=ttl"`
-	xxx_hidden_Namespace *string                   `protobuf:"bytes,3,opt,name=namespace"`
-	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key       *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Ttl       *durationpb.Duration    `protobuf:"bytes,2,opt,name=ttl"`
+	xxx_hidden_Namespace *string                 `protobuf:"bytes,3,opt,name=namespace"`
+	xxx_hidden_Metadata  *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -98,13 +98,13 @@ func (x *TouchExpirationRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *TouchExpirationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *TouchExpirationRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -131,7 +131,7 @@ func (x *TouchExpirationRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *TouchExpirationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *TouchExpirationRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -185,7 +185,7 @@ func (x *TouchExpirationRequest) ClearNamespace() {
 
 func (x *TouchExpirationRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type TouchExpirationRequest_builder struct {
@@ -198,7 +198,7 @@ type TouchExpirationRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 TouchExpirationRequest_builder) Build() *TouchExpirationRequest {
@@ -237,9 +237,9 @@ const file_gcommon_v1_database_messages_touch_expiration_request_proto_rawDesc =
 
 var file_gcommon_v1_database_messages_touch_expiration_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_touch_expiration_request_proto_goTypes = []any{
-	(*TouchExpirationRequest)(nil),   // 0: gcommon.v1.database.TouchExpirationRequest
-	(*durationpb.Duration)(nil),      // 1: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*TouchExpirationRequest)(nil), // 0: gcommon.v1.database.TouchExpirationRequest
+	(*durationpb.Duration)(nil),    // 1: google.protobuf.Duration
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_touch_expiration_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.TouchExpirationRequest.ttl:type_name -> google.protobuf.Duration

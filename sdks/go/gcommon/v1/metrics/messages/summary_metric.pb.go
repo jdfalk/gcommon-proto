@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,17 +25,17 @@ const (
 )
 
 type SummaryMetric struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_SampleCount uint64                    `protobuf:"varint,2,opt,name=sample_count,json=sampleCount"`
-	xxx_hidden_SampleSum   float64                   `protobuf:"fixed64,3,opt,name=sample_sum,json=sampleSum"`
-	xxx_hidden_Quantiles   *[]*SummaryQuantile       `protobuf:"bytes,4,rep,name=quantiles"`
-	xxx_hidden_Labels      map[string]string         `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp    `protobuf:"bytes,6,opt,name=timestamp"`
-	xxx_hidden_Help        *string                   `protobuf:"bytes,7,opt,name=help"`
-	xxx_hidden_Unit        *string                   `protobuf:"bytes,8,opt,name=unit"`
-	xxx_hidden_MaxAge      *durationpb.Duration      `protobuf:"bytes,9,opt,name=max_age,json=maxAge"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                 `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_SampleCount uint64                  `protobuf:"varint,2,opt,name=sample_count,json=sampleCount"`
+	xxx_hidden_SampleSum   float64                 `protobuf:"fixed64,3,opt,name=sample_sum,json=sampleSum"`
+	xxx_hidden_Quantiles   *[]*SummaryQuantile     `protobuf:"bytes,4,rep,name=quantiles"`
+	xxx_hidden_Labels      map[string]string       `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=timestamp"`
+	xxx_hidden_Help        *string                 `protobuf:"bytes,7,opt,name=help"`
+	xxx_hidden_Unit        *string                 `protobuf:"bytes,8,opt,name=unit"`
+	xxx_hidden_MaxAge      *durationpb.Duration    `protobuf:"bytes,9,opt,name=max_age,json=maxAge"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -141,7 +141,7 @@ func (x *SummaryMetric) GetMaxAge() *durationpb.Duration {
 	return nil
 }
 
-func (x *SummaryMetric) GetMetadata() *messages.RequestMetadata {
+func (x *SummaryMetric) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -189,7 +189,7 @@ func (x *SummaryMetric) SetMaxAge(v *durationpb.Duration) {
 	x.xxx_hidden_MaxAge = v
 }
 
-func (x *SummaryMetric) SetMetadata(v *messages.RequestMetadata) {
+func (x *SummaryMetric) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -308,7 +308,7 @@ type SummaryMetric_builder struct {
 	// Maximum age of observations in the summary
 	MaxAge *durationpb.Duration
 	// Metadata for request tracing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 SummaryMetric_builder) Build() *SummaryMetric {
@@ -367,12 +367,12 @@ const file_gcommon_v1_metrics_messages_summary_metric_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_summary_metric_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_messages_summary_metric_proto_goTypes = []any{
-	(*SummaryMetric)(nil),            // 0: gcommon.v1.metrics.SummaryMetric
-	nil,                              // 1: gcommon.v1.metrics.SummaryMetric.LabelsEntry
-	(*SummaryQuantile)(nil),          // 2: gcommon.v1.metrics.SummaryQuantile
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),      // 4: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
+	(*SummaryMetric)(nil),          // 0: gcommon.v1.metrics.SummaryMetric
+	nil,                            // 1: gcommon.v1.metrics.SummaryMetric.LabelsEntry
+	(*SummaryQuantile)(nil),        // 2: gcommon.v1.metrics.SummaryQuantile
+	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),    // 4: google.protobuf.Duration
+	(*common.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_summary_metric_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.SummaryMetric.quantiles:type_name -> gcommon.v1.metrics.SummaryQuantile

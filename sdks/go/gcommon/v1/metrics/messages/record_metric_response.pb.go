@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type RecordMetricResponse struct {
 	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                     `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error          `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *common.Error            `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_MetricId    *string                  `protobuf:"bytes,3,opt,name=metric_id,json=metricId"`
 	xxx_hidden_RecordedAt  *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=recorded_at,json=recordedAt"`
 	xxx_hidden_ProviderId  *string                  `protobuf:"bytes,5,opt,name=provider_id,json=providerId"`
@@ -73,7 +73,7 @@ func (x *RecordMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordMetricResponse) GetError() *messages.Error {
+func (x *RecordMetricResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -133,7 +133,7 @@ func (x *RecordMetricResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *RecordMetricResponse) SetError(v *messages.Error) {
+func (x *RecordMetricResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -249,7 +249,7 @@ type RecordMetricResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *common.Error
 	// Unique ID assigned to the recorded metric (if applicable)
 	MetricId *string
 	// Timestamp when the metric was actually recorded
@@ -310,7 +310,7 @@ const file_gcommon_v1_metrics_messages_record_metric_response_proto_rawDesc = ""
 var file_gcommon_v1_metrics_messages_record_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_record_metric_response_proto_goTypes = []any{
 	(*RecordMetricResponse)(nil),    // 0: gcommon.v1.metrics.RecordMetricResponse
-	(*messages.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),            // 1: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),   // 2: google.protobuf.Timestamp
 	(*MetricsValidationResult)(nil), // 3: gcommon.v1.metrics.MetricsValidationResult
 	(*RecordingStats)(nil),          // 4: gcommon.v1.metrics.RecordingStats

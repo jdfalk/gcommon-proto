@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type StartScrapingResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_Job         *ScrapeJob             `protobuf:"bytes,3,opt,name=job"`
 	xxx_hidden_StartedAt   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=started_at,json=startedAt"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,7 +69,7 @@ func (x *StartScrapingResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *StartScrapingResponse) GetError() *messages.Error {
+func (x *StartScrapingResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -95,7 +95,7 @@ func (x *StartScrapingResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *StartScrapingResponse) SetError(v *messages.Error) {
+func (x *StartScrapingResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -158,7 +158,7 @@ type StartScrapingResponse_builder struct {
 	// Whether the job was started successfully
 	Success *bool
 	// Error information if unsuccessful
-	Error *messages.Error
+	Error *common.Error
 	// Details of the started scrape job
 	Job *ScrapeJob
 	// Timestamp when the job started
@@ -194,7 +194,7 @@ const file_gcommon_v1_metrics_messages_start_scraping_response_proto_rawDesc = "
 var file_gcommon_v1_metrics_messages_start_scraping_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_start_scraping_response_proto_goTypes = []any{
 	(*StartScrapingResponse)(nil), // 0: gcommon.v1.metrics.StartScrapingResponse
-	(*messages.Error)(nil),        // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),          // 1: gcommon.v1.common.Error
 	(*ScrapeJob)(nil),             // 2: gcommon.v1.metrics.ScrapeJob
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }

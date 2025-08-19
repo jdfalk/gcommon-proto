@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,10 +25,10 @@ const (
 // *
 // Request to create a backup of the cache contents.
 type BackupRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Destination *string                   `protobuf:"bytes,1,opt,name=destination"`
-	xxx_hidden_Namespace   *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Destination *string                 `protobuf:"bytes,1,opt,name=destination"`
+	xxx_hidden_Namespace   *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -82,13 +82,13 @@ func (x *BackupRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *BackupRequest) GetMetadata() *messages.RequestMetadata {
+func (x *BackupRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -106,7 +106,7 @@ func (x *BackupRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *BackupRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *BackupRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -148,7 +148,7 @@ func (x *BackupRequest) ClearNamespace() {
 
 func (x *BackupRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type BackupRequest_builder struct {
@@ -159,7 +159,7 @@ type BackupRequest_builder struct {
 	// Optional namespace to back up
 	Namespace *string
 	// Request metadata for auditing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 BackupRequest_builder) Build() *BackupRequest {
@@ -193,8 +193,8 @@ const file_gcommon_v1_database_messages_backup_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_backup_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_backup_request_proto_goTypes = []any{
-	(*BackupRequest)(nil),            // 0: gcommon.v1.database.BackupRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*BackupRequest)(nil),          // 0: gcommon.v1.database.BackupRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_backup_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BackupRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

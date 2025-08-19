@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +23,13 @@ const (
 )
 
 type MetricsStreamMetricsRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter       *MetricFilter             `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_Options      *StreamOptions            `protobuf:"bytes,3,opt,name=options"`
-	xxx_hidden_ProviderId   *string                   `protobuf:"bytes,4,opt,name=provider_id,json=providerId"`
-	xxx_hidden_Start        *StreamStart              `protobuf:"bytes,5,opt,name=start"`
-	xxx_hidden_BufferConfig *BufferConfig             `protobuf:"bytes,6,opt,name=buffer_config,json=bufferConfig"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter       *MetricFilter           `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_Options      *StreamOptions          `protobuf:"bytes,3,opt,name=options"`
+	xxx_hidden_ProviderId   *string                 `protobuf:"bytes,4,opt,name=provider_id,json=providerId"`
+	xxx_hidden_Start        *StreamStart            `protobuf:"bytes,5,opt,name=start"`
+	xxx_hidden_BufferConfig *BufferConfig           `protobuf:"bytes,6,opt,name=buffer_config,json=bufferConfig"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *MetricsStreamMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricsStreamMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *MetricsStreamMetricsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -106,7 +106,7 @@ func (x *MetricsStreamMetricsRequest) GetBufferConfig() *BufferConfig {
 	return nil
 }
 
-func (x *MetricsStreamMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *MetricsStreamMetricsRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -202,7 +202,7 @@ type MetricsStreamMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Filter to determine which metrics to stream
 	Filter *MetricFilter
 	// Streaming configuration options
@@ -248,7 +248,7 @@ const file_gcommon_v1_metrics_messages_stream_metrics_request_proto_rawDesc = ""
 var file_gcommon_v1_metrics_messages_stream_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_stream_metrics_request_proto_goTypes = []any{
 	(*MetricsStreamMetricsRequest)(nil), // 0: gcommon.v1.metrics.MetricsStreamMetricsRequest
-	(*messages.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
 	(*MetricFilter)(nil),                // 2: gcommon.v1.metrics.MetricFilter
 	(*StreamOptions)(nil),               // 3: gcommon.v1.metrics.StreamOptions
 	(*StreamStart)(nil),                 // 4: gcommon.v1.metrics.StreamStart

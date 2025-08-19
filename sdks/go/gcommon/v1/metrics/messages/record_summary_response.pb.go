@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type RecordSummaryResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Metric *SummaryMetric         `protobuf:"bytes,1,opt,name=metric"`
 	xxx_hidden_Stats  *RecordingStats        `protobuf:"bytes,2,opt,name=stats"`
-	xxx_hidden_Error  *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error  *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -72,7 +72,7 @@ func (x *RecordSummaryResponse) GetStats() *RecordingStats {
 	return nil
 }
 
-func (x *RecordSummaryResponse) GetError() *messages.Error {
+func (x *RecordSummaryResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -87,7 +87,7 @@ func (x *RecordSummaryResponse) SetStats(v *RecordingStats) {
 	x.xxx_hidden_Stats = v
 }
 
-func (x *RecordSummaryResponse) SetError(v *messages.Error) {
+func (x *RecordSummaryResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -132,7 +132,7 @@ type RecordSummaryResponse_builder struct {
 	// Processing stats
 	Stats *RecordingStats
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 RecordSummaryResponse_builder) Build() *RecordSummaryResponse {
@@ -160,7 +160,7 @@ var file_gcommon_v1_metrics_messages_record_summary_response_proto_goTypes = []a
 	(*RecordSummaryResponse)(nil), // 0: gcommon.v1.metrics.RecordSummaryResponse
 	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
 	(*RecordingStats)(nil),        // 2: gcommon.v1.metrics.RecordingStats
-	(*messages.Error)(nil),        // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),          // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_record_summary_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordSummaryResponse.metric:type_name -> gcommon.v1.metrics.SummaryMetric

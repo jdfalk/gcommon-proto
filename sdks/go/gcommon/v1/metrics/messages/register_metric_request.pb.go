@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,12 +23,12 @@ const (
 )
 
 type RegisterMetricRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Definition      *MetricDefinition         `protobuf:"bytes,2,opt,name=definition"`
-	xxx_hidden_ProviderId      *string                   `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
-	xxx_hidden_ReplaceExisting bool                      `protobuf:"varint,4,opt,name=replace_existing,json=replaceExisting"`
-	xxx_hidden_Options         *RegistrationOptions      `protobuf:"bytes,5,opt,name=options"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata        *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Definition      *MetricDefinition       `protobuf:"bytes,2,opt,name=definition"`
+	xxx_hidden_ProviderId      *string                 `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
+	xxx_hidden_ReplaceExisting bool                    `protobuf:"varint,4,opt,name=replace_existing,json=replaceExisting"`
+	xxx_hidden_Options         *RegistrationOptions    `protobuf:"bytes,5,opt,name=options"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -60,7 +60,7 @@ func (x *RegisterMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RegisterMetricRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RegisterMetricRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -98,7 +98,7 @@ func (x *RegisterMetricRequest) GetOptions() *RegistrationOptions {
 	return nil
 }
 
-func (x *RegisterMetricRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RegisterMetricRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -181,7 +181,7 @@ type RegisterMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Metric definition to register
 	Definition *MetricDefinition
 	// Optional provider ID to register with
@@ -227,10 +227,10 @@ const file_gcommon_v1_metrics_messages_register_metric_request_proto_rawDesc = "
 
 var file_gcommon_v1_metrics_messages_register_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_register_metric_request_proto_goTypes = []any{
-	(*RegisterMetricRequest)(nil),    // 0: gcommon.v1.metrics.RegisterMetricRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*MetricDefinition)(nil),         // 2: gcommon.v1.metrics.MetricDefinition
-	(*RegistrationOptions)(nil),      // 3: gcommon.v1.metrics.RegistrationOptions
+	(*RegisterMetricRequest)(nil),  // 0: gcommon.v1.metrics.RegisterMetricRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*MetricDefinition)(nil),       // 2: gcommon.v1.metrics.MetricDefinition
+	(*RegistrationOptions)(nil),    // 3: gcommon.v1.metrics.RegistrationOptions
 }
 var file_gcommon_v1_metrics_messages_register_metric_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RegisterMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

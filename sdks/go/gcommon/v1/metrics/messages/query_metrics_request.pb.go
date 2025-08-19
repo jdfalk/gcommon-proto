@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +23,13 @@ const (
 )
 
 type QueryMetricsRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Query            *MetricQuery              `protobuf:"bytes,2,opt,name=query"`
-	xxx_hidden_TimeoutSeconds   int32                     `protobuf:"varint,3,opt,name=timeout_seconds,json=timeoutSeconds"`
-	xxx_hidden_IncludeQueryPlan bool                      `protobuf:"varint,4,opt,name=include_query_plan,json=includeQueryPlan"`
-	xxx_hidden_MetadataOnly     bool                      `protobuf:"varint,5,opt,name=metadata_only,json=metadataOnly"`
-	xxx_hidden_OutputOptions    *QueryOutputOptions       `protobuf:"bytes,6,opt,name=output_options,json=outputOptions"`
+	state                       protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata         *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Query            *MetricQuery            `protobuf:"bytes,2,opt,name=query"`
+	xxx_hidden_TimeoutSeconds   int32                   `protobuf:"varint,3,opt,name=timeout_seconds,json=timeoutSeconds"`
+	xxx_hidden_IncludeQueryPlan bool                    `protobuf:"varint,4,opt,name=include_query_plan,json=includeQueryPlan"`
+	xxx_hidden_MetadataOnly     bool                    `protobuf:"varint,5,opt,name=metadata_only,json=metadataOnly"`
+	xxx_hidden_OutputOptions    *QueryOutputOptions     `protobuf:"bytes,6,opt,name=output_options,json=outputOptions"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *QueryMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueryMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueryMetricsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -103,7 +103,7 @@ func (x *QueryMetricsRequest) GetOutputOptions() *QueryOutputOptions {
 	return nil
 }
 
-func (x *QueryMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueryMetricsRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -203,7 +203,7 @@ type QueryMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// The metric query to execute
 	Query *MetricQuery
 	// Optional query timeout in seconds
@@ -253,10 +253,10 @@ const file_gcommon_v1_metrics_messages_query_metrics_request_proto_rawDesc = "" 
 
 var file_gcommon_v1_metrics_messages_query_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_query_metrics_request_proto_goTypes = []any{
-	(*QueryMetricsRequest)(nil),      // 0: gcommon.v1.metrics.QueryMetricsRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*MetricQuery)(nil),              // 2: gcommon.v1.metrics.MetricQuery
-	(*QueryOutputOptions)(nil),       // 3: gcommon.v1.metrics.QueryOutputOptions
+	(*QueryMetricsRequest)(nil),    // 0: gcommon.v1.metrics.QueryMetricsRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*MetricQuery)(nil),            // 2: gcommon.v1.metrics.MetricQuery
+	(*QueryOutputOptions)(nil),     // 3: gcommon.v1.metrics.QueryOutputOptions
 }
 var file_gcommon_v1_metrics_messages_query_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.QueryMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

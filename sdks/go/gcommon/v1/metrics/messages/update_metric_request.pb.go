@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type UpdateMetricRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metric   *MetricData               `protobuf:"bytes,1,opt,name=metric"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metric   *MetricData             `protobuf:"bytes,1,opt,name=metric"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -66,13 +66,13 @@ func (x *UpdateMetricRequest) GetMetric() *MetricData {
 	return nil
 }
 
-func (x *UpdateMetricRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateMetricRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -84,7 +84,7 @@ func (x *UpdateMetricRequest) SetMetric(v *MetricData) {
 	x.xxx_hidden_Metric = v
 }
 
-func (x *UpdateMetricRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateMetricRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -113,7 +113,7 @@ func (x *UpdateMetricRequest) ClearMetric() {
 
 func (x *UpdateMetricRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type UpdateMetricRequest_builder struct {
@@ -122,7 +122,7 @@ type UpdateMetricRequest_builder struct {
 	// Updated metric data
 	Metric *MetricData
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 UpdateMetricRequest_builder) Build() *UpdateMetricRequest {
@@ -148,9 +148,9 @@ const file_gcommon_v1_metrics_messages_update_metric_request_proto_rawDesc = "" 
 
 var file_gcommon_v1_metrics_messages_update_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_update_metric_request_proto_goTypes = []any{
-	(*UpdateMetricRequest)(nil),      // 0: gcommon.v1.metrics.UpdateMetricRequest
-	(*MetricData)(nil),               // 1: gcommon.v1.metrics.MetricData
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*UpdateMetricRequest)(nil),    // 0: gcommon.v1.metrics.UpdateMetricRequest
+	(*MetricData)(nil),             // 1: gcommon.v1.metrics.MetricData
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_update_metric_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.UpdateMetricRequest.metric:type_name -> gcommon.v1.metrics.MetricData

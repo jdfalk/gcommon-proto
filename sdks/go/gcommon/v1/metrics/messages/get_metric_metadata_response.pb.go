@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type GetMetricMetadataResponse struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error           *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error           *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_ProviderId      *string                `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
 	xxx_hidden_Metadata        *[]*MetricMetadata     `protobuf:"bytes,4,rep,name=metadata"`
 	xxx_hidden_Pagination      *MetricsPaginationInfo `protobuf:"bytes,5,opt,name=pagination"`
@@ -74,7 +74,7 @@ func (x *GetMetricMetadataResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricMetadataResponse) GetError() *messages.Error {
+func (x *GetMetricMetadataResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -140,7 +140,7 @@ func (x *GetMetricMetadataResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *GetMetricMetadataResponse) SetError(v *messages.Error) {
+func (x *GetMetricMetadataResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -262,7 +262,7 @@ type GetMetricMetadataResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *common.Error
 	// Provider ID that handled the request
 	ProviderId *string
 	// Retrieved metadata entries
@@ -330,7 +330,7 @@ const file_gcommon_v1_metrics_messages_get_metric_metadata_response_proto_rawDes
 var file_gcommon_v1_metrics_messages_get_metric_metadata_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metric_metadata_response_proto_goTypes = []any{
 	(*GetMetricMetadataResponse)(nil), // 0: gcommon.v1.metrics.GetMetricMetadataResponse
-	(*messages.Error)(nil),            // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),              // 1: gcommon.v1.common.Error
 	(*MetricMetadata)(nil),            // 2: gcommon.v1.metrics.MetricMetadata
 	(*MetricsPaginationInfo)(nil),     // 3: gcommon.v1.metrics.MetricsPaginationInfo
 	(*timestamppb.Timestamp)(nil),     // 4: google.protobuf.Timestamp

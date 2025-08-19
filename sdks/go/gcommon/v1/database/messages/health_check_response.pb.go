@@ -7,8 +7,7 @@
 package database
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,11 +27,11 @@ const (
 // HealthCheckResponse contains the result of a database health check.
 // Provides connection status, response time, and error details.
 type DatabaseHealthCheckResponse struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Status       enums.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_ConnectionOk bool                     `protobuf:"varint,2,opt,name=connection_ok,json=connectionOk"`
-	xxx_hidden_ResponseTime *durationpb.Duration     `protobuf:"bytes,3,opt,name=response_time,json=responseTime"`
-	xxx_hidden_Error        *messages.Error          `protobuf:"bytes,4,opt,name=error"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Status       common.CommonHealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_ConnectionOk bool                      `protobuf:"varint,2,opt,name=connection_ok,json=connectionOk"`
+	xxx_hidden_ResponseTime *durationpb.Duration      `protobuf:"bytes,3,opt,name=response_time,json=responseTime"`
+	xxx_hidden_Error        *common.Error             `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -66,13 +65,13 @@ func (x *DatabaseHealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DatabaseHealthCheckResponse) GetStatus() enums.CommonHealthStatus {
+func (x *DatabaseHealthCheckResponse) GetStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *DatabaseHealthCheckResponse) GetConnectionOk() bool {
@@ -96,13 +95,13 @@ func (x *DatabaseHealthCheckResponse) GetResponseTime() *durationpb.Duration {
 	return nil
 }
 
-func (x *DatabaseHealthCheckResponse) GetError() *messages.Error {
+func (x *DatabaseHealthCheckResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -110,7 +109,7 @@ func (x *DatabaseHealthCheckResponse) GetError() *messages.Error {
 	return nil
 }
 
-func (x *DatabaseHealthCheckResponse) SetStatus(v enums.CommonHealthStatus) {
+func (x *DatabaseHealthCheckResponse) SetStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -129,7 +128,7 @@ func (x *DatabaseHealthCheckResponse) SetResponseTime(v *durationpb.Duration) {
 	}
 }
 
-func (x *DatabaseHealthCheckResponse) SetError(v *messages.Error) {
+func (x *DatabaseHealthCheckResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -168,7 +167,7 @@ func (x *DatabaseHealthCheckResponse) HasError() bool {
 
 func (x *DatabaseHealthCheckResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *DatabaseHealthCheckResponse) ClearConnectionOk() {
@@ -183,20 +182,20 @@ func (x *DatabaseHealthCheckResponse) ClearResponseTime() {
 
 func (x *DatabaseHealthCheckResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type DatabaseHealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status of the database
-	Status *enums.CommonHealthStatus
+	Status *common.CommonHealthStatus
 	// Whether the database connection is operational
 	ConnectionOk *bool
 	// Time taken to perform the health check
 	ResponseTime *durationpb.Duration
 	// Error information if the health check failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 DatabaseHealthCheckResponse_builder) Build() *DatabaseHealthCheckResponse {
@@ -236,9 +235,9 @@ const file_gcommon_v1_database_messages_health_check_response_proto_rawDesc = ""
 var file_gcommon_v1_database_messages_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_health_check_response_proto_goTypes = []any{
 	(*DatabaseHealthCheckResponse)(nil), // 0: gcommon.v1.database.DatabaseHealthCheckResponse
-	(enums.CommonHealthStatus)(0),       // 1: gcommon.v1.common.CommonHealthStatus
+	(common.CommonHealthStatus)(0),      // 1: gcommon.v1.common.CommonHealthStatus
 	(*durationpb.Duration)(nil),         // 2: google.protobuf.Duration
-	(*messages.Error)(nil),              // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),                // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DatabaseHealthCheckResponse.status:type_name -> gcommon.v1.common.CommonHealthStatus

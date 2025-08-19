@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 // ListMetricsRequest requests a paginated list of metrics.
 type ListMetricsRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Pagination  *messages.Pagination   `protobuf:"bytes,1,opt,name=pagination"`
+	xxx_hidden_Pagination  *common.Pagination     `protobuf:"bytes,1,opt,name=pagination"`
 	xxx_hidden_NameFilter  *string                `protobuf:"bytes,2,opt,name=name_filter,json=nameFilter"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -59,7 +59,7 @@ func (x *ListMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListMetricsRequest) GetPagination() *messages.Pagination {
+func (x *ListMetricsRequest) GetPagination() *common.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -76,7 +76,7 @@ func (x *ListMetricsRequest) GetNameFilter() string {
 	return ""
 }
 
-func (x *ListMetricsRequest) SetPagination(v *messages.Pagination) {
+func (x *ListMetricsRequest) SetPagination(v *common.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -112,7 +112,7 @@ type ListMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *common.Pagination
 	// Optional name filter
 	NameFilter *string
 }
@@ -143,8 +143,8 @@ const file_gcommon_v1_metrics_messages_list_metrics_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_list_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_list_metrics_request_proto_goTypes = []any{
-	(*ListMetricsRequest)(nil),  // 0: gcommon.v1.metrics.ListMetricsRequest
-	(*messages.Pagination)(nil), // 1: gcommon.v1.common.Pagination
+	(*ListMetricsRequest)(nil), // 0: gcommon.v1.metrics.ListMetricsRequest
+	(*common.Pagination)(nil),  // 1: gcommon.v1.common.Pagination
 }
 var file_gcommon_v1_metrics_messages_list_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ListMetricsRequest.pagination:type_name -> gcommon.v1.common.Pagination

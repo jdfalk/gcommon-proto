@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type GetAlertingRulesRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_MetricId *string                   `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_MetricId *string                 `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +69,13 @@ func (x *GetAlertingRulesRequest) GetMetricId() string {
 	return ""
 }
 
-func (x *GetAlertingRulesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetAlertingRulesRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -88,7 +88,7 @@ func (x *GetAlertingRulesRequest) SetMetricId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetAlertingRulesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetAlertingRulesRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -118,7 +118,7 @@ func (x *GetAlertingRulesRequest) ClearMetricId() {
 
 func (x *GetAlertingRulesRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type GetAlertingRulesRequest_builder struct {
@@ -127,7 +127,7 @@ type GetAlertingRulesRequest_builder struct {
 	// Metric identifier
 	MetricId *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 GetAlertingRulesRequest_builder) Build() *GetAlertingRulesRequest {
@@ -156,8 +156,8 @@ const file_gcommon_v1_metrics_messages_get_alerting_rules_request_proto_rawDesc 
 
 var file_gcommon_v1_metrics_messages_get_alerting_rules_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_alerting_rules_request_proto_goTypes = []any{
-	(*GetAlertingRulesRequest)(nil),  // 0: gcommon.v1.metrics.GetAlertingRulesRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetAlertingRulesRequest)(nil), // 0: gcommon.v1.metrics.GetAlertingRulesRequest
+	(*common.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_get_alerting_rules_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetAlertingRulesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

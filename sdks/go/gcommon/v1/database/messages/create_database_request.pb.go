@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type CreateDatabaseRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name     *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Options  map[string]string         `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Name     *string                 `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Options  map[string]string       `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -77,13 +77,13 @@ func (x *CreateDatabaseRequest) GetOptions() map[string]string {
 	return nil
 }
 
-func (x *CreateDatabaseRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateDatabaseRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -100,7 +100,7 @@ func (x *CreateDatabaseRequest) SetOptions(v map[string]string) {
 	x.xxx_hidden_Options = v
 }
 
-func (x *CreateDatabaseRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateDatabaseRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -130,7 +130,7 @@ func (x *CreateDatabaseRequest) ClearName() {
 
 func (x *CreateDatabaseRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type CreateDatabaseRequest_builder struct {
@@ -141,7 +141,7 @@ type CreateDatabaseRequest_builder struct {
 	// Database creation options and configuration
 	Options map[string]string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 CreateDatabaseRequest_builder) Build() *CreateDatabaseRequest {
@@ -175,9 +175,9 @@ const file_gcommon_v1_database_messages_create_database_request_proto_rawDesc = 
 
 var file_gcommon_v1_database_messages_create_database_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_create_database_request_proto_goTypes = []any{
-	(*CreateDatabaseRequest)(nil),    // 0: gcommon.v1.database.CreateDatabaseRequest
-	nil,                              // 1: gcommon.v1.database.CreateDatabaseRequest.OptionsEntry
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*CreateDatabaseRequest)(nil),  // 0: gcommon.v1.database.CreateDatabaseRequest
+	nil,                            // 1: gcommon.v1.database.CreateDatabaseRequest.OptionsEntry
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_create_database_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateDatabaseRequest.options:type_name -> gcommon.v1.database.CreateDatabaseRequest.OptionsEntry

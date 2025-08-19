@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +25,11 @@ const (
 // *
 // Request to list cache keys matching a pattern.
 type KeysRequest struct {
-	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Pattern    *string                   `protobuf:"bytes,1,opt,name=pattern"`
-	xxx_hidden_Namespace  *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Pagination *messages.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_Metadata   *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                 protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Pattern    *string                 `protobuf:"bytes,1,opt,name=pattern"`
+	xxx_hidden_Namespace  *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Pagination *common.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_Metadata   *common.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -83,13 +83,13 @@ func (x *KeysRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *KeysRequest) GetPagination() *messages.Pagination {
+func (x *KeysRequest) GetPagination() *common.Pagination {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Pagination) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Pagination
+			var rv *common.Pagination
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Pagination), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -97,13 +97,13 @@ func (x *KeysRequest) GetPagination() *messages.Pagination {
 	return nil
 }
 
-func (x *KeysRequest) GetMetadata() *messages.RequestMetadata {
+func (x *KeysRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -121,7 +121,7 @@ func (x *KeysRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *KeysRequest) SetPagination(v *messages.Pagination) {
+func (x *KeysRequest) SetPagination(v *common.Pagination) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Pagination, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -130,7 +130,7 @@ func (x *KeysRequest) SetPagination(v *messages.Pagination) {
 	}
 }
 
-func (x *KeysRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *KeysRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -179,12 +179,12 @@ func (x *KeysRequest) ClearNamespace() {
 
 func (x *KeysRequest) ClearPagination() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Pagination, (*messages.Pagination)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Pagination, (*common.Pagination)(nil))
 }
 
 func (x *KeysRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type KeysRequest_builder struct {
@@ -195,9 +195,9 @@ type KeysRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *common.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 KeysRequest_builder) Build() *KeysRequest {
@@ -238,9 +238,9 @@ const file_gcommon_v1_database_messages_keys_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_keys_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_keys_request_proto_goTypes = []any{
-	(*KeysRequest)(nil),              // 0: gcommon.v1.database.KeysRequest
-	(*messages.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*KeysRequest)(nil),            // 0: gcommon.v1.database.KeysRequest
+	(*common.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_keys_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.KeysRequest.pagination:type_name -> gcommon.v1.common.Pagination

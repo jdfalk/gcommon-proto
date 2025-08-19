@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type KeysResponse struct {
 	xxx_hidden_Keys        []string               `protobuf:"bytes,1,rep,name=keys"`
 	xxx_hidden_TotalCount  int64                  `protobuf:"varint,2,opt,name=total_count,json=totalCount"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,3,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -83,7 +83,7 @@ func (x *KeysResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *KeysResponse) GetError() *messages.Error {
+func (x *KeysResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -104,7 +104,7 @@ func (x *KeysResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *KeysResponse) SetError(v *messages.Error) {
+func (x *KeysResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -153,7 +153,7 @@ type KeysResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error details if keys retrieval failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 KeysResponse_builder) Build() *KeysResponse {
@@ -187,8 +187,8 @@ const file_gcommon_v1_database_messages_keys_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_keys_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_keys_response_proto_goTypes = []any{
-	(*KeysResponse)(nil),   // 0: gcommon.v1.database.KeysResponse
-	(*messages.Error)(nil), // 1: gcommon.v1.common.Error
+	(*KeysResponse)(nil), // 0: gcommon.v1.database.KeysResponse
+	(*common.Error)(nil), // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_keys_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.KeysResponse.error:type_name -> gcommon.v1.common.Error

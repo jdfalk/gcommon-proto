@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type ExistsResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Exists      bool                   `protobuf:"varint,1,opt,name=exists"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -67,7 +67,7 @@ func (x *ExistsResponse) GetExists() bool {
 	return false
 }
 
-func (x *ExistsResponse) GetError() *messages.Error {
+func (x *ExistsResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -79,7 +79,7 @@ func (x *ExistsResponse) SetExists(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ExistsResponse) SetError(v *messages.Error) {
+func (x *ExistsResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -112,7 +112,7 @@ type ExistsResponse_builder struct {
 	// Whether the key exists in the cache
 	Exists *bool
 	// Error details if check failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ExistsResponse_builder) Build() *ExistsResponse {
@@ -139,7 +139,7 @@ const file_gcommon_v1_database_messages_exists_response_proto_rawDesc = "" +
 var file_gcommon_v1_database_messages_exists_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_exists_response_proto_goTypes = []any{
 	(*ExistsResponse)(nil), // 0: gcommon.v1.database.ExistsResponse
-	(*messages.Error)(nil), // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),   // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_exists_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExistsResponse.error:type_name -> gcommon.v1.common.Error

@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,13 +26,13 @@ const (
 // *
 // Request to increment a cached counter atomically.
 type IncrementRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key          *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Delta        int64                     `protobuf:"varint,2,opt,name=delta"`
-	xxx_hidden_InitialValue int64                     `protobuf:"varint,3,opt,name=initial_value,json=initialValue"`
-	xxx_hidden_Ttl          *durationpb.Duration      `protobuf:"bytes,4,opt,name=ttl"`
-	xxx_hidden_Namespace    *string                   `protobuf:"bytes,5,opt,name=namespace"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
+	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key          *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Delta        int64                   `protobuf:"varint,2,opt,name=delta"`
+	xxx_hidden_InitialValue int64                   `protobuf:"varint,3,opt,name=initial_value,json=initialValue"`
+	xxx_hidden_Ttl          *durationpb.Duration    `protobuf:"bytes,4,opt,name=ttl"`
+	xxx_hidden_Namespace    *string                 `protobuf:"bytes,5,opt,name=namespace"`
+	xxx_hidden_Metadata     *common.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -114,13 +114,13 @@ func (x *IncrementRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *IncrementRequest) GetMetadata() *messages.RequestMetadata {
+func (x *IncrementRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 6)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -157,7 +157,7 @@ func (x *IncrementRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
-func (x *IncrementRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *IncrementRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
@@ -235,7 +235,7 @@ func (x *IncrementRequest) ClearNamespace() {
 
 func (x *IncrementRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type IncrementRequest_builder struct {
@@ -252,7 +252,7 @@ type IncrementRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 IncrementRequest_builder) Build() *IncrementRequest {
@@ -301,9 +301,9 @@ const file_gcommon_v1_database_messages_increment_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_increment_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_increment_request_proto_goTypes = []any{
-	(*IncrementRequest)(nil),         // 0: gcommon.v1.database.IncrementRequest
-	(*durationpb.Duration)(nil),      // 1: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*IncrementRequest)(nil),       // 0: gcommon.v1.database.IncrementRequest
+	(*durationpb.Duration)(nil),    // 1: google.protobuf.Duration
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_increment_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.IncrementRequest.ttl:type_name -> google.protobuf.Duration

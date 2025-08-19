@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type GetAlertingRulesResponse struct {
 	state            protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Rules *[]*AlertingRule       `protobuf:"bytes,1,rep,name=rules"`
-	xxx_hidden_Error *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *GetAlertingRulesResponse) GetRules() []*AlertingRule {
 	return nil
 }
 
-func (x *GetAlertingRulesResponse) GetError() *messages.Error {
+func (x *GetAlertingRulesResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -77,7 +77,7 @@ func (x *GetAlertingRulesResponse) SetRules(v []*AlertingRule) {
 	x.xxx_hidden_Rules = &v
 }
 
-func (x *GetAlertingRulesResponse) SetError(v *messages.Error) {
+func (x *GetAlertingRulesResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -98,7 +98,7 @@ type GetAlertingRulesResponse_builder struct {
 	// Alerting rules for the metric
 	Rules []*AlertingRule
 	// Error information if retrieval failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 GetAlertingRulesResponse_builder) Build() *GetAlertingRulesResponse {
@@ -123,7 +123,7 @@ var file_gcommon_v1_metrics_messages_get_alerting_rules_response_proto_msgTypes 
 var file_gcommon_v1_metrics_messages_get_alerting_rules_response_proto_goTypes = []any{
 	(*GetAlertingRulesResponse)(nil), // 0: gcommon.v1.metrics.GetAlertingRulesResponse
 	(*AlertingRule)(nil),             // 1: gcommon.v1.metrics.AlertingRule
-	(*messages.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),             // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_get_alerting_rules_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetAlertingRulesResponse.rules:type_name -> gcommon.v1.metrics.AlertingRule

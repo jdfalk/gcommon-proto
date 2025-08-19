@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type UpdateMetricResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Metadata *MetricMetadata        `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Error    *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error    *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -64,7 +64,7 @@ func (x *UpdateMetricResponse) GetMetadata() *MetricMetadata {
 	return nil
 }
 
-func (x *UpdateMetricResponse) GetError() *messages.Error {
+func (x *UpdateMetricResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -75,7 +75,7 @@ func (x *UpdateMetricResponse) SetMetadata(v *MetricMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *UpdateMetricResponse) SetError(v *messages.Error) {
+func (x *UpdateMetricResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -107,7 +107,7 @@ type UpdateMetricResponse_builder struct {
 	// Updated metric metadata
 	Metadata *MetricMetadata
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 UpdateMetricResponse_builder) Build() *UpdateMetricResponse {
@@ -132,7 +132,7 @@ var file_gcommon_v1_metrics_messages_update_metric_response_proto_msgTypes = mak
 var file_gcommon_v1_metrics_messages_update_metric_response_proto_goTypes = []any{
 	(*UpdateMetricResponse)(nil), // 0: gcommon.v1.metrics.UpdateMetricResponse
 	(*MetricMetadata)(nil),       // 1: gcommon.v1.metrics.MetricMetadata
-	(*messages.Error)(nil),       // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),         // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_update_metric_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.UpdateMetricResponse.metadata:type_name -> gcommon.v1.metrics.MetricMetadata

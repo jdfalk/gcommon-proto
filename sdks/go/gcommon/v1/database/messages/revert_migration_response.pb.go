@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ type RevertMigrationResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success    bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_RevertedTo *string                `protobuf:"bytes,2,opt,name=reverted_to,json=revertedTo"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error      *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -79,13 +79,13 @@ func (x *RevertMigrationResponse) GetRevertedTo() string {
 	return ""
 }
 
-func (x *RevertMigrationResponse) GetError() *messages.Error {
+func (x *RevertMigrationResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -103,7 +103,7 @@ func (x *RevertMigrationResponse) SetRevertedTo(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *RevertMigrationResponse) SetError(v *messages.Error) {
+func (x *RevertMigrationResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -145,7 +145,7 @@ func (x *RevertMigrationResponse) ClearRevertedTo() {
 
 func (x *RevertMigrationResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type RevertMigrationResponse_builder struct {
@@ -156,7 +156,7 @@ type RevertMigrationResponse_builder struct {
 	// Version that the database was reverted to
 	RevertedTo *string
 	// Error information if the revert failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 RevertMigrationResponse_builder) Build() *RevertMigrationResponse {
@@ -192,7 +192,7 @@ const file_gcommon_v1_database_messages_revert_migration_response_proto_rawDesc 
 var file_gcommon_v1_database_messages_revert_migration_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_revert_migration_response_proto_goTypes = []any{
 	(*RevertMigrationResponse)(nil), // 0: gcommon.v1.database.RevertMigrationResponse
-	(*messages.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_revert_migration_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RevertMigrationResponse.error:type_name -> gcommon.v1.common.Error

@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type RevertMigrationRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Database      *string                   `protobuf:"bytes,1,opt,name=database"`
-	xxx_hidden_TargetVersion *string                   `protobuf:"bytes,2,opt,name=target_version,json=targetVersion"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Database      *string                 `protobuf:"bytes,1,opt,name=database"`
+	xxx_hidden_TargetVersion *string                 `protobuf:"bytes,2,opt,name=target_version,json=targetVersion"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -80,13 +80,13 @@ func (x *RevertMigrationRequest) GetTargetVersion() string {
 	return ""
 }
 
-func (x *RevertMigrationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RevertMigrationRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -104,7 +104,7 @@ func (x *RevertMigrationRequest) SetTargetVersion(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *RevertMigrationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RevertMigrationRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -146,7 +146,7 @@ func (x *RevertMigrationRequest) ClearTargetVersion() {
 
 func (x *RevertMigrationRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type RevertMigrationRequest_builder struct {
@@ -157,7 +157,7 @@ type RevertMigrationRequest_builder struct {
 	// Target migration version to revert to
 	TargetVersion *string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 RevertMigrationRequest_builder) Build() *RevertMigrationRequest {
@@ -191,8 +191,8 @@ const file_gcommon_v1_database_messages_revert_migration_request_proto_rawDesc =
 
 var file_gcommon_v1_database_messages_revert_migration_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_revert_migration_request_proto_goTypes = []any{
-	(*RevertMigrationRequest)(nil),   // 0: gcommon.v1.database.RevertMigrationRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*RevertMigrationRequest)(nil), // 0: gcommon.v1.database.RevertMigrationRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_revert_migration_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RevertMigrationRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

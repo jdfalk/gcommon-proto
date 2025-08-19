@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ type RunMigrationResponse struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_AppliedVersions []string               `protobuf:"bytes,2,rep,name=applied_versions,json=appliedVersions"`
-	xxx_hidden_Error           *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error           *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -77,13 +77,13 @@ func (x *RunMigrationResponse) GetAppliedVersions() []string {
 	return nil
 }
 
-func (x *RunMigrationResponse) GetError() *messages.Error {
+func (x *RunMigrationResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -100,7 +100,7 @@ func (x *RunMigrationResponse) SetAppliedVersions(v []string) {
 	x.xxx_hidden_AppliedVersions = v
 }
 
-func (x *RunMigrationResponse) SetError(v *messages.Error) {
+func (x *RunMigrationResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -130,7 +130,7 @@ func (x *RunMigrationResponse) ClearSuccess() {
 
 func (x *RunMigrationResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type RunMigrationResponse_builder struct {
@@ -141,7 +141,7 @@ type RunMigrationResponse_builder struct {
 	// List of migration versions that were successfully applied
 	AppliedVersions []string
 	// Error information if any migration failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 RunMigrationResponse_builder) Build() *RunMigrationResponse {
@@ -173,7 +173,7 @@ const file_gcommon_v1_database_messages_run_migration_response_proto_rawDesc = "
 var file_gcommon_v1_database_messages_run_migration_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_run_migration_response_proto_goTypes = []any{
 	(*RunMigrationResponse)(nil), // 0: gcommon.v1.database.RunMigrationResponse
-	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),         // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_run_migration_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RunMigrationResponse.error:type_name -> gcommon.v1.common.Error

@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type DeleteMultipleResponse struct {
 	xxx_hidden_DeletedCount int32                  `protobuf:"varint,1,opt,name=deleted_count,json=deletedCount"`
 	xxx_hidden_FailedCount  int32                  `protobuf:"varint,2,opt,name=failed_count,json=failedCount"`
 	xxx_hidden_FailedKeys   []string               `protobuf:"bytes,3,rep,name=failed_keys,json=failedKeys"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error        *common.Error          `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -83,7 +83,7 @@ func (x *DeleteMultipleResponse) GetFailedKeys() []string {
 	return nil
 }
 
-func (x *DeleteMultipleResponse) GetError() *messages.Error {
+func (x *DeleteMultipleResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -104,7 +104,7 @@ func (x *DeleteMultipleResponse) SetFailedKeys(v []string) {
 	x.xxx_hidden_FailedKeys = v
 }
 
-func (x *DeleteMultipleResponse) SetError(v *messages.Error) {
+func (x *DeleteMultipleResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -153,7 +153,7 @@ type DeleteMultipleResponse_builder struct {
 	// List of keys that failed to delete
 	FailedKeys []string
 	// Error details if any deletions failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 DeleteMultipleResponse_builder) Build() *DeleteMultipleResponse {
@@ -188,7 +188,7 @@ const file_gcommon_v1_database_messages_delete_multiple_response_proto_rawDesc =
 var file_gcommon_v1_database_messages_delete_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_delete_multiple_response_proto_goTypes = []any{
 	(*DeleteMultipleResponse)(nil), // 0: gcommon.v1.database.DeleteMultipleResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),           // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_delete_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DeleteMultipleResponse.error:type_name -> gcommon.v1.common.Error

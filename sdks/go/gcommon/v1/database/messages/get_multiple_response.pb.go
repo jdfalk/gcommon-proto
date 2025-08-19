@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ type GetMultipleResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Values      map[string][]byte      `protobuf:"bytes,1,rep,name=values" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_MissingKeys []string               `protobuf:"bytes,2,rep,name=missing_keys,json=missingKeys"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -73,7 +73,7 @@ func (x *GetMultipleResponse) GetMissingKeys() []string {
 	return nil
 }
 
-func (x *GetMultipleResponse) GetError() *messages.Error {
+func (x *GetMultipleResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -88,7 +88,7 @@ func (x *GetMultipleResponse) SetMissingKeys(v []string) {
 	x.xxx_hidden_MissingKeys = v
 }
 
-func (x *GetMultipleResponse) SetError(v *messages.Error) {
+func (x *GetMultipleResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -111,7 +111,7 @@ type GetMultipleResponse_builder struct {
 	// List of keys that were not found
 	MissingKeys []string
 	// Error details if operation failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 GetMultipleResponse_builder) Build() *GetMultipleResponse {
@@ -141,7 +141,7 @@ var file_gcommon_v1_database_messages_get_multiple_response_proto_msgTypes = mak
 var file_gcommon_v1_database_messages_get_multiple_response_proto_goTypes = []any{
 	(*GetMultipleResponse)(nil), // 0: gcommon.v1.database.GetMultipleResponse
 	nil,                         // 1: gcommon.v1.database.GetMultipleResponse.ValuesEntry
-	(*messages.Error)(nil),      // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_get_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetMultipleResponse.values:type_name -> gcommon.v1.database.GetMultipleResponse.ValuesEntry

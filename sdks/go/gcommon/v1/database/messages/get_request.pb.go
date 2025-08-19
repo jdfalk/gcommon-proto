@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,11 +27,11 @@ const (
 // Supports namespace isolation and access time tracking
 // for LRU cache policies.
 type GetRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key              *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Namespace        *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
-	xxx_hidden_UpdateAccessTime bool                      `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
+	state                       protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key              *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Namespace        *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata         *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_UpdateAccessTime bool                    `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -85,13 +85,13 @@ func (x *GetRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *GetRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -116,7 +116,7 @@ func (x *GetRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *GetRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -170,7 +170,7 @@ func (x *GetRequest) ClearNamespace() {
 
 func (x *GetRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 func (x *GetRequest) ClearUpdateAccessTime() {
@@ -186,7 +186,7 @@ type GetRequest_builder struct {
 	// Optional namespace for cache isolation
 	Namespace *string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Whether to update access time (for LRU policies)
 	UpdateAccessTime *bool
 }
@@ -228,8 +228,8 @@ const file_gcommon_v1_database_messages_get_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_get_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_request_proto_goTypes = []any{
-	(*GetRequest)(nil),               // 0: gcommon.v1.database.GetRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetRequest)(nil),             // 0: gcommon.v1.database.GetRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_get_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

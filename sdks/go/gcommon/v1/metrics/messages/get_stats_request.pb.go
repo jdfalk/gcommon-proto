@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type MetricsGetStatsRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metric   *string                   `protobuf:"bytes,1,opt,name=metric"`
-	xxx_hidden_Range    *MetricsTimestampRange    `protobuf:"bytes,2,opt,name=range"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metric   *string                 `protobuf:"bytes,1,opt,name=metric"`
+	xxx_hidden_Range    *MetricsTimestampRange  `protobuf:"bytes,2,opt,name=range"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -77,13 +77,13 @@ func (x *MetricsGetStatsRequest) GetRange() *MetricsTimestampRange {
 	return nil
 }
 
-func (x *MetricsGetStatsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *MetricsGetStatsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -100,7 +100,7 @@ func (x *MetricsGetStatsRequest) SetRange(v *MetricsTimestampRange) {
 	x.xxx_hidden_Range = v
 }
 
-func (x *MetricsGetStatsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *MetricsGetStatsRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -141,7 +141,7 @@ func (x *MetricsGetStatsRequest) ClearRange() {
 
 func (x *MetricsGetStatsRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type MetricsGetStatsRequest_builder struct {
@@ -152,7 +152,7 @@ type MetricsGetStatsRequest_builder struct {
 	// Time range for stats
 	Range *MetricsTimestampRange
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 MetricsGetStatsRequest_builder) Build() *MetricsGetStatsRequest {
@@ -183,9 +183,9 @@ const file_gcommon_v1_metrics_messages_get_stats_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_get_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_stats_request_proto_goTypes = []any{
-	(*MetricsGetStatsRequest)(nil),   // 0: gcommon.v1.metrics.MetricsGetStatsRequest
-	(*MetricsTimestampRange)(nil),    // 1: gcommon.v1.metrics.MetricsTimestampRange
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*MetricsGetStatsRequest)(nil), // 0: gcommon.v1.metrics.MetricsGetStatsRequest
+	(*MetricsTimestampRange)(nil),  // 1: gcommon.v1.metrics.MetricsTimestampRange
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_get_stats_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricsGetStatsRequest.range:type_name -> gcommon.v1.metrics.MetricsTimestampRange

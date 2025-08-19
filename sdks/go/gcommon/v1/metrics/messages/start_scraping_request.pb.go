@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type StartScrapingRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_ProviderId  *string                   `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
-	xxx_hidden_Config      *ScrapeConfig             `protobuf:"bytes,3,opt,name=config"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_ProviderId  *string                 `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
+	xxx_hidden_Config      *ScrapeConfig           `protobuf:"bytes,3,opt,name=config"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,7 +58,7 @@ func (x *StartScrapingRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *StartScrapingRequest) GetMetadata() *messages.RequestMetadata {
+func (x *StartScrapingRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -82,7 +82,7 @@ func (x *StartScrapingRequest) GetConfig() *ScrapeConfig {
 	return nil
 }
 
-func (x *StartScrapingRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *StartScrapingRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -133,7 +133,7 @@ type StartScrapingRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Metrics provider identifier
 	ProviderId *string
 	// Scrape configuration to use
@@ -166,9 +166,9 @@ const file_gcommon_v1_metrics_messages_start_scraping_request_proto_rawDesc = ""
 
 var file_gcommon_v1_metrics_messages_start_scraping_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_start_scraping_request_proto_goTypes = []any{
-	(*StartScrapingRequest)(nil),     // 0: gcommon.v1.metrics.StartScrapingRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*ScrapeConfig)(nil),             // 2: gcommon.v1.metrics.ScrapeConfig
+	(*StartScrapingRequest)(nil),   // 0: gcommon.v1.metrics.StartScrapingRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ScrapeConfig)(nil),           // 2: gcommon.v1.metrics.ScrapeConfig
 }
 var file_gcommon_v1_metrics_messages_start_scraping_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.StartScrapingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

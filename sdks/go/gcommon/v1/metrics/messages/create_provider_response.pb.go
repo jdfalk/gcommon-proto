@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 type CreateProviderResponse struct {
 	state                    protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                     `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *messages.Error          `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *common.Error            `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_ProviderId    *string                  `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
 	xxx_hidden_Status        *ProviderStatus          `protobuf:"bytes,5,opt,name=status"`
@@ -72,7 +72,7 @@ func (x *CreateProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateProviderResponse) GetError() *messages.Error {
+func (x *CreateProviderResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -136,7 +136,7 @@ func (x *CreateProviderResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *CreateProviderResponse) SetError(v *messages.Error) {
+func (x *CreateProviderResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -265,7 +265,7 @@ type CreateProviderResponse_builder struct {
 	// Success status of the creation
 	Success *bool
 	// Error information if creation failed
-	Error *messages.Error
+	Error *common.Error
 	// ID of the created provider
 	ProviderId *string
 	// When the provider was created
@@ -327,7 +327,7 @@ const file_gcommon_v1_metrics_messages_create_provider_response_proto_rawDesc = 
 var file_gcommon_v1_metrics_messages_create_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_create_provider_response_proto_goTypes = []any{
 	(*CreateProviderResponse)(nil),  // 0: gcommon.v1.metrics.CreateProviderResponse
-	(*messages.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),            // 1: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),   // 2: google.protobuf.Timestamp
 	(*ProviderStatus)(nil),          // 3: gcommon.v1.metrics.ProviderStatus
 	(*MetricsValidationResult)(nil), // 4: gcommon.v1.metrics.MetricsValidationResult

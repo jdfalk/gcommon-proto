@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type ExecuteResponse struct {
 	xxx_hidden_AffectedRows  int64                  `protobuf:"varint,1,opt,name=affected_rows,json=affectedRows"`
 	xxx_hidden_GeneratedKeys *[]*anypb.Any          `protobuf:"bytes,2,rep,name=generated_keys,json=generatedKeys"`
 	xxx_hidden_Stats         *ExecuteStats          `protobuf:"bytes,3,opt,name=stats"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *common.Error          `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -100,13 +100,13 @@ func (x *ExecuteResponse) GetStats() *ExecuteStats {
 	return nil
 }
 
-func (x *ExecuteResponse) GetError() *messages.Error {
+func (x *ExecuteResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -139,7 +139,7 @@ func (x *ExecuteResponse) SetStats(v *ExecuteStats) {
 	}
 }
 
-func (x *ExecuteResponse) SetError(v *messages.Error) {
+func (x *ExecuteResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -181,7 +181,7 @@ func (x *ExecuteResponse) ClearStats() {
 
 func (x *ExecuteResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type ExecuteResponse_builder struct {
@@ -194,7 +194,7 @@ type ExecuteResponse_builder struct {
 	// Execution statistics and performance metrics
 	Stats *ExecuteStats
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ExecuteResponse_builder) Build() *ExecuteResponse {
@@ -236,7 +236,7 @@ var file_gcommon_v1_database_messages_execute_response_proto_goTypes = []any{
 	(*ExecuteResponse)(nil), // 0: gcommon.v1.database.ExecuteResponse
 	(*anypb.Any)(nil),       // 1: google.protobuf.Any
 	(*ExecuteStats)(nil),    // 2: gcommon.v1.database.ExecuteStats
-	(*messages.Error)(nil),  // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),    // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_execute_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteResponse.generated_keys:type_name -> google.protobuf.Any

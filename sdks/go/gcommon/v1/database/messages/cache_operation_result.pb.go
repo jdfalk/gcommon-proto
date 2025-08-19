@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type CacheOperationResult struct {
 	xxx_hidden_DurationMicroseconds int64                  `protobuf:"varint,5,opt,name=duration_microseconds,json=durationMicroseconds"`
 	xxx_hidden_Timestamp            *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp"`
 	xxx_hidden_ItemsAffected        int64                  `protobuf:"varint,7,opt,name=items_affected,json=itemsAffected"`
-	xxx_hidden_Error                *messages.Error        `protobuf:"bytes,8,opt,name=error"`
+	xxx_hidden_Error                *common.Error          `protobuf:"bytes,8,opt,name=error"`
 	xxx_hidden_Metadata             map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
@@ -126,7 +126,7 @@ func (x *CacheOperationResult) GetItemsAffected() int64 {
 	return 0
 }
 
-func (x *CacheOperationResult) GetError() *messages.Error {
+func (x *CacheOperationResult) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -174,7 +174,7 @@ func (x *CacheOperationResult) SetItemsAffected(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 9)
 }
 
-func (x *CacheOperationResult) SetError(v *messages.Error) {
+func (x *CacheOperationResult) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -294,7 +294,7 @@ type CacheOperationResult_builder struct {
 	// Number of items affected
 	ItemsAffected *int64
 	// Error details if operation failed
-	Error *messages.Error
+	Error *common.Error
 	// Additional operation metadata
 	Metadata map[string]string
 }
@@ -357,7 +357,7 @@ var file_gcommon_v1_database_messages_cache_operation_result_proto_goTypes = []a
 	(*CacheOperationResult)(nil),  // 0: gcommon.v1.database.CacheOperationResult
 	nil,                           // 1: gcommon.v1.database.CacheOperationResult.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*messages.Error)(nil),        // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),          // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_cache_operation_result_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.database.CacheOperationResult.timestamp:type_name -> google.protobuf.Timestamp

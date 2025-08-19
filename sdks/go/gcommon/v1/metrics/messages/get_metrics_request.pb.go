@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,16 +23,16 @@ const (
 )
 
 type MetricsGetMetricsRequest struct {
-	state                      protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *messages.RequestMetadata   `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter          *MetricFilter               `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_TimeRange       *MetricsTimeRange           `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Aggregation     *MetricAggregation          `protobuf:"bytes,4,opt,name=aggregation"`
-	xxx_hidden_Pagination      *messages.PaginationOptions `protobuf:"bytes,5,opt,name=pagination"`
-	xxx_hidden_ProviderId      *string                     `protobuf:"bytes,6,opt,name=provider_id,json=providerId"`
-	xxx_hidden_OutputOptions   *OutputOptions              `protobuf:"bytes,7,opt,name=output_options,json=outputOptions"`
-	xxx_hidden_IncludeMetadata bool                        `protobuf:"varint,8,opt,name=include_metadata,json=includeMetadata"`
-	xxx_hidden_Limit           int32                       `protobuf:"varint,9,opt,name=limit"`
+	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Metadata        *common.RequestMetadata   `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter          *MetricFilter             `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_TimeRange       *MetricsTimeRange         `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Aggregation     *MetricAggregation        `protobuf:"bytes,4,opt,name=aggregation"`
+	xxx_hidden_Pagination      *common.PaginationOptions `protobuf:"bytes,5,opt,name=pagination"`
+	xxx_hidden_ProviderId      *string                   `protobuf:"bytes,6,opt,name=provider_id,json=providerId"`
+	xxx_hidden_OutputOptions   *OutputOptions            `protobuf:"bytes,7,opt,name=output_options,json=outputOptions"`
+	xxx_hidden_IncludeMetadata bool                      `protobuf:"varint,8,opt,name=include_metadata,json=includeMetadata"`
+	xxx_hidden_Limit           int32                     `protobuf:"varint,9,opt,name=limit"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -64,7 +64,7 @@ func (x *MetricsGetMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricsGetMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *MetricsGetMetricsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -92,7 +92,7 @@ func (x *MetricsGetMetricsRequest) GetAggregation() *MetricAggregation {
 	return nil
 }
 
-func (x *MetricsGetMetricsRequest) GetPagination() *messages.PaginationOptions {
+func (x *MetricsGetMetricsRequest) GetPagination() *common.PaginationOptions {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -130,7 +130,7 @@ func (x *MetricsGetMetricsRequest) GetLimit() int32 {
 	return 0
 }
 
-func (x *MetricsGetMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *MetricsGetMetricsRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -146,7 +146,7 @@ func (x *MetricsGetMetricsRequest) SetAggregation(v *MetricAggregation) {
 	x.xxx_hidden_Aggregation = v
 }
 
-func (x *MetricsGetMetricsRequest) SetPagination(v *messages.PaginationOptions) {
+func (x *MetricsGetMetricsRequest) SetPagination(v *common.PaginationOptions) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -275,7 +275,7 @@ type MetricsGetMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Filter to determine which metrics to retrieve
 	Filter *MetricFilter
 	// Time range for the request
@@ -283,7 +283,7 @@ type MetricsGetMetricsRequest_builder struct {
 	// Aggregation options for the metrics
 	Aggregation *MetricAggregation
 	// Pagination options
-	Pagination *messages.PaginationOptions
+	Pagination *common.PaginationOptions
 	// Optional provider ID to query
 	ProviderId *string
 	// Output format options
@@ -341,13 +341,13 @@ const file_gcommon_v1_metrics_messages_get_metrics_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_get_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metrics_request_proto_goTypes = []any{
-	(*MetricsGetMetricsRequest)(nil),   // 0: gcommon.v1.metrics.MetricsGetMetricsRequest
-	(*messages.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
-	(*MetricFilter)(nil),               // 2: gcommon.v1.metrics.MetricFilter
-	(*MetricsTimeRange)(nil),           // 3: gcommon.v1.metrics.MetricsTimeRange
-	(*MetricAggregation)(nil),          // 4: gcommon.v1.metrics.MetricAggregation
-	(*messages.PaginationOptions)(nil), // 5: gcommon.v1.common.PaginationOptions
-	(*OutputOptions)(nil),              // 6: gcommon.v1.metrics.OutputOptions
+	(*MetricsGetMetricsRequest)(nil), // 0: gcommon.v1.metrics.MetricsGetMetricsRequest
+	(*common.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*MetricFilter)(nil),             // 2: gcommon.v1.metrics.MetricFilter
+	(*MetricsTimeRange)(nil),         // 3: gcommon.v1.metrics.MetricsTimeRange
+	(*MetricAggregation)(nil),        // 4: gcommon.v1.metrics.MetricAggregation
+	(*common.PaginationOptions)(nil), // 5: gcommon.v1.common.PaginationOptions
+	(*OutputOptions)(nil),            // 6: gcommon.v1.metrics.OutputOptions
 }
 var file_gcommon_v1_metrics_messages_get_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricsGetMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

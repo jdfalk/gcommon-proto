@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,10 +25,10 @@ const (
 // *
 // Request to import cache contents from an external source.
 type ImportRequest struct {
-	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Source    *string                   `protobuf:"bytes,1,opt,name=source"`
-	xxx_hidden_Namespace *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Source    *string                 `protobuf:"bytes,1,opt,name=source"`
+	xxx_hidden_Namespace *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata  *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -82,13 +82,13 @@ func (x *ImportRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *ImportRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ImportRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -106,7 +106,7 @@ func (x *ImportRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ImportRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ImportRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -148,7 +148,7 @@ func (x *ImportRequest) ClearNamespace() {
 
 func (x *ImportRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type ImportRequest_builder struct {
@@ -159,7 +159,7 @@ type ImportRequest_builder struct {
 	// Optional namespace to import into
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 ImportRequest_builder) Build() *ImportRequest {
@@ -193,8 +193,8 @@ const file_gcommon_v1_database_messages_import_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_import_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_import_request_proto_goTypes = []any{
-	(*ImportRequest)(nil),            // 0: gcommon.v1.database.ImportRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ImportRequest)(nil),          // 0: gcommon.v1.database.ImportRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_import_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ImportRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

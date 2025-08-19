@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +25,12 @@ const (
 // *
 // RecordMetricsRequest represents a batch request to record multiple metrics.
 type RecordMetricsRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Metrics     *[]*MetricData            `protobuf:"bytes,2,rep,name=metrics"`
-	xxx_hidden_Atomic      bool                      `protobuf:"varint,3,opt,name=atomic"`
-	xxx_hidden_BatchId     *string                   `protobuf:"bytes,4,opt,name=batch_id,json=batchId"`
-	xxx_hidden_MaxRetries  int32                     `protobuf:"varint,5,opt,name=max_retries,json=maxRetries"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metrics     *[]*MetricData          `protobuf:"bytes,2,rep,name=metrics"`
+	xxx_hidden_Atomic      bool                    `protobuf:"varint,3,opt,name=atomic"`
+	xxx_hidden_BatchId     *string                 `protobuf:"bytes,4,opt,name=batch_id,json=batchId"`
+	xxx_hidden_MaxRetries  int32                   `protobuf:"varint,5,opt,name=max_retries,json=maxRetries"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -62,7 +62,7 @@ func (x *RecordMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RecordMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordMetricsRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -102,7 +102,7 @@ func (x *RecordMetricsRequest) GetMaxRetries() int32 {
 	return 0
 }
 
-func (x *RecordMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordMetricsRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -176,7 +176,7 @@ type RecordMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Batch of metrics to record
 	Metrics []*MetricData
 	// Whether to validate all metrics before recording any
@@ -223,9 +223,9 @@ const file_gcommon_v1_metrics_messages_record_metrics_request_proto_rawDesc = ""
 
 var file_gcommon_v1_metrics_messages_record_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_record_metrics_request_proto_goTypes = []any{
-	(*RecordMetricsRequest)(nil),     // 0: gcommon.v1.metrics.RecordMetricsRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*MetricData)(nil),               // 2: gcommon.v1.metrics.MetricData
+	(*RecordMetricsRequest)(nil),   // 0: gcommon.v1.metrics.RecordMetricsRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*MetricData)(nil),             // 2: gcommon.v1.metrics.MetricData
 }
 var file_gcommon_v1_metrics_messages_record_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

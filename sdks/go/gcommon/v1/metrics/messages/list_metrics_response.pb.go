@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type ListMetricsResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Metrics *[]*MetricMetadata     `protobuf:"bytes,1,rep,name=metrics"`
-	xxx_hidden_Error   *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error   *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *ListMetricsResponse) GetMetrics() []*MetricMetadata {
 	return nil
 }
 
-func (x *ListMetricsResponse) GetError() *messages.Error {
+func (x *ListMetricsResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -77,7 +77,7 @@ func (x *ListMetricsResponse) SetMetrics(v []*MetricMetadata) {
 	x.xxx_hidden_Metrics = &v
 }
 
-func (x *ListMetricsResponse) SetError(v *messages.Error) {
+func (x *ListMetricsResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -98,7 +98,7 @@ type ListMetricsResponse_builder struct {
 	// Available metrics
 	Metrics []*MetricMetadata
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 ListMetricsResponse_builder) Build() *ListMetricsResponse {
@@ -123,7 +123,7 @@ var file_gcommon_v1_metrics_messages_list_metrics_response_proto_msgTypes = make
 var file_gcommon_v1_metrics_messages_list_metrics_response_proto_goTypes = []any{
 	(*ListMetricsResponse)(nil), // 0: gcommon.v1.metrics.ListMetricsResponse
 	(*MetricMetadata)(nil),      // 1: gcommon.v1.metrics.MetricMetadata
-	(*messages.Error)(nil),      // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_list_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ListMetricsResponse.metrics:type_name -> gcommon.v1.metrics.MetricMetadata

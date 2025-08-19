@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 type UnregisterMetricResponse struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success        bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error          *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error          *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_MetricId       *string                `protobuf:"bytes,3,opt,name=metric_id,json=metricId"`
 	xxx_hidden_MetricName     *string                `protobuf:"bytes,4,opt,name=metric_name,json=metricName"`
 	xxx_hidden_UnregisteredAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=unregistered_at,json=unregisteredAt"`
@@ -72,7 +72,7 @@ func (x *UnregisterMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UnregisterMetricResponse) GetError() *messages.Error {
+func (x *UnregisterMetricResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -142,7 +142,7 @@ func (x *UnregisterMetricResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *UnregisterMetricResponse) SetError(v *messages.Error) {
+func (x *UnregisterMetricResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -275,7 +275,7 @@ type UnregisterMetricResponse_builder struct {
 	// Success status of the unregistration
 	Success *bool
 	// Error information if unregistration failed
-	Error *messages.Error
+	Error *common.Error
 	// ID of the metric that was unregistered
 	MetricId *string
 	// Name of the metric that was unregistered
@@ -342,7 +342,7 @@ const file_gcommon_v1_metrics_messages_unregister_metric_response_proto_rawDesc 
 var file_gcommon_v1_metrics_messages_unregister_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_unregister_metric_response_proto_goTypes = []any{
 	(*UnregisterMetricResponse)(nil), // 0: gcommon.v1.metrics.UnregisterMetricResponse
-	(*messages.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),             // 1: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
 	(*UnregistrationResult)(nil),     // 3: gcommon.v1.metrics.UnregistrationResult
 	(*MetricsBackupInfo)(nil),        // 4: gcommon.v1.metrics.MetricsBackupInfo

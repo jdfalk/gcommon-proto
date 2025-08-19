@@ -7,7 +7,7 @@
 package database
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,16 +27,16 @@ const (
 // General cache information and metadata.
 // Provides cache instance details and operational status.
 type CacheInfo struct {
-	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Name         *string                  `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Version      *string                  `protobuf:"bytes,2,opt,name=version"`
-	xxx_hidden_CacheType    *string                  `protobuf:"bytes,3,opt,name=cache_type,json=cacheType"`
-	xxx_hidden_HealthStatus enums.CommonHealthStatus `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_CreatedAt    *timestamppb.Timestamp   `protobuf:"bytes,5,opt,name=created_at,json=createdAt"`
-	xxx_hidden_LastAccessed *timestamppb.Timestamp   `protobuf:"bytes,6,opt,name=last_accessed,json=lastAccessed"`
-	xxx_hidden_InstanceId   *string                  `protobuf:"bytes,7,opt,name=instance_id,json=instanceId"`
-	xxx_hidden_Description  *string                  `protobuf:"bytes,8,opt,name=description"`
-	xxx_hidden_Metadata     map[string]string        `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Name         *string                   `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Version      *string                   `protobuf:"bytes,2,opt,name=version"`
+	xxx_hidden_CacheType    *string                   `protobuf:"bytes,3,opt,name=cache_type,json=cacheType"`
+	xxx_hidden_HealthStatus common.CommonHealthStatus `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_CreatedAt    *timestamppb.Timestamp    `protobuf:"bytes,5,opt,name=created_at,json=createdAt"`
+	xxx_hidden_LastAccessed *timestamppb.Timestamp    `protobuf:"bytes,6,opt,name=last_accessed,json=lastAccessed"`
+	xxx_hidden_InstanceId   *string                   `protobuf:"bytes,7,opt,name=instance_id,json=instanceId"`
+	xxx_hidden_Description  *string                   `protobuf:"bytes,8,opt,name=description"`
+	xxx_hidden_Metadata     map[string]string         `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -98,13 +98,13 @@ func (x *CacheInfo) GetCacheType() string {
 	return ""
 }
 
-func (x *CacheInfo) GetHealthStatus() enums.CommonHealthStatus {
+func (x *CacheInfo) GetHealthStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_HealthStatus
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *CacheInfo) GetCreatedAt() *timestamppb.Timestamp {
@@ -163,7 +163,7 @@ func (x *CacheInfo) SetCacheType(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
 
-func (x *CacheInfo) SetHealthStatus(v enums.CommonHealthStatus) {
+func (x *CacheInfo) SetHealthStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_HealthStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
 }
@@ -263,7 +263,7 @@ func (x *CacheInfo) ClearCacheType() {
 
 func (x *CacheInfo) ClearHealthStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_HealthStatus = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_HealthStatus = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *CacheInfo) ClearCreatedAt() {
@@ -294,7 +294,7 @@ type CacheInfo_builder struct {
 	// Cache type (e.g., "memory", "redis", "memcached")
 	CacheType *string
 	// Current health status
-	HealthStatus *enums.CommonHealthStatus
+	HealthStatus *common.CommonHealthStatus
 	// Cache creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last access timestamp
@@ -365,10 +365,10 @@ const file_gcommon_v1_database_messages_cache_info_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_cache_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_cache_info_proto_goTypes = []any{
-	(*CacheInfo)(nil),             // 0: gcommon.v1.database.CacheInfo
-	nil,                           // 1: gcommon.v1.database.CacheInfo.MetadataEntry
-	(enums.CommonHealthStatus)(0), // 2: gcommon.v1.common.CommonHealthStatus
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*CacheInfo)(nil),              // 0: gcommon.v1.database.CacheInfo
+	nil,                            // 1: gcommon.v1.database.CacheInfo.MetadataEntry
+	(common.CommonHealthStatus)(0), // 2: gcommon.v1.common.CommonHealthStatus
+	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_database_messages_cache_info_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.database.CacheInfo.health_status:type_name -> gcommon.v1.common.CommonHealthStatus

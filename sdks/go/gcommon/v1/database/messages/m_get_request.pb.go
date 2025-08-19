@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,12 +26,12 @@ const (
 // MGetRequest is used to retrieve multiple cache entries in a single operation.
 // This is more efficient than multiple individual Get operations.
 type MGetRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Keys             []string                  `protobuf:"bytes,1,rep,name=keys"`
-	xxx_hidden_Namespace        *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_IncludeExpired   bool                      `protobuf:"varint,3,opt,name=include_expired,json=includeExpired"`
-	xxx_hidden_UpdateAccessTime bool                      `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                       protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Keys             []string                `protobuf:"bytes,1,rep,name=keys"`
+	xxx_hidden_Namespace        *string                 `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_IncludeExpired   bool                    `protobuf:"varint,3,opt,name=include_expired,json=includeExpired"`
+	xxx_hidden_UpdateAccessTime bool                    `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
+	xxx_hidden_Metadata         *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -94,7 +94,7 @@ func (x *MGetRequest) GetUpdateAccessTime() bool {
 	return false
 }
 
-func (x *MGetRequest) GetMetadata() *messages.RequestMetadata {
+func (x *MGetRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -120,7 +120,7 @@ func (x *MGetRequest) SetUpdateAccessTime(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *MGetRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *MGetRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -183,7 +183,7 @@ type MGetRequest_builder struct {
 	// Whether to update access time for retrieved entries
 	UpdateAccessTime *bool
 	// Request metadata for tracing and debugging
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 MGetRequest_builder) Build() *MGetRequest {
@@ -221,8 +221,8 @@ const file_gcommon_v1_database_messages_m_get_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_m_get_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_m_get_request_proto_goTypes = []any{
-	(*MGetRequest)(nil),              // 0: gcommon.v1.database.MGetRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*MGetRequest)(nil),            // 0: gcommon.v1.database.MGetRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_m_get_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.MGetRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

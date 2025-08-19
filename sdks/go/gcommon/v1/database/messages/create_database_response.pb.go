@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type CreateDatabaseResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error   *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error   *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +69,13 @@ func (x *CreateDatabaseResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateDatabaseResponse) GetError() *messages.Error {
+func (x *CreateDatabaseResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -88,7 +88,7 @@ func (x *CreateDatabaseResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *CreateDatabaseResponse) SetError(v *messages.Error) {
+func (x *CreateDatabaseResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -118,7 +118,7 @@ func (x *CreateDatabaseResponse) ClearSuccess() {
 
 func (x *CreateDatabaseResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type CreateDatabaseResponse_builder struct {
@@ -127,7 +127,7 @@ type CreateDatabaseResponse_builder struct {
 	// Whether the database was created successfully
 	Success *bool
 	// Error information if the creation failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 CreateDatabaseResponse_builder) Build() *CreateDatabaseResponse {
@@ -157,7 +157,7 @@ const file_gcommon_v1_database_messages_create_database_response_proto_rawDesc =
 var file_gcommon_v1_database_messages_create_database_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_create_database_response_proto_goTypes = []any{
 	(*CreateDatabaseResponse)(nil), // 0: gcommon.v1.database.CreateDatabaseResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),           // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_create_database_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateDatabaseResponse.error:type_name -> gcommon.v1.common.Error

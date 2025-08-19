@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ type DecrementResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_NewValue    int64                  `protobuf:"varint,1,opt,name=new_value,json=newValue"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -75,7 +75,7 @@ func (x *DecrementResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DecrementResponse) GetError() *messages.Error {
+func (x *DecrementResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -92,7 +92,7 @@ func (x *DecrementResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *DecrementResponse) SetError(v *messages.Error) {
+func (x *DecrementResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -139,7 +139,7 @@ type DecrementResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error details if decrement failed
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 DecrementResponse_builder) Build() *DecrementResponse {
@@ -171,7 +171,7 @@ const file_gcommon_v1_database_messages_decrement_response_proto_rawDesc = "" +
 var file_gcommon_v1_database_messages_decrement_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_decrement_response_proto_goTypes = []any{
 	(*DecrementResponse)(nil), // 0: gcommon.v1.database.DecrementResponse
-	(*messages.Error)(nil),    // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),      // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_decrement_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DecrementResponse.error:type_name -> gcommon.v1.common.Error

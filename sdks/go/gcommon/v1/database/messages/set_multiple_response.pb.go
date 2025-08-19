@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ type SetMultipleResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_FailedKeys  []string               `protobuf:"bytes,2,rep,name=failed_keys,json=failedKeys"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,3,opt,name=error"`
 	xxx_hidden_SetCount    int32                  `protobuf:"varint,4,opt,name=set_count,json=setCount"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -76,7 +76,7 @@ func (x *SetMultipleResponse) GetFailedKeys() []string {
 	return nil
 }
 
-func (x *SetMultipleResponse) GetError() *messages.Error {
+func (x *SetMultipleResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -99,7 +99,7 @@ func (x *SetMultipleResponse) SetFailedKeys(v []string) {
 	x.xxx_hidden_FailedKeys = v
 }
 
-func (x *SetMultipleResponse) SetError(v *messages.Error) {
+func (x *SetMultipleResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -151,7 +151,7 @@ type SetMultipleResponse_builder struct {
 	// List of keys that failed to be set
 	FailedKeys []string
 	// Error details if operation failed
-	Error *messages.Error
+	Error *common.Error
 	// Number of keys that were successfully set
 	SetCount *int32
 }
@@ -188,7 +188,7 @@ const file_gcommon_v1_database_messages_set_multiple_response_proto_rawDesc = ""
 var file_gcommon_v1_database_messages_set_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_set_multiple_response_proto_goTypes = []any{
 	(*SetMultipleResponse)(nil), // 0: gcommon.v1.database.SetMultipleResponse
-	(*messages.Error)(nil),      // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),        // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_set_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.SetMultipleResponse.error:type_name -> gcommon.v1.common.Error

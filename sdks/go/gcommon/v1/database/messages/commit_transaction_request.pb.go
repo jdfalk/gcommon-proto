@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type CommitTransactionRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_TransactionId *string                   `protobuf:"bytes,1,opt,name=transaction_id,json=transactionId"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_TransactionId *string                 `protobuf:"bytes,1,opt,name=transaction_id,json=transactionId"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +69,13 @@ func (x *CommitTransactionRequest) GetTransactionId() string {
 	return ""
 }
 
-func (x *CommitTransactionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CommitTransactionRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -88,7 +88,7 @@ func (x *CommitTransactionRequest) SetTransactionId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *CommitTransactionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CommitTransactionRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -118,7 +118,7 @@ func (x *CommitTransactionRequest) ClearTransactionId() {
 
 func (x *CommitTransactionRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type CommitTransactionRequest_builder struct {
@@ -127,7 +127,7 @@ type CommitTransactionRequest_builder struct {
 	// Transaction ID to commit
 	TransactionId *string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 CommitTransactionRequest_builder) Build() *CommitTransactionRequest {
@@ -157,7 +157,7 @@ const file_gcommon_v1_database_messages_commit_transaction_request_proto_rawDesc
 var file_gcommon_v1_database_messages_commit_transaction_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_commit_transaction_request_proto_goTypes = []any{
 	(*CommitTransactionRequest)(nil), // 0: gcommon.v1.database.CommitTransactionRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_commit_transaction_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CommitTransactionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

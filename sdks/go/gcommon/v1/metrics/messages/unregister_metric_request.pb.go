@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +24,7 @@ const (
 
 type UnregisterMetricRequest struct {
 	state                       protoimpl.MessageState                     `protogen:"opaque.v1"`
-	xxx_hidden_Metadata         *messages.RequestMetadata                  `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata         *common.RequestMetadata                    `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_MetricIdentifier isUnregisterMetricRequest_MetricIdentifier `protobuf_oneof:"metric_identifier"`
 	xxx_hidden_ProviderId       *string                                    `protobuf:"bytes,4,opt,name=provider_id,json=providerId"`
 	xxx_hidden_Options          *UnregistrationOptions                     `protobuf:"bytes,5,opt,name=options"`
@@ -59,7 +59,7 @@ func (x *UnregisterMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UnregisterMetricRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UnregisterMetricRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -101,7 +101,7 @@ func (x *UnregisterMetricRequest) GetOptions() *UnregistrationOptions {
 	return nil
 }
 
-func (x *UnregisterMetricRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UnregisterMetricRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -217,7 +217,7 @@ type UnregisterMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Metric identifier (either name or ID)
 
 	// Fields of oneof xxx_hidden_MetricIdentifier:
@@ -296,9 +296,9 @@ const file_gcommon_v1_metrics_messages_unregister_metric_request_proto_rawDesc =
 
 var file_gcommon_v1_metrics_messages_unregister_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_unregister_metric_request_proto_goTypes = []any{
-	(*UnregisterMetricRequest)(nil),  // 0: gcommon.v1.metrics.UnregisterMetricRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*UnregistrationOptions)(nil),    // 2: gcommon.v1.metrics.UnregistrationOptions
+	(*UnregisterMetricRequest)(nil), // 0: gcommon.v1.metrics.UnregisterMetricRequest
+	(*common.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*UnregistrationOptions)(nil),   // 2: gcommon.v1.metrics.UnregistrationOptions
 }
 var file_gcommon_v1_metrics_messages_unregister_metric_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.UnregisterMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,15 +27,15 @@ const (
 // RecordGaugeRequest is used to set or update a gauge metric value.
 // Gauges can increase, decrease, or be set to specific values.
 type RecordGaugeRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Value       float64                   `protobuf:"fixed64,2,opt,name=value"`
-	xxx_hidden_Labels      map[string]string         `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Help        *string                   `protobuf:"bytes,4,opt,name=help"`
-	xxx_hidden_Unit        *string                   `protobuf:"bytes,5,opt,name=unit"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp    `protobuf:"bytes,6,opt,name=timestamp"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
-	xxx_hidden_Operation   GaugeOperation            `protobuf:"varint,8,opt,name=operation,enum=gcommon.v1.metrics.GaugeOperation"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                 `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value       float64                 `protobuf:"fixed64,2,opt,name=value"`
+	xxx_hidden_Labels      map[string]string       `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Help        *string                 `protobuf:"bytes,4,opt,name=help"`
+	xxx_hidden_Unit        *string                 `protobuf:"bytes,5,opt,name=unit"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=timestamp"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
+	xxx_hidden_Operation   GaugeOperation          `protobuf:"varint,8,opt,name=operation,enum=gcommon.v1.metrics.GaugeOperation"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -118,7 +118,7 @@ func (x *RecordGaugeRequest) GetTimestamp() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordGaugeRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordGaugeRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -162,7 +162,7 @@ func (x *RecordGaugeRequest) SetTimestamp(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Timestamp = v
 }
 
-func (x *RecordGaugeRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordGaugeRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -269,7 +269,7 @@ type RecordGaugeRequest_builder struct {
 	// Optional timestamp when the measurement was taken
 	Timestamp *timestamppb.Timestamp
 	// Request metadata for tracing and debugging
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Operation type for the gauge
 	Operation *GaugeOperation
 }
@@ -324,11 +324,11 @@ const file_gcommon_v1_metrics_messages_record_gauge_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_record_gauge_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_messages_record_gauge_request_proto_goTypes = []any{
-	(*RecordGaugeRequest)(nil),       // 0: gcommon.v1.metrics.RecordGaugeRequest
-	nil,                              // 1: gcommon.v1.metrics.RecordGaugeRequest.LabelsEntry
-	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
-	(GaugeOperation)(0),              // 4: gcommon.v1.metrics.GaugeOperation
+	(*RecordGaugeRequest)(nil),     // 0: gcommon.v1.metrics.RecordGaugeRequest
+	nil,                            // 1: gcommon.v1.metrics.RecordGaugeRequest.LabelsEntry
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(GaugeOperation)(0),            // 4: gcommon.v1.metrics.GaugeOperation
 }
 var file_gcommon_v1_metrics_messages_record_gauge_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordGaugeRequest.labels:type_name -> gcommon.v1.metrics.RecordGaugeRequest.LabelsEntry

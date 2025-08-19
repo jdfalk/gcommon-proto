@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +23,14 @@ const (
 )
 
 type GetMetricsSummaryRequest struct {
-	state                           protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata             *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter               *MetricFilter             `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_TimeRange            *MetricsTimeRange         `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Options              *SummaryOptions           `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_ProviderId           *string                   `protobuf:"bytes,5,opt,name=provider_id,json=providerId"`
-	xxx_hidden_IncludeProviderStats bool                      `protobuf:"varint,6,opt,name=include_provider_stats,json=includeProviderStats"`
-	xxx_hidden_IncludeHealthStatus  bool                      `protobuf:"varint,7,opt,name=include_health_status,json=includeHealthStatus"`
+	state                           protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata             *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter               *MetricFilter           `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_TimeRange            *MetricsTimeRange       `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Options              *SummaryOptions         `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_ProviderId           *string                 `protobuf:"bytes,5,opt,name=provider_id,json=providerId"`
+	xxx_hidden_IncludeProviderStats bool                    `protobuf:"varint,6,opt,name=include_provider_stats,json=includeProviderStats"`
+	xxx_hidden_IncludeHealthStatus  bool                    `protobuf:"varint,7,opt,name=include_health_status,json=includeHealthStatus"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -62,7 +62,7 @@ func (x *GetMetricsSummaryRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetMetricsSummaryRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetMetricsSummaryRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -114,7 +114,7 @@ func (x *GetMetricsSummaryRequest) GetIncludeHealthStatus() bool {
 	return false
 }
 
-func (x *GetMetricsSummaryRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetMetricsSummaryRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -229,7 +229,7 @@ type GetMetricsSummaryRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Optional filter to limit which metrics to include in summary
 	Filter *MetricFilter
 	// Time range for the summary
@@ -286,7 +286,7 @@ const file_gcommon_v1_metrics_messages_get_metrics_summary_request_proto_rawDesc
 var file_gcommon_v1_metrics_messages_get_metrics_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metrics_summary_request_proto_goTypes = []any{
 	(*GetMetricsSummaryRequest)(nil), // 0: gcommon.v1.metrics.GetMetricsSummaryRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 	(*MetricFilter)(nil),             // 2: gcommon.v1.metrics.MetricFilter
 	(*MetricsTimeRange)(nil),         // 3: gcommon.v1.metrics.MetricsTimeRange
 	(*SummaryOptions)(nil),           // 4: gcommon.v1.metrics.SummaryOptions

@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,11 +26,11 @@ const (
 // *
 // MetricHealth captures the health status of a metric source or scrape job.
 type MetricHealth struct {
-	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_TargetId    *string                  `protobuf:"bytes,1,opt,name=target_id,json=targetId"`
-	xxx_hidden_Status      enums.CommonHealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_CheckedAt   *timestamppb.Timestamp   `protobuf:"bytes,3,opt,name=checked_at,json=checkedAt"`
-	xxx_hidden_Message     *string                  `protobuf:"bytes,4,opt,name=message"`
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_TargetId    *string                   `protobuf:"bytes,1,opt,name=target_id,json=targetId"`
+	xxx_hidden_Status      common.CommonHealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_CheckedAt   *timestamppb.Timestamp    `protobuf:"bytes,3,opt,name=checked_at,json=checkedAt"`
+	xxx_hidden_Message     *string                   `protobuf:"bytes,4,opt,name=message"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -72,13 +72,13 @@ func (x *MetricHealth) GetTargetId() string {
 	return ""
 }
 
-func (x *MetricHealth) GetStatus() enums.CommonHealthStatus {
+func (x *MetricHealth) GetStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *MetricHealth) GetCheckedAt() *timestamppb.Timestamp {
@@ -103,7 +103,7 @@ func (x *MetricHealth) SetTargetId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *MetricHealth) SetStatus(v enums.CommonHealthStatus) {
+func (x *MetricHealth) SetStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -152,7 +152,7 @@ func (x *MetricHealth) ClearTargetId() {
 
 func (x *MetricHealth) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *MetricHealth) ClearCheckedAt() {
@@ -170,7 +170,7 @@ type MetricHealth_builder struct {
 	// Metric identifier or scrape job id
 	TargetId *string
 	// Health status
-	Status *enums.CommonHealthStatus
+	Status *common.CommonHealthStatus
 	// When this health status was checked
 	CheckedAt *timestamppb.Timestamp
 	// Additional message or context
@@ -211,9 +211,9 @@ const file_gcommon_v1_metrics_messages_metric_health_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_metric_health_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metric_health_proto_goTypes = []any{
-	(*MetricHealth)(nil),          // 0: gcommon.v1.metrics.MetricHealth
-	(enums.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*MetricHealth)(nil),           // 0: gcommon.v1.metrics.MetricHealth
+	(common.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_messages_metric_health_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricHealth.status:type_name -> gcommon.v1.common.CommonHealthStatus

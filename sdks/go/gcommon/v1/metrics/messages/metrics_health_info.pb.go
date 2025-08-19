@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,11 +24,11 @@ const (
 )
 
 type MetricsHealthInfo struct {
-	state                    protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_OverallStatus enums.CommonHealthStatus `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_HealthChecks  []string                 `protobuf:"bytes,2,rep,name=health_checks,json=healthChecks"`
-	xxx_hidden_Warnings      []string                 `protobuf:"bytes,3,rep,name=warnings"`
-	xxx_hidden_LastCheck     *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=last_check,json=lastCheck"`
+	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_OverallStatus common.CommonHealthStatus `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_HealthChecks  []string                  `protobuf:"bytes,2,rep,name=health_checks,json=healthChecks"`
+	xxx_hidden_Warnings      []string                  `protobuf:"bytes,3,rep,name=warnings"`
+	xxx_hidden_LastCheck     *timestamppb.Timestamp    `protobuf:"bytes,4,opt,name=last_check,json=lastCheck"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -60,13 +60,13 @@ func (x *MetricsHealthInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricsHealthInfo) GetOverallStatus() enums.CommonHealthStatus {
+func (x *MetricsHealthInfo) GetOverallStatus() common.CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_OverallStatus
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return common.CommonHealthStatus(0)
 }
 
 func (x *MetricsHealthInfo) GetHealthChecks() []string {
@@ -90,7 +90,7 @@ func (x *MetricsHealthInfo) GetLastCheck() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *MetricsHealthInfo) SetOverallStatus(v enums.CommonHealthStatus) {
+func (x *MetricsHealthInfo) SetOverallStatus(v common.CommonHealthStatus) {
 	x.xxx_hidden_OverallStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -123,7 +123,7 @@ func (x *MetricsHealthInfo) HasLastCheck() bool {
 
 func (x *MetricsHealthInfo) ClearOverallStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OverallStatus = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_OverallStatus = common.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *MetricsHealthInfo) ClearLastCheck() {
@@ -133,7 +133,7 @@ func (x *MetricsHealthInfo) ClearLastCheck() {
 type MetricsHealthInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	OverallStatus *enums.CommonHealthStatus
+	OverallStatus *common.CommonHealthStatus
 	HealthChecks  []string
 	Warnings      []string
 	LastCheck     *timestamppb.Timestamp
@@ -167,9 +167,9 @@ const file_gcommon_v1_metrics_messages_metrics_health_info_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_messages_metrics_health_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_metrics_health_info_proto_goTypes = []any{
-	(*MetricsHealthInfo)(nil),     // 0: gcommon.v1.metrics.MetricsHealthInfo
-	(enums.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*MetricsHealthInfo)(nil),      // 0: gcommon.v1.metrics.MetricsHealthInfo
+	(common.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_messages_metrics_health_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricsHealthInfo.overall_status:type_name -> gcommon.v1.common.CommonHealthStatus

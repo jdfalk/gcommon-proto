@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +25,7 @@ const (
 type QueryMetricsResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_Series        *[]*MetricSeries       `protobuf:"bytes,3,rep,name=series"`
 	xxx_hidden_Statistics    *QueryStatistics       `protobuf:"bytes,4,opt,name=statistics"`
 	xxx_hidden_QueryPlan     *QueryPlan             `protobuf:"bytes,5,opt,name=query_plan,json=queryPlan"`
@@ -70,7 +70,7 @@ func (x *QueryMetricsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *QueryMetricsResponse) GetError() *messages.Error {
+func (x *QueryMetricsResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -129,7 +129,7 @@ func (x *QueryMetricsResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *QueryMetricsResponse) SetError(v *messages.Error) {
+func (x *QueryMetricsResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -234,7 +234,7 @@ type QueryMetricsResponse_builder struct {
 	// Success status of the query
 	Success *bool
 	// Error information if query failed
-	Error *messages.Error
+	Error *common.Error
 	// Query results organized as metric series
 	Series []*MetricSeries
 	// Query execution statistics
@@ -294,7 +294,7 @@ const file_gcommon_v1_metrics_messages_query_metrics_response_proto_rawDesc = ""
 var file_gcommon_v1_metrics_messages_query_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_query_metrics_response_proto_goTypes = []any{
 	(*QueryMetricsResponse)(nil), // 0: gcommon.v1.metrics.QueryMetricsResponse
-	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),         // 1: gcommon.v1.common.Error
 	(*MetricSeries)(nil),         // 2: gcommon.v1.metrics.MetricSeries
 	(*QueryStatistics)(nil),      // 3: gcommon.v1.metrics.QueryStatistics
 	(*QueryPlan)(nil),            // 4: gcommon.v1.metrics.QueryPlan

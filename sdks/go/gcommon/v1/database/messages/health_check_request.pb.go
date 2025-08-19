@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,8 +23,8 @@ const (
 )
 
 type DatabaseHealthCheckRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -58,13 +58,13 @@ func (x *DatabaseHealthCheckRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DatabaseHealthCheckRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DatabaseHealthCheckRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -72,7 +72,7 @@ func (x *DatabaseHealthCheckRequest) GetMetadata() *messages.RequestMetadata {
 	return nil
 }
 
-func (x *DatabaseHealthCheckRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DatabaseHealthCheckRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
@@ -90,14 +90,14 @@ func (x *DatabaseHealthCheckRequest) HasMetadata() bool {
 
 func (x *DatabaseHealthCheckRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type DatabaseHealthCheckRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 DatabaseHealthCheckRequest_builder) Build() *DatabaseHealthCheckRequest {
@@ -122,7 +122,7 @@ const file_gcommon_v1_database_messages_health_check_request_proto_rawDesc = "" 
 var file_gcommon_v1_database_messages_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_health_check_request_proto_goTypes = []any{
 	(*DatabaseHealthCheckRequest)(nil), // 0: gcommon.v1.database.DatabaseHealthCheckRequest
-	(*messages.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DatabaseHealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

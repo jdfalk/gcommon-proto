@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type SetScrapeConfigRequest struct {
-	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_ProviderId *string                   `protobuf:"bytes,1,opt,name=provider_id,json=providerId"`
-	xxx_hidden_Config     *ScrapeConfig             `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_Metadata   *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                 protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_ProviderId *string                 `protobuf:"bytes,1,opt,name=provider_id,json=providerId"`
+	xxx_hidden_Config     *ScrapeConfig           `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_Metadata   *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -77,13 +77,13 @@ func (x *SetScrapeConfigRequest) GetConfig() *ScrapeConfig {
 	return nil
 }
 
-func (x *SetScrapeConfigRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetScrapeConfigRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -100,7 +100,7 @@ func (x *SetScrapeConfigRequest) SetConfig(v *ScrapeConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *SetScrapeConfigRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetScrapeConfigRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -141,7 +141,7 @@ func (x *SetScrapeConfigRequest) ClearConfig() {
 
 func (x *SetScrapeConfigRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type SetScrapeConfigRequest_builder struct {
@@ -152,7 +152,7 @@ type SetScrapeConfigRequest_builder struct {
 	// New scrape configuration
 	Config *ScrapeConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 SetScrapeConfigRequest_builder) Build() *SetScrapeConfigRequest {
@@ -184,9 +184,9 @@ const file_gcommon_v1_metrics_messages_set_scrape_config_request_proto_rawDesc =
 
 var file_gcommon_v1_metrics_messages_set_scrape_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_set_scrape_config_request_proto_goTypes = []any{
-	(*SetScrapeConfigRequest)(nil),   // 0: gcommon.v1.metrics.SetScrapeConfigRequest
-	(*ScrapeConfig)(nil),             // 1: gcommon.v1.metrics.ScrapeConfig
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*SetScrapeConfigRequest)(nil), // 0: gcommon.v1.metrics.SetScrapeConfigRequest
+	(*ScrapeConfig)(nil),           // 1: gcommon.v1.metrics.ScrapeConfig
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_set_scrape_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.SetScrapeConfigRequest.config:type_name -> gcommon.v1.metrics.ScrapeConfig

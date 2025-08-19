@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type GetMetricConfigResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_Config      *MetricConfig          `protobuf:"bytes,3,opt,name=config"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -67,7 +67,7 @@ func (x *GetMetricConfigResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricConfigResponse) GetError() *messages.Error {
+func (x *GetMetricConfigResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -86,7 +86,7 @@ func (x *GetMetricConfigResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *GetMetricConfigResponse) SetError(v *messages.Error) {
+func (x *GetMetricConfigResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -134,7 +134,7 @@ type GetMetricConfigResponse_builder struct {
 	// Operation success flag
 	Success *bool
 	// Error details if any
-	Error *messages.Error
+	Error *common.Error
 	// Retrieved configuration
 	Config *MetricConfig
 }
@@ -165,7 +165,7 @@ const file_gcommon_v1_metrics_messages_get_metric_config_response_proto_rawDesc 
 var file_gcommon_v1_metrics_messages_get_metric_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_get_metric_config_response_proto_goTypes = []any{
 	(*GetMetricConfigResponse)(nil), // 0: gcommon.v1.metrics.GetMetricConfigResponse
-	(*messages.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),            // 1: gcommon.v1.common.Error
 	(*MetricConfig)(nil),            // 2: gcommon.v1.metrics.MetricConfig
 }
 var file_gcommon_v1_metrics_messages_get_metric_config_response_proto_depIdxs = []int32{

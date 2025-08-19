@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,10 +24,10 @@ const (
 )
 
 type RecordSummaryRequest struct {
-	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metric     *SummaryMetric            `protobuf:"bytes,1,opt,name=metric"`
-	xxx_hidden_ObservedAt *timestamppb.Timestamp    `protobuf:"bytes,2,opt,name=observed_at,json=observedAt"`
-	xxx_hidden_Metadata   *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                 protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metric     *SummaryMetric          `protobuf:"bytes,1,opt,name=metric"`
+	xxx_hidden_ObservedAt *timestamppb.Timestamp  `protobuf:"bytes,2,opt,name=observed_at,json=observedAt"`
+	xxx_hidden_Metadata   *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -75,13 +75,13 @@ func (x *RecordSummaryRequest) GetObservedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordSummaryRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordSummaryRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -97,7 +97,7 @@ func (x *RecordSummaryRequest) SetObservedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_ObservedAt = v
 }
 
-func (x *RecordSummaryRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordSummaryRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -137,7 +137,7 @@ func (x *RecordSummaryRequest) ClearObservedAt() {
 
 func (x *RecordSummaryRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type RecordSummaryRequest_builder struct {
@@ -148,7 +148,7 @@ type RecordSummaryRequest_builder struct {
 	// Optional timestamp for the observation
 	ObservedAt *timestamppb.Timestamp
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 RecordSummaryRequest_builder) Build() *RecordSummaryRequest {
@@ -177,10 +177,10 @@ const file_gcommon_v1_metrics_messages_record_summary_request_proto_rawDesc = ""
 
 var file_gcommon_v1_metrics_messages_record_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_messages_record_summary_request_proto_goTypes = []any{
-	(*RecordSummaryRequest)(nil),     // 0: gcommon.v1.metrics.RecordSummaryRequest
-	(*SummaryMetric)(nil),            // 1: gcommon.v1.metrics.SummaryMetric
-	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*RecordSummaryRequest)(nil),   // 0: gcommon.v1.metrics.RecordSummaryRequest
+	(*SummaryMetric)(nil),          // 1: gcommon.v1.metrics.SummaryMetric
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_record_summary_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordSummaryRequest.metric:type_name -> gcommon.v1.metrics.SummaryMetric

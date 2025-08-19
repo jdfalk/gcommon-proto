@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +23,13 @@ const (
 )
 
 type ExecuteRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Statement     *string                   `protobuf:"bytes,1,opt,name=statement"`
-	xxx_hidden_Parameters    *[]*QueryParameter        `protobuf:"bytes,2,rep,name=parameters"`
-	xxx_hidden_Database      *string                   `protobuf:"bytes,3,opt,name=database"`
-	xxx_hidden_Options       *ExecuteOptions           `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	xxx_hidden_TransactionId *string                   `protobuf:"bytes,6,opt,name=transaction_id,json=transactionId"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Statement     *string                 `protobuf:"bytes,1,opt,name=statement"`
+	xxx_hidden_Parameters    *[]*QueryParameter      `protobuf:"bytes,2,rep,name=parameters"`
+	xxx_hidden_Database      *string                 `protobuf:"bytes,3,opt,name=database"`
+	xxx_hidden_Options       *ExecuteOptions         `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_TransactionId *string                 `protobuf:"bytes,6,opt,name=transaction_id,json=transactionId"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -111,13 +111,13 @@ func (x *ExecuteRequest) GetOptions() *ExecuteOptions {
 	return nil
 }
 
-func (x *ExecuteRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ExecuteRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 5)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -165,7 +165,7 @@ func (x *ExecuteRequest) SetOptions(v *ExecuteOptions) {
 	}
 }
 
-func (x *ExecuteRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ExecuteRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
@@ -231,7 +231,7 @@ func (x *ExecuteRequest) ClearOptions() {
 
 func (x *ExecuteRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 func (x *ExecuteRequest) ClearTransactionId() {
@@ -251,7 +251,7 @@ type ExecuteRequest_builder struct {
 	// Execution options and configuration
 	Options *ExecuteOptions
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Transaction ID if this operation is part of a transaction
 	TransactionId *string
 }
@@ -304,10 +304,10 @@ const file_gcommon_v1_database_messages_execute_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_execute_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_execute_request_proto_goTypes = []any{
-	(*ExecuteRequest)(nil),           // 0: gcommon.v1.database.ExecuteRequest
-	(*QueryParameter)(nil),           // 1: gcommon.v1.database.QueryParameter
-	(*ExecuteOptions)(nil),           // 2: gcommon.v1.database.ExecuteOptions
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*ExecuteRequest)(nil),         // 0: gcommon.v1.database.ExecuteRequest
+	(*QueryParameter)(nil),         // 1: gcommon.v1.database.QueryParameter
+	(*ExecuteOptions)(nil),         // 2: gcommon.v1.database.ExecuteOptions
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_execute_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteRequest.parameters:type_name -> gcommon.v1.database.QueryParameter

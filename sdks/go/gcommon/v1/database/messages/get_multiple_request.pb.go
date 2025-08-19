@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,9 +26,9 @@ const (
 // Request to get multiple cache values by keys.
 // Supports batch retrieval for performance optimization.
 type GetMultipleRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Keys     []string                  `protobuf:"bytes,1,rep,name=keys"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Keys     []string                `protobuf:"bytes,1,rep,name=keys"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +69,13 @@ func (x *GetMultipleRequest) GetKeys() []string {
 	return nil
 }
 
-func (x *GetMultipleRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetMultipleRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -87,7 +87,7 @@ func (x *GetMultipleRequest) SetKeys(v []string) {
 	x.xxx_hidden_Keys = v
 }
 
-func (x *GetMultipleRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetMultipleRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -105,7 +105,7 @@ func (x *GetMultipleRequest) HasMetadata() bool {
 
 func (x *GetMultipleRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type GetMultipleRequest_builder struct {
@@ -114,7 +114,7 @@ type GetMultipleRequest_builder struct {
 	// List of keys to retrieve
 	Keys []string
 	// Request metadata for tracing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 GetMultipleRequest_builder) Build() *GetMultipleRequest {
@@ -140,8 +140,8 @@ const file_gcommon_v1_database_messages_get_multiple_request_proto_rawDesc = "" 
 
 var file_gcommon_v1_database_messages_get_multiple_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_get_multiple_request_proto_goTypes = []any{
-	(*GetMultipleRequest)(nil),       // 0: gcommon.v1.database.GetMultipleRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetMultipleRequest)(nil),     // 0: gcommon.v1.database.GetMultipleRequest
+	(*common.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_get_multiple_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetMultipleRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

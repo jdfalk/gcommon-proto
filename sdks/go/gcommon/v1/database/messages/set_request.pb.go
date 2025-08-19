@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,14 +28,14 @@ const (
 // Request to store a value in the cache.
 // Supports flexible expiration policies and namespace isolation.
 type SetRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key           *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Value         *anypb.Any                `protobuf:"bytes,2,opt,name=value"`
-	xxx_hidden_Namespace     *string                   `protobuf:"bytes,3,opt,name=namespace"`
-	xxx_hidden_Ttl           *durationpb.Duration      `protobuf:"bytes,4,opt,name=ttl"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	xxx_hidden_Overwrite     bool                      `protobuf:"varint,6,opt,name=overwrite"`
-	xxx_hidden_EntryMetadata map[string]string         `protobuf:"bytes,7,rep,name=entry_metadata,json=entryMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Key           *string                 `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Value         *anypb.Any              `protobuf:"bytes,2,opt,name=value"`
+	xxx_hidden_Namespace     *string                 `protobuf:"bytes,3,opt,name=namespace"`
+	xxx_hidden_Ttl           *durationpb.Duration    `protobuf:"bytes,4,opt,name=ttl"`
+	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_Overwrite     bool                    `protobuf:"varint,6,opt,name=overwrite"`
+	xxx_hidden_EntryMetadata map[string]string       `protobuf:"bytes,7,rep,name=entry_metadata,json=entryMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -117,13 +117,13 @@ func (x *SetRequest) GetTtl() *durationpb.Duration {
 	return nil
 }
 
-func (x *SetRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 5)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -173,7 +173,7 @@ func (x *SetRequest) SetTtl(v *durationpb.Duration) {
 	}
 }
 
-func (x *SetRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
@@ -255,7 +255,7 @@ func (x *SetRequest) ClearTtl() {
 
 func (x *SetRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 func (x *SetRequest) ClearOverwrite() {
@@ -275,7 +275,7 @@ type SetRequest_builder struct {
 	// Time-to-live for the cache entry (0 for no expiration)
 	Ttl *durationpb.Duration
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Whether to overwrite existing value
 	Overwrite *bool
 	// Entry metadata for extensibility
@@ -334,11 +334,11 @@ const file_gcommon_v1_database_messages_set_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_database_messages_set_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_set_request_proto_goTypes = []any{
-	(*SetRequest)(nil),               // 0: gcommon.v1.database.SetRequest
-	nil,                              // 1: gcommon.v1.database.SetRequest.EntryMetadataEntry
-	(*anypb.Any)(nil),                // 2: google.protobuf.Any
-	(*durationpb.Duration)(nil),      // 3: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*SetRequest)(nil),             // 0: gcommon.v1.database.SetRequest
+	nil,                            // 1: gcommon.v1.database.SetRequest.EntryMetadataEntry
+	(*anypb.Any)(nil),              // 2: google.protobuf.Any
+	(*durationpb.Duration)(nil),    // 3: google.protobuf.Duration
+	(*common.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_set_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.database.SetRequest.value:type_name -> google.protobuf.Any

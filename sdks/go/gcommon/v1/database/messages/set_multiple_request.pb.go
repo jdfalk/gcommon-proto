@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,10 +27,10 @@ const (
 // Request to set multiple cache key-value pairs.
 // Supports batch operations for performance optimization.
 type SetMultipleRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Values   map[string][]byte         `protobuf:"bytes,1,rep,name=values" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Ttl      *durationpb.Duration      `protobuf:"bytes,2,opt,name=ttl"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Values   map[string][]byte       `protobuf:"bytes,1,rep,name=values" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Ttl      *durationpb.Duration    `protobuf:"bytes,2,opt,name=ttl"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -85,13 +85,13 @@ func (x *SetMultipleRequest) GetTtl() *durationpb.Duration {
 	return nil
 }
 
-func (x *SetMultipleRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetMultipleRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *common.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -112,7 +112,7 @@ func (x *SetMultipleRequest) SetTtl(v *durationpb.Duration) {
 	}
 }
 
-func (x *SetMultipleRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetMultipleRequest) SetMetadata(v *common.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -142,7 +142,7 @@ func (x *SetMultipleRequest) ClearTtl() {
 
 func (x *SetMultipleRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*common.RequestMetadata)(nil))
 }
 
 type SetMultipleRequest_builder struct {
@@ -153,7 +153,7 @@ type SetMultipleRequest_builder struct {
 	// TTL for the cache entries (optional)
 	Ttl *durationpb.Duration
 	// Request metadata for tracing
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 SetMultipleRequest_builder) Build() *SetMultipleRequest {
@@ -187,10 +187,10 @@ const file_gcommon_v1_database_messages_set_multiple_request_proto_rawDesc = "" 
 
 var file_gcommon_v1_database_messages_set_multiple_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_database_messages_set_multiple_request_proto_goTypes = []any{
-	(*SetMultipleRequest)(nil),       // 0: gcommon.v1.database.SetMultipleRequest
-	nil,                              // 1: gcommon.v1.database.SetMultipleRequest.ValuesEntry
-	(*durationpb.Duration)(nil),      // 2: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*SetMultipleRequest)(nil),     // 0: gcommon.v1.database.SetMultipleRequest
+	nil,                            // 1: gcommon.v1.database.SetMultipleRequest.ValuesEntry
+	(*durationpb.Duration)(nil),    // 2: google.protobuf.Duration
+	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_database_messages_set_multiple_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.SetMultipleRequest.values:type_name -> gcommon.v1.database.SetMultipleRequest.ValuesEntry

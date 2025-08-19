@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,14 +25,14 @@ const (
 // *
 // RecordCounterRequest is used to record or increment a counter metric.
 type RecordCounterRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Value       float64                   `protobuf:"fixed64,2,opt,name=value"`
-	xxx_hidden_Labels      map[string]string         `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Help        *string                   `protobuf:"bytes,4,opt,name=help"`
-	xxx_hidden_Unit        *string                   `protobuf:"bytes,5,opt,name=unit"`
-	xxx_hidden_SampleRate  float64                   `protobuf:"fixed64,6,opt,name=sample_rate,json=sampleRate"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                 `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value       float64                 `protobuf:"fixed64,2,opt,name=value"`
+	xxx_hidden_Labels      map[string]string       `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Help        *string                 `protobuf:"bytes,4,opt,name=help"`
+	xxx_hidden_Unit        *string                 `protobuf:"bytes,5,opt,name=unit"`
+	xxx_hidden_SampleRate  float64                 `protobuf:"fixed64,6,opt,name=sample_rate,json=sampleRate"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -115,7 +115,7 @@ func (x *RecordCounterRequest) GetSampleRate() float64 {
 	return 0
 }
 
-func (x *RecordCounterRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordCounterRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -151,7 +151,7 @@ func (x *RecordCounterRequest) SetSampleRate(v float64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *RecordCounterRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordCounterRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -242,7 +242,7 @@ type RecordCounterRequest_builder struct {
 	// Sample rate (0.0-1.0, used for sampling)
 	SampleRate *float64
 	// Request metadata for tracing and debugging
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 }
 
 func (b0 RecordCounterRequest_builder) Build() *RecordCounterRequest {
@@ -294,9 +294,9 @@ const file_gcommon_v1_metrics_messages_record_counter_request_proto_rawDesc = ""
 
 var file_gcommon_v1_metrics_messages_record_counter_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_messages_record_counter_request_proto_goTypes = []any{
-	(*RecordCounterRequest)(nil),     // 0: gcommon.v1.metrics.RecordCounterRequest
-	nil,                              // 1: gcommon.v1.metrics.RecordCounterRequest.LabelsEntry
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*RecordCounterRequest)(nil),   // 0: gcommon.v1.metrics.RecordCounterRequest
+	nil,                            // 1: gcommon.v1.metrics.RecordCounterRequest.LabelsEntry
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_record_counter_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordCounterRequest.labels:type_name -> gcommon.v1.metrics.RecordCounterRequest.LabelsEntry

@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type MetricsGetStatsResponse struct {
 	state            protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Stats *MetricsQueryStats     `protobuf:"bytes,1,opt,name=stats"`
-	xxx_hidden_Error *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -64,7 +64,7 @@ func (x *MetricsGetStatsResponse) GetStats() *MetricsQueryStats {
 	return nil
 }
 
-func (x *MetricsGetStatsResponse) GetError() *messages.Error {
+func (x *MetricsGetStatsResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -75,7 +75,7 @@ func (x *MetricsGetStatsResponse) SetStats(v *MetricsQueryStats) {
 	x.xxx_hidden_Stats = v
 }
 
-func (x *MetricsGetStatsResponse) SetError(v *messages.Error) {
+func (x *MetricsGetStatsResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -107,7 +107,7 @@ type MetricsGetStatsResponse_builder struct {
 	// Statistics for the query
 	Stats *MetricsQueryStats
 	// Error information
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 MetricsGetStatsResponse_builder) Build() *MetricsGetStatsResponse {
@@ -132,7 +132,7 @@ var file_gcommon_v1_metrics_messages_get_stats_response_proto_msgTypes = make([]
 var file_gcommon_v1_metrics_messages_get_stats_response_proto_goTypes = []any{
 	(*MetricsGetStatsResponse)(nil), // 0: gcommon.v1.metrics.MetricsGetStatsResponse
 	(*MetricsQueryStats)(nil),       // 1: gcommon.v1.metrics.MetricsQueryStats
-	(*messages.Error)(nil),          // 2: gcommon.v1.common.Error
+	(*common.Error)(nil),            // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_metrics_messages_get_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricsGetStatsResponse.stats:type_name -> gcommon.v1.metrics.MetricsQueryStats

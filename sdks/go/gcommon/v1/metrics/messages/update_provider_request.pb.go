@@ -7,7 +7,7 @@
 package metrics
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +23,14 @@ const (
 )
 
 type UpdateProviderRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_ProviderId  *string                   `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,3,opt,name=name"`
-	xxx_hidden_Type        *string                   `protobuf:"bytes,4,opt,name=type"`
-	xxx_hidden_Config      map[string]string         `protobuf:"bytes,5,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Description *string                   `protobuf:"bytes,6,opt,name=description"`
-	xxx_hidden_Enabled     bool                      `protobuf:"varint,7,opt,name=enabled"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_ProviderId  *string                 `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
+	xxx_hidden_Name        *string                 `protobuf:"bytes,3,opt,name=name"`
+	xxx_hidden_Type        *string                 `protobuf:"bytes,4,opt,name=type"`
+	xxx_hidden_Config      map[string]string       `protobuf:"bytes,5,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Description *string                 `protobuf:"bytes,6,opt,name=description"`
+	xxx_hidden_Enabled     bool                    `protobuf:"varint,7,opt,name=enabled"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -62,7 +62,7 @@ func (x *UpdateProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateProviderRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateProviderRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -123,7 +123,7 @@ func (x *UpdateProviderRequest) GetEnabled() bool {
 	return false
 }
 
-func (x *UpdateProviderRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateProviderRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -231,7 +231,7 @@ type UpdateProviderRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Provider ID to update
 	ProviderId *string
 	// Updated configuration
@@ -291,9 +291,9 @@ const file_gcommon_v1_metrics_messages_update_provider_request_proto_rawDesc = "
 
 var file_gcommon_v1_metrics_messages_update_provider_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_messages_update_provider_request_proto_goTypes = []any{
-	(*UpdateProviderRequest)(nil),    // 0: gcommon.v1.metrics.UpdateProviderRequest
-	nil,                              // 1: gcommon.v1.metrics.UpdateProviderRequest.ConfigEntry
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*UpdateProviderRequest)(nil),  // 0: gcommon.v1.metrics.UpdateProviderRequest
+	nil,                            // 1: gcommon.v1.metrics.UpdateProviderRequest.ConfigEntry
+	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_metrics_messages_update_provider_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.UpdateProviderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

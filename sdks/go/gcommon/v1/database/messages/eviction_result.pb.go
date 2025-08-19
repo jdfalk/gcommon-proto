@@ -7,7 +7,7 @@
 package database
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type EvictionResult struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_EvictedCount   int64                  `protobuf:"varint,1,opt,name=evicted_count,json=evictedCount"`
 	xxx_hidden_EvictedKeys    []string               `protobuf:"bytes,2,rep,name=evicted_keys,json=evictedKeys"`
-	xxx_hidden_PolicyUsed     enums.EvictionPolicy   `protobuf:"varint,3,opt,name=policy_used,json=policyUsed,enum=gcommon.v1.common.EvictionPolicy"`
+	xxx_hidden_PolicyUsed     common.EvictionPolicy  `protobuf:"varint,3,opt,name=policy_used,json=policyUsed,enum=gcommon.v1.common.EvictionPolicy"`
 	xxx_hidden_EvictionReason *string                `protobuf:"bytes,4,opt,name=eviction_reason,json=evictionReason"`
 	xxx_hidden_EvictedAt      *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=evicted_at,json=evictedAt"`
 	xxx_hidden_MemoryFreed    int64                  `protobuf:"varint,6,opt,name=memory_freed,json=memoryFreed"`
@@ -80,13 +80,13 @@ func (x *EvictionResult) GetEvictedKeys() []string {
 	return nil
 }
 
-func (x *EvictionResult) GetPolicyUsed() enums.EvictionPolicy {
+func (x *EvictionResult) GetPolicyUsed() common.EvictionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_PolicyUsed
 		}
 	}
-	return enums.EvictionPolicy(0)
+	return common.EvictionPolicy(0)
 }
 
 func (x *EvictionResult) GetEvictionReason() string {
@@ -129,7 +129,7 @@ func (x *EvictionResult) SetEvictedKeys(v []string) {
 	x.xxx_hidden_EvictedKeys = v
 }
 
-func (x *EvictionResult) SetPolicyUsed(v enums.EvictionPolicy) {
+func (x *EvictionResult) SetPolicyUsed(v common.EvictionPolicy) {
 	x.xxx_hidden_PolicyUsed = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
@@ -202,7 +202,7 @@ func (x *EvictionResult) ClearEvictedCount() {
 
 func (x *EvictionResult) ClearPolicyUsed() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PolicyUsed = enums.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_PolicyUsed = common.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *EvictionResult) ClearEvictionReason() {
@@ -232,7 +232,7 @@ type EvictionResult_builder struct {
 	// List of evicted keys
 	EvictedKeys []string
 	// Eviction policy used
-	PolicyUsed *enums.EvictionPolicy
+	PolicyUsed *common.EvictionPolicy
 	// Reason for eviction
 	EvictionReason *string
 	// Timestamp of eviction
@@ -291,7 +291,7 @@ const file_gcommon_v1_database_messages_eviction_result_proto_rawDesc = "" +
 var file_gcommon_v1_database_messages_eviction_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_eviction_result_proto_goTypes = []any{
 	(*EvictionResult)(nil),        // 0: gcommon.v1.database.EvictionResult
-	(enums.EvictionPolicy)(0),     // 1: gcommon.v1.common.EvictionPolicy
+	(common.EvictionPolicy)(0),    // 1: gcommon.v1.common.EvictionPolicy
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_database_messages_eviction_result_proto_depIdxs = []int32{

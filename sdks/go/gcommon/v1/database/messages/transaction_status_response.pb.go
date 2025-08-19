@@ -7,7 +7,7 @@
 package database
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type TransactionStatusResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Status *string                `protobuf:"bytes,1,opt,name=status"`
-	xxx_hidden_Error  *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error  *common.Error          `protobuf:"bytes,2,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -71,13 +71,13 @@ func (x *TransactionStatusResponse) GetStatus() string {
 	return ""
 }
 
-func (x *TransactionStatusResponse) GetError() *messages.Error {
+func (x *TransactionStatusResponse) GetError() *common.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.Error
+			var rv *common.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -90,7 +90,7 @@ func (x *TransactionStatusResponse) SetStatus(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *TransactionStatusResponse) SetError(v *messages.Error) {
+func (x *TransactionStatusResponse) SetError(v *common.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -120,7 +120,7 @@ func (x *TransactionStatusResponse) ClearStatus() {
 
 func (x *TransactionStatusResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*common.Error)(nil))
 }
 
 type TransactionStatusResponse_builder struct {
@@ -129,7 +129,7 @@ type TransactionStatusResponse_builder struct {
 	// Current status of the transaction (e.g., ACTIVE, COMMITTED, ROLLED_BACK)
 	Status *string
 	// Error information if the transaction encountered an issue
-	Error *messages.Error
+	Error *common.Error
 }
 
 func (b0 TransactionStatusResponse_builder) Build() *TransactionStatusResponse {
@@ -159,7 +159,7 @@ const file_gcommon_v1_database_messages_transaction_status_response_proto_rawDes
 var file_gcommon_v1_database_messages_transaction_status_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_messages_transaction_status_response_proto_goTypes = []any{
 	(*TransactionStatusResponse)(nil), // 0: gcommon.v1.database.TransactionStatusResponse
-	(*messages.Error)(nil),            // 1: gcommon.v1.common.Error
+	(*common.Error)(nil),              // 1: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_messages_transaction_status_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.TransactionStatusResponse.error:type_name -> gcommon.v1.common.Error
