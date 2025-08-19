@@ -8,13 +8,13 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/messages/error.proto";
 import "gcommon/v1/common/messages/rate_limit_info.proto";
-import "gcommon/v1/metrics/messages/pagination_info.proto";
+import "gcommon/v1/common/messages/pagination_info.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages";
 
 message ResponseMetadata {
   // Trace ID from the corresponding request for correlation
@@ -45,5 +45,5 @@ message ResponseMetadata {
   RateLimitInfo rate_limit = 9;
 
   // Pagination information for list responses
-  gcommon.v1.metrics.MetricsPaginationInfo pagination = 10;
+  CommonPaginationInfo pagination = 10;
 }

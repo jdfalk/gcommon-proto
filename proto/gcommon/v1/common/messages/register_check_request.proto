@@ -11,18 +11,18 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/messages/health_check_request.proto";
+import "gcommon/v1/common/messages/health_check_request.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages";
 
 message RegisterCheckRequest {
   // Service name this check belongs to
   string service = 1;
 
   // Parameters describing the check to execute
-  gcommon.v1.metrics.MetricsHealthCheckRequest check = 2;
+  HealthHealthCheckRequest check = 2;
 
   // Standard request metadata
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];

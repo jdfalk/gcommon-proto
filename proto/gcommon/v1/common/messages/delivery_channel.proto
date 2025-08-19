@@ -10,7 +10,7 @@ import "gcommon/v1/common/enums/delivery_channel_type.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages";
 
 /**
  * Delivery channel specifying how a notification is sent.
