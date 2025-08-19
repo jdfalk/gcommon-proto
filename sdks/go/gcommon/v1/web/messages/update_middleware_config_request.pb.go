@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +23,9 @@ const (
 )
 
 type UpdateMiddlewareConfigRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Config   *MiddlewareConfig         `protobuf:"bytes,2,opt,name=config"`
+	state               protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *common.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Config   *MiddlewareConfig       `protobuf:"bytes,2,opt,name=config"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -55,7 +55,7 @@ func (x *UpdateMiddlewareConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateMiddlewareConfigRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateMiddlewareConfigRequest) GetMetadata() *common.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -69,7 +69,7 @@ func (x *UpdateMiddlewareConfigRequest) GetConfig() *MiddlewareConfig {
 	return nil
 }
 
-func (x *UpdateMiddlewareConfigRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateMiddlewareConfigRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -103,7 +103,7 @@ type UpdateMiddlewareConfigRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and auth
-	Metadata *messages.RequestMetadata
+	Metadata *common.RequestMetadata
 	// Updated middleware configuration
 	Config *MiddlewareConfig
 }
@@ -129,7 +129,7 @@ const file_gcommon_v1_web_messages_update_middleware_config_request_proto_rawDes
 var file_gcommon_v1_web_messages_update_middleware_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_update_middleware_config_request_proto_goTypes = []any{
 	(*UpdateMiddlewareConfigRequest)(nil), // 0: gcommon.v1.web.UpdateMiddlewareConfigRequest
-	(*messages.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
+	(*common.RequestMetadata)(nil),        // 1: gcommon.v1.common.RequestMetadata
 	(*MiddlewareConfig)(nil),              // 2: gcommon.v1.web.MiddlewareConfig
 }
 var file_gcommon_v1_web_messages_update_middleware_config_request_proto_depIdxs = []int32{

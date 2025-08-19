@@ -7,7 +7,7 @@
 package web
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
+	common "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,9 +25,9 @@ const (
 // UpdateMiddlewareConfigResponse response definition.
 // UpdateMiddlewareConfigResponse returns the result of updating middleware config.
 type UpdateMiddlewareConfigResponse struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Updated     bool                       `protobuf:"varint,2,opt,name=updated"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *common.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Updated     bool                     `protobuf:"varint,2,opt,name=updated"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -59,7 +59,7 @@ func (x *UpdateMiddlewareConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateMiddlewareConfigResponse) GetMetadata() *messages.ResponseMetadata {
+func (x *UpdateMiddlewareConfigResponse) GetMetadata() *common.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -73,7 +73,7 @@ func (x *UpdateMiddlewareConfigResponse) GetUpdated() bool {
 	return false
 }
 
-func (x *UpdateMiddlewareConfigResponse) SetMetadata(v *messages.ResponseMetadata) {
+func (x *UpdateMiddlewareConfigResponse) SetMetadata(v *common.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -109,7 +109,7 @@ type UpdateMiddlewareConfigResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard response metadata
-	Metadata *messages.ResponseMetadata
+	Metadata *common.ResponseMetadata
 	// Whether the middleware was updated
 	Updated *bool
 }
@@ -138,7 +138,7 @@ const file_gcommon_v1_web_messages_update_middleware_config_response_proto_rawDe
 var file_gcommon_v1_web_messages_update_middleware_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_update_middleware_config_response_proto_goTypes = []any{
 	(*UpdateMiddlewareConfigResponse)(nil), // 0: gcommon.v1.web.UpdateMiddlewareConfigResponse
-	(*messages.ResponseMetadata)(nil),      // 1: gcommon.v1.common.ResponseMetadata
+	(*common.ResponseMetadata)(nil),        // 1: gcommon.v1.common.ResponseMetadata
 }
 var file_gcommon_v1_web_messages_update_middleware_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.UpdateMiddlewareConfigResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata
