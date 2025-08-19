@@ -39,7 +39,7 @@ def detect_build_requirements():
     # Initialize matrices
     matrices = {
         "go": {"include": []},
-        "python": {"include": []}, 
+        "python": {"include": []},
         "frontend": {"include": []},
         "docker": {"include": []},
     }
@@ -60,14 +60,21 @@ def detect_build_requirements():
             "include": [
                 {"go-version": "1.22", "os": "ubuntu-latest", "arch": "amd64"},
                 {"go-version": "1.23", "os": "ubuntu-latest", "arch": "amd64"},
-                {"go-version": "1.24", "os": "ubuntu-latest", "arch": "amd64", "primary": True},
+                {
+                    "go-version": "1.24",
+                    "os": "ubuntu-latest",
+                    "arch": "amd64",
+                    "primary": True,
+                },
                 {"go-version": "1.24", "os": "macos-latest", "arch": "amd64"},
                 {"go-version": "1.24", "os": "windows-latest", "arch": "amd64"},
             ]
         }
 
     # Check for Python projects
-    if any(os.path.exists(f) for f in ["pyproject.toml", "requirements.txt", "setup.py"]) or check_file_exists("*.py"):
+    if any(
+        os.path.exists(f) for f in ["pyproject.toml", "requirements.txt", "setup.py"]
+    ) or check_file_exists("*.py"):
         print("Python project detected")
         flags["has_python"] = True
         matrices["python"] = {
@@ -95,7 +102,11 @@ def detect_build_requirements():
         }
 
     # Check for Docker projects
-    if check_file_exists("Dockerfile*") or check_file_exists("docker-compose*.yml") or check_file_exists("docker-compose*.yaml"):
+    if (
+        check_file_exists("Dockerfile*")
+        or check_file_exists("docker-compose*.yml")
+        or check_file_exists("docker-compose*.yaml")
+    ):
         print("Docker project detected")
         flags["has_docker"] = True
         matrices["docker"] = {
@@ -106,7 +117,9 @@ def detect_build_requirements():
         }
 
     # Check for protobuf
-    if any(os.path.exists(f) for f in ["buf.yaml", "buf.gen.yaml"]) or check_file_exists("*.proto"):
+    if any(
+        os.path.exists(f) for f in ["buf.yaml", "buf.gen.yaml"]
+    ) or check_file_exists("*.proto"):
         print("Protobuf project detected")
         flags["protobuf_needed"] = True
 
@@ -119,7 +132,7 @@ def set_github_output(key, value):
         value = json.dumps(value)
     elif isinstance(value, bool):
         value = "true" if value else "false"
-    
+
     # GitHub Actions output
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
@@ -133,7 +146,7 @@ def main():
     """Main entry point."""
     try:
         matrices, flags = detect_build_requirements()
-        
+
         # Set outputs
         set_github_output("go-matrix", matrices["go"])
         set_github_output("python-matrix", matrices["python"])
@@ -144,9 +157,9 @@ def main():
         set_github_output("has-python", flags["has_python"])
         set_github_output("has-frontend", flags["has_frontend"])
         set_github_output("has-docker", flags["has_docker"])
-        
+
         print("Matrix detection complete")
-        
+
     except Exception as e:
         print(f"Error during matrix detection: {e}")
         sys.exit(1)

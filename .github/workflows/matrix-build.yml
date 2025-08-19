@@ -288,9 +288,9 @@ jobs:
           echo "| Protobuf | ${{ needs.protobuf.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
 
           # Check for any failures
-          if [[ "${{ needs.build-go.result }}" == "failure" || 
-                "${{ needs.build-python.result }}" == "failure" || 
-                "${{ needs.build-frontend.result }}" == "failure" || 
+          if [[ "${{ needs.build-go.result }}" == "failure" ||
+                "${{ needs.build-python.result }}" == "failure" ||
+                "${{ needs.build-frontend.result }}" == "failure" ||
                 "${{ needs.build-docker.result }}" == "failure" ]]; then
             echo "❌ Some builds failed"
             exit 1
