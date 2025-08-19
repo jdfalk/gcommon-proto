@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/web/messages/file_metadata.proto\x12\x0egcommon.v1.web\x1a\'gcommon/v1/web/messages/mime_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd1\x01\n\x0c\x46ileMetadata\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nsize_bytes\x18\x02 \x01(\x03R\tsizeBytes\x12\x35\n\tmime_type\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.web.MimeTypeR\x08mimeType\x12\x1a\n\x08\x63hecksum\x18\x04 \x01(\tR\x08\x63hecksum\x12;\n\x0bmodified_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nmodifiedAtB\xc0\x01\n\x12\x63om.gcommon.v1.webB\x11\x46ileMetadataProtoP\x01Z5github.com/jdfalk/gcommon/pkg/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/web/messages/file_metadata.proto\x12\x0egcommon.v1.web\x1a\'gcommon/v1/web/messages/mime_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd1\x01\n\x0c\x46ileMetadata\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nsize_bytes\x18\x02 \x01(\x03R\tsizeBytes\x12\x35\n\tmime_type\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.web.MimeTypeR\x08mimeType\x12\x1a\n\x08\x63hecksum\x18\x04 \x01(\tR\x08\x63hecksum\x12;\n\x0bmodified_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nmodifiedAtB\xc4\x01\n\x12\x63om.gcommon.v1.webB\x11\x46ileMetadataProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.file_metadata_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\021FileMetadataProtoP\001Z5github.com/jdfalk/gcommon/pkg/gcommon/v1/web/messages\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\021FileMetadataProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web/messages\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
   _globals['_FILEMETADATA']._serialized_start=173
   _globals['_FILEMETADATA']._serialized_end=382
 # @@protoc_insertion_point(module_scope)

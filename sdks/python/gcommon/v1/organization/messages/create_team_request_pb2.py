@@ -27,14 +27,14 @@ from gcommon.v1.organization.messages import team_pb2 as gcommon_dot_v1_dot_orga
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/create_team_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a+gcommon/v1/organization/messages/team.proto\x1a!google/protobuf/go_features.proto\"\xab\x01\n\x11\x43reateTeamRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x31\n\x04team\x18\x02 \x01(\x0b\x32\x1d.gcommon.v1.organization.TeamR\x04team\x12#\n\rvalidate_only\x18\x03 \x01(\x08R\x0cvalidateOnlyB\xfb\x01\n\x1b\x63om.gcommon.v1.organizationB\x16\x43reateTeamRequestProtoP\x01Z>github.com/jdfalk/gcommon/pkg/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/create_team_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a+gcommon/v1/organization/messages/team.proto\x1a!google/protobuf/go_features.proto\"\xab\x01\n\x11\x43reateTeamRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x31\n\x04team\x18\x02 \x01(\x0b\x32\x1d.gcommon.v1.organization.TeamR\x04team\x12#\n\rvalidate_only\x18\x03 \x01(\x08R\x0cvalidateOnlyB\xff\x01\n\x1b\x63om.gcommon.v1.organizationB\x16\x43reateTeamRequestProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.create_team_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\026CreateTeamRequestProtoP\001Z>github.com/jdfalk/gcommon/pkg/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\026CreateTeamRequestProtoP\001ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
   _globals['_CREATETEAMREQUEST']._serialized_start=219
   _globals['_CREATETEAMREQUEST']._serialized_end=390
 # @@protoc_insertion_point(module_scope)

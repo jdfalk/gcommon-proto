@@ -27,14 +27,14 @@ from gcommon.v1.metrics.messages import metric_metadata_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/metrics/messages/create_metric_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/metrics/messages/metric_metadata.proto\x1a!google/protobuf/go_features.proto\"\x86\x01\n\x14\x43reateMetricResponse\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.metrics.MetricMetadataR\x08metadata\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB\xe0\x01\n\x16\x63om.gcommon.v1.metricsB\x19\x43reateMetricResponseProtoP\x01Z9github.com/jdfalk/gcommon/pkg/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/metrics/messages/create_metric_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a\x31gcommon/v1/metrics/messages/metric_metadata.proto\x1a!google/protobuf/go_features.proto\"\x86\x01\n\x14\x43reateMetricResponse\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.metrics.MetricMetadataR\x08metadata\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB\xe4\x01\n\x16\x63om.gcommon.v1.metricsB\x19\x43reateMetricResponseProtoP\x01Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.create_metric_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\031CreateMetricResponseProtoP\001Z9github.com/jdfalk/gcommon/pkg/gcommon/v1/metrics/messages\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\031CreateMetricResponseProtoP\001Z=github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
   _globals['_CREATEMETRICRESPONSE']._serialized_start=207
   _globals['_CREATEMETRICRESPONSE']._serialized_end=341
 # @@protoc_insertion_point(module_scope)

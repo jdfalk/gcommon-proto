@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/flush_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xc0\x01\n\x12\x46lushQueueResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12)\n\x10messages_flushed\x18\x02 \x01(\x03R\x0fmessagesFlushed\x12#\n\rbytes_flushed\x18\x03 \x01(\x03R\x0c\x62ytesFlushed\x12*\n\x11\x66lush_duration_ms\x18\x04 \x01(\x05R\x0f\x66lushDurationMs\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB\xd2\x01\n\x14\x63om.gcommon.v1.queueB\x17\x46lushQueueResponseProtoP\x01Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/queue/messages/flush_queue_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xc0\x01\n\x12\x46lushQueueResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12)\n\x10messages_flushed\x18\x02 \x01(\x03R\x0fmessagesFlushed\x12#\n\rbytes_flushed\x18\x03 \x01(\x03R\x0c\x62ytesFlushed\x12*\n\x11\x66lush_duration_ms\x18\x04 \x01(\x05R\x0f\x66lushDurationMs\x12\x14\n\x05\x65rror\x18\x05 \x01(\tR\x05\x65rrorB\xd6\x01\n\x14\x63om.gcommon.v1.queueB\x17\x46lushQueueResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.flush_queue_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\027FlushQueueResponseProtoP\001Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\027FlushQueueResponseProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_FLUSHQUEUERESPONSE']._serialized_start=110
   _globals['_FLUSHQUEUERESPONSE']._serialized_end=302
 # @@protoc_insertion_point(module_scope)

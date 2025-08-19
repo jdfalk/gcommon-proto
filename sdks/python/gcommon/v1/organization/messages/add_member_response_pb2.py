@@ -27,14 +27,14 @@ from gcommon.v1.organization.messages import organization_member_pb2 as gcommon_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/add_member_response.proto\x12\x17gcommon.v1.organization\x1a&gcommon/v1/common/messages/error.proto\x1a:gcommon/v1/organization/messages/organization_member.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n\x11\x41\x64\x64MemberResponse\x12\x30\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorR\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12\x43\n\x06member\x18\x03 \x01(\x0b\x32+.gcommon.v1.organization.OrganizationMemberR\x06memberB\xfb\x01\n\x1b\x63om.gcommon.v1.organizationB\x16\x41\x64\x64MemberResponseProtoP\x01Z>github.com/jdfalk/gcommon/pkg/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:gcommon/v1/organization/messages/add_member_response.proto\x12\x17gcommon.v1.organization\x1a&gcommon/v1/common/messages/error.proto\x1a:gcommon/v1/organization/messages/organization_member.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n\x11\x41\x64\x64MemberResponse\x12\x30\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorR\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12\x43\n\x06member\x18\x03 \x01(\x0b\x32+.gcommon.v1.organization.OrganizationMemberR\x06memberB\xff\x01\n\x1b\x63om.gcommon.v1.organizationB\x16\x41\x64\x64MemberResponseProtoP\x01ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.add_member_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\026AddMemberResponseProtoP\001Z>github.com/jdfalk/gcommon/pkg/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\026AddMemberResponseProtoP\001ZBgithub.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization/messages\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
   _globals['_ADDMEMBERRESPONSE']._serialized_start=223
   _globals['_ADDMEMBERRESPONSE']._serialized_end=387
 # @@protoc_insertion_point(module_scope)

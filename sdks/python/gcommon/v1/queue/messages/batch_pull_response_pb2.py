@@ -26,14 +26,14 @@ from gcommon.v1.queue.messages import queue_message_pb2 as gcommon_dot_v1_dot_qu
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/batch_pull_response.proto\x12\x10gcommon.v1.queue\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xcf\x01\n\x11\x42\x61tchPullResponse\x12:\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x08messages\x12#\n\rmessage_count\x18\x02 \x01(\rR\x0cmessageCount\x12\x19\n\x08has_more\x18\x03 \x01(\x08R\x07hasMore\x12\x1d\n\nnext_token\x18\x04 \x01(\tR\tnextToken\x12\x1f\n\x0btotal_bytes\x18\x05 \x01(\x04R\ntotalBytesB\xd1\x01\n\x14\x63om.gcommon.v1.queueB\x16\x42\x61tchPullResponseProtoP\x01Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/queue/messages/batch_pull_response.proto\x12\x10gcommon.v1.queue\x1a-gcommon/v1/queue/messages/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xcf\x01\n\x11\x42\x61tchPullResponse\x12:\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageR\x08messages\x12#\n\rmessage_count\x18\x02 \x01(\rR\x0cmessageCount\x12\x19\n\x08has_more\x18\x03 \x01(\x08R\x07hasMore\x12\x1d\n\nnext_token\x18\x04 \x01(\tR\tnextToken\x12\x1f\n\x0btotal_bytes\x18\x05 \x01(\x04R\ntotalBytesB\xd5\x01\n\x14\x63om.gcommon.v1.queueB\x16\x42\x61tchPullResponseProtoP\x01Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.batch_pull_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\026BatchPullResponseProtoP\001Z7github.com/jdfalk/gcommon/pkg/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\026BatchPullResponseProtoP\001Z;github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue/messages\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_BATCHPULLRESPONSE']._serialized_start=156
   _globals['_BATCHPULLRESPONSE']._serialized_end=363
 # @@protoc_insertion_point(module_scope)
