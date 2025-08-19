@@ -210,7 +210,7 @@ const file_gcommon_v1_config_messages_access_restriction_proto_rawDesc = "" +
 	"\x04type\x18\x01 \x01(\x0e2\".gcommon.v1.config.RestrictionTypeR\x04type\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x12\x1a\n" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
-	"\x06reason\x18\x04 \x01(\tR\x06reasonB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x04 \x01(\tR\x06reasonB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_access_restriction_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_access_restriction_proto_goTypes = []any{

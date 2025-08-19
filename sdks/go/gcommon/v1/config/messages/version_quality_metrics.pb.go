@@ -341,7 +341,7 @@ const file_gcommon_v1_config_messages_version_quality_metrics_proto_rawDesc = ""
 	"\x14technical_debt_score\x18\x06 \x01(\x01R\x12technicalDebtScore\x12.\n" +
 	"\x13quality_gate_passed\x18\a \x01(\bR\x11qualityGatePassed\x12>\n" +
 	"\x06issues\x18\b \x03(\v2&.gcommon.v1.config.VersionQualityIssueR\x06issues\x128\n" +
-	"\ttimestamp\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\ttimestampB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ttimestamp\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\ttimestampB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_version_quality_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_version_quality_metrics_proto_goTypes = []any{

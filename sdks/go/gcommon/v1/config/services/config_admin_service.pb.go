@@ -38,7 +38,7 @@ const file_gcommon_v1_config_services_config_admin_service_proto_rawDesc = "" +
 	"\x10GetConfigHistory\x12*.gcommon.v1.config.GetConfigHistoryRequest\x1a+.gcommon.v1.config.GetConfigHistoryResponse\x12e\n" +
 	"\x0eGetConfigStats\x12(.gcommon.v1.config.GetConfigStatsRequest\x1a).gcommon.v1.config.GetConfigStatsResponse\x12h\n" +
 	"\vHealthCheck\x12+.gcommon.v1.config.ConfigHealthCheckRequest\x1a,.gcommon.v1.config.ConfigHealthCheckResponse\x12P\n" +
-	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_services_config_admin_service_proto_goTypes = []any{
 	(*BackupConfigRequest)(nil),       // 0: gcommon.v1.config.BackupConfigRequest

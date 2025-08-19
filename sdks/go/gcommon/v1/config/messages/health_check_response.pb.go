@@ -143,7 +143,7 @@ const file_gcommon_v1_config_messages_health_check_response_proto_rawDesc = "" +
 	"6gcommon/v1/config/messages/health_check_response.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/enums/health_status.proto\x1a!google/protobuf/go_features.proto\"t\n" +
 	"\x19ConfigHealthCheckResponse\x12=\n" +
 	"\x06status\x18\x01 \x01(\x0e2%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\amessage\x18\x02 \x01(\tR\amessageB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_health_check_response_proto_goTypes = []any{

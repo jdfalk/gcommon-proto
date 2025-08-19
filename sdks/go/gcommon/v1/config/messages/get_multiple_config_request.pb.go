@@ -182,7 +182,7 @@ const file_gcommon_v1_config_messages_get_multiple_config_request_proto_rawDesc 
 	"\x04keys\x18\x01 \x03(\tR\x04keys\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12\x18\n" +
 	"\adecrypt\x18\x03 \x01(\bR\adecrypt\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_get_multiple_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_multiple_config_request_proto_goTypes = []any{

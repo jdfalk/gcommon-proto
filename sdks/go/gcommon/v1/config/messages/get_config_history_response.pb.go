@@ -7,7 +7,7 @@
 package config
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -90,7 +90,7 @@ const file_gcommon_v1_config_messages_get_config_history_response_proto_rawDesc 
 	"\n" +
 	"<gcommon/v1/config/messages/get_config_history_response.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/metrics/messages/config_change.proto\x1a!google/protobuf/go_features.proto\"]\n" +
 	"\x18GetConfigHistoryResponse\x12A\n" +
-	"\achanges\x18\x01 \x03(\v2'.gcommon.v1.metrics.MetricsConfigChangeR\achangesB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\achanges\x18\x01 \x03(\v2'.gcommon.v1.metrics.MetricsConfigChangeR\achangesB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_get_config_history_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_get_config_history_response_proto_goTypes = []any{

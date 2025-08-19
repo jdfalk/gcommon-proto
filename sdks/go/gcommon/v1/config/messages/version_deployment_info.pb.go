@@ -328,7 +328,7 @@ const file_gcommon_v1_config_messages_version_deployment_info_proto_rawDesc = ""
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fMetricsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_version_deployment_info_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_config_messages_version_deployment_info_proto_goTypes = []any{

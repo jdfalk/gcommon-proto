@@ -178,7 +178,7 @@ const file_gcommon_v1_config_messages_config_validation_error_proto_rawDesc = ""
 	"\x15ConfigValidationError\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x12\n" +
-	"\x04code\x18\x03 \x01(\tR\x04codeB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04code\x18\x03 \x01(\tR\x04codeB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_config_validation_error_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_config_validation_error_proto_goTypes = []any{

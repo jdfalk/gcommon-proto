@@ -89,7 +89,7 @@ const file_gcommon_v1_config_enums_health_state_proto_rawDesc = "" +
 	"\x14HEALTH_STATE_HEALTHY\x10\x01\x12\x19\n" +
 	"\x15HEALTH_STATE_DEGRADED\x10\x02\x12\x1a\n" +
 	"\x16HEALTH_STATE_UNHEALTHY\x10\x03\x12\x18\n" +
-	"\x14HEALTH_STATE_UNKNOWN\x10\x04B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14HEALTH_STATE_UNKNOWN\x10\x04B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_health_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_health_state_proto_goTypes = []any{

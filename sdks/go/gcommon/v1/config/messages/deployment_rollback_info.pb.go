@@ -236,7 +236,7 @@ const file_gcommon_v1_config_messages_deployment_rollback_info_proto_rawDesc = "
 	"\x10previous_version\x18\x02 \x01(\tR\x0fpreviousVersion\x12I\n" +
 	"\x12rollback_timestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x11rollbackTimestamp\x12\x16\n" +
 	"\x06reason\x18\x04 \x01(\tR\x06reason\x12\x16\n" +
-	"\x06method\x18\x05 \x01(\tR\x06methodB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06method\x18\x05 \x01(\tR\x06methodB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_deployment_rollback_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_deployment_rollback_info_proto_goTypes = []any{

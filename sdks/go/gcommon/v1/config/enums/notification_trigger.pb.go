@@ -93,7 +93,7 @@ const file_gcommon_v1_config_enums_notification_trigger_proto_rawDesc = "" +
 	"\x1dNOTIFICATION_TRIGGER_APPROVAL\x10\x04\x12#\n" +
 	"\x1fNOTIFICATION_TRIGGER_DEPLOYMENT\x10\x05\x12!\n" +
 	"\x1dNOTIFICATION_TRIGGER_ROLLBACK\x10\x06\x12!\n" +
-	"\x1dNOTIFICATION_TRIGGER_SCHEDULE\x10\aB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dNOTIFICATION_TRIGGER_SCHEDULE\x10\aB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_notification_trigger_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_notification_trigger_proto_goTypes = []any{

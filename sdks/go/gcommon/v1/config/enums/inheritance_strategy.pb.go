@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_inheritance_strategy_proto_rawDesc = "" +
 	"\x1aINHERITANCE_STRATEGY_MERGE\x10\x02\x12!\n" +
 	"\x1dINHERITANCE_STRATEGY_FALLBACK\x10\x03\x12!\n" +
 	"\x1dINHERITANCE_STRATEGY_PRIORITY\x10\x04\x12!\n" +
-	"\x1dINHERITANCE_STRATEGY_WEIGHTED\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dINHERITANCE_STRATEGY_WEIGHTED\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_inheritance_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_inheritance_strategy_proto_goTypes = []any{

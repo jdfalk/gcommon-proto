@@ -299,7 +299,7 @@ const file_gcommon_v1_config_messages_deprecation_info_proto_rawDesc = "" +
 	"\x0freplacement_key\x18\x04 \x01(\tR\x0ereplacementKey\x12=\n" +
 	"\fremoval_date\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\vremovalDate\x12'\n" +
 	"\x0fmigration_guide\x18\x06 \x01(\tR\x0emigrationGuide\x129\n" +
-	"\x05level\x18\a \x01(\x0e2#.gcommon.v1.config.DeprecationLevelR\x05levelB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05level\x18\a \x01(\x0e2#.gcommon.v1.config.DeprecationLevelR\x05levelB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_deprecation_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_deprecation_info_proto_goTypes = []any{

@@ -97,7 +97,7 @@ const file_gcommon_v1_config_enums_validation_rule_type_proto_rawDesc = "" +
 	"\x19VALIDATION_RULE_TYPE_ENUM\x10\x05\x12\x1f\n" +
 	"\x1bVALIDATION_RULE_TYPE_CUSTOM\x10\x06\x12!\n" +
 	"\x1dVALIDATION_RULE_TYPE_FUNCTION\x10\a\x12\x1f\n" +
-	"\x1bVALIDATION_RULE_TYPE_SCHEMA\x10\bB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1bVALIDATION_RULE_TYPE_SCHEMA\x10\bB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_validation_rule_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_validation_rule_type_proto_goTypes = []any{

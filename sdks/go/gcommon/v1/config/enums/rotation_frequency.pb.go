@@ -93,7 +93,7 @@ const file_gcommon_v1_config_enums_rotation_frequency_proto_rawDesc = "" +
 	"\x1aROTATION_FREQUENCY_MONTHLY\x10\x04\x12 \n" +
 	"\x1cROTATION_FREQUENCY_QUARTERLY\x10\x05\x12\x1d\n" +
 	"\x19ROTATION_FREQUENCY_YEARLY\x10\x06\x12 \n" +
-	"\x1cROTATION_FREQUENCY_ON_EXPIRY\x10\aB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1cROTATION_FREQUENCY_ON_EXPIRY\x10\aB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_rotation_frequency_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_rotation_frequency_proto_goTypes = []any{

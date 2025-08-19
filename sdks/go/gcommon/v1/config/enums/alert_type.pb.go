@@ -93,7 +93,7 @@ const file_gcommon_v1_config_enums_alert_type_proto_rawDesc = "" +
 	"\x1bALERT_TYPE_ROTATION_FAILURE\x10\x04\x12\x1d\n" +
 	"\x19ALERT_TYPE_BACKUP_FAILURE\x10\x05\x12#\n" +
 	"\x1fALERT_TYPE_COMPLIANCE_VIOLATION\x10\x06\x12 \n" +
-	"\x1cALERT_TYPE_SECURITY_INCIDENT\x10\aB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1cALERT_TYPE_SECURITY_INCIDENT\x10\aB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_alert_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_alert_type_proto_goTypes = []any{

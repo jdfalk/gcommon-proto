@@ -222,7 +222,7 @@ const file_gcommon_v1_config_messages_approval_workflow_proto_rawDesc = "" +
 	"\n" +
 	"conditions\x18\x05 \x03(\tR\n" +
 	"conditions\x12$\n" +
-	"\rnotifications\x18\x06 \x03(\tR\rnotificationsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rnotifications\x18\x06 \x03(\tR\rnotificationsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_approval_workflow_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_approval_workflow_proto_goTypes = []any{

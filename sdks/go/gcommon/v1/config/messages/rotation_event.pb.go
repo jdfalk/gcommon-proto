@@ -239,7 +239,7 @@ const file_gcommon_v1_config_messages_rotation_event_proto_rawDesc = "" +
 	"\ttimestamp\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12%\n" +
 	"\x0eprevious_value\x18\x03 \x01(\tR\rpreviousValue\x12\x1b\n" +
 	"\tnew_value\x18\x04 \x01(\tR\bnewValue\x12\x16\n" +
-	"\x06reason\x18\x05 \x01(\tR\x06reasonB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x05 \x01(\tR\x06reasonB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_rotation_event_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_rotation_event_proto_goTypes = []any{

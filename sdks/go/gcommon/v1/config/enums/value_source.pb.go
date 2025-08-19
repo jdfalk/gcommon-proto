@@ -146,7 +146,7 @@ const file_gcommon_v1_config_enums_value_source_proto_rawDesc = "" +
 	"\x15VALUE_SOURCE_COMPUTED\x10\x11\x12\x1a\n" +
 	"\x16VALUE_SOURCE_INHERITED\x10\x12\x12\x19\n" +
 	"\x15VALUE_SOURCE_OVERRIDE\x10\x13\x12\x17\n" +
-	"\x13VALUE_SOURCE_CUSTOM\x10\x14B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13VALUE_SOURCE_CUSTOM\x10\x14B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_value_source_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_value_source_proto_goTypes = []any{

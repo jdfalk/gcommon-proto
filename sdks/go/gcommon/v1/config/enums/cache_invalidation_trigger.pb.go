@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_cache_invalidation_trigger_proto_rawDesc = ""
 	"!CACHE_INVALIDATION_TRIGGER_DELETE\x10\x02\x12%\n" +
 	"!CACHE_INVALIDATION_TRIGGER_EXPIRE\x10\x03\x12%\n" +
 	"!CACHE_INVALIDATION_TRIGGER_MANUAL\x10\x04\x12'\n" +
-	"#CACHE_INVALIDATION_TRIGGER_SCHEDULE\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"#CACHE_INVALIDATION_TRIGGER_SCHEDULE\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_cache_invalidation_trigger_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_cache_invalidation_trigger_proto_goTypes = []any{

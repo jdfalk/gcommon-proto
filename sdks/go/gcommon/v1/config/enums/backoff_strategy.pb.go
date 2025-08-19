@@ -81,7 +81,7 @@ const file_gcommon_v1_config_enums_backoff_strategy_proto_rawDesc = "" +
 	"\x16BACKOFF_STRATEGY_FIXED\x10\x01\x12\x1b\n" +
 	"\x17BACKOFF_STRATEGY_LINEAR\x10\x02\x12 \n" +
 	"\x1cBACKOFF_STRATEGY_EXPONENTIAL\x10\x03\x12\x1b\n" +
-	"\x17BACKOFF_STRATEGY_CUSTOM\x10\x04B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17BACKOFF_STRATEGY_CUSTOM\x10\x04B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_backoff_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_backoff_strategy_proto_goTypes = []any{

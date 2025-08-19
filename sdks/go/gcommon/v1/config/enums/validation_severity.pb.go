@@ -81,7 +81,7 @@ const file_gcommon_v1_config_enums_validation_severity_proto_rawDesc = "" +
 	"\x18VALIDATION_SEVERITY_INFO\x10\x01\x12\x1f\n" +
 	"\x1bVALIDATION_SEVERITY_WARNING\x10\x02\x12\x1d\n" +
 	"\x19VALIDATION_SEVERITY_ERROR\x10\x03\x12 \n" +
-	"\x1cVALIDATION_SEVERITY_CRITICAL\x10\x04B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1cVALIDATION_SEVERITY_CRITICAL\x10\x04B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_validation_severity_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_validation_severity_proto_goTypes = []any{

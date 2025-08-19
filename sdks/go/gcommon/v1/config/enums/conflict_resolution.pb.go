@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_conflict_resolution_proto_rawDesc = "" +
 	"\x1fCONFLICT_RESOLUTION_TARGET_WINS\x10\x02\x12\x1d\n" +
 	"\x19CONFLICT_RESOLUTION_MERGE\x10\x03\x12\x1e\n" +
 	"\x1aCONFLICT_RESOLUTION_MANUAL\x10\x04\x12!\n" +
-	"\x1dCONFLICT_RESOLUTION_TIMESTAMP\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dCONFLICT_RESOLUTION_TIMESTAMP\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_conflict_resolution_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_conflict_resolution_proto_goTypes = []any{

@@ -329,7 +329,7 @@ const file_gcommon_v1_config_messages_template_output_proto_rawDesc = "" +
 	"\tsensitive\x18\x05 \x01(\bR\tsensitive\x12\x14\n" +
 	"\x05group\x18\x06 \x01(\tR\x05group\x12\x16\n" +
 	"\x06format\x18\a \x01(\tR\x06format\x12\x1a\n" +
-	"\bexamples\x18\b \x03(\tR\bexamplesB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bexamples\x18\b \x03(\tR\bexamplesB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_template_output_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_template_output_proto_goTypes = []any{

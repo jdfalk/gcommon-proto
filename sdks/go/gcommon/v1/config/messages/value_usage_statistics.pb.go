@@ -399,7 +399,7 @@ const file_gcommon_v1_config_messages_value_usage_statistics_proto_rawDesc = "" 
 	"\rpeak_usage_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\vpeakUsageAt\x12(\n" +
 	"\x10peak_usage_count\x18\n" +
 	" \x01(\x03R\x0epeakUsageCount\x12:\n" +
-	"\x06trends\x18\v \x03(\v2\".gcommon.v1.config.ValueUsageTrendR\x06trendsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06trends\x18\v \x03(\v2\".gcommon.v1.config.ValueUsageTrendR\x06trendsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_value_usage_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_value_usage_statistics_proto_goTypes = []any{

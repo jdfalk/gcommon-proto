@@ -153,7 +153,7 @@ const file_gcommon_v1_config_messages_compliance_reporting_proto_rawDesc = "" +
 	"\x0ffrequency_hours\x18\x02 \x01(\x05R\x0efrequencyHours\x12\x1e\n" +
 	"\n" +
 	"recipients\x18\x03 \x03(\tR\n" +
-	"recipientsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"recipientsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_compliance_reporting_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_compliance_reporting_proto_goTypes = []any{

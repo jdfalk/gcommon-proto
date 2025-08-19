@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_dependency_type_proto_rawDesc = "" +
 	"\x18DEPENDENCY_TYPE_OPTIONAL\x10\x02\x12\x1f\n" +
 	"\x1bDEPENDENCY_TYPE_CONDITIONAL\x10\x03\x12\x1b\n" +
 	"\x17DEPENDENCY_TYPE_DERIVED\x10\x04\x12\x1c\n" +
-	"\x18DEPENDENCY_TYPE_CONFLICT\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18DEPENDENCY_TYPE_CONFLICT\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_dependency_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_dependency_type_proto_goTypes = []any{

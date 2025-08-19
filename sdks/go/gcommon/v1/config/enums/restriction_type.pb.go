@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_restriction_type_proto_rawDesc = "" +
 	"\x1bRESTRICTION_TYPE_TIME_RANGE\x10\x02\x12\x1d\n" +
 	"\x19RESTRICTION_TYPE_LOCATION\x10\x03\x12\x1f\n" +
 	"\x1bRESTRICTION_TYPE_USER_AGENT\x10\x04\x12\x1b\n" +
-	"\x17RESTRICTION_TYPE_CUSTOM\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17RESTRICTION_TYPE_CUSTOM\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_restriction_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_restriction_type_proto_goTypes = []any{

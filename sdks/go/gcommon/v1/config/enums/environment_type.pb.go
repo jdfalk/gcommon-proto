@@ -120,7 +120,7 @@ const file_gcommon_v1_config_enums_environment_type_proto_rawDesc = "" +
 	"\x1cENVIRONMENT_TYPE_INTEGRATION\x10\b\x12 \n" +
 	"\x1cENVIRONMENT_TYPE_PERFORMANCE\x10\t\x12\x1d\n" +
 	"\x19ENVIRONMENT_TYPE_SECURITY\x10\n" +
-	"B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_environment_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_environment_type_proto_goTypes = []any{

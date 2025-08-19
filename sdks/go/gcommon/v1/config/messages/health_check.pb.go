@@ -289,7 +289,7 @@ const file_gcommon_v1_config_messages_health_check_proto_rawDesc = "" +
 	"\aretries\x18\x06 \x01(\x05R\aretries\x12\x1e\n" +
 	"\n" +
 	"conditions\x18\a \x03(\tR\n" +
-	"conditionsB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"conditionsB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_health_check_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_health_check_proto_goTypes = []any{

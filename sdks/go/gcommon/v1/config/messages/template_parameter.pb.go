@@ -541,7 +541,7 @@ const file_gcommon_v1_config_messages_template_parameter_proto_rawDesc = "" +
 	"\bexamples\x18\f \x03(\tR\bexamples\x12$\n" +
 	"\rdocumentation\x18\r \x01(\tR\rdocumentation\x12!\n" +
 	"\fdisplay_name\x18\x0e \x01(\tR\vdisplayName\x12 \n" +
-	"\vplaceholder\x18\x0f \x01(\tR\vplaceholderB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vplaceholder\x18\x0f \x01(\tR\vplaceholderB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_template_parameter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_template_parameter_proto_goTypes = []any{

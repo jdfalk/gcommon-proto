@@ -190,7 +190,7 @@ const file_gcommon_v1_config_messages_watch_config_response_proto_rawDesc = "" +
 	"changeType\x124\n" +
 	"\x05entry\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05entry\x12E\n" +
 	"\x0eprevious_entry\x18\x03 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\rpreviousEntry\x128\n" +
-	"\ttimestamp\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestampB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ttimestamp\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestampB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_watch_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_watch_config_response_proto_goTypes = []any{

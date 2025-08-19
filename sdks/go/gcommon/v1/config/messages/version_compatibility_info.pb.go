@@ -309,7 +309,7 @@ const file_gcommon_v1_config_messages_version_compatibility_info_proto_rawDesc =
 	"\vmax_version\x18\x06 \x01(\tR\n" +
 	"maxVersion\x12/\n" +
 	"\x13deprecated_features\x18\a \x03(\tR\x12deprecatedFeatures\x12'\n" +
-	"\x0fmigration_guide\x18\b \x01(\tR\x0emigrationGuideB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fmigration_guide\x18\b \x01(\tR\x0emigrationGuideB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_version_compatibility_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_version_compatibility_info_proto_goTypes = []any{

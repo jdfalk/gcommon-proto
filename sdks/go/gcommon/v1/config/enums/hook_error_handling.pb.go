@@ -77,7 +77,7 @@ const file_gcommon_v1_config_enums_hook_error_handling_proto_rawDesc = "" +
 	"\x1fHOOK_ERROR_HANDLING_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aHOOK_ERROR_HANDLING_IGNORE\x10\x01\x12\x1c\n" +
 	"\x18HOOK_ERROR_HANDLING_WARN\x10\x02\x12\x1c\n" +
-	"\x18HOOK_ERROR_HANDLING_FAIL\x10\x03B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18HOOK_ERROR_HANDLING_FAIL\x10\x03B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_hook_error_handling_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_hook_error_handling_proto_goTypes = []any{

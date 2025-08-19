@@ -161,7 +161,7 @@ const file_gcommon_v1_config_messages_set_config_schema_request_proto_rawDesc = 
 	"\x16SetConfigSchemaRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x127\n" +
 	"\x06schema\x18\x02 \x01(\v2\x1f.gcommon.v1.config.ConfigSchemaR\x06schema\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_set_config_schema_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_set_config_schema_request_proto_goTypes = []any{

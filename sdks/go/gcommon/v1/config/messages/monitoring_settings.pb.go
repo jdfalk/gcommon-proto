@@ -204,7 +204,7 @@ const file_gcommon_v1_config_messages_monitoring_settings_proto_rawDesc = "" +
 	"\x06alerts\x18\x02 \x03(\v2\".gcommon.v1.config.MonitoringAlertR\x06alerts\x12\x18\n" +
 	"\ametrics\x18\x03 \x03(\tR\ametrics\x12\x1c\n" +
 	"\tdashboard\x18\x04 \x01(\tR\tdashboard\x12%\n" +
-	"\x0eretention_days\x18\x05 \x01(\x05R\rretentionDaysB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eretention_days\x18\x05 \x01(\x05R\rretentionDaysB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_monitoring_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_monitoring_settings_proto_goTypes = []any{

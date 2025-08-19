@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_synchronization_frequency_proto_rawDesc = "" 
 	" SYNCHRONIZATION_FREQUENCY_HOURLY\x10\x02\x12#\n" +
 	"\x1fSYNCHRONIZATION_FREQUENCY_DAILY\x10\x03\x12$\n" +
 	" SYNCHRONIZATION_FREQUENCY_WEEKLY\x10\x04\x12'\n" +
-	"#SYNCHRONIZATION_FREQUENCY_ON_CHANGE\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"#SYNCHRONIZATION_FREQUENCY_ON_CHANGE\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_synchronization_frequency_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_synchronization_frequency_proto_goTypes = []any{

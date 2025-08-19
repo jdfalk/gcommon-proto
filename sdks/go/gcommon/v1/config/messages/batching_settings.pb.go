@@ -203,7 +203,7 @@ const file_gcommon_v1_config_messages_batching_settings_proto_rawDesc = "" +
 	"\n" +
 	"batch_size\x18\x02 \x01(\x05R\tbatchSize\x12'\n" +
 	"\x0ftimeout_minutes\x18\x03 \x01(\x05R\x0etimeoutMinutes\x12!\n" +
-	"\fgrouping_key\x18\x04 \x01(\tR\vgroupingKeyB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fgrouping_key\x18\x04 \x01(\tR\vgroupingKeyB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_batching_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_batching_settings_proto_goTypes = []any{

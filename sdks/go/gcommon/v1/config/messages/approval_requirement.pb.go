@@ -285,7 +285,7 @@ const file_gcommon_v1_config_messages_approval_requirement_proto_rawDesc = "" +
 	"\x06policy\x18\x05 \x01(\tR\x06policy\x12\x1a\n" +
 	"\bworkflow\x18\x06 \x01(\tR\bworkflow\x128\n" +
 	"\x18auto_approval_conditions\x18\a \x03(\tR\x16autoApprovalConditions\x124\n" +
-	"\x16approval_timeout_hours\x18\b \x01(\x05R\x14approvalTimeoutHoursB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16approval_timeout_hours\x18\b \x01(\x05R\x14approvalTimeoutHoursB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_approval_requirement_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_approval_requirement_proto_goTypes = []any{

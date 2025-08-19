@@ -249,7 +249,7 @@ const file_gcommon_v1_config_messages_notification_settings_proto_rawDesc = "" +
 	"recipients\x18\x05 \x03(\tR\n" +
 	"recipients\x12#\n" +
 	"\rdelay_minutes\x18\x06 \x01(\x05R\fdelayMinutes\x12?\n" +
-	"\bbatching\x18\a \x01(\v2#.gcommon.v1.config.BatchingSettingsR\bbatchingB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bbatching\x18\a \x01(\v2#.gcommon.v1.config.BatchingSettingsR\bbatchingB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_notification_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_notification_settings_proto_goTypes = []any{

@@ -309,7 +309,7 @@ const file_gcommon_v1_config_messages_approval_info_proto_rawDesc = "" +
 	"\vworkflow_id\x18\x06 \x01(\tR\n" +
 	"workflowId\x12\x1f\n" +
 	"\vpolicy_name\x18\a \x01(\tR\n" +
-	"policyNameB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"policyNameB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_approval_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_approval_info_proto_goTypes = []any{

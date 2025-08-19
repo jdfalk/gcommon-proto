@@ -254,7 +254,7 @@ const file_gcommon_v1_config_messages_list_config_request_proto_rawDesc = "" +
 	"pagination\x128\n" +
 	"\x06filter\x18\x04 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x122\n" +
 	"\x04sort\x18\x05 \x01(\v2\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_list_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_list_config_request_proto_goTypes = []any{

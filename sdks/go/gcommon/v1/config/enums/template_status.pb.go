@@ -85,7 +85,7 @@ const file_gcommon_v1_config_enums_template_status_proto_rawDesc = "" +
 	"\x16TEMPLATE_STATUS_ACTIVE\x10\x02\x12\x1e\n" +
 	"\x1aTEMPLATE_STATUS_DEPRECATED\x10\x03\x12\x1c\n" +
 	"\x18TEMPLATE_STATUS_ARCHIVED\x10\x04\x12\x1b\n" +
-	"\x17TEMPLATE_STATUS_DELETED\x10\x05B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17TEMPLATE_STATUS_DELETED\x10\x05B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_template_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_template_status_proto_goTypes = []any{

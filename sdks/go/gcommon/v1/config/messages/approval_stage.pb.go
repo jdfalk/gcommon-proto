@@ -236,7 +236,7 @@ const file_gcommon_v1_config_messages_approval_stage_proto_rawDesc = "" +
 	"conditions\x18\x04 \x03(\tR\n" +
 	"conditions\x12#\n" +
 	"\rtimeout_hours\x18\x05 \x01(\x05R\ftimeoutHours\x12\x14\n" +
-	"\x05order\x18\x06 \x01(\x05R\x05orderB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05order\x18\x06 \x01(\x05R\x05orderB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_approval_stage_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_approval_stage_proto_goTypes = []any{

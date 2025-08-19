@@ -131,7 +131,7 @@ const file_gcommon_v1_config_enums_secret_type_proto_rawDesc = "" +
 	"\x1bSECRET_TYPE_TLS_CERTIFICATE\x10\r\x12\x1a\n" +
 	"\x16SECRET_TYPE_JWT_SECRET\x10\x0e\x12\x1e\n" +
 	"\x1aSECRET_TYPE_WEBHOOK_SECRET\x10\x0f\x12\x16\n" +
-	"\x12SECRET_TYPE_CUSTOM\x10\x10B.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12SECRET_TYPE_CUSTOM\x10\x10B2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_enums_secret_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_config_enums_secret_type_proto_goTypes = []any{

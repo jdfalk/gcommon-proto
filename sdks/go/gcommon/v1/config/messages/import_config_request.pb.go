@@ -204,7 +204,7 @@ const file_gcommon_v1_config_messages_import_config_request_proto_rawDesc = "" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\fR\acontent\x12\x16\n" +
 	"\x06format\x18\x03 \x01(\tR\x06format\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB.Z$github.com/jdfalk/gcommon/pkg/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_messages_import_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_messages_import_config_request_proto_goTypes = []any{
