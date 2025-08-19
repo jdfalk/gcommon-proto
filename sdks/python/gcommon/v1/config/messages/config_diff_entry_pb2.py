@@ -26,14 +26,14 @@ from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/config/messages/config_diff_entry.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xc8\x01\n\x0f\x43onfigDiffEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x31\n\told_value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x08oldValue\x12\x31\n\tnew_value\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyR\x08newValue\x12\x1f\n\x0b\x63hange_type\x18\x04 \x01(\tR\nchangeType\x12\x1c\n\tnamespace\x18\x05 \x01(\tR\tnamespaceB\xd5\x01\n\x15\x63om.gcommon.v1.configB\x14\x43onfigDiffEntryProtoP\x01Z8github.com/jdfalk/gcommon/pkg/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/config/messages/config_diff_entry.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\xc8\x01\n\x0f\x43onfigDiffEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x31\n\told_value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x08oldValue\x12\x31\n\tnew_value\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyR\x08newValue\x12\x1f\n\x0b\x63hange_type\x18\x04 \x01(\tR\nchangeType\x12\x1c\n\tnamespace\x18\x05 \x01(\tR\tnamespaceB\xd9\x01\n\x15\x63om.gcommon.v1.configB\x14\x43onfigDiffEntryProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.config_diff_entry_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\024ConfigDiffEntryProtoP\001Z8github.com/jdfalk/gcommon/pkg/gcommon/v1/config/messages\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\024ConfigDiffEntryProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
   _globals['_CONFIGDIFFENTRY']._serialized_start=136
   _globals['_CONFIGDIFFENTRY']._serialized_end=336
 # @@protoc_insertion_point(module_scope)
