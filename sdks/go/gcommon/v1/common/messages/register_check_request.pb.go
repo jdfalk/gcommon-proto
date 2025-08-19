@@ -7,7 +7,6 @@
 package messages
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +22,10 @@ const (
 )
 
 type RegisterCheckRequest struct {
-	state               protoimpl.MessageState              `protogen:"opaque.v1"`
-	xxx_hidden_Service  *string                             `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Check    *messages.MetricsHealthCheckRequest `protobuf:"bytes,2,opt,name=check"`
-	xxx_hidden_Metadata *RequestMetadata                    `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Service  *string                   `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Check    *HealthHealthCheckRequest `protobuf:"bytes,2,opt,name=check"`
+	xxx_hidden_Metadata *RequestMetadata          `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -70,7 +69,7 @@ func (x *RegisterCheckRequest) GetService() string {
 	return ""
 }
 
-func (x *RegisterCheckRequest) GetCheck() *messages.MetricsHealthCheckRequest {
+func (x *RegisterCheckRequest) GetCheck() *HealthHealthCheckRequest {
 	if x != nil {
 		return x.xxx_hidden_Check
 	}
@@ -96,7 +95,7 @@ func (x *RegisterCheckRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *RegisterCheckRequest) SetCheck(v *messages.MetricsHealthCheckRequest) {
+func (x *RegisterCheckRequest) SetCheck(v *HealthHealthCheckRequest) {
 	x.xxx_hidden_Check = v
 }
 
@@ -150,7 +149,7 @@ type RegisterCheckRequest_builder struct {
 	// Service name this check belongs to
 	Service *string
 	// Parameters describing the check to execute
-	Check *messages.MetricsHealthCheckRequest
+	Check *HealthHealthCheckRequest
 	// Standard request metadata
 	Metadata *RequestMetadata
 }
@@ -175,21 +174,21 @@ var File_gcommon_v1_common_messages_register_check_request_proto protoreflect.Fi
 
 const file_gcommon_v1_common_messages_register_check_request_proto_rawDesc = "" +
 	"\n" +
-	"7gcommon/v1/common/messages/register_check_request.proto\x12\x11gcommon.v1.common\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a6gcommon/v1/metrics/messages/health_check_request.proto\x1a!google/protobuf/go_features.proto\"\xb9\x01\n" +
+	"7gcommon/v1/common/messages/register_check_request.proto\x12\x11gcommon.v1.common\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a5gcommon/v1/common/messages/health_check_request.proto\x1a!google/protobuf/go_features.proto\"\xb7\x01\n" +
 	"\x14RegisterCheckRequest\x12\x18\n" +
-	"\aservice\x18\x01 \x01(\tR\aservice\x12C\n" +
-	"\x05check\x18\x02 \x01(\v2-.gcommon.v1.metrics.MetricsHealthCheckRequestR\x05check\x12B\n" +
+	"\aservice\x18\x01 \x01(\tR\aservice\x12A\n" +
+	"\x05check\x18\x02 \x01(\v2+.gcommon.v1.common.HealthHealthCheckRequestR\x05check\x12B\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xde\x01\n" +
 	"\x15com.gcommon.v1.commonB\x19RegisterCheckRequestProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_register_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_register_check_request_proto_goTypes = []any{
-	(*RegisterCheckRequest)(nil),               // 0: gcommon.v1.common.RegisterCheckRequest
-	(*messages.MetricsHealthCheckRequest)(nil), // 1: gcommon.v1.metrics.MetricsHealthCheckRequest
-	(*RequestMetadata)(nil),                    // 2: gcommon.v1.common.RequestMetadata
+	(*RegisterCheckRequest)(nil),     // 0: gcommon.v1.common.RegisterCheckRequest
+	(*HealthHealthCheckRequest)(nil), // 1: gcommon.v1.common.HealthHealthCheckRequest
+	(*RequestMetadata)(nil),          // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_common_messages_register_check_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.common.RegisterCheckRequest.check:type_name -> gcommon.v1.metrics.MetricsHealthCheckRequest
+	1, // 0: gcommon.v1.common.RegisterCheckRequest.check:type_name -> gcommon.v1.common.HealthHealthCheckRequest
 	2, // 1: gcommon.v1.common.RegisterCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -204,6 +203,7 @@ func file_gcommon_v1_common_messages_register_check_request_proto_init() {
 		return
 	}
 	file_gcommon_v1_common_messages_request_metadata_proto_init()
+	file_gcommon_v1_common_messages_health_check_request_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

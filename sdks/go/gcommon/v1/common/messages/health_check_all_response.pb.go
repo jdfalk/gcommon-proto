@@ -8,7 +8,6 @@ package messages
 
 import (
 	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,14 +25,14 @@ const (
 // *
 // HealthCheckAllResponse contains comprehensive health information for all services
 type HealthCheckAllResponse struct {
-	state                        protoimpl.MessageState               `protogen:"opaque.v1"`
-	xxx_hidden_OverallStatus     enums.ServingStatus                  `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.ServingStatus"`
-	xxx_hidden_Results           *[]*messages.ConfigHealthCheckResult `protobuf:"bytes,2,rep,name=results"`
-	xxx_hidden_TotalServices     int32                                `protobuf:"varint,3,opt,name=total_services,json=totalServices"`
-	xxx_hidden_HealthyServices   int32                                `protobuf:"varint,4,opt,name=healthy_services,json=healthyServices"`
-	xxx_hidden_UnhealthyServices int32                                `protobuf:"varint,5,opt,name=unhealthy_services,json=unhealthyServices"`
-	xxx_hidden_TotalDurationMs   int64                                `protobuf:"varint,6,opt,name=total_duration_ms,json=totalDurationMs"`
-	xxx_hidden_Timestamp         int64                                `protobuf:"varint,7,opt,name=timestamp"`
+	state                        protoimpl.MessageState      `protogen:"opaque.v1"`
+	xxx_hidden_OverallStatus     enums.ServingStatus         `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.ServingStatus"`
+	xxx_hidden_Results           *[]*HealthHealthCheckResult `protobuf:"bytes,2,rep,name=results"`
+	xxx_hidden_TotalServices     int32                       `protobuf:"varint,3,opt,name=total_services,json=totalServices"`
+	xxx_hidden_HealthyServices   int32                       `protobuf:"varint,4,opt,name=healthy_services,json=healthyServices"`
+	xxx_hidden_UnhealthyServices int32                       `protobuf:"varint,5,opt,name=unhealthy_services,json=unhealthyServices"`
+	xxx_hidden_TotalDurationMs   int64                       `protobuf:"varint,6,opt,name=total_duration_ms,json=totalDurationMs"`
+	xxx_hidden_Timestamp         int64                       `protobuf:"varint,7,opt,name=timestamp"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -74,7 +73,7 @@ func (x *HealthCheckAllResponse) GetOverallStatus() enums.ServingStatus {
 	return enums.ServingStatus(0)
 }
 
-func (x *HealthCheckAllResponse) GetResults() []*messages.ConfigHealthCheckResult {
+func (x *HealthCheckAllResponse) GetResults() []*HealthHealthCheckResult {
 	if x != nil {
 		if x.xxx_hidden_Results != nil {
 			return *x.xxx_hidden_Results
@@ -123,7 +122,7 @@ func (x *HealthCheckAllResponse) SetOverallStatus(v enums.ServingStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *HealthCheckAllResponse) SetResults(v []*messages.ConfigHealthCheckResult) {
+func (x *HealthCheckAllResponse) SetResults(v []*HealthHealthCheckResult) {
 	x.xxx_hidden_Results = &v
 }
 
@@ -230,7 +229,7 @@ type HealthCheckAllResponse_builder struct {
 	// Overall system status
 	OverallStatus *enums.ServingStatus
 	// Individual service health results
-	Results []*messages.ConfigHealthCheckResult
+	Results []*HealthHealthCheckResult
 	// Total number of services checked
 	TotalServices *int32
 	// Number of healthy services
@@ -279,10 +278,10 @@ var File_gcommon_v1_common_messages_health_check_all_response_proto protoreflect
 
 const file_gcommon_v1_common_messages_health_check_all_response_proto_rawDesc = "" +
 	"\n" +
-	":gcommon/v1/common/messages/health_check_all_response.proto\x12\x11gcommon.v1.common\x1a,gcommon/v1/common/enums/serving_status.proto\x1a4gcommon/v1/config/messages/health_check_result.proto\x1a!google/protobuf/go_features.proto\"\xf2\x02\n" +
+	":gcommon/v1/common/messages/health_check_all_response.proto\x12\x11gcommon.v1.common\x1a,gcommon/v1/common/enums/serving_status.proto\x1a4gcommon/v1/common/messages/health_check_result.proto\x1a!google/protobuf/go_features.proto\"\xf2\x02\n" +
 	"\x16HealthCheckAllResponse\x12G\n" +
 	"\x0eoverall_status\x18\x01 \x01(\x0e2 .gcommon.v1.common.ServingStatusR\roverallStatus\x12D\n" +
-	"\aresults\x18\x02 \x03(\v2*.gcommon.v1.config.ConfigHealthCheckResultR\aresults\x12%\n" +
+	"\aresults\x18\x02 \x03(\v2*.gcommon.v1.common.HealthHealthCheckResultR\aresults\x12%\n" +
 	"\x0etotal_services\x18\x03 \x01(\x05R\rtotalServices\x12)\n" +
 	"\x10healthy_services\x18\x04 \x01(\x05R\x0fhealthyServices\x12-\n" +
 	"\x12unhealthy_services\x18\x05 \x01(\x05R\x11unhealthyServices\x12*\n" +
@@ -292,13 +291,13 @@ const file_gcommon_v1_common_messages_health_check_all_response_proto_rawDesc = 
 
 var file_gcommon_v1_common_messages_health_check_all_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_health_check_all_response_proto_goTypes = []any{
-	(*HealthCheckAllResponse)(nil),           // 0: gcommon.v1.common.HealthCheckAllResponse
-	(enums.ServingStatus)(0),                 // 1: gcommon.v1.common.ServingStatus
-	(*messages.ConfigHealthCheckResult)(nil), // 2: gcommon.v1.config.ConfigHealthCheckResult
+	(*HealthCheckAllResponse)(nil),  // 0: gcommon.v1.common.HealthCheckAllResponse
+	(enums.ServingStatus)(0),        // 1: gcommon.v1.common.ServingStatus
+	(*HealthHealthCheckResult)(nil), // 2: gcommon.v1.common.HealthHealthCheckResult
 }
 var file_gcommon_v1_common_messages_health_check_all_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.HealthCheckAllResponse.overall_status:type_name -> gcommon.v1.common.ServingStatus
-	2, // 1: gcommon.v1.common.HealthCheckAllResponse.results:type_name -> gcommon.v1.config.ConfigHealthCheckResult
+	2, // 1: gcommon.v1.common.HealthCheckAllResponse.results:type_name -> gcommon.v1.common.HealthHealthCheckResult
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -311,6 +310,7 @@ func file_gcommon_v1_common_messages_health_check_all_response_proto_init() {
 	if File_gcommon_v1_common_messages_health_check_all_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_health_check_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

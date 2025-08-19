@@ -1,5 +1,5 @@
 from gcommon.v1.common.enums import serving_status_pb2 as _serving_status_pb2
-from gcommon.v1.config.messages import health_check_result_pb2 as _health_check_result_pb2
+from gcommon.v1.common.messages import health_check_result_pb2 as _health_check_result_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -18,10 +18,10 @@ class HealthCheckAllResponse(_message.Message):
     TOTAL_DURATION_MS_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     overall_status: _serving_status_pb2.ServingStatus
-    results: _containers.RepeatedCompositeFieldContainer[_health_check_result_pb2.ConfigHealthCheckResult]
+    results: _containers.RepeatedCompositeFieldContainer[_health_check_result_pb2.HealthHealthCheckResult]
     total_services: int
     healthy_services: int
     unhealthy_services: int
     total_duration_ms: int
     timestamp: int
-    def __init__(self, overall_status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ..., results: _Optional[_Iterable[_Union[_health_check_result_pb2.ConfigHealthCheckResult, _Mapping]]] = ..., total_services: _Optional[int] = ..., healthy_services: _Optional[int] = ..., unhealthy_services: _Optional[int] = ..., total_duration_ms: _Optional[int] = ..., timestamp: _Optional[int] = ...) -> None: ...
+    def __init__(self, overall_status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ..., results: _Optional[_Iterable[_Union[_health_check_result_pb2.HealthHealthCheckResult, _Mapping]]] = ..., total_services: _Optional[int] = ..., healthy_services: _Optional[int] = ..., unhealthy_services: _Optional[int] = ..., total_duration_ms: _Optional[int] = ..., timestamp: _Optional[int] = ...) -> None: ...

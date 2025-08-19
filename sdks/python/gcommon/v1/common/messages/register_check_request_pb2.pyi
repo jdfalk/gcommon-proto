@@ -1,5 +1,5 @@
 from gcommon.v1.common.messages import request_metadata_pb2 as _request_metadata_pb2
-from gcommon.v1.metrics.messages import health_check_request_pb2 as _health_check_request_pb2
+from gcommon.v1.common.messages import health_check_request_pb2 as _health_check_request_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -13,6 +13,6 @@ class RegisterCheckRequest(_message.Message):
     CHECK_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     service: str
-    check: _health_check_request_pb2.MetricsHealthCheckRequest
+    check: _health_check_request_pb2.HealthHealthCheckRequest
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, service: _Optional[str] = ..., check: _Optional[_Union[_health_check_request_pb2.MetricsHealthCheckRequest, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(self, service: _Optional[str] = ..., check: _Optional[_Union[_health_check_request_pb2.HealthHealthCheckRequest, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

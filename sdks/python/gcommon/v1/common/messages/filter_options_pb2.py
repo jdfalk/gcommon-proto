@@ -23,11 +23,11 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common.messages import filter_value_pb2 as gcommon_dot_v1_dot_common_dot_messages_dot_filter__value__pb2
-from gcommon.v1.metrics.messages import time_range_pb2 as gcommon_dot_v1_dot_metrics_dot_messages_dot_time__range__pb2
+from gcommon.v1.common.messages import time_range_pb2 as gcommon_dot_v1_dot_common_dot_messages_dot_time__range__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a,gcommon/v1/metrics/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9c\x02\n\rFilterOptions\x12G\n\x07\x66ilters\x18\x01 \x03(\x0b\x32-.gcommon.v1.common.FilterOptions.FiltersEntryR\x07\x66ilters\x12!\n\x0csearch_query\x18\x02 \x01(\tR\x0bsearchQuery\x12\x43\n\ntime_range\x18\x03 \x01(\x0b\x32$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x1aZ\n\x0c\x46iltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.common.FilterValueR\x05value:\x02\x38\x01\x42\xd7\x01\n\x15\x63om.gcommon.v1.commonB\x12\x46ilterOptionsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a+gcommon/v1/common/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9a\x02\n\rFilterOptions\x12G\n\x07\x66ilters\x18\x01 \x03(\x0b\x32-.gcommon.v1.common.FilterOptions.FiltersEntryR\x07\x66ilters\x12!\n\x0csearch_query\x18\x02 \x01(\tR\x0bsearchQuery\x12\x41\n\ntime_range\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.CommonTimeRangeR\ttimeRange\x1aZ\n\x0c\x46iltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x34\n\x05value\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.common.FilterValueR\x05value:\x02\x38\x01\x42\xd7\x01\n\x15\x63om.gcommon.v1.commonB\x12\x46ilterOptionsProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,8 +37,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\022FilterOptionsProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_FILTEROPTIONS_FILTERSENTRY']._loaded_options = None
   _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_FILTEROPTIONS']._serialized_start=199
-  _globals['_FILTEROPTIONS']._serialized_end=483
-  _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_start=393
-  _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_end=483
+  _globals['_FILTEROPTIONS']._serialized_start=198
+  _globals['_FILTEROPTIONS']._serialized_end=480
+  _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_start=390
+  _globals['_FILTEROPTIONS_FILTERSENTRY']._serialized_end=480
 # @@protoc_insertion_point(module_scope)

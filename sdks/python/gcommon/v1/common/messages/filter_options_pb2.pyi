@@ -1,5 +1,5 @@
 from gcommon.v1.common.messages import filter_value_pb2 as _filter_value_pb2
-from gcommon.v1.metrics.messages import time_range_pb2 as _time_range_pb2
+from gcommon.v1.common.messages import time_range_pb2 as _time_range_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -22,5 +22,5 @@ class FilterOptions(_message.Message):
     TIME_RANGE_FIELD_NUMBER: _ClassVar[int]
     filters: _containers.MessageMap[str, _filter_value_pb2.FilterValue]
     search_query: str
-    time_range: _time_range_pb2.MetricsTimeRange
-    def __init__(self, filters: _Optional[_Mapping[str, _filter_value_pb2.FilterValue]] = ..., search_query: _Optional[str] = ..., time_range: _Optional[_Union[_time_range_pb2.MetricsTimeRange, _Mapping]] = ...) -> None: ...
+    time_range: _time_range_pb2.CommonTimeRange
+    def __init__(self, filters: _Optional[_Mapping[str, _filter_value_pb2.FilterValue]] = ..., search_query: _Optional[str] = ..., time_range: _Optional[_Union[_time_range_pb2.CommonTimeRange, _Mapping]] = ...) -> None: ...

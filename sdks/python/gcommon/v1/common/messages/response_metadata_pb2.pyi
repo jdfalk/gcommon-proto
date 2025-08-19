@@ -1,6 +1,6 @@
 from gcommon.v1.common.messages import error_pb2 as _error_pb2
 from gcommon.v1.common.messages import rate_limit_info_pb2 as _rate_limit_info_pb2
-from gcommon.v1.metrics.messages import pagination_info_pb2 as _pagination_info_pb2
+from gcommon.v1.common.messages import pagination_info_pb2 as _pagination_info_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -39,5 +39,5 @@ class ResponseMetadata(_message.Message):
     error: _error_pb2.Error
     metadata: _containers.ScalarMap[str, str]
     rate_limit: _rate_limit_info_pb2.RateLimitInfo
-    pagination: _pagination_info_pb2.MetricsPaginationInfo
-    def __init__(self, trace_id: _Optional[str] = ..., request_id: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., processing_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., service_version: _Optional[str] = ..., success: bool = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., rate_limit: _Optional[_Union[_rate_limit_info_pb2.RateLimitInfo, _Mapping]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]] = ...) -> None: ...
+    pagination: _pagination_info_pb2.CommonPaginationInfo
+    def __init__(self, trace_id: _Optional[str] = ..., request_id: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., processing_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., service_version: _Optional[str] = ..., success: bool = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., rate_limit: _Optional[_Union[_rate_limit_info_pb2.RateLimitInfo, _Mapping]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.CommonPaginationInfo, _Mapping]] = ...) -> None: ...

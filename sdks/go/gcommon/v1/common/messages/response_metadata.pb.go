@@ -7,7 +7,6 @@
 package messages
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,17 +24,17 @@ const (
 )
 
 type ResponseMetadata struct {
-	state                     protoimpl.MessageState          `protogen:"opaque.v1"`
-	xxx_hidden_TraceId        *string                         `protobuf:"bytes,1,opt,name=trace_id,json=traceId"`
-	xxx_hidden_RequestId      *string                         `protobuf:"bytes,2,opt,name=request_id,json=requestId"`
-	xxx_hidden_Timestamp      *timestamppb.Timestamp          `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_ProcessingTime *durationpb.Duration            `protobuf:"bytes,4,opt,name=processing_time,json=processingTime"`
-	xxx_hidden_ServiceVersion *string                         `protobuf:"bytes,5,opt,name=service_version,json=serviceVersion"`
-	xxx_hidden_Success        bool                            `protobuf:"varint,6,opt,name=success"`
-	xxx_hidden_Error          *Error                          `protobuf:"bytes,7,opt,name=error"`
-	xxx_hidden_Metadata       map[string]string               `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_RateLimit      *RateLimitInfo                  `protobuf:"bytes,9,opt,name=rate_limit,json=rateLimit"`
-	xxx_hidden_Pagination     *messages.MetricsPaginationInfo `protobuf:"bytes,10,opt,name=pagination"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TraceId        *string                `protobuf:"bytes,1,opt,name=trace_id,json=traceId"`
+	xxx_hidden_RequestId      *string                `protobuf:"bytes,2,opt,name=request_id,json=requestId"`
+	xxx_hidden_Timestamp      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
+	xxx_hidden_ProcessingTime *durationpb.Duration   `protobuf:"bytes,4,opt,name=processing_time,json=processingTime"`
+	xxx_hidden_ServiceVersion *string                `protobuf:"bytes,5,opt,name=service_version,json=serviceVersion"`
+	xxx_hidden_Success        bool                   `protobuf:"varint,6,opt,name=success"`
+	xxx_hidden_Error          *Error                 `protobuf:"bytes,7,opt,name=error"`
+	xxx_hidden_Metadata       map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_RateLimit      *RateLimitInfo         `protobuf:"bytes,9,opt,name=rate_limit,json=rateLimit"`
+	xxx_hidden_Pagination     *CommonPaginationInfo  `protobuf:"bytes,10,opt,name=pagination"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -139,7 +138,7 @@ func (x *ResponseMetadata) GetRateLimit() *RateLimitInfo {
 	return nil
 }
 
-func (x *ResponseMetadata) GetPagination() *messages.MetricsPaginationInfo {
+func (x *ResponseMetadata) GetPagination() *CommonPaginationInfo {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -186,7 +185,7 @@ func (x *ResponseMetadata) SetRateLimit(v *RateLimitInfo) {
 	x.xxx_hidden_RateLimit = v
 }
 
-func (x *ResponseMetadata) SetPagination(v *messages.MetricsPaginationInfo) {
+func (x *ResponseMetadata) SetPagination(v *CommonPaginationInfo) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -315,7 +314,7 @@ type ResponseMetadata_builder struct {
 	// Rate limiting information
 	RateLimit *RateLimitInfo
 	// Pagination information for list responses
-	Pagination *messages.MetricsPaginationInfo
+	Pagination *CommonPaginationInfo
 }
 
 func (b0 ResponseMetadata_builder) Build() *ResponseMetadata {
@@ -351,7 +350,7 @@ var File_gcommon_v1_common_messages_response_metadata_proto protoreflect.FileDes
 
 const file_gcommon_v1_common_messages_response_metadata_proto_rawDesc = "" +
 	"\n" +
-	"2gcommon/v1/common/messages/response_metadata.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/messages/error.proto\x1a0gcommon/v1/common/messages/rate_limit_info.proto\x1a1gcommon/v1/metrics/messages/pagination_info.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd5\x04\n" +
+	"2gcommon/v1/common/messages/response_metadata.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/messages/error.proto\x1a0gcommon/v1/common/messages/rate_limit_info.proto\x1a0gcommon/v1/common/messages/pagination_info.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd3\x04\n" +
 	"\x10ResponseMetadata\x12\x19\n" +
 	"\btrace_id\x18\x01 \x01(\tR\atraceId\x12\x1d\n" +
 	"\n" +
@@ -363,10 +362,10 @@ const file_gcommon_v1_common_messages_response_metadata_proto_rawDesc = "" +
 	"\x05error\x18\a \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12M\n" +
 	"\bmetadata\x18\b \x03(\v21.gcommon.v1.common.ResponseMetadata.MetadataEntryR\bmetadata\x12?\n" +
 	"\n" +
-	"rate_limit\x18\t \x01(\v2 .gcommon.v1.common.RateLimitInfoR\trateLimit\x12I\n" +
+	"rate_limit\x18\t \x01(\v2 .gcommon.v1.common.RateLimitInfoR\trateLimit\x12G\n" +
 	"\n" +
 	"pagination\x18\n" +
-	" \x01(\v2).gcommon.v1.metrics.MetricsPaginationInfoR\n" +
+	" \x01(\v2'.gcommon.v1.common.CommonPaginationInfoR\n" +
 	"pagination\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -375,13 +374,13 @@ const file_gcommon_v1_common_messages_response_metadata_proto_rawDesc = "" +
 
 var file_gcommon_v1_common_messages_response_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_response_metadata_proto_goTypes = []any{
-	(*ResponseMetadata)(nil),               // 0: gcommon.v1.common.ResponseMetadata
-	nil,                                    // 1: gcommon.v1.common.ResponseMetadata.MetadataEntry
-	(*timestamppb.Timestamp)(nil),          // 2: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),            // 3: google.protobuf.Duration
-	(*Error)(nil),                          // 4: gcommon.v1.common.Error
-	(*RateLimitInfo)(nil),                  // 5: gcommon.v1.common.RateLimitInfo
-	(*messages.MetricsPaginationInfo)(nil), // 6: gcommon.v1.metrics.MetricsPaginationInfo
+	(*ResponseMetadata)(nil),      // 0: gcommon.v1.common.ResponseMetadata
+	nil,                           // 1: gcommon.v1.common.ResponseMetadata.MetadataEntry
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
+	(*Error)(nil),                 // 4: gcommon.v1.common.Error
+	(*RateLimitInfo)(nil),         // 5: gcommon.v1.common.RateLimitInfo
+	(*CommonPaginationInfo)(nil),  // 6: gcommon.v1.common.CommonPaginationInfo
 }
 var file_gcommon_v1_common_messages_response_metadata_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.ResponseMetadata.timestamp:type_name -> google.protobuf.Timestamp
@@ -389,7 +388,7 @@ var file_gcommon_v1_common_messages_response_metadata_proto_depIdxs = []int32{
 	4, // 2: gcommon.v1.common.ResponseMetadata.error:type_name -> gcommon.v1.common.Error
 	1, // 3: gcommon.v1.common.ResponseMetadata.metadata:type_name -> gcommon.v1.common.ResponseMetadata.MetadataEntry
 	5, // 4: gcommon.v1.common.ResponseMetadata.rate_limit:type_name -> gcommon.v1.common.RateLimitInfo
-	6, // 5: gcommon.v1.common.ResponseMetadata.pagination:type_name -> gcommon.v1.metrics.MetricsPaginationInfo
+	6, // 5: gcommon.v1.common.ResponseMetadata.pagination:type_name -> gcommon.v1.common.CommonPaginationInfo
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -404,6 +403,7 @@ func file_gcommon_v1_common_messages_response_metadata_proto_init() {
 	}
 	file_gcommon_v1_common_messages_error_proto_init()
 	file_gcommon_v1_common_messages_rate_limit_info_proto_init()
+	file_gcommon_v1_common_messages_pagination_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,7 +7,6 @@
 package messages
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,10 +28,10 @@ const (
 // Supports field-based filters, text search, and time range filtering,
 // enabling flexible and powerful query capabilities.
 type FilterOptions struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Filters     map[string]*FilterValue    `protobuf:"bytes,1,rep,name=filters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_SearchQuery *string                    `protobuf:"bytes,2,opt,name=search_query,json=searchQuery"`
-	xxx_hidden_TimeRange   *messages.MetricsTimeRange `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Filters     map[string]*FilterValue `protobuf:"bytes,1,rep,name=filters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_SearchQuery *string                 `protobuf:"bytes,2,opt,name=search_query,json=searchQuery"`
+	xxx_hidden_TimeRange   *CommonTimeRange        `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -81,7 +80,7 @@ func (x *FilterOptions) GetSearchQuery() string {
 	return ""
 }
 
-func (x *FilterOptions) GetTimeRange() *messages.MetricsTimeRange {
+func (x *FilterOptions) GetTimeRange() *CommonTimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -97,7 +96,7 @@ func (x *FilterOptions) SetSearchQuery(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *FilterOptions) SetTimeRange(v *messages.MetricsTimeRange) {
+func (x *FilterOptions) SetTimeRange(v *CommonTimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -132,7 +131,7 @@ type FilterOptions_builder struct {
 	// Full-text search query for text-based filtering
 	SearchQuery *string
 	// Time range filter for temporal data
-	TimeRange *messages.MetricsTimeRange
+	TimeRange *CommonTimeRange
 }
 
 func (b0 FilterOptions_builder) Build() *FilterOptions {
@@ -152,12 +151,12 @@ var File_gcommon_v1_common_messages_filter_options_proto protoreflect.FileDescri
 
 const file_gcommon_v1_common_messages_filter_options_proto_rawDesc = "" +
 	"\n" +
-	"/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a,gcommon/v1/metrics/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9c\x02\n" +
+	"/gcommon/v1/common/messages/filter_options.proto\x12\x11gcommon.v1.common\x1a-gcommon/v1/common/messages/filter_value.proto\x1a+gcommon/v1/common/messages/time_range.proto\x1a!google/protobuf/go_features.proto\"\x9a\x02\n" +
 	"\rFilterOptions\x12G\n" +
 	"\afilters\x18\x01 \x03(\v2-.gcommon.v1.common.FilterOptions.FiltersEntryR\afilters\x12!\n" +
-	"\fsearch_query\x18\x02 \x01(\tR\vsearchQuery\x12C\n" +
+	"\fsearch_query\x18\x02 \x01(\tR\vsearchQuery\x12A\n" +
 	"\n" +
-	"time_range\x18\x03 \x01(\v2$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x1aZ\n" +
+	"time_range\x18\x03 \x01(\v2\".gcommon.v1.common.CommonTimeRangeR\ttimeRange\x1aZ\n" +
 	"\fFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
 	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xd7\x01\n" +
@@ -165,14 +164,14 @@ const file_gcommon_v1_common_messages_filter_options_proto_rawDesc = "" +
 
 var file_gcommon_v1_common_messages_filter_options_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_filter_options_proto_goTypes = []any{
-	(*FilterOptions)(nil),             // 0: gcommon.v1.common.FilterOptions
-	nil,                               // 1: gcommon.v1.common.FilterOptions.FiltersEntry
-	(*messages.MetricsTimeRange)(nil), // 2: gcommon.v1.metrics.MetricsTimeRange
-	(*FilterValue)(nil),               // 3: gcommon.v1.common.FilterValue
+	(*FilterOptions)(nil),   // 0: gcommon.v1.common.FilterOptions
+	nil,                     // 1: gcommon.v1.common.FilterOptions.FiltersEntry
+	(*CommonTimeRange)(nil), // 2: gcommon.v1.common.CommonTimeRange
+	(*FilterValue)(nil),     // 3: gcommon.v1.common.FilterValue
 }
 var file_gcommon_v1_common_messages_filter_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.FilterOptions.filters:type_name -> gcommon.v1.common.FilterOptions.FiltersEntry
-	2, // 1: gcommon.v1.common.FilterOptions.time_range:type_name -> gcommon.v1.metrics.MetricsTimeRange
+	2, // 1: gcommon.v1.common.FilterOptions.time_range:type_name -> gcommon.v1.common.CommonTimeRange
 	3, // 2: gcommon.v1.common.FilterOptions.FiltersEntry.value:type_name -> gcommon.v1.common.FilterValue
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -187,6 +186,7 @@ func file_gcommon_v1_common_messages_filter_options_proto_init() {
 		return
 	}
 	file_gcommon_v1_common_messages_filter_value_proto_init()
+	file_gcommon_v1_common_messages_time_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
