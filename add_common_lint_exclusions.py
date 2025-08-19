@@ -41,20 +41,23 @@ def add_lint_exclusion(file_path):
 
 
 def main():
-    # Common enum files that should be reusable
+    # Common enum files that should be reusable - expanded list
     common_enum_files = [
         "proto/gcommon/v1/common/enums/permission_level.proto",
-        "proto/gcommon/v1/common/enums/provider_type.proto",
+        "proto/gcommon/v1/common/enums/provider_type.proto", 
         "proto/gcommon/v1/common/enums/session_state.proto",
         "proto/gcommon/v1/common/enums/subject_type.proto",
         "proto/gcommon/v1/common/enums/two_fa_type.proto",
         "proto/gcommon/v1/common/enums/verification_type.proto",
+        "proto/gcommon/v1/common/enums/oauth2_flow_type.proto",
+        # Additional common enums that need exclusions
+        "proto/gcommon/v1/common/enums/alert_severity.proto",
+        "proto/gcommon/v1/common/enums/auth_method.proto", 
+        "proto/gcommon/v1/common/enums/compression_type.proto",
+        "proto/gcommon/v1/common/enums/export_format.proto",
+        "proto/gcommon/v1/common/enums/filter_type.proto",
+        "proto/gcommon/v1/common/enums/health_status.proto",
     ]
-
-    # Also add to the OAuth2 file since it was renamed
-    oauth2_file = "proto/gcommon/v1/common/enums/oauth2_flow_type.proto"
-    if os.path.exists(oauth2_file):
-        common_enum_files.append(oauth2_file)
 
     for file_path in common_enum_files:
         if os.path.exists(file_path):

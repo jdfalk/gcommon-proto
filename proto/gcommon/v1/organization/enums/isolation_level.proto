@@ -16,20 +16,20 @@ option go_package = "github.com/jdfalk/gcommon/pkg/organization";
  */
 enum OrganizationIsolationLevel {
   // Default value indicating no isolation level was specified
-  ISOLATION_LEVEL_UNSPECIFIED = 0;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_UNSPECIFIED = 0;
 
   // Shared infrastructure with logical separation (lowest cost, shared resources)
-  ISOLATION_LEVEL_SHARED = 1;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_SHARED = 1;
 
   // Dedicated database/schema per tenant (medium isolation)
-  ISOLATION_LEVEL_DATABASE = 2;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_DATABASE = 2;
 
   // Dedicated infrastructure per tenant (highest isolation)
-  ISOLATION_LEVEL_INFRASTRUCTURE = 3;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_INFRASTRUCTURE = 3;
 
   // Virtual private cloud isolation (network-level separation)
-  ISOLATION_LEVEL_NETWORK = 4;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_NETWORK = 4;
 
   // Physical server isolation (hardware-level separation)
-  ISOLATION_LEVEL_PHYSICAL = 5;
+  ORGANIZATION_ISOLATION_LEVEL_ISOLATION_LEVEL_PHYSICAL = 5;
 }

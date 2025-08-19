@@ -14,13 +14,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 // PriorityLevel defines generic priority classes for queue messages.
 enum PriorityLevel {
   // Default unspecified priority.
-  QUEUE_PRIORITY_LEVEL_UNSPECIFIED = 0;
+  PRIORITY_LEVEL_QUEUE_PRIORITY_LEVEL_UNSPECIFIED = 0;
   // Low priority messages are processed after normal traffic.
-  QUEUE_PRIORITY_LEVEL_LOW = 1;
+  PRIORITY_LEVEL_QUEUE_PRIORITY_LEVEL_LOW = 1;
   // Normal priority for standard workload.
-  QUEUE_PRIORITY_LEVEL_MEDIUM = 2;
+  PRIORITY_LEVEL_QUEUE_PRIORITY_LEVEL_MEDIUM = 2;
   // High priority messages are processed before others.
-  QUEUE_PRIORITY_LEVEL_HIGH = 3;
+  PRIORITY_LEVEL_QUEUE_PRIORITY_LEVEL_HIGH = 3;
   // Critical messages are processed immediately with highest importance.
-  QUEUE_PRIORITY_LEVEL_CRITICAL = 4;
+  PRIORITY_LEVEL_QUEUE_PRIORITY_LEVEL_CRITICAL = 4;
 }

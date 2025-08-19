@@ -14,35 +14,35 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 // RetentionPolicy represents different retention policies for metrics data
 enum MetricsRetentionPolicy {
   // Unspecified retention policy
-  RETENTION_POLICY_UNSPECIFIED = 0;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_UNSPECIFIED = 0;
 
   // Short-term retention (minutes to hours)
-  RETENTION_POLICY_SHORT_TERM = 1;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_SHORT_TERM = 1;
 
   // Medium-term retention (days to weeks)
-  RETENTION_POLICY_MEDIUM_TERM = 2;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_MEDIUM_TERM = 2;
 
   // Long-term retention (months to years)
-  RETENTION_POLICY_LONG_TERM = 3;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_LONG_TERM = 3;
 
   // Archive retention (permanent storage)
-  RETENTION_POLICY_ARCHIVE = 4;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_ARCHIVE = 4;
 
   // Custom retention policy
-  RETENTION_POLICY_CUSTOM = 5;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_CUSTOM = 5;
 
   // High-frequency data retention (seconds to minutes)
-  RETENTION_POLICY_HIGH_FREQUENCY = 6;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_HIGH_FREQUENCY = 6;
 
   // Low-frequency data retention (hours to days)
-  RETENTION_POLICY_LOW_FREQUENCY = 7;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_LOW_FREQUENCY = 7;
 
   // Compliance retention (regulatory requirements)
-  RETENTION_POLICY_COMPLIANCE = 8;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_COMPLIANCE = 8;
 
   // Real-time retention (immediate processing, no storage)
-  RETENTION_POLICY_REAL_TIME = 9;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_REAL_TIME = 9;
 
   // Aggregate retention (summary data only)
-  RETENTION_POLICY_AGGREGATE = 10;
+  METRICS_RETENTION_POLICY_RETENTION_POLICY_AGGREGATE = 10;
 }

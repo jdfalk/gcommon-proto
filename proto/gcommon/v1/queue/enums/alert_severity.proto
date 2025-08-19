@@ -16,17 +16,17 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
  */
 enum QueueAlertSeverity {
   // Default unspecified severity
-  ALERT_SEVERITY_UNSPECIFIED = 0;
+  QUEUE_ALERT_SEVERITY_ALERT_SEVERITY_UNSPECIFIED = 0;
 
   // Informational alert
-  ALERT_SEVERITY_INFO = 1;
+  QUEUE_ALERT_SEVERITY_ALERT_SEVERITY_INFO = 1;
 
   // Warning level alert
-  ALERT_SEVERITY_WARNING = 2;
+  QUEUE_ALERT_SEVERITY_ALERT_SEVERITY_WARNING = 2;
 
   // Error level alert
-  ALERT_SEVERITY_ERROR = 3;
+  QUEUE_ALERT_SEVERITY_ALERT_SEVERITY_ERROR = 3;
 
   // Critical alert requiring immediate attention
-  ALERT_SEVERITY_CRITICAL = 4;
+  QUEUE_ALERT_SEVERITY_ALERT_SEVERITY_CRITICAL = 4;
 }

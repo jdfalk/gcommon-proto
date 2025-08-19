@@ -16,17 +16,17 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 enum DatabaseIsolationLevel {
   // Default unspecified isolation level
-  ISOLATION_LEVEL_UNSPECIFIED = 0;
+  DATABASE_ISOLATION_LEVEL_ISOLATION_LEVEL_UNSPECIFIED = 0;
 
   // Read uncommitted - allows dirty reads, lowest isolation
-  ISOLATION_LEVEL_READ_UNCOMMITTED = 1;
+  DATABASE_ISOLATION_LEVEL_ISOLATION_LEVEL_READ_UNCOMMITTED = 1;
 
   // Read committed - prevents dirty reads, allows non-repeatable reads
-  ISOLATION_LEVEL_READ_COMMITTED = 2;
+  DATABASE_ISOLATION_LEVEL_ISOLATION_LEVEL_READ_COMMITTED = 2;
 
   // Repeatable read - prevents dirty and non-repeatable reads
-  ISOLATION_LEVEL_REPEATABLE_READ = 3;
+  DATABASE_ISOLATION_LEVEL_ISOLATION_LEVEL_REPEATABLE_READ = 3;
 
   // Serializable - highest isolation, prevents all phenomena
-  ISOLATION_LEVEL_SERIALIZABLE = 4;
+  DATABASE_ISOLATION_LEVEL_ISOLATION_LEVEL_SERIALIZABLE = 4;
 }

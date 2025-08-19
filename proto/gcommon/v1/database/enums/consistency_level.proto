@@ -16,14 +16,14 @@ option go_package = "github.com/jdfalk/gcommon/pkg/database";
  */
 enum DatabaseConsistencyLevel {
   // Default unspecified consistency level
-  CONSISTENCY_LEVEL_UNSPECIFIED = 0;
+  DATABASE_CONSISTENCY_LEVEL_CONSISTENCY_LEVEL_UNSPECIFIED = 0;
 
   // Eventual consistency - may read stale data but eventually consistent
-  CONSISTENCY_LEVEL_EVENTUAL = 1;
+  DATABASE_CONSISTENCY_LEVEL_CONSISTENCY_LEVEL_EVENTUAL = 1;
 
   // Strong consistency - always reads most recent committed data
-  CONSISTENCY_LEVEL_STRONG = 2;
+  DATABASE_CONSISTENCY_LEVEL_CONSISTENCY_LEVEL_STRONG = 2;
 
   // Bounded staleness - reads data within specified time bounds
-  CONSISTENCY_LEVEL_BOUNDED_STALENESS = 3;
+  DATABASE_CONSISTENCY_LEVEL_CONSISTENCY_LEVEL_BOUNDED_STALENESS = 3;
 }

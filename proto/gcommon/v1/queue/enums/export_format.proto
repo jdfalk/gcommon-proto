@@ -19,17 +19,17 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
  */
 enum QueueExportFormat {
   // Default unspecified format
-  EXPORT_FORMAT_UNSPECIFIED = 0;
+  QUEUE_EXPORT_FORMAT_EXPORT_FORMAT_UNSPECIFIED = 0;
 
   // JSON format
-  EXPORT_FORMAT_JSON = 1;
+  QUEUE_EXPORT_FORMAT_EXPORT_FORMAT_JSON = 1;
 
   // Protocol Buffers binary format
-  EXPORT_FORMAT_PROTOBUF = 2;
+  QUEUE_EXPORT_FORMAT_EXPORT_FORMAT_PROTOBUF = 2;
 
   // CSV format (metadata only)
-  EXPORT_FORMAT_CSV = 3;
+  QUEUE_EXPORT_FORMAT_EXPORT_FORMAT_CSV = 3;
 
   // Custom format
-  EXPORT_FORMAT_CUSTOM = 4;
+  QUEUE_EXPORT_FORMAT_EXPORT_FORMAT_CUSTOM = 4;
 }
