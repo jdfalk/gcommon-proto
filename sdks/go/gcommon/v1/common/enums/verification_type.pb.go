@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/verification_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -74,7 +74,7 @@ const file_gcommon_v1_common_enums_verification_type_proto_rawDesc = "" +
 	"\x14AuthVerificationType\x12!\n" +
 	"\x1dVERIFICATION_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17VERIFICATION_TYPE_EMAIL\x10\x01\x12\x19\n" +
-	"\x15VERIFICATION_TYPE_SMS\x10\x02BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15VERIFICATION_TYPE_SMS\x10\x02B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_verification_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_verification_type_proto_goTypes = []any{

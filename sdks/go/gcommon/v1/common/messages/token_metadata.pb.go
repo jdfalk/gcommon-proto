@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/token_metadata.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type TokenMetadata struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_TokenId     *string                `protobuf:"bytes,1,opt,name=token_id,json=tokenId"`
-	xxx_hidden_Type        enums.TokenType        `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.TokenType"`
+	xxx_hidden_Type        TokenType              `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.TokenType"`
 	xxx_hidden_Subject     *string                `protobuf:"bytes,3,opt,name=subject"`
 	xxx_hidden_Audience    []string               `protobuf:"bytes,4,rep,name=audience"`
 	xxx_hidden_Scopes      []string               `protobuf:"bytes,5,rep,name=scopes"`
@@ -74,13 +73,13 @@ func (x *TokenMetadata) GetTokenId() string {
 	return ""
 }
 
-func (x *TokenMetadata) GetType() enums.TokenType {
+func (x *TokenMetadata) GetType() TokenType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.TokenType(0)
+	return TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
 func (x *TokenMetadata) GetSubject() string {
@@ -143,7 +142,7 @@ func (x *TokenMetadata) SetTokenId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *TokenMetadata) SetType(v enums.TokenType) {
+func (x *TokenMetadata) SetType(v TokenType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
 }
@@ -237,7 +236,7 @@ func (x *TokenMetadata) ClearTokenId() {
 
 func (x *TokenMetadata) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.TokenType_TOKEN_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
 func (x *TokenMetadata) ClearSubject() {
@@ -271,7 +270,7 @@ type TokenMetadata_builder struct {
 	// Token ID
 	TokenId *string
 	// Token type
-	Type *enums.TokenType
+	Type *TokenType
 	// Subject (user ID)
 	Subject *string
 	// Audience
@@ -341,12 +340,12 @@ const file_gcommon_v1_common_messages_token_metadata_proto_rawDesc = "" +
 	"expires_at\x18\a \x01(\x03R\texpiresAt\x12\x1d\n" +
 	"\n" +
 	"not_before\x18\b \x01(\x03R\tnotBefore\x12\x16\n" +
-	"\x06issuer\x18\t \x01(\tR\x06issuerBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06issuer\x18\t \x01(\tR\x06issuerB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_token_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_token_metadata_proto_goTypes = []any{
 	(*TokenMetadata)(nil), // 0: gcommon.v1.common.TokenMetadata
-	(enums.TokenType)(0),  // 1: gcommon.v1.common.TokenType
+	(TokenType)(0),        // 1: gcommon.v1.common.TokenType
 }
 var file_gcommon_v1_common_messages_token_metadata_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.TokenMetadata.type:type_name -> gcommon.v1.common.TokenType
@@ -362,6 +361,7 @@ func file_gcommon_v1_common_messages_token_metadata_proto_init() {
 	if File_gcommon_v1_common_messages_token_metadata_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_token_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

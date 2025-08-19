@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/permission_metadata.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,15 +22,15 @@ const (
 )
 
 type PermissionMetadata struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_PermissionId  *string                   `protobuf:"bytes,1,opt,name=permission_id,json=permissionId"`
-	xxx_hidden_Name          *string                   `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_ResourceTypes []string                  `protobuf:"bytes,3,rep,name=resource_types,json=resourceTypes"`
-	xxx_hidden_Actions       []string                  `protobuf:"bytes,4,rep,name=actions"`
-	xxx_hidden_Conditions    *[]*PermissionCondition   `protobuf:"bytes,5,rep,name=conditions"`
-	xxx_hidden_Level         enums.AuthPermissionLevel `protobuf:"varint,6,opt,name=level,enum=gcommon.v1.common.AuthPermissionLevel"`
-	xxx_hidden_CreatedAt     int64                     `protobuf:"varint,7,opt,name=created_at,json=createdAt"`
-	xxx_hidden_CreatedBy     *string                   `protobuf:"bytes,8,opt,name=created_by,json=createdBy"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_PermissionId  *string                 `protobuf:"bytes,1,opt,name=permission_id,json=permissionId"`
+	xxx_hidden_Name          *string                 `protobuf:"bytes,2,opt,name=name"`
+	xxx_hidden_ResourceTypes []string                `protobuf:"bytes,3,rep,name=resource_types,json=resourceTypes"`
+	xxx_hidden_Actions       []string                `protobuf:"bytes,4,rep,name=actions"`
+	xxx_hidden_Conditions    *[]*PermissionCondition `protobuf:"bytes,5,rep,name=conditions"`
+	xxx_hidden_Level         AuthPermissionLevel     `protobuf:"varint,6,opt,name=level,enum=gcommon.v1.common.AuthPermissionLevel"`
+	xxx_hidden_CreatedAt     int64                   `protobuf:"varint,7,opt,name=created_at,json=createdAt"`
+	xxx_hidden_CreatedBy     *string                 `protobuf:"bytes,8,opt,name=created_by,json=createdBy"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -106,13 +105,13 @@ func (x *PermissionMetadata) GetConditions() []*PermissionCondition {
 	return nil
 }
 
-func (x *PermissionMetadata) GetLevel() enums.AuthPermissionLevel {
+func (x *PermissionMetadata) GetLevel() AuthPermissionLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.AuthPermissionLevel(0)
+	return AuthPermissionLevel_PERMISSION_LEVEL_UNSPECIFIED
 }
 
 func (x *PermissionMetadata) GetCreatedAt() int64 {
@@ -154,7 +153,7 @@ func (x *PermissionMetadata) SetConditions(v []*PermissionCondition) {
 	x.xxx_hidden_Conditions = &v
 }
 
-func (x *PermissionMetadata) SetLevel(v enums.AuthPermissionLevel) {
+func (x *PermissionMetadata) SetLevel(v AuthPermissionLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
@@ -216,7 +215,7 @@ func (x *PermissionMetadata) ClearName() {
 
 func (x *PermissionMetadata) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Level = enums.AuthPermissionLevel_PERMISSION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = AuthPermissionLevel_PERMISSION_LEVEL_UNSPECIFIED
 }
 
 func (x *PermissionMetadata) ClearCreatedAt() {
@@ -242,7 +241,7 @@ type PermissionMetadata_builder struct {
 	Actions []string
 	// Conditions or constraints
 	Conditions []*PermissionCondition
-	Level      *enums.AuthPermissionLevel
+	Level      *AuthPermissionLevel
 	// Creation metadata
 	CreatedAt *int64
 	CreatedBy *string
@@ -295,13 +294,13 @@ const file_gcommon_v1_common_messages_permission_metadata_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\a \x01(\x03R\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\b \x01(\tR\tcreatedByBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"created_by\x18\b \x01(\tR\tcreatedByB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_permission_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_permission_metadata_proto_goTypes = []any{
-	(*PermissionMetadata)(nil),     // 0: gcommon.v1.common.PermissionMetadata
-	(*PermissionCondition)(nil),    // 1: gcommon.v1.common.PermissionCondition
-	(enums.AuthPermissionLevel)(0), // 2: gcommon.v1.common.AuthPermissionLevel
+	(*PermissionMetadata)(nil),  // 0: gcommon.v1.common.PermissionMetadata
+	(*PermissionCondition)(nil), // 1: gcommon.v1.common.PermissionCondition
+	(AuthPermissionLevel)(0),    // 2: gcommon.v1.common.AuthPermissionLevel
 }
 var file_gcommon_v1_common_messages_permission_metadata_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.PermissionMetadata.conditions:type_name -> gcommon.v1.common.PermissionCondition
@@ -318,6 +317,7 @@ func file_gcommon_v1_common_messages_permission_metadata_proto_init() {
 	if File_gcommon_v1_common_messages_permission_metadata_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_permission_level_proto_init()
 	file_gcommon_v1_common_messages_permission_condition_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/paginated_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -275,7 +275,7 @@ const file_gcommon_v1_common_messages_paginated_response_proto_rawDesc = "" +
 	"\fcurrent_page\x18\x04 \x01(\x05R\vcurrentPage\x12\x1f\n" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
 	"totalPages\x12\x1b\n" +
-	"\tpage_size\x18\x06 \x01(\x05R\bpageSizeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tpage_size\x18\x06 \x01(\x05R\bpageSizeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_paginated_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_paginated_response_proto_goTypes = []any{

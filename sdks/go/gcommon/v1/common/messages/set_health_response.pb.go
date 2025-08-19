@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/set_health_response.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,13 +26,13 @@ const (
 // Response message for manually setting health status.
 // Contains the result of administratively setting the health status.
 type SetHealthResponse struct {
-	state                     protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Success        bool                     `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_PreviousStatus enums.CommonHealthStatus `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_NewStatus      enums.CommonHealthStatus `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.CommonHealthStatus"`
-	xxx_hidden_ChangedAt      *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=changed_at,json=changedAt"`
-	xxx_hidden_Error          *Error                   `protobuf:"bytes,5,opt,name=error"`
-	xxx_hidden_Reason         *string                  `protobuf:"bytes,6,opt,name=reason"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success        bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_PreviousStatus CommonHealthStatus     `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_NewStatus      CommonHealthStatus     `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.CommonHealthStatus"`
+	xxx_hidden_ChangedAt      *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=changed_at,json=changedAt"`
+	xxx_hidden_Error          *Error                 `protobuf:"bytes,5,opt,name=error"`
+	xxx_hidden_Reason         *string                `protobuf:"bytes,6,opt,name=reason"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -72,22 +71,22 @@ func (x *SetHealthResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *SetHealthResponse) GetPreviousStatus() enums.CommonHealthStatus {
+func (x *SetHealthResponse) GetPreviousStatus() CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_PreviousStatus
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
-func (x *SetHealthResponse) GetNewStatus() enums.CommonHealthStatus {
+func (x *SetHealthResponse) GetNewStatus() CommonHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_NewStatus
 		}
 	}
-	return enums.CommonHealthStatus(0)
+	return CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
@@ -119,12 +118,12 @@ func (x *SetHealthResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *SetHealthResponse) SetPreviousStatus(v enums.CommonHealthStatus) {
+func (x *SetHealthResponse) SetPreviousStatus(v CommonHealthStatus) {
 	x.xxx_hidden_PreviousStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
-func (x *SetHealthResponse) SetNewStatus(v enums.CommonHealthStatus) {
+func (x *SetHealthResponse) SetNewStatus(v CommonHealthStatus) {
 	x.xxx_hidden_NewStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
@@ -191,12 +190,12 @@ func (x *SetHealthResponse) ClearSuccess() {
 
 func (x *SetHealthResponse) ClearPreviousStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PreviousStatus = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_PreviousStatus = CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearNewStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_NewStatus = enums.CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_NewStatus = CommonHealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearChangedAt() {
@@ -218,9 +217,9 @@ type SetHealthResponse_builder struct {
 	// Success status
 	Success *bool
 	// Previous health status before the change
-	PreviousStatus *enums.CommonHealthStatus
+	PreviousStatus *CommonHealthStatus
 	// New health status after the change
-	NewStatus *enums.CommonHealthStatus
+	NewStatus *CommonHealthStatus
 	// Timestamp when status was changed
 	ChangedAt *timestamppb.Timestamp
 	// Error information if setting failed
@@ -267,12 +266,12 @@ const file_gcommon_v1_common_messages_set_health_response_proto_rawDesc = "" +
 	"\n" +
 	"changed_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tchangedAt\x12.\n" +
 	"\x05error\x18\x05 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12\x16\n" +
-	"\x06reason\x18\x06 \x01(\tR\x06reasonBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x06 \x01(\tR\x06reasonB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_set_health_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_set_health_response_proto_goTypes = []any{
 	(*SetHealthResponse)(nil),     // 0: gcommon.v1.common.SetHealthResponse
-	(enums.CommonHealthStatus)(0), // 1: gcommon.v1.common.CommonHealthStatus
+	(CommonHealthStatus)(0),       // 1: gcommon.v1.common.CommonHealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*Error)(nil),                 // 3: gcommon.v1.common.Error
 }
@@ -293,6 +292,7 @@ func file_gcommon_v1_common_messages_set_health_response_proto_init() {
 	if File_gcommon_v1_common_messages_set_health_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_health_status_proto_init()
 	file_gcommon_v1_common_messages_error_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

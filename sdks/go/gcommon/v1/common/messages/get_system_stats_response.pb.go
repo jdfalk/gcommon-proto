@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/get_system_stats_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -261,7 +261,7 @@ const file_gcommon_v1_common_messages_get_system_stats_response_proto_rawDesc = 
 	"\x0factive_sessions\x18\x03 \x01(\x03R\x0eactiveSessions\x12#\n" +
 	"\rfailed_logins\x18\x04 \x01(\x03R\ffailedLogins\x12%\n" +
 	"\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n" +
-	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_system_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_system_stats_response_proto_goTypes = []any{

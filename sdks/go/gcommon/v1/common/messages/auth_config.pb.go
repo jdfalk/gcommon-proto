@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/auth_config.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -162,7 +162,7 @@ const file_gcommon_v1_common_messages_auth_config_proto_rawDesc = "" +
 	"\x10access_token_ttl\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x0eaccessTokenTtl\x12F\n" +
 	"\x11refresh_token_ttl\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x0frefreshTokenTtl\x12\x1f\n" +
 	"\vrequire_mfa\x18\x03 \x01(\bR\n" +
-	"requireMfaBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"requireMfaB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_auth_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_auth_config_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/mfa_config.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -252,7 +252,7 @@ const file_gcommon_v1_common_messages_mfa_config_proto_rawDesc = "" +
 	"totpDigits\x12\x1f\n" +
 	"\vsms_enabled\x18\x05 \x01(\bR\n" +
 	"smsEnabled\x12#\n" +
-	"\remail_enabled\x18\x06 \x01(\bR\femailEnabledBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\remail_enabled\x18\x06 \x01(\bR\femailEnabledB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_mfa_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_mfa_config_proto_goTypes = []any{

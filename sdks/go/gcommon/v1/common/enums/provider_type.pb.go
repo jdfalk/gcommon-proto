@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/provider_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -87,7 +87,7 @@ const file_gcommon_v1_common_enums_provider_type_proto_rawDesc = "" +
 	"\x13PROVIDER_TYPE_LOCAL\x10\x01\x12\x16\n" +
 	"\x12PROVIDER_TYPE_LDAP\x10\x02\x12\x16\n" +
 	"\x12PROVIDER_TYPE_SAML\x10\x03\x12\x18\n" +
-	"\x14PROVIDER_TYPE_OAUTH2\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14PROVIDER_TYPE_OAUTH2\x10\x04B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_provider_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_provider_type_proto_goTypes = []any{

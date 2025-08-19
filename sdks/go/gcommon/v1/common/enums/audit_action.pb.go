@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/audit_action.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -162,7 +162,7 @@ const file_gcommon_v1_common_enums_audit_action_proto_rawDesc = "" +
 	"\x1fAUDIT_ACTION_SESSION_TERMINATED\x10\x12\x12\x1f\n" +
 	"\x1bAUDIT_ACTION_CONFIG_UPDATED\x10\x13\x12\x1e\n" +
 	"\x1aAUDIT_ACTION_SYSTEM_BACKUP\x10\x14\x12\x1f\n" +
-	"\x1bAUDIT_ACTION_SYSTEM_RESTORE\x10\x15BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1bAUDIT_ACTION_SYSTEM_RESTORE\x10\x15B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_audit_action_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_audit_action_proto_goTypes = []any{

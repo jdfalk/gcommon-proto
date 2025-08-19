@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/health_check_all_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ const (
 // HealthCheckAllRequest requests health status for all services or filtered by type
 type HealthCheckAllRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Types          []enums.CheckType      `protobuf:"varint,1,rep,packed,name=types,enum=gcommon.v1.common.CheckType"`
+	xxx_hidden_Types          []CheckType            `protobuf:"varint,1,rep,packed,name=types,enum=gcommon.v1.common.CheckType"`
 	xxx_hidden_IncludeDetails bool                   `protobuf:"varint,2,opt,name=include_details,json=includeDetails"`
 	xxx_hidden_TimeoutSeconds int32                  `protobuf:"varint,3,opt,name=timeout_seconds,json=timeoutSeconds"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
@@ -60,7 +59,7 @@ func (x *HealthCheckAllRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckAllRequest) GetTypes() []enums.CheckType {
+func (x *HealthCheckAllRequest) GetTypes() []CheckType {
 	if x != nil {
 		return x.xxx_hidden_Types
 	}
@@ -81,7 +80,7 @@ func (x *HealthCheckAllRequest) GetTimeoutSeconds() int32 {
 	return 0
 }
 
-func (x *HealthCheckAllRequest) SetTypes(v []enums.CheckType) {
+func (x *HealthCheckAllRequest) SetTypes(v []CheckType) {
 	x.xxx_hidden_Types = v
 }
 
@@ -123,7 +122,7 @@ type HealthCheckAllRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Optional filter by check types
-	Types []enums.CheckType
+	Types []CheckType
 	// Whether to include detailed component information
 	IncludeDetails *bool
 	// Timeout for the overall check in seconds
@@ -154,12 +153,12 @@ const file_gcommon_v1_common_messages_health_check_all_request_proto_rawDesc = "
 	"\x15HealthCheckAllRequest\x122\n" +
 	"\x05types\x18\x01 \x03(\x0e2\x1c.gcommon.v1.common.CheckTypeR\x05types\x12'\n" +
 	"\x0finclude_details\x18\x02 \x01(\bR\x0eincludeDetails\x12'\n" +
-	"\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ftimeout_seconds\x18\x03 \x01(\x05R\x0etimeoutSecondsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_health_check_all_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_health_check_all_request_proto_goTypes = []any{
 	(*HealthCheckAllRequest)(nil), // 0: gcommon.v1.common.HealthCheckAllRequest
-	(enums.CheckType)(0),          // 1: gcommon.v1.common.CheckType
+	(CheckType)(0),                // 1: gcommon.v1.common.CheckType
 }
 var file_gcommon_v1_common_messages_health_check_all_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.HealthCheckAllRequest.types:type_name -> gcommon.v1.common.CheckType
@@ -175,6 +174,7 @@ func file_gcommon_v1_common_messages_health_check_all_request_proto_init() {
 	if File_gcommon_v1_common_messages_health_check_all_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_check_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

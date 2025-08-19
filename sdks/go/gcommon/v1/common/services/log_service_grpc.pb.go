@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/log_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -33,9 +32,9 @@ const (
 // centralized logging and log retrieval.
 type LogServiceClient interface {
 	// Write a log entry
-	WriteLog(ctx context.Context, in *messages.WriteLogRequest, opts ...grpc.CallOption) (*messages.WriteLogResponse, error)
+	WriteLog(ctx context.Context, in *WriteLogRequest, opts ...grpc.CallOption) (*WriteLogResponse, error)
 	// Read log entries
-	ReadLogs(ctx context.Context, in *messages.ReadLogsRequest, opts ...grpc.CallOption) (*messages.ReadLogsResponse, error)
+	ReadLogs(ctx context.Context, in *ReadLogsRequest, opts ...grpc.CallOption) (*ReadLogsResponse, error)
 }
 
 type logServiceClient struct {
@@ -46,9 +45,9 @@ func NewLogServiceClient(cc grpc.ClientConnInterface) LogServiceClient {
 	return &logServiceClient{cc}
 }
 
-func (c *logServiceClient) WriteLog(ctx context.Context, in *messages.WriteLogRequest, opts ...grpc.CallOption) (*messages.WriteLogResponse, error) {
+func (c *logServiceClient) WriteLog(ctx context.Context, in *WriteLogRequest, opts ...grpc.CallOption) (*WriteLogResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.WriteLogResponse)
+	out := new(WriteLogResponse)
 	err := c.cc.Invoke(ctx, LogService_WriteLog_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -56,9 +55,9 @@ func (c *logServiceClient) WriteLog(ctx context.Context, in *messages.WriteLogRe
 	return out, nil
 }
 
-func (c *logServiceClient) ReadLogs(ctx context.Context, in *messages.ReadLogsRequest, opts ...grpc.CallOption) (*messages.ReadLogsResponse, error) {
+func (c *logServiceClient) ReadLogs(ctx context.Context, in *ReadLogsRequest, opts ...grpc.CallOption) (*ReadLogsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ReadLogsResponse)
+	out := new(ReadLogsResponse)
 	err := c.cc.Invoke(ctx, LogService_ReadLogs_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -75,9 +74,9 @@ func (c *logServiceClient) ReadLogs(ctx context.Context, in *messages.ReadLogsRe
 // centralized logging and log retrieval.
 type LogServiceServer interface {
 	// Write a log entry
-	WriteLog(context.Context, *messages.WriteLogRequest) (*messages.WriteLogResponse, error)
+	WriteLog(context.Context, *WriteLogRequest) (*WriteLogResponse, error)
 	// Read log entries
-	ReadLogs(context.Context, *messages.ReadLogsRequest) (*messages.ReadLogsResponse, error)
+	ReadLogs(context.Context, *ReadLogsRequest) (*ReadLogsResponse, error)
 	mustEmbedUnimplementedLogServiceServer()
 }
 
@@ -88,10 +87,10 @@ type LogServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedLogServiceServer struct{}
 
-func (UnimplementedLogServiceServer) WriteLog(context.Context, *messages.WriteLogRequest) (*messages.WriteLogResponse, error) {
+func (UnimplementedLogServiceServer) WriteLog(context.Context, *WriteLogRequest) (*WriteLogResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WriteLog not implemented")
 }
-func (UnimplementedLogServiceServer) ReadLogs(context.Context, *messages.ReadLogsRequest) (*messages.ReadLogsResponse, error) {
+func (UnimplementedLogServiceServer) ReadLogs(context.Context, *ReadLogsRequest) (*ReadLogsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadLogs not implemented")
 }
 func (UnimplementedLogServiceServer) mustEmbedUnimplementedLogServiceServer() {}
@@ -116,7 +115,7 @@ func RegisterLogServiceServer(s grpc.ServiceRegistrar, srv LogServiceServer) {
 }
 
 func _LogService_WriteLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.WriteLogRequest)
+	in := new(WriteLogRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -128,13 +127,13 @@ func _LogService_WriteLog_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: LogService_WriteLog_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogServiceServer).WriteLog(ctx, req.(*messages.WriteLogRequest))
+		return srv.(LogServiceServer).WriteLog(ctx, req.(*WriteLogRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _LogService_ReadLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ReadLogsRequest)
+	in := new(ReadLogsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -146,7 +145,7 @@ func _LogService_ReadLogs_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: LogService_ReadLogs_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogServiceServer).ReadLogs(ctx, req.(*messages.ReadLogsRequest))
+		return srv.(LogServiceServer).ReadLogs(ctx, req.(*ReadLogsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

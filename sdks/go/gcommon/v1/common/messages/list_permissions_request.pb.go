@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/list_permissions_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type ListPermissionsRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_SubjectId   *string                `protobuf:"bytes,1,opt,name=subject_id,json=subjectId"`
-	xxx_hidden_SubjectType enums.AuthSubjectType  `protobuf:"varint,2,opt,name=subject_type,json=subjectType,enum=gcommon.v1.common.AuthSubjectType"`
+	xxx_hidden_SubjectType AuthSubjectType        `protobuf:"varint,2,opt,name=subject_type,json=subjectType,enum=gcommon.v1.common.AuthSubjectType"`
 	xxx_hidden_PageSize    int32                  `protobuf:"varint,3,opt,name=page_size,json=pageSize"`
 	xxx_hidden_PageToken   *string                `protobuf:"bytes,4,opt,name=page_token,json=pageToken"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +68,13 @@ func (x *ListPermissionsRequest) GetSubjectId() string {
 	return ""
 }
 
-func (x *ListPermissionsRequest) GetSubjectType() enums.AuthSubjectType {
+func (x *ListPermissionsRequest) GetSubjectType() AuthSubjectType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_SubjectType
 		}
 	}
-	return enums.AuthSubjectType(0)
+	return AuthSubjectType_SUBJECT_TYPE_UNSPECIFIED
 }
 
 func (x *ListPermissionsRequest) GetPageSize() int32 {
@@ -100,7 +99,7 @@ func (x *ListPermissionsRequest) SetSubjectId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ListPermissionsRequest) SetSubjectType(v enums.AuthSubjectType) {
+func (x *ListPermissionsRequest) SetSubjectType(v AuthSubjectType) {
 	x.xxx_hidden_SubjectType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -150,7 +149,7 @@ func (x *ListPermissionsRequest) ClearSubjectId() {
 
 func (x *ListPermissionsRequest) ClearSubjectType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SubjectType = enums.AuthSubjectType_SUBJECT_TYPE_UNSPECIFIED
+	x.xxx_hidden_SubjectType = AuthSubjectType_SUBJECT_TYPE_UNSPECIFIED
 }
 
 func (x *ListPermissionsRequest) ClearPageSize() {
@@ -168,7 +167,7 @@ type ListPermissionsRequest_builder struct {
 
 	// User or role ID to list permissions for
 	SubjectId   *string
-	SubjectType *enums.AuthSubjectType
+	SubjectType *AuthSubjectType
 	// Pagination
 	PageSize  *int32
 	PageToken *string
@@ -208,12 +207,12 @@ const file_gcommon_v1_common_messages_list_permissions_request_proto_rawDesc = "
 	"\fsubject_type\x18\x02 \x01(\x0e2\".gcommon.v1.common.AuthSubjectTypeR\vsubjectType\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x04 \x01(\tR\tpageTokenBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"page_token\x18\x04 \x01(\tR\tpageTokenB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_permissions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_permissions_request_proto_goTypes = []any{
 	(*ListPermissionsRequest)(nil), // 0: gcommon.v1.common.ListPermissionsRequest
-	(enums.AuthSubjectType)(0),     // 1: gcommon.v1.common.AuthSubjectType
+	(AuthSubjectType)(0),           // 1: gcommon.v1.common.AuthSubjectType
 }
 var file_gcommon_v1_common_messages_list_permissions_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.ListPermissionsRequest.subject_type:type_name -> gcommon.v1.common.AuthSubjectType
@@ -229,6 +228,7 @@ func file_gcommon_v1_common_messages_list_permissions_request_proto_init() {
 	if File_gcommon_v1_common_messages_list_permissions_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_subject_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

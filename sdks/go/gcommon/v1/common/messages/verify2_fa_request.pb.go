@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/verify2_fa_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ type Verify2FaRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	xxx_hidden_Code        *string                `protobuf:"bytes,2,opt,name=code"`
-	xxx_hidden_Type        enums.AuthTwoFaType    `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.AuthTwoFaType"`
+	xxx_hidden_Type        AuthTwoFaType          `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.AuthTwoFaType"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -78,13 +77,13 @@ func (x *Verify2FaRequest) GetCode() string {
 	return ""
 }
 
-func (x *Verify2FaRequest) GetType() enums.AuthTwoFaType {
+func (x *Verify2FaRequest) GetType() AuthTwoFaType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.AuthTwoFaType(0)
+	return AuthTwoFaType_TWO_FA_TYPE_UNSPECIFIED
 }
 
 func (x *Verify2FaRequest) SetUserId(v string) {
@@ -97,7 +96,7 @@ func (x *Verify2FaRequest) SetCode(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *Verify2FaRequest) SetType(v enums.AuthTwoFaType) {
+func (x *Verify2FaRequest) SetType(v AuthTwoFaType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
@@ -135,7 +134,7 @@ func (x *Verify2FaRequest) ClearCode() {
 
 func (x *Verify2FaRequest) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = enums.AuthTwoFaType_TWO_FA_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AuthTwoFaType_TWO_FA_TYPE_UNSPECIFIED
 }
 
 type Verify2FaRequest_builder struct {
@@ -145,7 +144,7 @@ type Verify2FaRequest_builder struct {
 	UserId *string
 	// 2FA verification code
 	Code *string
-	Type *enums.AuthTwoFaType
+	Type *AuthTwoFaType
 }
 
 func (b0 Verify2FaRequest_builder) Build() *Verify2FaRequest {
@@ -175,12 +174,12 @@ const file_gcommon_v1_common_messages_verify2_fa_request_proto_rawDesc = "" +
 	"\x10Verify2FaRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\tR\x04code\x124\n" +
-	"\x04type\x18\x03 \x01(\x0e2 .gcommon.v1.common.AuthTwoFaTypeR\x04typeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04type\x18\x03 \x01(\x0e2 .gcommon.v1.common.AuthTwoFaTypeR\x04typeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_verify2_fa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_verify2_fa_request_proto_goTypes = []any{
 	(*Verify2FaRequest)(nil), // 0: gcommon.v1.common.Verify2FaRequest
-	(enums.AuthTwoFaType)(0), // 1: gcommon.v1.common.AuthTwoFaType
+	(AuthTwoFaType)(0),       // 1: gcommon.v1.common.AuthTwoFaType
 }
 var file_gcommon_v1_common_messages_verify2_fa_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.Verify2FaRequest.type:type_name -> gcommon.v1.common.AuthTwoFaType
@@ -196,6 +195,7 @@ func file_gcommon_v1_common_messages_verify2_fa_request_proto_init() {
 	if File_gcommon_v1_common_messages_verify2_fa_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_two_fa_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/notification_message.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type NotificationMessage struct {
 	xxx_hidden_Data      *anypb.Any             `protobuf:"bytes,4,opt,name=data"`
 	xxx_hidden_Channels  *[]*DeliveryChannel    `protobuf:"bytes,5,rep,name=channels"`
 	xxx_hidden_SendAt    *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=send_at,json=sendAt"`
-	xxx_hidden_Status    enums.DeliveryStatus   `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.DeliveryStatus"`
+	xxx_hidden_Status    DeliveryStatus         `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.DeliveryStatus"`
 	xxx_hidden_CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
@@ -137,13 +136,13 @@ func (x *NotificationMessage) GetSendAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *NotificationMessage) GetStatus() enums.DeliveryStatus {
+func (x *NotificationMessage) GetStatus() DeliveryStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.DeliveryStatus(0)
+	return DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
 }
 
 func (x *NotificationMessage) GetCreatedAt() *timestamppb.Timestamp {
@@ -197,7 +196,7 @@ func (x *NotificationMessage) SetSendAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *NotificationMessage) SetStatus(v enums.DeliveryStatus) {
+func (x *NotificationMessage) SetStatus(v DeliveryStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -287,7 +286,7 @@ func (x *NotificationMessage) ClearSendAt() {
 
 func (x *NotificationMessage) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = enums.DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
 }
 
 func (x *NotificationMessage) ClearCreatedAt() {
@@ -311,7 +310,7 @@ type NotificationMessage_builder struct {
 	// Desired send time (defaults to immediate)
 	SendAt *timestamppb.Timestamp
 	// Current delivery status
-	Status *enums.DeliveryStatus
+	Status *DeliveryStatus
 	// Creation timestamp
 	CreatedAt *timestamppb.Timestamp
 }
@@ -366,7 +365,7 @@ const file_gcommon_v1_common_messages_notification_message_proto_rawDesc = "" +
 	"\asend_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x06sendAt\x129\n" +
 	"\x06status\x18\a \x01(\x0e2!.gcommon.v1.common.DeliveryStatusR\x06status\x12=\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_notification_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_notification_message_proto_goTypes = []any{
@@ -374,7 +373,7 @@ var file_gcommon_v1_common_messages_notification_message_proto_goTypes = []any{
 	(*anypb.Any)(nil),             // 1: google.protobuf.Any
 	(*DeliveryChannel)(nil),       // 2: gcommon.v1.common.DeliveryChannel
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(enums.DeliveryStatus)(0),     // 4: gcommon.v1.common.DeliveryStatus
+	(DeliveryStatus)(0),           // 4: gcommon.v1.common.DeliveryStatus
 }
 var file_gcommon_v1_common_messages_notification_message_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.NotificationMessage.data:type_name -> google.protobuf.Any
@@ -394,6 +393,7 @@ func file_gcommon_v1_common_messages_notification_message_proto_init() {
 	if File_gcommon_v1_common_messages_notification_message_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_delivery_status_proto_init()
 	file_gcommon_v1_common_messages_delivery_channel_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

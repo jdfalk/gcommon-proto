@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/verify_mfa_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ type VerifyMfaRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	xxx_hidden_Code        *string                `protobuf:"bytes,2,opt,name=code"`
-	xxx_hidden_Method      enums.MfaMethod        `protobuf:"varint,3,opt,name=method,enum=gcommon.v1.common.MfaMethod"`
+	xxx_hidden_Method      MfaMethod              `protobuf:"varint,3,opt,name=method,enum=gcommon.v1.common.MfaMethod"`
 	xxx_hidden_Context     *string                `protobuf:"bytes,4,opt,name=context"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -79,13 +78,13 @@ func (x *VerifyMfaRequest) GetCode() string {
 	return ""
 }
 
-func (x *VerifyMfaRequest) GetMethod() enums.MfaMethod {
+func (x *VerifyMfaRequest) GetMethod() MfaMethod {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Method
 		}
 	}
-	return enums.MfaMethod(0)
+	return MfaMethod_MFA_METHOD_UNSPECIFIED
 }
 
 func (x *VerifyMfaRequest) GetContext() string {
@@ -108,7 +107,7 @@ func (x *VerifyMfaRequest) SetCode(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *VerifyMfaRequest) SetMethod(v enums.MfaMethod) {
+func (x *VerifyMfaRequest) SetMethod(v MfaMethod) {
 	x.xxx_hidden_Method = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
@@ -158,7 +157,7 @@ func (x *VerifyMfaRequest) ClearCode() {
 
 func (x *VerifyMfaRequest) ClearMethod() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Method = enums.MfaMethod_MFA_METHOD_UNSPECIFIED
+	x.xxx_hidden_Method = MfaMethod_MFA_METHOD_UNSPECIFIED
 }
 
 func (x *VerifyMfaRequest) ClearContext() {
@@ -174,7 +173,7 @@ type VerifyMfaRequest_builder struct {
 	// MFA verification code
 	Code *string
 	// Method being verified
-	Method *enums.MfaMethod
+	Method *MfaMethod
 	// Context for the verification (login, transaction, etc.)
 	Context *string
 }
@@ -211,12 +210,12 @@ const file_gcommon_v1_common_messages_verify_mfa_request_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\tR\x04code\x124\n" +
 	"\x06method\x18\x03 \x01(\x0e2\x1c.gcommon.v1.common.MfaMethodR\x06method\x12\x18\n" +
-	"\acontext\x18\x04 \x01(\tR\acontextBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\acontext\x18\x04 \x01(\tR\acontextB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_verify_mfa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_verify_mfa_request_proto_goTypes = []any{
 	(*VerifyMfaRequest)(nil), // 0: gcommon.v1.common.VerifyMfaRequest
-	(enums.MfaMethod)(0),     // 1: gcommon.v1.common.MfaMethod
+	(MfaMethod)(0),           // 1: gcommon.v1.common.MfaMethod
 }
 var file_gcommon_v1_common_messages_verify_mfa_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.VerifyMfaRequest.method:type_name -> gcommon.v1.common.MfaMethod
@@ -232,6 +231,7 @@ func file_gcommon_v1_common_messages_verify_mfa_request_proto_init() {
 	if File_gcommon_v1_common_messages_verify_mfa_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

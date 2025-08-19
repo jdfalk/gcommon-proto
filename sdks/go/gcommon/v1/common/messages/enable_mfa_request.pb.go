@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/enable_mfa_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type EnableMfaRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_UserId         *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Methods        []enums.MfaMethod      `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.common.MfaMethod"`
+	xxx_hidden_Methods        []MfaMethod            `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.common.MfaMethod"`
 	xxx_hidden_PrimaryContact *string                `protobuf:"bytes,3,opt,name=primary_contact,json=primaryContact"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
@@ -68,7 +67,7 @@ func (x *EnableMfaRequest) GetUserId() string {
 	return ""
 }
 
-func (x *EnableMfaRequest) GetMethods() []enums.MfaMethod {
+func (x *EnableMfaRequest) GetMethods() []MfaMethod {
 	if x != nil {
 		return x.xxx_hidden_Methods
 	}
@@ -90,7 +89,7 @@ func (x *EnableMfaRequest) SetUserId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *EnableMfaRequest) SetMethods(v []enums.MfaMethod) {
+func (x *EnableMfaRequest) SetMethods(v []MfaMethod) {
 	x.xxx_hidden_Methods = v
 }
 
@@ -129,7 +128,7 @@ type EnableMfaRequest_builder struct {
 	// User ID requesting MFA enablement
 	UserId *string
 	// MFA methods to enable
-	Methods []enums.MfaMethod
+	Methods []MfaMethod
 	// Primary contact method
 	PrimaryContact *string
 }
@@ -158,12 +157,12 @@ const file_gcommon_v1_common_messages_enable_mfa_request_proto_rawDesc = "" +
 	"\x10EnableMfaRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x126\n" +
 	"\amethods\x18\x02 \x03(\x0e2\x1c.gcommon.v1.common.MfaMethodR\amethods\x12'\n" +
-	"\x0fprimary_contact\x18\x03 \x01(\tR\x0eprimaryContactBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fprimary_contact\x18\x03 \x01(\tR\x0eprimaryContactB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_enable_mfa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_enable_mfa_request_proto_goTypes = []any{
 	(*EnableMfaRequest)(nil), // 0: gcommon.v1.common.EnableMfaRequest
-	(enums.MfaMethod)(0),     // 1: gcommon.v1.common.MfaMethod
+	(MfaMethod)(0),           // 1: gcommon.v1.common.MfaMethod
 }
 var file_gcommon_v1_common_messages_enable_mfa_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.EnableMfaRequest.methods:type_name -> gcommon.v1.common.MfaMethod
@@ -179,6 +178,7 @@ func file_gcommon_v1_common_messages_enable_mfa_request_proto_init() {
 	if File_gcommon_v1_common_messages_enable_mfa_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/verify_mfa_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -205,7 +205,7 @@ const file_gcommon_v1_common_messages_verify_mfa_response_proto_rawDesc = "" +
 	"\bverified\x18\x01 \x01(\bR\bverified\x12#\n" +
 	"\rerror_message\x18\x02 \x01(\tR\ferrorMessage\x12-\n" +
 	"\x12remaining_attempts\x18\x03 \x01(\x05R\x11remainingAttempts\x12#\n" +
-	"\rsession_token\x18\x04 \x01(\tR\fsessionTokenBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rsession_token\x18\x04 \x01(\tR\fsessionTokenB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_verify_mfa_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_verify_mfa_response_proto_goTypes = []any{

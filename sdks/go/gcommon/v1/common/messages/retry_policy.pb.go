@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/retry_policy.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +33,7 @@ type CommonRetryPolicy struct {
 	xxx_hidden_MaxDelay          *durationpb.Duration   `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
 	xxx_hidden_BackoffMultiplier float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
 	xxx_hidden_EnableJitter      bool                   `protobuf:"varint,5,opt,name=enable_jitter,json=enableJitter"`
-	xxx_hidden_RetryableErrors   []enums.ErrorCode      `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode"`
+	xxx_hidden_RetryableErrors   []ErrorCode            `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode"`
 	xxx_hidden_TotalTimeout      *durationpb.Duration   `protobuf:"bytes,7,opt,name=total_timeout,json=totalTimeout"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
@@ -102,7 +101,7 @@ func (x *CommonRetryPolicy) GetEnableJitter() bool {
 	return false
 }
 
-func (x *CommonRetryPolicy) GetRetryableErrors() []enums.ErrorCode {
+func (x *CommonRetryPolicy) GetRetryableErrors() []ErrorCode {
 	if x != nil {
 		return x.xxx_hidden_RetryableErrors
 	}
@@ -139,7 +138,7 @@ func (x *CommonRetryPolicy) SetEnableJitter(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
 
-func (x *CommonRetryPolicy) SetRetryableErrors(v []enums.ErrorCode) {
+func (x *CommonRetryPolicy) SetRetryableErrors(v []ErrorCode) {
 	x.xxx_hidden_RetryableErrors = v
 }
 
@@ -230,7 +229,7 @@ type CommonRetryPolicy_builder struct {
 	// Whether to add random jitter to retry timing
 	EnableJitter *bool
 	// List of error codes that should trigger retries
-	RetryableErrors []enums.ErrorCode
+	RetryableErrors []ErrorCode
 	// Total timeout for all retry attempts combined
 	TotalTimeout *durationpb.Duration
 }
@@ -270,13 +269,13 @@ const file_gcommon_v1_common_messages_retry_policy_proto_rawDesc = "" +
 	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12#\n" +
 	"\renable_jitter\x18\x05 \x01(\bR\fenableJitter\x12G\n" +
 	"\x10retryable_errors\x18\x06 \x03(\x0e2\x1c.gcommon.v1.common.ErrorCodeR\x0fretryableErrors\x12>\n" +
-	"\rtotal_timeout\x18\a \x01(\v2\x19.google.protobuf.DurationR\ftotalTimeoutBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rtotal_timeout\x18\a \x01(\v2\x19.google.protobuf.DurationR\ftotalTimeoutB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_retry_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_retry_policy_proto_goTypes = []any{
 	(*CommonRetryPolicy)(nil),   // 0: gcommon.v1.common.CommonRetryPolicy
 	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(enums.ErrorCode)(0),        // 2: gcommon.v1.common.ErrorCode
+	(ErrorCode)(0),              // 2: gcommon.v1.common.ErrorCode
 }
 var file_gcommon_v1_common_messages_retry_policy_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.CommonRetryPolicy.initial_delay:type_name -> google.protobuf.Duration
@@ -295,6 +294,7 @@ func file_gcommon_v1_common_messages_retry_policy_proto_init() {
 	if File_gcommon_v1_common_messages_retry_policy_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_error_code_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

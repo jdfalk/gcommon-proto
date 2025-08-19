@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/verify_credentials_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -237,7 +237,7 @@ const file_gcommon_v1_common_messages_verify_credentials_request_proto_rawDesc =
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12D\n" +
 	"\bpassword\x18\x02 \x01(\v2&.gcommon.v1.common.PasswordCredentialsH\x00R\bpassword\x12?\n" +
 	"\aapi_key\x18\x03 \x01(\v2$.gcommon.v1.common.APIKeyCredentialsH\x00R\x06apiKeyB\r\n" +
-	"\vcredentialsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vcredentialsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_verify_credentials_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_verify_credentials_request_proto_goTypes = []any{

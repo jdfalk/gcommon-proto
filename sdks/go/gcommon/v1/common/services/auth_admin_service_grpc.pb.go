@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/auth_admin_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -45,31 +44,31 @@ const (
 // Provides user management, role assignment, and system configuration.
 type AuthAdminServiceClient interface {
 	// CreateUser creates a new user account
-	CreateUser(ctx context.Context, in *messages.CreateUserRequest, opts ...grpc.CallOption) (*messages.CreateUserResponse, error)
+	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 	// UpdateUser updates an existing user account
-	UpdateUser(ctx context.Context, in *messages.UpdateUserRequest, opts ...grpc.CallOption) (*messages.UpdateUserResponse, error)
+	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
 	// DeleteUser removes a user account
-	DeleteUser(ctx context.Context, in *messages.DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// ListUsers returns paginated list of users
-	ListUsers(ctx context.Context, in *messages.ListUsersRequest, opts ...grpc.CallOption) (*messages.ListUsersResponse, error)
+	ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error)
 	// GetUserDetails returns detailed user information
-	GetUser(ctx context.Context, in *messages.GetUserRequest, opts ...grpc.CallOption) (*messages.GetUserResponse, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	// AssignRole assigns a role to a user
-	AssignRole(ctx context.Context, in *messages.AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// RemoveRole removes a role from a user
-	RemoveRole(ctx context.Context, in *messages.RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// CreateRole creates a new role
-	CreateRole(ctx context.Context, in *messages.CreateRoleRequest, opts ...grpc.CallOption) (*messages.CreateRoleResponse, error)
+	CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*CreateRoleResponse, error)
 	// UpdateRole updates an existing role
-	UpdateRole(ctx context.Context, in *messages.UpdateRoleRequest, opts ...grpc.CallOption) (*messages.UpdateRoleResponse, error)
+	UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*UpdateRoleResponse, error)
 	// DeleteRole removes a role
-	DeleteRole(ctx context.Context, in *messages.DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// ListRoles returns all available roles
-	ListRoles(ctx context.Context, in *messages.ListRolesRequest, opts ...grpc.CallOption) (*messages.ListRolesResponse, error)
+	ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error)
 	// InvalidateUserSessions invalidates all sessions for a user
-	InvalidateUserSessions(ctx context.Context, in *messages.InvalidateUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	InvalidateUserSessions(ctx context.Context, in *InvalidateUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// GetSystemStats returns authentication system statistics
-	GetSystemStats(ctx context.Context, in *messages.GetSystemStatsRequest, opts ...grpc.CallOption) (*messages.GetSystemStatsResponse, error)
+	GetSystemStats(ctx context.Context, in *GetSystemStatsRequest, opts ...grpc.CallOption) (*GetSystemStatsResponse, error)
 }
 
 type authAdminServiceClient struct {
@@ -80,9 +79,9 @@ func NewAuthAdminServiceClient(cc grpc.ClientConnInterface) AuthAdminServiceClie
 	return &authAdminServiceClient{cc}
 }
 
-func (c *authAdminServiceClient) CreateUser(ctx context.Context, in *messages.CreateUserRequest, opts ...grpc.CallOption) (*messages.CreateUserResponse, error) {
+func (c *authAdminServiceClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateUserResponse)
+	out := new(CreateUserResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_CreateUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -90,9 +89,9 @@ func (c *authAdminServiceClient) CreateUser(ctx context.Context, in *messages.Cr
 	return out, nil
 }
 
-func (c *authAdminServiceClient) UpdateUser(ctx context.Context, in *messages.UpdateUserRequest, opts ...grpc.CallOption) (*messages.UpdateUserResponse, error) {
+func (c *authAdminServiceClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateUserResponse)
+	out := new(UpdateUserResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_UpdateUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -100,7 +99,7 @@ func (c *authAdminServiceClient) UpdateUser(ctx context.Context, in *messages.Up
 	return out, nil
 }
 
-func (c *authAdminServiceClient) DeleteUser(ctx context.Context, in *messages.DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authAdminServiceClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthAdminService_DeleteUser_FullMethodName, in, out, cOpts...)
@@ -110,9 +109,9 @@ func (c *authAdminServiceClient) DeleteUser(ctx context.Context, in *messages.De
 	return out, nil
 }
 
-func (c *authAdminServiceClient) ListUsers(ctx context.Context, in *messages.ListUsersRequest, opts ...grpc.CallOption) (*messages.ListUsersResponse, error) {
+func (c *authAdminServiceClient) ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListUsersResponse)
+	out := new(ListUsersResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_ListUsers_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -120,9 +119,9 @@ func (c *authAdminServiceClient) ListUsers(ctx context.Context, in *messages.Lis
 	return out, nil
 }
 
-func (c *authAdminServiceClient) GetUser(ctx context.Context, in *messages.GetUserRequest, opts ...grpc.CallOption) (*messages.GetUserResponse, error) {
+func (c *authAdminServiceClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetUserResponse)
+	out := new(GetUserResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_GetUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -130,7 +129,7 @@ func (c *authAdminServiceClient) GetUser(ctx context.Context, in *messages.GetUs
 	return out, nil
 }
 
-func (c *authAdminServiceClient) AssignRole(ctx context.Context, in *messages.AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authAdminServiceClient) AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthAdminService_AssignRole_FullMethodName, in, out, cOpts...)
@@ -140,7 +139,7 @@ func (c *authAdminServiceClient) AssignRole(ctx context.Context, in *messages.As
 	return out, nil
 }
 
-func (c *authAdminServiceClient) RemoveRole(ctx context.Context, in *messages.RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authAdminServiceClient) RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthAdminService_RemoveRole_FullMethodName, in, out, cOpts...)
@@ -150,9 +149,9 @@ func (c *authAdminServiceClient) RemoveRole(ctx context.Context, in *messages.Re
 	return out, nil
 }
 
-func (c *authAdminServiceClient) CreateRole(ctx context.Context, in *messages.CreateRoleRequest, opts ...grpc.CallOption) (*messages.CreateRoleResponse, error) {
+func (c *authAdminServiceClient) CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*CreateRoleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.CreateRoleResponse)
+	out := new(CreateRoleResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_CreateRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -160,9 +159,9 @@ func (c *authAdminServiceClient) CreateRole(ctx context.Context, in *messages.Cr
 	return out, nil
 }
 
-func (c *authAdminServiceClient) UpdateRole(ctx context.Context, in *messages.UpdateRoleRequest, opts ...grpc.CallOption) (*messages.UpdateRoleResponse, error) {
+func (c *authAdminServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*UpdateRoleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.UpdateRoleResponse)
+	out := new(UpdateRoleResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_UpdateRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -170,7 +169,7 @@ func (c *authAdminServiceClient) UpdateRole(ctx context.Context, in *messages.Up
 	return out, nil
 }
 
-func (c *authAdminServiceClient) DeleteRole(ctx context.Context, in *messages.DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authAdminServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthAdminService_DeleteRole_FullMethodName, in, out, cOpts...)
@@ -180,9 +179,9 @@ func (c *authAdminServiceClient) DeleteRole(ctx context.Context, in *messages.De
 	return out, nil
 }
 
-func (c *authAdminServiceClient) ListRoles(ctx context.Context, in *messages.ListRolesRequest, opts ...grpc.CallOption) (*messages.ListRolesResponse, error) {
+func (c *authAdminServiceClient) ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListRolesResponse)
+	out := new(ListRolesResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_ListRoles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -190,7 +189,7 @@ func (c *authAdminServiceClient) ListRoles(ctx context.Context, in *messages.Lis
 	return out, nil
 }
 
-func (c *authAdminServiceClient) InvalidateUserSessions(ctx context.Context, in *messages.InvalidateUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authAdminServiceClient) InvalidateUserSessions(ctx context.Context, in *InvalidateUserSessionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthAdminService_InvalidateUserSessions_FullMethodName, in, out, cOpts...)
@@ -200,9 +199,9 @@ func (c *authAdminServiceClient) InvalidateUserSessions(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *authAdminServiceClient) GetSystemStats(ctx context.Context, in *messages.GetSystemStatsRequest, opts ...grpc.CallOption) (*messages.GetSystemStatsResponse, error) {
+func (c *authAdminServiceClient) GetSystemStats(ctx context.Context, in *GetSystemStatsRequest, opts ...grpc.CallOption) (*GetSystemStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetSystemStatsResponse)
+	out := new(GetSystemStatsResponse)
 	err := c.cc.Invoke(ctx, AuthAdminService_GetSystemStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -219,31 +218,31 @@ func (c *authAdminServiceClient) GetSystemStats(ctx context.Context, in *message
 // Provides user management, role assignment, and system configuration.
 type AuthAdminServiceServer interface {
 	// CreateUser creates a new user account
-	CreateUser(context.Context, *messages.CreateUserRequest) (*messages.CreateUserResponse, error)
+	CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	// UpdateUser updates an existing user account
-	UpdateUser(context.Context, *messages.UpdateUserRequest) (*messages.UpdateUserResponse, error)
+	UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
 	// DeleteUser removes a user account
-	DeleteUser(context.Context, *messages.DeleteUserRequest) (*emptypb.Empty, error)
+	DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error)
 	// ListUsers returns paginated list of users
-	ListUsers(context.Context, *messages.ListUsersRequest) (*messages.ListUsersResponse, error)
+	ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error)
 	// GetUserDetails returns detailed user information
-	GetUser(context.Context, *messages.GetUserRequest) (*messages.GetUserResponse, error)
+	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
 	// AssignRole assigns a role to a user
-	AssignRole(context.Context, *messages.AssignRoleRequest) (*emptypb.Empty, error)
+	AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error)
 	// RemoveRole removes a role from a user
-	RemoveRole(context.Context, *messages.RemoveRoleRequest) (*emptypb.Empty, error)
+	RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error)
 	// CreateRole creates a new role
-	CreateRole(context.Context, *messages.CreateRoleRequest) (*messages.CreateRoleResponse, error)
+	CreateRole(context.Context, *CreateRoleRequest) (*CreateRoleResponse, error)
 	// UpdateRole updates an existing role
-	UpdateRole(context.Context, *messages.UpdateRoleRequest) (*messages.UpdateRoleResponse, error)
+	UpdateRole(context.Context, *UpdateRoleRequest) (*UpdateRoleResponse, error)
 	// DeleteRole removes a role
-	DeleteRole(context.Context, *messages.DeleteRoleRequest) (*emptypb.Empty, error)
+	DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error)
 	// ListRoles returns all available roles
-	ListRoles(context.Context, *messages.ListRolesRequest) (*messages.ListRolesResponse, error)
+	ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error)
 	// InvalidateUserSessions invalidates all sessions for a user
-	InvalidateUserSessions(context.Context, *messages.InvalidateUserSessionsRequest) (*emptypb.Empty, error)
+	InvalidateUserSessions(context.Context, *InvalidateUserSessionsRequest) (*emptypb.Empty, error)
 	// GetSystemStats returns authentication system statistics
-	GetSystemStats(context.Context, *messages.GetSystemStatsRequest) (*messages.GetSystemStatsResponse, error)
+	GetSystemStats(context.Context, *GetSystemStatsRequest) (*GetSystemStatsResponse, error)
 	mustEmbedUnimplementedAuthAdminServiceServer()
 }
 
@@ -254,43 +253,43 @@ type AuthAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAuthAdminServiceServer struct{}
 
-func (UnimplementedAuthAdminServiceServer) CreateUser(context.Context, *messages.CreateUserRequest) (*messages.CreateUserResponse, error) {
+func (UnimplementedAuthAdminServiceServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) UpdateUser(context.Context, *messages.UpdateUserRequest) (*messages.UpdateUserResponse, error) {
+func (UnimplementedAuthAdminServiceServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) DeleteUser(context.Context, *messages.DeleteUserRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthAdminServiceServer) DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) ListUsers(context.Context, *messages.ListUsersRequest) (*messages.ListUsersResponse, error) {
+func (UnimplementedAuthAdminServiceServer) ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUsers not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) GetUser(context.Context, *messages.GetUserRequest) (*messages.GetUserResponse, error) {
+func (UnimplementedAuthAdminServiceServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) AssignRole(context.Context, *messages.AssignRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthAdminServiceServer) AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssignRole not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) RemoveRole(context.Context, *messages.RemoveRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthAdminServiceServer) RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveRole not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) CreateRole(context.Context, *messages.CreateRoleRequest) (*messages.CreateRoleResponse, error) {
+func (UnimplementedAuthAdminServiceServer) CreateRole(context.Context, *CreateRoleRequest) (*CreateRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRole not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) UpdateRole(context.Context, *messages.UpdateRoleRequest) (*messages.UpdateRoleResponse, error) {
+func (UnimplementedAuthAdminServiceServer) UpdateRole(context.Context, *UpdateRoleRequest) (*UpdateRoleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRole not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) DeleteRole(context.Context, *messages.DeleteRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthAdminServiceServer) DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRole not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) ListRoles(context.Context, *messages.ListRolesRequest) (*messages.ListRolesResponse, error) {
+func (UnimplementedAuthAdminServiceServer) ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRoles not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) InvalidateUserSessions(context.Context, *messages.InvalidateUserSessionsRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthAdminServiceServer) InvalidateUserSessions(context.Context, *InvalidateUserSessionsRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InvalidateUserSessions not implemented")
 }
-func (UnimplementedAuthAdminServiceServer) GetSystemStats(context.Context, *messages.GetSystemStatsRequest) (*messages.GetSystemStatsResponse, error) {
+func (UnimplementedAuthAdminServiceServer) GetSystemStats(context.Context, *GetSystemStatsRequest) (*GetSystemStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSystemStats not implemented")
 }
 func (UnimplementedAuthAdminServiceServer) mustEmbedUnimplementedAuthAdminServiceServer() {}
@@ -315,7 +314,7 @@ func RegisterAuthAdminServiceServer(s grpc.ServiceRegistrar, srv AuthAdminServic
 }
 
 func _AuthAdminService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateUserRequest)
+	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -327,13 +326,13 @@ func _AuthAdminService_CreateUser_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_CreateUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).CreateUser(ctx, req.(*messages.CreateUserRequest))
+		return srv.(AuthAdminServiceServer).CreateUser(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateUserRequest)
+	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -345,13 +344,13 @@ func _AuthAdminService_UpdateUser_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_UpdateUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).UpdateUser(ctx, req.(*messages.UpdateUserRequest))
+		return srv.(AuthAdminServiceServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteUserRequest)
+	in := new(DeleteUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -363,13 +362,13 @@ func _AuthAdminService_DeleteUser_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_DeleteUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).DeleteUser(ctx, req.(*messages.DeleteUserRequest))
+		return srv.(AuthAdminServiceServer).DeleteUser(ctx, req.(*DeleteUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_ListUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListUsersRequest)
+	in := new(ListUsersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -381,13 +380,13 @@ func _AuthAdminService_ListUsers_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: AuthAdminService_ListUsers_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).ListUsers(ctx, req.(*messages.ListUsersRequest))
+		return srv.(AuthAdminServiceServer).ListUsers(ctx, req.(*ListUsersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetUserRequest)
+	in := new(GetUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -399,13 +398,13 @@ func _AuthAdminService_GetUser_Handler(srv interface{}, ctx context.Context, dec
 		FullMethod: AuthAdminService_GetUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).GetUser(ctx, req.(*messages.GetUserRequest))
+		return srv.(AuthAdminServiceServer).GetUser(ctx, req.(*GetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_AssignRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AssignRoleRequest)
+	in := new(AssignRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -417,13 +416,13 @@ func _AuthAdminService_AssignRole_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_AssignRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).AssignRole(ctx, req.(*messages.AssignRoleRequest))
+		return srv.(AuthAdminServiceServer).AssignRole(ctx, req.(*AssignRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_RemoveRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RemoveRoleRequest)
+	in := new(RemoveRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -435,13 +434,13 @@ func _AuthAdminService_RemoveRole_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_RemoveRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).RemoveRole(ctx, req.(*messages.RemoveRoleRequest))
+		return srv.(AuthAdminServiceServer).RemoveRole(ctx, req.(*RemoveRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_CreateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.CreateRoleRequest)
+	in := new(CreateRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -453,13 +452,13 @@ func _AuthAdminService_CreateRole_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_CreateRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).CreateRole(ctx, req.(*messages.CreateRoleRequest))
+		return srv.(AuthAdminServiceServer).CreateRole(ctx, req.(*CreateRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_UpdateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.UpdateRoleRequest)
+	in := new(UpdateRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -471,13 +470,13 @@ func _AuthAdminService_UpdateRole_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_UpdateRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).UpdateRole(ctx, req.(*messages.UpdateRoleRequest))
+		return srv.(AuthAdminServiceServer).UpdateRole(ctx, req.(*UpdateRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_DeleteRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DeleteRoleRequest)
+	in := new(DeleteRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -489,13 +488,13 @@ func _AuthAdminService_DeleteRole_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: AuthAdminService_DeleteRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).DeleteRole(ctx, req.(*messages.DeleteRoleRequest))
+		return srv.(AuthAdminServiceServer).DeleteRole(ctx, req.(*DeleteRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_ListRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListRolesRequest)
+	in := new(ListRolesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -507,13 +506,13 @@ func _AuthAdminService_ListRoles_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: AuthAdminService_ListRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).ListRoles(ctx, req.(*messages.ListRolesRequest))
+		return srv.(AuthAdminServiceServer).ListRoles(ctx, req.(*ListRolesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_InvalidateUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.InvalidateUserSessionsRequest)
+	in := new(InvalidateUserSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -525,13 +524,13 @@ func _AuthAdminService_InvalidateUserSessions_Handler(srv interface{}, ctx conte
 		FullMethod: AuthAdminService_InvalidateUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).InvalidateUserSessions(ctx, req.(*messages.InvalidateUserSessionsRequest))
+		return srv.(AuthAdminServiceServer).InvalidateUserSessions(ctx, req.(*InvalidateUserSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthAdminService_GetSystemStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetSystemStatsRequest)
+	in := new(GetSystemStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -543,7 +542,7 @@ func _AuthAdminService_GetSystemStats_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthAdminService_GetSystemStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthAdminServiceServer).GetSystemStats(ctx, req.(*messages.GetSystemStatsRequest))
+		return srv.(AuthAdminServiceServer).GetSystemStats(ctx, req.(*GetSystemStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

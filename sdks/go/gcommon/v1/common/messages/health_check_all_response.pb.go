@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/health_check_all_response.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +25,7 @@ const (
 // HealthCheckAllResponse contains comprehensive health information for all services
 type HealthCheckAllResponse struct {
 	state                        protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_OverallStatus     enums.ServingStatus         `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.ServingStatus"`
+	xxx_hidden_OverallStatus     ServingStatus               `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.common.ServingStatus"`
 	xxx_hidden_Results           *[]*HealthHealthCheckResult `protobuf:"bytes,2,rep,name=results"`
 	xxx_hidden_TotalServices     int32                       `protobuf:"varint,3,opt,name=total_services,json=totalServices"`
 	xxx_hidden_HealthyServices   int32                       `protobuf:"varint,4,opt,name=healthy_services,json=healthyServices"`
@@ -64,13 +63,13 @@ func (x *HealthCheckAllResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckAllResponse) GetOverallStatus() enums.ServingStatus {
+func (x *HealthCheckAllResponse) GetOverallStatus() ServingStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_OverallStatus
 		}
 	}
-	return enums.ServingStatus(0)
+	return ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
 func (x *HealthCheckAllResponse) GetResults() []*HealthHealthCheckResult {
@@ -117,7 +116,7 @@ func (x *HealthCheckAllResponse) GetTimestamp() int64 {
 	return 0
 }
 
-func (x *HealthCheckAllResponse) SetOverallStatus(v enums.ServingStatus) {
+func (x *HealthCheckAllResponse) SetOverallStatus(v ServingStatus) {
 	x.xxx_hidden_OverallStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
@@ -195,7 +194,7 @@ func (x *HealthCheckAllResponse) HasTimestamp() bool {
 
 func (x *HealthCheckAllResponse) ClearOverallStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OverallStatus = enums.ServingStatus_SERVING_STATUS_UNSPECIFIED
+	x.xxx_hidden_OverallStatus = ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
 func (x *HealthCheckAllResponse) ClearTotalServices() {
@@ -227,7 +226,7 @@ type HealthCheckAllResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall system status
-	OverallStatus *enums.ServingStatus
+	OverallStatus *ServingStatus
 	// Individual service health results
 	Results []*HealthHealthCheckResult
 	// Total number of services checked
@@ -286,12 +285,12 @@ const file_gcommon_v1_common_messages_health_check_all_response_proto_rawDesc = 
 	"\x10healthy_services\x18\x04 \x01(\x05R\x0fhealthyServices\x12-\n" +
 	"\x12unhealthy_services\x18\x05 \x01(\x05R\x11unhealthyServices\x12*\n" +
 	"\x11total_duration_ms\x18\x06 \x01(\x03R\x0ftotalDurationMs\x12\x1c\n" +
-	"\ttimestamp\x18\a \x01(\x03R\ttimestampBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\ttimestamp\x18\a \x01(\x03R\ttimestampB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_health_check_all_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_health_check_all_response_proto_goTypes = []any{
 	(*HealthCheckAllResponse)(nil),  // 0: gcommon.v1.common.HealthCheckAllResponse
-	(enums.ServingStatus)(0),        // 1: gcommon.v1.common.ServingStatus
+	(ServingStatus)(0),              // 1: gcommon.v1.common.ServingStatus
 	(*HealthHealthCheckResult)(nil), // 2: gcommon.v1.common.HealthHealthCheckResult
 }
 var file_gcommon_v1_common_messages_health_check_all_response_proto_depIdxs = []int32{
@@ -309,6 +308,7 @@ func file_gcommon_v1_common_messages_health_check_all_response_proto_init() {
 	if File_gcommon_v1_common_messages_health_check_all_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_serving_status_proto_init()
 	file_gcommon_v1_common_messages_health_check_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

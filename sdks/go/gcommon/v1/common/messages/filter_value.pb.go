@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/filter_value.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ const (
 type FilterValue struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Value     isFilterValue_Value    `protobuf_oneof:"value"`
-	xxx_hidden_Operation enums.FilterOperation  `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation"`
+	xxx_hidden_Operation FilterOperation        `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -119,13 +118,13 @@ func (x *FilterValue) GetIntArray() *Int64Array {
 	return nil
 }
 
-func (x *FilterValue) GetOperation() enums.FilterOperation {
+func (x *FilterValue) GetOperation() FilterOperation {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Operation
 		}
 	}
-	return enums.FilterOperation(0)
+	return FilterOperation_FILTER_OPERATION_UNSPECIFIED
 }
 
 func (x *FilterValue) SetStringValue(v string) {
@@ -160,7 +159,7 @@ func (x *FilterValue) SetIntArray(v *Int64Array) {
 	x.xxx_hidden_Value = &filterValue_IntArray{v}
 }
 
-func (x *FilterValue) SetOperation(v enums.FilterOperation) {
+func (x *FilterValue) SetOperation(v FilterOperation) {
 	x.xxx_hidden_Operation = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
@@ -269,7 +268,7 @@ func (x *FilterValue) ClearIntArray() {
 
 func (x *FilterValue) ClearOperation() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Operation = enums.FilterOperation_FILTER_OPERATION_UNSPECIFIED
+	x.xxx_hidden_Operation = FilterOperation_FILTER_OPERATION_UNSPECIFIED
 }
 
 const FilterValue_Value_not_set_case case_FilterValue_Value = 0
@@ -322,7 +321,7 @@ type FilterValue_builder struct {
 	IntArray *Int64Array
 	// -- end of xxx_hidden_Value
 	// Filter operation type (equals, contains, greater than, etc.)
-	Operation *enums.FilterOperation
+	Operation *FilterOperation
 }
 
 func (b0 FilterValue_builder) Build() *FilterValue {
@@ -424,14 +423,14 @@ const file_gcommon_v1_common_messages_filter_value_proto_rawDesc = "" +
 	"\fstring_array\x18\x05 \x01(\v2\x1e.gcommon.v1.common.StringArrayB\x02(\x01H\x00R\vstringArray\x12@\n" +
 	"\tint_array\x18\x06 \x01(\v2\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\bintArray\x12@\n" +
 	"\toperation\x18\a \x01(\x0e2\".gcommon.v1.common.FilterOperationR\toperationB\a\n" +
-	"\x05valueBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05valueB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_filter_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_filter_value_proto_goTypes = []any{
-	(*FilterValue)(nil),        // 0: gcommon.v1.common.FilterValue
-	(*StringArray)(nil),        // 1: gcommon.v1.common.StringArray
-	(*Int64Array)(nil),         // 2: gcommon.v1.common.Int64Array
-	(enums.FilterOperation)(0), // 3: gcommon.v1.common.FilterOperation
+	(*FilterValue)(nil),  // 0: gcommon.v1.common.FilterValue
+	(*StringArray)(nil),  // 1: gcommon.v1.common.StringArray
+	(*Int64Array)(nil),   // 2: gcommon.v1.common.Int64Array
+	(FilterOperation)(0), // 3: gcommon.v1.common.FilterOperation
 }
 var file_gcommon_v1_common_messages_filter_value_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.FilterValue.string_array:type_name -> gcommon.v1.common.StringArray
@@ -449,6 +448,7 @@ func file_gcommon_v1_common_messages_filter_value_proto_init() {
 	if File_gcommon_v1_common_messages_filter_value_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_filter_operation_proto_init()
 	file_gcommon_v1_common_messages_int64_array_proto_init()
 	file_gcommon_v1_common_messages_string_array_proto_init()
 	file_gcommon_v1_common_messages_filter_value_proto_msgTypes[0].OneofWrappers = []any{

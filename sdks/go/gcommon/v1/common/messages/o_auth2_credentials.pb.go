@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/o_auth2_credentials.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -216,7 +216,7 @@ const file_gcommon_v1_common_messages_o_auth2_credentials_proto_rawDesc = "" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12!\n" +
 	"\fredirect_uri\x18\x02 \x01(\tR\vredirectUri\x12\x1b\n" +
 	"\tclient_id\x18\x03 \x01(\tR\bclientId\x12#\n" +
-	"\rclient_secret\x18\x04 \x01(\tR\fclientSecretBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rclient_secret\x18\x04 \x01(\tR\fclientSecretB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_o_auth2_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_o_auth2_credentials_proto_goTypes = []any{

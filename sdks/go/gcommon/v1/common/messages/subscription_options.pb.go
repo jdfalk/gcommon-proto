@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/subscription_options.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ type SubscriptionOptions struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_IncludeHistory bool                   `protobuf:"varint,1,opt,name=include_history,json=includeHistory"`
 	xxx_hidden_MaxBatchSize   int32                  `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize"`
-	xxx_hidden_AckMode        enums.AckMode          `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode"`
+	xxx_hidden_AckMode        AckMode                `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode"`
 	xxx_hidden_KeepAlive      *durationpb.Duration   `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
@@ -78,13 +77,13 @@ func (x *SubscriptionOptions) GetMaxBatchSize() int32 {
 	return 0
 }
 
-func (x *SubscriptionOptions) GetAckMode() enums.AckMode {
+func (x *SubscriptionOptions) GetAckMode() AckMode {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_AckMode
 		}
 	}
-	return enums.AckMode(0)
+	return AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) GetKeepAlive() *durationpb.Duration {
@@ -104,7 +103,7 @@ func (x *SubscriptionOptions) SetMaxBatchSize(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *SubscriptionOptions) SetAckMode(v enums.AckMode) {
+func (x *SubscriptionOptions) SetAckMode(v AckMode) {
 	x.xxx_hidden_AckMode = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
@@ -153,7 +152,7 @@ func (x *SubscriptionOptions) ClearMaxBatchSize() {
 
 func (x *SubscriptionOptions) ClearAckMode() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_AckMode = enums.AckMode_ACK_MODE_UNSPECIFIED
+	x.xxx_hidden_AckMode = AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) ClearKeepAlive() {
@@ -168,7 +167,7 @@ type SubscriptionOptions_builder struct {
 	// Maximum number of events to batch together
 	MaxBatchSize *int32
 	// Acknowledgment mode for message delivery
-	AckMode *enums.AckMode
+	AckMode *AckMode
 	// Keep-alive interval to maintain connection
 	KeepAlive *durationpb.Duration
 }
@@ -203,12 +202,12 @@ const file_gcommon_v1_common_messages_subscription_options_proto_rawDesc = "" +
 	"\x0emax_batch_size\x18\x02 \x01(\x05R\fmaxBatchSize\x125\n" +
 	"\back_mode\x18\x03 \x01(\x0e2\x1a.gcommon.v1.common.AckModeR\aackMode\x128\n" +
 	"\n" +
-	"keep_alive\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tkeepAliveBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"keep_alive\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tkeepAliveB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_subscription_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_subscription_options_proto_goTypes = []any{
 	(*SubscriptionOptions)(nil), // 0: gcommon.v1.common.SubscriptionOptions
-	(enums.AckMode)(0),          // 1: gcommon.v1.common.AckMode
+	(AckMode)(0),                // 1: gcommon.v1.common.AckMode
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
 }
 var file_gcommon_v1_common_messages_subscription_options_proto_depIdxs = []int32{
@@ -226,6 +225,7 @@ func file_gcommon_v1_common_messages_subscription_options_proto_init() {
 	if File_gcommon_v1_common_messages_subscription_options_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_ack_mode_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

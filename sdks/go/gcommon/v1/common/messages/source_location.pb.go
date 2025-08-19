@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/source_location.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -209,7 +209,7 @@ const file_gcommon_v1_common_messages_source_location_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\tR\x04file\x12\x12\n" +
 	"\x04line\x18\x02 \x01(\x05R\x04line\x12\x1a\n" +
 	"\bfunction\x18\x03 \x01(\tR\bfunction\x12\x18\n" +
-	"\apackage\x18\x04 \x01(\tR\apackageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\apackage\x18\x04 \x01(\tR\apackageB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_source_location_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_source_location_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/subscription_status.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -90,7 +90,7 @@ const file_gcommon_v1_common_enums_subscription_status_proto_rawDesc = "" +
 	"\x1aSUBSCRIPTION_STATUS_ACTIVE\x10\x01\x12\x1e\n" +
 	"\x1aSUBSCRIPTION_STATUS_PAUSED\x10\x02\x12!\n" +
 	"\x1dSUBSCRIPTION_STATUS_CANCELLED\x10\x03\x12\x1d\n" +
-	"\x19SUBSCRIPTION_STATUS_ERROR\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19SUBSCRIPTION_STATUS_ERROR\x10\x04B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_subscription_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_subscription_status_proto_goTypes = []any{

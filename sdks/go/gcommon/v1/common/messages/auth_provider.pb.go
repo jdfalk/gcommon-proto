@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/auth_provider.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +28,7 @@ type AuthProvider struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Type        enums.AuthProviderType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.AuthProviderType"`
+	xxx_hidden_Type        AuthProviderType       `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.AuthProviderType"`
 	xxx_hidden_Config      *string                `protobuf:"bytes,4,opt,name=config"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -82,13 +81,13 @@ func (x *AuthProvider) GetName() string {
 	return ""
 }
 
-func (x *AuthProvider) GetType() enums.AuthProviderType {
+func (x *AuthProvider) GetType() AuthProviderType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.AuthProviderType(0)
+	return AuthProviderType_PROVIDER_TYPE_UNSPECIFIED
 }
 
 func (x *AuthProvider) GetConfig() string {
@@ -111,7 +110,7 @@ func (x *AuthProvider) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *AuthProvider) SetType(v enums.AuthProviderType) {
+func (x *AuthProvider) SetType(v AuthProviderType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
@@ -161,7 +160,7 @@ func (x *AuthProvider) ClearName() {
 
 func (x *AuthProvider) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = enums.AuthProviderType_PROVIDER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AuthProviderType_PROVIDER_TYPE_UNSPECIFIED
 }
 
 func (x *AuthProvider) ClearConfig() {
@@ -177,7 +176,7 @@ type AuthProvider_builder struct {
 	// Human readable provider name
 	Name *string
 	// Provider type (e.g., LDAP, OAUTH2, SAML)
-	Type *enums.AuthProviderType
+	Type *AuthProviderType
 	// Provider-specific configuration reference or JSON blob
 	Config *string
 }
@@ -214,12 +213,12 @@ const file_gcommon_v1_common_messages_auth_provider_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x127\n" +
 	"\x04type\x18\x03 \x01(\x0e2#.gcommon.v1.common.AuthProviderTypeR\x04type\x12\x16\n" +
-	"\x06config\x18\x04 \x01(\tR\x06configBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x04 \x01(\tR\x06configB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_auth_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_auth_provider_proto_goTypes = []any{
-	(*AuthProvider)(nil),        // 0: gcommon.v1.common.AuthProvider
-	(enums.AuthProviderType)(0), // 1: gcommon.v1.common.AuthProviderType
+	(*AuthProvider)(nil),  // 0: gcommon.v1.common.AuthProvider
+	(AuthProviderType)(0), // 1: gcommon.v1.common.AuthProviderType
 }
 var file_gcommon_v1_common_messages_auth_provider_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.AuthProvider.type:type_name -> gcommon.v1.common.AuthProviderType
@@ -235,6 +234,7 @@ func file_gcommon_v1_common_messages_auth_provider_proto_init() {
 	if File_gcommon_v1_common_messages_auth_provider_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_provider_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

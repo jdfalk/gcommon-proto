@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/formatter_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -82,7 +82,7 @@ const file_gcommon_v1_common_enums_formatter_type_proto_rawDesc = "" +
 	"\x13FORMATTER_TYPE_TEXT\x10\x01\x12\x17\n" +
 	"\x13FORMATTER_TYPE_JSON\x10\x02\x12\x16\n" +
 	"\x12FORMATTER_TYPE_XML\x10\x03\x12\x19\n" +
-	"\x15FORMATTER_TYPE_CUSTOM\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15FORMATTER_TYPE_CUSTOM\x10\x04B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_formatter_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_formatter_type_proto_goTypes = []any{

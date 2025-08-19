@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/mfa_setup_instruction.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type MfaSetupInstruction struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Method      enums.MfaMethod        `protobuf:"varint,1,opt,name=method,enum=gcommon.v1.common.MfaMethod"`
+	xxx_hidden_Method      MfaMethod              `protobuf:"varint,1,opt,name=method,enum=gcommon.v1.common.MfaMethod"`
 	xxx_hidden_Instruction *string                `protobuf:"bytes,2,opt,name=instruction"`
 	xxx_hidden_QrCode      *string                `protobuf:"bytes,3,opt,name=qr_code,json=qrCode"`
 	xxx_hidden_SecretKey   *string                `protobuf:"bytes,4,opt,name=secret_key,json=secretKey"`
@@ -59,13 +58,13 @@ func (x *MfaSetupInstruction) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MfaSetupInstruction) GetMethod() enums.MfaMethod {
+func (x *MfaSetupInstruction) GetMethod() MfaMethod {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Method
 		}
 	}
-	return enums.MfaMethod(0)
+	return MfaMethod_MFA_METHOD_UNSPECIFIED
 }
 
 func (x *MfaSetupInstruction) GetInstruction() string {
@@ -98,7 +97,7 @@ func (x *MfaSetupInstruction) GetSecretKey() string {
 	return ""
 }
 
-func (x *MfaSetupInstruction) SetMethod(v enums.MfaMethod) {
+func (x *MfaSetupInstruction) SetMethod(v MfaMethod) {
 	x.xxx_hidden_Method = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -148,7 +147,7 @@ func (x *MfaSetupInstruction) HasSecretKey() bool {
 
 func (x *MfaSetupInstruction) ClearMethod() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Method = enums.MfaMethod_MFA_METHOD_UNSPECIFIED
+	x.xxx_hidden_Method = MfaMethod_MFA_METHOD_UNSPECIFIED
 }
 
 func (x *MfaSetupInstruction) ClearInstruction() {
@@ -169,7 +168,7 @@ func (x *MfaSetupInstruction) ClearSecretKey() {
 type MfaSetupInstruction_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Method      *enums.MfaMethod
+	Method      *MfaMethod
 	Instruction *string
 	QrCode      *string
 	SecretKey   *string
@@ -208,12 +207,12 @@ const file_gcommon_v1_common_messages_mfa_setup_instruction_proto_rawDesc = "" +
 	"\vinstruction\x18\x02 \x01(\tR\vinstruction\x12\x17\n" +
 	"\aqr_code\x18\x03 \x01(\tR\x06qrCode\x12\x1d\n" +
 	"\n" +
-	"secret_key\x18\x04 \x01(\tR\tsecretKeyBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"secret_key\x18\x04 \x01(\tR\tsecretKeyB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_mfa_setup_instruction_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_mfa_setup_instruction_proto_goTypes = []any{
 	(*MfaSetupInstruction)(nil), // 0: gcommon.v1.common.MfaSetupInstruction
-	(enums.MfaMethod)(0),        // 1: gcommon.v1.common.MfaMethod
+	(MfaMethod)(0),              // 1: gcommon.v1.common.MfaMethod
 }
 var file_gcommon_v1_common_messages_mfa_setup_instruction_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.MfaSetupInstruction.method:type_name -> gcommon.v1.common.MfaMethod
@@ -229,6 +228,7 @@ func file_gcommon_v1_common_messages_mfa_setup_instruction_proto_init() {
 	if File_gcommon_v1_common_messages_mfa_setup_instruction_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

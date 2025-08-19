@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/revoke_token_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -277,7 +277,7 @@ const file_gcommon_v1_common_messages_revoke_token_response_proto_rawDesc = "" +
 	"revoked_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\trevokedAt\x12\x17\n" +
 	"\auser_id\x18\x04 \x01(\tR\x06userId\x12+\n" +
 	"\x11revocation_reason\x18\x05 \x01(\tR\x10revocationReason\x121\n" +
-	"\x15last_token_in_session\x18\x06 \x01(\bR\x12lastTokenInSessionBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15last_token_in_session\x18\x06 \x01(\bR\x12lastTokenInSessionB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_revoke_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_revoke_token_response_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/int64_array.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -90,7 +90,7 @@ const file_gcommon_v1_common_messages_int64_array_proto_rawDesc = "" +
 	",gcommon/v1/common/messages/int64_array.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"$\n" +
 	"\n" +
 	"Int64Array\x12\x16\n" +
-	"\x06values\x18\x01 \x03(\x03R\x06valuesBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06values\x18\x01 \x03(\x03R\x06valuesB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_int64_array_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_int64_array_proto_goTypes = []any{

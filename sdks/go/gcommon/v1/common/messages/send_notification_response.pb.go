@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/send_notification_response.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ type SendNotificationResponse struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_NotificationId *string                `protobuf:"bytes,1,opt,name=notification_id,json=notificationId"`
 	xxx_hidden_Accepted       bool                   `protobuf:"varint,2,opt,name=accepted"`
-	xxx_hidden_Status         enums.DeliveryStatus   `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.DeliveryStatus"`
+	xxx_hidden_Status         DeliveryStatus         `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.DeliveryStatus"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -77,13 +76,13 @@ func (x *SendNotificationResponse) GetAccepted() bool {
 	return false
 }
 
-func (x *SendNotificationResponse) GetStatus() enums.DeliveryStatus {
+func (x *SendNotificationResponse) GetStatus() DeliveryStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.DeliveryStatus(0)
+	return DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
 }
 
 func (x *SendNotificationResponse) SetNotificationId(v string) {
@@ -96,7 +95,7 @@ func (x *SendNotificationResponse) SetAccepted(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *SendNotificationResponse) SetStatus(v enums.DeliveryStatus) {
+func (x *SendNotificationResponse) SetStatus(v DeliveryStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
@@ -134,7 +133,7 @@ func (x *SendNotificationResponse) ClearAccepted() {
 
 func (x *SendNotificationResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Status = enums.DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
 }
 
 type SendNotificationResponse_builder struct {
@@ -145,7 +144,7 @@ type SendNotificationResponse_builder struct {
 	// Whether the notification was accepted for delivery
 	Accepted *bool
 	// Current delivery status of the notification
-	Status *enums.DeliveryStatus
+	Status *DeliveryStatus
 }
 
 func (b0 SendNotificationResponse_builder) Build() *SendNotificationResponse {
@@ -175,12 +174,12 @@ const file_gcommon_v1_common_messages_send_notification_response_proto_rawDesc =
 	"\x18SendNotificationResponse\x12'\n" +
 	"\x0fnotification_id\x18\x01 \x01(\tR\x0enotificationId\x12\x1a\n" +
 	"\baccepted\x18\x02 \x01(\bR\baccepted\x129\n" +
-	"\x06status\x18\x03 \x01(\x0e2!.gcommon.v1.common.DeliveryStatusR\x06statusBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06status\x18\x03 \x01(\x0e2!.gcommon.v1.common.DeliveryStatusR\x06statusB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_send_notification_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_send_notification_response_proto_goTypes = []any{
 	(*SendNotificationResponse)(nil), // 0: gcommon.v1.common.SendNotificationResponse
-	(enums.DeliveryStatus)(0),        // 1: gcommon.v1.common.DeliveryStatus
+	(DeliveryStatus)(0),              // 1: gcommon.v1.common.DeliveryStatus
 }
 var file_gcommon_v1_common_messages_send_notification_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.SendNotificationResponse.status:type_name -> gcommon.v1.common.DeliveryStatus
@@ -196,6 +195,7 @@ func file_gcommon_v1_common_messages_send_notification_response_proto_init() {
 	if File_gcommon_v1_common_messages_send_notification_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_delivery_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

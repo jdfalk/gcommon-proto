@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/list_users_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -285,7 +285,7 @@ const file_gcommon_v1_common_messages_list_users_response_proto_rawDesc = "" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
 	"totalPages\x12\"\n" +
 	"\rhas_next_page\x18\x06 \x01(\bR\vhasNextPage\x12*\n" +
-	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_users_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_users_response_proto_goTypes = []any{

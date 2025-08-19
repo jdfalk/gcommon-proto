@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/health_check_result.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,8 +24,8 @@ const (
 type HealthHealthCheckResult struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Service     *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Status      enums.ServingStatus    `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ServingStatus"`
-	xxx_hidden_CheckType   enums.CheckType        `protobuf:"varint,3,opt,name=check_type,json=checkType,enum=gcommon.v1.common.CheckType"`
+	xxx_hidden_Status      ServingStatus          `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ServingStatus"`
+	xxx_hidden_CheckType   CheckType              `protobuf:"varint,3,opt,name=check_type,json=checkType,enum=gcommon.v1.common.CheckType"`
 	xxx_hidden_Timestamp   int64                  `protobuf:"varint,4,opt,name=timestamp"`
 	xxx_hidden_DurationMs  int64                  `protobuf:"varint,5,opt,name=duration_ms,json=durationMs"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,6,opt,name=message"`
@@ -74,22 +73,22 @@ func (x *HealthHealthCheckResult) GetService() string {
 	return ""
 }
 
-func (x *HealthHealthCheckResult) GetStatus() enums.ServingStatus {
+func (x *HealthHealthCheckResult) GetStatus() ServingStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ServingStatus(0)
+	return ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
-func (x *HealthHealthCheckResult) GetCheckType() enums.CheckType {
+func (x *HealthHealthCheckResult) GetCheckType() CheckType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_CheckType
 		}
 	}
-	return enums.CheckType(0)
+	return CheckType_CHECK_TYPE_UNSPECIFIED
 }
 
 func (x *HealthHealthCheckResult) GetTimestamp() int64 {
@@ -147,12 +146,12 @@ func (x *HealthHealthCheckResult) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *HealthHealthCheckResult) SetStatus(v enums.ServingStatus) {
+func (x *HealthHealthCheckResult) SetStatus(v ServingStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
 }
 
-func (x *HealthHealthCheckResult) SetCheckType(v enums.CheckType) {
+func (x *HealthHealthCheckResult) SetCheckType(v CheckType) {
 	x.xxx_hidden_CheckType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
@@ -241,12 +240,12 @@ func (x *HealthHealthCheckResult) ClearService() {
 
 func (x *HealthHealthCheckResult) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = enums.ServingStatus_SERVING_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
 func (x *HealthHealthCheckResult) ClearCheckType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_CheckType = enums.CheckType_CHECK_TYPE_UNSPECIFIED
+	x.xxx_hidden_CheckType = CheckType_CHECK_TYPE_UNSPECIFIED
 }
 
 func (x *HealthHealthCheckResult) ClearTimestamp() {
@@ -275,9 +274,9 @@ type HealthHealthCheckResult_builder struct {
 	// Service name being checked
 	Service *string
 	// Overall status of the health check
-	Status *enums.ServingStatus
+	Status *ServingStatus
 	// Type of health check performed
-	CheckType *enums.CheckType
+	CheckType *CheckType
 	// Timestamp when the check was performed
 	Timestamp *int64
 	// Duration of the check in milliseconds
@@ -350,14 +349,14 @@ const file_gcommon_v1_common_messages_health_check_result_proto_rawDesc = "" +
 	"components\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_health_check_result_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_health_check_result_proto_goTypes = []any{
 	(*HealthHealthCheckResult)(nil), // 0: gcommon.v1.common.HealthHealthCheckResult
 	nil,                             // 1: gcommon.v1.common.HealthHealthCheckResult.MetadataEntry
-	(enums.ServingStatus)(0),        // 2: gcommon.v1.common.ServingStatus
-	(enums.CheckType)(0),            // 3: gcommon.v1.common.CheckType
+	(ServingStatus)(0),              // 2: gcommon.v1.common.ServingStatus
+	(CheckType)(0),                  // 3: gcommon.v1.common.CheckType
 	(*ComponentHealth)(nil),         // 4: gcommon.v1.common.ComponentHealth
 }
 var file_gcommon_v1_common_messages_health_check_result_proto_depIdxs = []int32{
@@ -377,6 +376,8 @@ func file_gcommon_v1_common_messages_health_check_result_proto_init() {
 	if File_gcommon_v1_common_messages_health_check_result_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_check_type_proto_init()
+	file_gcommon_v1_common_enums_serving_status_proto_init()
 	file_gcommon_v1_common_messages_component_health_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

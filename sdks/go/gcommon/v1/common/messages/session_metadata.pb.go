@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/session_metadata.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type SessionMetadata struct {
 	xxx_hidden_UserAgent    *string                `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
 	xxx_hidden_DeviceInfo   *DeviceInfo            `protobuf:"bytes,8,opt,name=device_info,json=deviceInfo"`
 	xxx_hidden_LocationInfo *LocationInfo          `protobuf:"bytes,9,opt,name=location_info,json=locationInfo"`
-	xxx_hidden_State        enums.AuthSessionState `protobuf:"varint,10,opt,name=state,enum=gcommon.v1.common.AuthSessionState"`
+	xxx_hidden_State        AuthSessionState       `protobuf:"varint,10,opt,name=state,enum=gcommon.v1.common.AuthSessionState"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -140,13 +139,13 @@ func (x *SessionMetadata) GetLocationInfo() *LocationInfo {
 	return nil
 }
 
-func (x *SessionMetadata) GetState() enums.AuthSessionState {
+func (x *SessionMetadata) GetState() AuthSessionState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.AuthSessionState(0)
+	return AuthSessionState_SESSION_STATE_UNSPECIFIED
 }
 
 func (x *SessionMetadata) SetSessionId(v string) {
@@ -192,7 +191,7 @@ func (x *SessionMetadata) SetLocationInfo(v *LocationInfo) {
 	x.xxx_hidden_LocationInfo = v
 }
 
-func (x *SessionMetadata) SetState(v enums.AuthSessionState) {
+func (x *SessionMetadata) SetState(v AuthSessionState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
 }
@@ -312,7 +311,7 @@ func (x *SessionMetadata) ClearLocationInfo() {
 
 func (x *SessionMetadata) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_State = enums.AuthSessionState_SESSION_STATE_UNSPECIFIED
+	x.xxx_hidden_State = AuthSessionState_SESSION_STATE_UNSPECIFIED
 }
 
 type SessionMetadata_builder struct {
@@ -336,7 +335,7 @@ type SessionMetadata_builder struct {
 	DeviceInfo *DeviceInfo
 	// Location information
 	LocationInfo *LocationInfo
-	State        *enums.AuthSessionState
+	State        *AuthSessionState
 }
 
 func (b0 SessionMetadata_builder) Build() *SessionMetadata {
@@ -402,14 +401,14 @@ const file_gcommon_v1_common_messages_session_metadata_proto_rawDesc = "" +
 	"deviceInfo\x12D\n" +
 	"\rlocation_info\x18\t \x01(\v2\x1f.gcommon.v1.common.LocationInfoR\flocationInfo\x129\n" +
 	"\x05state\x18\n" +
-	" \x01(\x0e2#.gcommon.v1.common.AuthSessionStateR\x05stateBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x0e2#.gcommon.v1.common.AuthSessionStateR\x05stateB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_session_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_session_metadata_proto_goTypes = []any{
-	(*SessionMetadata)(nil),     // 0: gcommon.v1.common.SessionMetadata
-	(*DeviceInfo)(nil),          // 1: gcommon.v1.common.DeviceInfo
-	(*LocationInfo)(nil),        // 2: gcommon.v1.common.LocationInfo
-	(enums.AuthSessionState)(0), // 3: gcommon.v1.common.AuthSessionState
+	(*SessionMetadata)(nil), // 0: gcommon.v1.common.SessionMetadata
+	(*DeviceInfo)(nil),      // 1: gcommon.v1.common.DeviceInfo
+	(*LocationInfo)(nil),    // 2: gcommon.v1.common.LocationInfo
+	(AuthSessionState)(0),   // 3: gcommon.v1.common.AuthSessionState
 }
 var file_gcommon_v1_common_messages_session_metadata_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.SessionMetadata.device_info:type_name -> gcommon.v1.common.DeviceInfo
@@ -427,6 +426,7 @@ func file_gcommon_v1_common_messages_session_metadata_proto_init() {
 	if File_gcommon_v1_common_messages_session_metadata_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_session_state_proto_init()
 	file_gcommon_v1_common_messages_device_info_proto_init()
 	file_gcommon_v1_common_messages_location_info_proto_init()
 	type x struct{}

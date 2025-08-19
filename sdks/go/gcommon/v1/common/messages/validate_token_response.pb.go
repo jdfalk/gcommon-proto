@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/validate_token_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -315,7 +315,7 @@ const file_gcommon_v1_common_messages_validate_token_response_proto_rawDesc = ""
 	"\asubject\x18\x05 \x01(\tR\asubject\x12\x16\n" +
 	"\x06issuer\x18\x06 \x01(\tR\x06issuer\x12\x1d\n" +
 	"\n" +
-	"expires_in\x18\a \x01(\x05R\texpiresInBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"expires_in\x18\a \x01(\x05R\texpiresInB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_validate_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_validate_token_response_proto_goTypes = []any{

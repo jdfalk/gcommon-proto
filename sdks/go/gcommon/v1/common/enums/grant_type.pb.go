@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/grant_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -103,7 +103,7 @@ const file_gcommon_v1_common_enums_grant_type_proto_rawDesc = "" +
 	"\x1dGRANT_TYPE_CLIENT_CREDENTIALS\x10\x04\x12\x1c\n" +
 	"\x18GRANT_TYPE_REFRESH_TOKEN\x10\x05\x12\x1a\n" +
 	"\x16GRANT_TYPE_DEVICE_CODE\x10\x06\x12\x1b\n" +
-	"\x17GRANT_TYPE_SAML2_BEARER\x10\aBCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17GRANT_TYPE_SAML2_BEARER\x10\aB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_grant_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_grant_type_proto_goTypes = []any{

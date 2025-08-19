@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/token_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -120,7 +120,7 @@ const file_gcommon_v1_common_enums_token_type_proto_rawDesc = "" +
 	"\x1dTOKEN_TYPE_EMAIL_VERIFICATION\x10\b\x12!\n" +
 	"\x1dTOKEN_TYPE_PHONE_VERIFICATION\x10\t\x12\x19\n" +
 	"\x15TOKEN_TYPE_INVITATION\x10\n" +
-	"BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_token_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_token_type_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/api_key_stats.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -196,7 +196,7 @@ const file_gcommon_v1_common_messages_api_key_stats_proto_rawDesc = "" +
 	"\x13successful_requests\x18\x02 \x01(\x05R\x12successfulRequests\x12'\n" +
 	"\x0ffailed_requests\x18\x03 \x01(\x05R\x0efailedRequests\x12 \n" +
 	"\flast_used_at\x18\x04 \x01(\x03R\n" +
-	"lastUsedAtBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"lastUsedAtB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_api_key_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_api_key_stats_proto_goTypes = []any{

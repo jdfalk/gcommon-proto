@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/user.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type User struct {
 	xxx_hidden_DisplayName   *string                `protobuf:"bytes,4,opt,name=display_name,json=displayName"`
 	xxx_hidden_FirstName     *string                `protobuf:"bytes,5,opt,name=first_name,json=firstName"`
 	xxx_hidden_LastName      *string                `protobuf:"bytes,6,opt,name=last_name,json=lastName"`
-	xxx_hidden_Status        enums.UserStatus       `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.UserStatus"`
+	xxx_hidden_Status        UserStatus             `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.UserStatus"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_LastLoginAt   *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=last_login_at,json=lastLoginAt"`
@@ -140,13 +139,13 @@ func (x *User) GetLastName() string {
 	return ""
 }
 
-func (x *User) GetStatus() enums.UserStatus {
+func (x *User) GetStatus() UserStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.UserStatus(0)
+	return UserStatus_USER_STATUS_UNSPECIFIED
 }
 
 func (x *User) GetCreatedAt() *timestamppb.Timestamp {
@@ -289,7 +288,7 @@ func (x *User) SetLastName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 18)
 }
 
-func (x *User) SetStatus(v enums.UserStatus) {
+func (x *User) SetStatus(v UserStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 18)
 }
@@ -503,7 +502,7 @@ func (x *User) ClearLastName() {
 
 func (x *User) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = enums.UserStatus_USER_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = UserStatus_USER_STATUS_UNSPECIFIED
 }
 
 func (x *User) ClearCreatedAt() {
@@ -567,7 +566,7 @@ type User_builder struct {
 	// Last name
 	LastName *string
 	// User account status
-	Status *enums.UserStatus
+	Status *UserStatus
 	// Account creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last account update timestamp
@@ -699,14 +698,14 @@ const file_gcommon_v1_common_messages_user_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_user_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_common_messages_user_proto_goTypes = []any{
 	(*User)(nil),                  // 0: gcommon.v1.common.User
 	nil,                           // 1: gcommon.v1.common.User.PreferencesEntry
 	nil,                           // 2: gcommon.v1.common.User.MetadataEntry
-	(enums.UserStatus)(0),         // 3: gcommon.v1.common.UserStatus
+	(UserStatus)(0),               // 3: gcommon.v1.common.UserStatus
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_common_messages_user_proto_depIdxs = []int32{
@@ -728,6 +727,7 @@ func file_gcommon_v1_common_messages_user_proto_init() {
 	if File_gcommon_v1_common_messages_user_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_user_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

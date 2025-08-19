@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/location_info.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -235,7 +235,7 @@ const file_gcommon_v1_common_messages_location_info_proto_rawDesc = "" +
 	"\x06region\x18\x02 \x01(\tR\x06region\x12\x12\n" +
 	"\x04city\x18\x03 \x01(\tR\x04city\x12\x1a\n" +
 	"\blatitude\x18\x04 \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\x05 \x01(\x01R\tlongitudeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tlongitude\x18\x05 \x01(\x01R\tlongitudeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_location_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_location_info_proto_goTypes = []any{

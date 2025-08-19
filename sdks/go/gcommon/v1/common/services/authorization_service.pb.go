@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/authorization_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,15 +29,15 @@ const file_gcommon_v1_common_services_authorization_service_proto_rawDesc = "" +
 	"\x14AuthorizationService\x12^\n" +
 	"\tAuthorize\x12'.gcommon.v1.common.AuthAuthorizeRequest\x1a(.gcommon.v1.common.AuthAuthorizeResponse\x12q\n" +
 	"\x12GetUserPermissions\x12,.gcommon.v1.common.GetUserPermissionsRequest\x1a-.gcommon.v1.common.GetUserPermissionsResponse\x12_\n" +
-	"\fGetUserRoles\x12&.gcommon.v1.common.GetUserRolesRequest\x1a'.gcommon.v1.common.GetUserRolesResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fGetUserRoles\x12&.gcommon.v1.common.GetUserRolesRequest\x1a'.gcommon.v1.common.GetUserRolesResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_authorization_service_proto_goTypes = []any{
-	(*messages.AuthAuthorizeRequest)(nil),       // 0: gcommon.v1.common.AuthAuthorizeRequest
-	(*messages.GetUserPermissionsRequest)(nil),  // 1: gcommon.v1.common.GetUserPermissionsRequest
-	(*messages.GetUserRolesRequest)(nil),        // 2: gcommon.v1.common.GetUserRolesRequest
-	(*messages.AuthAuthorizeResponse)(nil),      // 3: gcommon.v1.common.AuthAuthorizeResponse
-	(*messages.GetUserPermissionsResponse)(nil), // 4: gcommon.v1.common.GetUserPermissionsResponse
-	(*messages.GetUserRolesResponse)(nil),       // 5: gcommon.v1.common.GetUserRolesResponse
+	(*AuthAuthorizeRequest)(nil),       // 0: gcommon.v1.common.AuthAuthorizeRequest
+	(*GetUserPermissionsRequest)(nil),  // 1: gcommon.v1.common.GetUserPermissionsRequest
+	(*GetUserRolesRequest)(nil),        // 2: gcommon.v1.common.GetUserRolesRequest
+	(*AuthAuthorizeResponse)(nil),      // 3: gcommon.v1.common.AuthAuthorizeResponse
+	(*GetUserPermissionsResponse)(nil), // 4: gcommon.v1.common.GetUserPermissionsResponse
+	(*GetUserRolesResponse)(nil),       // 5: gcommon.v1.common.GetUserRolesResponse
 }
 var file_gcommon_v1_common_services_authorization_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.common.AuthorizationService.Authorize:input_type -> gcommon.v1.common.AuthAuthorizeRequest
@@ -59,6 +58,12 @@ func file_gcommon_v1_common_services_authorization_service_proto_init() {
 	if File_gcommon_v1_common_services_authorization_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_authorize_request_proto_init()
+	file_gcommon_v1_common_messages_authorize_response_proto_init()
+	file_gcommon_v1_common_messages_get_user_permissions_request_proto_init()
+	file_gcommon_v1_common_messages_get_user_permissions_response_proto_init()
+	file_gcommon_v1_common_messages_get_user_roles_request_proto_init()
+	file_gcommon_v1_common_messages_get_user_roles_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

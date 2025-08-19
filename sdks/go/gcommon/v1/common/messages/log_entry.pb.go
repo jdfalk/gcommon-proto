@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/log_entry.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ const (
 // LogEntry represents a single structured log event
 type LogEntry struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level       enums.LogLevel         `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.LogLevel"`
+	xxx_hidden_Level       LogLevel               `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.LogLevel"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
 	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
 	xxx_hidden_Logger      *string                `protobuf:"bytes,4,opt,name=logger"`
@@ -71,13 +70,13 @@ func (x *LogEntry) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *LogEntry) GetLevel() enums.LogLevel {
+func (x *LogEntry) GetLevel() LogLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.LogLevel(0)
+	return LogLevel_LOG_LEVEL_UNSPECIFIED
 }
 
 func (x *LogEntry) GetMessage() string {
@@ -185,7 +184,7 @@ func (x *LogEntry) GetErrorInfo() *ErrorInfo {
 	return nil
 }
 
-func (x *LogEntry) SetLevel(v enums.LogLevel) {
+func (x *LogEntry) SetLevel(v LogLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
 }
@@ -324,7 +323,7 @@ func (x *LogEntry) HasErrorInfo() bool {
 
 func (x *LogEntry) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = enums.LogLevel_LOG_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = LogLevel_LOG_LEVEL_UNSPECIFIED
 }
 
 func (x *LogEntry) ClearMessage() {
@@ -378,7 +377,7 @@ type LogEntry_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Log level
-	Level *enums.LogLevel
+	Level *LogLevel
 	// Log message
 	Message *string
 	// Timestamp of the log event
@@ -473,13 +472,13 @@ const file_gcommon_v1_common_messages_log_entry_proto_rawDesc = "" +
 	"error_info\x18\r \x01(\v2\x1c.gcommon.v1.common.ErrorInfoR\terrorInfo\x1aO\n" +
 	"\vFieldsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
-	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_log_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_log_entry_proto_goTypes = []any{
 	(*LogEntry)(nil),              // 0: gcommon.v1.common.LogEntry
 	nil,                           // 1: gcommon.v1.common.LogEntry.FieldsEntry
-	(enums.LogLevel)(0),           // 2: gcommon.v1.common.LogLevel
+	(LogLevel)(0),                 // 2: gcommon.v1.common.LogLevel
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 	(*SourceLocation)(nil),        // 4: gcommon.v1.common.SourceLocation
 	(*ErrorInfo)(nil),             // 5: gcommon.v1.common.ErrorInfo
@@ -504,6 +503,7 @@ func file_gcommon_v1_common_messages_log_entry_proto_init() {
 	if File_gcommon_v1_common_messages_log_entry_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_log_level_proto_init()
 	file_gcommon_v1_common_messages_error_info_proto_init()
 	file_gcommon_v1_common_messages_source_location_proto_init()
 	type x struct{}

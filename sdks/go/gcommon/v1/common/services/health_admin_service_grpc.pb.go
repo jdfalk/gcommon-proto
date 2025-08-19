@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/health_admin_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -37,17 +36,17 @@ const (
 // such as enabling or disabling checks and configuring alerting.
 type HealthAdminServiceClient interface {
 	// Configure alerting for a check or service
-	ConfigureAlerting(ctx context.Context, in *messages.ConfigureAlertingRequest, opts ...grpc.CallOption) (*messages.ConfigureAlertingResponse, error)
+	ConfigureAlerting(ctx context.Context, in *ConfigureAlertingRequest, opts ...grpc.CallOption) (*ConfigureAlertingResponse, error)
 	// Enable a previously disabled check
-	EnableCheck(ctx context.Context, in *messages.EnableCheckRequest, opts ...grpc.CallOption) (*messages.EnableCheckResponse, error)
+	EnableCheck(ctx context.Context, in *EnableCheckRequest, opts ...grpc.CallOption) (*EnableCheckResponse, error)
 	// Disable an existing check
-	DisableCheck(ctx context.Context, in *messages.DisableCheckRequest, opts ...grpc.CallOption) (*messages.DisableCheckResponse, error)
+	DisableCheck(ctx context.Context, in *DisableCheckRequest, opts ...grpc.CallOption) (*DisableCheckResponse, error)
 	// Manually run a health check
-	RunCheck(ctx context.Context, in *messages.RunCheckRequest, opts ...grpc.CallOption) (*messages.RunCheckResponse, error)
+	RunCheck(ctx context.Context, in *RunCheckRequest, opts ...grpc.CallOption) (*RunCheckResponse, error)
 	// Reset stored health statistics
-	ResetHealthStats(ctx context.Context, in *messages.ResetHealthStatsRequest, opts ...grpc.CallOption) (*messages.ResetHealthStatsResponse, error)
+	ResetHealthStats(ctx context.Context, in *ResetHealthStatsRequest, opts ...grpc.CallOption) (*ResetHealthStatsResponse, error)
 	// Manually set the overall health status
-	SetHealth(ctx context.Context, in *messages.SetHealthRequest, opts ...grpc.CallOption) (*messages.SetHealthResponse, error)
+	SetHealth(ctx context.Context, in *SetHealthRequest, opts ...grpc.CallOption) (*SetHealthResponse, error)
 }
 
 type healthAdminServiceClient struct {
@@ -58,9 +57,9 @@ func NewHealthAdminServiceClient(cc grpc.ClientConnInterface) HealthAdminService
 	return &healthAdminServiceClient{cc}
 }
 
-func (c *healthAdminServiceClient) ConfigureAlerting(ctx context.Context, in *messages.ConfigureAlertingRequest, opts ...grpc.CallOption) (*messages.ConfigureAlertingResponse, error) {
+func (c *healthAdminServiceClient) ConfigureAlerting(ctx context.Context, in *ConfigureAlertingRequest, opts ...grpc.CallOption) (*ConfigureAlertingResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigureAlertingResponse)
+	out := new(ConfigureAlertingResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_ConfigureAlerting_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -68,9 +67,9 @@ func (c *healthAdminServiceClient) ConfigureAlerting(ctx context.Context, in *me
 	return out, nil
 }
 
-func (c *healthAdminServiceClient) EnableCheck(ctx context.Context, in *messages.EnableCheckRequest, opts ...grpc.CallOption) (*messages.EnableCheckResponse, error) {
+func (c *healthAdminServiceClient) EnableCheck(ctx context.Context, in *EnableCheckRequest, opts ...grpc.CallOption) (*EnableCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.EnableCheckResponse)
+	out := new(EnableCheckResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_EnableCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -78,9 +77,9 @@ func (c *healthAdminServiceClient) EnableCheck(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *healthAdminServiceClient) DisableCheck(ctx context.Context, in *messages.DisableCheckRequest, opts ...grpc.CallOption) (*messages.DisableCheckResponse, error) {
+func (c *healthAdminServiceClient) DisableCheck(ctx context.Context, in *DisableCheckRequest, opts ...grpc.CallOption) (*DisableCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.DisableCheckResponse)
+	out := new(DisableCheckResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_DisableCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -88,9 +87,9 @@ func (c *healthAdminServiceClient) DisableCheck(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *healthAdminServiceClient) RunCheck(ctx context.Context, in *messages.RunCheckRequest, opts ...grpc.CallOption) (*messages.RunCheckResponse, error) {
+func (c *healthAdminServiceClient) RunCheck(ctx context.Context, in *RunCheckRequest, opts ...grpc.CallOption) (*RunCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.RunCheckResponse)
+	out := new(RunCheckResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_RunCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -98,9 +97,9 @@ func (c *healthAdminServiceClient) RunCheck(ctx context.Context, in *messages.Ru
 	return out, nil
 }
 
-func (c *healthAdminServiceClient) ResetHealthStats(ctx context.Context, in *messages.ResetHealthStatsRequest, opts ...grpc.CallOption) (*messages.ResetHealthStatsResponse, error) {
+func (c *healthAdminServiceClient) ResetHealthStats(ctx context.Context, in *ResetHealthStatsRequest, opts ...grpc.CallOption) (*ResetHealthStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ResetHealthStatsResponse)
+	out := new(ResetHealthStatsResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_ResetHealthStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -108,9 +107,9 @@ func (c *healthAdminServiceClient) ResetHealthStats(ctx context.Context, in *mes
 	return out, nil
 }
 
-func (c *healthAdminServiceClient) SetHealth(ctx context.Context, in *messages.SetHealthRequest, opts ...grpc.CallOption) (*messages.SetHealthResponse, error) {
+func (c *healthAdminServiceClient) SetHealth(ctx context.Context, in *SetHealthRequest, opts ...grpc.CallOption) (*SetHealthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.SetHealthResponse)
+	out := new(SetHealthResponse)
 	err := c.cc.Invoke(ctx, HealthAdminService_SetHealth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -127,17 +126,17 @@ func (c *healthAdminServiceClient) SetHealth(ctx context.Context, in *messages.S
 // such as enabling or disabling checks and configuring alerting.
 type HealthAdminServiceServer interface {
 	// Configure alerting for a check or service
-	ConfigureAlerting(context.Context, *messages.ConfigureAlertingRequest) (*messages.ConfigureAlertingResponse, error)
+	ConfigureAlerting(context.Context, *ConfigureAlertingRequest) (*ConfigureAlertingResponse, error)
 	// Enable a previously disabled check
-	EnableCheck(context.Context, *messages.EnableCheckRequest) (*messages.EnableCheckResponse, error)
+	EnableCheck(context.Context, *EnableCheckRequest) (*EnableCheckResponse, error)
 	// Disable an existing check
-	DisableCheck(context.Context, *messages.DisableCheckRequest) (*messages.DisableCheckResponse, error)
+	DisableCheck(context.Context, *DisableCheckRequest) (*DisableCheckResponse, error)
 	// Manually run a health check
-	RunCheck(context.Context, *messages.RunCheckRequest) (*messages.RunCheckResponse, error)
+	RunCheck(context.Context, *RunCheckRequest) (*RunCheckResponse, error)
 	// Reset stored health statistics
-	ResetHealthStats(context.Context, *messages.ResetHealthStatsRequest) (*messages.ResetHealthStatsResponse, error)
+	ResetHealthStats(context.Context, *ResetHealthStatsRequest) (*ResetHealthStatsResponse, error)
 	// Manually set the overall health status
-	SetHealth(context.Context, *messages.SetHealthRequest) (*messages.SetHealthResponse, error)
+	SetHealth(context.Context, *SetHealthRequest) (*SetHealthResponse, error)
 	mustEmbedUnimplementedHealthAdminServiceServer()
 }
 
@@ -148,22 +147,22 @@ type HealthAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedHealthAdminServiceServer struct{}
 
-func (UnimplementedHealthAdminServiceServer) ConfigureAlerting(context.Context, *messages.ConfigureAlertingRequest) (*messages.ConfigureAlertingResponse, error) {
+func (UnimplementedHealthAdminServiceServer) ConfigureAlerting(context.Context, *ConfigureAlertingRequest) (*ConfigureAlertingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigureAlerting not implemented")
 }
-func (UnimplementedHealthAdminServiceServer) EnableCheck(context.Context, *messages.EnableCheckRequest) (*messages.EnableCheckResponse, error) {
+func (UnimplementedHealthAdminServiceServer) EnableCheck(context.Context, *EnableCheckRequest) (*EnableCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EnableCheck not implemented")
 }
-func (UnimplementedHealthAdminServiceServer) DisableCheck(context.Context, *messages.DisableCheckRequest) (*messages.DisableCheckResponse, error) {
+func (UnimplementedHealthAdminServiceServer) DisableCheck(context.Context, *DisableCheckRequest) (*DisableCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableCheck not implemented")
 }
-func (UnimplementedHealthAdminServiceServer) RunCheck(context.Context, *messages.RunCheckRequest) (*messages.RunCheckResponse, error) {
+func (UnimplementedHealthAdminServiceServer) RunCheck(context.Context, *RunCheckRequest) (*RunCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunCheck not implemented")
 }
-func (UnimplementedHealthAdminServiceServer) ResetHealthStats(context.Context, *messages.ResetHealthStatsRequest) (*messages.ResetHealthStatsResponse, error) {
+func (UnimplementedHealthAdminServiceServer) ResetHealthStats(context.Context, *ResetHealthStatsRequest) (*ResetHealthStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ResetHealthStats not implemented")
 }
-func (UnimplementedHealthAdminServiceServer) SetHealth(context.Context, *messages.SetHealthRequest) (*messages.SetHealthResponse, error) {
+func (UnimplementedHealthAdminServiceServer) SetHealth(context.Context, *SetHealthRequest) (*SetHealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetHealth not implemented")
 }
 func (UnimplementedHealthAdminServiceServer) mustEmbedUnimplementedHealthAdminServiceServer() {}
@@ -188,7 +187,7 @@ func RegisterHealthAdminServiceServer(s grpc.ServiceRegistrar, srv HealthAdminSe
 }
 
 func _HealthAdminService_ConfigureAlerting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ConfigureAlertingRequest)
+	in := new(ConfigureAlertingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -200,13 +199,13 @@ func _HealthAdminService_ConfigureAlerting_Handler(srv interface{}, ctx context.
 		FullMethod: HealthAdminService_ConfigureAlerting_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).ConfigureAlerting(ctx, req.(*messages.ConfigureAlertingRequest))
+		return srv.(HealthAdminServiceServer).ConfigureAlerting(ctx, req.(*ConfigureAlertingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthAdminService_EnableCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.EnableCheckRequest)
+	in := new(EnableCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -218,13 +217,13 @@ func _HealthAdminService_EnableCheck_Handler(srv interface{}, ctx context.Contex
 		FullMethod: HealthAdminService_EnableCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).EnableCheck(ctx, req.(*messages.EnableCheckRequest))
+		return srv.(HealthAdminServiceServer).EnableCheck(ctx, req.(*EnableCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthAdminService_DisableCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.DisableCheckRequest)
+	in := new(DisableCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -236,13 +235,13 @@ func _HealthAdminService_DisableCheck_Handler(srv interface{}, ctx context.Conte
 		FullMethod: HealthAdminService_DisableCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).DisableCheck(ctx, req.(*messages.DisableCheckRequest))
+		return srv.(HealthAdminServiceServer).DisableCheck(ctx, req.(*DisableCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthAdminService_RunCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.RunCheckRequest)
+	in := new(RunCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -254,13 +253,13 @@ func _HealthAdminService_RunCheck_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: HealthAdminService_RunCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).RunCheck(ctx, req.(*messages.RunCheckRequest))
+		return srv.(HealthAdminServiceServer).RunCheck(ctx, req.(*RunCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthAdminService_ResetHealthStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ResetHealthStatsRequest)
+	in := new(ResetHealthStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -272,13 +271,13 @@ func _HealthAdminService_ResetHealthStats_Handler(srv interface{}, ctx context.C
 		FullMethod: HealthAdminService_ResetHealthStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).ResetHealthStats(ctx, req.(*messages.ResetHealthStatsRequest))
+		return srv.(HealthAdminServiceServer).ResetHealthStats(ctx, req.(*ResetHealthStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthAdminService_SetHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.SetHealthRequest)
+	in := new(SetHealthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -290,7 +289,7 @@ func _HealthAdminService_SetHealth_Handler(srv interface{}, ctx context.Context,
 		FullMethod: HealthAdminService_SetHealth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthAdminServiceServer).SetHealth(ctx, req.(*messages.SetHealthRequest))
+		return srv.(HealthAdminServiceServer).SetHealth(ctx, req.(*SetHealthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

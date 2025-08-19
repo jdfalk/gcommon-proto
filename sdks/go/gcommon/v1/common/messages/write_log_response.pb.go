@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/write_log_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -178,7 +178,7 @@ const file_gcommon_v1_common_messages_write_log_response_proto_rawDesc = "" +
 	"\x10WriteLogResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status\x12\x15\n" +
 	"\x06log_id\x18\x02 \x01(\tR\x05logId\x12\x14\n" +
-	"\x05error\x18\x03 \x01(\tR\x05errorBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\tR\x05errorB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_write_log_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_write_log_response_proto_goTypes = []any{

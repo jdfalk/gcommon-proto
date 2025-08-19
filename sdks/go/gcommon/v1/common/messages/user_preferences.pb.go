@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/user_preferences.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -298,7 +298,7 @@ const file_gcommon_v1_common_messages_user_preferences_proto_rawDesc = "" +
 	"\x10marketing_emails\x18\x04 \x01(\bR\x0fmarketingEmails\x12,\n" +
 	"\x12two_factor_enabled\x18\x05 \x01(\bR\x10twoFactorEnabled\x126\n" +
 	"\x17session_timeout_minutes\x18\x06 \x01(\x05R\x15sessionTimeoutMinutes\x12\x14\n" +
-	"\x05theme\x18\a \x01(\tR\x05themeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05theme\x18\a \x01(\tR\x05themeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_user_preferences_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_user_preferences_proto_goTypes = []any{

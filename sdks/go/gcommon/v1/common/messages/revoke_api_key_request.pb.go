@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/revoke_api_key_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -141,7 +141,7 @@ const file_gcommon_v1_common_messages_revoke_api_key_request_proto_rawDesc = "" 
 	"7gcommon/v1/common/messages/revoke_api_key_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"D\n" +
 	"\x13RevokeApiKeyRequest\x12\x15\n" +
 	"\x06key_id\x18\x01 \x01(\tR\x05keyId\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reasonBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x02 \x01(\tR\x06reasonB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_revoke_api_key_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_revoke_api_key_request_proto_goTypes = []any{

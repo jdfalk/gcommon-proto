@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/role.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type Role struct {
 	xxx_hidden_Permissions []string               `protobuf:"bytes,4,rep,name=permissions"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status      enums.ResourceStatus   `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
+	xxx_hidden_Status      ResourceStatus         `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -127,13 +126,13 @@ func (x *Role) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Role) GetStatus() enums.ResourceStatus {
+func (x *Role) GetStatus() ResourceStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ResourceStatus(0)
+	return ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 func (x *Role) SetId(v string) {
@@ -168,7 +167,7 @@ func (x *Role) SetCreatedAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *Role) SetStatus(v enums.ResourceStatus) {
+func (x *Role) SetStatus(v ResourceStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
@@ -230,7 +229,7 @@ func (x *Role) ClearCreatedAt() {
 
 func (x *Role) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = enums.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 type Role_builder struct {
@@ -249,7 +248,7 @@ type Role_builder struct {
 	// Role creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Role status (active, inactive, etc.)
-	Status *enums.ResourceStatus
+	Status *ResourceStatus
 }
 
 func (b0 Role_builder) Build() *Role {
@@ -297,14 +296,14 @@ const file_gcommon_v1_common_messages_role_proto_rawDesc = "" +
 	"\x06status\x18\a \x01(\x0e2!.gcommon.v1.common.ResourceStatusR\x06status\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_role_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_role_proto_goTypes = []any{
 	(*Role)(nil),                  // 0: gcommon.v1.common.Role
 	nil,                           // 1: gcommon.v1.common.Role.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(enums.ResourceStatus)(0),     // 3: gcommon.v1.common.ResourceStatus
+	(ResourceStatus)(0),           // 3: gcommon.v1.common.ResourceStatus
 }
 var file_gcommon_v1_common_messages_role_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.Role.metadata:type_name -> gcommon.v1.common.Role.MetadataEntry
@@ -322,6 +321,7 @@ func file_gcommon_v1_common_messages_role_proto_init() {
 	if File_gcommon_v1_common_messages_role_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_resource_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

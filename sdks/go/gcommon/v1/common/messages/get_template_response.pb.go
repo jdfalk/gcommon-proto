@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/get_template_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -118,7 +118,7 @@ const file_gcommon_v1_common_messages_get_template_response_proto_rawDesc = "" +
 	"\n" +
 	"6gcommon/v1/common/messages/get_template_response.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/common/messages/template.proto\x1a!google/protobuf/go_features.proto\"R\n" +
 	"\x13GetTemplateResponse\x12;\n" +
-	"\btemplate\x18\x01 \x01(\v2\x1b.gcommon.v1.common.TemplateB\x02(\x01R\btemplateBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\btemplate\x18\x01 \x01(\v2\x1b.gcommon.v1.common.TemplateB\x02(\x01R\btemplateB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_template_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_template_response_proto_goTypes = []any{

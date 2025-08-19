@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/group.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +35,7 @@ type Group struct {
 	xxx_hidden_Permissions   []string               `protobuf:"bytes,5,rep,name=permissions"`
 	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,6,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status        enums.ResourceStatus   `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
+	xxx_hidden_Status        ResourceStatus         `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
 	xxx_hidden_MemberCount   int32                  `protobuf:"varint,9,opt,name=member_count,json=memberCount"`
 	xxx_hidden_AdminUserIds  []string               `protobuf:"bytes,10,rep,name=admin_user_ids,json=adminUserIds"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -140,13 +139,13 @@ func (x *Group) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Group) GetStatus() enums.ResourceStatus {
+func (x *Group) GetStatus() ResourceStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ResourceStatus(0)
+	return ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 func (x *Group) GetMemberCount() int32 {
@@ -200,7 +199,7 @@ func (x *Group) SetCreatedAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *Group) SetStatus(v enums.ResourceStatus) {
+func (x *Group) SetStatus(v ResourceStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
 }
@@ -290,7 +289,7 @@ func (x *Group) ClearCreatedAt() {
 
 func (x *Group) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Status = enums.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 func (x *Group) ClearMemberCount() {
@@ -316,7 +315,7 @@ type Group_builder struct {
 	// Group creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Group status
-	Status *enums.ResourceStatus
+	Status *ResourceStatus
 	// Group member count
 	MemberCount *int32
 	// Group administrator user IDs
@@ -381,14 +380,14 @@ const file_gcommon_v1_common_messages_group_proto_rawDesc = "" +
 	" \x03(\tR\fadminUserIds\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_group_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_group_proto_goTypes = []any{
 	(*Group)(nil),                 // 0: gcommon.v1.common.Group
 	nil,                           // 1: gcommon.v1.common.Group.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(enums.ResourceStatus)(0),     // 3: gcommon.v1.common.ResourceStatus
+	(ResourceStatus)(0),           // 3: gcommon.v1.common.ResourceStatus
 }
 var file_gcommon_v1_common_messages_group_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.Group.metadata:type_name -> gcommon.v1.common.Group.MetadataEntry
@@ -406,6 +405,7 @@ func file_gcommon_v1_common_messages_group_proto_init() {
 	if File_gcommon_v1_common_messages_group_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_resource_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

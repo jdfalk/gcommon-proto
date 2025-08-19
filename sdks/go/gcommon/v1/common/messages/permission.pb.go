@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/permission.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ type Permission struct {
 	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
 	xxx_hidden_Description *string                `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Scope       enums.ScopeType        `protobuf:"varint,4,opt,name=scope,enum=gcommon.v1.common.ScopeType"`
+	xxx_hidden_Scope       ScopeType              `protobuf:"varint,4,opt,name=scope,enum=gcommon.v1.common.ScopeType"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
@@ -96,13 +95,13 @@ func (x *Permission) GetDescription() string {
 	return ""
 }
 
-func (x *Permission) GetScope() enums.ScopeType {
+func (x *Permission) GetScope() ScopeType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Scope
 		}
 	}
-	return enums.ScopeType(0)
+	return ScopeType_SCOPE_TYPE_UNSPECIFIED
 }
 
 func (x *Permission) GetCreatedAt() *timestamppb.Timestamp {
@@ -134,7 +133,7 @@ func (x *Permission) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *Permission) SetScope(v enums.ScopeType) {
+func (x *Permission) SetScope(v ScopeType) {
 	x.xxx_hidden_Scope = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -200,7 +199,7 @@ func (x *Permission) ClearDescription() {
 
 func (x *Permission) ClearScope() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Scope = enums.ScopeType_SCOPE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Scope = ScopeType_SCOPE_TYPE_UNSPECIFIED
 }
 
 func (x *Permission) ClearCreatedAt() {
@@ -218,7 +217,7 @@ type Permission_builder struct {
 	// Human readable description of what the permission allows
 	Description *string
 	// Scope at which this permission applies
-	Scope *enums.ScopeType
+	Scope *ScopeType
 	// Timestamp when the permission was created
 	CreatedAt *timestamppb.Timestamp
 }
@@ -262,12 +261,12 @@ const file_gcommon_v1_common_messages_permission_proto_rawDesc = "" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x122\n" +
 	"\x05scope\x18\x04 \x01(\x0e2\x1c.gcommon.v1.common.ScopeTypeR\x05scope\x12=\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_permission_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_permission_proto_goTypes = []any{
 	(*Permission)(nil),            // 0: gcommon.v1.common.Permission
-	(enums.ScopeType)(0),          // 1: gcommon.v1.common.ScopeType
+	(ScopeType)(0),                // 1: gcommon.v1.common.ScopeType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_common_messages_permission_proto_depIdxs = []int32{
@@ -285,6 +284,7 @@ func file_gcommon_v1_common_messages_permission_proto_init() {
 	if File_gcommon_v1_common_messages_permission_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_scope_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

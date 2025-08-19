@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/o_auth2_config.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type OAuth2Config struct {
 	xxx_hidden_UserinfoEndpoint      *string                `protobuf:"bytes,6,opt,name=userinfo_endpoint,json=userinfoEndpoint"`
 	xxx_hidden_RedirectUri           *string                `protobuf:"bytes,7,opt,name=redirect_uri,json=redirectUri"`
 	xxx_hidden_Scopes                []string               `protobuf:"bytes,8,rep,name=scopes"`
-	xxx_hidden_FlowType              enums.OAuth2FlowType   `protobuf:"varint,9,opt,name=flow_type,json=flowType,enum=gcommon.v1.common.OAuth2FlowType"`
+	xxx_hidden_FlowType              OAuth2FlowType         `protobuf:"varint,9,opt,name=flow_type,json=flowType,enum=gcommon.v1.common.OAuth2FlowType"`
 	xxx_hidden_AdditionalParams      map[string]string      `protobuf:"bytes,10,rep,name=additional_params,json=additionalParams" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_RequirePkce           bool                   `protobuf:"varint,11,opt,name=require_pkce,json=requirePkce"`
 	xxx_hidden_JwtConfig             *JWTConfig             `protobuf:"bytes,12,opt,name=jwt_config,json=jwtConfig"`
@@ -147,13 +146,13 @@ func (x *OAuth2Config) GetScopes() []string {
 	return nil
 }
 
-func (x *OAuth2Config) GetFlowType() enums.OAuth2FlowType {
+func (x *OAuth2Config) GetFlowType() OAuth2FlowType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_FlowType
 		}
 	}
-	return enums.OAuth2FlowType(0)
+	return OAuth2FlowType_OAUTH2_FLOW_TYPE_UNSPECIFIED
 }
 
 func (x *OAuth2Config) GetAdditionalParams() map[string]string {
@@ -216,7 +215,7 @@ func (x *OAuth2Config) SetScopes(v []string) {
 	x.xxx_hidden_Scopes = v
 }
 
-func (x *OAuth2Config) SetFlowType(v enums.OAuth2FlowType) {
+func (x *OAuth2Config) SetFlowType(v OAuth2FlowType) {
 	x.xxx_hidden_FlowType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 12)
 }
@@ -341,7 +340,7 @@ func (x *OAuth2Config) ClearRedirectUri() {
 
 func (x *OAuth2Config) ClearFlowType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_FlowType = enums.OAuth2FlowType_OAUTH2_FLOW_TYPE_UNSPECIFIED
+	x.xxx_hidden_FlowType = OAuth2FlowType_OAUTH2_FLOW_TYPE_UNSPECIFIED
 }
 
 func (x *OAuth2Config) ClearRequirePkce() {
@@ -373,7 +372,7 @@ type OAuth2Config_builder struct {
 	// Requested scopes
 	Scopes []string
 	// OAuth2 flow type
-	FlowType *enums.OAuth2FlowType
+	FlowType *OAuth2FlowType
 	// Additional provider-specific parameters
 	AdditionalParams map[string]string
 	// Whether PKCE is required
@@ -450,14 +449,14 @@ const file_gcommon_v1_common_messages_o_auth2_config_proto_rawDesc = "" +
 	"jwt_config\x18\f \x01(\v2\x1c.gcommon.v1.common.JWTConfigR\tjwtConfig\x1aC\n" +
 	"\x15AdditionalParamsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_o_auth2_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_o_auth2_config_proto_goTypes = []any{
-	(*OAuth2Config)(nil),      // 0: gcommon.v1.common.OAuth2Config
-	nil,                       // 1: gcommon.v1.common.OAuth2Config.AdditionalParamsEntry
-	(enums.OAuth2FlowType)(0), // 2: gcommon.v1.common.OAuth2FlowType
-	(*JWTConfig)(nil),         // 3: gcommon.v1.common.JWTConfig
+	(*OAuth2Config)(nil), // 0: gcommon.v1.common.OAuth2Config
+	nil,                  // 1: gcommon.v1.common.OAuth2Config.AdditionalParamsEntry
+	(OAuth2FlowType)(0),  // 2: gcommon.v1.common.OAuth2FlowType
+	(*JWTConfig)(nil),    // 3: gcommon.v1.common.JWTConfig
 }
 var file_gcommon_v1_common_messages_o_auth2_config_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.OAuth2Config.flow_type:type_name -> gcommon.v1.common.OAuth2FlowType
@@ -475,6 +474,7 @@ func file_gcommon_v1_common_messages_o_auth2_config_proto_init() {
 	if File_gcommon_v1_common_messages_o_auth2_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_oauth2_flow_type_proto_init()
 	file_gcommon_v1_common_messages_jwt_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

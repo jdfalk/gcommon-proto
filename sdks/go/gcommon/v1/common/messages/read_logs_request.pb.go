@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/read_logs_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -240,7 +240,7 @@ const file_gcommon_v1_common_messages_read_logs_request_proto_rawDesc = "" +
 	"\n" +
 	"start_time\x18\x03 \x01(\x03R\tstartTime\x12\x19\n" +
 	"\bend_time\x18\x04 \x01(\x03R\aendTime\x12\x14\n" +
-	"\x05limit\x18\x05 \x01(\x05R\x05limitBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05limit\x18\x05 \x01(\x05R\x05limitB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_read_logs_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_read_logs_request_proto_goTypes = []any{

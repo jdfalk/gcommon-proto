@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/token.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,8 +30,8 @@ type Token struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Id             *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_Value          *string                `protobuf:"bytes,2,opt,name=value"`
-	xxx_hidden_Type           enums.TokenType        `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.TokenType"`
-	xxx_hidden_Status         enums.TokenStatus      `protobuf:"varint,4,opt,name=status,enum=gcommon.v1.common.TokenStatus"`
+	xxx_hidden_Type           TokenType              `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.TokenType"`
+	xxx_hidden_Status         TokenStatus            `protobuf:"varint,4,opt,name=status,enum=gcommon.v1.common.TokenStatus"`
 	xxx_hidden_UserId         *string                `protobuf:"bytes,5,opt,name=user_id,json=userId"`
 	xxx_hidden_ClientId       *string                `protobuf:"bytes,6,opt,name=client_id,json=clientId"`
 	xxx_hidden_Scopes         []string               `protobuf:"bytes,7,rep,name=scopes"`
@@ -96,22 +95,22 @@ func (x *Token) GetValue() string {
 	return ""
 }
 
-func (x *Token) GetType() enums.TokenType {
+func (x *Token) GetType() TokenType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.TokenType(0)
+	return TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
-func (x *Token) GetStatus() enums.TokenStatus {
+func (x *Token) GetStatus() TokenStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.TokenStatus(0)
+	return TokenStatus_TOKEN_STATUS_UNSPECIFIED
 }
 
 func (x *Token) GetUserId() string {
@@ -230,12 +229,12 @@ func (x *Token) SetValue(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 14)
 }
 
-func (x *Token) SetType(v enums.TokenType) {
+func (x *Token) SetType(v TokenType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 14)
 }
 
-func (x *Token) SetStatus(v enums.TokenStatus) {
+func (x *Token) SetStatus(v TokenStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 14)
 }
@@ -396,12 +395,12 @@ func (x *Token) ClearValue() {
 
 func (x *Token) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = enums.TokenType_TOKEN_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
 func (x *Token) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Status = enums.TokenStatus_TOKEN_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = TokenStatus_TOKEN_STATUS_UNSPECIFIED
 }
 
 func (x *Token) ClearUserId() {
@@ -452,9 +451,9 @@ type Token_builder struct {
 	// Token value (may be JWT or opaque)
 	Value *string
 	// Token type (access, refresh, etc.)
-	Type *enums.TokenType
+	Type *TokenType
 	// Token status
-	Status *enums.TokenStatus
+	Status *TokenStatus
 	// User ID associated with this token
 	UserId *string
 	// Client ID that requested this token
@@ -562,14 +561,14 @@ const file_gcommon_v1_common_messages_token_proto_rawDesc = "" +
 	"\x10refresh_token_id\x18\x0e \x01(\tR\x0erefreshTokenId\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_token_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_token_proto_goTypes = []any{
 	(*Token)(nil),                 // 0: gcommon.v1.common.Token
 	nil,                           // 1: gcommon.v1.common.Token.MetadataEntry
-	(enums.TokenType)(0),          // 2: gcommon.v1.common.TokenType
-	(enums.TokenStatus)(0),        // 3: gcommon.v1.common.TokenStatus
+	(TokenType)(0),                // 2: gcommon.v1.common.TokenType
+	(TokenStatus)(0),              // 3: gcommon.v1.common.TokenStatus
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_common_messages_token_proto_depIdxs = []int32{
@@ -591,6 +590,8 @@ func file_gcommon_v1_common_messages_token_proto_init() {
 	if File_gcommon_v1_common_messages_token_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_token_status_proto_init()
+	file_gcommon_v1_common_enums_token_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

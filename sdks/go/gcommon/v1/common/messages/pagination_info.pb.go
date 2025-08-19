@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/pagination_info.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -335,7 +335,7 @@ const file_gcommon_v1_common_messages_pagination_info_proto_rawDesc = "" +
 	"\bhas_next\x18\x05 \x01(\bR\ahasNext\x12!\n" +
 	"\fhas_previous\x18\x06 \x01(\bR\vhasPrevious\x12&\n" +
 	"\x0fnext_page_token\x18\a \x01(\tR\rnextPageToken\x12.\n" +
-	"\x13previous_page_token\x18\b \x01(\tR\x11previousPageTokenBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13previous_page_token\x18\b \x01(\tR\x11previousPageTokenB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_pagination_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_pagination_info_proto_goTypes = []any{

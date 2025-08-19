@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/disable_mfa_response.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type DisableMfaResponse struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_DisabledMethods []enums.MfaMethod      `protobuf:"varint,2,rep,packed,name=disabled_methods,json=disabledMethods,enum=gcommon.v1.common.MfaMethod"`
+	xxx_hidden_DisabledMethods []MfaMethod            `protobuf:"varint,2,rep,packed,name=disabled_methods,json=disabledMethods,enum=gcommon.v1.common.MfaMethod"`
 	xxx_hidden_ErrorMessage    *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
@@ -65,7 +64,7 @@ func (x *DisableMfaResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DisableMfaResponse) GetDisabledMethods() []enums.MfaMethod {
+func (x *DisableMfaResponse) GetDisabledMethods() []MfaMethod {
 	if x != nil {
 		return x.xxx_hidden_DisabledMethods
 	}
@@ -87,7 +86,7 @@ func (x *DisableMfaResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *DisableMfaResponse) SetDisabledMethods(v []enums.MfaMethod) {
+func (x *DisableMfaResponse) SetDisabledMethods(v []MfaMethod) {
 	x.xxx_hidden_DisabledMethods = v
 }
 
@@ -126,7 +125,7 @@ type DisableMfaResponse_builder struct {
 	// Success status
 	Success *bool
 	// Methods that were disabled
-	DisabledMethods []enums.MfaMethod
+	DisabledMethods []MfaMethod
 	// Error message if operation failed
 	ErrorMessage *string
 }
@@ -155,12 +154,12 @@ const file_gcommon_v1_common_messages_disable_mfa_response_proto_rawDesc = "" +
 	"\x12DisableMfaResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12G\n" +
 	"\x10disabled_methods\x18\x02 \x03(\x0e2\x1c.gcommon.v1.common.MfaMethodR\x0fdisabledMethods\x12#\n" +
-	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_disable_mfa_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_disable_mfa_response_proto_goTypes = []any{
 	(*DisableMfaResponse)(nil), // 0: gcommon.v1.common.DisableMfaResponse
-	(enums.MfaMethod)(0),       // 1: gcommon.v1.common.MfaMethod
+	(MfaMethod)(0),             // 1: gcommon.v1.common.MfaMethod
 }
 var file_gcommon_v1_common_messages_disable_mfa_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.DisableMfaResponse.disabled_methods:type_name -> gcommon.v1.common.MfaMethod
@@ -176,6 +175,7 @@ func file_gcommon_v1_common_messages_disable_mfa_response_proto_init() {
 	if File_gcommon_v1_common_messages_disable_mfa_response_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

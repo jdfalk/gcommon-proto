@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/log_admin_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -32,7 +31,7 @@ const (
 // managing logger configurations and settings.
 type LogAdminServiceClient interface {
 	// Configure logger settings
-	ConfigureLogger(ctx context.Context, in *messages.ConfigureLoggerRequest, opts ...grpc.CallOption) (*messages.ConfigureLoggerResponse, error)
+	ConfigureLogger(ctx context.Context, in *ConfigureLoggerRequest, opts ...grpc.CallOption) (*ConfigureLoggerResponse, error)
 }
 
 type logAdminServiceClient struct {
@@ -43,9 +42,9 @@ func NewLogAdminServiceClient(cc grpc.ClientConnInterface) LogAdminServiceClient
 	return &logAdminServiceClient{cc}
 }
 
-func (c *logAdminServiceClient) ConfigureLogger(ctx context.Context, in *messages.ConfigureLoggerRequest, opts ...grpc.CallOption) (*messages.ConfigureLoggerResponse, error) {
+func (c *logAdminServiceClient) ConfigureLogger(ctx context.Context, in *ConfigureLoggerRequest, opts ...grpc.CallOption) (*ConfigureLoggerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ConfigureLoggerResponse)
+	out := new(ConfigureLoggerResponse)
 	err := c.cc.Invoke(ctx, LogAdminService_ConfigureLogger_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -62,7 +61,7 @@ func (c *logAdminServiceClient) ConfigureLogger(ctx context.Context, in *message
 // managing logger configurations and settings.
 type LogAdminServiceServer interface {
 	// Configure logger settings
-	ConfigureLogger(context.Context, *messages.ConfigureLoggerRequest) (*messages.ConfigureLoggerResponse, error)
+	ConfigureLogger(context.Context, *ConfigureLoggerRequest) (*ConfigureLoggerResponse, error)
 	mustEmbedUnimplementedLogAdminServiceServer()
 }
 
@@ -73,7 +72,7 @@ type LogAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedLogAdminServiceServer struct{}
 
-func (UnimplementedLogAdminServiceServer) ConfigureLogger(context.Context, *messages.ConfigureLoggerRequest) (*messages.ConfigureLoggerResponse, error) {
+func (UnimplementedLogAdminServiceServer) ConfigureLogger(context.Context, *ConfigureLoggerRequest) (*ConfigureLoggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigureLogger not implemented")
 }
 func (UnimplementedLogAdminServiceServer) mustEmbedUnimplementedLogAdminServiceServer() {}
@@ -98,7 +97,7 @@ func RegisterLogAdminServiceServer(s grpc.ServiceRegistrar, srv LogAdminServiceS
 }
 
 func _LogAdminService_ConfigureLogger_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ConfigureLoggerRequest)
+	in := new(ConfigureLoggerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -110,7 +109,7 @@ func _LogAdminService_ConfigureLogger_Handler(srv interface{}, ctx context.Conte
 		FullMethod: LogAdminService_ConfigureLogger_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogAdminServiceServer).ConfigureLogger(ctx, req.(*messages.ConfigureLoggerRequest))
+		return srv.(LogAdminServiceServer).ConfigureLogger(ctx, req.(*ConfigureLoggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/log_statistics.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -266,7 +266,7 @@ const file_gcommon_v1_common_messages_log_statistics_proto_rawDesc = "" +
 	"total_size\x18\x04 \x01(\x03R\ttotalSize\x12\x1f\n" +
 	"\verror_count\x18\x05 \x01(\x03R\n" +
 	"errorCount\x12#\n" +
-	"\rwarning_count\x18\x06 \x01(\x03R\fwarningCountBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rwarning_count\x18\x06 \x01(\x03R\fwarningCountB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_log_statistics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_log_statistics_proto_goTypes = []any{

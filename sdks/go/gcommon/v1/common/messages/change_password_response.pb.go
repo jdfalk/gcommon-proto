@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/change_password_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -251,7 +251,7 @@ const file_gcommon_v1_common_messages_change_password_response_proto_rawDesc = "
 	"\amessage\x18\x02 \x01(\tR\amessage\x122\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05error\x12/\n" +
 	"\x13sessions_terminated\x18\x04 \x01(\bR\x12sessionsTerminated\x128\n" +
-	"\x18terminated_session_count\x18\x05 \x01(\x05R\x16terminatedSessionCountBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x18terminated_session_count\x18\x05 \x01(\x05R\x16terminatedSessionCountB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_change_password_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_change_password_response_proto_goTypes = []any{

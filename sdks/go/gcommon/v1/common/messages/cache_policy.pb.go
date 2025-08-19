@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/cache_policy.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,8 +28,8 @@ const (
 // for consistent cache management across GCommon modules.
 type CachePolicy struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Expiration   enums.ExpirationPolicy `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy"`
-	xxx_hidden_Eviction     enums.EvictionPolicy   `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy"`
+	xxx_hidden_Expiration   ExpirationPolicy       `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy"`
+	xxx_hidden_Eviction     EvictionPolicy         `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy"`
 	xxx_hidden_MaxSizeBytes int64                  `protobuf:"varint,3,opt,name=max_size_bytes,json=maxSizeBytes"`
 	xxx_hidden_MaxEntries   int64                  `protobuf:"varint,4,opt,name=max_entries,json=maxEntries"`
 	xxx_hidden_DefaultTtl   *durationpb.Duration   `protobuf:"bytes,5,opt,name=default_ttl,json=defaultTtl"`
@@ -67,22 +66,22 @@ func (x *CachePolicy) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CachePolicy) GetExpiration() enums.ExpirationPolicy {
+func (x *CachePolicy) GetExpiration() ExpirationPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Expiration
 		}
 	}
-	return enums.ExpirationPolicy(0)
+	return ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
 }
 
-func (x *CachePolicy) GetEviction() enums.EvictionPolicy {
+func (x *CachePolicy) GetEviction() EvictionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Eviction
 		}
 	}
-	return enums.EvictionPolicy(0)
+	return EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) GetMaxSizeBytes() int64 {
@@ -120,12 +119,12 @@ func (x *CachePolicy) GetEnableStats() bool {
 	return false
 }
 
-func (x *CachePolicy) SetExpiration(v enums.ExpirationPolicy) {
+func (x *CachePolicy) SetExpiration(v ExpirationPolicy) {
 	x.xxx_hidden_Expiration = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *CachePolicy) SetEviction(v enums.EvictionPolicy) {
+func (x *CachePolicy) SetEviction(v EvictionPolicy) {
 	x.xxx_hidden_Eviction = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -205,12 +204,12 @@ func (x *CachePolicy) HasEnableStats() bool {
 
 func (x *CachePolicy) ClearExpiration() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Expiration = enums.ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
+	x.xxx_hidden_Expiration = ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) ClearEviction() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Eviction = enums.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_Eviction = EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) ClearMaxSizeBytes() {
@@ -241,9 +240,9 @@ type CachePolicy_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Cache expiration policy strategy
-	Expiration *enums.ExpirationPolicy
+	Expiration *ExpirationPolicy
 	// Eviction policy when cache reaches capacity
-	Eviction *enums.EvictionPolicy
+	Eviction *EvictionPolicy
 	// Maximum cache size in bytes (0 for unlimited)
 	MaxSizeBytes *int64
 	// Maximum number of cache entries (0 for unlimited)
@@ -304,13 +303,13 @@ const file_gcommon_v1_common_messages_cache_policy_proto_rawDesc = "" +
 	"\vdefault_ttl\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"defaultTtl\x12#\n" +
 	"\rrefresh_ahead\x18\x06 \x01(\bR\frefreshAhead\x12!\n" +
-	"\fenable_stats\x18\a \x01(\bR\venableStatsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fenable_stats\x18\a \x01(\bR\venableStatsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_cache_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_cache_policy_proto_goTypes = []any{
 	(*CachePolicy)(nil),         // 0: gcommon.v1.common.CachePolicy
-	(enums.ExpirationPolicy)(0), // 1: gcommon.v1.common.ExpirationPolicy
-	(enums.EvictionPolicy)(0),   // 2: gcommon.v1.common.EvictionPolicy
+	(ExpirationPolicy)(0),       // 1: gcommon.v1.common.ExpirationPolicy
+	(EvictionPolicy)(0),         // 2: gcommon.v1.common.EvictionPolicy
 	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
 var file_gcommon_v1_common_messages_cache_policy_proto_depIdxs = []int32{
@@ -329,6 +328,8 @@ func file_gcommon_v1_common_messages_cache_policy_proto_init() {
 	if File_gcommon_v1_common_messages_cache_policy_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_eviction_policy_proto_init()
+	file_gcommon_v1_common_enums_expiration_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

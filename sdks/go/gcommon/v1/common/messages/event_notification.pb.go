@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/event_notification.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -278,7 +278,7 @@ const file_gcommon_v1_common_messages_event_notification_proto_rawDesc = "" +
 	"\revent_payload\x18\x03 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\feventPayload\x12N\n" +
 	"\fnotification\x18\x04 \x01(\v2&.gcommon.v1.common.NotificationMessageB\x02(\x01R\fnotification\x12=\n" +
 	"\n" +
-	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_event_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_event_notification_proto_goTypes = []any{

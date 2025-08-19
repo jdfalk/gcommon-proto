@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/component_health.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type ComponentHealth struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Status      enums.ServingStatus    `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ServingStatus"`
+	xxx_hidden_Status      ServingStatus          `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ServingStatus"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,3,opt,name=message"`
 	xxx_hidden_DurationMs  int64                  `protobuf:"varint,4,opt,name=duration_ms,json=durationMs"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +68,13 @@ func (x *ComponentHealth) GetName() string {
 	return ""
 }
 
-func (x *ComponentHealth) GetStatus() enums.ServingStatus {
+func (x *ComponentHealth) GetStatus() ServingStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ServingStatus(0)
+	return ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
 func (x *ComponentHealth) GetMessage() string {
@@ -100,7 +99,7 @@ func (x *ComponentHealth) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ComponentHealth) SetStatus(v enums.ServingStatus) {
+func (x *ComponentHealth) SetStatus(v ServingStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -150,7 +149,7 @@ func (x *ComponentHealth) ClearName() {
 
 func (x *ComponentHealth) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = enums.ServingStatus_SERVING_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = ServingStatus_SERVING_STATUS_UNSPECIFIED
 }
 
 func (x *ComponentHealth) ClearMessage() {
@@ -169,7 +168,7 @@ type ComponentHealth_builder struct {
 	// Component name
 	Name *string
 	// Component status
-	Status *enums.ServingStatus
+	Status *ServingStatus
 	// Component-specific message
 	Message *string
 	// Component check duration in milliseconds
@@ -209,12 +208,12 @@ const file_gcommon_v1_common_messages_component_health_proto_rawDesc = "" +
 	"\x06status\x18\x02 \x01(\x0e2 .gcommon.v1.common.ServingStatusR\x06status\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1f\n" +
 	"\vduration_ms\x18\x04 \x01(\x03R\n" +
-	"durationMsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"durationMsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_component_health_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_component_health_proto_goTypes = []any{
-	(*ComponentHealth)(nil),  // 0: gcommon.v1.common.ComponentHealth
-	(enums.ServingStatus)(0), // 1: gcommon.v1.common.ServingStatus
+	(*ComponentHealth)(nil), // 0: gcommon.v1.common.ComponentHealth
+	(ServingStatus)(0),      // 1: gcommon.v1.common.ServingStatus
 }
 var file_gcommon_v1_common_messages_component_health_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.ComponentHealth.status:type_name -> gcommon.v1.common.ServingStatus
@@ -230,6 +229,7 @@ func file_gcommon_v1_common_messages_component_health_proto_init() {
 	if File_gcommon_v1_common_messages_component_health_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_serving_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

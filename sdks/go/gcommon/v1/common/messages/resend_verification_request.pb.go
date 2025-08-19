@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/resend_verification_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,9 +22,9 @@ const (
 )
 
 type ResendVerificationRequest struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Identifier  *string                    `protobuf:"bytes,1,opt,name=identifier"`
-	xxx_hidden_Type        enums.AuthVerificationType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AuthVerificationType"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Identifier  *string                `protobuf:"bytes,1,opt,name=identifier"`
+	xxx_hidden_Type        AuthVerificationType   `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AuthVerificationType"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -67,13 +66,13 @@ func (x *ResendVerificationRequest) GetIdentifier() string {
 	return ""
 }
 
-func (x *ResendVerificationRequest) GetType() enums.AuthVerificationType {
+func (x *ResendVerificationRequest) GetType() AuthVerificationType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.AuthVerificationType(0)
+	return AuthVerificationType_VERIFICATION_TYPE_UNSPECIFIED
 }
 
 func (x *ResendVerificationRequest) SetIdentifier(v string) {
@@ -81,7 +80,7 @@ func (x *ResendVerificationRequest) SetIdentifier(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ResendVerificationRequest) SetType(v enums.AuthVerificationType) {
+func (x *ResendVerificationRequest) SetType(v AuthVerificationType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
@@ -107,7 +106,7 @@ func (x *ResendVerificationRequest) ClearIdentifier() {
 
 func (x *ResendVerificationRequest) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.AuthVerificationType_VERIFICATION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AuthVerificationType_VERIFICATION_TYPE_UNSPECIFIED
 }
 
 type ResendVerificationRequest_builder struct {
@@ -115,7 +114,7 @@ type ResendVerificationRequest_builder struct {
 
 	// User ID or email address
 	Identifier *string
-	Type       *enums.AuthVerificationType
+	Type       *AuthVerificationType
 }
 
 func (b0 ResendVerificationRequest_builder) Build() *ResendVerificationRequest {
@@ -142,12 +141,12 @@ const file_gcommon_v1_common_messages_resend_verification_request_proto_rawDesc 
 	"\n" +
 	"identifier\x18\x01 \x01(\tR\n" +
 	"identifier\x12;\n" +
-	"\x04type\x18\x02 \x01(\x0e2'.gcommon.v1.common.AuthVerificationTypeR\x04typeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04type\x18\x02 \x01(\x0e2'.gcommon.v1.common.AuthVerificationTypeR\x04typeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_resend_verification_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_resend_verification_request_proto_goTypes = []any{
 	(*ResendVerificationRequest)(nil), // 0: gcommon.v1.common.ResendVerificationRequest
-	(enums.AuthVerificationType)(0),   // 1: gcommon.v1.common.AuthVerificationType
+	(AuthVerificationType)(0),         // 1: gcommon.v1.common.AuthVerificationType
 }
 var file_gcommon_v1_common_messages_resend_verification_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.ResendVerificationRequest.type:type_name -> gcommon.v1.common.AuthVerificationType
@@ -163,6 +162,7 @@ func file_gcommon_v1_common_messages_resend_verification_request_proto_init() {
 	if File_gcommon_v1_common_messages_resend_verification_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_verification_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

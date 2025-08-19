@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/filter_operation.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -126,7 +126,7 @@ const file_gcommon_v1_common_enums_filter_operation_proto_rawDesc = "" +
 	"\x1aFILTER_OPERATION_ENDS_WITH\x10\t\x12\x17\n" +
 	"\x13FILTER_OPERATION_IN\x10\n" +
 	"\x12\x1b\n" +
-	"\x17FILTER_OPERATION_NOT_IN\x10\vBCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17FILTER_OPERATION_NOT_IN\x10\vB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_filter_operation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_filter_operation_proto_goTypes = []any{

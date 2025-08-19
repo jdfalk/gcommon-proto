@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/notification_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,21 +33,21 @@ const file_gcommon_v1_common_services_notification_service_proto_rawDesc = "" +
 	"\vGetTemplate\x12%.gcommon.v1.common.GetTemplateRequest\x1a&.gcommon.v1.common.GetTemplateResponse\x12Y\n" +
 	"\n" +
 	"MarkAsRead\x12$.gcommon.v1.common.MarkAsReadRequest\x1a%.gcommon.v1.common.MarkAsReadResponse\x12e\n" +
-	"\x06Delete\x12,.gcommon.v1.common.DeleteNotificationRequest\x1a-.gcommon.v1.common.DeleteNotificationResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06Delete\x12,.gcommon.v1.common.DeleteNotificationRequest\x1a-.gcommon.v1.common.DeleteNotificationResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_notification_service_proto_goTypes = []any{
-	(*messages.SendNotificationRequest)(nil),    // 0: gcommon.v1.common.SendNotificationRequest
-	(*messages.ListNotificationsRequest)(nil),   // 1: gcommon.v1.common.ListNotificationsRequest
-	(*messages.UpdatePreferencesRequest)(nil),   // 2: gcommon.v1.common.UpdatePreferencesRequest
-	(*messages.GetTemplateRequest)(nil),         // 3: gcommon.v1.common.GetTemplateRequest
-	(*messages.MarkAsReadRequest)(nil),          // 4: gcommon.v1.common.MarkAsReadRequest
-	(*messages.DeleteNotificationRequest)(nil),  // 5: gcommon.v1.common.DeleteNotificationRequest
-	(*messages.SendNotificationResponse)(nil),   // 6: gcommon.v1.common.SendNotificationResponse
-	(*messages.ListNotificationsResponse)(nil),  // 7: gcommon.v1.common.ListNotificationsResponse
-	(*messages.UpdatePreferencesResponse)(nil),  // 8: gcommon.v1.common.UpdatePreferencesResponse
-	(*messages.GetTemplateResponse)(nil),        // 9: gcommon.v1.common.GetTemplateResponse
-	(*messages.MarkAsReadResponse)(nil),         // 10: gcommon.v1.common.MarkAsReadResponse
-	(*messages.DeleteNotificationResponse)(nil), // 11: gcommon.v1.common.DeleteNotificationResponse
+	(*SendNotificationRequest)(nil),    // 0: gcommon.v1.common.SendNotificationRequest
+	(*ListNotificationsRequest)(nil),   // 1: gcommon.v1.common.ListNotificationsRequest
+	(*UpdatePreferencesRequest)(nil),   // 2: gcommon.v1.common.UpdatePreferencesRequest
+	(*GetTemplateRequest)(nil),         // 3: gcommon.v1.common.GetTemplateRequest
+	(*MarkAsReadRequest)(nil),          // 4: gcommon.v1.common.MarkAsReadRequest
+	(*DeleteNotificationRequest)(nil),  // 5: gcommon.v1.common.DeleteNotificationRequest
+	(*SendNotificationResponse)(nil),   // 6: gcommon.v1.common.SendNotificationResponse
+	(*ListNotificationsResponse)(nil),  // 7: gcommon.v1.common.ListNotificationsResponse
+	(*UpdatePreferencesResponse)(nil),  // 8: gcommon.v1.common.UpdatePreferencesResponse
+	(*GetTemplateResponse)(nil),        // 9: gcommon.v1.common.GetTemplateResponse
+	(*MarkAsReadResponse)(nil),         // 10: gcommon.v1.common.MarkAsReadResponse
+	(*DeleteNotificationResponse)(nil), // 11: gcommon.v1.common.DeleteNotificationResponse
 }
 var file_gcommon_v1_common_services_notification_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.common.NotificationService.Send:input_type -> gcommon.v1.common.SendNotificationRequest
@@ -75,6 +74,18 @@ func file_gcommon_v1_common_services_notification_service_proto_init() {
 	if File_gcommon_v1_common_services_notification_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_delete_notification_request_proto_init()
+	file_gcommon_v1_common_messages_delete_notification_response_proto_init()
+	file_gcommon_v1_common_messages_get_template_request_proto_init()
+	file_gcommon_v1_common_messages_get_template_response_proto_init()
+	file_gcommon_v1_common_messages_list_notifications_request_proto_init()
+	file_gcommon_v1_common_messages_list_notifications_response_proto_init()
+	file_gcommon_v1_common_messages_mark_as_read_request_proto_init()
+	file_gcommon_v1_common_messages_mark_as_read_response_proto_init()
+	file_gcommon_v1_common_messages_send_notification_request_proto_init()
+	file_gcommon_v1_common_messages_send_notification_response_proto_init()
+	file_gcommon_v1_common_messages_update_preferences_request_proto_init()
+	file_gcommon_v1_common_messages_update_preferences_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

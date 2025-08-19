@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/audit_log.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +36,7 @@ type CommonAuditLog struct {
 	xxx_hidden_SourceIp    *string                `protobuf:"bytes,6,opt,name=source_ip,json=sourceIp"`
 	xxx_hidden_UserAgent   *string                `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Result      enums.AuditResult      `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult"`
+	xxx_hidden_Result      AuditResult            `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult"`
 	xxx_hidden_SessionId   *string                `protobuf:"bytes,10,opt,name=session_id,json=sessionId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -141,13 +140,13 @@ func (x *CommonAuditLog) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *CommonAuditLog) GetResult() enums.AuditResult {
+func (x *CommonAuditLog) GetResult() AuditResult {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_Result
 		}
 	}
-	return enums.AuditResult(0)
+	return AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *CommonAuditLog) GetSessionId() string {
@@ -197,7 +196,7 @@ func (x *CommonAuditLog) SetMetadata(v map[string]string) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *CommonAuditLog) SetResult(v enums.AuditResult) {
+func (x *CommonAuditLog) SetResult(v AuditResult) {
 	x.xxx_hidden_Result = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
@@ -305,7 +304,7 @@ func (x *CommonAuditLog) ClearUserAgent() {
 
 func (x *CommonAuditLog) ClearResult() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_Result = enums.AuditResult_AUDIT_RESULT_UNSPECIFIED
+	x.xxx_hidden_Result = AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *CommonAuditLog) ClearSessionId() {
@@ -333,7 +332,7 @@ type CommonAuditLog_builder struct {
 	// Additional contextual metadata about the action
 	Metadata map[string]string
 	// Result of the action (success, failure, partial)
-	Result *enums.AuditResult
+	Result *AuditResult
 	// Session identifier if applicable
 	SessionId *string
 }
@@ -397,7 +396,7 @@ const file_gcommon_v1_common_messages_audit_log_proto_rawDesc = "" +
 	" \x01(\tR\tsessionId\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_audit_log_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_audit_log_proto_goTypes = []any{
@@ -405,7 +404,7 @@ var file_gcommon_v1_common_messages_audit_log_proto_goTypes = []any{
 	nil,                           // 1: gcommon.v1.common.CommonAuditLog.MetadataEntry
 	(*ResourceReference)(nil),     // 2: gcommon.v1.common.ResourceReference
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(enums.AuditResult)(0),        // 4: gcommon.v1.common.AuditResult
+	(AuditResult)(0),              // 4: gcommon.v1.common.AuditResult
 }
 var file_gcommon_v1_common_messages_audit_log_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.CommonAuditLog.resource:type_name -> gcommon.v1.common.ResourceReference
@@ -424,6 +423,7 @@ func file_gcommon_v1_common_messages_audit_log_proto_init() {
 	if File_gcommon_v1_common_messages_audit_log_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_audit_result_proto_init()
 	file_gcommon_v1_common_messages_resource_reference_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/health_admin_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,21 +32,21 @@ const file_gcommon_v1_common_services_health_admin_service_proto_rawDesc = "" +
 	"\fDisableCheck\x12&.gcommon.v1.common.DisableCheckRequest\x1a'.gcommon.v1.common.DisableCheckResponse\x12S\n" +
 	"\bRunCheck\x12\".gcommon.v1.common.RunCheckRequest\x1a#.gcommon.v1.common.RunCheckResponse\x12k\n" +
 	"\x10ResetHealthStats\x12*.gcommon.v1.common.ResetHealthStatsRequest\x1a+.gcommon.v1.common.ResetHealthStatsResponse\x12V\n" +
-	"\tSetHealth\x12#.gcommon.v1.common.SetHealthRequest\x1a$.gcommon.v1.common.SetHealthResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tSetHealth\x12#.gcommon.v1.common.SetHealthRequest\x1a$.gcommon.v1.common.SetHealthResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_health_admin_service_proto_goTypes = []any{
-	(*messages.ConfigureAlertingRequest)(nil),  // 0: gcommon.v1.common.ConfigureAlertingRequest
-	(*messages.EnableCheckRequest)(nil),        // 1: gcommon.v1.common.EnableCheckRequest
-	(*messages.DisableCheckRequest)(nil),       // 2: gcommon.v1.common.DisableCheckRequest
-	(*messages.RunCheckRequest)(nil),           // 3: gcommon.v1.common.RunCheckRequest
-	(*messages.ResetHealthStatsRequest)(nil),   // 4: gcommon.v1.common.ResetHealthStatsRequest
-	(*messages.SetHealthRequest)(nil),          // 5: gcommon.v1.common.SetHealthRequest
-	(*messages.ConfigureAlertingResponse)(nil), // 6: gcommon.v1.common.ConfigureAlertingResponse
-	(*messages.EnableCheckResponse)(nil),       // 7: gcommon.v1.common.EnableCheckResponse
-	(*messages.DisableCheckResponse)(nil),      // 8: gcommon.v1.common.DisableCheckResponse
-	(*messages.RunCheckResponse)(nil),          // 9: gcommon.v1.common.RunCheckResponse
-	(*messages.ResetHealthStatsResponse)(nil),  // 10: gcommon.v1.common.ResetHealthStatsResponse
-	(*messages.SetHealthResponse)(nil),         // 11: gcommon.v1.common.SetHealthResponse
+	(*ConfigureAlertingRequest)(nil),  // 0: gcommon.v1.common.ConfigureAlertingRequest
+	(*EnableCheckRequest)(nil),        // 1: gcommon.v1.common.EnableCheckRequest
+	(*DisableCheckRequest)(nil),       // 2: gcommon.v1.common.DisableCheckRequest
+	(*RunCheckRequest)(nil),           // 3: gcommon.v1.common.RunCheckRequest
+	(*ResetHealthStatsRequest)(nil),   // 4: gcommon.v1.common.ResetHealthStatsRequest
+	(*SetHealthRequest)(nil),          // 5: gcommon.v1.common.SetHealthRequest
+	(*ConfigureAlertingResponse)(nil), // 6: gcommon.v1.common.ConfigureAlertingResponse
+	(*EnableCheckResponse)(nil),       // 7: gcommon.v1.common.EnableCheckResponse
+	(*DisableCheckResponse)(nil),      // 8: gcommon.v1.common.DisableCheckResponse
+	(*RunCheckResponse)(nil),          // 9: gcommon.v1.common.RunCheckResponse
+	(*ResetHealthStatsResponse)(nil),  // 10: gcommon.v1.common.ResetHealthStatsResponse
+	(*SetHealthResponse)(nil),         // 11: gcommon.v1.common.SetHealthResponse
 }
 var file_gcommon_v1_common_services_health_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.common.HealthAdminService.ConfigureAlerting:input_type -> gcommon.v1.common.ConfigureAlertingRequest
@@ -74,6 +73,18 @@ func file_gcommon_v1_common_services_health_admin_service_proto_init() {
 	if File_gcommon_v1_common_services_health_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_configure_alerting_request_proto_init()
+	file_gcommon_v1_common_messages_configure_alerting_response_proto_init()
+	file_gcommon_v1_common_messages_disable_check_request_proto_init()
+	file_gcommon_v1_common_messages_disable_check_response_proto_init()
+	file_gcommon_v1_common_messages_enable_check_request_proto_init()
+	file_gcommon_v1_common_messages_enable_check_response_proto_init()
+	file_gcommon_v1_common_messages_reset_health_stats_request_proto_init()
+	file_gcommon_v1_common_messages_reset_health_stats_response_proto_init()
+	file_gcommon_v1_common_messages_run_check_request_proto_init()
+	file_gcommon_v1_common_messages_run_check_response_proto_init()
+	file_gcommon_v1_common_messages_set_health_request_proto_init()
+	file_gcommon_v1_common_messages_set_health_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

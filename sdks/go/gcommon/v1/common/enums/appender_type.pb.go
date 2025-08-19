@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/appender_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -90,7 +90,7 @@ const file_gcommon_v1_common_enums_appender_type_proto_rawDesc = "" +
 	"\x1aAPPENDER_TYPE_ROLLING_FILE\x10\x03\x12\x18\n" +
 	"\x14APPENDER_TYPE_SYSLOG\x10\x04\x12\x19\n" +
 	"\x15APPENDER_TYPE_NETWORK\x10\x05\x12\x1a\n" +
-	"\x16APPENDER_TYPE_DATABASE\x10\x06BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16APPENDER_TYPE_DATABASE\x10\x06B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_appender_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_appender_type_proto_goTypes = []any{

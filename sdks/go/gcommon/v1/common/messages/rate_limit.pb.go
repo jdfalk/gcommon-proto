@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/rate_limit.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -195,7 +195,7 @@ const file_gcommon_v1_common_messages_rate_limit_proto_rawDesc = "" +
 	"\x06window\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x06window\x12\x1c\n" +
 	"\tremaining\x18\x03 \x01(\x05R\tremaining\x128\n" +
 	"\n" +
-	"reset_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tresetTimeBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"reset_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tresetTimeB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_rate_limit_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_rate_limit_proto_goTypes = []any{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/get_api_key_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -138,7 +138,7 @@ const file_gcommon_v1_common_messages_get_api_key_request_proto_rawDesc = "" +
 	"4gcommon/v1/common/messages/get_api_key_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"N\n" +
 	"\x10GetApiKeyRequest\x12\x15\n" +
 	"\x06key_id\x18\x01 \x01(\tR\x05keyId\x12#\n" +
-	"\rinclude_stats\x18\x02 \x01(\bR\fincludeStatsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rinclude_stats\x18\x02 \x01(\bR\fincludeStatsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_api_key_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_api_key_request_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/disable_mfa_request.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type DisableMfaRequest struct {
 	xxx_hidden_UserId           *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	xxx_hidden_Password         *string                `protobuf:"bytes,2,opt,name=password"`
 	xxx_hidden_VerificationCode *string                `protobuf:"bytes,3,opt,name=verification_code,json=verificationCode"`
-	xxx_hidden_Methods          []enums.MfaMethod      `protobuf:"varint,4,rep,packed,name=methods,enum=gcommon.v1.common.MfaMethod"`
+	xxx_hidden_Methods          []MfaMethod            `protobuf:"varint,4,rep,packed,name=methods,enum=gcommon.v1.common.MfaMethod"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -89,7 +88,7 @@ func (x *DisableMfaRequest) GetVerificationCode() string {
 	return ""
 }
 
-func (x *DisableMfaRequest) GetMethods() []enums.MfaMethod {
+func (x *DisableMfaRequest) GetMethods() []MfaMethod {
 	if x != nil {
 		return x.xxx_hidden_Methods
 	}
@@ -111,7 +110,7 @@ func (x *DisableMfaRequest) SetVerificationCode(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *DisableMfaRequest) SetMethods(v []enums.MfaMethod) {
+func (x *DisableMfaRequest) SetMethods(v []MfaMethod) {
 	x.xxx_hidden_Methods = v
 }
 
@@ -161,7 +160,7 @@ type DisableMfaRequest_builder struct {
 	// MFA verification code
 	VerificationCode *string
 	// Specific methods to disable (empty = all)
-	Methods []enums.MfaMethod
+	Methods []MfaMethod
 }
 
 func (b0 DisableMfaRequest_builder) Build() *DisableMfaRequest {
@@ -193,12 +192,12 @@ const file_gcommon_v1_common_messages_disable_mfa_request_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12+\n" +
 	"\x11verification_code\x18\x03 \x01(\tR\x10verificationCode\x126\n" +
-	"\amethods\x18\x04 \x03(\x0e2\x1c.gcommon.v1.common.MfaMethodR\amethodsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\amethods\x18\x04 \x03(\x0e2\x1c.gcommon.v1.common.MfaMethodR\amethodsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_disable_mfa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_disable_mfa_request_proto_goTypes = []any{
 	(*DisableMfaRequest)(nil), // 0: gcommon.v1.common.DisableMfaRequest
-	(enums.MfaMethod)(0),      // 1: gcommon.v1.common.MfaMethod
+	(MfaMethod)(0),            // 1: gcommon.v1.common.MfaMethod
 }
 var file_gcommon_v1_common_messages_disable_mfa_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.DisableMfaRequest.methods:type_name -> gcommon.v1.common.MfaMethod
@@ -214,6 +213,7 @@ func file_gcommon_v1_common_messages_disable_mfa_request_proto_init() {
 	if File_gcommon_v1_common_messages_disable_mfa_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

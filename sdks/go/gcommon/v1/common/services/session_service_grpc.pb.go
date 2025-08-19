@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/session_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -40,21 +39,21 @@ const (
 // for stateful authentication and user activity monitoring.
 type SessionServiceClient interface {
 	// Create a new session for an authenticated user
-	CreateSession(ctx context.Context, in *messages.AuthCreateSessionRequest, opts ...grpc.CallOption) (*messages.AuthCreateSessionResponse, error)
+	CreateSession(ctx context.Context, in *AuthCreateSessionRequest, opts ...grpc.CallOption) (*AuthCreateSessionResponse, error)
 	// Get detailed information about a specific session
-	GetSession(ctx context.Context, in *messages.AuthGetSessionRequest, opts ...grpc.CallOption) (*messages.AuthGetSessionResponse, error)
+	GetSession(ctx context.Context, in *AuthGetSessionRequest, opts ...grpc.CallOption) (*AuthGetSessionResponse, error)
 	// Update session information (e.g., refresh activity timestamp)
-	UpdateSession(ctx context.Context, in *messages.AuthUpdateSessionRequest, opts ...grpc.CallOption) (*messages.AuthUpdateSessionResponse, error)
+	UpdateSession(ctx context.Context, in *AuthUpdateSessionRequest, opts ...grpc.CallOption) (*AuthUpdateSessionResponse, error)
 	// Validate a session and return session information
-	ValidateSession(ctx context.Context, in *messages.ValidateSessionRequest, opts ...grpc.CallOption) (*messages.ValidateSessionResponse, error)
+	ValidateSession(ctx context.Context, in *ValidateSessionRequest, opts ...grpc.CallOption) (*ValidateSessionResponse, error)
 	// Terminate a session (logout)
-	TerminateSession(ctx context.Context, in *messages.TerminateSessionRequest, opts ...grpc.CallOption) (*messages.TerminateSessionResponse, error)
+	TerminateSession(ctx context.Context, in *TerminateSessionRequest, opts ...grpc.CallOption) (*TerminateSessionResponse, error)
 	// Delete a specific session
-	DeleteSession(ctx context.Context, in *messages.AuthDeleteSessionRequest, opts ...grpc.CallOption) (*messages.AuthDeleteSessionResponse, error)
+	DeleteSession(ctx context.Context, in *AuthDeleteSessionRequest, opts ...grpc.CallOption) (*AuthDeleteSessionResponse, error)
 	// List all active sessions for a user
-	ListUserSessions(ctx context.Context, in *messages.ListUserSessionsRequest, opts ...grpc.CallOption) (*messages.ListUserSessionsResponse, error)
+	ListUserSessions(ctx context.Context, in *ListUserSessionsRequest, opts ...grpc.CallOption) (*ListUserSessionsResponse, error)
 	// List all sessions (admin only)
-	ListSessions(ctx context.Context, in *messages.AuthListSessionsRequest, opts ...grpc.CallOption) (*messages.AuthListSessionsResponse, error)
+	ListSessions(ctx context.Context, in *AuthListSessionsRequest, opts ...grpc.CallOption) (*AuthListSessionsResponse, error)
 }
 
 type sessionServiceClient struct {
@@ -65,9 +64,9 @@ func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
 	return &sessionServiceClient{cc}
 }
 
-func (c *sessionServiceClient) CreateSession(ctx context.Context, in *messages.AuthCreateSessionRequest, opts ...grpc.CallOption) (*messages.AuthCreateSessionResponse, error) {
+func (c *sessionServiceClient) CreateSession(ctx context.Context, in *AuthCreateSessionRequest, opts ...grpc.CallOption) (*AuthCreateSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthCreateSessionResponse)
+	out := new(AuthCreateSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_CreateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -75,9 +74,9 @@ func (c *sessionServiceClient) CreateSession(ctx context.Context, in *messages.A
 	return out, nil
 }
 
-func (c *sessionServiceClient) GetSession(ctx context.Context, in *messages.AuthGetSessionRequest, opts ...grpc.CallOption) (*messages.AuthGetSessionResponse, error) {
+func (c *sessionServiceClient) GetSession(ctx context.Context, in *AuthGetSessionRequest, opts ...grpc.CallOption) (*AuthGetSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthGetSessionResponse)
+	out := new(AuthGetSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_GetSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -85,9 +84,9 @@ func (c *sessionServiceClient) GetSession(ctx context.Context, in *messages.Auth
 	return out, nil
 }
 
-func (c *sessionServiceClient) UpdateSession(ctx context.Context, in *messages.AuthUpdateSessionRequest, opts ...grpc.CallOption) (*messages.AuthUpdateSessionResponse, error) {
+func (c *sessionServiceClient) UpdateSession(ctx context.Context, in *AuthUpdateSessionRequest, opts ...grpc.CallOption) (*AuthUpdateSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthUpdateSessionResponse)
+	out := new(AuthUpdateSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_UpdateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -95,9 +94,9 @@ func (c *sessionServiceClient) UpdateSession(ctx context.Context, in *messages.A
 	return out, nil
 }
 
-func (c *sessionServiceClient) ValidateSession(ctx context.Context, in *messages.ValidateSessionRequest, opts ...grpc.CallOption) (*messages.ValidateSessionResponse, error) {
+func (c *sessionServiceClient) ValidateSession(ctx context.Context, in *ValidateSessionRequest, opts ...grpc.CallOption) (*ValidateSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ValidateSessionResponse)
+	out := new(ValidateSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_ValidateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -105,9 +104,9 @@ func (c *sessionServiceClient) ValidateSession(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *sessionServiceClient) TerminateSession(ctx context.Context, in *messages.TerminateSessionRequest, opts ...grpc.CallOption) (*messages.TerminateSessionResponse, error) {
+func (c *sessionServiceClient) TerminateSession(ctx context.Context, in *TerminateSessionRequest, opts ...grpc.CallOption) (*TerminateSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.TerminateSessionResponse)
+	out := new(TerminateSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_TerminateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -115,9 +114,9 @@ func (c *sessionServiceClient) TerminateSession(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *sessionServiceClient) DeleteSession(ctx context.Context, in *messages.AuthDeleteSessionRequest, opts ...grpc.CallOption) (*messages.AuthDeleteSessionResponse, error) {
+func (c *sessionServiceClient) DeleteSession(ctx context.Context, in *AuthDeleteSessionRequest, opts ...grpc.CallOption) (*AuthDeleteSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthDeleteSessionResponse)
+	out := new(AuthDeleteSessionResponse)
 	err := c.cc.Invoke(ctx, SessionService_DeleteSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -125,9 +124,9 @@ func (c *sessionServiceClient) DeleteSession(ctx context.Context, in *messages.A
 	return out, nil
 }
 
-func (c *sessionServiceClient) ListUserSessions(ctx context.Context, in *messages.ListUserSessionsRequest, opts ...grpc.CallOption) (*messages.ListUserSessionsResponse, error) {
+func (c *sessionServiceClient) ListUserSessions(ctx context.Context, in *ListUserSessionsRequest, opts ...grpc.CallOption) (*ListUserSessionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.ListUserSessionsResponse)
+	out := new(ListUserSessionsResponse)
 	err := c.cc.Invoke(ctx, SessionService_ListUserSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -135,9 +134,9 @@ func (c *sessionServiceClient) ListUserSessions(ctx context.Context, in *message
 	return out, nil
 }
 
-func (c *sessionServiceClient) ListSessions(ctx context.Context, in *messages.AuthListSessionsRequest, opts ...grpc.CallOption) (*messages.AuthListSessionsResponse, error) {
+func (c *sessionServiceClient) ListSessions(ctx context.Context, in *AuthListSessionsRequest, opts ...grpc.CallOption) (*AuthListSessionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthListSessionsResponse)
+	out := new(AuthListSessionsResponse)
 	err := c.cc.Invoke(ctx, SessionService_ListSessions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -155,21 +154,21 @@ func (c *sessionServiceClient) ListSessions(ctx context.Context, in *messages.Au
 // for stateful authentication and user activity monitoring.
 type SessionServiceServer interface {
 	// Create a new session for an authenticated user
-	CreateSession(context.Context, *messages.AuthCreateSessionRequest) (*messages.AuthCreateSessionResponse, error)
+	CreateSession(context.Context, *AuthCreateSessionRequest) (*AuthCreateSessionResponse, error)
 	// Get detailed information about a specific session
-	GetSession(context.Context, *messages.AuthGetSessionRequest) (*messages.AuthGetSessionResponse, error)
+	GetSession(context.Context, *AuthGetSessionRequest) (*AuthGetSessionResponse, error)
 	// Update session information (e.g., refresh activity timestamp)
-	UpdateSession(context.Context, *messages.AuthUpdateSessionRequest) (*messages.AuthUpdateSessionResponse, error)
+	UpdateSession(context.Context, *AuthUpdateSessionRequest) (*AuthUpdateSessionResponse, error)
 	// Validate a session and return session information
-	ValidateSession(context.Context, *messages.ValidateSessionRequest) (*messages.ValidateSessionResponse, error)
+	ValidateSession(context.Context, *ValidateSessionRequest) (*ValidateSessionResponse, error)
 	// Terminate a session (logout)
-	TerminateSession(context.Context, *messages.TerminateSessionRequest) (*messages.TerminateSessionResponse, error)
+	TerminateSession(context.Context, *TerminateSessionRequest) (*TerminateSessionResponse, error)
 	// Delete a specific session
-	DeleteSession(context.Context, *messages.AuthDeleteSessionRequest) (*messages.AuthDeleteSessionResponse, error)
+	DeleteSession(context.Context, *AuthDeleteSessionRequest) (*AuthDeleteSessionResponse, error)
 	// List all active sessions for a user
-	ListUserSessions(context.Context, *messages.ListUserSessionsRequest) (*messages.ListUserSessionsResponse, error)
+	ListUserSessions(context.Context, *ListUserSessionsRequest) (*ListUserSessionsResponse, error)
 	// List all sessions (admin only)
-	ListSessions(context.Context, *messages.AuthListSessionsRequest) (*messages.AuthListSessionsResponse, error)
+	ListSessions(context.Context, *AuthListSessionsRequest) (*AuthListSessionsResponse, error)
 	mustEmbedUnimplementedSessionServiceServer()
 }
 
@@ -180,28 +179,28 @@ type SessionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionServiceServer struct{}
 
-func (UnimplementedSessionServiceServer) CreateSession(context.Context, *messages.AuthCreateSessionRequest) (*messages.AuthCreateSessionResponse, error) {
+func (UnimplementedSessionServiceServer) CreateSession(context.Context, *AuthCreateSessionRequest) (*AuthCreateSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSession not implemented")
 }
-func (UnimplementedSessionServiceServer) GetSession(context.Context, *messages.AuthGetSessionRequest) (*messages.AuthGetSessionResponse, error) {
+func (UnimplementedSessionServiceServer) GetSession(context.Context, *AuthGetSessionRequest) (*AuthGetSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSession not implemented")
 }
-func (UnimplementedSessionServiceServer) UpdateSession(context.Context, *messages.AuthUpdateSessionRequest) (*messages.AuthUpdateSessionResponse, error) {
+func (UnimplementedSessionServiceServer) UpdateSession(context.Context, *AuthUpdateSessionRequest) (*AuthUpdateSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateSession not implemented")
 }
-func (UnimplementedSessionServiceServer) ValidateSession(context.Context, *messages.ValidateSessionRequest) (*messages.ValidateSessionResponse, error) {
+func (UnimplementedSessionServiceServer) ValidateSession(context.Context, *ValidateSessionRequest) (*ValidateSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateSession not implemented")
 }
-func (UnimplementedSessionServiceServer) TerminateSession(context.Context, *messages.TerminateSessionRequest) (*messages.TerminateSessionResponse, error) {
+func (UnimplementedSessionServiceServer) TerminateSession(context.Context, *TerminateSessionRequest) (*TerminateSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TerminateSession not implemented")
 }
-func (UnimplementedSessionServiceServer) DeleteSession(context.Context, *messages.AuthDeleteSessionRequest) (*messages.AuthDeleteSessionResponse, error) {
+func (UnimplementedSessionServiceServer) DeleteSession(context.Context, *AuthDeleteSessionRequest) (*AuthDeleteSessionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteSession not implemented")
 }
-func (UnimplementedSessionServiceServer) ListUserSessions(context.Context, *messages.ListUserSessionsRequest) (*messages.ListUserSessionsResponse, error) {
+func (UnimplementedSessionServiceServer) ListUserSessions(context.Context, *ListUserSessionsRequest) (*ListUserSessionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUserSessions not implemented")
 }
-func (UnimplementedSessionServiceServer) ListSessions(context.Context, *messages.AuthListSessionsRequest) (*messages.AuthListSessionsResponse, error) {
+func (UnimplementedSessionServiceServer) ListSessions(context.Context, *AuthListSessionsRequest) (*AuthListSessionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSessions not implemented")
 }
 func (UnimplementedSessionServiceServer) mustEmbedUnimplementedSessionServiceServer() {}
@@ -226,7 +225,7 @@ func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceSer
 }
 
 func _SessionService_CreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthCreateSessionRequest)
+	in := new(AuthCreateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -238,13 +237,13 @@ func _SessionService_CreateSession_Handler(srv interface{}, ctx context.Context,
 		FullMethod: SessionService_CreateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).CreateSession(ctx, req.(*messages.AuthCreateSessionRequest))
+		return srv.(SessionServiceServer).CreateSession(ctx, req.(*AuthCreateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_GetSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthGetSessionRequest)
+	in := new(AuthGetSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -256,13 +255,13 @@ func _SessionService_GetSession_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: SessionService_GetSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).GetSession(ctx, req.(*messages.AuthGetSessionRequest))
+		return srv.(SessionServiceServer).GetSession(ctx, req.(*AuthGetSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_UpdateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthUpdateSessionRequest)
+	in := new(AuthUpdateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -274,13 +273,13 @@ func _SessionService_UpdateSession_Handler(srv interface{}, ctx context.Context,
 		FullMethod: SessionService_UpdateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).UpdateSession(ctx, req.(*messages.AuthUpdateSessionRequest))
+		return srv.(SessionServiceServer).UpdateSession(ctx, req.(*AuthUpdateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_ValidateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ValidateSessionRequest)
+	in := new(ValidateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -292,13 +291,13 @@ func _SessionService_ValidateSession_Handler(srv interface{}, ctx context.Contex
 		FullMethod: SessionService_ValidateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ValidateSession(ctx, req.(*messages.ValidateSessionRequest))
+		return srv.(SessionServiceServer).ValidateSession(ctx, req.(*ValidateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_TerminateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.TerminateSessionRequest)
+	in := new(TerminateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -310,13 +309,13 @@ func _SessionService_TerminateSession_Handler(srv interface{}, ctx context.Conte
 		FullMethod: SessionService_TerminateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).TerminateSession(ctx, req.(*messages.TerminateSessionRequest))
+		return srv.(SessionServiceServer).TerminateSession(ctx, req.(*TerminateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_DeleteSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthDeleteSessionRequest)
+	in := new(AuthDeleteSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -328,13 +327,13 @@ func _SessionService_DeleteSession_Handler(srv interface{}, ctx context.Context,
 		FullMethod: SessionService_DeleteSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).DeleteSession(ctx, req.(*messages.AuthDeleteSessionRequest))
+		return srv.(SessionServiceServer).DeleteSession(ctx, req.(*AuthDeleteSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_ListUserSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.ListUserSessionsRequest)
+	in := new(ListUserSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -346,13 +345,13 @@ func _SessionService_ListUserSessions_Handler(srv interface{}, ctx context.Conte
 		FullMethod: SessionService_ListUserSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ListUserSessions(ctx, req.(*messages.ListUserSessionsRequest))
+		return srv.(SessionServiceServer).ListUserSessions(ctx, req.(*ListUserSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _SessionService_ListSessions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthListSessionsRequest)
+	in := new(AuthListSessionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -364,7 +363,7 @@ func _SessionService_ListSessions_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: SessionService_ListSessions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).ListSessions(ctx, req.(*messages.AuthListSessionsRequest))
+		return srv.(SessionServiceServer).ListSessions(ctx, req.(*AuthListSessionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

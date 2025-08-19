@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/configure_logger_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -179,7 +179,7 @@ const file_gcommon_v1_common_messages_configure_logger_request_proto_rawDesc = "
 	"\vlogger_name\x18\x01 \x01(\tR\n" +
 	"loggerName\x12\x14\n" +
 	"\x05level\x18\x02 \x01(\tR\x05level\x12#\n" +
-	"\routput_config\x18\x03 \x01(\tR\foutputConfigBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\routput_config\x18\x03 \x01(\tR\foutputConfigB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_configure_logger_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_configure_logger_request_proto_goTypes = []any{

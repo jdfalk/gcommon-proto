@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/jwt_config.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -163,7 +163,7 @@ const file_gcommon_v1_common_messages_jwt_config_proto_rawDesc = "" +
 	"\tJWTConfig\x12+\n" +
 	"\x11signing_algorithm\x18\x01 \x01(\tR\x10signingAlgorithm\x12C\n" +
 	"\x10access_token_ttl\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x0eaccessTokenTtl\x12E\n" +
-	"\x11refresh_token_ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x0frefreshTokenTtlBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11refresh_token_ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x0frefreshTokenTtlB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_jwt_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_jwt_config_proto_goTypes = []any{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/session_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,25 +35,25 @@ const file_gcommon_v1_common_services_session_service_proto_rawDesc = "" +
 	"\x10TerminateSession\x12*.gcommon.v1.common.TerminateSessionRequest\x1a+.gcommon.v1.common.TerminateSessionResponse\x12j\n" +
 	"\rDeleteSession\x12+.gcommon.v1.common.AuthDeleteSessionRequest\x1a,.gcommon.v1.common.AuthDeleteSessionResponse\x12k\n" +
 	"\x10ListUserSessions\x12*.gcommon.v1.common.ListUserSessionsRequest\x1a+.gcommon.v1.common.ListUserSessionsResponse\x12g\n" +
-	"\fListSessions\x12*.gcommon.v1.common.AuthListSessionsRequest\x1a+.gcommon.v1.common.AuthListSessionsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fListSessions\x12*.gcommon.v1.common.AuthListSessionsRequest\x1a+.gcommon.v1.common.AuthListSessionsResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_session_service_proto_goTypes = []any{
-	(*messages.AuthCreateSessionRequest)(nil),  // 0: gcommon.v1.common.AuthCreateSessionRequest
-	(*messages.AuthGetSessionRequest)(nil),     // 1: gcommon.v1.common.AuthGetSessionRequest
-	(*messages.AuthUpdateSessionRequest)(nil),  // 2: gcommon.v1.common.AuthUpdateSessionRequest
-	(*messages.ValidateSessionRequest)(nil),    // 3: gcommon.v1.common.ValidateSessionRequest
-	(*messages.TerminateSessionRequest)(nil),   // 4: gcommon.v1.common.TerminateSessionRequest
-	(*messages.AuthDeleteSessionRequest)(nil),  // 5: gcommon.v1.common.AuthDeleteSessionRequest
-	(*messages.ListUserSessionsRequest)(nil),   // 6: gcommon.v1.common.ListUserSessionsRequest
-	(*messages.AuthListSessionsRequest)(nil),   // 7: gcommon.v1.common.AuthListSessionsRequest
-	(*messages.AuthCreateSessionResponse)(nil), // 8: gcommon.v1.common.AuthCreateSessionResponse
-	(*messages.AuthGetSessionResponse)(nil),    // 9: gcommon.v1.common.AuthGetSessionResponse
-	(*messages.AuthUpdateSessionResponse)(nil), // 10: gcommon.v1.common.AuthUpdateSessionResponse
-	(*messages.ValidateSessionResponse)(nil),   // 11: gcommon.v1.common.ValidateSessionResponse
-	(*messages.TerminateSessionResponse)(nil),  // 12: gcommon.v1.common.TerminateSessionResponse
-	(*messages.AuthDeleteSessionResponse)(nil), // 13: gcommon.v1.common.AuthDeleteSessionResponse
-	(*messages.ListUserSessionsResponse)(nil),  // 14: gcommon.v1.common.ListUserSessionsResponse
-	(*messages.AuthListSessionsResponse)(nil),  // 15: gcommon.v1.common.AuthListSessionsResponse
+	(*AuthCreateSessionRequest)(nil),  // 0: gcommon.v1.common.AuthCreateSessionRequest
+	(*AuthGetSessionRequest)(nil),     // 1: gcommon.v1.common.AuthGetSessionRequest
+	(*AuthUpdateSessionRequest)(nil),  // 2: gcommon.v1.common.AuthUpdateSessionRequest
+	(*ValidateSessionRequest)(nil),    // 3: gcommon.v1.common.ValidateSessionRequest
+	(*TerminateSessionRequest)(nil),   // 4: gcommon.v1.common.TerminateSessionRequest
+	(*AuthDeleteSessionRequest)(nil),  // 5: gcommon.v1.common.AuthDeleteSessionRequest
+	(*ListUserSessionsRequest)(nil),   // 6: gcommon.v1.common.ListUserSessionsRequest
+	(*AuthListSessionsRequest)(nil),   // 7: gcommon.v1.common.AuthListSessionsRequest
+	(*AuthCreateSessionResponse)(nil), // 8: gcommon.v1.common.AuthCreateSessionResponse
+	(*AuthGetSessionResponse)(nil),    // 9: gcommon.v1.common.AuthGetSessionResponse
+	(*AuthUpdateSessionResponse)(nil), // 10: gcommon.v1.common.AuthUpdateSessionResponse
+	(*ValidateSessionResponse)(nil),   // 11: gcommon.v1.common.ValidateSessionResponse
+	(*TerminateSessionResponse)(nil),  // 12: gcommon.v1.common.TerminateSessionResponse
+	(*AuthDeleteSessionResponse)(nil), // 13: gcommon.v1.common.AuthDeleteSessionResponse
+	(*ListUserSessionsResponse)(nil),  // 14: gcommon.v1.common.ListUserSessionsResponse
+	(*AuthListSessionsResponse)(nil),  // 15: gcommon.v1.common.AuthListSessionsResponse
 }
 var file_gcommon_v1_common_services_session_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.common.SessionService.CreateSession:input_type -> gcommon.v1.common.AuthCreateSessionRequest
@@ -85,6 +84,22 @@ func file_gcommon_v1_common_services_session_service_proto_init() {
 	if File_gcommon_v1_common_services_session_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_create_session_request_proto_init()
+	file_gcommon_v1_common_messages_create_session_response_proto_init()
+	file_gcommon_v1_common_messages_delete_session_request_proto_init()
+	file_gcommon_v1_common_messages_delete_session_response_proto_init()
+	file_gcommon_v1_common_messages_get_session_request_proto_init()
+	file_gcommon_v1_common_messages_get_session_response_proto_init()
+	file_gcommon_v1_common_messages_list_sessions_request_proto_init()
+	file_gcommon_v1_common_messages_list_sessions_response_proto_init()
+	file_gcommon_v1_common_messages_list_user_sessions_request_proto_init()
+	file_gcommon_v1_common_messages_list_user_sessions_response_proto_init()
+	file_gcommon_v1_common_messages_terminate_session_request_proto_init()
+	file_gcommon_v1_common_messages_terminate_session_response_proto_init()
+	file_gcommon_v1_common_messages_update_session_request_proto_init()
+	file_gcommon_v1_common_messages_update_session_response_proto_init()
+	file_gcommon_v1_common_messages_validate_session_request_proto_init()
+	file_gcommon_v1_common_messages_validate_session_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

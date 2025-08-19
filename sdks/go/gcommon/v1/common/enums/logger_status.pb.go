@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/logger_status.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -78,7 +78,7 @@ const file_gcommon_v1_common_enums_logger_status_proto_rawDesc = "" +
 	"\x19LOGGER_STATUS_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14LOGGER_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
 	"\x16LOGGER_STATUS_INACTIVE\x10\x02\x12\x17\n" +
-	"\x13LOGGER_STATUS_ERROR\x10\x03BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13LOGGER_STATUS_ERROR\x10\x03B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_logger_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_logger_status_proto_goTypes = []any{

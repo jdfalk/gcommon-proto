@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/circuit_breaker_config.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,13 +27,13 @@ const (
 // Implements the circuit breaker pattern with configurable thresholds,
 // timeouts, and state management for preventing cascade failures.
 type CommonCircuitBreakerConfig struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_FailureThreshold int32                     `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold"`
-	xxx_hidden_SuccessThreshold int32                     `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold"`
-	xxx_hidden_Timeout          *durationpb.Duration      `protobuf:"bytes,3,opt,name=timeout"`
-	xxx_hidden_MaxRequests      int32                     `protobuf:"varint,4,opt,name=max_requests,json=maxRequests"`
-	xxx_hidden_WindowSize       *durationpb.Duration      `protobuf:"bytes,5,opt,name=window_size,json=windowSize"`
-	xxx_hidden_State            enums.CircuitBreakerState `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_FailureThreshold int32                  `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold"`
+	xxx_hidden_SuccessThreshold int32                  `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold"`
+	xxx_hidden_Timeout          *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
+	xxx_hidden_MaxRequests      int32                  `protobuf:"varint,4,opt,name=max_requests,json=maxRequests"`
+	xxx_hidden_WindowSize       *durationpb.Duration   `protobuf:"bytes,5,opt,name=window_size,json=windowSize"`
+	xxx_hidden_State            CircuitBreakerState    `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -101,13 +100,13 @@ func (x *CommonCircuitBreakerConfig) GetWindowSize() *durationpb.Duration {
 	return nil
 }
 
-func (x *CommonCircuitBreakerConfig) GetState() enums.CircuitBreakerState {
+func (x *CommonCircuitBreakerConfig) GetState() CircuitBreakerState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_State
 		}
 	}
-	return enums.CircuitBreakerState(0)
+	return CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
 }
 
 func (x *CommonCircuitBreakerConfig) SetFailureThreshold(v int32) {
@@ -133,7 +132,7 @@ func (x *CommonCircuitBreakerConfig) SetWindowSize(v *durationpb.Duration) {
 	x.xxx_hidden_WindowSize = v
 }
 
-func (x *CommonCircuitBreakerConfig) SetState(v enums.CircuitBreakerState) {
+func (x *CommonCircuitBreakerConfig) SetState(v CircuitBreakerState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
@@ -205,7 +204,7 @@ func (x *CommonCircuitBreakerConfig) ClearWindowSize() {
 
 func (x *CommonCircuitBreakerConfig) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_State = enums.CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
+	x.xxx_hidden_State = CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
 }
 
 type CommonCircuitBreakerConfig_builder struct {
@@ -222,7 +221,7 @@ type CommonCircuitBreakerConfig_builder struct {
 	// Time window for counting failures and successes
 	WindowSize *durationpb.Duration
 	// Current state of the circuit breaker
-	State *enums.CircuitBreakerState
+	State *CircuitBreakerState
 }
 
 func (b0 CommonCircuitBreakerConfig_builder) Build() *CommonCircuitBreakerConfig {
@@ -262,13 +261,13 @@ const file_gcommon_v1_common_messages_circuit_breaker_config_proto_rawDesc = "" 
 	"\fmax_requests\x18\x04 \x01(\x05R\vmaxRequests\x12:\n" +
 	"\vwindow_size\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"windowSize\x12<\n" +
-	"\x05state\x18\x06 \x01(\x0e2&.gcommon.v1.common.CircuitBreakerStateR\x05stateBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05state\x18\x06 \x01(\x0e2&.gcommon.v1.common.CircuitBreakerStateR\x05stateB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_circuit_breaker_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_circuit_breaker_config_proto_goTypes = []any{
 	(*CommonCircuitBreakerConfig)(nil), // 0: gcommon.v1.common.CommonCircuitBreakerConfig
 	(*durationpb.Duration)(nil),        // 1: google.protobuf.Duration
-	(enums.CircuitBreakerState)(0),     // 2: gcommon.v1.common.CircuitBreakerState
+	(CircuitBreakerState)(0),           // 2: gcommon.v1.common.CircuitBreakerState
 }
 var file_gcommon_v1_common_messages_circuit_breaker_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.CommonCircuitBreakerConfig.timeout:type_name -> google.protobuf.Duration
@@ -286,6 +285,7 @@ func file_gcommon_v1_common_messages_circuit_breaker_config_proto_init() {
 	if File_gcommon_v1_common_messages_circuit_breaker_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_circuit_breaker_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

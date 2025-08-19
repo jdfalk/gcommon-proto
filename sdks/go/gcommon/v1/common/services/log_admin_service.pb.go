@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/log_admin_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,11 +27,11 @@ const file_gcommon_v1_common_services_log_admin_service_proto_rawDesc = "" +
 	"\n" +
 	"2gcommon/v1/common/services/log_admin_service.proto\x12\x11gcommon.v1.common\x1a9gcommon/v1/common/messages/configure_logger_request.proto\x1a:gcommon/v1/common/messages/configure_logger_response.proto\x1a!google/protobuf/go_features.proto2{\n" +
 	"\x0fLogAdminService\x12h\n" +
-	"\x0fConfigureLogger\x12).gcommon.v1.common.ConfigureLoggerRequest\x1a*.gcommon.v1.common.ConfigureLoggerResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fConfigureLogger\x12).gcommon.v1.common.ConfigureLoggerRequest\x1a*.gcommon.v1.common.ConfigureLoggerResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_log_admin_service_proto_goTypes = []any{
-	(*messages.ConfigureLoggerRequest)(nil),  // 0: gcommon.v1.common.ConfigureLoggerRequest
-	(*messages.ConfigureLoggerResponse)(nil), // 1: gcommon.v1.common.ConfigureLoggerResponse
+	(*ConfigureLoggerRequest)(nil),  // 0: gcommon.v1.common.ConfigureLoggerRequest
+	(*ConfigureLoggerResponse)(nil), // 1: gcommon.v1.common.ConfigureLoggerResponse
 }
 var file_gcommon_v1_common_services_log_admin_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.common.LogAdminService.ConfigureLogger:input_type -> gcommon.v1.common.ConfigureLoggerRequest
@@ -49,6 +48,8 @@ func file_gcommon_v1_common_services_log_admin_service_proto_init() {
 	if File_gcommon_v1_common_services_log_admin_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_configure_logger_request_proto_init()
+	file_gcommon_v1_common_messages_configure_logger_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

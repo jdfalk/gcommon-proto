@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/security_policy.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -165,7 +165,7 @@ const file_gcommon_v1_common_messages_security_policy_proto_rawDesc = "" +
 	"\x0eSecurityPolicy\x12.\n" +
 	"\x13min_password_length\x18\x01 \x01(\rR\x11minPasswordLength\x12<\n" +
 	"\fpassword_ttl\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\vpasswordTtl\x12.\n" +
-	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_security_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_security_policy_proto_goTypes = []any{

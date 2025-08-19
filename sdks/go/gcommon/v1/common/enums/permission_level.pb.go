@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/permission_level.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -82,7 +82,7 @@ const file_gcommon_v1_common_enums_permission_level_proto_rawDesc = "" +
 	"\x17PERMISSION_LEVEL_SYSTEM\x10\x01\x12!\n" +
 	"\x1dPERMISSION_LEVEL_ORGANIZATION\x10\x02\x12\x1c\n" +
 	"\x18PERMISSION_LEVEL_PROJECT\x10\x03\x12\x1d\n" +
-	"\x19PERMISSION_LEVEL_RESOURCE\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19PERMISSION_LEVEL_RESOURCE\x10\x04B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_permission_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_permission_level_proto_goTypes = []any{

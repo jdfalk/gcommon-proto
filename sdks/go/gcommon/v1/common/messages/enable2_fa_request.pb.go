@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/enable2_fa_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -205,7 +205,7 @@ const file_gcommon_v1_common_messages_enable2_fa_request_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12!\n" +
 	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12+\n" +
 	"\x11use_authenticator\x18\x03 \x01(\bR\x10useAuthenticator\x122\n" +
-	"\x15generate_backup_codes\x18\x04 \x01(\bR\x13generateBackupCodesBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15generate_backup_codes\x18\x04 \x01(\bR\x13generateBackupCodesB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_enable2_fa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_enable2_fa_request_proto_goTypes = []any{

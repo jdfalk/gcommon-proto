@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/security_context.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ type SecurityContext struct {
 	xxx_hidden_SessionId     *string                `protobuf:"bytes,2,opt,name=session_id,json=sessionId"`
 	xxx_hidden_Roles         []string               `protobuf:"bytes,3,rep,name=roles"`
 	xxx_hidden_Permissions   []string               `protobuf:"bytes,4,rep,name=permissions"`
-	xxx_hidden_AuthMethod    enums.AuthAuthMethod   `protobuf:"varint,5,opt,name=auth_method,json=authMethod,enum=gcommon.v1.common.AuthAuthMethod"`
+	xxx_hidden_AuthMethod    AuthAuthMethod         `protobuf:"varint,5,opt,name=auth_method,json=authMethod,enum=gcommon.v1.common.AuthAuthMethod"`
 	xxx_hidden_MfaVerified   bool                   `protobuf:"varint,6,opt,name=mfa_verified,json=mfaVerified"`
 	xxx_hidden_IpAddress     *string                `protobuf:"bytes,7,opt,name=ip_address,json=ipAddress"`
 	xxx_hidden_UserAgent     *string                `protobuf:"bytes,8,opt,name=user_agent,json=userAgent"`
@@ -99,13 +98,13 @@ func (x *SecurityContext) GetPermissions() []string {
 	return nil
 }
 
-func (x *SecurityContext) GetAuthMethod() enums.AuthAuthMethod {
+func (x *SecurityContext) GetAuthMethod() AuthAuthMethod {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_AuthMethod
 		}
 	}
-	return enums.AuthAuthMethod(0)
+	return AuthAuthMethod_AUTH_METHOD_UNSPECIFIED
 }
 
 func (x *SecurityContext) GetMfaVerified() bool {
@@ -167,7 +166,7 @@ func (x *SecurityContext) SetPermissions(v []string) {
 	x.xxx_hidden_Permissions = v
 }
 
-func (x *SecurityContext) SetAuthMethod(v enums.AuthAuthMethod) {
+func (x *SecurityContext) SetAuthMethod(v AuthAuthMethod) {
 	x.xxx_hidden_AuthMethod = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
 }
@@ -257,7 +256,7 @@ func (x *SecurityContext) ClearSessionId() {
 
 func (x *SecurityContext) ClearAuthMethod() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_AuthMethod = enums.AuthAuthMethod_AUTH_METHOD_UNSPECIFIED
+	x.xxx_hidden_AuthMethod = AuthAuthMethod_AUTH_METHOD_UNSPECIFIED
 }
 
 func (x *SecurityContext) ClearMfaVerified() {
@@ -292,7 +291,7 @@ type SecurityContext_builder struct {
 	// User permissions
 	Permissions []string
 	// Authentication method used
-	AuthMethod *enums.AuthAuthMethod
+	AuthMethod *AuthAuthMethod
 	// MFA verified
 	MfaVerified *bool
 	// IP address
@@ -366,13 +365,13 @@ const file_gcommon_v1_common_messages_security_context_proto_rawDesc = "" +
 	" \x03(\v20.gcommon.v1.common.SecurityContext.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_security_context_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_security_context_proto_goTypes = []any{
-	(*SecurityContext)(nil),   // 0: gcommon.v1.common.SecurityContext
-	nil,                       // 1: gcommon.v1.common.SecurityContext.MetadataEntry
-	(enums.AuthAuthMethod)(0), // 2: gcommon.v1.common.AuthAuthMethod
+	(*SecurityContext)(nil), // 0: gcommon.v1.common.SecurityContext
+	nil,                     // 1: gcommon.v1.common.SecurityContext.MetadataEntry
+	(AuthAuthMethod)(0),     // 2: gcommon.v1.common.AuthAuthMethod
 }
 var file_gcommon_v1_common_messages_security_context_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.SecurityContext.auth_method:type_name -> gcommon.v1.common.AuthAuthMethod
@@ -389,6 +388,7 @@ func file_gcommon_v1_common_messages_security_context_proto_init() {
 	if File_gcommon_v1_common_messages_security_context_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_auth_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

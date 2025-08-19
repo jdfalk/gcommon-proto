@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/error.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +28,7 @@ const (
 // debugging details, and traceability across all GCommon modules.
 type Error struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Code        enums.ErrorCode        `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.common.ErrorCode"`
+	xxx_hidden_Code        ErrorCode              `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.common.ErrorCode"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
 	xxx_hidden_Details     map[string]string      `protobuf:"bytes,3,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_TraceId     *string                `protobuf:"bytes,4,opt,name=trace_id,json=traceId"`
@@ -66,13 +65,13 @@ func (x *Error) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *Error) GetCode() enums.ErrorCode {
+func (x *Error) GetCode() ErrorCode {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Code
 		}
 	}
-	return enums.ErrorCode(0)
+	return ErrorCode_ERROR_CODE_UNSPECIFIED
 }
 
 func (x *Error) GetMessage() string {
@@ -119,7 +118,7 @@ func (x *Error) GetSource() string {
 	return ""
 }
 
-func (x *Error) SetCode(v enums.ErrorCode) {
+func (x *Error) SetCode(v ErrorCode) {
 	x.xxx_hidden_Code = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
@@ -184,7 +183,7 @@ func (x *Error) HasSource() bool {
 
 func (x *Error) ClearCode() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Code = enums.ErrorCode_ERROR_CODE_UNSPECIFIED
+	x.xxx_hidden_Code = ErrorCode_ERROR_CODE_UNSPECIFIED
 }
 
 func (x *Error) ClearMessage() {
@@ -210,7 +209,7 @@ type Error_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standardized error code for programmatic handling
-	Code *enums.ErrorCode
+	Code *ErrorCode
 	// Human-readable error message describing what went wrong
 	Message *string
 	// Additional error details for debugging and troubleshooting
@@ -262,13 +261,13 @@ const file_gcommon_v1_common_messages_error_proto_rawDesc = "" +
 	"\x06source\x18\x06 \x01(\tR\x06source\x1a:\n" +
 	"\fDetailsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_error_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_error_proto_goTypes = []any{
 	(*Error)(nil),                 // 0: gcommon.v1.common.Error
 	nil,                           // 1: gcommon.v1.common.Error.DetailsEntry
-	(enums.ErrorCode)(0),          // 2: gcommon.v1.common.ErrorCode
+	(ErrorCode)(0),                // 2: gcommon.v1.common.ErrorCode
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_common_messages_error_proto_depIdxs = []int32{
@@ -287,6 +286,7 @@ func file_gcommon_v1_common_messages_error_proto_init() {
 	if File_gcommon_v1_common_messages_error_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_error_code_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

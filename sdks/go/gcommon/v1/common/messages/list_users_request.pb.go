@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/list_users_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -377,7 +377,7 @@ const file_gcommon_v1_common_messages_list_users_request_proto_rawDesc = "" +
 	"roleFilter\x12\x17\n" +
 	"\asort_by\x18\a \x01(\tR\x06sortBy\x12%\n" +
 	"\x0esort_direction\x18\b \x01(\tR\rsortDirection\x12'\n" +
-	"\x0finclude_deleted\x18\t \x01(\bR\x0eincludeDeletedBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0finclude_deleted\x18\t \x01(\bR\x0eincludeDeletedB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_users_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_users_request_proto_goTypes = []any{

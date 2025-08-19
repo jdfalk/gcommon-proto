@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/get_user_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -188,7 +188,7 @@ const file_gcommon_v1_common_messages_get_user_request_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12'\n" +
 	"\x0finclude_details\x18\x02 \x01(\bR\x0eincludeDetails\x12'\n" +
 	"\x0finclude_deleted\x18\x03 \x01(\bR\x0eincludeDeleted\x12\x16\n" +
-	"\x06fields\x18\x04 \x03(\tR\x06fieldsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06fields\x18\x04 \x03(\tR\x06fieldsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_user_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_user_request_proto_goTypes = []any{

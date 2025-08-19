@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/logger_config.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 // LoggerConfig defines configuration for a logger instance
 type LoggerConfig struct {
 	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level            enums.LogLevel         `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.LogLevel"`
+	xxx_hidden_Level            LogLevel               `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.LogLevel"`
 	xxx_hidden_Appenders        *[]*AppenderConfig     `protobuf:"bytes,2,rep,name=appenders"`
 	xxx_hidden_InheritAppenders bool                   `protobuf:"varint,3,opt,name=inherit_appenders,json=inheritAppenders"`
 	xxx_hidden_Propagate        bool                   `protobuf:"varint,4,opt,name=propagate"`
@@ -61,13 +60,13 @@ func (x *LoggerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *LoggerConfig) GetLevel() enums.LogLevel {
+func (x *LoggerConfig) GetLevel() LogLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return enums.LogLevel(0)
+	return LogLevel_LOG_LEVEL_UNSPECIFIED
 }
 
 func (x *LoggerConfig) GetAppenders() []*AppenderConfig {
@@ -100,7 +99,7 @@ func (x *LoggerConfig) GetProperties() map[string]string {
 	return nil
 }
 
-func (x *LoggerConfig) SetLevel(v enums.LogLevel) {
+func (x *LoggerConfig) SetLevel(v LogLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -146,7 +145,7 @@ func (x *LoggerConfig) HasPropagate() bool {
 
 func (x *LoggerConfig) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = enums.LogLevel_LOG_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = LogLevel_LOG_LEVEL_UNSPECIFIED
 }
 
 func (x *LoggerConfig) ClearInheritAppenders() {
@@ -163,7 +162,7 @@ type LoggerConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Minimum log level for this logger
-	Level *enums.LogLevel
+	Level *LogLevel
 	// Output appenders used by this logger
 	Appenders []*AppenderConfig
 	// Inherit appenders from parent logger
@@ -210,13 +209,13 @@ const file_gcommon_v1_common_messages_logger_config_proto_rawDesc = "" +
 	"properties\x1a=\n" +
 	"\x0fPropertiesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_logger_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_logger_config_proto_goTypes = []any{
 	(*LoggerConfig)(nil),   // 0: gcommon.v1.common.LoggerConfig
 	nil,                    // 1: gcommon.v1.common.LoggerConfig.PropertiesEntry
-	(enums.LogLevel)(0),    // 2: gcommon.v1.common.LogLevel
+	(LogLevel)(0),          // 2: gcommon.v1.common.LogLevel
 	(*AppenderConfig)(nil), // 3: gcommon.v1.common.AppenderConfig
 }
 var file_gcommon_v1_common_messages_logger_config_proto_depIdxs = []int32{
@@ -235,6 +234,7 @@ func file_gcommon_v1_common_messages_logger_config_proto_init() {
 	if File_gcommon_v1_common_messages_logger_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_log_level_proto_init()
 	file_gcommon_v1_common_messages_appender_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

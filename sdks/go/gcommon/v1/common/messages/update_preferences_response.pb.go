@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/update_preferences_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -105,7 +105,7 @@ const file_gcommon_v1_common_messages_update_preferences_response_proto_rawDesc 
 	"\n" +
 	"<gcommon/v1/common/messages/update_preferences_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"5\n" +
 	"\x19UpdatePreferencesResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccessBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\asuccess\x18\x01 \x01(\bR\asuccessB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_update_preferences_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_update_preferences_response_proto_goTypes = []any{

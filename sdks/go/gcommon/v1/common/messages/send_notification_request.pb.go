@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/send_notification_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -123,7 +123,7 @@ const file_gcommon_v1_common_messages_send_notification_request_proto_rawDesc = 
 	":gcommon/v1/common/messages/send_notification_request.proto\x12\x11gcommon.v1.common\x1a5gcommon/v1/common/messages/notification_message.proto\x1a1gcommon/v1/common/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\xa5\x01\n" +
 	"\x17SendNotificationRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12J\n" +
-	"\fnotification\x18\x02 \x01(\v2&.gcommon.v1.common.NotificationMessageR\fnotificationBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fnotification\x18\x02 \x01(\v2&.gcommon.v1.common.NotificationMessageR\fnotificationB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_send_notification_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_send_notification_request_proto_goTypes = []any{

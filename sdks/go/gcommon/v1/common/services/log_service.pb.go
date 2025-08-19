@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/log_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,13 +29,13 @@ const file_gcommon_v1_common_services_log_service_proto_rawDesc = "" +
 	"\n" +
 	"LogService\x12S\n" +
 	"\bWriteLog\x12\".gcommon.v1.common.WriteLogRequest\x1a#.gcommon.v1.common.WriteLogResponse\x12S\n" +
-	"\bReadLogs\x12\".gcommon.v1.common.ReadLogsRequest\x1a#.gcommon.v1.common.ReadLogsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bReadLogs\x12\".gcommon.v1.common.ReadLogsRequest\x1a#.gcommon.v1.common.ReadLogsResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_log_service_proto_goTypes = []any{
-	(*messages.WriteLogRequest)(nil),  // 0: gcommon.v1.common.WriteLogRequest
-	(*messages.ReadLogsRequest)(nil),  // 1: gcommon.v1.common.ReadLogsRequest
-	(*messages.WriteLogResponse)(nil), // 2: gcommon.v1.common.WriteLogResponse
-	(*messages.ReadLogsResponse)(nil), // 3: gcommon.v1.common.ReadLogsResponse
+	(*WriteLogRequest)(nil),  // 0: gcommon.v1.common.WriteLogRequest
+	(*ReadLogsRequest)(nil),  // 1: gcommon.v1.common.ReadLogsRequest
+	(*WriteLogResponse)(nil), // 2: gcommon.v1.common.WriteLogResponse
+	(*ReadLogsResponse)(nil), // 3: gcommon.v1.common.ReadLogsResponse
 }
 var file_gcommon_v1_common_services_log_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.common.LogService.WriteLog:input_type -> gcommon.v1.common.WriteLogRequest
@@ -55,6 +54,10 @@ func file_gcommon_v1_common_services_log_service_proto_init() {
 	if File_gcommon_v1_common_services_log_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_read_logs_request_proto_init()
+	file_gcommon_v1_common_messages_read_logs_response_proto_init()
+	file_gcommon_v1_common_messages_write_log_request_proto_init()
+	file_gcommon_v1_common_messages_write_log_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

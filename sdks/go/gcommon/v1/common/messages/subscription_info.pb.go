@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/subscription_info.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,14 +27,14 @@ const (
 // Manages long-lived subscriptions with filtering, time ranges,
 // and client-specific configuration for real-time data streaming.
 type CommonSubscriptionInfo struct {
-	state                     protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_SubscriptionId *string                  `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId"`
-	xxx_hidden_Filter         *FilterOptions           `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_StartTime      *timestamppb.Timestamp   `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime        *timestamppb.Timestamp   `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
-	xxx_hidden_Subscriber     *ClientInfo              `protobuf:"bytes,5,opt,name=subscriber"`
-	xxx_hidden_Options        *SubscriptionOptions     `protobuf:"bytes,6,opt,name=options"`
-	xxx_hidden_Status         enums.SubscriptionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubscriptionId *string                `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId"`
+	xxx_hidden_Filter         *FilterOptions         `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_StartTime      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime        *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
+	xxx_hidden_Subscriber     *ClientInfo            `protobuf:"bytes,5,opt,name=subscriber"`
+	xxx_hidden_Options        *SubscriptionOptions   `protobuf:"bytes,6,opt,name=options"`
+	xxx_hidden_Status         SubscriptionStatus     `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -112,13 +111,13 @@ func (x *CommonSubscriptionInfo) GetOptions() *SubscriptionOptions {
 	return nil
 }
 
-func (x *CommonSubscriptionInfo) GetStatus() enums.SubscriptionStatus {
+func (x *CommonSubscriptionInfo) GetStatus() SubscriptionStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.SubscriptionStatus(0)
+	return SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
 }
 
 func (x *CommonSubscriptionInfo) SetSubscriptionId(v string) {
@@ -146,7 +145,7 @@ func (x *CommonSubscriptionInfo) SetOptions(v *SubscriptionOptions) {
 	x.xxx_hidden_Options = v
 }
 
-func (x *CommonSubscriptionInfo) SetStatus(v enums.SubscriptionStatus) {
+func (x *CommonSubscriptionInfo) SetStatus(v SubscriptionStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
@@ -227,7 +226,7 @@ func (x *CommonSubscriptionInfo) ClearOptions() {
 
 func (x *CommonSubscriptionInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
 }
 
 type CommonSubscriptionInfo_builder struct {
@@ -246,7 +245,7 @@ type CommonSubscriptionInfo_builder struct {
 	// Subscription configuration options
 	Options *SubscriptionOptions
 	// Current status of the subscription
-	Status *enums.SubscriptionStatus
+	Status *SubscriptionStatus
 }
 
 func (b0 CommonSubscriptionInfo_builder) Build() *CommonSubscriptionInfo {
@@ -284,7 +283,7 @@ const file_gcommon_v1_common_messages_subscription_info_proto_rawDesc = "" +
 	"subscriber\x18\x05 \x01(\v2\x1d.gcommon.v1.common.ClientInfoR\n" +
 	"subscriber\x12@\n" +
 	"\aoptions\x18\x06 \x01(\v2&.gcommon.v1.common.SubscriptionOptionsR\aoptions\x12=\n" +
-	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_subscription_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_subscription_info_proto_goTypes = []any{
@@ -293,7 +292,7 @@ var file_gcommon_v1_common_messages_subscription_info_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 	(*ClientInfo)(nil),             // 3: gcommon.v1.common.ClientInfo
 	(*SubscriptionOptions)(nil),    // 4: gcommon.v1.common.SubscriptionOptions
-	(enums.SubscriptionStatus)(0),  // 5: gcommon.v1.common.SubscriptionStatus
+	(SubscriptionStatus)(0),        // 5: gcommon.v1.common.SubscriptionStatus
 }
 var file_gcommon_v1_common_messages_subscription_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.CommonSubscriptionInfo.filter:type_name -> gcommon.v1.common.FilterOptions
@@ -314,6 +313,7 @@ func file_gcommon_v1_common_messages_subscription_info_proto_init() {
 	if File_gcommon_v1_common_messages_subscription_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_subscription_status_proto_init()
 	file_gcommon_v1_common_messages_client_info_proto_init()
 	file_gcommon_v1_common_messages_filter_options_proto_init()
 	file_gcommon_v1_common_messages_subscription_options_proto_init()

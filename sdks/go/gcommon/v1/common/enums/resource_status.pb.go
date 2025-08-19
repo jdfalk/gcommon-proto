@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/resource_status.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -95,7 +95,7 @@ const file_gcommon_v1_common_enums_resource_status_proto_rawDesc = "" +
 	"\x18RESOURCE_STATUS_INACTIVE\x10\x02\x12\x1b\n" +
 	"\x17RESOURCE_STATUS_PENDING\x10\x03\x12\x1b\n" +
 	"\x17RESOURCE_STATUS_DELETED\x10\x04\x12\x19\n" +
-	"\x15RESOURCE_STATUS_ERROR\x10\x05BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15RESOURCE_STATUS_ERROR\x10\x05B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_resource_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_resource_status_proto_goTypes = []any{

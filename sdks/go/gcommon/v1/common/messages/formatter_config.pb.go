@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/formatter_config.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +23,7 @@ const (
 
 type LogFormatterConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        enums.FormatterType    `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.FormatterType"`
+	xxx_hidden_Type        FormatterType          `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.FormatterType"`
 	xxx_hidden_Pattern     *string                `protobuf:"bytes,2,opt,name=pattern"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -57,13 +56,13 @@ func (x *LogFormatterConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *LogFormatterConfig) GetType() enums.FormatterType {
+func (x *LogFormatterConfig) GetType() FormatterType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.FormatterType(0)
+	return FormatterType_FORMATTER_TYPE_UNSPECIFIED
 }
 
 func (x *LogFormatterConfig) GetPattern() string {
@@ -76,7 +75,7 @@ func (x *LogFormatterConfig) GetPattern() string {
 	return ""
 }
 
-func (x *LogFormatterConfig) SetType(v enums.FormatterType) {
+func (x *LogFormatterConfig) SetType(v FormatterType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
@@ -102,7 +101,7 @@ func (x *LogFormatterConfig) HasPattern() bool {
 
 func (x *LogFormatterConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.FormatterType_FORMATTER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = FormatterType_FORMATTER_TYPE_UNSPECIFIED
 }
 
 func (x *LogFormatterConfig) ClearPattern() {
@@ -114,7 +113,7 @@ type LogFormatterConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Formatting strategy
-	Type *enums.FormatterType
+	Type *FormatterType
 	// Optional format pattern
 	Pattern *string
 }
@@ -141,12 +140,12 @@ const file_gcommon_v1_common_messages_formatter_config_proto_rawDesc = "" +
 	"1gcommon/v1/common/messages/formatter_config.proto\x12\x11gcommon.v1.common\x1a,gcommon/v1/common/enums/formatter_type.proto\x1a!google/protobuf/go_features.proto\"d\n" +
 	"\x12LogFormatterConfig\x124\n" +
 	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.common.FormatterTypeR\x04type\x12\x18\n" +
-	"\apattern\x18\x02 \x01(\tR\apatternBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\apattern\x18\x02 \x01(\tR\apatternB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_formatter_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_formatter_config_proto_goTypes = []any{
 	(*LogFormatterConfig)(nil), // 0: gcommon.v1.common.LogFormatterConfig
-	(enums.FormatterType)(0),   // 1: gcommon.v1.common.FormatterType
+	(FormatterType)(0),         // 1: gcommon.v1.common.FormatterType
 }
 var file_gcommon_v1_common_messages_formatter_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.LogFormatterConfig.type:type_name -> gcommon.v1.common.FormatterType
@@ -162,6 +161,7 @@ func file_gcommon_v1_common_messages_formatter_config_proto_init() {
 	if File_gcommon_v1_common_messages_formatter_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_formatter_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

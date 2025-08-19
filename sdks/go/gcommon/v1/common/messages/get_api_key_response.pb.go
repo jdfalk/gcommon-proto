@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/get_api_key_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -160,7 +160,7 @@ const file_gcommon_v1_common_messages_get_api_key_response_proto_rawDesc = "" +
 	"\x11GetApiKeyResponse\x122\n" +
 	"\aapi_key\x18\x01 \x01(\v2\x19.gcommon.v1.common.APIKeyR\x06apiKey\x124\n" +
 	"\x05stats\x18\x02 \x01(\v2\x1e.gcommon.v1.common.ApiKeyStatsR\x05stats\x12#\n" +
-	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_get_api_key_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_get_api_key_response_proto_goTypes = []any{

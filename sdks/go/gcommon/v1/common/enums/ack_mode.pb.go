@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/ack_mode.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -85,7 +85,7 @@ const file_gcommon_v1_common_enums_ack_mode_proto_rawDesc = "" +
 	"\x14ACK_MODE_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fACK_MODE_MANUAL\x10\x01\x12\x11\n" +
 	"\rACK_MODE_AUTO\x10\x02\x12\x13\n" +
-	"\x0fACK_MODE_CLIENT\x10\x03BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fACK_MODE_CLIENT\x10\x03B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_ack_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_ack_mode_proto_goTypes = []any{

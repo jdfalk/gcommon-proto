@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/delivery_channel.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,10 +24,10 @@ const (
 // *
 // Delivery channel specifying how a notification is sent.
 type DeliveryChannel struct {
-	state             protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Type   enums.DeliveryChannelType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.DeliveryChannelType"`
-	xxx_hidden_Target *string                   `protobuf:"bytes,2,opt,name=target"`
-	xxx_hidden_Config map[string]string         `protobuf:"bytes,3,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Type   DeliveryChannelType    `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.DeliveryChannelType"`
+	xxx_hidden_Target *string                `protobuf:"bytes,2,opt,name=target"`
+	xxx_hidden_Config map[string]string      `protobuf:"bytes,3,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -62,13 +61,13 @@ func (x *DeliveryChannel) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeliveryChannel) GetType() enums.DeliveryChannelType {
+func (x *DeliveryChannel) GetType() DeliveryChannelType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.DeliveryChannelType(0)
+	return DeliveryChannelType_DELIVERY_CHANNEL_TYPE_UNSPECIFIED
 }
 
 func (x *DeliveryChannel) GetTarget() string {
@@ -88,7 +87,7 @@ func (x *DeliveryChannel) GetConfig() map[string]string {
 	return nil
 }
 
-func (x *DeliveryChannel) SetType(v enums.DeliveryChannelType) {
+func (x *DeliveryChannel) SetType(v DeliveryChannelType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -118,7 +117,7 @@ func (x *DeliveryChannel) HasTarget() bool {
 
 func (x *DeliveryChannel) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.DeliveryChannelType_DELIVERY_CHANNEL_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = DeliveryChannelType_DELIVERY_CHANNEL_TYPE_UNSPECIFIED
 }
 
 func (x *DeliveryChannel) ClearTarget() {
@@ -130,7 +129,7 @@ type DeliveryChannel_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Channel type such as email or SMS
-	Type *enums.DeliveryChannelType
+	Type *DeliveryChannelType
 	// Destination address (email, phone number, webhook URL, etc.)
 	Target *string
 	// Optional channel specific configuration
@@ -164,13 +163,13 @@ const file_gcommon_v1_common_messages_delivery_channel_proto_rawDesc = "" +
 	"\x06config\x18\x03 \x03(\v2..gcommon.v1.common.DeliveryChannel.ConfigEntryB\x02(\x01R\x06config\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_delivery_channel_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_delivery_channel_proto_goTypes = []any{
-	(*DeliveryChannel)(nil),        // 0: gcommon.v1.common.DeliveryChannel
-	nil,                            // 1: gcommon.v1.common.DeliveryChannel.ConfigEntry
-	(enums.DeliveryChannelType)(0), // 2: gcommon.v1.common.DeliveryChannelType
+	(*DeliveryChannel)(nil),  // 0: gcommon.v1.common.DeliveryChannel
+	nil,                      // 1: gcommon.v1.common.DeliveryChannel.ConfigEntry
+	(DeliveryChannelType)(0), // 2: gcommon.v1.common.DeliveryChannelType
 }
 var file_gcommon_v1_common_messages_delivery_channel_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.DeliveryChannel.type:type_name -> gcommon.v1.common.DeliveryChannelType
@@ -187,6 +186,7 @@ func file_gcommon_v1_common_messages_delivery_channel_proto_init() {
 	if File_gcommon_v1_common_messages_delivery_channel_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_delivery_channel_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

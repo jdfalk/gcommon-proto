@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/api_key_credentials.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -145,7 +145,7 @@ const file_gcommon_v1_common_messages_api_key_credentials_proto_rawDesc = "" +
 	"4gcommon/v1/common/messages/api_key_credentials.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"<\n" +
 	"\x11APIKeyCredentials\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x15\n" +
-	"\x06key_id\x18\x02 \x01(\tR\x05keyIdBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06key_id\x18\x02 \x01(\tR\x05keyIdB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_api_key_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_api_key_credentials_proto_goTypes = []any{

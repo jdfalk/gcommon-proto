@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/export_format.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -83,7 +83,7 @@ const file_gcommon_v1_common_enums_export_format_proto_rawDesc = "" +
 	"\x18EXPORT_FORMAT_PROMETHEUS\x10\x01\x12\x16\n" +
 	"\x12EXPORT_FORMAT_JSON\x10\x02\x12\x15\n" +
 	"\x11EXPORT_FORMAT_CSV\x10\x03\x12\x1f\n" +
-	"\x1bEXPORT_FORMAT_OPENTELEMETRY\x10\x04BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1bEXPORT_FORMAT_OPENTELEMETRY\x10\x04B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_export_format_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_export_format_proto_goTypes = []any{

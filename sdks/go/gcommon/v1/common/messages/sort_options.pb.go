@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/sort_options.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +27,7 @@ const (
 type SortOptions struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_SortField   *string                `protobuf:"bytes,1,opt,name=sort_field,json=sortField"`
-	xxx_hidden_Direction   enums.SortDirection    `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection"`
+	xxx_hidden_Direction   SortDirection          `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -70,13 +69,13 @@ func (x *SortOptions) GetSortField() string {
 	return ""
 }
 
-func (x *SortOptions) GetDirection() enums.SortDirection {
+func (x *SortOptions) GetDirection() SortDirection {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Direction
 		}
 	}
-	return enums.SortDirection(0)
+	return SortDirection_SORT_DIRECTION_UNSPECIFIED
 }
 
 func (x *SortOptions) SetSortField(v string) {
@@ -84,7 +83,7 @@ func (x *SortOptions) SetSortField(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *SortOptions) SetDirection(v enums.SortDirection) {
+func (x *SortOptions) SetDirection(v SortDirection) {
 	x.xxx_hidden_Direction = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
@@ -110,7 +109,7 @@ func (x *SortOptions) ClearSortField() {
 
 func (x *SortOptions) ClearDirection() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Direction = enums.SortDirection_SORT_DIRECTION_UNSPECIFIED
+	x.xxx_hidden_Direction = SortDirection_SORT_DIRECTION_UNSPECIFIED
 }
 
 type SortOptions_builder struct {
@@ -119,7 +118,7 @@ type SortOptions_builder struct {
 	// Field to sort by
 	SortField *string
 	// Sort direction
-	Direction *enums.SortDirection
+	Direction *SortDirection
 }
 
 func (b0 SortOptions_builder) Build() *SortOptions {
@@ -145,12 +144,12 @@ const file_gcommon_v1_common_messages_sort_options_proto_rawDesc = "" +
 	"\vSortOptions\x12\x1d\n" +
 	"\n" +
 	"sort_field\x18\x01 \x01(\tR\tsortField\x12>\n" +
-	"\tdirection\x18\x02 \x01(\x0e2 .gcommon.v1.common.SortDirectionR\tdirectionBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tdirection\x18\x02 \x01(\x0e2 .gcommon.v1.common.SortDirectionR\tdirectionB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_sort_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_sort_options_proto_goTypes = []any{
-	(*SortOptions)(nil),      // 0: gcommon.v1.common.SortOptions
-	(enums.SortDirection)(0), // 1: gcommon.v1.common.SortDirection
+	(*SortOptions)(nil), // 0: gcommon.v1.common.SortOptions
+	(SortDirection)(0),  // 1: gcommon.v1.common.SortDirection
 }
 var file_gcommon_v1_common_messages_sort_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.SortOptions.direction:type_name -> gcommon.v1.common.SortDirection
@@ -166,6 +165,7 @@ func file_gcommon_v1_common_messages_sort_options_proto_init() {
 	if File_gcommon_v1_common_messages_sort_options_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_sort_direction_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

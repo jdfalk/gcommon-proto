@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/appender_config.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +24,7 @@ const (
 type AppenderConfig struct {
 	state                  protoimpl.MessageState             `protogen:"opaque.v1"`
 	xxx_hidden_Name        *string                            `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type        enums.AppenderType                 `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AppenderType"`
+	xxx_hidden_Type        AppenderType                       `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AppenderType"`
 	xxx_hidden_Output      *AppenderConfig_OutputConfig       `protobuf:"bytes,3,opt,name=output"`
 	xxx_hidden_Formatter   *AppenderConfig_LogFormatterConfig `protobuf:"bytes,4,opt,name=formatter"`
 	xxx_hidden_Properties  map[string]string                  `protobuf:"bytes,5,rep,name=properties" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -70,13 +69,13 @@ func (x *AppenderConfig) GetName() string {
 	return ""
 }
 
-func (x *AppenderConfig) GetType() enums.AppenderType {
+func (x *AppenderConfig) GetType() AppenderType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.AppenderType(0)
+	return AppenderType_APPENDER_TYPE_UNSPECIFIED
 }
 
 func (x *AppenderConfig) GetOutput() *AppenderConfig_OutputConfig {
@@ -105,7 +104,7 @@ func (x *AppenderConfig) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *AppenderConfig) SetType(v enums.AppenderType) {
+func (x *AppenderConfig) SetType(v AppenderType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -157,7 +156,7 @@ func (x *AppenderConfig) ClearName() {
 
 func (x *AppenderConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.AppenderType_APPENDER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AppenderType_APPENDER_TYPE_UNSPECIFIED
 }
 
 func (x *AppenderConfig) ClearOutput() {
@@ -174,7 +173,7 @@ type AppenderConfig_builder struct {
 	// Unique appender name
 	Name *string
 	// Appender backend type
-	Type *enums.AppenderType
+	Type *AppenderType
 	// Output destination details
 	Output *AppenderConfig_OutputConfig
 	// Formatting configuration
@@ -299,7 +298,7 @@ func (b0 AppenderConfig_OutputConfig_builder) Build() *AppenderConfig_OutputConf
 // FormatterConfig defines how log entries are formatted
 type AppenderConfig_LogFormatterConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        enums.FormatterType    `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.FormatterType"`
+	xxx_hidden_Type        FormatterType          `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.FormatterType"`
 	xxx_hidden_Pattern     *string                `protobuf:"bytes,2,opt,name=pattern"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -332,13 +331,13 @@ func (x *AppenderConfig_LogFormatterConfig) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-func (x *AppenderConfig_LogFormatterConfig) GetType() enums.FormatterType {
+func (x *AppenderConfig_LogFormatterConfig) GetType() FormatterType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.FormatterType(0)
+	return FormatterType_FORMATTER_TYPE_UNSPECIFIED
 }
 
 func (x *AppenderConfig_LogFormatterConfig) GetPattern() string {
@@ -351,7 +350,7 @@ func (x *AppenderConfig_LogFormatterConfig) GetPattern() string {
 	return ""
 }
 
-func (x *AppenderConfig_LogFormatterConfig) SetType(v enums.FormatterType) {
+func (x *AppenderConfig_LogFormatterConfig) SetType(v FormatterType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
@@ -377,7 +376,7 @@ func (x *AppenderConfig_LogFormatterConfig) HasPattern() bool {
 
 func (x *AppenderConfig_LogFormatterConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = enums.FormatterType_FORMATTER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = FormatterType_FORMATTER_TYPE_UNSPECIFIED
 }
 
 func (x *AppenderConfig_LogFormatterConfig) ClearPattern() {
@@ -389,7 +388,7 @@ type AppenderConfig_LogFormatterConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Formatting strategy
-	Type *enums.FormatterType
+	Type *FormatterType
 	// Optional format pattern
 	Pattern *string
 }
@@ -433,7 +432,7 @@ const file_gcommon_v1_common_messages_appender_config_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1ad\n" +
 	"\x12LogFormatterConfig\x124\n" +
 	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.common.FormatterTypeR\x04type\x12\x18\n" +
-	"\apattern\x18\x02 \x01(\tR\apatternBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\apattern\x18\x02 \x01(\tR\apatternB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_appender_config_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gcommon_v1_common_messages_appender_config_proto_goTypes = []any{
@@ -441,9 +440,9 @@ var file_gcommon_v1_common_messages_appender_config_proto_goTypes = []any{
 	nil,                                 // 1: gcommon.v1.common.AppenderConfig.PropertiesEntry
 	(*AppenderConfig_OutputConfig)(nil), // 2: gcommon.v1.common.AppenderConfig.OutputConfig
 	(*AppenderConfig_LogFormatterConfig)(nil), // 3: gcommon.v1.common.AppenderConfig.LogFormatterConfig
-	nil,                      // 4: gcommon.v1.common.AppenderConfig.OutputConfig.OptionsEntry
-	(enums.AppenderType)(0),  // 5: gcommon.v1.common.AppenderType
-	(enums.FormatterType)(0), // 6: gcommon.v1.common.FormatterType
+	nil,                // 4: gcommon.v1.common.AppenderConfig.OutputConfig.OptionsEntry
+	(AppenderType)(0),  // 5: gcommon.v1.common.AppenderType
+	(FormatterType)(0), // 6: gcommon.v1.common.FormatterType
 }
 var file_gcommon_v1_common_messages_appender_config_proto_depIdxs = []int32{
 	5, // 0: gcommon.v1.common.AppenderConfig.type:type_name -> gcommon.v1.common.AppenderType
@@ -464,6 +463,8 @@ func file_gcommon_v1_common_messages_appender_config_proto_init() {
 	if File_gcommon_v1_common_messages_appender_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_appender_type_proto_init()
+	file_gcommon_v1_common_enums_formatter_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

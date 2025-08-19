@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/authenticate_request.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -411,7 +411,7 @@ const file_gcommon_v1_common_messages_authenticate_request_proto_rawDesc = "" +
 	"\x06scopes\x18\x06 \x03(\tR\x06scopes\x12B\n" +
 	"\vclient_info\x18\a \x01(\v2\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\n" +
 	"clientInfoB\r\n" +
-	"\vcredentialsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vcredentialsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_authenticate_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_authenticate_request_proto_goTypes = []any{

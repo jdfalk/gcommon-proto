@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/health_config.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -373,7 +373,7 @@ const file_gcommon_v1_common_messages_health_config_proto_rawDesc = "" +
 	"\x0ftimeout_seconds\x18\x06 \x01(\x05R\x0etimeoutSeconds\x12)\n" +
 	"\x10interval_seconds\x18\a \x01(\x05R\x0fintervalSeconds\x120\n" +
 	"\x14grace_period_seconds\x18\b \x01(\x05R\x12gracePeriodSeconds\x12\x18\n" +
-	"\aretries\x18\t \x01(\x05R\aretriesBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aretries\x18\t \x01(\x05R\aretriesB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_health_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_health_config_proto_goTypes = []any{

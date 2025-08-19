@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/enums/two_fa_type.proto
 
-package enums
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -78,7 +78,7 @@ const file_gcommon_v1_common_enums_two_fa_type_proto_rawDesc = "" +
 	"\x17TWO_FA_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10TWO_FA_TYPE_TOTP\x10\x01\x12\x13\n" +
 	"\x0fTWO_FA_TYPE_SMS\x10\x02\x12\x16\n" +
-	"\x12TWO_FA_TYPE_BACKUP\x10\x03BCZ9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12TWO_FA_TYPE_BACKUP\x10\x03B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_enums_two_fa_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_enums_two_fa_type_proto_goTypes = []any{

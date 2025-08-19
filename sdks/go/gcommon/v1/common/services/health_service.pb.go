@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/services/health_service.proto
 
-package services
+package common
 
 import (
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,25 +34,25 @@ const file_gcommon_v1_common_services_health_service_proto_rawDesc = "" +
 	"\fListServices\x12&.gcommon.v1.common.ListServicesRequest\x1a'.gcommon.v1.common.ListServicesResponse\x12b\n" +
 	"\rRegisterCheck\x12'.gcommon.v1.common.RegisterCheckRequest\x1a(.gcommon.v1.common.RegisterCheckResponse\x12h\n" +
 	"\x0fUnregisterCheck\x12).gcommon.v1.common.UnregisterCheckRequest\x1a*.gcommon.v1.common.UnregisterCheckResponse\x12k\n" +
-	"\x10GetHealthMetrics\x12*.gcommon.v1.common.GetHealthMetricsRequest\x1a+.gcommon.v1.common.GetHealthMetricsResponseBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/services\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10GetHealthMetrics\x12*.gcommon.v1.common.GetHealthMetricsRequest\x1a+.gcommon.v1.common.GetHealthMetricsResponseB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_services_health_service_proto_goTypes = []any{
-	(*messages.HealthHealthCheckRequest)(nil),  // 0: gcommon.v1.common.HealthHealthCheckRequest
-	(*messages.HealthCheckAllRequest)(nil),     // 1: gcommon.v1.common.HealthCheckAllRequest
-	(*messages.HealthWatchRequest)(nil),        // 2: gcommon.v1.common.HealthWatchRequest
-	(*messages.GetServiceHealthRequest)(nil),   // 3: gcommon.v1.common.GetServiceHealthRequest
-	(*messages.ListServicesRequest)(nil),       // 4: gcommon.v1.common.ListServicesRequest
-	(*messages.RegisterCheckRequest)(nil),      // 5: gcommon.v1.common.RegisterCheckRequest
-	(*messages.UnregisterCheckRequest)(nil),    // 6: gcommon.v1.common.UnregisterCheckRequest
-	(*messages.GetHealthMetricsRequest)(nil),   // 7: gcommon.v1.common.GetHealthMetricsRequest
-	(*messages.HealthHealthCheckResponse)(nil), // 8: gcommon.v1.common.HealthHealthCheckResponse
-	(*messages.HealthCheckAllResponse)(nil),    // 9: gcommon.v1.common.HealthCheckAllResponse
-	(*messages.WatchResponse)(nil),             // 10: gcommon.v1.common.WatchResponse
-	(*messages.GetServiceHealthResponse)(nil),  // 11: gcommon.v1.common.GetServiceHealthResponse
-	(*messages.ListServicesResponse)(nil),      // 12: gcommon.v1.common.ListServicesResponse
-	(*messages.RegisterCheckResponse)(nil),     // 13: gcommon.v1.common.RegisterCheckResponse
-	(*messages.UnregisterCheckResponse)(nil),   // 14: gcommon.v1.common.UnregisterCheckResponse
-	(*messages.GetHealthMetricsResponse)(nil),  // 15: gcommon.v1.common.GetHealthMetricsResponse
+	(*HealthHealthCheckRequest)(nil),  // 0: gcommon.v1.common.HealthHealthCheckRequest
+	(*HealthCheckAllRequest)(nil),     // 1: gcommon.v1.common.HealthCheckAllRequest
+	(*HealthWatchRequest)(nil),        // 2: gcommon.v1.common.HealthWatchRequest
+	(*GetServiceHealthRequest)(nil),   // 3: gcommon.v1.common.GetServiceHealthRequest
+	(*ListServicesRequest)(nil),       // 4: gcommon.v1.common.ListServicesRequest
+	(*RegisterCheckRequest)(nil),      // 5: gcommon.v1.common.RegisterCheckRequest
+	(*UnregisterCheckRequest)(nil),    // 6: gcommon.v1.common.UnregisterCheckRequest
+	(*GetHealthMetricsRequest)(nil),   // 7: gcommon.v1.common.GetHealthMetricsRequest
+	(*HealthHealthCheckResponse)(nil), // 8: gcommon.v1.common.HealthHealthCheckResponse
+	(*HealthCheckAllResponse)(nil),    // 9: gcommon.v1.common.HealthCheckAllResponse
+	(*WatchResponse)(nil),             // 10: gcommon.v1.common.WatchResponse
+	(*GetServiceHealthResponse)(nil),  // 11: gcommon.v1.common.GetServiceHealthResponse
+	(*ListServicesResponse)(nil),      // 12: gcommon.v1.common.ListServicesResponse
+	(*RegisterCheckResponse)(nil),     // 13: gcommon.v1.common.RegisterCheckResponse
+	(*UnregisterCheckResponse)(nil),   // 14: gcommon.v1.common.UnregisterCheckResponse
+	(*GetHealthMetricsResponse)(nil),  // 15: gcommon.v1.common.GetHealthMetricsResponse
 }
 var file_gcommon_v1_common_services_health_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.common.HealthService.Check:input_type -> gcommon.v1.common.HealthHealthCheckRequest
@@ -84,6 +83,22 @@ func file_gcommon_v1_common_services_health_service_proto_init() {
 	if File_gcommon_v1_common_services_health_service_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_messages_get_health_metrics_request_proto_init()
+	file_gcommon_v1_common_messages_get_health_metrics_response_proto_init()
+	file_gcommon_v1_common_messages_get_service_health_request_proto_init()
+	file_gcommon_v1_common_messages_get_service_health_response_proto_init()
+	file_gcommon_v1_common_messages_health_check_all_request_proto_init()
+	file_gcommon_v1_common_messages_health_check_all_response_proto_init()
+	file_gcommon_v1_common_messages_health_check_request_proto_init()
+	file_gcommon_v1_common_messages_health_check_response_proto_init()
+	file_gcommon_v1_common_messages_list_services_request_proto_init()
+	file_gcommon_v1_common_messages_list_services_response_proto_init()
+	file_gcommon_v1_common_messages_register_check_request_proto_init()
+	file_gcommon_v1_common_messages_register_check_response_proto_init()
+	file_gcommon_v1_common_messages_unregister_check_request_proto_init()
+	file_gcommon_v1_common_messages_unregister_check_response_proto_init()
+	file_gcommon_v1_common_messages_watch_request_proto_init()
+	file_gcommon_v1_common_messages_watch_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

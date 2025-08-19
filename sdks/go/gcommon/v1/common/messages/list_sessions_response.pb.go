@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/list_sessions_response.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -119,7 +119,7 @@ const file_gcommon_v1_common_messages_list_sessions_response_proto_rawDesc = "" 
 	"\bsessions\x18\x01 \x03(\v2\x1a.gcommon.v1.common.SessionR\bsessions\x12D\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"paginationB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_list_sessions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_list_sessions_response_proto_goTypes = []any{

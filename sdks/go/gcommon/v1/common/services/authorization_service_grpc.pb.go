@@ -4,11 +4,10 @@
 // - protoc             (unknown)
 // source: gcommon/v1/common/services/authorization_service.proto
 
-package services
+package common
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -35,11 +34,11 @@ const (
 // and role lifecycle management for fine-grained access control.
 type AuthorizationServiceClient interface {
 	// Check if a user is authorized for a specific action on a resource
-	Authorize(ctx context.Context, in *messages.AuthAuthorizeRequest, opts ...grpc.CallOption) (*messages.AuthAuthorizeResponse, error)
+	Authorize(ctx context.Context, in *AuthAuthorizeRequest, opts ...grpc.CallOption) (*AuthAuthorizeResponse, error)
 	// Get all permissions granted to a user (direct and via roles)
-	GetUserPermissions(ctx context.Context, in *messages.GetUserPermissionsRequest, opts ...grpc.CallOption) (*messages.GetUserPermissionsResponse, error)
+	GetUserPermissions(ctx context.Context, in *GetUserPermissionsRequest, opts ...grpc.CallOption) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
-	GetUserRoles(ctx context.Context, in *messages.GetUserRolesRequest, opts ...grpc.CallOption) (*messages.GetUserRolesResponse, error)
+	GetUserRoles(ctx context.Context, in *GetUserRolesRequest, opts ...grpc.CallOption) (*GetUserRolesResponse, error)
 }
 
 type authorizationServiceClient struct {
@@ -50,9 +49,9 @@ func NewAuthorizationServiceClient(cc grpc.ClientConnInterface) AuthorizationSer
 	return &authorizationServiceClient{cc}
 }
 
-func (c *authorizationServiceClient) Authorize(ctx context.Context, in *messages.AuthAuthorizeRequest, opts ...grpc.CallOption) (*messages.AuthAuthorizeResponse, error) {
+func (c *authorizationServiceClient) Authorize(ctx context.Context, in *AuthAuthorizeRequest, opts ...grpc.CallOption) (*AuthAuthorizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.AuthAuthorizeResponse)
+	out := new(AuthAuthorizeResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_Authorize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -60,9 +59,9 @@ func (c *authorizationServiceClient) Authorize(ctx context.Context, in *messages
 	return out, nil
 }
 
-func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in *messages.GetUserPermissionsRequest, opts ...grpc.CallOption) (*messages.GetUserPermissionsResponse, error) {
+func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in *GetUserPermissionsRequest, opts ...grpc.CallOption) (*GetUserPermissionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetUserPermissionsResponse)
+	out := new(GetUserPermissionsResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_GetUserPermissions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -70,9 +69,9 @@ func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *messages.GetUserRolesRequest, opts ...grpc.CallOption) (*messages.GetUserRolesResponse, error) {
+func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *GetUserRolesRequest, opts ...grpc.CallOption) (*GetUserRolesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.GetUserRolesResponse)
+	out := new(GetUserRolesResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_GetUserRoles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -90,11 +89,11 @@ func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *messa
 // and role lifecycle management for fine-grained access control.
 type AuthorizationServiceServer interface {
 	// Check if a user is authorized for a specific action on a resource
-	Authorize(context.Context, *messages.AuthAuthorizeRequest) (*messages.AuthAuthorizeResponse, error)
+	Authorize(context.Context, *AuthAuthorizeRequest) (*AuthAuthorizeResponse, error)
 	// Get all permissions granted to a user (direct and via roles)
-	GetUserPermissions(context.Context, *messages.GetUserPermissionsRequest) (*messages.GetUserPermissionsResponse, error)
+	GetUserPermissions(context.Context, *GetUserPermissionsRequest) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
-	GetUserRoles(context.Context, *messages.GetUserRolesRequest) (*messages.GetUserRolesResponse, error)
+	GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error)
 	mustEmbedUnimplementedAuthorizationServiceServer()
 }
 
@@ -105,13 +104,13 @@ type AuthorizationServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAuthorizationServiceServer struct{}
 
-func (UnimplementedAuthorizationServiceServer) Authorize(context.Context, *messages.AuthAuthorizeRequest) (*messages.AuthAuthorizeResponse, error) {
+func (UnimplementedAuthorizationServiceServer) Authorize(context.Context, *AuthAuthorizeRequest) (*AuthAuthorizeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Authorize not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) GetUserPermissions(context.Context, *messages.GetUserPermissionsRequest) (*messages.GetUserPermissionsResponse, error) {
+func (UnimplementedAuthorizationServiceServer) GetUserPermissions(context.Context, *GetUserPermissionsRequest) (*GetUserPermissionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserPermissions not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) GetUserRoles(context.Context, *messages.GetUserRolesRequest) (*messages.GetUserRolesResponse, error) {
+func (UnimplementedAuthorizationServiceServer) GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserRoles not implemented")
 }
 func (UnimplementedAuthorizationServiceServer) mustEmbedUnimplementedAuthorizationServiceServer() {}
@@ -136,7 +135,7 @@ func RegisterAuthorizationServiceServer(s grpc.ServiceRegistrar, srv Authorizati
 }
 
 func _AuthorizationService_Authorize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.AuthAuthorizeRequest)
+	in := new(AuthAuthorizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -148,13 +147,13 @@ func _AuthorizationService_Authorize_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AuthorizationService_Authorize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).Authorize(ctx, req.(*messages.AuthAuthorizeRequest))
+		return srv.(AuthorizationServiceServer).Authorize(ctx, req.(*AuthAuthorizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_GetUserPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetUserPermissionsRequest)
+	in := new(GetUserPermissionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -166,13 +165,13 @@ func _AuthorizationService_GetUserPermissions_Handler(srv interface{}, ctx conte
 		FullMethod: AuthorizationService_GetUserPermissions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).GetUserPermissions(ctx, req.(*messages.GetUserPermissionsRequest))
+		return srv.(AuthorizationServiceServer).GetUserPermissions(ctx, req.(*GetUserPermissionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_GetUserRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(messages.GetUserRolesRequest)
+	in := new(GetUserRolesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -184,7 +183,7 @@ func _AuthorizationService_GetUserRoles_Handler(srv interface{}, ctx context.Con
 		FullMethod: AuthorizationService_GetUserRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).GetUserRoles(ctx, req.(*messages.GetUserRolesRequest))
+		return srv.(AuthorizationServiceServer).GetUserRoles(ctx, req.(*GetUserRolesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/subscription_preferences.proto
 
-package messages
+package common
 
 import (
-	enums "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +24,11 @@ const (
 // *
 // User subscription preferences for event notifications.
 type SubscriptionPreferences struct {
-	state               protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_UserId   *string                     `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Channels []enums.DeliveryChannelType `protobuf:"varint,2,rep,packed,name=channels,enum=gcommon.v1.common.DeliveryChannelType"`
-	xxx_hidden_Events   []string                    `protobuf:"bytes,3,rep,name=events"`
-	xxx_hidden_Metadata map[string]string           `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_UserId   *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
+	xxx_hidden_Channels []DeliveryChannelType  `protobuf:"varint,2,rep,packed,name=channels,enum=gcommon.v1.common.DeliveryChannelType"`
+	xxx_hidden_Events   []string               `protobuf:"bytes,3,rep,name=events"`
+	xxx_hidden_Metadata map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -73,7 +72,7 @@ func (x *SubscriptionPreferences) GetUserId() string {
 	return ""
 }
 
-func (x *SubscriptionPreferences) GetChannels() []enums.DeliveryChannelType {
+func (x *SubscriptionPreferences) GetChannels() []DeliveryChannelType {
 	if x != nil {
 		return x.xxx_hidden_Channels
 	}
@@ -99,7 +98,7 @@ func (x *SubscriptionPreferences) SetUserId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *SubscriptionPreferences) SetChannels(v []enums.DeliveryChannelType) {
+func (x *SubscriptionPreferences) SetChannels(v []DeliveryChannelType) {
 	x.xxx_hidden_Channels = v
 }
 
@@ -129,7 +128,7 @@ type SubscriptionPreferences_builder struct {
 	// User or entity identifier
 	UserId *string
 	// Enabled delivery channels
-	Channels []enums.DeliveryChannelType
+	Channels []DeliveryChannelType
 	// Subscribed event types
 	Events []string
 	// Additional arbitrary preferences
@@ -162,13 +161,13 @@ const file_gcommon_v1_common_messages_subscription_preferences_proto_rawDesc = "
 	"\bmetadata\x18\x04 \x03(\v28.gcommon.v1.common.SubscriptionPreferences.MetadataEntryB\x02(\x01R\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01BFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_subscription_preferences_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_messages_subscription_preferences_proto_goTypes = []any{
 	(*SubscriptionPreferences)(nil), // 0: gcommon.v1.common.SubscriptionPreferences
 	nil,                             // 1: gcommon.v1.common.SubscriptionPreferences.MetadataEntry
-	(enums.DeliveryChannelType)(0),  // 2: gcommon.v1.common.DeliveryChannelType
+	(DeliveryChannelType)(0),        // 2: gcommon.v1.common.DeliveryChannelType
 }
 var file_gcommon_v1_common_messages_subscription_preferences_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.SubscriptionPreferences.channels:type_name -> gcommon.v1.common.DeliveryChannelType
@@ -185,6 +184,7 @@ func file_gcommon_v1_common_messages_subscription_preferences_proto_init() {
 	if File_gcommon_v1_common_messages_subscription_preferences_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_enums_delivery_channel_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

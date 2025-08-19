@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: gcommon/v1/common/messages/saml_config.proto
 
-package messages
+package common
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -268,7 +268,7 @@ const file_gcommon_v1_common_messages_saml_config_proto_rawDesc = "" +
 	"\vcertificate\x18\x04 \x01(\tR\vcertificate\x12\x1f\n" +
 	"\vprivate_key\x18\x05 \x01(\tR\n" +
 	"privateKey\x12'\n" +
-	"\x0fallowed_domains\x18\x06 \x03(\tR\x0eallowedDomainsBFZ<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fallowed_domains\x18\x06 \x03(\tR\x0eallowedDomainsB=Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_messages_saml_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_messages_saml_config_proto_goTypes = []any{
