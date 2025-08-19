@@ -18,11 +18,7 @@ message RevokePermissionRequest {
   string subject_id = 1;
 
   // Subject type
-  enum AuthSubjectType {
-    SUBJECT_TYPE_UNSPECIFIED = 0;
-    SUBJECT_TYPE_USER = 1;
-    SUBJECT_TYPE_ROLE = 2;
-  }
+
   AuthSubjectType subject_type = 2;
 
   // Permission ID to revoke

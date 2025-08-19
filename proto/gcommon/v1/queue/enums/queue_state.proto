@@ -19,23 +19,23 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
  */
 enum QueueState {
   // Default unknown state
-  QUEUE_STATE_UNSPECIFIED = 0;
+  QUEUE_QUEUE_STATE_UNSPECIFIED = 0;
 
   // Queue is active and processing messages
-  QUEUE_STATE_ACTIVE = 1;
+  QUEUE_QUEUE_STATE_ACTIVE = 1;
 
   // Queue is paused (not processing messages but accepting them)
-  QUEUE_STATE_PAUSED = 2;
+  QUEUE_QUEUE_STATE_PAUSED = 2;
 
   // Queue is suspended (not accepting new messages)
-  QUEUE_STATE_SUSPENDED = 3;
+  QUEUE_QUEUE_STATE_SUSPENDED = 3;
 
   // Queue is in the process of being deleted
-  QUEUE_STATE_DELETING = 4;
+  QUEUE_QUEUE_STATE_DELETING = 4;
 
   // Queue is in maintenance mode
-  QUEUE_STATE_MAINTENANCE = 5;
+  QUEUE_QUEUE_STATE_MAINTENANCE = 5;
 
   // Queue has encountered an error and needs attention
-  QUEUE_STATE_ERROR = 6;
+  QUEUE_QUEUE_STATE_ERROR = 6;
 }

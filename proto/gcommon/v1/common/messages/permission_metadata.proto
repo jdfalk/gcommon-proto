@@ -30,13 +30,7 @@ message PermissionMetadata {
   repeated gcommon.v1.common.PermissionCondition conditions = 5;
 
   // Permission level (system, organization, project, etc.)
-  enum AuthPermissionLevel {
-    PERMISSION_LEVEL_UNSPECIFIED = 0;
-    PERMISSION_LEVEL_SYSTEM = 1;
-    PERMISSION_LEVEL_ORGANIZATION = 2;
-    PERMISSION_LEVEL_PROJECT = 3;
-    PERMISSION_LEVEL_RESOURCE = 4;
-  }
+
   AuthPermissionLevel level = 6;
 
   // Creation metadata

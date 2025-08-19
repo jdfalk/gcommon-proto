@@ -35,7 +35,46 @@ env:
 jobs:
   # Detect what needs to be built
   detect-matrix:
-    name: Detect Build Matrix
+    # file: .github/workflows/matrix-build.yml
+# version: 1.2.0
+# guid: f8e7d6c5-b4a3-9281-7065-432109876543
+
+name: Matrix Build Detection
+
+on:
+  workflow_call:
+    outputs:
+      go-matrix:
+        description: "Go build matrix"
+        value: ${{ jobs.detect.outputs.go-matrix }}
+      python-matrix:
+        description: "Python build matrix"
+        value: ${{ jobs.detect.outputs.python-matrix }}
+      frontend-matrix:
+        description: "Frontend build matrix"
+        value: ${{ jobs.detect.outputs.frontend-matrix }}
+      docker-matrix:
+        description: "Docker build matrix"
+        value: ${{ jobs.detect.outputs.docker-matrix }}
+      protobuf-needed:
+        description: "Whether protobuf generation is needed"
+        value: ${{ jobs.detect.outputs.protobuf-needed }}
+      has-go:
+        description: "Whether the repository contains Go code"
+        value: ${{ jobs.detect.outputs.has-go }}
+      has-python:
+        description: "Whether the repository contains Python code"
+        value: ${{ jobs.detect.outputs.has-python }}
+      has-frontend:
+        description: "Whether the repository contains frontend code"
+        value: ${{ jobs.detect.outputs.has-frontend }}
+      has-docker:
+        description: "Whether the repository contains Docker configuration"
+        value: ${{ jobs.detect.outputs.has-docker }}
+
+jobs:
+  detect:
+    name: Detect Build Requirements
     runs-on: ubuntu-latest
     outputs:
       go-matrix: ${{ steps.detect.outputs.go-matrix }}
@@ -51,98 +90,236 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Detect build requirements
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Detect Build Matrix
         id: detect
         run: |
-          echo "Detecting build matrix requirements..."
+          python3 .github/scripts/detect-build-matrix.py
 
-          # Initialize matrices
-          GO_MATRIX='{"include":[]}'
-          PYTHON_MATRIX='{"include":[]}'
-          FRONTEND_MATRIX='{"include":[]}'
-          DOCKER_MATRIX='{"include":[]}'
+  # Protobuf generation (runs first as dependency)
+  protobuf:
+    name: Generate Protobuf
+    runs-on: ubuntu-latest
+    needs: detect
+    if: needs.detect.outputs.protobuf-needed == 'true'
+    outputs:
+      protobuf-generated: ${{ steps.generate.outputs.generated }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-          HAS_GO=false
-          HAS_PYTHON=false
-          HAS_FRONTEND=false
-          HAS_DOCKER=false
-          PROTOBUF_NEEDED=false
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
 
-                    # Check for Go projects
-          if [ -f "go.mod" ] || find . -name "*.go" -not -path "./vendor/*" | head -1 | grep -q .; then
-            echo "Go project detected"
-            HAS_GO=true
-            GO_MATRIX='{
-              "include": [
-                {"go-version": "1.22", "os": "ubuntu-latest", "arch": "amd64"},
-                {"go-version": "1.23", "os": "ubuntu-latest", "arch": "amd64"},
-                {"go-version": "1.24", "os": "ubuntu-latest", "arch": "amd64", "primary": true},
-                {"go-version": "1.24", "os": "macos-latest", "arch": "amd64"},
-                {"go-version": "1.24", "os": "windows-latest", "arch": "amd64"}
-              ]
-            }'
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@v1.41.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate protobuf
+        id: generate
+        run: |
+          if buf generate; then
+            echo "generated=true" >> $GITHUB_OUTPUT
+          else
+            echo "generated=false" >> $GITHUB_OUTPUT
+            exit 1
           fi
 
-          # Check for Python projects
-          if [ -f "pyproject.toml" ] || [ -f "requirements.txt" ] || [ -f "setup.py" ] || find . -name "*.py" | head -1 | grep -q .; then
-            echo "Python project detected"
-            HAS_PYTHON=true
-            PYTHON_MATRIX='{
-              "include": [
-                {"python-version": "3.11", "os": "ubuntu-latest"},
-                {"python-version": "3.12", "os": "ubuntu-latest", "primary": true},
-                {"python-version": "3.13", "os": "ubuntu-latest"},
-                {"python-version": "3.12", "os": "macos-latest"},
-                {"python-version": "3.12", "os": "windows-latest"}
-              ]
-            }'
+  # Go build matrix
+  go-build:
+    name: Go Build (${{ matrix.go-version }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs: [detect, protobuf]
+    if: |
+      always() &&
+      needs.detect.outputs.has-go == 'true' &&
+      (needs.protobuf.result == 'success' || needs.protobuf.result == 'skipped')
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.detect.outputs.go-matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Cache Go modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ matrix.go-version }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-${{ matrix.go-version }}-
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+
+  # Python build matrix
+  python-build:
+    name: Python Build (${{ matrix.python-version }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs: detect
+    if: needs.detect.outputs.has-python == 'true'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.detect.outputs.python-matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements*.txt', '**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pyproject.toml ]; then pip install -e .; fi
+
+      - name: Test
+        run: |
+          if [ -f pytest.ini ] || [ -f pyproject.toml ]; then
+            pip install pytest
+            pytest
+          else
+            python -m py_compile *.py || true
           fi
 
-          # Check for frontend projects
-          if [ -f "package.json" ] || [ -f "yarn.lock" ] || [ -f "pnpm-lock.yaml" ]; then
-            echo "Frontend project detected"
-            HAS_FRONTEND=true
-            FRONTEND_MATRIX='{
-              "include": [
-                {"node-version": "20", "os": "ubuntu-latest"},
-                {"node-version": "22", "os": "ubuntu-latest", "primary": true},
-                {"node-version": "24", "os": "ubuntu-latest"},
-                {"node-version": "22", "os": "macos-latest"},
-                {"node-version": "22", "os": "windows-latest"}
-              ]
-            }'
+  # Frontend build matrix
+  frontend-build:
+    name: Frontend Build (Node ${{ matrix.node-version }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    needs: detect
+    if: needs.detect.outputs.has-frontend == 'true'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.detect.outputs.frontend-matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ~/.yarn
+            ~/.pnpm-store
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json', '**/yarn.lock', '**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
+
+      - name: Install dependencies
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            npm install -g pnpm
+            pnpm install
+          elif [ -f "yarn.lock" ]; then
+            yarn install
+          else
+            npm install
           fi
 
-          # Check for Docker projects
-          if find . -name "Dockerfile*" -o -name "docker-compose*.yml" -o -name "docker-compose*.yaml" | head -1 | grep -q .; then
-            echo "Docker project detected"
-            HAS_DOCKER=true
-            DOCKER_MATRIX='{
-              "include": [
-                {"platform": "linux/amd64", "os": "ubuntu-latest", "primary": true},
-                {"platform": "linux/arm64", "os": "ubuntu-latest"}
-              ]
-            }'
+      - name: Build
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            pnpm build || true
+          elif [ -f "yarn.lock" ]; then
+            yarn build || true
+          else
+            npm run build || true
           fi
 
-          # Check for protobuf
-          if [ -f "buf.yaml" ] || [ -f "buf.gen.yaml" ] || find . -name "*.proto" | head -1 | grep -q .; then
-            echo "Protobuf project detected"
-            PROTOBUF_NEEDED=true
+      - name: Test
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            pnpm test || true
+          elif [ -f "yarn.lock" ]; then
+            yarn test || true
+          else
+            npm test || true
           fi
 
-          # Set outputs
-          echo "go-matrix=$GO_MATRIX" >> $GITHUB_OUTPUT
-          echo "python-matrix=$PYTHON_MATRIX" >> $GITHUB_OUTPUT
-          echo "frontend-matrix=$FRONTEND_MATRIX" >> $GITHUB_OUTPUT
-          echo "docker-matrix=$DOCKER_MATRIX" >> $GITHUB_OUTPUT
-          echo "protobuf-needed=$PROTOBUF_NEEDED" >> $GITHUB_OUTPUT
-          echo "has-go=$HAS_GO" >> $GITHUB_OUTPUT
-          echo "has-python=$HAS_PYTHON" >> $GITHUB_OUTPUT
-          echo "has-frontend=$HAS_FRONTEND" >> $GITHUB_OUTPUT
-          echo "has-docker=$HAS_DOCKER" >> $GITHUB_OUTPUT
+  # Docker build matrix
+  docker-build:
+    name: Docker Build (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    needs: detect
+    if: needs.detect.outputs.has-docker == 'true'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.detect.outputs.docker-matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-          echo "Matrix detection complete"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: ${{ matrix.platform }}
+          push: false
+          tags: test:latest
+
+  # Summary job
+  build-summary:
+    name: Build Summary
+    runs-on: ubuntu-latest
+    needs: [detect, protobuf, go-build, python-build, frontend-build, docker-build]
+    if: always()
+    steps:
+      - name: Build Summary
+        run: |
+          echo "Build Matrix Summary:"
+          echo "===================="
+          echo "Go: ${{ needs.detect.outputs.has-go }}"
+          echo "Python: ${{ needs.detect.outputs.has-python }}"
+          echo "Frontend: ${{ needs.detect.outputs.has-frontend }}"
+          echo "Docker: ${{ needs.detect.outputs.has-docker }}"
+          echo "Protobuf: ${{ needs.detect.outputs.protobuf-needed }}"
+          echo ""
+          echo "Job Results:"
+          echo "Protobuf: ${{ needs.protobuf.result }}"
+          echo "Go Build: ${{ needs.go-build.result }}"
+          echo "Python Build: ${{ needs.python-build.result }}"
+          echo "Frontend Build: ${{ needs.frontend-build.result }}"
+          echo "Docker Build: ${{ needs.docker-build.result }}"
 
   # Protobuf generation (runs first as dependency)
   protobuf:

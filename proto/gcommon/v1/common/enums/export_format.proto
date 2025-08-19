@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/common/enums/export_format.proto
+// version: 1.0.0
+// guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/common";
+
+// ExportFormat enumerates data export formats used across all systems
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum CommonExportFormat {
+  EXPORT_FORMAT_UNSPECIFIED = 0;
+  EXPORT_FORMAT_PROMETHEUS = 1;
+  EXPORT_FORMAT_JSON = 2;
+  EXPORT_FORMAT_CSV = 3;
+  EXPORT_FORMAT_OPENTELEMETRY = 4;
+}

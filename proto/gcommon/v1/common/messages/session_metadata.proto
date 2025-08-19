@@ -43,12 +43,6 @@ message SessionMetadata {
   gcommon.v1.common.LocationInfo location_info = 9;
 
   // Session state
-  enum AuthSessionState {
-    SESSION_STATE_UNSPECIFIED = 0;
-    SESSION_STATE_ACTIVE = 1;
-    SESSION_STATE_IDLE = 2;
-    SESSION_STATE_EXPIRED = 3;
-    SESSION_STATE_TERMINATED = 4;
-  }
+
   AuthSessionState state = 10;
 }

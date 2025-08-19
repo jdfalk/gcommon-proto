@@ -36,4 +36,10 @@ enum AuthAuthMethod {
 
   // Multi-factor authentication method
   AUTH_METHOD_MFA = 6;
+
+  // Token-based authentication (e.g., JWT, bearer tokens)
+  AUTH_METHOD_TOKEN = 7;
+
+  // No authentication required
+  AUTH_METHOD_NONE = 8;
 }

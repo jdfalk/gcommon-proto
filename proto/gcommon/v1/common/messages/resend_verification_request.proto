@@ -17,10 +17,6 @@ message ResendVerificationRequest {
   string identifier = 1;
 
   // Verification type
-  enum AuthVerificationType {
-    VERIFICATION_TYPE_UNSPECIFIED = 0;
-    VERIFICATION_TYPE_EMAIL = 1;
-    VERIFICATION_TYPE_SMS = 2;
-  }
+
   AuthVerificationType type = 2;
 }
