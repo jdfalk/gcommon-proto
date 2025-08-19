@@ -26,14 +26,14 @@ from gcommon.v1.common.messages import user_info_pb2 as gcommon_dot_v1_dot_commo
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/common/messages/list_users_response.proto\x12\x11gcommon.v1.common\x1a*gcommon/v1/common/messages/user_info.proto\x1a!google/protobuf/go_features.proto\"\x89\x02\n\x11ListUsersResponse\x12\x31\n\x05users\x18\x01 \x03(\x0b\x32\x1b.gcommon.v1.common.UserInfoR\x05users\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x12\n\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n\tpage_size\x18\x04 \x01(\x05R\x08pageSize\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPages\x12\"\n\rhas_next_page\x18\x06 \x01(\x08R\x0bhasNextPage\x12*\n\x11has_previous_page\x18\x07 \x01(\x08R\x0fhasPreviousPageB\xd7\x01\n\x15\x63om.gcommon.v1.commonB\x16ListUsersResponseProtoP\x01Z8github.com/jdfalk/gcommon/pkg/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/common/messages/list_users_response.proto\x12\x11gcommon.v1.common\x1a*gcommon/v1/common/messages/user_info.proto\x1a!google/protobuf/go_features.proto\"\x89\x02\n\x11ListUsersResponse\x12\x31\n\x05users\x18\x01 \x03(\x0b\x32\x1b.gcommon.v1.common.UserInfoR\x05users\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x12\n\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n\tpage_size\x18\x04 \x01(\x05R\x08pageSize\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPages\x12\"\n\rhas_next_page\x18\x06 \x01(\x08R\x0bhasNextPage\x12*\n\x11has_previous_page\x18\x07 \x01(\x08R\x0fhasPreviousPageB\xdb\x01\n\x15\x63om.gcommon.v1.commonB\x16ListUsersResponseProtoP\x01Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.messages.list_users_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\026ListUsersResponseProtoP\001Z8github.com/jdfalk/gcommon/pkg/gcommon/v1/common/messages\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\026ListUsersResponseProtoP\001Z<github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/messages\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_LISTUSERSRESPONSE']._serialized_start=155
   _globals['_LISTUSERSRESPONSE']._serialized_end=420
 # @@protoc_insertion_point(module_scope)

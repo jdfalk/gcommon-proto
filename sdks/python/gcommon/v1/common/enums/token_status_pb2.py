@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/common/enums/token_status.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc8\x01\n\x0bTokenStatus\x12\x1c\n\x18TOKEN_STATUS_UNSPECIFIED\x10\x00\x12\x17\n\x13TOKEN_STATUS_ACTIVE\x10\x01\x12\x18\n\x14TOKEN_STATUS_EXPIRED\x10\x02\x12\x18\n\x14TOKEN_STATUS_REVOKED\x10\x03\x12\x1a\n\x16TOKEN_STATUS_SUSPENDED\x10\x04\x12\x18\n\x14TOKEN_STATUS_PENDING\x10\x05\x12\x18\n\x14TOKEN_STATUS_INVALID\x10\x06\x42\xce\x01\n\x15\x63om.gcommon.v1.commonB\x10TokenStatusProtoP\x01Z5github.com/jdfalk/gcommon/pkg/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/common/enums/token_status.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc8\x01\n\x0bTokenStatus\x12\x1c\n\x18TOKEN_STATUS_UNSPECIFIED\x10\x00\x12\x17\n\x13TOKEN_STATUS_ACTIVE\x10\x01\x12\x18\n\x14TOKEN_STATUS_EXPIRED\x10\x02\x12\x18\n\x14TOKEN_STATUS_REVOKED\x10\x03\x12\x1a\n\x16TOKEN_STATUS_SUSPENDED\x10\x04\x12\x18\n\x14TOKEN_STATUS_PENDING\x10\x05\x12\x18\n\x14TOKEN_STATUS_INVALID\x10\x06\x42\xd2\x01\n\x15\x63om.gcommon.v1.commonB\x10TokenStatusProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.enums.token_status_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\020TokenStatusProtoP\001Z5github.com/jdfalk/gcommon/pkg/gcommon/v1/common/enums\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\020TokenStatusProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common/enums\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
   _globals['_TOKENSTATUS']._serialized_start=101
   _globals['_TOKENSTATUS']._serialized_end=301
 # @@protoc_insertion_point(module_scope)
