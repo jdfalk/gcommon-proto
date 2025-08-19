@@ -17,23 +17,23 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
  */
 enum QueueMetricType {
   // Default unspecified type
-  METRIC_TYPE_UNSPECIFIED = 0;
+  QUEUE_METRIC_TYPE_UNSPECIFIED = 0;
 
   // Message count
-  METRIC_TYPE_MESSAGE_COUNT = 1;
+  QUEUE_METRIC_TYPE_MESSAGE_COUNT = 1;
 
   // Message rate (per second)
-  METRIC_TYPE_MESSAGE_RATE = 2;
+  QUEUE_METRIC_TYPE_MESSAGE_RATE = 2;
 
   // Processing time
-  METRIC_TYPE_PROCESSING_TIME = 3;
+  QUEUE_METRIC_TYPE_PROCESSING_TIME = 3;
 
   // Error rate
-  METRIC_TYPE_ERROR_RATE = 4;
+  QUEUE_METRIC_TYPE_ERROR_RATE = 4;
 
   // Consumer count
-  METRIC_TYPE_CONSUMER_COUNT = 5;
+  QUEUE_METRIC_TYPE_CONSUMER_COUNT = 5;
 
   // Queue depth
-  METRIC_TYPE_QUEUE_DEPTH = 6;
+  QUEUE_METRIC_TYPE_QUEUE_DEPTH = 6;
 }
