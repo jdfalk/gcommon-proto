@@ -26,14 +26,14 @@ from gcommon.v1.database.messages import query_parameter_pb2 as gcommon_dot_v1_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/database/messages/batch_operation.proto\x12\x13gcommon.v1.database\x1a\x32gcommon/v1/database/messages/query_parameter.proto\x1a!google/protobuf/go_features.proto\"\x7f\n\x16\x44\x61tabaseBatchOperation\x12\x1c\n\tstatement\x18\x01 \x01(\tR\tstatement\x12G\n\nparameters\x18\x02 \x03(\x0b\x32#.gcommon.v1.database.QueryParameterB\x02(\x01R\nparametersB\xe0\x01\n\x17\x63om.gcommon.v1.databaseB\x13\x42\x61tchOperationProtoP\x01Z:github.com/jdfalk/gcommon/pkg/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/database/messages/batch_operation.proto\x12\x13gcommon.v1.database\x1a\x32gcommon/v1/database/messages/query_parameter.proto\x1a!google/protobuf/go_features.proto\"\x7f\n\x16\x44\x61tabaseBatchOperation\x12\x1c\n\tstatement\x18\x01 \x01(\tR\tstatement\x12G\n\nparameters\x18\x02 \x03(\x0b\x32#.gcommon.v1.database.QueryParameterB\x02(\x01R\nparametersB\xe4\x01\n\x17\x63om.gcommon.v1.databaseB\x13\x42\x61tchOperationProtoP\x01Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.batch_operation_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\023BatchOperationProtoP\001Z:github.com/jdfalk/gcommon/pkg/gcommon/v1/database/messages\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\023BatchOperationProtoP\001Z>github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database/messages\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_DATABASEBATCHOPERATION'].fields_by_name['parameters']._loaded_options = None
   _globals['_DATABASEBATCHOPERATION'].fields_by_name['parameters']._serialized_options = b'(\001'
   _globals['_DATABASEBATCHOPERATION']._serialized_start=162
