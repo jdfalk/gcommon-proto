@@ -398,7 +398,7 @@ const file_gcommon_v1_queue_messages_topic_configuration_proto_rawDesc = "" +
 	"\x0ecleanup_policy\x18\b \x01(\tR\rcleanupPolicy\x12.\n" +
 	"\x13min_insync_replicas\x18\t \x01(\x05R\x11minInsyncReplicas\x12,\n" +
 	"\x12segment_size_bytes\x18\n" +
-	" \x01(\x03R\x10segmentSizeBytesB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x03R\x10segmentSizeBytesB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_topic_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_topic_configuration_proto_goTypes = []any{

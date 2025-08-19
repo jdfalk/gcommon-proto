@@ -255,7 +255,7 @@ const file_gcommon_v1_queue_messages_throughput_metrics_proto_rawDesc = "" +
 	"\x17messages_per_second_15m\x18\x03 \x01(\x01R\x14messagesPerSecond15m\x123\n" +
 	"\x16messages_per_second_1h\x18\x04 \x01(\x01R\x13messagesPerSecond1h\x127\n" +
 	"\x18peak_messages_per_second\x18\x05 \x01(\x01R\x15peakMessagesPerSecond\x12A\n" +
-	"\x0epeak_timestamp\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rpeakTimestampB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0epeak_timestamp\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rpeakTimestampB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_throughput_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_throughput_metrics_proto_goTypes = []any{

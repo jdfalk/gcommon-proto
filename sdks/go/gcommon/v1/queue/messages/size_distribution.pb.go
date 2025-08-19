@@ -214,7 +214,7 @@ const file_gcommon_v1_queue_messages_size_distribution_proto_rawDesc = "" +
 	"\x0emin_size_bytes\x18\x02 \x01(\x03R\fminSizeBytes\x12$\n" +
 	"\x0emax_size_bytes\x18\x03 \x01(\x03R\fmaxSizeBytes\x12,\n" +
 	"\x12average_size_bytes\x18\x04 \x01(\x01R\x10averageSizeBytes\x12*\n" +
-	"\x11median_size_bytes\x18\x05 \x01(\x01R\x0fmedianSizeBytesB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11median_size_bytes\x18\x05 \x01(\x01R\x0fmedianSizeBytesB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_size_distribution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_size_distribution_proto_goTypes = []any{

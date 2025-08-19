@@ -271,7 +271,7 @@ const file_gcommon_v1_queue_messages_restore_warning_proto_rawDesc = "" +
 	"\x10warning_category\x18\x03 \x01(\tR\x0fwarningCategory\x12-\n" +
 	"\x12affected_component\x18\x04 \x01(\tR\x11affectedComponent\x12!\n" +
 	"\fpartition_id\x18\x05 \x01(\x05R\vpartitionId\x12=\n" +
-	"\fwarning_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vwarningTimeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fwarning_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vwarningTimeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_restore_warning_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_restore_warning_proto_goTypes = []any{

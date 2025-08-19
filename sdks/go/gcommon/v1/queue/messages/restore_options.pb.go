@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -293,7 +293,7 @@ const file_gcommon_v1_queue_messages_restore_options_proto_rawDesc = "" +
 	"time_range\x18\x05 \x01(\v2$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x12'\n" +
 	"\x0fpriority_levels\x18\x06 \x03(\x05R\x0epriorityLevels\x12I\n" +
 	"\x0ffilter_criteria\x18\a \x01(\v2 .gcommon.v1.queue.FilterCriteriaR\x0efilterCriteria\x12F\n" +
-	"\vperformance\x18\b \x01(\v2$.gcommon.v1.queue.PerformanceOptionsR\vperformanceB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vperformance\x18\b \x01(\v2$.gcommon.v1.queue.PerformanceOptionsR\vperformanceB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_restore_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_restore_options_proto_goTypes = []any{

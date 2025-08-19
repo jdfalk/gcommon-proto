@@ -168,7 +168,7 @@ const file_gcommon_v1_queue_messages_validation_config_proto_rawDesc = "" +
 	"\x10ValidationConfig\x12'\n" +
 	"\x0fvalidate_schema\x18\x01 \x01(\bR\x0evalidateSchema\x12$\n" +
 	"\x0emax_body_bytes\x18\x02 \x01(\x03R\fmaxBodyBytes\x12%\n" +
-	"\x0ereject_invalid\x18\x03 \x01(\bR\rrejectInvalidB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ereject_invalid\x18\x03 \x01(\bR\rrejectInvalidB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_validation_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_validation_config_proto_goTypes = []any{

@@ -171,7 +171,7 @@ const file_gcommon_v1_queue_messages_vector_clock_config_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x1c\n" +
 	"\tprecision\x18\x02 \x01(\tR\tprecision\x12 \n" +
 	"\fmax_drift_ms\x18\x03 \x01(\x03R\n" +
-	"maxDriftMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"maxDriftMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_vector_clock_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_vector_clock_config_proto_goTypes = []any{

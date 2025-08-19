@@ -90,7 +90,7 @@ const file_gcommon_v1_web_enums_http_status_proto_rawDesc = "" +
 	"\x18HTTP_STATUS_UNAUTHORIZED\x10\x91\x03\x12\x1a\n" +
 	"\x15HTTP_STATUS_FORBIDDEN\x10\x93\x03\x12\x1a\n" +
 	"\x15HTTP_STATUS_NOT_FOUND\x10\x94\x03\x12\x1f\n" +
-	"\x1aHTTP_STATUS_INTERNAL_ERROR\x10\xf4\x03B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aHTTP_STATUS_INTERNAL_ERROR\x10\xf4\x03B/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_http_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_http_status_proto_goTypes = []any{

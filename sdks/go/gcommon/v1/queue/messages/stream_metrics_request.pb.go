@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/pkg/metrics"
+	metrics "github.com/jdfalk/gcommon/sdks/go/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -137,7 +137,7 @@ const file_gcommon_v1_queue_messages_stream_metrics_request_proto_rawDesc = "" +
 	"\vqueue_names\x18\x01 \x03(\tR\n" +
 	"queueNames\x12H\n" +
 	"\fmetric_types\x18\x02 \x03(\x0e2%.gcommon.v1.metrics.MetricsMetricTypeR\vmetricTypes\x12)\n" +
-	"\x10interval_seconds\x18\x03 \x01(\x05R\x0fintervalSecondsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10interval_seconds\x18\x03 \x01(\x05R\x0fintervalSecondsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_stream_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_stream_metrics_request_proto_goTypes = []any{

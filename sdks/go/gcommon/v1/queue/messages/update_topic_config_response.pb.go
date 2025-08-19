@@ -269,7 +269,7 @@ const file_gcommon_v1_queue_messages_update_topic_config_response_proto_rawDesc 
 	"updated_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12'\n" +
 	"\x0fconfig_revision\x18\x05 \x01(\x04R\x0econfigRevision\x12'\n" +
 	"\x0fmodified_fields\x18\x06 \x03(\tR\x0emodifiedFields\x12\x1a\n" +
-	"\bwarnings\x18\a \x03(\tR\bwarningsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bwarnings\x18\a \x03(\tR\bwarningsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_update_topic_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_update_topic_config_response_proto_goTypes = []any{

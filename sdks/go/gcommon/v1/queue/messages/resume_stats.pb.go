@@ -263,7 +263,7 @@ const file_gcommon_v1_queue_messages_resume_stats_proto_rawDesc = "" +
 	"\x15consumers_reconnected\x18\x03 \x01(\x05R\x14consumersReconnected\x12$\n" +
 	"\x0eresume_time_ms\x18\x04 \x01(\x03R\fresumeTimeMs\x12@\n" +
 	"\x1cimmediate_messages_processed\x18\x05 \x01(\x03R\x1aimmediateMessagesProcessed\x124\n" +
-	"\x16post_resume_throughput\x18\x06 \x01(\x01R\x14postResumeThroughputB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16post_resume_throughput\x18\x06 \x01(\x01R\x14postResumeThroughputB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_resume_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_resume_stats_proto_goTypes = []any{

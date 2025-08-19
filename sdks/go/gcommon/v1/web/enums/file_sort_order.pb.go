@@ -99,7 +99,7 @@ const file_gcommon_v1_web_enums_file_sort_order_proto_rawDesc = "" +
 	"\x18FILE_SORT_ORDER_SIZE_ASC\x10\x03\x12\x1d\n" +
 	"\x19FILE_SORT_ORDER_SIZE_DESC\x10\x04\x12 \n" +
 	"\x1cFILE_SORT_ORDER_MODIFIED_ASC\x10\x05\x12!\n" +
-	"\x1dFILE_SORT_ORDER_MODIFIED_DESC\x10\x06B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1dFILE_SORT_ORDER_MODIFIED_DESC\x10\x06B/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_file_sort_order_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_file_sort_order_proto_goTypes = []any{

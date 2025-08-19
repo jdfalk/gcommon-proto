@@ -208,7 +208,7 @@ const file_gcommon_v1_queue_messages_schema_validation_proto_rawDesc = "" +
 	"\x06passed\x18\x01 \x01(\bR\x06passed\x122\n" +
 	"\x15backup_schema_version\x18\x02 \x01(\tR\x13backupSchemaVersion\x124\n" +
 	"\x16current_schema_version\x18\x03 \x01(\tR\x14currentSchemaVersion\x121\n" +
-	"\x14compatibility_status\x18\x04 \x01(\tR\x13compatibilityStatusB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14compatibility_status\x18\x04 \x01(\tR\x13compatibilityStatusB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_schema_validation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_schema_validation_proto_goTypes = []any{

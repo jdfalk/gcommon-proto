@@ -165,7 +165,7 @@ const file_gcommon_v1_queue_messages_role_based_access_control_proto_rawDesc = "
 	"\x11external_provider\x18\x04 \x01(\v2&.gcommon.v1.queue.ExternalRoleProviderR\x10externalProvider\x1ae\n" +
 	"\x14RoleInheritanceEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x127\n" +
-	"\x05value\x18\x02 \x01(\v2!.gcommon.v1.queue.RoleInheritanceR\x05value:\x028\x01B-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2!.gcommon.v1.queue.RoleInheritanceR\x05value:\x028\x01B1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_role_based_access_control_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_messages_role_based_access_control_proto_goTypes = []any{

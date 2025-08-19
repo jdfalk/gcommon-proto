@@ -201,7 +201,7 @@ const file_gcommon_v1_queue_messages_validation_error_proto_rawDesc = "" +
 	"error_type\x18\x01 \x01(\tR\terrorType\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12!\n" +
 	"\fpartition_id\x18\x03 \x01(\x05R\vpartitionId\x12D\n" +
-	"\x0eaffected_range\x18\x04 \x01(\v2\x1d.gcommon.v1.queue.OffsetRangeR\raffectedRangeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eaffected_range\x18\x04 \x01(\v2\x1d.gcommon.v1.queue.OffsetRangeR\raffectedRangeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_validation_error_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_validation_error_proto_goTypes = []any{

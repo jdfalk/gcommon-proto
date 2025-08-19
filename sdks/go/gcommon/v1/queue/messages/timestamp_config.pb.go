@@ -170,7 +170,7 @@ const file_gcommon_v1_queue_messages_timestamp_config_proto_rawDesc = "" +
 	"\x0fTimestampConfig\x12\x16\n" +
 	"\x06source\x18\x01 \x01(\tR\x06source\x122\n" +
 	"\x15sync_interval_seconds\x18\x02 \x01(\x05R\x13syncIntervalSeconds\x12\x1e\n" +
-	"\vmax_skew_ms\x18\x03 \x01(\x03R\tmaxSkewMsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vmax_skew_ms\x18\x03 \x01(\x03R\tmaxSkewMsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_timestamp_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_timestamp_config_proto_goTypes = []any{

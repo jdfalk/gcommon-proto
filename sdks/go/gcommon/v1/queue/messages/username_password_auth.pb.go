@@ -141,7 +141,7 @@ const file_gcommon_v1_queue_messages_username_password_auth_proto_rawDesc = "" +
 	"6gcommon/v1/queue/messages/username_password_auth.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"N\n" +
 	"\x14UsernamePasswordAuth\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpasswordB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bpassword\x18\x02 \x01(\tR\bpasswordB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_username_password_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_username_password_auth_proto_goTypes = []any{

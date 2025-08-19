@@ -327,7 +327,7 @@ const file_gcommon_v1_queue_messages_updated_properties_proto_rawDesc = "" +
 	"\x0emetadata_count\x18\x05 \x01(\x05R\rmetadataCount\x12#\n" +
 	"\rheaders_count\x18\x06 \x01(\x05R\fheadersCount\x12'\n" +
 	"\x0fcontent_updated\x18\a \x01(\bR\x0econtentUpdated\x12,\n" +
-	"\x12content_size_bytes\x18\b \x01(\x03R\x10contentSizeBytesB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x12content_size_bytes\x18\b \x01(\x03R\x10contentSizeBytesB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_updated_properties_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_updated_properties_proto_goTypes = []any{

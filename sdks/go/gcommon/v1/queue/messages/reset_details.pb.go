@@ -333,7 +333,7 @@ const file_gcommon_v1_queue_messages_reset_details_proto_rawDesc = "" +
 	"\x11reset_duration_ms\x18\x05 \x01(\x03R\x0fresetDurationMs\x12#\n" +
 	"\rpartial_reset\x18\x06 \x01(\bR\fpartialReset\x12!\n" +
 	"\freset_reason\x18\a \x01(\tR\vresetReason\x12!\n" +
-	"\finitiated_by\x18\b \x01(\tR\vinitiatedByB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\finitiated_by\x18\b \x01(\tR\vinitiatedByB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_reset_details_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_reset_details_proto_goTypes = []any{

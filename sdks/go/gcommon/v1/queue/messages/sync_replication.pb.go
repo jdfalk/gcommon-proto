@@ -199,7 +199,7 @@ const file_gcommon_v1_queue_messages_sync_replication_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12*\n" +
 	"\x11min_sync_replicas\x18\x02 \x01(\x05R\x0fminSyncReplicas\x12&\n" +
 	"\x0fsync_timeout_ms\x18\x03 \x01(\x05R\rsyncTimeoutMs\x12*\n" +
-	"\x11fallback_to_async\x18\x04 \x01(\bR\x0ffallbackToAsyncB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11fallback_to_async\x18\x04 \x01(\bR\x0ffallbackToAsyncB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_sync_replication_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_sync_replication_proto_goTypes = []any{

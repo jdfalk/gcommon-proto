@@ -323,7 +323,7 @@ const file_gcommon_v1_queue_messages_topic_config_proto_rawDesc = "" +
 	"replicated\x18\x06 \x01(\bR\n" +
 	"replicated\x12-\n" +
 	"\x12replication_factor\x18\a \x01(\rR\x11replicationFactor\x12+\n" +
-	"\x11enable_compaction\x18\b \x01(\bR\x10enableCompactionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11enable_compaction\x18\b \x01(\bR\x10enableCompactionB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_topic_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_topic_config_proto_goTypes = []any{

@@ -77,7 +77,7 @@ const file_gcommon_v1_web_enums_session_state_proto_rawDesc = "" +
 	"\x19SESSION_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14SESSION_STATE_ACTIVE\x10\x01\x12\x19\n" +
 	"\x15SESSION_STATE_EXPIRED\x10\x02\x12\x19\n" +
-	"\x15SESSION_STATE_REVOKED\x10\x03B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15SESSION_STATE_REVOKED\x10\x03B/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_session_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_session_state_proto_goTypes = []any{

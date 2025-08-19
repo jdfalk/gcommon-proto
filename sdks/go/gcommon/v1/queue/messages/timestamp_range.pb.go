@@ -126,7 +126,7 @@ const file_gcommon_v1_queue_messages_timestamp_range_proto_rawDesc = "" +
 	"/gcommon/v1/queue/messages/timestamp_range.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"u\n" +
 	"\x13QueueTimestampRange\x120\n" +
 	"\x05start\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x05start\x12,\n" +
-	"\x03end\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x03endB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x03end\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x03endB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_timestamp_range_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_timestamp_range_proto_goTypes = []any{

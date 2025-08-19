@@ -161,7 +161,7 @@ const file_gcommon_v1_web_messages_register_middleware_response_proto_rawDesc = 
 	"\n" +
 	"middleware\x18\x02 \x01(\v2\x1e.gcommon.v1.web.MiddlewareInfoR\n" +
 	"middleware\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_register_middleware_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_register_middleware_response_proto_goTypes = []any{

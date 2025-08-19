@@ -210,7 +210,7 @@ const file_gcommon_v1_queue_messages_routing_config_proto_rawDesc = "" +
 	"\vkey_pattern\x18\x02 \x01(\tR\n" +
 	"keyPattern\x12\x16\n" +
 	"\x06sticky\x18\x03 \x01(\bR\x06sticky\x12#\n" +
-	"\rload_balancer\x18\x04 \x01(\tR\floadBalancerB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rload_balancer\x18\x04 \x01(\tR\floadBalancerB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_routing_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_routing_config_proto_goTypes = []any{

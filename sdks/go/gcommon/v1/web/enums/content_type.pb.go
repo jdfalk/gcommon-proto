@@ -86,7 +86,7 @@ const file_gcommon_v1_web_enums_content_type_proto_rawDesc = "" +
 	"\x11CONTENT_TYPE_JSON\x10\x02\x12\x14\n" +
 	"\x10CONTENT_TYPE_XML\x10\x03\x12\x15\n" +
 	"\x11CONTENT_TYPE_TEXT\x10\x04\x12\x17\n" +
-	"\x13CONTENT_TYPE_BINARY\x10\x05B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13CONTENT_TYPE_BINARY\x10\x05B/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_content_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_content_type_proto_goTypes = []any{

@@ -366,7 +366,7 @@ const file_gcommon_v1_queue_messages_topic_stats_proto_rawDesc = "" +
 	"\x13messages_per_second\x18\x06 \x01(\x01R\x11messagesPerSecond\x12(\n" +
 	"\x10bytes_per_second\x18\a \x01(\x01R\x0ebytesPerSecond\x12*\n" +
 	"\x11last_message_time\x18\b \x01(\x04R\x0flastMessageTime\x120\n" +
-	"\x14average_message_size\x18\t \x01(\x01R\x12averageMessageSizeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14average_message_size\x18\t \x01(\x01R\x12averageMessageSizeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_topic_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_topic_stats_proto_goTypes = []any{

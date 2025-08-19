@@ -200,7 +200,7 @@ const file_gcommon_v1_queue_messages_replication_config_proto_rawDesc = "" +
 	"\rreplica_count\x18\x01 \x01(\x05R\freplicaCount\x12\x16\n" +
 	"\x06factor\x18\x02 \x01(\x05R\x06factor\x12 \n" +
 	"\vsynchronous\x18\x03 \x01(\bR\vsynchronous\x12/\n" +
-	"\x14min_in_sync_replicas\x18\x04 \x01(\x05R\x11minInSyncReplicasB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14min_in_sync_replicas\x18\x04 \x01(\x05R\x11minInSyncReplicasB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_replication_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_replication_config_proto_goTypes = []any{

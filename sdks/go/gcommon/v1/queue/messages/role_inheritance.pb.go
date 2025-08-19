@@ -101,7 +101,7 @@ const file_gcommon_v1_queue_messages_role_inheritance_proto_rawDesc = "" +
 	"0gcommon/v1/queue/messages/role_inheritance.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"m\n" +
 	"\x0fRoleInheritance\x12#\n" +
 	"\rinherits_from\x18\x01 \x03(\tR\finheritsFrom\x125\n" +
-	"\x16additional_permissions\x18\x02 \x03(\tR\x15additionalPermissionsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16additional_permissions\x18\x02 \x03(\tR\x15additionalPermissionsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_role_inheritance_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_role_inheritance_proto_goTypes = []any{

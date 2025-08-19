@@ -266,7 +266,7 @@ const file_gcommon_v1_queue_messages_restore_status_proto_rawDesc = "" +
 	"\rcurrent_phase\x18\x04 \x01(\tR\fcurrentPhase\x12J\n" +
 	"\x13estimated_remaining\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\x12estimatedRemaining\x12;\n" +
 	"\vlast_update\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastUpdateB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"lastUpdateB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_restore_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_restore_status_proto_goTypes = []any{

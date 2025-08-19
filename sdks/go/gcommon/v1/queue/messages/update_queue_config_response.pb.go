@@ -221,7 +221,7 @@ const file_gcommon_v1_queue_messages_update_queue_config_response_proto_rawDesc 
 	"\x0econfig_version\x18\x03 \x01(\x04R\rconfigVersion\x12\x1d\n" +
 	"\n" +
 	"updated_at\x18\x04 \x01(\x04R\tupdatedAt\x12%\n" +
-	"\x0eupdated_fields\x18\x05 \x03(\tR\rupdatedFieldsB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0eupdated_fields\x18\x05 \x03(\tR\rupdatedFieldsB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_update_queue_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_update_queue_config_response_proto_goTypes = []any{

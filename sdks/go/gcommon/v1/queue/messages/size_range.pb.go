@@ -137,7 +137,7 @@ const file_gcommon_v1_queue_messages_size_range_proto_rawDesc = "" +
 	"*gcommon/v1/queue/messages/size_range.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"A\n" +
 	"\tSizeRange\x12\x19\n" +
 	"\bmin_size\x18\x01 \x01(\x03R\aminSize\x12\x19\n" +
-	"\bmax_size\x18\x02 \x01(\x03R\amaxSizeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmax_size\x18\x02 \x01(\x03R\amaxSizeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_size_range_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_size_range_proto_goTypes = []any{

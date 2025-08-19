@@ -279,7 +279,7 @@ const file_gcommon_v1_web_messages_server_config_proto_rawDesc = "" +
 	"\aoptions\x18\a \x03(\v2).gcommon.v1.web.ServerConfig.OptionsEntryR\aoptions\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_server_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_messages_server_config_proto_goTypes = []any{

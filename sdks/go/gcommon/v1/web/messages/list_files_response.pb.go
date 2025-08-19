@@ -220,7 +220,7 @@ const file_gcommon_v1_web_messages_list_files_response_proto_rawDesc = "" +
 	"totalCount\x12&\n" +
 	"\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n" +
 	"\bhas_more\x18\x04 \x01(\bR\ahasMore\x12?\n" +
-	"\bmetadata\x18\x05 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_messages_list_files_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_messages_list_files_response_proto_goTypes = []any{

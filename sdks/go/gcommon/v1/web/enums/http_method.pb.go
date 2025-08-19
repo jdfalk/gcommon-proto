@@ -94,7 +94,7 @@ const file_gcommon_v1_web_enums_http_method_proto_rawDesc = "" +
 	"\x12HTTP_METHOD_DELETE\x10\x04\x12\x15\n" +
 	"\x11HTTP_METHOD_PATCH\x10\x05\x12\x17\n" +
 	"\x13HTTP_METHOD_OPTIONS\x10\x06\x12\x14\n" +
-	"\x10HTTP_METHOD_HEAD\x10\aB+Z!github.com/jdfalk/gcommon/pkg/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10HTTP_METHOD_HEAD\x10\aB/Z%github.com/jdfalk/gcommon/sdks/go/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_enums_http_method_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_web_enums_http_method_proto_goTypes = []any{

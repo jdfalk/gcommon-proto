@@ -143,7 +143,7 @@ const file_gcommon_v1_queue_messages_stop_workflow_request_proto_rawDesc = "" +
 	"5gcommon/v1/queue/messages/stop_workflow_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"P\n" +
 	"\x13StopWorkflowRequest\x12!\n" +
 	"\fexecution_id\x18\x01 \x01(\tR\vexecutionId\x12\x16\n" +
-	"\x06reason\x18\x02 \x01(\tR\x06reasonB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06reason\x18\x02 \x01(\tR\x06reasonB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_stop_workflow_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_stop_workflow_request_proto_goTypes = []any{

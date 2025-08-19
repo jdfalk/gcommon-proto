@@ -257,7 +257,7 @@ const file_gcommon_v1_queue_messages_retention_info_proto_rawDesc = "" +
 	"\x0fretention_bytes\x18\x03 \x01(\x03R\x0eretentionBytes\x12+\n" +
 	"\x11retained_messages\x18\x04 \x01(\x03R\x10retainedMessages\x12J\n" +
 	"\x13oldest_message_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x11oldestMessageTime\x12F\n" +
-	"\x11next_cleanup_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x0fnextCleanupTimeB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11next_cleanup_time\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x0fnextCleanupTimeB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_retention_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_retention_info_proto_goTypes = []any{

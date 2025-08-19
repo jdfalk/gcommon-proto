@@ -200,7 +200,7 @@ const file_gcommon_v1_queue_messages_send_message_response_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12%\n" +
 	"\x0equeue_position\x18\x03 \x01(\x03R\rqueuePosition\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_send_message_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_send_message_response_proto_goTypes = []any{

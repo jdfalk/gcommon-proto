@@ -437,7 +437,7 @@ const file_gcommon_v1_queue_messages_seek_request_proto_rawDesc = "" +
 	"\n" +
 	"message_id\x18\a \x01(\tH\x00R\tmessageId\x12>\n" +
 	"\bmetadata\x18d \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x0f\n" +
-	"\rseek_positionB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rseek_positionB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_seek_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_seek_request_proto_goTypes = []any{

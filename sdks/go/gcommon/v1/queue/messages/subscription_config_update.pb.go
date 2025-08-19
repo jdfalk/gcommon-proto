@@ -7,7 +7,7 @@
 package queue
 
 import (
-	config "github.com/jdfalk/gcommon/pkg/config"
+	config "github.com/jdfalk/gcommon/sdks/go/config"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -311,7 +311,7 @@ const file_gcommon_v1_queue_messages_subscription_config_update_proto_rawDesc = 
 	"\x10routing_settings\x18\x05 \x01(\v2!.gcommon.v1.queue.RoutingSettingsR\x0froutingSettings\x122\n" +
 	"\x15max_inflight_messages\x18\x06 \x01(\x05R\x13maxInflightMessages\x12$\n" +
 	"\x0eack_timeout_ms\x18\a \x01(\x05R\fackTimeoutMs\x12%\n" +
-	"\x0epriority_level\x18\b \x01(\x05R\rpriorityLevelB-Z#github.com/jdfalk/gcommon/pkg/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0epriority_level\x18\b \x01(\x05R\rpriorityLevelB1Z'github.com/jdfalk/gcommon/sdks/go/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_messages_subscription_config_update_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_messages_subscription_config_update_proto_goTypes = []any{
