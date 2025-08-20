@@ -10,7 +10,7 @@ import "gcommon/v1/common/enums/health_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue";/v1/queue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue";
 
 message ClusterHealth {
   // Overall health status
