@@ -14,7 +14,7 @@ import "gcommon/v1/queue/messages/username_password_auth.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/queue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue";/v1/queue";
 
 message AuthenticationConfig {
   // Authentication type

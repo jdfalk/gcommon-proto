@@ -20,7 +20,7 @@ import "google/protobuf/go_features.proto";
 // (duplicates removed)
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/database";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database";
 
 /**
  * Administrative cache management operations.
