@@ -26,8 +26,10 @@ env:
   CACHE_VERSION: "v1"
 
 permissions:
-  contents: read
-  actions: read
+  contents: write
+  actions: write
+  checks: write
+  packages: write
 
 jobs:
   # Check for commit override flags
