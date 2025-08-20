@@ -22,7 +22,7 @@ import "gcommon/v1/queue/messages/resume_queue_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon/sdks/go/gcommon/v1/queue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue";
 
 // Administrative service for queue management operations
 service QueueAdminService {

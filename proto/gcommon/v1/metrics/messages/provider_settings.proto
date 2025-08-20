@@ -12,7 +12,7 @@ import "gcommon/v1/metrics/messages/stats_d_settings.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon/sdks/go/gcommon/v1/metrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics";
 
 message ProviderSettings {
   // Prometheus-specific settings

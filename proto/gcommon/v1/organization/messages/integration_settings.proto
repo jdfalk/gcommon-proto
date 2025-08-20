@@ -13,7 +13,7 @@ import "gcommon/v1/organization/messages/webhook_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "gcommon/sdks/go/gcommon/v1/organization";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization";
 
 message IntegrationSettings {
   // Enabled third-party integrations
