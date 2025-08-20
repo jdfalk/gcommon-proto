@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.4.0
+# version: 1.5.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -203,8 +203,10 @@ jobs:
 
           # Auto-fix settings - use FIX_ instead of VALIDATE_ whenever possible
           FIX_GO: ${{ needs.detect-changes.outputs.go }}
+          FIX_GO_MODULES: ${{ needs.detect-changes.outputs.go }}
           FIX_JAVASCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
           FIX_JAVASCRIPT_PRETTIER: ${{ needs.detect-changes.outputs.frontend }}
+          FIX_JSX_PRETTIER: ${{ needs.detect-changes.outputs.frontend }}
           FIX_TYPESCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
           FIX_TYPESCRIPT_PRETTIER: ${{ needs.detect-changes.outputs.frontend }}
           FIX_PYTHON_BLACK: ${{ needs.detect-changes.outputs.python }}
@@ -216,13 +218,19 @@ jobs:
           FIX_RUST_CLIPPY: ${{ needs.detect-changes.outputs.rust }}
 
           # Auto-fix these always
-          FIX_MARKDOWN: true
+          FIX_MARKDOWN_PRETTIER: true
           FIX_JSON_PRETTIER: true
           FIX_SHELL_SHFMT: true
+          FIX_CSS_PRETTIER: true
+          FIX_GITHUB_ACTIONS_ZIZMOR: true
+          FIX_HTML_PRETTIER: true
+          FIX_JSONC_PRETTIER: true
+          FIX_PROTOBUF: true
+          FIX_YAML_PRETTIER: true
 
           # Only validate these (no FIX_ option available)
-          VALIDATE_YAML: true
-          VALIDATE_GITHUB_ACTIONS: true
+          #   VALIDATE_YAML: true
+          #   VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_DOCKERFILE_HADOLINT: ${{ needs.detect-changes.outputs.docker }}
           VALIDATE_GITLEAKS: true
 
