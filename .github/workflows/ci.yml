@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.3.0
+# version: 1.4.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -76,12 +76,19 @@ jobs:
               - '**/*.tsx'
               - '**/*.vue'
               - '**/*.svelte'
+              - '**/*.css'
+              - '**/*.scss'
+              - '**/*.sass'
+              - '**/*.html'
               - 'package.json'
               - 'package-lock.json'
               - 'yarn.lock'
               - 'pnpm-lock.yaml'
               - '**/package.json'
+              - '**/package-lock.json'
+              - '**/yarn.lock'
               - 'webui/**'
+              - 'frontend/**'
             python:
               - '**/*.py'
               - 'requirements.txt'
@@ -90,6 +97,10 @@ jobs:
               - 'setup.cfg'
               - 'Pipfile'
               - 'poetry.lock'
+              - '**/requirements.txt'
+              - '**/pyproject.toml'
+              - '**/setup.py'
+              - '**/Pipfile'
             rust:
               - '**/*.rs'
               - 'Cargo.toml'
@@ -98,57 +109,19 @@ jobs:
               - '**/Cargo.lock'
             docker:
               - 'Dockerfile*'
+              - '**/Dockerfile*'
               - 'docker-compose*.yml'
               - 'docker-compose*.yaml'
-              - '.dockerignore'
-            docs:
-              - '**/*.md'
-              - 'docs/**'
-              - '**/*.rst'
-              - '**/*.txt'
-            workflows:
-              - '.github/workflows/**'
-              - '.github/actions/**'
-            go:
-              - '**/*.go'
-              - 'go.mod'
-              - 'go.sum'
-              - '**/go.mod'
-              - '**/go.sum'
-            frontend:
-              - 'webui/**'
-              - 'frontend/**'
-              - '**/package.json'
-              - '**/package-lock.json'
-              - '**/yarn.lock'
-              - '**/*.js'
-              - '**/*.ts'
-              - '**/*.jsx'
-              - '**/*.tsx'
-              - '**/*.vue'
-              - '**/*.css'
-              - '**/*.scss'
-              - '**/*.sass'
-              - '**/*.html'
-            python:
-              - '**/*.py'
-              - '**/requirements.txt'
-              - '**/pyproject.toml'
-              - '**/setup.py'
-              - '**/Pipfile'
-            rust:
-              - '**/*.rs'
-              - '**/Cargo.toml'
-              - '**/Cargo.lock'
-            docker:
-              - '**/Dockerfile*'
               - '**/docker-compose*.yml'
               - '**/docker-compose*.yaml'
+              - '.dockerignore'
               - '**/.dockerignore'
             docs:
               - '**/*.md'
+              - 'docs/**'
               - '**/docs/**'
               - '**/*.rst'
+              - '**/*.txt'
             workflows:
               - '.github/workflows/**'
               - '.github/actions/**'
