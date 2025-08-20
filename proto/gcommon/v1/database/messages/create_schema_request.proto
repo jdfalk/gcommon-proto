@@ -10,7 +10,7 @@ import "gcommon/v1/common/messages/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database";
+option go_package = "gcommon/sdks/go/gcommon/v1/database";
 
 message CreateSchemaRequest {
   // Database name where the schema will be created
