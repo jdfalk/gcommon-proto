@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/rate_limit_info.proto";
 import "gcommon/v1/common/messages/pagination_info.proto";
+import "gcommon/v1/common/messages/rate_limit_info.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
