@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/timestamp_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"}\n\x0fTimestampConfig\x12\x16\n\x06source\x18\x01 \x01(\tR\x06source\x12\x32\n\x15sync_interval_seconds\x18\x02 \x01(\x05R\x13syncIntervalSeconds\x12\x1e\n\x0bmax_skew_ms\x18\x03 \x01(\x03R\tmaxSkewMsB\xbf\x01\n\x14\x63om.gcommon.v1.queueB\x14TimestampConfigProtoP\x01Z\'github.com/jdfalk/gcommon/sdks/go/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/timestamp_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"}\n\x0fTimestampConfig\x12\x16\n\x06source\x18\x01 \x01(\tR\x06source\x12\x32\n\x15sync_interval_seconds\x18\x02 \x01(\x05R\x13syncIntervalSeconds\x12\x1e\n\x0bmax_skew_ms\x18\x03 \x01(\x03R\tmaxSkewMsB\xca\x01\n\x14\x63om.gcommon.v1.queueB\x14TimestampConfigProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.timestamp_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\024TimestampConfigProtoP\001Z\'github.com/jdfalk/gcommon/sdks/go/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\024TimestampConfigProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_TIMESTAMPCONFIG']._serialized_start=105
   _globals['_TIMESTAMPCONFIG']._serialized_end=230
 # @@protoc_insertion_point(module_scope)

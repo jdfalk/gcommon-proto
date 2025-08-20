@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/web/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xdb\x01\n\x0fWebsocketConfig\x12\x1a\n\x08\x65ndpoint\x18\x01 \x01(\tR\x08\x65ndpoint\x12\'\n\x0f\x61llowed_origins\x18\x02 \x03(\tR\x0e\x61llowedOrigins\x12-\n\x12\x65nable_compression\x18\x03 \x01(\x08R\x11\x65nableCompression\x12(\n\x10read_buffer_size\x18\x04 \x01(\x05R\x0ereadBufferSize\x12*\n\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB\xb3\x01\n\x12\x63om.gcommon.v1.webB\x14WebsocketConfigProtoP\x01Z%github.com/jdfalk/gcommon/sdks/go/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/web/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xdb\x01\n\x0fWebsocketConfig\x12\x1a\n\x08\x65ndpoint\x18\x01 \x01(\tR\x08\x65ndpoint\x12\'\n\x0f\x61llowed_origins\x18\x02 \x03(\tR\x0e\x61llowedOrigins\x12-\n\x12\x65nable_compression\x18\x03 \x01(\x08R\x11\x65nableCompression\x12(\n\x10read_buffer_size\x18\x04 \x01(\x05R\x0ereadBufferSize\x12*\n\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB\xbe\x01\n\x12\x63om.gcommon.v1.webB\x14WebsocketConfigProtoP\x01Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.websocket_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\024WebsocketConfigProtoP\001Z%github.com/jdfalk/gcommon/sdks/go/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\024WebsocketConfigProtoP\001Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
   _globals['_WEBSOCKETCONFIG']._serialized_start=102
   _globals['_WEBSOCKETCONFIG']._serialized_end=321
 # @@protoc_insertion_point(module_scope)

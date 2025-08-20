@@ -27,14 +27,14 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/database/messages/transaction_options.proto\x12\x13gcommon.v1.database\x1a/gcommon/v1/database/enums/isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb5\x01\n\x12TransactionOptions\x12I\n\tisolation\x18\x01 \x01(\x0e\x32+.gcommon.v1.database.DatabaseIsolationLevelR\tisolation\x12\x37\n\x07timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12\x1b\n\tread_only\x18\x03 \x01(\x08R\x08readOnlyB\xd4\x01\n\x17\x63om.gcommon.v1.databaseB\x17TransactionOptionsProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/database/messages/transaction_options.proto\x12\x13gcommon.v1.database\x1a/gcommon/v1/database/enums/isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb5\x01\n\x12TransactionOptions\x12I\n\tisolation\x18\x01 \x01(\x0e\x32+.gcommon.v1.database.DatabaseIsolationLevelR\tisolation\x12\x37\n\x07timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12\x1b\n\tread_only\x18\x03 \x01(\x08R\x08readOnlyB\xdf\x01\n\x17\x63om.gcommon.v1.databaseB\x17TransactionOptionsProtoP\x01Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.transaction_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\027TransactionOptionsProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\027TransactionOptionsProtoP\001Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_TRANSACTIONOPTIONS'].fields_by_name['timeout']._loaded_options = None
   _globals['_TRANSACTIONOPTIONS'].fields_by_name['timeout']._serialized_options = b'(\001'
   _globals['_TRANSACTIONOPTIONS']._serialized_start=196

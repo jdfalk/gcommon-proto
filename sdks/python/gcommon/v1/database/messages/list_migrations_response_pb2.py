@@ -26,14 +26,14 @@ from gcommon.v1.database.messages import migration_info_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;gcommon/v1/database/messages/list_migrations_response.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/database/messages/migration_info.proto\x1a!google/protobuf/go_features.proto\"`\n\x16ListMigrationsResponse\x12\x46\n\nmigrations\x18\x01 \x03(\x0b\x32\".gcommon.v1.database.MigrationInfoB\x02(\x01R\nmigrationsB\xd8\x01\n\x17\x63om.gcommon.v1.databaseB\x1bListMigrationsResponseProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;gcommon/v1/database/messages/list_migrations_response.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/database/messages/migration_info.proto\x1a!google/protobuf/go_features.proto\"`\n\x16ListMigrationsResponse\x12\x46\n\nmigrations\x18\x01 \x03(\x0b\x32\".gcommon.v1.database.MigrationInfoB\x02(\x01R\nmigrationsB\xe3\x01\n\x17\x63om.gcommon.v1.databaseB\x1bListMigrationsResponseProtoP\x01Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.messages.list_migrations_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\033ListMigrationsResponseProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\033ListMigrationsResponseProtoP\001Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_LISTMIGRATIONSRESPONSE'].fields_by_name['migrations']._loaded_options = None
   _globals['_LISTMIGRATIONSRESPONSE'].fields_by_name['migrations']._serialized_options = b'(\001'
   _globals['_LISTMIGRATIONSRESPONSE']._serialized_start=170

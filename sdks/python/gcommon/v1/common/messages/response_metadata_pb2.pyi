@@ -1,6 +1,6 @@
 from gcommon.v1.common.messages import error_pb2 as _error_pb2
-from gcommon.v1.common.messages import rate_limit_info_pb2 as _rate_limit_info_pb2
 from gcommon.v1.common.messages import pagination_info_pb2 as _pagination_info_pb2
+from gcommon.v1.common.messages import rate_limit_info_pb2 as _rate_limit_info_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

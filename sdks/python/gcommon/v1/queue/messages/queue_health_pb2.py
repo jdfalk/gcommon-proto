@@ -27,14 +27,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/queue_health.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/enums/health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe1\x01\n\x0bQueueHealth\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12=\n\x06status\x18\x02 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12!\n\x0chealth_score\x18\x03 \x01(\x05R\x0bhealthScore\x12\x16\n\x06issues\x18\x04 \x03(\tR\x06issues\x12\x39\n\nlast_check\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheckB\xbb\x01\n\x14\x63om.gcommon.v1.queueB\x10QueueHealthProtoP\x01Z\'github.com/jdfalk/gcommon/sdks/go/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/messages/queue_health.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/enums/health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe1\x01\n\x0bQueueHealth\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12=\n\x06status\x18\x02 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12!\n\x0chealth_score\x18\x03 \x01(\x05R\x0bhealthScore\x12\x16\n\x06issues\x18\x04 \x03(\tR\x06issues\x12\x39\n\nlast_check\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheckB\xc6\x01\n\x14\x63om.gcommon.v1.queueB\x10QueueHealthProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.queue_health_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\020QueueHealthProtoP\001Z\'github.com/jdfalk/gcommon/sdks/go/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\020QueueHealthProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_QUEUEHEALTH']._serialized_start=180
   _globals['_QUEUEHEALTH']._serialized_end=405
 # @@protoc_insertion_point(module_scope)

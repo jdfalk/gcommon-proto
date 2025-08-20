@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/database/enums/database_status_code.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto*w\n\x12\x44\x61tabaseStatusCode\x12$\n DATABASE_STATUS_CODE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x44\x41TABASE_STATUS_CODE_OK\x10\x01\x12\x1e\n\x1a\x44\x41TABASE_STATUS_CODE_ERROR\x10\x02\x42\xd4\x01\n\x17\x63om.gcommon.v1.databaseB\x17\x44\x61tabaseStatusCodeProtoP\x01Z*github.com/jdfalk/gcommon/sdks/go/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/database/enums/database_status_code.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto*w\n\x12\x44\x61tabaseStatusCode\x12$\n DATABASE_STATUS_CODE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x44\x41TABASE_STATUS_CODE_OK\x10\x01\x12\x1e\n\x1a\x44\x41TABASE_STATUS_CODE_ERROR\x10\x02\x42\xdf\x01\n\x17\x63om.gcommon.v1.databaseB\x17\x44\x61tabaseStatusCodeProtoP\x01Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.enums.database_status_code_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\027DatabaseStatusCodeProtoP\001Z*github.com/jdfalk/gcommon/sdks/go/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\027DatabaseStatusCodeProtoP\001Z5github.com/jdfalk/gcommon/sdks/go/gcommon/v1/database\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
   _globals['_DATABASESTATUSCODE']._serialized_start=112
   _globals['_DATABASESTATUSCODE']._serialized_end=231
 # @@protoc_insertion_point(module_scope)

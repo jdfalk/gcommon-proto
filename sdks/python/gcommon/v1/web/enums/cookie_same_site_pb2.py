@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/web/enums/cookie_same_site.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\xa2\x01\n\x0e\x43ookieSameSite\x12 \n\x1c\x43OOKIE_SAME_SITE_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x43OOKIE_SAME_SITE_DEFAULT\x10\x01\x12\x18\n\x14\x43OOKIE_SAME_SITE_LAX\x10\x02\x12\x1b\n\x17\x43OOKIE_SAME_SITE_STRICT\x10\x03\x12\x19\n\x15\x43OOKIE_SAME_SITE_NONE\x10\x04\x42\xb2\x01\n\x12\x63om.gcommon.v1.webB\x13\x43ookieSameSiteProtoP\x01Z%github.com/jdfalk/gcommon/sdks/go/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/web/enums/cookie_same_site.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\xa2\x01\n\x0e\x43ookieSameSite\x12 \n\x1c\x43OOKIE_SAME_SITE_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x43OOKIE_SAME_SITE_DEFAULT\x10\x01\x12\x18\n\x14\x43OOKIE_SAME_SITE_LAX\x10\x02\x12\x1b\n\x17\x43OOKIE_SAME_SITE_STRICT\x10\x03\x12\x19\n\x15\x43OOKIE_SAME_SITE_NONE\x10\x04\x42\xbd\x01\n\x12\x63om.gcommon.v1.webB\x13\x43ookieSameSiteProtoP\x01Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.enums.cookie_same_site_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\023CookieSameSiteProtoP\001Z%github.com/jdfalk/gcommon/sdks/go/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\023CookieSameSiteProtoP\001Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
   _globals['_COOKIESAMESITE']._serialized_start=99
   _globals['_COOKIESAMESITE']._serialized_end=261
 # @@protoc_insertion_point(module_scope)

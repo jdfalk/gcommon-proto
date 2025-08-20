@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/messages/gauge_operation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xbf\x01\n\x0eGaugeOperation\x12\x1f\n\x1bGAUGE_OPERATION_UNSPECIFIED\x10\x00\x12\x17\n\x13GAUGE_OPERATION_SET\x10\x01\x12\x17\n\x13GAUGE_OPERATION_ADD\x10\x02\x12\x1c\n\x18GAUGE_OPERATION_SUBTRACT\x10\x03\x12\x1d\n\x19GAUGE_OPERATION_INCREMENT\x10\x04\x12\x1d\n\x19GAUGE_OPERATION_DECREMENT\x10\x05\x42\xca\x01\n\x16\x63om.gcommon.v1.metricsB\x13GaugeOperationProtoP\x01Z)github.com/jdfalk/gcommon/sdks/go/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/messages/gauge_operation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xbf\x01\n\x0eGaugeOperation\x12\x1f\n\x1bGAUGE_OPERATION_UNSPECIFIED\x10\x00\x12\x17\n\x13GAUGE_OPERATION_SET\x10\x01\x12\x17\n\x13GAUGE_OPERATION_ADD\x10\x02\x12\x1c\n\x18GAUGE_OPERATION_SUBTRACT\x10\x03\x12\x1d\n\x19GAUGE_OPERATION_INCREMENT\x10\x04\x12\x1d\n\x19GAUGE_OPERATION_DECREMENT\x10\x05\x42\xd5\x01\n\x16\x63om.gcommon.v1.metricsB\x13GaugeOperationProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.gauge_operation_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\023GaugeOperationProtoP\001Z)github.com/jdfalk/gcommon/sdks/go/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\023GaugeOperationProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
   _globals['_GAUGEOPERATION']._serialized_start=109
   _globals['_GAUGEOPERATION']._serialized_end=300
 # @@protoc_insertion_point(module_scope)

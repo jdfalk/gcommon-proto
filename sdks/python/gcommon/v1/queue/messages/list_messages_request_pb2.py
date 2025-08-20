@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/list_messages_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x9f\x02\n\x13ListMessagesRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12!\n\x0cpartition_id\x18\x02 \x01(\x05R\x0bpartitionId\x12!\n\x0cstart_offset\x18\x03 \x01(\x03R\x0bstartOffset\x12\x14\n\x05limit\x18\x04 \x01(\x05R\x05limit\x12\'\n\x0finclude_headers\x18\x05 \x01(\x08R\x0eincludeHeaders\x12)\n\x10include_metadata\x18\x06 \x01(\x08R\x0fincludeMetadata\x12#\n\rstatus_filter\x18\x07 \x01(\tR\x0cstatusFilter\x12\x1d\n\ntimeout_ms\x18\x08 \x01(\x05R\ttimeoutMsB\xc3\x01\n\x14\x63om.gcommon.v1.queueB\x18ListMessagesRequestProtoP\x01Z\'github.com/jdfalk/gcommon/sdks/go/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/list_messages_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x9f\x02\n\x13ListMessagesRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12!\n\x0cpartition_id\x18\x02 \x01(\x05R\x0bpartitionId\x12!\n\x0cstart_offset\x18\x03 \x01(\x03R\x0bstartOffset\x12\x14\n\x05limit\x18\x04 \x01(\x05R\x05limit\x12\'\n\x0finclude_headers\x18\x05 \x01(\x08R\x0eincludeHeaders\x12)\n\x10include_metadata\x18\x06 \x01(\x08R\x0fincludeMetadata\x12#\n\rstatus_filter\x18\x07 \x01(\tR\x0cstatusFilter\x12\x1d\n\ntimeout_ms\x18\x08 \x01(\x05R\ttimeoutMsB\xce\x01\n\x14\x63om.gcommon.v1.queueB\x18ListMessagesRequestProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.list_messages_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\030ListMessagesRequestProtoP\001Z\'github.com/jdfalk/gcommon/sdks/go/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\030ListMessagesRequestProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_LISTMESSAGESREQUEST']._serialized_start=111
   _globals['_LISTMESSAGESREQUEST']._serialized_end=398
 # @@protoc_insertion_point(module_scope)

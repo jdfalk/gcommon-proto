@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/enums/retention_unit.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x84\x02\n\rRetentionUnit\x12\x1e\n\x1aRETENTION_UNIT_UNSPECIFIED\x10\x00\x12\x1a\n\x16RETENTION_UNIT_MINUTES\x10\x01\x12\x18\n\x14RETENTION_UNIT_HOURS\x10\x02\x12\x17\n\x13RETENTION_UNIT_DAYS\x10\x03\x12\x18\n\x14RETENTION_UNIT_WEEKS\x10\x04\x12\x19\n\x15RETENTION_UNIT_MONTHS\x10\x05\x12\x18\n\x14RETENTION_UNIT_YEARS\x10\x06\x12\x1a\n\x16RETENTION_UNIT_FOREVER\x10\x07\x12\x19\n\x15RETENTION_UNIT_CUSTOM\x10\x08\x42\xc9\x01\n\x16\x63om.gcommon.v1.metricsB\x12RetentionUnitProtoP\x01Z)github.com/jdfalk/gcommon/sdks/go/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/enums/retention_unit.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x84\x02\n\rRetentionUnit\x12\x1e\n\x1aRETENTION_UNIT_UNSPECIFIED\x10\x00\x12\x1a\n\x16RETENTION_UNIT_MINUTES\x10\x01\x12\x18\n\x14RETENTION_UNIT_HOURS\x10\x02\x12\x17\n\x13RETENTION_UNIT_DAYS\x10\x03\x12\x18\n\x14RETENTION_UNIT_WEEKS\x10\x04\x12\x19\n\x15RETENTION_UNIT_MONTHS\x10\x05\x12\x18\n\x14RETENTION_UNIT_YEARS\x10\x06\x12\x1a\n\x16RETENTION_UNIT_FOREVER\x10\x07\x12\x19\n\x15RETENTION_UNIT_CUSTOM\x10\x08\x42\xd4\x01\n\x16\x63om.gcommon.v1.metricsB\x12RetentionUnitProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.enums.retention_unit_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\022RetentionUnitProtoP\001Z)github.com/jdfalk/gcommon/sdks/go/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\022RetentionUnitProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
   _globals['_RETENTIONUNIT']._serialized_start=105
   _globals['_RETENTIONUNIT']._serialized_end=365
 # @@protoc_insertion_point(module_scope)
