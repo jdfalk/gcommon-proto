@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/media/messages/upload_media_request.proto
+// version: 1.0.0
+// guid: 56789ab-cdef-0123-b0c1-d2e3f4a5b6c7
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/messages/media_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media";
+
+// Request to upload media content (streaming).
+message UploadMediaRequest {
+  oneof data {
+    UploadMetadata metadata = 1;
+    bytes chunk = 2;
+  }
+}
+
+// Metadata for media upload.
+message UploadMetadata {
+  string filename = 1;
+  string content_type = 2;
+  int64 total_size = 3;
+  MediaMetadata media_metadata = 4;
+}
