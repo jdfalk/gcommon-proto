@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/media/messages/create_media_file_request.proto
+// version: 1.0.0
+// guid: 3a4b5c6d-7e8f-9012-b3c4-d5e6f7a8b9c0
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/messages/media_file.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/media";
+
+// Request to create a media file record.
+message CreateMediaFileRequest {
+  MediaFile media_file = 1;
+}
