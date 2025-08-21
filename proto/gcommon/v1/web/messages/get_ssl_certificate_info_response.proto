@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 
 /**
  * GetSSLCertificateInfoResponse message for web service operations.
