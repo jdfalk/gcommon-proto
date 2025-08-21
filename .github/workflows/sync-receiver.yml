@@ -93,7 +93,7 @@ jobs:
           echo "🔄 Running Python sync script..."
           python3 .github/scripts/sync-receiver-sync-files.py "$sync_type" || {
             echo "❌ Python sync script failed, trying manual sync..."
-
+            
             # Fallback to manual sync if Python script fails
             echo "📁 Creating directory structure..."
             mkdir -p .github/workflows .github/instructions .github/prompts scripts .github/linters .github/scripts
@@ -140,7 +140,7 @@ jobs:
                     fi
                   done
                 fi
-
+                
                 if [ -d "ghcommon-source/.github/scripts" ]; then
                   for file in ghcommon-source/.github/scripts/*; do
                     if [ -f "$file" ]; then
