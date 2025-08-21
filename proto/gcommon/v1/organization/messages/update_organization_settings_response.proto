@@ -10,7 +10,7 @@ import "gcommon/v1/organization/messages/organization_settings.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message UpdateOrganizationSettingsResponse {
   // Any errors encountered
