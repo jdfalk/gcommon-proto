@@ -12,7 +12,7 @@ import "gcommon/v1/queue/messages/format_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Configuration for message serialization and deserialization.

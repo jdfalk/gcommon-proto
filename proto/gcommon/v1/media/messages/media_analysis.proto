@@ -1,0 +1,97 @@
+// file: proto/gcommon/v1/media/messages/media_analysis.proto
+// version: 1.0.0
+// guid: cdef012-3456-789a-c7d8-e9f0a1b2c3d4
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/messages/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+// Comprehensive media analysis results.
+message MediaAnalysis {
+  TechnicalMetadata technical = 1;
+  MediaQuality quality_analysis = 2;
+  repeated SceneDetection scenes = 3;
+  repeated ThumbnailInfo thumbnails = 4;
+  AudioAnalysis audio_analysis = 5;
+}
+
+// Technical metadata extracted from media.
+message TechnicalMetadata {
+  google.protobuf.Duration duration = 1;
+  int64 file_size = 2;
+  int64 bitrate = 3;
+  string container_format = 4;
+  VideoStreamInfo video = 5;
+  repeated AudioStreamInfo audio_streams = 6;
+  repeated SubtitleStreamInfo subtitle_streams = 7;
+}
+
+// Video stream information.
+message VideoStreamInfo {
+  string codec = 1;
+  int32 width = 2;
+  int32 height = 3;
+  double frame_rate = 4;
+  int64 bitrate = 5;
+  string pixel_format = 6;
+  string color_space = 7;
+}
+
+// Audio stream information.
+message AudioStreamInfo {
+  int32 stream_index = 1;
+  string codec = 2;
+  int32 sample_rate = 3;
+  int32 channels = 4;
+  int64 bitrate = 5;
+  string language = 6;
+  string title = 7;
+}
+
+// Subtitle stream information.
+message SubtitleStreamInfo {
+  int32 stream_index = 1;
+  string codec = 2;
+  string language = 3;
+  string title = 4;
+  bool forced = 5;
+  bool hearing_impaired = 6;
+}
+
+// Scene detection results.
+message SceneDetection {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double confidence = 3;
+  string scene_type = 4; // dialog, action, credits, etc.
+}
+
+// Thumbnail information.
+message ThumbnailInfo {
+  google.protobuf.Duration timestamp = 1;
+  string file_path = 2;
+  int32 width = 3;
+  int32 height = 4;
+}
+
+// Audio analysis results.
+message AudioAnalysis {
+  double peak_level = 1; // Peak audio level in dB
+  double rms_level = 2; // RMS audio level in dB
+  repeated SilentSegment silent_segments = 3;
+  double dynamic_range = 4; // Dynamic range in dB
+}
+
+// Silent audio segments.
+message SilentSegment {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double threshold_db = 3; // Silence threshold used
+}

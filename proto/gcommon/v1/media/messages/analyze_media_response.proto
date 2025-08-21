@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/media/messages/analyze_media_response.proto
+// version: 1.0.0
+// guid: bcdef01-2345-6789-b6c7-d8e9f0a1b2c3
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/messages/media_analysis.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+// Response from media analysis.
+message AnalyzeMediaResponse {
+  string job_id = 1;
+  string status = 2; // pending, processing, completed, failed
+  MediaAnalysis analysis = 3; // Analysis results (when completed)
+  string error_message = 4; // Error details if failed
+}
