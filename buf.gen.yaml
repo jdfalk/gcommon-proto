@@ -1,10 +1,5 @@
 version: v2
 clean: true
-managed:
-  enabled: true
-  disable:
-    - file_option: go_package_prefix
-      module: buf.build/googleapis/googleapis
 plugins:
   # Go: use local protoc-gen-go with managed mode
   - local: protoc-gen-go
