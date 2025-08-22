@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/organization/messages/hierarchy_node.proto
+// version: 1.0.0
+// guid: bf24d24c-7e3c-4f4c-b4ea-a8b73c331ed7
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/key_value.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message HierarchyNode {
+  // Unique node identifier
+  string id = 1;
+
+  // Node name
+  string name = 2;
+
+  // Type of organizational unit (department, team, project, etc.)
+  string node_type = 3;
+
+  // Reference ID to the actual entity (department_id, team_id, etc.)
+  string entity_id = 4;
+
+  // Parent node ID (null for root node)
+  string parent_id = 5;
+
+  // List of direct child node IDs
+  repeated string child_ids = 6;
+
+  // Node level in the hierarchy (0 for root)
+  int32 level = 7;
+
+  // Node position among siblings (for ordering)
+  int32 position = 8;
+
+  // Node path from root (e.g., "/org/dept1/team1")
+  string path = 9;
+
+  // Manager or responsible person for this node
+  string manager_id = 10;
+
+  // Node metadata and custom attributes
+  repeated gcommon.v1.common.KeyValue metadata = 11 [lazy = true];
+
+  // Whether this node is currently active
+  bool active = 12;
+}

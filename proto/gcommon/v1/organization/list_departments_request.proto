@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/organization/messages/list_departments_request.proto
+// version: 1.0.0
+// guid: 874d0e66-c98b-40cc-b0b2-ffb5f57d2d0f
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message ListDepartmentsRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization identifier to list departments for
+  string organization_id = 2;
+
+  // Pagination size (max results per page)
+  int32 page_size = 3;
+
+  // Pagination token from previous response
+  string page_token = 4;
+
+  // Optional filter expression
+  string filter = 5;
+}

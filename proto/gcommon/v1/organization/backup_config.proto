@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/organization/messages/backup_config.proto
+// version: 1.0.0
+// guid: af98b66c-3106-4a09-9b66-b3fd3908267e
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message OrganizationBackupConfig {
+  // Whether automated backups are enabled
+  bool enabled = 1;
+
+  // Backup frequency (hourly, daily, weekly)
+  string frequency = 2;
+
+  // Backup retention period in days
+  int32 retention_days = 3;
+
+  // Backup storage location
+  string storage_location = 4;
+
+  // Whether point-in-time recovery is enabled
+  bool point_in_time_recovery = 5;
+}

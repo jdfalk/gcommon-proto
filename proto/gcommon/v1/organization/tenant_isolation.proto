@@ -1,0 +1,63 @@
+// file: proto/gcommon/v1/organization/messages/tenant_isolation.proto
+// version: 1.0.0
+// guid: 182f08bf-4180-421a-935c-aa065bea181a
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/enums/isolation_level.proto";
+import "gcommon/v1/organization/messages/access_control.proto";
+import "gcommon/v1/organization/messages/audit_config.proto";
+import "gcommon/v1/organization/messages/compute_isolation.proto";
+import "gcommon/v1/organization/messages/database_isolation.proto";
+import "gcommon/v1/organization/messages/encryption_config.proto";
+import "gcommon/v1/organization/messages/network_isolation.proto";
+import "gcommon/v1/organization/messages/storage_isolation.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message TenantIsolation {
+  // Tenant identifier
+  string tenant_id = 1;
+
+  // Isolation level for this tenant
+  OrganizationIsolationLevel level = 2;
+
+  // Database isolation configuration
+  DatabaseIsolation database = 3;
+
+  // Network isolation configuration
+  NetworkIsolation network = 4;
+
+  // Storage isolation configuration
+  StorageIsolation storage = 5;
+
+  // Compute isolation configuration
+  ComputeIsolation compute = 6;
+
+  // Encryption configuration for tenant data
+  OrganizationEncryptionConfig encryption = 7;
+
+  // Access control configuration
+  OrganizationAccessControl access_control = 8;
+
+  // Audit and compliance configuration
+  AuditConfig audit = 9;
+
+  // Isolation metadata and custom settings
+  repeated gcommon.v1.common.KeyValue metadata = 10 [lazy = true];
+
+  // Isolation configuration creation timestamp
+  google.protobuf.Timestamp created_at = 11 [lazy = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 12 [lazy = true];
+
+  // User ID who configured this isolation
+  string configured_by = 13;
+}

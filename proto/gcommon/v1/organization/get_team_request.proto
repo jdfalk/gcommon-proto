@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/organization/messages/get_team_request.proto
+// version: 1.0.0
+// guid: fbed9098-fc8c-4afe-8d21-dd883fd0faee
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message GetTeamRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Team identifier
+  string team_id = 2;
+}

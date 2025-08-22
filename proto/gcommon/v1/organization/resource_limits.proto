@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/organization/messages/resource_limits.proto
+// version: 1.0.0
+// guid: 53f1daa8-81b3-439e-a815-562120cd11a8
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message OrganizationResourceLimits {
+  // Maximum CPU usage percentage
+  int32 max_cpu_percent = 1;
+
+  // Maximum memory usage in MB
+  int64 max_memory_mb = 2;
+
+  // Maximum disk I/O operations per second
+  int32 max_disk_iops = 3;
+
+  // Maximum network bandwidth in Mbps
+  int32 max_network_mbps = 4;
+
+  // Maximum number of processes
+  int32 max_processes = 5;
+
+  // Maximum number of file descriptors
+  int32 max_file_descriptors = 6;
+}

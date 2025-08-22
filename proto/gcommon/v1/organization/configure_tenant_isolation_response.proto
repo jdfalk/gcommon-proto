@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/organization/messages/configure_tenant_isolation_response.proto
+// version: 1.0.0
+// guid: 8bfb868a-9352-4ca3-9e89-57d201252ebc
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/organization/messages/tenant_isolation.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message ConfigureTenantIsolationResponse {
+  // Any errors encountered
+  repeated gcommon.v1.common.Error errors = 1;
+
+  // Success status
+  bool success = 2;
+
+  // Applied isolation configuration
+  gcommon.v1.organization.TenantIsolation isolation = 3 [lazy = true];
+}

@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/organization/messages/create_tenant_request.proto
+// version: 1.0.0
+// guid: bff082b5-49b8-4b48-808c-5d8a7af3463b
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/organization/messages/tenant.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message CreateTenantRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+  // Tenant information to create
+  gcommon.v1.organization.Tenant tenant = 2;
+
+  // Validate only without persisting if true
+  bool validate_only = 3;
+}

@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/organization/messages/update_hierarchy_request.proto
+// version: 1.0.0
+// guid: 6bd1b024-7f93-4cc5-87d2-568e9a8c4fae
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/organization/messages/organization_hierarchy.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message UpdateHierarchyRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization identifier
+  string organization_id = 2;
+
+  // Updated hierarchy data
+  gcommon.v1.organization.OrganizationHierarchy hierarchy = 3;
+
+  // Fields to update
+  google.protobuf.FieldMask update_mask = 4;
+
+  // Validate only without persisting if true
+  bool validate_only = 5;
+}

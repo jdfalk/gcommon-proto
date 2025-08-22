@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/organization/messages/update_organization_settings_request.proto
+// version: 1.0.0
+// guid: 1a45386c-fda8-459c-b1bb-60c097f611ba
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/organization/messages/organization_settings.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message UpdateOrganizationSettingsRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization identifier
+  string organization_id = 2;
+
+  // Updated settings
+  gcommon.v1.organization.OrganizationSettings settings = 3;
+
+  // Fields to update
+  google.protobuf.FieldMask update_mask = 4;
+
+  // Validate only without persisting if true
+  bool validate_only = 5;
+}

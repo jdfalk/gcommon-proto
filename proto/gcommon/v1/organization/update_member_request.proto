@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/organization/messages/update_member_request.proto
+// version: 1.0.0
+// guid: c91064f2-6854-4e07-83e6-dc6dd90127b9
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/organization/messages/organization_member.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+
+message UpdateMemberRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Identifier of the member to update
+  string member_id = 2;
+
+  // Updated member information
+  gcommon.v1.organization.OrganizationMember member = 3;
+
+  // Fields to update for partial updates
+  google.protobuf.FieldMask update_mask = 4;
+}
