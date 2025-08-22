@@ -6,11 +6,11 @@ edition = "2023";
 
 package gcommon.v1.media;
 
+import "gcommon/v1/common/merge_subtitles_request.proto";
 import "gcommon/v1/media/adjust_subtitle_timing_request.proto";
 import "gcommon/v1/media/adjust_subtitle_timing_response.proto";
 import "gcommon/v1/media/convert_subtitle_format_request.proto";
 import "gcommon/v1/media/convert_subtitle_format_response.proto";
-import "gcommon/v1/media/merge_subtitles_request.proto";
 import "gcommon/v1/media/merge_subtitles_response.proto";
 import "gcommon/v1/media/sync_subtitles_request.proto";
 import "gcommon/v1/media/sync_subtitles_response.proto";
