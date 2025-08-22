@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import deprecation_level_pb2 as gcommon_dot_v1_dot_config_dot_deprecation__level__pb2
+from gcommon.v1.common import deprecation_level_pb2 as gcommon_dot_v1_dot_common_dot_deprecation__level__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/config/deprecation_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/deprecation_level.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd6\x02\n\x0f\x44\x65precationInfo\x12\x1e\n\ndeprecated\x18\x01 \x01(\x08R\ndeprecated\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\x12?\n\rdeprecated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0c\x64\x65precatedAt\x12\'\n\x0freplacement_key\x18\x04 \x01(\tR\x0ereplacementKey\x12=\n\x0cremoval_date\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bremovalDate\x12\'\n\x0fmigration_guide\x18\x06 \x01(\tR\x0emigrationGuide\x12\x39\n\x05level\x18\x07 \x01(\x0e\x32#.gcommon.v1.config.DeprecationLevelR\x05levelB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/config/deprecation_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/common/deprecation_level.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd6\x02\n\x0f\x44\x65precationInfo\x12\x1e\n\ndeprecated\x18\x01 \x01(\x08R\ndeprecated\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\x12?\n\rdeprecated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0c\x64\x65precatedAt\x12\'\n\x0freplacement_key\x18\x04 \x01(\tR\x0ereplacementKey\x12=\n\x0cremoval_date\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bremovalDate\x12\'\n\x0fmigration_guide\x18\x06 \x01(\tR\x0emigrationGuide\x12\x39\n\x05level\x18\x07 \x01(\x0e\x32#.gcommon.v1.common.DeprecationLevelR\x05levelB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

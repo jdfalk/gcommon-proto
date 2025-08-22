@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import comparison_operator_pb2 as gcommon_dot_v1_dot_metrics_dot_comparison__operator__pb2
+from gcommon.v1.common import comparison_operator_pb2 as gcommon_dot_v1_dot_common_dot_comparison__operator__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/alerting_condition.proto\x12\x12gcommon.v1.metrics\x1a,gcommon/v1/metrics/comparison_operator.proto\x1a!google/protobuf/go_features.proto\"\xb8\x01\n\x11\x41lertingCondition\x12\x42\n\x08operator\x18\x01 \x01(\x0e\x32&.gcommon.v1.metrics.ComparisonOperatorR\x08operator\x12\x16\n\x06metric\x18\x02 \x01(\tR\x06metric\x12\x1c\n\tthreshold\x18\x03 \x01(\x01R\tthreshold\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x05R\x0f\x64urationSecondsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/alerting_condition.proto\x12\x12gcommon.v1.metrics\x1a+gcommon/v1/common/comparison_operator.proto\x1a!google/protobuf/go_features.proto\"\xb7\x01\n\x11\x41lertingCondition\x12\x41\n\x08operator\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.ComparisonOperatorR\x08operator\x12\x16\n\x06metric\x18\x02 \x01(\tR\x06metric\x12\x1c\n\tthreshold\x18\x03 \x01(\x01R\tthreshold\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x05R\x0f\x64urationSecondsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.alerting
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_ALERTINGCONDITION']._serialized_start=149
-  _globals['_ALERTINGCONDITION']._serialized_end=333
+  _globals['_ALERTINGCONDITION']._serialized_start=148
+  _globals['_ALERTINGCONDITION']._serialized_end=331
 # @@protoc_insertion_point(module_scope)

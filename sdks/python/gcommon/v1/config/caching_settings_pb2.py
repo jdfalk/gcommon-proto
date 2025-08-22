@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import cache_invalidation_trigger_pb2 as gcommon_dot_v1_dot_config_dot_cache__invalidation__trigger__pb2
-from gcommon.v1.config import cache_refresh_strategy_pb2 as gcommon_dot_v1_dot_config_dot_cache__refresh__strategy__pb2
+from gcommon.v1.common import cache_invalidation_trigger_pb2 as gcommon_dot_v1_dot_common_dot_cache__invalidation__trigger__pb2
+from gcommon.v1.common import cache_refresh_strategy_pb2 as gcommon_dot_v1_dot_common_dot_cache__refresh__strategy__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/config/caching_settings.proto\x12\x11gcommon.v1.config\x1a\x32gcommon/v1/config/cache_invalidation_trigger.proto\x1a.gcommon/v1/config/cache_refresh_strategy.proto\x1a!google/protobuf/go_features.proto\"\xf4\x02\n\x0f\x43\x61\x63hingSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bttl_seconds\x18\x02 \x01(\x05R\nttlSeconds\x12R\n\x10refresh_strategy\x18\x03 \x01(\x0e\x32\'.gcommon.v1.config.CacheRefreshStrategyR\x0frefreshStrategy\x12G\n\x08triggers\x18\x04 \x03(\x0e\x32+.gcommon.v1.config.CacheInvalidationTriggerR\x08triggers\x12L\n\x08metadata\x18\x05 \x03(\x0b\x32\x30.gcommon.v1.config.CachingSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/config/caching_settings.proto\x12\x11gcommon.v1.config\x1a\x32gcommon/v1/common/cache_invalidation_trigger.proto\x1a.gcommon/v1/common/cache_refresh_strategy.proto\x1a!google/protobuf/go_features.proto\"\xf4\x02\n\x0f\x43\x61\x63hingSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bttl_seconds\x18\x02 \x01(\x05R\nttlSeconds\x12R\n\x10refresh_strategy\x18\x03 \x01(\x0e\x32\'.gcommon.v1.common.CacheRefreshStrategyR\x0frefreshStrategy\x12G\n\x08triggers\x18\x04 \x03(\x0e\x32+.gcommon.v1.common.CacheInvalidationTriggerR\x08triggers\x12L\n\x08metadata\x18\x05 \x03(\x0b\x32\x30.gcommon.v1.config.CachingSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

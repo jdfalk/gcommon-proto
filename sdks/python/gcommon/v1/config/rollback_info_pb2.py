@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import rollback_method_pb2 as gcommon_dot_v1_dot_config_dot_rollback__method__pb2
+from gcommon.v1.common import rollback_method_pb2 as gcommon_dot_v1_dot_common_dot_rollback__method__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/config/rollback_info.proto\x12\x11gcommon.v1.config\x1a\'gcommon/v1/config/rollback_method.proto\x1a!google/protobuf/go_features.proto\"\xd2\x01\n\x0cRollbackInfo\x12*\n\x11original_audit_id\x18\x01 \x01(\tR\x0foriginalAuditId\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\x12\x39\n\x06method\x18\x03 \x01(\x0e\x32!.gcommon.v1.config.RollbackMethodR\x06method\x12%\n\x0etarget_version\x18\x04 \x01(\tR\rtargetVersion\x12\x1c\n\tautomatic\x18\x05 \x01(\x08R\tautomaticB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/config/rollback_info.proto\x12\x11gcommon.v1.config\x1a\'gcommon/v1/common/rollback_method.proto\x1a!google/protobuf/go_features.proto\"\xd2\x01\n\x0cRollbackInfo\x12*\n\x11original_audit_id\x18\x01 \x01(\tR\x0foriginalAuditId\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\x12\x39\n\x06method\x18\x03 \x01(\x0e\x32!.gcommon.v1.common.RollbackMethodR\x06method\x12%\n\x0etarget_version\x18\x04 \x01(\tR\rtargetVersion\x12\x1c\n\tautomatic\x18\x05 \x01(\x08R\tautomaticB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

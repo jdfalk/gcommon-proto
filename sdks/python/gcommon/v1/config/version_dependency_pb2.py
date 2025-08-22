@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import version_dependency_type_pb2 as gcommon_dot_v1_dot_config_dot_version__dependency__type__pb2
+from gcommon.v1.common import version_dependency_type_pb2 as gcommon_dot_v1_dot_common_dot_version__dependency__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/config/version_dependency.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/config/version_dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n\x11VersionDependency\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12<\n\x04type\x18\x03 \x01(\x0e\x32(.gcommon.v1.config.VersionDependencyTypeR\x04type\x12\x14\n\x05scope\x18\x04 \x01(\tR\x05scope\x12 \n\x0b\x63onstraints\x18\x06 \x03(\tR\x0b\x63onstraints\x12N\n\x08metadata\x18\x07 \x03(\x0b\x32\x32.gcommon.v1.config.VersionDependency.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/config/version_dependency.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/common/version_dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n\x11VersionDependency\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12<\n\x04type\x18\x03 \x01(\x0e\x32(.gcommon.v1.common.VersionDependencyTypeR\x04type\x12\x14\n\x05scope\x18\x04 \x01(\tR\x05scope\x12 \n\x0b\x63onstraints\x18\x06 \x03(\tR\x0b\x63onstraints\x12N\n\x08metadata\x18\x07 \x03(\x0b\x32\x32.gcommon.v1.config.VersionDependency.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

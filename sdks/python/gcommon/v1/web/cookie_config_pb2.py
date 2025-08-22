@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.web import cookie_same_site_pb2 as gcommon_dot_v1_dot_web_dot_cookie__same__site__pb2
+from gcommon.v1.common import cookie_same_site_pb2 as gcommon_dot_v1_dot_common_dot_cookie__same__site__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/web/cookie_config.proto\x12\x0egcommon.v1.web\x1a%gcommon/v1/web/cookie_same_site.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n\x0c\x43ookieConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n\x06\x64omain\x18\x02 \x01(\tR\x06\x64omain\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\x12\x16\n\x06secure\x18\x04 \x01(\x08R\x06secure\x12\x1b\n\thttp_only\x18\x05 \x01(\x08R\x08httpOnly\x12;\n\tsame_site\x18\x06 \x01(\x0e\x32\x1e.gcommon.v1.web.CookieSameSiteR\x08sameSite\x12\x32\n\x07max_age\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06maxAgeB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/web/cookie_config.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/common/cookie_same_site.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf7\x01\n\x0c\x43ookieConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n\x06\x64omain\x18\x02 \x01(\tR\x06\x64omain\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\x12\x16\n\x06secure\x18\x04 \x01(\x08R\x06secure\x12\x1b\n\thttp_only\x18\x05 \x01(\x08R\x08httpOnly\x12>\n\tsame_site\x18\x06 \x01(\x0e\x32!.gcommon.v1.common.CookieSameSiteR\x08sameSite\x12\x32\n\x07max_age\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06maxAgeB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.cookie_confi
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
-  _globals['_COOKIECONFIG']._serialized_start=161
-  _globals['_COOKIECONFIG']._serialized_end=405
+  _globals['_COOKIECONFIG']._serialized_start=164
+  _globals['_COOKIECONFIG']._serialized_end=411
 # @@protoc_insertion_point(module_scope)

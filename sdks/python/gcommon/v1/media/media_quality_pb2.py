@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import quality_score_pb2 as gcommon_dot_v1_dot_media_dot_quality__score__pb2
-from gcommon.v1.media import resolution_pb2 as gcommon_dot_v1_dot_media_dot_resolution__pb2
+from gcommon.v1.common import quality_score_pb2 as gcommon_dot_v1_dot_common_dot_quality__score__pb2
+from gcommon.v1.common import resolution_pb2 as gcommon_dot_v1_dot_common_dot_resolution__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/media/media_quality.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/quality_score.proto\x1a!gcommon/v1/media/resolution.proto\x1a!google/protobuf/go_features.proto\"\x80\x02\n\x0cMediaQuality\x12<\n\nresolution\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.media.ResolutionR\nresolution\x12\x1f\n\x0bvideo_codec\x18\x02 \x01(\tR\nvideoCodec\x12!\n\x0c\x62itrate_kbps\x18\x03 \x01(\x05R\x0b\x62itrateKbps\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x02R\x0f\x64urationSeconds\x12\x43\n\rquality_score\x18\x05 \x01(\x0e\x32\x1e.gcommon.v1.media.QualityScoreR\x0cqualityScoreB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/media/media_quality.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/common/quality_score.proto\x1a\"gcommon/v1/common/resolution.proto\x1a!google/protobuf/go_features.proto\"\x82\x02\n\x0cMediaQuality\x12=\n\nresolution\x18\x01 \x01(\x0e\x32\x1d.gcommon.v1.common.ResolutionR\nresolution\x12\x1f\n\x0bvideo_codec\x18\x02 \x01(\tR\nvideoCodec\x12!\n\x0c\x62itrate_kbps\x18\x03 \x01(\x05R\x0b\x62itrateKbps\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x02R\x0f\x64urationSeconds\x12\x44\n\rquality_score\x18\x05 \x01(\x0e\x32\x1f.gcommon.v1.common.QualityScoreR\x0cqualityScoreB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.media_qual
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_MEDIAQUALITY']._serialized_start=167
-  _globals['_MEDIAQUALITY']._serialized_end=423
+  _globals['_MEDIAQUALITY']._serialized_start=169
+  _globals['_MEDIAQUALITY']._serialized_end=427
 # @@protoc_insertion_point(module_scope)

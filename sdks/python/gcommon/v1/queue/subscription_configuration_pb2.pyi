@@ -1,5 +1,5 @@
-from gcommon.v1.queue import ack_level_pb2 as _ack_level_pb2
-from gcommon.v1.queue import delivery_mode_pb2 as _delivery_mode_pb2
+from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
+from gcommon.v1.common import delivery_mode_pb2 as _delivery_mode_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

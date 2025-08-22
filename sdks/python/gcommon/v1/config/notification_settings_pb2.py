@@ -22,13 +22,13 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import notification_trigger_pb2 as gcommon_dot_v1_dot_config_dot_notification__trigger__pb2
+from gcommon.v1.common import notification_trigger_pb2 as gcommon_dot_v1_dot_common_dot_notification__trigger__pb2
 from gcommon.v1.config import batching_settings_pb2 as gcommon_dot_v1_dot_config_dot_batching__settings__pb2
 from gcommon.v1.config import notification_channel_pb2 as gcommon_dot_v1_dot_config_dot_notification__channel__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/config/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\"\xe6\x02\n\x1a\x43onfigNotificationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12H\n\x08\x63hannels\x18\x02 \x03(\x0b\x32,.gcommon.v1.config.ConfigNotificationChannelR\x08\x63hannels\x12\x42\n\x08triggers\x18\x03 \x03(\x0e\x32&.gcommon.v1.config.NotificationTriggerR\x08triggers\x12\x1a\n\x08template\x18\x04 \x01(\tR\x08template\x12\x1e\n\nrecipients\x18\x05 \x03(\tR\nrecipients\x12#\n\rdelay_minutes\x18\x06 \x01(\x05R\x0c\x64\x65layMinutes\x12?\n\x08\x62\x61tching\x18\x07 \x01(\x0b\x32#.gcommon.v1.config.BatchingSettingsR\x08\x62\x61tchingB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/common/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\"\xe6\x02\n\x1a\x43onfigNotificationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12H\n\x08\x63hannels\x18\x02 \x03(\x0b\x32,.gcommon.v1.config.ConfigNotificationChannelR\x08\x63hannels\x12\x42\n\x08triggers\x18\x03 \x03(\x0e\x32&.gcommon.v1.common.NotificationTriggerR\x08triggers\x12\x1a\n\x08template\x18\x04 \x01(\tR\x08template\x12\x1e\n\nrecipients\x18\x05 \x03(\tR\nrecipients\x12#\n\rdelay_minutes\x18\x06 \x01(\x05R\x0c\x64\x65layMinutes\x12?\n\x08\x62\x61tching\x18\x07 \x01(\x0b\x32#.gcommon.v1.config.BatchingSettingsR\x08\x62\x61tchingB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

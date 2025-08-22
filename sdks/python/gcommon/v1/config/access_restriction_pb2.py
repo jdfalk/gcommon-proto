@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import restriction_type_pb2 as gcommon_dot_v1_dot_config_dot_restriction__type__pb2
+from gcommon.v1.common import restriction_type_pb2 as gcommon_dot_v1_dot_common_dot_restriction__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/config/access_restriction.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/config/restriction_type.proto\x1a!google/protobuf/go_features.proto\"\x95\x01\n\x11\x41\x63\x63\x65ssRestriction\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32\".gcommon.v1.config.RestrictionTypeR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x1a\n\x08operator\x18\x03 \x01(\tR\x08operator\x12\x16\n\x06reason\x18\x04 \x01(\tR\x06reasonB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/config/access_restriction.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/common/restriction_type.proto\x1a!google/protobuf/go_features.proto\"\x95\x01\n\x11\x41\x63\x63\x65ssRestriction\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32\".gcommon.v1.common.RestrictionTypeR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x1a\n\x08operator\x18\x03 \x01(\tR\x08operator\x12\x16\n\x06reason\x18\x04 \x01(\tR\x06reasonB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

@@ -24,11 +24,11 @@ _sym_db = _symbol_database.Default()
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
 from gcommon.v1.database import batch_operation_result_pb2 as gcommon_dot_v1_dot_database_dot_batch__operation__result__pb2
-from gcommon.v1.metrics import batch_stats_pb2 as gcommon_dot_v1_dot_metrics_dot_batch__stats__pb2
+from gcommon.v1.database import batch_stats_pb2 as gcommon_dot_v1_dot_database_dot_batch__stats__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a\x30gcommon/v1/database/batch_operation_result.proto\x1a$gcommon/v1/metrics/batch_stats.proto\x1a!google/protobuf/go_features.proto\"\xd4\x01\n\x14\x45xecuteBatchResponse\x12G\n\x07results\x18\x01 \x03(\x0b\x32).gcommon.v1.database.BatchOperationResultB\x02(\x01R\x07results\x12?\n\x05stats\x18\x02 \x01(\x0b\x32%.gcommon.v1.metrics.MetricsBatchStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a\x30gcommon/v1/database/batch_operation_result.proto\x1a%gcommon/v1/database/batch_stats.proto\x1a!google/protobuf/go_features.proto\"\xd6\x01\n\x14\x45xecuteBatchResponse\x12G\n\x07results\x18\x01 \x03(\x0b\x32).gcommon.v1.database.BatchOperationResultB\x02(\x01R\x07results\x12\x41\n\x05stats\x18\x02 \x01(\x0b\x32\'.gcommon.v1.database.DatabaseBatchStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +42,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['stats']._serialized_options = b'(\001'
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['error']._loaded_options = None
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
-  _globals['_EXECUTEBATCHRESPONSE']._serialized_start=228
-  _globals['_EXECUTEBATCHRESPONSE']._serialized_end=440
+  _globals['_EXECUTEBATCHRESPONSE']._serialized_start=229
+  _globals['_EXECUTEBATCHRESPONSE']._serialized_end=443
 # @@protoc_insertion_point(module_scope)

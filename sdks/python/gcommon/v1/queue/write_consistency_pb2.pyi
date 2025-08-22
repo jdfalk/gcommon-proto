@@ -1,4 +1,4 @@
-from gcommon.v1.queue import write_level_pb2 as _write_level_pb2
+from gcommon.v1.common import write_level_pb2 as _write_level_pb2
 from gcommon.v1.queue import conflict_detection_pb2 as _conflict_detection_pb2
 from gcommon.v1.queue import sync_replication_pb2 as _sync_replication_pb2
 from gcommon.v1.queue import write_retry_config_pb2 as _write_retry_config_pb2

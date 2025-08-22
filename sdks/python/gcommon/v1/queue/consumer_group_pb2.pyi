@@ -1,4 +1,4 @@
-from gcommon.v1.queue import consumer_group_state_pb2 as _consumer_group_state_pb2
+from gcommon.v1.common import consumer_group_state_pb2 as _consumer_group_state_pb2
 from gcommon.v1.queue import consumer_pb2 as _consumer_pb2
 from gcommon.v1.queue import consumer_group_config_pb2 as _consumer_group_config_pb2
 from gcommon.v1.queue import consumer_group_stats_pb2 as _consumer_group_stats_pb2

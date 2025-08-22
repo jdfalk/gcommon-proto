@@ -1,5 +1,5 @@
-from gcommon.v1.common import session_status_pb2 as _session_status_pb2
 from gcommon.v1.common import client_info_pb2 as _client_info_pb2
+from gcommon.v1.common import session_status_pb2 as _session_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers

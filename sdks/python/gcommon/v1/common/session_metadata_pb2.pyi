@@ -1,6 +1,6 @@
-from gcommon.v1.common import session_state_pb2 as _session_state_pb2
 from gcommon.v1.common import device_info_pb2 as _device_info_pb2
 from gcommon.v1.common import location_info_pb2 as _location_info_pb2
+from gcommon.v1.common import session_state_pb2 as _session_state_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -29,5 +29,5 @@ class SessionMetadata(_message.Message):
     user_agent: str
     device_info: _device_info_pb2.DeviceInfo
     location_info: _location_info_pb2.LocationInfo
-    state: _session_state_pb2.AuthSessionState
-    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., started_at: _Optional[int] = ..., last_activity: _Optional[int] = ..., expires_at: _Optional[int] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., device_info: _Optional[_Union[_device_info_pb2.DeviceInfo, _Mapping]] = ..., location_info: _Optional[_Union[_location_info_pb2.LocationInfo, _Mapping]] = ..., state: _Optional[_Union[_session_state_pb2.AuthSessionState, str]] = ...) -> None: ...
+    state: _session_state_pb2.SessionState
+    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., started_at: _Optional[int] = ..., last_activity: _Optional[int] = ..., expires_at: _Optional[int] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., device_info: _Optional[_Union[_device_info_pb2.DeviceInfo, _Mapping]] = ..., location_info: _Optional[_Union[_location_info_pb2.LocationInfo, _Mapping]] = ..., state: _Optional[_Union[_session_state_pb2.SessionState, str]] = ...) -> None: ...

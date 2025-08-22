@@ -1,4 +1,4 @@
-from gcommon.v1.config import health_state_pb2 as _health_state_pb2
+from gcommon.v1.common import health_state_pb2 as _health_state_pb2
 from gcommon.v1.config import health_check_result_pb2 as _health_check_result_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

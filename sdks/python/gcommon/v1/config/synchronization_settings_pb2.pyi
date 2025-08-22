@@ -1,5 +1,5 @@
-from gcommon.v1.config import conflict_resolution_pb2 as _conflict_resolution_pb2
-from gcommon.v1.config import synchronization_frequency_pb2 as _synchronization_frequency_pb2
+from gcommon.v1.common import conflict_resolution_pb2 as _conflict_resolution_pb2
+from gcommon.v1.common import synchronization_frequency_pb2 as _synchronization_frequency_pb2
 from gcommon.v1.config import synchronization_target_pb2 as _synchronization_target_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
@@ -26,6 +26,6 @@ class SynchronizationSettings(_message.Message):
     enabled: bool
     targets: _containers.RepeatedCompositeFieldContainer[_synchronization_target_pb2.SynchronizationTarget]
     frequency: _synchronization_frequency_pb2.SynchronizationFrequency
-    conflict_resolution: _conflict_resolution_pb2.ConfigConflictResolution
+    conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: bool = ..., targets: _Optional[_Iterable[_Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]]] = ..., frequency: _Optional[_Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConfigConflictResolution, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., targets: _Optional[_Iterable[_Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]]] = ..., frequency: _Optional[_Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

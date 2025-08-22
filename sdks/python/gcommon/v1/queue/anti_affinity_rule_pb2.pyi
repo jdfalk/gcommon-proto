@@ -1,4 +1,4 @@
-from gcommon.v1.queue import anti_affinity_scope_pb2 as _anti_affinity_scope_pb2
+from gcommon.v1.common import anti_affinity_scope_pb2 as _anti_affinity_scope_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

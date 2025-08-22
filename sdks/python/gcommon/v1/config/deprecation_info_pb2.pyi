@@ -1,4 +1,4 @@
-from gcommon.v1.config import deprecation_level_pb2 as _deprecation_level_pb2
+from gcommon.v1.common import deprecation_level_pb2 as _deprecation_level_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor

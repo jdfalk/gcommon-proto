@@ -1,4 +1,4 @@
-from gcommon.v1.config import deployment_status_pb2 as _deployment_status_pb2
+from gcommon.v1.common import deployment_status_pb2 as _deployment_status_pb2
 from gcommon.v1.config import deployment_rollback_info_pb2 as _deployment_rollback_info_pb2
 from gcommon.v1.config import health_check_pb2 as _health_check_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

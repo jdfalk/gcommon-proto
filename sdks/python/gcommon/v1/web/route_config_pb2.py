@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.web import handler_type_pb2 as gcommon_dot_v1_dot_web_dot_handler__type__pb2
-from gcommon.v1.web import http_method_pb2 as gcommon_dot_v1_dot_web_dot_http__method__pb2
+from gcommon.v1.common import handler_type_pb2 as gcommon_dot_v1_dot_common_dot_handler__type__pb2
+from gcommon.v1.common import http_method_pb2 as gcommon_dot_v1_dot_common_dot_http__method__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a!gcommon/v1/web/handler_type.proto\x1a gcommon/v1/web/http_method.proto\x1a!google/protobuf/go_features.proto\"\xfd\x01\n\x0bRouteConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x34\n\x07methods\x18\x02 \x03(\x0e\x32\x1a.gcommon.v1.web.HTTPMethodR\x07methods\x12\x18\n\x07handler\x18\x03 \x01(\tR\x07handler\x12>\n\x0chandler_type\x18\x04 \x01(\x0e\x32\x1b.gcommon.v1.web.HandlerTypeR\x0bhandlerType\x12%\n\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n\rauth_required\x18\x06 \x01(\x08R\x0c\x61uthRequiredB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/handler_type.proto\x1a#gcommon/v1/common/http_method.proto\x1a!google/protobuf/go_features.proto\"\x83\x02\n\x0bRouteConfig\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x37\n\x07methods\x18\x02 \x03(\x0e\x32\x1d.gcommon.v1.common.HTTPMethodR\x07methods\x12\x18\n\x07handler\x18\x03 \x01(\tR\x07handler\x12\x41\n\x0chandler_type\x18\x04 \x01(\x0e\x32\x1e.gcommon.v1.common.HandlerTypeR\x0bhandlerType\x12%\n\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n\rauth_required\x18\x06 \x01(\x08R\x0c\x61uthRequiredB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.route_config
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
-  _globals['_ROUTECONFIG']._serialized_start=158
-  _globals['_ROUTECONFIG']._serialized_end=411
+  _globals['_ROUTECONFIG']._serialized_start=164
+  _globals['_ROUTECONFIG']._serialized_end=423
 # @@protoc_insertion_point(module_scope)

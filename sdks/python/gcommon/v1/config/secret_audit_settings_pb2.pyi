@@ -1,4 +1,4 @@
-from gcommon.v1.config import secret_audit_level_pb2 as _secret_audit_level_pb2
+from gcommon.v1.common import secret_audit_level_pb2 as _secret_audit_level_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

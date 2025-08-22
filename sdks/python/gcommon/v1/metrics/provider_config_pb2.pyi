@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import provider_type_pb2 as _provider_type_pb2
+from gcommon.v1.common import metrics_provider_type_pb2 as _metrics_provider_type_pb2
 from gcommon.v1.metrics import export_config_pb2 as _export_config_pb2
 from gcommon.v1.metrics import provider_settings_pb2 as _provider_settings_pb2
 from gcommon.v1.metrics import security_config_pb2 as _security_config_pb2
@@ -31,11 +31,11 @@ class ProviderConfig(_message.Message):
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     provider_id: str
     name: str
-    type: _provider_type_pb2.MetricsProviderType
+    type: _metrics_provider_type_pb2.MetricsProviderType
     settings: _provider_settings_pb2.ProviderSettings
     export_config: _export_config_pb2.ExportConfig
     resource_limits: _resource_limits_pb2.OrganizationResourceLimits
     security_config: _security_config_pb2.MetricsSecurityConfig
     tags: _containers.ScalarMap[str, str]
     description: str
-    def __init__(self, provider_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_provider_type_pb2.MetricsProviderType, str]] = ..., settings: _Optional[_Union[_provider_settings_pb2.ProviderSettings, _Mapping]] = ..., export_config: _Optional[_Union[_export_config_pb2.ExportConfig, _Mapping]] = ..., resource_limits: _Optional[_Union[_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., security_config: _Optional[_Union[_security_config_pb2.MetricsSecurityConfig, _Mapping]] = ..., tags: _Optional[_Mapping[str, str]] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, provider_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_metrics_provider_type_pb2.MetricsProviderType, str]] = ..., settings: _Optional[_Union[_provider_settings_pb2.ProviderSettings, _Mapping]] = ..., export_config: _Optional[_Union[_export_config_pb2.ExportConfig, _Mapping]] = ..., resource_limits: _Optional[_Union[_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., security_config: _Optional[_Union[_security_config_pb2.MetricsSecurityConfig, _Mapping]] = ..., tags: _Optional[_Mapping[str, str]] = ..., description: _Optional[str] = ...) -> None: ...

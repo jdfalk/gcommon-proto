@@ -1,5 +1,5 @@
+from gcommon.v1.common import isolation_level_pb2 as _isolation_level_pb2
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
-from gcommon.v1.organization import isolation_level_pb2 as _isolation_level_pb2
 from gcommon.v1.organization import access_control_pb2 as _access_control_pb2
 from gcommon.v1.organization import audit_config_pb2 as _audit_config_pb2
 from gcommon.v1.organization import compute_isolation_pb2 as _compute_isolation_pb2

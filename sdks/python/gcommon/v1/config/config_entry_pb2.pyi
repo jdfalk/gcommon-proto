@@ -1,5 +1,5 @@
-from gcommon.v1.common import resource_status_pb2 as _resource_status_pb2
 from gcommon.v1.common import config_value_pb2 as _config_value_pb2
+from gcommon.v1.common import resource_status_pb2 as _resource_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers

@@ -1,4 +1,4 @@
-from gcommon.v1.web import proxy_type_pb2 as _proxy_type_pb2
+from gcommon.v1.common import proxy_type_pb2 as _proxy_type_pb2
 from gcommon.v1.web import http_header_pb2 as _http_header_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

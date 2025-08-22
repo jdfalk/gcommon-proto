@@ -1,5 +1,5 @@
-from gcommon.v1.config import hook_error_handling_pb2 as _hook_error_handling_pb2
-from gcommon.v1.config import hook_type_pb2 as _hook_type_pb2
+from gcommon.v1.common import hook_error_handling_pb2 as _hook_error_handling_pb2
+from gcommon.v1.common import hook_type_pb2 as _hook_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.web import load_balance_strategy_pb2 as gcommon_dot_v1_dot_web_dot_load__balance__strategy__pb2
+from gcommon.v1.common import load_balance_strategy_pb2 as gcommon_dot_v1_dot_common_dot_load__balance__strategy__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/web/load_balancer_config.proto\x12\x0egcommon.v1.web\x1a*gcommon/v1/web/load_balance_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xd7\x01\n\x15WebLoadBalancerConfig\x12?\n\x08strategy\x18\x01 \x01(\x0e\x32#.gcommon.v1.web.LoadBalanceStrategyR\x08strategy\x12\x1c\n\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x12\x33\n\x07timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeoutB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/web/load_balancer_config.proto\x12\x0egcommon.v1.web\x1a-gcommon/v1/common/load_balance_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xda\x01\n\x15WebLoadBalancerConfig\x12\x42\n\x08strategy\x18\x01 \x01(\x0e\x32&.gcommon.v1.common.LoadBalanceStrategyR\x08strategy\x12\x1c\n\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x12\x33\n\x07timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeoutB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.load_balance
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
-  _globals['_WEBLOADBALANCERCONFIG']._serialized_start=173
-  _globals['_WEBLOADBALANCERCONFIG']._serialized_end=388
+  _globals['_WEBLOADBALANCERCONFIG']._serialized_start=176
+  _globals['_WEBLOADBALANCERCONFIG']._serialized_end=394
 # @@protoc_insertion_point(module_scope)

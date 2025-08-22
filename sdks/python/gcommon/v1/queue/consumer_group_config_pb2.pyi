@@ -1,6 +1,6 @@
-from gcommon.v1.queue import load_balancing_strategy_pb2 as _load_balancing_strategy_pb2
-from gcommon.v1.queue import offset_reset_strategy_pb2 as _offset_reset_strategy_pb2
-from gcommon.v1.queue import rebalance_strategy_pb2 as _rebalance_strategy_pb2
+from gcommon.v1.common import load_balancing_strategy_pb2 as _load_balancing_strategy_pb2
+from gcommon.v1.common import offset_reset_strategy_pb2 as _offset_reset_strategy_pb2
+from gcommon.v1.common import rebalance_strategy_pb2 as _rebalance_strategy_pb2
 from gcommon.v1.queue import auto_commit_config_pb2 as _auto_commit_config_pb2
 from gcommon.v1.queue import dead_letter_queue_config_pb2 as _dead_letter_queue_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

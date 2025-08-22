@@ -1,5 +1,5 @@
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
-from gcommon.v1.web import same_site_policy_pb2 as _same_site_policy_pb2
+from gcommon.v1.common import same_site_policy_pb2 as _same_site_policy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor

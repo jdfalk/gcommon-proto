@@ -1,7 +1,7 @@
-from gcommon.v1.common import subscription_status_pb2 as _subscription_status_pb2
 from gcommon.v1.common import client_info_pb2 as _client_info_pb2
 from gcommon.v1.common import filter_options_pb2 as _filter_options_pb2
 from gcommon.v1.common import subscription_options_pb2 as _subscription_options_pb2
+from gcommon.v1.common import subscription_status_pb2 as _subscription_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor

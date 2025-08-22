@@ -1,4 +1,4 @@
-from gcommon.v1.queue import stream_restart_policy_pb2 as _stream_restart_policy_pb2
+from gcommon.v1.common import stream_restart_policy_pb2 as _stream_restart_policy_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor

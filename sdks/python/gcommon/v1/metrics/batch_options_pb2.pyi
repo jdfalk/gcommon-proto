@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import batch_priority_pb2 as _batch_priority_pb2
+from gcommon.v1.common import batch_priority_pb2 as _batch_priority_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

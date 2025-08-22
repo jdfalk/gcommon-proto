@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import metric_type_pb2 as _metric_type_pb2
+from gcommon.v1.common import metric_type_pb2 as _metric_type_pb2
 from gcommon.v1.metrics import metric_value_pb2 as _metric_value_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

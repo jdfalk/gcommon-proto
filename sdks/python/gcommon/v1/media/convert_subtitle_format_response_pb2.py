@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/media/convert_subtitle_format_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xc2\x01\n\x1d\x43onvertSubtitleFormatResponse\x12;\n\x1a\x63onverted_subtitle_file_id\x18\x01 \x01(\tR\x17\x63onvertedSubtitleFileId\x12#\n\rsource_format\x18\x02 \x01(\tR\x0csourceFormat\x12#\n\rtarget_format\x18\x03 \x01(\tR\x0ctargetFormat\x12\x1a\n\x08warnings\x18\x04 \x03(\tR\x08warningsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/media/convert_subtitle_format_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xc0\x01\n\x1d\x43onvertSubtitleFormatResponse\x12;\n\x1a\x63onverted_subtitle_file_id\x18\x01 \x01(\tR\x17\x63onvertedSubtitleFileId\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12#\n\routput_format\x18\x04 \x01(\tR\x0coutputFormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,5 +34,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
   _globals['_CONVERTSUBTITLEFORMATRESPONSE']._serialized_start=113
-  _globals['_CONVERTSUBTITLEFORMATRESPONSE']._serialized_end=307
+  _globals['_CONVERTSUBTITLEFORMATRESPONSE']._serialized_end=305
 # @@protoc_insertion_point(module_scope)

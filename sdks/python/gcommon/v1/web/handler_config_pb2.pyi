@@ -1,4 +1,4 @@
-from gcommon.v1.web import handler_type_pb2 as _handler_type_pb2
+from gcommon.v1.common import handler_type_pb2 as _handler_type_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers

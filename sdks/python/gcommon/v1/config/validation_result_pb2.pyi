@@ -1,5 +1,5 @@
-from gcommon.v1.config import validation_result_type_pb2 as _validation_result_type_pb2
-from gcommon.v1.config import validation_severity_pb2 as _validation_severity_pb2
+from gcommon.v1.common import validation_result_type_pb2 as _validation_result_type_pb2
+from gcommon.v1.common import validation_severity_pb2 as _validation_severity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

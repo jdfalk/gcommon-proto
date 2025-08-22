@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.database import isolation_level_pb2 as gcommon_dot_v1_dot_database_dot_isolation__level__pb2
+from gcommon.v1.common import database_isolation_level_pb2 as gcommon_dot_v1_dot_common_dot_database__isolation__level__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/database/transaction_options.proto\x12\x13gcommon.v1.database\x1a)gcommon/v1/database/isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb5\x01\n\x12TransactionOptions\x12I\n\tisolation\x18\x01 \x01(\x0e\x32+.gcommon.v1.database.DatabaseIsolationLevelR\tisolation\x12\x37\n\x07timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12\x1b\n\tread_only\x18\x03 \x01(\x08R\x08readOnlyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/database/transaction_options.proto\x12\x13gcommon.v1.database\x1a\x30gcommon/v1/common/database_isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb3\x01\n\x12TransactionOptions\x12G\n\tisolation\x18\x01 \x01(\x0e\x32).gcommon.v1.common.DatabaseIsolationLevelR\tisolation\x12\x37\n\x07timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12\x1b\n\tread_only\x18\x03 \x01(\x08R\x08readOnlyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,6 +37,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
   _globals['_TRANSACTIONOPTIONS'].fields_by_name['timeout']._loaded_options = None
   _globals['_TRANSACTIONOPTIONS'].fields_by_name['timeout']._serialized_options = b'(\001'
-  _globals['_TRANSACTIONOPTIONS']._serialized_start=181
-  _globals['_TRANSACTIONOPTIONS']._serialized_end=362
+  _globals['_TRANSACTIONOPTIONS']._serialized_start=188
+  _globals['_TRANSACTIONOPTIONS']._serialized_end=367
 # @@protoc_insertion_point(module_scope)

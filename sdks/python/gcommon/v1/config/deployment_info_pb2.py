@@ -22,14 +22,14 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import deployment_status_pb2 as gcommon_dot_v1_dot_config_dot_deployment__status__pb2
+from gcommon.v1.common import deployment_status_pb2 as gcommon_dot_v1_dot_common_dot_deployment__status__pb2
 from gcommon.v1.config import deployment_rollback_info_pb2 as gcommon_dot_v1_dot_config_dot_deployment__rollback__info__pb2
 from gcommon.v1.config import health_check_pb2 as gcommon_dot_v1_dot_config_dot_health__check__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/config/deployment_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/deployment_status.proto\x1a\x30gcommon/v1/config/deployment_rollback_info.proto\x1a$gcommon/v1/config/health_check.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x03\n\x0e\x44\x65ploymentInfo\x12;\n\x06status\x18\x01 \x01(\x0e\x32#.gcommon.v1.config.DeploymentStatusR\x06status\x12\x44\n\x10last_deployed_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0elastDeployedAt\x12\x18\n\x07version\x18\x03 \x01(\tR\x07version\x12\x16\n\x06method\x18\x04 \x01(\tR\x06method\x12\x16\n\x06target\x18\x05 \x01(\tR\x06target\x12\x45\n\x06\x63onfig\x18\x06 \x03(\x0b\x32-.gcommon.v1.config.DeploymentInfo.ConfigEntryR\x06\x63onfig\x12\x43\n\rhealth_checks\x18\x07 \x03(\x0b\x32\x1e.gcommon.v1.config.HealthCheckR\x0chealthChecks\x12N\n\rrollback_info\x18\x08 \x01(\x0b\x32).gcommon.v1.config.DeploymentRollbackInfoR\x0crollbackInfo\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/config/deployment_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/common/deployment_status.proto\x1a\x30gcommon/v1/config/deployment_rollback_info.proto\x1a$gcommon/v1/config/health_check.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x03\n\x0e\x44\x65ploymentInfo\x12;\n\x06status\x18\x01 \x01(\x0e\x32#.gcommon.v1.common.DeploymentStatusR\x06status\x12\x44\n\x10last_deployed_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0elastDeployedAt\x12\x18\n\x07version\x18\x03 \x01(\tR\x07version\x12\x16\n\x06method\x18\x04 \x01(\tR\x06method\x12\x16\n\x06target\x18\x05 \x01(\tR\x06target\x12\x45\n\x06\x63onfig\x18\x06 \x03(\x0b\x32-.gcommon.v1.config.DeploymentInfo.ConfigEntryR\x06\x63onfig\x12\x43\n\rhealth_checks\x18\x07 \x03(\x0b\x32\x1e.gcommon.v1.config.HealthCheckR\x0chealthChecks\x12N\n\rrollback_info\x18\x08 \x01(\x0b\x32).gcommon.v1.config.DeploymentRollbackInfoR\x0crollbackInfo\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

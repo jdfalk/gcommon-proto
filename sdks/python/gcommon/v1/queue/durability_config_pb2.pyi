@@ -1,5 +1,5 @@
-from gcommon.v1.queue import ack_level_pb2 as _ack_level_pb2
-from gcommon.v1.queue import flush_policy_pb2 as _flush_policy_pb2
+from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
+from gcommon.v1.common import flush_policy_pb2 as _flush_policy_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor

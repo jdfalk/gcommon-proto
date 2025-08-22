@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import query_operation_pb2 as _query_operation_pb2
+from gcommon.v1.common import query_operation_pb2 as _query_operation_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers

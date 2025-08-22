@@ -1,6 +1,6 @@
+from gcommon.v1.common import middleware_type_pb2 as _middleware_type_pb2
 from gcommon.v1.common import pagination_pb2 as _pagination_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
-from gcommon.v1.web import middleware_type_pb2 as _middleware_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

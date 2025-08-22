@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import health_check_type_pb2 as gcommon_dot_v1_dot_config_dot_health__check__type__pb2
+from gcommon.v1.common import health_check_type_pb2 as gcommon_dot_v1_dot_common_dot_health__check__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/config/health_check.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/health_check_type.proto\x1a!google/protobuf/go_features.proto\"\x83\x02\n\x0bHealthCheck\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32\".gcommon.v1.config.HealthCheckTypeR\x04type\x12\x1a\n\x08\x65ndpoint\x18\x03 \x01(\tR\x08\x65ndpoint\x12)\n\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12\x18\n\x07retries\x18\x06 \x01(\x05R\x07retries\x12\x1e\n\nconditions\x18\x07 \x03(\tR\nconditionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/config/health_check.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/common/health_check_type.proto\x1a!google/protobuf/go_features.proto\"\x83\x02\n\x0bHealthCheck\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32\".gcommon.v1.common.HealthCheckTypeR\x04type\x12\x1a\n\x08\x65ndpoint\x18\x03 \x01(\tR\x08\x65ndpoint\x12)\n\x10interval_seconds\x18\x04 \x01(\x05R\x0fintervalSeconds\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12\x18\n\x07retries\x18\x06 \x01(\x05R\x07retries\x12\x1e\n\nconditions\x18\x07 \x03(\tR\nconditionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

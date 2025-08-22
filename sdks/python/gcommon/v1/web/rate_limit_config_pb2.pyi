@@ -1,4 +1,4 @@
-from gcommon.v1.web import rate_limit_strategy_pb2 as _rate_limit_strategy_pb2
+from gcommon.v1.common import rate_limit_strategy_pb2 as _rate_limit_strategy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

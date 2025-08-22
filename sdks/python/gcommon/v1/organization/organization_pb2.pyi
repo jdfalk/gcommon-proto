@@ -1,5 +1,5 @@
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
-from gcommon.v1.organization import organization_status_pb2 as _organization_status_pb2
+from gcommon.v1.common import organization_status_pb2 as _organization_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers

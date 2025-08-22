@@ -1,5 +1,5 @@
-from gcommon.v1.config import cache_invalidation_trigger_pb2 as _cache_invalidation_trigger_pb2
-from gcommon.v1.config import cache_refresh_strategy_pb2 as _cache_refresh_strategy_pb2
+from gcommon.v1.common import cache_invalidation_trigger_pb2 as _cache_invalidation_trigger_pb2
+from gcommon.v1.common import cache_refresh_strategy_pb2 as _cache_refresh_strategy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

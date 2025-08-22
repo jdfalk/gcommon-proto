@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import aggregation_type_pb2 as gcommon_dot_v1_dot_metrics_dot_aggregation__type__pb2
+from gcommon.v1.common import aggregation_type_pb2 as gcommon_dot_v1_dot_common_dot_aggregation__type__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/metrics/aggregation_spec.proto\x12\x12gcommon.v1.metrics\x1a)gcommon/v1/metrics/aggregation_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x02\n\x0f\x41ggregationSpec\x12N\n\x10\x61ggregation_type\x18\x01 \x01(\x0e\x32#.gcommon.v1.metrics.AggregationTypeR\x0f\x61ggregationType\x12\x14\n\x05\x66ield\x18\x02 \x01(\tR\x05\x66ield\x12\x31\n\x06window\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06window\x12-\n\x04step\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x04step\x12S\n\nparameters\x18\x05 \x03(\x0b\x32\x33.gcommon.v1.metrics.AggregationSpec.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/metrics/aggregation_spec.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/aggregation_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xec\x02\n\x0f\x41ggregationSpec\x12M\n\x10\x61ggregation_type\x18\x01 \x01(\x0e\x32\".gcommon.v1.common.AggregationTypeR\x0f\x61ggregationType\x12\x14\n\x05\x66ield\x18\x02 \x01(\tR\x05\x66ield\x12\x31\n\x06window\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06window\x12-\n\x04step\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x04step\x12S\n\nparameters\x18\x05 \x03(\x0b\x32\x33.gcommon.v1.metrics.AggregationSpec.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,8 +37,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
   _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._loaded_options = None
   _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_options = b'8\001'
-  _globals['_AGGREGATIONSPEC']._serialized_start=176
-  _globals['_AGGREGATIONSPEC']._serialized_end=541
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_start=480
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_end=541
+  _globals['_AGGREGATIONSPEC']._serialized_start=175
+  _globals['_AGGREGATIONSPEC']._serialized_end=539
+  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_start=478
+  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_end=539
 # @@protoc_insertion_point(module_scope)

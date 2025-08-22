@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import log_level_pb2 as gcommon_dot_v1_dot_common_dot_log__level__pb2
 from gcommon.v1.common import appender_config_pb2 as gcommon_dot_v1_dot_common_dot_appender__config__pb2
+from gcommon.v1.common import log_level_pb2 as gcommon_dot_v1_dot_common_dot_log__level__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/common/logger_config.proto\x12\x11gcommon.v1.common\x1a!gcommon/v1/common/log_level.proto\x1a\'gcommon/v1/common/appender_config.proto\x1a!google/protobuf/go_features.proto\"\xdd\x02\n\x0cLoggerConfig\x12\x31\n\x05level\x18\x01 \x01(\x0e\x32\x1b.gcommon.v1.common.LogLevelR\x05level\x12?\n\tappenders\x18\x02 \x03(\x0b\x32!.gcommon.v1.common.AppenderConfigR\tappenders\x12+\n\x11inherit_appenders\x18\x03 \x01(\x08R\x10inheritAppenders\x12\x1c\n\tpropagate\x18\x04 \x01(\x08R\tpropagate\x12O\n\nproperties\x18\x05 \x03(\x0b\x32/.gcommon.v1.common.LoggerConfig.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/common/logger_config.proto\x12\x11gcommon.v1.common\x1a\'gcommon/v1/common/appender_config.proto\x1a!gcommon/v1/common/log_level.proto\x1a!google/protobuf/go_features.proto\"\xdd\x02\n\x0cLoggerConfig\x12\x31\n\x05level\x18\x01 \x01(\x0e\x32\x1b.gcommon.v1.common.LogLevelR\x05level\x12?\n\tappenders\x18\x02 \x03(\x0b\x32!.gcommon.v1.common.AppenderConfigR\tappenders\x12+\n\x11inherit_appenders\x18\x03 \x01(\x08R\x10inheritAppenders\x12\x1c\n\tpropagate\x18\x04 \x01(\x08R\tpropagate\x12O\n\nproperties\x18\x05 \x03(\x0b\x32/.gcommon.v1.common.LoggerConfig.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

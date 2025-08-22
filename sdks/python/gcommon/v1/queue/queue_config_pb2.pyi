@@ -1,6 +1,6 @@
-from gcommon.v1.metrics import retention_policy_pb2 as _retention_policy_pb2
-from gcommon.v1.queue import priority_level_pb2 as _priority_level_pb2
-from gcommon.v1.queue import queue_type_pb2 as _queue_type_pb2
+from gcommon.v1.common import priority_level_pb2 as _priority_level_pb2
+from gcommon.v1.common import queue_type_pb2 as _queue_type_pb2
+from gcommon.v1.common import retention_policy_pb2 as _retention_policy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

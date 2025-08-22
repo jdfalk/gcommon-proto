@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.database import consistency_level_pb2 as gcommon_dot_v1_dot_database_dot_consistency__level__pb2
+from gcommon.v1.common import consistency_level_pb2 as gcommon_dot_v1_dot_common_dot_consistency__level__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/database/query_options.proto\x12\x13gcommon.v1.database\x1a+gcommon/v1/database/consistency_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf1\x01\n\x0cQueryOptions\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x02 \x01(\x05R\x06offset\x12\x37\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12)\n\x10include_metadata\x18\x04 \x01(\x08R\x0fincludeMetadata\x12O\n\x0b\x63onsistency\x18\x05 \x01(\x0e\x32-.gcommon.v1.database.DatabaseConsistencyLevelR\x0b\x63onsistencyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/database/query_options.proto\x12\x13gcommon.v1.database\x1a)gcommon/v1/common/consistency_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xef\x01\n\x0cQueryOptions\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x02 \x01(\x05R\x06offset\x12\x37\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12)\n\x10include_metadata\x18\x04 \x01(\x08R\x0fincludeMetadata\x12M\n\x0b\x63onsistency\x18\x05 \x01(\x0e\x32+.gcommon.v1.common.DatabaseConsistencyLevelR\x0b\x63onsistencyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,6 +37,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
   _globals['_QUERYOPTIONS'].fields_by_name['timeout']._loaded_options = None
   _globals['_QUERYOPTIONS'].fields_by_name['timeout']._serialized_options = b'(\001'
-  _globals['_QUERYOPTIONS']._serialized_start=177
-  _globals['_QUERYOPTIONS']._serialized_end=418
+  _globals['_QUERYOPTIONS']._serialized_start=175
+  _globals['_QUERYOPTIONS']._serialized_end=414
 # @@protoc_insertion_point(module_scope)

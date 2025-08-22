@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import coordinator_state_pb2 as gcommon_dot_v1_dot_queue_dot_coordinator__state__pb2
+from gcommon.v1.common import coordinator_state_pb2 as gcommon_dot_v1_dot_common_dot_coordinator__state__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/queue/group_coordinator.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/coordinator_state.proto\x1a!google/protobuf/go_features.proto\"\xa3\x01\n\x10GroupCoordinator\x12\x17\n\x07node_id\x18\x01 \x01(\tR\x06nodeId\x12\x12\n\x04host\x18\x02 \x01(\tR\x04host\x12\x12\n\x04port\x18\x03 \x01(\x05R\x04port\x12\x38\n\x05state\x18\x04 \x01(\x0e\x32\".gcommon.v1.queue.CoordinatorStateR\x05state\x12\x14\n\x05\x65poch\x18\x05 \x01(\x03R\x05\x65pochB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/queue/group_coordinator.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/coordinator_state.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n\x10GroupCoordinator\x12\x17\n\x07node_id\x18\x01 \x01(\tR\x06nodeId\x12\x12\n\x04host\x18\x02 \x01(\tR\x04host\x12\x12\n\x04port\x18\x03 \x01(\x05R\x04port\x12\x39\n\x05state\x18\x04 \x01(\x0e\x32#.gcommon.v1.common.CoordinatorStateR\x05state\x12\x14\n\x05\x65poch\x18\x05 \x01(\x03R\x05\x65pochB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.group_coor
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_GROUPCOORDINATOR']._serialized_start=140
-  _globals['_GROUPCOORDINATOR']._serialized_end=303
+  _globals['_GROUPCOORDINATOR']._serialized_start=141
+  _globals['_GROUPCOORDINATOR']._serialized_end=305
 # @@protoc_insertion_point(module_scope)

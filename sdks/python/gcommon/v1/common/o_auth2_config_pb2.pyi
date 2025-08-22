@@ -1,5 +1,5 @@
-from gcommon.v1.common import oauth2_flow_type_pb2 as _oauth2_flow_type_pb2
 from gcommon.v1.common import jwt_config_pb2 as _jwt_config_pb2
+from gcommon.v1.common import oauth2_flow_type_pb2 as _oauth2_flow_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

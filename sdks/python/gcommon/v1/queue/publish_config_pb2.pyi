@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import export_config_pb2 as _export_config_pb2
+from gcommon.v1.common import retry_policy_pb2 as _retry_policy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -20,6 +20,6 @@ class PublishConfig(_message.Message):
     duplicate_detection: bool
     enable_compression: bool
     enable_ordering: bool
-    retry_config: _export_config_pb2.MetricsRetryConfig
+    retry_config: _retry_policy_pb2.CommonRetryPolicy
     persistence_level: str
-    def __init__(self, wait_for_ack: bool = ..., ack_timeout_ms: _Optional[int] = ..., duplicate_detection: bool = ..., enable_compression: bool = ..., enable_ordering: bool = ..., retry_config: _Optional[_Union[_export_config_pb2.MetricsRetryConfig, _Mapping]] = ..., persistence_level: _Optional[str] = ...) -> None: ...
+    def __init__(self, wait_for_ack: bool = ..., ack_timeout_ms: _Optional[int] = ..., duplicate_detection: bool = ..., enable_compression: bool = ..., enable_ordering: bool = ..., retry_config: _Optional[_Union[_retry_policy_pb2.CommonRetryPolicy, _Mapping]] = ..., persistence_level: _Optional[str] = ...) -> None: ...

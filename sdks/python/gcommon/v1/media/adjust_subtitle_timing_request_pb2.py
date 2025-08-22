@@ -22,11 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/media/adjust_subtitle_timing_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x8b\x01\n\x1b\x41\x64justSubtitleTimingRequest\x12(\n\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12\x42\n\nadjustment\x18\x02 \x01(\x0b\x32\".gcommon.v1.media.TimingAdjustmentR\nadjustment\"\xd8\x01\n\x10TimingAdjustment\x12\x31\n\x06offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06offset\x12!\n\x0cspeed_factor\x18\x02 \x01(\x01R\x0bspeedFactor\x12\x38\n\nstart_time\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\tstartTime\x12\x34\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07\x65ndTimeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/media/adjust_subtitle_timing_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x9a\x01\n\x1b\x41\x64justSubtitleTimingRequest\x12(\n\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12$\n\x0etime_offset_ms\x18\x02 \x01(\x03R\x0ctimeOffsetMs\x12+\n\x11preserve_duration\x18\x03 \x01(\x08R\x10preserveDurationB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.adjust_sub
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_ADJUSTSUBTITLETIMINGREQUEST']._serialized_start=143
-  _globals['_ADJUSTSUBTITLETIMINGREQUEST']._serialized_end=282
-  _globals['_TIMINGADJUSTMENT']._serialized_start=285
-  _globals['_TIMINGADJUSTMENT']._serialized_end=501
+  _globals['_ADJUSTSUBTITLETIMINGREQUEST']._serialized_start=111
+  _globals['_ADJUSTSUBTITLETIMINGREQUEST']._serialized_end=265
 # @@protoc_insertion_point(module_scope)

@@ -1,4 +1,4 @@
-from gcommon.v1.config import rotation_frequency_pb2 as _rotation_frequency_pb2
+from gcommon.v1.common import rotation_frequency_pb2 as _rotation_frequency_pb2
 from gcommon.v1.config import rotation_event_pb2 as _rotation_event_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

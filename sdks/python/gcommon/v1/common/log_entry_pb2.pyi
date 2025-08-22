@@ -1,5 +1,5 @@
-from gcommon.v1.common import log_level_pb2 as _log_level_pb2
 from gcommon.v1.common import error_info_pb2 as _error_info_pb2
+from gcommon.v1.common import log_level_pb2 as _log_level_pb2
 from gcommon.v1.common import source_location_pb2 as _source_location_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

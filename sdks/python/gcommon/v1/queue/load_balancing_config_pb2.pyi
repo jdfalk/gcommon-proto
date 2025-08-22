@@ -1,4 +1,4 @@
-from gcommon.v1.queue import load_balancing_strategy_pb2 as _load_balancing_strategy_pb2
+from gcommon.v1.common import load_balancing_strategy_pb2 as _load_balancing_strategy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

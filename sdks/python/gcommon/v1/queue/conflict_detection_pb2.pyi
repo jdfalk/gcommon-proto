@@ -1,4 +1,4 @@
-from gcommon.v1.queue import conflict_strategy_pb2 as _conflict_strategy_pb2
+from gcommon.v1.common import conflict_strategy_pb2 as _conflict_strategy_pb2
 from gcommon.v1.queue import timestamp_config_pb2 as _timestamp_config_pb2
 from gcommon.v1.queue import vector_clock_config_pb2 as _vector_clock_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

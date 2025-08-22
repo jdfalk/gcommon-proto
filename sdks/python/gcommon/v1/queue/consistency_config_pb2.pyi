@@ -1,6 +1,6 @@
-from gcommon.v1.config import conflict_resolution_pb2 as _conflict_resolution_pb2
-from gcommon.v1.queue import ack_level_pb2 as _ack_level_pb2
-from gcommon.v1.queue import durability_level_pb2 as _durability_level_pb2
+from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
+from gcommon.v1.common import conflict_resolution_pb2 as _conflict_resolution_pb2
+from gcommon.v1.common import durability_level_pb2 as _durability_level_pb2
 from gcommon.v1.queue import consistency_validation_pb2 as _consistency_validation_pb2
 from gcommon.v1.queue import ordering_config_pb2 as _ordering_config_pb2
 from gcommon.v1.queue import read_consistency_pb2 as _read_consistency_pb2
@@ -29,6 +29,6 @@ class ConsistencyConfig(_message.Message):
     read_consistency: _read_consistency_pb2.ReadConsistency
     write_consistency: _write_consistency_pb2.WriteConsistency
     ordering: _ordering_config_pb2.OrderingConfig
-    conflict_resolution: _conflict_resolution_pb2.ConfigConflictResolution
+    conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     validation: _consistency_validation_pb2.ConsistencyValidation
-    def __init__(self, durability_level: _Optional[_Union[_durability_level_pb2.DurabilityLevel, str]] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., replication: _Optional[_Union[_replication_consistency_pb2.ReplicationConsistency, _Mapping]] = ..., read_consistency: _Optional[_Union[_read_consistency_pb2.ReadConsistency, _Mapping]] = ..., write_consistency: _Optional[_Union[_write_consistency_pb2.WriteConsistency, _Mapping]] = ..., ordering: _Optional[_Union[_ordering_config_pb2.OrderingConfig, _Mapping]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConfigConflictResolution, str]] = ..., validation: _Optional[_Union[_consistency_validation_pb2.ConsistencyValidation, _Mapping]] = ...) -> None: ...
+    def __init__(self, durability_level: _Optional[_Union[_durability_level_pb2.DurabilityLevel, str]] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., replication: _Optional[_Union[_replication_consistency_pb2.ReplicationConsistency, _Mapping]] = ..., read_consistency: _Optional[_Union[_read_consistency_pb2.ReadConsistency, _Mapping]] = ..., write_consistency: _Optional[_Union[_write_consistency_pb2.WriteConsistency, _Mapping]] = ..., ordering: _Optional[_Union[_ordering_config_pb2.OrderingConfig, _Mapping]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., validation: _Optional[_Union[_consistency_validation_pb2.ConsistencyValidation, _Mapping]] = ...) -> None: ...

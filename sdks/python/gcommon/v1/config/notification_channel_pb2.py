@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import channel_type_pb2 as gcommon_dot_v1_dot_config_dot_channel__type__pb2
+from gcommon.v1.common import channel_type_pb2 as gcommon_dot_v1_dot_common_dot_channel__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/config/notification_channel.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/channel_type.proto\x1a!google/protobuf/go_features.proto\"\x92\x02\n\x19\x43onfigNotificationChannel\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32\x1e.gcommon.v1.config.ChannelTypeR\x04type\x12P\n\x06\x63onfig\x18\x02 \x03(\x0b\x32\x38.gcommon.v1.config.ConfigNotificationChannel.ConfigEntryR\x06\x63onfig\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/config/notification_channel.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/common/channel_type.proto\x1a!google/protobuf/go_features.proto\"\x92\x02\n\x19\x43onfigNotificationChannel\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32\x1e.gcommon.v1.common.ChannelTypeR\x04type\x12P\n\x06\x63onfig\x18\x02 \x03(\x0b\x32\x38.gcommon.v1.config.ConfigNotificationChannel.ConfigEntryR\x06\x63onfig\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

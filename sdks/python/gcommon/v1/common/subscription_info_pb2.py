@@ -22,15 +22,15 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import subscription_status_pb2 as gcommon_dot_v1_dot_common_dot_subscription__status__pb2
 from gcommon.v1.common import client_info_pb2 as gcommon_dot_v1_dot_common_dot_client__info__pb2
 from gcommon.v1.common import filter_options_pb2 as gcommon_dot_v1_dot_common_dot_filter__options__pb2
 from gcommon.v1.common import subscription_options_pb2 as gcommon_dot_v1_dot_common_dot_subscription__options__pb2
+from gcommon.v1.common import subscription_status_pb2 as gcommon_dot_v1_dot_common_dot_subscription__status__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/subscription_info.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/subscription_status.proto\x1a#gcommon/v1/common/client_info.proto\x1a&gcommon/v1/common/filter_options.proto\x1a,gcommon/v1/common/subscription_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n\x16\x43ommonSubscriptionInfo\x12\'\n\x0fsubscription_id\x18\x01 \x01(\tR\x0esubscriptionId\x12\x38\n\x06\x66ilter\x18\x02 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x39\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\x12=\n\nsubscriber\x18\x05 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoR\nsubscriber\x12@\n\x07options\x18\x06 \x01(\x0b\x32&.gcommon.v1.common.SubscriptionOptionsR\x07options\x12=\n\x06status\x18\x07 \x01(\x0e\x32%.gcommon.v1.common.SubscriptionStatusR\x06statusB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/subscription_info.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/client_info.proto\x1a&gcommon/v1/common/filter_options.proto\x1a,gcommon/v1/common/subscription_options.proto\x1a+gcommon/v1/common/subscription_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n\x16\x43ommonSubscriptionInfo\x12\'\n\x0fsubscription_id\x18\x01 \x01(\tR\x0esubscriptionId\x12\x38\n\x06\x66ilter\x18\x02 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x39\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\x12=\n\nsubscriber\x18\x05 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoR\nsubscriber\x12@\n\x07options\x18\x06 \x01(\x0b\x32&.gcommon.v1.common.SubscriptionOptionsR\x07options\x12=\n\x06status\x18\x07 \x01(\x0e\x32%.gcommon.v1.common.SubscriptionStatusR\x06statusB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

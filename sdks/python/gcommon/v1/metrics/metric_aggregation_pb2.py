@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import aggregation_type_pb2 as gcommon_dot_v1_dot_metrics_dot_aggregation__type__pb2
+from gcommon.v1.common import aggregation_type_pb2 as gcommon_dot_v1_dot_common_dot_aggregation__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a)gcommon/v1/metrics/aggregation_type.proto\x1a!google/protobuf/go_features.proto\"\x9f\x02\n\x11MetricAggregation\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32#.gcommon.v1.metrics.AggregationTypeR\x04type\x12%\n\x0ewindow_seconds\x18\x02 \x01(\x05R\rwindowSeconds\x12\x19\n\x08group_by\x18\x03 \x03(\tR\x07groupBy\x12 \n\x0bpercentiles\x18\x04 \x03(\x01R\x0bpercentiles\x12\'\n\x0f\x63ustom_function\x18\x05 \x01(\tR\x0e\x63ustomFunction\x12#\n\rinclude_nulls\x18\x06 \x01(\x08R\x0cincludeNulls\x12\x1f\n\x0bmin_samples\x18\x07 \x01(\x05R\nminSamplesB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/aggregation_type.proto\x1a!google/protobuf/go_features.proto\"\x9e\x02\n\x11MetricAggregation\x12\x36\n\x04type\x18\x01 \x01(\x0e\x32\".gcommon.v1.common.AggregationTypeR\x04type\x12%\n\x0ewindow_seconds\x18\x02 \x01(\x05R\rwindowSeconds\x12\x19\n\x08group_by\x18\x03 \x03(\tR\x07groupBy\x12 \n\x0bpercentiles\x18\x04 \x03(\x01R\x0bpercentiles\x12\'\n\x0f\x63ustom_function\x18\x05 \x01(\tR\x0e\x63ustomFunction\x12#\n\rinclude_nulls\x18\x06 \x01(\x08R\x0cincludeNulls\x12\x1f\n\x0bmin_samples\x18\x07 \x01(\x05R\nminSamplesB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.metric_a
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_METRICAGGREGATION']._serialized_start=146
-  _globals['_METRICAGGREGATION']._serialized_end=433
+  _globals['_METRICAGGREGATION']._serialized_start=145
+  _globals['_METRICAGGREGATION']._serialized_end=431
 # @@protoc_insertion_point(module_scope)

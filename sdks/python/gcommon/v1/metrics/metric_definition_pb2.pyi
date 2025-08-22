@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import metric_type_pb2 as _metric_type_pb2
+from gcommon.v1.common import metric_type_pb2 as _metric_type_pb2
 from gcommon.v1.metrics import export_config_pb2 as _export_config_pb2
 from gcommon.v1.metrics import label_definition_pb2 as _label_definition_pb2
 from gcommon.v1.metrics import metric_type_config_pb2 as _metric_type_config_pb2

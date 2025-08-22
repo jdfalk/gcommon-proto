@@ -1,4 +1,4 @@
-from gcommon.v1.queue import read_level_pb2 as _read_level_pb2
+from gcommon.v1.common import read_level_pb2 as _read_level_pb2
 from gcommon.v1.queue import read_retry_config_pb2 as _read_retry_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor

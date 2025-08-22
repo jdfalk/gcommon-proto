@@ -22,12 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from gcommon.v1.common import stats_granularity_pb2 as gcommon_dot_v1_dot_common_dot_stats__granularity__pb2
 from gcommon.v1.metrics import time_range_pb2 as gcommon_dot_v1_dot_metrics_dot_time__range__pb2
-from gcommon.v1.queue import stats_granularity_pb2 as gcommon_dot_v1_dot_queue_dot_stats__granularity__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/queue/get_queue_stats_request.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/metrics/time_range.proto\x1a(gcommon/v1/queue/stats_granularity.proto\x1a!google/protobuf/go_features.proto\"\xc0\x01\n\x14GetQueueStatsRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12\x43\n\ntime_range\x18\x02 \x01(\x0b\x32$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x12\x44\n\x0bgranularity\x18\x03 \x01(\x0e\x32\".gcommon.v1.queue.StatsGranularityR\x0bgranularityB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/queue/get_queue_stats_request.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/stats_granularity.proto\x1a#gcommon/v1/metrics/time_range.proto\x1a!google/protobuf/go_features.proto\"\xc1\x01\n\x14GetQueueStatsRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12\x43\n\ntime_range\x18\x02 \x01(\x0b\x32$.gcommon.v1.metrics.MetricsTimeRangeR\ttimeRange\x12\x45\n\x0bgranularity\x18\x03 \x01(\x0e\x32#.gcommon.v1.common.StatsGranularityR\x0bgranularityB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.get_queue_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_GETQUEUESTATSREQUEST']._serialized_start=183
-  _globals['_GETQUEUESTATSREQUEST']._serialized_end=375
+  _globals['_GETQUEUESTATSREQUEST']._serialized_start=184
+  _globals['_GETQUEUESTATSREQUEST']._serialized_end=377
 # @@protoc_insertion_point(module_scope)

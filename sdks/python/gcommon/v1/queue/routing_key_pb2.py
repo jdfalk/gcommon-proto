@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import routing_pattern_pb2 as gcommon_dot_v1_dot_queue_dot_routing__pattern__pb2
+from gcommon.v1.common import routing_pattern_pb2 as gcommon_dot_v1_dot_common_dot_routing__pattern__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/queue/routing_key.proto\x12\x10gcommon.v1.queue\x1a&gcommon/v1/queue/routing_pattern.proto\x1a!google/protobuf/go_features.proto\"\xb3\x02\n\nRoutingKey\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x43\n\x0cpattern_type\x18\x02 \x01(\x0e\x32 .gcommon.v1.queue.RoutingPatternR\x0bpatternType\x12%\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08R\rcaseSensitive\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x12L\n\nattributes\x18\x05 \x03(\x0b\x32,.gcommon.v1.queue.RoutingKey.AttributesEntryR\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/queue/routing_key.proto\x12\x10gcommon.v1.queue\x1a\'gcommon/v1/common/routing_pattern.proto\x1a!google/protobuf/go_features.proto\"\xb4\x02\n\nRoutingKey\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x44\n\x0cpattern_type\x18\x02 \x01(\x0e\x32!.gcommon.v1.common.RoutingPatternR\x0bpatternType\x12%\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08R\rcaseSensitive\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x12L\n\nattributes\x18\x05 \x03(\x0b\x32,.gcommon.v1.queue.RoutingKey.AttributesEntryR\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,8 +36,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
   _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._loaded_options = None
   _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._serialized_options = b'8\001'
-  _globals['_ROUTINGKEY']._serialized_start=132
-  _globals['_ROUTINGKEY']._serialized_end=439
-  _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._serialized_start=378
-  _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._serialized_end=439
+  _globals['_ROUTINGKEY']._serialized_start=133
+  _globals['_ROUTINGKEY']._serialized_end=441
+  _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._serialized_start=380
+  _globals['_ROUTINGKEY_ATTRIBUTESENTRY']._serialized_end=441
 # @@protoc_insertion_point(module_scope)

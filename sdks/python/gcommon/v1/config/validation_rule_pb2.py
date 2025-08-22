@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import validation_severity_pb2 as gcommon_dot_v1_dot_config_dot_validation__severity__pb2
+from gcommon.v1.common import validation_severity_pb2 as gcommon_dot_v1_dot_common_dot_validation__severity__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/config/validation_rule.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n\x0eValidationRule\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1e\n\nexpression\x18\x03 \x01(\tR\nexpression\x12#\n\rerror_message\x18\x04 \x01(\tR\x0c\x65rrorMessage\x12\x41\n\x08severity\x18\x05 \x01(\x0e\x32%.gcommon.v1.config.ValidationSeverityR\x08severity\x12\x1e\n\nparameters\x18\x06 \x03(\tR\nparameters\x12Q\n\nconditions\x18\x07 \x03(\x0b\x32\x31.gcommon.v1.config.ValidationRule.ConditionsEntryR\nconditions\x1a=\n\x0f\x43onditionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/config/validation_rule.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n\x0eValidationRule\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1e\n\nexpression\x18\x03 \x01(\tR\nexpression\x12#\n\rerror_message\x18\x04 \x01(\tR\x0c\x65rrorMessage\x12\x41\n\x08severity\x18\x05 \x01(\x0e\x32%.gcommon.v1.common.ValidationSeverityR\x08severity\x12\x1e\n\nparameters\x18\x06 \x03(\tR\nparameters\x12Q\n\nconditions\x18\x07 \x03(\x0b\x32\x31.gcommon.v1.config.ValidationRule.ConditionsEntryR\nconditions\x1a=\n\x0f\x43onditionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

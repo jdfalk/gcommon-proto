@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import update_strategy_pb2 as gcommon_dot_v1_dot_metrics_dot_update__strategy__pb2
+from gcommon.v1.common import update_strategy_pb2 as gcommon_dot_v1_dot_common_dot_update__strategy__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/metrics/update_options.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/metrics/update_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe2\x01\n\rUpdateOptions\x12\'\n\x0fvalidate_config\x18\x01 \x01(\x08R\x0evalidateConfig\x12\x17\n\x07\x64ry_run\x18\x02 \x01(\x08R\x06\x64ryRun\x12*\n\x11restart_if_needed\x18\x03 \x01(\x08R\x0frestartIfNeeded\x12#\n\rbackup_config\x18\x04 \x01(\x08R\x0c\x62\x61\x63kupConfig\x12>\n\x08strategy\x18\x05 \x01(\x0e\x32\".gcommon.v1.metrics.UpdateStrategyR\x08strategyB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/metrics/update_options.proto\x12\x12gcommon.v1.metrics\x1a\'gcommon/v1/common/update_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe1\x01\n\rUpdateOptions\x12\'\n\x0fvalidate_config\x18\x01 \x01(\x08R\x0evalidateConfig\x12\x17\n\x07\x64ry_run\x18\x02 \x01(\x08R\x06\x64ryRun\x12*\n\x11restart_if_needed\x18\x03 \x01(\x08R\x0frestartIfNeeded\x12#\n\rbackup_config\x18\x04 \x01(\x08R\x0c\x62\x61\x63kupConfig\x12=\n\x08strategy\x18\x05 \x01(\x0e\x32!.gcommon.v1.common.UpdateStrategyR\x08strategyB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.update_o
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_UPDATEOPTIONS']._serialized_start=141
-  _globals['_UPDATEOPTIONS']._serialized_end=367
+  _globals['_UPDATEOPTIONS']._serialized_start=140
+  _globals['_UPDATEOPTIONS']._serialized_end=365
 # @@protoc_insertion_point(module_scope)

@@ -22,13 +22,13 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import health_status_pb2 as gcommon_dot_v1_dot_common_dot_health__status__pb2
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
+from gcommon.v1.common import health_status_pb2 as gcommon_dot_v1_dot_common_dot_health__status__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/health_status.proto\x1a\x1dgcommon/v1/common/error.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n\x18GetServiceHealthResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x39\n\nlast_check\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheck\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n\x18GetServiceHealthResponse\x12=\n\x06status\x18\x01 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x06status\x12\x39\n\nlast_check\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheck\x12.\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rrorB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

@@ -1,5 +1,5 @@
+from gcommon.v1.common import stats_granularity_pb2 as _stats_granularity_pb2
 from gcommon.v1.metrics import time_range_pb2 as _time_range_pb2
-from gcommon.v1.queue import stats_granularity_pb2 as _stats_granularity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

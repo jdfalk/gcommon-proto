@@ -1,6 +1,6 @@
-from gcommon.v1.queue import priority_level_pb2 as _priority_level_pb2
-from gcommon.v1.queue import routing_strategy_pb2 as _routing_strategy_pb2
-from gcommon.v1.queue import subscription_state_pb2 as _subscription_state_pb2
+from gcommon.v1.common import priority_level_pb2 as _priority_level_pb2
+from gcommon.v1.common import routing_strategy_pb2 as _routing_strategy_pb2
+from gcommon.v1.common import subscription_state_pb2 as _subscription_state_pb2
 from gcommon.v1.queue import delivery_options_pb2 as _delivery_options_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor

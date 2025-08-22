@@ -1,6 +1,7 @@
+from gcommon.v1.common import environment_status_pb2 as _environment_status_pb2
+from gcommon.v1.common import environment_type_pb2 as _environment_type_pb2
 from gcommon.v1.common import health_status_pb2 as _health_status_pb2
-from gcommon.v1.config import environment_status_pb2 as _environment_status_pb2
-from gcommon.v1.config import environment_type_pb2 as _environment_type_pb2
+from gcommon.v1.common import retention_policy_pb2 as _retention_policy_pb2
 from gcommon.v1.config import approval_workflow_pb2 as _approval_workflow_pb2
 from gcommon.v1.config import audit_settings_pb2 as _audit_settings_pb2
 from gcommon.v1.config import backup_policy_pb2 as _backup_policy_pb2
@@ -9,7 +10,6 @@ from gcommon.v1.config import encryption_settings_pb2 as _encryption_settings_pb
 from gcommon.v1.config import monitoring_config_pb2 as _monitoring_config_pb2
 from gcommon.v1.config import promotion_rule_pb2 as _promotion_rule_pb2
 from gcommon.v1.config import sync_settings_pb2 as _sync_settings_pb2
-from gcommon.v1.metrics import retention_policy_pb2 as _retention_policy_pb2
 from gcommon.v1.organization import access_control_pb2 as _access_control_pb2
 from gcommon.v1.organization import compliance_settings_pb2 as _compliance_settings_pb2
 from gcommon.v1.organization import notification_settings_pb2 as _notification_settings_pb2

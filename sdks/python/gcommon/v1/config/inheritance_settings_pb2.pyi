@@ -1,5 +1,5 @@
-from gcommon.v1.config import inheritance_strategy_pb2 as _inheritance_strategy_pb2
-from gcommon.v1.config import merge_strategy_pb2 as _merge_strategy_pb2
+from gcommon.v1.common import inheritance_strategy_pb2 as _inheritance_strategy_pb2
+from gcommon.v1.common import merge_strategy_pb2 as _merge_strategy_pb2
 from gcommon.v1.config import inheritance_filter_pb2 as _inheritance_filter_pb2
 from gcommon.v1.config import inheritance_transformation_pb2 as _inheritance_transformation_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

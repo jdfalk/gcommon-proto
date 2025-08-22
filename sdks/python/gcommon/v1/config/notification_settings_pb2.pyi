@@ -1,4 +1,4 @@
-from gcommon.v1.config import notification_trigger_pb2 as _notification_trigger_pb2
+from gcommon.v1.common import notification_trigger_pb2 as _notification_trigger_pb2
 from gcommon.v1.config import batching_settings_pb2 as _batching_settings_pb2
 from gcommon.v1.config import notification_channel_pb2 as _notification_channel_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

@@ -22,14 +22,14 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from gcommon.v1.common import hierarchy_type_pb2 as gcommon_dot_v1_dot_common_dot_hierarchy__type__pb2
 from gcommon.v1.common import key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2
-from gcommon.v1.organization import hierarchy_type_pb2 as gcommon_dot_v1_dot_organization_dot_hierarchy__type__pb2
 from gcommon.v1.organization import hierarchy_node_pb2 as gcommon_dot_v1_dot_organization_dot_hierarchy__node__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/organization_hierarchy.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a,gcommon/v1/organization/hierarchy_type.proto\x1a,gcommon/v1/organization/hierarchy_node.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x04\n\x15OrganizationHierarchy\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12M\n\x0ehierarchy_type\x18\x03 \x01(\x0e\x32&.gcommon.v1.organization.HierarchyTypeR\rhierarchyType\x12\x12\n\x04name\x18\x04 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12\x43\n\troot_node\x18\x06 \x01(\x0b\x32&.gcommon.v1.organization.HierarchyNodeR\x08rootNode\x12\x16\n\x06\x61\x63tive\x18\x07 \x01(\x08R\x06\x61\x63tive\x12;\n\x08metadata\x18\x08 \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x08metadata\x12=\n\ncreated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n\ncreated_by\x18\x0b \x01(\tR\tcreatedBy\x12\x1d\n\nupdated_by\x18\x0c \x01(\tR\tupdatedByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/organization/organization_hierarchy.proto\x12\x17gcommon.v1.organization\x1a&gcommon/v1/common/hierarchy_type.proto\x1a!gcommon/v1/common/key_value.proto\x1a,gcommon/v1/organization/hierarchy_node.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x04\n\x15OrganizationHierarchy\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12G\n\x0ehierarchy_type\x18\x03 \x01(\x0e\x32 .gcommon.v1.common.HierarchyTypeR\rhierarchyType\x12\x12\n\x04name\x18\x04 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12\x43\n\troot_node\x18\x06 \x01(\x0b\x32&.gcommon.v1.organization.HierarchyNodeR\x08rootNode\x12\x16\n\x06\x61\x63tive\x18\x07 \x01(\x08R\x06\x61\x63tive\x12;\n\x08metadata\x18\x08 \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x08metadata\x12=\n\ncreated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n\ncreated_by\x18\x0b \x01(\tR\tcreatedBy\x12\x1d\n\nupdated_by\x18\x0c \x01(\tR\tupdatedByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,6 +43,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ORGANIZATIONHIERARCHY'].fields_by_name['created_at']._serialized_options = b'(\001'
   _globals['_ORGANIZATIONHIERARCHY'].fields_by_name['updated_at']._loaded_options = None
   _globals['_ORGANIZATIONHIERARCHY'].fields_by_name['updated_at']._serialized_options = b'(\001'
-  _globals['_ORGANIZATIONHIERARCHY']._serialized_start=277
-  _globals['_ORGANIZATIONHIERARCHY']._serialized_end=832
+  _globals['_ORGANIZATIONHIERARCHY']._serialized_start=271
+  _globals['_ORGANIZATIONHIERARCHY']._serialized_end=820
 # @@protoc_insertion_point(module_scope)

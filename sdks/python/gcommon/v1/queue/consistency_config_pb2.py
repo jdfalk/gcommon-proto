@@ -22,9 +22,9 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import conflict_resolution_pb2 as gcommon_dot_v1_dot_config_dot_conflict__resolution__pb2
-from gcommon.v1.queue import ack_level_pb2 as gcommon_dot_v1_dot_queue_dot_ack__level__pb2
-from gcommon.v1.queue import durability_level_pb2 as gcommon_dot_v1_dot_queue_dot_durability__level__pb2
+from gcommon.v1.common import ack_level_pb2 as gcommon_dot_v1_dot_common_dot_ack__level__pb2
+from gcommon.v1.common import conflict_resolution_pb2 as gcommon_dot_v1_dot_common_dot_conflict__resolution__pb2
+from gcommon.v1.common import durability_level_pb2 as gcommon_dot_v1_dot_common_dot_durability__level__pb2
 from gcommon.v1.queue import consistency_validation_pb2 as gcommon_dot_v1_dot_queue_dot_consistency__validation__pb2
 from gcommon.v1.queue import ordering_config_pb2 as gcommon_dot_v1_dot_queue_dot_ordering__config__pb2
 from gcommon.v1.queue import read_consistency_pb2 as gcommon_dot_v1_dot_queue_dot_read__consistency__pb2
@@ -33,7 +33,7 @@ from gcommon.v1.queue import write_consistency_pb2 as gcommon_dot_v1_dot_queue_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/queue/consistency_config.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/config/conflict_resolution.proto\x1a gcommon/v1/queue/ack_level.proto\x1a\'gcommon/v1/queue/durability_level.proto\x1a-gcommon/v1/queue/consistency_validation.proto\x1a&gcommon/v1/queue/ordering_config.proto\x1a\'gcommon/v1/queue/read_consistency.proto\x1a.gcommon/v1/queue/replication_consistency.proto\x1a(gcommon/v1/queue/write_consistency.proto\x1a!google/protobuf/go_features.proto\"\xea\x04\n\x11\x43onsistencyConfig\x12L\n\x10\x64urability_level\x18\x01 \x01(\x0e\x32!.gcommon.v1.queue.DurabilityLevelR\x0f\x64urabilityLevel\x12\x37\n\tack_level\x18\x02 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12J\n\x0breplication\x18\x03 \x01(\x0b\x32(.gcommon.v1.queue.ReplicationConsistencyR\x0breplication\x12L\n\x10read_consistency\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.ReadConsistencyR\x0freadConsistency\x12O\n\x11write_consistency\x18\x05 \x01(\x0b\x32\".gcommon.v1.queue.WriteConsistencyR\x10writeConsistency\x12<\n\x08ordering\x18\x06 \x01(\x0b\x32 .gcommon.v1.queue.OrderingConfigR\x08ordering\x12\\\n\x13\x63onflict_resolution\x18\x07 \x01(\x0e\x32+.gcommon.v1.config.ConfigConflictResolutionR\x12\x63onflictResolution\x12G\n\nvalidation\x18\x08 \x01(\x0b\x32\'.gcommon.v1.queue.ConsistencyValidationR\nvalidationB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/queue/consistency_config.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/common/ack_level.proto\x1a+gcommon/v1/common/conflict_resolution.proto\x1a(gcommon/v1/common/durability_level.proto\x1a-gcommon/v1/queue/consistency_validation.proto\x1a&gcommon/v1/queue/ordering_config.proto\x1a\'gcommon/v1/queue/read_consistency.proto\x1a.gcommon/v1/queue/replication_consistency.proto\x1a(gcommon/v1/queue/write_consistency.proto\x1a!google/protobuf/go_features.proto\"\xe6\x04\n\x11\x43onsistencyConfig\x12M\n\x10\x64urability_level\x18\x01 \x01(\x0e\x32\".gcommon.v1.common.DurabilityLevelR\x0f\x64urabilityLevel\x12\x38\n\tack_level\x18\x02 \x01(\x0e\x32\x1b.gcommon.v1.common.AckLevelR\x08\x61\x63kLevel\x12J\n\x0breplication\x18\x03 \x01(\x0b\x32(.gcommon.v1.queue.ReplicationConsistencyR\x0breplication\x12L\n\x10read_consistency\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.ReadConsistencyR\x0freadConsistency\x12O\n\x11write_consistency\x18\x05 \x01(\x0b\x32\".gcommon.v1.queue.WriteConsistencyR\x10writeConsistency\x12<\n\x08ordering\x18\x06 \x01(\x0b\x32 .gcommon.v1.queue.OrderingConfigR\x08ordering\x12V\n\x13\x63onflict_resolution\x18\x07 \x01(\x0e\x32%.gcommon.v1.common.ConflictResolutionR\x12\x63onflictResolution\x12G\n\nvalidation\x18\x08 \x01(\x0b\x32\'.gcommon.v1.queue.ConsistencyValidationR\nvalidationB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,6 +41,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.consistenc
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_CONSISTENCYCONFIG']._serialized_start=437
-  _globals['_CONSISTENCYCONFIG']._serialized_end=1055
+  _globals['_CONSISTENCYCONFIG']._serialized_start=439
+  _globals['_CONSISTENCYCONFIG']._serialized_end=1053
 # @@protoc_insertion_point(module_scope)

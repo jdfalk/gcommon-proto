@@ -5,15 +5,11 @@ from typing import ClassVar as _ClassVar
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class AuthSessionState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class SessionState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
-    SESSION_STATE_UNSPECIFIED: _ClassVar[AuthSessionState]
-    SESSION_STATE_ACTIVE: _ClassVar[AuthSessionState]
-    SESSION_STATE_IDLE: _ClassVar[AuthSessionState]
-    SESSION_STATE_EXPIRED: _ClassVar[AuthSessionState]
-    SESSION_STATE_TERMINATED: _ClassVar[AuthSessionState]
-SESSION_STATE_UNSPECIFIED: AuthSessionState
-SESSION_STATE_ACTIVE: AuthSessionState
-SESSION_STATE_IDLE: AuthSessionState
-SESSION_STATE_EXPIRED: AuthSessionState
-SESSION_STATE_TERMINATED: AuthSessionState
+    COMMON_SESSION_STATE_UNSPECIFIED: _ClassVar[SessionState]
+    COMMON_SESSION_STATE_ACTIVE: _ClassVar[SessionState]
+    COMMON_SESSION_STATE_EXPIRED: _ClassVar[SessionState]
+COMMON_SESSION_STATE_UNSPECIFIED: SessionState
+COMMON_SESSION_STATE_ACTIVE: SessionState
+COMMON_SESSION_STATE_EXPIRED: SessionState

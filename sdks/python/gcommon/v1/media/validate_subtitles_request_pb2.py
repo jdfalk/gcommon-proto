@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/media/validate_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x83\x01\n\x18ValidateSubtitlesRequest\x12(\n\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12=\n\x07options\x18\x02 \x01(\x0b\x32#.gcommon.v1.media.ValidationOptionsR\x07options\"\x87\x02\n\x11ValidationOptions\x12\x30\n\x14\x63heck_timing_overlap\x18\x01 \x01(\x08R\x12\x63heckTimingOverlap\x12%\n\x0e\x63heck_encoding\x18\x02 \x01(\x08R\rcheckEncoding\x12\x36\n\x17\x63heck_format_compliance\x18\x03 \x01(\x08R\x15\x63heckFormatCompliance\x12.\n\x13\x63heck_reading_speed\x18\x04 \x01(\x08R\x11\x63heckReadingSpeed\x12\x31\n\x15max_reading_speed_wpm\x18\x05 \x01(\x01R\x12maxReadingSpeedWpmB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/media/validate_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xbb\x01\n\x18ValidateSubtitlesRequest\x12(\n\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12!\n\x0c\x63heck_timing\x18\x02 \x01(\x08R\x0b\x63heckTiming\x12)\n\x10\x63heck_formatting\x18\x03 \x01(\x08R\x0f\x63heckFormatting\x12\'\n\x0f\x65xpected_format\x18\x04 \x01(\tR\x0e\x65xpectedFormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,7 +34,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
   _globals['_VALIDATESUBTITLESREQUEST']._serialized_start=107
-  _globals['_VALIDATESUBTITLESREQUEST']._serialized_end=238
-  _globals['_VALIDATIONOPTIONS']._serialized_start=241
-  _globals['_VALIDATIONOPTIONS']._serialized_end=504
+  _globals['_VALIDATESUBTITLESREQUEST']._serialized_end=294
 # @@protoc_insertion_point(module_scope)

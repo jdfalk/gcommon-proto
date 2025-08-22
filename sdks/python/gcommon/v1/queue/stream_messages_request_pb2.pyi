@@ -1,4 +1,4 @@
-from gcommon.v1.queue import ack_level_pb2 as _ack_level_pb2
+from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
 from gcommon.v1.queue import message_filter_pb2 as _message_filter_pb2
 from gcommon.v1.queue import offset_config_pb2 as _offset_config_pb2
 from gcommon.v1.queue import stream_config_pb2 as _stream_config_pb2

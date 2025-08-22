@@ -1,4 +1,4 @@
-from gcommon.v1.web import session_state_pb2 as _session_state_pb2
+from gcommon.v1.common import web_session_state_pb2 as _web_session_state_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -28,11 +28,11 @@ class SessionData(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     session_id: str
     user_id: str
-    state: _session_state_pb2.WebSessionState
+    state: _web_session_state_pb2.WebSessionState
     created_at: _timestamp_pb2.Timestamp
     last_access_at: _timestamp_pb2.Timestamp
     expires_at: _timestamp_pb2.Timestamp
     ip_address: str
     user_agent: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., state: _Optional[_Union[_session_state_pb2.WebSessionState, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_access_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., state: _Optional[_Union[_web_session_state_pb2.WebSessionState, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_access_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

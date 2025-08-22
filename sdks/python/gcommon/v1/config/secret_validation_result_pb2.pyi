@@ -1,5 +1,5 @@
-from gcommon.v1.config import secret_validation_result_type_pb2 as _secret_validation_result_type_pb2
-from gcommon.v1.config import secret_validation_severity_pb2 as _secret_validation_severity_pb2
+from gcommon.v1.common import secret_validation_result_type_pb2 as _secret_validation_result_type_pb2
+from gcommon.v1.common import secret_validation_severity_pb2 as _secret_validation_severity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers

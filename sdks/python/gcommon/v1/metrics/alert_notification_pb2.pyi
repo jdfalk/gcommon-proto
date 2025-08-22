@@ -1,4 +1,4 @@
-from gcommon.v1.metrics import alert_severity_pb2 as _alert_severity_pb2
+from gcommon.v1.common import metrics_alert_severity_pb2 as _metrics_alert_severity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
@@ -15,6 +15,6 @@ class AlertNotification(_message.Message):
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     rule_id: str
     time: _timestamp_pb2.Timestamp
-    severity: _alert_severity_pb2.MetricsAlertSeverity
+    severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
     message: str
-    def __init__(self, rule_id: _Optional[str] = ..., time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., severity: _Optional[_Union[_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(self, rule_id: _Optional[str] = ..., time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., message: _Optional[str] = ...) -> None: ...

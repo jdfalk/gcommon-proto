@@ -1,4 +1,4 @@
-from gcommon.v1.queue import resolution_strategy_pb2 as _resolution_strategy_pb2
+from gcommon.v1.common import resolution_strategy_pb2 as _resolution_strategy_pb2
 from gcommon.v1.queue import custom_resolution_pb2 as _custom_resolution_pb2
 from gcommon.v1.queue import last_writer_wins_pb2 as _last_writer_wins_pb2
 from gcommon.v1.queue import multi_value_config_pb2 as _multi_value_config_pb2

@@ -1,4 +1,4 @@
-from gcommon.v1.config import change_type_pb2 as _change_type_pb2
+from gcommon.v1.common import config_change_type_pb2 as _config_change_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -31,6 +31,6 @@ class ValueHistoryEntry(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     changed_by: str
     reason: str
-    change_type: _change_type_pb2.TemplateChangeType
+    change_type: _config_change_type_pb2.TemplateChangeType
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, entry_id: _Optional[str] = ..., previous_value: _Optional[str] = ..., new_value: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., changed_by: _Optional[str] = ..., reason: _Optional[str] = ..., change_type: _Optional[_Union[_change_type_pb2.TemplateChangeType, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, entry_id: _Optional[str] = ..., previous_value: _Optional[str] = ..., new_value: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., changed_by: _Optional[str] = ..., reason: _Optional[str] = ..., change_type: _Optional[_Union[_config_change_type_pb2.TemplateChangeType, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

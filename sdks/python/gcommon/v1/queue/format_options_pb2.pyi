@@ -1,5 +1,5 @@
-from gcommon.v1.queue import compression_algorithm_pb2 as _compression_algorithm_pb2
-from gcommon.v1.queue import serialization_format_pb2 as _serialization_format_pb2
+from gcommon.v1.common import compression_algorithm_pb2 as _compression_algorithm_pb2
+from gcommon.v1.common import serialization_format_pb2 as _serialization_format_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor

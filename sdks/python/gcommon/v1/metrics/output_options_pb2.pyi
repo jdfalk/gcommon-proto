@@ -1,5 +1,5 @@
-from gcommon.v1.metrics import response_compression_pb2 as _response_compression_pb2
-from gcommon.v1.metrics import numeric_format_pb2 as _numeric_format_pb2
+from gcommon.v1.common import numeric_format_pb2 as _numeric_format_pb2
+from gcommon.v1.common import response_compression_pb2 as _response_compression_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

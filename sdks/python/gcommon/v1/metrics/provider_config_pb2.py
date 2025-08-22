@@ -22,7 +22,7 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import provider_type_pb2 as gcommon_dot_v1_dot_metrics_dot_provider__type__pb2
+from gcommon.v1.common import metrics_provider_type_pb2 as gcommon_dot_v1_dot_common_dot_metrics__provider__type__pb2
 from gcommon.v1.metrics import export_config_pb2 as gcommon_dot_v1_dot_metrics_dot_export__config__pb2
 from gcommon.v1.metrics import provider_settings_pb2 as gcommon_dot_v1_dot_metrics_dot_provider__settings__pb2
 from gcommon.v1.metrics import security_config_pb2 as gcommon_dot_v1_dot_metrics_dot_security__config__pb2
@@ -30,7 +30,7 @@ from gcommon.v1.organization import resource_limits_pb2 as gcommon_dot_v1_dot_or
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/metrics/provider_config.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/metrics/provider_type.proto\x1a&gcommon/v1/metrics/export_config.proto\x1a*gcommon/v1/metrics/provider_settings.proto\x1a(gcommon/v1/metrics/security_config.proto\x1a-gcommon/v1/organization/resource_limits.proto\x1a!google/protobuf/go_features.proto\"\xda\x04\n\x0eProviderConfig\x12\x1f\n\x0bprovider_id\x18\x01 \x01(\tR\nproviderId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12;\n\x04type\x18\x03 \x01(\x0e\x32\'.gcommon.v1.metrics.MetricsProviderTypeR\x04type\x12@\n\x08settings\x18\x04 \x01(\x0b\x32$.gcommon.v1.metrics.ProviderSettingsR\x08settings\x12\x45\n\rexport_config\x18\x05 \x01(\x0b\x32 .gcommon.v1.metrics.ExportConfigR\x0c\x65xportConfig\x12\\\n\x0fresource_limits\x18\x06 \x01(\x0b\x32\x33.gcommon.v1.organization.OrganizationResourceLimitsR\x0eresourceLimits\x12R\n\x0fsecurity_config\x18\x07 \x01(\x0b\x32).gcommon.v1.metrics.MetricsSecurityConfigR\x0esecurityConfig\x12@\n\x04tags\x18\x08 \x03(\x0b\x32,.gcommon.v1.metrics.ProviderConfig.TagsEntryR\x04tags\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scription\x1a\x37\n\tTagsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/metrics/provider_config.proto\x12\x12gcommon.v1.metrics\x1a-gcommon/v1/common/metrics_provider_type.proto\x1a&gcommon/v1/metrics/export_config.proto\x1a*gcommon/v1/metrics/provider_settings.proto\x1a(gcommon/v1/metrics/security_config.proto\x1a-gcommon/v1/organization/resource_limits.proto\x1a!google/protobuf/go_features.proto\"\xd9\x04\n\x0eProviderConfig\x12\x1f\n\x0bprovider_id\x18\x01 \x01(\tR\nproviderId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12:\n\x04type\x18\x03 \x01(\x0e\x32&.gcommon.v1.common.MetricsProviderTypeR\x04type\x12@\n\x08settings\x18\x04 \x01(\x0b\x32$.gcommon.v1.metrics.ProviderSettingsR\x08settings\x12\x45\n\rexport_config\x18\x05 \x01(\x0b\x32 .gcommon.v1.metrics.ExportConfigR\x0c\x65xportConfig\x12\\\n\x0fresource_limits\x18\x06 \x01(\x0b\x32\x33.gcommon.v1.organization.OrganizationResourceLimitsR\x0eresourceLimits\x12R\n\x0fsecurity_config\x18\x07 \x01(\x0b\x32).gcommon.v1.metrics.MetricsSecurityConfigR\x0esecurityConfig\x12@\n\x04tags\x18\x08 \x03(\x0b\x32,.gcommon.v1.metrics.ProviderConfig.TagsEntryR\x04tags\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scription\x1a\x37\n\tTagsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,8 +40,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
   _globals['_PROVIDERCONFIG_TAGSENTRY']._loaded_options = None
   _globals['_PROVIDERCONFIG_TAGSENTRY']._serialized_options = b'8\001'
-  _globals['_PROVIDERCONFIG']._serialized_start=313
-  _globals['_PROVIDERCONFIG']._serialized_end=915
-  _globals['_PROVIDERCONFIG_TAGSENTRY']._serialized_start=860
-  _globals['_PROVIDERCONFIG_TAGSENTRY']._serialized_end=915
+  _globals['_PROVIDERCONFIG']._serialized_start=320
+  _globals['_PROVIDERCONFIG']._serialized_end=921
+  _globals['_PROVIDERCONFIG_TAGSENTRY']._serialized_start=866
+  _globals['_PROVIDERCONFIG_TAGSENTRY']._serialized_end=921
 # @@protoc_insertion_point(module_scope)

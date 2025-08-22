@@ -1,4 +1,4 @@
-from gcommon.v1.media import media_type_pb2 as _media_type_pb2
+from gcommon.v1.common import media_type_pb2 as _media_type_pb2
 from gcommon.v1.media import audio_track_pb2 as _audio_track_pb2
 from gcommon.v1.media import media_metadata_pb2 as _media_metadata_pb2
 from gcommon.v1.media import media_quality_pb2 as _media_quality_pb2

@@ -1,4 +1,4 @@
-from gcommon.v1.queue import node_state_pb2 as _node_state_pb2
+from gcommon.v1.common import node_state_pb2 as _node_state_pb2
 from gcommon.v1.queue import node_stats_pb2 as _node_stats_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

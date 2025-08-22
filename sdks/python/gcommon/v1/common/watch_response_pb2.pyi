@@ -1,7 +1,7 @@
-from gcommon.v1.common import health_status_pb2 as _health_status_pb2
 from gcommon.v1.common import check_result_pb2 as _check_result_pb2
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import health_metrics_pb2 as _health_metrics_pb2
+from gcommon.v1.common import health_status_pb2 as _health_status_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2

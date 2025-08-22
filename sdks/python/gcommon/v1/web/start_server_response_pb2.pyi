@@ -1,5 +1,5 @@
 from gcommon.v1.common import error_pb2 as _error_pb2
-from gcommon.v1.web import server_status_pb2 as _server_status_pb2
+from gcommon.v1.common import server_status_pb2 as _server_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

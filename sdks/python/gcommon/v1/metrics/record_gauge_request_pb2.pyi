@@ -1,5 +1,5 @@
+from gcommon.v1.common import gauge_operation_pb2 as _gauge_operation_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
-from gcommon.v1.metrics import gauge_operation_pb2 as _gauge_operation_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers

@@ -1,4 +1,4 @@
-from gcommon.v1.web import route_type_pb2 as _route_type_pb2
+from gcommon.v1.common import route_type_pb2 as _route_type_pb2
 from gcommon.v1.web import route_config_pb2 as _route_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
