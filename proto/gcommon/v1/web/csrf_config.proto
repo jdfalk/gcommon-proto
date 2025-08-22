@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/web/messages/csrf_config.proto
+// version: 1.1.0
+// guid: b3eaed64-1234-45b9-86c4-e348b91cdbe9
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// CsrfConfig message definition.
+message CsrfConfig {
+  // Name of the HTTP header containing the CSRF token
+  string header_name = 1;
+
+  // Name of the cookie used to store the token
+  string cookie_name = 2;
+
+  // Length of generated tokens
+  int32 token_length = 3;
+
+  // Token expiration duration
+  google.protobuf.Duration token_ttl = 4;
+
+  // Require secure cookies
+  bool secure = 5;
+}

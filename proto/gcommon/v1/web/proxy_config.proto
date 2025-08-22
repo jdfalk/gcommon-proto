@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/web/messages/proxy_config.proto
+// version: 1.1.0
+// guid: 44849c54-6bf7-4211-a8c0-0be1e0c98add
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/web/enums/proxy_type.proto";
+import "gcommon/v1/web/messages/http_header.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// ProxyConfig message definition.
+message ProxyConfig {
+  // Type of proxy
+  gcommon.v1.web.ProxyType proxy_type = 1;
+
+  // Target backend URL
+  string target_url = 2;
+
+  // Headers to forward to the backend
+  repeated gcommon.v1.web.HttpHeader forward_headers = 3;
+
+  // Connect timeout duration
+  google.protobuf.Duration connect_timeout = 4;
+
+  // Whether to trust X-Forwarded headers
+  bool trust_forward_headers = 5;
+}

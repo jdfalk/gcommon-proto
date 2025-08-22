@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/messages/create_cookie_response.proto
+// version: 1.0.0
+// guid: 0d0254f8-1e8f-4646-817d-7ec57f25c88c
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// CreateCookieResponse response definition.
+message CreateCookieResponse {
+  string placeholder = 1;
+}

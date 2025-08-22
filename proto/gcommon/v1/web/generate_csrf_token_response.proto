@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/messages/generate_csrf_token_response.proto
+// version: 1.0.0
+// guid: 2883e71c-133f-4b82-aadf-9883eb41bb68
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// GenerateCsrfTokenResponse response definition.
+message GenerateCsrfTokenResponse {
+  string placeholder = 1;
+}

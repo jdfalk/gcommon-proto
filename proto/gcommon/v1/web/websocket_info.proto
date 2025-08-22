@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/web/messages/websocket_info.proto
+// version: 1.1.0
+// guid: 3ebae9bb-41c1-42db-aa71-8ef0660759d4
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// WebsocketInfo message definition.
+message WebsocketInfo {
+  // Connection identifier
+  string connection_id = 1;
+
+  // Client IP address
+  string client_ip = 2;
+
+  // User agent string
+  string user_agent = 3;
+
+  // Connection established timestamp
+  google.protobuf.Timestamp connected_at = 4;
+}

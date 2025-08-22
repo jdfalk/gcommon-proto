@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/web/messages/get_server_metrics_request.proto
+// version: 1.0.0
+// guid: 3f87be3d-9370-43a0-88fc-13d5eb9eb37a
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+// Standard imports
+// Common types
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+/**
+ * GetServerMetricsRequest message for web service operations.
+ * Auto-generated placeholder - implement specific fields as needed.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message GetServerMetricsRequest {
+  // Required fields (1-10)
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when this request was created.
+   */
+  google.protobuf.Timestamp requested_at = 51;
+}

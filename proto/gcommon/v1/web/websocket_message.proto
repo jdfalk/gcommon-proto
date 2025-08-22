@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/web/messages/websocket_message.proto
+// version: 1.1.0
+// guid: cba98cf1-43c2-4026-bcc0-779111b41ec1
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// WebsocketMessage message definition.
+message WebsocketMessage {
+  // Connection identifier
+  string connection_id = 1;
+
+  // Payload data
+  bytes data = 2;
+
+  // Optional message type label
+  string message_type = 3;
+
+  // Timestamp when the message was sent
+  google.protobuf.Timestamp sent_at = 4;
+}

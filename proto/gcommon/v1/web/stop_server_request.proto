@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/messages/stop_server_request.proto
+// version: 1.0.0
+// guid: 400d2dd2-87fd-497d-99e3-a7c2470f7377
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// StopServerRequest request definition.
+message StopServerRequest {
+  string placeholder = 1;
+}

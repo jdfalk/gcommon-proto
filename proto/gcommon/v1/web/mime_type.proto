@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/web/messages/mime_type.proto
+// version: 1.0.0
+// guid: b600b818-5782-4f9d-ba1e-e6d3f0f23159
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// MimeType message definition.
+// MimeType represents a content type with optional parameters.
+message MimeType {
+  // Primary type, e.g. "text"
+  string type = 1;
+
+  // Subtype, e.g. "html"
+  string subtype = 2;
+
+  // Optional parameters such as charset
+  map<string, string> parameters = 3;
+}

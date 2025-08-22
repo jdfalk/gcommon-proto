@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/web/messages/route_config.proto
+// version: 1.1.0
+// guid: ce3f0233-7da2-4e81-8460-b1bf3a6fba53
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/web/enums/handler_type.proto";
+import "gcommon/v1/web/enums/http_method.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// RouteConfig message definition.
+message RouteConfig {
+  // URL path pattern
+  string path = 1;
+
+  // Allowed HTTP methods
+  repeated gcommon.v1.web.HTTPMethod methods = 2;
+
+  // Handler name or identifier
+  string handler = 3;
+
+  // Handler type implementation
+  gcommon.v1.web.HandlerType handler_type = 4;
+
+  // Middleware IDs applied to this route
+  repeated string middleware_ids = 5;
+
+  // Require authentication for route
+  bool auth_required = 6;
+}

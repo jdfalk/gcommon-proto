@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/web/messages/compression_config.proto
+// version: 1.1.0
+// guid: e4d9d1fd-7180-432c-a64b-5b6f24858928
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/common/enums/compression_type.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// CompressionConfig message definition.
+message WebCompressionConfig {
+  // Compression algorithm to use for HTTP responses
+  // Compression type to use for responses
+  gcommon.v1.common.LogCompressionType compression_type = 1;
+
+  // Minimum content length in bytes before compression is applied
+  int32 min_length = 2;
+
+  // Compression level (implementation specific)
+  int32 level = 3;
+}

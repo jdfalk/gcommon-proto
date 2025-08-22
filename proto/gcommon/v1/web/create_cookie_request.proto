@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/web/messages/create_cookie_request.proto
+// version: 1.2.0
+// guid: 44838568-f1f6-44f1-b4a5-2299a815ccad
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/web/enums/same_site_policy.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+/**
+ * Request to create an HTTP cookie.
+ * Used for session management and client state storage.
+ */
+message CreateCookieRequest {
+  // Cookie name (required)
+  string name = 1;
+
+  // Cookie value
+  string value = 2;
+
+  // Cookie domain
+  string domain = 3;
+
+  // Cookie path
+  string path = 4;
+
+  // Cookie expiration time
+  google.protobuf.Timestamp expires = 5;
+
+  // Maximum age in seconds
+  int32 max_age = 6;
+
+  // Whether cookie is secure (HTTPS only)
+  bool secure = 7;
+
+  // Whether cookie is HTTP only
+  bool http_only = 8;
+
+  // Cookie SameSite attribute
+  SameSitePolicy same_site = 9;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 10;
+}

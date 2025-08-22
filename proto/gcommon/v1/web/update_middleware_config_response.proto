@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/web/messages/update_middleware_config_response.proto
+// version: 1.0.0
+// guid: e8328b61-1bdf-487b-b874-01de9424625e
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/common/messages/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// UpdateMiddlewareConfigResponse response definition.
+// UpdateMiddlewareConfigResponse returns the result of updating middleware config.
+message UpdateMiddlewareConfigResponse {
+  // Standard response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 1;
+
+  // Whether the middleware was updated
+  bool updated = 2;
+}

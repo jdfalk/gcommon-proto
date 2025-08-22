@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/web/messages/load_balancer_config.proto
+// version: 1.1.0
+// guid: 773a3c4c-d370-4416-b0d8-bf270ea7d2de
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "gcommon/v1/web/enums/load_balance_strategy.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+
+// LoadBalancerConfig message definition.
+message WebLoadBalancerConfig {
+  // Load balancing strategy
+  gcommon.v1.web.LoadBalanceStrategy strategy = 1;
+
+  // Upstream server addresses
+  repeated string upstreams = 2;
+
+  // Health check path
+  string health_check_path = 3;
+
+  // Timeout for proxy requests
+  google.protobuf.Duration timeout = 4;
+}
