@@ -22,7 +22,7 @@ message FileInfo {
   int64 size_bytes = 2;
 
   // MIME type information
-  gcommon.v1.common.MimeType mime_type = 3;
+  MimeType mime_type = 3;
 
   // Last modified timestamp
   google.protobuf.Timestamp modified_at = 4;

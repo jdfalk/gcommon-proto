@@ -23,7 +23,7 @@ message ProxyConfig {
   string target_url = 2;
 
   // Headers to forward to the backend
-  repeated gcommon.v1.common.HttpHeader forward_headers = 3;
+  repeated HttpHeader forward_headers = 3;
 
   // Connect timeout duration
   google.protobuf.Duration connect_timeout = 4;

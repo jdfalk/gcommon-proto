@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
  */
 message ListFilesResponse {
   // List of files and directories
-  repeated gcommon.v1.common.FileInfo files = 1;
+  repeated FileInfo files = 1;
 
   // Total number of files (may be larger than returned list if paginated)
   int64 total_count = 2;

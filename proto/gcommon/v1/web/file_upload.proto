@@ -17,8 +17,8 @@ message FileUpload {
   // Name of the uploaded file
   string file_name = 1;
 
-  // MIME type of the file
-  gcommon.v1.common.MimeType content_type = 2;
+  // Content type validation
+  MimeType content_type = 2;
 
   // Raw file bytes
   bytes data = 3;
