@@ -1,16 +1,25 @@
 version: v2
-clean: false # Don't clean everything - we want to preserve go.mod
+clean: true # we should be regenerating all these files with teh script copilot so this is a TODO if we are not.
+managed:
+  enabled: true
+  disable:
+    # Don't modify any file option or field option for googleapis
+    - module: buf.build/googleapis/googleapis
+  override:
+    # Override all generated files to use the same Go module path
+    - file_option: go_package
+      value: github.com/jdfalk/gcommon/sdk/go
 plugins:
   # Go: use local protoc-gen-go with managed mode
   - local: protoc-gen-go
     out: sdks/go
-    strategy: directory
+    strategy: all
     opt:
       - paths=source_relative
   # Go gRPC services
   - local: protoc-gen-go-grpc
     out: sdks/go
-    strategy: directory
+    strategy: all
     opt:
       - paths=source_relative
   # Python messages via protoc built-in generator
