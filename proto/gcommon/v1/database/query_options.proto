@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/database/consistency_level.proto";
+import "gcommon/v1/common/consistency_level.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
