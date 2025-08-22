@@ -309,6 +309,17 @@
 				"-m",
 				"fix(protobuf): resolve all import dependencies and syntax errors for successful buf generate\n\nSystematically fixed critical protobuf compilation issues by correcting import paths, removing duplicate imports, fixing type references, and resolving cyclical dependencies. All protobuf files now compile successfully with buf generate.\n\nIssues Addressed:\n\nfix(imports): correct import paths for moved files to common package\n- Fixed imports referencing old locations (metrics/organization/config → common)\n- Removed duplicate import statements causing conflicts\n- Updated 14+ files with corrected import paths\n\nfix(syntax): resolve message declaration syntax errors\n- Fixed message names incorrectly qualified with full package paths\n- Corrected 11 files with malformed message declarations\n- Removed trailing dots and package qualifiers from message names\n\nfix(types): update type references to match reorganized package structure\n- Updated type references to use correct package qualifiers\n- Fixed cross-package dependencies per dependency analysis recommendations\n- Resolved unknown type errors by correcting qualified type names\n\nfix(structure): implement systematic dependency resolution\n- Followed proto_dependency_analysis.md recommendations\n- Moved problematic files to common package with prefixed naming\n- Eliminated cyclical dependencies between metrics/organization/config packages\n\nFiles changed:\n- fix_all_imports.py - Comprehensive import and type reference fix script\n- fix_message_names.py - Message declaration syntax fix script\n- proto/gcommon/v1/common/*.proto - Fixed import paths and message names\n- proto/gcommon/v1/config/config_environment.proto - Corrected compliance settings import\n- proto/gcommon/v1/organization/integration_settings.proto - Fixed API key config import\n- proto/gcommon/v1/organization/organization_settings.proto - Updated type references\n- proto/gcommon/v1/queue/*.proto - Corrected time range and validation imports\n- sdks/go/gcommon/v1/**/*.pb.go - Successfully generated Go protocol buffer files\n\nResult: buf generate now completes successfully, generating all Go files for use in subtitle-manager and other applications."
 			]
+		},
+		{
+			"label": "Git Commit SDK Module",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(sdks): add Go module support for generated protobuf code\n\nAdded proper Go module configuration to enable import of generated protobuf packages in other Go applications like subtitle-manager.\n\nFiles changed:\n- sdks/go/go.mod - Added Go module definition for generated protobuf code\n- sdk/go/go.mod - Removed (incorrect path)\n- examples/gcommon_usage.go - Example showing how to use gcommon protobuf packages"
+			]
 		}
 	],
 	"inputs": [
