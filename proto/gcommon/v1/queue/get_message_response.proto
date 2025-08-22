@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message GetMessageResponse {
   // The retrieved message (null if no message available)
-  gcommon.v1.config.MessageEnvelope message = 1;
+  MessageEnvelope message = 1;
 
   // Acknowledgment token for this message (used to ack/nack)
   string ack_token = 2;

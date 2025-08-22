@@ -26,7 +26,7 @@ message AlertingConfig {
   repeated AlertRule rules = 2;
 
   // Notification channels for alerts
-  repeated gcommon.v1.common.QueueNotificationChannel channels = 3;
+  repeated QueueNotificationChannel channels = 3;
 
   // Default alert severity level
   gcommon.v1.common.CommonAlertSeverity default_severity = 4;
