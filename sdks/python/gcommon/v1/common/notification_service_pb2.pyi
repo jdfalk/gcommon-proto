@@ -1,0 +1,17 @@
+from gcommon.v1.common import delete_notification_request_pb2 as _delete_notification_request_pb2
+from gcommon.v1.common import delete_notification_response_pb2 as _delete_notification_response_pb2
+from gcommon.v1.common import get_template_request_pb2 as _get_template_request_pb2
+from gcommon.v1.common import get_template_response_pb2 as _get_template_response_pb2
+from gcommon.v1.common import list_notifications_request_pb2 as _list_notifications_request_pb2
+from gcommon.v1.common import list_notifications_response_pb2 as _list_notifications_response_pb2
+from gcommon.v1.common import mark_as_read_request_pb2 as _mark_as_read_request_pb2
+from gcommon.v1.common import mark_as_read_response_pb2 as _mark_as_read_response_pb2
+from gcommon.v1.common import send_notification_request_pb2 as _send_notification_request_pb2
+from gcommon.v1.common import send_notification_response_pb2 as _send_notification_response_pb2
+from gcommon.v1.common import update_preferences_request_pb2 as _update_preferences_request_pb2
+from gcommon.v1.common import update_preferences_response_pb2 as _update_preferences_response_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+
+DESCRIPTOR: _descriptor.FileDescriptor

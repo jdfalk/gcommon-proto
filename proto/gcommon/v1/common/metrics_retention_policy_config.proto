@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 /**
  * Retention policy configuration for metric data.
  */
-message gcommon.v1.common.MetricsRetentionPolicyConfig {
+message MetricsRetentionPolicyConfig {
   // How long to retain data
   google.protobuf.Duration duration = 1;
 

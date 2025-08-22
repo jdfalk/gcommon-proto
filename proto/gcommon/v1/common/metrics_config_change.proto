@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 /**
  * ConfigChange describes a configuration change that was made.
  */
-message gcommon.v1.common.MetricsConfigChange {
+message MetricsConfigChange {
   // Type of change
   gcommon.v1.common.MetricsChangeType change_type = 1;
 

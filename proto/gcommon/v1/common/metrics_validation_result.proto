@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 /**
  * ValidationResult contains validation results from creation.
  */
-message gcommon.v1.common.MetricsValidationResult {
+message MetricsValidationResult {
   // Whether the configuration is valid
   bool valid = 1;
 
