@@ -23,7 +23,7 @@ message NackError {
   string message = 2;
 
   // Error category
-  gcommon.v1.queue.NackErrorCategory category = 3;
+  gcommon.v1.common.NackErrorCategory category = 3;
 
   // Whether the error is retryable
   bool retryable = 4;

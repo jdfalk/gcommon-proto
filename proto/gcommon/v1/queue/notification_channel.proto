@@ -21,7 +21,7 @@ message QueueNotificationChannel {
   string id = 1;
 
   // Type of notification channel
-  NotificationChannelType type = 2;
+  gcommon.v1.common.NotificationChannelType type = 2;
 
   // Configuration specific to the channel type
   map<string, string> config = 3;
@@ -30,5 +30,5 @@ message QueueNotificationChannel {
   bool enabled = 4;
 
   // Minimum severity level for notifications
-  gcommon.v1.metrics.MetricsAlertSeverity min_severity = 5;
+  gcommon.v1.common.MetricsAlertSeverity min_severity = 5;
 }

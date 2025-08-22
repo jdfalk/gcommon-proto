@@ -83,7 +83,7 @@ message ConfigEnvironment {
   repeated PromotionRule promotion_rules = 16;
 
   // Environment access control
-  repeated gcommon.v1.organization.OrganizationAccessControl access_controls = 17;
+  repeated gcommon.v1.common.OrganizationAccessControl access_controls = 17;
 
   // Environment deployment info
   DeploymentInfo deployment_info = 18;
@@ -92,7 +92,7 @@ message ConfigEnvironment {
   gcommon.v1.common.CommonHealthStatus health_status = 19;
 
   // Environment resource limits
-  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 20;
+  gcommon.v1.common.OrganizationResourceLimits resource_limits = 20;
 
   // Environment backup policy
   BackupPolicy backup_policy = 21;
@@ -104,10 +104,10 @@ message ConfigEnvironment {
   ConfigMonitoringConfig monitoring_config = 23;
 
   // Environment retention policy
-  gcommon.v1.metrics.MetricsRetentionPolicy retention_policy = 24;
+  gcommon.v1.common.MetricsRetentionPolicy retention_policy = 24;
 
   // Environment compliance settings
-  gcommon.v1.organization.OrganizationComplianceSettings compliance_settings = 25;
+  gcommon.v1.common.OrganizationComplianceSettings compliance_settings = 25;
 
   // Environment encryption settings
   EncryptionSettings encryption_settings = 26;
@@ -116,7 +116,7 @@ message ConfigEnvironment {
   AuditSettings audit_settings = 27;
 
   // Environment notification settings
-  gcommon.v1.organization.OrganizationNotificationSettings notification_settings = 28;
+  gcommon.v1.common.OrganizationNotificationSettings notification_settings = 28;
 
   // Environment sync settings
   SyncSettings sync_settings = 29;

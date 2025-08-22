@@ -26,7 +26,7 @@ message ImportQueueRequest {
   string source_path = 2;
 
   // Format of the import data
-  QueueExportFormat format = 3;
+  gcommon.v1.common.QueueExportFormat format = 3;
 
   // Whether to overwrite existing data
   bool overwrite = 4;

@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message VersionDeploymentInfo {
   // Deployment status
-  VersionDeploymentStatus status = 1;
+  gcommon.v1.common.VersionDeploymentStatus status = 1;
 
   // Deployment timestamp
   google.protobuf.Timestamp deployed_at = 2;
@@ -37,7 +37,7 @@ message VersionDeploymentInfo {
   repeated string artifacts = 7;
 
   // Deployment health
-  VersionHealthStatus health = 8;
+  gcommon.v1.common.VersionHealthStatus health = 8;
 
   // Deployment metrics
   map<string, double> metrics = 9;

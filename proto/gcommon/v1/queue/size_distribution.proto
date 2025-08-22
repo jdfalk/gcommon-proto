@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message SizeDistribution {
   // Size buckets in bytes
-  repeated gcommon.v1.queue.SizeBucket buckets = 1;
+  repeated gcommon.v1.common.SizeBucket buckets = 1;
 
   // Summary statistics
   int64 min_size_bytes = 2;

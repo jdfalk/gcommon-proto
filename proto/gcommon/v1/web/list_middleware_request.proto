@@ -20,7 +20,7 @@ message ListMiddlewareRequest {
   string server_id = 1;
 
   // Filter by middleware type
-  MiddlewareType type = 2;
+  gcommon.v1.common.MiddlewareType type = 2;
 
   // Filter by enabled state
   bool enabled = 3;

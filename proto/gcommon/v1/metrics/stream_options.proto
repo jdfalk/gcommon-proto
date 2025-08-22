@@ -27,7 +27,7 @@ message StreamOptions {
   bool include_metadata = 4;
 
   // Compression to use for the stream
-  StreamCompression compression = 5;
+  gcommon.v1.common.StreamCompression compression = 5;
 
   // Whether to send heartbeat messages during idle periods
   bool send_heartbeats = 6;
@@ -39,5 +39,5 @@ message StreamOptions {
   bool auto_retry = 8;
 
   // Quality of service level
-  StreamQOS qos = 9;
+  gcommon.v1.common.StreamQOS qos = 9;
 }

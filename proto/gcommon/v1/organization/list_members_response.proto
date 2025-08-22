@@ -21,7 +21,7 @@ message ListMembersResponse {
   bool success = 2;
 
   // List of members returned
-  repeated gcommon.v1.organization.OrganizationMember members = 3 [lazy = true];
+  repeated gcommon.v1.common.OrganizationMember members = 3 [lazy = true];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;

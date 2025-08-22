@@ -20,5 +20,5 @@ message GetTenantResponse {
   bool success = 2;
 
   // Tenant information
-  gcommon.v1.organization.Tenant tenant = 3;
+  gcommon.v1.common.Tenant tenant = 3;
 }

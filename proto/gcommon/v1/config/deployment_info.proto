@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message DeploymentInfo {
   // Deployment status
-  DeploymentStatus status = 1;
+  gcommon.v1.common.DeploymentStatus status = 1;
 
   // Last deployment timestamp
   google.protobuf.Timestamp last_deployed_at = 2;

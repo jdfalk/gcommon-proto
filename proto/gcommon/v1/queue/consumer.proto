@@ -24,7 +24,7 @@ message Consumer {
   ConsumerClient client_info = 2;
 
   // Consumer state
-  ConsumerState state = 3;
+  gcommon.v1.common.ConsumerState state = 3;
 
   // Assigned partitions
   repeated int32 assigned_partitions = 4;

@@ -4,29 +4,29 @@
 
 edition = "2023";
 
-package gcommon.v1.queue;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonqueue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * Alert severity levels.
  */
 enum QueueAlertSeverity {
   // Default unspecified severity
-  ALERT_SEVERITY_UNSPECIFIED = 0;
+  QUEUE_ALERT_SEVERITY_UNSPECIFIED = 0;
 
   // Informational alert
-  ALERT_SEVERITY_INFO = 1;
+  QUEUE_ALERT_SEVERITY_INFO = 1;
 
   // Warning level alert
-  ALERT_SEVERITY_WARNING = 2;
+  QUEUE_ALERT_SEVERITY_WARNING = 2;
 
   // Error level alert
-  ALERT_SEVERITY_ERROR = 3;
+  QUEUE_ALERT_SEVERITY_ERROR = 3;
 
   // Critical alert requiring immediate attention
-  ALERT_SEVERITY_CRITICAL = 4;
+  QUEUE_ALERT_SEVERITY_CRITICAL = 4;
 }

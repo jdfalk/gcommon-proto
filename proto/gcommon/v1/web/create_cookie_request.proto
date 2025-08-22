@@ -44,7 +44,7 @@ message CreateCookieRequest {
   bool http_only = 8;
 
   // Cookie SameSite attribute
-  SameSitePolicy same_site = 9;
+  gcommon.v1.common.SameSitePolicy same_site = 9;
 
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 10;

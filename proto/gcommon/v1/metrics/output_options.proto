@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message OutputOptions {
   // Format for numeric values
-  NumericFormat numeric_format = 1;
+  gcommon.v1.common.NumericFormat numeric_format = 1;
 
   // Whether to include timestamps
   bool include_timestamps = 2;
@@ -24,7 +24,7 @@ message OutputOptions {
   bool include_labels = 3;
 
   // Compression for large responses
-  ResponseCompression compression = 4;
+  gcommon.v1.common.ResponseCompression compression = 4;
 
   // Whether to flatten nested structures
   bool flatten_response = 5;

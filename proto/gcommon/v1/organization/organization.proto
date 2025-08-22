@@ -51,7 +51,7 @@ message Organization {
   string industry = 10;
 
   // Current operational status of the organization
-  gcommon.v1.organization.OrganizationStatus status = 11;
+  gcommon.v1.common.OrganizationStatus status = 11;
 
   // Organization metadata and custom attributes
   repeated gcommon.v1.common.KeyValue metadata = 12 [lazy = true];

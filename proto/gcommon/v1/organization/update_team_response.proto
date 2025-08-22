@@ -20,5 +20,5 @@ message UpdateTeamResponse {
   bool success = 2;
 
   // Updated team information
-  gcommon.v1.organization.Team team = 3;
+  gcommon.v1.common.Team team = 3;
 }

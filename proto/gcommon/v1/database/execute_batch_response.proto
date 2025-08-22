@@ -22,7 +22,7 @@ message ExecuteBatchResponse {
   repeated BatchOperationResult results = 1 [lazy = true];
 
   // Overall batch execution statistics
-  gcommon.v1.metrics.MetricsBatchStats stats = 2 [lazy = true];
+  gcommon.v1.common.MetricsBatchStats stats = 2 [lazy = true];
 
   // Error information if the batch failed
   gcommon.v1.common.Error error = 3 [lazy = true];

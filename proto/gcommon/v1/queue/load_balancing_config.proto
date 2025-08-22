@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message LoadBalancingConfig {
   // Load balancing strategy
-  gcommon.v1.queue.LoadBalancingStrategy strategy = 1;
+  gcommon.v1.common.LoadBalancingStrategy strategy = 1;
 
   // Weight for this consumer (for weighted strategies)
   int32 weight = 2;

@@ -26,5 +26,5 @@ message CacheBehavior {
   repeated string allowed_methods = 4;
 
   // Cache key policy
-  gcommon.v1.organization.CacheKeyPolicy cache_key = 5;
+  gcommon.v1.common.CacheKeyPolicy cache_key = 5;
 }

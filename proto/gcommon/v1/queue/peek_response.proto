@@ -33,7 +33,7 @@ message PeekResponse {
    * Messages viewed from the queue.
    * Empty if no messages were found matching the criteria.
    */
-  repeated gcommon.v1.queue.QueueMessage messages = 1;
+  repeated gcommon.v1.common.QueueMessage messages = 1;
 
   /**
    * Indicates whether the peek operation was successful.

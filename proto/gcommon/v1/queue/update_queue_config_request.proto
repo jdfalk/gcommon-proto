@@ -22,7 +22,7 @@ message UpdateQueueConfigRequest {
   string queue_name = 1;
 
   // New configuration for the queue
-  gcommon.v1.queue.QueueConfig config = 2;
+  gcommon.v1.common.QueueConfig config = 2;
 
   // Fields to update (field mask)
   repeated string update_mask = 3;

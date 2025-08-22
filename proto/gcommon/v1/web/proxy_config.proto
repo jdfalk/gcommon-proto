@@ -17,13 +17,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // ProxyConfig message definition.
 message ProxyConfig {
   // Type of proxy
-  gcommon.v1.web.ProxyType proxy_type = 1;
+  gcommon.v1.common.ProxyType proxy_type = 1;
 
   // Target backend URL
   string target_url = 2;
 
   // Headers to forward to the backend
-  repeated gcommon.v1.web.HttpHeader forward_headers = 3;
+  repeated gcommon.v1.common.HttpHeader forward_headers = 3;
 
   // Connect timeout duration
   google.protobuf.Duration connect_timeout = 4;

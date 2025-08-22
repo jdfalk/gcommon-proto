@@ -23,7 +23,7 @@ message CreateTopicRequest {
   string topic_name = 1;
 
   // Configuration for the topic
-  gcommon.v1.queue.TopicConfig config = 2;
+  gcommon.v1.common.TopicConfig config = 2;
 
   // Whether the topic should be durable
   bool durable = 3;

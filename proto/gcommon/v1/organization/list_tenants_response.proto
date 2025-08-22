@@ -21,7 +21,7 @@ message ListTenantsResponse {
   bool success = 2;
 
   // List of tenants returned
-  repeated gcommon.v1.organization.Tenant tenants = 3 [lazy = true];
+  repeated gcommon.v1.common.Tenant tenants = 3 [lazy = true];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;

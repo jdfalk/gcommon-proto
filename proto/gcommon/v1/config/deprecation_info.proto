@@ -33,5 +33,5 @@ message DeprecationInfo {
   string migration_guide = 6;
 
   // Deprecation level
-  DeprecationLevel level = 7;
+  gcommon.v1.common.DeprecationLevel level = 7;
 }

@@ -27,10 +27,10 @@ message TopicConfig {
   uint64 max_size_bytes = 2;
 
   // Message retention policy
-  gcommon.v1.queue.QueueRetentionPolicy retention_policy = 3;
+  gcommon.v1.common.QueueRetentionPolicy retention_policy = 3;
 
   // Partitioning configuration
-  gcommon.v1.queue.PartitionConfig partition_config = 4;
+  gcommon.v1.common.PartitionConfig partition_config = 4;
 
   // Whether messages are persistent
   bool persistent = 5;

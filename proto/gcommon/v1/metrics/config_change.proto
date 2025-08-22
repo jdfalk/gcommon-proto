@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricsConfigChange {
   // Type of change
-  MetricsChangeType change_type = 1;
+  gcommon.v1.common.MetricsChangeType change_type = 1;
 
   // Setting that was changed
   string setting_path = 2;

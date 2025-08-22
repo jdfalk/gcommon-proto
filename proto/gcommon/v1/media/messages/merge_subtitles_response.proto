@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/media/messages/merge_subtitles_response.proto
+// version: 1.0.0
+// guid: 567890ab-cdef-0123-f6a7-b8c9d0e1f234
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "v1/media";
+
+// Response from merging subtitle files.
+message MergeSubtitlesResponse {
+  string merged_subtitle_file_id = 1;
+  bool success = 2;
+  string error_message = 3;
+}

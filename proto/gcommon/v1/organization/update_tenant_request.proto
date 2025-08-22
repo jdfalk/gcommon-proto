@@ -22,7 +22,7 @@ message UpdateTenantRequest {
   string tenant_id = 2;
 
   // Updated tenant information
-  gcommon.v1.organization.Tenant tenant = 3;
+  gcommon.v1.common.Tenant tenant = 3;
 
   // Fields to update in partial mode
   google.protobuf.FieldMask update_mask = 4;

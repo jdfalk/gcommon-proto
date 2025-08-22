@@ -26,7 +26,7 @@ message TenantIsolation {
   string tenant_id = 1;
 
   // Isolation level for this tenant
-  OrganizationIsolationLevel level = 2;
+  gcommon.v1.common.OrganizationIsolationLevel level = 2;
 
   // Database isolation configuration
   DatabaseIsolation database = 3;

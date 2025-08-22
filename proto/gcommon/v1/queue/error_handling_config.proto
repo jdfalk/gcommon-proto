@@ -16,17 +16,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ErrorHandlingConfig {
   // Dead letter queue configuration
-  gcommon.v1.queue.DeadLetterQueueConfig dlq_config = 1;
+  gcommon.v1.common.DeadLetterQueueConfig dlq_config = 1;
 
   // Maximum delivery attempts before DLQ
   int32 max_delivery_attempts = 2;
 
   // Actions to take on specific errors
-  repeated gcommon.v1.queue.ErrorActionConfig error_actions = 3;
+  repeated gcommon.v1.common.ErrorActionConfig error_actions = 3;
 
   // Enable error logging
   bool enable_error_logging = 4;
 
   // Error notification settings
-  gcommon.v1.queue.ErrorNotificationConfig notification_config = 5;
+  gcommon.v1.common.ErrorNotificationConfig notification_config = 5;
 }

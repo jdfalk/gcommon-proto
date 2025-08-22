@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message BatchPullResponse {
   // List of messages pulled from the queue
-  repeated gcommon.v1.queue.QueueMessage messages = 1;
+  repeated gcommon.v1.common.QueueMessage messages = 1;
 
   // Total number of messages retrieved
   uint32 message_count = 2;

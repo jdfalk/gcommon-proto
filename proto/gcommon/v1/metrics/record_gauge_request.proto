@@ -41,5 +41,5 @@ message RecordGaugeRequest {
   gcommon.v1.common.RequestMetadata metadata = 7;
 
   // Operation type for the gauge
-  GaugeOperation operation = 8;
+  gcommon.v1.common.GaugeOperation operation = 8;
 }

@@ -18,7 +18,7 @@ message ApprovalInfo {
   bool required = 1;
 
   // Approval status
-  gcommon.v1.config.ApprovalStatus status = 2;
+  gcommon.v1.common.ApprovalStatus status = 2;
 
   // User who approved
   string approved_by = 3;

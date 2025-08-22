@@ -41,7 +41,7 @@ message SecuritySettings {
   bool api_access_enabled = 9;
 
   // API rate limiting configuration
-  gcommon.v1.organization.OrganizationRateLimitConfig api_rate_limit = 10;
+  gcommon.v1.common.OrganizationRateLimitConfig api_rate_limit = 10;
 
   // Audit log retention period in days
   int32 audit_log_retention_days = 11;

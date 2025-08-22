@@ -14,14 +14,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 // Supported authentication mechanisms for HTTP requests.
 enum WebAuthMethod {
-  // Default unspecified value.
-  AUTH_METHOD_UNSPECIFIED = 0;
-  // No authentication required.
-  AUTH_METHOD_NONE = 1;
-  // HTTP Basic authentication.
-  AUTH_METHOD_BASIC = 2;
-  // Token-based authentication via Authorization header.
-  AUTH_METHOD_TOKEN = 3;
-  // OAuth2 based authentication.
-  AUTH_METHOD_OAUTH2 = 4;
+  WEB_AUTH_METHOD_UNSPECIFIED = 0;
+  WEB_AUTH_METHOD_NONE = 1;
+  // Token-based authentication (JWT, API keys, etc.)
+  WEB_AUTH_METHOD_TOKEN = 2;
+  // OAuth2 with various providers
+  WEB_AUTH_METHOD_OAUTH2 = 3;
 }

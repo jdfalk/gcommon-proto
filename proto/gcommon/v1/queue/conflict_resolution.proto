@@ -17,14 +17,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message QueueConflictResolution {
   // Conflict resolution strategy
-  gcommon.v1.queue.ResolutionStrategy strategy = 1;
+  gcommon.v1.common.ResolutionStrategy strategy = 1;
 
   // Custom resolution function settings
-  gcommon.v1.queue.CustomResolution custom_resolution = 2;
+  gcommon.v1.common.CustomResolution custom_resolution = 2;
 
   // Last-writer-wins settings
-  gcommon.v1.queue.LastWriterWins lww_config = 3;
+  gcommon.v1.common.LastWriterWins lww_config = 3;
 
   // Multi-value conflict handling
-  gcommon.v1.queue.MultiValueConfig multi_value = 4;
+  gcommon.v1.common.MultiValueConfig multi_value = 4;
 }

@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // LoadBalancerConfig message definition.
 message WebLoadBalancerConfig {
   // Load balancing strategy
-  gcommon.v1.web.LoadBalanceStrategy strategy = 1;
+  gcommon.v1.common.LoadBalanceStrategy strategy = 1;
 
   // Upstream server addresses
   repeated string upstreams = 2;

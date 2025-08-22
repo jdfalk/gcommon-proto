@@ -21,7 +21,7 @@ message RoutingKey {
   string key = 1;
 
   // Pattern type for key matching
-  gcommon.v1.queue.RoutingPattern pattern_type = 2;
+  gcommon.v1.common.RoutingPattern pattern_type = 2;
 
   // Whether the pattern is case sensitive
   bool case_sensitive = 3;

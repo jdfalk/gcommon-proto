@@ -9,13 +9,11 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+option go_package = "v1/common";
 
-enum ConfigConflictResolution {
-  CONFLICT_RESOLUTION_UNSPECIFIED = 0;
-  CONFLICT_RESOLUTION_SOURCE_WINS = 1;
-  CONFLICT_RESOLUTION_TARGET_WINS = 2;
-  CONFLICT_RESOLUTION_MERGE = 3;
-  CONFLICT_RESOLUTION_MANUAL = 4;
-  CONFLICT_RESOLUTION_TIMESTAMP = 5;
+enum ConflictResolution {
+  COMMON_CONFLICT_RESOLUTION_UNSPECIFIED = 0;
+  COMMON_CONFLICT_RESOLUTION_MERGE = 1;
+  COMMON_CONFLICT_RESOLUTION_OVERWRITE = 2;
+  COMMON_CONFLICT_RESOLUTION_FAIL = 3;
 }

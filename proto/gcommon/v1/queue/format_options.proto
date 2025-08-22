@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message FormatOptions {
   // Serialization format
-  gcommon.v1.queue.SerializationFormat format = 1;
+  gcommon.v1.common.SerializationFormat format = 1;
 
   // Format-specific configuration
   map<string, string> options = 2;
@@ -27,7 +27,7 @@ message FormatOptions {
   bool enable_compression = 3;
 
   // Compression algorithm
-  gcommon.v1.queue.CompressionAlgorithm compression_algorithm = 4;
+  gcommon.v1.common.CompressionAlgorithm compression_algorithm = 4;
 
   // Maximum message size for this format
   int64 max_message_size = 5;

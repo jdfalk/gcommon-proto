@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message AlertingCondition {
   // Operator to use when comparing the metric value to the threshold.
-  ComparisonOperator operator = 1;
+  gcommon.v1.common.ComparisonOperator operator = 1;
 
   // Metric name or query expression being evaluated.
   string metric = 2;

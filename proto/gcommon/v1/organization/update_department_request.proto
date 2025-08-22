@@ -22,7 +22,7 @@ message UpdateDepartmentRequest {
   string department_id = 2;
 
   // Updated department information
-  gcommon.v1.organization.Department department = 3;
+  gcommon.v1.common.Department department = 3;
 
   // Fields to update in partial mode
   google.protobuf.FieldMask update_mask = 4;

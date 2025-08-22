@@ -22,7 +22,7 @@ message MetricData {
   string name = 2;
 
   // Type of metric (counter, gauge, histogram, etc.)
-  MetricsMetricType type = 3;
+  gcommon.v1.common.MetricsMetricType type = 3;
 
   // Human-readable description of the metric
   string description = 4;

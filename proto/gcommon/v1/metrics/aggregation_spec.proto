@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message AggregationSpec {
   // Type of aggregation to perform
-  AggregationType aggregation_type = 1;
+  gcommon.v1.common.AggregationType aggregation_type = 1;
 
   // Field to aggregate on (if applicable)
   string field = 2;

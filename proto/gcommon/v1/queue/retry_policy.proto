@@ -32,7 +32,7 @@ message QueueRetryPolicy {
   double backoff_multiplier = 4;
 
   // Retry delay strategy
-  gcommon.v1.queue.RetryDelayStrategy delay_strategy = 5;
+  gcommon.v1.common.RetryDelayStrategy delay_strategy = 5;
 
   // Whether to enable jitter in retry delays
   bool enable_jitter = 6;

@@ -20,5 +20,5 @@ message CreateTenantResponse {
   bool success = 2;
 
   // Newly created tenant details
-  gcommon.v1.organization.Tenant tenant = 3;
+  gcommon.v1.common.Tenant tenant = 3;
 }

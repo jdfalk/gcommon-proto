@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ConfigHealthStatus {
   // Overall health
-  HealthState overall = 1;
+  gcommon.v1.common.HealthState overall = 1;
 
   // Component health
   map<string, HealthState> components = 2;

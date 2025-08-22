@@ -1,35 +1,19 @@
-// file: proto/gcommon/v1/media/merge_subtitles_request.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/common/merge_subtitles_request.proto
+// version: 1.1.0
 // guid: 456789a-bcde-f012-e5f6-a7b8c9d0e1f2
 
 edition = "2023";
 
 package gcommon.v1.common;
 
+import "gcommon/v1/common/merge_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+option go_package = "v1/common";
 
 // Request to merge multiple subtitle files.
 message MergeSubtitlesRequest {
   repeated string subtitle_file_ids = 1;
   MergeOptions options = 2;
-}
-
-// Options for merging subtitles.
-message MergeOptions {
-  string output_format = 1; // Output format (srt, vtt, ass, etc.)
-  bool preserve_formatting = 2; // Keep original formatting
-  ConflictResolution conflict_resolution = 3; // How to handle overlapping subtitles
-  bool sort_by_timestamp = 4; // Sort merged subtitles by timestamp
-}
-
-// How to resolve conflicting subtitle timings.
-enum ConflictResolution {
-  CONFLICT_RESOLUTION_UNSPECIFIED = 0;
-  CONFLICT_RESOLUTION_KEEP_FIRST = 1; // Keep first subtitle when overlapping
-  CONFLICT_RESOLUTION_KEEP_LAST = 2; // Keep last subtitle when overlapping
-  CONFLICT_RESOLUTION_COMBINE = 3; // Combine overlapping subtitles
-  CONFLICT_RESOLUTION_ERROR = 4; // Return error on conflicts
 }

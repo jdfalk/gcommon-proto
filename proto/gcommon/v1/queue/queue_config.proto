@@ -19,13 +19,13 @@ message QueueConfig {
   // Name of the queue.
   string name = 1;
   // Queue implementation type.
-  QueueType type = 2;
+  gcommon.v1.common.QueueType type = 2;
   // Number of partitions for the queue.
   int32 partitions = 3;
   // Retention policy for stored messages.
-  gcommon.v1.metrics.MetricsRetentionPolicy retention = 4;
+  gcommon.v1.common.MetricsRetentionPolicy retention = 4;
   // Default priority applied when publishing.
-  PriorityLevel default_priority = 5;
+  gcommon.v1.common.PriorityLevel default_priority = 5;
   // If true, queue persists messages to disk.
   bool durable = 6;
   // Whether the queue should be automatically deleted when unused.

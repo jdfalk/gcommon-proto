@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 message ListMediaFilesRequest {
   int32 page_size = 1;
   string page_token = 2;
-  MediaType media_type = 3; // Filter by media type
+  gcommon.v1.common.MediaType media_type = 3; // Filter by media type
   string path_prefix = 4; // Filter by path prefix
   bool include_metadata = 5; // Include full metadata in response
 }

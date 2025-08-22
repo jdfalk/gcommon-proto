@@ -44,5 +44,5 @@ message SessionMetadata {
 
   // Session state
 
-  AuthSessionState state = 10;
+  gcommon.v1.common.SessionState state = 10;
 }

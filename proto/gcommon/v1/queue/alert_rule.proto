@@ -28,7 +28,7 @@ message AlertRule {
   string metric_name = 3;
 
   // Condition for triggering the alert
-  AlertCondition condition = 4;
+  gcommon.v1.common.AlertCondition condition = 4;
 
   // Threshold value
   double threshold = 5;
@@ -37,7 +37,7 @@ message AlertRule {
   google.protobuf.Duration duration = 6;
 
   // Severity of the alert
-  gcommon.v1.metrics.MetricsAlertSeverity severity = 7;
+  gcommon.v1.common.MetricsAlertSeverity severity = 7;
 
   // Whether the rule is enabled
   bool enabled = 8;

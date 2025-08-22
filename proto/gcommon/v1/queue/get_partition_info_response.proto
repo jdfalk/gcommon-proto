@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Response with partition information
 message GetPartitionInfoResponse {
   // Partition information
-  gcommon.v1.queue.PartitionInfo partition_info = 1;
+  gcommon.v1.common.PartitionInfo partition_info = 1;
 
   // Whether request was successful
   bool success = 2;

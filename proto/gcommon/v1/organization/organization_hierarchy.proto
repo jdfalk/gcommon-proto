@@ -23,7 +23,7 @@ message OrganizationHierarchy {
   string organization_id = 2;
 
   // Type of hierarchy structure
-  HierarchyType hierarchy_type = 3;
+  gcommon.v1.common.HierarchyType hierarchy_type = 3;
 
   // Name of this hierarchy configuration
   string name = 4;

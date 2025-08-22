@@ -20,5 +20,5 @@ message UpdateTenantResponse {
   bool success = 2;
 
   // Updated tenant details
-  gcommon.v1.organization.Tenant tenant = 3;
+  gcommon.v1.common.Tenant tenant = 3;
 }

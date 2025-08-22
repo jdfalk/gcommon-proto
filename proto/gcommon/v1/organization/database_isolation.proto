@@ -27,7 +27,7 @@ message DatabaseIsolation {
   bool dedicated_database = 4;
 
   // Database backup configuration
-  gcommon.v1.organization.OrganizationBackupConfig backup = 5;
+  gcommon.v1.common.OrganizationBackupConfig backup = 5;
 
   // Database access restrictions
   repeated string allowed_operations = 6;

@@ -20,7 +20,7 @@ message VersionDependency {
   string version = 2;
 
   // Dependency type
-  VersionDependencyType type = 3;
+  gcommon.v1.common.VersionDependencyType type = 3;
 
   // Dependency scope
   string scope = 4;

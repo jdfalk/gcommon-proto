@@ -24,7 +24,7 @@ message ConsistencyConfig {
   DurabilityLevel durability_level = 1;
 
   // Acknowledgment level required for message delivery
-  AckLevel ack_level = 2;
+  gcommon.v1.common.AckLevel ack_level = 2;
 
   // Replication configuration
   ReplicationConsistency replication = 3;
@@ -39,7 +39,7 @@ message ConsistencyConfig {
   OrderingConfig ordering = 6;
 
   // Conflict resolution settings
-  gcommon.v1.config.ConfigConflictResolution conflict_resolution = 7;
+  gcommon.v1.common.ConflictResolution conflict_resolution = 7;
 
   // Consistency validation settings
   ConsistencyValidation validation = 8;

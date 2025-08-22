@@ -25,7 +25,7 @@ message AlertNotification {
   google.protobuf.Timestamp time = 2;
 
   // Severity level of the alert.
-  MetricsAlertSeverity severity = 3;
+  gcommon.v1.common.MetricsAlertSeverity severity = 3;
 
   // Human readable message describing the alert.
   string message = 4;

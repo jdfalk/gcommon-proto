@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message AgeDistribution {
   // Age buckets in seconds
-  repeated gcommon.v1.queue.AgeBucket buckets = 1;
+  repeated gcommon.v1.common.AgeBucket buckets = 1;
 
   // Summary statistics
   double average_age_seconds = 2;

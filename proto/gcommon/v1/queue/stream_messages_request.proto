@@ -35,7 +35,7 @@ message StreamMessagesRequest {
   int32 stream_timeout_ms = 6;
 
   // Acknowledgment level required
-  AckLevel ack_level = 7;
+  gcommon.v1.common.AckLevel ack_level = 7;
 
   // Batch size for message delivery
   int32 batch_size = 8;

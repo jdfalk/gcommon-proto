@@ -20,5 +20,5 @@ message CreateDepartmentResponse {
   bool success = 2;
 
   // Newly created department information
-  gcommon.v1.organization.Department department = 3;
+  gcommon.v1.common.Department department = 3;
 }

@@ -23,18 +23,18 @@ message AuthenticationConfig {
     bool none = 1;
 
     // Username/password authentication
-    gcommon.v1.queue.UsernamePasswordAuth username_password = 2;
+    gcommon.v1.common.UsernamePasswordAuth username_password = 2;
 
     // API key authentication
-    gcommon.v1.queue.APIKeyAuth api_key = 3;
+    gcommon.v1.common.APIKeyAuth api_key = 3;
 
     // TLS certificate authentication
-    gcommon.v1.queue.TLSAuth tls = 4;
+    gcommon.v1.common.TLSAuth tls = 4;
 
     // SASL authentication
-    gcommon.v1.queue.SASLAuth sasl = 5;
+    gcommon.v1.common.SASLAuth sasl = 5;
 
     // OAuth2 authentication
-    gcommon.v1.queue.OAuth2Auth oauth2 = 6;
+    gcommon.v1.common.OAuth2Auth oauth2 = 6;
   }
 }

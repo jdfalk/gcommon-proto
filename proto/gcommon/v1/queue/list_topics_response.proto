@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ListTopicsResponse {
   // List of topics
-  repeated gcommon.v1.queue.TopicInfo topics = 1;
+  repeated gcommon.v1.common.TopicInfo topics = 1;
 
   // Next page token
   string next_page_token = 2;

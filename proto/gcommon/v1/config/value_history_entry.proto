@@ -33,7 +33,7 @@ message ValueHistoryEntry {
   string reason = 6;
 
   // Change type (using ChangeType from config_template.proto)
-  TemplateChangeType change_type = 7;
+  gcommon.v1.common.TemplateChangeType change_type = 7;
 
   // Change metadata
   map<string, string> metadata = 8;

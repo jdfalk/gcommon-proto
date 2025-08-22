@@ -22,7 +22,7 @@ message ConfigNotificationSettings {
   repeated ConfigNotificationChannel channels = 2;
 
   // Notification triggers
-  repeated NotificationTrigger triggers = 3;
+  repeated gcommon.v1.common.NotificationTrigger triggers = 3;
 
   // Notification template
   string template = 4;

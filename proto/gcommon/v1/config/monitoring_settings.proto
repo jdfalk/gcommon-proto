@@ -17,7 +17,7 @@ message MonitoringSettings {
   bool enabled = 1;
 
   // Monitoring alerts
-  repeated gcommon.v1.config.MonitoringAlert alerts = 2;
+  repeated gcommon.v1.common.MonitoringAlert alerts = 2;
 
   // Monitoring metrics
   repeated string metrics = 3;

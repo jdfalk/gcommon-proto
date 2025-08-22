@@ -4,23 +4,25 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonmetrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * Provider type enumeration.
  * Defines the different types of metrics providers supported.
  */
 enum MetricsProviderType {
-  PROVIDER_TYPE_UNSPECIFIED = 0;
-  PROVIDER_TYPE_PROMETHEUS = 1;
-  PROVIDER_TYPE_OPENTELEMETRY = 2;
-  PROVIDER_TYPE_STATSD = 3;
-  PROVIDER_TYPE_CUSTOM = 4;
-  PROVIDER_TYPE_MEMORY = 5;
-  PROVIDER_TYPE_MULTI = 6;
+  METRICS_PROVIDER_TYPE_UNSPECIFIED = 0;
+  METRICS_PROVIDER_TYPE_PROMETHEUS = 1;
+  METRICS_PROVIDER_TYPE_INFLUXDB = 2;
+  METRICS_PROVIDER_TYPE_GRAPHITE = 3;
+  METRICS_PROVIDER_TYPE_DATADOG = 4;
+  METRICS_PROVIDER_TYPE_NEW_RELIC = 5;
+  METRICS_PROVIDER_TYPE_CLOUDWATCH = 6;
+  METRICS_PROVIDER_TYPE_STACKDRIVER = 7;
+  METRICS_PROVIDER_TYPE_CUSTOM = 8;
 }

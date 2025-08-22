@@ -17,7 +17,7 @@ message TransformationStep {
   string name = 1;
 
   // Step type
-  TransformationType type = 2;
+  gcommon.v1.common.TransformationType type = 2;
 
   // Step expression
   string expression = 3;

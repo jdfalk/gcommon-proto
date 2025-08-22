@@ -22,7 +22,7 @@ message UpdateOrganizationSettingsRequest {
   string organization_id = 2;
 
   // Updated settings
-  gcommon.v1.organization.OrganizationSettings settings = 3;
+  gcommon.v1.common.OrganizationSettings settings = 3;
 
   // Fields to update
   google.protobuf.FieldMask update_mask = 4;

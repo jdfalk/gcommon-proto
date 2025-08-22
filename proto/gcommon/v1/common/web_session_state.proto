@@ -13,8 +13,8 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 enum WebSessionState {
-  SESSION_STATE_UNSPECIFIED = 0;
-  SESSION_STATE_ACTIVE = 1;
-  SESSION_STATE_EXPIRED = 2;
-  SESSION_STATE_REVOKED = 3;
+  WEB_SESSION_STATE_UNSPECIFIED = 0;
+  WEB_SESSION_STATE_ACTIVE = 1;
+  WEB_SESSION_STATE_EXPIRED = 2;
+  WEB_SESSION_STATE_REVOKED = 3;
 }

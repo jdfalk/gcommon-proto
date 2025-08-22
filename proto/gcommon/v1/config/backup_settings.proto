@@ -17,7 +17,7 @@ message BackupSettings {
   bool enabled = 1;
 
   // Backup frequency
-  gcommon.v1.config.BackupFrequency frequency = 2;
+  gcommon.v1.common.BackupFrequency frequency = 2;
 
   // Backup retention period in days
   int32 retention_days = 3;

@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // SslConfig message definition.
 message SslConfig {
   // TLS protocol version
-  gcommon.v1.web.SSLProtocol protocol = 1;
+  gcommon.v1.common.SSLProtocol protocol = 1;
 
   // Path to certificate file
   string cert_file = 2;

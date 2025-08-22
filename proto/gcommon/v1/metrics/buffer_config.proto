@@ -17,7 +17,7 @@ message BufferConfig {
   int32 max_buffer_size = 1;
 
   // Buffer overflow strategy
-  BufferOverflowStrategy overflow_strategy = 2;
+  gcommon.v1.common.BufferOverflowStrategy overflow_strategy = 2;
 
   // Whether to persist buffer to disk during streaming
   bool persist_buffer = 3;

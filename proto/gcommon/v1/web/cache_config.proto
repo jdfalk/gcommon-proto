@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {
   // Selected cache strategy for responses
-  CacheStrategy strategy = 1;
+  gcommon.v1.common.CacheStrategy strategy = 1;
 
   // Detailed cache policy settings
   gcommon.v1.common.CachePolicy policy = 2 [lazy = true];

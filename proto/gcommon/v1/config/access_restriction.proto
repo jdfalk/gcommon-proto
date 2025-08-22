@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message AccessRestriction {
   // Restriction type
-  gcommon.v1.config.RestrictionType type = 1;
+  gcommon.v1.common.RestrictionType type = 1;
 
   // Restriction value
   string value = 2;

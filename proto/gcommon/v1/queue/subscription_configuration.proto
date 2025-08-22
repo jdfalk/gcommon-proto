@@ -15,10 +15,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message SubscriptionConfiguration {
   // Acknowledgment level required
-  gcommon.v1.queue.AckLevel ack_level = 1;
+  gcommon.v1.common.AckLevel ack_level = 1;
 
   // Delivery mode for messages
-  DeliveryMode delivery_mode = 2;
+  gcommon.v1.common.DeliveryMode delivery_mode = 2;
 
   // Maximum number of unacknowledged messages
   int32 max_unacked_messages = 3;

@@ -20,10 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message DeserializationConfig {
   // Supported serialization formats
-  repeated gcommon.v1.queue.SerializationFormat supported_formats = 1;
+  repeated gcommon.v1.common.SerializationFormat supported_formats = 1;
 
   // Default format if not specified
-  gcommon.v1.queue.SerializationFormat default_format = 2;
+  gcommon.v1.common.SerializationFormat default_format = 2;
 
   // Whether to validate schema during deserialization
   bool validate_schema = 3;

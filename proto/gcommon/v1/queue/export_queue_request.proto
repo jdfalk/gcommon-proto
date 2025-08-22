@@ -27,13 +27,13 @@ message ExportQueueRequest {
   string destination = 2;
 
   // Export format
-  QueueExportFormat format = 3;
+  gcommon.v1.common.QueueExportFormat format = 3;
 
   // Whether to include message data or just metadata
   bool include_message_data = 4;
 
   // Time range for export (optional)
-  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
+  gcommon.v1.common.MetricsTimeRange time_range = 5;
 
   // Whether to compress the export
   bool compress = 6;

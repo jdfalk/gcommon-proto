@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message TransactionOptions {
   // Isolation level for the transaction
-  gcommon.v1.database.DatabaseIsolationLevel isolation = 1;
+  gcommon.v1.common.DatabaseIsolationLevel isolation = 1;
 
   // Transaction timeout before automatic rollback
   google.protobuf.Duration timeout = 2 [lazy = true];

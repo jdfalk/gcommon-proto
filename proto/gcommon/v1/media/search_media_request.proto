@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 // Request to search media files.
 message SearchMediaRequest {
   string query = 1; // Search query string
-  MediaType media_type = 2; // Filter by media type
+  gcommon.v1.common.MediaType media_type = 2; // Filter by media type
   repeated string tags = 3; // Search by tags
   string language = 4; // Filter by language
   int32 page_size = 5;

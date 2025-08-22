@@ -29,5 +29,5 @@ message UpdateOptions {
   bool backup_config = 4;
 
   // Update strategy
-  UpdateStrategy strategy = 5;
+  gcommon.v1.common.UpdateStrategy strategy = 5;
 }

@@ -29,5 +29,5 @@ message DeleteCriteria {
   int32 max_messages = 5;
 
   // Delete messages in specific state
-  gcommon.v1.queue.MessageState state = 6;
+  gcommon.v1.common.MessageState state = 6;
 }

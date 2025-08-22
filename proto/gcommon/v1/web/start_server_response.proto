@@ -19,7 +19,7 @@ message StartServerResponse {
   bool success = 1;
 
   // Server status
-  ServerStatus status = 2;
+  gcommon.v1.common.ServerStatus status = 2;
 
   // Listen address
   string listen_address = 3;

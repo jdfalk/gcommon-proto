@@ -41,7 +41,7 @@ message DeletionOptions {
   bool create_backup = 8;
 
   // Cleanup strategy to use
-  CleanupStrategy cleanup_strategy = 9;
+  gcommon.v1.common.CleanupStrategy cleanup_strategy = 9;
 
   // Whether to wait for ongoing operations to complete
   bool wait_for_completion = 10;

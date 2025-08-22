@@ -45,5 +45,5 @@ message StreamConfig {
   bool enable_message_ordering = 8;
 
   // Stream restart policy on failure
-  gcommon.v1.queue.StreamRestartPolicy restart_policy = 9;
+  gcommon.v1.common.StreamRestartPolicy restart_policy = 9;
 }

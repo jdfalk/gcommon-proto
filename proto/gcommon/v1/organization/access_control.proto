@@ -29,5 +29,5 @@ message OrganizationAccessControl {
   repeated string allowed_countries = 5;
 
   // Time-based access restrictions
-  repeated gcommon.v1.organization.TimeRestriction time_restrictions = 6;
+  repeated gcommon.v1.common.TimeRestriction time_restrictions = 6;
 }

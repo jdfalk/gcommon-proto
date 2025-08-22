@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message RegistrationResult {
   // Whether a new metric was created or existing one updated
-  RegistrationAction action = 1;
+  gcommon.v1.common.RegistrationAction action = 1;
 
   // Indices that were created for the metric
   repeated string created_indices = 2;

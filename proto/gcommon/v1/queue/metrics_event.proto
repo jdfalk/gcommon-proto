@@ -21,7 +21,7 @@ message MetricsEvent {
   string queue_name = 2;
 
   // Type of metric
-  gcommon.v1.metrics.MetricsMetricType metric_type = 3;
+  gcommon.v1.common.MetricsMetricType metric_type = 3;
 
   // Metric value
   double value = 4;

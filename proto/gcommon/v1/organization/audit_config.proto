@@ -29,5 +29,5 @@ message AuditConfig {
   bool real_time_monitoring = 5;
 
   // Alert configuration for audit events
-  repeated gcommon.v1.organization.AuditAlert alerts = 6;
+  repeated gcommon.v1.common.AuditAlert alerts = 6;
 }

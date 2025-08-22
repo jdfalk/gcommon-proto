@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message UpdateResult {
   // What update action was taken
-  UpdateAction action = 1;
+  gcommon.v1.common.UpdateAction action = 1;
 
   // Configuration changes that were applied
   repeated MetricsConfigChange config_changes = 2;

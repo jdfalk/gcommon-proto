@@ -21,10 +21,10 @@ message CachingSettings {
   int32 ttl_seconds = 2;
 
   // Cache refresh strategy
-  gcommon.v1.config.CacheRefreshStrategy refresh_strategy = 3;
+  gcommon.v1.common.CacheRefreshStrategy refresh_strategy = 3;
 
   // Cache invalidation triggers
-  repeated gcommon.v1.config.CacheInvalidationTrigger triggers = 4;
+  repeated gcommon.v1.common.CacheInvalidationTrigger triggers = 4;
 
   // Cache metadata
   map<string, string> metadata = 5;

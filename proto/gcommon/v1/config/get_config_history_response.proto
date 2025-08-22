@@ -17,5 +17,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
  */
 message GetConfigHistoryResponse {
   // List of configuration changes
-  repeated gcommon.v1.metrics.MetricsConfigChange changes = 1;
+  repeated gcommon.v1.common.MetricsConfigChange changes = 1;
 }

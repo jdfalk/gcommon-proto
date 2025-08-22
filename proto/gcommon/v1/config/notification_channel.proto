@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ConfigNotificationChannel {
   // Channel type
-  ChannelType type = 1;
+  gcommon.v1.common.ChannelType type = 1;
 
   // Channel configuration
   map<string, string> config = 2;

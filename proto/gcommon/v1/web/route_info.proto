@@ -20,7 +20,7 @@ message RouteInfo {
   RouteConfig config = 1;
 
   // Type of route
-  RouteType route_type = 2;
+  gcommon.v1.common.RouteType route_type = 2;
 
   // Creation timestamp
   google.protobuf.Timestamp created_at = 3;

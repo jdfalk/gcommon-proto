@@ -21,7 +21,7 @@ message InheritanceFilter {
   string expression = 2;
 
   // Filter action
-  gcommon.v1.config.FilterAction action = 3;
+  gcommon.v1.common.FilterAction action = 3;
 
   // Filter metadata
   map<string, string> metadata = 4;

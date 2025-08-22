@@ -21,7 +21,7 @@ message ExportMetricsRequest {
   string provider_id = 2;
 
   // Desired export format
-  MetricsExportFormat format = 3;
+  gcommon.v1.common.MetricsExportFormat format = 3;
 
   // Destination URI or path
   string destination = 4;

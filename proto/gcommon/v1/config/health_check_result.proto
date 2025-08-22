@@ -18,7 +18,7 @@ message ConfigHealthCheckResult {
   string name = 1;
 
   // Health check status
-  HealthState status = 2;
+  gcommon.v1.common.HealthState status = 2;
 
   // Health check message
   string message = 3;

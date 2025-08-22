@@ -17,7 +17,7 @@ message HealthCheck {
   string name = 1;
 
   // Health check type
-  gcommon.v1.config.HealthCheckType type = 2;
+  gcommon.v1.common.HealthCheckType type = 2;
 
   // Health check endpoint
   string endpoint = 3;

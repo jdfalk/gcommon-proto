@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Response for batch publish operations
 message BatchPublishResponse {
   // Results for each published message
-  repeated gcommon.v1.queue.PublishResult results = 1;
+  repeated gcommon.v1.common.PublishResult results = 1;
 
   // Total number of messages attempted
   int32 total_attempted = 2;

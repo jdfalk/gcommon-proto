@@ -22,7 +22,7 @@ message MediaFile {
   string id = 1;
   string path = 2;
   string filename = 3;
-  MediaType type = 4;
+  gcommon.v1.common.MediaType type = 4;
   int64 size_bytes = 5;
   google.protobuf.Timestamp created_at = 6 [lazy = true];
   google.protobuf.Timestamp modified_at = 7 [lazy = true];

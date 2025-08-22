@@ -24,7 +24,7 @@ message ProviderConfig {
   string name = 2;
 
   // Type of provider (prometheus, opentelemetry, custom, etc.)
-  gcommon.v1.metrics.MetricsProviderType type = 3;
+  gcommon.v1.common.MetricsProviderType type = 3;
 
   // Provider-specific configuration
   ProviderSettings settings = 4;
@@ -33,7 +33,7 @@ message ProviderConfig {
   ExportConfig export_config = 5;
 
   // Resource limits for this provider
-  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 6;
+  gcommon.v1.common.OrganizationResourceLimits resource_limits = 6;
 
   // Security configuration
   MetricsSecurityConfig security_config = 7;

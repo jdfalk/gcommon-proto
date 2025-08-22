@@ -21,7 +21,7 @@ message TemplateParameter {
   string description = 2;
 
   // Parameter type
-  gcommon.v1.config.ParameterType type = 3;
+  gcommon.v1.common.ParameterType type = 3;
 
   // Whether parameter is required
   bool required = 4;
@@ -33,7 +33,7 @@ message TemplateParameter {
   repeated string allowed_values = 6;
 
   // Parameter constraints
-  gcommon.v1.config.ParameterConstraints constraints = 7;
+  gcommon.v1.common.ParameterConstraints constraints = 7;
 
   // Parameter group
   string group = 8;

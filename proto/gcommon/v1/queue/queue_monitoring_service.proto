@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 service QueueMonitoringService {
   // Get information about the queue cluster
-  rpc GetClusterInfo(GetClusterInfoRequest) returns (gcommon.v1.queue.GetClusterInfoResponse);
+  rpc GetClusterInfo(GetClusterInfoRequest) returns (gcommon.v1.common.GetClusterInfoResponse);
 
   // Get health status of all queues
   rpc GetQueueHealth(GetQueueHealthRequest) returns (GetQueueHealthResponse);

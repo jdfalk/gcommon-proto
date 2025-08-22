@@ -20,13 +20,13 @@ message SubscriptionConfig {
   // Name of the subscription.
   string name = 1;
   // Current state of the subscription.
-  gcommon.v1.queue.SubscriptionState state = 2;
+  gcommon.v1.common.SubscriptionState state = 2;
   // Message routing strategy for this subscription.
-  gcommon.v1.queue.RoutingStrategy routing_strategy = 3;
+  gcommon.v1.common.RoutingStrategy routing_strategy = 3;
   // Default priority applied to published messages if unspecified.
-  PriorityLevel default_priority = 4;
+  gcommon.v1.common.PriorityLevel default_priority = 4;
   // Delivery options controlling retries and dead letter handling.
-  gcommon.v1.queue.DeliveryOptions delivery_options = 5;
+  gcommon.v1.common.DeliveryOptions delivery_options = 5;
   // Maximum number of unacknowledged messages allowed.
   int32 max_inflight = 6;
 }

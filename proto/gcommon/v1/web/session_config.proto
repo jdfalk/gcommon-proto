@@ -31,5 +31,5 @@ message WebSessionConfig {
   bool http_only = 5;
 
   // Cookie SameSite policy
-  gcommon.v1.web.CookieSameSite same_site = 6;
+  gcommon.v1.common.CookieSameSite same_site = 6;
 }

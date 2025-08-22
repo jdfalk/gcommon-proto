@@ -18,7 +18,7 @@ message TemplateHook {
   string name = 1;
 
   // Hook type
-  gcommon.v1.config.HookType type = 2;
+  gcommon.v1.common.HookType type = 2;
 
   // Hook command or script
   string command = 3;
@@ -36,5 +36,5 @@ message TemplateHook {
   map<string, string> conditions = 7;
 
   // Hook error handling
-  gcommon.v1.config.HookErrorHandling error_handling = 8;
+  gcommon.v1.common.HookErrorHandling error_handling = 8;
 }

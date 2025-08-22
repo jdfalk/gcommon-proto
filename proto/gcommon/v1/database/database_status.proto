@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message DatabaseStatus {
   // Code indicates the health state of the database
-  gcommon.v1.database.DatabaseStatusCode code = 1;
+  gcommon.v1.common.DatabaseStatusCode code = 1;
 
   // Human readable status details
   string message = 2;

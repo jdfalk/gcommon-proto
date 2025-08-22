@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message OffsetConfig {
   // Offset type (earliest, latest, timestamp, specific)
-  OffsetType offset_type = 1;
+  gcommon.v1.common.OffsetType offset_type = 1;
 
   // Specific offset value (when offset_type = specific)
   int64 offset_value = 2;

@@ -22,7 +22,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message CreateTopicResponse {
   // Information about the created topic
-  gcommon.v1.queue.TopicInfo topic_info = 1;
+  gcommon.v1.common.TopicInfo topic_info = 1;
 
   // Whether the topic was actually created (false if it already existed)
   bool created = 2;
@@ -34,6 +34,6 @@ message CreateTopicResponse {
   repeated string warnings = 4;
 
   // Topic configuration that was applied
-  gcommon.v1.queue.TopicConfig applied_config = 5;
+  gcommon.v1.common.TopicConfig applied_config = 5;
 }
 // This file needs proper implementation

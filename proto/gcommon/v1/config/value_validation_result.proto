@@ -19,13 +19,13 @@ message ValueValidationResult {
   string name = 1;
 
   // Validation result
-  gcommon.v1.config.ValueValidationResultType result = 2;
+  gcommon.v1.common.ValueValidationResultType result = 2;
 
   // Validation message
   string message = 3;
 
   // Validation severity
-  gcommon.v1.config.ValueValidationSeverity severity = 4;
+  gcommon.v1.common.ValueValidationSeverity severity = 4;
 
   // Validation timestamp
   google.protobuf.Timestamp timestamp = 5;

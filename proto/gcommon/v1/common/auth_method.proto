@@ -17,29 +17,29 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 // buf:lint:ignore ENUM_VALUE_PREFIX
 enum AuthAuthMethod {
   // Default unknown method
-  AUTH_METHOD_UNSPECIFIED = 0;
+  COMMON_AUTH_METHOD_UNSPECIFIED = 0;
 
   // Traditional username and password authentication
-  AUTH_METHOD_PASSWORD = 1;
+  COMMON_AUTH_METHOD_PASSWORD = 1;
 
   // API key based authentication
-  AUTH_METHOD_API_KEY = 2;
+  COMMON_AUTH_METHOD_API_KEY = 2;
 
   // OAuth2 or OpenID Connect authentication
-  AUTH_METHOD_OAUTH2 = 3;
+  COMMON_AUTH_METHOD_OAUTH2 = 3;
 
   // SAML identity provider authentication
-  AUTH_METHOD_SAML = 4;
+  COMMON_AUTH_METHOD_SAML = 4;
 
   // LDAP directory authentication
-  AUTH_METHOD_LDAP = 5;
+  COMMON_AUTH_METHOD_LDAP = 5;
 
   // Multi-factor authentication method
-  AUTH_METHOD_MFA = 6;
+  COMMON_AUTH_METHOD_MFA = 6;
 
   // Token-based authentication (e.g., JWT, bearer tokens)
-  AUTH_METHOD_TOKEN = 7;
+  COMMON_AUTH_METHOD_TOKEN = 7;
 
   // No authentication required
-  AUTH_METHOD_NONE = 8;
+  COMMON_AUTH_METHOD_NONE = 8;
 }

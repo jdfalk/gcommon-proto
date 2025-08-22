@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message ProviderStatus {
   // Current state
-  ProviderState state = 1;
+  gcommon.v1.common.ProviderState state = 1;
 
   // Status message
   string message = 2;

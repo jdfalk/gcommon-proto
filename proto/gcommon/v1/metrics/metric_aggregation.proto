@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 // Configuration for metric aggregation operations
 message MetricAggregation {
   // Type of aggregation
-  gcommon.v1.metrics.AggregationType type = 1;
+  gcommon.v1.common.AggregationType type = 1;
 
   // Time window for aggregation
   int32 window_seconds = 2;

@@ -21,10 +21,10 @@ message SubscribeResponse {
   QueueMessage message = 1;
 
   // Partition assignment info
-  gcommon.v1.queue.PartitionOffset partition_offset = 2;
+  gcommon.v1.common.PartitionOffset partition_offset = 2;
 
   // Connection details for streaming
-  gcommon.v1.queue.ConnectionDetails connection_details = 3;
+  gcommon.v1.common.ConnectionDetails connection_details = 3;
 
   // Subscription ID
   string subscription_id = 4;

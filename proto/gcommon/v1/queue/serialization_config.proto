@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/common/compression_algorithm.proto";
+import "gcommon/v1/common/compressionalgorithm.proto";
 import "gcommon/v1/common/serialization_format.proto";
 import "gcommon/v1/queue/format_options.proto";
 import "google/protobuf/go_features.proto";
@@ -19,19 +20,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message SerializationConfig {
   // Default serialization format
-  gcommon.v1.queue.SerializationFormat default_format = 1;
+  gcommon.v1.common.SerializationFormat default_format = 1;
 
   // Supported serialization formats
-  repeated gcommon.v1.queue.SerializationFormat supported_formats = 2;
+  repeated gcommon.v1.common.SerializationFormat supported_formats = 2;
 
   // Whether to auto-detect format from message headers
   bool auto_detect_format = 3;
 
   // Default compression algorithm
-  CompressionAlgorithm default_compression = 4;
+  gcommon.v1.common.CompressionAlgorithm default_compression = 4;
 
   // Supported compression algorithms
-  repeated CompressionAlgorithm supported_compressions = 5;
+  repeated gcommon.v1.common.CompressionAlgorithm supported_compressions = 5;
 
   // Whether to auto-detect compression from message headers
   bool auto_detect_compression = 6;

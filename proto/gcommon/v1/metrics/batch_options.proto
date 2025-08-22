@@ -35,5 +35,5 @@ message MetricsBatchOptions {
   bool transactional = 6;
 
   // Priority level for the batch operation
-  BatchPriority priority = 7;
+  gcommon.v1.common.BatchPriority priority = 7;
 }
