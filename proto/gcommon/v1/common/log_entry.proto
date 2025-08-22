@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/log_level.proto";
 import "gcommon/v1/common/error_info.proto";
+import "gcommon/v1/common/log_level.proto";
 import "gcommon/v1/common/source_location.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";

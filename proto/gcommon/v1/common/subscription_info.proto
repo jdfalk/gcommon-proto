@@ -5,10 +5,10 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/subscription_status.proto";
 import "gcommon/v1/common/client_info.proto";
 import "gcommon/v1/common/filter_options.proto";
 import "gcommon/v1/common/subscription_options.proto";
+import "gcommon/v1/common/subscription_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
