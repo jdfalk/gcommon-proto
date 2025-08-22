@@ -30,5 +30,5 @@ message ConnectionPoolInfo {
   google.protobuf.Duration avg_lifetime = 4 [lazy = true];
 
   // Detailed connection pool statistics
-  gcommon.v1.config.PoolStats stats = 5 [lazy = true];
+  PoolStats stats = 5 [lazy = true];
 }
