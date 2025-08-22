@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/media/merge_subtitles_request.proto
+// version: 1.0.0
+// guid: 456789a-bcde-f012-e5f6-a7b8c9d0e1f2
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "v1/media";
+
+// Request to merge multiple subtitle files.
+message MergeSubtitlesRequest {
+  repeated string subtitle_file_ids = 1;
+  string output_format = 2; // Output format (srt, vtt, ass, etc.)
+  bool preserve_formatting = 3; // Keep original formatting
+  bool sort_by_timestamp = 4; // Sort merged subtitles by timestamp
+}
