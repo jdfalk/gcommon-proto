@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/batch_priority.proto
+// version: 1.0.0
+// guid: f9429991-ff0a-4c70-a6e5-7d639281f030
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * BatchPriority defines the processing priority for batch operations.
+ */
+enum BatchPriority {
+  BATCH_PRIORITY_UNSPECIFIED = 0;
+  BATCH_PRIORITY_LOW = 1;
+  BATCH_PRIORITY_NORMAL = 2;
+  BATCH_PRIORITY_HIGH = 3;
+  BATCH_PRIORITY_URGENT = 4;
+}

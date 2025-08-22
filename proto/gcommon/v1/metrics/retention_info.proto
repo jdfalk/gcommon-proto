@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/metrics/v1/retention_info.proto
+// version: 1.0.0
+// guid: 1274ff0f-5103-48bf-a7f2-6068f7fbb53e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/retention_policy_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsRetentionInfo {
+  int64 total_retained_bytes = 1;
+  int64 total_purged_bytes = 2;
+  string oldest_data_age = 3;
+  repeated RetentionPolicyConfig policies = 4;
+}

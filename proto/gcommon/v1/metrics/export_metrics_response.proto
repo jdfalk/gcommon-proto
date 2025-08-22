@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/metrics/v1/export_metrics_response.proto
+// version: 1.1.0
+// guid: 0d2df1e4-76e3-437b-855e-4dcc2b6f6b9e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/error.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * ExportMetricsResponse returns the result of a metrics export operation.
+ */
+message ExportMetricsResponse {
+  // Whether the export succeeded
+  bool success = 1;
+
+  // Error information if the export failed
+  gcommon.v1.common.Error error = 2;
+
+  // Number of records exported
+  int64 exported_records = 3;
+
+  // Timestamp when the export completed
+  google.protobuf.Timestamp exported_at = 4;
+
+  // Location of the exported data
+  string file_url = 5;
+}

@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/metrics/v1/get_provider_stats_request.proto
+// version: 1.0.0
+// guid: 3325d42f-84b8-46c7-85ef-e324a05386d5
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/messages/stats_options.proto";
+import "gcommon/v1/metrics/messages/time_range.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message GetProviderStatsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Provider ID to get stats for
+  string provider_id = 2;
+
+  // Time range for statistics
+  MetricsTimeRange time_range = 3;
+
+  // What statistics to include
+  StatsOptions options = 4;
+
+  // Granularity for time-series statistics
+  string granularity = 5; // e.g., "1m", "5m", "1h"
+
+  // Whether to include real-time metrics
+  bool include_realtime = 6;
+}

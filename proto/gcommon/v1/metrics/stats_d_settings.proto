@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/stats_d_settings.proto
+// version: 1.0.0
+// guid: 195c250a-8ebe-4d7d-9948-acc9c69848f5
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message StatsDSettings {
+  // StatsD server address
+  string address = 1;
+
+  // Protocol to use (udp, tcp)
+  string protocol = 2;
+
+  // Prefix for all metrics
+  string prefix = 3;
+
+  // Sampling rate
+  double sample_rate = 4;
+
+  // Buffer size
+  int32 buffer_size = 5;
+}

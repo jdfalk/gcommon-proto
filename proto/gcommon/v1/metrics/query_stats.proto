@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/query_stats.proto
+// version: 1.0.0
+// guid: f8a9b0c1-234f-689e-3456-901234567890
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsQueryStats {
+  // Total queries executed
+  int64 total_queries = 1;
+
+  // Average execution time in milliseconds
+  double avg_execution_time_ms = 2;
+
+  // Number of failed queries
+  int64 failed_queries = 3;
+
+  // Cache hit rate
+  double cache_hit_rate = 4;
+}

@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/resource_usage.proto
+// version: 1.0.0
+// guid: 9feb7ea0-10ae-4507-9d2e-265744c25ac7
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ResourceUsage {
+  // Current memory usage (bytes)
+  int64 memory_used_bytes = 1;
+
+  // Current CPU usage (percentage)
+  double cpu_used_percent = 2;
+
+  // Current disk usage (bytes)
+  int64 disk_used_bytes = 3;
+
+  // Network bandwidth usage (bytes/sec)
+  int64 network_bandwidth_bytes_per_sec = 4;
+}

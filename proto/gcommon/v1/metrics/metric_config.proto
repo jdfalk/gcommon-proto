@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/metrics/v1/metric_config.proto
+// version: 1.0.0
+// guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/export_config.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * MetricConfig contains configuration settings for a specific metric.
+ */
+message MetricConfig {
+  // Metric name
+  string name = 1;
+
+  // Metric type (counter, gauge, histogram, summary, etc.)
+  string metric_type = 2;
+
+  // Whether this metric is enabled
+  bool enabled = 3;
+
+  // Collection interval
+  google.protobuf.Duration collection_interval = 4;
+
+  // Retention period for this metric
+  google.protobuf.Duration retention_period = 5;
+
+  // Labels to automatically add to this metric
+  map<string, string> default_labels = 6;
+
+  // Description of the metric
+  string description = 7;
+
+  // Unit of measurement
+  string unit = 8;
+
+  // Sampling rate (0.0 to 1.0)
+  double sampling_rate = 9;
+
+  // Export configuration
+  ExportConfig export_config = 10;
+}

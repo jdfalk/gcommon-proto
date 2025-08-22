@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/metrics/v1/create_metric_response.proto
+// version: 1.0.0
+// guid: 83588dec-abb1-410c-8a89-b2d53cdd2eec
+// file: proto/gcommon/v1/metrics/v1/create_metric_response.proto
+//
+// Response returned after creating a metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/metrics/messages/metric_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * CreateMetricResponse contains the result of a metric creation.
+ */
+message CreateMetricResponse {
+  // Created metric metadata
+  MetricMetadata metadata = 1;
+
+  // Operation error details if any
+  gcommon.v1.common.Error error = 2;
+}

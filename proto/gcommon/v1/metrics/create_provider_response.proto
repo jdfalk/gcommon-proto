@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/metrics/v1/create_provider_response.proto
+// version: 1.0.0
+// guid: d3b0a595-52ae-4306-be02-6d7d23e8a0df
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/metrics/messages/applied_config.proto";
+import "gcommon/v1/metrics/messages/provider_endpoints.proto";
+import "gcommon/v1/metrics/messages/provider_status.proto";
+import "gcommon/v1/metrics/messages/validation_result.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message CreateProviderResponse {
+  // Success status of the creation
+  bool success = 1;
+
+  // Error information if creation failed
+  gcommon.v1.common.Error error = 2;
+
+  // ID of the created provider
+  string provider_id = 3;
+
+  // When the provider was created
+  google.protobuf.Timestamp created_at = 4;
+
+  // Current status of the provider
+  ProviderStatus status = 5;
+
+  // Validation results
+  MetricsValidationResult validation = 6;
+
+  // Configuration details that were applied
+  AppliedConfig applied_config = 7;
+
+  // Warnings or informational messages
+  repeated string warnings = 8;
+
+  // Endpoint information for accessing the provider
+  ProviderEndpoints endpoints = 9;
+}

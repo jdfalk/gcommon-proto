@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/metric_sample.proto
+// version: 1.0.0
+// guid: 7f2e5cc8-7e1b-49d8-b994-556a6d3aa642
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * MetricSample represents a single value for a metric at a point in time.
+ */
+message MetricSample {
+  // Recorded value
+  double value = 1;
+
+  // Timestamp of the sample
+  google.protobuf.Timestamp timestamp = 2;
+
+  // Optional labels associated with this sample
+  map<string, string> labels = 3;
+}

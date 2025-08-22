@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/metrics/v1/set_metric_config_response.proto
+// version: 1.0.0
+// guid: 5faba194-b6ab-42ba-99c3-62eb07df9265
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/error.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * SetMetricConfigResponse is returned after updating metric config.
+ */
+message SetMetricConfigResponse {
+  // Operation success flag
+  bool success = 1;
+
+  // Error details if any
+  gcommon.v1.common.Error error = 2;
+}

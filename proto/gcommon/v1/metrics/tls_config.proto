@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/tls_config.proto
+// version: 1.0.0
+// guid: 7da056fd-4d1f-48fa-8ee0-fbad667fa085
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsTLSConfig {
+  // Certificate file path
+  string cert_file = 1;
+
+  // Private key file path
+  string key_file = 2;
+
+  // CA certificate file path
+  string ca_file = 3;
+
+  // Whether to verify certificates
+  bool verify_certs = 4;
+}

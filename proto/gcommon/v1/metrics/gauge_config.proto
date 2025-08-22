@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/gauge_config.proto
+// version: 1.0.0
+// guid: 9f7c124b-e567-4c31-ad6b-19c05836a84b
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message GaugeConfig {
+  // Minimum allowed value
+  double min_value = 1;
+
+  // Maximum allowed value
+  double max_value = 2;
+
+  // Whether the gauge can go negative
+  bool allow_negative = 3;
+}

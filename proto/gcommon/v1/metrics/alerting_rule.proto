@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/metrics/v1/alerting_rule.proto
+// version: 1.0.0
+// guid: c5d6e7f8-901c-356b-0123-678901234567
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message AlertingRule {
+  // Rule ID
+  string id = 1;
+
+  // Rule name
+  string name = 2;
+
+  // Query expression
+  string query = 3;
+
+  // Alert condition
+  string condition = 4;
+
+  // Threshold value
+  double threshold = 5;
+
+  // Rule enabled status
+  bool enabled = 6;
+}

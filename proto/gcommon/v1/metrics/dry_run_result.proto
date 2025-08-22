@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/metrics/v1/dry_run_result.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174027
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * DryRunResult contains information about what would happen in a dry run.
+ */
+message DryRunResult {
+  // Number of bytes that would be deleted
+  int64 would_delete_bytes = 1;
+
+  // Number of data points that would be deleted
+  int64 would_delete_points = 2;
+
+  // Number of indices that would be deleted
+  int64 would_delete_indices = 3;
+
+  // Number of exports that would be stopped
+  int64 would_stop_exports = 4;
+
+  // Estimated time for deletion to complete
+  string estimated_deletion_time = 5;
+}

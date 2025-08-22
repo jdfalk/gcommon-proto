@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/metrics/v1/batch_stats.proto
+// version: 1.0.0
+// guid: 6e20b77a-ba63-4ecc-9089-0371258fb120
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsBatchStats {
+  // Total time taken to process the batch (milliseconds)
+  int64 total_processing_time_ms = 1;
+
+  // Average time per metric (milliseconds)
+  int64 avg_processing_time_ms = 2;
+
+  // Total size of all metrics data (bytes)
+  int64 total_data_size_bytes = 3;
+
+  // Number of metrics that were deduplicated
+  int32 deduplication_count = 4;
+
+  // Number of parallel workers used
+  int32 parallel_workers = 5;
+
+  // Backend storage latency (milliseconds)
+  int64 storage_latency_ms = 6;
+
+  // Memory usage during batch processing (bytes)
+  int64 memory_usage_bytes = 7;
+}

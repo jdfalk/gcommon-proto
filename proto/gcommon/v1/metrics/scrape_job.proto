@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/metrics/v1/scrape_job.proto
+// version: 1.1.0
+// guid: 4c4b2cc6-1c94-4bd4-9a40-e1e36e1f9d02
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/scrape_config.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * ScrapeJob represents a scheduled scraping task for metrics collection.
+ */
+message ScrapeJob {
+  // Unique identifier for the scrape job
+  string job_id = 1;
+
+  // Configuration used for the scrape
+  ScrapeConfig config = 2;
+
+  // Whether the job is currently active
+  bool active = 3;
+
+  // Timestamp of the last successful scrape
+  google.protobuf.Timestamp last_scrape_time = 4;
+
+  // Timestamp of the next scheduled scrape
+  google.protobuf.Timestamp next_scrape_time = 5;
+}

@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/get_stats_request.proto
+// version: 1.0.0
+// guid: 2595bd64-9fd4-4bfb-af86-63535bc068c1
+// file: proto/gcommon/v1/metrics/v1/get_stats_request.proto
+//
+// Request for retrieving metric statistics over a time range.
+//
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/messages/timestamp_range.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsGetStatsRequest {
+  // Metric name or ID to query
+  string metric = 1;
+
+  // Time range for stats
+  MetricsTimestampRange range = 2;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

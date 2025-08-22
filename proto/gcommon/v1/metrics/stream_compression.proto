@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/metrics/v1/stream_compression.proto
+// version: 1.0.0
+// guid: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * StreamCompression defines compression options for streaming.
+ * Specifies how metrics data should be compressed during streaming.
+ */
+enum StreamCompression {
+  // Unspecified compression
+  STREAM_COMPRESSION_UNSPECIFIED = 0;
+
+  // No compression
+  STREAM_COMPRESSION_NONE = 1;
+
+  // GZIP compression
+  STREAM_COMPRESSION_GZIP = 2;
+
+  // Snappy compression
+  STREAM_COMPRESSION_SNAPPY = 3;
+
+  // LZ4 compression
+  STREAM_COMPRESSION_LZ4 = 4;
+}

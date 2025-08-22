@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/get_metric_config_request.proto
+// version: 1.0.0
+// guid: 82add51b-b9ac-4042-be4d-4acada2ae127
+// file: proto/gcommon/v1/metrics/v1/get_metric_config_request.proto
+//
+// Request message to retrieve metric configuration.
+//
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message GetMetricConfigRequest {
+  // Metric identifier
+  string metric_id = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/response_compression.proto
+// version: 1.0.0
+// guid: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * ResponseCompression defines compression options for responses.
+ * Specifies compression algorithms for metric response data.
+ */
+enum ResponseCompression {
+  // Unspecified compression
+  RESPONSE_COMPRESSION_UNSPECIFIED = 0;
+
+  // No compression
+  RESPONSE_COMPRESSION_NONE = 1;
+
+  // GZIP compression
+  RESPONSE_COMPRESSION_GZIP = 2;
+
+  // Snappy compression
+  RESPONSE_COMPRESSION_SNAPPY = 3;
+}

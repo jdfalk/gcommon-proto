@@ -1,0 +1,54 @@
+// file: proto/gcommon/v1/metrics/v1/provider_statistics.proto
+// version: 1.0.0
+// guid: 65d32fe6-818b-4b23-a785-3a059bf52535
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/configuration_summary.proto";
+import "gcommon/v1/metrics/messages/data_volume_stats.proto";
+import "gcommon/v1/metrics/messages/error_stats.proto";
+import "gcommon/v1/metrics/messages/export_stats.proto";
+import "gcommon/v1/metrics/messages/health_status_entry.proto";
+import "gcommon/v1/metrics/messages/performance_stats.proto";
+import "gcommon/v1/metrics/messages/provider_info.proto";
+import "gcommon/v1/metrics/messages/resource_usage_stats.proto";
+import "gcommon/v1/metrics/messages/top_metrics.proto";
+import "gcommon/v1/metrics/messages/trend_analysis.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ProviderStatistics {
+  // Basic provider information
+  ProviderInfo provider_info = 1;
+
+  // Performance statistics
+  MetricsPerformanceStats performance = 2;
+
+  // Resource usage statistics
+  ResourceUsageStats resource_usage = 3;
+
+  // Error statistics
+  MetricsErrorStats errors = 4;
+
+  // Data volume statistics
+  DataVolumeStats data_volume = 5;
+
+  // Export statistics
+  ExportStats exports = 6;
+
+  // Health status history
+  repeated HealthStatusEntry health_history = 7;
+
+  // Configuration summary
+  ConfigurationSummary config = 8;
+
+  // Top metrics
+  TopMetrics top_metrics = 9;
+
+  // Trend analysis
+  TrendAnalysis trends = 10;
+}

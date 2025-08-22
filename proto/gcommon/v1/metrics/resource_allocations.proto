@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/resource_allocations.proto
+// version: 1.0.0
+// guid: 7b4880a1-d53a-4cf8-93db-907b2bd67f3b
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ResourceAllocations {
+  // Allocated memory (bytes)
+  int64 allocated_memory_bytes = 1;
+
+  // Allocated CPU (percentage)
+  double allocated_cpu_percent = 2;
+
+  // Allocated disk space (bytes)
+  int64 allocated_disk_bytes = 3;
+
+  // Network ports allocated
+  repeated int32 allocated_ports = 4;
+}

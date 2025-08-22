@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/metrics/v1/config_change.proto
+// version: 1.1.0
+// guid: 29bbb593-9903-43ef-a25e-1c3c7c0a4e64
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/enums/change_type.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * ConfigChange describes a configuration change that was made.
+ */
+message MetricsConfigChange {
+  // Type of change
+  MetricsChangeType change_type = 1;
+
+  // Setting that was changed
+  string setting_path = 2;
+
+  // Old value (if applicable)
+  string old_value = 3;
+
+  // New value
+  string new_value = 4;
+
+  // Description of the change
+  string description = 5;
+}

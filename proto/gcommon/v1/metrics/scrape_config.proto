@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/scrape_config.proto
+// version: 1.0.0
+// guid: a754fb7e-a819-4731-82fd-6a587b928a9e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/scrape_target.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * ScrapeConfig defines how metrics should be scraped from targets.
+ */
+message ScrapeConfig {
+  // Job name for the scrape configuration
+  string job_name = 1;
+
+  // Targets to scrape
+  repeated ScrapeTarget targets = 2;
+
+  // Interval between scrapes in seconds
+  int32 scrape_interval_seconds = 3;
+}

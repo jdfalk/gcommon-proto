@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/v1/record_metric_request.proto
+// version: 1.0.0
+// guid: 8e0ace8f-cfd2-45c0-9e30-47eefe47b60f
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/messages/batch_context.proto";
+import "gcommon/v1/metrics/messages/metric_data.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message RecordMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // The metric data to record
+  MetricData metric = 2;
+
+  // Optional provider ID to use for recording
+  string provider_id = 3;
+
+  // Whether to validate the metric before recording
+  bool validate = 4;
+
+  // Timestamp override (if not provided, current time is used)
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Batch context information (if this is part of a batch operation)
+  BatchContext batch_context = 6;
+}

@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/metrics/v1/security_config_update.proto
+// version: 1.0.0
+// guid: 94abaf44-d603-4b65-8bd3-d98ca462c20e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/messages/api_key_config_update.proto";
+import "gcommon/v1/metrics/messages/tls_config_update.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * SecurityConfigUpdate contains updates to security configuration.
+ */
+message SecurityConfigUpdate {
+  // Updated authentication requirement
+  bool require_auth = 1;
+
+  // Updated authentication methods
+  repeated string auth_methods = 2;
+
+  // Updated TLS requirement
+  bool require_tls = 3;
+
+  // TLS configuration updates
+  TLSConfigUpdate tls_config_update = 4;
+
+  // API key configuration updates
+  APIKeyConfigUpdate api_key_config_update = 5;
+}
