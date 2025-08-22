@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/services/session_service.proto
+// file: proto/gcommon/v1/common/session_service.proto
 // version: 1.0.0
 // guid: cdb77963-bfe4-405f-86a2-e3d6ba7fb232
 edition = "2023";

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/services/health_service.proto
+// file: proto/gcommon/v1/common/health_service.proto
 // version: 1.0.0
 // guid: 81fada90-f4d6-4bfc-9756-b7b144fcbdf6
 edition = "2023";

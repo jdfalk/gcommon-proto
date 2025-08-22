@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/services/tenant_service.proto
+// file: proto/gcommon/v1/organization/tenant_service.proto
 // version: 1.0.0
 // guid: 56bd37e6-4e4a-4a15-82a6-b392bed64d95
 edition = "2023";

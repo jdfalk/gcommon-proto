@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/services/queue_admin_service.proto
+// file: proto/gcommon/v1/queue/queue_admin_service.proto
 // version: 1.0.0
 // guid: b54b440b-f4c1-40fc-a40f-8b4c0626fc32
 // Administrative service for queue management
