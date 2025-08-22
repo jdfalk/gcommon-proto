@@ -10,7 +10,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/common/queue_export_format.proto";
-import "gcommon/v1/metrics/time_range.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -34,7 +34,7 @@ message ExportQueueRequest {
 
   // Time range for filtering exported data
   // If not specified, exports all available data
-  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
+  gcommon.v1.common.TimeRangeMetrics time_range = 5;
 
   // Whether to compress the export
   bool compress = 6;

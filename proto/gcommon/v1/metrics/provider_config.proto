@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "gcommon/v1/common/metrics_provider_type.proto";
+import "gcommon/v1/common/organization_resource_limits.proto";
 import "gcommon/v1/metrics/export_config.proto";
 import "gcommon/v1/metrics/provider_settings.proto";
 import "gcommon/v1/metrics/security_config.proto";
-import "gcommon/v1/organization/resource_limits.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -33,7 +33,7 @@ message ProviderConfig {
   ExportConfig export_config = 5;
 
   // Resource limits imposed by the organization
-  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 6;
+  gcommon.v1.common.OrganizationResourceLimits resource_limits = 6;
 
   // Security configuration
   MetricsSecurityConfig security_config = 7;

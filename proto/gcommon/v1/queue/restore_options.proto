@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/time_range.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
 import "gcommon/v1/queue/filter_criteria.proto";
 import "gcommon/v1/queue/offset_range.proto";
 import "gcommon/v1/queue/performance_options.proto";
@@ -30,7 +30,7 @@ message RestoreOptions {
 
   // Restore messages within time range
   // Time range for restore
-  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
+  gcommon.v1.common.TimeRangeMetrics time_range = 5;
 
   // Restore specific message priorities
   repeated int32 priority_levels = 6;

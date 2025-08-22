@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "gcommon/v1/common/key_value.proto";
+import "gcommon/v1/common/organization_compliance_settings.proto";
+import "gcommon/v1/common/organization_notification_settings.proto";
 import "gcommon/v1/organization/billing_settings.proto";
-import "gcommon/v1/organization/compliance_settings.proto";
 import "gcommon/v1/organization/feature_flag.proto";
 import "gcommon/v1/organization/integration_settings.proto";
-import "gcommon/v1/organization/notification_settings.proto";
 import "gcommon/v1/organization/security_settings.proto";
 import "gcommon/v1/organization/ui_settings.proto";
 import "google/protobuf/go_features.proto";
@@ -34,13 +34,13 @@ message OrganizationSettings {
   IntegrationSettings integrations = 4;
 
   // Notification and communication settings
-  OrganizationNotificationSettings notifications = 5;
+  gcommon.v1.common.OrganizationNotificationSettings notifications = 5;
 
   // Billing and subscription settings
   BillingSettings billing = 6;
 
   // Data retention and compliance settings
-  OrganizationComplianceSettings compliance = 7;
+  gcommon.v1.common.OrganizationComplianceSettings compliance = 7;
 
   // Feature flags and experimental features
   repeated FeatureFlag feature_flags = 8;

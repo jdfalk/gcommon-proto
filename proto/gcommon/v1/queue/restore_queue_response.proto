@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/validation_result.proto";
+import "gcommon/v1/common/metrics_validation_result.proto";
 import "gcommon/v1/queue/partition_restore_result.proto";
 import "gcommon/v1/queue/restore_error.proto";
 import "gcommon/v1/queue/restore_statistics.proto";
@@ -54,7 +54,7 @@ message RestoreQueueResponse {
   repeated PartitionRestoreResult partition_results = 11;
 
   // Validation results if validation was requested
-  gcommon.v1.metrics.MetricsValidationResult validation_result = 12;
+  gcommon.v1.common.MetricsValidationResult validation_result = 12;
 
   // Operation metadata
   map<string, string> metadata = 13;

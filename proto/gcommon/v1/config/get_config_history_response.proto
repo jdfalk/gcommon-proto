@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/metrics/config_change.proto";
+import "gcommon/v1/common/metrics_config_change.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -17,5 +17,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
  */
 message GetConfigHistoryResponse {
   // List of configuration changes
-  repeated gcommon.v1.metrics.MetricsConfigChange changes = 1;
+  repeated gcommon.v1.common.MetricsConfigChange changes = 1;
 }

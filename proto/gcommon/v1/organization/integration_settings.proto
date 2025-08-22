@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/metrics/api_key_config.proto";
+import "gcommon/v1/common/metrics_api_key_config.proto";
 import "gcommon/v1/organization/integration.proto";
 import "gcommon/v1/organization/o_auth_app_config.proto";
 import "gcommon/v1/organization/webhook_config.proto";
@@ -23,7 +23,7 @@ message IntegrationSettings {
   repeated WebhookConfig webhooks = 2;
 
   // API keys for external services
-  repeated gcommon.v1.metrics.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
+  repeated gcommon.v1.common.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
 
   // OAuth applications registered for this organization
   repeated OAuthAppConfig oauth_apps = 4;

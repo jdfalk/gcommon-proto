@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/common/stats_granularity.proto";
-import "gcommon/v1/metrics/time_range.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -18,7 +18,7 @@ message GetQueueStatsRequest {
   string queue_name = 1;
 
   // Time range for statistics
-  gcommon.v1.metrics.MetricsTimeRange time_range = 2;
+  gcommon.v1.common.TimeRangeMetrics time_range = 2;
 
   // Granularity of statistics (hourly, daily, etc.)
   gcommon.v1.common.StatsGranularity granularity = 3;

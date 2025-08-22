@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
 import "gcommon/v1/metrics/stats_options.proto";
-import "gcommon/v1/metrics/time_range.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -22,7 +22,7 @@ message GetProviderStatsRequest {
   string provider_id = 2;
 
   // Time range for statistics
-  MetricsTimeRange time_range = 3;
+  gcommon.v1.common.TimeRangeMetrics time_range = 3;
 
   // What statistics to include
   StatsOptions options = 4;

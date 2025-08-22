@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/metrics_validation_result.proto";
 import "gcommon/v1/metrics/applied_config.proto";
 import "gcommon/v1/metrics/provider_endpoints.proto";
 import "gcommon/v1/metrics/provider_status.proto";
-import "gcommon/v1/metrics/validation_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -34,7 +34,7 @@ message CreateProviderResponse {
   ProviderStatus status = 5;
 
   // Validation results
-  MetricsValidationResult validation = 6;
+  gcommon.v1.common.MetricsValidationResult validation = 6;
 
   // Configuration details that were applied
   AppliedConfig applied_config = 7;

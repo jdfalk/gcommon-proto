@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/retry_settings.proto";
+import "gcommon/v1/common/config_retry_settings.proto";
 import "gcommon/v1/config/validation_rule.proto";
 import "google/protobuf/go_features.proto";
 
@@ -30,7 +30,7 @@ message ValidationSettings {
   int32 timeout_seconds = 5;
 
   // Validation retry settings
-  ConfigRetrySettings retry = 6;
+  gcommon.v1.common.ConfigRetrySettings retry = 6;
 
   // Validation metadata
   map<string, string> metadata = 7;

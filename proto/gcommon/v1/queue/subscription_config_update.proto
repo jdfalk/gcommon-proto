@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/config/retry_settings.proto";
+import "gcommon/v1/common/config_retry_settings.proto";
 import "gcommon/v1/queue/delivery_settings.proto";
 import "gcommon/v1/queue/filter_settings.proto";
 import "gcommon/v1/queue/routing_settings.proto";
@@ -23,7 +23,7 @@ message SubscriptionConfigUpdate {
   DeliverySettings delivery_settings = 2;
 
   // Updated retry configuration
-  gcommon.v1.config.ConfigRetrySettings retry_settings = 3;
+  gcommon.v1.common.ConfigRetrySettings retry_settings = 3;
 
   // Updated filtering rules
   FilterSettings filter_settings = 4;

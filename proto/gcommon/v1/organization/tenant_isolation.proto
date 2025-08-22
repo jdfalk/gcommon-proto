@@ -8,7 +8,7 @@ package gcommon.v1.organization;
 
 import "gcommon/v1/common/isolation_level.proto";
 import "gcommon/v1/common/key_value.proto";
-import "gcommon/v1/organization/access_control.proto";
+import "gcommon/v1/common/organization_access_control.proto";
 import "gcommon/v1/organization/audit_config.proto";
 import "gcommon/v1/organization/compute_isolation.proto";
 import "gcommon/v1/organization/database_isolation.proto";
@@ -44,7 +44,7 @@ message TenantIsolation {
   OrganizationEncryptionConfig encryption = 7;
 
   // Access control configuration
-  OrganizationAccessControl access_control = 8;
+  gcommon.v1.common.OrganizationAccessControl access_control = 8;
 
   // Audit and compliance configuration
   AuditConfig audit = 9;

@@ -4,15 +4,15 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics;
+package gcommon.v1.common;
 
 import "gcommon/v1/metrics/error_type_count.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 
-message MetricsErrorStats {
+message gcommon.v1.common.MetricsErrorStats {
   // Total number of errors
   int64 total_errors = 1;
 
@@ -20,7 +20,7 @@ message MetricsErrorStats {
   double error_rate = 2;
 
   // Most common error types
-  repeated ErrorTypeCount error_types = 3;
+  repeated gcommon.v1.metrics.ErrorTypeCount error_types = 3;
 
   // Recent error trend (increasing/decreasing/stable)
   string error_trend = 4;

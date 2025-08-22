@@ -4,18 +4,18 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics;
+package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 
 /**
  * Retention policy configuration for metric data.
  */
-message RetentionPolicyConfig {
+message gcommon.v1.common.MetricsRetentionPolicyConfig {
   // How long to retain data
   google.protobuf.Duration duration = 1;
 

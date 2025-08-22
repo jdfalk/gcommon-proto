@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metrics_config_change.proto";
 import "gcommon/v1/common/update_action.proto";
-import "gcommon/v1/metrics/config_change.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -21,7 +21,7 @@ message UpdateResult {
   gcommon.v1.common.UpdateAction action = 1;
 
   // Configuration changes that were applied
-  repeated MetricsConfigChange config_changes = 2;
+  repeated gcommon.v1.common.MetricsConfigChange config_changes = 2;
 
   // Settings that were updated
   repeated string updated_settings = 3;

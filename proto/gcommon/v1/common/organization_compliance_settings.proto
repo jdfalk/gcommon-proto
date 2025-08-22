@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/compliance_settings.proto
+// file: proto/gcommon/v1/common/organization_compliance_settings.proto
 // version: 1.0.0
 // guid: 01fb3d5c-a366-4271-a336-2312368dd4f2
 
 edition = "2023";
 
-package gcommon.v1.organization;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+option go_package = "github.com/jdfalk/gcommon/sdk/go/v1/common";
 
-message OrganizationComplianceSettings {
+message gcommon.v1.common.OrganizationComplianceSettings {
   // GDPR compliance enabled
   bool gdpr_enabled = 1;
 

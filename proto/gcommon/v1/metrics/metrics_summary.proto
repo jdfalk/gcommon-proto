@@ -6,11 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/error_stats.proto";
+import "gcommon/v1/common/metrics_error_stats.proto";
+import "gcommon/v1/common/metrics_retention_info.proto";
 import "gcommon/v1/metrics/export_status.proto";
 import "gcommon/v1/metrics/metric_type_counts.proto";
 import "gcommon/v1/metrics/performance_stats.proto";
-import "gcommon/v1/metrics/retention_info.proto";
 import "gcommon/v1/metrics/top_metrics.proto";
 import "google/protobuf/go_features.proto";
 
@@ -34,13 +34,13 @@ message MetricsSummary {
   MetricsPerformanceStats performance = 5;
 
   // Error statistics
-  MetricsErrorStats errors = 6;
+  gcommon.v1.common.MetricsErrorStats errors = 6;
 
   // Top metrics by various criteria
   TopMetrics top_metrics = 7;
 
   // Retention information
-  MetricsRetentionInfo retention = 8;
+  gcommon.v1.common.MetricsRetentionInfo retention = 8;
 
   // Export status information
   ExportStatus export_status = 9;

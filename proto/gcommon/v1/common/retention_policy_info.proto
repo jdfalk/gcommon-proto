@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
+import "gcommon/v1/common/metrics_retention_policy_config.proto";
 import "gcommon/v1/common/retention_policy.proto";
-import "gcommon/v1/metrics/retention_policy_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -22,5 +22,5 @@ message RetentionPolicyInfo {
   gcommon.v1.common.MetricsRetentionPolicy policy = 1;
 
   // Detailed configuration for custom policies
-  gcommon.v1.metrics.RetentionPolicyConfig config = 2;
+  gcommon.v1.common.MetricsRetentionPolicyConfig config = 2;
 }
