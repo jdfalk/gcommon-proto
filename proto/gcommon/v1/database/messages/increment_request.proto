@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
+option go_package = "v1/database";
 
 /**
  * Request to increment a cached counter atomically.
