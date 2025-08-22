@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/media/sync_subtitles_response.proto
+// version: 1.0.0
+// guid: 234567bc-def0-1234-f6a7-b8c9d0e1f234
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+// Response from synchronizing subtitles with media.
+message SyncSubtitlesResponse {
+  string synchronized_subtitle_file_id = 1;
+  bool success = 2;
+  string error_message = 3;
+  int32 adjustments_made = 4; // Number of timing adjustments made
+}

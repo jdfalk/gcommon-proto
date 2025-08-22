@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/export_config.proto";
+import "gcommon/v1/common/retry_policy.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -29,7 +29,7 @@ message PublishConfig {
   bool enable_ordering = 5;
 
   // Retry configuration for failed publishes - references existing RetryConfig
-  gcommon.v1.config.MetricsRetryConfig retry_config = 6;
+  gcommon.v1.common.CommonRetryPolicy retry_config = 6;
 
   // Persistence level required
   string persistence_level = 7;

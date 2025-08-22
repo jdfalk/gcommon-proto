@@ -58,6 +58,6 @@ message GetTopicInfoResponse {
   // Owner information
   OwnerInfo owner = 13;
 
-  // Retention policy details
-  gcommon.v1.common.MetricsRetentionInfo retention = 14;
+  // Retention policy for messages in this topic
+  gcommon.v1.metrics.MetricsRetentionInfo retention = 14;
 }

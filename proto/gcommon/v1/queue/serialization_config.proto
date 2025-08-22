@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/common/compression_algorithm.proto";
-import "gcommon/v1/common/compressionalgorithm.proto";
 import "gcommon/v1/common/serialization_format.proto";
 import "gcommon/v1/queue/format_options.proto";
 import "google/protobuf/go_features.proto";
