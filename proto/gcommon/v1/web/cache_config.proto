@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/common/cache_policy.proto";
-import "gcommon/v1/web/cache_strategy.proto";
+import "gcommon/v1/common/cache_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

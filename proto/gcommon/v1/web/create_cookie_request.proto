@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/common/request_metadata.proto";
-import "gcommon/v1/web/same_site_policy.proto";
+import "gcommon/v1/common/same_site_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

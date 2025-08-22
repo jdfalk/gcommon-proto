@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/web/load_balance_strategy.proto";
+import "gcommon/v1/common/load_balance_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
