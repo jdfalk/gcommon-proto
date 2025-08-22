@@ -4,12 +4,12 @@
 
 edition = "2023";
 
-package gcommon.v1.metrics;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonmetrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * RegistrationAction indicates what action was taken during registration.

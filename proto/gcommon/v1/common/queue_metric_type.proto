@@ -4,12 +4,12 @@
 
 edition = "2023";
 
-package gcommon.v1.queue;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonqueue";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * MetricType represents the types of metrics that can be monitored.
