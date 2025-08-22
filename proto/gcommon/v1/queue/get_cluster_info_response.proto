@@ -21,10 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message GetClusterInfoResponse {
   // Detailed cluster information
-  gcommon.v1.common.ClusterInfo cluster_info = 1;
+  ClusterInfo cluster_info = 1;
 
   // Node information
-  repeated gcommon.v1.common.NodeInfo nodes = 2;
+  repeated NodeInfo nodes = 2;
 
   // Whether the cluster is currently healthy
   bool is_healthy = 3;

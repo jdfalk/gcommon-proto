@@ -36,7 +36,7 @@ message GetQueueStatsResponse {
   HistoricalStats historical_stats = 5;
 
   // Error statistics (if requested)
-  gcommon.v1.common.MetricsErrorStats error_stats = 6;
+  gcommon.v1.metrics.MetricsErrorStats error_stats = 6;
 
   // Performance metrics
   PerformanceMetrics performance_metrics = 7;
