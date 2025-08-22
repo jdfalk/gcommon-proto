@@ -1,0 +1,61 @@
+// file: proto/gcommon/v1/config/template_parameter.proto
+// version: 1.0.0
+// guid: 800be7b5-ca05-4137-a8d2-7d1a3fe5cc97
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/parameter_type.proto";
+import "gcommon/v1/config/parameter_constraints.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonconfig";
+
+message TemplateParameter {
+  // Parameter name
+  string name = 1;
+
+  // Parameter description
+  string description = 2;
+
+  // Parameter type
+  gcommon.v1.config.ParameterType type = 3;
+
+  // Whether parameter is required
+  bool required = 4;
+
+  // Default value
+  string default_value = 5;
+
+  // Allowed values (for enum types)
+  repeated string allowed_values = 6;
+
+  // Parameter constraints
+  gcommon.v1.config.ParameterConstraints constraints = 7;
+
+  // Parameter group
+  string group = 8;
+
+  // Display order
+  int32 order = 9;
+
+  // Whether parameter is sensitive
+  bool sensitive = 10;
+
+  // Parameter validation pattern
+  string validation_pattern = 11;
+
+  // Parameter examples
+  repeated string examples = 12;
+
+  // Parameter documentation
+  string documentation = 13;
+
+  // Parameter display name
+  string display_name = 14;
+
+  // Parameter placeholder text
+  string placeholder = 15;
+}

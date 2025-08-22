@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/config/v1/config_data_type.proto
+// version: 1.0.0
+// guid: f619e4df-f067-46db-a813-30458f7fd517
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonconfig";
+
+enum ConfigDataType {
+  CONFIG_DATA_TYPE_UNSPECIFIED = 0;
+  CONFIG_DATA_TYPE_STRING = 1;
+  CONFIG_DATA_TYPE_INTEGER = 2;
+  CONFIG_DATA_TYPE_FLOAT = 3;
+  CONFIG_DATA_TYPE_BOOLEAN = 4;
+  CONFIG_DATA_TYPE_ENUM = 5;
+  CONFIG_DATA_TYPE_LIST = 6;
+  CONFIG_DATA_TYPE_MAP = 7;
+  CONFIG_DATA_TYPE_JSON = 8;
+  CONFIG_DATA_TYPE_YAML = 9;
+  CONFIG_DATA_TYPE_URL = 10;
+  CONFIG_DATA_TYPE_EMAIL = 11;
+  CONFIG_DATA_TYPE_PASSWORD = 12;
+  CONFIG_DATA_TYPE_CERTIFICATE = 13;
+  CONFIG_DATA_TYPE_PRIVATE_KEY = 14;
+  CONFIG_DATA_TYPE_PUBLIC_KEY = 15;
+  CONFIG_DATA_TYPE_DURATION = 16;
+  CONFIG_DATA_TYPE_TIMESTAMP = 17;
+  CONFIG_DATA_TYPE_REGEX = 18;
+  CONFIG_DATA_TYPE_IPV4 = 19;
+  CONFIG_DATA_TYPE_IPV6 = 20;
+  CONFIG_DATA_TYPE_CIDR = 21;
+  CONFIG_DATA_TYPE_PORT = 22;
+  CONFIG_DATA_TYPE_UUID = 23;
+  CONFIG_DATA_TYPE_BASE64 = 24;
+  CONFIG_DATA_TYPE_HEX = 25;
+}

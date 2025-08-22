@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/config/notification_trigger.proto
+// version: 1.0.0
+// guid: e23c0d82-9395-4a27-840c-5765e4aaffbb
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonconfig";
+
+enum NotificationTrigger {
+  NOTIFICATION_TRIGGER_UNSPECIFIED = 0;
+  NOTIFICATION_TRIGGER_CHANGE = 1;
+  NOTIFICATION_TRIGGER_DELETE = 2;
+  NOTIFICATION_TRIGGER_ERROR = 3;
+  NOTIFICATION_TRIGGER_APPROVAL = 4;
+  NOTIFICATION_TRIGGER_DEPLOYMENT = 5;
+  NOTIFICATION_TRIGGER_ROLLBACK = 6;
+  NOTIFICATION_TRIGGER_SCHEDULE = 7;
+}

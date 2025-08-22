@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/metrics/v1/comparison_operator.proto
+// version: 1.0.0
+// guid: a2b3c4d5-6789-012d-6789-234567890123
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonmetrics";
+
+enum ComparisonOperator {
+  COMPARISON_OPERATOR_UNSPECIFIED = 0;
+  COMPARISON_OPERATOR_EQUAL = 1;
+  COMPARISON_OPERATOR_NOT_EQUAL = 2;
+  COMPARISON_OPERATOR_GREATER_THAN = 3;
+  COMPARISON_OPERATOR_GREATER_THAN_OR_EQUAL = 4;
+  COMPARISON_OPERATOR_LESS_THAN = 5;
+  COMPARISON_OPERATOR_LESS_THAN_OR_EQUAL = 6;
+}

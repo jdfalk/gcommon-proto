@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/queue/priority_level.proto
+// version: 1.0.0
+// guid: e13c77fc-1bf7-42ed-947a-6e1ed4914bb2
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonqueue";
+
+// PriorityLevel defines generic priority classes for queue messages.
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum PriorityLevel {
+  // Default unspecified priority.
+  QUEUE_PRIORITY_LEVEL_UNSPECIFIED = 0;
+  // Low priority messages are processed after normal traffic.
+  QUEUE_PRIORITY_LEVEL_LOW = 1;
+  // Normal priority for standard workload.
+  QUEUE_PRIORITY_LEVEL_MEDIUM = 2;
+  // High priority messages are processed before others.
+  QUEUE_PRIORITY_LEVEL_HIGH = 3;
+  // Critical messages are processed immediately with highest importance.
+  QUEUE_PRIORITY_LEVEL_CRITICAL = 4;
+}

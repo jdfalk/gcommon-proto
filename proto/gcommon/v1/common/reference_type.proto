@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/config/reference_type.proto
+// version: 1.0.0
+// guid: f7734726-4137-4441-b14d-c0c5479a50bd
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonconfig";
+
+enum ReferenceType {
+  REFERENCE_TYPE_UNSPECIFIED = 0;
+  REFERENCE_TYPE_TEMPLATE = 1;
+  REFERENCE_TYPE_POINTER = 2;
+  REFERENCE_TYPE_ALIAS = 3;
+  REFERENCE_TYPE_COMPUTED = 4;
+  REFERENCE_TYPE_DERIVED = 5;
+}

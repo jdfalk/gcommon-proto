@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/queue/alert_severity.proto
+// version: 1.0.0
+// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonqueue";
+
+/**
+ * Alert severity levels.
+ */
+enum QueueAlertSeverity {
+  // Default unspecified severity
+  ALERT_SEVERITY_UNSPECIFIED = 0;
+
+  // Informational alert
+  ALERT_SEVERITY_INFO = 1;
+
+  // Warning level alert
+  ALERT_SEVERITY_WARNING = 2;
+
+  // Error level alert
+  ALERT_SEVERITY_ERROR = 3;
+
+  // Critical alert requiring immediate attention
+  ALERT_SEVERITY_CRITICAL = 4;
+}

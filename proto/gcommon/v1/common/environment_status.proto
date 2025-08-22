@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/config/v1/environment_status.proto
+// version: 1.0.0
+// guid: d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonconfig";
+
+/**
+ * EnvironmentStatus represents the status of an environment.
+ * Specifies the current operational state of a configuration environment.
+ */
+enum EnvironmentStatus {
+  // Unspecified environment status
+  ENVIRONMENT_STATUS_UNSPECIFIED = 0;
+
+  // Environment is active and operational
+  ENVIRONMENT_STATUS_ACTIVE = 1;
+
+  // Environment is inactive
+  ENVIRONMENT_STATUS_INACTIVE = 2;
+
+  // Environment is under maintenance
+  ENVIRONMENT_STATUS_MAINTENANCE = 3;
+
+  // Environment is deprecated
+  ENVIRONMENT_STATUS_DEPRECATED = 4;
+
+  // Environment is archived
+  ENVIRONMENT_STATUS_ARCHIVED = 5;
+
+  // Environment is in error state
+  ENVIRONMENT_STATUS_ERROR = 6;
+}

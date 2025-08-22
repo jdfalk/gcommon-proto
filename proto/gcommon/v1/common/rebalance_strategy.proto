@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/queue/rebalance_strategy.proto
+// version: 1.0.0
+// guid: def27fd7-f689-4591-b5ed-452ee9ca34ea
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonqueue";
+
+enum RebalanceStrategy {
+  REBALANCE_STRATEGY_UNSPECIFIED = 0;
+  REBALANCE_STRATEGY_EAGER = 1; // Stop all consumers, then reassign
+  REBALANCE_STRATEGY_COOPERATIVE = 2; // Incremental cooperative rebalancing
+  REBALANCE_STRATEGY_STATIC = 3; // Static assignment (no rebalancing)
+}

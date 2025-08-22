@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/web/auth_method.proto
+// version: 1.0.0
+// guid: f8f4a7c2-b0ea-4b6f-8c70-8bd37e0615f9
+//
+// AuthMethod defines supported authentication mechanisms for the web module.
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonweb";
+
+// Supported authentication mechanisms for HTTP requests.
+enum WebAuthMethod {
+  // Default unspecified value.
+  AUTH_METHOD_UNSPECIFIED = 0;
+  // No authentication required.
+  AUTH_METHOD_NONE = 1;
+  // HTTP Basic authentication.
+  AUTH_METHOD_BASIC = 2;
+  // Token-based authentication via Authorization header.
+  AUTH_METHOD_TOKEN = 3;
+  // OAuth2 based authentication.
+  AUTH_METHOD_OAUTH2 = 4;
+}
