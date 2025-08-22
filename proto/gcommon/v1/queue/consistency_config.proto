@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ConsistencyConfig {
   // Durability level for message persistence
-  DurabilityLevel durability_level = 1;
+  gcommon.v1.common.DurabilityLevel durability_level = 1;
 
   // Acknowledgment level required for message delivery
   gcommon.v1.common.AckLevel ack_level = 2;
