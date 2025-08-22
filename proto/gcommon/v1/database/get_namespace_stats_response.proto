@@ -18,7 +18,8 @@ message GetNamespaceStatsResponse {
   string namespace_id = 1;
 
   // Statistics
-  gcommon.v1.config.NamespaceStats stats = 2;
+  // Statistics for the requested namespace
+  NamespaceStats stats = 2;
 
   // When stats were collected
   google.protobuf.Timestamp collected_at = 3;
