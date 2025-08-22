@@ -38,7 +38,7 @@ message GetQueueInfoRequest {
   bool include_errors = 8;
 
   // Time range for statistics (if not specified, returns current state)
-  gcommon.v1.common.TimeRangeFilter time_range = 9;
+  gcommon.v1.config.TimeRangeFilter time_range = 9;
 
   // Specific information sections to retrieve
   repeated string info_sections = 10;

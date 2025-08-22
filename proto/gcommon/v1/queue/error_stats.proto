@@ -15,6 +15,6 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 message QueueErrorStats {
   int64 total_errors = 1;
   double error_rate = 2;
-  repeated gcommon.v1.common.ErrorTypeStat error_types = 3;
+  repeated gcommon.v1.config.ErrorTypeStat error_types = 3;
   repeated string recent_error_messages = 4;
 }

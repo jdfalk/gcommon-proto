@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message StreamMessagesResponse {
   // List of messages in the stream
-  repeated gcommon.v1.common.QueueMessage messages = 1;
+  repeated QueueMessage messages = 1;
 
   // Whether there are more messages available
   bool has_more = 2;

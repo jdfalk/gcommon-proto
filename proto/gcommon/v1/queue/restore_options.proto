@@ -29,7 +29,8 @@ message RestoreOptions {
   OffsetRange offset_range = 4;
 
   // Restore messages within time range
-  gcommon.v1.common.MetricsTimeRange time_range = 5;
+  // Time range for restore
+  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
 
   // Restore specific message priorities
   repeated int32 priority_levels = 6;

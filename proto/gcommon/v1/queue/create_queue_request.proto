@@ -22,7 +22,7 @@ message CreateQueueRequest {
   string queue_name = 1;
 
   // Configuration for the new queue
-  gcommon.v1.common.QueueConfig config = 2;
+  QueueConfig config = 2;
 
   // Whether to create the queue even if it already exists
   bool if_not_exists = 3;

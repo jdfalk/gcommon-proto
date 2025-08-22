@@ -30,7 +30,7 @@ message RestoreError {
   int32 partition_id = 5;
 
   // Message offset range affected by error
-  gcommon.v1.common.OffsetRange affected_range = 6;
+  gcommon.v1.config.OffsetRange affected_range = 6;
 
   // Error timestamp
   google.protobuf.Timestamp error_time = 7;

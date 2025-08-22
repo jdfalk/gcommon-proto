@@ -24,10 +24,10 @@ message ExternalAuthService {
   int32 timeout_ms = 3;
 
   // Retry configuration - references existing RetryConfig
-  gcommon.v1.common.QueueRetryConfig retry_config = 4;
+  gcommon.v1.config.QueueRetryConfig retry_config = 4;
 
   // Cache configuration
-  gcommon.v1.common.AuthCacheConfig cache_config = 5;
+  gcommon.v1.config.AuthCacheConfig cache_config = 5;
 
   // Headers to include in authorization requests
   map<string, string> request_headers = 6;

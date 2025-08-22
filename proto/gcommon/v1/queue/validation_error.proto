@@ -23,5 +23,5 @@ message ValidationError {
   int32 partition_id = 3;
 
   // Affected offset range
-  gcommon.v1.common.OffsetRange affected_range = 4;
+  gcommon.v1.config.OffsetRange affected_range = 4;
 }

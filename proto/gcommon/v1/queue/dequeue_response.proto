@@ -33,7 +33,7 @@ message DequeueResponse {
    * Messages retrieved from the queue.
    * Empty if no messages were available.
    */
-  repeated gcommon.v1.common.QueueMessage messages = 1;
+  repeated QueueMessage messages = 1;
 
   /**
    * Indicates whether the dequeue operation was successful.

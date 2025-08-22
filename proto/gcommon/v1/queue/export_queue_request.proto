@@ -32,8 +32,9 @@ message ExportQueueRequest {
   // Whether to include message data or just metadata
   bool include_message_data = 4;
 
-  // Time range for export (optional)
-  gcommon.v1.common.MetricsTimeRange time_range = 5;
+  // Time range for filtering exported data
+  // If not specified, exports all available data
+  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
 
   // Whether to compress the export
   bool compress = 6;

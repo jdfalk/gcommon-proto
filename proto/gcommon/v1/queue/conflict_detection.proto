@@ -22,8 +22,8 @@ message ConflictDetection {
   gcommon.v1.common.ConflictStrategy strategy = 2;
 
   // Vector clock configuration
-  gcommon.v1.common.VectorClockConfig vector_clock = 3;
+  gcommon.v1.config.VectorClockConfig vector_clock = 3;
 
   // Timestamp-based detection settings
-  gcommon.v1.common.TimestampConfig timestamp_config = 4;
+  gcommon.v1.config.TimestampConfig timestamp_config = 4;
 }

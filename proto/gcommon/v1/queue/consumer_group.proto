@@ -32,7 +32,7 @@ message ConsumerGroup {
   ConsumerGroupConfig config = 4;
 
   // Current group state
-  ConsumerGroupState state = 5;
+  gcommon.v1.common.ConsumerGroupState state = 5;
 
   // List of active consumers in the group
   repeated Consumer consumers = 6;
