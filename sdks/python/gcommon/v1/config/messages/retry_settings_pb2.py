@@ -26,14 +26,14 @@ from gcommon.v1.config.enums import backoff_strategy_pb2 as gcommon_dot_v1_dot_c
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/retry_settings.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/config/enums/backoff_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe4\x01\n\x13\x43onfigRetrySettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bmax_retries\x18\x02 \x01(\x05R\nmaxRetries\x12#\n\rdelay_seconds\x18\x03 \x01(\x05R\x0c\x64\x65laySeconds\x12M\n\x10\x62\x61\x63koff_strategy\x18\x04 \x01(\x0e\x32\".gcommon.v1.config.BackoffStrategyR\x0f\x62\x61\x63koffStrategy\x12\x1e\n\nconditions\x18\x05 \x03(\tR\nconditionsB\xce\x01\n\x15\x63om.gcommon.v1.configB\x12RetrySettingsProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/config/messages/retry_settings.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/config/enums/backoff_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe4\x01\n\x13\x43onfigRetrySettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bmax_retries\x18\x02 \x01(\x05R\nmaxRetries\x12#\n\rdelay_seconds\x18\x03 \x01(\x05R\x0c\x64\x65laySeconds\x12M\n\x10\x62\x61\x63koff_strategy\x18\x04 \x01(\x0e\x32\".gcommon.v1.config.BackoffStrategyR\x0f\x62\x61\x63koffStrategy\x12\x1e\n\nconditions\x18\x05 \x03(\tR\nconditionsB\x13Z\tv1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.retry_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\022RetrySettingsProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\tv1/config\222\003\005\322>\002\020\003'
   _globals['_CONFIGRETRYSETTINGS']._serialized_start=154
   _globals['_CONFIGRETRYSETTINGS']._serialized_end=382
 # @@protoc_insertion_point(module_scope)

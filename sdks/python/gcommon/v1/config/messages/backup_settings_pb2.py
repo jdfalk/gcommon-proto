@@ -26,14 +26,14 @@ from gcommon.v1.config.enums import backup_frequency_pb2 as gcommon_dot_v1_dot_c
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/config/messages/backup_settings.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/config/enums/backup_frequency.proto\x1a!google/protobuf/go_features.proto\"\x86\x03\n\x0e\x42\x61\x63kupSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12@\n\tfrequency\x18\x02 \x01(\x0e\x32\".gcommon.v1.config.BackupFrequencyR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n\tencrypted\x18\x05 \x01(\x08R\tencrypted\x12\x1e\n\ncompressed\x18\x06 \x01(\x08R\ncompressed\x12K\n\x08metadata\x18\x07 \x03(\x0b\x32/.gcommon.v1.config.BackupSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xcf\x01\n\x15\x63om.gcommon.v1.configB\x13\x42\x61\x63kupSettingsProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/config/messages/backup_settings.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/config/enums/backup_frequency.proto\x1a!google/protobuf/go_features.proto\"\x86\x03\n\x0e\x42\x61\x63kupSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12@\n\tfrequency\x18\x02 \x01(\x0e\x32\".gcommon.v1.config.BackupFrequencyR\tfrequency\x12%\n\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n\tencrypted\x18\x05 \x01(\x08R\tencrypted\x12\x1e\n\ncompressed\x18\x06 \x01(\x08R\ncompressed\x12K\n\x08metadata\x18\x07 \x03(\x0b\x32/.gcommon.v1.config.BackupSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x13Z\tv1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.backup_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\023BackupSettingsProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\tv1/config\222\003\005\322>\002\020\003'
   _globals['_BACKUPSETTINGS_METADATAENTRY']._loaded_options = None
   _globals['_BACKUPSETTINGS_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_BACKUPSETTINGS']._serialized_start=155

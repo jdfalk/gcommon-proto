@@ -27,14 +27,14 @@ from gcommon.v1.web.messages import file_info_pb2 as gcommon_dot_v1_dot_web_dot_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/web/messages/list_files_response.proto\x12\x0egcommon.v1.web\x1a\x32gcommon/v1/common/messages/response_metadata.proto\x1a\'gcommon/v1/web/messages/file_info.proto\x1a!google/protobuf/go_features.proto\"\xe8\x01\n\x11ListFilesResponse\x12.\n\x05\x66iles\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.web.FileInfoR\x05\x66iles\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x03R\ntotalCount\x12&\n\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n\x08has_more\x18\x04 \x01(\x08R\x07hasMore\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadataB\xc0\x01\n\x12\x63om.gcommon.v1.webB\x16ListFilesResponseProtoP\x01Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/web/messages/list_files_response.proto\x12\x0egcommon.v1.web\x1a\x32gcommon/v1/common/messages/response_metadata.proto\x1a\'gcommon/v1/web/messages/file_info.proto\x1a!google/protobuf/go_features.proto\"\xe8\x01\n\x11ListFilesResponse\x12.\n\x05\x66iles\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.web.FileInfoR\x05\x66iles\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x03R\ntotalCount\x12&\n\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n\x08has_more\x18\x04 \x01(\x08R\x07hasMore\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadataB\x10Z\x06v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.list_files_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\026ListFilesResponseProtoP\001Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\006v1/web\222\003\005\322>\002\020\003'
   _globals['_LISTFILESRESPONSE']._serialized_start=198
   _globals['_LISTFILESRESPONSE']._serialized_end=430
 # @@protoc_insertion_point(module_scope)

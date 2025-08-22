@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/resource_allocations.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\xda\x01\n\x13ResourceAllocations\x12\x34\n\x16\x61llocated_memory_bytes\x18\x01 \x01(\x03R\x14\x61llocatedMemoryBytes\x12\x32\n\x15\x61llocated_cpu_percent\x18\x02 \x01(\x01R\x13\x61llocatedCpuPercent\x12\x30\n\x14\x61llocated_disk_bytes\x18\x03 \x01(\x03R\x12\x61llocatedDiskBytes\x12\'\n\x0f\x61llocated_ports\x18\x04 \x03(\x05R\x0e\x61llocatedPortsB\xda\x01\n\x16\x63om.gcommon.v1.metricsB\x18ResourceAllocationsProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6gcommon/v1/metrics/messages/resource_allocations.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\xda\x01\n\x13ResourceAllocations\x12\x34\n\x16\x61llocated_memory_bytes\x18\x01 \x01(\x03R\x14\x61llocatedMemoryBytes\x12\x32\n\x15\x61llocated_cpu_percent\x18\x02 \x01(\x01R\x13\x61llocatedCpuPercent\x12\x30\n\x14\x61llocated_disk_bytes\x18\x03 \x01(\x03R\x12\x61llocatedDiskBytes\x12\'\n\x0f\x61llocated_ports\x18\x04 \x03(\x05R\x0e\x61llocatedPortsB\x14Z\nv1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.resource_allocations_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\030ResourceAllocationsProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\nv1/metrics\222\003\005\322>\002\020\003'
   _globals['_RESOURCEALLOCATIONS']._serialized_start=114
   _globals['_RESOURCEALLOCATIONS']._serialized_end=332
 # @@protoc_insertion_point(module_scope)

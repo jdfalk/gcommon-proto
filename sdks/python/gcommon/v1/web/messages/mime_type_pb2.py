@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/web/messages/mime_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xc1\x01\n\x08MimeType\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x18\n\x07subtype\x18\x02 \x01(\tR\x07subtype\x12H\n\nparameters\x18\x03 \x03(\x0b\x32(.gcommon.v1.web.MimeType.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xb7\x01\n\x12\x63om.gcommon.v1.webB\rMimeTypeProtoP\x01Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/web/messages/mime_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xc1\x01\n\x08MimeType\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x18\n\x07subtype\x18\x02 \x01(\tR\x07subtype\x12H\n\nparameters\x18\x03 \x03(\x0b\x32(.gcommon.v1.web.MimeType.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x10Z\x06v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.messages.mime_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\rMimeTypeProtoP\001Z0github.com/jdfalk/gcommon/sdks/go/gcommon/v1/web\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\006v1/web\222\003\005\322>\002\020\003'
   _globals['_MIMETYPE_PARAMETERSENTRY']._loaded_options = None
   _globals['_MIMETYPE_PARAMETERSENTRY']._serialized_options = b'8\001'
   _globals['_MIMETYPE']._serialized_start=95

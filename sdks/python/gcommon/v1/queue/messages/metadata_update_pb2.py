@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/metadata_update.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x9c\x03\n\x0eMetadataUpdate\x12T\n\x0c\x61\x64\x64_metadata\x18\x01 \x03(\x0b\x32\x31.gcommon.v1.queue.MetadataUpdate.AddMetadataEntryR\x0b\x61\x64\x64Metadata\x12\'\n\x0fremove_metadata\x18\x02 \x03(\tR\x0eremoveMetadata\x12`\n\x10replace_metadata\x18\x03 \x03(\x0b\x32\x35.gcommon.v1.queue.MetadataUpdate.ReplaceMetadataEntryR\x0freplaceMetadata\x12%\n\x0eoperation_type\x18\x04 \x01(\tR\roperationType\x1a>\n\x10\x41\x64\x64MetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\x42\n\x14ReplaceMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc9\x01\n\x14\x63om.gcommon.v1.queueB\x13MetadataUpdateProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/metadata_update.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x9c\x03\n\x0eMetadataUpdate\x12T\n\x0c\x61\x64\x64_metadata\x18\x01 \x03(\x0b\x32\x31.gcommon.v1.queue.MetadataUpdate.AddMetadataEntryR\x0b\x61\x64\x64Metadata\x12\'\n\x0fremove_metadata\x18\x02 \x03(\tR\x0eremoveMetadata\x12`\n\x10replace_metadata\x18\x03 \x03(\x0b\x32\x35.gcommon.v1.queue.MetadataUpdate.ReplaceMetadataEntryR\x0freplaceMetadata\x12%\n\x0eoperation_type\x18\x04 \x01(\tR\roperationType\x1a>\n\x10\x41\x64\x64MetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\x42\n\x14ReplaceMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x12Z\x08v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.metadata_update_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\023MetadataUpdateProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\010v1/queue\222\003\005\322>\002\020\003'
   _globals['_METADATAUPDATE_ADDMETADATAENTRY']._loaded_options = None
   _globals['_METADATAUPDATE_ADDMETADATAENTRY']._serialized_options = b'8\001'
   _globals['_METADATAUPDATE_REPLACEMETADATAENTRY']._loaded_options = None

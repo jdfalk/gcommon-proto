@@ -26,14 +26,14 @@ from gcommon.v1.metrics.enums import buffer_overflow_strategy_pb2 as gcommon_dot
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/buffer_config.proto\x12\x12gcommon.v1.metrics\x1a\x37gcommon/v1/metrics/enums/buffer_overflow_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe0\x01\n\x0c\x42ufferConfig\x12&\n\x0fmax_buffer_size\x18\x01 \x01(\x05R\rmaxBufferSize\x12W\n\x11overflow_strategy\x18\x02 \x01(\x0e\x32*.gcommon.v1.metrics.BufferOverflowStrategyR\x10overflowStrategy\x12%\n\x0epersist_buffer\x18\x03 \x01(\x08R\rpersistBuffer\x12(\n\x10max_memory_bytes\x18\x04 \x01(\x03R\x0emaxMemoryBytesB\xd3\x01\n\x16\x63om.gcommon.v1.metricsB\x11\x42ufferConfigProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/messages/buffer_config.proto\x12\x12gcommon.v1.metrics\x1a\x37gcommon/v1/metrics/enums/buffer_overflow_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe0\x01\n\x0c\x42ufferConfig\x12&\n\x0fmax_buffer_size\x18\x01 \x01(\x05R\rmaxBufferSize\x12W\n\x11overflow_strategy\x18\x02 \x01(\x0e\x32*.gcommon.v1.metrics.BufferOverflowStrategyR\x10overflowStrategy\x12%\n\x0epersist_buffer\x18\x03 \x01(\x08R\rpersistBuffer\x12(\n\x10max_memory_bytes\x18\x04 \x01(\x03R\x0emaxMemoryBytesB\x14Z\nv1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.buffer_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\021BufferConfigProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\nv1/metrics\222\003\005\322>\002\020\003'
   _globals['_BUFFERCONFIG']._serialized_start=164
   _globals['_BUFFERCONFIG']._serialized_end=388
 # @@protoc_insertion_point(module_scope)

@@ -27,14 +27,14 @@ from gcommon.v1.organization.messages import organization_pb2 as gcommon_dot_v1_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nBgcommon/v1/organization/messages/update_organization_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x33gcommon/v1/organization/messages/organization.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n\x19UpdateOrganizationRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\'\n\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12I\n\x0corganization\x18\x03 \x01(\x0b\x32%.gcommon.v1.organization.OrganizationR\x0corganization\x12#\n\rupdate_fields\x18\x04 \x03(\tR\x0cupdateFieldsB\xfe\x01\n\x1b\x63om.gcommon.v1.organizationB\x1eUpdateOrganizationRequestProtoP\x01Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nBgcommon/v1/organization/messages/update_organization_request.proto\x12\x17gcommon.v1.organization\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x33gcommon/v1/organization/messages/organization.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n\x19UpdateOrganizationRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\'\n\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12I\n\x0corganization\x18\x03 \x01(\x0b\x32%.gcommon.v1.organization.OrganizationR\x0corganization\x12#\n\rupdate_fields\x18\x04 \x03(\tR\x0cupdateFieldsB\x19Z\x0fv1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.messages.update_organization_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.gcommon.v1.organizationB\036UpdateOrganizationRequestProtoP\001Z9github.com/jdfalk/gcommon/sdks/go/gcommon/v1/organization\242\002\003GVO\252\002\027Gcommon.V1.Organization\312\002\027Gcommon\\V1\\Organization\342\002#Gcommon\\V1\\Organization\\GPBMetadata\352\002\031Gcommon::V1::Organization\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\017v1/organization\222\003\005\322>\002\020\003'
   _globals['_UPDATEORGANIZATIONREQUEST']._serialized_start=235
   _globals['_UPDATEORGANIZATIONREQUEST']._serialized_end=479
 # @@protoc_insertion_point(module_scope)

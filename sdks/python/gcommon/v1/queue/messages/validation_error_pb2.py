@@ -26,14 +26,14 @@ from gcommon.v1.queue.messages import offset_range_pb2 as gcommon_dot_v1_dot_que
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/validation_error.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/queue/messages/offset_range.proto\x1a!google/protobuf/go_features.proto\"\xbb\x01\n\x0fValidationError\x12\x1d\n\nerror_type\x18\x01 \x01(\tR\terrorType\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12!\n\x0cpartition_id\x18\x03 \x01(\x05R\x0bpartitionId\x12\x44\n\x0e\x61\x66\x66\x65\x63ted_range\x18\x04 \x01(\x0b\x32\x1d.gcommon.v1.queue.OffsetRangeR\raffectedRangeB\xca\x01\n\x14\x63om.gcommon.v1.queueB\x14ValidationErrorProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/queue/messages/validation_error.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/queue/messages/offset_range.proto\x1a!google/protobuf/go_features.proto\"\xbb\x01\n\x0fValidationError\x12\x1d\n\nerror_type\x18\x01 \x01(\tR\terrorType\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12!\n\x0cpartition_id\x18\x03 \x01(\x05R\x0bpartitionId\x12\x44\n\x0e\x61\x66\x66\x65\x63ted_range\x18\x04 \x01(\x0b\x32\x1d.gcommon.v1.queue.OffsetRangeR\raffectedRangeB\x12Z\x08v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.validation_error_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\024ValidationErrorProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\010v1/queue\222\003\005\322>\002\020\003'
   _globals['_VALIDATIONERROR']._serialized_start=152
   _globals['_VALIDATIONERROR']._serialized_end=339
 # @@protoc_insertion_point(module_scope)

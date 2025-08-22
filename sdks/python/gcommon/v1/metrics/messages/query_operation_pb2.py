@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/messages/query_operation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xf1\x02\n\x0eQueryOperation\x12\x1f\n\x1bQUERY_OPERATION_UNSPECIFIED\x10\x00\x12\x1a\n\x16QUERY_OPERATION_SELECT\x10\x01\x12\x1c\n\x18QUERY_OPERATION_GROUP_BY\x10\x02\x12\x17\n\x13QUERY_OPERATION_SUM\x10\x03\x12\x17\n\x13QUERY_OPERATION_AVG\x10\x04\x12\x17\n\x13QUERY_OPERATION_MIN\x10\x05\x12\x17\n\x13QUERY_OPERATION_MAX\x10\x06\x12\x19\n\x15QUERY_OPERATION_COUNT\x10\x07\x12\x18\n\x14QUERY_OPERATION_RATE\x10\x08\x12\x1c\n\x18QUERY_OPERATION_INCREASE\x10\t\x12\x18\n\x14QUERY_OPERATION_SORT\x10\n\x12\x19\n\x15QUERY_OPERATION_LIMIT\x10\x0b\x12\x18\n\x14QUERY_OPERATION_JOIN\x10\x0c\x42\xd5\x01\n\x16\x63om.gcommon.v1.metricsB\x13QueryOperationProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/metrics/messages/query_operation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xf1\x02\n\x0eQueryOperation\x12\x1f\n\x1bQUERY_OPERATION_UNSPECIFIED\x10\x00\x12\x1a\n\x16QUERY_OPERATION_SELECT\x10\x01\x12\x1c\n\x18QUERY_OPERATION_GROUP_BY\x10\x02\x12\x17\n\x13QUERY_OPERATION_SUM\x10\x03\x12\x17\n\x13QUERY_OPERATION_AVG\x10\x04\x12\x17\n\x13QUERY_OPERATION_MIN\x10\x05\x12\x17\n\x13QUERY_OPERATION_MAX\x10\x06\x12\x19\n\x15QUERY_OPERATION_COUNT\x10\x07\x12\x18\n\x14QUERY_OPERATION_RATE\x10\x08\x12\x1c\n\x18QUERY_OPERATION_INCREASE\x10\t\x12\x18\n\x14QUERY_OPERATION_SORT\x10\n\x12\x19\n\x15QUERY_OPERATION_LIMIT\x10\x0b\x12\x18\n\x14QUERY_OPERATION_JOIN\x10\x0c\x42\x14Z\nv1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.query_operation_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\023QueryOperationProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\nv1/metrics\222\003\005\322>\002\020\003'
   _globals['_QUERYOPERATION']._serialized_start=109
   _globals['_QUERYOPERATION']._serialized_end=478
 # @@protoc_insertion_point(module_scope)

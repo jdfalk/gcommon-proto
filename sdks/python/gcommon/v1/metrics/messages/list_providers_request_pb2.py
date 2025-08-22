@@ -28,14 +28,14 @@ from gcommon.v1.metrics.messages import provider_filter_pb2 as gcommon_dot_v1_do
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/metrics/messages/list_providers_request.proto\x12\x12gcommon.v1.metrics\x1a\x33gcommon/v1/common/messages/pagination_options.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x31gcommon/v1/metrics/messages/provider_filter.proto\x1a!google/protobuf/go_features.proto\"\xcb\x02\n\x14ListProvidersRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12:\n\x06\x66ilter\x18\x02 \x01(\x0b\x32\".gcommon.v1.metrics.ProviderFilterR\x06\x66ilter\x12\x44\n\npagination\x18\x03 \x01(\x0b\x32$.gcommon.v1.common.PaginationOptionsR\npagination\x12%\n\x0einclude_status\x18\x04 \x01(\x08R\rincludeStatus\x12%\n\x0einclude_config\x18\x05 \x01(\x08R\rincludeConfig\x12#\n\rinclude_stats\x18\x06 \x01(\x08R\x0cincludeStatsB\xdb\x01\n\x16\x63om.gcommon.v1.metricsB\x19ListProvidersRequestProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/metrics/messages/list_providers_request.proto\x12\x12gcommon.v1.metrics\x1a\x33gcommon/v1/common/messages/pagination_options.proto\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a\x31gcommon/v1/metrics/messages/provider_filter.proto\x1a!google/protobuf/go_features.proto\"\xcb\x02\n\x14ListProvidersRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12:\n\x06\x66ilter\x18\x02 \x01(\x0b\x32\".gcommon.v1.metrics.ProviderFilterR\x06\x66ilter\x12\x44\n\npagination\x18\x03 \x01(\x0b\x32$.gcommon.v1.common.PaginationOptionsR\npagination\x12%\n\x0einclude_status\x18\x04 \x01(\x08R\rincludeStatus\x12%\n\x0einclude_config\x18\x05 \x01(\x08R\rincludeConfig\x12#\n\rinclude_stats\x18\x06 \x01(\x08R\x0cincludeStatsB\x14Z\nv1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.list_providers_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\031ListProvidersRequestProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\nv1/metrics\222\003\005\322>\002\020\003'
   _globals['_LISTPROVIDERSREQUEST']._serialized_start=271
   _globals['_LISTPROVIDERSREQUEST']._serialized_end=602
 # @@protoc_insertion_point(module_scope)

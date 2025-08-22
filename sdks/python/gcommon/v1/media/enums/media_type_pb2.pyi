@@ -12,8 +12,20 @@ class MediaType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MEDIA_TYPE_TV_EPISODE: _ClassVar[MediaType]
     MEDIA_TYPE_DOCUMENTARY: _ClassVar[MediaType]
     MEDIA_TYPE_ANIME: _ClassVar[MediaType]
+    MEDIA_TYPE_AUDIOBOOK: _ClassVar[MediaType]
+    MEDIA_TYPE_PODCAST: _ClassVar[MediaType]
+    MEDIA_TYPE_MUSIC: _ClassVar[MediaType]
+    MEDIA_TYPE_LECTURE: _ClassVar[MediaType]
+    MEDIA_TYPE_INTERVIEW: _ClassVar[MediaType]
+    MEDIA_TYPE_RADIO_SHOW: _ClassVar[MediaType]
 MEDIA_TYPE_UNSPECIFIED: MediaType
 MEDIA_TYPE_MOVIE: MediaType
 MEDIA_TYPE_TV_EPISODE: MediaType
 MEDIA_TYPE_DOCUMENTARY: MediaType
 MEDIA_TYPE_ANIME: MediaType
+MEDIA_TYPE_AUDIOBOOK: MediaType
+MEDIA_TYPE_PODCAST: MediaType
+MEDIA_TYPE_MUSIC: MediaType
+MEDIA_TYPE_LECTURE: MediaType
+MEDIA_TYPE_INTERVIEW: MediaType
+MEDIA_TYPE_RADIO_SHOW: MediaType

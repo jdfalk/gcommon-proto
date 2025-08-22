@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/rebalance_stats.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x01\n\x0eRebalanceStats\x12)\n\x10total_rebalances\x18\x01 \x01(\x03R\x0ftotalRebalances\x12\x41\n\x0elast_rebalance\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rlastRebalance\x12\x39\n\x19\x61vg_rebalance_duration_ms\x18\x03 \x01(\x03R\x16\x61vgRebalanceDurationMs\x12+\n\x11\x66\x61iled_rebalances\x18\x04 \x01(\x03R\x10\x66\x61iledRebalancesB\xc9\x01\n\x14\x63om.gcommon.v1.queueB\x13RebalanceStatsProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/messages/rebalance_stats.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x01\n\x0eRebalanceStats\x12)\n\x10total_rebalances\x18\x01 \x01(\x03R\x0ftotalRebalances\x12\x41\n\x0elast_rebalance\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rlastRebalance\x12\x39\n\x19\x61vg_rebalance_duration_ms\x18\x03 \x01(\x03R\x16\x61vgRebalanceDurationMs\x12+\n\x11\x66\x61iled_rebalances\x18\x04 \x01(\x03R\x10\x66\x61iledRebalancesB\x12Z\x08v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.rebalance_stats_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\023RebalanceStatsProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\010v1/queue\222\003\005\322>\002\020\003'
   _globals['_REBALANCESTATS']._serialized_start=138
   _globals['_REBALANCESTATS']._serialized_end=368
 # @@protoc_insertion_point(module_scope)

@@ -26,14 +26,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/config/messages/usage_trend.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\nUsageTrend\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1f\n\x0busage_count\x18\x02 \x01(\x03R\nusageCount\x12\x1c\n\tdirection\x18\x03 \x01(\tR\tdirectionB\xcb\x01\n\x15\x63om.gcommon.v1.configB\x0fUsageTrendProtoP\x01Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/config/messages/usage_trend.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n\nUsageTrend\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1f\n\x0busage_count\x18\x02 \x01(\x03R\nusageCount\x12\x1c\n\tdirection\x18\x03 \x01(\tR\tdirectionB\x13Z\tv1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.messages.usage_trend_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\017UsageTrendProtoP\001Z3github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\tv1/config\222\003\005\322>\002\020\003'
   _globals['_USAGETREND']._serialized_start=136
   _globals['_USAGETREND']._serialized_end=269
 # @@protoc_insertion_point(module_scope)

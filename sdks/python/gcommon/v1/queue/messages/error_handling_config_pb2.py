@@ -28,14 +28,14 @@ from gcommon.v1.queue.messages import error_notification_config_pb2 as gcommon_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/error_handling_config.proto\x12\x10gcommon.v1.queue\x1a\x38gcommon/v1/queue/messages/dead_letter_queue_config.proto\x1a\x33gcommon/v1/queue/messages/error_action_config.proto\x1a\x39gcommon/v1/queue/messages/error_notification_config.proto\x1a!google/protobuf/go_features.proto\"\xe9\x02\n\x13\x45rrorHandlingConfig\x12\x46\n\ndlq_config\x18\x01 \x01(\x0b\x32\'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfig\x12\x32\n\x15max_delivery_attempts\x18\x02 \x01(\x05R\x13maxDeliveryAttempts\x12H\n\rerror_actions\x18\x03 \x03(\x0b\x32#.gcommon.v1.queue.ErrorActionConfigR\x0c\x65rrorActions\x12\x30\n\x14\x65nable_error_logging\x18\x04 \x01(\x08R\x12\x65nableErrorLogging\x12Z\n\x13notification_config\x18\x05 \x01(\x0b\x32).gcommon.v1.queue.ErrorNotificationConfigR\x12notificationConfigB\xce\x01\n\x14\x63om.gcommon.v1.queueB\x18\x45rrorHandlingConfigProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5gcommon/v1/queue/messages/error_handling_config.proto\x12\x10gcommon.v1.queue\x1a\x38gcommon/v1/queue/messages/dead_letter_queue_config.proto\x1a\x33gcommon/v1/queue/messages/error_action_config.proto\x1a\x39gcommon/v1/queue/messages/error_notification_config.proto\x1a!google/protobuf/go_features.proto\"\xe9\x02\n\x13\x45rrorHandlingConfig\x12\x46\n\ndlq_config\x18\x01 \x01(\x0b\x32\'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfig\x12\x32\n\x15max_delivery_attempts\x18\x02 \x01(\x05R\x13maxDeliveryAttempts\x12H\n\rerror_actions\x18\x03 \x03(\x0b\x32#.gcommon.v1.queue.ErrorActionConfigR\x0c\x65rrorActions\x12\x30\n\x14\x65nable_error_logging\x18\x04 \x01(\x08R\x12\x65nableErrorLogging\x12Z\n\x13notification_config\x18\x05 \x01(\x0b\x32).gcommon.v1.queue.ErrorNotificationConfigR\x12notificationConfigB\x12Z\x08v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.error_handling_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\030ErrorHandlingConfigProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\010v1/queue\222\003\005\322>\002\020\003'
   _globals['_ERRORHANDLINGCONFIG']._serialized_start=281
   _globals['_ERRORHANDLINGCONFIG']._serialized_end=642
 # @@protoc_insertion_point(module_scope)

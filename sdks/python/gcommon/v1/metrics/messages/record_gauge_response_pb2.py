@@ -29,14 +29,14 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/metrics/messages/record_gauge_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a.gcommon/v1/metrics/messages/gauge_metric.proto\x1a\x31gcommon/v1/metrics/messages/recording_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x02\n\x13RecordGaugeResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12\x37\n\x06metric\x18\x03 \x01(\x0b\x32\x1f.gcommon.v1.metrics.GaugeMetricR\x06metric\x12%\n\x0eprevious_value\x18\x04 \x01(\x01R\rpreviousValue\x12;\n\x0brecorded_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nrecordedAt\x12\"\n\ris_new_metric\x18\x06 \x01(\x08R\x0bisNewMetric\x12\x38\n\x05stats\x18\x07 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x05statsB\xda\x01\n\x16\x63om.gcommon.v1.metricsB\x18RecordGaugeResponseProtoP\x01Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/metrics/messages/record_gauge_response.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/messages/error.proto\x1a.gcommon/v1/metrics/messages/gauge_metric.proto\x1a\x31gcommon/v1/metrics/messages/recording_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x02\n\x13RecordGaugeResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12\x37\n\x06metric\x18\x03 \x01(\x0b\x32\x1f.gcommon.v1.metrics.GaugeMetricR\x06metric\x12%\n\x0eprevious_value\x18\x04 \x01(\x01R\rpreviousValue\x12;\n\x0brecorded_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nrecordedAt\x12\"\n\ris_new_metric\x18\x06 \x01(\x08R\x0bisNewMetric\x12\x38\n\x05stats\x18\x07 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x05statsB\x14Z\nv1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.messages.record_gauge_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\030RecordGaugeResponseProtoP\001Z4github.com/jdfalk/gcommon/sdks/go/gcommon/v1/metrics\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\nv1/metrics\222\003\005\322>\002\020\003'
   _globals['_RECORDGAUGERESPONSE']._serialized_start=287
   _globals['_RECORDGAUGERESPONSE']._serialized_end=633
 # @@protoc_insertion_point(module_scope)

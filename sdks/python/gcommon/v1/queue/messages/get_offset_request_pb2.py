@@ -27,14 +27,14 @@ from gcommon.v1.queue.enums import offset_type_pb2 as gcommon_dot_v1_dot_queue_d
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/get_offset_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a(gcommon/v1/queue/enums/offset_type.proto\x1a!google/protobuf/go_features.proto\"\x9b\x02\n\x10GetOffsetRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12!\n\x0cpartition_id\x18\x02 \x01(\x05R\x0bpartitionId\x12%\n\x0e\x63onsumer_group\x18\x03 \x01(\tR\rconsumerGroup\x12\x1f\n\x0b\x63onsumer_id\x18\x04 \x01(\tR\nconsumerId\x12=\n\x0boffset_type\x18\x05 \x01(\x0e\x32\x1c.gcommon.v1.queue.OffsetTypeR\noffsetType\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\xcb\x01\n\x14\x63om.gcommon.v1.queueB\x15GetOffsetRequestProtoP\x01Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/queue/messages/get_offset_request.proto\x12\x10gcommon.v1.queue\x1a\x31gcommon/v1/common/messages/request_metadata.proto\x1a(gcommon/v1/queue/enums/offset_type.proto\x1a!google/protobuf/go_features.proto\"\x9b\x02\n\x10GetOffsetRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12!\n\x0cpartition_id\x18\x02 \x01(\x05R\x0bpartitionId\x12%\n\x0e\x63onsumer_group\x18\x03 \x01(\tR\rconsumerGroup\x12\x1f\n\x0b\x63onsumer_id\x18\x04 \x01(\tR\nconsumerId\x12=\n\x0boffset_type\x18\x05 \x01(\x0e\x32\x1c.gcommon.v1.queue.OffsetTypeR\noffsetType\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\x12Z\x08v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.messages.get_offset_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\025GetOffsetRequestProtoP\001Z2github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z\010v1/queue\222\003\005\322>\002\020\003'
   _globals['_GETOFFSETREQUEST']._serialized_start=201
   _globals['_GETOFFSETREQUEST']._serialized_end=484
 # @@protoc_insertion_point(module_scope)
