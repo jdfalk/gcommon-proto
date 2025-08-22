@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/consumer_group_state.proto";
+import "gcommon/v1/common/consumer_group_state.proto";
 import "gcommon/v1/queue/consumer.proto";
 import "gcommon/v1/queue/consumer_group_config.proto";
 import "gcommon/v1/queue/consumer_group_stats.proto";

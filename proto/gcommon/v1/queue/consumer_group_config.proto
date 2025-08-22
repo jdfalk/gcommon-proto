@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/load_balancing_strategy.proto";
-import "gcommon/v1/queue/offset_reset_strategy.proto";
-import "gcommon/v1/queue/rebalance_strategy.proto";
+import "gcommon/v1/common/load_balancing_strategy.proto";
+import "gcommon/v1/common/offset_reset_strategy.proto";
+import "gcommon/v1/common/rebalance_strategy.proto";
 import "gcommon/v1/queue/auto_commit_config.proto";
 import "gcommon/v1/queue/dead_letter_queue_config.proto";
 import "google/protobuf/go_features.proto";

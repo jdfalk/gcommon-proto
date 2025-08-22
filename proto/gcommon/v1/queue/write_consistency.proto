@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/write_level.proto";
+import "gcommon/v1/common/write_level.proto";
 import "gcommon/v1/queue/conflict_detection.proto";
 import "gcommon/v1/queue/sync_replication.proto";
 import "gcommon/v1/queue/write_retry_config.proto";

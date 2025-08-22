@@ -9,7 +9,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/stream_restart_policy.proto";
+import "gcommon/v1/common/stream_restart_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

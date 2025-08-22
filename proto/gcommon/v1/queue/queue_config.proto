@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/retention_policy.proto";
-import "gcommon/v1/queue/priority_level.proto";
-import "gcommon/v1/queue/queue_type.proto";
+import "gcommon/v1/common/priority_level.proto";
+import "gcommon/v1/common/queue_type.proto";
+import "gcommon/v1/common/retention_policy.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/ack_level.proto";
-import "gcommon/v1/queue/delivery_mode.proto";
+import "gcommon/v1/common/ack_level.proto";
+import "gcommon/v1/common/delivery_mode.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

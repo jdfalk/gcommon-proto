@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/alert_severity.proto";
-import "gcommon/v1/queue/alert_condition.proto";
+import "gcommon/v1/common/alert_condition.proto";
+import "gcommon/v1/common/metrics_alert_severity.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/anti_affinity_scope.proto";
+import "gcommon/v1/common/anti_affinity_scope.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
