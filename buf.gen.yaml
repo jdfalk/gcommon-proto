@@ -1,14 +1,18 @@
 version: v2
-clean: true
+clean: false # Don't clean everything - we want to preserve go.mod
 plugins:
   # Go: use local protoc-gen-go with managed mode
   - local: protoc-gen-go
     out: sdks/go
     strategy: directory
+    opt:
+      - paths=source_relative
   # Go gRPC services
   - local: protoc-gen-go-grpc
     out: sdks/go
     strategy: directory
+    opt:
+      - paths=source_relative
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python
@@ -20,3 +24,6 @@ plugins:
   # - protoc_builtin: rust
   #   out: sdks/rust
   #   strategy: directory
+# Post-generation commands (Note: buf doesn't support this directly)
+# Use: buf generate && python3 scripts/post-buf-generate.py
+# Or use the Makefile: make generate

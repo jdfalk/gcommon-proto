@@ -1,0 +1,88 @@
+# file: Makefile
+# version: 1.0.0
+# guid: 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+
+# Variables
+BUF := buf
+PYTHON := python3
+GO := go
+
+# Directories
+PROTO_DIR := proto
+SDK_GO_DIR := sdks/go
+SCRIPTS_DIR := scripts
+
+# Main targets
+.PHONY: all generate clean help version
+
+all: generate
+
+# Generate protobuf code and run post-processing
+generate:
+	@echo "🔄 Running buf generate..."
+	$(BUF) generate
+	@echo "🔄 Running post-generation processing..."
+	$(PYTHON) $(SCRIPTS_DIR)/setup-go-modules.py
+	@echo "✅ Generation complete!"
+
+# Clean generated files
+clean:
+	@echo "🧹 Cleaning generated files..."
+	rm -rf $(SDK_GO_DIR)/github.com/
+	rm -f $(SDK_GO_DIR)/v1
+	@echo "✅ Clean complete!"
+
+# Lint protobuf files
+lint:
+	@echo "🔍 Linting protobuf files..."
+	$(BUF) lint
+
+# Format protobuf files
+format:
+	@echo "📝 Formatting protobuf files..."
+	$(BUF) format -w
+
+# Run go mod tidy in SDK directory
+tidy:
+	@echo "🧹 Running go mod tidy..."
+	cd $(SDK_GO_DIR) && $(GO) mod tidy
+
+# Create a new version tag
+tag:
+	@echo "🏷️  Current tags:"
+	@git tag --list | sort -V | tail -5
+	@echo ""
+	@echo "To create a new tag, run: git tag v1.x.x && git push origin v1.x.x"
+
+# Show current version
+version:
+	@echo "📦 Current version:"
+	@git describe --tags --abbrev=0 2>/dev/null || echo "No tags found"
+
+# Full rebuild (clean + generate)
+rebuild: clean generate
+
+# Development workflow
+dev: lint format generate
+
+# Help
+help:
+	@echo "🚀 gcommon Protocol Buffer Management"
+	@echo ""
+	@echo "Available targets:"
+	@echo "  all        - Default target, runs generate"
+	@echo "  generate   - Generate protobuf code and run post-processing"
+	@echo "  clean      - Remove generated files"
+	@echo "  lint       - Lint protobuf files"
+	@echo "  format     - Format protobuf files"
+	@echo "  tidy       - Run go mod tidy in SDK directory"
+	@echo "  tag        - Show current tags and tag creation instructions"
+	@echo "  version    - Show current version"
+	@echo "  rebuild    - Clean and regenerate everything"
+	@echo "  dev        - Development workflow (lint + format + generate)"
+	@echo "  help       - Show this help message"
+	@echo ""
+	@echo "Examples:"
+	@echo "  make generate    # Generate code"
+	@echo "  make dev         # Development workflow"
+	@echo "  make rebuild     # Full rebuild"
