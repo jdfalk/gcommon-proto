@@ -9,7 +9,7 @@ import "gcommon/v1/database/query_parameter.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
+option go_package = "v1/database";
 
 /**
  * BatchOperation represents a single operation within a batch execution.
@@ -20,5 +20,5 @@ message DatabaseBatchOperation {
   string statement = 1;
 
   // Parameters for the statement
-  repeated gcommon.v1.common.QueryParameter parameters = 2 [lazy = true];
+  repeated QueryParameter parameters = 2 [lazy = true];
 }
