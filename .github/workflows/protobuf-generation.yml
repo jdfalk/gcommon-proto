@@ -1,0 +1,372 @@
+# file: .github/workflows/protobuf-generation.yml
+# version: 1.0.0
+# guid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+
+name: Protocol Buffer Generation & Versioning
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'proto/**/*.proto'
+      - 'buf.yaml'
+      - 'buf.gen.yaml'
+      - 'post-buf-generate.py'
+      - 'setup-go-modules.py'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'proto/**/*.proto'
+      - 'buf.yaml'
+      - 'buf.gen.yaml'
+      - 'post-buf-generate.py'
+      - 'setup-go-modules.py'
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Version bump type'
+        required: false
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      force_generation:
+        description: 'Force regeneration even if no proto changes'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  GO_VERSION: '1.23'
+  PYTHON_VERSION: '3.12'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  # Detect what changed to optimize workflow execution
+  detect-changes:
+    name: Detect Proto Changes
+    runs-on: ubuntu-latest
+    outputs:
+      proto_changed: ${{ steps.filter.outputs.proto }}
+      config_changed: ${{ steps.filter.outputs.config }}
+      scripts_changed: ${{ steps.filter.outputs.scripts }}
+      should_generate: ${{ steps.determine.outputs.should_generate }}
+      should_version: ${{ steps.determine.outputs.should_version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Check file changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            proto:
+              - 'proto/**/*.proto'
+            config:
+              - 'buf.yaml'
+              - 'buf.gen.yaml'
+            scripts:
+              - 'post-buf-generate.py'
+              - 'setup-go-modules.py'
+
+      - name: Determine workflow execution
+        id: determine
+        run: |
+          if [[ "${{ steps.filter.outputs.proto }}" == "true" ||
+                "${{ steps.filter.outputs.config }}" == "true" ||
+                "${{ steps.filter.outputs.scripts }}" == "true" ||
+                "${{ github.event.inputs.force_generation }}" == "true" ]]; then
+            echo "should_generate=true" >> $GITHUB_OUTPUT
+            echo "📦 Protocol buffer generation needed"
+          else
+            echo "should_generate=false" >> $GITHUB_OUTPUT
+            echo "⏭️ No protocol buffer changes detected"
+          fi
+
+          # Only version on main branch pushes and manual workflow dispatch
+          if [[ "${{ github.ref }}" == "refs/heads/main" && 
+                ("${{ github.event_name }}" == "push" || "${{ github.event_name }}" == "workflow_dispatch") ]]; then
+            echo "should_version=true" >> $GITHUB_OUTPUT
+            echo "🏷️ Version tagging enabled"
+          else
+            echo "should_version=false" >> $GITHUB_OUTPUT
+            echo "🚫 Version tagging disabled (not main branch push)"
+          fi
+
+  # Generate protocol buffers with post-processing
+  generate-protobuf:
+    name: Generate Protocol Buffers
+    runs-on: ubuntu-latest
+    needs: [detect-changes]
+    if: needs.detect-changes.outputs.should_generate == 'true'
+    outputs:
+      generated_version: ${{ steps.version.outputs.new_version }}
+      has_changes: ${{ steps.check-changes.outputs.has_changes }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install buf
+        run: |
+          # Install buf CLI
+          BUF_VERSION="1.47.2"
+          curl -sSL \
+            "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-$(uname -s)-$(uname -m)" \
+            -o "/usr/local/bin/buf"
+          chmod +x "/usr/local/bin/buf"
+          buf --version
+
+      - name: Install protoc plugins
+        run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+      - name: Lint protocol buffers
+        run: |
+          echo "🔍 Linting protocol buffers..."
+          buf lint
+
+      - name: Generate protocol buffers
+        run: |
+          echo "📦 Generating protocol buffers..."
+          buf generate
+
+      - name: Run post-generation processing
+        run: |
+          echo "⚙️ Running post-generation processing..."
+          if [ -f "post-buf-generate.py" ]; then
+            python3 post-buf-generate.py
+          else
+            echo "⚠️ post-buf-generate.py not found, skipping post-processing"
+          fi
+
+      - name: Setup Go modules
+        run: |
+          echo "🔧 Setting up Go modules..."
+          if [ -f "setup-go-modules.py" ]; then
+            python3 setup-go-modules.py
+          else
+            echo "⚠️ setup-go-modules.py not found, skipping Go module setup"
+          fi
+
+      - name: Determine version bump
+        id: version
+        run: |
+          # Get current version from git tags
+          current_version=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.0")
+          echo "Current version: $current_version"
+
+          # Determine version bump type
+          version_type="${{ github.event.inputs.version_type || 'patch' }}"
+          
+          # Parse semantic version
+          IFS='.' read -r major minor patch <<< "$current_version"
+          
+          case "$version_type" in
+            "major")
+              major=$((major + 1))
+              minor=0
+              patch=0
+              ;;
+            "minor")
+              minor=$((minor + 1))
+              patch=0
+              ;;
+            "patch")
+              patch=$((patch + 1))
+              ;;
+          esac
+          
+          new_version="$major.$minor.$patch"
+          echo "New version: $new_version"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if ! git diff --quiet; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "✨ Generated files have changes"
+            git status --porcelain
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "✅ No changes in generated files"
+          fi
+
+      - name: Commit generated changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A
+          
+          # Create comprehensive commit message
+          cat > commit_message.txt << 'EOF'
+          feat(proto): regenerate protocol buffers and Go SDKs
+
+          Automated regeneration of protocol buffer files and associated Go SDK modules
+          triggered by changes in proto definitions or configuration.
+
+          Issues Addressed:
+
+          feat(proto): update generated protocol buffer files
+          - Generated Go files from proto definitions
+          - Updated import paths and module references
+          - Applied post-generation processing
+
+          feat(sdk): update Go SDK modules and versioning
+          - Updated go.mod files with correct import paths
+          - Created/updated v1 symlinks for SDK compatibility
+          - Applied module setup and versioning
+
+          Generated by: ${{ github.workflow }} workflow
+          Triggered by: ${{ github.event_name }}
+          Version: ${{ steps.version.outputs.new_version }}
+          EOF
+          
+          git commit -F commit_message.txt
+
+      - name: Push changes
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git push origin ${{ github.ref_name }}
+
+  # Create version tag for releases
+  create-version-tag:
+    name: Create Version Tag
+    runs-on: ubuntu-latest
+    needs: [detect-changes, generate-protobuf]
+    if: |
+      always() && 
+      needs.detect-changes.outputs.should_version == 'true' && 
+      (needs.generate-protobuf.outputs.has_changes == 'true' || 
+       github.event.inputs.force_generation == 'true')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Pull latest changes
+        run: |
+          git pull origin ${{ github.ref_name }}
+
+      - name: Create and push tag
+        run: |
+          version="v${{ needs.generate-protobuf.outputs.generated_version }}"
+          echo "Creating tag: $version"
+          
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          
+          git tag -a "$version" -m "Release $version
+
+          Automated release created by protocol buffer generation workflow.
+          
+          Changes:
+          - Updated protocol buffer definitions
+          - Regenerated Go SDK files
+          - Updated module versioning and import paths
+          
+          Generated by: ${{ github.workflow }}
+          Commit: ${{ github.sha }}
+          "
+          
+          git push origin "$version"
+          echo "✅ Created and pushed tag: $version"
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ needs.generate-protobuf.outputs.generated_version }}
+          release_name: Release v${{ needs.generate-protobuf.outputs.generated_version }}
+          body: |
+            ## Protocol Buffer Release v${{ needs.generate-protobuf.outputs.generated_version }}
+
+            This release contains updated protocol buffer definitions and generated Go SDK files.
+
+            ### Changes
+            - 📦 Regenerated protocol buffer files
+            - 🔧 Updated Go SDK modules and import paths  
+            - 🏷️ Applied semantic versioning
+            - 🔗 Updated v1 symlinks for SDK compatibility
+
+            ### Generated Files
+            - Go SDK files in `sdks/` directory
+            - Updated `go.mod` files with correct import paths
+            - V1 compatibility symlinks
+
+            ### Usage
+            Use this version in your Go projects:
+            ```go
+            import "github.com/jdfalk/gcommon/proto/v1/..."
+            ```
+
+            Generated by: ${{ github.workflow }} workflow
+          draft: false
+          prerelease: false
+
+  # Summary job that reports the overall result
+  workflow-summary:
+    name: Workflow Summary
+    runs-on: ubuntu-latest
+    needs: [detect-changes, generate-protobuf, create-version-tag]
+    if: always()
+    steps:
+      - name: Generate workflow summary
+        run: |
+          echo "# Protocol Buffer Generation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ "${{ needs.detect-changes.outputs.should_generate }}" == "true" ]]; then
+            echo "✅ **Generation**: Triggered" >> $GITHUB_STEP_SUMMARY
+            
+            if [[ "${{ needs.generate-protobuf.outputs.has_changes }}" == "true" ]]; then
+              echo "✅ **Changes**: Generated files updated" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "ℹ️ **Changes**: No changes in generated files" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "⏭️ **Generation**: Skipped (no relevant changes)" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [[ "${{ needs.detect-changes.outputs.should_version }}" == "true" ]]; then
+            if [[ "${{ needs.create-version-tag.result }}" == "success" ]]; then
+              echo "✅ **Versioning**: Tag v${{ needs.generate-protobuf.outputs.generated_version }} created" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "⏭️ **Versioning**: Skipped (no changes to version)" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "🚫 **Versioning**: Disabled (not main branch)" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Workflow**: ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
