@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/metric_type.proto";
+import "gcommon/v1/common/metric_type.proto";
 import "gcommon/v1/metrics/metric_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

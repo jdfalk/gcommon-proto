@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/provider_type.proto";
+import "gcommon/v1/common/metrics_provider_type.proto";
 import "gcommon/v1/metrics/export_config.proto";
 import "gcommon/v1/metrics/provider_settings.proto";
 import "gcommon/v1/metrics/security_config.proto";
