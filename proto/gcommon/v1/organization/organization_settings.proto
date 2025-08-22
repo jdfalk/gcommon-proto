@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/organization_settings.proto
+// file: proto/gcommon/v1/organization/organization_settings.proto
 // version: 1.0.0
 // guid: 16cd3cd6-4780-44b7-96c0-facf112a08bc
 
@@ -6,14 +6,14 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/key_value.proto";
-import "gcommon/v1/organization/messages/billing_settings.proto";
-import "gcommon/v1/organization/messages/compliance_settings.proto";
-import "gcommon/v1/organization/messages/feature_flag.proto";
-import "gcommon/v1/organization/messages/integration_settings.proto";
-import "gcommon/v1/organization/messages/notification_settings.proto";
-import "gcommon/v1/organization/messages/security_settings.proto";
-import "gcommon/v1/organization/messages/ui_settings.proto";
+import "gcommon/v1/common/key_value.proto";
+import "gcommon/v1/organization/billing_settings.proto";
+import "gcommon/v1/organization/compliance_settings.proto";
+import "gcommon/v1/organization/feature_flag.proto";
+import "gcommon/v1/organization/integration_settings.proto";
+import "gcommon/v1/organization/notification_settings.proto";
+import "gcommon/v1/organization/security_settings.proto";
+import "gcommon/v1/organization/ui_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

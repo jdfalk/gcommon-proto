@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/migrate_queue_response.proto
+// file: proto/gcommon/v1/queue/migrate_queue_response.proto
 // version: 1.0.0
 // guid: 331ebb05-f30d-46d3-8d6e-ef766fd0cc51
 // Response for queue migration operations

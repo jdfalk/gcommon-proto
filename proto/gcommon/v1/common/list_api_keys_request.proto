@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/list_api_keys_request.proto
 // version: 1.0.0
 // guid: 978a16cb-4ec7-45ce-b762-c2a2b40a4e6f
-// file: proto/gcommon/v1/common/messages/list_api_keys_request.proto
+// file: proto/gcommon/v1/common/list_api_keys_request.proto
 //
 // Request definitions for auth module
 

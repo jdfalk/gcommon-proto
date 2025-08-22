@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/delete_subscription_request.proto
+// file: proto/gcommon/v1/queue/delete_subscription_request.proto
 // version: 1.0.0
 // guid: 6b8bf50f-c08d-4ad7-abec-06504c697d42
 // Request to delete a subscription

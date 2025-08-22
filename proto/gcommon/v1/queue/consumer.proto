@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/consumer.proto
+// file: proto/gcommon/v1/queue/consumer.proto
 // version: 1.0.0
 // guid: 1bb92667-7d61-4aea-b8df-a372aa46cf8a
 
@@ -7,9 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/consumer_state.proto";
-import "gcommon/v1/queue/messages/consumer_client.proto";
-import "gcommon/v1/queue/messages/consumer_config.proto";
-import "gcommon/v1/queue/messages/consumer_stats.proto";
+import "gcommon/v1/queue/consumer_client.proto";
+import "gcommon/v1/queue/consumer_config.proto";
+import "gcommon/v1/queue/consumer_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/config/api/get_config_history_request.proto
 // version: 1.0.0
 // guid: 3e7b6154-2e0b-4f37-b278-51bc35fd7fe1
-// file: proto/gcommon/v1/config/messages/get_config_history_request.proto
+// file: proto/gcommon/v1/config/get_config_history_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation
@@ -10,7 +10,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

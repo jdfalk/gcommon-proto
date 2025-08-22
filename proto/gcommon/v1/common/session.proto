@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/session.proto
+// file: proto/gcommon/v1/common/session.proto
 // version: 1.0.0
 // guid: 9f1dffb9-b42d-48ad-a0df-25008ed44303
 edition = "2023";
@@ -6,7 +6,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/session_status.proto";
-import "gcommon/v1/common/messages/client_info.proto";
+import "gcommon/v1/common/client_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

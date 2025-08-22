@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/list_user_sessions_response.proto
+// file: proto/gcommon/v1/common/list_user_sessions_response.proto
 // version: 1.0.0
 // guid: ac4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 
@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/paginated_response.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/common/messages/session_info.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/paginated_response.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/common/session_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

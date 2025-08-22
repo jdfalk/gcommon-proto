@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/update_topic_config_request.proto
+// file: proto/gcommon/v1/queue/update_topic_config_request.proto
 // version: 1.0.0
 // guid: b7623d06-10e5-4b18-9b4f-976ff9116f5c
 // Request to update topic configuration
@@ -7,7 +7,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/topic_config.proto";
+import "gcommon/v1/queue/topic_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

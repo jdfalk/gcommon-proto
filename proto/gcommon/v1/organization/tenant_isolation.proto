@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/tenant_isolation.proto
+// file: proto/gcommon/v1/organization/tenant_isolation.proto
 // version: 1.0.0
 // guid: 182f08bf-4180-421a-935c-aa065bea181a
 
@@ -6,15 +6,15 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/common/key_value.proto";
 import "gcommon/v1/organization/isolation_level.proto";
-import "gcommon/v1/organization/messages/access_control.proto";
-import "gcommon/v1/organization/messages/audit_config.proto";
-import "gcommon/v1/organization/messages/compute_isolation.proto";
-import "gcommon/v1/organization/messages/database_isolation.proto";
-import "gcommon/v1/organization/messages/encryption_config.proto";
-import "gcommon/v1/organization/messages/network_isolation.proto";
-import "gcommon/v1/organization/messages/storage_isolation.proto";
+import "gcommon/v1/organization/access_control.proto";
+import "gcommon/v1/organization/audit_config.proto";
+import "gcommon/v1/organization/compute_isolation.proto";
+import "gcommon/v1/organization/database_isolation.proto";
+import "gcommon/v1/organization/encryption_config.proto";
+import "gcommon/v1/organization/network_isolation.proto";
+import "gcommon/v1/organization/storage_isolation.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

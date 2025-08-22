@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/query_row_response.proto
+// file: proto/gcommon/v1/database/query_row_response.proto
 // version: 1.0.0
 // guid: dff9c212-0d7d-4f0a-bcca-8a0a641a29f9
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/database/messages/query_stats.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/database/query_stats.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 

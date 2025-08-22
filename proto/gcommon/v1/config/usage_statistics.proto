@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/config/messages/usage_statistics.proto
+// file: proto/gcommon/v1/config/usage_statistics.proto
 // version: 1.0.0
 // guid: cc21dcd3-5d5b-42a8-9602-b3b08c2ff649
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/messages/usage_trend.proto";
+import "gcommon/v1/config/usage_trend.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

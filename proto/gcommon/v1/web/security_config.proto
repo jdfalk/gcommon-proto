@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/security_config.proto
+// file: proto/gcommon/v1/web/security_config.proto
 // version: 1.1.0
 // guid: 2d5231ca-5b58-4b11-8448-a87d4ae0154e
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/web/messages/tls_config.proto";
+import "gcommon/v1/web/tls_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

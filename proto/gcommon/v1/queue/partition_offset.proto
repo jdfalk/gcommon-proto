@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/partition_offset.proto
+// file: proto/gcommon/v1/queue/partition_offset.proto
 // version: 1.0.0
 // guid: 0d54df2b-ee96-4361-8361-b047c9a198f6
 // Partition offset information for queue operations

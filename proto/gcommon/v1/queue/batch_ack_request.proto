@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/batch_ack_request.proto
+// file: proto/gcommon/v1/queue/batch_ack_request.proto
 // version: 1.0.0
 // guid: 73ed83fb-3706-45cc-895d-fec71d0a2184
 // Request for batch acknowledgment operations

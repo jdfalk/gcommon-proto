@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/list_checks_request.proto
 // version: 1.0.0
 // guid: 15ac39bc-301a-4120-a333-5c07d417d4fb
-// file: proto/gcommon/v1/common/messages/list_checks_request.proto
+// file: proto/gcommon/v1/common/list_checks_request.proto
 //
 // Request definitions for health module
 //
@@ -10,7 +10,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

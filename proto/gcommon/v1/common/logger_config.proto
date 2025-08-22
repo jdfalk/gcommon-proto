@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/logger_config.proto
+// file: proto/gcommon/v1/common/logger_config.proto
 // version: 1.0.0
 // guid: 37c6c755-fc97-46c2-8116-248fc5a0ce3c
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/log_level.proto";
-import "gcommon/v1/common/messages/appender_config.proto";
+import "gcommon/v1/common/appender_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

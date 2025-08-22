@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/revoke_api_key_response.proto
 // version: 1.0.0
 // guid: 408b6755-7ee3-44e4-80c2-af76cc4cf87b
-// file: proto/gcommon/v1/common/messages/revoke_api_key_response.proto
+// file: proto/gcommon/v1/common/revoke_api_key_response.proto
 //
 // Response definitions for auth module
 

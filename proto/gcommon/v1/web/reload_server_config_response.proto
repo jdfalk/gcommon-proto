@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/reload_server_config_response.proto
+// file: proto/gcommon/v1/web/reload_server_config_response.proto
 // version: 1.0.0
 // guid: a6f6a4cf-253b-4759-a0a7-f699c4cf8463
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

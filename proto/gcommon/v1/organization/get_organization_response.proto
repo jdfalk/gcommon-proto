@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/get_organization_response.proto
+// file: proto/gcommon/v1/organization/get_organization_response.proto
 // version: 1.0.0
 // guid: 89012bcd-3456-789a-bcde-f01234567890
 
@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/organization/messages/organization.proto";
-import "gcommon/v1/organization/messages/organization_settings.proto";
-import "gcommon/v1/organization/messages/tenant.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/organization/organization.proto";
+import "gcommon/v1/organization/organization_settings.proto";
+import "gcommon/v1/organization/tenant.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

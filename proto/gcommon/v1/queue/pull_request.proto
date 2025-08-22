@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/pull_request.proto
+// file: proto/gcommon/v1/queue/pull_request.proto
 // version: 1.0.0
 // guid: dae5ea8a-77c7-4b90-ab25-d2981ba423df
 // PullRequest retrieves a single message from the specified queue
@@ -9,7 +9,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

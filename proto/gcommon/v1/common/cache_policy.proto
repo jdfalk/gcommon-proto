@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/cache_policy.proto
+// file: proto/gcommon/v1/common/cache_policy.proto
 // version: 1.0.0
 // guid: c37fc88f-0b7c-4fa4-9c60-23736d2bed76
 edition = "2023";

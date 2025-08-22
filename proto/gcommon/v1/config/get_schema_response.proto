@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/config/messages/get_schema_response.proto
+// file: proto/gcommon/v1/config/get_schema_response.proto
 // version: 1.0.0
 // guid: 814082ea-43bd-4fe6-9f69-3e587af7e038
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/config/messages/config_schema.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/config/config_schema.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/consistency_config.proto
+// file: proto/gcommon/v1/queue/consistency_config.proto
 // version: 1.0.0
 // guid: 038986e0-4267-432c-99a3-7271a9427b29
 
@@ -9,11 +9,11 @@ package gcommon.v1.queue;
 import "gcommon/v1/config/conflict_resolution.proto";
 import "gcommon/v1/queue/ack_level.proto";
 import "gcommon/v1/queue/durability_level.proto";
-import "gcommon/v1/queue/messages/consistency_validation.proto";
-import "gcommon/v1/queue/messages/ordering_config.proto";
-import "gcommon/v1/queue/messages/read_consistency.proto";
-import "gcommon/v1/queue/messages/replication_consistency.proto";
-import "gcommon/v1/queue/messages/write_consistency.proto";
+import "gcommon/v1/queue/consistency_validation.proto";
+import "gcommon/v1/queue/ordering_config.proto";
+import "gcommon/v1/queue/read_consistency.proto";
+import "gcommon/v1/queue/replication_consistency.proto";
+import "gcommon/v1/queue/write_consistency.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

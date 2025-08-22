@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/organization/messages/get_team_response.proto
+// file: proto/gcommon/v1/organization/get_team_response.proto
 // version: 1.0.0
 // guid: bd5b83ed-94f6-4276-bbd6-92c5e4314b9a
 edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/organization/messages/team.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/organization/team.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

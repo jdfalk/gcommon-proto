@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/create_tenant_request.proto
+// file: proto/gcommon/v1/organization/create_tenant_request.proto
 // version: 1.0.0
 // guid: bff082b5-49b8-4b48-808c-5d8a7af3463b
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/organization/messages/tenant.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/organization/tenant.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

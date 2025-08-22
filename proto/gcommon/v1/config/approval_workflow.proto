@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/config/messages/approval_workflow.proto
+// file: proto/gcommon/v1/config/approval_workflow.proto
 // version: 1.0.0
 // guid: b19bfc28-1770-4f3d-a1d5-cb8f6e45ad88
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/messages/approval_stage.proto";
+import "gcommon/v1/config/approval_stage.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/config/messages/set_multiple_config_response.proto
+// file: proto/gcommon/v1/config/set_multiple_config_response.proto
 // version: 1.0.0
 // guid: e0520017-355f-4584-a5c7-d2bff7d21b3c
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

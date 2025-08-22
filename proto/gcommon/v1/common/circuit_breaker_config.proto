@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/circuit_breaker_config.proto
+// file: proto/gcommon/v1/common/circuit_breaker_config.proto
 // version: 1.0.0
 // guid: 2fa42a3e-78ac-439f-ab85-af2587126423
 edition = "2023";

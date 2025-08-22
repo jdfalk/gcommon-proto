@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/revoke_token_response.proto
+// file: proto/gcommon/v1/common/revoke_token_response.proto
 // version: 1.0.0
 // guid: f25b7f00-5a70-4776-8dfd-fb942ffd6980
 edition = "2023";

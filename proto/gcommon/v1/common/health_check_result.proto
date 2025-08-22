@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/health_check_result.proto
+// file: proto/gcommon/v1/common/health_check_result.proto
 // version: 1.0.0
 // guid: f29a3085-ffb9-4d33-8e60-ee52f8ff4570
 
@@ -8,7 +8,7 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/check_type.proto";
 import "gcommon/v1/common/serving_status.proto";
-import "gcommon/v1/common/messages/component_health.proto";
+import "gcommon/v1/common/component_health.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

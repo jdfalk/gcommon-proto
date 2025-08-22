@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/tenant_quota.proto
+// file: proto/gcommon/v1/organization/tenant_quota.proto
 // version: 1.0.0
 // guid: 00b319b2-df4a-4664-9a2e-7eb13cb80bf1
 // Tenant quota message definition

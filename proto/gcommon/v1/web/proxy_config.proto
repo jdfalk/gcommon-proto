@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/proxy_config.proto
+// file: proto/gcommon/v1/web/proxy_config.proto
 // version: 1.1.0
 // guid: 44849c54-6bf7-4211-a8c0-0be1e0c98add
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/web/proxy_type.proto";
-import "gcommon/v1/web/messages/http_header.proto";
+import "gcommon/v1/web/http_header.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

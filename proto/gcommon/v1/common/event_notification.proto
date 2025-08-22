@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/event_notification.proto
+// file: proto/gcommon/v1/common/event_notification.proto
 // version: 1.2.0
 // guid: d1e2f3g4-h5i6-7890-j1k2-l3m4n5o6p7q8
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/notification_message.proto";
+import "gcommon/v1/common/notification_message.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

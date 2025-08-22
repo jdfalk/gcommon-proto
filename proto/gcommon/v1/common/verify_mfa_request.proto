@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/verify_mfa_request.proto
 // version: 1.0.0
 // guid: a628ba55-dd40-4025-bd1b-a634add55417
-// file: proto/gcommon/v1/common/messages/verify_mfa_request.proto
+// file: proto/gcommon/v1/common/verify_mfa_request.proto
 //
 // Request definitions for auth module
 

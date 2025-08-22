@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/histogram_value.proto";
-import "gcommon/v1/metrics/messages/summary_value.proto";
+import "gcommon/v1/metrics/histogram_value.proto";
+import "gcommon/v1/metrics/summary_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

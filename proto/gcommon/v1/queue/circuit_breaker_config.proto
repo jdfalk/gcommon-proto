@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/config/circuit_breaker_config.proto
-// file: proto/gcommon/v1/queue/messages/circuit_breaker_config.proto
+// file: proto/gcommon/v1/queue/circuit_breaker_config.proto
 // version: 1.0.0
 // guid: 6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f
 //

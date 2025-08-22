@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/database/messages/result_set.proto
+// file: proto/gcommon/v1/database/result_set.proto
 // version: 1.0.0
 // guid: b4dc4847-4e57-46b9-bcf0-f74e86882c0a
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/database/messages/column_metadata.proto";
-import "gcommon/v1/database/messages/row.proto";
+import "gcommon/v1/database/column_metadata.proto";
+import "gcommon/v1/database/row.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

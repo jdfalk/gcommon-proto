@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/publish_request.proto
+// file: proto/gcommon/v1/queue/publish_request.proto
 // version: 1.0.0
 // guid: 59dc8120-bc2f-4d56-a9f1-f0957cb9bafb
 // PublishRequest publishes a single message to a named topic. It is
@@ -11,9 +11,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/queue/messages/delivery_options.proto";
-import "gcommon/v1/queue/messages/queue_message.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/delivery_options.proto";
+import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

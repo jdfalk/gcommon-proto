@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/resume_queue_response.proto
+// file: proto/gcommon/v1/queue/resume_queue_response.proto
 // version: 1.0.0
 // guid: 43e76b2f-3350-49a8-b002-e38b946919ad
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/queue_state.proto";
-import "gcommon/v1/queue/messages/resume_stats.proto";
+import "gcommon/v1/queue/resume_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/batch_publish_response.proto
+// file: proto/gcommon/v1/queue/batch_publish_response.proto
 // version: 1.0.0
 // guid: c8485218-1d5d-459f-89f3-5389ae0c4aab
 // Response for batch publish operations
@@ -7,7 +7,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/publish_result.proto";
+import "gcommon/v1/queue/publish_result.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/serialization_config.proto
+// file: proto/gcommon/v1/queue/serialization_config.proto
 // version: 1.0.0
 // guid: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 
@@ -8,7 +8,7 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/compression_algorithm.proto";
 import "gcommon/v1/queue/serialization_format.proto";
-import "gcommon/v1/queue/messages/format_options.proto";
+import "gcommon/v1/queue/format_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

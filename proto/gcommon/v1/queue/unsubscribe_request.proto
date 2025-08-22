@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/unsubscribe_request.proto
+// file: proto/gcommon/v1/queue/unsubscribe_request.proto
 // version: 1.0.0
 // guid: 69c55038-151d-4d97-a390-6bf4dc28d4aa
 // Request to unsubscribe from a topic

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/load_balancer_config.proto
+// file: proto/gcommon/v1/organization/load_balancer_config.proto
 // version: 1.0.0
 // guid: 9e0df8a1-fd1a-4173-89ed-7bcdc82cdb6f
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/organization/messages/health_check_config.proto";
-import "gcommon/v1/organization/messages/ssl_config.proto";
+import "gcommon/v1/organization/health_check_config.proto";
+import "gcommon/v1/organization/ssl_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

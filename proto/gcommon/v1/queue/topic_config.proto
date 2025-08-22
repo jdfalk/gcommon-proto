@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/config/topic_config.proto
-// file: proto/gcommon/v1/queue/messages/topic_config.proto
+// file: proto/gcommon/v1/queue/topic_config.proto
 // version: 1.0.0
 // guid: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
 //
@@ -9,8 +9,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/partition_config.proto";
-import "gcommon/v1/queue/messages/retention_policy.proto";
+import "gcommon/v1/queue/partition_config.proto";
+import "gcommon/v1/queue/retention_policy.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

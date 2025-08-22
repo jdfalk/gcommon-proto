@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/update_cache_config_response.proto
+// file: proto/gcommon/v1/web/update_cache_config_response.proto
 // version: 1.0.0
 // guid: jkl45678-90ab-cdef-1234-567890abcdef
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

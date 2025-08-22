@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/acknowledge_response.proto
+// file: proto/gcommon/v1/queue/acknowledge_response.proto
 // version: 1.0.0
 // guid: 69fb5b85-226c-407d-9aaf-dd8810a3b662
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/queue/messages/message_ack_result.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/message_ack_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

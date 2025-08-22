@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/detect_chapters_response.proto
+// file: proto/gcommon/v1/media/detect_chapters_response.proto
 // version: 1.0.0
 // guid: 2345678-9abc-def0-a9b0-c1d2e3f4a5b6
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/chapter_info.proto";
+import "gcommon/v1/media/chapter_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

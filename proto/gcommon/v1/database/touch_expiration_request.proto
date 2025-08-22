@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/touch_expiration_request.proto
+// file: proto/gcommon/v1/database/touch_expiration_request.proto
 // version: 1.0.0
 // guid: bb0056c3-6eb4-4476-a508-c6789653b1f5
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/cache_config.proto
+// file: proto/gcommon/v1/web/cache_config.proto
 // version: 1.1.0
 // guid: 21e9abdf-bf09-4c22-b45b-eb9c092d9664
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/cache_policy.proto";
+import "gcommon/v1/common/cache_policy.proto";
 import "gcommon/v1/web/cache_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";

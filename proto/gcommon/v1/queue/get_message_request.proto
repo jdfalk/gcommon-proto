@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_message_request.proto
+// file: proto/gcommon/v1/queue/get_message_request.proto
 // version: 1.0.0
 // guid: eac57fd6-c5de-4130-9724-13f89a0f623f
 // Request to get a specific message

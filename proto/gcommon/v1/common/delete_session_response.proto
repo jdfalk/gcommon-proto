@@ -1,14 +1,14 @@
 // file: proto/gcommon/v1/common/types/delete_session_response.proto
 // version: 1.0.0
 // guid: e99771c5-4060-4cd9-a8f5-7919d9b8cb61
-// file: proto/gcommon/v1/common/messages/delete_session_response.proto
+// file: proto/gcommon/v1/common/delete_session_response.proto
 //
 // Response definitions for auth module
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

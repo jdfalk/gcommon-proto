@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_node_info_response.proto
+// file: proto/gcommon/v1/queue/get_node_info_response.proto
 // version: 1.0.0
 // guid: fb3ad530-511f-4fec-9508-7ae00be0ee92
 // Response with node information
@@ -7,7 +7,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/node_info.proto";
+import "gcommon/v1/queue/node_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_queue_stats_response.proto
+// file: proto/gcommon/v1/queue/get_queue_stats_response.proto
 // version: 1.0.0
 // guid: 7014296b-b332-416c-9de8-7d0fd264251c
 
@@ -6,13 +6,13 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/response_metadata.proto";
-import "gcommon/v1/metrics/messages/error_stats.proto";
-import "gcommon/v1/queue/messages/consumer_stats.proto";
-import "gcommon/v1/queue/messages/historical_stats.proto";
-import "gcommon/v1/queue/messages/performance_metrics.proto";
-import "gcommon/v1/queue/messages/queue_stats.proto";
-import "gcommon/v1/queue/messages/queue_stats_summary.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "gcommon/v1/metrics/error_stats.proto";
+import "gcommon/v1/queue/consumer_stats.proto";
+import "gcommon/v1/queue/historical_stats.proto";
+import "gcommon/v1/queue/performance_metrics.proto";
+import "gcommon/v1/queue/queue_stats.proto";
+import "gcommon/v1/queue/queue_stats_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

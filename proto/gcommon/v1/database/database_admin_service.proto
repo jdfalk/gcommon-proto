@@ -5,18 +5,18 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/database/messages/create_database_request.proto";
-import "gcommon/v1/database/messages/create_database_response.proto";
-import "gcommon/v1/database/messages/create_schema_request.proto";
-import "gcommon/v1/database/messages/create_schema_response.proto";
-import "gcommon/v1/database/messages/drop_database_request.proto";
-import "gcommon/v1/database/messages/drop_schema_request.proto";
-import "gcommon/v1/database/messages/get_database_info_request.proto";
-import "gcommon/v1/database/messages/get_database_info_response.proto";
-import "gcommon/v1/database/messages/list_databases_request.proto";
-import "gcommon/v1/database/messages/list_databases_response.proto";
-import "gcommon/v1/database/messages/list_schemas_request.proto";
-import "gcommon/v1/database/messages/list_schemas_response.proto";
+import "gcommon/v1/database/create_database_request.proto";
+import "gcommon/v1/database/create_database_response.proto";
+import "gcommon/v1/database/create_schema_request.proto";
+import "gcommon/v1/database/create_schema_response.proto";
+import "gcommon/v1/database/drop_database_request.proto";
+import "gcommon/v1/database/drop_schema_request.proto";
+import "gcommon/v1/database/get_database_info_request.proto";
+import "gcommon/v1/database/get_database_info_response.proto";
+import "gcommon/v1/database/list_databases_request.proto";
+import "gcommon/v1/database/list_databases_response.proto";
+import "gcommon/v1/database/list_schemas_request.proto";
+import "gcommon/v1/database/list_schemas_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 

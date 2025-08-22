@@ -10,8 +10,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/metrics/messages/alerting_rule.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/alerting_rule.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

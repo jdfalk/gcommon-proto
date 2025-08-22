@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/organization/messages/list_members_response.proto
+// file: proto/gcommon/v1/organization/list_members_response.proto
 // version: 1.0.0
 // guid: b11659ab-afa5-4b48-a417-b3b28ade628a
 edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/paginated_response.proto";
-import "gcommon/v1/organization/messages/organization_member.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/paginated_response.proto";
+import "gcommon/v1/organization/organization_member.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

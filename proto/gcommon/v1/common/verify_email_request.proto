@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/verify_email_request.proto
 // version: 1.0.0
 // guid: 8f68392c-3cc1-408c-a8ac-4c48d08a70a0
-// file: proto/gcommon/v1/common/messages/verify_email_request.proto
+// file: proto/gcommon/v1/common/verify_email_request.proto
 //
 // Request definitions for auth module
 

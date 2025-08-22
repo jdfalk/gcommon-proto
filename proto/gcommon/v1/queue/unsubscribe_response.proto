@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/unsubscribe_response.proto
-// file: proto/gcommon/v1/queue/messages/unsubscribe_response.proto
+// file: proto/gcommon/v1/queue/unsubscribe_response.proto
 // version: 1.0.0
 // guid: 5a4b3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d
 //

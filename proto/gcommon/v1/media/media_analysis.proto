@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/media_analysis.proto
+// file: proto/gcommon/v1/media/media_analysis.proto
 // version: 1.0.0
 // guid: cdef012-3456-789a-c7d8-e9f0a1b2c3d4
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/media_quality.proto";
+import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

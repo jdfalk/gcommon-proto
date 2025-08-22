@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/delete_request.proto
+// file: proto/gcommon/v1/database/delete_request.proto
 // version: 1.0.0
 // guid: 91c53d9d-7973-470c-b0c7-b04aedadec17
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

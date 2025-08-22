@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/publish_request.proto
+// file: proto/gcommon/v1/database/publish_request.proto
 // version: 1.0.0
 // guid: 90c22d73-f181-473b-9344-04cedb5afbbe
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 

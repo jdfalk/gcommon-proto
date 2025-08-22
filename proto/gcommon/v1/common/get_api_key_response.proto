@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_api_key_response.proto
+// file: proto/gcommon/v1/common/get_api_key_response.proto
 // version: 1.0.0
 // guid: 584574e5-3a49-4346-ada5-78a7454f921e
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/api_key.proto";
-import "gcommon/v1/common/messages/api_key_stats.proto";
+import "gcommon/v1/common/api_key.proto";
+import "gcommon/v1/common/api_key_stats.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

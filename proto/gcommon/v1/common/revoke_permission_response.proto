@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/revoke_permission_response.proto
+// file: proto/gcommon/v1/common/revoke_permission_response.proto
 // version: 1.0.0
 // guid: f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/response_metadata.proto";
+import "gcommon/v1/common/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

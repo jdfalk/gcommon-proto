@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/flush_queue_response.proto
+// file: proto/gcommon/v1/queue/flush_queue_response.proto
 // version: 1.0.0
 // guid: b7bddce0-67bc-4158-a9b7-c3e15f1606fe
 // Response for queue flush operations

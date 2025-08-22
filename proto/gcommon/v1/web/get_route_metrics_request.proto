@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/get_route_metrics_request.proto
+// file: proto/gcommon/v1/web/get_route_metrics_request.proto
 // version: 1.0.0
 // guid: fd25fe7a-1f87-4979-8502-8ff4b7022e24
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

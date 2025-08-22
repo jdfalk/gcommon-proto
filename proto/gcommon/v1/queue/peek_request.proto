@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/peek_request.proto
+// file: proto/gcommon/v1/queue/peek_request.proto
 // version: 1.0.0
 // guid: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 // Standard imports
 

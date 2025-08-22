@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/types/basic_queue_stats.proto
-// file: proto/gcommon/v1/queue/messages/basic_queue_stats.proto
+// file: proto/gcommon/v1/queue/basic_queue_stats.proto
 // version: 1.0.0
 // guid: 0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
 //

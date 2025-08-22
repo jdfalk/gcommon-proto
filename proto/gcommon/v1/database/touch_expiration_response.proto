@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/touch_expiration_response.proto
+// file: proto/gcommon/v1/database/touch_expiration_response.proto
 // version: 1.0.0
 // guid: kl1mnopq-23r4-5s6t-7u8v-9w0x1y2z3a4b
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

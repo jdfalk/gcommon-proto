@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/size_distribution.proto
+// file: proto/gcommon/v1/queue/size_distribution.proto
 // version: 1.0.0
 // guid: 6a630c77-ef52-498c-b0c7-0be5177f3a90
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/size_bucket.proto";
+import "gcommon/v1/queue/size_bucket.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

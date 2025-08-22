@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_template_response.proto
+// file: proto/gcommon/v1/common/get_template_response.proto
 // version: 1.2.0
 // guid: 525e0a4f-3e9f-4b1a-8d33-fa9c295964a0
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/template.proto";
+import "gcommon/v1/common/template.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

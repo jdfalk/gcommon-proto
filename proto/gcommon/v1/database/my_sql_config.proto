@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/my_sql_config.proto
+// file: proto/gcommon/v1/database/my_sql_config.proto
 // version: 1.0.0
 // guid: 7950ed79-355d-451e-a539-59a2306f882a
 edition = "2023";

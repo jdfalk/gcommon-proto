@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/integration.proto
+// file: proto/gcommon/v1/organization/integration.proto
 // version: 1.0.0
 // guid: 6090f563-98ae-4180-8e95-a161c4e6b658
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/common/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

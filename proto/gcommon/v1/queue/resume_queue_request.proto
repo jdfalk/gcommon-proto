@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/resume_queue_request.proto
+// file: proto/gcommon/v1/queue/resume_queue_request.proto
 // version: 1.0.0
 // guid: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

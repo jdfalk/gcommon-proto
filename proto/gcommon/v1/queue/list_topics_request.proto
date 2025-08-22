@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/list_topics_request.proto
+// file: proto/gcommon/v1/queue/list_topics_request.proto
 // version: 1.1.0
 // guid: f939cf46-c0f6-4815-a201-7cebdf9c255d
 // Request to list available topics in the queue system

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/organization_hierarchy.proto
+// file: proto/gcommon/v1/organization/organization_hierarchy.proto
 // version: 1.0.0
 // guid: 2f0bea22-4f4d-4ac2-99bf-2b65d15ebebd
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/common/key_value.proto";
 import "gcommon/v1/organization/hierarchy_type.proto";
-import "gcommon/v1/organization/messages/hierarchy_node.proto";
+import "gcommon/v1/organization/hierarchy_node.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

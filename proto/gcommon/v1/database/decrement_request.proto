@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/decrement_request.proto
+// file: proto/gcommon/v1/database/decrement_request.proto
 // version: 1.0.0
 // guid: 288b113d-b76e-4309-9c5b-207cb4061a73
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

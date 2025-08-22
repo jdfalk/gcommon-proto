@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/audit_log.proto
+// file: proto/gcommon/v1/common/audit_log.proto
 // version: 1.0.0
 // guid: 95446d3f-aa5e-4be7-a7bb-5b0b0b1cf19b
 edition = "2023";
@@ -6,7 +6,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/audit_result.proto";
-import "gcommon/v1/common/messages/resource_reference.proto";
+import "gcommon/v1/common/resource_reference.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

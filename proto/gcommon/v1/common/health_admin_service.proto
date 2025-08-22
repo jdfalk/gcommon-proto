@@ -9,18 +9,18 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/configure_alerting_request.proto";
-import "gcommon/v1/common/messages/configure_alerting_response.proto";
-import "gcommon/v1/common/messages/disable_check_request.proto";
-import "gcommon/v1/common/messages/disable_check_response.proto";
-import "gcommon/v1/common/messages/enable_check_request.proto";
-import "gcommon/v1/common/messages/enable_check_response.proto";
-import "gcommon/v1/common/messages/reset_health_stats_request.proto";
-import "gcommon/v1/common/messages/reset_health_stats_response.proto";
-import "gcommon/v1/common/messages/run_check_request.proto";
-import "gcommon/v1/common/messages/run_check_response.proto";
-import "gcommon/v1/common/messages/set_health_request.proto";
-import "gcommon/v1/common/messages/set_health_response.proto";
+import "gcommon/v1/common/configure_alerting_request.proto";
+import "gcommon/v1/common/configure_alerting_response.proto";
+import "gcommon/v1/common/disable_check_request.proto";
+import "gcommon/v1/common/disable_check_response.proto";
+import "gcommon/v1/common/enable_check_request.proto";
+import "gcommon/v1/common/enable_check_response.proto";
+import "gcommon/v1/common/reset_health_stats_request.proto";
+import "gcommon/v1/common/reset_health_stats_response.proto";
+import "gcommon/v1/common/run_check_request.proto";
+import "gcommon/v1/common/run_check_response.proto";
+import "gcommon/v1/common/set_health_request.proto";
+import "gcommon/v1/common/set_health_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

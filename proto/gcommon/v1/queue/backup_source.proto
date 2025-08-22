@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/backup_source.proto
+// file: proto/gcommon/v1/queue/backup_source.proto
 // version: 1.0.0
 // guid: 07747072-2f4d-414e-a232-b282cd58bd5e
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/encryption_info.proto";
-import "gcommon/v1/queue/messages/original_queue_info.proto";
+import "gcommon/v1/queue/encryption_info.proto";
+import "gcommon/v1/queue/original_queue_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

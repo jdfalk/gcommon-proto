@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/delete_topic_response.proto
+// file: proto/gcommon/v1/queue/delete_topic_response.proto
 // version: 1.0.0
 // guid: 321c289e-7bff-430d-b737-60c42c418beb
 // Response for topic deletion operations

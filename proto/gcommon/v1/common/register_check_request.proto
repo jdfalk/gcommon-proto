@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/register_check_request.proto
 // version: 1.0.0
 // guid: d0def031-b6c4-482c-8e68-7d395ac76697
-// file: proto/gcommon/v1/common/messages/register_check_request.proto
+// file: proto/gcommon/v1/common/register_check_request.proto
 //
 // Request definitions for health module
 //
@@ -10,8 +10,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/health_check_request.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/health_check_request.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

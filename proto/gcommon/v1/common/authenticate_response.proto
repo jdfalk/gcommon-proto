@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/common/messages/authenticate_response.proto
+// file: proto/gcommon/v1/common/authenticate_response.proto
 // version: 1.0.0
 // guid: c28da8ae-a463-4446-83b2-50a947fd8826
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/rate_limit.proto";
-import "gcommon/v1/common/messages/session.proto";
-import "gcommon/v1/common/messages/user_info.proto";
+import "gcommon/v1/common/rate_limit.proto";
+import "gcommon/v1/common/session.proto";
+import "gcommon/v1/common/user_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

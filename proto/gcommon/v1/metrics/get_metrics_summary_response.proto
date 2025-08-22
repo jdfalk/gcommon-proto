@@ -6,11 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/metrics/messages/metrics_health_info.proto";
-import "gcommon/v1/metrics/messages/metrics_summary.proto";
-import "gcommon/v1/metrics/messages/provider_summary.proto";
-import "gcommon/v1/metrics/messages/time_range.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/metrics_health_info.proto";
+import "gcommon/v1/metrics/metrics_summary.proto";
+import "gcommon/v1/metrics/provider_summary.proto";
+import "gcommon/v1/metrics/time_range.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

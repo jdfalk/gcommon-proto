@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/queue_config.proto
+// file: proto/gcommon/v1/queue/queue_config.proto
 // version: 1.0.0
 // guid: c64defde-30d1-41e5-bfac-b415cbf929c6
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/retention_policy.proto";
+import "gcommon/v1/metrics/retention_policy.proto";
 import "gcommon/v1/queue/priority_level.proto";
 import "gcommon/v1/queue/queue_type.proto";
 import "google/protobuf/go_features.proto";

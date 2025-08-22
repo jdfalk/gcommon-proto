@@ -6,11 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/cpu_usage.proto";
-import "gcommon/v1/metrics/messages/disk_usage.proto";
-import "gcommon/v1/metrics/messages/memory_usage.proto";
-import "gcommon/v1/metrics/messages/network_usage.proto";
-import "gcommon/v1/metrics/messages/resource_data_point.proto";
+import "gcommon/v1/metrics/cpu_usage.proto";
+import "gcommon/v1/metrics/disk_usage.proto";
+import "gcommon/v1/metrics/memory_usage.proto";
+import "gcommon/v1/metrics/network_usage.proto";
+import "gcommon/v1/metrics/resource_data_point.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

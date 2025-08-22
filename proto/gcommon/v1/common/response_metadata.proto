@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/response_metadata.proto
+// file: proto/gcommon/v1/common/response_metadata.proto
 // version: 1.0.0
 // guid: ef32bc34-15e2-49e7-82a9-0c0577f76c38
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/pagination_info.proto";
-import "gcommon/v1/common/messages/rate_limit_info.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/pagination_info.proto";
+import "gcommon/v1/common/rate_limit_info.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

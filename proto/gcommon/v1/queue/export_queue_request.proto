@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/export_queue_request.proto
-// file: proto/gcommon/v1/queue/messages/export_queue_request.proto
+// file: proto/gcommon/v1/queue/export_queue_request.proto
 // version: 1.0.0
 // guid: 4a3b2c1d-0e9f-8a7b-6c5d-4e3f2a1b0c9d
 //
@@ -9,7 +9,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/time_range.proto";
+import "gcommon/v1/metrics/time_range.proto";
 import "gcommon/v1/queue/export_format.proto";
 import "google/protobuf/go_features.proto";
 

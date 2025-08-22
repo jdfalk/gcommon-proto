@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/string_array.proto
+// file: proto/gcommon/v1/common/string_array.proto
 // version: 1.0.0
 // guid: 5ff69d27-5bdf-4475-a029-e9f948b8a078
 edition = "2023";

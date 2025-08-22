@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_service_health_response.proto
+// file: proto/gcommon/v1/common/get_service_health_response.proto
 // version: 1.0.0
 // guid: eb2e3f53-909e-4bd0-a9e8-3162f317a1ae
 edition = "2023";
@@ -6,7 +6,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/health_status.proto";
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

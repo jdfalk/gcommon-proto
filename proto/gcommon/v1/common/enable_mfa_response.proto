@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/enable_mfa_response.proto
+// file: proto/gcommon/v1/common/enable_mfa_response.proto
 // version: 1.0.0
 // guid: 7fe3c97f-1a88-419f-b2f9-9f699a13b78c
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/mfa_setup_instruction.proto";
+import "gcommon/v1/common/mfa_setup_instruction.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

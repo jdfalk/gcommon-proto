@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_node_info_request.proto
+// file: proto/gcommon/v1/queue/get_node_info_request.proto
 // version: 1.0.0
 // guid: 929d869b-d6be-4182-8711-293847f5ba56
 // Request to get node information

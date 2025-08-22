@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/list_servers_request.proto
+// file: proto/gcommon/v1/web/list_servers_request.proto
 // version: 1.0.0
 // guid: 1b601e51-740d-448e-b1cf-ca06a0180bee
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

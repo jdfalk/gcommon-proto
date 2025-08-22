@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/dequeue_request.proto
+// file: proto/gcommon/v1/queue/dequeue_request.proto
 // version: 1.0.0
 // guid: ce6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 // Standard imports

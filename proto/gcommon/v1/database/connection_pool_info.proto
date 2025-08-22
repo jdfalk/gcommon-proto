@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/connection_pool_info.proto
+// file: proto/gcommon/v1/database/connection_pool_info.proto
 // version: 1.0.0
 // guid: 96aea9f8-77e8-4342-87af-6a00947ef1b0
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/database/messages/pool_stats.proto";
+import "gcommon/v1/database/pool_stats.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/commit_transaction_request.proto
+// file: proto/gcommon/v1/database/commit_transaction_request.proto
 // version: 1.0.0
 // guid: 398b751d-7d5a-4624-b844-e7ea289486e6
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

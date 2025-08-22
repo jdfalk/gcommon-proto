@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/update_tenant_request.proto
+// file: proto/gcommon/v1/organization/update_tenant_request.proto
 // version: 1.0.0
 // guid: 1c9d8c7e-4c50-47b6-b6ff-c2dd363bbd5c
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/organization/messages/tenant.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/organization/tenant.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 

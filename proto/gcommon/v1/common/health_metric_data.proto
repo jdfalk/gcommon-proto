@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/health_metric_data.proto
+// file: proto/gcommon/v1/common/health_metric_data.proto
 // version: 1.0.0
 // guid: 2d079e14-0602-4a9a-9b6b-dc8bbf629fe8
 edition = "2023";

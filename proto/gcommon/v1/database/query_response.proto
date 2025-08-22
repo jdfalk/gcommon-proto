@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/database/messages/query_response.proto
+// file: proto/gcommon/v1/database/query_response.proto
 // version: 1.0.0
 // guid: 2dfa79e3-f38e-4708-b131-0f941eb755f8
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/database/messages/query_stats.proto";
-import "gcommon/v1/database/messages/result_set.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/database/query_stats.proto";
+import "gcommon/v1/database/result_set.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

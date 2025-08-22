@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/list_notifications_response.proto
+// file: proto/gcommon/v1/common/list_notifications_response.proto
 // version: 1.0.0
 // guid: 7986e6b9-6a3e-4b7e-b093-5a87133742a3
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/notification_message.proto";
+import "gcommon/v1/common/notification_message.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

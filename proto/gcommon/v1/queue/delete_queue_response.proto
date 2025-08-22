@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/delete_queue_response.proto
+// file: proto/gcommon/v1/queue/delete_queue_response.proto
 // version: 1.0.0
 // guid: 0c0494d6-bfac-476c-a900-f79b5c260fd0
 edition = "2023";

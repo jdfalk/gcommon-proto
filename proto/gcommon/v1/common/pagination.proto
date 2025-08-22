@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/pagination.proto
+// file: proto/gcommon/v1/common/pagination.proto
 // version: 1.0.0
 // guid: 362a2da2-f93c-4652-9287-11938d1af4c3
 edition = "2023";

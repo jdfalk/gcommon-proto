@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/subscription_info.proto
+// file: proto/gcommon/v1/common/subscription_info.proto
 // version: 1.0.0
 // guid: 890b3e39-196c-4fe4-8153-4f73bdf677e6
 edition = "2023";
@@ -6,9 +6,9 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/subscription_status.proto";
-import "gcommon/v1/common/messages/client_info.proto";
-import "gcommon/v1/common/messages/filter_options.proto";
-import "gcommon/v1/common/messages/subscription_options.proto";
+import "gcommon/v1/common/client_info.proto";
+import "gcommon/v1/common/filter_options.proto";
+import "gcommon/v1/common/subscription_options.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

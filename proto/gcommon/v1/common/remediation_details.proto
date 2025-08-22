@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/remediation_details.proto
+// file: proto/gcommon/v1/common/remediation_details.proto
 // version: 1.0.0
 // guid: 6c9c153d-ad84-44c3-978c-b045473b6345
 edition = "2023";

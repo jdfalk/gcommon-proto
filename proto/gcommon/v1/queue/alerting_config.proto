@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/alerting_config.proto
+// file: proto/gcommon/v1/queue/alerting_config.proto
 // version: 1.1.0
 // guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
 
@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/common/alert_severity.proto";
-import "gcommon/v1/queue/messages/alert_rule.proto";
-import "gcommon/v1/queue/messages/notification_channel.proto";
+import "gcommon/v1/queue/alert_rule.proto";
+import "gcommon/v1/queue/notification_channel.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

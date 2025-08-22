@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/restore_error.proto
+// file: proto/gcommon/v1/queue/restore_error.proto
 // version: 1.0.0
 // guid: 9b5c3655-3a8b-40fa-ab5d-ddcec3f98462
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/offset_range.proto";
+import "gcommon/v1/queue/offset_range.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

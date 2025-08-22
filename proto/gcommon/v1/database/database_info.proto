@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/database_info.proto
+// file: proto/gcommon/v1/database/database_info.proto
 // version: 1.0.0
 // guid: 4bce9e15-4221-4e32-97a0-664f1f5fc777
 edition = "2023";

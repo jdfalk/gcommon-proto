@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "gcommon/v1/metrics/response_compression.proto";
-import "gcommon/v1/metrics/messages/numeric_format.proto";
+import "gcommon/v1/metrics/numeric_format.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

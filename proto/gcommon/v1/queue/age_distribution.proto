@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/age_distribution.proto
+// file: proto/gcommon/v1/queue/age_distribution.proto
 // version: 1.0.0
 // guid: 5599d940-19cf-4e9c-a4ce-d102c9c0ae57
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/age_bucket.proto";
+import "gcommon/v1/queue/age_bucket.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

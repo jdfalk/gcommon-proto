@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_role_response.proto
+// file: proto/gcommon/v1/common/get_role_response.proto
 // version: 1.0.0
 // guid: 4da329f9-4bb7-4695-85e7-a7083ae930e1
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/role.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/role.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

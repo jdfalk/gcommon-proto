@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/permission_grant.proto
+// file: proto/gcommon/v1/common/permission_grant.proto
 // version: 1.0.0
 // guid: c33e6d90-d966-45f1-ad79-4b6142211caf
 edition = "2023";

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/file_info.proto
+// file: proto/gcommon/v1/web/file_info.proto
 // version: 1.1.0
 // guid: ee525bfe-ed87-4698-bf47-41bff85db277
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/web/messages/mime_type.proto";
+import "gcommon/v1/web/mime_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

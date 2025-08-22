@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/dry_run_result.proto";
+import "gcommon/v1/metrics/dry_run_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

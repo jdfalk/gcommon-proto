@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/commit_offset_response.proto
+// file: proto/gcommon/v1/queue/commit_offset_response.proto
 // version: 1.0.0
 // guid: 748d3d88-f8aa-4f39-9a7a-5feb16d005d9
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/partition_commit_result.proto";
+import "gcommon/v1/queue/partition_commit_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

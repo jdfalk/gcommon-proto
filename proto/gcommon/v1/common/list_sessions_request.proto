@@ -1,14 +1,14 @@
 // file: proto/gcommon/v1/common/types/list_sessions_request.proto
 // version: 1.0.0
 // guid: b293be7c-9588-4756-9429-52fe8a24a7b5
-// file: proto/gcommon/v1/common/messages/list_sessions_request.proto
+// file: proto/gcommon/v1/common/list_sessions_request.proto
 //
 // Request definitions for auth module
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/pagination.proto";
+import "gcommon/v1/common/pagination.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

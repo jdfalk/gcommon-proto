@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/resource_reference.proto
+// file: proto/gcommon/v1/common/resource_reference.proto
 // version: 1.0.0
 // guid: 3be67606-1200-41ca-ab13-9197830e75c2
 edition = "2023";

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/flush_queue_request.proto
+// file: proto/gcommon/v1/queue/flush_queue_request.proto
 // version: 1.1.0
 // guid: 7ddb0fbd-7f80-45ed-9a91-db95b2111a42
 // Request to flush queue messages to persistent storage

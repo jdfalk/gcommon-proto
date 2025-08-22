@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_health_metrics_response.proto
+// file: proto/gcommon/v1/common/get_health_metrics_response.proto
 // version: 1.0.0
 // guid: 53811a7b-91b9-44c9-8045-42ff44f502c2
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/health_metric_data.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/health_metric_data.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

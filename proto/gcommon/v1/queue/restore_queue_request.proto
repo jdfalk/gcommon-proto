@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/restore_queue_request.proto
+// file: proto/gcommon/v1/queue/restore_queue_request.proto
 // version: 1.0.0
 // guid: 8dbc0f2d-31af-48e8-9785-3d801a7d7e95
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/backup_source.proto";
-import "gcommon/v1/queue/messages/restore_config.proto";
-import "gcommon/v1/queue/messages/restore_options.proto";
+import "gcommon/v1/queue/backup_source.proto";
+import "gcommon/v1/queue/restore_config.proto";
+import "gcommon/v1/queue/restore_options.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/get_namespace_stats_response.proto
+// file: proto/gcommon/v1/database/get_namespace_stats_response.proto
 // version: 1.0.0
 // guid: c59d03a0-bea0-440a-a4d1-6008ef5a0958
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/database/messages/namespace_stats.proto";
+import "gcommon/v1/database/namespace_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

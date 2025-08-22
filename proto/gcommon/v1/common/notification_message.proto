@@ -1,7 +1,7 @@
-// file: proto/gcommon/v1/common/messages/notification_message.proto
+// file: proto/gcommon/v1/common/notification_message.proto
 // version: 1.0.0
 // guid: 145b3e1e-f6ae-4bbf-9efb-78ebe3c659c8
-// file: proto/gcommon/v1/common/messages/notification_message.proto
+// file: proto/gcommon/v1/common/notification_message.proto
 //
 // Message definitions for notification module
 edition = "2023";
@@ -9,7 +9,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/delivery_status.proto";
-import "gcommon/v1/common/messages/delivery_channel.proto";
+import "gcommon/v1/common/delivery_channel.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

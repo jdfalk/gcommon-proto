@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/register_user_response.proto
 // version: 1.0.0
 // guid: 5bda08f2-024d-4dfb-8ba4-45b84fe8d4ef
-// file: proto/gcommon/v1/common/messages/register_user_response.proto
+// file: proto/gcommon/v1/common/register_user_response.proto
 //
 // Response definitions for auth module
 

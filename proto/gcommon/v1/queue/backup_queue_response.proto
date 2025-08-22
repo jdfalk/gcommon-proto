@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/backup_queue_response.proto
+// file: proto/gcommon/v1/queue/backup_queue_response.proto
 // version: 1.0.0
 // guid: f0001260-db1f-4a6a-8b58-21f91e69dc4d
 // Response for queue backup operations

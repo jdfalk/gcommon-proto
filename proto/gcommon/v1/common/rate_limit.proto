@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/rate_limit.proto
+// file: proto/gcommon/v1/common/rate_limit.proto
 // version: 1.0.0
 // guid: ba20cc02-8ef6-4de0-9c0a-30ddcb8c7b14
 edition = "2023";

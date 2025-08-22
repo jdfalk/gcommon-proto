@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/enqueue_response.proto
+// file: proto/gcommon/v1/queue/enqueue_response.proto
 // version: 1.0.0
 // guid: df7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

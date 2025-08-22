@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/config/messages/list_config_response.proto
+// file: proto/gcommon/v1/config/list_config_response.proto
 // version: 1.0.0
 // guid: 38867866-6d7f-4022-a74d-b2c09cdca946
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/paginated_response.proto";
-import "gcommon/v1/config/messages/config_entry.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/paginated_response.proto";
+import "gcommon/v1/config/config_entry.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

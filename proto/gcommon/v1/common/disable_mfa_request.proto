@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/disable_mfa_request.proto
 // version: 1.0.0
 // guid: 69fe90b5-14de-44b2-a3dc-8768c27f6617
-// file: proto/gcommon/v1/common/messages/disable_mfa_request.proto
+// file: proto/gcommon/v1/common/disable_mfa_request.proto
 //
 // Request definitions for auth module
 

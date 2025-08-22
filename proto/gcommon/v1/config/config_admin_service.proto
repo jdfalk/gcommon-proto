@@ -6,22 +6,22 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/messages/backup_config_request.proto";
-import "gcommon/v1/config/messages/config_backup.proto";
-import "gcommon/v1/config/messages/config_snapshot.proto";
-import "gcommon/v1/config/messages/export_config_request.proto";
-import "gcommon/v1/config/messages/get_config_history_request.proto";
-import "gcommon/v1/config/messages/get_config_history_response.proto";
-import "gcommon/v1/config/messages/get_config_stats_request.proto";
-import "gcommon/v1/config/messages/get_config_stats_response.proto";
-import "gcommon/v1/config/messages/health_check_request.proto";
-import "gcommon/v1/config/messages/health_check_response.proto";
-import "gcommon/v1/config/messages/import_config_request.proto";
-import "gcommon/v1/config/messages/reload_config_request.proto";
-import "gcommon/v1/config/messages/restore_config_request.proto";
-import "gcommon/v1/config/messages/rollback_config_request.proto";
-import "gcommon/v1/config/messages/set_config_schema_request.proto";
-import "gcommon/v1/config/messages/unwatch_config_request.proto";
+import "gcommon/v1/config/backup_config_request.proto";
+import "gcommon/v1/config/config_backup.proto";
+import "gcommon/v1/config/config_snapshot.proto";
+import "gcommon/v1/config/export_config_request.proto";
+import "gcommon/v1/config/get_config_history_request.proto";
+import "gcommon/v1/config/get_config_history_response.proto";
+import "gcommon/v1/config/get_config_stats_request.proto";
+import "gcommon/v1/config/get_config_stats_response.proto";
+import "gcommon/v1/config/health_check_request.proto";
+import "gcommon/v1/config/health_check_response.proto";
+import "gcommon/v1/config/import_config_request.proto";
+import "gcommon/v1/config/reload_config_request.proto";
+import "gcommon/v1/config/restore_config_request.proto";
+import "gcommon/v1/config/rollback_config_request.proto";
+import "gcommon/v1/config/set_config_schema_request.proto";
+import "gcommon/v1/config/unwatch_config_request.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 

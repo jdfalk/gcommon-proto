@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/transaction_status_response.proto
+// file: proto/gcommon/v1/database/transaction_status_response.proto
 // version: 1.0.0
 // guid: 9cba586d-35b2-48c1-a923-dc28fcc06359
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/defrag_request.proto
+// file: proto/gcommon/v1/database/defrag_request.proto
 // version: 1.0.0
 // guid: 6a8126b1-18c6-4308-ac2b-07653d79d506
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

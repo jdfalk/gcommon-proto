@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/execute_batch_request.proto
+// file: proto/gcommon/v1/database/execute_batch_request.proto
 // version: 1.0.0
 // guid: 2b4354c4-f03a-4317-86b9-57babf767494
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/database/messages/batch_execute_options.proto";
-import "gcommon/v1/database/messages/batch_operation.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/database/batch_execute_options.proto";
+import "gcommon/v1/database/batch_operation.proto";
 import "google/protobuf/go_features.proto";
 // Use DB-specific batch operation definitions
 

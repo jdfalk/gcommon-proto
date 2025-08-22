@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/publish_config.proto
+// file: proto/gcommon/v1/queue/publish_config.proto
 // version: 1.0.0
 // guid: 684eaa80-e0bc-4fa2-876a-8d97d9865ae8
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/export_config.proto";
+import "gcommon/v1/metrics/export_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

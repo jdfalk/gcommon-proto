@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/delete_role_response.proto
 // version: 1.0.0
 // guid: d7a5181a-727d-4f09-85fb-70407122b1eb
-// file: proto/gcommon/v1/common/messages/delete_role_response.proto
+// file: proto/gcommon/v1/common/delete_role_response.proto
 //
 // Response definitions for auth module
 

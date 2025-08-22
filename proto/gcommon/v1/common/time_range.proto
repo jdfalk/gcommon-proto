@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/time_range.proto
+// file: proto/gcommon/v1/common/time_range.proto
 // version: 1.0.0
 // guid: cdd6726e-7f39-47bb-b9d3-23e7e3a1be64
 edition = "2023";

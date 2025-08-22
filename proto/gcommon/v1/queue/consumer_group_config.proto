@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/consumer_group_config.proto
+// file: proto/gcommon/v1/queue/consumer_group_config.proto
 // version: 1.0.0
 // guid: 8f71a5d7-ed37-4020-94fb-4c8960ef1e5d
 
@@ -9,8 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/load_balancing_strategy.proto";
 import "gcommon/v1/queue/offset_reset_strategy.proto";
 import "gcommon/v1/queue/rebalance_strategy.proto";
-import "gcommon/v1/queue/messages/auto_commit_config.proto";
-import "gcommon/v1/queue/messages/dead_letter_queue_config.proto";
+import "gcommon/v1/queue/auto_commit_config.proto";
+import "gcommon/v1/queue/dead_letter_queue_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

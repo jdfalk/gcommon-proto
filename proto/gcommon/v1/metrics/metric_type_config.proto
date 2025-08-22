@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/counter_config.proto";
-import "gcommon/v1/metrics/messages/gauge_config.proto";
-import "gcommon/v1/metrics/messages/histogram_config.proto";
-import "gcommon/v1/metrics/messages/summary_config.proto";
+import "gcommon/v1/metrics/counter_config.proto";
+import "gcommon/v1/metrics/gauge_config.proto";
+import "gcommon/v1/metrics/histogram_config.proto";
+import "gcommon/v1/metrics/summary_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

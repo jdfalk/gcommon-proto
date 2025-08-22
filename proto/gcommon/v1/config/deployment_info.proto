@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/config/messages/deployment_info.proto
+// file: proto/gcommon/v1/config/deployment_info.proto
 // version: 1.0.0
 // guid: 07fcdb63-0b96-42e8-ab5e-6656870d6f03
 
@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "gcommon/v1/config/deployment_status.proto";
-import "gcommon/v1/config/messages/deployment_rollback_info.proto";
-import "gcommon/v1/config/messages/health_check.proto";
+import "gcommon/v1/config/deployment_rollback_info.proto";
+import "gcommon/v1/config/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/send_verification_email_response.proto
 // version: 1.0.0
 // guid: f17880d2-6f37-4b9d-a6d6-06c70e75e7d6
-// file: proto/gcommon/v1/common/messages/send_verification_email_response.proto
+// file: proto/gcommon/v1/common/send_verification_email_response.proto
 //
 // Response definitions for auth module
 

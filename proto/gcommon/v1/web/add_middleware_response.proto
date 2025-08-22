@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/add_middleware_response.proto
+// file: proto/gcommon/v1/web/add_middleware_response.proto
 // version: 1.0.0
 // guid: 7630a43f-ad62-483e-8e6e-3a8b8a24a8ee
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

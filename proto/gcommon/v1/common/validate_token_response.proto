@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/common/messages/validate_token_response.proto
+// file: proto/gcommon/v1/common/validate_token_response.proto
 // version: 1.0.0
 // guid: b1fc9b36-9860-473f-b59b-a7b9ffbe218b
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/user_info.proto";
+import "gcommon/v1/common/user_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

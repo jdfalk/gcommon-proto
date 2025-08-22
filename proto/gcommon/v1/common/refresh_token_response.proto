@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/refresh_token_response.proto
+// file: proto/gcommon/v1/common/refresh_token_response.proto
 // version: 1.0.0
 // guid: 6dee199f-3a40-4f11-8207-16c802534230
 edition = "2023";

@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/open_telemetry_settings_update.proto";
-import "gcommon/v1/metrics/messages/prometheus_settings_update.proto";
-import "gcommon/v1/metrics/messages/stats_d_settings_update.proto";
+import "gcommon/v1/metrics/open_telemetry_settings_update.proto";
+import "gcommon/v1/metrics/prometheus_settings_update.proto";
+import "gcommon/v1/metrics/stats_d_settings_update.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

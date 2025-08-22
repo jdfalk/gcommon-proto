@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/common/messages/revoke_token_request.proto
+// file: proto/gcommon/v1/common/revoke_token_request.proto
 // version: 1.0.0
 // guid: 0fc4421f-09e3-4cf7-8e64-d11797c80088
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

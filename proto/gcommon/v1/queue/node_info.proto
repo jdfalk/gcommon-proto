@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/node_info.proto
+// file: proto/gcommon/v1/queue/node_info.proto
 // version: 1.0.0
 // guid: d73ea780-8ed0-4b73-8aae-ab5c4fc1a48f
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/node_state.proto";
-import "gcommon/v1/queue/messages/node_stats.proto";
+import "gcommon/v1/queue/node_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

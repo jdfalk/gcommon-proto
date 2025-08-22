@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/config/messages/get_config_history_response.proto
+// file: proto/gcommon/v1/config/get_config_history_response.proto
 // version: 1.0.0
 // guid: a0368a84-a298-4ed2-bccf-799e1e11f6ba
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/metrics/messages/config_change.proto";
+import "gcommon/v1/metrics/config_change.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

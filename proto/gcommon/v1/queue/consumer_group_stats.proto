@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/consumer_group_stats.proto
+// file: proto/gcommon/v1/queue/consumer_group_stats.proto
 // version: 1.0.0
 // guid: b8b6993f-38ea-4912-8d9b-b5d70c3968fc
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/consumer_error_stats.proto";
-import "gcommon/v1/queue/messages/rebalance_stats.proto";
+import "gcommon/v1/queue/consumer_error_stats.proto";
+import "gcommon/v1/queue/rebalance_stats.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

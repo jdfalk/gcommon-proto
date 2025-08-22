@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/list_middleware_request.proto
+// file: proto/gcommon/v1/web/list_middleware_request.proto
 // version: 1.1.0
 // guid: 0717a6fd-6194-47c2-a17e-4cb18eac5bba
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/pagination.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/pagination.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/web/middleware_type.proto";
 import "google/protobuf/go_features.proto";
 

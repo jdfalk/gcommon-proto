@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/validation_error.proto
+// file: proto/gcommon/v1/queue/validation_error.proto
 // version: 1.0.0
 // guid: c3c484a5-cc5a-41e5-926d-91ba8263600e
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/offset_range.proto";
+import "gcommon/v1/queue/offset_range.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

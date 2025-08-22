@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/verify_mfa_response.proto
 // version: 1.0.0
 // guid: 352b7b8d-1237-45ac-89b7-63228d94c5d0
-// file: proto/gcommon/v1/common/messages/verify_mfa_response.proto
+// file: proto/gcommon/v1/common/verify_mfa_response.proto
 //
 // Response definitions for auth module
 

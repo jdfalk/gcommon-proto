@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/reset_queue_stats_response.proto
+// file: proto/gcommon/v1/queue/reset_queue_stats_response.proto
 // version: 1.0.0
 // guid: 11f82fe8-4d3f-4188-b0c9-4fb2a7d24591
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/preserved_stats.proto";
-import "gcommon/v1/queue/messages/reset_details.proto";
+import "gcommon/v1/queue/preserved_stats.proto";
+import "gcommon/v1/queue/reset_details.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

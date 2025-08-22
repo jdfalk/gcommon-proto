@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/update_media_file_request.proto
+// file: proto/gcommon/v1/media/update_media_file_request.proto
 // version: 1.0.0
 // guid: 7e8f9012-3456-7890-f1a2-b3c4d5e6f7a8
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/media_file.proto";
+import "gcommon/v1/media/media_file.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 

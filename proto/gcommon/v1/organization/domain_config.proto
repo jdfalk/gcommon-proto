@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/domain_config.proto
+// file: proto/gcommon/v1/organization/domain_config.proto
 // version: 1.0.0
 // guid: ee8bb6b4-f822-496b-8109-9bd6ffdbdf7b
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/organization/messages/dns_config.proto";
+import "gcommon/v1/organization/dns_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

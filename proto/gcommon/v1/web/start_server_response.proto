@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/start_server_response.proto
+// file: proto/gcommon/v1/web/start_server_response.proto
 // version: 1.0.1
 // guid: 0655b1fa-e5f9-419d-a4f1-dcd1a5b474b5
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "gcommon/v1/web/server_status.proto";
 import "google/protobuf/go_features.proto";
 

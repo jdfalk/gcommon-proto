@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/update_ssl_certificate_request.proto
+// file: proto/gcommon/v1/web/update_ssl_certificate_request.proto
 // version: 1.0.0
 // guid: eec70ef5-baf4-4799-ba2d-3b00ad4b2e32
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/create_cookie_request.proto
+// file: proto/gcommon/v1/web/create_cookie_request.proto
 // version: 1.2.0
 // guid: 44838568-f1f6-44f1-b4a5-2299a815ccad
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/web/same_site_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

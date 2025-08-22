@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/database/messages/restore_request.proto
+// file: proto/gcommon/v1/database/restore_request.proto
 // version: 1.0.0
 // guid: cd942141-18b5-4a0d-88b2-9c5fdf4f3cb0
 edition = "2023";
 
 package gcommon.v1.database;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

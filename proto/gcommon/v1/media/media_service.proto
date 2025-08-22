@@ -6,20 +6,20 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/create_media_file_request.proto";
-import "gcommon/v1/media/messages/create_media_file_response.proto";
-import "gcommon/v1/media/messages/delete_media_file_request.proto";
-import "gcommon/v1/media/messages/delete_media_file_response.proto";
-import "gcommon/v1/media/messages/get_media_file_request.proto";
-import "gcommon/v1/media/messages/get_media_file_response.proto";
-import "gcommon/v1/media/messages/list_media_files_request.proto";
-import "gcommon/v1/media/messages/list_media_files_response.proto";
-import "gcommon/v1/media/messages/search_media_request.proto";
-import "gcommon/v1/media/messages/search_media_response.proto";
-import "gcommon/v1/media/messages/update_media_file_request.proto";
-import "gcommon/v1/media/messages/update_media_file_response.proto";
-import "gcommon/v1/media/messages/upload_media_request.proto";
-import "gcommon/v1/media/messages/upload_media_response.proto";
+import "gcommon/v1/media/create_media_file_request.proto";
+import "gcommon/v1/media/create_media_file_response.proto";
+import "gcommon/v1/media/delete_media_file_request.proto";
+import "gcommon/v1/media/delete_media_file_response.proto";
+import "gcommon/v1/media/get_media_file_request.proto";
+import "gcommon/v1/media/get_media_file_response.proto";
+import "gcommon/v1/media/list_media_files_request.proto";
+import "gcommon/v1/media/list_media_files_response.proto";
+import "gcommon/v1/media/search_media_request.proto";
+import "gcommon/v1/media/search_media_response.proto";
+import "gcommon/v1/media/update_media_file_request.proto";
+import "gcommon/v1/media/update_media_file_response.proto";
+import "gcommon/v1/media/upload_media_request.proto";
+import "gcommon/v1/media/upload_media_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/purge_response.proto
+// file: proto/gcommon/v1/queue/purge_response.proto
 // version: 1.0.0
 // guid: 14d5741d-3af8-49b9-8ec4-887527a72cfb
 // Response for queue purge operations

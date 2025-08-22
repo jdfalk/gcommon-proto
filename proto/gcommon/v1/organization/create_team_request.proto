@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/create_team_request.proto
+// file: proto/gcommon/v1/organization/create_team_request.proto
 // version: 1.0.0
 // guid: 21cf9d30-d222-4d27-95dc-6dc71cf4a89f
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/organization/messages/team.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/organization/team.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

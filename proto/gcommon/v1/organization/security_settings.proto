@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/security_settings.proto
+// file: proto/gcommon/v1/organization/security_settings.proto
 // version: 1.0.0
 // guid: 89b40ea9-8cb2-44a5-ba5e-9cbd6aeb4e24
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/organization/messages/rate_limit_config.proto";
+import "gcommon/v1/organization/rate_limit_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

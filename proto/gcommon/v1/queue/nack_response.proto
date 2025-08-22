@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/nack_response.proto
+// file: proto/gcommon/v1/queue/nack_response.proto
 // version: 1.0.0
 // guid: 70f01290-1e6f-484c-aa71-1cd5f50aa7f5
 // Response for negative acknowledgment operations

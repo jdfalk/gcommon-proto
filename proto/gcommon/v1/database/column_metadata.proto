@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/column_metadata.proto
+// file: proto/gcommon/v1/database/column_metadata.proto
 // version: 1.0.0
 // guid: d06d164a-51bd-4f22-b1db-15171a8dd72d
 edition = "2023";

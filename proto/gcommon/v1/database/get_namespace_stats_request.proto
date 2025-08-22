@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/get_namespace_stats_request.proto
+// file: proto/gcommon/v1/database/get_namespace_stats_request.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174017
 

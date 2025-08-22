@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/pause_queue_response.proto
+// file: proto/gcommon/v1/queue/pause_queue_response.proto
 // version: 1.0.0
 // guid: 8d32dd33-5b24-4d1f-b32c-fc9e172e7b9a
 // Response for queue pause operations

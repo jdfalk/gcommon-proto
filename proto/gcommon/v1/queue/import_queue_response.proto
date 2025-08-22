@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/import_queue_response.proto
-// file: proto/gcommon/v1/queue/messages/import_queue_response.proto
+// file: proto/gcommon/v1/queue/import_queue_response.proto
 // version: 1.0.0
 // guid: 5d4c3b2a-1f0e-9d8c-7b6a-5e4f3a2b1c0d
 //

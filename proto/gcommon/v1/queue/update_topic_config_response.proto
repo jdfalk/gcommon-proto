@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/update_topic_config_response.proto
-// file: proto/gcommon/v1/queue/messages/update_topic_config_response.proto
+// file: proto/gcommon/v1/queue/update_topic_config_response.proto
 // version: 1.0.0
 // guid: 2e1f0d9c-8b7a-6e5f-4d3c-2b1a0f9e8d7c
 //

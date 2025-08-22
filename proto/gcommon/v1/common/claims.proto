@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/claims.proto
 // version: 1.0.0
 // guid: 47901ef8-6b22-4b73-8bba-9c53ccaa46c8
-// file: proto/gcommon/v1/common/messages/claims.proto
+// file: proto/gcommon/v1/common/claims.proto
 //
 // Type definitions for auth module
 

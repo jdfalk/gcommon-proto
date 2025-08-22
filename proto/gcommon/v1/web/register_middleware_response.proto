@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/register_middleware_response.proto
+// file: proto/gcommon/v1/web/register_middleware_response.proto
 // version: 1.1.0
 // guid: 759e7f49-492f-4cf6-ae71-bfcc4f96aa83
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/web/messages/middleware_info.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/web/middleware_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/delivery_configuration.proto
+// file: proto/gcommon/v1/queue/delivery_configuration.proto
 // version: 1.0.0
 // guid: 4f995a26-dac9-451d-9d56-fb21aa66e2fa
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/batch_delivery_config.proto";
-import "gcommon/v1/queue/messages/delivery_retry_config.proto";
-import "gcommon/v1/queue/messages/flow_control_settings.proto";
+import "gcommon/v1/queue/batch_delivery_config.proto";
+import "gcommon/v1/queue/delivery_retry_config.proto";
+import "gcommon/v1/queue/flow_control_settings.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

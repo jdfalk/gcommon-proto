@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/percentile_measurement.proto";
-import "gcommon/v1/metrics/messages/timer_statistics.proto";
+import "gcommon/v1/metrics/percentile_measurement.proto";
+import "gcommon/v1/metrics/timer_statistics.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

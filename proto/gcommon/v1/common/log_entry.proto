@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/log_entry.proto
+// file: proto/gcommon/v1/common/log_entry.proto
 // version: 1.0.0
 // guid: 86cfa864-b9da-428c-9ca9-78f614600049
 
@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/log_level.proto";
-import "gcommon/v1/common/messages/error_info.proto";
-import "gcommon/v1/common/messages/source_location.proto";
+import "gcommon/v1/common/error_info.proto";
+import "gcommon/v1/common/source_location.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

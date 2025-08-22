@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/database/messages/batch_execute_options.proto
+// file: proto/gcommon/v1/database/batch_execute_options.proto
 // version: 1.0.0
 // guid: 7d1e1868-699a-432f-ab30-ba90462e683a
 edition = "2023";

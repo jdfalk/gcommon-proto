@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/assign_role_response.proto
 // version: 1.0.0
 // guid: 71268c4b-6cea-4997-9b67-ce60cc72de2b
-// file: proto/gcommon/v1/common/messages/assign_role_response.proto
+// file: proto/gcommon/v1/common/assign_role_response.proto
 //
 // Response definitions for auth module
 

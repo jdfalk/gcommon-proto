@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/partition_restore_result.proto
+// file: proto/gcommon/v1/queue/partition_restore_result.proto
 // version: 1.0.0
 // guid: b39d8964-9b75-4f60-9e91-1c838aa2546e
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/restore_error.proto";
+import "gcommon/v1/queue/restore_error.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

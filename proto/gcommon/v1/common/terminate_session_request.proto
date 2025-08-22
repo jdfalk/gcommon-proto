@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/terminate_session_request.proto
+// file: proto/gcommon/v1/common/terminate_session_request.proto
 // version: 1.0.0
 // guid: 9b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/cache_behavior.proto
+// file: proto/gcommon/v1/organization/cache_behavior.proto
 // version: 1.0.0
 // guid: e71b878c-7505-4ea2-af2b-59a9f9a155ca
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/organization/messages/cache_key_policy.proto";
+import "gcommon/v1/organization/cache_key_policy.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

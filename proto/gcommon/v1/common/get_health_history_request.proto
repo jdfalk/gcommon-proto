@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/common/types/get_health_history_request.proto
 // version: 1.0.0
 // guid: b0eb3b6a-e7f2-454f-addf-e8c9a9d2313a
-// file: proto/gcommon/v1/common/messages/get_health_history_request.proto
+// file: proto/gcommon/v1/common/get_health_history_request.proto
 //
 // Request definitions for health module
 //
@@ -10,7 +10,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

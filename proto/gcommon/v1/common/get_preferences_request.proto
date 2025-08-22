@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/get_preferences_request.proto
+// file: proto/gcommon/v1/common/get_preferences_request.proto
 // version: 1.0.0
 // guid: fb16c45a-545c-4d05-b3fd-34dbc4a9d0c1
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

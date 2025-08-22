@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/health_check_response.proto
+// file: proto/gcommon/v1/web/health_check_response.proto
 // version: 1.0.0
 // guid: abec6322-3426-4dde-8a30-3afe453d1650
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/common/health_status.proto";
-import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

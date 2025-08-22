@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/organization/messages/get_tenant_usage_response.proto
+// file: proto/gcommon/v1/organization/get_tenant_usage_response.proto
 // version: 1.0.0
 // guid: c93fcd4c-7090-4c96-9c04-1e2b77a10337
 edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/key_value.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

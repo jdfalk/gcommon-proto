@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/messages/retry_settings.proto";
-import "gcommon/v1/config/messages/validation_rule.proto";
+import "gcommon/v1/config/retry_settings.proto";
+import "gcommon/v1/config/validation_rule.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

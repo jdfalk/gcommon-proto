@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/user_metadata.proto
+// file: proto/gcommon/v1/common/user_metadata.proto
 // version: 1.0.0
 // guid: 18290eba-bd6e-4e3a-8aea-ffb79b9fa0f9
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/user_preferences.proto";
-import "gcommon/v1/common/messages/verification_status.proto";
+import "gcommon/v1/common/user_preferences.proto";
+import "gcommon/v1/common/verification_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

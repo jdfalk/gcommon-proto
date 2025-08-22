@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/create_subscription_request.proto
+// file: proto/gcommon/v1/queue/create_subscription_request.proto
 // version: 1.0.0
 // guid: 5b7ce7f0-2023-49f1-9801-b105699049ac
 // Request to create a new subscription
@@ -7,7 +7,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/subscription_config.proto";
+import "gcommon/v1/queue/subscription_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

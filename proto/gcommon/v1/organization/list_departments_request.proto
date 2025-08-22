@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/list_departments_request.proto
+// file: proto/gcommon/v1/organization/list_departments_request.proto
 // version: 1.0.0
 // guid: 874d0e66-c98b-40cc-b0b2-ffb5f57d2d0f
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

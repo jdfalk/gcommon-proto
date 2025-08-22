@@ -5,22 +5,22 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/create_session_request.proto";
-import "gcommon/v1/common/messages/create_session_response.proto";
-import "gcommon/v1/common/messages/delete_session_request.proto";
-import "gcommon/v1/common/messages/delete_session_response.proto";
-import "gcommon/v1/common/messages/get_session_request.proto";
-import "gcommon/v1/common/messages/get_session_response.proto";
-import "gcommon/v1/common/messages/list_sessions_request.proto";
-import "gcommon/v1/common/messages/list_sessions_response.proto";
-import "gcommon/v1/common/messages/list_user_sessions_request.proto";
-import "gcommon/v1/common/messages/list_user_sessions_response.proto";
-import "gcommon/v1/common/messages/terminate_session_request.proto";
-import "gcommon/v1/common/messages/terminate_session_response.proto";
-import "gcommon/v1/common/messages/update_session_request.proto";
-import "gcommon/v1/common/messages/update_session_response.proto";
-import "gcommon/v1/common/messages/validate_session_request.proto";
-import "gcommon/v1/common/messages/validate_session_response.proto";
+import "gcommon/v1/common/create_session_request.proto";
+import "gcommon/v1/common/create_session_response.proto";
+import "gcommon/v1/common/delete_session_request.proto";
+import "gcommon/v1/common/delete_session_response.proto";
+import "gcommon/v1/common/get_session_request.proto";
+import "gcommon/v1/common/get_session_response.proto";
+import "gcommon/v1/common/list_sessions_request.proto";
+import "gcommon/v1/common/list_sessions_response.proto";
+import "gcommon/v1/common/list_user_sessions_request.proto";
+import "gcommon/v1/common/list_user_sessions_response.proto";
+import "gcommon/v1/common/terminate_session_request.proto";
+import "gcommon/v1/common/terminate_session_response.proto";
+import "gcommon/v1/common/update_session_request.proto";
+import "gcommon/v1/common/update_session_response.proto";
+import "gcommon/v1/common/validate_session_request.proto";
+import "gcommon/v1/common/validate_session_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

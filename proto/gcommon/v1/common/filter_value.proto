@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/filter_value.proto
+// file: proto/gcommon/v1/common/filter_value.proto
 // version: 1.0.0
 // guid: e873017a-bb7e-4509-bb4b-ba7a2d08bb2b
 edition = "2023";
@@ -6,8 +6,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/filter_operation.proto";
-import "gcommon/v1/common/messages/int64_array.proto";
-import "gcommon/v1/common/messages/string_array.proto";
+import "gcommon/v1/common/int64_array.proto";
+import "gcommon/v1/common/string_array.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

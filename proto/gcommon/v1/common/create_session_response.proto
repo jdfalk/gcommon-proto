@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/create_session_response.proto
+// file: proto/gcommon/v1/common/create_session_response.proto
 // version: 1.0.0
 // guid: a1b2c3d4-e5f6-7890-1234-567890abcdef
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/response_metadata.proto";
+import "gcommon/v1/common/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

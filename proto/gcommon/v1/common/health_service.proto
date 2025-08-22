@@ -5,22 +5,22 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/get_health_metrics_request.proto";
-import "gcommon/v1/common/messages/get_health_metrics_response.proto";
-import "gcommon/v1/common/messages/get_service_health_request.proto";
-import "gcommon/v1/common/messages/get_service_health_response.proto";
-import "gcommon/v1/common/messages/health_check_all_request.proto";
-import "gcommon/v1/common/messages/health_check_all_response.proto";
-import "gcommon/v1/common/messages/health_check_request.proto";
-import "gcommon/v1/common/messages/health_check_response.proto";
-import "gcommon/v1/common/messages/list_services_request.proto";
-import "gcommon/v1/common/messages/list_services_response.proto";
-import "gcommon/v1/common/messages/register_check_request.proto";
-import "gcommon/v1/common/messages/register_check_response.proto";
-import "gcommon/v1/common/messages/unregister_check_request.proto";
-import "gcommon/v1/common/messages/unregister_check_response.proto";
-import "gcommon/v1/common/messages/watch_request.proto";
-import "gcommon/v1/common/messages/watch_response.proto";
+import "gcommon/v1/common/get_health_metrics_request.proto";
+import "gcommon/v1/common/get_health_metrics_response.proto";
+import "gcommon/v1/common/get_service_health_request.proto";
+import "gcommon/v1/common/get_service_health_response.proto";
+import "gcommon/v1/common/health_check_all_request.proto";
+import "gcommon/v1/common/health_check_all_response.proto";
+import "gcommon/v1/common/health_check_request.proto";
+import "gcommon/v1/common/health_check_response.proto";
+import "gcommon/v1/common/list_services_request.proto";
+import "gcommon/v1/common/list_services_response.proto";
+import "gcommon/v1/common/register_check_request.proto";
+import "gcommon/v1/common/register_check_response.proto";
+import "gcommon/v1/common/unregister_check_request.proto";
+import "gcommon/v1/common/unregister_check_response.proto";
+import "gcommon/v1/common/watch_request.proto";
+import "gcommon/v1/common/watch_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

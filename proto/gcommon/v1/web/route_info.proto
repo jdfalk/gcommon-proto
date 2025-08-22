@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/web/messages/route_info.proto
+// file: proto/gcommon/v1/web/route_info.proto
 // version: 1.1.0
 // guid: 8154bd31-51b0-4043-9a14-f0614adcd523
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/web/route_type.proto";
-import "gcommon/v1/web/messages/route_config.proto";
+import "gcommon/v1/web/route_config.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

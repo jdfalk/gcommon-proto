@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/update_team_request.proto
+// file: proto/gcommon/v1/organization/update_team_request.proto
 // version: 1.0.0
 // guid: c613ff0c-caef-4ec5-a856-de0a5ee8605c
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/organization/messages/team.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/organization/team.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 

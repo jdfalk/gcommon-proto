@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/update_message_response.proto
+// file: proto/gcommon/v1/queue/update_message_response.proto
 // version: 1.0.0
 // guid: f8af2c52-28d1-49c0-9813-a87e5f5a411d
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/failed_field_update.proto";
-import "gcommon/v1/queue/messages/updated_properties.proto";
+import "gcommon/v1/queue/failed_field_update.proto";
+import "gcommon/v1/queue/updated_properties.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

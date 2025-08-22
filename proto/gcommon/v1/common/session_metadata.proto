@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/session_metadata.proto
+// file: proto/gcommon/v1/common/session_metadata.proto
 // version: 1.0.0
 // guid: 01cd27dc-f07e-4fe5-805f-ff4fc49ef91b
 
@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/session_state.proto";
-import "gcommon/v1/common/messages/device_info.proto";
-import "gcommon/v1/common/messages/location_info.proto";
+import "gcommon/v1/common/device_info.proto";
+import "gcommon/v1/common/location_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

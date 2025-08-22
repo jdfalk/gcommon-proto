@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_queue_stats_request.proto
+// file: proto/gcommon/v1/queue/get_queue_stats_request.proto
 // version: 1.0.0
 // guid: 7dc18176-1123-444f-8040-b7e352b501d6
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/time_range.proto";
+import "gcommon/v1/metrics/time_range.proto";
 import "gcommon/v1/queue/stats_granularity.proto";
 import "google/protobuf/go_features.proto";
 

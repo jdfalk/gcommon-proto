@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/config/api/encrypt_config_request.proto
 // version: 1.0.0
 // guid: dabeec2c-e6f7-49fa-9750-adfc41fca9ca
-// file: proto/gcommon/v1/config/messages/encrypt_config_request.proto
+// file: proto/gcommon/v1/config/encrypt_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation
@@ -10,7 +10,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

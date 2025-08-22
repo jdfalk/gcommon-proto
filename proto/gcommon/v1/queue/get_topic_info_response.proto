@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/get_topic_info_response.proto
+// file: proto/gcommon/v1/queue/get_topic_info_response.proto
 // version: 1.0.0
 // guid: 1a5f0bc1-5c84-4d82-9730-028810eadf04
 
@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/retention_info.proto";
-import "gcommon/v1/queue/messages/owner_info.proto";
-import "gcommon/v1/queue/messages/partition_info.proto";
-import "gcommon/v1/queue/messages/topic_configuration.proto";
-import "gcommon/v1/queue/messages/topic_permissions.proto";
-import "gcommon/v1/queue/messages/topic_stats.proto";
+import "gcommon/v1/metrics/retention_info.proto";
+import "gcommon/v1/queue/owner_info.proto";
+import "gcommon/v1/queue/partition_info.proto";
+import "gcommon/v1/queue/topic_configuration.proto";
+import "gcommon/v1/queue/topic_permissions.proto";
+import "gcommon/v1/queue/topic_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

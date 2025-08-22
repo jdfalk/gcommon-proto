@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/consumer_group.proto
+// file: proto/gcommon/v1/queue/consumer_group.proto
 // version: 1.0.0
 // guid: 04a92687-cec2-4eac-a15d-f6f0c884eab3
 
@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/consumer_group_state.proto";
-import "gcommon/v1/queue/messages/consumer.proto";
-import "gcommon/v1/queue/messages/consumer_group_config.proto";
-import "gcommon/v1/queue/messages/consumer_group_stats.proto";
-import "gcommon/v1/queue/messages/group_coordinator.proto";
-import "gcommon/v1/queue/messages/partition_assignment.proto";
+import "gcommon/v1/queue/consumer.proto";
+import "gcommon/v1/queue/consumer_group_config.proto";
+import "gcommon/v1/queue/consumer_group_stats.proto";
+import "gcommon/v1/queue/group_coordinator.proto";
+import "gcommon/v1/queue/partition_assignment.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

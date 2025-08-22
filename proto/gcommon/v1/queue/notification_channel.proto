@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/notification_channel.proto
+// file: proto/gcommon/v1/queue/notification_channel.proto
 // version: 1.0.0
 // guid: 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/metrics/messages/alert_severity.proto";
+import "gcommon/v1/metrics/alert_severity.proto";
 import "gcommon/v1/queue/notification_channel_type.proto";
 import "google/protobuf/go_features.proto";
 

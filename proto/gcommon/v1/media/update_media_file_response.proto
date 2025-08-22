@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/update_media_file_response.proto
+// file: proto/gcommon/v1/media/update_media_file_response.proto
 // version: 1.0.0
 // guid: 8f901234-5678-9012-a3b4-c5d6e7f8a9b0
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/media_file.proto";
+import "gcommon/v1/media/media_file.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

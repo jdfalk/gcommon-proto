@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/read_consistency.proto
+// file: proto/gcommon/v1/queue/read_consistency.proto
 // version: 1.0.0
 // guid: 76f69c9b-abbb-4704-a74e-3dddcab24330
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/read_level.proto";
-import "gcommon/v1/queue/messages/read_retry_config.proto";
+import "gcommon/v1/queue/read_retry_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

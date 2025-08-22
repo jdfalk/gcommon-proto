@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/write_consistency.proto
+// file: proto/gcommon/v1/queue/write_consistency.proto
 // version: 1.0.0
 // guid: 25356885-1f2a-4629-a203-6fd654cb6821
 
@@ -7,9 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "gcommon/v1/queue/write_level.proto";
-import "gcommon/v1/queue/messages/conflict_detection.proto";
-import "gcommon/v1/queue/messages/sync_replication.proto";
-import "gcommon/v1/queue/messages/write_retry_config.proto";
+import "gcommon/v1/queue/conflict_detection.proto";
+import "gcommon/v1/queue/sync_replication.proto";
+import "gcommon/v1/queue/write_retry_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

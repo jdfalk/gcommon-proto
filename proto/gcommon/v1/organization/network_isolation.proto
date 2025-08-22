@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/messages/network_isolation.proto
+// file: proto/gcommon/v1/organization/network_isolation.proto
 // version: 1.0.0
 // guid: d005d972-e2a8-443e-ae8a-dcc1d5be7bd6
 
@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/organization/messages/cdn_config.proto";
-import "gcommon/v1/organization/messages/domain_config.proto";
-import "gcommon/v1/organization/messages/load_balancer_config.proto";
-import "gcommon/v1/organization/messages/network_acl_rule.proto";
+import "gcommon/v1/organization/cdn_config.proto";
+import "gcommon/v1/organization/domain_config.proto";
+import "gcommon/v1/organization/load_balancer_config.proto";
+import "gcommon/v1/organization/network_acl_rule.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/delete_response.proto
+// file: proto/gcommon/v1/queue/delete_response.proto
 // version: 1.0.0
 // guid: 9de9c1b0-9bc8-44a6-af2b-133a1f578373
 
@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/backup_info.proto";
-import "gcommon/v1/queue/messages/deletion_stats.proto";
+import "gcommon/v1/queue/backup_info.proto";
+import "gcommon/v1/queue/deletion_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

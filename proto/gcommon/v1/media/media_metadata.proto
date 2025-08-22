@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/messages/movie_info.proto";
-import "gcommon/v1/media/messages/series_info.proto";
+import "gcommon/v1/media/movie_info.proto";
+import "gcommon/v1/media/series_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

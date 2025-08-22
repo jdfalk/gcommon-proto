@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/config/messages/template_parameter.proto
+// file: proto/gcommon/v1/config/template_parameter.proto
 // version: 1.0.0
 // guid: 800be7b5-ca05-4137-a8d2-7d1a3fe5cc97
 
@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "gcommon/v1/config/parameter_type.proto";
-import "gcommon/v1/config/messages/parameter_constraints.proto";
+import "gcommon/v1/config/parameter_constraints.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/common/messages/remove_role_response.proto
+// file: proto/gcommon/v1/common/remove_role_response.proto
 // version: 1.0.0
 // guid: d8f9ff14-27d8-4495-bba6-2a8a944df6be
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/role.proto";
+import "gcommon/v1/common/role.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

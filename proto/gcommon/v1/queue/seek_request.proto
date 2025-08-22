@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/seek_request.proto
-// file: proto/gcommon/v1/queue/messages/seek_request.proto
+// file: proto/gcommon/v1/queue/seek_request.proto
 // version: 1.0.0
 // guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 //
@@ -9,7 +9,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

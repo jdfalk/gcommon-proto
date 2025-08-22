@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/config/partition_config.proto
-// file: proto/gcommon/v1/queue/messages/partition_config.proto
+// file: proto/gcommon/v1/queue/partition_config.proto
 // version: 1.0.0
 // guid: 0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f
 //

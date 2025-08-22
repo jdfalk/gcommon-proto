@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/messages/error_stats.proto";
-import "gcommon/v1/metrics/messages/export_status.proto";
-import "gcommon/v1/metrics/messages/metric_type_counts.proto";
-import "gcommon/v1/metrics/messages/performance_stats.proto";
-import "gcommon/v1/metrics/messages/retention_info.proto";
-import "gcommon/v1/metrics/messages/top_metrics.proto";
+import "gcommon/v1/metrics/error_stats.proto";
+import "gcommon/v1/metrics/export_status.proto";
+import "gcommon/v1/metrics/metric_type_counts.proto";
+import "gcommon/v1/metrics/performance_stats.proto";
+import "gcommon/v1/metrics/retention_info.proto";
+import "gcommon/v1/metrics/top_metrics.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

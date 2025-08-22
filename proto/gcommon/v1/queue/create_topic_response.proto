@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/create_topic_response.proto
-// file: proto/gcommon/v1/queue/messages/create_topic_response.proto
+// file: proto/gcommon/v1/queue/create_topic_response.proto
 // version: 1.0.0
 // guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 //
@@ -9,8 +9,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/messages/topic_config.proto";
-import "gcommon/v1/queue/messages/topic_info.proto";
+import "gcommon/v1/queue/topic_config.proto";
+import "gcommon/v1/queue/topic_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

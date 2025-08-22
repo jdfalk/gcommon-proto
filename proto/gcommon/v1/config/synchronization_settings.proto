@@ -8,7 +8,7 @@ package gcommon.v1.config;
 
 import "gcommon/v1/config/conflict_resolution.proto";
 import "gcommon/v1/config/synchronization_frequency.proto";
-import "gcommon/v1/config/messages/synchronization_target.proto";
+import "gcommon/v1/config/synchronization_target.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -1,11 +1,11 @@
-// file: proto/gcommon/v1/organization/messages/organization_member.proto
+// file: proto/gcommon/v1/organization/organization_member.proto
 // version: 1.0.0
 // guid: 74375b8f-7a0b-4243-94fe-3c59ed01f5c4
 edition = "2023";
 
 package gcommon.v1.organization;
 
-import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/common/key_value.proto";
 import "gcommon/v1/organization/member_role.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

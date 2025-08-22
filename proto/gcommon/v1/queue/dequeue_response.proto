@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/messages/dequeue_response.proto
+// file: proto/gcommon/v1/queue/dequeue_response.proto
 // version: 1.0.0
 // guid: ea8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 
@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/messages/error.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/queue/messages/queue_message.proto";
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Standard imports

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/update_preferences_response.proto
+// file: proto/gcommon/v1/common/update_preferences_response.proto
 // version: 1.0.0
 // guid: 3eb0a369-6ebb-48fb-b5a1-8e7e3d5d7f39
 edition = "2023";

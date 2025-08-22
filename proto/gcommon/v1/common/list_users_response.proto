@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/messages/list_users_response.proto
+// file: proto/gcommon/v1/common/list_users_response.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174005
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/messages/user_info.proto";
+import "gcommon/v1/common/user_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

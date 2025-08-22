@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/media_file.proto
+// file: proto/gcommon/v1/media/media_file.proto
 // version: 1.0.0
 // guid: e3bc9175-1261-4755-9d32-d991586e723f
 
@@ -7,10 +7,10 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "gcommon/v1/media/media_type.proto";
-import "gcommon/v1/media/messages/audio_track.proto";
-import "gcommon/v1/media/messages/media_metadata.proto";
-import "gcommon/v1/media/messages/media_quality.proto";
-import "gcommon/v1/media/messages/subtitle_track.proto";
+import "gcommon/v1/media/audio_track.proto";
+import "gcommon/v1/media/media_metadata.proto";
+import "gcommon/v1/media/media_quality.proto";
+import "gcommon/v1/media/subtitle_track.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
