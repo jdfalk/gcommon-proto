@@ -22,7 +22,7 @@ message UpdateTeamRequest {
   string team_id = 2;
 
   // Updated team information
-  gcommon.v1.common.Team team = 3;
+  Team team = 3;
 
   // Fields to update in partial mode
   google.protobuf.FieldMask update_mask = 4;

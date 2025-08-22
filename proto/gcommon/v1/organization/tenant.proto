@@ -64,7 +64,7 @@ message Tenant {
   string network_config = 14;
 
   // Resource quotas for this tenant
-  gcommon.v1.common.TenantQuota quota = 15;
+  TenantQuota quota = 15;
 
   // Custom domain for this tenant (if applicable)
   string custom_domain = 16;

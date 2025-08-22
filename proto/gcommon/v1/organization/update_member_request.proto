@@ -22,7 +22,7 @@ message UpdateMemberRequest {
   string member_id = 2;
 
   // Updated member information
-  gcommon.v1.common.OrganizationMember member = 3;
+  OrganizationMember member = 3;
 
   // Fields to update for partial updates
   google.protobuf.FieldMask update_mask = 4;

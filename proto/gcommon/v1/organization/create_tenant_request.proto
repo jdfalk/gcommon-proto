@@ -16,8 +16,8 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 message CreateTenantRequest {
   // Request metadata for tracing and context
   gcommon.v1.common.RequestMetadata metadata = 1;
-  // Tenant information to create
-  gcommon.v1.common.Tenant tenant = 2;
+  // The tenant to create.
+  Tenant tenant = 2;
 
   // Validate only without persisting if true
   bool validate_only = 3;

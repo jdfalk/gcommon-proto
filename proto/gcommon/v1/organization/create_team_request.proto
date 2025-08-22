@@ -18,7 +18,7 @@ message CreateTeamRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Team details to create
-  gcommon.v1.common.Team team = 2;
+  Team team = 2;
 
   // Validate only without persisting if true
   bool validate_only = 3;

@@ -20,5 +20,5 @@ message GetTeamResponse {
   bool success = 2;
 
   // Team information
-  gcommon.v1.common.Team team = 3;
+  Team team = 3;
 }

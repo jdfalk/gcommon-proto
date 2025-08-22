@@ -21,7 +21,7 @@ message ListDepartmentsResponse {
   bool success = 2;
 
   // List of departments returned
-  repeated gcommon.v1.common.Department departments = 3 [lazy = true];
+  repeated Department departments = 3 [lazy = true];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;

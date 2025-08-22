@@ -20,5 +20,5 @@ message UpdateDepartmentResponse {
   bool success = 2;
 
   // Updated department information
-  gcommon.v1.common.Department department = 3;
+  Department department = 3;
 }

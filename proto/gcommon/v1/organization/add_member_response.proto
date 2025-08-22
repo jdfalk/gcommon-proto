@@ -20,5 +20,5 @@ message AddMemberResponse {
   bool success = 2;
 
   // Newly added member information
-  gcommon.v1.common.OrganizationMember member = 3;
+  OrganizationMember member = 3;
 }

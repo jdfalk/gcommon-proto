@@ -21,7 +21,7 @@ message AddMemberRequest {
   string organization_id = 2;
 
   // Member information to add
-  gcommon.v1.common.OrganizationMember member = 3;
+  OrganizationMember member = 3;
 
   // Send invitation email if true
   bool send_invite = 4;

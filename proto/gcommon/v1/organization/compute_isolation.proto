@@ -23,17 +23,17 @@ message ComputeIsolation {
   string namespace = 2;
 
   // CPU allocation for this tenant
-  gcommon.v1.common.CPUAllocation cpu = 3;
+  gcommon.v1.config.CPUAllocation cpu = 3;
 
   // Memory allocation for this tenant
-  gcommon.v1.common.MemoryAllocation memory = 4;
+  gcommon.v1.config.MemoryAllocation memory = 4;
 
   // Whether tenant has dedicated compute resources
   bool dedicated_compute = 5;
 
   // Resource limits and quotas
-  gcommon.v1.common.OrganizationResourceLimits limits = 6;
+  gcommon.v1.config.OrganizationResourceLimits limits = 6;
 
   // Auto-scaling configuration
-  gcommon.v1.common.AutoScalingConfig auto_scaling = 7;
+  gcommon.v1.config.AutoScalingConfig auto_scaling = 7;
 }

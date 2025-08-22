@@ -19,6 +19,6 @@ message GetTenantResponse {
   // Success status
   bool success = 2;
 
-  // Tenant information
-  gcommon.v1.common.Tenant tenant = 3;
+  // The tenant information.
+  Tenant tenant = 3;
 }

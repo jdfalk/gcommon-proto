@@ -23,7 +23,7 @@ message IntegrationSettings {
   repeated WebhookConfig webhooks = 2;
 
   // API keys for external services
-  repeated gcommon.v1.common.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
+  repeated gcommon.v1.config.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
 
   // OAuth applications registered for this organization
   repeated OAuthAppConfig oauth_apps = 4;

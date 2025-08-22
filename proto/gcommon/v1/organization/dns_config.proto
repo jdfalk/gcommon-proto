@@ -20,7 +20,7 @@ message DNSConfig {
   string zone_id = 2;
 
   // DNS records
-  repeated gcommon.v1.common.DNSRecord records = 3;
+  repeated gcommon.v1.config.DNSRecord records = 3;
 
   // TTL for DNS records
   int32 ttl = 4;

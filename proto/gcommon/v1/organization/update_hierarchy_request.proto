@@ -22,7 +22,7 @@ message UpdateHierarchyRequest {
   string organization_id = 2;
 
   // Updated hierarchy data
-  gcommon.v1.common.OrganizationHierarchy hierarchy = 3;
+  OrganizationHierarchy hierarchy = 3;
 
   // Fields to update
   google.protobuf.FieldMask update_mask = 4;

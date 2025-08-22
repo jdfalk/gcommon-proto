@@ -20,5 +20,5 @@ message UpdateMemberResponse {
   bool success = 2;
 
   // Updated member details
-  gcommon.v1.common.OrganizationMember member = 3;
+  OrganizationMember member = 3;
 }

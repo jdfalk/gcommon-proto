@@ -20,5 +20,5 @@ message GetHierarchyResponse {
   bool success = 2;
 
   // Retrieved hierarchy data
-  gcommon.v1.common.OrganizationHierarchy hierarchy = 3 [lazy = true];
+  OrganizationHierarchy hierarchy = 3 [lazy = true];
 }

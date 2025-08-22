@@ -20,6 +20,6 @@ message UpdateTenantQuotaRequest {
   // Tenant identifier
   string tenant_id = 2;
 
-  // Updated quota configuration
-  gcommon.v1.common.TenantQuota quota = 3;
+  // New quota configuration
+  TenantQuota quota = 3;
 }

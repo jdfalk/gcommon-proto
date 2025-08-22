@@ -18,7 +18,7 @@ message CreateDepartmentRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Department information to create
-  gcommon.v1.common.Department department = 2;
+  Department department = 2;
 
   // Validate only without persisting if true
   bool validate_only = 3;

@@ -20,5 +20,5 @@ message CreateTeamResponse {
   bool success = 2;
 
   // Newly created team information
-  gcommon.v1.common.Team team = 3;
+  Team team = 3;
 }
