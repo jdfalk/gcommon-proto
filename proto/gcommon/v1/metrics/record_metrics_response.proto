@@ -41,8 +41,8 @@ message RecordMetricsResponse {
   // Provider that handled the batch
   string provider_id = 8;
 
-  // Performance metrics about the batch operation
-  gcommon.v1.common.MetricsBatchStats stats = 9;
+  // Batch processing statistics
+  MetricsBatchStats stats = 9;
 
   // Warnings or informational messages about the batch
   repeated string warnings = 10;

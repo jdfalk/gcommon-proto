@@ -32,8 +32,8 @@ message ProviderConfig {
   // Export configuration for this provider
   ExportConfig export_config = 5;
 
-  // Resource limits for this provider
-  gcommon.v1.common.OrganizationResourceLimits resource_limits = 6;
+  // Resource limits imposed by the organization
+  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 6;
 
   // Security configuration
   MetricsSecurityConfig security_config = 7;
