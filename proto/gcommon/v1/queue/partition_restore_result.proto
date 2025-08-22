@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/queue/messages/partition_restore_result.proto
+// version: 1.0.0
+// guid: b39d8964-9b75-4f60-9e91-1c838aa2546e
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/restore_error.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message PartitionRestoreResult {
+  // Partition ID
+  int32 partition_id = 1;
+
+  // Success status for this partition
+  bool success = 2;
+
+  // Messages restored in this partition
+  int64 messages_restored = 3;
+
+  // Bytes restored in this partition
+  int64 bytes_restored = 4;
+
+  // Start offset restored
+  int64 start_offset = 5;
+
+  // End offset restored
+  int64 end_offset = 6;
+
+  // Partition restore duration
+  google.protobuf.Duration restore_duration = 7;
+
+  // Any partition-specific errors
+  repeated RestoreError partition_errors = 8;
+
+  // Partition metadata
+  map<string, string> partition_metadata = 9;
+}

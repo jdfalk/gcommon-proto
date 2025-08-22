@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/messages/delivery_configuration.proto
+// version: 1.0.0
+// guid: 4f995a26-dac9-451d-9d56-fb21aa66e2fa
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/batch_delivery_config.proto";
+import "gcommon/v1/queue/messages/delivery_retry_config.proto";
+import "gcommon/v1/queue/messages/flow_control_settings.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message DeliveryConfiguration {
+  // Delivery endpoint (for push subscriptions)
+  string push_endpoint = 1;
+
+  // Delivery timeout (milliseconds)
+  int32 delivery_timeout_ms = 2;
+
+  // Retry configuration for failed deliveries
+  gcommon.v1.queue.DeliveryRetryConfig retry_config = 3;
+
+  // Batch delivery settings
+  gcommon.v1.queue.BatchDeliveryConfig batch_config = 4;
+
+  // Flow control settings
+  gcommon.v1.queue.FlowControlSettings flow_control = 5;
+
+  // Enable compression for delivery
+  bool enable_compression = 6;
+
+  // Authentication for push endpoints
+  map<string, string> auth_headers = 7;
+}

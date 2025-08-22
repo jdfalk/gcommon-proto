@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/error_notification_config.proto
+// version: 1.0.0
+// guid: 0fffcb32-c66a-4876-acb0-c7d756601f4d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ErrorNotificationConfig {
+  // Enable error notifications
+  bool enabled = 1;
+
+  // Notification channels
+  repeated string notification_channels = 2;
+
+  // Error threshold for notifications
+  int32 error_threshold = 3;
+
+  // Notification frequency (seconds)
+  int32 notification_frequency_seconds = 4;
+}

@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/queue/messages/offset_range.proto
+// version: 1.0.0
+// guid: 83e606c1-e57b-4ca4-a62b-2460a5ae302f
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message OffsetRange {
+  // Start offset
+  int64 start_offset = 1;
+
+  // End offset
+  int64 end_offset = 2;
+}

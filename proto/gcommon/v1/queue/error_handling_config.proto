@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/queue/messages/error_handling_config.proto
+// version: 1.0.0
+// guid: 49c9649a-c944-4438-b21f-d3645782576f
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/dead_letter_queue_config.proto";
+import "gcommon/v1/queue/messages/error_action_config.proto";
+import "gcommon/v1/queue/messages/error_notification_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ErrorHandlingConfig {
+  // Dead letter queue configuration
+  gcommon.v1.queue.DeadLetterQueueConfig dlq_config = 1;
+
+  // Maximum delivery attempts before DLQ
+  int32 max_delivery_attempts = 2;
+
+  // Actions to take on specific errors
+  repeated gcommon.v1.queue.ErrorActionConfig error_actions = 3;
+
+  // Enable error logging
+  bool enable_error_logging = 4;
+
+  // Error notification settings
+  gcommon.v1.queue.ErrorNotificationConfig notification_config = 5;
+}

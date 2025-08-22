@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/queue/messages/age_bucket.proto
+// version: 1.0.0
+// guid: b9e2ab5f-72b7-4a4b-bade-21762099184a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message AgeBucket {
+  int64 min_age_seconds = 1;
+  int64 max_age_seconds = 2;
+  int64 message_count = 3;
+}

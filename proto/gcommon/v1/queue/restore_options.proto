@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/queue/messages/restore_options.proto
+// version: 1.0.0
+// guid: 5747b00e-cec5-49aa-adb9-514b7eefc3c4
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/metrics/messages/time_range.proto";
+import "gcommon/v1/queue/messages/filter_criteria.proto";
+import "gcommon/v1/queue/messages/offset_range.proto";
+import "gcommon/v1/queue/messages/performance_options.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message RestoreOptions {
+  // Skip message content (restore structure only)
+  bool skip_message_content = 1;
+
+  // Restore message metadata only
+  bool metadata_only = 2;
+
+  // Maximum number of messages to restore
+  int64 max_messages = 3;
+
+  // Restore messages from specific offset range
+  OffsetRange offset_range = 4;
+
+  // Restore messages within time range
+  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
+
+  // Restore specific message priorities
+  repeated int32 priority_levels = 6;
+
+  // Include/exclude patterns for message filtering
+  FilterCriteria filter_criteria = 7;
+
+  // Performance tuning options
+  PerformanceOptions performance = 8;
+}

@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/queue/enums/consumer_group_state.proto
+// version: 1.0.0
+// guid: 3c66ccb4-a4d4-43f9-952e-510a7b8086c9
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+enum ConsumerGroupState {
+  CONSUMER_GROUP_STATE_UNSPECIFIED = 0;
+  CONSUMER_GROUP_STATE_STABLE = 1; // Group is stable with assigned partitions
+  CONSUMER_GROUP_STATE_PREPARING_REBALANCE = 2; // Preparing for rebalance
+  CONSUMER_GROUP_STATE_COMPLETING_REBALANCE = 3; // Completing rebalance operation
+  CONSUMER_GROUP_STATE_DEAD = 4; // Group has no active consumers
+  CONSUMER_GROUP_STATE_EMPTY = 5; // Group exists but no consumers
+}

@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/queue/messages/error_stats.proto
+// version: 1.0.0
+// guid: f679dd1a-539c-42a7-aa4e-0c14ef8adac2
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/error_type_stat.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message QueueErrorStats {
+  int64 total_errors = 1;
+  double error_rate = 2;
+  repeated gcommon.v1.queue.ErrorTypeStat error_types = 3;
+  repeated string recent_error_messages = 4;
+}

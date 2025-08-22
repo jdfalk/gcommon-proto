@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/external_role_provider.proto
+// version: 1.0.0
+// guid: 890e55e1-8627-452f-95dc-f799e0316fec
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ExternalRoleProvider {
+  // Provider type (ldap, oauth, etc.)
+  string provider_type = 1;
+
+  // Provider endpoint URL
+  string endpoint = 2;
+
+  // Authentication credentials for provider
+  map<string, string> credentials = 3;
+
+  // Cache TTL for role lookups (seconds)
+  int32 cache_ttl_seconds = 4;
+}

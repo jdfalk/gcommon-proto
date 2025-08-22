@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/queue/messages/consumer_group_config.proto
+// version: 1.0.0
+// guid: 8f71a5d7-ed37-4020-94fb-4c8960ef1e5d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/enums/load_balancing_strategy.proto";
+import "gcommon/v1/queue/enums/offset_reset_strategy.proto";
+import "gcommon/v1/queue/enums/rebalance_strategy.proto";
+import "gcommon/v1/queue/messages/auto_commit_config.proto";
+import "gcommon/v1/queue/messages/dead_letter_queue_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ConsumerGroupConfig {
+  // Load balancing strategy for partition assignment
+  LoadBalancingStrategy load_balancing_strategy = 1;
+
+  // Rebalance strategy when consumers join/leave
+  RebalanceStrategy rebalance_strategy = 2;
+
+  // Session timeout for consumer heartbeats (milliseconds)
+  int32 session_timeout_ms = 3;
+
+  // Heartbeat interval (milliseconds)
+  int32 heartbeat_interval_ms = 4;
+
+  // Maximum poll interval (milliseconds)
+  int32 max_poll_interval_ms = 5;
+
+  // Auto-commit configuration
+  AutoCommitConfig auto_commit = 6;
+
+  // Offset reset strategy for new consumers
+  OffsetResetStrategy offset_reset_strategy = 7;
+
+  // Maximum number of consumers allowed in the group
+  int32 max_consumers = 8;
+
+  // Enable exactly-once semantics
+  bool exactly_once_enabled = 9;
+
+  // Dead letter queue configuration
+  DeadLetterQueueConfig dlq_config = 10;
+}

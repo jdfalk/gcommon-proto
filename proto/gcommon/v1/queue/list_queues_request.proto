@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/queue/messages/list_queues_request.proto
+// version: 1.0.0
+// guid: 10aa0104-6a4e-4092-98f4-8eabba61ea69
+// ListQueuesRequest retrieves available queues for the current
+// user or service account. This file was a placeholder and now
+// implements the request following the 1-1-1 pattern.
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ListQueuesRequest {
+  // Standard request metadata used across all services
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Optional page size for results
+  int32 page_size = 2;
+
+  // Optional token for fetching the next page
+  string page_token = 3;
+}

@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/messages/message_update_properties.proto
+// version: 1.0.0
+// guid: db9a2627-8ff1-4dc6-b551-e15416cd3bbe
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message MessageUpdateProperties {
+  // New expiration time
+  google.protobuf.Timestamp expiration_time = 1;
+
+  // New delivery delay
+  int64 delivery_delay_ms = 2;
+
+  // New retry count
+  int32 retry_count = 3;
+
+  // New routing key
+  string routing_key = 4;
+
+  // New correlation ID
+  string correlation_id = 5;
+
+  // New reply-to address
+  string reply_to = 6;
+
+  // Updated message headers
+  map<string, string> headers = 7;
+}

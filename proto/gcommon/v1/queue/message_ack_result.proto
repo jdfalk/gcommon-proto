@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/messages/message_ack_result.proto
+// version: 1.0.0
+// guid: d7c68f75-1f4d-4758-ba66-a6aaa0dcf1a4
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/messages/error.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message MessageAckResult {
+  /**
+   * Receipt handle of the message this result applies to.
+   */
+  string receipt_handle = 1;
+
+  /**
+   * Whether this specific message was successfully acknowledged.
+   */
+  bool success = 2;
+
+  /**
+   * Error information if acknowledgment failed for this message.
+   */
+  gcommon.v1.common.Error error = 3;
+
+  /**
+   * Message ID for correlation (if available).
+   */
+  string message_id = 4;
+
+  /**
+   * Processing result that was recorded (echoed from request).
+   */
+  string processing_result = 5;
+}

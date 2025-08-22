@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/dead_letter_queue_config.proto
+// version: 1.0.0
+// guid: f8d651b6-6f08-48f8-96a3-ad28ada68da7
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message DeadLetterQueueConfig {
+  // Enable dead letter queue
+  bool enabled = 1;
+
+  // Dead letter queue topic
+  string dlq_topic = 2;
+
+  // Maximum message age in DLQ (seconds)
+  int64 dlq_max_age_seconds = 3;
+
+  // Include original error information
+  bool include_error_info = 4;
+}

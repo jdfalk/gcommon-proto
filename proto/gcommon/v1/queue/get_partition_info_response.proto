@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/get_partition_info_response.proto
+// version: 1.0.0
+// guid: 414613a0-0192-43b0-9f7f-347bd35d0bfc
+// Response with partition information
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/partition_info.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// Response with partition information
+message GetPartitionInfoResponse {
+  // Partition information
+  gcommon.v1.queue.PartitionInfo partition_info = 1;
+
+  // Whether request was successful
+  bool success = 2;
+
+  // Error message if request failed
+  string error = 3;
+}

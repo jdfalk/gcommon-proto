@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/queue/messages/serialization_config.proto
+// version: 1.0.0
+// guid: e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/enums/compression_algorithm.proto";
+import "gcommon/v1/queue/enums/serialization_format.proto";
+import "gcommon/v1/queue/messages/format_options.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Configuration for message serialization and deserialization.
+ */
+message SerializationConfig {
+  // Default serialization format
+  gcommon.v1.queue.SerializationFormat default_format = 1;
+
+  // Supported serialization formats
+  repeated gcommon.v1.queue.SerializationFormat supported_formats = 2;
+
+  // Whether to auto-detect format from message headers
+  bool auto_detect_format = 3;
+
+  // Default compression algorithm
+  CompressionAlgorithm default_compression = 4;
+
+  // Supported compression algorithms
+  repeated CompressionAlgorithm supported_compressions = 5;
+
+  // Whether to auto-detect compression from message headers
+  bool auto_detect_compression = 6;
+
+  // Format-specific options
+  map<string, FormatOptions> format_options = 7;
+
+  // Whether to validate message format on deserialization
+  bool validate_on_deserialize = 8;
+
+  // Maximum message size for serialization
+  uint64 max_message_size = 9;
+
+  // Whether to enable backwards compatibility mode
+  bool backwards_compatible = 10;
+}

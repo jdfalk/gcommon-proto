@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/messages/update_subscription_config_response.proto
+// version: 1.0.0
+// guid: 43035b6d-1872-4b79-af8d-8852b38643e3
+// Response for subscription configuration updates
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// Response for subscription configuration updates
+message UpdateSubscriptionConfigResponse {
+  // Whether the update was successful
+  bool success = 1;
+
+  // Subscription ID that was updated
+  string subscription_id = 2;
+
+  // Configuration changes that were applied
+  map<string, string> applied_changes = 3;
+
+  // Validation warnings (non-fatal)
+  repeated string warnings = 4;
+
+  // Error message if update failed
+  string error = 5;
+}

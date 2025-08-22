@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/messages/conflict_detection.proto
+// version: 1.0.0
+// guid: 49cc6bab-66b1-4e09-9337-76d6644a2b81
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/enums/conflict_strategy.proto";
+import "gcommon/v1/queue/messages/timestamp_config.proto";
+import "gcommon/v1/queue/messages/vector_clock_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ConflictDetection {
+  // Enable conflict detection
+  bool enabled = 1;
+
+  // Conflict detection strategy
+  gcommon.v1.queue.ConflictStrategy strategy = 2;
+
+  // Vector clock configuration
+  gcommon.v1.queue.VectorClockConfig vector_clock = 3;
+
+  // Timestamp-based detection settings
+  gcommon.v1.queue.TimestampConfig timestamp_config = 4;
+}

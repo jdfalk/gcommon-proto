@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/messages/content_update.proto
+// version: 1.0.0
+// guid: 9acab812-6e9a-44f3-8206-8aee653ad5da
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ContentUpdate {
+  // New message payload
+  google.protobuf.Any new_payload = 1;
+
+  // Content encoding
+  string content_encoding = 2;
+
+  // Content type
+  string content_type = 3;
+
+  // Compression applied to content
+  string compression = 4;
+
+  // Checksum of new content
+  string content_checksum = 5;
+}

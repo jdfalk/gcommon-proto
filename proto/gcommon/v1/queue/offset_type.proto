@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/enums/offset_type.proto
+// version: 1.0.0
+// guid: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Types of offsets that can be retrieved.
+ * Defines different offset positions in a queue or partition.
+ */
+enum OffsetType {
+  // Unspecified offset type
+  OFFSET_TYPE_UNSPECIFIED = 0;
+
+  // Earliest available offset
+  OFFSET_TYPE_EARLIEST = 1;
+
+  // Latest available offset
+  OFFSET_TYPE_LATEST = 2;
+
+  // Current consumer offset
+  OFFSET_TYPE_CURRENT = 3;
+
+  // Committed offset for consumer group
+  OFFSET_TYPE_COMMITTED = 4;
+}

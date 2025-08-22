@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/messages/received_message.proto
+// version: 1.0.0
+// guid: c7d8e9f0-123a-567b-8901-123456789012
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ReceivedMessage {
+  // Message ID
+  string id = 1;
+
+  // Message data
+  bytes data = 2;
+
+  // Message attributes
+  map<string, string> attributes = 3;
+
+  // Receive timestamp
+  int64 receive_timestamp = 4;
+
+  // Acknowledgment ID
+  string ack_id = 5;
+}

@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/messages/flush_queue_response.proto
+// version: 1.0.0
+// guid: b7bddce0-67bc-4158-a9b7-c3e15f1606fe
+// Response for queue flush operations
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// Response for queue flush operations
+message FlushQueueResponse {
+  // Whether the flush was successful
+  bool success = 1;
+
+  // Number of messages flushed
+  int64 messages_flushed = 2;
+
+  // Bytes flushed from queue
+  int64 bytes_flushed = 3;
+
+  // Time taken for flush operation (milliseconds)
+  int32 flush_duration_ms = 4;
+
+  // Error message if flush failed
+  string error = 5;
+}

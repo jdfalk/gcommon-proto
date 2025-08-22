@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/enums/routing_pattern.proto
+// version: 1.0.0
+// guid: f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Routing pattern types for key matching.
+ * Specifies how routing keys are matched against patterns.
+ */
+enum RoutingPattern {
+  // Exact string match
+  ROUTING_PATTERN_UNSPECIFIED = 0;
+
+  // Wildcard pattern (* and ?)
+  ROUTING_PATTERN_WILDCARD = 1;
+
+  // Regular expression pattern
+  ROUTING_PATTERN_REGEX = 2;
+
+  // Topic-style pattern (dot separated, # and * wildcards)
+  ROUTING_PATTERN_TOPIC = 3;
+
+  // Prefix match
+  ROUTING_PATTERN_PREFIX = 4;
+
+  // Suffix match
+  ROUTING_PATTERN_SUFFIX = 5;
+}

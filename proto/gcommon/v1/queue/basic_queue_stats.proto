@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/queue/types/basic_queue_stats.proto
+// file: proto/gcommon/v1/queue/messages/basic_queue_stats.proto
+// version: 1.0.0
+// guid: 0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Basic statistics for a queue.
+ */
+message BasicQueueStats {
+  // Queue name
+  string queue_name = 1;
+
+  // Total number of messages in the queue
+  uint64 total_messages = 2;
+
+  // Number of unacknowledged messages
+  uint64 unacked_messages = 3;
+
+  // Queue size in bytes
+  uint64 size_bytes = 4;
+
+  // Number of consumers
+  uint32 consumer_count = 5;
+
+  // Number of producers
+  uint32 producer_count = 6;
+
+  // Messages per second (ingress rate)
+  double ingress_rate = 7;
+
+  // Messages per second (egress rate)
+  double egress_rate = 8;
+
+  // Average message size in bytes
+  double avg_message_size = 9;
+
+  // Queue depth (oldest unprocessed message age)
+  uint64 queue_depth_ms = 10;
+}

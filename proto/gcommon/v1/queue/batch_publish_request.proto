@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/queue/messages/batch_publish_request.proto
+// version: 1.0.0
+// guid: e8f9a0b1-c2d3-4e5f-6a7b-8c9d0e1f2a3b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/queue/messages/queue_message.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Request to publish multiple messages to a queue in a single operation.
+ * Provides better performance for high-throughput scenarios.
+ */
+message BatchPublishRequest {
+  // Queue name to publish messages to
+  string queue_name = 1;
+
+  // Messages to publish
+  repeated gcommon.v1.queue.QueueMessage messages = 2;
+
+  // Whether to use a transaction for the batch
+  bool use_transaction = 3;
+
+  // Timeout for the batch operation (milliseconds)
+  int32 timeout_ms = 4;
+
+  // Whether to wait for acknowledgment from all brokers
+  bool wait_for_all = 5;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 6;
+
+  // Maximum number of retries for failed messages
+  int32 max_retries = 7;
+
+  // Batch ID for tracking (optional)
+  string batch_id = 8;
+}

@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/messages/push_request.proto
+// version: 1.0.0
+// guid: ab6bdde8-25b2-424c-a85a-db3364d8cdaf
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/batch_settings.proto";
+import "gcommon/v1/queue/messages/publish_config.proto";
+import "gcommon/v1/queue/messages/queue_message.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message PushRequest {
+  // Target topic or queue identifier
+  string topic = 1;
+
+  // Messages to publish
+  repeated QueueMessage messages = 2;
+
+  // Publishing configuration
+  PublishConfig publish_config = 3;
+
+  // Batch publishing settings
+  BatchSettings batch_settings = 4;
+
+  // Transaction ID for transactional publishing
+  string transaction_id = 5;
+
+  // Producer ID for message tracking
+  string producer_id = 6;
+
+  // Publishing metadata
+  map<string, string> metadata = 7;
+}

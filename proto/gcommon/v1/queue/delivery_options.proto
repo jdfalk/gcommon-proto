@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/messages/delivery_options.proto
+// version: 1.0.0
+// guid: 226d4794-23ca-4b54-9a0d-7c6671093c04
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// DeliveryOptions control message routing and retries.
+message DeliveryOptions {
+  // Optional delivery delay.
+  google.protobuf.Duration delay = 1;
+
+  // Maximum retry attempts before sending to dead letter queue.
+  int32 max_retries = 2;
+
+  // Delay between retry attempts.
+  google.protobuf.Duration retry_delay = 3;
+
+  // Multiplier for exponential backoff.
+  double backoff_multiplier = 4;
+
+  // Maximum delay allowed between retries.
+  google.protobuf.Duration max_retry_delay = 5;
+
+  // Name of the dead letter queue.
+  string dead_letter_queue = 6;
+
+  // Whether acknowledgment is required for delivery.
+  bool require_ack = 7;
+
+  // Timeout waiting for acknowledgment.
+  google.protobuf.Duration ack_timeout = 8;
+}

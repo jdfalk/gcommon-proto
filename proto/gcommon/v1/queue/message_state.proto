@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/enums/message_state.proto
+// version: 1.0.0
+// guid: 4eba7921-816c-420b-8880-172c0631fa22
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// MessageState represents the lifecycle state of a queue message.
+enum MessageState {
+  // Default unspecified state.
+  MESSAGE_STATE_UNSPECIFIED = 0;
+
+  // Message is queued and awaiting delivery.
+  MESSAGE_STATE_PENDING = 1;
+
+  // Message has been delivered to a consumer.
+  MESSAGE_STATE_DELIVERED = 2;
+
+  // Consumer acknowledged successful processing.
+  MESSAGE_STATE_ACKNOWLEDGED = 3;
+
+  // Delivery failed and will be retried.
+  MESSAGE_STATE_FAILED = 4;
+
+  // Message moved to dead letter queue.
+  MESSAGE_STATE_DEAD_LETTER = 5;
+
+  // Message expired before processing.
+  MESSAGE_STATE_EXPIRED = 6;
+}

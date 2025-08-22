@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/queue/messages/updated_properties.proto
+// version: 1.0.0
+// guid: d960456c-efea-47df-8809-e0e34d8b8437
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message UpdatedProperties {
+  // New priority level (if updated)
+  int32 priority_level = 1;
+
+  // New expiration time (if updated)
+  google.protobuf.Timestamp expiration_time = 2;
+
+  // New visibility timeout (if updated)
+  int64 visibility_timeout_ms = 3;
+
+  // New routing key (if updated)
+  string routing_key = 4;
+
+  // Updated metadata count
+  int32 metadata_count = 5;
+
+  // Updated headers count
+  int32 headers_count = 6;
+
+  // Content was updated
+  bool content_updated = 7;
+
+  // Size of updated content (bytes)
+  int64 content_size_bytes = 8;
+}

@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/messages/backup_info.proto
+// version: 1.0.0
+// guid: 7e0f3e6b-8c36-4f63-9aa6-06ee60e83a15
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message QueueBackupInfo {
+  // Backup identifier
+  string backup_id = 1;
+
+  // Backup location
+  string backup_location = 2;
+
+  // Backup size (bytes)
+  int64 backup_size_bytes = 3;
+
+  // Backup timestamp
+  google.protobuf.Timestamp backup_created_at = 4;
+
+  // Backup expiration time
+  google.protobuf.Timestamp backup_expires_at = 5;
+}

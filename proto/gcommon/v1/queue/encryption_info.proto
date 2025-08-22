@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/encryption_info.proto
+// version: 1.0.0
+// guid: 79dc45f4-d25b-40cb-8380-45f54e170aa7
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message EncryptionInfo {
+  // Encryption enabled
+  bool enabled = 1;
+
+  // Encryption algorithm
+  string algorithm = 2;
+
+  // Key management service
+  string kms_provider = 3;
+
+  // Key identifier
+  string key_id = 4;
+}

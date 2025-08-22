@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/batch_delivery_config.proto
+// version: 1.0.0
+// guid: 2f43a02c-2696-4c1f-820c-b97ddd38fe31
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message BatchDeliveryConfig {
+  // Enable batch delivery
+  bool enabled = 1;
+
+  // Maximum messages per batch
+  int32 max_batch_size = 2;
+
+  // Maximum batch size in bytes
+  int64 max_batch_bytes = 3;
+
+  // Maximum time to wait for batch completion (milliseconds)
+  int32 batch_timeout_ms = 4;
+}

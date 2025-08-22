@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/queue/api/create_topic_response.proto
+// file: proto/gcommon/v1/queue/messages/create_topic_response.proto
+// version: 1.0.0
+// guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+//
+// Response definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/topic_config.proto";
+import "gcommon/v1/queue/messages/topic_info.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Response for topic creation operations.
+ */
+message CreateTopicResponse {
+  // Information about the created topic
+  gcommon.v1.queue.TopicInfo topic_info = 1;
+
+  // Whether the topic was actually created (false if it already existed)
+  bool created = 2;
+
+  // Timestamp when the topic was created
+  google.protobuf.Timestamp created_at = 3;
+
+  // Any warnings during topic creation
+  repeated string warnings = 4;
+
+  // Topic configuration that was applied
+  gcommon.v1.queue.TopicConfig applied_config = 5;
+}
+// This file needs proper implementation

@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/queue/messages/message_filter.proto
+// version: 1.0.0
+// guid: 705dd4ef-6cef-458f-b70b-588f3e13eda0
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message MessageFilter {
+  // Filter by message headers
+  map<string, string> header_filters = 1;
+
+  // Filter by message properties
+  map<string, string> property_filters = 2;
+
+  // Minimum message priority
+  int32 min_priority = 3;
+
+  // Maximum message age (seconds)
+  int32 max_age_seconds = 4;
+
+  // Content type filter
+  string content_type = 5;
+
+  // Custom filter expression
+  string filter_expression = 6;
+}

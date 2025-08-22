@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/queue/messages/filter_settings.proto
+// version: 1.0.0
+// guid: aae01edc-d403-456d-9c93-e9f4c0c8c699
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message FilterSettings {
+  // Content-based filters
+  map<string, string> content_filters = 1;
+
+  // Header-based filters
+  map<string, string> header_filters = 2;
+
+  // Filter expression
+  string filter_expression = 3;
+}

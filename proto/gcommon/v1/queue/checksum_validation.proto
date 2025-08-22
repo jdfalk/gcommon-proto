@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/checksum_validation.proto
+// version: 1.0.0
+// guid: 34bd9a2b-54d5-4c3e-aa17-382d38a98306
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ChecksumValidation {
+  // Overall checksum validation passed
+  bool passed = 1;
+
+  // Expected checksum
+  string expected_checksum = 2;
+
+  // Actual checksum
+  string actual_checksum = 3;
+
+  // Checksum algorithm used
+  string checksum_algorithm = 4;
+}

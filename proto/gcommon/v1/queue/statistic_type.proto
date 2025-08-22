@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/enums/statistic_type.proto
+// version: 1.0.0
+// guid: cb4f227d-f3e9-4698-aa3e-776544976e01
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+enum StatisticType {
+  STATISTIC_TYPE_UNSPECIFIED = 0;
+  STATISTIC_TYPE_MESSAGE_COUNT = 1;
+  STATISTIC_TYPE_THROUGHPUT = 2;
+  STATISTIC_TYPE_LATENCY = 3;
+  STATISTIC_TYPE_ERROR_RATE = 4;
+  STATISTIC_TYPE_QUEUE_DEPTH = 5;
+  STATISTIC_TYPE_PROCESSING_TIME = 6;
+  STATISTIC_TYPE_CONSUMER_COUNT = 7;
+  STATISTIC_TYPE_MESSAGE_SIZE = 8;
+  STATISTIC_TYPE_AGE_DISTRIBUTION = 9;
+  STATISTIC_TYPE_SUCCESS_RATE = 10;
+}

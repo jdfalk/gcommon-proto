@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/queue/messages/stream_metrics_request.proto
+// version: 1.0.0
+// guid: 7ec20686-7f14-4488-9222-e6d189b494fe
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/metrics/enums/metric_type.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message QueueStreamMetricsRequest {
+  // Queue names to monitor (empty = all queues)
+  repeated string queue_names = 1;
+
+  // Types of metrics to include
+  repeated gcommon.v1.metrics.MetricsMetricType metric_types = 2;
+
+  // Streaming interval in seconds
+  int32 interval_seconds = 3;
+}

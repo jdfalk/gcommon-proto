@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/queue/messages/historical_stats.proto
+// version: 1.0.0
+// guid: 7e6ca4d3-82ff-42f7-9761-fbb25977f58d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/historical_data_point.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message HistoricalStats {
+  repeated HistoricalDataPoint data_points = 1;
+  google.protobuf.Duration aggregation_period = 2;
+}

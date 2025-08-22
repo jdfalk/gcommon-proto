@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/messages/queue_health.proto
+// version: 1.0.0
+// guid: 1524854f-4eb8-4bb2-8942-cd7ca2544b2d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/enums/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message QueueHealth {
+  // Name of the queue
+  string queue_name = 1;
+
+  // Health status
+  gcommon.v1.common.CommonHealthStatus status = 2;
+
+  // Health score (0-100)
+  int32 health_score = 3;
+
+  // List of health issues
+  repeated string issues = 4;
+
+  // Last health check timestamp
+  google.protobuf.Timestamp last_check = 5;
+}

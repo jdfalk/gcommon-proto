@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/queue/services/queue_admin_service.proto
+// version: 1.0.0
+// guid: b54b440b-f4c1-40fc-a40f-8b4c0626fc32
+// Administrative service for queue management
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/messages/create_queue_request.proto";
+import "gcommon/v1/queue/messages/create_queue_response.proto";
+import "gcommon/v1/queue/messages/delete_topic_request.proto";
+import "gcommon/v1/queue/messages/delete_topic_response.proto";
+import "gcommon/v1/queue/messages/pause_queue_request.proto";
+import "gcommon/v1/queue/messages/pause_queue_response.proto";
+import "gcommon/v1/queue/messages/purge_request.proto";
+import "gcommon/v1/queue/messages/purge_response.proto";
+import "gcommon/v1/queue/messages/reset_queue_stats_request.proto";
+import "gcommon/v1/queue/messages/reset_queue_stats_response.proto";
+import "gcommon/v1/queue/messages/resume_queue_request.proto";
+import "gcommon/v1/queue/messages/resume_queue_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// Administrative service for queue management operations
+service QueueAdminService {
+  // Create a new queue
+  rpc CreateQueue(CreateQueueRequest) returns (CreateQueueResponse);
+
+  // Delete a queue/topic
+  rpc DeleteTopic(DeleteTopicRequest) returns (DeleteTopicResponse);
+
+  // Pause queue operations
+  rpc PauseQueue(PauseQueueRequest) returns (PauseQueueResponse);
+
+  // Resume queue operations
+  rpc ResumeQueue(ResumeQueueRequest) returns (ResumeQueueResponse);
+
+  // Purge queue contents
+  rpc PurgeQueue(PurgeRequest) returns (PurgeResponse);
+
+  // Reset queue statistics
+  rpc ResetQueueStats(ResetQueueStatsRequest) returns (ResetQueueStatsResponse);
+}

@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/queue/messages/subscription_config.proto
+// version: 1.0.0
+// guid: 27b1d56b-2e7b-4003-9ddd-6b30086ff0fb
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/enums/priority_level.proto";
+import "gcommon/v1/queue/enums/routing_strategy.proto";
+import "gcommon/v1/queue/enums/subscription_state.proto";
+import "gcommon/v1/queue/messages/delivery_options.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// SubscriptionConfig describes how a consumer subscribes to a queue.
+message SubscriptionConfig {
+  // Name of the subscription.
+  string name = 1;
+  // Current state of the subscription.
+  gcommon.v1.queue.SubscriptionState state = 2;
+  // Message routing strategy for this subscription.
+  gcommon.v1.queue.RoutingStrategy routing_strategy = 3;
+  // Default priority applied to published messages if unspecified.
+  PriorityLevel default_priority = 4;
+  // Delivery options controlling retries and dead letter handling.
+  gcommon.v1.queue.DeliveryOptions delivery_options = 5;
+  // Maximum number of unacknowledged messages allowed.
+  int32 max_inflight = 6;
+}

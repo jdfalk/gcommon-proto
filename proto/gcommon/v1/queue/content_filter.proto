@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/messages/content_filter.proto
+// version: 1.0.0
+// guid: 54ce7d22-49b5-4c41-86a5-4a5156d1e74b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ContentFilter {
+  // JSON path or field name
+  string field_path = 1;
+
+  // Filter operator (equals, contains, regex, gt, lt, etc.)
+  string operator = 2;
+
+  // Filter value
+  string value = 3;
+
+  // Case sensitive matching
+  bool case_sensitive = 4;
+}

@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/messages/permission_rule.proto
+// version: 1.0.0
+// guid: a9f45dd7-43a2-47cd-812c-8a08ee0100e2
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message PermissionRule {
+  // Resource pattern (queue name, topic name, etc.)
+  string resource_pattern = 1;
+
+  // Operation (read, write, admin, etc.)
+  string operation = 2;
+
+  // Required roles or permissions
+  repeated string required_roles = 3;
+
+  // Allow or deny rule
+  bool allow = 4;
+
+  // Priority of this rule (higher number = higher priority)
+  int32 priority = 5;
+}

@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/queue/api/seek_request.proto
+// file: proto/gcommon/v1/queue/messages/seek_request.proto
+// version: 1.0.0
+// guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+//
+// Request definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * Request to seek to a specific position in a queue or topic.
+ * Used for replaying messages from a particular point in time or offset.
+ */
+message SeekRequest {
+  // Name of the queue or topic to seek within
+  string queue_name = 1;
+
+  // Subscription name (for topics with multiple subscribers)
+  string subscription_name = 2;
+
+  // Seek position specification
+  oneof seek_position {
+    // Seek to a specific timestamp
+    google.protobuf.Timestamp timestamp = 3;
+
+    // Seek to a specific message offset/position
+    int64 offset = 4;
+
+    // Seek to the beginning of the queue
+    bool beginning = 5;
+
+    // Seek to the end of the queue (latest message)
+    bool end = 6;
+
+    // Seek to a specific message ID
+    string message_id = 7;
+  }
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 100;
+}
+// This file needs proper implementation

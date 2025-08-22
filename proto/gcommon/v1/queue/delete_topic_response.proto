@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/messages/delete_topic_response.proto
+// version: 1.0.0
+// guid: 321c289e-7bff-430d-b737-60c42c418beb
+// Response for topic deletion operations
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+// Response for deleting a topic
+message DeleteTopicResponse {
+  // Whether the topic was successfully deleted
+  bool success = 1;
+
+  // Number of active subscriptions that were also deleted
+  int64 deleted_subscriptions = 2;
+
+  // Number of messages that were purged during deletion
+  int64 purged_messages = 3;
+
+  // Human-readable message describing the deletion result
+  string message = 4;
+
+  // Error message if deletion failed
+  string error = 5;
+}
