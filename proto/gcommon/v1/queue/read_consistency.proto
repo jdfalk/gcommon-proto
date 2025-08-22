@@ -30,5 +30,5 @@ message ReadConsistency {
   int32 timeout_ms = 5;
 
   // Retry configuration for read failures
-  gcommon.v1.config.ReadRetryConfig retry_config = 6;
+  ReadRetryConfig retry_config = 6;
 }

@@ -49,7 +49,7 @@ message ResumeQueueResponse {
   repeated string warnings = 11;
 
   // Resume operation statistics
-  gcommon.v1.config.ResumeStats resume_stats = 12;
+  ResumeStats resume_stats = 12;
 
   // Operation metadata
   map<string, string> metadata = 13;

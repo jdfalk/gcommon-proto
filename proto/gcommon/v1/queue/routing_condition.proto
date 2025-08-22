@@ -30,8 +30,8 @@ message RoutingCondition {
   string message_type = 4;
 
   // Priority range filter
-  gcommon.v1.config.PriorityRange priority_range = 5;
+  PriorityRange priority_range = 5;
 
   // Size range filter
-  gcommon.v1.config.SizeRange size_range = 6;
+  SizeRange size_range = 6;
 }

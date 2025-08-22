@@ -26,7 +26,7 @@ message SubscriptionConfig {
   // Default priority applied to published messages if unspecified.
   gcommon.v1.common.PriorityLevel default_priority = 4;
   // Delivery options controlling retries and dead letter handling.
-  gcommon.v1.config.DeliveryOptions delivery_options = 5;
+  DeliveryOptions delivery_options = 5;
   // Maximum number of unacknowledged messages allowed.
   int32 max_inflight = 6;
 }
