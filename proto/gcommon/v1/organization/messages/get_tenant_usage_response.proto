@@ -10,7 +10,7 @@ import "gcommon/v1/common/messages/key_value.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
+option go_package = "v1/organization";
 
 message GetTenantUsageResponse {
   // Any errors encountered
