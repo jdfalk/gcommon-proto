@@ -20,7 +20,7 @@ message InheritanceSettings {
   bool enabled = 1;
 
   // Inheritance strategy
-  InheritanceStrategy strategy = 2;
+  gcommon.v1.common.InheritanceStrategy strategy = 2;
 
   // Inheritance sources in order of priority
   repeated string sources = 3;
@@ -35,7 +35,7 @@ message InheritanceSettings {
   bool merge_values = 6;
 
   // Merge strategy for complex values
-  MergeStrategy merge_strategy = 7;
+  gcommon.v1.common.MergeStrategy merge_strategy = 7;
 
   // Inheritance metadata
   map<string, string> metadata = 8;

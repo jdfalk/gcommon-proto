@@ -19,7 +19,7 @@ message ConfigHealthStatus {
   gcommon.v1.common.HealthState overall = 1;
 
   // Component health
-  map<string, HealthState> components = 2;
+  map<string, gcommon.v1.common.HealthState> components = 2;
 
   // Health checks
   repeated ConfigHealthCheckResult health_checks = 3;

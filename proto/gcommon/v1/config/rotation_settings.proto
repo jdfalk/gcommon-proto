@@ -43,5 +43,5 @@ message RotationSettings {
   google.protobuf.Timestamp next_rotation_at = 9;
 
   // Rotation history
-  repeated gcommon.v1.common.RotationEvent rotation_history = 10;
+  repeated gcommon.v1.config.RotationEvent rotation_history = 10;
 }
