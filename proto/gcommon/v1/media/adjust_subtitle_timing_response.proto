@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/media/messages/adjust_subtitle_timing_response.proto
+// file: proto/gcommon/v1/media/adjust_subtitle_timing_response.proto
 // version: 1.0.0
 // guid: 789012cd-ef01-2345-b8c9-d0e1f2345678
 
@@ -9,7 +9,7 @@ package gcommon.v1.media;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "v1/media";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 // Response from adjusting subtitle timing.
 message AdjustSubtitleTimingResponse {
