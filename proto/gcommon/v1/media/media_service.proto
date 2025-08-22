@@ -1,0 +1,53 @@
+// file: proto/gcommon/v1/media/services/media_service.proto
+// version: 1.0.0
+// guid: 8a9b0c1d-2e3f-4506-a7b8-9c0d1e2f3a4b
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/messages/create_media_file_request.proto";
+import "gcommon/v1/media/messages/create_media_file_response.proto";
+import "gcommon/v1/media/messages/delete_media_file_request.proto";
+import "gcommon/v1/media/messages/delete_media_file_response.proto";
+import "gcommon/v1/media/messages/get_media_file_request.proto";
+import "gcommon/v1/media/messages/get_media_file_response.proto";
+import "gcommon/v1/media/messages/list_media_files_request.proto";
+import "gcommon/v1/media/messages/list_media_files_response.proto";
+import "gcommon/v1/media/messages/search_media_request.proto";
+import "gcommon/v1/media/messages/search_media_response.proto";
+import "gcommon/v1/media/messages/update_media_file_request.proto";
+import "gcommon/v1/media/messages/update_media_file_response.proto";
+import "gcommon/v1/media/messages/upload_media_request.proto";
+import "gcommon/v1/media/messages/upload_media_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+/**
+ * MediaService provides core media file management operations including
+ * upload, storage, retrieval, and basic metadata management.
+ */
+service MediaService {
+  // Upload a new media file
+  rpc UploadMedia(stream UploadMediaRequest) returns (UploadMediaResponse);
+
+  // Create a media file record
+  rpc CreateMediaFile(CreateMediaFileRequest) returns (CreateMediaFileResponse);
+
+  // Get a specific media file
+  rpc GetMediaFile(GetMediaFileRequest) returns (GetMediaFileResponse);
+
+  // Update media file information
+  rpc UpdateMediaFile(UpdateMediaFileRequest) returns (UpdateMediaFileResponse);
+
+  // Delete a media file
+  rpc DeleteMediaFile(DeleteMediaFileRequest) returns (DeleteMediaFileResponse);
+
+  // List media files with filtering
+  rpc ListMediaFiles(ListMediaFilesRequest) returns (ListMediaFilesResponse);
+
+  // Search media files
+  rpc SearchMedia(SearchMediaRequest) returns (SearchMediaResponse);
+}

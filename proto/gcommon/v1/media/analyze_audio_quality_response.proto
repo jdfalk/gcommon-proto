@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/media/messages/analyze_audio_quality_response.proto
+// version: 1.0.0
+// guid: bcdef01-2345-6789-d8e9-f0a1b2c3d4e5
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AnalyzeAudioQualityResponse {
+  double peak_level_db = 1;
+  double rms_level_db = 2;
+  double dynamic_range_db = 3;
+  double signal_to_noise_ratio = 4;
+  bool clipping_detected = 5;
+}
