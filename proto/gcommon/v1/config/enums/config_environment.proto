@@ -31,7 +31,7 @@ import "google/protobuf/timestamp.proto";
 // Organization-scoped settings used by environments
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+option go_package = "v1/config";
 
 message ConfigEnvironment {
   // Unique identifier for the environment

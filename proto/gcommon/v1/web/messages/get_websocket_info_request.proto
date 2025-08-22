@@ -9,7 +9,7 @@ package gcommon.v1.web;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+option go_package = "v1/web";
 
 // GetWebsocketInfoRequest request definition.
 message GetWebsocketInfoRequest {

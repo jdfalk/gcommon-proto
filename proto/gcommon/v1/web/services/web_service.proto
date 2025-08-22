@@ -13,7 +13,7 @@ import "gcommon/v1/web/messages/health_check_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+option go_package = "v1/web";
 
 /**
  * WebService provides core web server operations for

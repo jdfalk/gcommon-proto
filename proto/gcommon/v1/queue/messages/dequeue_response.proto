@@ -17,7 +17,7 @@ import "google/protobuf/timestamp.proto";
 // Queue message types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+option go_package = "v1/queue";
 
 /**
  * DequeueResponse returns messages retrieved from a queue.

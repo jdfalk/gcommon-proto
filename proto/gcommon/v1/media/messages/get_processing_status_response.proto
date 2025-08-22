@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+option go_package = "v1/media";
 
 // Response with processing job status.
 message GetProcessingStatusResponse {

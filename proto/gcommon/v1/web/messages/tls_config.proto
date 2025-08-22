@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 // Standard imports
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
+option go_package = "v1/web";
 
 /**
  * TLSConfig defines TLS/SSL configuration for web servers.

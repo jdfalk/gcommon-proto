@@ -10,7 +10,7 @@ import "gcommon/v1/media/messages/transcode_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+option go_package = "v1/media";
 
 // Request to transcode media to different format.
 message TranscodeMediaRequest {
