@@ -7,7 +7,7 @@ package gcommon.v1.database;
 
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/database/batch_operation_result.proto";
-import "gcommon/v1/metrics/batch_stats.proto";
+import "gcommon/v1/database/batch_stats.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -22,7 +22,7 @@ message ExecuteBatchResponse {
   repeated BatchOperationResult results = 1 [lazy = true];
 
   // Overall batch execution statistics
-  gcommon.v1.config.MetricsBatchStats stats = 2 [lazy = true];
+  DatabaseBatchStats stats = 2 [lazy = true];
 
   // Error information if the batch failed
   gcommon.v1.common.Error error = 3 [lazy = true];
