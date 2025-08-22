@@ -3,12 +3,12 @@
 // guid: 5eaa6727-c2ff-40f4-b746-6782b5b18b05
 edition = "2023";
 
-package gcommon.v1.database;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commondatabase";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * ConsistencyLevel defines the data consistency requirements for database operations.
@@ -16,14 +16,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commondatabase";
  */
 enum DatabaseConsistencyLevel {
   // Default unspecified consistency level
-  CONSISTENCY_LEVEL_UNSPECIFIED = 0;
+  DATABASE_CONSISTENCY_LEVEL_UNSPECIFIED = 0;
 
   // Eventual consistency - may read stale data but eventually consistent
-  CONSISTENCY_LEVEL_EVENTUAL = 1;
+  DATABASE_CONSISTENCY_LEVEL_EVENTUAL = 1;
 
   // Strong consistency - always reads most recent committed data
-  CONSISTENCY_LEVEL_STRONG = 2;
+  DATABASE_CONSISTENCY_LEVEL_STRONG = 2;
 
   // Bounded staleness - reads data within specified time bounds
-  CONSISTENCY_LEVEL_BOUNDED_STALENESS = 3;
+  DATABASE_CONSISTENCY_LEVEL_BOUNDED_STALENESS = 3;
 }

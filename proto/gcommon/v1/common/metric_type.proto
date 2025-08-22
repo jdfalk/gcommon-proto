@@ -3,12 +3,12 @@
 // guid: ca7deb46-60dd-4b1b-a48a-ad30f651f2a2
 edition = "2023";
 
-package gcommon.v1.metrics;
+package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/commonmetrics";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 /**
  * MetricType defines the different types of metrics that can be collected.
