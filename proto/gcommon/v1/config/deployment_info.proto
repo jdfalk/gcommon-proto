@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/enums/deployment_status.proto";
+import "gcommon/v1/config/deployment_status.proto";
 import "gcommon/v1/config/messages/deployment_rollback_info.proto";
 import "gcommon/v1/config/messages/health_check.proto";
 import "google/protobuf/go_features.proto";

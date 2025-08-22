@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/enums/tenant_status.proto
+// file: proto/gcommon/v1/organization/tenant_status.proto
 // version: 1.0.0
 // guid: 180914cf-dfc6-4920-bf56-9a4b6972db9d
 edition = "2023";

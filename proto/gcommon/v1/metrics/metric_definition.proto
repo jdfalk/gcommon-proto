@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/enums/metric_type.proto";
+import "gcommon/v1/metrics/metric_type.proto";
 import "gcommon/v1/metrics/messages/export_config.proto";
 import "gcommon/v1/metrics/messages/label_definition.proto";
 import "gcommon/v1/metrics/messages/metric_type_config.proto";

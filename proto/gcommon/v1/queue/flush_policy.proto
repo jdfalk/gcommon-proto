@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/api/flush_policy.proto
-// file: proto/gcommon/v1/queue/enums/flush_policy.proto
+// file: proto/gcommon/v1/queue/flush_policy.proto
 // version: 1.0.0
 // guid: 0a9b8c7d-6e5f-4a3b-2c1d-0e9f8a7b6c5d
 //

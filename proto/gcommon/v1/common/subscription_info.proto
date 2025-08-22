@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/subscription_status.proto";
+import "gcommon/v1/common/subscription_status.proto";
 import "gcommon/v1/common/messages/client_info.proto";
 import "gcommon/v1/common/messages/filter_options.proto";
 import "gcommon/v1/common/messages/subscription_options.proto";

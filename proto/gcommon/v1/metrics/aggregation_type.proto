@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/metrics/types/aggregation_type.proto
 // version: 1.0.0
 // guid: ab90e4af-40b2-4a70-94d5-3aef1bf40b63
-// file: proto/gcommon/v1/metrics/enums/aggregation_type.proto
+// file: proto/gcommon/v1/metrics/aggregation_type.proto
 //
 // Aggregation type enum definitions for metrics module
 //

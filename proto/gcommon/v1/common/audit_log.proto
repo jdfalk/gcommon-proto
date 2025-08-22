@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/audit_result.proto";
+import "gcommon/v1/common/audit_result.proto";
 import "gcommon/v1/common/messages/resource_reference.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

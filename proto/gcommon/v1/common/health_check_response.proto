@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/health_status.proto";
+import "gcommon/v1/common/health_status.proto";
 import "gcommon/v1/common/messages/check_result.proto";
 import "gcommon/v1/common/messages/error.proto";
 import "gcommon/v1/common/messages/health_metrics.proto";

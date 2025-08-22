@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "gcommon/v1/common/messages/request_metadata.proto";
-import "gcommon/v1/web/enums/file_sort_order.proto";
+import "gcommon/v1/web/file_sort_order.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

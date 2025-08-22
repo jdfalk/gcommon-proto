@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/audit_action.proto
+// file: proto/gcommon/v1/common/audit_action.proto
 // version: 1.0.0
 // guid: fe20f23e-ff61-4f78-b548-99cc5aded7b4
 edition = "2023";

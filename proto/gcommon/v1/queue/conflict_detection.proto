@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/conflict_strategy.proto";
+import "gcommon/v1/queue/conflict_strategy.proto";
 import "gcommon/v1/queue/messages/timestamp_config.proto";
 import "gcommon/v1/queue/messages/vector_clock_config.proto";
 import "google/protobuf/go_features.proto";

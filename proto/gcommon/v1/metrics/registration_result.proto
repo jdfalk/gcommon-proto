@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "gcommon/v1/metrics/enums/registration_action.proto";
+import "gcommon/v1/metrics/registration_action.proto";
 import "gcommon/v1/metrics/messages/schema_change.proto";
 import "google/protobuf/go_features.proto";
 

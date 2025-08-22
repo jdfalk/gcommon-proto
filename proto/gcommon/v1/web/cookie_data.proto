@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "gcommon/v1/web/enums/cookie_same_site.proto";
+import "gcommon/v1/web/cookie_same_site.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // CookieData message definition.

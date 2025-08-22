@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/enums/inheritance_strategy.proto";
-import "gcommon/v1/config/enums/merge_strategy.proto";
+import "gcommon/v1/config/inheritance_strategy.proto";
+import "gcommon/v1/config/merge_strategy.proto";
 import "gcommon/v1/config/messages/inheritance_filter.proto";
 import "gcommon/v1/config/messages/inheritance_transformation.proto";
 import "google/protobuf/go_features.proto";

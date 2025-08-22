@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/value_type.proto";
+import "gcommon/v1/common/value_type.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 

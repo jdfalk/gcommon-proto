@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/enums/isolation_level.proto
+// file: proto/gcommon/v1/organization/isolation_level.proto
 // version: 1.0.0
 // guid: a922822f-aac2-4d39-ab9c-546cfae195e4
 edition = "2023";

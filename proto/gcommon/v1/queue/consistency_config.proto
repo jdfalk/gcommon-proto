@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/config/enums/conflict_resolution.proto";
-import "gcommon/v1/queue/enums/ack_level.proto";
-import "gcommon/v1/queue/enums/durability_level.proto";
+import "gcommon/v1/config/conflict_resolution.proto";
+import "gcommon/v1/queue/ack_level.proto";
+import "gcommon/v1/queue/durability_level.proto";
 import "gcommon/v1/queue/messages/consistency_validation.proto";
 import "gcommon/v1/queue/messages/ordering_config.proto";
 import "gcommon/v1/queue/messages/read_consistency.proto";

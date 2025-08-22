@@ -6,8 +6,8 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "gcommon/v1/common/messages/key_value.proto";
-import "gcommon/v1/organization/enums/isolation_level.proto";
-import "gcommon/v1/organization/enums/tenant_status.proto";
+import "gcommon/v1/organization/isolation_level.proto";
+import "gcommon/v1/organization/tenant_status.proto";
 import "gcommon/v1/organization/messages/tenant_quota.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

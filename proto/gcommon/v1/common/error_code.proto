@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/error_code.proto
+// file: proto/gcommon/v1/common/error_code.proto
 // version: 1.0.0
 // guid: 6177a6c6-ea53-448e-8ec8-b526bb86a53f
 edition = "2023";

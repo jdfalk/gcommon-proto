@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/consumer_state.proto";
+import "gcommon/v1/queue/consumer_state.proto";
 import "gcommon/v1/queue/messages/consumer_client.proto";
 import "gcommon/v1/queue/messages/consumer_config.proto";
 import "gcommon/v1/queue/messages/consumer_stats.proto";

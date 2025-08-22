@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/circuit_breaker_state.proto
+// file: proto/gcommon/v1/common/circuit_breaker_state.proto
 // version: 1.0.0
 // guid: 1d26f112-976e-48db-b531-58892638701d
 edition = "2023";

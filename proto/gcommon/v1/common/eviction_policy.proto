@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/eviction_policy.proto
+// file: proto/gcommon/v1/common/eviction_policy.proto
 // version: 1.0.0
 // guid: 53ad7b97-17b7-45fc-b834-31d09296f358
 edition = "2023";

@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/common/enums/resource_status.proto";
+import "gcommon/v1/common/resource_status.proto";
 import "gcommon/v1/common/messages/config_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

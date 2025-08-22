@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/read_level.proto";
+import "gcommon/v1/queue/read_level.proto";
 import "gcommon/v1/queue/messages/read_retry_config.proto";
 import "google/protobuf/go_features.proto";
 

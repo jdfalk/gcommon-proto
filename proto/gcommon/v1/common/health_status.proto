@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/health_status.proto
+// file: proto/gcommon/v1/common/health_status.proto
 // version: 1.0.0
 // guid: f5b71864-058c-43b1-8500-dd1845802068
 edition = "2023";

@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/resolution_strategy.proto";
+import "gcommon/v1/queue/resolution_strategy.proto";
 import "gcommon/v1/queue/messages/custom_resolution.proto";
 import "gcommon/v1/queue/messages/last_writer_wins.proto";
 import "gcommon/v1/queue/messages/multi_value_config.proto";

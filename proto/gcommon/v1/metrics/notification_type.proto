@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/metrics/types/notification_type.proto
 // version: 1.0.0
 // guid: c1381807-afc6-4139-8737-8691569a66f9
-// file: proto/gcommon/v1/metrics/enums/notification_type.proto
+// file: proto/gcommon/v1/metrics/notification_type.proto
 //
 // Enum definitions for metrics module
 

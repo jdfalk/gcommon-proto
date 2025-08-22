@@ -7,7 +7,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/enums/health_status.proto";
+import "gcommon/v1/common/health_status.proto";
 import "gcommon/v1/common/messages/error.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";

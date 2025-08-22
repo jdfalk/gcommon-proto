@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "gcommon/v1/common/messages/key_value.proto";
-import "gcommon/v1/organization/enums/isolation_level.proto";
+import "gcommon/v1/organization/isolation_level.proto";
 import "gcommon/v1/organization/messages/access_control.proto";
 import "gcommon/v1/organization/messages/audit_config.proto";
 import "gcommon/v1/organization/messages/compute_isolation.proto";

@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/enums/parameter_type.proto";
+import "gcommon/v1/config/parameter_type.proto";
 import "gcommon/v1/config/messages/parameter_constraints.proto";
 import "google/protobuf/go_features.proto";
 

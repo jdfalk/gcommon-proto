@@ -1,7 +1,7 @@
-// file: proto/gcommon/v1/common/enums/delivery_status.proto
+// file: proto/gcommon/v1/common/delivery_status.proto
 // version: 1.0.0
 // guid: 6548d52a-11c5-44c0-bbf8-269fecf8eab3
-// file: proto/gcommon/v1/common/enums/delivery_status.proto
+// file: proto/gcommon/v1/common/delivery_status.proto
 //
 // Delivery status enumeration for tracking notification outcomes.
 edition = "2023";

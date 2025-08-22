@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/filter_operation.proto";
+import "gcommon/v1/common/filter_operation.proto";
 import "gcommon/v1/common/messages/int64_array.proto";
 import "gcommon/v1/common/messages/string_array.proto";
 import "google/protobuf/go_features.proto";

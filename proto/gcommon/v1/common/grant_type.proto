@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/grant_type.proto
+// file: proto/gcommon/v1/common/grant_type.proto
 // version: 1.0.0
 // guid: 75a43fdc-3d73-410d-80b1-00ca7583f150
 edition = "2023";

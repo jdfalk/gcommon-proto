@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/permission_scope.proto";
+import "gcommon/v1/common/permission_scope.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

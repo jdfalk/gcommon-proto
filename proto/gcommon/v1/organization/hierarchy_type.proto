@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/organization/enums/hierarchy_type.proto
+// file: proto/gcommon/v1/organization/hierarchy_type.proto
 // version: 1.0.0
 // guid: 4618131c-f81c-417c-ba7a-46d3f5a9a06b
 edition = "2023";

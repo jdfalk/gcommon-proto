@@ -1,7 +1,7 @@
 // file: proto/gcommon/v1/metrics/types/scrape_status.proto
 // version: 1.0.0
 // guid: 8c8f682b-16a6-490f-84ce-c96e566d5fba
-// file: proto/gcommon/v1/metrics/enums/scrape_status.proto
+// file: proto/gcommon/v1/metrics/scrape_status.proto
 //
 // Enum definitions for metrics module
 

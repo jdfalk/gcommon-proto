@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/priority_level.proto";
-import "gcommon/v1/queue/enums/routing_strategy.proto";
-import "gcommon/v1/queue/enums/subscription_state.proto";
+import "gcommon/v1/queue/priority_level.proto";
+import "gcommon/v1/queue/routing_strategy.proto";
+import "gcommon/v1/queue/subscription_state.proto";
 import "gcommon/v1/queue/messages/delivery_options.proto";
 import "google/protobuf/go_features.proto";
 

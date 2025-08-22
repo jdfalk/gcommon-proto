@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/permission_scope.proto
+// file: proto/gcommon/v1/common/permission_scope.proto
 // version: 1.0.0
 // guid: 223f7d62-a27f-4724-8f07-6c99d1afaa17
 edition = "2023";

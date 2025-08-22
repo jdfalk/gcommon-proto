@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/role_scope.proto
+// file: proto/gcommon/v1/common/role_scope.proto
 // version: 1.0.0
 // guid: d731d279-8c61-4854-ae41-17da08e62494
 edition = "2023";

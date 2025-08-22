@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/log_level.proto";
+import "gcommon/v1/common/log_level.proto";
 import "gcommon/v1/common/messages/appender_config.proto";
 import "google/protobuf/go_features.proto";
 

@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/expiration_policy.proto
+// file: proto/gcommon/v1/common/expiration_policy.proto
 // version: 1.0.0
 // guid: 788be552-a444-4860-9db6-1004f1f1fabf
 edition = "2023";

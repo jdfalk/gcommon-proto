@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/token_status.proto
+// file: proto/gcommon/v1/common/token_status.proto
 // version: 1.0.0
 // guid: 3d813f39-ef48-4c3e-b551-46ae673e7af1
 edition = "2023";

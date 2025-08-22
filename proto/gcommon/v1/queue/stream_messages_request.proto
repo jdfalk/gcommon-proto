@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/queue/enums/ack_level.proto";
+import "gcommon/v1/queue/ack_level.proto";
 import "gcommon/v1/queue/messages/message_filter.proto";
 import "gcommon/v1/queue/messages/offset_config.proto";
 import "gcommon/v1/queue/messages/stream_config.proto";

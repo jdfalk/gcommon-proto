@@ -5,7 +5,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/common/enums/serving_status.proto";
+import "gcommon/v1/common/serving_status.proto";
 import "gcommon/v1/common/messages/health_check_result.proto";
 import "google/protobuf/go_features.proto";
 

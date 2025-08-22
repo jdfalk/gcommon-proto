@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/common/enums/permission_type.proto
+// file: proto/gcommon/v1/common/permission_type.proto
 // version: 1.0.0
 // guid: 2e23ed6f-5620-4c13-a485-eaeb2d0edf25
 edition = "2023";

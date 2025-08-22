@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "gcommon/v1/common/enums/alert_severity.proto";
+import "gcommon/v1/common/alert_severity.proto";
 import "gcommon/v1/queue/messages/alert_rule.proto";
 import "gcommon/v1/queue/messages/notification_channel.proto";
 import "google/protobuf/duration.proto";
