@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
+import "gcommon/v1/common/isolation_level.proto";
 import "gcommon/v1/common/key_value.proto";
-import "gcommon/v1/organization/isolation_level.proto";
 import "gcommon/v1/organization/access_control.proto";
 import "gcommon/v1/organization/audit_config.proto";
 import "gcommon/v1/organization/compute_isolation.proto";
