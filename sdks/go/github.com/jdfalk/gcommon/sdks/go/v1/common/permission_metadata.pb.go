@@ -281,7 +281,7 @@ var File_gcommon_v1_common_permission_metadata_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_permission_metadata_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/common/permission_metadata.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/permission_level.proto\x1a,gcommon/v1/common/permission_condition.proto\x1a!google/protobuf/go_features.proto\"\xd2\x02\n" +
+	"+gcommon/v1/common/permission_metadata.proto\x12\x11gcommon.v1.common\x1a,gcommon/v1/common/permission_condition.proto\x1a(gcommon/v1/common/permission_level.proto\x1a!google/protobuf/go_features.proto\"\xd2\x02\n" +
 	"\x12PermissionMetadata\x12#\n" +
 	"\rpermission_id\x18\x01 \x01(\tR\fpermissionId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12%\n" +
@@ -317,8 +317,8 @@ func file_gcommon_v1_common_permission_metadata_proto_init() {
 	if File_gcommon_v1_common_permission_metadata_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_permission_level_proto_init()
 	file_gcommon_v1_common_permission_condition_proto_init()
+	file_gcommon_v1_common_permission_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

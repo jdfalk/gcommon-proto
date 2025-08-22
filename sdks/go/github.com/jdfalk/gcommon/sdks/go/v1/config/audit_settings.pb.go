@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +25,7 @@ const (
 type AuditSettings struct {
 	state                           protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled              bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Level                AuditLevel             `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.AuditLevel"`
+	xxx_hidden_Level                common.AuditLevel      `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.common.AuditLevel"`
 	xxx_hidden_RetentionDays        int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
 	xxx_hidden_IncludeSensitiveData bool                   `protobuf:"varint,4,opt,name=include_sensitive_data,json=includeSensitiveData"`
 	xxx_hidden_Destinations         []string               `protobuf:"bytes,5,rep,name=destinations"`
@@ -68,13 +69,13 @@ func (x *AuditSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *AuditSettings) GetLevel() AuditLevel {
+func (x *AuditSettings) GetLevel() common.AuditLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return AuditLevel_AUDIT_LEVEL_UNSPECIFIED
+	return common.AuditLevel(0)
 }
 
 func (x *AuditSettings) GetRetentionDays() int32 {
@@ -120,7 +121,7 @@ func (x *AuditSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *AuditSettings) SetLevel(v AuditLevel) {
+func (x *AuditSettings) SetLevel(v common.AuditLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -190,7 +191,7 @@ func (x *AuditSettings) ClearEnabled() {
 
 func (x *AuditSettings) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Level = AuditLevel_AUDIT_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = common.AuditLevel_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *AuditSettings) ClearRetentionDays() {
@@ -214,7 +215,7 @@ type AuditSettings_builder struct {
 	// Whether audit logging is enabled
 	Enabled *bool
 	// Audit log level
-	Level *AuditLevel
+	Level *common.AuditLevel
 	// Audit log retention period in days
 	RetentionDays *int32
 	// Whether to include sensitive data in audit logs
@@ -260,10 +261,10 @@ var File_gcommon_v1_config_audit_settings_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_audit_settings_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/config/audit_settings.proto\x12\x11gcommon.v1.config\x1a#gcommon/v1/config/audit_level.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n" +
+	"&gcommon/v1/config/audit_settings.proto\x12\x11gcommon.v1.config\x1a#gcommon/v1/common/audit_level.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n" +
 	"\rAuditSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x123\n" +
-	"\x05level\x18\x02 \x01(\x0e2\x1d.gcommon.v1.config.AuditLevelR\x05level\x12%\n" +
+	"\x05level\x18\x02 \x01(\x0e2\x1d.gcommon.v1.common.AuditLevelR\x05level\x12%\n" +
 	"\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x124\n" +
 	"\x16include_sensitive_data\x18\x04 \x01(\bR\x14includeSensitiveData\x12\"\n" +
 	"\fdestinations\x18\x05 \x03(\tR\fdestinations\x12\x16\n" +
@@ -275,12 +276,12 @@ const file_gcommon_v1_config_audit_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_audit_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_audit_settings_proto_goTypes = []any{
-	(*AuditSettings)(nil), // 0: gcommon.v1.config.AuditSettings
-	nil,                   // 1: gcommon.v1.config.AuditSettings.MetadataEntry
-	(AuditLevel)(0),       // 2: gcommon.v1.config.AuditLevel
+	(*AuditSettings)(nil),  // 0: gcommon.v1.config.AuditSettings
+	nil,                    // 1: gcommon.v1.config.AuditSettings.MetadataEntry
+	(common.AuditLevel)(0), // 2: gcommon.v1.common.AuditLevel
 }
 var file_gcommon_v1_config_audit_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.AuditSettings.level:type_name -> gcommon.v1.config.AuditLevel
+	2, // 0: gcommon.v1.config.AuditSettings.level:type_name -> gcommon.v1.common.AuditLevel
 	1, // 1: gcommon.v1.config.AuditSettings.metadata:type_name -> gcommon.v1.config.AuditSettings.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -294,7 +295,6 @@ func file_gcommon_v1_config_audit_settings_proto_init() {
 	if File_gcommon_v1_config_audit_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_audit_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

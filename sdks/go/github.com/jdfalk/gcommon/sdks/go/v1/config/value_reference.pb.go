@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type ValueReference struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type          ReferenceType          `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.ReferenceType"`
+	xxx_hidden_Type          common.ReferenceType   `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.ReferenceType"`
 	xxx_hidden_ReferencedKey *string                `protobuf:"bytes,2,opt,name=referenced_key,json=referencedKey"`
 	xxx_hidden_Path          *string                `protobuf:"bytes,3,opt,name=path"`
 	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -58,13 +59,13 @@ func (x *ValueReference) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValueReference) GetType() ReferenceType {
+func (x *ValueReference) GetType() common.ReferenceType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return ReferenceType_REFERENCE_TYPE_UNSPECIFIED
+	return common.ReferenceType(0)
 }
 
 func (x *ValueReference) GetReferencedKey() string {
@@ -94,7 +95,7 @@ func (x *ValueReference) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *ValueReference) SetType(v ReferenceType) {
+func (x *ValueReference) SetType(v common.ReferenceType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -136,7 +137,7 @@ func (x *ValueReference) HasPath() bool {
 
 func (x *ValueReference) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = ReferenceType_REFERENCE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.ReferenceType_REFERENCE_TYPE_UNSPECIFIED
 }
 
 func (x *ValueReference) ClearReferencedKey() {
@@ -153,7 +154,7 @@ type ValueReference_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Reference type
-	Type *ReferenceType
+	Type *common.ReferenceType
 	// Referenced value key
 	ReferencedKey *string
 	// Reference path
@@ -186,9 +187,9 @@ var File_gcommon_v1_config_value_reference_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_value_reference_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/config/value_reference.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/config/reference_type.proto\x1a!google/protobuf/go_features.proto\"\x8b\x02\n" +
+	"'gcommon/v1/config/value_reference.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/reference_type.proto\x1a!google/protobuf/go_features.proto\"\x8b\x02\n" +
 	"\x0eValueReference\x124\n" +
-	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.config.ReferenceTypeR\x04type\x12%\n" +
+	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.common.ReferenceTypeR\x04type\x12%\n" +
 	"\x0ereferenced_key\x18\x02 \x01(\tR\rreferencedKey\x12\x12\n" +
 	"\x04path\x18\x03 \x01(\tR\x04path\x12K\n" +
 	"\bmetadata\x18\x04 \x03(\v2/.gcommon.v1.config.ValueReference.MetadataEntryR\bmetadata\x1a;\n" +
@@ -198,12 +199,12 @@ const file_gcommon_v1_config_value_reference_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_value_reference_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_value_reference_proto_goTypes = []any{
-	(*ValueReference)(nil), // 0: gcommon.v1.config.ValueReference
-	nil,                    // 1: gcommon.v1.config.ValueReference.MetadataEntry
-	(ReferenceType)(0),     // 2: gcommon.v1.config.ReferenceType
+	(*ValueReference)(nil),    // 0: gcommon.v1.config.ValueReference
+	nil,                       // 1: gcommon.v1.config.ValueReference.MetadataEntry
+	(common.ReferenceType)(0), // 2: gcommon.v1.common.ReferenceType
 }
 var file_gcommon_v1_config_value_reference_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ValueReference.type:type_name -> gcommon.v1.config.ReferenceType
+	2, // 0: gcommon.v1.config.ValueReference.type:type_name -> gcommon.v1.common.ReferenceType
 	1, // 1: gcommon.v1.config.ValueReference.metadata:type_name -> gcommon.v1.config.ValueReference.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -217,7 +218,6 @@ func file_gcommon_v1_config_value_reference_proto_init() {
 	if File_gcommon_v1_config_value_reference_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_reference_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

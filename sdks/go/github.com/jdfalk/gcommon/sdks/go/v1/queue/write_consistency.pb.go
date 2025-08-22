@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type WriteConsistency struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level             WriteLevel             `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.WriteLevel"`
+	xxx_hidden_Level             common.WriteLevel      `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.WriteLevel"`
 	xxx_hidden_SyncReplication   *SyncReplication       `protobuf:"bytes,2,opt,name=sync_replication,json=syncReplication"`
 	xxx_hidden_ConflictDetection *ConflictDetection     `protobuf:"bytes,3,opt,name=conflict_detection,json=conflictDetection"`
 	xxx_hidden_TimeoutMs         int32                  `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
@@ -59,13 +60,13 @@ func (x *WriteConsistency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WriteConsistency) GetLevel() WriteLevel {
+func (x *WriteConsistency) GetLevel() common.WriteLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return WriteLevel_WRITE_LEVEL_UNSPECIFIED
+	return common.WriteLevel(0)
 }
 
 func (x *WriteConsistency) GetSyncReplication() *SyncReplication {
@@ -96,7 +97,7 @@ func (x *WriteConsistency) GetRetryConfig() *WriteRetryConfig {
 	return nil
 }
 
-func (x *WriteConsistency) SetLevel(v WriteLevel) {
+func (x *WriteConsistency) SetLevel(v common.WriteLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -155,7 +156,7 @@ func (x *WriteConsistency) HasRetryConfig() bool {
 
 func (x *WriteConsistency) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = WriteLevel_WRITE_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = common.WriteLevel_WRITE_LEVEL_UNSPECIFIED
 }
 
 func (x *WriteConsistency) ClearSyncReplication() {
@@ -179,7 +180,7 @@ type WriteConsistency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Write consistency level
-	Level *WriteLevel
+	Level *common.WriteLevel
 	// Synchronous replication requirements
 	SyncReplication *SyncReplication
 	// Write conflict detection
@@ -212,9 +213,9 @@ var File_gcommon_v1_queue_write_consistency_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_write_consistency_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/queue/write_consistency.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/queue/write_level.proto\x1a)gcommon/v1/queue/conflict_detection.proto\x1a'gcommon/v1/queue/sync_replication.proto\x1a)gcommon/v1/queue/write_retry_config.proto\x1a!google/protobuf/go_features.proto\"\xce\x02\n" +
-	"\x10WriteConsistency\x122\n" +
-	"\x05level\x18\x01 \x01(\x0e2\x1c.gcommon.v1.queue.WriteLevelR\x05level\x12L\n" +
+	"(gcommon/v1/queue/write_consistency.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/write_level.proto\x1a)gcommon/v1/queue/conflict_detection.proto\x1a'gcommon/v1/queue/sync_replication.proto\x1a)gcommon/v1/queue/write_retry_config.proto\x1a!google/protobuf/go_features.proto\"\xcf\x02\n" +
+	"\x10WriteConsistency\x123\n" +
+	"\x05level\x18\x01 \x01(\x0e2\x1d.gcommon.v1.common.WriteLevelR\x05level\x12L\n" +
 	"\x10sync_replication\x18\x02 \x01(\v2!.gcommon.v1.queue.SyncReplicationR\x0fsyncReplication\x12R\n" +
 	"\x12conflict_detection\x18\x03 \x01(\v2#.gcommon.v1.queue.ConflictDetectionR\x11conflictDetection\x12\x1d\n" +
 	"\n" +
@@ -224,13 +225,13 @@ const file_gcommon_v1_queue_write_consistency_proto_rawDesc = "" +
 var file_gcommon_v1_queue_write_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_write_consistency_proto_goTypes = []any{
 	(*WriteConsistency)(nil),  // 0: gcommon.v1.queue.WriteConsistency
-	(WriteLevel)(0),           // 1: gcommon.v1.queue.WriteLevel
+	(common.WriteLevel)(0),    // 1: gcommon.v1.common.WriteLevel
 	(*SyncReplication)(nil),   // 2: gcommon.v1.queue.SyncReplication
 	(*ConflictDetection)(nil), // 3: gcommon.v1.queue.ConflictDetection
 	(*WriteRetryConfig)(nil),  // 4: gcommon.v1.queue.WriteRetryConfig
 }
 var file_gcommon_v1_queue_write_consistency_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.WriteConsistency.level:type_name -> gcommon.v1.queue.WriteLevel
+	1, // 0: gcommon.v1.queue.WriteConsistency.level:type_name -> gcommon.v1.common.WriteLevel
 	2, // 1: gcommon.v1.queue.WriteConsistency.sync_replication:type_name -> gcommon.v1.queue.SyncReplication
 	3, // 2: gcommon.v1.queue.WriteConsistency.conflict_detection:type_name -> gcommon.v1.queue.ConflictDetection
 	4, // 3: gcommon.v1.queue.WriteConsistency.retry_config:type_name -> gcommon.v1.queue.WriteRetryConfig
@@ -246,7 +247,6 @@ func file_gcommon_v1_queue_write_consistency_proto_init() {
 	if File_gcommon_v1_queue_write_consistency_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_write_level_proto_init()
 	file_gcommon_v1_queue_conflict_detection_proto_init()
 	file_gcommon_v1_queue_sync_replication_proto_init()
 	file_gcommon_v1_queue_write_retry_config_proto_init()

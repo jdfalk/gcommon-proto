@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,13 +25,13 @@ const (
 // *
 // Configuration for message deserialization.
 type DeserializationConfig struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SupportedFormats   []SerializationFormat  `protobuf:"varint,1,rep,packed,name=supported_formats,json=supportedFormats,enum=gcommon.v1.queue.SerializationFormat"`
-	xxx_hidden_DefaultFormat      SerializationFormat    `protobuf:"varint,2,opt,name=default_format,json=defaultFormat,enum=gcommon.v1.queue.SerializationFormat"`
-	xxx_hidden_ValidateSchema     bool                   `protobuf:"varint,3,opt,name=validate_schema,json=validateSchema"`
-	xxx_hidden_AllowUnknownFields bool                   `protobuf:"varint,4,opt,name=allow_unknown_fields,json=allowUnknownFields"`
-	xxx_hidden_CustomDeserializer *string                `protobuf:"bytes,5,opt,name=custom_deserializer,json=customDeserializer"`
-	xxx_hidden_MaxMessageSize     uint64                 `protobuf:"varint,6,opt,name=max_message_size,json=maxMessageSize"`
+	state                         protoimpl.MessageState       `protogen:"opaque.v1"`
+	xxx_hidden_SupportedFormats   []common.SerializationFormat `protobuf:"varint,1,rep,packed,name=supported_formats,json=supportedFormats,enum=gcommon.v1.common.SerializationFormat"`
+	xxx_hidden_DefaultFormat      common.SerializationFormat   `protobuf:"varint,2,opt,name=default_format,json=defaultFormat,enum=gcommon.v1.common.SerializationFormat"`
+	xxx_hidden_ValidateSchema     bool                         `protobuf:"varint,3,opt,name=validate_schema,json=validateSchema"`
+	xxx_hidden_AllowUnknownFields bool                         `protobuf:"varint,4,opt,name=allow_unknown_fields,json=allowUnknownFields"`
+	xxx_hidden_CustomDeserializer *string                      `protobuf:"bytes,5,opt,name=custom_deserializer,json=customDeserializer"`
+	xxx_hidden_MaxMessageSize     uint64                       `protobuf:"varint,6,opt,name=max_message_size,json=maxMessageSize"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -62,20 +63,20 @@ func (x *DeserializationConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeserializationConfig) GetSupportedFormats() []SerializationFormat {
+func (x *DeserializationConfig) GetSupportedFormats() []common.SerializationFormat {
 	if x != nil {
 		return x.xxx_hidden_SupportedFormats
 	}
 	return nil
 }
 
-func (x *DeserializationConfig) GetDefaultFormat() SerializationFormat {
+func (x *DeserializationConfig) GetDefaultFormat() common.SerializationFormat {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_DefaultFormat
 		}
 	}
-	return SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
+	return common.SerializationFormat(0)
 }
 
 func (x *DeserializationConfig) GetValidateSchema() bool {
@@ -109,11 +110,11 @@ func (x *DeserializationConfig) GetMaxMessageSize() uint64 {
 	return 0
 }
 
-func (x *DeserializationConfig) SetSupportedFormats(v []SerializationFormat) {
+func (x *DeserializationConfig) SetSupportedFormats(v []common.SerializationFormat) {
 	x.xxx_hidden_SupportedFormats = v
 }
 
-func (x *DeserializationConfig) SetDefaultFormat(v SerializationFormat) {
+func (x *DeserializationConfig) SetDefaultFormat(v common.SerializationFormat) {
 	x.xxx_hidden_DefaultFormat = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
@@ -175,7 +176,7 @@ func (x *DeserializationConfig) HasMaxMessageSize() bool {
 
 func (x *DeserializationConfig) ClearDefaultFormat() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_DefaultFormat = SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
+	x.xxx_hidden_DefaultFormat = common.SerializationFormat_SERIALIZATION_FORMAT_UNSPECIFIED
 }
 
 func (x *DeserializationConfig) ClearValidateSchema() {
@@ -202,9 +203,9 @@ type DeserializationConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Supported serialization formats
-	SupportedFormats []SerializationFormat
+	SupportedFormats []common.SerializationFormat
 	// Default format if not specified
-	DefaultFormat *SerializationFormat
+	DefaultFormat *common.SerializationFormat
 	// Whether to validate schema during deserialization
 	ValidateSchema *bool
 	// Whether to allow unknown fields
@@ -247,10 +248,10 @@ var File_gcommon_v1_queue_deserialization_config_proto protoreflect.FileDescript
 
 const file_gcommon_v1_queue_deserialization_config_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/queue/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/queue/serialization_format.proto\x1a!google/protobuf/go_features.proto\"\xef\x02\n" +
-	"\x15DeserializationConfig\x12R\n" +
-	"\x11supported_formats\x18\x01 \x03(\x0e2%.gcommon.v1.queue.SerializationFormatR\x10supportedFormats\x12L\n" +
-	"\x0edefault_format\x18\x02 \x01(\x0e2%.gcommon.v1.queue.SerializationFormatR\rdefaultFormat\x12'\n" +
+	"-gcommon/v1/queue/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/common/serialization_format.proto\x1a!google/protobuf/go_features.proto\"\xf1\x02\n" +
+	"\x15DeserializationConfig\x12S\n" +
+	"\x11supported_formats\x18\x01 \x03(\x0e2&.gcommon.v1.common.SerializationFormatR\x10supportedFormats\x12M\n" +
+	"\x0edefault_format\x18\x02 \x01(\x0e2&.gcommon.v1.common.SerializationFormatR\rdefaultFormat\x12'\n" +
 	"\x0fvalidate_schema\x18\x03 \x01(\bR\x0evalidateSchema\x120\n" +
 	"\x14allow_unknown_fields\x18\x04 \x01(\bR\x12allowUnknownFields\x12/\n" +
 	"\x13custom_deserializer\x18\x05 \x01(\tR\x12customDeserializer\x12(\n" +
@@ -258,12 +259,12 @@ const file_gcommon_v1_queue_deserialization_config_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_deserialization_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_deserialization_config_proto_goTypes = []any{
-	(*DeserializationConfig)(nil), // 0: gcommon.v1.queue.DeserializationConfig
-	(SerializationFormat)(0),      // 1: gcommon.v1.queue.SerializationFormat
+	(*DeserializationConfig)(nil),   // 0: gcommon.v1.queue.DeserializationConfig
+	(common.SerializationFormat)(0), // 1: gcommon.v1.common.SerializationFormat
 }
 var file_gcommon_v1_queue_deserialization_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.DeserializationConfig.supported_formats:type_name -> gcommon.v1.queue.SerializationFormat
-	1, // 1: gcommon.v1.queue.DeserializationConfig.default_format:type_name -> gcommon.v1.queue.SerializationFormat
+	1, // 0: gcommon.v1.queue.DeserializationConfig.supported_formats:type_name -> gcommon.v1.common.SerializationFormat
+	1, // 1: gcommon.v1.queue.DeserializationConfig.default_format:type_name -> gcommon.v1.common.SerializationFormat
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -276,7 +277,6 @@ func file_gcommon_v1_queue_deserialization_config_proto_init() {
 	if File_gcommon_v1_queue_deserialization_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_serialization_format_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

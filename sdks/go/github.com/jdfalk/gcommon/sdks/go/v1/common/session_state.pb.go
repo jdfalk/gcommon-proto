@@ -22,53 +22,47 @@ const (
 )
 
 // buf:lint:ignore ENUM_VALUE_PREFIX
-type AuthSessionState int32
+type SessionState int32
 
 const (
-	AuthSessionState_SESSION_STATE_UNSPECIFIED AuthSessionState = 0
-	AuthSessionState_SESSION_STATE_ACTIVE      AuthSessionState = 1
-	AuthSessionState_SESSION_STATE_IDLE        AuthSessionState = 2
-	AuthSessionState_SESSION_STATE_EXPIRED     AuthSessionState = 3
-	AuthSessionState_SESSION_STATE_TERMINATED  AuthSessionState = 4
+	SessionState_COMMON_SESSION_STATE_UNSPECIFIED SessionState = 0
+	SessionState_COMMON_SESSION_STATE_ACTIVE      SessionState = 1
+	SessionState_COMMON_SESSION_STATE_EXPIRED     SessionState = 2
 )
 
-// Enum value maps for AuthSessionState.
+// Enum value maps for SessionState.
 var (
-	AuthSessionState_name = map[int32]string{
-		0: "SESSION_STATE_UNSPECIFIED",
-		1: "SESSION_STATE_ACTIVE",
-		2: "SESSION_STATE_IDLE",
-		3: "SESSION_STATE_EXPIRED",
-		4: "SESSION_STATE_TERMINATED",
+	SessionState_name = map[int32]string{
+		0: "COMMON_SESSION_STATE_UNSPECIFIED",
+		1: "COMMON_SESSION_STATE_ACTIVE",
+		2: "COMMON_SESSION_STATE_EXPIRED",
 	}
-	AuthSessionState_value = map[string]int32{
-		"SESSION_STATE_UNSPECIFIED": 0,
-		"SESSION_STATE_ACTIVE":      1,
-		"SESSION_STATE_IDLE":        2,
-		"SESSION_STATE_EXPIRED":     3,
-		"SESSION_STATE_TERMINATED":  4,
+	SessionState_value = map[string]int32{
+		"COMMON_SESSION_STATE_UNSPECIFIED": 0,
+		"COMMON_SESSION_STATE_ACTIVE":      1,
+		"COMMON_SESSION_STATE_EXPIRED":     2,
 	}
 )
 
-func (x AuthSessionState) Enum() *AuthSessionState {
-	p := new(AuthSessionState)
+func (x SessionState) Enum() *SessionState {
+	p := new(SessionState)
 	*p = x
 	return p
 }
 
-func (x AuthSessionState) String() string {
+func (x SessionState) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (AuthSessionState) Descriptor() protoreflect.EnumDescriptor {
+func (SessionState) Descriptor() protoreflect.EnumDescriptor {
 	return file_gcommon_v1_common_session_state_proto_enumTypes[0].Descriptor()
 }
 
-func (AuthSessionState) Type() protoreflect.EnumType {
+func (SessionState) Type() protoreflect.EnumType {
 	return &file_gcommon_v1_common_session_state_proto_enumTypes[0]
 }
 
-func (x AuthSessionState) Number() protoreflect.EnumNumber {
+func (x SessionState) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
@@ -76,17 +70,15 @@ var File_gcommon_v1_common_session_state_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_session_state_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/common/session_state.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\x9c\x01\n" +
-	"\x10AuthSessionState\x12\x1d\n" +
-	"\x19SESSION_STATE_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14SESSION_STATE_ACTIVE\x10\x01\x12\x16\n" +
-	"\x12SESSION_STATE_IDLE\x10\x02\x12\x19\n" +
-	"\x15SESSION_STATE_EXPIRED\x10\x03\x12\x1c\n" +
-	"\x18SESSION_STATE_TERMINATED\x10\x04B5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"%gcommon/v1/common/session_state.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*w\n" +
+	"\fSessionState\x12$\n" +
+	" COMMON_SESSION_STATE_UNSPECIFIED\x10\x00\x12\x1f\n" +
+	"\x1bCOMMON_SESSION_STATE_ACTIVE\x10\x01\x12 \n" +
+	"\x1cCOMMON_SESSION_STATE_EXPIRED\x10\x02B5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_session_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_session_state_proto_goTypes = []any{
-	(AuthSessionState)(0), // 0: gcommon.v1.common.AuthSessionState
+	(SessionState)(0), // 0: gcommon.v1.common.SessionState
 }
 var file_gcommon_v1_common_session_state_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

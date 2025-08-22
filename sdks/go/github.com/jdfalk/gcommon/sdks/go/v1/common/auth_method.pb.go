@@ -26,48 +26,48 @@ type AuthAuthMethod int32
 
 const (
 	// Default unknown method
-	AuthAuthMethod_AUTH_METHOD_UNSPECIFIED AuthAuthMethod = 0
+	AuthAuthMethod_COMMON_AUTH_METHOD_UNSPECIFIED AuthAuthMethod = 0
 	// Traditional username and password authentication
-	AuthAuthMethod_AUTH_METHOD_PASSWORD AuthAuthMethod = 1
+	AuthAuthMethod_COMMON_AUTH_METHOD_PASSWORD AuthAuthMethod = 1
 	// API key based authentication
-	AuthAuthMethod_AUTH_METHOD_API_KEY AuthAuthMethod = 2
+	AuthAuthMethod_COMMON_AUTH_METHOD_API_KEY AuthAuthMethod = 2
 	// OAuth2 or OpenID Connect authentication
-	AuthAuthMethod_AUTH_METHOD_OAUTH2 AuthAuthMethod = 3
+	AuthAuthMethod_COMMON_AUTH_METHOD_OAUTH2 AuthAuthMethod = 3
 	// SAML identity provider authentication
-	AuthAuthMethod_AUTH_METHOD_SAML AuthAuthMethod = 4
+	AuthAuthMethod_COMMON_AUTH_METHOD_SAML AuthAuthMethod = 4
 	// LDAP directory authentication
-	AuthAuthMethod_AUTH_METHOD_LDAP AuthAuthMethod = 5
+	AuthAuthMethod_COMMON_AUTH_METHOD_LDAP AuthAuthMethod = 5
 	// Multi-factor authentication method
-	AuthAuthMethod_AUTH_METHOD_MFA AuthAuthMethod = 6
+	AuthAuthMethod_COMMON_AUTH_METHOD_MFA AuthAuthMethod = 6
 	// Token-based authentication (e.g., JWT, bearer tokens)
-	AuthAuthMethod_AUTH_METHOD_TOKEN AuthAuthMethod = 7
+	AuthAuthMethod_COMMON_AUTH_METHOD_TOKEN AuthAuthMethod = 7
 	// No authentication required
-	AuthAuthMethod_AUTH_METHOD_NONE AuthAuthMethod = 8
+	AuthAuthMethod_COMMON_AUTH_METHOD_NONE AuthAuthMethod = 8
 )
 
 // Enum value maps for AuthAuthMethod.
 var (
 	AuthAuthMethod_name = map[int32]string{
-		0: "AUTH_METHOD_UNSPECIFIED",
-		1: "AUTH_METHOD_PASSWORD",
-		2: "AUTH_METHOD_API_KEY",
-		3: "AUTH_METHOD_OAUTH2",
-		4: "AUTH_METHOD_SAML",
-		5: "AUTH_METHOD_LDAP",
-		6: "AUTH_METHOD_MFA",
-		7: "AUTH_METHOD_TOKEN",
-		8: "AUTH_METHOD_NONE",
+		0: "COMMON_AUTH_METHOD_UNSPECIFIED",
+		1: "COMMON_AUTH_METHOD_PASSWORD",
+		2: "COMMON_AUTH_METHOD_API_KEY",
+		3: "COMMON_AUTH_METHOD_OAUTH2",
+		4: "COMMON_AUTH_METHOD_SAML",
+		5: "COMMON_AUTH_METHOD_LDAP",
+		6: "COMMON_AUTH_METHOD_MFA",
+		7: "COMMON_AUTH_METHOD_TOKEN",
+		8: "COMMON_AUTH_METHOD_NONE",
 	}
 	AuthAuthMethod_value = map[string]int32{
-		"AUTH_METHOD_UNSPECIFIED": 0,
-		"AUTH_METHOD_PASSWORD":    1,
-		"AUTH_METHOD_API_KEY":     2,
-		"AUTH_METHOD_OAUTH2":      3,
-		"AUTH_METHOD_SAML":        4,
-		"AUTH_METHOD_LDAP":        5,
-		"AUTH_METHOD_MFA":         6,
-		"AUTH_METHOD_TOKEN":       7,
-		"AUTH_METHOD_NONE":        8,
+		"COMMON_AUTH_METHOD_UNSPECIFIED": 0,
+		"COMMON_AUTH_METHOD_PASSWORD":    1,
+		"COMMON_AUTH_METHOD_API_KEY":     2,
+		"COMMON_AUTH_METHOD_OAUTH2":      3,
+		"COMMON_AUTH_METHOD_SAML":        4,
+		"COMMON_AUTH_METHOD_LDAP":        5,
+		"COMMON_AUTH_METHOD_MFA":         6,
+		"COMMON_AUTH_METHOD_TOKEN":       7,
+		"COMMON_AUTH_METHOD_NONE":        8,
 	}
 )
 
@@ -97,17 +97,17 @@ var File_gcommon_v1_common_auth_method_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_auth_method_proto_rawDesc = "" +
 	"\n" +
-	"#gcommon/v1/common/auth_method.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xe6\x01\n" +
-	"\x0eAuthAuthMethod\x12\x1b\n" +
-	"\x17AUTH_METHOD_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14AUTH_METHOD_PASSWORD\x10\x01\x12\x17\n" +
-	"\x13AUTH_METHOD_API_KEY\x10\x02\x12\x16\n" +
-	"\x12AUTH_METHOD_OAUTH2\x10\x03\x12\x14\n" +
-	"\x10AUTH_METHOD_SAML\x10\x04\x12\x14\n" +
-	"\x10AUTH_METHOD_LDAP\x10\x05\x12\x13\n" +
-	"\x0fAUTH_METHOD_MFA\x10\x06\x12\x15\n" +
-	"\x11AUTH_METHOD_TOKEN\x10\a\x12\x14\n" +
-	"\x10AUTH_METHOD_NONE\x10\bB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"#gcommon/v1/common/auth_method.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa5\x02\n" +
+	"\x0eAuthAuthMethod\x12\"\n" +
+	"\x1eCOMMON_AUTH_METHOD_UNSPECIFIED\x10\x00\x12\x1f\n" +
+	"\x1bCOMMON_AUTH_METHOD_PASSWORD\x10\x01\x12\x1e\n" +
+	"\x1aCOMMON_AUTH_METHOD_API_KEY\x10\x02\x12\x1d\n" +
+	"\x19COMMON_AUTH_METHOD_OAUTH2\x10\x03\x12\x1b\n" +
+	"\x17COMMON_AUTH_METHOD_SAML\x10\x04\x12\x1b\n" +
+	"\x17COMMON_AUTH_METHOD_LDAP\x10\x05\x12\x1a\n" +
+	"\x16COMMON_AUTH_METHOD_MFA\x10\x06\x12\x1c\n" +
+	"\x18COMMON_AUTH_METHOD_TOKEN\x10\a\x12\x1b\n" +
+	"\x17COMMON_AUTH_METHOD_NONE\x10\bB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_auth_method_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_auth_method_proto_goTypes = []any{

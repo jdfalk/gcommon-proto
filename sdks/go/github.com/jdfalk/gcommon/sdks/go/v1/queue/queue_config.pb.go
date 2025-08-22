@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,14 +24,14 @@ const (
 
 // QueueConfig defines settings for creating a queue instance.
 type QueueConfig struct {
-	state                      protoimpl.MessageState         `protogen:"opaque.v1"`
-	xxx_hidden_Name            *string                        `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type            QueueType                      `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.queue.QueueType"`
-	xxx_hidden_Partitions      int32                          `protobuf:"varint,3,opt,name=partitions"`
-	xxx_hidden_Retention       metrics.MetricsRetentionPolicy `protobuf:"varint,4,opt,name=retention,enum=gcommon.v1.metrics.MetricsRetentionPolicy"`
-	xxx_hidden_DefaultPriority PriorityLevel                  `protobuf:"varint,5,opt,name=default_priority,json=defaultPriority,enum=gcommon.v1.queue.PriorityLevel"`
-	xxx_hidden_Durable         bool                           `protobuf:"varint,6,opt,name=durable"`
-	xxx_hidden_AutoDelete      bool                           `protobuf:"varint,7,opt,name=auto_delete,json=autoDelete"`
+	state                      protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Name            *string                       `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type            common.QueueType              `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.QueueType"`
+	xxx_hidden_Partitions      int32                         `protobuf:"varint,3,opt,name=partitions"`
+	xxx_hidden_Retention       common.MetricsRetentionPolicy `protobuf:"varint,4,opt,name=retention,enum=gcommon.v1.common.MetricsRetentionPolicy"`
+	xxx_hidden_DefaultPriority common.PriorityLevel          `protobuf:"varint,5,opt,name=default_priority,json=defaultPriority,enum=gcommon.v1.common.PriorityLevel"`
+	xxx_hidden_Durable         bool                          `protobuf:"varint,6,opt,name=durable"`
+	xxx_hidden_AutoDelete      bool                          `protobuf:"varint,7,opt,name=auto_delete,json=autoDelete"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -73,13 +73,13 @@ func (x *QueueConfig) GetName() string {
 	return ""
 }
 
-func (x *QueueConfig) GetType() QueueType {
+func (x *QueueConfig) GetType() common.QueueType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return QueueType_QUEUE_TYPE_UNSPECIFIED
+	return common.QueueType(0)
 }
 
 func (x *QueueConfig) GetPartitions() int32 {
@@ -89,22 +89,22 @@ func (x *QueueConfig) GetPartitions() int32 {
 	return 0
 }
 
-func (x *QueueConfig) GetRetention() metrics.MetricsRetentionPolicy {
+func (x *QueueConfig) GetRetention() common.MetricsRetentionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Retention
 		}
 	}
-	return metrics.MetricsRetentionPolicy(0)
+	return common.MetricsRetentionPolicy(0)
 }
 
-func (x *QueueConfig) GetDefaultPriority() PriorityLevel {
+func (x *QueueConfig) GetDefaultPriority() common.PriorityLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_DefaultPriority
 		}
 	}
-	return PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
+	return common.PriorityLevel(0)
 }
 
 func (x *QueueConfig) GetDurable() bool {
@@ -126,7 +126,7 @@ func (x *QueueConfig) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *QueueConfig) SetType(v QueueType) {
+func (x *QueueConfig) SetType(v common.QueueType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -136,12 +136,12 @@ func (x *QueueConfig) SetPartitions(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
-func (x *QueueConfig) SetRetention(v metrics.MetricsRetentionPolicy) {
+func (x *QueueConfig) SetRetention(v common.MetricsRetentionPolicy) {
 	x.xxx_hidden_Retention = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
-func (x *QueueConfig) SetDefaultPriority(v PriorityLevel) {
+func (x *QueueConfig) SetDefaultPriority(v common.PriorityLevel) {
 	x.xxx_hidden_DefaultPriority = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
@@ -212,7 +212,7 @@ func (x *QueueConfig) ClearName() {
 
 func (x *QueueConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = QueueType_QUEUE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.QueueType_QUEUE_TYPE_UNSPECIFIED
 }
 
 func (x *QueueConfig) ClearPartitions() {
@@ -222,12 +222,12 @@ func (x *QueueConfig) ClearPartitions() {
 
 func (x *QueueConfig) ClearRetention() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Retention = metrics.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_Retention = common.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
 }
 
 func (x *QueueConfig) ClearDefaultPriority() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_DefaultPriority = PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
+	x.xxx_hidden_DefaultPriority = common.PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
 }
 
 func (x *QueueConfig) ClearDurable() {
@@ -246,13 +246,13 @@ type QueueConfig_builder struct {
 	// Name of the queue.
 	Name *string
 	// Queue implementation type.
-	Type *QueueType
+	Type *common.QueueType
 	// Number of partitions for the queue.
 	Partitions *int32
 	// Retention policy for stored messages.
-	Retention *metrics.MetricsRetentionPolicy
+	Retention *common.MetricsRetentionPolicy
 	// Default priority applied when publishing.
-	DefaultPriority *PriorityLevel
+	DefaultPriority *common.PriorityLevel
 	// If true, queue persists messages to disk.
 	Durable *bool
 	// Whether the queue should be automatically deleted when unused.
@@ -298,30 +298,30 @@ var File_gcommon_v1_queue_queue_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_queue_config_proto_rawDesc = "" +
 	"\n" +
-	"#gcommon/v1/queue/queue_config.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/metrics/retention_policy.proto\x1a%gcommon/v1/queue/priority_level.proto\x1a!gcommon/v1/queue/queue_type.proto\x1a!google/protobuf/go_features.proto\"\xc3\x02\n" +
+	"#gcommon/v1/queue/queue_config.proto\x12\x10gcommon.v1.queue\x1a&gcommon/v1/common/priority_level.proto\x1a\"gcommon/v1/common/queue_type.proto\x1a(gcommon/v1/common/retention_policy.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n" +
 	"\vQueueConfig\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12/\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1b.gcommon.v1.queue.QueueTypeR\x04type\x12\x1e\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x120\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x1c.gcommon.v1.common.QueueTypeR\x04type\x12\x1e\n" +
 	"\n" +
 	"partitions\x18\x03 \x01(\x05R\n" +
-	"partitions\x12H\n" +
-	"\tretention\x18\x04 \x01(\x0e2*.gcommon.v1.metrics.MetricsRetentionPolicyR\tretention\x12J\n" +
-	"\x10default_priority\x18\x05 \x01(\x0e2\x1f.gcommon.v1.queue.PriorityLevelR\x0fdefaultPriority\x12\x18\n" +
+	"partitions\x12G\n" +
+	"\tretention\x18\x04 \x01(\x0e2).gcommon.v1.common.MetricsRetentionPolicyR\tretention\x12K\n" +
+	"\x10default_priority\x18\x05 \x01(\x0e2 .gcommon.v1.common.PriorityLevelR\x0fdefaultPriority\x12\x18\n" +
 	"\adurable\x18\x06 \x01(\bR\adurable\x12\x1f\n" +
 	"\vauto_delete\x18\a \x01(\bR\n" +
 	"autoDeleteB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_queue_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_queue_config_proto_goTypes = []any{
-	(*QueueConfig)(nil),                 // 0: gcommon.v1.queue.QueueConfig
-	(QueueType)(0),                      // 1: gcommon.v1.queue.QueueType
-	(metrics.MetricsRetentionPolicy)(0), // 2: gcommon.v1.metrics.MetricsRetentionPolicy
-	(PriorityLevel)(0),                  // 3: gcommon.v1.queue.PriorityLevel
+	(*QueueConfig)(nil),                // 0: gcommon.v1.queue.QueueConfig
+	(common.QueueType)(0),              // 1: gcommon.v1.common.QueueType
+	(common.MetricsRetentionPolicy)(0), // 2: gcommon.v1.common.MetricsRetentionPolicy
+	(common.PriorityLevel)(0),          // 3: gcommon.v1.common.PriorityLevel
 }
 var file_gcommon_v1_queue_queue_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.QueueConfig.type:type_name -> gcommon.v1.queue.QueueType
-	2, // 1: gcommon.v1.queue.QueueConfig.retention:type_name -> gcommon.v1.metrics.MetricsRetentionPolicy
-	3, // 2: gcommon.v1.queue.QueueConfig.default_priority:type_name -> gcommon.v1.queue.PriorityLevel
+	1, // 0: gcommon.v1.queue.QueueConfig.type:type_name -> gcommon.v1.common.QueueType
+	2, // 1: gcommon.v1.queue.QueueConfig.retention:type_name -> gcommon.v1.common.MetricsRetentionPolicy
+	3, // 2: gcommon.v1.queue.QueueConfig.default_priority:type_name -> gcommon.v1.common.PriorityLevel
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -334,8 +334,6 @@ func file_gcommon_v1_queue_queue_config_proto_init() {
 	if File_gcommon_v1_queue_queue_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_priority_level_proto_init()
-	file_gcommon_v1_queue_queue_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -31,7 +31,7 @@ type GetOffsetRequest struct {
 	xxx_hidden_PartitionId   int32                   `protobuf:"varint,2,opt,name=partition_id,json=partitionId"`
 	xxx_hidden_ConsumerGroup *string                 `protobuf:"bytes,3,opt,name=consumer_group,json=consumerGroup"`
 	xxx_hidden_ConsumerId    *string                 `protobuf:"bytes,4,opt,name=consumer_id,json=consumerId"`
-	xxx_hidden_OffsetType    OffsetType              `protobuf:"varint,5,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
+	xxx_hidden_OffsetType    common.OffsetType       `protobuf:"varint,5,opt,name=offset_type,json=offsetType,enum=gcommon.v1.common.OffsetType"`
 	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
@@ -101,13 +101,13 @@ func (x *GetOffsetRequest) GetConsumerId() string {
 	return ""
 }
 
-func (x *GetOffsetRequest) GetOffsetType() OffsetType {
+func (x *GetOffsetRequest) GetOffsetType() common.OffsetType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_OffsetType
 		}
 	}
-	return OffsetType_OFFSET_TYPE_UNSPECIFIED
+	return common.OffsetType(0)
 }
 
 func (x *GetOffsetRequest) GetMetadata() *common.RequestMetadata {
@@ -137,7 +137,7 @@ func (x *GetOffsetRequest) SetConsumerId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
-func (x *GetOffsetRequest) SetOffsetType(v OffsetType) {
+func (x *GetOffsetRequest) SetOffsetType(v common.OffsetType) {
 	x.xxx_hidden_OffsetType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
@@ -210,7 +210,7 @@ func (x *GetOffsetRequest) ClearConsumerId() {
 
 func (x *GetOffsetRequest) ClearOffsetType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_OffsetType = OffsetType_OFFSET_TYPE_UNSPECIFIED
+	x.xxx_hidden_OffsetType = common.OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *GetOffsetRequest) ClearMetadata() {
@@ -229,7 +229,7 @@ type GetOffsetRequest_builder struct {
 	// Consumer ID within the group (optional)
 	ConsumerId *string
 	// Type of offset to retrieve
-	OffsetType *OffsetType
+	OffsetType *common.OffsetType
 	// Request metadata for tracing and correlation
 	Metadata *common.RequestMetadata
 }
@@ -266,26 +266,26 @@ var File_gcommon_v1_queue_get_offset_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_get_offset_request_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/queue/get_offset_request.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/common/request_metadata.proto\x1a\"gcommon/v1/queue/offset_type.proto\x1a!google/protobuf/go_features.proto\"\x9b\x02\n" +
+	")gcommon/v1/queue/get_offset_request.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/offset_type.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x9c\x02\n" +
 	"\x10GetOffsetRequest\x12\x1d\n" +
 	"\n" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12!\n" +
 	"\fpartition_id\x18\x02 \x01(\x05R\vpartitionId\x12%\n" +
 	"\x0econsumer_group\x18\x03 \x01(\tR\rconsumerGroup\x12\x1f\n" +
 	"\vconsumer_id\x18\x04 \x01(\tR\n" +
-	"consumerId\x12=\n" +
-	"\voffset_type\x18\x05 \x01(\x0e2\x1c.gcommon.v1.queue.OffsetTypeR\n" +
+	"consumerId\x12>\n" +
+	"\voffset_type\x18\x05 \x01(\x0e2\x1d.gcommon.v1.common.OffsetTypeR\n" +
 	"offsetType\x12>\n" +
 	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_get_offset_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_get_offset_request_proto_goTypes = []any{
 	(*GetOffsetRequest)(nil),       // 0: gcommon.v1.queue.GetOffsetRequest
-	(OffsetType)(0),                // 1: gcommon.v1.queue.OffsetType
+	(common.OffsetType)(0),         // 1: gcommon.v1.common.OffsetType
 	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_queue_get_offset_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.GetOffsetRequest.offset_type:type_name -> gcommon.v1.queue.OffsetType
+	1, // 0: gcommon.v1.queue.GetOffsetRequest.offset_type:type_name -> gcommon.v1.common.OffsetType
 	2, // 1: gcommon.v1.queue.GetOffsetRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -299,7 +299,6 @@ func file_gcommon_v1_queue_get_offset_request_proto_init() {
 	if File_gcommon_v1_queue_get_offset_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_offset_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

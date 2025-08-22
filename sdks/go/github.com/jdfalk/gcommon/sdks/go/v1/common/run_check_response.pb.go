@@ -285,7 +285,7 @@ var File_gcommon_v1_common_run_check_response_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_run_check_response_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/common/run_check_response.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/health_status.proto\x1a\x1dgcommon/v1/common/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcf\x02\n" +
+	"*gcommon/v1/common/run_check_response.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/health_status.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcf\x02\n" +
 	"\x10RunCheckResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x19\n" +
 	"\bcheck_id\x18\x02 \x01(\tR\acheckId\x12=\n" +
@@ -321,8 +321,8 @@ func file_gcommon_v1_common_run_check_response_proto_init() {
 	if File_gcommon_v1_common_run_check_response_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_health_status_proto_init()
 	file_gcommon_v1_common_error_proto_init()
+	file_gcommon_v1_common_health_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

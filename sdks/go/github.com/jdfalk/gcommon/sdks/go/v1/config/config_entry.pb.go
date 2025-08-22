@@ -314,7 +314,7 @@ var File_gcommon_v1_config_config_entry_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_config_entry_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/config/config_entry.proto\x12\x11gcommon.v1.config\x1a'gcommon/v1/common/resource_status.proto\x1a$gcommon/v1/common/config_value.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x03\n" +
+	"$gcommon/v1/config/config_entry.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/common/config_value.proto\x1a'gcommon/v1/common/resource_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x03\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
 	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.ConfigValueR\x05value\x12\x1c\n" +

@@ -26,32 +26,36 @@ type AuthProviderType int32
 
 const (
 	// Default unspecified provider type
-	AuthProviderType_PROVIDER_TYPE_UNSPECIFIED AuthProviderType = 0
+	AuthProviderType_AUTH_PROVIDER_TYPE_UNSPECIFIED AuthProviderType = 0
 	// Built-in local provider
-	AuthProviderType_PROVIDER_TYPE_LOCAL AuthProviderType = 1
+	AuthProviderType_AUTH_PROVIDER_TYPE_LOCAL AuthProviderType = 1
 	// LDAP directory provider
-	AuthProviderType_PROVIDER_TYPE_LDAP AuthProviderType = 2
-	// SAML identity provider
-	AuthProviderType_PROVIDER_TYPE_SAML AuthProviderType = 3
-	// OAuth2 or OpenID Connect provider
-	AuthProviderType_PROVIDER_TYPE_OAUTH2 AuthProviderType = 4
+	AuthProviderType_AUTH_PROVIDER_TYPE_LDAP AuthProviderType = 2
+	// Active Directory provider
+	AuthProviderType_AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY AuthProviderType = 3
+	// OAuth2 provider (generic)
+	AuthProviderType_AUTH_PROVIDER_TYPE_OAUTH2 AuthProviderType = 4
+	// SAML provider
+	AuthProviderType_AUTH_PROVIDER_TYPE_SAML AuthProviderType = 5
 )
 
 // Enum value maps for AuthProviderType.
 var (
 	AuthProviderType_name = map[int32]string{
-		0: "PROVIDER_TYPE_UNSPECIFIED",
-		1: "PROVIDER_TYPE_LOCAL",
-		2: "PROVIDER_TYPE_LDAP",
-		3: "PROVIDER_TYPE_SAML",
-		4: "PROVIDER_TYPE_OAUTH2",
+		0: "AUTH_PROVIDER_TYPE_UNSPECIFIED",
+		1: "AUTH_PROVIDER_TYPE_LOCAL",
+		2: "AUTH_PROVIDER_TYPE_LDAP",
+		3: "AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY",
+		4: "AUTH_PROVIDER_TYPE_OAUTH2",
+		5: "AUTH_PROVIDER_TYPE_SAML",
 	}
 	AuthProviderType_value = map[string]int32{
-		"PROVIDER_TYPE_UNSPECIFIED": 0,
-		"PROVIDER_TYPE_LOCAL":       1,
-		"PROVIDER_TYPE_LDAP":        2,
-		"PROVIDER_TYPE_SAML":        3,
-		"PROVIDER_TYPE_OAUTH2":      4,
+		"AUTH_PROVIDER_TYPE_UNSPECIFIED":      0,
+		"AUTH_PROVIDER_TYPE_LOCAL":            1,
+		"AUTH_PROVIDER_TYPE_LDAP":             2,
+		"AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY": 3,
+		"AUTH_PROVIDER_TYPE_OAUTH2":           4,
+		"AUTH_PROVIDER_TYPE_SAML":             5,
 	}
 )
 
@@ -81,13 +85,14 @@ var File_gcommon_v1_common_provider_type_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_provider_type_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/common/provider_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\x94\x01\n" +
-	"\x10AuthProviderType\x12\x1d\n" +
-	"\x19PROVIDER_TYPE_UNSPECIFIED\x10\x00\x12\x17\n" +
-	"\x13PROVIDER_TYPE_LOCAL\x10\x01\x12\x16\n" +
-	"\x12PROVIDER_TYPE_LDAP\x10\x02\x12\x16\n" +
-	"\x12PROVIDER_TYPE_SAML\x10\x03\x12\x18\n" +
-	"\x14PROVIDER_TYPE_OAUTH2\x10\x04B5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"%gcommon/v1/common/provider_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xd6\x01\n" +
+	"\x10AuthProviderType\x12\"\n" +
+	"\x1eAUTH_PROVIDER_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n" +
+	"\x18AUTH_PROVIDER_TYPE_LOCAL\x10\x01\x12\x1b\n" +
+	"\x17AUTH_PROVIDER_TYPE_LDAP\x10\x02\x12'\n" +
+	"#AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY\x10\x03\x12\x1d\n" +
+	"\x19AUTH_PROVIDER_TYPE_OAUTH2\x10\x04\x12\x1b\n" +
+	"\x17AUTH_PROVIDER_TYPE_SAML\x10\x05B5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_provider_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_gcommon_v1_common_provider_type_proto_goTypes = []any{

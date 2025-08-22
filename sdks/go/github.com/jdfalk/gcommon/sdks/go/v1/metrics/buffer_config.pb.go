@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,11 +23,11 @@ const (
 )
 
 type BufferConfig struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxBufferSize    int32                  `protobuf:"varint,1,opt,name=max_buffer_size,json=maxBufferSize"`
-	xxx_hidden_OverflowStrategy BufferOverflowStrategy `protobuf:"varint,2,opt,name=overflow_strategy,json=overflowStrategy,enum=gcommon.v1.metrics.BufferOverflowStrategy"`
-	xxx_hidden_PersistBuffer    bool                   `protobuf:"varint,3,opt,name=persist_buffer,json=persistBuffer"`
-	xxx_hidden_MaxMemoryBytes   int64                  `protobuf:"varint,4,opt,name=max_memory_bytes,json=maxMemoryBytes"`
+	state                       protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_MaxBufferSize    int32                         `protobuf:"varint,1,opt,name=max_buffer_size,json=maxBufferSize"`
+	xxx_hidden_OverflowStrategy common.BufferOverflowStrategy `protobuf:"varint,2,opt,name=overflow_strategy,json=overflowStrategy,enum=gcommon.v1.common.BufferOverflowStrategy"`
+	xxx_hidden_PersistBuffer    bool                          `protobuf:"varint,3,opt,name=persist_buffer,json=persistBuffer"`
+	xxx_hidden_MaxMemoryBytes   int64                         `protobuf:"varint,4,opt,name=max_memory_bytes,json=maxMemoryBytes"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -65,13 +66,13 @@ func (x *BufferConfig) GetMaxBufferSize() int32 {
 	return 0
 }
 
-func (x *BufferConfig) GetOverflowStrategy() BufferOverflowStrategy {
+func (x *BufferConfig) GetOverflowStrategy() common.BufferOverflowStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_OverflowStrategy
 		}
 	}
-	return BufferOverflowStrategy_BUFFER_OVERFLOW_STRATEGY_UNSPECIFIED
+	return common.BufferOverflowStrategy(0)
 }
 
 func (x *BufferConfig) GetPersistBuffer() bool {
@@ -93,7 +94,7 @@ func (x *BufferConfig) SetMaxBufferSize(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *BufferConfig) SetOverflowStrategy(v BufferOverflowStrategy) {
+func (x *BufferConfig) SetOverflowStrategy(v common.BufferOverflowStrategy) {
 	x.xxx_hidden_OverflowStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -143,7 +144,7 @@ func (x *BufferConfig) ClearMaxBufferSize() {
 
 func (x *BufferConfig) ClearOverflowStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_OverflowStrategy = BufferOverflowStrategy_BUFFER_OVERFLOW_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_OverflowStrategy = common.BufferOverflowStrategy_BUFFER_OVERFLOW_STRATEGY_UNSPECIFIED
 }
 
 func (x *BufferConfig) ClearPersistBuffer() {
@@ -162,7 +163,7 @@ type BufferConfig_builder struct {
 	// Maximum number of metrics to buffer
 	MaxBufferSize *int32
 	// Buffer overflow strategy
-	OverflowStrategy *BufferOverflowStrategy
+	OverflowStrategy *common.BufferOverflowStrategy
 	// Whether to persist buffer to disk during streaming
 	PersistBuffer *bool
 	// Maximum memory usage for buffering (bytes)
@@ -196,20 +197,20 @@ var File_gcommon_v1_metrics_buffer_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_buffer_config_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/metrics/buffer_config.proto\x12\x12gcommon.v1.metrics\x1a1gcommon/v1/metrics/buffer_overflow_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe0\x01\n" +
+	"&gcommon/v1/metrics/buffer_config.proto\x12\x12gcommon.v1.metrics\x1a0gcommon/v1/common/buffer_overflow_strategy.proto\x1a!google/protobuf/go_features.proto\"\xdf\x01\n" +
 	"\fBufferConfig\x12&\n" +
-	"\x0fmax_buffer_size\x18\x01 \x01(\x05R\rmaxBufferSize\x12W\n" +
-	"\x11overflow_strategy\x18\x02 \x01(\x0e2*.gcommon.v1.metrics.BufferOverflowStrategyR\x10overflowStrategy\x12%\n" +
+	"\x0fmax_buffer_size\x18\x01 \x01(\x05R\rmaxBufferSize\x12V\n" +
+	"\x11overflow_strategy\x18\x02 \x01(\x0e2).gcommon.v1.common.BufferOverflowStrategyR\x10overflowStrategy\x12%\n" +
 	"\x0epersist_buffer\x18\x03 \x01(\bR\rpersistBuffer\x12(\n" +
 	"\x10max_memory_bytes\x18\x04 \x01(\x03R\x0emaxMemoryBytesB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_buffer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_buffer_config_proto_goTypes = []any{
-	(*BufferConfig)(nil),        // 0: gcommon.v1.metrics.BufferConfig
-	(BufferOverflowStrategy)(0), // 1: gcommon.v1.metrics.BufferOverflowStrategy
+	(*BufferConfig)(nil),               // 0: gcommon.v1.metrics.BufferConfig
+	(common.BufferOverflowStrategy)(0), // 1: gcommon.v1.common.BufferOverflowStrategy
 }
 var file_gcommon_v1_metrics_buffer_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.BufferConfig.overflow_strategy:type_name -> gcommon.v1.metrics.BufferOverflowStrategy
+	1, // 0: gcommon.v1.metrics.BufferConfig.overflow_strategy:type_name -> gcommon.v1.common.BufferOverflowStrategy
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -222,7 +223,6 @@ func file_gcommon_v1_metrics_buffer_config_proto_init() {
 	if File_gcommon_v1_metrics_buffer_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_buffer_overflow_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

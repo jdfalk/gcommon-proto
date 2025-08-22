@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -24,14 +23,15 @@ const (
 
 // Request to synchronize subtitles with media.
 type SyncSubtitlesRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubtitleFileId *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
-	xxx_hidden_MediaFileId    *string                `protobuf:"bytes,2,opt,name=media_file_id,json=mediaFileId"`
-	xxx_hidden_Options        *SyncOptions           `protobuf:"bytes,3,opt,name=options"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubtitleFileId   *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
+	xxx_hidden_MediaFileId      *string                `protobuf:"bytes,2,opt,name=media_file_id,json=mediaFileId"`
+	xxx_hidden_AutoDetectTiming bool                   `protobuf:"varint,3,opt,name=auto_detect_timing,json=autoDetectTiming"`
+	xxx_hidden_SyncPointsMs     []int64                `protobuf:"varint,4,rep,packed,name=sync_points_ms,json=syncPointsMs"`
+	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
+	XXX_presence                [1]uint32
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *SyncSubtitlesRequest) Reset() {
@@ -79,25 +79,37 @@ func (x *SyncSubtitlesRequest) GetMediaFileId() string {
 	return ""
 }
 
-func (x *SyncSubtitlesRequest) GetOptions() *SyncOptions {
+func (x *SyncSubtitlesRequest) GetAutoDetectTiming() bool {
 	if x != nil {
-		return x.xxx_hidden_Options
+		return x.xxx_hidden_AutoDetectTiming
+	}
+	return false
+}
+
+func (x *SyncSubtitlesRequest) GetSyncPointsMs() []int64 {
+	if x != nil {
+		return x.xxx_hidden_SyncPointsMs
 	}
 	return nil
 }
 
 func (x *SyncSubtitlesRequest) SetSubtitleFileId(v string) {
 	x.xxx_hidden_SubtitleFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *SyncSubtitlesRequest) SetMediaFileId(v string) {
 	x.xxx_hidden_MediaFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *SyncSubtitlesRequest) SetOptions(v *SyncOptions) {
-	x.xxx_hidden_Options = v
+func (x *SyncSubtitlesRequest) SetAutoDetectTiming(v bool) {
+	x.xxx_hidden_AutoDetectTiming = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *SyncSubtitlesRequest) SetSyncPointsMs(v []int64) {
+	x.xxx_hidden_SyncPointsMs = v
 }
 
 func (x *SyncSubtitlesRequest) HasSubtitleFileId() bool {
@@ -114,11 +126,11 @@ func (x *SyncSubtitlesRequest) HasMediaFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *SyncSubtitlesRequest) HasOptions() bool {
+func (x *SyncSubtitlesRequest) HasAutoDetectTiming() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *SyncSubtitlesRequest) ClearSubtitleFileId() {
@@ -131,16 +143,18 @@ func (x *SyncSubtitlesRequest) ClearMediaFileId() {
 	x.xxx_hidden_MediaFileId = nil
 }
 
-func (x *SyncSubtitlesRequest) ClearOptions() {
-	x.xxx_hidden_Options = nil
+func (x *SyncSubtitlesRequest) ClearAutoDetectTiming() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_AutoDetectTiming = false
 }
 
 type SyncSubtitlesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	SubtitleFileId *string
-	MediaFileId    *string
-	Options        *SyncOptions
+	SubtitleFileId   *string
+	MediaFileId      *string
+	AutoDetectTiming *bool
+	SyncPointsMs     []int64
 }
 
 func (b0 SyncSubtitlesRequest_builder) Build() *SyncSubtitlesRequest {
@@ -148,255 +162,18 @@ func (b0 SyncSubtitlesRequest_builder) Build() *SyncSubtitlesRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.SubtitleFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
 		x.xxx_hidden_SubtitleFileId = b.SubtitleFileId
 	}
 	if b.MediaFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
 		x.xxx_hidden_MediaFileId = b.MediaFileId
 	}
-	x.xxx_hidden_Options = b.Options
-	return m0
-}
-
-// Options for subtitle synchronization.
-type SyncOptions struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Offset         *durationpb.Duration   `protobuf:"bytes,1,opt,name=offset"`
-	xxx_hidden_SpeedFactor    float64                `protobuf:"fixed64,2,opt,name=speed_factor,json=speedFactor"`
-	xxx_hidden_AutoDetectSync bool                   `protobuf:"varint,3,opt,name=auto_detect_sync,json=autoDetectSync"`
-	xxx_hidden_SyncPoints     *[]*SyncPoint          `protobuf:"bytes,4,rep,name=sync_points,json=syncPoints"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
-}
-
-func (x *SyncOptions) Reset() {
-	*x = SyncOptions{}
-	mi := &file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SyncOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SyncOptions) ProtoMessage() {}
-
-func (x *SyncOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *SyncOptions) GetOffset() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_Offset
-	}
-	return nil
-}
-
-func (x *SyncOptions) GetSpeedFactor() float64 {
-	if x != nil {
-		return x.xxx_hidden_SpeedFactor
-	}
-	return 0
-}
-
-func (x *SyncOptions) GetAutoDetectSync() bool {
-	if x != nil {
-		return x.xxx_hidden_AutoDetectSync
-	}
-	return false
-}
-
-func (x *SyncOptions) GetSyncPoints() []*SyncPoint {
-	if x != nil {
-		if x.xxx_hidden_SyncPoints != nil {
-			return *x.xxx_hidden_SyncPoints
-		}
-	}
-	return nil
-}
-
-func (x *SyncOptions) SetOffset(v *durationpb.Duration) {
-	x.xxx_hidden_Offset = v
-}
-
-func (x *SyncOptions) SetSpeedFactor(v float64) {
-	x.xxx_hidden_SpeedFactor = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *SyncOptions) SetAutoDetectSync(v bool) {
-	x.xxx_hidden_AutoDetectSync = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *SyncOptions) SetSyncPoints(v []*SyncPoint) {
-	x.xxx_hidden_SyncPoints = &v
-}
-
-func (x *SyncOptions) HasOffset() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Offset != nil
-}
-
-func (x *SyncOptions) HasSpeedFactor() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *SyncOptions) HasAutoDetectSync() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *SyncOptions) ClearOffset() {
-	x.xxx_hidden_Offset = nil
-}
-
-func (x *SyncOptions) ClearSpeedFactor() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SpeedFactor = 0
-}
-
-func (x *SyncOptions) ClearAutoDetectSync() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_AutoDetectSync = false
-}
-
-type SyncOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Offset         *durationpb.Duration
-	SpeedFactor    *float64
-	AutoDetectSync *bool
-	SyncPoints     []*SyncPoint
-}
-
-func (b0 SyncOptions_builder) Build() *SyncOptions {
-	m0 := &SyncOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Offset = b.Offset
-	if b.SpeedFactor != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_SpeedFactor = *b.SpeedFactor
-	}
-	if b.AutoDetectSync != nil {
+	if b.AutoDetectTiming != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_AutoDetectSync = *b.AutoDetectSync
+		x.xxx_hidden_AutoDetectTiming = *b.AutoDetectTiming
 	}
-	x.xxx_hidden_SyncPoints = &b.SyncPoints
-	return m0
-}
-
-// Manual synchronization point.
-type SyncPoint struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubtitleTime *durationpb.Duration   `protobuf:"bytes,1,opt,name=subtitle_time,json=subtitleTime"`
-	xxx_hidden_MediaTime    *durationpb.Duration   `protobuf:"bytes,2,opt,name=media_time,json=mediaTime"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
-}
-
-func (x *SyncPoint) Reset() {
-	*x = SyncPoint{}
-	mi := &file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SyncPoint) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SyncPoint) ProtoMessage() {}
-
-func (x *SyncPoint) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *SyncPoint) GetSubtitleTime() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_SubtitleTime
-	}
-	return nil
-}
-
-func (x *SyncPoint) GetMediaTime() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_MediaTime
-	}
-	return nil
-}
-
-func (x *SyncPoint) SetSubtitleTime(v *durationpb.Duration) {
-	x.xxx_hidden_SubtitleTime = v
-}
-
-func (x *SyncPoint) SetMediaTime(v *durationpb.Duration) {
-	x.xxx_hidden_MediaTime = v
-}
-
-func (x *SyncPoint) HasSubtitleTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_SubtitleTime != nil
-}
-
-func (x *SyncPoint) HasMediaTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_MediaTime != nil
-}
-
-func (x *SyncPoint) ClearSubtitleTime() {
-	x.xxx_hidden_SubtitleTime = nil
-}
-
-func (x *SyncPoint) ClearMediaTime() {
-	x.xxx_hidden_MediaTime = nil
-}
-
-type SyncPoint_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	SubtitleTime *durationpb.Duration
-	MediaTime    *durationpb.Duration
-}
-
-func (b0 SyncPoint_builder) Build() *SyncPoint {
-	m0 := &SyncPoint{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_SubtitleTime = b.SubtitleTime
-	x.xxx_hidden_MediaTime = b.MediaTime
+	x.xxx_hidden_SyncPointsMs = b.SyncPointsMs
 	return m0
 }
 
@@ -404,40 +181,23 @@ var File_gcommon_v1_media_sync_subtitles_request_proto protoreflect.FileDescript
 
 const file_gcommon_v1_media_sync_subtitles_request_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/media/sync_subtitles_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x9d\x01\n" +
+	"-gcommon/v1/media/sync_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xb8\x01\n" +
 	"\x14SyncSubtitlesRequest\x12(\n" +
 	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12\"\n" +
-	"\rmedia_file_id\x18\x02 \x01(\tR\vmediaFileId\x127\n" +
-	"\aoptions\x18\x03 \x01(\v2\x1d.gcommon.v1.media.SyncOptionsR\aoptions\"\xcb\x01\n" +
-	"\vSyncOptions\x121\n" +
-	"\x06offset\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\x06offset\x12!\n" +
-	"\fspeed_factor\x18\x02 \x01(\x01R\vspeedFactor\x12(\n" +
-	"\x10auto_detect_sync\x18\x03 \x01(\bR\x0eautoDetectSync\x12<\n" +
-	"\vsync_points\x18\x04 \x03(\v2\x1b.gcommon.v1.media.SyncPointR\n" +
-	"syncPoints\"\x85\x01\n" +
-	"\tSyncPoint\x12>\n" +
-	"\rsubtitle_time\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\fsubtitleTime\x128\n" +
-	"\n" +
-	"media_time\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\tmediaTimeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rmedia_file_id\x18\x02 \x01(\tR\vmediaFileId\x12,\n" +
+	"\x12auto_detect_timing\x18\x03 \x01(\bR\x10autoDetectTiming\x12$\n" +
+	"\x0esync_points_ms\x18\x04 \x03(\x03R\fsyncPointsMsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_gcommon_v1_media_sync_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_sync_subtitles_request_proto_goTypes = []any{
 	(*SyncSubtitlesRequest)(nil), // 0: gcommon.v1.media.SyncSubtitlesRequest
-	(*SyncOptions)(nil),          // 1: gcommon.v1.media.SyncOptions
-	(*SyncPoint)(nil),            // 2: gcommon.v1.media.SyncPoint
-	(*durationpb.Duration)(nil),  // 3: google.protobuf.Duration
 }
 var file_gcommon_v1_media_sync_subtitles_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.SyncSubtitlesRequest.options:type_name -> gcommon.v1.media.SyncOptions
-	3, // 1: gcommon.v1.media.SyncOptions.offset:type_name -> google.protobuf.Duration
-	2, // 2: gcommon.v1.media.SyncOptions.sync_points:type_name -> gcommon.v1.media.SyncPoint
-	3, // 3: gcommon.v1.media.SyncPoint.subtitle_time:type_name -> google.protobuf.Duration
-	3, // 4: gcommon.v1.media.SyncPoint.media_time:type_name -> google.protobuf.Duration
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_sync_subtitles_request_proto_init() }
@@ -451,7 +211,7 @@ func file_gcommon_v1_media_sync_subtitles_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_sync_subtitles_request_proto_rawDesc), len(file_gcommon_v1_media_sync_subtitles_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,14 +25,14 @@ const (
 // *
 // Request to import queue data from external source.
 type ImportQueueRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_SourcePath  *string                `protobuf:"bytes,2,opt,name=source_path,json=sourcePath"`
-	xxx_hidden_Format      QueueExportFormat      `protobuf:"varint,3,opt,name=format,enum=gcommon.v1.queue.QueueExportFormat"`
-	xxx_hidden_Overwrite   bool                   `protobuf:"varint,4,opt,name=overwrite"`
-	xxx_hidden_Validate    bool                   `protobuf:"varint,5,opt,name=validate"`
-	xxx_hidden_MaxMessages uint64                 `protobuf:"varint,6,opt,name=max_messages,json=maxMessages"`
-	xxx_hidden_TimeoutMs   uint64                 `protobuf:"varint,7,opt,name=timeout_ms,json=timeoutMs"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                  `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_SourcePath  *string                  `protobuf:"bytes,2,opt,name=source_path,json=sourcePath"`
+	xxx_hidden_Format      common.QueueExportFormat `protobuf:"varint,3,opt,name=format,enum=gcommon.v1.common.QueueExportFormat"`
+	xxx_hidden_Overwrite   bool                     `protobuf:"varint,4,opt,name=overwrite"`
+	xxx_hidden_Validate    bool                     `protobuf:"varint,5,opt,name=validate"`
+	xxx_hidden_MaxMessages uint64                   `protobuf:"varint,6,opt,name=max_messages,json=maxMessages"`
+	xxx_hidden_TimeoutMs   uint64                   `protobuf:"varint,7,opt,name=timeout_ms,json=timeoutMs"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -83,13 +84,13 @@ func (x *ImportQueueRequest) GetSourcePath() string {
 	return ""
 }
 
-func (x *ImportQueueRequest) GetFormat() QueueExportFormat {
+func (x *ImportQueueRequest) GetFormat() common.QueueExportFormat {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Format
 		}
 	}
-	return QueueExportFormat_EXPORT_FORMAT_UNSPECIFIED
+	return common.QueueExportFormat(0)
 }
 
 func (x *ImportQueueRequest) GetOverwrite() bool {
@@ -130,7 +131,7 @@ func (x *ImportQueueRequest) SetSourcePath(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
-func (x *ImportQueueRequest) SetFormat(v QueueExportFormat) {
+func (x *ImportQueueRequest) SetFormat(v common.QueueExportFormat) {
 	x.xxx_hidden_Format = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
@@ -216,7 +217,7 @@ func (x *ImportQueueRequest) ClearSourcePath() {
 
 func (x *ImportQueueRequest) ClearFormat() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Format = QueueExportFormat_EXPORT_FORMAT_UNSPECIFIED
+	x.xxx_hidden_Format = common.QueueExportFormat_QUEUE_EXPORT_FORMAT_UNSPECIFIED
 }
 
 func (x *ImportQueueRequest) ClearOverwrite() {
@@ -247,7 +248,7 @@ type ImportQueueRequest_builder struct {
 	// Source location for import data
 	SourcePath *string
 	// Format of the import data
-	Format *QueueExportFormat
+	Format *common.QueueExportFormat
 	// Whether to overwrite existing data
 	Overwrite *bool
 	// Whether to validate data before import
@@ -297,13 +298,13 @@ var File_gcommon_v1_queue_import_queue_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_import_queue_request_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/queue/import_queue_request.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/queue/export_format.proto\x1a!google/protobuf/go_features.proto\"\x8d\x02\n" +
+	"+gcommon/v1/queue/import_queue_request.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/queue_export_format.proto\x1a!google/protobuf/go_features.proto\"\x8e\x02\n" +
 	"\x12ImportQueueRequest\x12\x1d\n" +
 	"\n" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12\x1f\n" +
 	"\vsource_path\x18\x02 \x01(\tR\n" +
-	"sourcePath\x12;\n" +
-	"\x06format\x18\x03 \x01(\x0e2#.gcommon.v1.queue.QueueExportFormatR\x06format\x12\x1c\n" +
+	"sourcePath\x12<\n" +
+	"\x06format\x18\x03 \x01(\x0e2$.gcommon.v1.common.QueueExportFormatR\x06format\x12\x1c\n" +
 	"\toverwrite\x18\x04 \x01(\bR\toverwrite\x12\x1a\n" +
 	"\bvalidate\x18\x05 \x01(\bR\bvalidate\x12!\n" +
 	"\fmax_messages\x18\x06 \x01(\x04R\vmaxMessages\x12\x1d\n" +
@@ -312,11 +313,11 @@ const file_gcommon_v1_queue_import_queue_request_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_import_queue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_import_queue_request_proto_goTypes = []any{
-	(*ImportQueueRequest)(nil), // 0: gcommon.v1.queue.ImportQueueRequest
-	(QueueExportFormat)(0),     // 1: gcommon.v1.queue.QueueExportFormat
+	(*ImportQueueRequest)(nil),    // 0: gcommon.v1.queue.ImportQueueRequest
+	(common.QueueExportFormat)(0), // 1: gcommon.v1.common.QueueExportFormat
 }
 var file_gcommon_v1_queue_import_queue_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.ImportQueueRequest.format:type_name -> gcommon.v1.queue.QueueExportFormat
+	1, // 0: gcommon.v1.queue.ImportQueueRequest.format:type_name -> gcommon.v1.common.QueueExportFormat
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -329,7 +330,6 @@ func file_gcommon_v1_queue_import_queue_request_proto_init() {
 	if File_gcommon_v1_queue_import_queue_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_export_format_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

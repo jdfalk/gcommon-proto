@@ -8,7 +8,6 @@ package database
 
 import (
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,10 +26,10 @@ const (
 // ExecuteBatchResponse contains the results of a batch database operation.
 // Includes individual operation results and overall batch statistics.
 type ExecuteBatchResponse struct {
-	state              protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Results *[]*BatchOperationResult   `protobuf:"bytes,1,rep,name=results"`
-	xxx_hidden_Stats   *metrics.MetricsBatchStats `protobuf:"bytes,2,opt,name=stats"`
-	xxx_hidden_Error   *common.Error              `protobuf:"bytes,3,opt,name=error"`
+	state              protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Results *[]*BatchOperationResult `protobuf:"bytes,1,rep,name=results"`
+	xxx_hidden_Stats   *DatabaseBatchStats      `protobuf:"bytes,2,opt,name=stats"`
+	xxx_hidden_Error   *common.Error            `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -78,13 +77,13 @@ func (x *ExecuteBatchResponse) GetResults() []*BatchOperationResult {
 	return nil
 }
 
-func (x *ExecuteBatchResponse) GetStats() *metrics.MetricsBatchStats {
+func (x *ExecuteBatchResponse) GetStats() *DatabaseBatchStats {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Stats) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *metrics.MetricsBatchStats
+			var rv *DatabaseBatchStats
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Stats), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -117,7 +116,7 @@ func (x *ExecuteBatchResponse) SetResults(v []*BatchOperationResult) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *ExecuteBatchResponse) SetStats(v *metrics.MetricsBatchStats) {
+func (x *ExecuteBatchResponse) SetStats(v *DatabaseBatchStats) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -151,7 +150,7 @@ func (x *ExecuteBatchResponse) HasError() bool {
 
 func (x *ExecuteBatchResponse) ClearStats() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*metrics.MetricsBatchStats)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*DatabaseBatchStats)(nil))
 }
 
 func (x *ExecuteBatchResponse) ClearError() {
@@ -165,7 +164,7 @@ type ExecuteBatchResponse_builder struct {
 	// Results for each operation in the batch
 	Results []*BatchOperationResult
 	// Overall batch execution statistics
-	Stats *metrics.MetricsBatchStats
+	Stats *DatabaseBatchStats
 	// Error information if the batch failed
 	Error *common.Error
 }
@@ -193,22 +192,22 @@ var File_gcommon_v1_database_execute_batch_response_proto protoreflect.FileDescr
 
 const file_gcommon_v1_database_execute_batch_response_proto_rawDesc = "" +
 	"\n" +
-	"0gcommon/v1/database/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a0gcommon/v1/database/batch_operation_result.proto\x1a$gcommon/v1/metrics/batch_stats.proto\x1a!google/protobuf/go_features.proto\"\xd4\x01\n" +
+	"0gcommon/v1/database/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a0gcommon/v1/database/batch_operation_result.proto\x1a%gcommon/v1/database/batch_stats.proto\x1a!google/protobuf/go_features.proto\"\xd6\x01\n" +
 	"\x14ExecuteBatchResponse\x12G\n" +
-	"\aresults\x18\x01 \x03(\v2).gcommon.v1.database.BatchOperationResultB\x02(\x01R\aresults\x12?\n" +
-	"\x05stats\x18\x02 \x01(\v2%.gcommon.v1.metrics.MetricsBatchStatsB\x02(\x01R\x05stats\x122\n" +
+	"\aresults\x18\x01 \x03(\v2).gcommon.v1.database.BatchOperationResultB\x02(\x01R\aresults\x12A\n" +
+	"\x05stats\x18\x02 \x01(\v2'.gcommon.v1.database.DatabaseBatchStatsB\x02(\x01R\x05stats\x122\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_execute_batch_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_execute_batch_response_proto_goTypes = []any{
-	(*ExecuteBatchResponse)(nil),      // 0: gcommon.v1.database.ExecuteBatchResponse
-	(*BatchOperationResult)(nil),      // 1: gcommon.v1.database.BatchOperationResult
-	(*metrics.MetricsBatchStats)(nil), // 2: gcommon.v1.metrics.MetricsBatchStats
-	(*common.Error)(nil),              // 3: gcommon.v1.common.Error
+	(*ExecuteBatchResponse)(nil), // 0: gcommon.v1.database.ExecuteBatchResponse
+	(*BatchOperationResult)(nil), // 1: gcommon.v1.database.BatchOperationResult
+	(*DatabaseBatchStats)(nil),   // 2: gcommon.v1.database.DatabaseBatchStats
+	(*common.Error)(nil),         // 3: gcommon.v1.common.Error
 }
 var file_gcommon_v1_database_execute_batch_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchResponse.results:type_name -> gcommon.v1.database.BatchOperationResult
-	2, // 1: gcommon.v1.database.ExecuteBatchResponse.stats:type_name -> gcommon.v1.metrics.MetricsBatchStats
+	2, // 1: gcommon.v1.database.ExecuteBatchResponse.stats:type_name -> gcommon.v1.database.DatabaseBatchStats
 	3, // 2: gcommon.v1.database.ExecuteBatchResponse.error:type_name -> gcommon.v1.common.Error
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -223,6 +222,7 @@ func file_gcommon_v1_database_execute_batch_response_proto_init() {
 		return
 	}
 	file_gcommon_v1_database_batch_operation_result_proto_init()
+	file_gcommon_v1_database_batch_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

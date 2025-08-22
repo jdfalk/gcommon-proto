@@ -332,7 +332,7 @@ var File_gcommon_v1_common_health_check_result_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_health_check_result_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/common/health_check_result.proto\x12\x11gcommon.v1.common\x1a\"gcommon/v1/common/check_type.proto\x1a&gcommon/v1/common/serving_status.proto\x1a(gcommon/v1/common/component_health.proto\x1a!google/protobuf/go_features.proto\"\xf0\x03\n" +
+	"+gcommon/v1/common/health_check_result.proto\x12\x11gcommon.v1.common\x1a\"gcommon/v1/common/check_type.proto\x1a(gcommon/v1/common/component_health.proto\x1a&gcommon/v1/common/serving_status.proto\x1a!google/protobuf/go_features.proto\"\xf0\x03\n" +
 	"\x17HealthHealthCheckResult\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x128\n" +
 	"\x06status\x18\x02 \x01(\x0e2 .gcommon.v1.common.ServingStatusR\x06status\x12;\n" +
@@ -377,8 +377,8 @@ func file_gcommon_v1_common_health_check_result_proto_init() {
 		return
 	}
 	file_gcommon_v1_common_check_type_proto_init()
-	file_gcommon_v1_common_serving_status_proto_init()
 	file_gcommon_v1_common_component_health_proto_init()
+	file_gcommon_v1_common_serving_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

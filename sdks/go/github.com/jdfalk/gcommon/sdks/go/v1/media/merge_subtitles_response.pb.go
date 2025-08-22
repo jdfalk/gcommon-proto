@@ -21,12 +21,12 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Response from merging subtitles.
+// Response from merging subtitle files.
 type MergeSubtitlesResponse struct {
 	state                           protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_MergedSubtitleFileId *string                `protobuf:"bytes,1,opt,name=merged_subtitle_file_id,json=mergedSubtitleFileId"`
-	xxx_hidden_Statistics           *MergeStatistics       `protobuf:"bytes,2,opt,name=statistics"`
-	xxx_hidden_Warnings             []string               `protobuf:"bytes,3,rep,name=warnings"`
+	xxx_hidden_Success              bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_ErrorMessage         *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -68,18 +68,21 @@ func (x *MergeSubtitlesResponse) GetMergedSubtitleFileId() string {
 	return ""
 }
 
-func (x *MergeSubtitlesResponse) GetStatistics() *MergeStatistics {
+func (x *MergeSubtitlesResponse) GetSuccess() bool {
 	if x != nil {
-		return x.xxx_hidden_Statistics
+		return x.xxx_hidden_Success
 	}
-	return nil
+	return false
 }
 
-func (x *MergeSubtitlesResponse) GetWarnings() []string {
+func (x *MergeSubtitlesResponse) GetErrorMessage() string {
 	if x != nil {
-		return x.xxx_hidden_Warnings
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
 	}
-	return nil
+	return ""
 }
 
 func (x *MergeSubtitlesResponse) SetMergedSubtitleFileId(v string) {
@@ -87,12 +90,14 @@ func (x *MergeSubtitlesResponse) SetMergedSubtitleFileId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *MergeSubtitlesResponse) SetStatistics(v *MergeStatistics) {
-	x.xxx_hidden_Statistics = v
+func (x *MergeSubtitlesResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *MergeSubtitlesResponse) SetWarnings(v []string) {
-	x.xxx_hidden_Warnings = v
+func (x *MergeSubtitlesResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *MergeSubtitlesResponse) HasMergedSubtitleFileId() bool {
@@ -102,11 +107,18 @@ func (x *MergeSubtitlesResponse) HasMergedSubtitleFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *MergeSubtitlesResponse) HasStatistics() bool {
+func (x *MergeSubtitlesResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Statistics != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *MergeSubtitlesResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *MergeSubtitlesResponse) ClearMergedSubtitleFileId() {
@@ -114,16 +126,22 @@ func (x *MergeSubtitlesResponse) ClearMergedSubtitleFileId() {
 	x.xxx_hidden_MergedSubtitleFileId = nil
 }
 
-func (x *MergeSubtitlesResponse) ClearStatistics() {
-	x.xxx_hidden_Statistics = nil
+func (x *MergeSubtitlesResponse) ClearSuccess() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Success = false
+}
+
+func (x *MergeSubtitlesResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ErrorMessage = nil
 }
 
 type MergeSubtitlesResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	MergedSubtitleFileId *string
-	Statistics           *MergeStatistics
-	Warnings             []string
+	Success              *bool
+	ErrorMessage         *string
 }
 
 func (b0 MergeSubtitlesResponse_builder) Build() *MergeSubtitlesResponse {
@@ -134,143 +152,13 @@ func (b0 MergeSubtitlesResponse_builder) Build() *MergeSubtitlesResponse {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
 		x.xxx_hidden_MergedSubtitleFileId = b.MergedSubtitleFileId
 	}
-	x.xxx_hidden_Statistics = b.Statistics
-	x.xxx_hidden_Warnings = b.Warnings
-	return m0
-}
-
-// Statistics from subtitle merge operation.
-type MergeStatistics struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TotalEntries      int32                  `protobuf:"varint,1,opt,name=total_entries,json=totalEntries"`
-	xxx_hidden_ConflictsResolved int32                  `protobuf:"varint,2,opt,name=conflicts_resolved,json=conflictsResolved"`
-	xxx_hidden_DuplicatesRemoved int32                  `protobuf:"varint,3,opt,name=duplicates_removed,json=duplicatesRemoved"`
-	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
-	XXX_presence                 [1]uint32
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
-}
-
-func (x *MergeStatistics) Reset() {
-	*x = MergeStatistics{}
-	mi := &file_gcommon_v1_media_merge_subtitles_response_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MergeStatistics) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MergeStatistics) ProtoMessage() {}
-
-func (x *MergeStatistics) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_merge_subtitles_response_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *MergeStatistics) GetTotalEntries() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalEntries
-	}
-	return 0
-}
-
-func (x *MergeStatistics) GetConflictsResolved() int32 {
-	if x != nil {
-		return x.xxx_hidden_ConflictsResolved
-	}
-	return 0
-}
-
-func (x *MergeStatistics) GetDuplicatesRemoved() int32 {
-	if x != nil {
-		return x.xxx_hidden_DuplicatesRemoved
-	}
-	return 0
-}
-
-func (x *MergeStatistics) SetTotalEntries(v int32) {
-	x.xxx_hidden_TotalEntries = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *MergeStatistics) SetConflictsResolved(v int32) {
-	x.xxx_hidden_ConflictsResolved = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-}
-
-func (x *MergeStatistics) SetDuplicatesRemoved(v int32) {
-	x.xxx_hidden_DuplicatesRemoved = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *MergeStatistics) HasTotalEntries() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *MergeStatistics) HasConflictsResolved() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *MergeStatistics) HasDuplicatesRemoved() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *MergeStatistics) ClearTotalEntries() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TotalEntries = 0
-}
-
-func (x *MergeStatistics) ClearConflictsResolved() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_ConflictsResolved = 0
-}
-
-func (x *MergeStatistics) ClearDuplicatesRemoved() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_DuplicatesRemoved = 0
-}
-
-type MergeStatistics_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	TotalEntries      *int32
-	ConflictsResolved *int32
-	DuplicatesRemoved *int32
-}
-
-func (b0 MergeStatistics_builder) Build() *MergeStatistics {
-	m0 := &MergeStatistics{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.TotalEntries != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_TotalEntries = *b.TotalEntries
-	}
-	if b.ConflictsResolved != nil {
+	if b.Success != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_ConflictsResolved = *b.ConflictsResolved
+		x.xxx_hidden_Success = *b.Success
 	}
-	if b.DuplicatesRemoved != nil {
+	if b.ErrorMessage != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_DuplicatesRemoved = *b.DuplicatesRemoved
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
 	}
 	return m0
 }
@@ -279,30 +167,22 @@ var File_gcommon_v1_media_merge_subtitles_response_proto protoreflect.FileDescri
 
 const file_gcommon_v1_media_merge_subtitles_response_proto_rawDesc = "" +
 	"\n" +
-	"/gcommon/v1/media/merge_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xae\x01\n" +
+	"/gcommon/v1/media/merge_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x8e\x01\n" +
 	"\x16MergeSubtitlesResponse\x125\n" +
-	"\x17merged_subtitle_file_id\x18\x01 \x01(\tR\x14mergedSubtitleFileId\x12A\n" +
-	"\n" +
-	"statistics\x18\x02 \x01(\v2!.gcommon.v1.media.MergeStatisticsR\n" +
-	"statistics\x12\x1a\n" +
-	"\bwarnings\x18\x03 \x03(\tR\bwarnings\"\x94\x01\n" +
-	"\x0fMergeStatistics\x12#\n" +
-	"\rtotal_entries\x18\x01 \x01(\x05R\ftotalEntries\x12-\n" +
-	"\x12conflicts_resolved\x18\x02 \x01(\x05R\x11conflictsResolved\x12-\n" +
-	"\x12duplicates_removed\x18\x03 \x01(\x05R\x11duplicatesRemovedB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17merged_subtitle_file_id\x18\x01 \x01(\tR\x14mergedSubtitleFileId\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_merge_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_merge_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_merge_subtitles_response_proto_goTypes = []any{
 	(*MergeSubtitlesResponse)(nil), // 0: gcommon.v1.media.MergeSubtitlesResponse
-	(*MergeStatistics)(nil),        // 1: gcommon.v1.media.MergeStatistics
 }
 var file_gcommon_v1_media_merge_subtitles_response_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.MergeSubtitlesResponse.statistics:type_name -> gcommon.v1.media.MergeStatistics
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_merge_subtitles_response_proto_init() }
@@ -316,7 +196,7 @@ func file_gcommon_v1_media_merge_subtitles_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_merge_subtitles_response_proto_rawDesc), len(file_gcommon_v1_media_merge_subtitles_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

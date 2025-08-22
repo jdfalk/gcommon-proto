@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,9 +26,9 @@ const (
 type RouteConfig struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Path          *string                `protobuf:"bytes,1,opt,name=path"`
-	xxx_hidden_Methods       []HTTPMethod           `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.web.HTTPMethod"`
+	xxx_hidden_Methods       []common.HTTPMethod    `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.common.HTTPMethod"`
 	xxx_hidden_Handler       *string                `protobuf:"bytes,3,opt,name=handler"`
-	xxx_hidden_HandlerType   HandlerType            `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.web.HandlerType"`
+	xxx_hidden_HandlerType   common.HandlerType     `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.common.HandlerType"`
 	xxx_hidden_MiddlewareIds []string               `protobuf:"bytes,5,rep,name=middleware_ids,json=middlewareIds"`
 	xxx_hidden_AuthRequired  bool                   `protobuf:"varint,6,opt,name=auth_required,json=authRequired"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
@@ -71,7 +72,7 @@ func (x *RouteConfig) GetPath() string {
 	return ""
 }
 
-func (x *RouteConfig) GetMethods() []HTTPMethod {
+func (x *RouteConfig) GetMethods() []common.HTTPMethod {
 	if x != nil {
 		return x.xxx_hidden_Methods
 	}
@@ -88,13 +89,13 @@ func (x *RouteConfig) GetHandler() string {
 	return ""
 }
 
-func (x *RouteConfig) GetHandlerType() HandlerType {
+func (x *RouteConfig) GetHandlerType() common.HandlerType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_HandlerType
 		}
 	}
-	return HandlerType_HANDLER_TYPE_UNSPECIFIED
+	return common.HandlerType(0)
 }
 
 func (x *RouteConfig) GetMiddlewareIds() []string {
@@ -116,7 +117,7 @@ func (x *RouteConfig) SetPath(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *RouteConfig) SetMethods(v []HTTPMethod) {
+func (x *RouteConfig) SetMethods(v []common.HTTPMethod) {
 	x.xxx_hidden_Methods = v
 }
 
@@ -125,7 +126,7 @@ func (x *RouteConfig) SetHandler(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *RouteConfig) SetHandlerType(v HandlerType) {
+func (x *RouteConfig) SetHandlerType(v common.HandlerType) {
 	x.xxx_hidden_HandlerType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -179,7 +180,7 @@ func (x *RouteConfig) ClearHandler() {
 
 func (x *RouteConfig) ClearHandlerType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_HandlerType = HandlerType_HANDLER_TYPE_UNSPECIFIED
+	x.xxx_hidden_HandlerType = common.HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *RouteConfig) ClearAuthRequired() {
@@ -193,11 +194,11 @@ type RouteConfig_builder struct {
 	// URL path pattern
 	Path *string
 	// Allowed HTTP methods
-	Methods []HTTPMethod
+	Methods []common.HTTPMethod
 	// Handler name or identifier
 	Handler *string
 	// Handler type implementation
-	HandlerType *HandlerType
+	HandlerType *common.HandlerType
 	// Middleware IDs applied to this route
 	MiddlewareIds []string
 	// Require authentication for route
@@ -233,24 +234,24 @@ var File_gcommon_v1_web_route_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_route_config_proto_rawDesc = "" +
 	"\n" +
-	"!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a!gcommon/v1/web/handler_type.proto\x1a gcommon/v1/web/http_method.proto\x1a!google/protobuf/go_features.proto\"\xfd\x01\n" +
+	"!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/handler_type.proto\x1a#gcommon/v1/common/http_method.proto\x1a!google/protobuf/go_features.proto\"\x83\x02\n" +
 	"\vRouteConfig\x12\x12\n" +
-	"\x04path\x18\x01 \x01(\tR\x04path\x124\n" +
-	"\amethods\x18\x02 \x03(\x0e2\x1a.gcommon.v1.web.HTTPMethodR\amethods\x12\x18\n" +
-	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
-	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\x127\n" +
+	"\amethods\x18\x02 \x03(\x0e2\x1d.gcommon.v1.common.HTTPMethodR\amethods\x12\x18\n" +
+	"\ahandler\x18\x03 \x01(\tR\ahandler\x12A\n" +
+	"\fhandler_type\x18\x04 \x01(\x0e2\x1e.gcommon.v1.common.HandlerTypeR\vhandlerType\x12%\n" +
 	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
 	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_route_config_proto_goTypes = []any{
-	(*RouteConfig)(nil), // 0: gcommon.v1.web.RouteConfig
-	(HTTPMethod)(0),     // 1: gcommon.v1.web.HTTPMethod
-	(HandlerType)(0),    // 2: gcommon.v1.web.HandlerType
+	(*RouteConfig)(nil),     // 0: gcommon.v1.web.RouteConfig
+	(common.HTTPMethod)(0),  // 1: gcommon.v1.common.HTTPMethod
+	(common.HandlerType)(0), // 2: gcommon.v1.common.HandlerType
 }
 var file_gcommon_v1_web_route_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.RouteConfig.methods:type_name -> gcommon.v1.web.HTTPMethod
-	2, // 1: gcommon.v1.web.RouteConfig.handler_type:type_name -> gcommon.v1.web.HandlerType
+	1, // 0: gcommon.v1.web.RouteConfig.methods:type_name -> gcommon.v1.common.HTTPMethod
+	2, // 1: gcommon.v1.web.RouteConfig.handler_type:type_name -> gcommon.v1.common.HandlerType
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -263,8 +264,6 @@ func file_gcommon_v1_web_route_config_proto_init() {
 	if File_gcommon_v1_web_route_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_handler_type_proto_init()
-	file_gcommon_v1_web_http_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

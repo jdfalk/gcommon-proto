@@ -26,7 +26,7 @@ const (
 type ListMiddlewareRequest struct {
 	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
 	xxx_hidden_ServerId    *string                 `protobuf:"bytes,1,opt,name=server_id,json=serverId"`
-	xxx_hidden_Type        MiddlewareType          `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
+	xxx_hidden_Type        common.MiddlewareType   `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.MiddlewareType"`
 	xxx_hidden_Enabled     bool                    `protobuf:"varint,3,opt,name=enabled"`
 	xxx_hidden_Pagination  *common.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
 	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
@@ -71,13 +71,13 @@ func (x *ListMiddlewareRequest) GetServerId() string {
 	return ""
 }
 
-func (x *ListMiddlewareRequest) GetType() MiddlewareType {
+func (x *ListMiddlewareRequest) GetType() common.MiddlewareType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	return common.MiddlewareType(0)
 }
 
 func (x *ListMiddlewareRequest) GetEnabled() bool {
@@ -106,7 +106,7 @@ func (x *ListMiddlewareRequest) SetServerId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *ListMiddlewareRequest) SetType(v MiddlewareType) {
+func (x *ListMiddlewareRequest) SetType(v common.MiddlewareType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -166,7 +166,7 @@ func (x *ListMiddlewareRequest) ClearServerId() {
 
 func (x *ListMiddlewareRequest) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
 func (x *ListMiddlewareRequest) ClearEnabled() {
@@ -188,7 +188,7 @@ type ListMiddlewareRequest_builder struct {
 	// Server identifier
 	ServerId *string
 	// Filter by middleware type
-	Type *MiddlewareType
+	Type *common.MiddlewareType
 	// Filter by enabled state
 	Enabled *bool
 	// Pagination options
@@ -222,10 +222,10 @@ var File_gcommon_v1_web_list_middleware_request_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_web_list_middleware_request_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/web/list_middleware_request.proto\x12\x0egcommon.v1.web\x1a\"gcommon/v1/common/pagination.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/web/middleware_type.proto\x1a!google/protobuf/go_features.proto\"\x81\x02\n" +
+	",gcommon/v1/web/list_middleware_request.proto\x12\x0egcommon.v1.web\x1a'gcommon/v1/common/middleware_type.proto\x1a\"gcommon/v1/common/pagination.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\x84\x02\n" +
 	"\x15ListMiddlewareRequest\x12\x1b\n" +
-	"\tserver_id\x18\x01 \x01(\tR\bserverId\x122\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1e.gcommon.v1.web.MiddlewareTypeR\x04type\x12\x18\n" +
+	"\tserver_id\x18\x01 \x01(\tR\bserverId\x125\n" +
+	"\x04type\x18\x02 \x01(\x0e2!.gcommon.v1.common.MiddlewareTypeR\x04type\x12\x18\n" +
 	"\aenabled\x18\x03 \x01(\bR\aenabled\x12=\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
@@ -235,12 +235,12 @@ const file_gcommon_v1_web_list_middleware_request_proto_rawDesc = "" +
 var file_gcommon_v1_web_list_middleware_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_list_middleware_request_proto_goTypes = []any{
 	(*ListMiddlewareRequest)(nil),  // 0: gcommon.v1.web.ListMiddlewareRequest
-	(MiddlewareType)(0),            // 1: gcommon.v1.web.MiddlewareType
+	(common.MiddlewareType)(0),     // 1: gcommon.v1.common.MiddlewareType
 	(*common.Pagination)(nil),      // 2: gcommon.v1.common.Pagination
 	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_list_middleware_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.ListMiddlewareRequest.type:type_name -> gcommon.v1.web.MiddlewareType
+	1, // 0: gcommon.v1.web.ListMiddlewareRequest.type:type_name -> gcommon.v1.common.MiddlewareType
 	2, // 1: gcommon.v1.web.ListMiddlewareRequest.pagination:type_name -> gcommon.v1.common.Pagination
 	3, // 2: gcommon.v1.web.ListMiddlewareRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	3, // [3:3] is the sub-list for method output_type
@@ -255,7 +255,6 @@ func file_gcommon_v1_web_list_middleware_request_proto_init() {
 	if File_gcommon_v1_web_list_middleware_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

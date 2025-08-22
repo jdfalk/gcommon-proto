@@ -167,7 +167,7 @@ type FileUpload_builder struct {
 
 	// Name of the uploaded file
 	FileName *string
-	// MIME type of the file
+	// Content type validation
 	ContentType *MimeType
 	// Raw file bytes
 	Data []byte

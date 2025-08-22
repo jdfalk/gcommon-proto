@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,12 +23,12 @@ const (
 )
 
 type GroupCoordinator struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_NodeId      *string                `protobuf:"bytes,1,opt,name=node_id,json=nodeId"`
-	xxx_hidden_Host        *string                `protobuf:"bytes,2,opt,name=host"`
-	xxx_hidden_Port        int32                  `protobuf:"varint,3,opt,name=port"`
-	xxx_hidden_State       CoordinatorState       `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.CoordinatorState"`
-	xxx_hidden_Epoch       int64                  `protobuf:"varint,5,opt,name=epoch"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_NodeId      *string                 `protobuf:"bytes,1,opt,name=node_id,json=nodeId"`
+	xxx_hidden_Host        *string                 `protobuf:"bytes,2,opt,name=host"`
+	xxx_hidden_Port        int32                   `protobuf:"varint,3,opt,name=port"`
+	xxx_hidden_State       common.CoordinatorState `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.common.CoordinatorState"`
+	xxx_hidden_Epoch       int64                   `protobuf:"varint,5,opt,name=epoch"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -86,13 +87,13 @@ func (x *GroupCoordinator) GetPort() int32 {
 	return 0
 }
 
-func (x *GroupCoordinator) GetState() CoordinatorState {
+func (x *GroupCoordinator) GetState() common.CoordinatorState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_State
 		}
 	}
-	return CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
+	return common.CoordinatorState(0)
 }
 
 func (x *GroupCoordinator) GetEpoch() int64 {
@@ -117,7 +118,7 @@ func (x *GroupCoordinator) SetPort(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *GroupCoordinator) SetState(v CoordinatorState) {
+func (x *GroupCoordinator) SetState(v common.CoordinatorState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -179,7 +180,7 @@ func (x *GroupCoordinator) ClearPort() {
 
 func (x *GroupCoordinator) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_State = CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
+	x.xxx_hidden_State = common.CoordinatorState_COORDINATOR_STATE_UNSPECIFIED
 }
 
 func (x *GroupCoordinator) ClearEpoch() {
@@ -197,7 +198,7 @@ type GroupCoordinator_builder struct {
 	// Coordinator port
 	Port *int32
 	// Coordinator state
-	State *CoordinatorState
+	State *common.CoordinatorState
 	// Leadership epoch
 	Epoch *int64
 }
@@ -233,21 +234,21 @@ var File_gcommon_v1_queue_group_coordinator_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_group_coordinator_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/queue/group_coordinator.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/coordinator_state.proto\x1a!google/protobuf/go_features.proto\"\xa3\x01\n" +
+	"(gcommon/v1/queue/group_coordinator.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/coordinator_state.proto\x1a!google/protobuf/go_features.proto\"\xa4\x01\n" +
 	"\x10GroupCoordinator\x12\x17\n" +
 	"\anode_id\x18\x01 \x01(\tR\x06nodeId\x12\x12\n" +
 	"\x04host\x18\x02 \x01(\tR\x04host\x12\x12\n" +
-	"\x04port\x18\x03 \x01(\x05R\x04port\x128\n" +
-	"\x05state\x18\x04 \x01(\x0e2\".gcommon.v1.queue.CoordinatorStateR\x05state\x12\x14\n" +
+	"\x04port\x18\x03 \x01(\x05R\x04port\x129\n" +
+	"\x05state\x18\x04 \x01(\x0e2#.gcommon.v1.common.CoordinatorStateR\x05state\x12\x14\n" +
 	"\x05epoch\x18\x05 \x01(\x03R\x05epochB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_group_coordinator_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_group_coordinator_proto_goTypes = []any{
-	(*GroupCoordinator)(nil), // 0: gcommon.v1.queue.GroupCoordinator
-	(CoordinatorState)(0),    // 1: gcommon.v1.queue.CoordinatorState
+	(*GroupCoordinator)(nil),     // 0: gcommon.v1.queue.GroupCoordinator
+	(common.CoordinatorState)(0), // 1: gcommon.v1.common.CoordinatorState
 }
 var file_gcommon_v1_queue_group_coordinator_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.GroupCoordinator.state:type_name -> gcommon.v1.queue.CoordinatorState
+	1, // 0: gcommon.v1.queue.GroupCoordinator.state:type_name -> gcommon.v1.common.CoordinatorState
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -260,7 +261,6 @@ func file_gcommon_v1_queue_group_coordinator_proto_init() {
 	if File_gcommon_v1_queue_group_coordinator_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_coordinator_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

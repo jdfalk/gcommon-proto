@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +30,7 @@ type StreamMessagesRequest struct {
 	xxx_hidden_OffsetConfig    *OffsetConfig          `protobuf:"bytes,4,opt,name=offset_config,json=offsetConfig"`
 	xxx_hidden_MaxMessages     int64                  `protobuf:"varint,5,opt,name=max_messages,json=maxMessages"`
 	xxx_hidden_StreamTimeoutMs int32                  `protobuf:"varint,6,opt,name=stream_timeout_ms,json=streamTimeoutMs"`
-	xxx_hidden_AckLevel        AckLevel               `protobuf:"varint,7,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.queue.AckLevel"`
+	xxx_hidden_AckLevel        common.AckLevel        `protobuf:"varint,7,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.common.AckLevel"`
 	xxx_hidden_BatchSize       int32                  `protobuf:"varint,8,opt,name=batch_size,json=batchSize"`
 	xxx_hidden_Filter          *MessageFilter         `protobuf:"bytes,9,opt,name=filter"`
 	xxx_hidden_AutoAcknowledge bool                   `protobuf:"varint,10,opt,name=auto_acknowledge,json=autoAcknowledge"`
@@ -119,13 +120,13 @@ func (x *StreamMessagesRequest) GetStreamTimeoutMs() int32 {
 	return 0
 }
 
-func (x *StreamMessagesRequest) GetAckLevel() AckLevel {
+func (x *StreamMessagesRequest) GetAckLevel() common.AckLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_AckLevel
 		}
 	}
-	return AckLevel_ACK_LEVEL_UNSPECIFIED
+	return common.AckLevel(0)
 }
 
 func (x *StreamMessagesRequest) GetBatchSize() int32 {
@@ -206,7 +207,7 @@ func (x *StreamMessagesRequest) SetStreamTimeoutMs(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 14)
 }
 
-func (x *StreamMessagesRequest) SetAckLevel(v AckLevel) {
+func (x *StreamMessagesRequest) SetAckLevel(v common.AckLevel) {
 	x.xxx_hidden_AckLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 14)
 }
@@ -365,7 +366,7 @@ func (x *StreamMessagesRequest) ClearStreamTimeoutMs() {
 
 func (x *StreamMessagesRequest) ClearAckLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_AckLevel = AckLevel_ACK_LEVEL_UNSPECIFIED
+	x.xxx_hidden_AckLevel = common.AckLevel_ACK_LEVEL_UNSPECIFIED
 }
 
 func (x *StreamMessagesRequest) ClearBatchSize() {
@@ -412,7 +413,7 @@ type StreamMessagesRequest_builder struct {
 	// Maximum time to keep stream open (milliseconds)
 	StreamTimeoutMs *int32
 	// Acknowledgment level required
-	AckLevel *AckLevel
+	AckLevel *common.AckLevel
 	// Batch size for message delivery
 	BatchSize *int32
 	// Message filter criteria
@@ -484,7 +485,7 @@ var File_gcommon_v1_queue_stream_messages_request_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_queue_stream_messages_request_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/queue/stream_messages_request.proto\x12\x10gcommon.v1.queue\x1a gcommon/v1/queue/ack_level.proto\x1a%gcommon/v1/queue/message_filter.proto\x1a$gcommon/v1/queue/offset_config.proto\x1a$gcommon/v1/queue/stream_config.proto\x1a!google/protobuf/go_features.proto\"\x85\x05\n" +
+	".gcommon/v1/queue/stream_messages_request.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/common/ack_level.proto\x1a%gcommon/v1/queue/message_filter.proto\x1a$gcommon/v1/queue/offset_config.proto\x1a$gcommon/v1/queue/stream_config.proto\x1a!google/protobuf/go_features.proto\"\x86\x05\n" +
 	"\x15StreamMessagesRequest\x12\x14\n" +
 	"\x05topic\x18\x01 \x01(\tR\x05topic\x12*\n" +
 	"\x11consumer_group_id\x18\x02 \x01(\tR\x0fconsumerGroupId\x12\x1f\n" +
@@ -492,8 +493,8 @@ const file_gcommon_v1_queue_stream_messages_request_proto_rawDesc = "" +
 	"consumerId\x12C\n" +
 	"\roffset_config\x18\x04 \x01(\v2\x1e.gcommon.v1.queue.OffsetConfigR\foffsetConfig\x12!\n" +
 	"\fmax_messages\x18\x05 \x01(\x03R\vmaxMessages\x12*\n" +
-	"\x11stream_timeout_ms\x18\x06 \x01(\x05R\x0fstreamTimeoutMs\x127\n" +
-	"\tack_level\x18\a \x01(\x0e2\x1a.gcommon.v1.queue.AckLevelR\backLevel\x12\x1d\n" +
+	"\x11stream_timeout_ms\x18\x06 \x01(\x05R\x0fstreamTimeoutMs\x128\n" +
+	"\tack_level\x18\a \x01(\x0e2\x1b.gcommon.v1.common.AckLevelR\backLevel\x12\x1d\n" +
 	"\n" +
 	"batch_size\x18\b \x01(\x05R\tbatchSize\x127\n" +
 	"\x06filter\x18\t \x01(\v2\x1f.gcommon.v1.queue.MessageFilterR\x06filter\x12)\n" +
@@ -508,13 +509,13 @@ var file_gcommon_v1_queue_stream_messages_request_proto_msgTypes = make([]protoi
 var file_gcommon_v1_queue_stream_messages_request_proto_goTypes = []any{
 	(*StreamMessagesRequest)(nil), // 0: gcommon.v1.queue.StreamMessagesRequest
 	(*OffsetConfig)(nil),          // 1: gcommon.v1.queue.OffsetConfig
-	(AckLevel)(0),                 // 2: gcommon.v1.queue.AckLevel
+	(common.AckLevel)(0),          // 2: gcommon.v1.common.AckLevel
 	(*MessageFilter)(nil),         // 3: gcommon.v1.queue.MessageFilter
 	(*StreamConfig)(nil),          // 4: gcommon.v1.queue.StreamConfig
 }
 var file_gcommon_v1_queue_stream_messages_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.StreamMessagesRequest.offset_config:type_name -> gcommon.v1.queue.OffsetConfig
-	2, // 1: gcommon.v1.queue.StreamMessagesRequest.ack_level:type_name -> gcommon.v1.queue.AckLevel
+	2, // 1: gcommon.v1.queue.StreamMessagesRequest.ack_level:type_name -> gcommon.v1.common.AckLevel
 	3, // 2: gcommon.v1.queue.StreamMessagesRequest.filter:type_name -> gcommon.v1.queue.MessageFilter
 	4, // 3: gcommon.v1.queue.StreamMessagesRequest.stream_config:type_name -> gcommon.v1.queue.StreamConfig
 	4, // [4:4] is the sub-list for method output_type
@@ -529,7 +530,6 @@ func file_gcommon_v1_queue_stream_messages_request_proto_init() {
 	if File_gcommon_v1_queue_stream_messages_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_ack_level_proto_init()
 	file_gcommon_v1_queue_message_filter_proto_init()
 	file_gcommon_v1_queue_offset_config_proto_init()
 	file_gcommon_v1_queue_stream_config_proto_init()

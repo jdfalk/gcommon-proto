@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +34,7 @@ type DeletionOptions struct {
 	xxx_hidden_DryRun            bool                   `protobuf:"varint,6,opt,name=dry_run,json=dryRun"`
 	xxx_hidden_Force             bool                   `protobuf:"varint,7,opt,name=force"`
 	xxx_hidden_CreateBackup      bool                   `protobuf:"varint,8,opt,name=create_backup,json=createBackup"`
-	xxx_hidden_CleanupStrategy   CleanupStrategy        `protobuf:"varint,9,opt,name=cleanup_strategy,json=cleanupStrategy,enum=gcommon.v1.metrics.CleanupStrategy"`
+	xxx_hidden_CleanupStrategy   common.CleanupStrategy `protobuf:"varint,9,opt,name=cleanup_strategy,json=cleanupStrategy,enum=gcommon.v1.common.CleanupStrategy"`
 	xxx_hidden_WaitForCompletion bool                   `protobuf:"varint,10,opt,name=wait_for_completion,json=waitForCompletion"`
 	xxx_hidden_CompletionTimeout *string                `protobuf:"bytes,11,opt,name=completion_timeout,json=completionTimeout"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
@@ -126,13 +127,13 @@ func (x *DeletionOptions) GetCreateBackup() bool {
 	return false
 }
 
-func (x *DeletionOptions) GetCleanupStrategy() CleanupStrategy {
+func (x *DeletionOptions) GetCleanupStrategy() common.CleanupStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_CleanupStrategy
 		}
 	}
-	return CleanupStrategy_CLEANUP_STRATEGY_UNSPECIFIED
+	return common.CleanupStrategy(0)
 }
 
 func (x *DeletionOptions) GetWaitForCompletion() bool {
@@ -192,7 +193,7 @@ func (x *DeletionOptions) SetCreateBackup(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 11)
 }
 
-func (x *DeletionOptions) SetCleanupStrategy(v CleanupStrategy) {
+func (x *DeletionOptions) SetCleanupStrategy(v common.CleanupStrategy) {
 	x.xxx_hidden_CleanupStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 11)
 }
@@ -326,7 +327,7 @@ func (x *DeletionOptions) ClearCreateBackup() {
 
 func (x *DeletionOptions) ClearCleanupStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_CleanupStrategy = CleanupStrategy_CLEANUP_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_CleanupStrategy = common.CleanupStrategy_CLEANUP_STRATEGY_UNSPECIFIED
 }
 
 func (x *DeletionOptions) ClearWaitForCompletion() {
@@ -359,7 +360,7 @@ type DeletionOptions_builder struct {
 	// Whether to create a final backup before deletion
 	CreateBackup *bool
 	// Cleanup strategy to use
-	CleanupStrategy *CleanupStrategy
+	CleanupStrategy *common.CleanupStrategy
 	// Whether to wait for ongoing operations to complete
 	WaitForCompletion *bool
 	// Maximum time to wait for operations to complete
@@ -421,7 +422,7 @@ var File_gcommon_v1_metrics_deletion_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_deletion_options_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/metrics/deletion_options.proto\x12\x12gcommon.v1.metrics\x1a)gcommon/v1/metrics/cleanup_strategy.proto\x1a!google/protobuf/go_features.proto\"\xc9\x03\n" +
+	")gcommon/v1/metrics/deletion_options.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/cleanup_strategy.proto\x1a!google/protobuf/go_features.proto\"\xc8\x03\n" +
 	"\x0fDeletionOptions\x12\x1f\n" +
 	"\vdelete_data\x18\x01 \x01(\bR\n" +
 	"deleteData\x12%\n" +
@@ -431,19 +432,19 @@ const file_gcommon_v1_metrics_deletion_options_proto_rawDesc = "" +
 	"\fgrace_period\x18\x05 \x01(\tR\vgracePeriod\x12\x17\n" +
 	"\adry_run\x18\x06 \x01(\bR\x06dryRun\x12\x14\n" +
 	"\x05force\x18\a \x01(\bR\x05force\x12#\n" +
-	"\rcreate_backup\x18\b \x01(\bR\fcreateBackup\x12N\n" +
-	"\x10cleanup_strategy\x18\t \x01(\x0e2#.gcommon.v1.metrics.CleanupStrategyR\x0fcleanupStrategy\x12.\n" +
+	"\rcreate_backup\x18\b \x01(\bR\fcreateBackup\x12M\n" +
+	"\x10cleanup_strategy\x18\t \x01(\x0e2\".gcommon.v1.common.CleanupStrategyR\x0fcleanupStrategy\x12.\n" +
 	"\x13wait_for_completion\x18\n" +
 	" \x01(\bR\x11waitForCompletion\x12-\n" +
 	"\x12completion_timeout\x18\v \x01(\tR\x11completionTimeoutB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_deletion_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_deletion_options_proto_goTypes = []any{
-	(*DeletionOptions)(nil), // 0: gcommon.v1.metrics.DeletionOptions
-	(CleanupStrategy)(0),    // 1: gcommon.v1.metrics.CleanupStrategy
+	(*DeletionOptions)(nil),     // 0: gcommon.v1.metrics.DeletionOptions
+	(common.CleanupStrategy)(0), // 1: gcommon.v1.common.CleanupStrategy
 }
 var file_gcommon_v1_metrics_deletion_options_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.DeletionOptions.cleanup_strategy:type_name -> gcommon.v1.metrics.CleanupStrategy
+	1, // 0: gcommon.v1.metrics.DeletionOptions.cleanup_strategy:type_name -> gcommon.v1.common.CleanupStrategy
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -456,7 +457,6 @@ func file_gcommon_v1_metrics_deletion_options_proto_init() {
 	if File_gcommon_v1_metrics_deletion_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_cleanup_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

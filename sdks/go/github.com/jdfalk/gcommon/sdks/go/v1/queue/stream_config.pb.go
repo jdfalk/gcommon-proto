@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,16 +26,16 @@ const (
 // *
 // Configuration for streaming message consumption.
 type StreamConfig struct {
-	state                             protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_BufferSize             int32                  `protobuf:"varint,1,opt,name=buffer_size,json=bufferSize"`
-	xxx_hidden_ReadTimeout            *durationpb.Duration   `protobuf:"bytes,2,opt,name=read_timeout,json=readTimeout"`
-	xxx_hidden_FlowControlEnabled     bool                   `protobuf:"varint,3,opt,name=flow_control_enabled,json=flowControlEnabled"`
-	xxx_hidden_MaxOutstandingMessages int32                  `protobuf:"varint,4,opt,name=max_outstanding_messages,json=maxOutstandingMessages"`
-	xxx_hidden_MaxOutstandingBytes    int64                  `protobuf:"varint,5,opt,name=max_outstanding_bytes,json=maxOutstandingBytes"`
-	xxx_hidden_AutoAck                bool                   `protobuf:"varint,6,opt,name=auto_ack,json=autoAck"`
-	xxx_hidden_AckDeadline            *durationpb.Duration   `protobuf:"bytes,7,opt,name=ack_deadline,json=ackDeadline"`
-	xxx_hidden_EnableMessageOrdering  bool                   `protobuf:"varint,8,opt,name=enable_message_ordering,json=enableMessageOrdering"`
-	xxx_hidden_RestartPolicy          StreamRestartPolicy    `protobuf:"varint,9,opt,name=restart_policy,json=restartPolicy,enum=gcommon.v1.queue.StreamRestartPolicy"`
+	state                             protoimpl.MessageState     `protogen:"opaque.v1"`
+	xxx_hidden_BufferSize             int32                      `protobuf:"varint,1,opt,name=buffer_size,json=bufferSize"`
+	xxx_hidden_ReadTimeout            *durationpb.Duration       `protobuf:"bytes,2,opt,name=read_timeout,json=readTimeout"`
+	xxx_hidden_FlowControlEnabled     bool                       `protobuf:"varint,3,opt,name=flow_control_enabled,json=flowControlEnabled"`
+	xxx_hidden_MaxOutstandingMessages int32                      `protobuf:"varint,4,opt,name=max_outstanding_messages,json=maxOutstandingMessages"`
+	xxx_hidden_MaxOutstandingBytes    int64                      `protobuf:"varint,5,opt,name=max_outstanding_bytes,json=maxOutstandingBytes"`
+	xxx_hidden_AutoAck                bool                       `protobuf:"varint,6,opt,name=auto_ack,json=autoAck"`
+	xxx_hidden_AckDeadline            *durationpb.Duration       `protobuf:"bytes,7,opt,name=ack_deadline,json=ackDeadline"`
+	xxx_hidden_EnableMessageOrdering  bool                       `protobuf:"varint,8,opt,name=enable_message_ordering,json=enableMessageOrdering"`
+	xxx_hidden_RestartPolicy          common.StreamRestartPolicy `protobuf:"varint,9,opt,name=restart_policy,json=restartPolicy,enum=gcommon.v1.common.StreamRestartPolicy"`
 	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
 	XXX_presence                      [1]uint32
 	unknownFields                     protoimpl.UnknownFields
@@ -122,13 +123,13 @@ func (x *StreamConfig) GetEnableMessageOrdering() bool {
 	return false
 }
 
-func (x *StreamConfig) GetRestartPolicy() StreamRestartPolicy {
+func (x *StreamConfig) GetRestartPolicy() common.StreamRestartPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_RestartPolicy
 		}
 	}
-	return StreamRestartPolicy_STREAM_RESTART_POLICY_UNSPECIFIED
+	return common.StreamRestartPolicy(0)
 }
 
 func (x *StreamConfig) SetBufferSize(v int32) {
@@ -169,7 +170,7 @@ func (x *StreamConfig) SetEnableMessageOrdering(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 9)
 }
 
-func (x *StreamConfig) SetRestartPolicy(v StreamRestartPolicy) {
+func (x *StreamConfig) SetRestartPolicy(v common.StreamRestartPolicy) {
 	x.xxx_hidden_RestartPolicy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 9)
 }
@@ -277,7 +278,7 @@ func (x *StreamConfig) ClearEnableMessageOrdering() {
 
 func (x *StreamConfig) ClearRestartPolicy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_RestartPolicy = StreamRestartPolicy_STREAM_RESTART_POLICY_UNSPECIFIED
+	x.xxx_hidden_RestartPolicy = common.StreamRestartPolicy_STREAM_RESTART_POLICY_UNSPECIFIED
 }
 
 type StreamConfig_builder struct {
@@ -300,7 +301,7 @@ type StreamConfig_builder struct {
 	// Whether to enable message ordering
 	EnableMessageOrdering *bool
 	// Stream restart policy on failure
-	RestartPolicy *StreamRestartPolicy
+	RestartPolicy *common.StreamRestartPolicy
 }
 
 func (b0 StreamConfig_builder) Build() *StreamConfig {
@@ -344,7 +345,7 @@ var File_gcommon_v1_queue_stream_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_stream_config_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/queue/stream_config.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/queue/stream_restart_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xec\x03\n" +
+	"$gcommon/v1/queue/stream_config.proto\x12\x10gcommon.v1.queue\x1a-gcommon/v1/common/stream_restart_policy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x03\n" +
 	"\fStreamConfig\x12\x1f\n" +
 	"\vbuffer_size\x18\x01 \x01(\x05R\n" +
 	"bufferSize\x12<\n" +
@@ -354,19 +355,19 @@ const file_gcommon_v1_queue_stream_config_proto_rawDesc = "" +
 	"\x15max_outstanding_bytes\x18\x05 \x01(\x03R\x13maxOutstandingBytes\x12\x19\n" +
 	"\bauto_ack\x18\x06 \x01(\bR\aautoAck\x12<\n" +
 	"\fack_deadline\x18\a \x01(\v2\x19.google.protobuf.DurationR\vackDeadline\x126\n" +
-	"\x17enable_message_ordering\x18\b \x01(\bR\x15enableMessageOrdering\x12L\n" +
-	"\x0erestart_policy\x18\t \x01(\x0e2%.gcommon.v1.queue.StreamRestartPolicyR\rrestartPolicyB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17enable_message_ordering\x18\b \x01(\bR\x15enableMessageOrdering\x12M\n" +
+	"\x0erestart_policy\x18\t \x01(\x0e2&.gcommon.v1.common.StreamRestartPolicyR\rrestartPolicyB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_stream_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_stream_config_proto_goTypes = []any{
-	(*StreamConfig)(nil),        // 0: gcommon.v1.queue.StreamConfig
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(StreamRestartPolicy)(0),    // 2: gcommon.v1.queue.StreamRestartPolicy
+	(*StreamConfig)(nil),            // 0: gcommon.v1.queue.StreamConfig
+	(*durationpb.Duration)(nil),     // 1: google.protobuf.Duration
+	(common.StreamRestartPolicy)(0), // 2: gcommon.v1.common.StreamRestartPolicy
 }
 var file_gcommon_v1_queue_stream_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.StreamConfig.read_timeout:type_name -> google.protobuf.Duration
 	1, // 1: gcommon.v1.queue.StreamConfig.ack_deadline:type_name -> google.protobuf.Duration
-	2, // 2: gcommon.v1.queue.StreamConfig.restart_policy:type_name -> gcommon.v1.queue.StreamRestartPolicy
+	2, // 2: gcommon.v1.queue.StreamConfig.restart_policy:type_name -> gcommon.v1.common.StreamRestartPolicy
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -379,7 +380,6 @@ func file_gcommon_v1_queue_stream_config_proto_init() {
 	if File_gcommon_v1_queue_stream_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_stream_restart_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

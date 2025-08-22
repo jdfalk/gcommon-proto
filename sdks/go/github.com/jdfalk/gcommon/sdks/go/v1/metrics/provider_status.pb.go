@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +27,7 @@ const (
 // Status of a metrics provider.
 type ProviderStatus struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_State       ProviderState          `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.metrics.ProviderState"`
+	xxx_hidden_State       common.ProviderState   `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.common.ProviderState"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
 	xxx_hidden_Health      *string                `protobuf:"bytes,3,opt,name=health"`
 	xxx_hidden_LastUpdated *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_updated,json=lastUpdated"`
@@ -62,13 +63,13 @@ func (x *ProviderStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ProviderStatus) GetState() ProviderState {
+func (x *ProviderStatus) GetState() common.ProviderState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_State
 		}
 	}
-	return ProviderState_PROVIDER_STATE_UNSPECIFIED
+	return common.ProviderState(0)
 }
 
 func (x *ProviderStatus) GetMessage() string {
@@ -108,7 +109,7 @@ func (x *ProviderStatus) GetVersion() string {
 	return ""
 }
 
-func (x *ProviderStatus) SetState(v ProviderState) {
+func (x *ProviderStatus) SetState(v common.ProviderState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -169,7 +170,7 @@ func (x *ProviderStatus) HasVersion() bool {
 
 func (x *ProviderStatus) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_State = ProviderState_PROVIDER_STATE_UNSPECIFIED
+	x.xxx_hidden_State = common.ProviderState_PROVIDER_STATE_UNSPECIFIED
 }
 
 func (x *ProviderStatus) ClearMessage() {
@@ -195,7 +196,7 @@ type ProviderStatus_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Current state
-	State *ProviderState
+	State *common.ProviderState
 	// Status message
 	Message *string
 	// Health check status
@@ -234,9 +235,9 @@ var File_gcommon_v1_metrics_provider_status_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_provider_status_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/metrics/provider_status.proto\x12\x12gcommon.v1.metrics\x1a'gcommon/v1/metrics/provider_state.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd4\x01\n" +
-	"\x0eProviderStatus\x127\n" +
-	"\x05state\x18\x01 \x01(\x0e2!.gcommon.v1.metrics.ProviderStateR\x05state\x12\x18\n" +
+	"(gcommon/v1/metrics/provider_status.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/provider_state.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd3\x01\n" +
+	"\x0eProviderStatus\x126\n" +
+	"\x05state\x18\x01 \x01(\x0e2 .gcommon.v1.common.ProviderStateR\x05state\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x16\n" +
 	"\x06health\x18\x03 \x01(\tR\x06health\x12=\n" +
 	"\flast_updated\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\x12\x18\n" +
@@ -245,11 +246,11 @@ const file_gcommon_v1_metrics_provider_status_proto_rawDesc = "" +
 var file_gcommon_v1_metrics_provider_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_provider_status_proto_goTypes = []any{
 	(*ProviderStatus)(nil),        // 0: gcommon.v1.metrics.ProviderStatus
-	(ProviderState)(0),            // 1: gcommon.v1.metrics.ProviderState
+	(common.ProviderState)(0),     // 1: gcommon.v1.common.ProviderState
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_provider_status_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.ProviderStatus.state:type_name -> gcommon.v1.metrics.ProviderState
+	1, // 0: gcommon.v1.metrics.ProviderStatus.state:type_name -> gcommon.v1.common.ProviderState
 	2, // 1: gcommon.v1.metrics.ProviderStatus.last_updated:type_name -> google.protobuf.Timestamp
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -263,7 +264,6 @@ func file_gcommon_v1_metrics_provider_status_proto_init() {
 	if File_gcommon_v1_metrics_provider_status_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_provider_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

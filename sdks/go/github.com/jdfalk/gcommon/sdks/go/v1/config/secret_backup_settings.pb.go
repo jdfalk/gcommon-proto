@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,15 +24,15 @@ const (
 )
 
 type SecretBackupSettings struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Frequency       SecretBackupFrequency  `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.SecretBackupFrequency"`
-	xxx_hidden_RetentionDays   int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
-	xxx_hidden_StorageLocation *string                `protobuf:"bytes,4,opt,name=storage_location,json=storageLocation"`
-	xxx_hidden_Encrypted       bool                   `protobuf:"varint,5,opt,name=encrypted"`
-	xxx_hidden_Compressed      bool                   `protobuf:"varint,6,opt,name=compressed"`
-	xxx_hidden_Metadata        map[string]string      `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_LastBackupAt    *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=last_backup_at,json=lastBackupAt"`
+	state                      protoimpl.MessageState       `protogen:"opaque.v1"`
+	xxx_hidden_Enabled         bool                         `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Frequency       common.SecretBackupFrequency `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.common.SecretBackupFrequency"`
+	xxx_hidden_RetentionDays   int32                        `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
+	xxx_hidden_StorageLocation *string                      `protobuf:"bytes,4,opt,name=storage_location,json=storageLocation"`
+	xxx_hidden_Encrypted       bool                         `protobuf:"varint,5,opt,name=encrypted"`
+	xxx_hidden_Compressed      bool                         `protobuf:"varint,6,opt,name=compressed"`
+	xxx_hidden_Metadata        map[string]string            `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_LastBackupAt    *timestamppb.Timestamp       `protobuf:"bytes,8,opt,name=last_backup_at,json=lastBackupAt"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -70,13 +71,13 @@ func (x *SecretBackupSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *SecretBackupSettings) GetFrequency() SecretBackupFrequency {
+func (x *SecretBackupSettings) GetFrequency() common.SecretBackupFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return SecretBackupFrequency_SECRET_BACKUP_FREQUENCY_UNSPECIFIED
+	return common.SecretBackupFrequency(0)
 }
 
 func (x *SecretBackupSettings) GetRetentionDays() int32 {
@@ -129,7 +130,7 @@ func (x *SecretBackupSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *SecretBackupSettings) SetFrequency(v SecretBackupFrequency) {
+func (x *SecretBackupSettings) SetFrequency(v common.SecretBackupFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -218,7 +219,7 @@ func (x *SecretBackupSettings) ClearEnabled() {
 
 func (x *SecretBackupSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Frequency = SecretBackupFrequency_SECRET_BACKUP_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = common.SecretBackupFrequency_SECRET_BACKUP_FREQUENCY_UNSPECIFIED
 }
 
 func (x *SecretBackupSettings) ClearRetentionDays() {
@@ -251,7 +252,7 @@ type SecretBackupSettings_builder struct {
 	// Whether backup is enabled
 	Enabled *bool
 	// Backup frequency
-	Frequency *SecretBackupFrequency
+	Frequency *common.SecretBackupFrequency
 	// Backup retention period in days
 	RetentionDays *int32
 	// Backup storage location
@@ -303,10 +304,10 @@ var File_gcommon_v1_config_secret_backup_settings_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_config_secret_backup_settings_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/config/secret_backup_settings.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/config/secret_backup_frequency.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x03\n" +
+	".gcommon/v1/config/secret_backup_settings.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/common/secret_backup_frequency.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x03\n" +
 	"\x14SecretBackupSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12F\n" +
-	"\tfrequency\x18\x02 \x01(\x0e2(.gcommon.v1.config.SecretBackupFrequencyR\tfrequency\x12%\n" +
+	"\tfrequency\x18\x02 \x01(\x0e2(.gcommon.v1.common.SecretBackupFrequencyR\tfrequency\x12%\n" +
 	"\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n" +
 	"\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n" +
 	"\tencrypted\x18\x05 \x01(\bR\tencrypted\x12\x1e\n" +
@@ -321,13 +322,13 @@ const file_gcommon_v1_config_secret_backup_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_secret_backup_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_secret_backup_settings_proto_goTypes = []any{
-	(*SecretBackupSettings)(nil),  // 0: gcommon.v1.config.SecretBackupSettings
-	nil,                           // 1: gcommon.v1.config.SecretBackupSettings.MetadataEntry
-	(SecretBackupFrequency)(0),    // 2: gcommon.v1.config.SecretBackupFrequency
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*SecretBackupSettings)(nil),      // 0: gcommon.v1.config.SecretBackupSettings
+	nil,                               // 1: gcommon.v1.config.SecretBackupSettings.MetadataEntry
+	(common.SecretBackupFrequency)(0), // 2: gcommon.v1.common.SecretBackupFrequency
+	(*timestamppb.Timestamp)(nil),     // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_secret_backup_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.SecretBackupSettings.frequency:type_name -> gcommon.v1.config.SecretBackupFrequency
+	2, // 0: gcommon.v1.config.SecretBackupSettings.frequency:type_name -> gcommon.v1.common.SecretBackupFrequency
 	1, // 1: gcommon.v1.config.SecretBackupSettings.metadata:type_name -> gcommon.v1.config.SecretBackupSettings.MetadataEntry
 	3, // 2: gcommon.v1.config.SecretBackupSettings.last_backup_at:type_name -> google.protobuf.Timestamp
 	3, // [3:3] is the sub-list for method output_type
@@ -342,7 +343,6 @@ func file_gcommon_v1_config_secret_backup_settings_proto_init() {
 	if File_gcommon_v1_config_secret_backup_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_secret_backup_frequency_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +27,7 @@ const (
 type FlushQueueRequest struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_QueueId           *string                `protobuf:"bytes,1,opt,name=queue_id,json=queueId"`
-	xxx_hidden_FlushPolicy       FlushPolicy            `protobuf:"varint,2,opt,name=flush_policy,json=flushPolicy,enum=gcommon.v1.queue.FlushPolicy"`
+	xxx_hidden_FlushPolicy       common.FlushPolicy     `protobuf:"varint,2,opt,name=flush_policy,json=flushPolicy,enum=gcommon.v1.common.FlushPolicy"`
 	xxx_hidden_WaitForCompletion bool                   `protobuf:"varint,3,opt,name=wait_for_completion,json=waitForCompletion"`
 	xxx_hidden_TimeoutMs         int32                  `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
 	xxx_hidden_FlushUntil        *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=flush_until,json=flushUntil"`
@@ -74,13 +75,13 @@ func (x *FlushQueueRequest) GetQueueId() string {
 	return ""
 }
 
-func (x *FlushQueueRequest) GetFlushPolicy() FlushPolicy {
+func (x *FlushQueueRequest) GetFlushPolicy() common.FlushPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_FlushPolicy
 		}
 	}
-	return FlushPolicy_FLUSH_POLICY_UNSPECIFIED
+	return common.FlushPolicy(0)
 }
 
 func (x *FlushQueueRequest) GetWaitForCompletion() bool {
@@ -130,7 +131,7 @@ func (x *FlushQueueRequest) SetQueueId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *FlushQueueRequest) SetFlushPolicy(v FlushPolicy) {
+func (x *FlushQueueRequest) SetFlushPolicy(v common.FlushPolicy) {
 	x.xxx_hidden_FlushPolicy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -211,7 +212,7 @@ func (x *FlushQueueRequest) ClearQueueId() {
 
 func (x *FlushQueueRequest) ClearFlushPolicy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_FlushPolicy = FlushPolicy_FLUSH_POLICY_UNSPECIFIED
+	x.xxx_hidden_FlushPolicy = common.FlushPolicy_FLUSH_POLICY_UNSPECIFIED
 }
 
 func (x *FlushQueueRequest) ClearWaitForCompletion() {
@@ -239,7 +240,7 @@ type FlushQueueRequest_builder struct {
 	// Queue identifier to flush
 	QueueId *string
 	// Flush policy to apply
-	FlushPolicy *FlushPolicy
+	FlushPolicy *common.FlushPolicy
 	// Wait for flush completion before returning
 	WaitForCompletion *bool
 	// Maximum time to wait for flush completion (milliseconds)
@@ -288,10 +289,10 @@ var File_gcommon_v1_queue_flush_queue_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_flush_queue_request_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/queue/flush_queue_request.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/queue/flush_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xce\x03\n" +
+	"*gcommon/v1/queue/flush_queue_request.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/common/flush_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcf\x03\n" +
 	"\x11FlushQueueRequest\x12\x19\n" +
-	"\bqueue_id\x18\x01 \x01(\tR\aqueueId\x12@\n" +
-	"\fflush_policy\x18\x02 \x01(\x0e2\x1d.gcommon.v1.queue.FlushPolicyR\vflushPolicy\x12.\n" +
+	"\bqueue_id\x18\x01 \x01(\tR\aqueueId\x12A\n" +
+	"\fflush_policy\x18\x02 \x01(\x0e2\x1e.gcommon.v1.common.FlushPolicyR\vflushPolicy\x12.\n" +
 	"\x13wait_for_completion\x18\x03 \x01(\bR\x11waitForCompletion\x12\x1d\n" +
 	"\n" +
 	"timeout_ms\x18\x04 \x01(\x05R\ttimeoutMs\x12;\n" +
@@ -309,11 +310,11 @@ var file_gcommon_v1_queue_flush_queue_request_proto_msgTypes = make([]protoimpl.
 var file_gcommon_v1_queue_flush_queue_request_proto_goTypes = []any{
 	(*FlushQueueRequest)(nil),     // 0: gcommon.v1.queue.FlushQueueRequest
 	nil,                           // 1: gcommon.v1.queue.FlushQueueRequest.MetadataEntry
-	(FlushPolicy)(0),              // 2: gcommon.v1.queue.FlushPolicy
+	(common.FlushPolicy)(0),       // 2: gcommon.v1.common.FlushPolicy
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_flush_queue_request_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.FlushQueueRequest.flush_policy:type_name -> gcommon.v1.queue.FlushPolicy
+	2, // 0: gcommon.v1.queue.FlushQueueRequest.flush_policy:type_name -> gcommon.v1.common.FlushPolicy
 	3, // 1: gcommon.v1.queue.FlushQueueRequest.flush_until:type_name -> google.protobuf.Timestamp
 	1, // 2: gcommon.v1.queue.FlushQueueRequest.metadata:type_name -> gcommon.v1.queue.FlushQueueRequest.MetadataEntry
 	3, // [3:3] is the sub-list for method output_type
@@ -328,7 +329,6 @@ func file_gcommon_v1_queue_flush_queue_request_proto_init() {
 	if File_gcommon_v1_queue_flush_queue_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_flush_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

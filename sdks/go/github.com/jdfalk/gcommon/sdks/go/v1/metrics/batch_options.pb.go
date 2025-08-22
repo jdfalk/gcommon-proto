@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +32,7 @@ type MetricsBatchOptions struct {
 	xxx_hidden_ReturnDetailedResults bool                   `protobuf:"varint,4,opt,name=return_detailed_results,json=returnDetailedResults"`
 	xxx_hidden_TimeoutSeconds        int32                  `protobuf:"varint,5,opt,name=timeout_seconds,json=timeoutSeconds"`
 	xxx_hidden_Transactional         bool                   `protobuf:"varint,6,opt,name=transactional"`
-	xxx_hidden_Priority              BatchPriority          `protobuf:"varint,7,opt,name=priority,enum=gcommon.v1.metrics.BatchPriority"`
+	xxx_hidden_Priority              common.BatchPriority   `protobuf:"varint,7,opt,name=priority,enum=gcommon.v1.common.BatchPriority"`
 	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
 	XXX_presence                     [1]uint32
 	unknownFields                    protoimpl.UnknownFields
@@ -105,13 +106,13 @@ func (x *MetricsBatchOptions) GetTransactional() bool {
 	return false
 }
 
-func (x *MetricsBatchOptions) GetPriority() BatchPriority {
+func (x *MetricsBatchOptions) GetPriority() common.BatchPriority {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Priority
 		}
 	}
-	return BatchPriority_BATCH_PRIORITY_UNSPECIFIED
+	return common.BatchPriority(0)
 }
 
 func (x *MetricsBatchOptions) SetParallelProcessing(v bool) {
@@ -144,7 +145,7 @@ func (x *MetricsBatchOptions) SetTransactional(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *MetricsBatchOptions) SetPriority(v BatchPriority) {
+func (x *MetricsBatchOptions) SetPriority(v common.BatchPriority) {
 	x.xxx_hidden_Priority = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
@@ -230,7 +231,7 @@ func (x *MetricsBatchOptions) ClearTransactional() {
 
 func (x *MetricsBatchOptions) ClearPriority() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Priority = BatchPriority_BATCH_PRIORITY_UNSPECIFIED
+	x.xxx_hidden_Priority = common.BatchPriority_BATCH_PRIORITY_UNSPECIFIED
 }
 
 type MetricsBatchOptions_builder struct {
@@ -249,7 +250,7 @@ type MetricsBatchOptions_builder struct {
 	// Whether to enable transactional semantics (all or nothing)
 	Transactional *bool
 	// Priority level for the batch operation
-	Priority *BatchPriority
+	Priority *common.BatchPriority
 }
 
 func (b0 MetricsBatchOptions_builder) Build() *MetricsBatchOptions {
@@ -291,23 +292,23 @@ var File_gcommon_v1_metrics_batch_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_batch_options_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/metrics/batch_options.proto\x12\x12gcommon.v1.metrics\x1a'gcommon/v1/metrics/batch_priority.proto\x1a!google/protobuf/go_features.proto\"\xd7\x02\n" +
+	"&gcommon/v1/metrics/batch_options.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/batch_priority.proto\x1a!google/protobuf/go_features.proto\"\xd6\x02\n" +
 	"\x13MetricsBatchOptions\x12/\n" +
 	"\x13parallel_processing\x18\x01 \x01(\bR\x12parallelProcessing\x12'\n" +
 	"\x0fmax_concurrency\x18\x02 \x01(\x05R\x0emaxConcurrency\x12 \n" +
 	"\vdeduplicate\x18\x03 \x01(\bR\vdeduplicate\x126\n" +
 	"\x17return_detailed_results\x18\x04 \x01(\bR\x15returnDetailedResults\x12'\n" +
 	"\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12$\n" +
-	"\rtransactional\x18\x06 \x01(\bR\rtransactional\x12=\n" +
-	"\bpriority\x18\a \x01(\x0e2!.gcommon.v1.metrics.BatchPriorityR\bpriorityB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rtransactional\x18\x06 \x01(\bR\rtransactional\x12<\n" +
+	"\bpriority\x18\a \x01(\x0e2 .gcommon.v1.common.BatchPriorityR\bpriorityB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_batch_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_batch_options_proto_goTypes = []any{
 	(*MetricsBatchOptions)(nil), // 0: gcommon.v1.metrics.MetricsBatchOptions
-	(BatchPriority)(0),          // 1: gcommon.v1.metrics.BatchPriority
+	(common.BatchPriority)(0),   // 1: gcommon.v1.common.BatchPriority
 }
 var file_gcommon_v1_metrics_batch_options_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.MetricsBatchOptions.priority:type_name -> gcommon.v1.metrics.BatchPriority
+	1, // 0: gcommon.v1.metrics.MetricsBatchOptions.priority:type_name -> gcommon.v1.common.BatchPriority
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -320,7 +321,6 @@ func file_gcommon_v1_metrics_batch_options_proto_init() {
 	if File_gcommon_v1_metrics_batch_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_batch_priority_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

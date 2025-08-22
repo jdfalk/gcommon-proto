@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,15 +23,15 @@ const (
 )
 
 type TemplateHook struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name             *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type             HookType               `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.config.HookType"`
-	xxx_hidden_Command          *string                `protobuf:"bytes,3,opt,name=command"`
-	xxx_hidden_TimeoutSeconds   int32                  `protobuf:"varint,4,opt,name=timeout_seconds,json=timeoutSeconds"`
-	xxx_hidden_WorkingDirectory *string                `protobuf:"bytes,5,opt,name=working_directory,json=workingDirectory"`
-	xxx_hidden_Environment      map[string]string      `protobuf:"bytes,6,rep,name=environment" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Conditions       map[string]string      `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_ErrorHandling    HookErrorHandling      `protobuf:"varint,8,opt,name=error_handling,json=errorHandling,enum=gcommon.v1.config.HookErrorHandling"`
+	state                       protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Name             *string                  `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type             common.HookType          `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.HookType"`
+	xxx_hidden_Command          *string                  `protobuf:"bytes,3,opt,name=command"`
+	xxx_hidden_TimeoutSeconds   int32                    `protobuf:"varint,4,opt,name=timeout_seconds,json=timeoutSeconds"`
+	xxx_hidden_WorkingDirectory *string                  `protobuf:"bytes,5,opt,name=working_directory,json=workingDirectory"`
+	xxx_hidden_Environment      map[string]string        `protobuf:"bytes,6,rep,name=environment" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Conditions       map[string]string        `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_ErrorHandling    common.HookErrorHandling `protobuf:"varint,8,opt,name=error_handling,json=errorHandling,enum=gcommon.v1.common.HookErrorHandling"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -72,13 +73,13 @@ func (x *TemplateHook) GetName() string {
 	return ""
 }
 
-func (x *TemplateHook) GetType() HookType {
+func (x *TemplateHook) GetType() common.HookType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return HookType_HOOK_TYPE_UNSPECIFIED
+	return common.HookType(0)
 }
 
 func (x *TemplateHook) GetCommand() string {
@@ -122,13 +123,13 @@ func (x *TemplateHook) GetConditions() map[string]string {
 	return nil
 }
 
-func (x *TemplateHook) GetErrorHandling() HookErrorHandling {
+func (x *TemplateHook) GetErrorHandling() common.HookErrorHandling {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_ErrorHandling
 		}
 	}
-	return HookErrorHandling_HOOK_ERROR_HANDLING_UNSPECIFIED
+	return common.HookErrorHandling(0)
 }
 
 func (x *TemplateHook) SetName(v string) {
@@ -136,7 +137,7 @@ func (x *TemplateHook) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *TemplateHook) SetType(v HookType) {
+func (x *TemplateHook) SetType(v common.HookType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -164,7 +165,7 @@ func (x *TemplateHook) SetConditions(v map[string]string) {
 	x.xxx_hidden_Conditions = v
 }
 
-func (x *TemplateHook) SetErrorHandling(v HookErrorHandling) {
+func (x *TemplateHook) SetErrorHandling(v common.HookErrorHandling) {
 	x.xxx_hidden_ErrorHandling = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
 }
@@ -218,7 +219,7 @@ func (x *TemplateHook) ClearName() {
 
 func (x *TemplateHook) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = HookType_HOOK_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.HookType_HOOK_TYPE_UNSPECIFIED
 }
 
 func (x *TemplateHook) ClearCommand() {
@@ -238,7 +239,7 @@ func (x *TemplateHook) ClearWorkingDirectory() {
 
 func (x *TemplateHook) ClearErrorHandling() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_ErrorHandling = HookErrorHandling_HOOK_ERROR_HANDLING_UNSPECIFIED
+	x.xxx_hidden_ErrorHandling = common.HookErrorHandling_HOOK_ERROR_HANDLING_UNSPECIFIED
 }
 
 type TemplateHook_builder struct {
@@ -247,7 +248,7 @@ type TemplateHook_builder struct {
 	// Hook name
 	Name *string
 	// Hook type
-	Type *HookType
+	Type *common.HookType
 	// Hook command or script
 	Command *string
 	// Hook timeout
@@ -259,7 +260,7 @@ type TemplateHook_builder struct {
 	// Hook conditions
 	Conditions map[string]string
 	// Hook error handling
-	ErrorHandling *HookErrorHandling
+	ErrorHandling *common.HookErrorHandling
 }
 
 func (b0 TemplateHook_builder) Build() *TemplateHook {
@@ -299,10 +300,10 @@ var File_gcommon_v1_config_template_hook_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_template_hook_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/config/template_hook.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/hook_error_handling.proto\x1a!gcommon/v1/config/hook_type.proto\x1a!google/protobuf/go_features.proto\"\xb4\x04\n" +
+	"%gcommon/v1/config/template_hook.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/hook_error_handling.proto\x1a!gcommon/v1/common/hook_type.proto\x1a!google/protobuf/go_features.proto\"\xb4\x04\n" +
 	"\fTemplateHook\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12/\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1b.gcommon.v1.config.HookTypeR\x04type\x12\x18\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x1b.gcommon.v1.common.HookTypeR\x04type\x12\x18\n" +
 	"\acommand\x18\x03 \x01(\tR\acommand\x12'\n" +
 	"\x0ftimeout_seconds\x18\x04 \x01(\x05R\x0etimeoutSeconds\x12+\n" +
 	"\x11working_directory\x18\x05 \x01(\tR\x10workingDirectory\x12R\n" +
@@ -310,7 +311,7 @@ const file_gcommon_v1_config_template_hook_proto_rawDesc = "" +
 	"\n" +
 	"conditions\x18\a \x03(\v2/.gcommon.v1.config.TemplateHook.ConditionsEntryR\n" +
 	"conditions\x12K\n" +
-	"\x0eerror_handling\x18\b \x01(\x0e2$.gcommon.v1.config.HookErrorHandlingR\rerrorHandling\x1a>\n" +
+	"\x0eerror_handling\x18\b \x01(\x0e2$.gcommon.v1.common.HookErrorHandlingR\rerrorHandling\x1a>\n" +
 	"\x10EnvironmentEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a=\n" +
@@ -320,17 +321,17 @@ const file_gcommon_v1_config_template_hook_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_template_hook_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_config_template_hook_proto_goTypes = []any{
-	(*TemplateHook)(nil),   // 0: gcommon.v1.config.TemplateHook
-	nil,                    // 1: gcommon.v1.config.TemplateHook.EnvironmentEntry
-	nil,                    // 2: gcommon.v1.config.TemplateHook.ConditionsEntry
-	(HookType)(0),          // 3: gcommon.v1.config.HookType
-	(HookErrorHandling)(0), // 4: gcommon.v1.config.HookErrorHandling
+	(*TemplateHook)(nil),          // 0: gcommon.v1.config.TemplateHook
+	nil,                           // 1: gcommon.v1.config.TemplateHook.EnvironmentEntry
+	nil,                           // 2: gcommon.v1.config.TemplateHook.ConditionsEntry
+	(common.HookType)(0),          // 3: gcommon.v1.common.HookType
+	(common.HookErrorHandling)(0), // 4: gcommon.v1.common.HookErrorHandling
 }
 var file_gcommon_v1_config_template_hook_proto_depIdxs = []int32{
-	3, // 0: gcommon.v1.config.TemplateHook.type:type_name -> gcommon.v1.config.HookType
+	3, // 0: gcommon.v1.config.TemplateHook.type:type_name -> gcommon.v1.common.HookType
 	1, // 1: gcommon.v1.config.TemplateHook.environment:type_name -> gcommon.v1.config.TemplateHook.EnvironmentEntry
 	2, // 2: gcommon.v1.config.TemplateHook.conditions:type_name -> gcommon.v1.config.TemplateHook.ConditionsEntry
-	4, // 3: gcommon.v1.config.TemplateHook.error_handling:type_name -> gcommon.v1.config.HookErrorHandling
+	4, // 3: gcommon.v1.config.TemplateHook.error_handling:type_name -> gcommon.v1.common.HookErrorHandling
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -343,8 +344,6 @@ func file_gcommon_v1_config_template_hook_proto_init() {
 	if File_gcommon_v1_config_template_hook_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_hook_error_handling_proto_init()
-	file_gcommon_v1_config_hook_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

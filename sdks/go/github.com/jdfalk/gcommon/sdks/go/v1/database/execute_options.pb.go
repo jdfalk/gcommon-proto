@@ -7,6 +7,7 @@
 package database
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,10 +27,10 @@ const (
 // ExecuteOptions configures behavior for database execute operations.
 // Controls timeouts, transaction isolation, and result handling.
 type ExecuteOptions struct {
-	state                          protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Timeout             *durationpb.Duration   `protobuf:"bytes,1,opt,name=timeout"`
-	xxx_hidden_ReturnGeneratedKeys bool                   `protobuf:"varint,2,opt,name=return_generated_keys,json=returnGeneratedKeys"`
-	xxx_hidden_Isolation           DatabaseIsolationLevel `protobuf:"varint,3,opt,name=isolation,enum=gcommon.v1.database.DatabaseIsolationLevel"`
+	state                          protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Timeout             *durationpb.Duration          `protobuf:"bytes,1,opt,name=timeout"`
+	xxx_hidden_ReturnGeneratedKeys bool                          `protobuf:"varint,2,opt,name=return_generated_keys,json=returnGeneratedKeys"`
+	xxx_hidden_Isolation           common.DatabaseIsolationLevel `protobuf:"varint,3,opt,name=isolation,enum=gcommon.v1.common.DatabaseIsolationLevel"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -84,13 +85,13 @@ func (x *ExecuteOptions) GetReturnGeneratedKeys() bool {
 	return false
 }
 
-func (x *ExecuteOptions) GetIsolation() DatabaseIsolationLevel {
+func (x *ExecuteOptions) GetIsolation() common.DatabaseIsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Isolation
 		}
 	}
-	return DatabaseIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	return common.DatabaseIsolationLevel(0)
 }
 
 func (x *ExecuteOptions) SetTimeout(v *durationpb.Duration) {
@@ -107,7 +108,7 @@ func (x *ExecuteOptions) SetReturnGeneratedKeys(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ExecuteOptions) SetIsolation(v DatabaseIsolationLevel) {
+func (x *ExecuteOptions) SetIsolation(v common.DatabaseIsolationLevel) {
 	x.xxx_hidden_Isolation = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
@@ -145,7 +146,7 @@ func (x *ExecuteOptions) ClearReturnGeneratedKeys() {
 
 func (x *ExecuteOptions) ClearIsolation() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Isolation = DatabaseIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Isolation = common.DatabaseIsolationLevel_DATABASE_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 type ExecuteOptions_builder struct {
@@ -156,7 +157,7 @@ type ExecuteOptions_builder struct {
 	// Whether to return generated keys (for INSERT operations)
 	ReturnGeneratedKeys *bool
 	// Isolation level for transaction operations
-	Isolation *DatabaseIsolationLevel
+	Isolation *common.DatabaseIsolationLevel
 }
 
 func (b0 ExecuteOptions_builder) Build() *ExecuteOptions {
@@ -182,21 +183,21 @@ var File_gcommon_v1_database_execute_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_database_execute_options_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/database/execute_options.proto\x12\x13gcommon.v1.database\x1a)gcommon/v1/database/isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xc8\x01\n" +
+	")gcommon/v1/database/execute_options.proto\x12\x13gcommon.v1.database\x1a0gcommon/v1/common/database_isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xc6\x01\n" +
 	"\x0eExecuteOptions\x127\n" +
 	"\atimeout\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x122\n" +
-	"\x15return_generated_keys\x18\x02 \x01(\bR\x13returnGeneratedKeys\x12I\n" +
-	"\tisolation\x18\x03 \x01(\x0e2+.gcommon.v1.database.DatabaseIsolationLevelR\tisolationB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15return_generated_keys\x18\x02 \x01(\bR\x13returnGeneratedKeys\x12G\n" +
+	"\tisolation\x18\x03 \x01(\x0e2).gcommon.v1.common.DatabaseIsolationLevelR\tisolationB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_execute_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_execute_options_proto_goTypes = []any{
-	(*ExecuteOptions)(nil),      // 0: gcommon.v1.database.ExecuteOptions
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(DatabaseIsolationLevel)(0), // 2: gcommon.v1.database.DatabaseIsolationLevel
+	(*ExecuteOptions)(nil),             // 0: gcommon.v1.database.ExecuteOptions
+	(*durationpb.Duration)(nil),        // 1: google.protobuf.Duration
+	(common.DatabaseIsolationLevel)(0), // 2: gcommon.v1.common.DatabaseIsolationLevel
 }
 var file_gcommon_v1_database_execute_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteOptions.timeout:type_name -> google.protobuf.Duration
-	2, // 1: gcommon.v1.database.ExecuteOptions.isolation:type_name -> gcommon.v1.database.DatabaseIsolationLevel
+	2, // 1: gcommon.v1.database.ExecuteOptions.isolation:type_name -> gcommon.v1.common.DatabaseIsolationLevel
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -209,7 +210,6 @@ func file_gcommon_v1_database_execute_options_proto_init() {
 	if File_gcommon_v1_database_execute_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_database_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

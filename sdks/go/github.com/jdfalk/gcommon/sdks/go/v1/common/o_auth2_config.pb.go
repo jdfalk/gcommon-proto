@@ -431,7 +431,7 @@ var File_gcommon_v1_common_o_auth2_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_o_auth2_config_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/common/o_auth2_config.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/oauth2_flow_type.proto\x1a\"gcommon/v1/common/jwt_config.proto\x1a!google/protobuf/go_features.proto\"\x84\x05\n" +
+	"&gcommon/v1/common/o_auth2_config.proto\x12\x11gcommon.v1.common\x1a\"gcommon/v1/common/jwt_config.proto\x1a(gcommon/v1/common/oauth2_flow_type.proto\x1a!google/protobuf/go_features.proto\"\x84\x05\n" +
 	"\fOAuth2Config\x12#\n" +
 	"\rprovider_name\x18\x01 \x01(\tR\fproviderName\x12\x1b\n" +
 	"\tclient_id\x18\x02 \x01(\tR\bclientId\x12#\n" +
@@ -474,8 +474,8 @@ func file_gcommon_v1_common_o_auth2_config_proto_init() {
 	if File_gcommon_v1_common_o_auth2_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_oauth2_flow_type_proto_init()
 	file_gcommon_v1_common_jwt_config_proto_init()
+	file_gcommon_v1_common_oauth2_flow_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

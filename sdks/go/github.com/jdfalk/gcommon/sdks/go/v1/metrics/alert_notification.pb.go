@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,11 +27,11 @@ const (
 // AlertNotification represents a notification event generated when an
 // alerting rule is triggered.
 type AlertNotification struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_RuleId      *string                `protobuf:"bytes,1,opt,name=rule_id,json=ruleId"`
-	xxx_hidden_Time        *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=time"`
-	xxx_hidden_Severity    MetricsAlertSeverity   `protobuf:"varint,3,opt,name=severity,enum=gcommon.v1.metrics.MetricsAlertSeverity"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,4,opt,name=message"`
+	state                  protoimpl.MessageState      `protogen:"opaque.v1"`
+	xxx_hidden_RuleId      *string                     `protobuf:"bytes,1,opt,name=rule_id,json=ruleId"`
+	xxx_hidden_Time        *timestamppb.Timestamp      `protobuf:"bytes,2,opt,name=time"`
+	xxx_hidden_Severity    common.MetricsAlertSeverity `protobuf:"varint,3,opt,name=severity,enum=gcommon.v1.common.MetricsAlertSeverity"`
+	xxx_hidden_Message     *string                     `protobuf:"bytes,4,opt,name=message"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,13 +80,13 @@ func (x *AlertNotification) GetTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *AlertNotification) GetSeverity() MetricsAlertSeverity {
+func (x *AlertNotification) GetSeverity() common.MetricsAlertSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	return common.MetricsAlertSeverity(0)
 }
 
 func (x *AlertNotification) GetMessage() string {
@@ -107,7 +108,7 @@ func (x *AlertNotification) SetTime(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Time = v
 }
 
-func (x *AlertNotification) SetSeverity(v MetricsAlertSeverity) {
+func (x *AlertNotification) SetSeverity(v common.MetricsAlertSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
@@ -156,7 +157,7 @@ func (x *AlertNotification) ClearTime() {
 
 func (x *AlertNotification) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Severity = MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.MetricsAlertSeverity_METRICS_ALERT_SEVERITY_UNSPECIFIED
 }
 
 func (x *AlertNotification) ClearMessage() {
@@ -172,7 +173,7 @@ type AlertNotification_builder struct {
 	// Timestamp when the notification was generated.
 	Time *timestamppb.Timestamp
 	// Severity level of the alert.
-	Severity *MetricsAlertSeverity
+	Severity *common.MetricsAlertSeverity
 	// Human readable message describing the alert.
 	Message *string
 }
@@ -201,22 +202,22 @@ var File_gcommon_v1_metrics_alert_notification_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_alert_notification_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/metrics/alert_notification.proto\x12\x12gcommon.v1.metrics\x1a'gcommon/v1/metrics/alert_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbc\x01\n" +
+	"+gcommon/v1/metrics/alert_notification.proto\x12\x12gcommon.v1.metrics\x1a.gcommon/v1/common/metrics_alert_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x01\n" +
 	"\x11AlertNotification\x12\x17\n" +
 	"\arule_id\x18\x01 \x01(\tR\x06ruleId\x12.\n" +
-	"\x04time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x04time\x12D\n" +
-	"\bseverity\x18\x03 \x01(\x0e2(.gcommon.v1.metrics.MetricsAlertSeverityR\bseverity\x12\x18\n" +
+	"\x04time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x04time\x12C\n" +
+	"\bseverity\x18\x03 \x01(\x0e2'.gcommon.v1.common.MetricsAlertSeverityR\bseverity\x12\x18\n" +
 	"\amessage\x18\x04 \x01(\tR\amessageB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_alert_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_alert_notification_proto_goTypes = []any{
-	(*AlertNotification)(nil),     // 0: gcommon.v1.metrics.AlertNotification
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(MetricsAlertSeverity)(0),     // 2: gcommon.v1.metrics.MetricsAlertSeverity
+	(*AlertNotification)(nil),        // 0: gcommon.v1.metrics.AlertNotification
+	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
+	(common.MetricsAlertSeverity)(0), // 2: gcommon.v1.common.MetricsAlertSeverity
 }
 var file_gcommon_v1_metrics_alert_notification_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.AlertNotification.time:type_name -> google.protobuf.Timestamp
-	2, // 1: gcommon.v1.metrics.AlertNotification.severity:type_name -> gcommon.v1.metrics.MetricsAlertSeverity
+	2, // 1: gcommon.v1.metrics.AlertNotification.severity:type_name -> gcommon.v1.common.MetricsAlertSeverity
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -229,7 +230,6 @@ func file_gcommon_v1_metrics_alert_notification_proto_init() {
 	if File_gcommon_v1_metrics_alert_notification_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_alert_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

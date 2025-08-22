@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ const (
 type MiddlewareInfo struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Type        MiddlewareType         `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
+	xxx_hidden_Type        common.MiddlewareType  `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.MiddlewareType"`
 	xxx_hidden_Order       int32                  `protobuf:"varint,3,opt,name=order"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -69,13 +70,13 @@ func (x *MiddlewareInfo) GetId() string {
 	return ""
 }
 
-func (x *MiddlewareInfo) GetType() MiddlewareType {
+func (x *MiddlewareInfo) GetType() common.MiddlewareType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	return common.MiddlewareType(0)
 }
 
 func (x *MiddlewareInfo) GetOrder() int32 {
@@ -97,7 +98,7 @@ func (x *MiddlewareInfo) SetId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *MiddlewareInfo) SetType(v MiddlewareType) {
+func (x *MiddlewareInfo) SetType(v common.MiddlewareType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -139,7 +140,7 @@ func (x *MiddlewareInfo) ClearId() {
 
 func (x *MiddlewareInfo) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
 func (x *MiddlewareInfo) ClearOrder() {
@@ -153,7 +154,7 @@ type MiddlewareInfo_builder struct {
 	// Middleware identifier
 	Id *string
 	// Middleware type
-	Type *MiddlewareType
+	Type *common.MiddlewareType
 	// Execution order priority
 	Order *int32
 	// Arbitrary metadata for middleware
@@ -184,10 +185,10 @@ var File_gcommon_v1_web_middleware_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_middleware_info_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/web/middleware_info.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/web/middleware_type.proto\x1a!google/protobuf/go_features.proto\"\xf1\x01\n" +
+	"$gcommon/v1/web/middleware_info.proto\x12\x0egcommon.v1.web\x1a'gcommon/v1/common/middleware_type.proto\x1a!google/protobuf/go_features.proto\"\xf4\x01\n" +
 	"\x0eMiddlewareInfo\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x122\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1e.gcommon.v1.web.MiddlewareTypeR\x04type\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x125\n" +
+	"\x04type\x18\x02 \x01(\x0e2!.gcommon.v1.common.MiddlewareTypeR\x04type\x12\x14\n" +
 	"\x05order\x18\x03 \x01(\x05R\x05order\x12H\n" +
 	"\bmetadata\x18\x04 \x03(\v2,.gcommon.v1.web.MiddlewareInfo.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
@@ -196,12 +197,12 @@ const file_gcommon_v1_web_middleware_info_proto_rawDesc = "" +
 
 var file_gcommon_v1_web_middleware_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_middleware_info_proto_goTypes = []any{
-	(*MiddlewareInfo)(nil), // 0: gcommon.v1.web.MiddlewareInfo
-	nil,                    // 1: gcommon.v1.web.MiddlewareInfo.MetadataEntry
-	(MiddlewareType)(0),    // 2: gcommon.v1.web.MiddlewareType
+	(*MiddlewareInfo)(nil),     // 0: gcommon.v1.web.MiddlewareInfo
+	nil,                        // 1: gcommon.v1.web.MiddlewareInfo.MetadataEntry
+	(common.MiddlewareType)(0), // 2: gcommon.v1.common.MiddlewareType
 }
 var file_gcommon_v1_web_middleware_info_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.web.MiddlewareInfo.type:type_name -> gcommon.v1.web.MiddlewareType
+	2, // 0: gcommon.v1.web.MiddlewareInfo.type:type_name -> gcommon.v1.common.MiddlewareType
 	1, // 1: gcommon.v1.web.MiddlewareInfo.metadata:type_name -> gcommon.v1.web.MiddlewareInfo.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -215,7 +216,6 @@ func file_gcommon_v1_web_middleware_info_proto_init() {
 	if File_gcommon_v1_web_middleware_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

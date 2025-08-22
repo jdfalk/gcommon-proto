@@ -104,7 +104,7 @@ func (x *SecurityContext) GetAuthMethod() AuthAuthMethod {
 			return x.xxx_hidden_AuthMethod
 		}
 	}
-	return AuthAuthMethod_AUTH_METHOD_UNSPECIFIED
+	return AuthAuthMethod_COMMON_AUTH_METHOD_UNSPECIFIED
 }
 
 func (x *SecurityContext) GetMfaVerified() bool {
@@ -256,7 +256,7 @@ func (x *SecurityContext) ClearSessionId() {
 
 func (x *SecurityContext) ClearAuthMethod() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_AuthMethod = AuthAuthMethod_AUTH_METHOD_UNSPECIFIED
+	x.xxx_hidden_AuthMethod = AuthAuthMethod_COMMON_AUTH_METHOD_UNSPECIFIED
 }
 
 func (x *SecurityContext) ClearMfaVerified() {

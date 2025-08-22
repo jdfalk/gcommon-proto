@@ -198,7 +198,7 @@ var File_gcommon_v1_common_logger_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_logger_config_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/common/logger_config.proto\x12\x11gcommon.v1.common\x1a!gcommon/v1/common/log_level.proto\x1a'gcommon/v1/common/appender_config.proto\x1a!google/protobuf/go_features.proto\"\xdd\x02\n" +
+	"%gcommon/v1/common/logger_config.proto\x12\x11gcommon.v1.common\x1a'gcommon/v1/common/appender_config.proto\x1a!gcommon/v1/common/log_level.proto\x1a!google/protobuf/go_features.proto\"\xdd\x02\n" +
 	"\fLoggerConfig\x121\n" +
 	"\x05level\x18\x01 \x01(\x0e2\x1b.gcommon.v1.common.LogLevelR\x05level\x12?\n" +
 	"\tappenders\x18\x02 \x03(\v2!.gcommon.v1.common.AppenderConfigR\tappenders\x12+\n" +
@@ -234,8 +234,8 @@ func file_gcommon_v1_common_logger_config_proto_init() {
 	if File_gcommon_v1_common_logger_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_log_level_proto_init()
 	file_gcommon_v1_common_appender_config_proto_init()
+	file_gcommon_v1_common_log_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +30,7 @@ type NodeInfo struct {
 	xxx_hidden_NodeId        *string                `protobuf:"bytes,1,opt,name=node_id,json=nodeId"`
 	xxx_hidden_Hostname      *string                `protobuf:"bytes,2,opt,name=hostname"`
 	xxx_hidden_Port          int32                  `protobuf:"varint,3,opt,name=port"`
-	xxx_hidden_State         NodeState              `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.queue.NodeState"`
+	xxx_hidden_State         common.NodeState       `protobuf:"varint,4,opt,name=state,enum=gcommon.v1.common.NodeState"`
 	xxx_hidden_Roles         []string               `protobuf:"bytes,5,rep,name=roles"`
 	xxx_hidden_LastHeartbeat *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_heartbeat,json=lastHeartbeat"`
 	xxx_hidden_Stats         *NodeStats             `protobuf:"bytes,7,opt,name=stats"`
@@ -91,13 +92,13 @@ func (x *NodeInfo) GetPort() int32 {
 	return 0
 }
 
-func (x *NodeInfo) GetState() NodeState {
+func (x *NodeInfo) GetState() common.NodeState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_State
 		}
 	}
-	return NodeState_NODE_STATE_UNSPECIFIED
+	return common.NodeState(0)
 }
 
 func (x *NodeInfo) GetRoles() []string {
@@ -136,7 +137,7 @@ func (x *NodeInfo) SetPort(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
-func (x *NodeInfo) SetState(v NodeState) {
+func (x *NodeInfo) SetState(v common.NodeState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
@@ -212,7 +213,7 @@ func (x *NodeInfo) ClearPort() {
 
 func (x *NodeInfo) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_State = NodeState_NODE_STATE_UNSPECIFIED
+	x.xxx_hidden_State = common.NodeState_NODE_STATE_UNSPECIFIED
 }
 
 func (x *NodeInfo) ClearLastHeartbeat() {
@@ -233,7 +234,7 @@ type NodeInfo_builder struct {
 	// Port number for the node
 	Port *int32
 	// Current state of the node
-	State *NodeState
+	State *common.NodeState
 	// Node roles (leader, follower, etc.)
 	Roles []string
 	// Timestamp when node was last seen
@@ -272,12 +273,12 @@ var File_gcommon_v1_queue_node_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_node_info_proto_rawDesc = "" +
 	"\n" +
-	" gcommon/v1/queue/node_info.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/queue/node_state.proto\x1a!gcommon/v1/queue/node_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x92\x02\n" +
+	" gcommon/v1/queue/node_info.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/common/node_state.proto\x1a!gcommon/v1/queue/node_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x02\n" +
 	"\bNodeInfo\x12\x17\n" +
 	"\anode_id\x18\x01 \x01(\tR\x06nodeId\x12\x1a\n" +
 	"\bhostname\x18\x02 \x01(\tR\bhostname\x12\x12\n" +
-	"\x04port\x18\x03 \x01(\x05R\x04port\x121\n" +
-	"\x05state\x18\x04 \x01(\x0e2\x1b.gcommon.v1.queue.NodeStateR\x05state\x12\x14\n" +
+	"\x04port\x18\x03 \x01(\x05R\x04port\x122\n" +
+	"\x05state\x18\x04 \x01(\x0e2\x1c.gcommon.v1.common.NodeStateR\x05state\x12\x14\n" +
 	"\x05roles\x18\x05 \x03(\tR\x05roles\x12A\n" +
 	"\x0elast_heartbeat\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\rlastHeartbeat\x121\n" +
 	"\x05stats\x18\a \x01(\v2\x1b.gcommon.v1.queue.NodeStatsR\x05statsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
@@ -285,12 +286,12 @@ const file_gcommon_v1_queue_node_info_proto_rawDesc = "" +
 var file_gcommon_v1_queue_node_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_node_info_proto_goTypes = []any{
 	(*NodeInfo)(nil),              // 0: gcommon.v1.queue.NodeInfo
-	(NodeState)(0),                // 1: gcommon.v1.queue.NodeState
+	(common.NodeState)(0),         // 1: gcommon.v1.common.NodeState
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*NodeStats)(nil),             // 3: gcommon.v1.queue.NodeStats
 }
 var file_gcommon_v1_queue_node_info_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.NodeInfo.state:type_name -> gcommon.v1.queue.NodeState
+	1, // 0: gcommon.v1.queue.NodeInfo.state:type_name -> gcommon.v1.common.NodeState
 	2, // 1: gcommon.v1.queue.NodeInfo.last_heartbeat:type_name -> google.protobuf.Timestamp
 	3, // 2: gcommon.v1.queue.NodeInfo.stats:type_name -> gcommon.v1.queue.NodeStats
 	3, // [3:3] is the sub-list for method output_type
@@ -305,7 +306,6 @@ func file_gcommon_v1_queue_node_info_proto_init() {
 	if File_gcommon_v1_queue_node_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_node_state_proto_init()
 	file_gcommon_v1_queue_node_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

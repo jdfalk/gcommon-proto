@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,13 +23,13 @@ const (
 )
 
 type TransformationStep struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type        TransformationType     `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.config.TransformationType"`
-	xxx_hidden_Expression  *string                `protobuf:"bytes,3,opt,name=expression"`
-	xxx_hidden_Parameters  map[string]string      `protobuf:"bytes,4,rep,name=parameters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Enabled     bool                   `protobuf:"varint,5,opt,name=enabled"`
-	xxx_hidden_Order       int32                  `protobuf:"varint,6,opt,name=order"`
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type        common.TransformationType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.TransformationType"`
+	xxx_hidden_Expression  *string                   `protobuf:"bytes,3,opt,name=expression"`
+	xxx_hidden_Parameters  map[string]string         `protobuf:"bytes,4,rep,name=parameters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Enabled     bool                      `protobuf:"varint,5,opt,name=enabled"`
+	xxx_hidden_Order       int32                     `protobuf:"varint,6,opt,name=order"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -70,13 +71,13 @@ func (x *TransformationStep) GetName() string {
 	return ""
 }
 
-func (x *TransformationStep) GetType() TransformationType {
+func (x *TransformationStep) GetType() common.TransformationType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
+	return common.TransformationType(0)
 }
 
 func (x *TransformationStep) GetExpression() string {
@@ -115,7 +116,7 @@ func (x *TransformationStep) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *TransformationStep) SetType(v TransformationType) {
+func (x *TransformationStep) SetType(v common.TransformationType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
@@ -181,7 +182,7 @@ func (x *TransformationStep) ClearName() {
 
 func (x *TransformationStep) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
 }
 
 func (x *TransformationStep) ClearExpression() {
@@ -205,7 +206,7 @@ type TransformationStep_builder struct {
 	// Step name
 	Name *string
 	// Step type
-	Type *TransformationType
+	Type *common.TransformationType
 	// Step expression
 	Expression *string
 	// Step parameters
@@ -248,10 +249,10 @@ var File_gcommon_v1_config_transformation_step_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_transformation_step_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/config/transformation_step.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xc9\x02\n" +
+	"+gcommon/v1/config/transformation_step.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xc9\x02\n" +
 	"\x12TransformationStep\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x129\n" +
-	"\x04type\x18\x02 \x01(\x0e2%.gcommon.v1.config.TransformationTypeR\x04type\x12\x1e\n" +
+	"\x04type\x18\x02 \x01(\x0e2%.gcommon.v1.common.TransformationTypeR\x04type\x12\x1e\n" +
 	"\n" +
 	"expression\x18\x03 \x01(\tR\n" +
 	"expression\x12U\n" +
@@ -266,12 +267,12 @@ const file_gcommon_v1_config_transformation_step_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_transformation_step_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_transformation_step_proto_goTypes = []any{
-	(*TransformationStep)(nil), // 0: gcommon.v1.config.TransformationStep
-	nil,                        // 1: gcommon.v1.config.TransformationStep.ParametersEntry
-	(TransformationType)(0),    // 2: gcommon.v1.config.TransformationType
+	(*TransformationStep)(nil),     // 0: gcommon.v1.config.TransformationStep
+	nil,                            // 1: gcommon.v1.config.TransformationStep.ParametersEntry
+	(common.TransformationType)(0), // 2: gcommon.v1.common.TransformationType
 }
 var file_gcommon_v1_config_transformation_step_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.TransformationStep.type:type_name -> gcommon.v1.config.TransformationType
+	2, // 0: gcommon.v1.config.TransformationStep.type:type_name -> gcommon.v1.common.TransformationType
 	1, // 1: gcommon.v1.config.TransformationStep.parameters:type_name -> gcommon.v1.config.TransformationStep.ParametersEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -285,7 +286,6 @@ func file_gcommon_v1_config_transformation_step_proto_init() {
 	if File_gcommon_v1_config_transformation_step_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_transformation_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

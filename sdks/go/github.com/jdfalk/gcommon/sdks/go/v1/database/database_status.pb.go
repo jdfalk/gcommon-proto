@@ -7,6 +7,7 @@
 package database
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,9 +26,9 @@ const (
 // DatabaseStatus reports the current connection status for a
 // database driver or service.
 type DatabaseStatus struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Code        DatabaseStatusCode     `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.database.DatabaseStatusCode"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Code        common.DatabaseStatusCode `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.common.DatabaseStatusCode"`
+	xxx_hidden_Message     *string                   `protobuf:"bytes,2,opt,name=message"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -59,13 +60,13 @@ func (x *DatabaseStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DatabaseStatus) GetCode() DatabaseStatusCode {
+func (x *DatabaseStatus) GetCode() common.DatabaseStatusCode {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Code
 		}
 	}
-	return DatabaseStatusCode_DATABASE_STATUS_CODE_UNSPECIFIED
+	return common.DatabaseStatusCode(0)
 }
 
 func (x *DatabaseStatus) GetMessage() string {
@@ -78,7 +79,7 @@ func (x *DatabaseStatus) GetMessage() string {
 	return ""
 }
 
-func (x *DatabaseStatus) SetCode(v DatabaseStatusCode) {
+func (x *DatabaseStatus) SetCode(v common.DatabaseStatusCode) {
 	x.xxx_hidden_Code = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
@@ -104,7 +105,7 @@ func (x *DatabaseStatus) HasMessage() bool {
 
 func (x *DatabaseStatus) ClearCode() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Code = DatabaseStatusCode_DATABASE_STATUS_CODE_UNSPECIFIED
+	x.xxx_hidden_Code = common.DatabaseStatusCode_DATABASE_STATUS_CODE_UNSPECIFIED
 }
 
 func (x *DatabaseStatus) ClearMessage() {
@@ -116,7 +117,7 @@ type DatabaseStatus_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Code indicates the health state of the database
-	Code *DatabaseStatusCode
+	Code *common.DatabaseStatusCode
 	// Human readable status details
 	Message *string
 }
@@ -140,18 +141,18 @@ var File_gcommon_v1_database_database_status_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_database_database_status_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/database/database_status.proto\x12\x13gcommon.v1.database\x1a.gcommon/v1/database/database_status_code.proto\x1a!google/protobuf/go_features.proto\"g\n" +
-	"\x0eDatabaseStatus\x12;\n" +
-	"\x04code\x18\x01 \x01(\x0e2'.gcommon.v1.database.DatabaseStatusCodeR\x04code\x12\x18\n" +
+	")gcommon/v1/database/database_status.proto\x12\x13gcommon.v1.database\x1a,gcommon/v1/common/database_status_code.proto\x1a!google/protobuf/go_features.proto\"e\n" +
+	"\x0eDatabaseStatus\x129\n" +
+	"\x04code\x18\x01 \x01(\x0e2%.gcommon.v1.common.DatabaseStatusCodeR\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessageB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_database_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_database_status_proto_goTypes = []any{
-	(*DatabaseStatus)(nil),  // 0: gcommon.v1.database.DatabaseStatus
-	(DatabaseStatusCode)(0), // 1: gcommon.v1.database.DatabaseStatusCode
+	(*DatabaseStatus)(nil),         // 0: gcommon.v1.database.DatabaseStatus
+	(common.DatabaseStatusCode)(0), // 1: gcommon.v1.common.DatabaseStatusCode
 }
 var file_gcommon_v1_database_database_status_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.database.DatabaseStatus.code:type_name -> gcommon.v1.database.DatabaseStatusCode
+	1, // 0: gcommon.v1.database.DatabaseStatus.code:type_name -> gcommon.v1.common.DatabaseStatusCode
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -164,7 +165,6 @@ func file_gcommon_v1_database_database_status_proto_init() {
 	if File_gcommon_v1_database_database_status_proto != nil {
 		return
 	}
-	file_gcommon_v1_database_database_status_code_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

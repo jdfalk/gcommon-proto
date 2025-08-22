@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,11 +23,11 @@ const (
 )
 
 type ConflictDetection struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Strategy        ConflictStrategy       `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.queue.ConflictStrategy"`
-	xxx_hidden_VectorClock     *VectorClockConfig     `protobuf:"bytes,3,opt,name=vector_clock,json=vectorClock"`
-	xxx_hidden_TimestampConfig *TimestampConfig       `protobuf:"bytes,4,opt,name=timestamp_config,json=timestampConfig"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Enabled         bool                    `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Strategy        common.ConflictStrategy `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.common.ConflictStrategy"`
+	xxx_hidden_VectorClock     *VectorClockConfig      `protobuf:"bytes,3,opt,name=vector_clock,json=vectorClock"`
+	xxx_hidden_TimestampConfig *TimestampConfig        `protobuf:"bytes,4,opt,name=timestamp_config,json=timestampConfig"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -65,13 +66,13 @@ func (x *ConflictDetection) GetEnabled() bool {
 	return false
 }
 
-func (x *ConflictDetection) GetStrategy() ConflictStrategy {
+func (x *ConflictDetection) GetStrategy() common.ConflictStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
+	return common.ConflictStrategy(0)
 }
 
 func (x *ConflictDetection) GetVectorClock() *VectorClockConfig {
@@ -93,7 +94,7 @@ func (x *ConflictDetection) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ConflictDetection) SetStrategy(v ConflictStrategy) {
+func (x *ConflictDetection) SetStrategy(v common.ConflictStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -141,7 +142,7 @@ func (x *ConflictDetection) ClearEnabled() {
 
 func (x *ConflictDetection) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Strategy = ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = common.ConflictStrategy_CONFLICT_STRATEGY_UNSPECIFIED
 }
 
 func (x *ConflictDetection) ClearVectorClock() {
@@ -158,7 +159,7 @@ type ConflictDetection_builder struct {
 	// Enable conflict detection
 	Enabled *bool
 	// Conflict detection strategy
-	Strategy *ConflictStrategy
+	Strategy *common.ConflictStrategy
 	// Vector clock configuration
 	VectorClock *VectorClockConfig
 	// Timestamp-based detection settings
@@ -186,22 +187,22 @@ var File_gcommon_v1_queue_conflict_detection_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_conflict_detection_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/queue/conflict_detection.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/conflict_strategy.proto\x1a'gcommon/v1/queue/timestamp_config.proto\x1a*gcommon/v1/queue/vector_clock_config.proto\x1a!google/protobuf/go_features.proto\"\x83\x02\n" +
+	")gcommon/v1/queue/conflict_detection.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/conflict_strategy.proto\x1a'gcommon/v1/queue/timestamp_config.proto\x1a*gcommon/v1/queue/vector_clock_config.proto\x1a!google/protobuf/go_features.proto\"\x84\x02\n" +
 	"\x11ConflictDetection\x12\x18\n" +
-	"\aenabled\x18\x01 \x01(\bR\aenabled\x12>\n" +
-	"\bstrategy\x18\x02 \x01(\x0e2\".gcommon.v1.queue.ConflictStrategyR\bstrategy\x12F\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\x12?\n" +
+	"\bstrategy\x18\x02 \x01(\x0e2#.gcommon.v1.common.ConflictStrategyR\bstrategy\x12F\n" +
 	"\fvector_clock\x18\x03 \x01(\v2#.gcommon.v1.queue.VectorClockConfigR\vvectorClock\x12L\n" +
 	"\x10timestamp_config\x18\x04 \x01(\v2!.gcommon.v1.queue.TimestampConfigR\x0ftimestampConfigB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_conflict_detection_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_conflict_detection_proto_goTypes = []any{
-	(*ConflictDetection)(nil), // 0: gcommon.v1.queue.ConflictDetection
-	(ConflictStrategy)(0),     // 1: gcommon.v1.queue.ConflictStrategy
-	(*VectorClockConfig)(nil), // 2: gcommon.v1.queue.VectorClockConfig
-	(*TimestampConfig)(nil),   // 3: gcommon.v1.queue.TimestampConfig
+	(*ConflictDetection)(nil),    // 0: gcommon.v1.queue.ConflictDetection
+	(common.ConflictStrategy)(0), // 1: gcommon.v1.common.ConflictStrategy
+	(*VectorClockConfig)(nil),    // 2: gcommon.v1.queue.VectorClockConfig
+	(*TimestampConfig)(nil),      // 3: gcommon.v1.queue.TimestampConfig
 }
 var file_gcommon_v1_queue_conflict_detection_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.ConflictDetection.strategy:type_name -> gcommon.v1.queue.ConflictStrategy
+	1, // 0: gcommon.v1.queue.ConflictDetection.strategy:type_name -> gcommon.v1.common.ConflictStrategy
 	2, // 1: gcommon.v1.queue.ConflictDetection.vector_clock:type_name -> gcommon.v1.queue.VectorClockConfig
 	3, // 2: gcommon.v1.queue.ConflictDetection.timestamp_config:type_name -> gcommon.v1.queue.TimestampConfig
 	3, // [3:3] is the sub-list for method output_type
@@ -216,7 +217,6 @@ func file_gcommon_v1_queue_conflict_detection_proto_init() {
 	if File_gcommon_v1_queue_conflict_detection_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_conflict_strategy_proto_init()
 	file_gcommon_v1_queue_timestamp_config_proto_init()
 	file_gcommon_v1_queue_vector_clock_config_proto_init()
 	type x struct{}

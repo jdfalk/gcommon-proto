@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ type ConfigNotificationSettings struct {
 	state                   protoimpl.MessageState        `protogen:"opaque.v1"`
 	xxx_hidden_Enabled      bool                          `protobuf:"varint,1,opt,name=enabled"`
 	xxx_hidden_Channels     *[]*ConfigNotificationChannel `protobuf:"bytes,2,rep,name=channels"`
-	xxx_hidden_Triggers     []NotificationTrigger         `protobuf:"varint,3,rep,packed,name=triggers,enum=gcommon.v1.config.NotificationTrigger"`
+	xxx_hidden_Triggers     []common.NotificationTrigger  `protobuf:"varint,3,rep,packed,name=triggers,enum=gcommon.v1.common.NotificationTrigger"`
 	xxx_hidden_Template     *string                       `protobuf:"bytes,4,opt,name=template"`
 	xxx_hidden_Recipients   []string                      `protobuf:"bytes,5,rep,name=recipients"`
 	xxx_hidden_DelayMinutes int32                         `protobuf:"varint,6,opt,name=delay_minutes,json=delayMinutes"`
@@ -77,7 +78,7 @@ func (x *ConfigNotificationSettings) GetChannels() []*ConfigNotificationChannel 
 	return nil
 }
 
-func (x *ConfigNotificationSettings) GetTriggers() []NotificationTrigger {
+func (x *ConfigNotificationSettings) GetTriggers() []common.NotificationTrigger {
 	if x != nil {
 		return x.xxx_hidden_Triggers
 	}
@@ -124,7 +125,7 @@ func (x *ConfigNotificationSettings) SetChannels(v []*ConfigNotificationChannel)
 	x.xxx_hidden_Channels = &v
 }
 
-func (x *ConfigNotificationSettings) SetTriggers(v []NotificationTrigger) {
+func (x *ConfigNotificationSettings) SetTriggers(v []common.NotificationTrigger) {
 	x.xxx_hidden_Triggers = v
 }
 
@@ -201,7 +202,7 @@ type ConfigNotificationSettings_builder struct {
 	// Notification channels
 	Channels []*ConfigNotificationChannel
 	// Notification triggers
-	Triggers []NotificationTrigger
+	Triggers []common.NotificationTrigger
 	// Notification template
 	Template *string
 	// Notification recipients
@@ -239,11 +240,11 @@ var File_gcommon_v1_config_notification_settings_proto protoreflect.FileDescript
 
 const file_gcommon_v1_config_notification_settings_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/config/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\"\xe6\x02\n" +
+	"-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/common/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\"\xe6\x02\n" +
 	"\x1aConfigNotificationSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12H\n" +
 	"\bchannels\x18\x02 \x03(\v2,.gcommon.v1.config.ConfigNotificationChannelR\bchannels\x12B\n" +
-	"\btriggers\x18\x03 \x03(\x0e2&.gcommon.v1.config.NotificationTriggerR\btriggers\x12\x1a\n" +
+	"\btriggers\x18\x03 \x03(\x0e2&.gcommon.v1.common.NotificationTriggerR\btriggers\x12\x1a\n" +
 	"\btemplate\x18\x04 \x01(\tR\btemplate\x12\x1e\n" +
 	"\n" +
 	"recipients\x18\x05 \x03(\tR\n" +
@@ -255,12 +256,12 @@ var file_gcommon_v1_config_notification_settings_proto_msgTypes = make([]protoim
 var file_gcommon_v1_config_notification_settings_proto_goTypes = []any{
 	(*ConfigNotificationSettings)(nil), // 0: gcommon.v1.config.ConfigNotificationSettings
 	(*ConfigNotificationChannel)(nil),  // 1: gcommon.v1.config.ConfigNotificationChannel
-	(NotificationTrigger)(0),           // 2: gcommon.v1.config.NotificationTrigger
+	(common.NotificationTrigger)(0),    // 2: gcommon.v1.common.NotificationTrigger
 	(*BatchingSettings)(nil),           // 3: gcommon.v1.config.BatchingSettings
 }
 var file_gcommon_v1_config_notification_settings_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ConfigNotificationSettings.channels:type_name -> gcommon.v1.config.ConfigNotificationChannel
-	2, // 1: gcommon.v1.config.ConfigNotificationSettings.triggers:type_name -> gcommon.v1.config.NotificationTrigger
+	2, // 1: gcommon.v1.config.ConfigNotificationSettings.triggers:type_name -> gcommon.v1.common.NotificationTrigger
 	3, // 2: gcommon.v1.config.ConfigNotificationSettings.batching:type_name -> gcommon.v1.config.BatchingSettings
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -274,7 +275,6 @@ func file_gcommon_v1_config_notification_settings_proto_init() {
 	if File_gcommon_v1_config_notification_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_notification_trigger_proto_init()
 	file_gcommon_v1_config_batching_settings_proto_init()
 	file_gcommon_v1_config_notification_channel_proto_init()
 	type x struct{}

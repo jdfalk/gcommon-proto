@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type AccessRestriction struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        RestrictionType        `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.RestrictionType"`
+	xxx_hidden_Type        common.RestrictionType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.RestrictionType"`
 	xxx_hidden_Value       *string                `protobuf:"bytes,2,opt,name=value"`
 	xxx_hidden_Operator    *string                `protobuf:"bytes,3,opt,name=operator"`
 	xxx_hidden_Reason      *string                `protobuf:"bytes,4,opt,name=reason"`
@@ -58,13 +59,13 @@ func (x *AccessRestriction) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AccessRestriction) GetType() RestrictionType {
+func (x *AccessRestriction) GetType() common.RestrictionType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
+	return common.RestrictionType(0)
 }
 
 func (x *AccessRestriction) GetValue() string {
@@ -97,7 +98,7 @@ func (x *AccessRestriction) GetReason() string {
 	return ""
 }
 
-func (x *AccessRestriction) SetType(v RestrictionType) {
+func (x *AccessRestriction) SetType(v common.RestrictionType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -147,7 +148,7 @@ func (x *AccessRestriction) HasReason() bool {
 
 func (x *AccessRestriction) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.RestrictionType_RESTRICTION_TYPE_UNSPECIFIED
 }
 
 func (x *AccessRestriction) ClearValue() {
@@ -169,7 +170,7 @@ type AccessRestriction_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Restriction type
-	Type *RestrictionType
+	Type *common.RestrictionType
 	// Restriction value
 	Value *string
 	// Restriction operator
@@ -205,20 +206,20 @@ var File_gcommon_v1_config_access_restriction_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_access_restriction_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/config/access_restriction.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/config/restriction_type.proto\x1a!google/protobuf/go_features.proto\"\x95\x01\n" +
+	"*gcommon/v1/config/access_restriction.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/common/restriction_type.proto\x1a!google/protobuf/go_features.proto\"\x95\x01\n" +
 	"\x11AccessRestriction\x126\n" +
-	"\x04type\x18\x01 \x01(\x0e2\".gcommon.v1.config.RestrictionTypeR\x04type\x12\x14\n" +
+	"\x04type\x18\x01 \x01(\x0e2\".gcommon.v1.common.RestrictionTypeR\x04type\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x12\x1a\n" +
 	"\boperator\x18\x03 \x01(\tR\boperator\x12\x16\n" +
 	"\x06reason\x18\x04 \x01(\tR\x06reasonB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_config_access_restriction_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_access_restriction_proto_goTypes = []any{
-	(*AccessRestriction)(nil), // 0: gcommon.v1.config.AccessRestriction
-	(RestrictionType)(0),      // 1: gcommon.v1.config.RestrictionType
+	(*AccessRestriction)(nil),   // 0: gcommon.v1.config.AccessRestriction
+	(common.RestrictionType)(0), // 1: gcommon.v1.common.RestrictionType
 }
 var file_gcommon_v1_config_access_restriction_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.config.AccessRestriction.type:type_name -> gcommon.v1.config.RestrictionType
+	1, // 0: gcommon.v1.config.AccessRestriction.type:type_name -> gcommon.v1.common.RestrictionType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -231,7 +232,6 @@ func file_gcommon_v1_config_access_restriction_proto_init() {
 	if File_gcommon_v1_config_access_restriction_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_restriction_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

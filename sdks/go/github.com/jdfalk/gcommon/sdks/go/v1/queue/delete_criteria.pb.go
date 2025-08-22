@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +29,7 @@ type DeleteCriteria struct {
 	xxx_hidden_Priority           int32                  `protobuf:"varint,3,opt,name=priority"`
 	xxx_hidden_CorrelationId      *string                `protobuf:"bytes,4,opt,name=correlation_id,json=correlationId"`
 	xxx_hidden_MaxMessages        int32                  `protobuf:"varint,5,opt,name=max_messages,json=maxMessages"`
-	xxx_hidden_State              MessageState           `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.queue.MessageState"`
+	xxx_hidden_State              common.MessageState    `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.MessageState"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -98,13 +99,13 @@ func (x *DeleteCriteria) GetMaxMessages() int32 {
 	return 0
 }
 
-func (x *DeleteCriteria) GetState() MessageState {
+func (x *DeleteCriteria) GetState() common.MessageState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_State
 		}
 	}
-	return MessageState_MESSAGE_STATE_UNSPECIFIED
+	return common.MessageState(0)
 }
 
 func (x *DeleteCriteria) SetOlderThanTimestamp(v int64) {
@@ -131,7 +132,7 @@ func (x *DeleteCriteria) SetMaxMessages(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
-func (x *DeleteCriteria) SetState(v MessageState) {
+func (x *DeleteCriteria) SetState(v common.MessageState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
@@ -193,7 +194,7 @@ func (x *DeleteCriteria) ClearMaxMessages() {
 
 func (x *DeleteCriteria) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_State = MessageState_MESSAGE_STATE_UNSPECIFIED
+	x.xxx_hidden_State = common.MessageState_MESSAGE_STATE_UNSPECIFIED
 }
 
 type DeleteCriteria_builder struct {
@@ -210,7 +211,7 @@ type DeleteCriteria_builder struct {
 	// Maximum number of messages to delete
 	MaxMessages *int32
 	// Delete messages in specific state
-	State *MessageState
+	State *common.MessageState
 }
 
 func (b0 DeleteCriteria_builder) Build() *DeleteCriteria {
@@ -245,27 +246,27 @@ var File_gcommon_v1_queue_delete_criteria_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_delete_criteria_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/queue/delete_criteria.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/queue/message_state.proto\x1a!google/protobuf/go_features.proto\"\xfc\x02\n" +
+	"&gcommon/v1/queue/delete_criteria.proto\x12\x10gcommon.v1.queue\x1a%gcommon/v1/common/message_state.proto\x1a!google/protobuf/go_features.proto\"\xfd\x02\n" +
 	"\x0eDeleteCriteria\x120\n" +
 	"\x14older_than_timestamp\x18\x01 \x01(\x03R\x12olderThanTimestamp\x12Z\n" +
 	"\x0eheader_filters\x18\x02 \x03(\v23.gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntryR\rheaderFilters\x12\x1a\n" +
 	"\bpriority\x18\x03 \x01(\x05R\bpriority\x12%\n" +
 	"\x0ecorrelation_id\x18\x04 \x01(\tR\rcorrelationId\x12!\n" +
-	"\fmax_messages\x18\x05 \x01(\x05R\vmaxMessages\x124\n" +
-	"\x05state\x18\x06 \x01(\x0e2\x1e.gcommon.v1.queue.MessageStateR\x05state\x1a@\n" +
+	"\fmax_messages\x18\x05 \x01(\x05R\vmaxMessages\x125\n" +
+	"\x05state\x18\x06 \x01(\x0e2\x1f.gcommon.v1.common.MessageStateR\x05state\x1a@\n" +
 	"\x12HeaderFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_delete_criteria_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_delete_criteria_proto_goTypes = []any{
-	(*DeleteCriteria)(nil), // 0: gcommon.v1.queue.DeleteCriteria
-	nil,                    // 1: gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntry
-	(MessageState)(0),      // 2: gcommon.v1.queue.MessageState
+	(*DeleteCriteria)(nil),   // 0: gcommon.v1.queue.DeleteCriteria
+	nil,                      // 1: gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntry
+	(common.MessageState)(0), // 2: gcommon.v1.common.MessageState
 }
 var file_gcommon_v1_queue_delete_criteria_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.DeleteCriteria.header_filters:type_name -> gcommon.v1.queue.DeleteCriteria.HeaderFiltersEntry
-	2, // 1: gcommon.v1.queue.DeleteCriteria.state:type_name -> gcommon.v1.queue.MessageState
+	2, // 1: gcommon.v1.queue.DeleteCriteria.state:type_name -> gcommon.v1.common.MessageState
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -278,7 +279,6 @@ func file_gcommon_v1_queue_delete_criteria_proto_init() {
 	if File_gcommon_v1_queue_delete_criteria_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_message_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

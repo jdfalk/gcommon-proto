@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,12 +23,12 @@ const (
 )
 
 type CachingSettings struct {
-	state                      protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Enabled         bool                       `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_TtlSeconds      int32                      `protobuf:"varint,2,opt,name=ttl_seconds,json=ttlSeconds"`
-	xxx_hidden_RefreshStrategy CacheRefreshStrategy       `protobuf:"varint,3,opt,name=refresh_strategy,json=refreshStrategy,enum=gcommon.v1.config.CacheRefreshStrategy"`
-	xxx_hidden_Triggers        []CacheInvalidationTrigger `protobuf:"varint,4,rep,packed,name=triggers,enum=gcommon.v1.config.CacheInvalidationTrigger"`
-	xxx_hidden_Metadata        map[string]string          `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                      protoimpl.MessageState            `protogen:"opaque.v1"`
+	xxx_hidden_Enabled         bool                              `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_TtlSeconds      int32                             `protobuf:"varint,2,opt,name=ttl_seconds,json=ttlSeconds"`
+	xxx_hidden_RefreshStrategy common.CacheRefreshStrategy       `protobuf:"varint,3,opt,name=refresh_strategy,json=refreshStrategy,enum=gcommon.v1.common.CacheRefreshStrategy"`
+	xxx_hidden_Triggers        []common.CacheInvalidationTrigger `protobuf:"varint,4,rep,packed,name=triggers,enum=gcommon.v1.common.CacheInvalidationTrigger"`
+	xxx_hidden_Metadata        map[string]string                 `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -73,16 +74,16 @@ func (x *CachingSettings) GetTtlSeconds() int32 {
 	return 0
 }
 
-func (x *CachingSettings) GetRefreshStrategy() CacheRefreshStrategy {
+func (x *CachingSettings) GetRefreshStrategy() common.CacheRefreshStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_RefreshStrategy
 		}
 	}
-	return CacheRefreshStrategy_CACHE_REFRESH_STRATEGY_UNSPECIFIED
+	return common.CacheRefreshStrategy(0)
 }
 
-func (x *CachingSettings) GetTriggers() []CacheInvalidationTrigger {
+func (x *CachingSettings) GetTriggers() []common.CacheInvalidationTrigger {
 	if x != nil {
 		return x.xxx_hidden_Triggers
 	}
@@ -106,12 +107,12 @@ func (x *CachingSettings) SetTtlSeconds(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *CachingSettings) SetRefreshStrategy(v CacheRefreshStrategy) {
+func (x *CachingSettings) SetRefreshStrategy(v common.CacheRefreshStrategy) {
 	x.xxx_hidden_RefreshStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *CachingSettings) SetTriggers(v []CacheInvalidationTrigger) {
+func (x *CachingSettings) SetTriggers(v []common.CacheInvalidationTrigger) {
 	x.xxx_hidden_Triggers = v
 }
 
@@ -152,7 +153,7 @@ func (x *CachingSettings) ClearTtlSeconds() {
 
 func (x *CachingSettings) ClearRefreshStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_RefreshStrategy = CacheRefreshStrategy_CACHE_REFRESH_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_RefreshStrategy = common.CacheRefreshStrategy_CACHE_REFRESH_STRATEGY_UNSPECIFIED
 }
 
 type CachingSettings_builder struct {
@@ -163,9 +164,9 @@ type CachingSettings_builder struct {
 	// Cache TTL in seconds
 	TtlSeconds *int32
 	// Cache refresh strategy
-	RefreshStrategy *CacheRefreshStrategy
+	RefreshStrategy *common.CacheRefreshStrategy
 	// Cache invalidation triggers
-	Triggers []CacheInvalidationTrigger
+	Triggers []common.CacheInvalidationTrigger
 	// Cache metadata
 	Metadata map[string]string
 }
@@ -195,13 +196,13 @@ var File_gcommon_v1_config_caching_settings_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_caching_settings_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/config/caching_settings.proto\x12\x11gcommon.v1.config\x1a2gcommon/v1/config/cache_invalidation_trigger.proto\x1a.gcommon/v1/config/cache_refresh_strategy.proto\x1a!google/protobuf/go_features.proto\"\xf4\x02\n" +
+	"(gcommon/v1/config/caching_settings.proto\x12\x11gcommon.v1.config\x1a2gcommon/v1/common/cache_invalidation_trigger.proto\x1a.gcommon/v1/common/cache_refresh_strategy.proto\x1a!google/protobuf/go_features.proto\"\xf4\x02\n" +
 	"\x0fCachingSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x1f\n" +
 	"\vttl_seconds\x18\x02 \x01(\x05R\n" +
 	"ttlSeconds\x12R\n" +
-	"\x10refresh_strategy\x18\x03 \x01(\x0e2'.gcommon.v1.config.CacheRefreshStrategyR\x0frefreshStrategy\x12G\n" +
-	"\btriggers\x18\x04 \x03(\x0e2+.gcommon.v1.config.CacheInvalidationTriggerR\btriggers\x12L\n" +
+	"\x10refresh_strategy\x18\x03 \x01(\x0e2'.gcommon.v1.common.CacheRefreshStrategyR\x0frefreshStrategy\x12G\n" +
+	"\btriggers\x18\x04 \x03(\x0e2+.gcommon.v1.common.CacheInvalidationTriggerR\btriggers\x12L\n" +
 	"\bmetadata\x18\x05 \x03(\v20.gcommon.v1.config.CachingSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -209,14 +210,14 @@ const file_gcommon_v1_config_caching_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_caching_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_caching_settings_proto_goTypes = []any{
-	(*CachingSettings)(nil),       // 0: gcommon.v1.config.CachingSettings
-	nil,                           // 1: gcommon.v1.config.CachingSettings.MetadataEntry
-	(CacheRefreshStrategy)(0),     // 2: gcommon.v1.config.CacheRefreshStrategy
-	(CacheInvalidationTrigger)(0), // 3: gcommon.v1.config.CacheInvalidationTrigger
+	(*CachingSettings)(nil),              // 0: gcommon.v1.config.CachingSettings
+	nil,                                  // 1: gcommon.v1.config.CachingSettings.MetadataEntry
+	(common.CacheRefreshStrategy)(0),     // 2: gcommon.v1.common.CacheRefreshStrategy
+	(common.CacheInvalidationTrigger)(0), // 3: gcommon.v1.common.CacheInvalidationTrigger
 }
 var file_gcommon_v1_config_caching_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.CachingSettings.refresh_strategy:type_name -> gcommon.v1.config.CacheRefreshStrategy
-	3, // 1: gcommon.v1.config.CachingSettings.triggers:type_name -> gcommon.v1.config.CacheInvalidationTrigger
+	2, // 0: gcommon.v1.config.CachingSettings.refresh_strategy:type_name -> gcommon.v1.common.CacheRefreshStrategy
+	3, // 1: gcommon.v1.config.CachingSettings.triggers:type_name -> gcommon.v1.common.CacheInvalidationTrigger
 	1, // 2: gcommon.v1.config.CachingSettings.metadata:type_name -> gcommon.v1.config.CachingSettings.MetadataEntry
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -230,8 +231,6 @@ func file_gcommon_v1_config_caching_settings_proto_init() {
 	if File_gcommon_v1_config_caching_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_cache_invalidation_trigger_proto_init()
-	file_gcommon_v1_config_cache_refresh_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

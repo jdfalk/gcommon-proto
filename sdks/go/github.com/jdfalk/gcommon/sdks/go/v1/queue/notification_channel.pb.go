@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +25,12 @@ const (
 // *
 // Notification channel for sending alerts.
 type QueueNotificationChannel struct {
-	state                  protoimpl.MessageState       `protogen:"opaque.v1"`
-	xxx_hidden_Id          *string                      `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Type        NotificationChannelType      `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.queue.NotificationChannelType"`
-	xxx_hidden_Config      map[string]string            `protobuf:"bytes,3,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Enabled     bool                         `protobuf:"varint,4,opt,name=enabled"`
-	xxx_hidden_MinSeverity metrics.MetricsAlertSeverity `protobuf:"varint,5,opt,name=min_severity,json=minSeverity,enum=gcommon.v1.metrics.MetricsAlertSeverity"`
+	state                  protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_Id          *string                        `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_Type        common.NotificationChannelType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.NotificationChannelType"`
+	xxx_hidden_Config      map[string]string              `protobuf:"bytes,3,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Enabled     bool                           `protobuf:"varint,4,opt,name=enabled"`
+	xxx_hidden_MinSeverity common.MetricsAlertSeverity    `protobuf:"varint,5,opt,name=min_severity,json=minSeverity,enum=gcommon.v1.common.MetricsAlertSeverity"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -72,13 +72,13 @@ func (x *QueueNotificationChannel) GetId() string {
 	return ""
 }
 
-func (x *QueueNotificationChannel) GetType() NotificationChannelType {
+func (x *QueueNotificationChannel) GetType() common.NotificationChannelType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return NotificationChannelType_NOTIFICATION_CHANNEL_TYPE_UNSPECIFIED
+	return common.NotificationChannelType(0)
 }
 
 func (x *QueueNotificationChannel) GetConfig() map[string]string {
@@ -95,13 +95,13 @@ func (x *QueueNotificationChannel) GetEnabled() bool {
 	return false
 }
 
-func (x *QueueNotificationChannel) GetMinSeverity() metrics.MetricsAlertSeverity {
+func (x *QueueNotificationChannel) GetMinSeverity() common.MetricsAlertSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_MinSeverity
 		}
 	}
-	return metrics.MetricsAlertSeverity(0)
+	return common.MetricsAlertSeverity(0)
 }
 
 func (x *QueueNotificationChannel) SetId(v string) {
@@ -109,7 +109,7 @@ func (x *QueueNotificationChannel) SetId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *QueueNotificationChannel) SetType(v NotificationChannelType) {
+func (x *QueueNotificationChannel) SetType(v common.NotificationChannelType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -123,7 +123,7 @@ func (x *QueueNotificationChannel) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *QueueNotificationChannel) SetMinSeverity(v metrics.MetricsAlertSeverity) {
+func (x *QueueNotificationChannel) SetMinSeverity(v common.MetricsAlertSeverity) {
 	x.xxx_hidden_MinSeverity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
@@ -163,7 +163,7 @@ func (x *QueueNotificationChannel) ClearId() {
 
 func (x *QueueNotificationChannel) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = NotificationChannelType_NOTIFICATION_CHANNEL_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.NotificationChannelType_NOTIFICATION_CHANNEL_TYPE_UNSPECIFIED
 }
 
 func (x *QueueNotificationChannel) ClearEnabled() {
@@ -173,7 +173,7 @@ func (x *QueueNotificationChannel) ClearEnabled() {
 
 func (x *QueueNotificationChannel) ClearMinSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_MinSeverity = metrics.MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_MinSeverity = common.MetricsAlertSeverity_METRICS_ALERT_SEVERITY_UNSPECIFIED
 }
 
 type QueueNotificationChannel_builder struct {
@@ -182,13 +182,13 @@ type QueueNotificationChannel_builder struct {
 	// Unique identifier for the channel
 	Id *string
 	// Type of notification channel
-	Type *NotificationChannelType
+	Type *common.NotificationChannelType
 	// Configuration specific to the channel type
 	Config map[string]string
 	// Whether the channel is enabled
 	Enabled *bool
 	// Minimum severity level for notifications
-	MinSeverity *metrics.MetricsAlertSeverity
+	MinSeverity *common.MetricsAlertSeverity
 }
 
 func (b0 QueueNotificationChannel_builder) Build() *QueueNotificationChannel {
@@ -219,28 +219,28 @@ var File_gcommon_v1_queue_notification_channel_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_notification_channel_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/queue/notification_channel.proto\x12\x10gcommon.v1.queue\x1a'gcommon/v1/metrics/alert_severity.proto\x1a0gcommon/v1/queue/notification_channel_type.proto\x1a!google/protobuf/go_features.proto\"\xdb\x02\n" +
+	"+gcommon/v1/queue/notification_channel.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/common/metrics_alert_severity.proto\x1a1gcommon/v1/common/notification_channel_type.proto\x1a!google/protobuf/go_features.proto\"\xdb\x02\n" +
 	"\x18QueueNotificationChannel\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12=\n" +
-	"\x04type\x18\x02 \x01(\x0e2).gcommon.v1.queue.NotificationChannelTypeR\x04type\x12N\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12>\n" +
+	"\x04type\x18\x02 \x01(\x0e2*.gcommon.v1.common.NotificationChannelTypeR\x04type\x12N\n" +
 	"\x06config\x18\x03 \x03(\v26.gcommon.v1.queue.QueueNotificationChannel.ConfigEntryR\x06config\x12\x18\n" +
-	"\aenabled\x18\x04 \x01(\bR\aenabled\x12K\n" +
-	"\fmin_severity\x18\x05 \x01(\x0e2(.gcommon.v1.metrics.MetricsAlertSeverityR\vminSeverity\x1a9\n" +
+	"\aenabled\x18\x04 \x01(\bR\aenabled\x12J\n" +
+	"\fmin_severity\x18\x05 \x01(\x0e2'.gcommon.v1.common.MetricsAlertSeverityR\vminSeverity\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_notification_channel_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_notification_channel_proto_goTypes = []any{
-	(*QueueNotificationChannel)(nil),  // 0: gcommon.v1.queue.QueueNotificationChannel
-	nil,                               // 1: gcommon.v1.queue.QueueNotificationChannel.ConfigEntry
-	(NotificationChannelType)(0),      // 2: gcommon.v1.queue.NotificationChannelType
-	(metrics.MetricsAlertSeverity)(0), // 3: gcommon.v1.metrics.MetricsAlertSeverity
+	(*QueueNotificationChannel)(nil),    // 0: gcommon.v1.queue.QueueNotificationChannel
+	nil,                                 // 1: gcommon.v1.queue.QueueNotificationChannel.ConfigEntry
+	(common.NotificationChannelType)(0), // 2: gcommon.v1.common.NotificationChannelType
+	(common.MetricsAlertSeverity)(0),    // 3: gcommon.v1.common.MetricsAlertSeverity
 }
 var file_gcommon_v1_queue_notification_channel_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.QueueNotificationChannel.type:type_name -> gcommon.v1.queue.NotificationChannelType
+	2, // 0: gcommon.v1.queue.QueueNotificationChannel.type:type_name -> gcommon.v1.common.NotificationChannelType
 	1, // 1: gcommon.v1.queue.QueueNotificationChannel.config:type_name -> gcommon.v1.queue.QueueNotificationChannel.ConfigEntry
-	3, // 2: gcommon.v1.queue.QueueNotificationChannel.min_severity:type_name -> gcommon.v1.metrics.MetricsAlertSeverity
+	3, // 2: gcommon.v1.queue.QueueNotificationChannel.min_severity:type_name -> gcommon.v1.common.MetricsAlertSeverity
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -253,7 +253,6 @@ func file_gcommon_v1_queue_notification_channel_proto_init() {
 	if File_gcommon_v1_queue_notification_channel_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_notification_channel_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

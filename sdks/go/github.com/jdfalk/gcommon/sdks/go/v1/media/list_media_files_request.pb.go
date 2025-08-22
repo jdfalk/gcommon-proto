@@ -7,6 +7,7 @@
 package media
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +27,7 @@ type ListMediaFilesRequest struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_PageSize        int32                  `protobuf:"varint,1,opt,name=page_size,json=pageSize"`
 	xxx_hidden_PageToken       *string                `protobuf:"bytes,2,opt,name=page_token,json=pageToken"`
-	xxx_hidden_MediaType       MediaType              `protobuf:"varint,3,opt,name=media_type,json=mediaType,enum=gcommon.v1.media.MediaType"`
+	xxx_hidden_MediaType       common.MediaType       `protobuf:"varint,3,opt,name=media_type,json=mediaType,enum=gcommon.v1.common.MediaType"`
 	xxx_hidden_PathPrefix      *string                `protobuf:"bytes,4,opt,name=path_prefix,json=pathPrefix"`
 	xxx_hidden_IncludeMetadata bool                   `protobuf:"varint,5,opt,name=include_metadata,json=includeMetadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
@@ -77,13 +78,13 @@ func (x *ListMediaFilesRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *ListMediaFilesRequest) GetMediaType() MediaType {
+func (x *ListMediaFilesRequest) GetMediaType() common.MediaType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_MediaType
 		}
 	}
-	return MediaType_MEDIA_TYPE_UNSPECIFIED
+	return common.MediaType(0)
 }
 
 func (x *ListMediaFilesRequest) GetPathPrefix() string {
@@ -113,7 +114,7 @@ func (x *ListMediaFilesRequest) SetPageToken(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *ListMediaFilesRequest) SetMediaType(v MediaType) {
+func (x *ListMediaFilesRequest) SetMediaType(v common.MediaType) {
 	x.xxx_hidden_MediaType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
@@ -175,7 +176,7 @@ func (x *ListMediaFilesRequest) ClearPageToken() {
 
 func (x *ListMediaFilesRequest) ClearMediaType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_MediaType = MediaType_MEDIA_TYPE_UNSPECIFIED
+	x.xxx_hidden_MediaType = common.MediaType_MEDIA_TYPE_UNSPECIFIED
 }
 
 func (x *ListMediaFilesRequest) ClearPathPrefix() {
@@ -193,7 +194,7 @@ type ListMediaFilesRequest_builder struct {
 
 	PageSize        *int32
 	PageToken       *string
-	MediaType       *MediaType
+	MediaType       *common.MediaType
 	PathPrefix      *string
 	IncludeMetadata *bool
 }
@@ -229,13 +230,13 @@ var File_gcommon_v1_media_list_media_files_request_proto protoreflect.FileDescri
 
 const file_gcommon_v1_media_list_media_files_request_proto_rawDesc = "" +
 	"\n" +
-	"/gcommon/v1/media/list_media_files_request.proto\x12\x10gcommon.v1.media\x1a!gcommon/v1/media/media_type.proto\x1a!google/protobuf/go_features.proto\"\xdb\x01\n" +
+	"/gcommon/v1/media/list_media_files_request.proto\x12\x10gcommon.v1.media\x1a\"gcommon/v1/common/media_type.proto\x1a!google/protobuf/go_features.proto\"\xdc\x01\n" +
 	"\x15ListMediaFilesRequest\x12\x1b\n" +
 	"\tpage_size\x18\x01 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x02 \x01(\tR\tpageToken\x12:\n" +
+	"page_token\x18\x02 \x01(\tR\tpageToken\x12;\n" +
 	"\n" +
-	"media_type\x18\x03 \x01(\x0e2\x1b.gcommon.v1.media.MediaTypeR\tmediaType\x12\x1f\n" +
+	"media_type\x18\x03 \x01(\x0e2\x1c.gcommon.v1.common.MediaTypeR\tmediaType\x12\x1f\n" +
 	"\vpath_prefix\x18\x04 \x01(\tR\n" +
 	"pathPrefix\x12)\n" +
 	"\x10include_metadata\x18\x05 \x01(\bR\x0fincludeMetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
@@ -243,10 +244,10 @@ const file_gcommon_v1_media_list_media_files_request_proto_rawDesc = "" +
 var file_gcommon_v1_media_list_media_files_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_list_media_files_request_proto_goTypes = []any{
 	(*ListMediaFilesRequest)(nil), // 0: gcommon.v1.media.ListMediaFilesRequest
-	(MediaType)(0),                // 1: gcommon.v1.media.MediaType
+	(common.MediaType)(0),         // 1: gcommon.v1.common.MediaType
 }
 var file_gcommon_v1_media_list_media_files_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.ListMediaFilesRequest.media_type:type_name -> gcommon.v1.media.MediaType
+	1, // 0: gcommon.v1.media.ListMediaFilesRequest.media_type:type_name -> gcommon.v1.common.MediaType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -259,7 +260,6 @@ func file_gcommon_v1_media_list_media_files_request_proto_init() {
 	if File_gcommon_v1_media_list_media_files_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

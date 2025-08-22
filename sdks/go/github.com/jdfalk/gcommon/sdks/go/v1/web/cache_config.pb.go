@@ -26,7 +26,7 @@ const (
 // CacheConfig defines caching behavior for web responses.
 type WebCacheConfig struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Strategy  CacheStrategy          `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.CacheStrategy"`
+	xxx_hidden_Strategy  common.CacheStrategy   `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.common.CacheStrategy"`
 	xxx_hidden_Policy    *common.CachePolicy    `protobuf:"bytes,2,opt,name=policy"`
 	xxx_hidden_Ttl       *durationpb.Duration   `protobuf:"bytes,3,opt,name=ttl"`
 	xxx_hidden_Enabled   bool                   `protobuf:"varint,4,opt,name=enabled"`
@@ -64,13 +64,13 @@ func (x *WebCacheConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebCacheConfig) GetStrategy() CacheStrategy {
+func (x *WebCacheConfig) GetStrategy() common.CacheStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
+	return common.CacheStrategy(0)
 }
 
 func (x *WebCacheConfig) GetPolicy() *common.CachePolicy {
@@ -111,7 +111,7 @@ func (x *WebCacheConfig) GetCacheName() string {
 	return ""
 }
 
-func (x *WebCacheConfig) SetStrategy(v CacheStrategy) {
+func (x *WebCacheConfig) SetStrategy(v common.CacheStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -176,7 +176,7 @@ func (x *WebCacheConfig) HasCacheName() bool {
 
 func (x *WebCacheConfig) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Strategy = CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = common.CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebCacheConfig) ClearPolicy() {
@@ -202,7 +202,7 @@ type WebCacheConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Selected cache strategy for responses
-	Strategy *CacheStrategy
+	Strategy *common.CacheStrategy
 	// Detailed cache policy settings
 	Policy *common.CachePolicy
 	// Override time to live for web resources
@@ -241,9 +241,9 @@ var File_gcommon_v1_web_cache_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_cache_config_proto_rawDesc = "" +
 	"\n" +
-	"!gcommon/v1/web/cache_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/cache_policy.proto\x1a#gcommon/v1/web/cache_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x01\n" +
-	"\x0eWebCacheConfig\x129\n" +
-	"\bstrategy\x18\x01 \x01(\x0e2\x1d.gcommon.v1.web.CacheStrategyR\bstrategy\x12:\n" +
+	"!gcommon/v1/web/cache_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/cache_policy.proto\x1a&gcommon/v1/common/cache_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf0\x01\n" +
+	"\x0eWebCacheConfig\x12<\n" +
+	"\bstrategy\x18\x01 \x01(\x0e2 .gcommon.v1.common.CacheStrategyR\bstrategy\x12:\n" +
 	"\x06policy\x18\x02 \x01(\v2\x1e.gcommon.v1.common.CachePolicyB\x02(\x01R\x06policy\x12+\n" +
 	"\x03ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x03ttl\x12\x18\n" +
 	"\aenabled\x18\x04 \x01(\bR\aenabled\x12\x1d\n" +
@@ -253,12 +253,12 @@ const file_gcommon_v1_web_cache_config_proto_rawDesc = "" +
 var file_gcommon_v1_web_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_cache_config_proto_goTypes = []any{
 	(*WebCacheConfig)(nil),      // 0: gcommon.v1.web.WebCacheConfig
-	(CacheStrategy)(0),          // 1: gcommon.v1.web.CacheStrategy
+	(common.CacheStrategy)(0),   // 1: gcommon.v1.common.CacheStrategy
 	(*common.CachePolicy)(nil),  // 2: gcommon.v1.common.CachePolicy
 	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
 var file_gcommon_v1_web_cache_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.WebCacheConfig.strategy:type_name -> gcommon.v1.web.CacheStrategy
+	1, // 0: gcommon.v1.web.WebCacheConfig.strategy:type_name -> gcommon.v1.common.CacheStrategy
 	2, // 1: gcommon.v1.web.WebCacheConfig.policy:type_name -> gcommon.v1.common.CachePolicy
 	3, // 2: gcommon.v1.web.WebCacheConfig.ttl:type_name -> google.protobuf.Duration
 	3, // [3:3] is the sub-list for method output_type
@@ -273,7 +273,6 @@ func file_gcommon_v1_web_cache_config_proto_init() {
 	if File_gcommon_v1_web_cache_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_cache_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

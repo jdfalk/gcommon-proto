@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +25,7 @@ const (
 
 type OffsetConfig struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_OffsetType      OffsetType             `protobuf:"varint,1,opt,name=offset_type,json=offsetType,enum=gcommon.v1.queue.OffsetType"`
+	xxx_hidden_OffsetType      common.OffsetType      `protobuf:"varint,1,opt,name=offset_type,json=offsetType,enum=gcommon.v1.common.OffsetType"`
 	xxx_hidden_OffsetValue     int64                  `protobuf:"varint,2,opt,name=offset_value,json=offsetValue"`
 	xxx_hidden_StartTimestamp  *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_timestamp,json=startTimestamp"`
 	xxx_hidden_ResetOnNotFound bool                   `protobuf:"varint,4,opt,name=reset_on_not_found,json=resetOnNotFound"`
@@ -59,13 +60,13 @@ func (x *OffsetConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *OffsetConfig) GetOffsetType() OffsetType {
+func (x *OffsetConfig) GetOffsetType() common.OffsetType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_OffsetType
 		}
 	}
-	return OffsetType_OFFSET_TYPE_UNSPECIFIED
+	return common.OffsetType(0)
 }
 
 func (x *OffsetConfig) GetOffsetValue() int64 {
@@ -89,7 +90,7 @@ func (x *OffsetConfig) GetResetOnNotFound() bool {
 	return false
 }
 
-func (x *OffsetConfig) SetOffsetType(v OffsetType) {
+func (x *OffsetConfig) SetOffsetType(v common.OffsetType) {
 	x.xxx_hidden_OffsetType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -138,7 +139,7 @@ func (x *OffsetConfig) HasResetOnNotFound() bool {
 
 func (x *OffsetConfig) ClearOffsetType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OffsetType = OffsetType_OFFSET_TYPE_UNSPECIFIED
+	x.xxx_hidden_OffsetType = common.OffsetType_OFFSET_TYPE_UNSPECIFIED
 }
 
 func (x *OffsetConfig) ClearOffsetValue() {
@@ -159,7 +160,7 @@ type OffsetConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Offset type (earliest, latest, timestamp, specific)
-	OffsetType *OffsetType
+	OffsetType *common.OffsetType
 	// Specific offset value (when offset_type = specific)
 	OffsetValue *int64
 	// Timestamp to start from (when offset_type = timestamp)
@@ -192,9 +193,9 @@ var File_gcommon_v1_queue_offset_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_offset_config_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/queue/offset_config.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/queue/offset_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe2\x01\n" +
-	"\fOffsetConfig\x12=\n" +
-	"\voffset_type\x18\x01 \x01(\x0e2\x1c.gcommon.v1.queue.OffsetTypeR\n" +
+	"$gcommon/v1/queue/offset_config.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/offset_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe3\x01\n" +
+	"\fOffsetConfig\x12>\n" +
+	"\voffset_type\x18\x01 \x01(\x0e2\x1d.gcommon.v1.common.OffsetTypeR\n" +
 	"offsetType\x12!\n" +
 	"\foffset_value\x18\x02 \x01(\x03R\voffsetValue\x12C\n" +
 	"\x0fstart_timestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n" +
@@ -203,11 +204,11 @@ const file_gcommon_v1_queue_offset_config_proto_rawDesc = "" +
 var file_gcommon_v1_queue_offset_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_offset_config_proto_goTypes = []any{
 	(*OffsetConfig)(nil),          // 0: gcommon.v1.queue.OffsetConfig
-	(OffsetType)(0),               // 1: gcommon.v1.queue.OffsetType
+	(common.OffsetType)(0),        // 1: gcommon.v1.common.OffsetType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_offset_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.OffsetConfig.offset_type:type_name -> gcommon.v1.queue.OffsetType
+	1, // 0: gcommon.v1.queue.OffsetConfig.offset_type:type_name -> gcommon.v1.common.OffsetType
 	2, // 1: gcommon.v1.queue.OffsetConfig.start_timestamp:type_name -> google.protobuf.Timestamp
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -221,7 +222,6 @@ func file_gcommon_v1_queue_offset_config_proto_init() {
 	if File_gcommon_v1_queue_offset_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_offset_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

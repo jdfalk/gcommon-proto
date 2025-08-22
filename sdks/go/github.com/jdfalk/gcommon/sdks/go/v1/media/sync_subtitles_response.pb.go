@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -22,15 +21,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Response from subtitle synchronization.
+// Response from synchronizing subtitles with media.
 type SyncSubtitlesResponse struct {
-	state                           protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SyncedSubtitleFileId *string                `protobuf:"bytes,1,opt,name=synced_subtitle_file_id,json=syncedSubtitleFileId"`
-	xxx_hidden_Statistics           *SyncStatistics        `protobuf:"bytes,2,opt,name=statistics"`
-	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
-	XXX_presence                    [1]uint32
-	unknownFields                   protoimpl.UnknownFields
-	sizeCache                       protoimpl.SizeCache
+	state                                 protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SynchronizedSubtitleFileId *string                `protobuf:"bytes,1,opt,name=synchronized_subtitle_file_id,json=synchronizedSubtitleFileId"`
+	xxx_hidden_Success                    bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_ErrorMessage               *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_AdjustmentsMade            int32                  `protobuf:"varint,4,opt,name=adjustments_made,json=adjustmentsMade"`
+	XXX_raceDetectHookData                protoimpl.RaceDetectHookData
+	XXX_presence                          [1]uint32
+	unknownFields                         protoimpl.UnknownFields
+	sizeCache                             protoimpl.SizeCache
 }
 
 func (x *SyncSubtitlesResponse) Reset() {
@@ -58,231 +59,136 @@ func (x *SyncSubtitlesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SyncSubtitlesResponse) GetSyncedSubtitleFileId() string {
+func (x *SyncSubtitlesResponse) GetSynchronizedSubtitleFileId() string {
 	if x != nil {
-		if x.xxx_hidden_SyncedSubtitleFileId != nil {
-			return *x.xxx_hidden_SyncedSubtitleFileId
+		if x.xxx_hidden_SynchronizedSubtitleFileId != nil {
+			return *x.xxx_hidden_SynchronizedSubtitleFileId
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *SyncSubtitlesResponse) GetStatistics() *SyncStatistics {
+func (x *SyncSubtitlesResponse) GetSuccess() bool {
 	if x != nil {
-		return x.xxx_hidden_Statistics
+		return x.xxx_hidden_Success
 	}
-	return nil
+	return false
 }
 
-func (x *SyncSubtitlesResponse) SetSyncedSubtitleFileId(v string) {
-	x.xxx_hidden_SyncedSubtitleFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *SyncSubtitlesResponse) SetStatistics(v *SyncStatistics) {
-	x.xxx_hidden_Statistics = v
-}
-
-func (x *SyncSubtitlesResponse) HasSyncedSubtitleFileId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *SyncSubtitlesResponse) HasStatistics() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Statistics != nil
-}
-
-func (x *SyncSubtitlesResponse) ClearSyncedSubtitleFileId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SyncedSubtitleFileId = nil
-}
-
-func (x *SyncSubtitlesResponse) ClearStatistics() {
-	x.xxx_hidden_Statistics = nil
-}
-
-type SyncSubtitlesResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	SyncedSubtitleFileId *string
-	Statistics           *SyncStatistics
-}
-
-func (b0 SyncSubtitlesResponse_builder) Build() *SyncSubtitlesResponse {
-	m0 := &SyncSubtitlesResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SyncedSubtitleFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_SyncedSubtitleFileId = b.SyncedSubtitleFileId
-	}
-	x.xxx_hidden_Statistics = b.Statistics
-	return m0
-}
-
-// Statistics from subtitle synchronization.
-type SyncStatistics struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AppliedOffset      *durationpb.Duration   `protobuf:"bytes,1,opt,name=applied_offset,json=appliedOffset"`
-	xxx_hidden_AppliedSpeedFactor float64                `protobuf:"fixed64,2,opt,name=applied_speed_factor,json=appliedSpeedFactor"`
-	xxx_hidden_AdjustmentsMade    int32                  `protobuf:"varint,3,opt,name=adjustments_made,json=adjustmentsMade"`
-	xxx_hidden_ConfidenceScore    float64                `protobuf:"fixed64,4,opt,name=confidence_score,json=confidenceScore"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
-}
-
-func (x *SyncStatistics) Reset() {
-	*x = SyncStatistics{}
-	mi := &file_gcommon_v1_media_sync_subtitles_response_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SyncStatistics) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SyncStatistics) ProtoMessage() {}
-
-func (x *SyncStatistics) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_sync_subtitles_response_proto_msgTypes[1]
+func (x *SyncSubtitlesResponse) GetErrorMessage() string {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
 		}
-		return ms
+		return ""
 	}
-	return mi.MessageOf(x)
+	return ""
 }
 
-func (x *SyncStatistics) GetAppliedOffset() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_AppliedOffset
-	}
-	return nil
-}
-
-func (x *SyncStatistics) GetAppliedSpeedFactor() float64 {
-	if x != nil {
-		return x.xxx_hidden_AppliedSpeedFactor
-	}
-	return 0
-}
-
-func (x *SyncStatistics) GetAdjustmentsMade() int32 {
+func (x *SyncSubtitlesResponse) GetAdjustmentsMade() int32 {
 	if x != nil {
 		return x.xxx_hidden_AdjustmentsMade
 	}
 	return 0
 }
 
-func (x *SyncStatistics) GetConfidenceScore() float64 {
-	if x != nil {
-		return x.xxx_hidden_ConfidenceScore
-	}
-	return 0
+func (x *SyncSubtitlesResponse) SetSynchronizedSubtitleFileId(v string) {
+	x.xxx_hidden_SynchronizedSubtitleFileId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *SyncStatistics) SetAppliedOffset(v *durationpb.Duration) {
-	x.xxx_hidden_AppliedOffset = v
-}
-
-func (x *SyncStatistics) SetAppliedSpeedFactor(v float64) {
-	x.xxx_hidden_AppliedSpeedFactor = v
+func (x *SyncSubtitlesResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *SyncStatistics) SetAdjustmentsMade(v int32) {
-	x.xxx_hidden_AdjustmentsMade = v
+func (x *SyncSubtitlesResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *SyncStatistics) SetConfidenceScore(v float64) {
-	x.xxx_hidden_ConfidenceScore = v
+func (x *SyncSubtitlesResponse) SetAdjustmentsMade(v int32) {
+	x.xxx_hidden_AdjustmentsMade = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
-func (x *SyncStatistics) HasAppliedOffset() bool {
+func (x *SyncSubtitlesResponse) HasSynchronizedSubtitleFileId() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_AppliedOffset != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *SyncStatistics) HasAppliedSpeedFactor() bool {
+func (x *SyncSubtitlesResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *SyncStatistics) HasAdjustmentsMade() bool {
+func (x *SyncSubtitlesResponse) HasErrorMessage() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
-func (x *SyncStatistics) HasConfidenceScore() bool {
+func (x *SyncSubtitlesResponse) HasAdjustmentsMade() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
-func (x *SyncStatistics) ClearAppliedOffset() {
-	x.xxx_hidden_AppliedOffset = nil
+func (x *SyncSubtitlesResponse) ClearSynchronizedSubtitleFileId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_SynchronizedSubtitleFileId = nil
 }
 
-func (x *SyncStatistics) ClearAppliedSpeedFactor() {
+func (x *SyncSubtitlesResponse) ClearSuccess() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_AppliedSpeedFactor = 0
+	x.xxx_hidden_Success = false
 }
 
-func (x *SyncStatistics) ClearAdjustmentsMade() {
+func (x *SyncSubtitlesResponse) ClearErrorMessage() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+func (x *SyncSubtitlesResponse) ClearAdjustmentsMade() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
 	x.xxx_hidden_AdjustmentsMade = 0
 }
 
-func (x *SyncStatistics) ClearConfidenceScore() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ConfidenceScore = 0
-}
-
-type SyncStatistics_builder struct {
+type SyncSubtitlesResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	AppliedOffset      *durationpb.Duration
-	AppliedSpeedFactor *float64
-	AdjustmentsMade    *int32
-	ConfidenceScore    *float64
+	SynchronizedSubtitleFileId *string
+	Success                    *bool
+	ErrorMessage               *string
+	AdjustmentsMade            *int32
 }
 
-func (b0 SyncStatistics_builder) Build() *SyncStatistics {
-	m0 := &SyncStatistics{}
+func (b0 SyncSubtitlesResponse_builder) Build() *SyncSubtitlesResponse {
+	m0 := &SyncSubtitlesResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.xxx_hidden_AppliedOffset = b.AppliedOffset
-	if b.AppliedSpeedFactor != nil {
+	if b.SynchronizedSubtitleFileId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_SynchronizedSubtitleFileId = b.SynchronizedSubtitleFileId
+	}
+	if b.Success != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_AppliedSpeedFactor = *b.AppliedSpeedFactor
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
 	}
 	if b.AdjustmentsMade != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_AdjustmentsMade = *b.AdjustmentsMade
-	}
-	if b.ConfidenceScore != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_ConfidenceScore = *b.ConfidenceScore
+		x.xxx_hidden_AdjustmentsMade = *b.AdjustmentsMade
 	}
 	return m0
 }
@@ -291,32 +197,23 @@ var File_gcommon_v1_media_sync_subtitles_response_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_media_sync_subtitles_response_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/media/sync_subtitles_response.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x90\x01\n" +
-	"\x15SyncSubtitlesResponse\x125\n" +
-	"\x17synced_subtitle_file_id\x18\x01 \x01(\tR\x14syncedSubtitleFileId\x12@\n" +
-	"\n" +
-	"statistics\x18\x02 \x01(\v2 .gcommon.v1.media.SyncStatisticsR\n" +
-	"statistics\"\xda\x01\n" +
-	"\x0eSyncStatistics\x12@\n" +
-	"\x0eapplied_offset\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\rappliedOffset\x120\n" +
-	"\x14applied_speed_factor\x18\x02 \x01(\x01R\x12appliedSpeedFactor\x12)\n" +
-	"\x10adjustments_made\x18\x03 \x01(\x05R\x0fadjustmentsMade\x12)\n" +
-	"\x10confidence_score\x18\x04 \x01(\x01R\x0fconfidenceScoreB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	".gcommon/v1/media/sync_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xc4\x01\n" +
+	"\x15SyncSubtitlesResponse\x12A\n" +
+	"\x1dsynchronized_subtitle_file_id\x18\x01 \x01(\tR\x1asynchronizedSubtitleFileId\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessage\x12)\n" +
+	"\x10adjustments_made\x18\x04 \x01(\x05R\x0fadjustmentsMadeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_sync_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_sync_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_sync_subtitles_response_proto_goTypes = []any{
 	(*SyncSubtitlesResponse)(nil), // 0: gcommon.v1.media.SyncSubtitlesResponse
-	(*SyncStatistics)(nil),        // 1: gcommon.v1.media.SyncStatistics
-	(*durationpb.Duration)(nil),   // 2: google.protobuf.Duration
 }
 var file_gcommon_v1_media_sync_subtitles_response_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.SyncSubtitlesResponse.statistics:type_name -> gcommon.v1.media.SyncStatistics
-	2, // 1: gcommon.v1.media.SyncStatistics.applied_offset:type_name -> google.protobuf.Duration
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_sync_subtitles_response_proto_init() }
@@ -330,7 +227,7 @@ func file_gcommon_v1_media_sync_subtitles_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_sync_subtitles_response_proto_rawDesc), len(file_gcommon_v1_media_sync_subtitles_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

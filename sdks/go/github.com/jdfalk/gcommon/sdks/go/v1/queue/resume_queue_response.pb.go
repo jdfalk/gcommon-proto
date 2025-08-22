@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,8 +27,8 @@ type ResumeQueueResponse struct {
 	state                                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success                   bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_QueueId                   *string                `protobuf:"bytes,2,opt,name=queue_id,json=queueId"`
-	xxx_hidden_PreviousState             QueueState             `protobuf:"varint,3,opt,name=previous_state,json=previousState,enum=gcommon.v1.queue.QueueState"`
-	xxx_hidden_CurrentState              QueueState             `protobuf:"varint,4,opt,name=current_state,json=currentState,enum=gcommon.v1.queue.QueueState"`
+	xxx_hidden_PreviousState             common.QueueState      `protobuf:"varint,3,opt,name=previous_state,json=previousState,enum=gcommon.v1.common.QueueState"`
+	xxx_hidden_CurrentState              common.QueueState      `protobuf:"varint,4,opt,name=current_state,json=currentState,enum=gcommon.v1.common.QueueState"`
 	xxx_hidden_ResumedAt                 *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=resumed_at,json=resumedAt"`
 	xxx_hidden_PauseDurationMs           int64                  `protobuf:"varint,6,opt,name=pause_duration_ms,json=pauseDurationMs"`
 	xxx_hidden_MessagesQueuedDuringPause int64                  `protobuf:"varint,7,opt,name=messages_queued_during_pause,json=messagesQueuedDuringPause"`
@@ -85,22 +86,22 @@ func (x *ResumeQueueResponse) GetQueueId() string {
 	return ""
 }
 
-func (x *ResumeQueueResponse) GetPreviousState() QueueState {
+func (x *ResumeQueueResponse) GetPreviousState() common.QueueState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_PreviousState
 		}
 	}
-	return QueueState_QUEUE_STATE_UNSPECIFIED
+	return common.QueueState(0)
 }
 
-func (x *ResumeQueueResponse) GetCurrentState() QueueState {
+func (x *ResumeQueueResponse) GetCurrentState() common.QueueState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_CurrentState
 		}
 	}
-	return QueueState_QUEUE_STATE_UNSPECIFIED
+	return common.QueueState(0)
 }
 
 func (x *ResumeQueueResponse) GetResumedAt() *timestamppb.Timestamp {
@@ -182,12 +183,12 @@ func (x *ResumeQueueResponse) SetQueueId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 13)
 }
 
-func (x *ResumeQueueResponse) SetPreviousState(v QueueState) {
+func (x *ResumeQueueResponse) SetPreviousState(v common.QueueState) {
 	x.xxx_hidden_PreviousState = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 13)
 }
 
-func (x *ResumeQueueResponse) SetCurrentState(v QueueState) {
+func (x *ResumeQueueResponse) SetCurrentState(v common.QueueState) {
 	x.xxx_hidden_CurrentState = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 13)
 }
@@ -314,12 +315,12 @@ func (x *ResumeQueueResponse) ClearQueueId() {
 
 func (x *ResumeQueueResponse) ClearPreviousState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PreviousState = QueueState_QUEUE_STATE_UNSPECIFIED
+	x.xxx_hidden_PreviousState = common.QueueState_QUEUE_STATE_UNSPECIFIED
 }
 
 func (x *ResumeQueueResponse) ClearCurrentState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_CurrentState = QueueState_QUEUE_STATE_UNSPECIFIED
+	x.xxx_hidden_CurrentState = common.QueueState_QUEUE_STATE_UNSPECIFIED
 }
 
 func (x *ResumeQueueResponse) ClearResumedAt() {
@@ -358,9 +359,9 @@ type ResumeQueueResponse_builder struct {
 	// Queue identifier that was resumed
 	QueueId *string
 	// Previous queue state before resume
-	PreviousState *QueueState
+	PreviousState *common.QueueState
 	// Current queue state after resume
-	CurrentState *QueueState
+	CurrentState *common.QueueState
 	// Timestamp when resume operation completed
 	ResumedAt *timestamppb.Timestamp
 	// Duration the queue was paused (milliseconds)
@@ -429,12 +430,12 @@ var File_gcommon_v1_queue_resume_queue_response_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_queue_resume_queue_response_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/queue/resume_queue_response.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/queue/queue_state.proto\x1a#gcommon/v1/queue/resume_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe4\x05\n" +
+	",gcommon/v1/queue/resume_queue_response.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/queue_state.proto\x1a#gcommon/v1/queue/resume_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe6\x05\n" +
 	"\x13ResumeQueueResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x19\n" +
-	"\bqueue_id\x18\x02 \x01(\tR\aqueueId\x12C\n" +
-	"\x0eprevious_state\x18\x03 \x01(\x0e2\x1c.gcommon.v1.queue.QueueStateR\rpreviousState\x12A\n" +
-	"\rcurrent_state\x18\x04 \x01(\x0e2\x1c.gcommon.v1.queue.QueueStateR\fcurrentState\x129\n" +
+	"\bqueue_id\x18\x02 \x01(\tR\aqueueId\x12D\n" +
+	"\x0eprevious_state\x18\x03 \x01(\x0e2\x1d.gcommon.v1.common.QueueStateR\rpreviousState\x12B\n" +
+	"\rcurrent_state\x18\x04 \x01(\x0e2\x1d.gcommon.v1.common.QueueStateR\fcurrentState\x129\n" +
 	"\n" +
 	"resumed_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tresumedAt\x12*\n" +
 	"\x11pause_duration_ms\x18\x06 \x01(\x03R\x0fpauseDurationMs\x12?\n" +
@@ -455,13 +456,13 @@ var file_gcommon_v1_queue_resume_queue_response_proto_msgTypes = make([]protoimp
 var file_gcommon_v1_queue_resume_queue_response_proto_goTypes = []any{
 	(*ResumeQueueResponse)(nil),   // 0: gcommon.v1.queue.ResumeQueueResponse
 	nil,                           // 1: gcommon.v1.queue.ResumeQueueResponse.MetadataEntry
-	(QueueState)(0),               // 2: gcommon.v1.queue.QueueState
+	(common.QueueState)(0),        // 2: gcommon.v1.common.QueueState
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 	(*ResumeStats)(nil),           // 4: gcommon.v1.queue.ResumeStats
 }
 var file_gcommon_v1_queue_resume_queue_response_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.ResumeQueueResponse.previous_state:type_name -> gcommon.v1.queue.QueueState
-	2, // 1: gcommon.v1.queue.ResumeQueueResponse.current_state:type_name -> gcommon.v1.queue.QueueState
+	2, // 0: gcommon.v1.queue.ResumeQueueResponse.previous_state:type_name -> gcommon.v1.common.QueueState
+	2, // 1: gcommon.v1.queue.ResumeQueueResponse.current_state:type_name -> gcommon.v1.common.QueueState
 	3, // 2: gcommon.v1.queue.ResumeQueueResponse.resumed_at:type_name -> google.protobuf.Timestamp
 	4, // 3: gcommon.v1.queue.ResumeQueueResponse.resume_stats:type_name -> gcommon.v1.queue.ResumeStats
 	1, // 4: gcommon.v1.queue.ResumeQueueResponse.metadata:type_name -> gcommon.v1.queue.ResumeQueueResponse.MetadataEntry
@@ -477,7 +478,6 @@ func file_gcommon_v1_queue_resume_queue_response_proto_init() {
 	if File_gcommon_v1_queue_resume_queue_response_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_queue_state_proto_init()
 	file_gcommon_v1_queue_resume_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

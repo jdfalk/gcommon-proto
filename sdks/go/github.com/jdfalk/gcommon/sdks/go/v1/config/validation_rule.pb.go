@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,14 +23,14 @@ const (
 )
 
 type ValidationRule struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Description  *string                `protobuf:"bytes,2,opt,name=description"`
-	xxx_hidden_Expression   *string                `protobuf:"bytes,3,opt,name=expression"`
-	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,4,opt,name=error_message,json=errorMessage"`
-	xxx_hidden_Severity     ValidationSeverity     `protobuf:"varint,5,opt,name=severity,enum=gcommon.v1.config.ValidationSeverity"`
-	xxx_hidden_Parameters   []string               `protobuf:"bytes,6,rep,name=parameters"`
-	xxx_hidden_Conditions   map[string]string      `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Name         *string                   `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Description  *string                   `protobuf:"bytes,2,opt,name=description"`
+	xxx_hidden_Expression   *string                   `protobuf:"bytes,3,opt,name=expression"`
+	xxx_hidden_ErrorMessage *string                   `protobuf:"bytes,4,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_Severity     common.ValidationSeverity `protobuf:"varint,5,opt,name=severity,enum=gcommon.v1.common.ValidationSeverity"`
+	xxx_hidden_Parameters   []string                  `protobuf:"bytes,6,rep,name=parameters"`
+	xxx_hidden_Conditions   map[string]string         `protobuf:"bytes,7,rep,name=conditions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -101,13 +102,13 @@ func (x *ValidationRule) GetErrorMessage() string {
 	return ""
 }
 
-func (x *ValidationRule) GetSeverity() ValidationSeverity {
+func (x *ValidationRule) GetSeverity() common.ValidationSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
+	return common.ValidationSeverity(0)
 }
 
 func (x *ValidationRule) GetParameters() []string {
@@ -144,7 +145,7 @@ func (x *ValidationRule) SetErrorMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
-func (x *ValidationRule) SetSeverity(v ValidationSeverity) {
+func (x *ValidationRule) SetSeverity(v common.ValidationSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
@@ -214,7 +215,7 @@ func (x *ValidationRule) ClearErrorMessage() {
 
 func (x *ValidationRule) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Severity = ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 type ValidationRule_builder struct {
@@ -229,7 +230,7 @@ type ValidationRule_builder struct {
 	// Error message if validation fails
 	ErrorMessage *string
 	// Rule severity
-	Severity *ValidationSeverity
+	Severity *common.ValidationSeverity
 	// Parameters this rule applies to
 	Parameters []string
 	// Rule conditions
@@ -269,7 +270,7 @@ var File_gcommon_v1_config_validation_rule_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_validation_rule_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/config/validation_rule.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n" +
+	"'gcommon/v1/config/validation_rule.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\x80\x03\n" +
 	"\x0eValidationRule\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1e\n" +
@@ -277,7 +278,7 @@ const file_gcommon_v1_config_validation_rule_proto_rawDesc = "" +
 	"expression\x18\x03 \x01(\tR\n" +
 	"expression\x12#\n" +
 	"\rerror_message\x18\x04 \x01(\tR\ferrorMessage\x12A\n" +
-	"\bseverity\x18\x05 \x01(\x0e2%.gcommon.v1.config.ValidationSeverityR\bseverity\x12\x1e\n" +
+	"\bseverity\x18\x05 \x01(\x0e2%.gcommon.v1.common.ValidationSeverityR\bseverity\x12\x1e\n" +
 	"\n" +
 	"parameters\x18\x06 \x03(\tR\n" +
 	"parameters\x12Q\n" +
@@ -290,12 +291,12 @@ const file_gcommon_v1_config_validation_rule_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_validation_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_validation_rule_proto_goTypes = []any{
-	(*ValidationRule)(nil),  // 0: gcommon.v1.config.ValidationRule
-	nil,                     // 1: gcommon.v1.config.ValidationRule.ConditionsEntry
-	(ValidationSeverity)(0), // 2: gcommon.v1.config.ValidationSeverity
+	(*ValidationRule)(nil),         // 0: gcommon.v1.config.ValidationRule
+	nil,                            // 1: gcommon.v1.config.ValidationRule.ConditionsEntry
+	(common.ValidationSeverity)(0), // 2: gcommon.v1.common.ValidationSeverity
 }
 var file_gcommon_v1_config_validation_rule_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ValidationRule.severity:type_name -> gcommon.v1.config.ValidationSeverity
+	2, // 0: gcommon.v1.config.ValidationRule.severity:type_name -> gcommon.v1.common.ValidationSeverity
 	1, // 1: gcommon.v1.config.ValidationRule.conditions:type_name -> gcommon.v1.config.ValidationRule.ConditionsEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -309,7 +310,6 @@ func file_gcommon_v1_config_validation_rule_proto_init() {
 	if File_gcommon_v1_config_validation_rule_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_validation_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

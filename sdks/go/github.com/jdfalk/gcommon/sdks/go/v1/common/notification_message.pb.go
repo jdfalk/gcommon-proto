@@ -355,7 +355,7 @@ var File_gcommon_v1_common_notification_message_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_common_notification_message_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/common/notification_message.proto\x12\x11gcommon.v1.common\x1a'gcommon/v1/common/delivery_status.proto\x1a(gcommon/v1/common/delivery_channel.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x02\n" +
+	",gcommon/v1/common/notification_message.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/delivery_channel.proto\x1a'gcommon/v1/common/delivery_status.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x02\n" +
 	"\x13NotificationMessage\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
 	"\asubject\x18\x02 \x01(\tR\asubject\x12\x12\n" +
@@ -393,8 +393,8 @@ func file_gcommon_v1_common_notification_message_proto_init() {
 	if File_gcommon_v1_common_notification_message_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_delivery_status_proto_init()
 	file_gcommon_v1_common_delivery_channel_proto_init()
+	file_gcommon_v1_common_delivery_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +25,7 @@ const (
 
 type AggregationSpec struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AggregationType AggregationType        `protobuf:"varint,1,opt,name=aggregation_type,json=aggregationType,enum=gcommon.v1.metrics.AggregationType"`
+	xxx_hidden_AggregationType common.AggregationType `protobuf:"varint,1,opt,name=aggregation_type,json=aggregationType,enum=gcommon.v1.common.AggregationType"`
 	xxx_hidden_Field           *string                `protobuf:"bytes,2,opt,name=field"`
 	xxx_hidden_Window          *durationpb.Duration   `protobuf:"bytes,3,opt,name=window"`
 	xxx_hidden_Step            *durationpb.Duration   `protobuf:"bytes,4,opt,name=step"`
@@ -60,13 +61,13 @@ func (x *AggregationSpec) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AggregationSpec) GetAggregationType() AggregationType {
+func (x *AggregationSpec) GetAggregationType() common.AggregationType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_AggregationType
 		}
 	}
-	return AggregationType_AGGREGATION_TYPE_UNSPECIFIED
+	return common.AggregationType(0)
 }
 
 func (x *AggregationSpec) GetField() string {
@@ -100,7 +101,7 @@ func (x *AggregationSpec) GetParameters() map[string]string {
 	return nil
 }
 
-func (x *AggregationSpec) SetAggregationType(v AggregationType) {
+func (x *AggregationSpec) SetAggregationType(v common.AggregationType) {
 	x.xxx_hidden_AggregationType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -152,7 +153,7 @@ func (x *AggregationSpec) HasStep() bool {
 
 func (x *AggregationSpec) ClearAggregationType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_AggregationType = AggregationType_AGGREGATION_TYPE_UNSPECIFIED
+	x.xxx_hidden_AggregationType = common.AggregationType_AGGREGATION_TYPE_UNSPECIFIED
 }
 
 func (x *AggregationSpec) ClearField() {
@@ -172,7 +173,7 @@ type AggregationSpec_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of aggregation to perform
-	AggregationType *AggregationType
+	AggregationType *common.AggregationType
 	// Field to aggregate on (if applicable)
 	Field *string
 	// Time window for aggregation
@@ -205,9 +206,9 @@ var File_gcommon_v1_metrics_aggregation_spec_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_aggregation_spec_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/metrics/aggregation_spec.proto\x12\x12gcommon.v1.metrics\x1a)gcommon/v1/metrics/aggregation_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x02\n" +
-	"\x0fAggregationSpec\x12N\n" +
-	"\x10aggregation_type\x18\x01 \x01(\x0e2#.gcommon.v1.metrics.AggregationTypeR\x0faggregationType\x12\x14\n" +
+	")gcommon/v1/metrics/aggregation_spec.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/aggregation_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xec\x02\n" +
+	"\x0fAggregationSpec\x12M\n" +
+	"\x10aggregation_type\x18\x01 \x01(\x0e2\".gcommon.v1.common.AggregationTypeR\x0faggregationType\x12\x14\n" +
 	"\x05field\x18\x02 \x01(\tR\x05field\x121\n" +
 	"\x06window\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x06window\x12-\n" +
 	"\x04step\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\x04step\x12S\n" +
@@ -222,11 +223,11 @@ var file_gcommon_v1_metrics_aggregation_spec_proto_msgTypes = make([]protoimpl.M
 var file_gcommon_v1_metrics_aggregation_spec_proto_goTypes = []any{
 	(*AggregationSpec)(nil),     // 0: gcommon.v1.metrics.AggregationSpec
 	nil,                         // 1: gcommon.v1.metrics.AggregationSpec.ParametersEntry
-	(AggregationType)(0),        // 2: gcommon.v1.metrics.AggregationType
+	(common.AggregationType)(0), // 2: gcommon.v1.common.AggregationType
 	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
 var file_gcommon_v1_metrics_aggregation_spec_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.metrics.AggregationSpec.aggregation_type:type_name -> gcommon.v1.metrics.AggregationType
+	2, // 0: gcommon.v1.metrics.AggregationSpec.aggregation_type:type_name -> gcommon.v1.common.AggregationType
 	3, // 1: gcommon.v1.metrics.AggregationSpec.window:type_name -> google.protobuf.Duration
 	3, // 2: gcommon.v1.metrics.AggregationSpec.step:type_name -> google.protobuf.Duration
 	1, // 3: gcommon.v1.metrics.AggregationSpec.parameters:type_name -> gcommon.v1.metrics.AggregationSpec.ParametersEntry
@@ -242,7 +243,6 @@ func file_gcommon_v1_metrics_aggregation_spec_proto_init() {
 	if File_gcommon_v1_metrics_aggregation_spec_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_aggregation_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

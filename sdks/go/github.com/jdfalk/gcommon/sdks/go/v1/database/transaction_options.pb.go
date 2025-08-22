@@ -7,6 +7,7 @@
 package database
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,10 +27,10 @@ const (
 // TransactionOptions configures behavior for database transactions.
 // Controls isolation level, timeout, and read-only mode.
 type TransactionOptions struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Isolation DatabaseIsolationLevel `protobuf:"varint,1,opt,name=isolation,enum=gcommon.v1.database.DatabaseIsolationLevel"`
-	xxx_hidden_Timeout   *durationpb.Duration   `protobuf:"bytes,2,opt,name=timeout"`
-	xxx_hidden_ReadOnly  bool                   `protobuf:"varint,3,opt,name=read_only,json=readOnly"`
+	state                protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Isolation common.DatabaseIsolationLevel `protobuf:"varint,1,opt,name=isolation,enum=gcommon.v1.common.DatabaseIsolationLevel"`
+	xxx_hidden_Timeout   *durationpb.Duration          `protobuf:"bytes,2,opt,name=timeout"`
+	xxx_hidden_ReadOnly  bool                          `protobuf:"varint,3,opt,name=read_only,json=readOnly"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -63,13 +64,13 @@ func (x *TransactionOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *TransactionOptions) GetIsolation() DatabaseIsolationLevel {
+func (x *TransactionOptions) GetIsolation() common.DatabaseIsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Isolation
 		}
 	}
-	return DatabaseIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	return common.DatabaseIsolationLevel(0)
 }
 
 func (x *TransactionOptions) GetTimeout() *durationpb.Duration {
@@ -93,7 +94,7 @@ func (x *TransactionOptions) GetReadOnly() bool {
 	return false
 }
 
-func (x *TransactionOptions) SetIsolation(v DatabaseIsolationLevel) {
+func (x *TransactionOptions) SetIsolation(v common.DatabaseIsolationLevel) {
 	x.xxx_hidden_Isolation = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -135,7 +136,7 @@ func (x *TransactionOptions) HasReadOnly() bool {
 
 func (x *TransactionOptions) ClearIsolation() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Isolation = DatabaseIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Isolation = common.DatabaseIsolationLevel_DATABASE_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *TransactionOptions) ClearTimeout() {
@@ -152,7 +153,7 @@ type TransactionOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Isolation level for the transaction
-	Isolation *DatabaseIsolationLevel
+	Isolation *common.DatabaseIsolationLevel
 	// Transaction timeout before automatic rollback
 	Timeout *durationpb.Duration
 	// Whether this is a read-only transaction
@@ -182,20 +183,20 @@ var File_gcommon_v1_database_transaction_options_proto protoreflect.FileDescript
 
 const file_gcommon_v1_database_transaction_options_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/database/transaction_options.proto\x12\x13gcommon.v1.database\x1a)gcommon/v1/database/isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb5\x01\n" +
-	"\x12TransactionOptions\x12I\n" +
-	"\tisolation\x18\x01 \x01(\x0e2+.gcommon.v1.database.DatabaseIsolationLevelR\tisolation\x127\n" +
+	"-gcommon/v1/database/transaction_options.proto\x12\x13gcommon.v1.database\x1a0gcommon/v1/common/database_isolation_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb3\x01\n" +
+	"\x12TransactionOptions\x12G\n" +
+	"\tisolation\x18\x01 \x01(\x0e2).gcommon.v1.common.DatabaseIsolationLevelR\tisolation\x127\n" +
 	"\atimeout\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12\x1b\n" +
 	"\tread_only\x18\x03 \x01(\bR\breadOnlyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_transaction_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_transaction_options_proto_goTypes = []any{
-	(*TransactionOptions)(nil),  // 0: gcommon.v1.database.TransactionOptions
-	(DatabaseIsolationLevel)(0), // 1: gcommon.v1.database.DatabaseIsolationLevel
-	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
+	(*TransactionOptions)(nil),         // 0: gcommon.v1.database.TransactionOptions
+	(common.DatabaseIsolationLevel)(0), // 1: gcommon.v1.common.DatabaseIsolationLevel
+	(*durationpb.Duration)(nil),        // 2: google.protobuf.Duration
 }
 var file_gcommon_v1_database_transaction_options_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.database.TransactionOptions.isolation:type_name -> gcommon.v1.database.DatabaseIsolationLevel
+	1, // 0: gcommon.v1.database.TransactionOptions.isolation:type_name -> gcommon.v1.common.DatabaseIsolationLevel
 	2, // 1: gcommon.v1.database.TransactionOptions.timeout:type_name -> google.protobuf.Duration
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -209,7 +210,6 @@ func file_gcommon_v1_database_transaction_options_proto_init() {
 	if File_gcommon_v1_database_transaction_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_database_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,17 +23,17 @@ const (
 )
 
 type MessageNack struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MessageId       *string                `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
-	xxx_hidden_DeliveryTag     *string                `protobuf:"bytes,2,opt,name=delivery_tag,json=deliveryTag"`
-	xxx_hidden_PartitionId     int32                  `protobuf:"varint,3,opt,name=partition_id,json=partitionId"`
-	xxx_hidden_MessageOffset   int64                  `protobuf:"varint,4,opt,name=message_offset,json=messageOffset"`
-	xxx_hidden_NackReason      *string                `protobuf:"bytes,5,opt,name=nack_reason,json=nackReason"`
-	xxx_hidden_ErrorCategory   NackErrorCategory      `protobuf:"varint,6,opt,name=error_category,json=errorCategory,enum=gcommon.v1.queue.NackErrorCategory"`
-	xxx_hidden_ErrorCode       *string                `protobuf:"bytes,7,opt,name=error_code,json=errorCode"`
-	xxx_hidden_RetryMessage    bool                   `protobuf:"varint,8,opt,name=retry_message,json=retryMessage"`
-	xxx_hidden_RetryDelayMs    int64                  `protobuf:"varint,9,opt,name=retry_delay_ms,json=retryDelayMs"`
-	xxx_hidden_MessageMetadata map[string]string      `protobuf:"bytes,10,rep,name=message_metadata,json=messageMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                      protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_MessageId       *string                  `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
+	xxx_hidden_DeliveryTag     *string                  `protobuf:"bytes,2,opt,name=delivery_tag,json=deliveryTag"`
+	xxx_hidden_PartitionId     int32                    `protobuf:"varint,3,opt,name=partition_id,json=partitionId"`
+	xxx_hidden_MessageOffset   int64                    `protobuf:"varint,4,opt,name=message_offset,json=messageOffset"`
+	xxx_hidden_NackReason      *string                  `protobuf:"bytes,5,opt,name=nack_reason,json=nackReason"`
+	xxx_hidden_ErrorCategory   common.NackErrorCategory `protobuf:"varint,6,opt,name=error_category,json=errorCategory,enum=gcommon.v1.common.NackErrorCategory"`
+	xxx_hidden_ErrorCode       *string                  `protobuf:"bytes,7,opt,name=error_code,json=errorCode"`
+	xxx_hidden_RetryMessage    bool                     `protobuf:"varint,8,opt,name=retry_message,json=retryMessage"`
+	xxx_hidden_RetryDelayMs    int64                    `protobuf:"varint,9,opt,name=retry_delay_ms,json=retryDelayMs"`
+	xxx_hidden_MessageMetadata map[string]string        `protobuf:"bytes,10,rep,name=message_metadata,json=messageMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -108,13 +109,13 @@ func (x *MessageNack) GetNackReason() string {
 	return ""
 }
 
-func (x *MessageNack) GetErrorCategory() NackErrorCategory {
+func (x *MessageNack) GetErrorCategory() common.NackErrorCategory {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_ErrorCategory
 		}
 	}
-	return NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
+	return common.NackErrorCategory(0)
 }
 
 func (x *MessageNack) GetErrorCode() string {
@@ -173,7 +174,7 @@ func (x *MessageNack) SetNackReason(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
 }
 
-func (x *MessageNack) SetErrorCategory(v NackErrorCategory) {
+func (x *MessageNack) SetErrorCategory(v common.NackErrorCategory) {
 	x.xxx_hidden_ErrorCategory = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
 }
@@ -287,7 +288,7 @@ func (x *MessageNack) ClearNackReason() {
 
 func (x *MessageNack) ClearErrorCategory() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_ErrorCategory = NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
+	x.xxx_hidden_ErrorCategory = common.NackErrorCategory_NACK_ERROR_CATEGORY_UNSPECIFIED
 }
 
 func (x *MessageNack) ClearErrorCode() {
@@ -319,7 +320,7 @@ type MessageNack_builder struct {
 	// Reason for negative acknowledgment
 	NackReason *string
 	// Error category for the nack
-	ErrorCategory *NackErrorCategory
+	ErrorCategory *common.NackErrorCategory
 	// Specific error code
 	ErrorCode *string
 	// Retry this specific message
@@ -378,7 +379,7 @@ var File_gcommon_v1_queue_message_nack_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_message_nack_proto_rawDesc = "" +
 	"\n" +
-	"#gcommon/v1/queue/message_nack.proto\x12\x10gcommon.v1.queue\x1a*gcommon/v1/queue/nack_error_category.proto\x1a!google/protobuf/go_features.proto\"\x93\x04\n" +
+	"#gcommon/v1/queue/message_nack.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/nack_error_category.proto\x1a!google/protobuf/go_features.proto\"\x94\x04\n" +
 	"\vMessageNack\x12\x1d\n" +
 	"\n" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12!\n" +
@@ -386,8 +387,8 @@ const file_gcommon_v1_queue_message_nack_proto_rawDesc = "" +
 	"\fpartition_id\x18\x03 \x01(\x05R\vpartitionId\x12%\n" +
 	"\x0emessage_offset\x18\x04 \x01(\x03R\rmessageOffset\x12\x1f\n" +
 	"\vnack_reason\x18\x05 \x01(\tR\n" +
-	"nackReason\x12J\n" +
-	"\x0eerror_category\x18\x06 \x01(\x0e2#.gcommon.v1.queue.NackErrorCategoryR\rerrorCategory\x12\x1d\n" +
+	"nackReason\x12K\n" +
+	"\x0eerror_category\x18\x06 \x01(\x0e2$.gcommon.v1.common.NackErrorCategoryR\rerrorCategory\x12\x1d\n" +
 	"\n" +
 	"error_code\x18\a \x01(\tR\terrorCode\x12#\n" +
 	"\rretry_message\x18\b \x01(\bR\fretryMessage\x12$\n" +
@@ -400,12 +401,12 @@ const file_gcommon_v1_queue_message_nack_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_message_nack_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_message_nack_proto_goTypes = []any{
-	(*MessageNack)(nil),    // 0: gcommon.v1.queue.MessageNack
-	nil,                    // 1: gcommon.v1.queue.MessageNack.MessageMetadataEntry
-	(NackErrorCategory)(0), // 2: gcommon.v1.queue.NackErrorCategory
+	(*MessageNack)(nil),           // 0: gcommon.v1.queue.MessageNack
+	nil,                           // 1: gcommon.v1.queue.MessageNack.MessageMetadataEntry
+	(common.NackErrorCategory)(0), // 2: gcommon.v1.common.NackErrorCategory
 }
 var file_gcommon_v1_queue_message_nack_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.MessageNack.error_category:type_name -> gcommon.v1.queue.NackErrorCategory
+	2, // 0: gcommon.v1.queue.MessageNack.error_category:type_name -> gcommon.v1.common.NackErrorCategory
 	1, // 1: gcommon.v1.queue.MessageNack.message_metadata:type_name -> gcommon.v1.queue.MessageNack.MessageMetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -419,7 +420,6 @@ func file_gcommon_v1_queue_message_nack_proto_init() {
 	if File_gcommon_v1_queue_message_nack_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_nack_error_category_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

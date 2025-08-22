@@ -227,7 +227,7 @@ var File_gcommon_v1_metrics_health_check_response_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_metrics_health_check_response_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/metrics/health_check_response.proto\x12\x12gcommon.v1.metrics\x1a%gcommon/v1/common/health_status.proto\x1a\x1dgcommon/v1/common/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x01\n" +
+	".gcommon/v1/metrics/health_check_response.proto\x12\x12gcommon.v1.metrics\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/health_status.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xed\x01\n" +
 	"\x1aMetricsHealthCheckResponse\x12=\n" +
 	"\x06status\x18\x01 \x01(\x0e2%.gcommon.v1.common.CommonHealthStatusR\x06status\x12B\n" +
 	"\rresponse_time\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\fresponseTime\x12\x18\n" +

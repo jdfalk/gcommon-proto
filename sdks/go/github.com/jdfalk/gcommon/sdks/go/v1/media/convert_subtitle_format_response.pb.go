@@ -21,13 +21,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Response from subtitle format conversion.
+// Response from converting subtitle format.
 type ConvertSubtitleFormatResponse struct {
 	state                              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ConvertedSubtitleFileId *string                `protobuf:"bytes,1,opt,name=converted_subtitle_file_id,json=convertedSubtitleFileId"`
-	xxx_hidden_SourceFormat            *string                `protobuf:"bytes,2,opt,name=source_format,json=sourceFormat"`
-	xxx_hidden_TargetFormat            *string                `protobuf:"bytes,3,opt,name=target_format,json=targetFormat"`
-	xxx_hidden_Warnings                []string               `protobuf:"bytes,4,rep,name=warnings"`
+	xxx_hidden_Success                 bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_ErrorMessage            *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_OutputFormat            *string                `protobuf:"bytes,4,opt,name=output_format,json=outputFormat"`
 	XXX_raceDetectHookData             protoimpl.RaceDetectHookData
 	XXX_presence                       [1]uint32
 	unknownFields                      protoimpl.UnknownFields
@@ -69,31 +69,31 @@ func (x *ConvertSubtitleFormatResponse) GetConvertedSubtitleFileId() string {
 	return ""
 }
 
-func (x *ConvertSubtitleFormatResponse) GetSourceFormat() string {
+func (x *ConvertSubtitleFormatResponse) GetSuccess() bool {
 	if x != nil {
-		if x.xxx_hidden_SourceFormat != nil {
-			return *x.xxx_hidden_SourceFormat
+		return x.xxx_hidden_Success
+	}
+	return false
+}
+
+func (x *ConvertSubtitleFormatResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *ConvertSubtitleFormatResponse) GetTargetFormat() string {
+func (x *ConvertSubtitleFormatResponse) GetOutputFormat() string {
 	if x != nil {
-		if x.xxx_hidden_TargetFormat != nil {
-			return *x.xxx_hidden_TargetFormat
+		if x.xxx_hidden_OutputFormat != nil {
+			return *x.xxx_hidden_OutputFormat
 		}
 		return ""
 	}
 	return ""
-}
-
-func (x *ConvertSubtitleFormatResponse) GetWarnings() []string {
-	if x != nil {
-		return x.xxx_hidden_Warnings
-	}
-	return nil
 }
 
 func (x *ConvertSubtitleFormatResponse) SetConvertedSubtitleFileId(v string) {
@@ -101,18 +101,19 @@ func (x *ConvertSubtitleFormatResponse) SetConvertedSubtitleFileId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ConvertSubtitleFormatResponse) SetSourceFormat(v string) {
-	x.xxx_hidden_SourceFormat = &v
+func (x *ConvertSubtitleFormatResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *ConvertSubtitleFormatResponse) SetTargetFormat(v string) {
-	x.xxx_hidden_TargetFormat = &v
+func (x *ConvertSubtitleFormatResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *ConvertSubtitleFormatResponse) SetWarnings(v []string) {
-	x.xxx_hidden_Warnings = v
+func (x *ConvertSubtitleFormatResponse) SetOutputFormat(v string) {
+	x.xxx_hidden_OutputFormat = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *ConvertSubtitleFormatResponse) HasConvertedSubtitleFileId() bool {
@@ -122,18 +123,25 @@ func (x *ConvertSubtitleFormatResponse) HasConvertedSubtitleFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *ConvertSubtitleFormatResponse) HasSourceFormat() bool {
+func (x *ConvertSubtitleFormatResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *ConvertSubtitleFormatResponse) HasTargetFormat() bool {
+func (x *ConvertSubtitleFormatResponse) HasErrorMessage() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ConvertSubtitleFormatResponse) HasOutputFormat() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *ConvertSubtitleFormatResponse) ClearConvertedSubtitleFileId() {
@@ -141,23 +149,28 @@ func (x *ConvertSubtitleFormatResponse) ClearConvertedSubtitleFileId() {
 	x.xxx_hidden_ConvertedSubtitleFileId = nil
 }
 
-func (x *ConvertSubtitleFormatResponse) ClearSourceFormat() {
+func (x *ConvertSubtitleFormatResponse) ClearSuccess() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SourceFormat = nil
+	x.xxx_hidden_Success = false
 }
 
-func (x *ConvertSubtitleFormatResponse) ClearTargetFormat() {
+func (x *ConvertSubtitleFormatResponse) ClearErrorMessage() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TargetFormat = nil
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+func (x *ConvertSubtitleFormatResponse) ClearOutputFormat() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_OutputFormat = nil
 }
 
 type ConvertSubtitleFormatResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	ConvertedSubtitleFileId *string
-	SourceFormat            *string
-	TargetFormat            *string
-	Warnings                []string
+	Success                 *bool
+	ErrorMessage            *string
+	OutputFormat            *string
 }
 
 func (b0 ConvertSubtitleFormatResponse_builder) Build() *ConvertSubtitleFormatResponse {
@@ -168,15 +181,18 @@ func (b0 ConvertSubtitleFormatResponse_builder) Build() *ConvertSubtitleFormatRe
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
 		x.xxx_hidden_ConvertedSubtitleFileId = b.ConvertedSubtitleFileId
 	}
-	if b.SourceFormat != nil {
+	if b.Success != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_SourceFormat = b.SourceFormat
+		x.xxx_hidden_Success = *b.Success
 	}
-	if b.TargetFormat != nil {
+	if b.ErrorMessage != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_TargetFormat = b.TargetFormat
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
 	}
-	x.xxx_hidden_Warnings = b.Warnings
+	if b.OutputFormat != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_OutputFormat = b.OutputFormat
+	}
 	return m0
 }
 
@@ -184,12 +200,12 @@ var File_gcommon_v1_media_convert_subtitle_format_response_proto protoreflect.Fi
 
 const file_gcommon_v1_media_convert_subtitle_format_response_proto_rawDesc = "" +
 	"\n" +
-	"7gcommon/v1/media/convert_subtitle_format_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xc2\x01\n" +
+	"7gcommon/v1/media/convert_subtitle_format_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xc0\x01\n" +
 	"\x1dConvertSubtitleFormatResponse\x12;\n" +
-	"\x1aconverted_subtitle_file_id\x18\x01 \x01(\tR\x17convertedSubtitleFileId\x12#\n" +
-	"\rsource_format\x18\x02 \x01(\tR\fsourceFormat\x12#\n" +
-	"\rtarget_format\x18\x03 \x01(\tR\ftargetFormat\x12\x1a\n" +
-	"\bwarnings\x18\x04 \x03(\tR\bwarningsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1aconverted_subtitle_file_id\x18\x01 \x01(\tR\x17convertedSubtitleFileId\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessage\x12#\n" +
+	"\routput_format\x18\x04 \x01(\tR\foutputFormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_convert_subtitle_format_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_convert_subtitle_format_response_proto_goTypes = []any{

@@ -131,7 +131,7 @@ type CreateTenantRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *common.RequestMetadata
-	// Tenant information to create
+	// The tenant to create.
 	Tenant *Tenant
 	// Validate only without persisting if true
 	ValidateOnly *bool

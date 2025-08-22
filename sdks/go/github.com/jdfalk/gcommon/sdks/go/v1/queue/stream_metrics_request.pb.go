@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,10 +23,10 @@ const (
 )
 
 type QueueStreamMetricsRequest struct {
-	state                      protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_QueueNames      []string                    `protobuf:"bytes,1,rep,name=queue_names,json=queueNames"`
-	xxx_hidden_MetricTypes     []metrics.MetricsMetricType `protobuf:"varint,2,rep,packed,name=metric_types,json=metricTypes,enum=gcommon.v1.metrics.MetricsMetricType"`
-	xxx_hidden_IntervalSeconds int32                       `protobuf:"varint,3,opt,name=interval_seconds,json=intervalSeconds"`
+	state                      protoimpl.MessageState     `protogen:"opaque.v1"`
+	xxx_hidden_QueueNames      []string                   `protobuf:"bytes,1,rep,name=queue_names,json=queueNames"`
+	xxx_hidden_MetricTypes     []common.MetricsMetricType `protobuf:"varint,2,rep,packed,name=metric_types,json=metricTypes,enum=gcommon.v1.common.MetricsMetricType"`
+	xxx_hidden_IntervalSeconds int32                      `protobuf:"varint,3,opt,name=interval_seconds,json=intervalSeconds"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -65,7 +65,7 @@ func (x *QueueStreamMetricsRequest) GetQueueNames() []string {
 	return nil
 }
 
-func (x *QueueStreamMetricsRequest) GetMetricTypes() []metrics.MetricsMetricType {
+func (x *QueueStreamMetricsRequest) GetMetricTypes() []common.MetricsMetricType {
 	if x != nil {
 		return x.xxx_hidden_MetricTypes
 	}
@@ -83,7 +83,7 @@ func (x *QueueStreamMetricsRequest) SetQueueNames(v []string) {
 	x.xxx_hidden_QueueNames = v
 }
 
-func (x *QueueStreamMetricsRequest) SetMetricTypes(v []metrics.MetricsMetricType) {
+func (x *QueueStreamMetricsRequest) SetMetricTypes(v []common.MetricsMetricType) {
 	x.xxx_hidden_MetricTypes = v
 }
 
@@ -110,7 +110,7 @@ type QueueStreamMetricsRequest_builder struct {
 	// Queue names to monitor (empty = all queues)
 	QueueNames []string
 	// Types of metrics to include
-	MetricTypes []metrics.MetricsMetricType
+	MetricTypes []common.MetricsMetricType
 	// Streaming interval in seconds
 	IntervalSeconds *int32
 }
@@ -132,20 +132,20 @@ var File_gcommon_v1_queue_stream_metrics_request_proto protoreflect.FileDescript
 
 const file_gcommon_v1_queue_stream_metrics_request_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/queue/stream_metrics_request.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/metrics/metric_type.proto\x1a!google/protobuf/go_features.proto\"\xb1\x01\n" +
+	"-gcommon/v1/queue/stream_metrics_request.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/metric_type.proto\x1a!google/protobuf/go_features.proto\"\xb0\x01\n" +
 	"\x19QueueStreamMetricsRequest\x12\x1f\n" +
 	"\vqueue_names\x18\x01 \x03(\tR\n" +
-	"queueNames\x12H\n" +
-	"\fmetric_types\x18\x02 \x03(\x0e2%.gcommon.v1.metrics.MetricsMetricTypeR\vmetricTypes\x12)\n" +
+	"queueNames\x12G\n" +
+	"\fmetric_types\x18\x02 \x03(\x0e2$.gcommon.v1.common.MetricsMetricTypeR\vmetricTypes\x12)\n" +
 	"\x10interval_seconds\x18\x03 \x01(\x05R\x0fintervalSecondsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_stream_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_stream_metrics_request_proto_goTypes = []any{
 	(*QueueStreamMetricsRequest)(nil), // 0: gcommon.v1.queue.QueueStreamMetricsRequest
-	(metrics.MetricsMetricType)(0),    // 1: gcommon.v1.metrics.MetricsMetricType
+	(common.MetricsMetricType)(0),     // 1: gcommon.v1.common.MetricsMetricType
 }
 var file_gcommon_v1_queue_stream_metrics_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.QueueStreamMetricsRequest.metric_types:type_name -> gcommon.v1.metrics.MetricsMetricType
+	1, // 0: gcommon.v1.queue.QueueStreamMetricsRequest.metric_types:type_name -> gcommon.v1.common.MetricsMetricType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

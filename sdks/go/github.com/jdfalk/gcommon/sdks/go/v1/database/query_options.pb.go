@@ -7,6 +7,7 @@
 package database
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,12 +27,12 @@ const (
 // QueryOptions configures behavior for database query operations.
 // Controls result limits, timeouts, and consistency requirements.
 type QueryOptions struct {
-	state                      protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Limit           int32                    `protobuf:"varint,1,opt,name=limit"`
-	xxx_hidden_Offset          int32                    `protobuf:"varint,2,opt,name=offset"`
-	xxx_hidden_Timeout         *durationpb.Duration     `protobuf:"bytes,3,opt,name=timeout"`
-	xxx_hidden_IncludeMetadata bool                     `protobuf:"varint,4,opt,name=include_metadata,json=includeMetadata"`
-	xxx_hidden_Consistency     DatabaseConsistencyLevel `protobuf:"varint,5,opt,name=consistency,enum=gcommon.v1.database.DatabaseConsistencyLevel"`
+	state                      protoimpl.MessageState          `protogen:"opaque.v1"`
+	xxx_hidden_Limit           int32                           `protobuf:"varint,1,opt,name=limit"`
+	xxx_hidden_Offset          int32                           `protobuf:"varint,2,opt,name=offset"`
+	xxx_hidden_Timeout         *durationpb.Duration            `protobuf:"bytes,3,opt,name=timeout"`
+	xxx_hidden_IncludeMetadata bool                            `protobuf:"varint,4,opt,name=include_metadata,json=includeMetadata"`
+	xxx_hidden_Consistency     common.DatabaseConsistencyLevel `protobuf:"varint,5,opt,name=consistency,enum=gcommon.v1.common.DatabaseConsistencyLevel"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -100,13 +101,13 @@ func (x *QueryOptions) GetIncludeMetadata() bool {
 	return false
 }
 
-func (x *QueryOptions) GetConsistency() DatabaseConsistencyLevel {
+func (x *QueryOptions) GetConsistency() common.DatabaseConsistencyLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Consistency
 		}
 	}
-	return DatabaseConsistencyLevel_CONSISTENCY_LEVEL_UNSPECIFIED
+	return common.DatabaseConsistencyLevel(0)
 }
 
 func (x *QueryOptions) SetLimit(v int32) {
@@ -133,7 +134,7 @@ func (x *QueryOptions) SetIncludeMetadata(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *QueryOptions) SetConsistency(v DatabaseConsistencyLevel) {
+func (x *QueryOptions) SetConsistency(v common.DatabaseConsistencyLevel) {
 	x.xxx_hidden_Consistency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
@@ -195,7 +196,7 @@ func (x *QueryOptions) ClearIncludeMetadata() {
 
 func (x *QueryOptions) ClearConsistency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Consistency = DatabaseConsistencyLevel_CONSISTENCY_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Consistency = common.DatabaseConsistencyLevel_DATABASE_CONSISTENCY_LEVEL_UNSPECIFIED
 }
 
 type QueryOptions_builder struct {
@@ -210,7 +211,7 @@ type QueryOptions_builder struct {
 	// Whether to include column metadata in response
 	IncludeMetadata *bool
 	// Read consistency level for the query
-	Consistency *DatabaseConsistencyLevel
+	Consistency *common.DatabaseConsistencyLevel
 }
 
 func (b0 QueryOptions_builder) Build() *QueryOptions {
@@ -244,23 +245,23 @@ var File_gcommon_v1_database_query_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_database_query_options_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/database/query_options.proto\x12\x13gcommon.v1.database\x1a+gcommon/v1/database/consistency_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf1\x01\n" +
+	"'gcommon/v1/database/query_options.proto\x12\x13gcommon.v1.database\x1a)gcommon/v1/common/consistency_level.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xef\x01\n" +
 	"\fQueryOptions\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x02 \x01(\x05R\x06offset\x127\n" +
 	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12)\n" +
-	"\x10include_metadata\x18\x04 \x01(\bR\x0fincludeMetadata\x12O\n" +
-	"\vconsistency\x18\x05 \x01(\x0e2-.gcommon.v1.database.DatabaseConsistencyLevelR\vconsistencyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10include_metadata\x18\x04 \x01(\bR\x0fincludeMetadata\x12M\n" +
+	"\vconsistency\x18\x05 \x01(\x0e2+.gcommon.v1.common.DatabaseConsistencyLevelR\vconsistencyB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_database_query_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_database_query_options_proto_goTypes = []any{
-	(*QueryOptions)(nil),          // 0: gcommon.v1.database.QueryOptions
-	(*durationpb.Duration)(nil),   // 1: google.protobuf.Duration
-	(DatabaseConsistencyLevel)(0), // 2: gcommon.v1.database.DatabaseConsistencyLevel
+	(*QueryOptions)(nil),                 // 0: gcommon.v1.database.QueryOptions
+	(*durationpb.Duration)(nil),          // 1: google.protobuf.Duration
+	(common.DatabaseConsistencyLevel)(0), // 2: gcommon.v1.common.DatabaseConsistencyLevel
 }
 var file_gcommon_v1_database_query_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryOptions.timeout:type_name -> google.protobuf.Duration
-	2, // 1: gcommon.v1.database.QueryOptions.consistency:type_name -> gcommon.v1.database.DatabaseConsistencyLevel
+	2, // 1: gcommon.v1.database.QueryOptions.consistency:type_name -> gcommon.v1.common.DatabaseConsistencyLevel
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -273,7 +274,6 @@ func file_gcommon_v1_database_query_options_proto_init() {
 	if File_gcommon_v1_database_query_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_database_consistency_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

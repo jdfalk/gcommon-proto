@@ -36,7 +36,7 @@ type CreateCookieRequest struct {
 	xxx_hidden_MaxAge      int32                   `protobuf:"varint,6,opt,name=max_age,json=maxAge"`
 	xxx_hidden_Secure      bool                    `protobuf:"varint,7,opt,name=secure"`
 	xxx_hidden_HttpOnly    bool                    `protobuf:"varint,8,opt,name=http_only,json=httpOnly"`
-	xxx_hidden_SameSite    SameSitePolicy          `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.SameSitePolicy"`
+	xxx_hidden_SameSite    common.SameSitePolicy   `protobuf:"varint,9,opt,name=same_site,json=sameSite,enum=gcommon.v1.common.SameSitePolicy"`
 	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -137,13 +137,13 @@ func (x *CreateCookieRequest) GetHttpOnly() bool {
 	return false
 }
 
-func (x *CreateCookieRequest) GetSameSite() SameSitePolicy {
+func (x *CreateCookieRequest) GetSameSite() common.SameSitePolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_SameSite
 		}
 	}
-	return SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
+	return common.SameSitePolicy(0)
 }
 
 func (x *CreateCookieRequest) GetMetadata() *common.RequestMetadata {
@@ -192,7 +192,7 @@ func (x *CreateCookieRequest) SetHttpOnly(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
 }
 
-func (x *CreateCookieRequest) SetSameSite(v SameSitePolicy) {
+func (x *CreateCookieRequest) SetSameSite(v common.SameSitePolicy) {
 	x.xxx_hidden_SameSite = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
@@ -312,7 +312,7 @@ func (x *CreateCookieRequest) ClearHttpOnly() {
 
 func (x *CreateCookieRequest) ClearSameSite() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_SameSite = SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
+	x.xxx_hidden_SameSite = common.SameSitePolicy_SAME_SITE_POLICY_UNSPECIFIED
 }
 
 func (x *CreateCookieRequest) ClearMetadata() {
@@ -339,7 +339,7 @@ type CreateCookieRequest_builder struct {
 	// Whether cookie is HTTP only
 	HttpOnly *bool
 	// Cookie SameSite attribute
-	SameSite *SameSitePolicy
+	SameSite *common.SameSitePolicy
 	// Request metadata for tracing and correlation
 	Metadata *common.RequestMetadata
 }
@@ -389,7 +389,7 @@ var File_gcommon_v1_web_create_cookie_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_create_cookie_request_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/web/create_cookie_request.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/common/request_metadata.proto\x1a%gcommon/v1/web/same_site_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xec\x02\n" +
+	"*gcommon/v1/web/create_cookie_request.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/common/request_metadata.proto\x1a(gcommon/v1/common/same_site_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xef\x02\n" +
 	"\x13CreateCookieRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x12\x16\n" +
@@ -398,8 +398,8 @@ const file_gcommon_v1_web_create_cookie_request_proto_rawDesc = "" +
 	"\aexpires\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aexpires\x12\x17\n" +
 	"\amax_age\x18\x06 \x01(\x05R\x06maxAge\x12\x16\n" +
 	"\x06secure\x18\a \x01(\bR\x06secure\x12\x1b\n" +
-	"\thttp_only\x18\b \x01(\bR\bhttpOnly\x12;\n" +
-	"\tsame_site\x18\t \x01(\x0e2\x1e.gcommon.v1.web.SameSitePolicyR\bsameSite\x12>\n" +
+	"\thttp_only\x18\b \x01(\bR\bhttpOnly\x12>\n" +
+	"\tsame_site\x18\t \x01(\x0e2!.gcommon.v1.common.SameSitePolicyR\bsameSite\x12>\n" +
 	"\bmetadata\x18\n" +
 	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
@@ -407,12 +407,12 @@ var file_gcommon_v1_web_create_cookie_request_proto_msgTypes = make([]protoimpl.
 var file_gcommon_v1_web_create_cookie_request_proto_goTypes = []any{
 	(*CreateCookieRequest)(nil),    // 0: gcommon.v1.web.CreateCookieRequest
 	(*timestamppb.Timestamp)(nil),  // 1: google.protobuf.Timestamp
-	(SameSitePolicy)(0),            // 2: gcommon.v1.web.SameSitePolicy
+	(common.SameSitePolicy)(0),     // 2: gcommon.v1.common.SameSitePolicy
 	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_create_cookie_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.CreateCookieRequest.expires:type_name -> google.protobuf.Timestamp
-	2, // 1: gcommon.v1.web.CreateCookieRequest.same_site:type_name -> gcommon.v1.web.SameSitePolicy
+	2, // 1: gcommon.v1.web.CreateCookieRequest.same_site:type_name -> gcommon.v1.common.SameSitePolicy
 	3, // 2: gcommon.v1.web.CreateCookieRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -426,7 +426,6 @@ func file_gcommon_v1_web_create_cookie_request_proto_init() {
 	if File_gcommon_v1_web_create_cookie_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_same_site_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

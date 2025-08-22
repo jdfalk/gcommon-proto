@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type ReadConsistency struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Level          ReadLevel              `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.queue.ReadLevel"`
+	xxx_hidden_Level          common.ReadLevel       `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.common.ReadLevel"`
 	xxx_hidden_MaxStalenessMs int64                  `protobuf:"varint,2,opt,name=max_staleness_ms,json=maxStalenessMs"`
 	xxx_hidden_ReadYourWrites bool                   `protobuf:"varint,3,opt,name=read_your_writes,json=readYourWrites"`
 	xxx_hidden_MonotonicReads bool                   `protobuf:"varint,4,opt,name=monotonic_reads,json=monotonicReads"`
@@ -60,13 +61,13 @@ func (x *ReadConsistency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ReadConsistency) GetLevel() ReadLevel {
+func (x *ReadConsistency) GetLevel() common.ReadLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return ReadLevel_READ_LEVEL_UNSPECIFIED
+	return common.ReadLevel(0)
 }
 
 func (x *ReadConsistency) GetMaxStalenessMs() int64 {
@@ -104,7 +105,7 @@ func (x *ReadConsistency) GetRetryConfig() *ReadRetryConfig {
 	return nil
 }
 
-func (x *ReadConsistency) SetLevel(v ReadLevel) {
+func (x *ReadConsistency) SetLevel(v common.ReadLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
@@ -177,7 +178,7 @@ func (x *ReadConsistency) HasRetryConfig() bool {
 
 func (x *ReadConsistency) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Level = ReadLevel_READ_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = common.ReadLevel_READ_LEVEL_UNSPECIFIED
 }
 
 func (x *ReadConsistency) ClearMaxStalenessMs() {
@@ -208,7 +209,7 @@ type ReadConsistency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Read consistency level
-	Level *ReadLevel
+	Level *common.ReadLevel
 	// Maximum staleness allowed for reads (milliseconds)
 	MaxStalenessMs *int64
 	// Enable read-your-writes consistency
@@ -253,9 +254,9 @@ var File_gcommon_v1_queue_read_consistency_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_read_consistency_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/queue/read_consistency.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/queue/read_level.proto\x1a(gcommon/v1/queue/read_retry_config.proto\x1a!google/protobuf/go_features.proto\"\xa6\x02\n" +
-	"\x0fReadConsistency\x121\n" +
-	"\x05level\x18\x01 \x01(\x0e2\x1b.gcommon.v1.queue.ReadLevelR\x05level\x12(\n" +
+	"'gcommon/v1/queue/read_consistency.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/common/read_level.proto\x1a(gcommon/v1/queue/read_retry_config.proto\x1a!google/protobuf/go_features.proto\"\xa7\x02\n" +
+	"\x0fReadConsistency\x122\n" +
+	"\x05level\x18\x01 \x01(\x0e2\x1c.gcommon.v1.common.ReadLevelR\x05level\x12(\n" +
 	"\x10max_staleness_ms\x18\x02 \x01(\x03R\x0emaxStalenessMs\x12(\n" +
 	"\x10read_your_writes\x18\x03 \x01(\bR\x0ereadYourWrites\x12'\n" +
 	"\x0fmonotonic_reads\x18\x04 \x01(\bR\x0emonotonicReads\x12\x1d\n" +
@@ -266,11 +267,11 @@ const file_gcommon_v1_queue_read_consistency_proto_rawDesc = "" +
 var file_gcommon_v1_queue_read_consistency_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_read_consistency_proto_goTypes = []any{
 	(*ReadConsistency)(nil), // 0: gcommon.v1.queue.ReadConsistency
-	(ReadLevel)(0),          // 1: gcommon.v1.queue.ReadLevel
+	(common.ReadLevel)(0),   // 1: gcommon.v1.common.ReadLevel
 	(*ReadRetryConfig)(nil), // 2: gcommon.v1.queue.ReadRetryConfig
 }
 var file_gcommon_v1_queue_read_consistency_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.ReadConsistency.level:type_name -> gcommon.v1.queue.ReadLevel
+	1, // 0: gcommon.v1.queue.ReadConsistency.level:type_name -> gcommon.v1.common.ReadLevel
 	2, // 1: gcommon.v1.queue.ReadConsistency.retry_config:type_name -> gcommon.v1.queue.ReadRetryConfig
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -284,7 +285,6 @@ func file_gcommon_v1_queue_read_consistency_proto_init() {
 	if File_gcommon_v1_queue_read_consistency_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_read_level_proto_init()
 	file_gcommon_v1_queue_read_retry_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

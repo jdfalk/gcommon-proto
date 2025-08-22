@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,8 +25,8 @@ const (
 
 type MessageProperties struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Priority        PriorityLevel          `protobuf:"varint,1,opt,name=priority,enum=gcommon.v1.queue.PriorityLevel"`
-	xxx_hidden_DeliveryMode    DeliveryMode           `protobuf:"varint,2,opt,name=delivery_mode,json=deliveryMode,enum=gcommon.v1.queue.DeliveryMode"`
+	xxx_hidden_Priority        common.PriorityLevel   `protobuf:"varint,1,opt,name=priority,enum=gcommon.v1.common.PriorityLevel"`
+	xxx_hidden_DeliveryMode    common.DeliveryMode    `protobuf:"varint,2,opt,name=delivery_mode,json=deliveryMode,enum=gcommon.v1.common.DeliveryMode"`
 	xxx_hidden_ExpirationTime  *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expiration_time,json=expirationTime"`
 	xxx_hidden_CorrelationId   *string                `protobuf:"bytes,4,opt,name=correlation_id,json=correlationId"`
 	xxx_hidden_ReplyTo         *string                `protobuf:"bytes,5,opt,name=reply_to,json=replyTo"`
@@ -65,22 +66,22 @@ func (x *MessageProperties) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MessageProperties) GetPriority() PriorityLevel {
+func (x *MessageProperties) GetPriority() common.PriorityLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Priority
 		}
 	}
-	return PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
+	return common.PriorityLevel(0)
 }
 
-func (x *MessageProperties) GetDeliveryMode() DeliveryMode {
+func (x *MessageProperties) GetDeliveryMode() common.DeliveryMode {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_DeliveryMode
 		}
 	}
-	return DeliveryMode_DELIVERY_MODE_UNSPECIFIED
+	return common.DeliveryMode(0)
 }
 
 func (x *MessageProperties) GetExpirationTime() *timestamppb.Timestamp {
@@ -157,12 +158,12 @@ func (x *MessageProperties) GetDeliveryDelayMs() int64 {
 	return 0
 }
 
-func (x *MessageProperties) SetPriority(v PriorityLevel) {
+func (x *MessageProperties) SetPriority(v common.PriorityLevel) {
 	x.xxx_hidden_Priority = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *MessageProperties) SetDeliveryMode(v DeliveryMode) {
+func (x *MessageProperties) SetDeliveryMode(v common.DeliveryMode) {
 	x.xxx_hidden_DeliveryMode = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
@@ -278,12 +279,12 @@ func (x *MessageProperties) HasDeliveryDelayMs() bool {
 
 func (x *MessageProperties) ClearPriority() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Priority = PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Priority = common.PriorityLevel_QUEUE_PRIORITY_LEVEL_UNSPECIFIED
 }
 
 func (x *MessageProperties) ClearDeliveryMode() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_DeliveryMode = DeliveryMode_DELIVERY_MODE_UNSPECIFIED
+	x.xxx_hidden_DeliveryMode = common.DeliveryMode_DELIVERY_MODE_UNSPECIFIED
 }
 
 func (x *MessageProperties) ClearExpirationTime() {
@@ -329,9 +330,9 @@ type MessageProperties_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Message priority level
-	Priority *PriorityLevel
+	Priority *common.PriorityLevel
 	// Delivery mode for the message
-	DeliveryMode *DeliveryMode
+	DeliveryMode *common.DeliveryMode
 	// Message expiration time
 	ExpirationTime *timestamppb.Timestamp
 	// Correlation ID for request-response patterns
@@ -398,10 +399,10 @@ var File_gcommon_v1_queue_message_properties_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_message_properties_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/queue/message_properties.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/queue/delivery_mode.proto\x1a%gcommon/v1/queue/priority_level.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe3\x03\n" +
-	"\x11MessageProperties\x12;\n" +
-	"\bpriority\x18\x01 \x01(\x0e2\x1f.gcommon.v1.queue.PriorityLevelR\bpriority\x12C\n" +
-	"\rdelivery_mode\x18\x02 \x01(\x0e2\x1e.gcommon.v1.queue.DeliveryModeR\fdeliveryMode\x12C\n" +
+	")gcommon/v1/queue/message_properties.proto\x12\x10gcommon.v1.queue\x1a%gcommon/v1/common/delivery_mode.proto\x1a&gcommon/v1/common/priority_level.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe5\x03\n" +
+	"\x11MessageProperties\x12<\n" +
+	"\bpriority\x18\x01 \x01(\x0e2 .gcommon.v1.common.PriorityLevelR\bpriority\x12D\n" +
+	"\rdelivery_mode\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.DeliveryModeR\fdeliveryMode\x12C\n" +
 	"\x0fexpiration_time\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x0eexpirationTime\x12%\n" +
 	"\x0ecorrelation_id\x18\x04 \x01(\tR\rcorrelationId\x12\x19\n" +
 	"\breply_to\x18\x05 \x01(\tR\areplyTo\x12!\n" +
@@ -415,13 +416,13 @@ const file_gcommon_v1_queue_message_properties_proto_rawDesc = "" +
 var file_gcommon_v1_queue_message_properties_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_message_properties_proto_goTypes = []any{
 	(*MessageProperties)(nil),     // 0: gcommon.v1.queue.MessageProperties
-	(PriorityLevel)(0),            // 1: gcommon.v1.queue.PriorityLevel
-	(DeliveryMode)(0),             // 2: gcommon.v1.queue.DeliveryMode
+	(common.PriorityLevel)(0),     // 1: gcommon.v1.common.PriorityLevel
+	(common.DeliveryMode)(0),      // 2: gcommon.v1.common.DeliveryMode
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_message_properties_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.MessageProperties.priority:type_name -> gcommon.v1.queue.PriorityLevel
-	2, // 1: gcommon.v1.queue.MessageProperties.delivery_mode:type_name -> gcommon.v1.queue.DeliveryMode
+	1, // 0: gcommon.v1.queue.MessageProperties.priority:type_name -> gcommon.v1.common.PriorityLevel
+	2, // 1: gcommon.v1.queue.MessageProperties.delivery_mode:type_name -> gcommon.v1.common.DeliveryMode
 	3, // 2: gcommon.v1.queue.MessageProperties.expiration_time:type_name -> google.protobuf.Timestamp
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -435,8 +436,6 @@ func file_gcommon_v1_queue_message_properties_proto_init() {
 	if File_gcommon_v1_queue_message_properties_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_delivery_mode_proto_init()
-	file_gcommon_v1_queue_priority_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

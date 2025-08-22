@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,16 +23,16 @@ const (
 )
 
 type SecretAuditSettings struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Level           SecretAuditLevel       `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.config.SecretAuditLevel"`
-	xxx_hidden_RetentionDays   int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
-	xxx_hidden_LogAccess       bool                   `protobuf:"varint,4,opt,name=log_access,json=logAccess"`
-	xxx_hidden_LogRotation     bool                   `protobuf:"varint,5,opt,name=log_rotation,json=logRotation"`
-	xxx_hidden_LogModification bool                   `protobuf:"varint,6,opt,name=log_modification,json=logModification"`
-	xxx_hidden_Destinations    []string               `protobuf:"bytes,7,rep,name=destinations"`
-	xxx_hidden_Format          *string                `protobuf:"bytes,8,opt,name=format"`
-	xxx_hidden_Metadata        map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                      protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Enabled         bool                    `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Level           common.SecretAuditLevel `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.common.SecretAuditLevel"`
+	xxx_hidden_RetentionDays   int32                   `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
+	xxx_hidden_LogAccess       bool                    `protobuf:"varint,4,opt,name=log_access,json=logAccess"`
+	xxx_hidden_LogRotation     bool                    `protobuf:"varint,5,opt,name=log_rotation,json=logRotation"`
+	xxx_hidden_LogModification bool                    `protobuf:"varint,6,opt,name=log_modification,json=logModification"`
+	xxx_hidden_Destinations    []string                `protobuf:"bytes,7,rep,name=destinations"`
+	xxx_hidden_Format          *string                 `protobuf:"bytes,8,opt,name=format"`
+	xxx_hidden_Metadata        map[string]string       `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -70,13 +71,13 @@ func (x *SecretAuditSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *SecretAuditSettings) GetLevel() SecretAuditLevel {
+func (x *SecretAuditSettings) GetLevel() common.SecretAuditLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
+	return common.SecretAuditLevel(0)
 }
 
 func (x *SecretAuditSettings) GetRetentionDays() int32 {
@@ -136,7 +137,7 @@ func (x *SecretAuditSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *SecretAuditSettings) SetLevel(v SecretAuditLevel) {
+func (x *SecretAuditSettings) SetLevel(v common.SecretAuditLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
 }
@@ -230,7 +231,7 @@ func (x *SecretAuditSettings) ClearEnabled() {
 
 func (x *SecretAuditSettings) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Level = SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = common.SecretAuditLevel_SECRET_AUDIT_LEVEL_UNSPECIFIED
 }
 
 func (x *SecretAuditSettings) ClearRetentionDays() {
@@ -264,7 +265,7 @@ type SecretAuditSettings_builder struct {
 	// Whether audit logging is enabled
 	Enabled *bool
 	// Audit log level
-	Level *SecretAuditLevel
+	Level *common.SecretAuditLevel
 	// Audit log retention period in days
 	RetentionDays *int32
 	// Whether to log access events
@@ -322,10 +323,10 @@ var File_gcommon_v1_config_secret_audit_settings_proto protoreflect.FileDescript
 
 const file_gcommon_v1_config_secret_audit_settings_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/config/secret_audit_settings.proto\x12\x11gcommon.v1.config\x1a*gcommon/v1/config/secret_audit_level.proto\x1a!google/protobuf/go_features.proto\"\xc9\x03\n" +
+	"-gcommon/v1/config/secret_audit_settings.proto\x12\x11gcommon.v1.config\x1a*gcommon/v1/common/secret_audit_level.proto\x1a!google/protobuf/go_features.proto\"\xc9\x03\n" +
 	"\x13SecretAuditSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x129\n" +
-	"\x05level\x18\x02 \x01(\x0e2#.gcommon.v1.config.SecretAuditLevelR\x05level\x12%\n" +
+	"\x05level\x18\x02 \x01(\x0e2#.gcommon.v1.common.SecretAuditLevelR\x05level\x12%\n" +
 	"\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12\x1d\n" +
 	"\n" +
 	"log_access\x18\x04 \x01(\bR\tlogAccess\x12!\n" +
@@ -340,12 +341,12 @@ const file_gcommon_v1_config_secret_audit_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_secret_audit_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_secret_audit_settings_proto_goTypes = []any{
-	(*SecretAuditSettings)(nil), // 0: gcommon.v1.config.SecretAuditSettings
-	nil,                         // 1: gcommon.v1.config.SecretAuditSettings.MetadataEntry
-	(SecretAuditLevel)(0),       // 2: gcommon.v1.config.SecretAuditLevel
+	(*SecretAuditSettings)(nil),  // 0: gcommon.v1.config.SecretAuditSettings
+	nil,                          // 1: gcommon.v1.config.SecretAuditSettings.MetadataEntry
+	(common.SecretAuditLevel)(0), // 2: gcommon.v1.common.SecretAuditLevel
 }
 var file_gcommon_v1_config_secret_audit_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.SecretAuditSettings.level:type_name -> gcommon.v1.config.SecretAuditLevel
+	2, // 0: gcommon.v1.config.SecretAuditSettings.level:type_name -> gcommon.v1.common.SecretAuditLevel
 	1, // 1: gcommon.v1.config.SecretAuditSettings.metadata:type_name -> gcommon.v1.config.SecretAuditSettings.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -359,7 +360,6 @@ func file_gcommon_v1_config_secret_audit_settings_proto_init() {
 	if File_gcommon_v1_config_secret_audit_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_secret_audit_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

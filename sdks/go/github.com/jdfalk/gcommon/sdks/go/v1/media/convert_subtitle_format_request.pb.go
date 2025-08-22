@@ -23,14 +23,14 @@ const (
 
 // Request to convert subtitle format.
 type ConvertSubtitleFormatRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubtitleFileId *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
-	xxx_hidden_TargetFormat   *string                `protobuf:"bytes,2,opt,name=target_format,json=targetFormat"`
-	xxx_hidden_Options        *ConversionOptions     `protobuf:"bytes,3,opt,name=options"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubtitleFileId  *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
+	xxx_hidden_TargetFormat    *string                `protobuf:"bytes,2,opt,name=target_format,json=targetFormat"`
+	xxx_hidden_PreserveStyling bool                   `protobuf:"varint,3,opt,name=preserve_styling,json=preserveStyling"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *ConvertSubtitleFormatRequest) Reset() {
@@ -78,11 +78,11 @@ func (x *ConvertSubtitleFormatRequest) GetTargetFormat() string {
 	return ""
 }
 
-func (x *ConvertSubtitleFormatRequest) GetOptions() *ConversionOptions {
+func (x *ConvertSubtitleFormatRequest) GetPreserveStyling() bool {
 	if x != nil {
-		return x.xxx_hidden_Options
+		return x.xxx_hidden_PreserveStyling
 	}
-	return nil
+	return false
 }
 
 func (x *ConvertSubtitleFormatRequest) SetSubtitleFileId(v string) {
@@ -95,8 +95,9 @@ func (x *ConvertSubtitleFormatRequest) SetTargetFormat(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ConvertSubtitleFormatRequest) SetOptions(v *ConversionOptions) {
-	x.xxx_hidden_Options = v
+func (x *ConvertSubtitleFormatRequest) SetPreserveStyling(v bool) {
+	x.xxx_hidden_PreserveStyling = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *ConvertSubtitleFormatRequest) HasSubtitleFileId() bool {
@@ -113,11 +114,11 @@ func (x *ConvertSubtitleFormatRequest) HasTargetFormat() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *ConvertSubtitleFormatRequest) HasOptions() bool {
+func (x *ConvertSubtitleFormatRequest) HasPreserveStyling() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ConvertSubtitleFormatRequest) ClearSubtitleFileId() {
@@ -130,16 +131,17 @@ func (x *ConvertSubtitleFormatRequest) ClearTargetFormat() {
 	x.xxx_hidden_TargetFormat = nil
 }
 
-func (x *ConvertSubtitleFormatRequest) ClearOptions() {
-	x.xxx_hidden_Options = nil
+func (x *ConvertSubtitleFormatRequest) ClearPreserveStyling() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PreserveStyling = false
 }
 
 type ConvertSubtitleFormatRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	SubtitleFileId *string
-	TargetFormat   *string
-	Options        *ConversionOptions
+	SubtitleFileId  *string
+	TargetFormat    *string
+	PreserveStyling *bool
 }
 
 func (b0 ConvertSubtitleFormatRequest_builder) Build() *ConvertSubtitleFormatRequest {
@@ -154,145 +156,9 @@ func (b0 ConvertSubtitleFormatRequest_builder) Build() *ConvertSubtitleFormatReq
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
 		x.xxx_hidden_TargetFormat = b.TargetFormat
 	}
-	x.xxx_hidden_Options = b.Options
-	return m0
-}
-
-// Options for subtitle format conversion.
-type ConversionOptions struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_PreserveFormatting bool                   `protobuf:"varint,1,opt,name=preserve_formatting,json=preserveFormatting"`
-	xxx_hidden_IncludeMetadata    bool                   `protobuf:"varint,2,opt,name=include_metadata,json=includeMetadata"`
-	xxx_hidden_Encoding           *string                `protobuf:"bytes,3,opt,name=encoding"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
-}
-
-func (x *ConversionOptions) Reset() {
-	*x = ConversionOptions{}
-	mi := &file_gcommon_v1_media_convert_subtitle_format_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ConversionOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ConversionOptions) ProtoMessage() {}
-
-func (x *ConversionOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_convert_subtitle_format_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ConversionOptions) GetPreserveFormatting() bool {
-	if x != nil {
-		return x.xxx_hidden_PreserveFormatting
-	}
-	return false
-}
-
-func (x *ConversionOptions) GetIncludeMetadata() bool {
-	if x != nil {
-		return x.xxx_hidden_IncludeMetadata
-	}
-	return false
-}
-
-func (x *ConversionOptions) GetEncoding() string {
-	if x != nil {
-		if x.xxx_hidden_Encoding != nil {
-			return *x.xxx_hidden_Encoding
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ConversionOptions) SetPreserveFormatting(v bool) {
-	x.xxx_hidden_PreserveFormatting = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *ConversionOptions) SetIncludeMetadata(v bool) {
-	x.xxx_hidden_IncludeMetadata = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-}
-
-func (x *ConversionOptions) SetEncoding(v string) {
-	x.xxx_hidden_Encoding = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *ConversionOptions) HasPreserveFormatting() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ConversionOptions) HasIncludeMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ConversionOptions) HasEncoding() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ConversionOptions) ClearPreserveFormatting() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_PreserveFormatting = false
-}
-
-func (x *ConversionOptions) ClearIncludeMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_IncludeMetadata = false
-}
-
-func (x *ConversionOptions) ClearEncoding() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Encoding = nil
-}
-
-type ConversionOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	PreserveFormatting *bool
-	IncludeMetadata    *bool
-	Encoding           *string
-}
-
-func (b0 ConversionOptions_builder) Build() *ConversionOptions {
-	m0 := &ConversionOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.PreserveFormatting != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_PreserveFormatting = *b.PreserveFormatting
-	}
-	if b.IncludeMetadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_IncludeMetadata = *b.IncludeMetadata
-	}
-	if b.Encoding != nil {
+	if b.PreserveStyling != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_Encoding = b.Encoding
+		x.xxx_hidden_PreserveStyling = *b.PreserveStyling
 	}
 	return m0
 }
@@ -301,28 +167,22 @@ var File_gcommon_v1_media_convert_subtitle_format_request_proto protoreflect.Fil
 
 const file_gcommon_v1_media_convert_subtitle_format_request_proto_rawDesc = "" +
 	"\n" +
-	"6gcommon/v1/media/convert_subtitle_format_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xac\x01\n" +
+	"6gcommon/v1/media/convert_subtitle_format_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x98\x01\n" +
 	"\x1cConvertSubtitleFormatRequest\x12(\n" +
 	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12#\n" +
-	"\rtarget_format\x18\x02 \x01(\tR\ftargetFormat\x12=\n" +
-	"\aoptions\x18\x03 \x01(\v2#.gcommon.v1.media.ConversionOptionsR\aoptions\"\x8b\x01\n" +
-	"\x11ConversionOptions\x12/\n" +
-	"\x13preserve_formatting\x18\x01 \x01(\bR\x12preserveFormatting\x12)\n" +
-	"\x10include_metadata\x18\x02 \x01(\bR\x0fincludeMetadata\x12\x1a\n" +
-	"\bencoding\x18\x03 \x01(\tR\bencodingB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rtarget_format\x18\x02 \x01(\tR\ftargetFormat\x12)\n" +
+	"\x10preserve_styling\x18\x03 \x01(\bR\x0fpreserveStylingB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_convert_subtitle_format_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_convert_subtitle_format_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_convert_subtitle_format_request_proto_goTypes = []any{
 	(*ConvertSubtitleFormatRequest)(nil), // 0: gcommon.v1.media.ConvertSubtitleFormatRequest
-	(*ConversionOptions)(nil),            // 1: gcommon.v1.media.ConversionOptions
 }
 var file_gcommon_v1_media_convert_subtitle_format_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.ConvertSubtitleFormatRequest.options:type_name -> gcommon.v1.media.ConversionOptions
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_convert_subtitle_format_request_proto_init() }
@@ -336,7 +196,7 @@ func file_gcommon_v1_media_convert_subtitle_format_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_convert_subtitle_format_request_proto_rawDesc), len(file_gcommon_v1_media_convert_subtitle_format_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

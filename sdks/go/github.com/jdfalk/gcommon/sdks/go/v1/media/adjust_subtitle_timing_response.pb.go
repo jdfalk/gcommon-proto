@@ -25,7 +25,8 @@ const (
 type AdjustSubtitleTimingResponse struct {
 	state                             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_AdjustedSubtitleFileId *string                `protobuf:"bytes,1,opt,name=adjusted_subtitle_file_id,json=adjustedSubtitleFileId"`
-	xxx_hidden_EntriesModified        int32                  `protobuf:"varint,2,opt,name=entries_modified,json=entriesModified"`
+	xxx_hidden_Success                bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_ErrorMessage           *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
 	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
 	XXX_presence                      [1]uint32
 	unknownFields                     protoimpl.UnknownFields
@@ -67,21 +68,36 @@ func (x *AdjustSubtitleTimingResponse) GetAdjustedSubtitleFileId() string {
 	return ""
 }
 
-func (x *AdjustSubtitleTimingResponse) GetEntriesModified() int32 {
+func (x *AdjustSubtitleTimingResponse) GetSuccess() bool {
 	if x != nil {
-		return x.xxx_hidden_EntriesModified
+		return x.xxx_hidden_Success
 	}
-	return 0
+	return false
+}
+
+func (x *AdjustSubtitleTimingResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
 }
 
 func (x *AdjustSubtitleTimingResponse) SetAdjustedSubtitleFileId(v string) {
 	x.xxx_hidden_AdjustedSubtitleFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *AdjustSubtitleTimingResponse) SetEntriesModified(v int32) {
-	x.xxx_hidden_EntriesModified = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+func (x *AdjustSubtitleTimingResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *AdjustSubtitleTimingResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *AdjustSubtitleTimingResponse) HasAdjustedSubtitleFileId() bool {
@@ -91,11 +107,18 @@ func (x *AdjustSubtitleTimingResponse) HasAdjustedSubtitleFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *AdjustSubtitleTimingResponse) HasEntriesModified() bool {
+func (x *AdjustSubtitleTimingResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *AdjustSubtitleTimingResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *AdjustSubtitleTimingResponse) ClearAdjustedSubtitleFileId() {
@@ -103,16 +126,22 @@ func (x *AdjustSubtitleTimingResponse) ClearAdjustedSubtitleFileId() {
 	x.xxx_hidden_AdjustedSubtitleFileId = nil
 }
 
-func (x *AdjustSubtitleTimingResponse) ClearEntriesModified() {
+func (x *AdjustSubtitleTimingResponse) ClearSuccess() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_EntriesModified = 0
+	x.xxx_hidden_Success = false
+}
+
+func (x *AdjustSubtitleTimingResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ErrorMessage = nil
 }
 
 type AdjustSubtitleTimingResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	AdjustedSubtitleFileId *string
-	EntriesModified        *int32
+	Success                *bool
+	ErrorMessage           *string
 }
 
 func (b0 AdjustSubtitleTimingResponse_builder) Build() *AdjustSubtitleTimingResponse {
@@ -120,12 +149,16 @@ func (b0 AdjustSubtitleTimingResponse_builder) Build() *AdjustSubtitleTimingResp
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.AdjustedSubtitleFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
 		x.xxx_hidden_AdjustedSubtitleFileId = b.AdjustedSubtitleFileId
 	}
-	if b.EntriesModified != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_EntriesModified = *b.EntriesModified
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
 	}
 	return m0
 }
@@ -134,10 +167,11 @@ var File_gcommon_v1_media_adjust_subtitle_timing_response_proto protoreflect.Fil
 
 const file_gcommon_v1_media_adjust_subtitle_timing_response_proto_rawDesc = "" +
 	"\n" +
-	"6gcommon/v1/media/adjust_subtitle_timing_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x84\x01\n" +
+	"6gcommon/v1/media/adjust_subtitle_timing_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x98\x01\n" +
 	"\x1cAdjustSubtitleTimingResponse\x129\n" +
-	"\x19adjusted_subtitle_file_id\x18\x01 \x01(\tR\x16adjustedSubtitleFileId\x12)\n" +
-	"\x10entries_modified\x18\x02 \x01(\x05R\x0fentriesModifiedB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x19adjusted_subtitle_file_id\x18\x01 \x01(\tR\x16adjustedSubtitleFileId\x12\x18\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_media_adjust_subtitle_timing_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_adjust_subtitle_timing_response_proto_goTypes = []any{

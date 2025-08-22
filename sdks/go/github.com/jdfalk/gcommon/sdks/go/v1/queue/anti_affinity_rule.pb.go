@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,10 +25,10 @@ const (
 // *
 // Anti-affinity rule for replica placement.
 type AntiAffinityRule struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_LabelKey    *string                `protobuf:"bytes,1,opt,name=label_key,json=labelKey"`
-	xxx_hidden_LabelValues []string               `protobuf:"bytes,2,rep,name=label_values,json=labelValues"`
-	xxx_hidden_Scope       AntiAffinityScope      `protobuf:"varint,3,opt,name=scope,enum=gcommon.v1.queue.AntiAffinityScope"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_LabelKey    *string                  `protobuf:"bytes,1,opt,name=label_key,json=labelKey"`
+	xxx_hidden_LabelValues []string                 `protobuf:"bytes,2,rep,name=label_values,json=labelValues"`
+	xxx_hidden_Scope       common.AntiAffinityScope `protobuf:"varint,3,opt,name=scope,enum=gcommon.v1.common.AntiAffinityScope"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -76,13 +77,13 @@ func (x *AntiAffinityRule) GetLabelValues() []string {
 	return nil
 }
 
-func (x *AntiAffinityRule) GetScope() AntiAffinityScope {
+func (x *AntiAffinityRule) GetScope() common.AntiAffinityScope {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Scope
 		}
 	}
-	return AntiAffinityScope_ANTI_AFFINITY_SCOPE_UNSPECIFIED
+	return common.AntiAffinityScope(0)
 }
 
 func (x *AntiAffinityRule) SetLabelKey(v string) {
@@ -94,7 +95,7 @@ func (x *AntiAffinityRule) SetLabelValues(v []string) {
 	x.xxx_hidden_LabelValues = v
 }
 
-func (x *AntiAffinityRule) SetScope(v AntiAffinityScope) {
+func (x *AntiAffinityRule) SetScope(v common.AntiAffinityScope) {
 	x.xxx_hidden_Scope = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
@@ -120,7 +121,7 @@ func (x *AntiAffinityRule) ClearLabelKey() {
 
 func (x *AntiAffinityRule) ClearScope() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Scope = AntiAffinityScope_ANTI_AFFINITY_SCOPE_UNSPECIFIED
+	x.xxx_hidden_Scope = common.AntiAffinityScope_ANTI_AFFINITY_SCOPE_UNSPECIFIED
 }
 
 type AntiAffinityRule_builder struct {
@@ -131,7 +132,7 @@ type AntiAffinityRule_builder struct {
 	// Label values that should not be co-located
 	LabelValues []string
 	// Scope of the anti-affinity rule
-	Scope *AntiAffinityScope
+	Scope *common.AntiAffinityScope
 }
 
 func (b0 AntiAffinityRule_builder) Build() *AntiAffinityRule {
@@ -154,19 +155,19 @@ var File_gcommon_v1_queue_anti_affinity_rule_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_anti_affinity_rule_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/queue/anti_affinity_rule.proto\x12\x10gcommon.v1.queue\x1a*gcommon/v1/queue/anti_affinity_scope.proto\x1a!google/protobuf/go_features.proto\"\x8d\x01\n" +
+	")gcommon/v1/queue/anti_affinity_rule.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/anti_affinity_scope.proto\x1a!google/protobuf/go_features.proto\"\x8e\x01\n" +
 	"\x10AntiAffinityRule\x12\x1b\n" +
 	"\tlabel_key\x18\x01 \x01(\tR\blabelKey\x12!\n" +
-	"\flabel_values\x18\x02 \x03(\tR\vlabelValues\x129\n" +
-	"\x05scope\x18\x03 \x01(\x0e2#.gcommon.v1.queue.AntiAffinityScopeR\x05scopeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\flabel_values\x18\x02 \x03(\tR\vlabelValues\x12:\n" +
+	"\x05scope\x18\x03 \x01(\x0e2$.gcommon.v1.common.AntiAffinityScopeR\x05scopeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_anti_affinity_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_anti_affinity_rule_proto_goTypes = []any{
-	(*AntiAffinityRule)(nil), // 0: gcommon.v1.queue.AntiAffinityRule
-	(AntiAffinityScope)(0),   // 1: gcommon.v1.queue.AntiAffinityScope
+	(*AntiAffinityRule)(nil),      // 0: gcommon.v1.queue.AntiAffinityRule
+	(common.AntiAffinityScope)(0), // 1: gcommon.v1.common.AntiAffinityScope
 }
 var file_gcommon_v1_queue_anti_affinity_rule_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.AntiAffinityRule.scope:type_name -> gcommon.v1.queue.AntiAffinityScope
+	1, // 0: gcommon.v1.queue.AntiAffinityRule.scope:type_name -> gcommon.v1.common.AntiAffinityScope
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -179,7 +180,6 @@ func file_gcommon_v1_queue_anti_affinity_rule_proto_init() {
 	if File_gcommon_v1_queue_anti_affinity_rule_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_anti_affinity_scope_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

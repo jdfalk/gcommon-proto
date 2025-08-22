@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +25,7 @@ const (
 
 type DeploymentInfo struct {
 	state                     protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Status         DeploymentStatus        `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.DeploymentStatus"`
+	xxx_hidden_Status         common.DeploymentStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.DeploymentStatus"`
 	xxx_hidden_LastDeployedAt *timestamppb.Timestamp  `protobuf:"bytes,2,opt,name=last_deployed_at,json=lastDeployedAt"`
 	xxx_hidden_Version        *string                 `protobuf:"bytes,3,opt,name=version"`
 	xxx_hidden_Method         *string                 `protobuf:"bytes,4,opt,name=method"`
@@ -63,13 +64,13 @@ func (x *DeploymentInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeploymentInfo) GetStatus() DeploymentStatus {
+func (x *DeploymentInfo) GetStatus() common.DeploymentStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
+	return common.DeploymentStatus(0)
 }
 
 func (x *DeploymentInfo) GetLastDeployedAt() *timestamppb.Timestamp {
@@ -132,7 +133,7 @@ func (x *DeploymentInfo) GetRollbackInfo() *DeploymentRollbackInfo {
 	return nil
 }
 
-func (x *DeploymentInfo) SetStatus(v DeploymentStatus) {
+func (x *DeploymentInfo) SetStatus(v common.DeploymentStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
@@ -212,7 +213,7 @@ func (x *DeploymentInfo) HasRollbackInfo() bool {
 
 func (x *DeploymentInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.DeploymentStatus_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *DeploymentInfo) ClearLastDeployedAt() {
@@ -242,7 +243,7 @@ type DeploymentInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Deployment status
-	Status *DeploymentStatus
+	Status *common.DeploymentStatus
 	// Last deployment timestamp
 	LastDeployedAt *timestamppb.Timestamp
 	// Deployment version
@@ -290,9 +291,9 @@ var File_gcommon_v1_config_deployment_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_deployment_info_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/config/deployment_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/config/deployment_status.proto\x1a0gcommon/v1/config/deployment_rollback_info.proto\x1a$gcommon/v1/config/health_check.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x03\n" +
+	"'gcommon/v1/config/deployment_info.proto\x12\x11gcommon.v1.config\x1a)gcommon/v1/common/deployment_status.proto\x1a0gcommon/v1/config/deployment_rollback_info.proto\x1a$gcommon/v1/config/health_check.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf4\x03\n" +
 	"\x0eDeploymentInfo\x12;\n" +
-	"\x06status\x18\x01 \x01(\x0e2#.gcommon.v1.config.DeploymentStatusR\x06status\x12D\n" +
+	"\x06status\x18\x01 \x01(\x0e2#.gcommon.v1.common.DeploymentStatusR\x06status\x12D\n" +
 	"\x10last_deployed_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x0elastDeployedAt\x12\x18\n" +
 	"\aversion\x18\x03 \x01(\tR\aversion\x12\x16\n" +
 	"\x06method\x18\x04 \x01(\tR\x06method\x12\x16\n" +
@@ -308,13 +309,13 @@ var file_gcommon_v1_config_deployment_info_proto_msgTypes = make([]protoimpl.Mes
 var file_gcommon_v1_config_deployment_info_proto_goTypes = []any{
 	(*DeploymentInfo)(nil),         // 0: gcommon.v1.config.DeploymentInfo
 	nil,                            // 1: gcommon.v1.config.DeploymentInfo.ConfigEntry
-	(DeploymentStatus)(0),          // 2: gcommon.v1.config.DeploymentStatus
+	(common.DeploymentStatus)(0),   // 2: gcommon.v1.common.DeploymentStatus
 	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
 	(*HealthCheck)(nil),            // 4: gcommon.v1.config.HealthCheck
 	(*DeploymentRollbackInfo)(nil), // 5: gcommon.v1.config.DeploymentRollbackInfo
 }
 var file_gcommon_v1_config_deployment_info_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.DeploymentInfo.status:type_name -> gcommon.v1.config.DeploymentStatus
+	2, // 0: gcommon.v1.config.DeploymentInfo.status:type_name -> gcommon.v1.common.DeploymentStatus
 	3, // 1: gcommon.v1.config.DeploymentInfo.last_deployed_at:type_name -> google.protobuf.Timestamp
 	1, // 2: gcommon.v1.config.DeploymentInfo.config:type_name -> gcommon.v1.config.DeploymentInfo.ConfigEntry
 	4, // 3: gcommon.v1.config.DeploymentInfo.health_checks:type_name -> gcommon.v1.config.HealthCheck
@@ -331,7 +332,6 @@ func file_gcommon_v1_config_deployment_info_proto_init() {
 	if File_gcommon_v1_config_deployment_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_deployment_status_proto_init()
 	file_gcommon_v1_config_deployment_rollback_info_proto_init()
 	file_gcommon_v1_config_health_check_proto_init()
 	type x struct{}

@@ -26,7 +26,7 @@ const (
 type StartServerResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Status        ServerStatus           `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.web.ServerStatus"`
+	xxx_hidden_Status        common.ServerStatus    `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ServerStatus"`
 	xxx_hidden_ListenAddress *string                `protobuf:"bytes,3,opt,name=listen_address,json=listenAddress"`
 	xxx_hidden_Error         *common.Error          `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
@@ -67,13 +67,13 @@ func (x *StartServerResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *StartServerResponse) GetStatus() ServerStatus {
+func (x *StartServerResponse) GetStatus() common.ServerStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return ServerStatus_SERVER_STATUS_UNSPECIFIED
+	return common.ServerStatus(0)
 }
 
 func (x *StartServerResponse) GetListenAddress() string {
@@ -98,7 +98,7 @@ func (x *StartServerResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *StartServerResponse) SetStatus(v ServerStatus) {
+func (x *StartServerResponse) SetStatus(v common.ServerStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -147,7 +147,7 @@ func (x *StartServerResponse) ClearSuccess() {
 
 func (x *StartServerResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = ServerStatus_SERVER_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.ServerStatus_SERVER_STATUS_UNSPECIFIED
 }
 
 func (x *StartServerResponse) ClearListenAddress() {
@@ -165,7 +165,7 @@ type StartServerResponse_builder struct {
 	// Success status
 	Success *bool
 	// Server status
-	Status *ServerStatus
+	Status *common.ServerStatus
 	// Listen address
 	ListenAddress *string
 	// Error information
@@ -196,21 +196,21 @@ var File_gcommon_v1_web_start_server_response_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_start_server_response_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/web/start_server_response.proto\x12\x0egcommon.v1.web\x1a\x1dgcommon/v1/common/error.proto\x1a\"gcommon/v1/web/server_status.proto\x1a!google/protobuf/go_features.proto\"\xbc\x01\n" +
+	"*gcommon/v1/web/start_server_response.proto\x12\x0egcommon.v1.web\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/server_status.proto\x1a!google/protobuf/go_features.proto\"\xbf\x01\n" +
 	"\x13StartServerResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\x124\n" +
-	"\x06status\x18\x02 \x01(\x0e2\x1c.gcommon.v1.web.ServerStatusR\x06status\x12%\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x127\n" +
+	"\x06status\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.ServerStatusR\x06status\x12%\n" +
 	"\x0elisten_address\x18\x03 \x01(\tR\rlistenAddress\x12.\n" +
 	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_start_server_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_start_server_response_proto_goTypes = []any{
 	(*StartServerResponse)(nil), // 0: gcommon.v1.web.StartServerResponse
-	(ServerStatus)(0),           // 1: gcommon.v1.web.ServerStatus
+	(common.ServerStatus)(0),    // 1: gcommon.v1.common.ServerStatus
 	(*common.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_gcommon_v1_web_start_server_response_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.StartServerResponse.status:type_name -> gcommon.v1.web.ServerStatus
+	1, // 0: gcommon.v1.web.StartServerResponse.status:type_name -> gcommon.v1.common.ServerStatus
 	2, // 1: gcommon.v1.web.StartServerResponse.error:type_name -> gcommon.v1.common.Error
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -224,7 +224,6 @@ func file_gcommon_v1_web_start_server_response_proto_init() {
 	if File_gcommon_v1_web_start_server_response_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_server_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

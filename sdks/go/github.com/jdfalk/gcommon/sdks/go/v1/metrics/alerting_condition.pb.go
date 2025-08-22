@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +26,11 @@ const (
 // AlertingCondition specifies a single metric threshold comparison
 // that triggers an alert when satisfied.
 type AlertingCondition struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Operator        ComparisonOperator     `protobuf:"varint,1,opt,name=operator,enum=gcommon.v1.metrics.ComparisonOperator"`
-	xxx_hidden_Metric          *string                `protobuf:"bytes,2,opt,name=metric"`
-	xxx_hidden_Threshold       float64                `protobuf:"fixed64,3,opt,name=threshold"`
-	xxx_hidden_DurationSeconds int32                  `protobuf:"varint,4,opt,name=duration_seconds,json=durationSeconds"`
+	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Operator        common.ComparisonOperator `protobuf:"varint,1,opt,name=operator,enum=gcommon.v1.common.ComparisonOperator"`
+	xxx_hidden_Metric          *string                   `protobuf:"bytes,2,opt,name=metric"`
+	xxx_hidden_Threshold       float64                   `protobuf:"fixed64,3,opt,name=threshold"`
+	xxx_hidden_DurationSeconds int32                     `protobuf:"varint,4,opt,name=duration_seconds,json=durationSeconds"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -61,13 +62,13 @@ func (x *AlertingCondition) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AlertingCondition) GetOperator() ComparisonOperator {
+func (x *AlertingCondition) GetOperator() common.ComparisonOperator {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Operator
 		}
 	}
-	return ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
+	return common.ComparisonOperator(0)
 }
 
 func (x *AlertingCondition) GetMetric() string {
@@ -94,7 +95,7 @@ func (x *AlertingCondition) GetDurationSeconds() int32 {
 	return 0
 }
 
-func (x *AlertingCondition) SetOperator(v ComparisonOperator) {
+func (x *AlertingCondition) SetOperator(v common.ComparisonOperator) {
 	x.xxx_hidden_Operator = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -144,7 +145,7 @@ func (x *AlertingCondition) HasDurationSeconds() bool {
 
 func (x *AlertingCondition) ClearOperator() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Operator = ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
+	x.xxx_hidden_Operator = common.ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
 }
 
 func (x *AlertingCondition) ClearMetric() {
@@ -166,7 +167,7 @@ type AlertingCondition_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Operator to use when comparing the metric value to the threshold.
-	Operator *ComparisonOperator
+	Operator *common.ComparisonOperator
 	// Metric name or query expression being evaluated.
 	Metric *string
 	// Threshold value to compare against.
@@ -202,20 +203,20 @@ var File_gcommon_v1_metrics_alerting_condition_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_alerting_condition_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/metrics/alerting_condition.proto\x12\x12gcommon.v1.metrics\x1a,gcommon/v1/metrics/comparison_operator.proto\x1a!google/protobuf/go_features.proto\"\xb8\x01\n" +
-	"\x11AlertingCondition\x12B\n" +
-	"\boperator\x18\x01 \x01(\x0e2&.gcommon.v1.metrics.ComparisonOperatorR\boperator\x12\x16\n" +
+	"+gcommon/v1/metrics/alerting_condition.proto\x12\x12gcommon.v1.metrics\x1a+gcommon/v1/common/comparison_operator.proto\x1a!google/protobuf/go_features.proto\"\xb7\x01\n" +
+	"\x11AlertingCondition\x12A\n" +
+	"\boperator\x18\x01 \x01(\x0e2%.gcommon.v1.common.ComparisonOperatorR\boperator\x12\x16\n" +
 	"\x06metric\x18\x02 \x01(\tR\x06metric\x12\x1c\n" +
 	"\tthreshold\x18\x03 \x01(\x01R\tthreshold\x12)\n" +
 	"\x10duration_seconds\x18\x04 \x01(\x05R\x0fdurationSecondsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_alerting_condition_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_alerting_condition_proto_goTypes = []any{
-	(*AlertingCondition)(nil), // 0: gcommon.v1.metrics.AlertingCondition
-	(ComparisonOperator)(0),   // 1: gcommon.v1.metrics.ComparisonOperator
+	(*AlertingCondition)(nil),      // 0: gcommon.v1.metrics.AlertingCondition
+	(common.ComparisonOperator)(0), // 1: gcommon.v1.common.ComparisonOperator
 }
 var file_gcommon_v1_metrics_alerting_condition_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.AlertingCondition.operator:type_name -> gcommon.v1.metrics.ComparisonOperator
+	1, // 0: gcommon.v1.metrics.AlertingCondition.operator:type_name -> gcommon.v1.common.ComparisonOperator
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -228,7 +229,6 @@ func file_gcommon_v1_metrics_alerting_condition_proto_init() {
 	if File_gcommon_v1_metrics_alerting_condition_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_comparison_operator_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,16 +26,16 @@ const (
 // *
 // An individual alert rule.
 type AlertRule struct {
-	state                  protoimpl.MessageState       `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                      `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Description *string                      `protobuf:"bytes,2,opt,name=description"`
-	xxx_hidden_MetricName  *string                      `protobuf:"bytes,3,opt,name=metric_name,json=metricName"`
-	xxx_hidden_Condition   AlertCondition               `protobuf:"varint,4,opt,name=condition,enum=gcommon.v1.queue.AlertCondition"`
-	xxx_hidden_Threshold   float64                      `protobuf:"fixed64,5,opt,name=threshold"`
-	xxx_hidden_Duration    *durationpb.Duration         `protobuf:"bytes,6,opt,name=duration"`
-	xxx_hidden_Severity    metrics.MetricsAlertSeverity `protobuf:"varint,7,opt,name=severity,enum=gcommon.v1.metrics.MetricsAlertSeverity"`
-	xxx_hidden_Enabled     bool                         `protobuf:"varint,8,opt,name=enabled"`
-	xxx_hidden_Labels      map[string]string            `protobuf:"bytes,9,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState      `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                     `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Description *string                     `protobuf:"bytes,2,opt,name=description"`
+	xxx_hidden_MetricName  *string                     `protobuf:"bytes,3,opt,name=metric_name,json=metricName"`
+	xxx_hidden_Condition   common.AlertCondition       `protobuf:"varint,4,opt,name=condition,enum=gcommon.v1.common.AlertCondition"`
+	xxx_hidden_Threshold   float64                     `protobuf:"fixed64,5,opt,name=threshold"`
+	xxx_hidden_Duration    *durationpb.Duration        `protobuf:"bytes,6,opt,name=duration"`
+	xxx_hidden_Severity    common.MetricsAlertSeverity `protobuf:"varint,7,opt,name=severity,enum=gcommon.v1.common.MetricsAlertSeverity"`
+	xxx_hidden_Enabled     bool                        `protobuf:"varint,8,opt,name=enabled"`
+	xxx_hidden_Labels      map[string]string           `protobuf:"bytes,9,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -97,13 +97,13 @@ func (x *AlertRule) GetMetricName() string {
 	return ""
 }
 
-func (x *AlertRule) GetCondition() AlertCondition {
+func (x *AlertRule) GetCondition() common.AlertCondition {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Condition
 		}
 	}
-	return AlertCondition_ALERT_CONDITION_UNSPECIFIED
+	return common.AlertCondition(0)
 }
 
 func (x *AlertRule) GetThreshold() float64 {
@@ -120,13 +120,13 @@ func (x *AlertRule) GetDuration() *durationpb.Duration {
 	return nil
 }
 
-func (x *AlertRule) GetSeverity() metrics.MetricsAlertSeverity {
+func (x *AlertRule) GetSeverity() common.MetricsAlertSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return metrics.MetricsAlertSeverity(0)
+	return common.MetricsAlertSeverity(0)
 }
 
 func (x *AlertRule) GetEnabled() bool {
@@ -158,7 +158,7 @@ func (x *AlertRule) SetMetricName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
 
-func (x *AlertRule) SetCondition(v AlertCondition) {
+func (x *AlertRule) SetCondition(v common.AlertCondition) {
 	x.xxx_hidden_Condition = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
 }
@@ -172,7 +172,7 @@ func (x *AlertRule) SetDuration(v *durationpb.Duration) {
 	x.xxx_hidden_Duration = v
 }
 
-func (x *AlertRule) SetSeverity(v metrics.MetricsAlertSeverity) {
+func (x *AlertRule) SetSeverity(v common.MetricsAlertSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 9)
 }
@@ -259,7 +259,7 @@ func (x *AlertRule) ClearMetricName() {
 
 func (x *AlertRule) ClearCondition() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Condition = AlertCondition_ALERT_CONDITION_UNSPECIFIED
+	x.xxx_hidden_Condition = common.AlertCondition_ALERT_CONDITION_UNSPECIFIED
 }
 
 func (x *AlertRule) ClearThreshold() {
@@ -273,7 +273,7 @@ func (x *AlertRule) ClearDuration() {
 
 func (x *AlertRule) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Severity = metrics.MetricsAlertSeverity_ALERT_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.MetricsAlertSeverity_METRICS_ALERT_SEVERITY_UNSPECIFIED
 }
 
 func (x *AlertRule) ClearEnabled() {
@@ -291,13 +291,13 @@ type AlertRule_builder struct {
 	// Metric to monitor
 	MetricName *string
 	// Condition for triggering the alert
-	Condition *AlertCondition
+	Condition *common.AlertCondition
 	// Threshold value
 	Threshold *float64
 	// Duration the condition must persist before alerting
 	Duration *durationpb.Duration
 	// Severity of the alert
-	Severity *metrics.MetricsAlertSeverity
+	Severity *common.MetricsAlertSeverity
 	// Whether the rule is enabled
 	Enabled *bool
 	// Labels to attach to the alert
@@ -345,16 +345,16 @@ var File_gcommon_v1_queue_alert_rule_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_alert_rule_proto_rawDesc = "" +
 	"\n" +
-	"!gcommon/v1/queue/alert_rule.proto\x12\x10gcommon.v1.queue\x1a'gcommon/v1/metrics/alert_severity.proto\x1a&gcommon/v1/queue/alert_condition.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xd3\x03\n" +
+	"!gcommon/v1/queue/alert_rule.proto\x12\x10gcommon.v1.queue\x1a'gcommon/v1/common/alert_condition.proto\x1a.gcommon/v1/common/metrics_alert_severity.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xd3\x03\n" +
 	"\tAlertRule\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1f\n" +
 	"\vmetric_name\x18\x03 \x01(\tR\n" +
-	"metricName\x12>\n" +
-	"\tcondition\x18\x04 \x01(\x0e2 .gcommon.v1.queue.AlertConditionR\tcondition\x12\x1c\n" +
+	"metricName\x12?\n" +
+	"\tcondition\x18\x04 \x01(\x0e2!.gcommon.v1.common.AlertConditionR\tcondition\x12\x1c\n" +
 	"\tthreshold\x18\x05 \x01(\x01R\tthreshold\x125\n" +
-	"\bduration\x18\x06 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12D\n" +
-	"\bseverity\x18\a \x01(\x0e2(.gcommon.v1.metrics.MetricsAlertSeverityR\bseverity\x12\x18\n" +
+	"\bduration\x18\x06 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12C\n" +
+	"\bseverity\x18\a \x01(\x0e2'.gcommon.v1.common.MetricsAlertSeverityR\bseverity\x12\x18\n" +
 	"\aenabled\x18\b \x01(\bR\aenabled\x12?\n" +
 	"\x06labels\x18\t \x03(\v2'.gcommon.v1.queue.AlertRule.LabelsEntryR\x06labels\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
@@ -363,16 +363,16 @@ const file_gcommon_v1_queue_alert_rule_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_alert_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_alert_rule_proto_goTypes = []any{
-	(*AlertRule)(nil),                 // 0: gcommon.v1.queue.AlertRule
-	nil,                               // 1: gcommon.v1.queue.AlertRule.LabelsEntry
-	(AlertCondition)(0),               // 2: gcommon.v1.queue.AlertCondition
-	(*durationpb.Duration)(nil),       // 3: google.protobuf.Duration
-	(metrics.MetricsAlertSeverity)(0), // 4: gcommon.v1.metrics.MetricsAlertSeverity
+	(*AlertRule)(nil),                // 0: gcommon.v1.queue.AlertRule
+	nil,                              // 1: gcommon.v1.queue.AlertRule.LabelsEntry
+	(common.AlertCondition)(0),       // 2: gcommon.v1.common.AlertCondition
+	(*durationpb.Duration)(nil),      // 3: google.protobuf.Duration
+	(common.MetricsAlertSeverity)(0), // 4: gcommon.v1.common.MetricsAlertSeverity
 }
 var file_gcommon_v1_queue_alert_rule_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.AlertRule.condition:type_name -> gcommon.v1.queue.AlertCondition
+	2, // 0: gcommon.v1.queue.AlertRule.condition:type_name -> gcommon.v1.common.AlertCondition
 	3, // 1: gcommon.v1.queue.AlertRule.duration:type_name -> google.protobuf.Duration
-	4, // 2: gcommon.v1.queue.AlertRule.severity:type_name -> gcommon.v1.metrics.MetricsAlertSeverity
+	4, // 2: gcommon.v1.queue.AlertRule.severity:type_name -> gcommon.v1.common.MetricsAlertSeverity
 	1, // 3: gcommon.v1.queue.AlertRule.labels:type_name -> gcommon.v1.queue.AlertRule.LabelsEntry
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
@@ -386,7 +386,6 @@ func file_gcommon_v1_queue_alert_rule_proto_init() {
 	if File_gcommon_v1_queue_alert_rule_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_alert_condition_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

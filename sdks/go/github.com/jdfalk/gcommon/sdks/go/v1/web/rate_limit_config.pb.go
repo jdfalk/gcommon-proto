@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +24,13 @@ const (
 
 // RateLimitConfig message definition.
 type WebRateLimitConfig struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Enabled           bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_RequestsPerSecond int32                  `protobuf:"varint,2,opt,name=requests_per_second,json=requestsPerSecond"`
-	xxx_hidden_BurstSize         int32                  `protobuf:"varint,3,opt,name=burst_size,json=burstSize"`
-	xxx_hidden_Strategy          RateLimitStrategy      `protobuf:"varint,4,opt,name=strategy,enum=gcommon.v1.web.RateLimitStrategy"`
-	xxx_hidden_KeyExtractor      *string                `protobuf:"bytes,5,opt,name=key_extractor,json=keyExtractor"`
-	xxx_hidden_SkipConditions    []string               `protobuf:"bytes,6,rep,name=skip_conditions,json=skipConditions"`
+	state                        protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Enabled           bool                     `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_RequestsPerSecond int32                    `protobuf:"varint,2,opt,name=requests_per_second,json=requestsPerSecond"`
+	xxx_hidden_BurstSize         int32                    `protobuf:"varint,3,opt,name=burst_size,json=burstSize"`
+	xxx_hidden_Strategy          common.RateLimitStrategy `protobuf:"varint,4,opt,name=strategy,enum=gcommon.v1.common.RateLimitStrategy"`
+	xxx_hidden_KeyExtractor      *string                  `protobuf:"bytes,5,opt,name=key_extractor,json=keyExtractor"`
+	xxx_hidden_SkipConditions    []string                 `protobuf:"bytes,6,rep,name=skip_conditions,json=skipConditions"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -82,13 +83,13 @@ func (x *WebRateLimitConfig) GetBurstSize() int32 {
 	return 0
 }
 
-func (x *WebRateLimitConfig) GetStrategy() RateLimitStrategy {
+func (x *WebRateLimitConfig) GetStrategy() common.RateLimitStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return RateLimitStrategy_RATE_LIMIT_STRATEGY_UNSPECIFIED
+	return common.RateLimitStrategy(0)
 }
 
 func (x *WebRateLimitConfig) GetKeyExtractor() string {
@@ -123,7 +124,7 @@ func (x *WebRateLimitConfig) SetBurstSize(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *WebRateLimitConfig) SetStrategy(v RateLimitStrategy) {
+func (x *WebRateLimitConfig) SetStrategy(v common.RateLimitStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -189,7 +190,7 @@ func (x *WebRateLimitConfig) ClearBurstSize() {
 
 func (x *WebRateLimitConfig) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Strategy = RateLimitStrategy_RATE_LIMIT_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = common.RateLimitStrategy_RATE_LIMIT_STRATEGY_UNSPECIFIED
 }
 
 func (x *WebRateLimitConfig) ClearKeyExtractor() {
@@ -207,7 +208,7 @@ type WebRateLimitConfig_builder struct {
 	// Burst size
 	BurstSize *int32
 	// Rate limit strategy
-	Strategy *RateLimitStrategy
+	Strategy *common.RateLimitStrategy
 	// Rate limit key extractor
 	KeyExtractor *string
 	// Skip conditions
@@ -246,23 +247,23 @@ var File_gcommon_v1_web_rate_limit_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_rate_limit_config_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/web/rate_limit_config.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/web/rate_limit_strategy.proto\x1a!google/protobuf/go_features.proto\"\x8a\x02\n" +
+	"&gcommon/v1/web/rate_limit_config.proto\x12\x0egcommon.v1.web\x1a+gcommon/v1/common/rate_limit_strategy.proto\x1a!google/protobuf/go_features.proto\"\x8d\x02\n" +
 	"\x12WebRateLimitConfig\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12.\n" +
 	"\x13requests_per_second\x18\x02 \x01(\x05R\x11requestsPerSecond\x12\x1d\n" +
 	"\n" +
-	"burst_size\x18\x03 \x01(\x05R\tburstSize\x12=\n" +
-	"\bstrategy\x18\x04 \x01(\x0e2!.gcommon.v1.web.RateLimitStrategyR\bstrategy\x12#\n" +
+	"burst_size\x18\x03 \x01(\x05R\tburstSize\x12@\n" +
+	"\bstrategy\x18\x04 \x01(\x0e2$.gcommon.v1.common.RateLimitStrategyR\bstrategy\x12#\n" +
 	"\rkey_extractor\x18\x05 \x01(\tR\fkeyExtractor\x12'\n" +
 	"\x0fskip_conditions\x18\x06 \x03(\tR\x0eskipConditionsB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_rate_limit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_rate_limit_config_proto_goTypes = []any{
-	(*WebRateLimitConfig)(nil), // 0: gcommon.v1.web.WebRateLimitConfig
-	(RateLimitStrategy)(0),     // 1: gcommon.v1.web.RateLimitStrategy
+	(*WebRateLimitConfig)(nil),    // 0: gcommon.v1.web.WebRateLimitConfig
+	(common.RateLimitStrategy)(0), // 1: gcommon.v1.common.RateLimitStrategy
 }
 var file_gcommon_v1_web_rate_limit_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.WebRateLimitConfig.strategy:type_name -> gcommon.v1.web.RateLimitStrategy
+	1, // 0: gcommon.v1.web.WebRateLimitConfig.strategy:type_name -> gcommon.v1.common.RateLimitStrategy
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -275,7 +276,6 @@ func file_gcommon_v1_web_rate_limit_config_proto_init() {
 	if File_gcommon_v1_web_rate_limit_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_rate_limit_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,13 +23,13 @@ const (
 )
 
 type OutputOptions struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_NumericFormat     NumericFormat          `protobuf:"varint,1,opt,name=numeric_format,json=numericFormat,enum=gcommon.v1.metrics.NumericFormat"`
-	xxx_hidden_IncludeTimestamps bool                   `protobuf:"varint,2,opt,name=include_timestamps,json=includeTimestamps"`
-	xxx_hidden_IncludeLabels     bool                   `protobuf:"varint,3,opt,name=include_labels,json=includeLabels"`
-	xxx_hidden_Compression       ResponseCompression    `protobuf:"varint,4,opt,name=compression,enum=gcommon.v1.metrics.ResponseCompression"`
-	xxx_hidden_FlattenResponse   bool                   `protobuf:"varint,5,opt,name=flatten_response,json=flattenResponse"`
-	xxx_hidden_Timezone          *string                `protobuf:"bytes,6,opt,name=timezone"`
+	state                        protoimpl.MessageState     `protogen:"opaque.v1"`
+	xxx_hidden_NumericFormat     common.NumericFormat       `protobuf:"varint,1,opt,name=numeric_format,json=numericFormat,enum=gcommon.v1.common.NumericFormat"`
+	xxx_hidden_IncludeTimestamps bool                       `protobuf:"varint,2,opt,name=include_timestamps,json=includeTimestamps"`
+	xxx_hidden_IncludeLabels     bool                       `protobuf:"varint,3,opt,name=include_labels,json=includeLabels"`
+	xxx_hidden_Compression       common.ResponseCompression `protobuf:"varint,4,opt,name=compression,enum=gcommon.v1.common.ResponseCompression"`
+	xxx_hidden_FlattenResponse   bool                       `protobuf:"varint,5,opt,name=flatten_response,json=flattenResponse"`
+	xxx_hidden_Timezone          *string                    `protobuf:"bytes,6,opt,name=timezone"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -60,13 +61,13 @@ func (x *OutputOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *OutputOptions) GetNumericFormat() NumericFormat {
+func (x *OutputOptions) GetNumericFormat() common.NumericFormat {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_NumericFormat
 		}
 	}
-	return NumericFormat_NUMERIC_FORMAT_UNSPECIFIED
+	return common.NumericFormat(0)
 }
 
 func (x *OutputOptions) GetIncludeTimestamps() bool {
@@ -83,13 +84,13 @@ func (x *OutputOptions) GetIncludeLabels() bool {
 	return false
 }
 
-func (x *OutputOptions) GetCompression() ResponseCompression {
+func (x *OutputOptions) GetCompression() common.ResponseCompression {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Compression
 		}
 	}
-	return ResponseCompression_RESPONSE_COMPRESSION_UNSPECIFIED
+	return common.ResponseCompression(0)
 }
 
 func (x *OutputOptions) GetFlattenResponse() bool {
@@ -109,7 +110,7 @@ func (x *OutputOptions) GetTimezone() string {
 	return ""
 }
 
-func (x *OutputOptions) SetNumericFormat(v NumericFormat) {
+func (x *OutputOptions) SetNumericFormat(v common.NumericFormat) {
 	x.xxx_hidden_NumericFormat = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
@@ -124,7 +125,7 @@ func (x *OutputOptions) SetIncludeLabels(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *OutputOptions) SetCompression(v ResponseCompression) {
+func (x *OutputOptions) SetCompression(v common.ResponseCompression) {
 	x.xxx_hidden_Compression = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -183,7 +184,7 @@ func (x *OutputOptions) HasTimezone() bool {
 
 func (x *OutputOptions) ClearNumericFormat() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_NumericFormat = NumericFormat_NUMERIC_FORMAT_UNSPECIFIED
+	x.xxx_hidden_NumericFormat = common.NumericFormat_NUMERIC_FORMAT_UNSPECIFIED
 }
 
 func (x *OutputOptions) ClearIncludeTimestamps() {
@@ -198,7 +199,7 @@ func (x *OutputOptions) ClearIncludeLabels() {
 
 func (x *OutputOptions) ClearCompression() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Compression = ResponseCompression_RESPONSE_COMPRESSION_UNSPECIFIED
+	x.xxx_hidden_Compression = common.ResponseCompression_RESPONSE_COMPRESSION_UNSPECIFIED
 }
 
 func (x *OutputOptions) ClearFlattenResponse() {
@@ -215,13 +216,13 @@ type OutputOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Format for numeric values
-	NumericFormat *NumericFormat
+	NumericFormat *common.NumericFormat
 	// Whether to include timestamps
 	IncludeTimestamps *bool
 	// Whether to include labels
 	IncludeLabels *bool
 	// Compression for large responses
-	Compression *ResponseCompression
+	Compression *common.ResponseCompression
 	// Whether to flatten nested structures
 	FlattenResponse *bool
 	// Time zone for timestamp formatting
@@ -263,24 +264,24 @@ var File_gcommon_v1_metrics_output_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_output_options_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/metrics/output_options.proto\x12\x12gcommon.v1.metrics\x1a-gcommon/v1/metrics/response_compression.proto\x1a'gcommon/v1/metrics/numeric_format.proto\x1a!google/protobuf/go_features.proto\"\xc1\x02\n" +
-	"\rOutputOptions\x12H\n" +
-	"\x0enumeric_format\x18\x01 \x01(\x0e2!.gcommon.v1.metrics.NumericFormatR\rnumericFormat\x12-\n" +
+	"'gcommon/v1/metrics/output_options.proto\x12\x12gcommon.v1.metrics\x1a&gcommon/v1/common/numeric_format.proto\x1a,gcommon/v1/common/response_compression.proto\x1a!google/protobuf/go_features.proto\"\xbf\x02\n" +
+	"\rOutputOptions\x12G\n" +
+	"\x0enumeric_format\x18\x01 \x01(\x0e2 .gcommon.v1.common.NumericFormatR\rnumericFormat\x12-\n" +
 	"\x12include_timestamps\x18\x02 \x01(\bR\x11includeTimestamps\x12%\n" +
-	"\x0einclude_labels\x18\x03 \x01(\bR\rincludeLabels\x12I\n" +
-	"\vcompression\x18\x04 \x01(\x0e2'.gcommon.v1.metrics.ResponseCompressionR\vcompression\x12)\n" +
+	"\x0einclude_labels\x18\x03 \x01(\bR\rincludeLabels\x12H\n" +
+	"\vcompression\x18\x04 \x01(\x0e2&.gcommon.v1.common.ResponseCompressionR\vcompression\x12)\n" +
 	"\x10flatten_response\x18\x05 \x01(\bR\x0fflattenResponse\x12\x1a\n" +
 	"\btimezone\x18\x06 \x01(\tR\btimezoneB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_metrics_output_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_output_options_proto_goTypes = []any{
-	(*OutputOptions)(nil),    // 0: gcommon.v1.metrics.OutputOptions
-	(NumericFormat)(0),       // 1: gcommon.v1.metrics.NumericFormat
-	(ResponseCompression)(0), // 2: gcommon.v1.metrics.ResponseCompression
+	(*OutputOptions)(nil),           // 0: gcommon.v1.metrics.OutputOptions
+	(common.NumericFormat)(0),       // 1: gcommon.v1.common.NumericFormat
+	(common.ResponseCompression)(0), // 2: gcommon.v1.common.ResponseCompression
 }
 var file_gcommon_v1_metrics_output_options_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.metrics.OutputOptions.numeric_format:type_name -> gcommon.v1.metrics.NumericFormat
-	2, // 1: gcommon.v1.metrics.OutputOptions.compression:type_name -> gcommon.v1.metrics.ResponseCompression
+	1, // 0: gcommon.v1.metrics.OutputOptions.numeric_format:type_name -> gcommon.v1.common.NumericFormat
+	2, // 1: gcommon.v1.metrics.OutputOptions.compression:type_name -> gcommon.v1.common.ResponseCompression
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -293,8 +294,6 @@ func file_gcommon_v1_metrics_output_options_proto_init() {
 	if File_gcommon_v1_metrics_output_options_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_response_compression_proto_init()
-	file_gcommon_v1_metrics_numeric_format_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

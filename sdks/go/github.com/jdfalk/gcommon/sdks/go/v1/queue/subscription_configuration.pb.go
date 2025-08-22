@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,8 +24,8 @@ const (
 
 type SubscriptionConfiguration struct {
 	state                           protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AckLevel             AckLevel               `protobuf:"varint,1,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.queue.AckLevel"`
-	xxx_hidden_DeliveryMode         DeliveryMode           `protobuf:"varint,2,opt,name=delivery_mode,json=deliveryMode,enum=gcommon.v1.queue.DeliveryMode"`
+	xxx_hidden_AckLevel             common.AckLevel        `protobuf:"varint,1,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.common.AckLevel"`
+	xxx_hidden_DeliveryMode         common.DeliveryMode    `protobuf:"varint,2,opt,name=delivery_mode,json=deliveryMode,enum=gcommon.v1.common.DeliveryMode"`
 	xxx_hidden_MaxUnackedMessages   int32                  `protobuf:"varint,3,opt,name=max_unacked_messages,json=maxUnackedMessages"`
 	xxx_hidden_AckTimeoutMs         int32                  `protobuf:"varint,4,opt,name=ack_timeout_ms,json=ackTimeoutMs"`
 	xxx_hidden_MinPriority          int32                  `protobuf:"varint,5,opt,name=min_priority,json=minPriority"`
@@ -64,22 +65,22 @@ func (x *SubscriptionConfiguration) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SubscriptionConfiguration) GetAckLevel() AckLevel {
+func (x *SubscriptionConfiguration) GetAckLevel() common.AckLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_AckLevel
 		}
 	}
-	return AckLevel_ACK_LEVEL_UNSPECIFIED
+	return common.AckLevel(0)
 }
 
-func (x *SubscriptionConfiguration) GetDeliveryMode() DeliveryMode {
+func (x *SubscriptionConfiguration) GetDeliveryMode() common.DeliveryMode {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_DeliveryMode
 		}
 	}
-	return DeliveryMode_DELIVERY_MODE_UNSPECIFIED
+	return common.DeliveryMode(0)
 }
 
 func (x *SubscriptionConfiguration) GetMaxUnackedMessages() int32 {
@@ -138,12 +139,12 @@ func (x *SubscriptionConfiguration) GetMaxMessageAgeSeconds() int64 {
 	return 0
 }
 
-func (x *SubscriptionConfiguration) SetAckLevel(v AckLevel) {
+func (x *SubscriptionConfiguration) SetAckLevel(v common.AckLevel) {
 	x.xxx_hidden_AckLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *SubscriptionConfiguration) SetDeliveryMode(v DeliveryMode) {
+func (x *SubscriptionConfiguration) SetDeliveryMode(v common.DeliveryMode) {
 	x.xxx_hidden_DeliveryMode = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
@@ -260,12 +261,12 @@ func (x *SubscriptionConfiguration) HasMaxMessageAgeSeconds() bool {
 
 func (x *SubscriptionConfiguration) ClearAckLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_AckLevel = AckLevel_ACK_LEVEL_UNSPECIFIED
+	x.xxx_hidden_AckLevel = common.AckLevel_ACK_LEVEL_UNSPECIFIED
 }
 
 func (x *SubscriptionConfiguration) ClearDeliveryMode() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_DeliveryMode = DeliveryMode_DELIVERY_MODE_UNSPECIFIED
+	x.xxx_hidden_DeliveryMode = common.DeliveryMode_DELIVERY_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionConfiguration) ClearMaxUnackedMessages() {
@@ -312,9 +313,9 @@ type SubscriptionConfiguration_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Acknowledgment level required
-	AckLevel *AckLevel
+	AckLevel *common.AckLevel
 	// Delivery mode for messages
-	DeliveryMode *DeliveryMode
+	DeliveryMode *common.DeliveryMode
 	// Maximum number of unacknowledged messages
 	MaxUnackedMessages *int32
 	// Acknowledgment timeout (milliseconds)
@@ -384,10 +385,10 @@ var File_gcommon_v1_queue_subscription_configuration_proto protoreflect.FileDesc
 
 const file_gcommon_v1_queue_subscription_configuration_proto_rawDesc = "" +
 	"\n" +
-	"1gcommon/v1/queue/subscription_configuration.proto\x12\x10gcommon.v1.queue\x1a gcommon/v1/queue/ack_level.proto\x1a$gcommon/v1/queue/delivery_mode.proto\x1a!google/protobuf/go_features.proto\"\x81\x04\n" +
-	"\x19SubscriptionConfiguration\x127\n" +
-	"\tack_level\x18\x01 \x01(\x0e2\x1a.gcommon.v1.queue.AckLevelR\backLevel\x12C\n" +
-	"\rdelivery_mode\x18\x02 \x01(\x0e2\x1e.gcommon.v1.queue.DeliveryModeR\fdeliveryMode\x120\n" +
+	"1gcommon/v1/queue/subscription_configuration.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/common/ack_level.proto\x1a%gcommon/v1/common/delivery_mode.proto\x1a!google/protobuf/go_features.proto\"\x83\x04\n" +
+	"\x19SubscriptionConfiguration\x128\n" +
+	"\tack_level\x18\x01 \x01(\x0e2\x1b.gcommon.v1.common.AckLevelR\backLevel\x12D\n" +
+	"\rdelivery_mode\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.DeliveryModeR\fdeliveryMode\x120\n" +
 	"\x14max_unacked_messages\x18\x03 \x01(\x05R\x12maxUnackedMessages\x12$\n" +
 	"\x0eack_timeout_ms\x18\x04 \x01(\x05R\fackTimeoutMs\x12!\n" +
 	"\fmin_priority\x18\x05 \x01(\x05R\vminPriority\x12)\n" +
@@ -401,12 +402,12 @@ const file_gcommon_v1_queue_subscription_configuration_proto_rawDesc = "" +
 var file_gcommon_v1_queue_subscription_configuration_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_subscription_configuration_proto_goTypes = []any{
 	(*SubscriptionConfiguration)(nil), // 0: gcommon.v1.queue.SubscriptionConfiguration
-	(AckLevel)(0),                     // 1: gcommon.v1.queue.AckLevel
-	(DeliveryMode)(0),                 // 2: gcommon.v1.queue.DeliveryMode
+	(common.AckLevel)(0),              // 1: gcommon.v1.common.AckLevel
+	(common.DeliveryMode)(0),          // 2: gcommon.v1.common.DeliveryMode
 }
 var file_gcommon_v1_queue_subscription_configuration_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.SubscriptionConfiguration.ack_level:type_name -> gcommon.v1.queue.AckLevel
-	2, // 1: gcommon.v1.queue.SubscriptionConfiguration.delivery_mode:type_name -> gcommon.v1.queue.DeliveryMode
+	1, // 0: gcommon.v1.queue.SubscriptionConfiguration.ack_level:type_name -> gcommon.v1.common.AckLevel
+	2, // 1: gcommon.v1.queue.SubscriptionConfiguration.delivery_mode:type_name -> gcommon.v1.common.DeliveryMode
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -419,8 +420,6 @@ func file_gcommon_v1_queue_subscription_configuration_proto_init() {
 	if File_gcommon_v1_queue_subscription_configuration_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_ack_level_proto_init()
-	file_gcommon_v1_queue_delivery_mode_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

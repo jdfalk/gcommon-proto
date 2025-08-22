@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,11 +23,11 @@ const (
 )
 
 type InheritanceTransformation struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        TransformationType     `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.TransformationType"`
-	xxx_hidden_Expression  *string                `protobuf:"bytes,2,opt,name=expression"`
-	xxx_hidden_Parameters  map[string]string      `protobuf:"bytes,3,rep,name=parameters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Type        common.TransformationType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.TransformationType"`
+	xxx_hidden_Expression  *string                   `protobuf:"bytes,2,opt,name=expression"`
+	xxx_hidden_Parameters  map[string]string         `protobuf:"bytes,3,rep,name=parameters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Metadata    map[string]string         `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,13 +59,13 @@ func (x *InheritanceTransformation) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *InheritanceTransformation) GetType() TransformationType {
+func (x *InheritanceTransformation) GetType() common.TransformationType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
+	return common.TransformationType(0)
 }
 
 func (x *InheritanceTransformation) GetExpression() string {
@@ -91,7 +92,7 @@ func (x *InheritanceTransformation) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *InheritanceTransformation) SetType(v TransformationType) {
+func (x *InheritanceTransformation) SetType(v common.TransformationType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -125,7 +126,7 @@ func (x *InheritanceTransformation) HasExpression() bool {
 
 func (x *InheritanceTransformation) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.TransformationType_TRANSFORMATION_TYPE_UNSPECIFIED
 }
 
 func (x *InheritanceTransformation) ClearExpression() {
@@ -137,7 +138,7 @@ type InheritanceTransformation_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Transformation type
-	Type *TransformationType
+	Type *common.TransformationType
 	// Transformation expression
 	Expression *string
 	// Transformation parameters
@@ -167,9 +168,9 @@ var File_gcommon_v1_config_inheritance_transformation_proto protoreflect.FileDes
 
 const file_gcommon_v1_config_inheritance_transformation_proto_rawDesc = "" +
 	"\n" +
-	"2gcommon/v1/config/inheritance_transformation.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xa8\x03\n" +
+	"2gcommon/v1/config/inheritance_transformation.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/transformation_type.proto\x1a!google/protobuf/go_features.proto\"\xa8\x03\n" +
 	"\x19InheritanceTransformation\x129\n" +
-	"\x04type\x18\x01 \x01(\x0e2%.gcommon.v1.config.TransformationTypeR\x04type\x12\x1e\n" +
+	"\x04type\x18\x01 \x01(\x0e2%.gcommon.v1.common.TransformationTypeR\x04type\x12\x1e\n" +
 	"\n" +
 	"expression\x18\x02 \x01(\tR\n" +
 	"expression\x12\\\n" +
@@ -189,10 +190,10 @@ var file_gcommon_v1_config_inheritance_transformation_proto_goTypes = []any{
 	(*InheritanceTransformation)(nil), // 0: gcommon.v1.config.InheritanceTransformation
 	nil,                               // 1: gcommon.v1.config.InheritanceTransformation.ParametersEntry
 	nil,                               // 2: gcommon.v1.config.InheritanceTransformation.MetadataEntry
-	(TransformationType)(0),           // 3: gcommon.v1.config.TransformationType
+	(common.TransformationType)(0),    // 3: gcommon.v1.common.TransformationType
 }
 var file_gcommon_v1_config_inheritance_transformation_proto_depIdxs = []int32{
-	3, // 0: gcommon.v1.config.InheritanceTransformation.type:type_name -> gcommon.v1.config.TransformationType
+	3, // 0: gcommon.v1.config.InheritanceTransformation.type:type_name -> gcommon.v1.common.TransformationType
 	1, // 1: gcommon.v1.config.InheritanceTransformation.parameters:type_name -> gcommon.v1.config.InheritanceTransformation.ParametersEntry
 	2, // 2: gcommon.v1.config.InheritanceTransformation.metadata:type_name -> gcommon.v1.config.InheritanceTransformation.MetadataEntry
 	3, // [3:3] is the sub-list for method output_type
@@ -207,7 +208,6 @@ func file_gcommon_v1_config_inheritance_transformation_proto_init() {
 	if File_gcommon_v1_config_inheritance_transformation_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_transformation_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

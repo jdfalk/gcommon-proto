@@ -23,13 +23,11 @@ const (
 )
 
 type ListTenantsResponse struct {
-	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Errors     *[]*common.Error          `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success    bool                      `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Tenants    *[]*Tenant                `protobuf:"bytes,3,rep,name=tenants"`
-	xxx_hidden_Pagination *common.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Errors      *[]*common.Error          `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success     bool                      `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Tenants     *[]*Tenant                `protobuf:"bytes,3,rep,name=tenants"`
+	xxx_hidden_Pagination  *common.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,13 +77,8 @@ func (x *ListTenantsResponse) GetSuccess() bool {
 
 func (x *ListTenantsResponse) GetTenants() []*Tenant {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Tenants) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *[]*Tenant
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Tenants), protoimpl.Pointer(&rv))
-			return *rv
+		if x.xxx_hidden_Tenants != nil {
+			return *x.xxx_hidden_Tenants
 		}
 	}
 	return nil
@@ -108,14 +101,7 @@ func (x *ListTenantsResponse) SetSuccess(v bool) {
 }
 
 func (x *ListTenantsResponse) SetTenants(v []*Tenant) {
-	var sv *[]*Tenant
-	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Tenants), protoimpl.Pointer(&sv))
-	if sv == nil {
-		sv = &[]*Tenant{}
-		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Tenants), protoimpl.Pointer(&sv))
-	}
-	*sv = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+	x.xxx_hidden_Tenants = &v
 }
 
 func (x *ListTenantsResponse) SetPagination(v *common.PaginatedResponse) {
@@ -167,10 +153,7 @@ func (b0 ListTenantsResponse_builder) Build() *ListTenantsResponse {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
 		x.xxx_hidden_Success = *b.Success
 	}
-	if b.Tenants != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Tenants = &b.Tenants
-	}
+	x.xxx_hidden_Tenants = &b.Tenants
 	x.xxx_hidden_Pagination = b.Pagination
 	return m0
 }
@@ -179,11 +162,11 @@ var File_gcommon_v1_organization_list_tenants_response_proto protoreflect.FileDe
 
 const file_gcommon_v1_organization_list_tenants_response_proto_rawDesc = "" +
 	"\n" +
-	"3gcommon/v1/organization/list_tenants_response.proto\x12\x17gcommon.v1.organization\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a$gcommon/v1/organization/tenant.proto\x1a!google/protobuf/go_features.proto\"\xe6\x01\n" +
+	"3gcommon/v1/organization/list_tenants_response.proto\x12\x17gcommon.v1.organization\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a$gcommon/v1/organization/tenant.proto\x1a!google/protobuf/go_features.proto\"\xe2\x01\n" +
 	"\x13ListTenantsResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccess\x12=\n" +
-	"\atenants\x18\x03 \x03(\v2\x1f.gcommon.v1.organization.TenantB\x02(\x01R\atenants\x12D\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x129\n" +
+	"\atenants\x18\x03 \x03(\v2\x1f.gcommon.v1.organization.TenantR\atenants\x12D\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
 	"paginationB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"

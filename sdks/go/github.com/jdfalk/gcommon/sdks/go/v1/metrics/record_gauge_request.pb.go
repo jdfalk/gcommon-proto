@@ -35,7 +35,7 @@ type RecordGaugeRequest struct {
 	xxx_hidden_Unit        *string                 `protobuf:"bytes,5,opt,name=unit"`
 	xxx_hidden_Timestamp   *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=timestamp"`
 	xxx_hidden_Metadata    *common.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
-	xxx_hidden_Operation   GaugeOperation          `protobuf:"varint,8,opt,name=operation,enum=gcommon.v1.metrics.GaugeOperation"`
+	xxx_hidden_Operation   common.GaugeOperation   `protobuf:"varint,8,opt,name=operation,enum=gcommon.v1.common.GaugeOperation"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -125,13 +125,13 @@ func (x *RecordGaugeRequest) GetMetadata() *common.RequestMetadata {
 	return nil
 }
 
-func (x *RecordGaugeRequest) GetOperation() GaugeOperation {
+func (x *RecordGaugeRequest) GetOperation() common.GaugeOperation {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_Operation
 		}
 	}
-	return GaugeOperation_GAUGE_OPERATION_UNSPECIFIED
+	return common.GaugeOperation(0)
 }
 
 func (x *RecordGaugeRequest) SetName(v string) {
@@ -166,7 +166,7 @@ func (x *RecordGaugeRequest) SetMetadata(v *common.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *RecordGaugeRequest) SetOperation(v GaugeOperation) {
+func (x *RecordGaugeRequest) SetOperation(v common.GaugeOperation) {
 	x.xxx_hidden_Operation = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
 }
@@ -250,7 +250,7 @@ func (x *RecordGaugeRequest) ClearMetadata() {
 
 func (x *RecordGaugeRequest) ClearOperation() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Operation = GaugeOperation_GAUGE_OPERATION_UNSPECIFIED
+	x.xxx_hidden_Operation = common.GaugeOperation_GAUGE_OPERATION_UNSPECIFIED
 }
 
 type RecordGaugeRequest_builder struct {
@@ -271,7 +271,7 @@ type RecordGaugeRequest_builder struct {
 	// Request metadata for tracing and debugging
 	Metadata *common.RequestMetadata
 	// Operation type for the gauge
-	Operation *GaugeOperation
+	Operation *common.GaugeOperation
 }
 
 func (b0 RecordGaugeRequest_builder) Build() *RecordGaugeRequest {
@@ -308,7 +308,7 @@ var File_gcommon_v1_metrics_record_gauge_request_proto protoreflect.FileDescript
 
 const file_gcommon_v1_metrics_record_gauge_request_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/metrics/record_gauge_request.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/request_metadata.proto\x1a(gcommon/v1/metrics/gauge_operation.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa9\x03\n" +
+	"-gcommon/v1/metrics/record_gauge_request.proto\x12\x12gcommon.v1.metrics\x1a'gcommon/v1/common/gauge_operation.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x03\n" +
 	"\x12RecordGaugeRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\x01R\x05value\x12J\n" +
@@ -316,8 +316,8 @@ const file_gcommon_v1_metrics_record_gauge_request_proto_rawDesc = "" +
 	"\x04help\x18\x04 \x01(\tR\x04help\x12\x12\n" +
 	"\x04unit\x18\x05 \x01(\tR\x04unit\x128\n" +
 	"\ttimestamp\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12>\n" +
-	"\bmetadata\x18\a \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12@\n" +
-	"\toperation\x18\b \x01(\x0e2\".gcommon.v1.metrics.GaugeOperationR\toperation\x1a9\n" +
+	"\bmetadata\x18\a \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12?\n" +
+	"\toperation\x18\b \x01(\x0e2!.gcommon.v1.common.GaugeOperationR\toperation\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
@@ -328,13 +328,13 @@ var file_gcommon_v1_metrics_record_gauge_request_proto_goTypes = []any{
 	nil,                            // 1: gcommon.v1.metrics.RecordGaugeRequest.LabelsEntry
 	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 	(*common.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
-	(GaugeOperation)(0),            // 4: gcommon.v1.metrics.GaugeOperation
+	(common.GaugeOperation)(0),     // 4: gcommon.v1.common.GaugeOperation
 }
 var file_gcommon_v1_metrics_record_gauge_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordGaugeRequest.labels:type_name -> gcommon.v1.metrics.RecordGaugeRequest.LabelsEntry
 	2, // 1: gcommon.v1.metrics.RecordGaugeRequest.timestamp:type_name -> google.protobuf.Timestamp
 	3, // 2: gcommon.v1.metrics.RecordGaugeRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	4, // 3: gcommon.v1.metrics.RecordGaugeRequest.operation:type_name -> gcommon.v1.metrics.GaugeOperation
+	4, // 3: gcommon.v1.metrics.RecordGaugeRequest.operation:type_name -> gcommon.v1.common.GaugeOperation
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -347,7 +347,6 @@ func file_gcommon_v1_metrics_record_gauge_request_proto_init() {
 	if File_gcommon_v1_metrics_record_gauge_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_gauge_operation_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

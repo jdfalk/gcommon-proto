@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,16 +24,16 @@ const (
 )
 
 type VersionDeploymentInfo struct {
-	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Status      VersionDeploymentStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.config.VersionDeploymentStatus"`
-	xxx_hidden_DeployedAt  *timestamppb.Timestamp  `protobuf:"bytes,2,opt,name=deployed_at,json=deployedAt"`
-	xxx_hidden_Environment *string                 `protobuf:"bytes,3,opt,name=environment"`
-	xxx_hidden_Method      *string                 `protobuf:"bytes,4,opt,name=method"`
-	xxx_hidden_DeployedBy  *string                 `protobuf:"bytes,5,opt,name=deployed_by,json=deployedBy"`
-	xxx_hidden_Config      map[string]string       `protobuf:"bytes,6,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Artifacts   []string                `protobuf:"bytes,7,rep,name=artifacts"`
-	xxx_hidden_Health      VersionHealthStatus     `protobuf:"varint,8,opt,name=health,enum=gcommon.v1.config.VersionHealthStatus"`
-	xxx_hidden_Metrics     map[string]float64      `protobuf:"bytes,9,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
+	state                  protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_Status      common.VersionDeploymentStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.VersionDeploymentStatus"`
+	xxx_hidden_DeployedAt  *timestamppb.Timestamp         `protobuf:"bytes,2,opt,name=deployed_at,json=deployedAt"`
+	xxx_hidden_Environment *string                        `protobuf:"bytes,3,opt,name=environment"`
+	xxx_hidden_Method      *string                        `protobuf:"bytes,4,opt,name=method"`
+	xxx_hidden_DeployedBy  *string                        `protobuf:"bytes,5,opt,name=deployed_by,json=deployedBy"`
+	xxx_hidden_Config      map[string]string              `protobuf:"bytes,6,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Artifacts   []string                       `protobuf:"bytes,7,rep,name=artifacts"`
+	xxx_hidden_Health      common.VersionHealthStatus     `protobuf:"varint,8,opt,name=health,enum=gcommon.v1.common.VersionHealthStatus"`
+	xxx_hidden_Metrics     map[string]float64             `protobuf:"bytes,9,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -64,13 +65,13 @@ func (x *VersionDeploymentInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *VersionDeploymentInfo) GetStatus() VersionDeploymentStatus {
+func (x *VersionDeploymentInfo) GetStatus() common.VersionDeploymentStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
+	return common.VersionDeploymentStatus(0)
 }
 
 func (x *VersionDeploymentInfo) GetDeployedAt() *timestamppb.Timestamp {
@@ -124,13 +125,13 @@ func (x *VersionDeploymentInfo) GetArtifacts() []string {
 	return nil
 }
 
-func (x *VersionDeploymentInfo) GetHealth() VersionHealthStatus {
+func (x *VersionDeploymentInfo) GetHealth() common.VersionHealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_Health
 		}
 	}
-	return VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
+	return common.VersionHealthStatus(0)
 }
 
 func (x *VersionDeploymentInfo) GetMetrics() map[string]float64 {
@@ -140,7 +141,7 @@ func (x *VersionDeploymentInfo) GetMetrics() map[string]float64 {
 	return nil
 }
 
-func (x *VersionDeploymentInfo) SetStatus(v VersionDeploymentStatus) {
+func (x *VersionDeploymentInfo) SetStatus(v common.VersionDeploymentStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
@@ -172,7 +173,7 @@ func (x *VersionDeploymentInfo) SetArtifacts(v []string) {
 	x.xxx_hidden_Artifacts = v
 }
 
-func (x *VersionDeploymentInfo) SetHealth(v VersionHealthStatus) {
+func (x *VersionDeploymentInfo) SetHealth(v common.VersionHealthStatus) {
 	x.xxx_hidden_Health = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 9)
 }
@@ -225,7 +226,7 @@ func (x *VersionDeploymentInfo) HasHealth() bool {
 
 func (x *VersionDeploymentInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.VersionDeploymentStatus_VERSION_DEPLOYMENT_STATUS_UNSPECIFIED
 }
 
 func (x *VersionDeploymentInfo) ClearDeployedAt() {
@@ -249,14 +250,14 @@ func (x *VersionDeploymentInfo) ClearDeployedBy() {
 
 func (x *VersionDeploymentInfo) ClearHealth() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Health = VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Health = common.VersionHealthStatus_VERSION_HEALTH_STATUS_UNSPECIFIED
 }
 
 type VersionDeploymentInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Deployment status
-	Status *VersionDeploymentStatus
+	Status *common.VersionDeploymentStatus
 	// Deployment timestamp
 	DeployedAt *timestamppb.Timestamp
 	// Deployment environment
@@ -270,7 +271,7 @@ type VersionDeploymentInfo_builder struct {
 	// Deployment artifacts
 	Artifacts []string
 	// Deployment health
-	Health *VersionHealthStatus
+	Health *common.VersionHealthStatus
 	// Deployment metrics
 	Metrics map[string]float64
 }
@@ -310,9 +311,9 @@ var File_gcommon_v1_config_version_deployment_info_proto protoreflect.FileDescri
 
 const file_gcommon_v1_config_version_deployment_info_proto_rawDesc = "" +
 	"\n" +
-	"/gcommon/v1/config/version_deployment_info.proto\x12\x11gcommon.v1.config\x1a1gcommon/v1/config/version_deployment_status.proto\x1a-gcommon/v1/config/version_health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe7\x04\n" +
+	"/gcommon/v1/config/version_deployment_info.proto\x12\x11gcommon.v1.config\x1a1gcommon/v1/common/version_deployment_status.proto\x1a-gcommon/v1/common/version_health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe7\x04\n" +
 	"\x15VersionDeploymentInfo\x12B\n" +
-	"\x06status\x18\x01 \x01(\x0e2*.gcommon.v1.config.VersionDeploymentStatusR\x06status\x12;\n" +
+	"\x06status\x18\x01 \x01(\x0e2*.gcommon.v1.common.VersionDeploymentStatusR\x06status\x12;\n" +
 	"\vdeployed_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"deployedAt\x12 \n" +
 	"\venvironment\x18\x03 \x01(\tR\venvironment\x12\x16\n" +
@@ -321,7 +322,7 @@ const file_gcommon_v1_config_version_deployment_info_proto_rawDesc = "" +
 	"deployedBy\x12L\n" +
 	"\x06config\x18\x06 \x03(\v24.gcommon.v1.config.VersionDeploymentInfo.ConfigEntryR\x06config\x12\x1c\n" +
 	"\tartifacts\x18\a \x03(\tR\tartifacts\x12>\n" +
-	"\x06health\x18\b \x01(\x0e2&.gcommon.v1.config.VersionHealthStatusR\x06health\x12O\n" +
+	"\x06health\x18\b \x01(\x0e2&.gcommon.v1.common.VersionHealthStatusR\x06health\x12O\n" +
 	"\ametrics\x18\t \x03(\v25.gcommon.v1.config.VersionDeploymentInfo.MetricsEntryR\ametrics\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -332,18 +333,18 @@ const file_gcommon_v1_config_version_deployment_info_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_version_deployment_info_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_config_version_deployment_info_proto_goTypes = []any{
-	(*VersionDeploymentInfo)(nil), // 0: gcommon.v1.config.VersionDeploymentInfo
-	nil,                           // 1: gcommon.v1.config.VersionDeploymentInfo.ConfigEntry
-	nil,                           // 2: gcommon.v1.config.VersionDeploymentInfo.MetricsEntry
-	(VersionDeploymentStatus)(0),  // 3: gcommon.v1.config.VersionDeploymentStatus
-	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
-	(VersionHealthStatus)(0),      // 5: gcommon.v1.config.VersionHealthStatus
+	(*VersionDeploymentInfo)(nil),       // 0: gcommon.v1.config.VersionDeploymentInfo
+	nil,                                 // 1: gcommon.v1.config.VersionDeploymentInfo.ConfigEntry
+	nil,                                 // 2: gcommon.v1.config.VersionDeploymentInfo.MetricsEntry
+	(common.VersionDeploymentStatus)(0), // 3: gcommon.v1.common.VersionDeploymentStatus
+	(*timestamppb.Timestamp)(nil),       // 4: google.protobuf.Timestamp
+	(common.VersionHealthStatus)(0),     // 5: gcommon.v1.common.VersionHealthStatus
 }
 var file_gcommon_v1_config_version_deployment_info_proto_depIdxs = []int32{
-	3, // 0: gcommon.v1.config.VersionDeploymentInfo.status:type_name -> gcommon.v1.config.VersionDeploymentStatus
+	3, // 0: gcommon.v1.config.VersionDeploymentInfo.status:type_name -> gcommon.v1.common.VersionDeploymentStatus
 	4, // 1: gcommon.v1.config.VersionDeploymentInfo.deployed_at:type_name -> google.protobuf.Timestamp
 	1, // 2: gcommon.v1.config.VersionDeploymentInfo.config:type_name -> gcommon.v1.config.VersionDeploymentInfo.ConfigEntry
-	5, // 3: gcommon.v1.config.VersionDeploymentInfo.health:type_name -> gcommon.v1.config.VersionHealthStatus
+	5, // 3: gcommon.v1.config.VersionDeploymentInfo.health:type_name -> gcommon.v1.common.VersionHealthStatus
 	2, // 4: gcommon.v1.config.VersionDeploymentInfo.metrics:type_name -> gcommon.v1.config.VersionDeploymentInfo.MetricsEntry
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
@@ -357,8 +358,6 @@ func file_gcommon_v1_config_version_deployment_info_proto_init() {
 	if File_gcommon_v1_config_version_deployment_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_version_deployment_status_proto_init()
-	file_gcommon_v1_config_version_health_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

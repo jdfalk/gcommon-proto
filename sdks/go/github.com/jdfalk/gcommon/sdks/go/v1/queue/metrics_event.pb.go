@@ -7,7 +7,7 @@
 package queue
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +24,12 @@ const (
 )
 
 type MetricsEvent struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp    `protobuf:"bytes,1,opt,name=timestamp"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
-	xxx_hidden_MetricType  metrics.MetricsMetricType `protobuf:"varint,3,opt,name=metric_type,json=metricType,enum=gcommon.v1.metrics.MetricsMetricType"`
-	xxx_hidden_Value       float64                   `protobuf:"fixed64,4,opt,name=value"`
-	xxx_hidden_Labels      map[string]string         `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp   `protobuf:"bytes,1,opt,name=timestamp"`
+	xxx_hidden_QueueName   *string                  `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
+	xxx_hidden_MetricType  common.MetricsMetricType `protobuf:"varint,3,opt,name=metric_type,json=metricType,enum=gcommon.v1.common.MetricsMetricType"`
+	xxx_hidden_Value       float64                  `protobuf:"fixed64,4,opt,name=value"`
+	xxx_hidden_Labels      map[string]string        `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -78,13 +78,13 @@ func (x *MetricsEvent) GetQueueName() string {
 	return ""
 }
 
-func (x *MetricsEvent) GetMetricType() metrics.MetricsMetricType {
+func (x *MetricsEvent) GetMetricType() common.MetricsMetricType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_MetricType
 		}
 	}
-	return metrics.MetricsMetricType(0)
+	return common.MetricsMetricType(0)
 }
 
 func (x *MetricsEvent) GetValue() float64 {
@@ -110,7 +110,7 @@ func (x *MetricsEvent) SetQueueName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *MetricsEvent) SetMetricType(v metrics.MetricsMetricType) {
+func (x *MetricsEvent) SetMetricType(v common.MetricsMetricType) {
 	x.xxx_hidden_MetricType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
@@ -163,7 +163,7 @@ func (x *MetricsEvent) ClearQueueName() {
 
 func (x *MetricsEvent) ClearMetricType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_MetricType = metrics.MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	x.xxx_hidden_MetricType = common.MetricsMetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricsEvent) ClearValue() {
@@ -179,7 +179,7 @@ type MetricsEvent_builder struct {
 	// Queue name
 	QueueName *string
 	// Type of metric
-	MetricType *metrics.MetricsMetricType
+	MetricType *common.MetricsMetricType
 	// Metric value
 	Value *float64
 	// Additional metadata
@@ -211,12 +211,12 @@ var File_gcommon_v1_queue_metrics_event_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_metrics_event_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/queue/metrics_event.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/metrics/metric_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x02\n" +
+	"$gcommon/v1/queue/metrics_event.proto\x12\x10gcommon.v1.queue\x1a#gcommon/v1/common/metric_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x02\n" +
 	"\fMetricsEvent\x128\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1d\n" +
 	"\n" +
-	"queue_name\x18\x02 \x01(\tR\tqueueName\x12F\n" +
-	"\vmetric_type\x18\x03 \x01(\x0e2%.gcommon.v1.metrics.MetricsMetricTypeR\n" +
+	"queue_name\x18\x02 \x01(\tR\tqueueName\x12E\n" +
+	"\vmetric_type\x18\x03 \x01(\x0e2$.gcommon.v1.common.MetricsMetricTypeR\n" +
 	"metricType\x12\x14\n" +
 	"\x05value\x18\x04 \x01(\x01R\x05value\x12B\n" +
 	"\x06labels\x18\x05 \x03(\v2*.gcommon.v1.queue.MetricsEvent.LabelsEntryR\x06labels\x1a9\n" +
@@ -226,14 +226,14 @@ const file_gcommon_v1_queue_metrics_event_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_metrics_event_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_metrics_event_proto_goTypes = []any{
-	(*MetricsEvent)(nil),           // 0: gcommon.v1.queue.MetricsEvent
-	nil,                            // 1: gcommon.v1.queue.MetricsEvent.LabelsEntry
-	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
-	(metrics.MetricsMetricType)(0), // 3: gcommon.v1.metrics.MetricsMetricType
+	(*MetricsEvent)(nil),          // 0: gcommon.v1.queue.MetricsEvent
+	nil,                           // 1: gcommon.v1.queue.MetricsEvent.LabelsEntry
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(common.MetricsMetricType)(0), // 3: gcommon.v1.common.MetricsMetricType
 }
 var file_gcommon_v1_queue_metrics_event_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.MetricsEvent.timestamp:type_name -> google.protobuf.Timestamp
-	3, // 1: gcommon.v1.queue.MetricsEvent.metric_type:type_name -> gcommon.v1.metrics.MetricsMetricType
+	3, // 1: gcommon.v1.queue.MetricsEvent.metric_type:type_name -> gcommon.v1.common.MetricsMetricType
 	1, // 2: gcommon.v1.queue.MetricsEvent.labels:type_name -> gcommon.v1.queue.MetricsEvent.LabelsEntry
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type

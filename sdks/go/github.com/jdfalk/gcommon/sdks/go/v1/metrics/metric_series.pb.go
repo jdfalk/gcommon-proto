@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,12 +23,12 @@ const (
 )
 
 type MetricSeries struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type        MetricsMetricType      `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricsMetricType"`
-	xxx_hidden_Labels      map[string]string      `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Values      *[]*MetricValue        `protobuf:"bytes,4,rep,name=values"`
-	xxx_hidden_StepSeconds int64                  `protobuf:"varint,5,opt,name=step_seconds,json=stepSeconds"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                  `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type        common.MetricsMetricType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.MetricsMetricType"`
+	xxx_hidden_Labels      map[string]string        `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Values      *[]*MetricValue          `protobuf:"bytes,4,rep,name=values"`
+	xxx_hidden_StepSeconds int64                    `protobuf:"varint,5,opt,name=step_seconds,json=stepSeconds"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -69,13 +70,13 @@ func (x *MetricSeries) GetName() string {
 	return ""
 }
 
-func (x *MetricSeries) GetType() MetricsMetricType {
+func (x *MetricSeries) GetType() common.MetricsMetricType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	return common.MetricsMetricType(0)
 }
 
 func (x *MetricSeries) GetLabels() map[string]string {
@@ -106,7 +107,7 @@ func (x *MetricSeries) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *MetricSeries) SetType(v MetricsMetricType) {
+func (x *MetricSeries) SetType(v common.MetricsMetricType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -152,7 +153,7 @@ func (x *MetricSeries) ClearName() {
 
 func (x *MetricSeries) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MetricsMetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricSeries) ClearStepSeconds() {
@@ -165,7 +166,7 @@ type MetricSeries_builder struct {
 
 	// Metric metadata
 	Name   *string
-	Type   *MetricsMetricType
+	Type   *common.MetricsMetricType
 	Labels map[string]string
 	// Time-ordered series of values
 	Values []*MetricValue
@@ -198,10 +199,10 @@ var File_gcommon_v1_metrics_metric_series_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_metric_series_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/metrics/metric_series.proto\x12\x12gcommon.v1.metrics\x1a$gcommon/v1/metrics/metric_type.proto\x1a%gcommon/v1/metrics/metric_value.proto\x1a!google/protobuf/go_features.proto\"\xba\x02\n" +
+	"&gcommon/v1/metrics/metric_series.proto\x12\x12gcommon.v1.metrics\x1a#gcommon/v1/common/metric_type.proto\x1a%gcommon/v1/metrics/metric_value.proto\x1a!google/protobuf/go_features.proto\"\xb9\x02\n" +
 	"\fMetricSeries\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x129\n" +
-	"\x04type\x18\x02 \x01(\x0e2%.gcommon.v1.metrics.MetricsMetricTypeR\x04type\x12D\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x128\n" +
+	"\x04type\x18\x02 \x01(\x0e2$.gcommon.v1.common.MetricsMetricTypeR\x04type\x12D\n" +
 	"\x06labels\x18\x03 \x03(\v2,.gcommon.v1.metrics.MetricSeries.LabelsEntryR\x06labels\x127\n" +
 	"\x06values\x18\x04 \x03(\v2\x1f.gcommon.v1.metrics.MetricValueR\x06values\x12!\n" +
 	"\fstep_seconds\x18\x05 \x01(\x03R\vstepSeconds\x1a9\n" +
@@ -211,13 +212,13 @@ const file_gcommon_v1_metrics_metric_series_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_metric_series_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_metrics_metric_series_proto_goTypes = []any{
-	(*MetricSeries)(nil),   // 0: gcommon.v1.metrics.MetricSeries
-	nil,                    // 1: gcommon.v1.metrics.MetricSeries.LabelsEntry
-	(MetricsMetricType)(0), // 2: gcommon.v1.metrics.MetricsMetricType
-	(*MetricValue)(nil),    // 3: gcommon.v1.metrics.MetricValue
+	(*MetricSeries)(nil),          // 0: gcommon.v1.metrics.MetricSeries
+	nil,                           // 1: gcommon.v1.metrics.MetricSeries.LabelsEntry
+	(common.MetricsMetricType)(0), // 2: gcommon.v1.common.MetricsMetricType
+	(*MetricValue)(nil),           // 3: gcommon.v1.metrics.MetricValue
 }
 var file_gcommon_v1_metrics_metric_series_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.metrics.MetricSeries.type:type_name -> gcommon.v1.metrics.MetricsMetricType
+	2, // 0: gcommon.v1.metrics.MetricSeries.type:type_name -> gcommon.v1.common.MetricsMetricType
 	1, // 1: gcommon.v1.metrics.MetricSeries.labels:type_name -> gcommon.v1.metrics.MetricSeries.LabelsEntry
 	3, // 2: gcommon.v1.metrics.MetricSeries.values:type_name -> gcommon.v1.metrics.MetricValue
 	3, // [3:3] is the sub-list for method output_type
@@ -232,7 +233,6 @@ func file_gcommon_v1_metrics_metric_series_proto_init() {
 	if File_gcommon_v1_metrics_metric_series_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_metric_type_proto_init()
 	file_gcommon_v1_metrics_metric_value_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

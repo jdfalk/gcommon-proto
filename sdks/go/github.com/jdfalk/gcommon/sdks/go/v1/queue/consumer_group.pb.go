@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,19 +24,19 @@ const (
 )
 
 type ConsumerGroup struct {
-	state                           protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_GroupId              *string                 `protobuf:"bytes,1,opt,name=group_id,json=groupId"`
-	xxx_hidden_GroupName            *string                 `protobuf:"bytes,2,opt,name=group_name,json=groupName"`
-	xxx_hidden_Topic                *string                 `protobuf:"bytes,3,opt,name=topic"`
-	xxx_hidden_Config               *ConsumerGroupConfig    `protobuf:"bytes,4,opt,name=config"`
-	xxx_hidden_State                ConsumerGroupState      `protobuf:"varint,5,opt,name=state,enum=gcommon.v1.queue.ConsumerGroupState"`
-	xxx_hidden_Consumers            *[]*Consumer            `protobuf:"bytes,6,rep,name=consumers"`
-	xxx_hidden_PartitionAssignments *[]*PartitionAssignment `protobuf:"bytes,7,rep,name=partition_assignments,json=partitionAssignments"`
-	xxx_hidden_Coordinator          *GroupCoordinator       `protobuf:"bytes,8,opt,name=coordinator"`
-	xxx_hidden_Stats                *ConsumerGroupStats     `protobuf:"bytes,9,opt,name=stats"`
-	xxx_hidden_Metadata             map[string]string       `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_CreatedAt            *timestamppb.Timestamp  `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt            *timestamppb.Timestamp  `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
+	state                           protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_GroupId              *string                   `protobuf:"bytes,1,opt,name=group_id,json=groupId"`
+	xxx_hidden_GroupName            *string                   `protobuf:"bytes,2,opt,name=group_name,json=groupName"`
+	xxx_hidden_Topic                *string                   `protobuf:"bytes,3,opt,name=topic"`
+	xxx_hidden_Config               *ConsumerGroupConfig      `protobuf:"bytes,4,opt,name=config"`
+	xxx_hidden_State                common.ConsumerGroupState `protobuf:"varint,5,opt,name=state,enum=gcommon.v1.common.ConsumerGroupState"`
+	xxx_hidden_Consumers            *[]*Consumer              `protobuf:"bytes,6,rep,name=consumers"`
+	xxx_hidden_PartitionAssignments *[]*PartitionAssignment   `protobuf:"bytes,7,rep,name=partition_assignments,json=partitionAssignments"`
+	xxx_hidden_Coordinator          *GroupCoordinator         `protobuf:"bytes,8,opt,name=coordinator"`
+	xxx_hidden_Stats                *ConsumerGroupStats       `protobuf:"bytes,9,opt,name=stats"`
+	xxx_hidden_Metadata             map[string]string         `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_CreatedAt            *timestamppb.Timestamp    `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt            *timestamppb.Timestamp    `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -104,13 +105,13 @@ func (x *ConsumerGroup) GetConfig() *ConsumerGroupConfig {
 	return nil
 }
 
-func (x *ConsumerGroup) GetState() ConsumerGroupState {
+func (x *ConsumerGroup) GetState() common.ConsumerGroupState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_State
 		}
 	}
-	return ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
+	return common.ConsumerGroupState(0)
 }
 
 func (x *ConsumerGroup) GetConsumers() []*Consumer {
@@ -185,7 +186,7 @@ func (x *ConsumerGroup) SetConfig(v *ConsumerGroupConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *ConsumerGroup) SetState(v ConsumerGroupState) {
+func (x *ConsumerGroup) SetState(v common.ConsumerGroupState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 12)
 }
@@ -302,7 +303,7 @@ func (x *ConsumerGroup) ClearConfig() {
 
 func (x *ConsumerGroup) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_State = ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
+	x.xxx_hidden_State = common.ConsumerGroupState_CONSUMER_GROUP_STATE_UNSPECIFIED
 }
 
 func (x *ConsumerGroup) ClearCoordinator() {
@@ -333,7 +334,7 @@ type ConsumerGroup_builder struct {
 	// Consumer group configuration
 	Config *ConsumerGroupConfig
 	// Current group state
-	State *ConsumerGroupState
+	State *common.ConsumerGroupState
 	// List of active consumers in the group
 	Consumers []*Consumer
 	// Partition assignments
@@ -385,14 +386,14 @@ var File_gcommon_v1_queue_consumer_group_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_consumer_group_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/queue/consumer_group.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/queue/consumer_group_state.proto\x1a\x1fgcommon/v1/queue/consumer.proto\x1a,gcommon/v1/queue/consumer_group_config.proto\x1a+gcommon/v1/queue/consumer_group_stats.proto\x1a(gcommon/v1/queue/group_coordinator.proto\x1a+gcommon/v1/queue/partition_assignment.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf0\x05\n" +
+	"%gcommon/v1/queue/consumer_group.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/common/consumer_group_state.proto\x1a\x1fgcommon/v1/queue/consumer.proto\x1a,gcommon/v1/queue/consumer_group_config.proto\x1a+gcommon/v1/queue/consumer_group_stats.proto\x1a(gcommon/v1/queue/group_coordinator.proto\x1a+gcommon/v1/queue/partition_assignment.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf1\x05\n" +
 	"\rConsumerGroup\x12\x19\n" +
 	"\bgroup_id\x18\x01 \x01(\tR\agroupId\x12\x1d\n" +
 	"\n" +
 	"group_name\x18\x02 \x01(\tR\tgroupName\x12\x14\n" +
 	"\x05topic\x18\x03 \x01(\tR\x05topic\x12=\n" +
-	"\x06config\x18\x04 \x01(\v2%.gcommon.v1.queue.ConsumerGroupConfigR\x06config\x12:\n" +
-	"\x05state\x18\x05 \x01(\x0e2$.gcommon.v1.queue.ConsumerGroupStateR\x05state\x128\n" +
+	"\x06config\x18\x04 \x01(\v2%.gcommon.v1.queue.ConsumerGroupConfigR\x06config\x12;\n" +
+	"\x05state\x18\x05 \x01(\x0e2%.gcommon.v1.common.ConsumerGroupStateR\x05state\x128\n" +
 	"\tconsumers\x18\x06 \x03(\v2\x1a.gcommon.v1.queue.ConsumerR\tconsumers\x12Z\n" +
 	"\x15partition_assignments\x18\a \x03(\v2%.gcommon.v1.queue.PartitionAssignmentR\x14partitionAssignments\x12D\n" +
 	"\vcoordinator\x18\b \x01(\v2\".gcommon.v1.queue.GroupCoordinatorR\vcoordinator\x12:\n" +
@@ -409,19 +410,19 @@ const file_gcommon_v1_queue_consumer_group_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_consumer_group_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_consumer_group_proto_goTypes = []any{
-	(*ConsumerGroup)(nil),         // 0: gcommon.v1.queue.ConsumerGroup
-	nil,                           // 1: gcommon.v1.queue.ConsumerGroup.MetadataEntry
-	(*ConsumerGroupConfig)(nil),   // 2: gcommon.v1.queue.ConsumerGroupConfig
-	(ConsumerGroupState)(0),       // 3: gcommon.v1.queue.ConsumerGroupState
-	(*Consumer)(nil),              // 4: gcommon.v1.queue.Consumer
-	(*PartitionAssignment)(nil),   // 5: gcommon.v1.queue.PartitionAssignment
-	(*GroupCoordinator)(nil),      // 6: gcommon.v1.queue.GroupCoordinator
-	(*ConsumerGroupStats)(nil),    // 7: gcommon.v1.queue.ConsumerGroupStats
-	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
+	(*ConsumerGroup)(nil),          // 0: gcommon.v1.queue.ConsumerGroup
+	nil,                            // 1: gcommon.v1.queue.ConsumerGroup.MetadataEntry
+	(*ConsumerGroupConfig)(nil),    // 2: gcommon.v1.queue.ConsumerGroupConfig
+	(common.ConsumerGroupState)(0), // 3: gcommon.v1.common.ConsumerGroupState
+	(*Consumer)(nil),               // 4: gcommon.v1.queue.Consumer
+	(*PartitionAssignment)(nil),    // 5: gcommon.v1.queue.PartitionAssignment
+	(*GroupCoordinator)(nil),       // 6: gcommon.v1.queue.GroupCoordinator
+	(*ConsumerGroupStats)(nil),     // 7: gcommon.v1.queue.ConsumerGroupStats
+	(*timestamppb.Timestamp)(nil),  // 8: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_consumer_group_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.ConsumerGroup.config:type_name -> gcommon.v1.queue.ConsumerGroupConfig
-	3, // 1: gcommon.v1.queue.ConsumerGroup.state:type_name -> gcommon.v1.queue.ConsumerGroupState
+	3, // 1: gcommon.v1.queue.ConsumerGroup.state:type_name -> gcommon.v1.common.ConsumerGroupState
 	4, // 2: gcommon.v1.queue.ConsumerGroup.consumers:type_name -> gcommon.v1.queue.Consumer
 	5, // 3: gcommon.v1.queue.ConsumerGroup.partition_assignments:type_name -> gcommon.v1.queue.PartitionAssignment
 	6, // 4: gcommon.v1.queue.ConsumerGroup.coordinator:type_name -> gcommon.v1.queue.GroupCoordinator
@@ -441,7 +442,6 @@ func file_gcommon_v1_queue_consumer_group_proto_init() {
 	if File_gcommon_v1_queue_consumer_group_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_consumer_group_state_proto_init()
 	file_gcommon_v1_queue_consumer_proto_init()
 	file_gcommon_v1_queue_consumer_group_config_proto_init()
 	file_gcommon_v1_queue_consumer_group_stats_proto_init()

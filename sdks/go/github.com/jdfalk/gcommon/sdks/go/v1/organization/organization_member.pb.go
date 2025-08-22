@@ -33,8 +33,8 @@ type OrganizationMember struct {
 	xxx_hidden_UserId          *string                `protobuf:"bytes,3,opt,name=user_id,json=userId"`
 	xxx_hidden_Email           *string                `protobuf:"bytes,4,opt,name=email"`
 	xxx_hidden_DisplayName     *string                `protobuf:"bytes,5,opt,name=display_name,json=displayName"`
-	xxx_hidden_Role            MemberRole             `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.organization.MemberRole"`
-	xxx_hidden_AdditionalRoles []MemberRole           `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.organization.MemberRole"`
+	xxx_hidden_Role            common.MemberRole      `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.common.MemberRole"`
+	xxx_hidden_AdditionalRoles []common.MemberRole    `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.common.MemberRole"`
 	xxx_hidden_Permissions     []string               `protobuf:"bytes,8,rep,name=permissions"`
 	xxx_hidden_DepartmentIds   []string               `protobuf:"bytes,9,rep,name=department_ids,json=departmentIds"`
 	xxx_hidden_TeamIds         []string               `protobuf:"bytes,10,rep,name=team_ids,json=teamIds"`
@@ -135,16 +135,16 @@ func (x *OrganizationMember) GetDisplayName() string {
 	return ""
 }
 
-func (x *OrganizationMember) GetRole() MemberRole {
+func (x *OrganizationMember) GetRole() common.MemberRole {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Role
 		}
 	}
-	return MemberRole_MEMBER_ROLE_UNSPECIFIED
+	return common.MemberRole(0)
 }
 
-func (x *OrganizationMember) GetAdditionalRoles() []MemberRole {
+func (x *OrganizationMember) GetAdditionalRoles() []common.MemberRole {
 	if x != nil {
 		return x.xxx_hidden_AdditionalRoles
 	}
@@ -344,12 +344,12 @@ func (x *OrganizationMember) SetDisplayName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 24)
 }
 
-func (x *OrganizationMember) SetRole(v MemberRole) {
+func (x *OrganizationMember) SetRole(v common.MemberRole) {
 	x.xxx_hidden_Role = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 24)
 }
 
-func (x *OrganizationMember) SetAdditionalRoles(v []MemberRole) {
+func (x *OrganizationMember) SetAdditionalRoles(v []common.MemberRole) {
 	x.xxx_hidden_AdditionalRoles = v
 }
 
@@ -597,7 +597,7 @@ func (x *OrganizationMember) ClearDisplayName() {
 
 func (x *OrganizationMember) ClearRole() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Role = MemberRole_MEMBER_ROLE_UNSPECIFIED
+	x.xxx_hidden_Role = common.MemberRole_MEMBER_ROLE_UNSPECIFIED
 }
 
 func (x *OrganizationMember) ClearCreatedAt() {
@@ -669,9 +669,9 @@ type OrganizationMember_builder struct {
 	// User's display name (cached for quick access)
 	DisplayName *string
 	// Primary role of the user in this organization
-	Role *MemberRole
+	Role *common.MemberRole
 	// Additional roles the user may have
-	AdditionalRoles []MemberRole
+	AdditionalRoles []common.MemberRole
 	// Specific permissions granted to this member
 	Permissions []string
 	// Department IDs this member belongs to
@@ -797,15 +797,15 @@ var File_gcommon_v1_organization_organization_member_proto protoreflect.FileDesc
 
 const file_gcommon_v1_organization_organization_member_proto_rawDesc = "" +
 	"\n" +
-	"1gcommon/v1/organization/organization_member.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a)gcommon/v1/organization/member_role.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\a\n" +
+	"1gcommon/v1/organization/organization_member.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a#gcommon/v1/common/member_role.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaf\a\n" +
 	"\x12OrganizationMember\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x17\n" +
 	"\auser_id\x18\x03 \x01(\tR\x06userId\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12!\n" +
-	"\fdisplay_name\x18\x05 \x01(\tR\vdisplayName\x127\n" +
-	"\x04role\x18\x06 \x01(\x0e2#.gcommon.v1.organization.MemberRoleR\x04role\x12N\n" +
-	"\x10additional_roles\x18\a \x03(\x0e2#.gcommon.v1.organization.MemberRoleR\x0fadditionalRoles\x12 \n" +
+	"\fdisplay_name\x18\x05 \x01(\tR\vdisplayName\x121\n" +
+	"\x04role\x18\x06 \x01(\x0e2\x1d.gcommon.v1.common.MemberRoleR\x04role\x12H\n" +
+	"\x10additional_roles\x18\a \x03(\x0e2\x1d.gcommon.v1.common.MemberRoleR\x0fadditionalRoles\x12 \n" +
 	"\vpermissions\x18\b \x03(\tR\vpermissions\x12%\n" +
 	"\x0edepartment_ids\x18\t \x03(\tR\rdepartmentIds\x12\x19\n" +
 	"\bteam_ids\x18\n" +
@@ -835,13 +835,13 @@ const file_gcommon_v1_organization_organization_member_proto_rawDesc = "" +
 var file_gcommon_v1_organization_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
-	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
+	(common.MemberRole)(0),        // 1: gcommon.v1.common.MemberRole
 	(*common.KeyValue)(nil),       // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_organization_member_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.organization.OrganizationMember.role:type_name -> gcommon.v1.organization.MemberRole
-	1, // 1: gcommon.v1.organization.OrganizationMember.additional_roles:type_name -> gcommon.v1.organization.MemberRole
+	1, // 0: gcommon.v1.organization.OrganizationMember.role:type_name -> gcommon.v1.common.MemberRole
+	1, // 1: gcommon.v1.organization.OrganizationMember.additional_roles:type_name -> gcommon.v1.common.MemberRole
 	2, // 2: gcommon.v1.organization.OrganizationMember.metadata:type_name -> gcommon.v1.common.KeyValue
 	3, // 3: gcommon.v1.organization.OrganizationMember.created_at:type_name -> google.protobuf.Timestamp
 	3, // 4: gcommon.v1.organization.OrganizationMember.updated_at:type_name -> google.protobuf.Timestamp
@@ -858,7 +858,6 @@ func file_gcommon_v1_organization_organization_member_proto_init() {
 	if File_gcommon_v1_organization_organization_member_proto != nil {
 		return
 	}
-	file_gcommon_v1_organization_member_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

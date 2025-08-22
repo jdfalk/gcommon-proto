@@ -24,20 +24,20 @@ const (
 )
 
 type TenantIsolation struct {
-	state                    protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_TenantId      *string                       `protobuf:"bytes,1,opt,name=tenant_id,json=tenantId"`
-	xxx_hidden_Level         OrganizationIsolationLevel    `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.organization.OrganizationIsolationLevel"`
-	xxx_hidden_Database      *DatabaseIsolation            `protobuf:"bytes,3,opt,name=database"`
-	xxx_hidden_Network       *NetworkIsolation             `protobuf:"bytes,4,opt,name=network"`
-	xxx_hidden_Storage       *StorageIsolation             `protobuf:"bytes,5,opt,name=storage"`
-	xxx_hidden_Compute       *ComputeIsolation             `protobuf:"bytes,6,opt,name=compute"`
-	xxx_hidden_Encryption    *OrganizationEncryptionConfig `protobuf:"bytes,7,opt,name=encryption"`
-	xxx_hidden_AccessControl *OrganizationAccessControl    `protobuf:"bytes,8,opt,name=access_control,json=accessControl"`
-	xxx_hidden_Audit         *AuditConfig                  `protobuf:"bytes,9,opt,name=audit"`
-	xxx_hidden_Metadata      *[]*common.KeyValue           `protobuf:"bytes,10,rep,name=metadata"`
-	xxx_hidden_CreatedAt     *timestamppb.Timestamp        `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt     *timestamppb.Timestamp        `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_ConfiguredBy  *string                       `protobuf:"bytes,13,opt,name=configured_by,json=configuredBy"`
+	state                    protoimpl.MessageState            `protogen:"opaque.v1"`
+	xxx_hidden_TenantId      *string                           `protobuf:"bytes,1,opt,name=tenant_id,json=tenantId"`
+	xxx_hidden_Level         common.OrganizationIsolationLevel `protobuf:"varint,2,opt,name=level,enum=gcommon.v1.common.OrganizationIsolationLevel"`
+	xxx_hidden_Database      *DatabaseIsolation                `protobuf:"bytes,3,opt,name=database"`
+	xxx_hidden_Network       *NetworkIsolation                 `protobuf:"bytes,4,opt,name=network"`
+	xxx_hidden_Storage       *StorageIsolation                 `protobuf:"bytes,5,opt,name=storage"`
+	xxx_hidden_Compute       *ComputeIsolation                 `protobuf:"bytes,6,opt,name=compute"`
+	xxx_hidden_Encryption    *OrganizationEncryptionConfig     `protobuf:"bytes,7,opt,name=encryption"`
+	xxx_hidden_AccessControl *OrganizationAccessControl        `protobuf:"bytes,8,opt,name=access_control,json=accessControl"`
+	xxx_hidden_Audit         *AuditConfig                      `protobuf:"bytes,9,opt,name=audit"`
+	xxx_hidden_Metadata      *[]*common.KeyValue               `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_CreatedAt     *timestamppb.Timestamp            `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt     *timestamppb.Timestamp            `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_ConfiguredBy  *string                           `protobuf:"bytes,13,opt,name=configured_by,json=configuredBy"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -81,13 +81,13 @@ func (x *TenantIsolation) GetTenantId() string {
 	return ""
 }
 
-func (x *TenantIsolation) GetLevel() OrganizationIsolationLevel {
+func (x *TenantIsolation) GetLevel() common.OrganizationIsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Level
 		}
 	}
-	return OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	return common.OrganizationIsolationLevel(0)
 }
 
 func (x *TenantIsolation) GetDatabase() *DatabaseIsolation {
@@ -196,7 +196,7 @@ func (x *TenantIsolation) SetTenantId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
 }
 
-func (x *TenantIsolation) SetLevel(v OrganizationIsolationLevel) {
+func (x *TenantIsolation) SetLevel(v common.OrganizationIsolationLevel) {
 	x.xxx_hidden_Level = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 13)
 }
@@ -354,7 +354,7 @@ func (x *TenantIsolation) ClearTenantId() {
 
 func (x *TenantIsolation) ClearLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Level = OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_Level = common.OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *TenantIsolation) ClearDatabase() {
@@ -406,7 +406,7 @@ type TenantIsolation_builder struct {
 	// Tenant identifier
 	TenantId *string
 	// Isolation level for this tenant
-	Level *OrganizationIsolationLevel
+	Level *common.OrganizationIsolationLevel
 	// Database isolation configuration
 	Database *DatabaseIsolation
 	// Network isolation configuration
@@ -473,10 +473,10 @@ var File_gcommon_v1_organization_tenant_isolation_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_organization_tenant_isolation_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/organization/tenant_isolation.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a-gcommon/v1/organization/isolation_level.proto\x1a,gcommon/v1/organization/access_control.proto\x1a*gcommon/v1/organization/audit_config.proto\x1a/gcommon/v1/organization/compute_isolation.proto\x1a0gcommon/v1/organization/database_isolation.proto\x1a/gcommon/v1/organization/encryption_config.proto\x1a/gcommon/v1/organization/network_isolation.proto\x1a/gcommon/v1/organization/storage_isolation.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x06\n" +
+	".gcommon/v1/organization/tenant_isolation.proto\x12\x17gcommon.v1.organization\x1a'gcommon/v1/common/isolation_level.proto\x1a!gcommon/v1/common/key_value.proto\x1a,gcommon/v1/organization/access_control.proto\x1a*gcommon/v1/organization/audit_config.proto\x1a/gcommon/v1/organization/compute_isolation.proto\x1a0gcommon/v1/organization/database_isolation.proto\x1a/gcommon/v1/organization/encryption_config.proto\x1a/gcommon/v1/organization/network_isolation.proto\x1a/gcommon/v1/organization/storage_isolation.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd8\x06\n" +
 	"\x0fTenantIsolation\x12\x1b\n" +
-	"\ttenant_id\x18\x01 \x01(\tR\btenantId\x12I\n" +
-	"\x05level\x18\x02 \x01(\x0e23.gcommon.v1.organization.OrganizationIsolationLevelR\x05level\x12F\n" +
+	"\ttenant_id\x18\x01 \x01(\tR\btenantId\x12C\n" +
+	"\x05level\x18\x02 \x01(\x0e2-.gcommon.v1.common.OrganizationIsolationLevelR\x05level\x12F\n" +
 	"\bdatabase\x18\x03 \x01(\v2*.gcommon.v1.organization.DatabaseIsolationR\bdatabase\x12C\n" +
 	"\anetwork\x18\x04 \x01(\v2).gcommon.v1.organization.NetworkIsolationR\anetwork\x12C\n" +
 	"\astorage\x18\x05 \x01(\v2).gcommon.v1.organization.StorageIsolationR\astorage\x12C\n" +
@@ -496,20 +496,20 @@ const file_gcommon_v1_organization_tenant_isolation_proto_rawDesc = "" +
 
 var file_gcommon_v1_organization_tenant_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_tenant_isolation_proto_goTypes = []any{
-	(*TenantIsolation)(nil),              // 0: gcommon.v1.organization.TenantIsolation
-	(OrganizationIsolationLevel)(0),      // 1: gcommon.v1.organization.OrganizationIsolationLevel
-	(*DatabaseIsolation)(nil),            // 2: gcommon.v1.organization.DatabaseIsolation
-	(*NetworkIsolation)(nil),             // 3: gcommon.v1.organization.NetworkIsolation
-	(*StorageIsolation)(nil),             // 4: gcommon.v1.organization.StorageIsolation
-	(*ComputeIsolation)(nil),             // 5: gcommon.v1.organization.ComputeIsolation
-	(*OrganizationEncryptionConfig)(nil), // 6: gcommon.v1.organization.OrganizationEncryptionConfig
-	(*OrganizationAccessControl)(nil),    // 7: gcommon.v1.organization.OrganizationAccessControl
-	(*AuditConfig)(nil),                  // 8: gcommon.v1.organization.AuditConfig
-	(*common.KeyValue)(nil),              // 9: gcommon.v1.common.KeyValue
-	(*timestamppb.Timestamp)(nil),        // 10: google.protobuf.Timestamp
+	(*TenantIsolation)(nil),                // 0: gcommon.v1.organization.TenantIsolation
+	(common.OrganizationIsolationLevel)(0), // 1: gcommon.v1.common.OrganizationIsolationLevel
+	(*DatabaseIsolation)(nil),              // 2: gcommon.v1.organization.DatabaseIsolation
+	(*NetworkIsolation)(nil),               // 3: gcommon.v1.organization.NetworkIsolation
+	(*StorageIsolation)(nil),               // 4: gcommon.v1.organization.StorageIsolation
+	(*ComputeIsolation)(nil),               // 5: gcommon.v1.organization.ComputeIsolation
+	(*OrganizationEncryptionConfig)(nil),   // 6: gcommon.v1.organization.OrganizationEncryptionConfig
+	(*OrganizationAccessControl)(nil),      // 7: gcommon.v1.organization.OrganizationAccessControl
+	(*AuditConfig)(nil),                    // 8: gcommon.v1.organization.AuditConfig
+	(*common.KeyValue)(nil),                // 9: gcommon.v1.common.KeyValue
+	(*timestamppb.Timestamp)(nil),          // 10: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_tenant_isolation_proto_depIdxs = []int32{
-	1,  // 0: gcommon.v1.organization.TenantIsolation.level:type_name -> gcommon.v1.organization.OrganizationIsolationLevel
+	1,  // 0: gcommon.v1.organization.TenantIsolation.level:type_name -> gcommon.v1.common.OrganizationIsolationLevel
 	2,  // 1: gcommon.v1.organization.TenantIsolation.database:type_name -> gcommon.v1.organization.DatabaseIsolation
 	3,  // 2: gcommon.v1.organization.TenantIsolation.network:type_name -> gcommon.v1.organization.NetworkIsolation
 	4,  // 3: gcommon.v1.organization.TenantIsolation.storage:type_name -> gcommon.v1.organization.StorageIsolation
@@ -532,7 +532,6 @@ func file_gcommon_v1_organization_tenant_isolation_proto_init() {
 	if File_gcommon_v1_organization_tenant_isolation_proto != nil {
 		return
 	}
-	file_gcommon_v1_organization_isolation_level_proto_init()
 	file_gcommon_v1_organization_access_control_proto_init()
 	file_gcommon_v1_organization_audit_config_proto_init()
 	file_gcommon_v1_organization_compute_isolation_proto_init()

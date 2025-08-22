@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ const (
 // MiddlewareConfig represents a single middleware's configuration.
 type MiddlewareConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        MiddlewareType         `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.web.MiddlewareType"`
+	xxx_hidden_Type        common.MiddlewareType  `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.MiddlewareType"`
 	xxx_hidden_Enabled     bool                   `protobuf:"varint,2,opt,name=enabled"`
 	xxx_hidden_Priority    int32                  `protobuf:"varint,3,opt,name=priority"`
 	xxx_hidden_Options     map[string]string      `protobuf:"bytes,4,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -60,13 +61,13 @@ func (x *MiddlewareConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MiddlewareConfig) GetType() MiddlewareType {
+func (x *MiddlewareConfig) GetType() common.MiddlewareType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	return common.MiddlewareType(0)
 }
 
 func (x *MiddlewareConfig) GetEnabled() bool {
@@ -90,7 +91,7 @@ func (x *MiddlewareConfig) GetOptions() map[string]string {
 	return nil
 }
 
-func (x *MiddlewareConfig) SetType(v MiddlewareType) {
+func (x *MiddlewareConfig) SetType(v common.MiddlewareType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -132,7 +133,7 @@ func (x *MiddlewareConfig) HasPriority() bool {
 
 func (x *MiddlewareConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
 func (x *MiddlewareConfig) ClearEnabled() {
@@ -149,7 +150,7 @@ type MiddlewareConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Middleware type
-	Type *MiddlewareType
+	Type *common.MiddlewareType
 	// Whether the middleware is enabled
 	Enabled *bool
 	// Execution priority (lower runs first)
@@ -182,9 +183,9 @@ var File_gcommon_v1_web_middleware_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_middleware_config_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/web/middleware_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/web/middleware_type.proto\x1a!google/protobuf/go_features.proto\"\x81\x02\n" +
-	"\x10MiddlewareConfig\x122\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1e.gcommon.v1.web.MiddlewareTypeR\x04type\x12\x18\n" +
+	"&gcommon/v1/web/middleware_config.proto\x12\x0egcommon.v1.web\x1a'gcommon/v1/common/middleware_type.proto\x1a!google/protobuf/go_features.proto\"\x84\x02\n" +
+	"\x10MiddlewareConfig\x125\n" +
+	"\x04type\x18\x01 \x01(\x0e2!.gcommon.v1.common.MiddlewareTypeR\x04type\x12\x18\n" +
 	"\aenabled\x18\x02 \x01(\bR\aenabled\x12\x1a\n" +
 	"\bpriority\x18\x03 \x01(\x05R\bpriority\x12G\n" +
 	"\aoptions\x18\x04 \x03(\v2-.gcommon.v1.web.MiddlewareConfig.OptionsEntryR\aoptions\x1a:\n" +
@@ -194,12 +195,12 @@ const file_gcommon_v1_web_middleware_config_proto_rawDesc = "" +
 
 var file_gcommon_v1_web_middleware_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_middleware_config_proto_goTypes = []any{
-	(*MiddlewareConfig)(nil), // 0: gcommon.v1.web.MiddlewareConfig
-	nil,                      // 1: gcommon.v1.web.MiddlewareConfig.OptionsEntry
-	(MiddlewareType)(0),      // 2: gcommon.v1.web.MiddlewareType
+	(*MiddlewareConfig)(nil),   // 0: gcommon.v1.web.MiddlewareConfig
+	nil,                        // 1: gcommon.v1.web.MiddlewareConfig.OptionsEntry
+	(common.MiddlewareType)(0), // 2: gcommon.v1.common.MiddlewareType
 }
 var file_gcommon_v1_web_middleware_config_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.web.MiddlewareConfig.type:type_name -> gcommon.v1.web.MiddlewareType
+	2, // 0: gcommon.v1.web.MiddlewareConfig.type:type_name -> gcommon.v1.common.MiddlewareType
 	1, // 1: gcommon.v1.web.MiddlewareConfig.options:type_name -> gcommon.v1.web.MiddlewareConfig.OptionsEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -213,7 +214,6 @@ func file_gcommon_v1_web_middleware_config_proto_init() {
 	if File_gcommon_v1_web_middleware_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -429,7 +429,7 @@ var File_gcommon_v1_common_session_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_session_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgcommon/v1/common/session.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/session_status.proto\x1a#gcommon/v1/common/client_info.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbd\x04\n" +
+	"\x1fgcommon/v1/common/session.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/client_info.proto\x1a&gcommon/v1/common/session_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbd\x04\n" +
 	"\aSession\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12=\n" +
@@ -478,8 +478,8 @@ func file_gcommon_v1_common_session_proto_init() {
 	if File_gcommon_v1_common_session_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_session_status_proto_init()
 	file_gcommon_v1_common_client_info_proto_init()
+	file_gcommon_v1_common_session_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

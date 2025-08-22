@@ -124,7 +124,7 @@ type GetTenantResponse_builder struct {
 	Errors []*common.Error
 	// Success status
 	Success *bool
-	// Tenant information
+	// The tenant information.
 	Tenant *Tenant
 }
 

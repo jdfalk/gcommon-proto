@@ -26,7 +26,7 @@ type InheritanceFilter struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Type        common.LogFilterType   `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.LogFilterType"`
 	xxx_hidden_Expression  *string                `protobuf:"bytes,2,opt,name=expression"`
-	xxx_hidden_Action      FilterAction           `protobuf:"varint,3,opt,name=action,enum=gcommon.v1.config.FilterAction"`
+	xxx_hidden_Action      common.FilterAction    `protobuf:"varint,3,opt,name=action,enum=gcommon.v1.common.FilterAction"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -78,13 +78,13 @@ func (x *InheritanceFilter) GetExpression() string {
 	return ""
 }
 
-func (x *InheritanceFilter) GetAction() FilterAction {
+func (x *InheritanceFilter) GetAction() common.FilterAction {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Action
 		}
 	}
-	return FilterAction_FILTER_ACTION_UNSPECIFIED
+	return common.FilterAction(0)
 }
 
 func (x *InheritanceFilter) GetMetadata() map[string]string {
@@ -104,7 +104,7 @@ func (x *InheritanceFilter) SetExpression(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *InheritanceFilter) SetAction(v FilterAction) {
+func (x *InheritanceFilter) SetAction(v common.FilterAction) {
 	x.xxx_hidden_Action = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
@@ -146,7 +146,7 @@ func (x *InheritanceFilter) ClearExpression() {
 
 func (x *InheritanceFilter) ClearAction() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Action = FilterAction_FILTER_ACTION_UNSPECIFIED
+	x.xxx_hidden_Action = common.FilterAction_FILTER_ACTION_UNSPECIFIED
 }
 
 type InheritanceFilter_builder struct {
@@ -157,7 +157,7 @@ type InheritanceFilter_builder struct {
 	// Filter expression
 	Expression *string
 	// Filter action
-	Action *FilterAction
+	Action *common.FilterAction
 	// Filter metadata
 	Metadata map[string]string
 }
@@ -186,13 +186,13 @@ var File_gcommon_v1_config_inheritance_filter_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_inheritance_filter_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/config/inheritance_filter.proto\x12\x11gcommon.v1.config\x1a#gcommon/v1/common/filter_type.proto\x1a%gcommon/v1/config/filter_action.proto\x1a!google/protobuf/go_features.proto\"\xaf\x02\n" +
+	"*gcommon/v1/config/inheritance_filter.proto\x12\x11gcommon.v1.config\x1a%gcommon/v1/common/filter_action.proto\x1a#gcommon/v1/common/filter_type.proto\x1a!google/protobuf/go_features.proto\"\xaf\x02\n" +
 	"\x11InheritanceFilter\x124\n" +
 	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.common.LogFilterTypeR\x04type\x12\x1e\n" +
 	"\n" +
 	"expression\x18\x02 \x01(\tR\n" +
 	"expression\x127\n" +
-	"\x06action\x18\x03 \x01(\x0e2\x1f.gcommon.v1.config.FilterActionR\x06action\x12N\n" +
+	"\x06action\x18\x03 \x01(\x0e2\x1f.gcommon.v1.common.FilterActionR\x06action\x12N\n" +
 	"\bmetadata\x18\x04 \x03(\v22.gcommon.v1.config.InheritanceFilter.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -203,11 +203,11 @@ var file_gcommon_v1_config_inheritance_filter_proto_goTypes = []any{
 	(*InheritanceFilter)(nil), // 0: gcommon.v1.config.InheritanceFilter
 	nil,                       // 1: gcommon.v1.config.InheritanceFilter.MetadataEntry
 	(common.LogFilterType)(0), // 2: gcommon.v1.common.LogFilterType
-	(FilterAction)(0),         // 3: gcommon.v1.config.FilterAction
+	(common.FilterAction)(0),  // 3: gcommon.v1.common.FilterAction
 }
 var file_gcommon_v1_config_inheritance_filter_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.InheritanceFilter.type:type_name -> gcommon.v1.common.LogFilterType
-	3, // 1: gcommon.v1.config.InheritanceFilter.action:type_name -> gcommon.v1.config.FilterAction
+	3, // 1: gcommon.v1.config.InheritanceFilter.action:type_name -> gcommon.v1.common.FilterAction
 	1, // 2: gcommon.v1.config.InheritanceFilter.metadata:type_name -> gcommon.v1.config.InheritanceFilter.MetadataEntry
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -221,7 +221,6 @@ func file_gcommon_v1_config_inheritance_filter_proto_init() {
 	if File_gcommon_v1_config_inheritance_filter_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_filter_action_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

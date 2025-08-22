@@ -7,7 +7,7 @@
 package queue
 
 import (
-	config "github.com/jdfalk/gcommon/sdks/go/v1/config"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,15 +23,15 @@ const (
 )
 
 type ConsistencyConfig struct {
-	state                         protoimpl.MessageState          `protogen:"opaque.v1"`
-	xxx_hidden_DurabilityLevel    DurabilityLevel                 `protobuf:"varint,1,opt,name=durability_level,json=durabilityLevel,enum=gcommon.v1.queue.DurabilityLevel"`
-	xxx_hidden_AckLevel           AckLevel                        `protobuf:"varint,2,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.queue.AckLevel"`
-	xxx_hidden_Replication        *ReplicationConsistency         `protobuf:"bytes,3,opt,name=replication"`
-	xxx_hidden_ReadConsistency    *ReadConsistency                `protobuf:"bytes,4,opt,name=read_consistency,json=readConsistency"`
-	xxx_hidden_WriteConsistency   *WriteConsistency               `protobuf:"bytes,5,opt,name=write_consistency,json=writeConsistency"`
-	xxx_hidden_Ordering           *OrderingConfig                 `protobuf:"bytes,6,opt,name=ordering"`
-	xxx_hidden_ConflictResolution config.ConfigConflictResolution `protobuf:"varint,7,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.config.ConfigConflictResolution"`
-	xxx_hidden_Validation         *ConsistencyValidation          `protobuf:"bytes,8,opt,name=validation"`
+	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_DurabilityLevel    common.DurabilityLevel    `protobuf:"varint,1,opt,name=durability_level,json=durabilityLevel,enum=gcommon.v1.common.DurabilityLevel"`
+	xxx_hidden_AckLevel           common.AckLevel           `protobuf:"varint,2,opt,name=ack_level,json=ackLevel,enum=gcommon.v1.common.AckLevel"`
+	xxx_hidden_Replication        *ReplicationConsistency   `protobuf:"bytes,3,opt,name=replication"`
+	xxx_hidden_ReadConsistency    *ReadConsistency          `protobuf:"bytes,4,opt,name=read_consistency,json=readConsistency"`
+	xxx_hidden_WriteConsistency   *WriteConsistency         `protobuf:"bytes,5,opt,name=write_consistency,json=writeConsistency"`
+	xxx_hidden_Ordering           *OrderingConfig           `protobuf:"bytes,6,opt,name=ordering"`
+	xxx_hidden_ConflictResolution common.ConflictResolution `protobuf:"varint,7,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.common.ConflictResolution"`
+	xxx_hidden_Validation         *ConsistencyValidation    `protobuf:"bytes,8,opt,name=validation"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -63,22 +63,22 @@ func (x *ConsistencyConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ConsistencyConfig) GetDurabilityLevel() DurabilityLevel {
+func (x *ConsistencyConfig) GetDurabilityLevel() common.DurabilityLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_DurabilityLevel
 		}
 	}
-	return DurabilityLevel_DURABILITY_LEVEL_UNSPECIFIED
+	return common.DurabilityLevel(0)
 }
 
-func (x *ConsistencyConfig) GetAckLevel() AckLevel {
+func (x *ConsistencyConfig) GetAckLevel() common.AckLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_AckLevel
 		}
 	}
-	return AckLevel_ACK_LEVEL_UNSPECIFIED
+	return common.AckLevel(0)
 }
 
 func (x *ConsistencyConfig) GetReplication() *ReplicationConsistency {
@@ -109,13 +109,13 @@ func (x *ConsistencyConfig) GetOrdering() *OrderingConfig {
 	return nil
 }
 
-func (x *ConsistencyConfig) GetConflictResolution() config.ConfigConflictResolution {
+func (x *ConsistencyConfig) GetConflictResolution() common.ConflictResolution {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_ConflictResolution
 		}
 	}
-	return config.ConfigConflictResolution(0)
+	return common.ConflictResolution(0)
 }
 
 func (x *ConsistencyConfig) GetValidation() *ConsistencyValidation {
@@ -125,12 +125,12 @@ func (x *ConsistencyConfig) GetValidation() *ConsistencyValidation {
 	return nil
 }
 
-func (x *ConsistencyConfig) SetDurabilityLevel(v DurabilityLevel) {
+func (x *ConsistencyConfig) SetDurabilityLevel(v common.DurabilityLevel) {
 	x.xxx_hidden_DurabilityLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *ConsistencyConfig) SetAckLevel(v AckLevel) {
+func (x *ConsistencyConfig) SetAckLevel(v common.AckLevel) {
 	x.xxx_hidden_AckLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -151,7 +151,7 @@ func (x *ConsistencyConfig) SetOrdering(v *OrderingConfig) {
 	x.xxx_hidden_Ordering = v
 }
 
-func (x *ConsistencyConfig) SetConflictResolution(v config.ConfigConflictResolution) {
+func (x *ConsistencyConfig) SetConflictResolution(v common.ConflictResolution) {
 	x.xxx_hidden_ConflictResolution = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -218,12 +218,12 @@ func (x *ConsistencyConfig) HasValidation() bool {
 
 func (x *ConsistencyConfig) ClearDurabilityLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_DurabilityLevel = DurabilityLevel_DURABILITY_LEVEL_UNSPECIFIED
+	x.xxx_hidden_DurabilityLevel = common.DurabilityLevel_DURABILITY_LEVEL_UNSPECIFIED
 }
 
 func (x *ConsistencyConfig) ClearAckLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_AckLevel = AckLevel_ACK_LEVEL_UNSPECIFIED
+	x.xxx_hidden_AckLevel = common.AckLevel_ACK_LEVEL_UNSPECIFIED
 }
 
 func (x *ConsistencyConfig) ClearReplication() {
@@ -244,7 +244,7 @@ func (x *ConsistencyConfig) ClearOrdering() {
 
 func (x *ConsistencyConfig) ClearConflictResolution() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_ConflictResolution = config.ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
+	x.xxx_hidden_ConflictResolution = common.ConflictResolution_COMMON_CONFLICT_RESOLUTION_UNSPECIFIED
 }
 
 func (x *ConsistencyConfig) ClearValidation() {
@@ -255,9 +255,9 @@ type ConsistencyConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Durability level for message persistence
-	DurabilityLevel *DurabilityLevel
+	DurabilityLevel *common.DurabilityLevel
 	// Acknowledgment level required for message delivery
-	AckLevel *AckLevel
+	AckLevel *common.AckLevel
 	// Replication configuration
 	Replication *ReplicationConsistency
 	// Read consistency settings
@@ -267,7 +267,7 @@ type ConsistencyConfig_builder struct {
 	// Ordering guarantees
 	Ordering *OrderingConfig
 	// Conflict resolution settings
-	ConflictResolution *config.ConfigConflictResolution
+	ConflictResolution *common.ConflictResolution
 	// Consistency validation settings
 	Validation *ConsistencyValidation
 }
@@ -300,39 +300,39 @@ var File_gcommon_v1_queue_consistency_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_consistency_config_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/queue/consistency_config.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/config/conflict_resolution.proto\x1a gcommon/v1/queue/ack_level.proto\x1a'gcommon/v1/queue/durability_level.proto\x1a-gcommon/v1/queue/consistency_validation.proto\x1a&gcommon/v1/queue/ordering_config.proto\x1a'gcommon/v1/queue/read_consistency.proto\x1a.gcommon/v1/queue/replication_consistency.proto\x1a(gcommon/v1/queue/write_consistency.proto\x1a!google/protobuf/go_features.proto\"\xea\x04\n" +
-	"\x11ConsistencyConfig\x12L\n" +
-	"\x10durability_level\x18\x01 \x01(\x0e2!.gcommon.v1.queue.DurabilityLevelR\x0fdurabilityLevel\x127\n" +
-	"\tack_level\x18\x02 \x01(\x0e2\x1a.gcommon.v1.queue.AckLevelR\backLevel\x12J\n" +
+	")gcommon/v1/queue/consistency_config.proto\x12\x10gcommon.v1.queue\x1a!gcommon/v1/common/ack_level.proto\x1a+gcommon/v1/common/conflict_resolution.proto\x1a(gcommon/v1/common/durability_level.proto\x1a-gcommon/v1/queue/consistency_validation.proto\x1a&gcommon/v1/queue/ordering_config.proto\x1a'gcommon/v1/queue/read_consistency.proto\x1a.gcommon/v1/queue/replication_consistency.proto\x1a(gcommon/v1/queue/write_consistency.proto\x1a!google/protobuf/go_features.proto\"\xe6\x04\n" +
+	"\x11ConsistencyConfig\x12M\n" +
+	"\x10durability_level\x18\x01 \x01(\x0e2\".gcommon.v1.common.DurabilityLevelR\x0fdurabilityLevel\x128\n" +
+	"\tack_level\x18\x02 \x01(\x0e2\x1b.gcommon.v1.common.AckLevelR\backLevel\x12J\n" +
 	"\vreplication\x18\x03 \x01(\v2(.gcommon.v1.queue.ReplicationConsistencyR\vreplication\x12L\n" +
 	"\x10read_consistency\x18\x04 \x01(\v2!.gcommon.v1.queue.ReadConsistencyR\x0freadConsistency\x12O\n" +
 	"\x11write_consistency\x18\x05 \x01(\v2\".gcommon.v1.queue.WriteConsistencyR\x10writeConsistency\x12<\n" +
-	"\bordering\x18\x06 \x01(\v2 .gcommon.v1.queue.OrderingConfigR\bordering\x12\\\n" +
-	"\x13conflict_resolution\x18\a \x01(\x0e2+.gcommon.v1.config.ConfigConflictResolutionR\x12conflictResolution\x12G\n" +
+	"\bordering\x18\x06 \x01(\v2 .gcommon.v1.queue.OrderingConfigR\bordering\x12V\n" +
+	"\x13conflict_resolution\x18\a \x01(\x0e2%.gcommon.v1.common.ConflictResolutionR\x12conflictResolution\x12G\n" +
 	"\n" +
 	"validation\x18\b \x01(\v2'.gcommon.v1.queue.ConsistencyValidationR\n" +
 	"validationB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_consistency_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_consistency_config_proto_goTypes = []any{
-	(*ConsistencyConfig)(nil),            // 0: gcommon.v1.queue.ConsistencyConfig
-	(DurabilityLevel)(0),                 // 1: gcommon.v1.queue.DurabilityLevel
-	(AckLevel)(0),                        // 2: gcommon.v1.queue.AckLevel
-	(*ReplicationConsistency)(nil),       // 3: gcommon.v1.queue.ReplicationConsistency
-	(*ReadConsistency)(nil),              // 4: gcommon.v1.queue.ReadConsistency
-	(*WriteConsistency)(nil),             // 5: gcommon.v1.queue.WriteConsistency
-	(*OrderingConfig)(nil),               // 6: gcommon.v1.queue.OrderingConfig
-	(config.ConfigConflictResolution)(0), // 7: gcommon.v1.config.ConfigConflictResolution
-	(*ConsistencyValidation)(nil),        // 8: gcommon.v1.queue.ConsistencyValidation
+	(*ConsistencyConfig)(nil),      // 0: gcommon.v1.queue.ConsistencyConfig
+	(common.DurabilityLevel)(0),    // 1: gcommon.v1.common.DurabilityLevel
+	(common.AckLevel)(0),           // 2: gcommon.v1.common.AckLevel
+	(*ReplicationConsistency)(nil), // 3: gcommon.v1.queue.ReplicationConsistency
+	(*ReadConsistency)(nil),        // 4: gcommon.v1.queue.ReadConsistency
+	(*WriteConsistency)(nil),       // 5: gcommon.v1.queue.WriteConsistency
+	(*OrderingConfig)(nil),         // 6: gcommon.v1.queue.OrderingConfig
+	(common.ConflictResolution)(0), // 7: gcommon.v1.common.ConflictResolution
+	(*ConsistencyValidation)(nil),  // 8: gcommon.v1.queue.ConsistencyValidation
 }
 var file_gcommon_v1_queue_consistency_config_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.ConsistencyConfig.durability_level:type_name -> gcommon.v1.queue.DurabilityLevel
-	2, // 1: gcommon.v1.queue.ConsistencyConfig.ack_level:type_name -> gcommon.v1.queue.AckLevel
+	1, // 0: gcommon.v1.queue.ConsistencyConfig.durability_level:type_name -> gcommon.v1.common.DurabilityLevel
+	2, // 1: gcommon.v1.queue.ConsistencyConfig.ack_level:type_name -> gcommon.v1.common.AckLevel
 	3, // 2: gcommon.v1.queue.ConsistencyConfig.replication:type_name -> gcommon.v1.queue.ReplicationConsistency
 	4, // 3: gcommon.v1.queue.ConsistencyConfig.read_consistency:type_name -> gcommon.v1.queue.ReadConsistency
 	5, // 4: gcommon.v1.queue.ConsistencyConfig.write_consistency:type_name -> gcommon.v1.queue.WriteConsistency
 	6, // 5: gcommon.v1.queue.ConsistencyConfig.ordering:type_name -> gcommon.v1.queue.OrderingConfig
-	7, // 6: gcommon.v1.queue.ConsistencyConfig.conflict_resolution:type_name -> gcommon.v1.config.ConfigConflictResolution
+	7, // 6: gcommon.v1.queue.ConsistencyConfig.conflict_resolution:type_name -> gcommon.v1.common.ConflictResolution
 	8, // 7: gcommon.v1.queue.ConsistencyConfig.validation:type_name -> gcommon.v1.queue.ConsistencyValidation
 	8, // [8:8] is the sub-list for method output_type
 	8, // [8:8] is the sub-list for method input_type
@@ -346,8 +346,6 @@ func file_gcommon_v1_queue_consistency_config_proto_init() {
 	if File_gcommon_v1_queue_consistency_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_ack_level_proto_init()
-	file_gcommon_v1_queue_durability_level_proto_init()
 	file_gcommon_v1_queue_consistency_validation_proto_init()
 	file_gcommon_v1_queue_ordering_config_proto_init()
 	file_gcommon_v1_queue_read_consistency_proto_init()

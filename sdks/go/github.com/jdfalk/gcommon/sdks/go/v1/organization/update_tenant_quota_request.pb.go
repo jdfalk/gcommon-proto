@@ -136,7 +136,7 @@ type UpdateTenantQuotaRequest_builder struct {
 	Metadata *common.RequestMetadata
 	// Tenant identifier
 	TenantId *string
-	// Updated quota configuration
+	// New quota configuration
 	Quota *TenantQuota
 }
 

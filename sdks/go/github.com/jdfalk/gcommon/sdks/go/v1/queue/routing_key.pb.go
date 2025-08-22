@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +28,7 @@ const (
 type RoutingKey struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Key           *string                `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_PatternType   RoutingPattern         `protobuf:"varint,2,opt,name=pattern_type,json=patternType,enum=gcommon.v1.queue.RoutingPattern"`
+	xxx_hidden_PatternType   common.RoutingPattern  `protobuf:"varint,2,opt,name=pattern_type,json=patternType,enum=gcommon.v1.common.RoutingPattern"`
 	xxx_hidden_CaseSensitive bool                   `protobuf:"varint,3,opt,name=case_sensitive,json=caseSensitive"`
 	xxx_hidden_Priority      int32                  `protobuf:"varint,4,opt,name=priority"`
 	xxx_hidden_Attributes    map[string]string      `protobuf:"bytes,5,rep,name=attributes" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -72,13 +73,13 @@ func (x *RoutingKey) GetKey() string {
 	return ""
 }
 
-func (x *RoutingKey) GetPatternType() RoutingPattern {
+func (x *RoutingKey) GetPatternType() common.RoutingPattern {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_PatternType
 		}
 	}
-	return RoutingPattern_ROUTING_PATTERN_UNSPECIFIED
+	return common.RoutingPattern(0)
 }
 
 func (x *RoutingKey) GetCaseSensitive() bool {
@@ -107,7 +108,7 @@ func (x *RoutingKey) SetKey(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *RoutingKey) SetPatternType(v RoutingPattern) {
+func (x *RoutingKey) SetPatternType(v common.RoutingPattern) {
 	x.xxx_hidden_PatternType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
@@ -161,7 +162,7 @@ func (x *RoutingKey) ClearKey() {
 
 func (x *RoutingKey) ClearPatternType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PatternType = RoutingPattern_ROUTING_PATTERN_UNSPECIFIED
+	x.xxx_hidden_PatternType = common.RoutingPattern_ROUTING_PATTERN_UNSPECIFIED
 }
 
 func (x *RoutingKey) ClearCaseSensitive() {
@@ -180,7 +181,7 @@ type RoutingKey_builder struct {
 	// The routing key string
 	Key *string
 	// Pattern type for key matching
-	PatternType *RoutingPattern
+	PatternType *common.RoutingPattern
 	// Whether the pattern is case sensitive
 	CaseSensitive *bool
 	// Priority for routing (higher numbers = higher priority)
@@ -217,11 +218,11 @@ var File_gcommon_v1_queue_routing_key_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_routing_key_proto_rawDesc = "" +
 	"\n" +
-	"\"gcommon/v1/queue/routing_key.proto\x12\x10gcommon.v1.queue\x1a&gcommon/v1/queue/routing_pattern.proto\x1a!google/protobuf/go_features.proto\"\xb3\x02\n" +
+	"\"gcommon/v1/queue/routing_key.proto\x12\x10gcommon.v1.queue\x1a'gcommon/v1/common/routing_pattern.proto\x1a!google/protobuf/go_features.proto\"\xb4\x02\n" +
 	"\n" +
 	"RoutingKey\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12C\n" +
-	"\fpattern_type\x18\x02 \x01(\x0e2 .gcommon.v1.queue.RoutingPatternR\vpatternType\x12%\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12D\n" +
+	"\fpattern_type\x18\x02 \x01(\x0e2!.gcommon.v1.common.RoutingPatternR\vpatternType\x12%\n" +
 	"\x0ecase_sensitive\x18\x03 \x01(\bR\rcaseSensitive\x12\x1a\n" +
 	"\bpriority\x18\x04 \x01(\x05R\bpriority\x12L\n" +
 	"\n" +
@@ -233,12 +234,12 @@ const file_gcommon_v1_queue_routing_key_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_routing_key_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_queue_routing_key_proto_goTypes = []any{
-	(*RoutingKey)(nil),  // 0: gcommon.v1.queue.RoutingKey
-	nil,                 // 1: gcommon.v1.queue.RoutingKey.AttributesEntry
-	(RoutingPattern)(0), // 2: gcommon.v1.queue.RoutingPattern
+	(*RoutingKey)(nil),         // 0: gcommon.v1.queue.RoutingKey
+	nil,                        // 1: gcommon.v1.queue.RoutingKey.AttributesEntry
+	(common.RoutingPattern)(0), // 2: gcommon.v1.common.RoutingPattern
 }
 var file_gcommon_v1_queue_routing_key_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.RoutingKey.pattern_type:type_name -> gcommon.v1.queue.RoutingPattern
+	2, // 0: gcommon.v1.queue.RoutingKey.pattern_type:type_name -> gcommon.v1.common.RoutingPattern
 	1, // 1: gcommon.v1.queue.RoutingKey.attributes:type_name -> gcommon.v1.queue.RoutingKey.AttributesEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -252,7 +253,6 @@ func file_gcommon_v1_queue_routing_key_proto_init() {
 	if File_gcommon_v1_queue_routing_key_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_routing_pattern_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

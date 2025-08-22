@@ -321,7 +321,7 @@ type RecordMetricsResponse_builder struct {
 	CompletedAt *timestamppb.Timestamp
 	// Provider that handled the batch
 	ProviderId *string
-	// Performance metrics about the batch operation
+	// Batch processing statistics
 	Stats *MetricsBatchStats
 	// Warnings or informational messages about the batch
 	Warnings []string

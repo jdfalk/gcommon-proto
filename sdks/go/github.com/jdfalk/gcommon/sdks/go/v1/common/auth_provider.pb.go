@@ -87,7 +87,7 @@ func (x *AuthProvider) GetType() AuthProviderType {
 			return x.xxx_hidden_Type
 		}
 	}
-	return AuthProviderType_PROVIDER_TYPE_UNSPECIFIED
+	return AuthProviderType_AUTH_PROVIDER_TYPE_UNSPECIFIED
 }
 
 func (x *AuthProvider) GetConfig() string {
@@ -160,7 +160,7 @@ func (x *AuthProvider) ClearName() {
 
 func (x *AuthProvider) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = AuthProviderType_PROVIDER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = AuthProviderType_AUTH_PROVIDER_TYPE_UNSPECIFIED
 }
 
 func (x *AuthProvider) ClearConfig() {

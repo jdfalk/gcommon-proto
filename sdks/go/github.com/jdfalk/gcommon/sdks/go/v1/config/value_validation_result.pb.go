@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,15 +24,15 @@ const (
 )
 
 type ValueValidationResult struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Result      ValueValidationResultType `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.config.ValueValidationResultType"`
-	xxx_hidden_Message     *string                   `protobuf:"bytes,3,opt,name=message"`
-	xxx_hidden_Severity    ValueValidationSeverity   `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.config.ValueValidationSeverity"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp    `protobuf:"bytes,5,opt,name=timestamp"`
-	xxx_hidden_Details     map[string]string         `protobuf:"bytes,6,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Rule        *string                   `protobuf:"bytes,7,opt,name=rule"`
-	xxx_hidden_Context     *string                   `protobuf:"bytes,8,opt,name=context"`
+	state                  protoimpl.MessageState           `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                          `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Result      common.ValueValidationResultType `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.common.ValueValidationResultType"`
+	xxx_hidden_Message     *string                          `protobuf:"bytes,3,opt,name=message"`
+	xxx_hidden_Severity    common.ValueValidationSeverity   `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.common.ValueValidationSeverity"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp           `protobuf:"bytes,5,opt,name=timestamp"`
+	xxx_hidden_Details     map[string]string                `protobuf:"bytes,6,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Rule        *string                          `protobuf:"bytes,7,opt,name=rule"`
+	xxx_hidden_Context     *string                          `protobuf:"bytes,8,opt,name=context"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -73,13 +74,13 @@ func (x *ValueValidationResult) GetName() string {
 	return ""
 }
 
-func (x *ValueValidationResult) GetResult() ValueValidationResultType {
+func (x *ValueValidationResult) GetResult() common.ValueValidationResultType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Result
 		}
 	}
-	return ValueValidationResultType_VALUE_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	return common.ValueValidationResultType(0)
 }
 
 func (x *ValueValidationResult) GetMessage() string {
@@ -92,13 +93,13 @@ func (x *ValueValidationResult) GetMessage() string {
 	return ""
 }
 
-func (x *ValueValidationResult) GetSeverity() ValueValidationSeverity {
+func (x *ValueValidationResult) GetSeverity() common.ValueValidationSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return ValueValidationSeverity_VALUE_VALIDATION_SEVERITY_UNSPECIFIED
+	return common.ValueValidationSeverity(0)
 }
 
 func (x *ValueValidationResult) GetTimestamp() *timestamppb.Timestamp {
@@ -140,7 +141,7 @@ func (x *ValueValidationResult) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *ValueValidationResult) SetResult(v ValueValidationResultType) {
+func (x *ValueValidationResult) SetResult(v common.ValueValidationResultType) {
 	x.xxx_hidden_Result = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -150,7 +151,7 @@ func (x *ValueValidationResult) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
 }
 
-func (x *ValueValidationResult) SetSeverity(v ValueValidationSeverity) {
+func (x *ValueValidationResult) SetSeverity(v common.ValueValidationSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
 }
@@ -229,7 +230,7 @@ func (x *ValueValidationResult) ClearName() {
 
 func (x *ValueValidationResult) ClearResult() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Result = ValueValidationResultType_VALUE_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	x.xxx_hidden_Result = common.ValueValidationResultType_VALUE_VALIDATION_RESULT_TYPE_UNSPECIFIED
 }
 
 func (x *ValueValidationResult) ClearMessage() {
@@ -239,7 +240,7 @@ func (x *ValueValidationResult) ClearMessage() {
 
 func (x *ValueValidationResult) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Severity = ValueValidationSeverity_VALUE_VALIDATION_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.ValueValidationSeverity_VALUE_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 func (x *ValueValidationResult) ClearTimestamp() {
@@ -262,11 +263,11 @@ type ValueValidationResult_builder struct {
 	// Validation name
 	Name *string
 	// Validation result
-	Result *ValueValidationResultType
+	Result *common.ValueValidationResultType
 	// Validation message
 	Message *string
 	// Validation severity
-	Severity *ValueValidationSeverity
+	Severity *common.ValueValidationSeverity
 	// Validation timestamp
 	Timestamp *timestamppb.Timestamp
 	// Validation details
@@ -314,12 +315,12 @@ var File_gcommon_v1_config_value_validation_result_proto protoreflect.FileDescri
 
 const file_gcommon_v1_config_value_validation_result_proto_rawDesc = "" +
 	"\n" +
-	"/gcommon/v1/config/value_validation_result.proto\x12\x11gcommon.v1.config\x1a4gcommon/v1/config/value_validation_result_type.proto\x1a1gcommon/v1/config/value_validation_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc8\x03\n" +
+	"/gcommon/v1/config/value_validation_result.proto\x12\x11gcommon.v1.config\x1a4gcommon/v1/common/value_validation_result_type.proto\x1a1gcommon/v1/common/value_validation_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc8\x03\n" +
 	"\x15ValueValidationResult\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12D\n" +
-	"\x06result\x18\x02 \x01(\x0e2,.gcommon.v1.config.ValueValidationResultTypeR\x06result\x12\x18\n" +
+	"\x06result\x18\x02 \x01(\x0e2,.gcommon.v1.common.ValueValidationResultTypeR\x06result\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12F\n" +
-	"\bseverity\x18\x04 \x01(\x0e2*.gcommon.v1.config.ValueValidationSeverityR\bseverity\x128\n" +
+	"\bseverity\x18\x04 \x01(\x0e2*.gcommon.v1.common.ValueValidationSeverityR\bseverity\x128\n" +
 	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12O\n" +
 	"\adetails\x18\x06 \x03(\v25.gcommon.v1.config.ValueValidationResult.DetailsEntryR\adetails\x12\x12\n" +
 	"\x04rule\x18\a \x01(\tR\x04rule\x12\x18\n" +
@@ -330,15 +331,15 @@ const file_gcommon_v1_config_value_validation_result_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_value_validation_result_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_value_validation_result_proto_goTypes = []any{
-	(*ValueValidationResult)(nil),  // 0: gcommon.v1.config.ValueValidationResult
-	nil,                            // 1: gcommon.v1.config.ValueValidationResult.DetailsEntry
-	(ValueValidationResultType)(0), // 2: gcommon.v1.config.ValueValidationResultType
-	(ValueValidationSeverity)(0),   // 3: gcommon.v1.config.ValueValidationSeverity
-	(*timestamppb.Timestamp)(nil),  // 4: google.protobuf.Timestamp
+	(*ValueValidationResult)(nil),         // 0: gcommon.v1.config.ValueValidationResult
+	nil,                                   // 1: gcommon.v1.config.ValueValidationResult.DetailsEntry
+	(common.ValueValidationResultType)(0), // 2: gcommon.v1.common.ValueValidationResultType
+	(common.ValueValidationSeverity)(0),   // 3: gcommon.v1.common.ValueValidationSeverity
+	(*timestamppb.Timestamp)(nil),         // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_value_validation_result_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ValueValidationResult.result:type_name -> gcommon.v1.config.ValueValidationResultType
-	3, // 1: gcommon.v1.config.ValueValidationResult.severity:type_name -> gcommon.v1.config.ValueValidationSeverity
+	2, // 0: gcommon.v1.config.ValueValidationResult.result:type_name -> gcommon.v1.common.ValueValidationResultType
+	3, // 1: gcommon.v1.config.ValueValidationResult.severity:type_name -> gcommon.v1.common.ValueValidationSeverity
 	4, // 2: gcommon.v1.config.ValueValidationResult.timestamp:type_name -> google.protobuf.Timestamp
 	1, // 3: gcommon.v1.config.ValueValidationResult.details:type_name -> gcommon.v1.config.ValueValidationResult.DetailsEntry
 	4, // [4:4] is the sub-list for method output_type
@@ -353,8 +354,6 @@ func file_gcommon_v1_config_value_validation_result_proto_init() {
 	if File_gcommon_v1_config_value_validation_result_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_value_validation_result_type_proto_init()
-	file_gcommon_v1_config_value_validation_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

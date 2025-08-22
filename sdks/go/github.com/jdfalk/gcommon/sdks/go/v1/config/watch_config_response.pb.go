@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +26,11 @@ const (
 // *
 // WatchConfigResponse describes a configuration change event.
 type WatchConfigResponse struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_ChangeType    ConfigChangeType       `protobuf:"varint,1,opt,name=change_type,json=changeType,enum=gcommon.v1.config.ConfigChangeType"`
-	xxx_hidden_Entry         *ConfigEntry           `protobuf:"bytes,2,opt,name=entry"`
-	xxx_hidden_PreviousEntry *ConfigEntry           `protobuf:"bytes,3,opt,name=previous_entry,json=previousEntry"`
-	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=timestamp"`
+	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_ChangeType    common.ConfigChangeType `protobuf:"varint,1,opt,name=change_type,json=changeType,enum=gcommon.v1.common.ConfigChangeType"`
+	xxx_hidden_Entry         *ConfigEntry            `protobuf:"bytes,2,opt,name=entry"`
+	xxx_hidden_PreviousEntry *ConfigEntry            `protobuf:"bytes,3,opt,name=previous_entry,json=previousEntry"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp  `protobuf:"bytes,4,opt,name=timestamp"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -61,13 +62,13 @@ func (x *WatchConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WatchConfigResponse) GetChangeType() ConfigChangeType {
+func (x *WatchConfigResponse) GetChangeType() common.ConfigChangeType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_ChangeType
 		}
 	}
-	return ConfigChangeType_CONFIG_CHANGE_TYPE_UNSPECIFIED
+	return common.ConfigChangeType(0)
 }
 
 func (x *WatchConfigResponse) GetEntry() *ConfigEntry {
@@ -91,7 +92,7 @@ func (x *WatchConfigResponse) GetTimestamp() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *WatchConfigResponse) SetChangeType(v ConfigChangeType) {
+func (x *WatchConfigResponse) SetChangeType(v common.ConfigChangeType) {
 	x.xxx_hidden_ChangeType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -138,7 +139,7 @@ func (x *WatchConfigResponse) HasTimestamp() bool {
 
 func (x *WatchConfigResponse) ClearChangeType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_ChangeType = ConfigChangeType_CONFIG_CHANGE_TYPE_UNSPECIFIED
+	x.xxx_hidden_ChangeType = common.ConfigChangeType_CONFIG_CHANGE_TYPE_UNSPECIFIED
 }
 
 func (x *WatchConfigResponse) ClearEntry() {
@@ -157,7 +158,7 @@ type WatchConfigResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of change
-	ChangeType *ConfigChangeType
+	ChangeType *common.ConfigChangeType
 	// Configuration entry
 	Entry *ConfigEntry
 	// Previous value for updates/deletes
@@ -184,9 +185,9 @@ var File_gcommon_v1_config_watch_config_response_proto protoreflect.FileDescript
 
 const file_gcommon_v1_config_watch_config_response_proto_rawDesc = "" +
 	"\n" +
-	"-gcommon/v1/config/watch_config_response.proto\x12\x11gcommon.v1.config\x1a*gcommon/v1/config/config_change_type.proto\x1a$gcommon/v1/config/config_entry.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x92\x02\n" +
+	"-gcommon/v1/config/watch_config_response.proto\x12\x11gcommon.v1.config\x1a1gcommon/v1/common/config_config_change_type.proto\x1a$gcommon/v1/config/config_entry.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x92\x02\n" +
 	"\x13WatchConfigResponse\x12D\n" +
-	"\vchange_type\x18\x01 \x01(\x0e2#.gcommon.v1.config.ConfigChangeTypeR\n" +
+	"\vchange_type\x18\x01 \x01(\x0e2#.gcommon.v1.common.ConfigChangeTypeR\n" +
 	"changeType\x124\n" +
 	"\x05entry\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05entry\x12E\n" +
 	"\x0eprevious_entry\x18\x03 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\rpreviousEntry\x128\n" +
@@ -195,12 +196,12 @@ const file_gcommon_v1_config_watch_config_response_proto_rawDesc = "" +
 var file_gcommon_v1_config_watch_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_watch_config_response_proto_goTypes = []any{
 	(*WatchConfigResponse)(nil),   // 0: gcommon.v1.config.WatchConfigResponse
-	(ConfigChangeType)(0),         // 1: gcommon.v1.config.ConfigChangeType
+	(common.ConfigChangeType)(0),  // 1: gcommon.v1.common.ConfigChangeType
 	(*ConfigEntry)(nil),           // 2: gcommon.v1.config.ConfigEntry
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_watch_config_response_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.config.WatchConfigResponse.change_type:type_name -> gcommon.v1.config.ConfigChangeType
+	1, // 0: gcommon.v1.config.WatchConfigResponse.change_type:type_name -> gcommon.v1.common.ConfigChangeType
 	2, // 1: gcommon.v1.config.WatchConfigResponse.entry:type_name -> gcommon.v1.config.ConfigEntry
 	2, // 2: gcommon.v1.config.WatchConfigResponse.previous_entry:type_name -> gcommon.v1.config.ConfigEntry
 	3, // 3: gcommon.v1.config.WatchConfigResponse.timestamp:type_name -> google.protobuf.Timestamp
@@ -216,7 +217,6 @@ func file_gcommon_v1_config_watch_config_response_proto_init() {
 	if File_gcommon_v1_config_watch_config_response_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_config_change_type_proto_init()
 	file_gcommon_v1_config_config_entry_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

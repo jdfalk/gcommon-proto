@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,12 +23,12 @@ const (
 )
 
 type SynchronizationSettings struct {
-	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Enabled            bool                      `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Targets            *[]*SynchronizationTarget `protobuf:"bytes,2,rep,name=targets"`
-	xxx_hidden_Frequency          SynchronizationFrequency  `protobuf:"varint,3,opt,name=frequency,enum=gcommon.v1.config.SynchronizationFrequency"`
-	xxx_hidden_ConflictResolution ConfigConflictResolution  `protobuf:"varint,4,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.config.ConfigConflictResolution"`
-	xxx_hidden_Metadata           map[string]string         `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                         protoimpl.MessageState          `protogen:"opaque.v1"`
+	xxx_hidden_Enabled            bool                            `protobuf:"varint,1,opt,name=enabled"`
+	xxx_hidden_Targets            *[]*SynchronizationTarget       `protobuf:"bytes,2,rep,name=targets"`
+	xxx_hidden_Frequency          common.SynchronizationFrequency `protobuf:"varint,3,opt,name=frequency,enum=gcommon.v1.common.SynchronizationFrequency"`
+	xxx_hidden_ConflictResolution common.ConflictResolution       `protobuf:"varint,4,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.common.ConflictResolution"`
+	xxx_hidden_Metadata           map[string]string               `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -75,22 +76,22 @@ func (x *SynchronizationSettings) GetTargets() []*SynchronizationTarget {
 	return nil
 }
 
-func (x *SynchronizationSettings) GetFrequency() SynchronizationFrequency {
+func (x *SynchronizationSettings) GetFrequency() common.SynchronizationFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
+	return common.SynchronizationFrequency(0)
 }
 
-func (x *SynchronizationSettings) GetConflictResolution() ConfigConflictResolution {
+func (x *SynchronizationSettings) GetConflictResolution() common.ConflictResolution {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_ConflictResolution
 		}
 	}
-	return ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
+	return common.ConflictResolution(0)
 }
 
 func (x *SynchronizationSettings) GetMetadata() map[string]string {
@@ -109,12 +110,12 @@ func (x *SynchronizationSettings) SetTargets(v []*SynchronizationTarget) {
 	x.xxx_hidden_Targets = &v
 }
 
-func (x *SynchronizationSettings) SetFrequency(v SynchronizationFrequency) {
+func (x *SynchronizationSettings) SetFrequency(v common.SynchronizationFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *SynchronizationSettings) SetConflictResolution(v ConfigConflictResolution) {
+func (x *SynchronizationSettings) SetConflictResolution(v common.ConflictResolution) {
 	x.xxx_hidden_ConflictResolution = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
@@ -151,12 +152,12 @@ func (x *SynchronizationSettings) ClearEnabled() {
 
 func (x *SynchronizationSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Frequency = SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = common.SynchronizationFrequency_SYNCHRONIZATION_FREQUENCY_UNSPECIFIED
 }
 
 func (x *SynchronizationSettings) ClearConflictResolution() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ConflictResolution = ConfigConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
+	x.xxx_hidden_ConflictResolution = common.ConflictResolution_COMMON_CONFLICT_RESOLUTION_UNSPECIFIED
 }
 
 type SynchronizationSettings_builder struct {
@@ -167,9 +168,9 @@ type SynchronizationSettings_builder struct {
 	// Synchronization targets
 	Targets []*SynchronizationTarget
 	// Synchronization frequency
-	Frequency *SynchronizationFrequency
+	Frequency *common.SynchronizationFrequency
 	// Synchronization conflict resolution
-	ConflictResolution *ConfigConflictResolution
+	ConflictResolution *common.ConflictResolution
 	// Synchronization metadata
 	Metadata map[string]string
 }
@@ -199,12 +200,12 @@ var File_gcommon_v1_config_synchronization_settings_proto protoreflect.FileDescr
 
 const file_gcommon_v1_config_synchronization_settings_proto_rawDesc = "" +
 	"\n" +
-	"0gcommon/v1/config/synchronization_settings.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/config/conflict_resolution.proto\x1a1gcommon/v1/config/synchronization_frequency.proto\x1a.gcommon/v1/config/synchronization_target.proto\x1a!google/protobuf/go_features.proto\"\xb3\x03\n" +
+	"0gcommon/v1/config/synchronization_settings.proto\x12\x11gcommon.v1.config\x1a+gcommon/v1/common/conflict_resolution.proto\x1a1gcommon/v1/common/synchronization_frequency.proto\x1a.gcommon/v1/config/synchronization_target.proto\x1a!google/protobuf/go_features.proto\"\xad\x03\n" +
 	"\x17SynchronizationSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12B\n" +
 	"\atargets\x18\x02 \x03(\v2(.gcommon.v1.config.SynchronizationTargetR\atargets\x12I\n" +
-	"\tfrequency\x18\x03 \x01(\x0e2+.gcommon.v1.config.SynchronizationFrequencyR\tfrequency\x12\\\n" +
-	"\x13conflict_resolution\x18\x04 \x01(\x0e2+.gcommon.v1.config.ConfigConflictResolutionR\x12conflictResolution\x12T\n" +
+	"\tfrequency\x18\x03 \x01(\x0e2+.gcommon.v1.common.SynchronizationFrequencyR\tfrequency\x12V\n" +
+	"\x13conflict_resolution\x18\x04 \x01(\x0e2%.gcommon.v1.common.ConflictResolutionR\x12conflictResolution\x12T\n" +
 	"\bmetadata\x18\x05 \x03(\v28.gcommon.v1.config.SynchronizationSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -212,16 +213,16 @@ const file_gcommon_v1_config_synchronization_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_synchronization_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_synchronization_settings_proto_goTypes = []any{
-	(*SynchronizationSettings)(nil), // 0: gcommon.v1.config.SynchronizationSettings
-	nil,                             // 1: gcommon.v1.config.SynchronizationSettings.MetadataEntry
-	(*SynchronizationTarget)(nil),   // 2: gcommon.v1.config.SynchronizationTarget
-	(SynchronizationFrequency)(0),   // 3: gcommon.v1.config.SynchronizationFrequency
-	(ConfigConflictResolution)(0),   // 4: gcommon.v1.config.ConfigConflictResolution
+	(*SynchronizationSettings)(nil),      // 0: gcommon.v1.config.SynchronizationSettings
+	nil,                                  // 1: gcommon.v1.config.SynchronizationSettings.MetadataEntry
+	(*SynchronizationTarget)(nil),        // 2: gcommon.v1.config.SynchronizationTarget
+	(common.SynchronizationFrequency)(0), // 3: gcommon.v1.common.SynchronizationFrequency
+	(common.ConflictResolution)(0),       // 4: gcommon.v1.common.ConflictResolution
 }
 var file_gcommon_v1_config_synchronization_settings_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.SynchronizationSettings.targets:type_name -> gcommon.v1.config.SynchronizationTarget
-	3, // 1: gcommon.v1.config.SynchronizationSettings.frequency:type_name -> gcommon.v1.config.SynchronizationFrequency
-	4, // 2: gcommon.v1.config.SynchronizationSettings.conflict_resolution:type_name -> gcommon.v1.config.ConfigConflictResolution
+	3, // 1: gcommon.v1.config.SynchronizationSettings.frequency:type_name -> gcommon.v1.common.SynchronizationFrequency
+	4, // 2: gcommon.v1.config.SynchronizationSettings.conflict_resolution:type_name -> gcommon.v1.common.ConflictResolution
 	1, // 3: gcommon.v1.config.SynchronizationSettings.metadata:type_name -> gcommon.v1.config.SynchronizationSettings.MetadataEntry
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
@@ -235,8 +236,6 @@ func file_gcommon_v1_config_synchronization_settings_proto_init() {
 	if File_gcommon_v1_config_synchronization_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_conflict_resolution_proto_init()
-	file_gcommon_v1_config_synchronization_frequency_proto_init()
 	file_gcommon_v1_config_synchronization_target_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

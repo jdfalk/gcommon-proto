@@ -7,6 +7,7 @@
 package metrics
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,18 +24,18 @@ const (
 )
 
 type MetricData struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MetricId      *string                `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
-	xxx_hidden_Name          *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Type          MetricsMetricType      `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.metrics.MetricsMetricType"`
-	xxx_hidden_Description   *string                `protobuf:"bytes,4,opt,name=description"`
-	xxx_hidden_Unit          *string                `protobuf:"bytes,5,opt,name=unit"`
-	xxx_hidden_Labels        map[string]string      `protobuf:"bytes,6,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Values        *[]*MetricValue        `protobuf:"bytes,7,rep,name=values"`
-	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Source        *string                `protobuf:"bytes,9,opt,name=source"`
-	xxx_hidden_Namespace     *string                `protobuf:"bytes,10,opt,name=namespace"`
-	xxx_hidden_SchemaVersion *string                `protobuf:"bytes,11,opt,name=schema_version,json=schemaVersion"`
+	state                    protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_MetricId      *string                  `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
+	xxx_hidden_Name          *string                  `protobuf:"bytes,2,opt,name=name"`
+	xxx_hidden_Type          common.MetricsMetricType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.MetricsMetricType"`
+	xxx_hidden_Description   *string                  `protobuf:"bytes,4,opt,name=description"`
+	xxx_hidden_Unit          *string                  `protobuf:"bytes,5,opt,name=unit"`
+	xxx_hidden_Labels        map[string]string        `protobuf:"bytes,6,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Values        *[]*MetricValue          `protobuf:"bytes,7,rep,name=values"`
+	xxx_hidden_CreatedAt     *timestamppb.Timestamp   `protobuf:"bytes,8,opt,name=created_at,json=createdAt"`
+	xxx_hidden_Source        *string                  `protobuf:"bytes,9,opt,name=source"`
+	xxx_hidden_Namespace     *string                  `protobuf:"bytes,10,opt,name=namespace"`
+	xxx_hidden_SchemaVersion *string                  `protobuf:"bytes,11,opt,name=schema_version,json=schemaVersion"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -86,13 +87,13 @@ func (x *MetricData) GetName() string {
 	return ""
 }
 
-func (x *MetricData) GetType() MetricsMetricType {
+func (x *MetricData) GetType() common.MetricsMetricType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	return common.MetricsMetricType(0)
 }
 
 func (x *MetricData) GetDescription() string {
@@ -178,7 +179,7 @@ func (x *MetricData) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 11)
 }
 
-func (x *MetricData) SetType(v MetricsMetricType) {
+func (x *MetricData) SetType(v common.MetricsMetricType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 11)
 }
@@ -295,7 +296,7 @@ func (x *MetricData) ClearName() {
 
 func (x *MetricData) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = MetricsMetricType_METRIC_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MetricsMetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricData) ClearDescription() {
@@ -335,7 +336,7 @@ type MetricData_builder struct {
 	// Metric name (e.g., "http_requests_total", "cpu_usage_percent")
 	Name *string
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *MetricsMetricType
+	Type *common.MetricsMetricType
 	// Human-readable description of the metric
 	Description *string
 	// Unit of measurement (e.g., "bytes", "seconds", "requests")
@@ -400,12 +401,12 @@ var File_gcommon_v1_metrics_metric_data_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_metric_data_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/metrics/metric_data.proto\x12\x12gcommon.v1.metrics\x1a$gcommon/v1/metrics/metric_type.proto\x1a%gcommon/v1/metrics/metric_value.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x03\n" +
+	"$gcommon/v1/metrics/metric_data.proto\x12\x12gcommon.v1.metrics\x1a#gcommon/v1/common/metric_type.proto\x1a%gcommon/v1/metrics/metric_value.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfd\x03\n" +
 	"\n" +
 	"MetricData\x12\x1b\n" +
 	"\tmetric_id\x18\x01 \x01(\tR\bmetricId\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x129\n" +
-	"\x04type\x18\x03 \x01(\x0e2%.gcommon.v1.metrics.MetricsMetricTypeR\x04type\x12 \n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x128\n" +
+	"\x04type\x18\x03 \x01(\x0e2$.gcommon.v1.common.MetricsMetricTypeR\x04type\x12 \n" +
 	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x12\n" +
 	"\x04unit\x18\x05 \x01(\tR\x04unit\x12B\n" +
 	"\x06labels\x18\x06 \x03(\v2*.gcommon.v1.metrics.MetricData.LabelsEntryR\x06labels\x127\n" +
@@ -424,12 +425,12 @@ var file_gcommon_v1_metrics_metric_data_proto_msgTypes = make([]protoimpl.Messag
 var file_gcommon_v1_metrics_metric_data_proto_goTypes = []any{
 	(*MetricData)(nil),            // 0: gcommon.v1.metrics.MetricData
 	nil,                           // 1: gcommon.v1.metrics.MetricData.LabelsEntry
-	(MetricsMetricType)(0),        // 2: gcommon.v1.metrics.MetricsMetricType
+	(common.MetricsMetricType)(0), // 2: gcommon.v1.common.MetricsMetricType
 	(*MetricValue)(nil),           // 3: gcommon.v1.metrics.MetricValue
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_metric_data_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.metrics.MetricData.type:type_name -> gcommon.v1.metrics.MetricsMetricType
+	2, // 0: gcommon.v1.metrics.MetricData.type:type_name -> gcommon.v1.common.MetricsMetricType
 	1, // 1: gcommon.v1.metrics.MetricData.labels:type_name -> gcommon.v1.metrics.MetricData.LabelsEntry
 	3, // 2: gcommon.v1.metrics.MetricData.values:type_name -> gcommon.v1.metrics.MetricValue
 	4, // 3: gcommon.v1.metrics.MetricData.created_at:type_name -> google.protobuf.Timestamp
@@ -445,7 +446,6 @@ func file_gcommon_v1_metrics_metric_data_proto_init() {
 	if File_gcommon_v1_metrics_metric_data_proto != nil {
 		return
 	}
-	file_gcommon_v1_metrics_metric_type_proto_init()
 	file_gcommon_v1_metrics_metric_value_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

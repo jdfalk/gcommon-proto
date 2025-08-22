@@ -203,6 +203,7 @@ type UpdateQueueConfigRequest_builder struct {
 	// Name of the queue to update
 	QueueName *string
 	// New configuration for the queue
+	// New queue configuration
 	Config *QueueConfig
 	// Fields to update (field mask)
 	UpdateMask []string

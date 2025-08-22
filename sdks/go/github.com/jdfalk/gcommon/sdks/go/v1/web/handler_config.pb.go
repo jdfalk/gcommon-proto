@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ const (
 // HandlerConfig message definition.
 type HandlerConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        HandlerType            `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.web.HandlerType"`
+	xxx_hidden_Type        common.HandlerType     `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.HandlerType"`
 	xxx_hidden_Config      *anypb.Any             `protobuf:"bytes,2,opt,name=config"`
 	xxx_hidden_Target      *string                `protobuf:"bytes,3,opt,name=target"`
 	xxx_hidden_Options     map[string]string      `protobuf:"bytes,4,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
@@ -60,13 +61,13 @@ func (x *HandlerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HandlerConfig) GetType() HandlerType {
+func (x *HandlerConfig) GetType() common.HandlerType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return HandlerType_HANDLER_TYPE_UNSPECIFIED
+	return common.HandlerType(0)
 }
 
 func (x *HandlerConfig) GetConfig() *anypb.Any {
@@ -93,7 +94,7 @@ func (x *HandlerConfig) GetOptions() map[string]string {
 	return nil
 }
 
-func (x *HandlerConfig) SetType(v HandlerType) {
+func (x *HandlerConfig) SetType(v common.HandlerType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -134,7 +135,7 @@ func (x *HandlerConfig) HasTarget() bool {
 
 func (x *HandlerConfig) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = HandlerType_HANDLER_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.HandlerType_HANDLER_TYPE_UNSPECIFIED
 }
 
 func (x *HandlerConfig) ClearConfig() {
@@ -150,7 +151,7 @@ type HandlerConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Handler type
-	Type *HandlerType
+	Type *common.HandlerType
 	// Handler-specific configuration
 	Config *anypb.Any
 	// Target for the handler (URL, function name, etc.)
@@ -180,9 +181,9 @@ var File_gcommon_v1_web_handler_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_handler_config_proto_rawDesc = "" +
 	"\n" +
-	"#gcommon/v1/web/handler_config.proto\x12\x0egcommon.v1.web\x1a!gcommon/v1/web/handler_type.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\x88\x02\n" +
-	"\rHandlerConfig\x12/\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\x04type\x12,\n" +
+	"#gcommon/v1/web/handler_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/handler_type.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"\x8b\x02\n" +
+	"\rHandlerConfig\x122\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1e.gcommon.v1.common.HandlerTypeR\x04type\x12,\n" +
 	"\x06config\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x06config\x12\x16\n" +
 	"\x06target\x18\x03 \x01(\tR\x06target\x12D\n" +
 	"\aoptions\x18\x04 \x03(\v2*.gcommon.v1.web.HandlerConfig.OptionsEntryR\aoptions\x1a:\n" +
@@ -192,13 +193,13 @@ const file_gcommon_v1_web_handler_config_proto_rawDesc = "" +
 
 var file_gcommon_v1_web_handler_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_web_handler_config_proto_goTypes = []any{
-	(*HandlerConfig)(nil), // 0: gcommon.v1.web.HandlerConfig
-	nil,                   // 1: gcommon.v1.web.HandlerConfig.OptionsEntry
-	(HandlerType)(0),      // 2: gcommon.v1.web.HandlerType
-	(*anypb.Any)(nil),     // 3: google.protobuf.Any
+	(*HandlerConfig)(nil),   // 0: gcommon.v1.web.HandlerConfig
+	nil,                     // 1: gcommon.v1.web.HandlerConfig.OptionsEntry
+	(common.HandlerType)(0), // 2: gcommon.v1.common.HandlerType
+	(*anypb.Any)(nil),       // 3: google.protobuf.Any
 }
 var file_gcommon_v1_web_handler_config_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.web.HandlerConfig.type:type_name -> gcommon.v1.web.HandlerType
+	2, // 0: gcommon.v1.web.HandlerConfig.type:type_name -> gcommon.v1.common.HandlerType
 	3, // 1: gcommon.v1.web.HandlerConfig.config:type_name -> google.protobuf.Any
 	1, // 2: gcommon.v1.web.HandlerConfig.options:type_name -> gcommon.v1.web.HandlerConfig.OptionsEntry
 	3, // [3:3] is the sub-list for method output_type
@@ -213,7 +214,6 @@ func file_gcommon_v1_web_handler_config_proto_init() {
 	if File_gcommon_v1_web_handler_config_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_handler_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

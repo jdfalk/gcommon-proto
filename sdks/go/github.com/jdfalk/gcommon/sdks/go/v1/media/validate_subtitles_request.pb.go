@@ -21,15 +21,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Request to validate subtitle file.
+// Request to validate subtitle file format and content.
 type ValidateSubtitlesRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubtitleFileId *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
-	xxx_hidden_Options        *ValidationOptions     `protobuf:"bytes,2,opt,name=options"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubtitleFileId  *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
+	xxx_hidden_CheckTiming     bool                   `protobuf:"varint,2,opt,name=check_timing,json=checkTiming"`
+	xxx_hidden_CheckFormatting bool                   `protobuf:"varint,3,opt,name=check_formatting,json=checkFormatting"`
+	xxx_hidden_ExpectedFormat  *string                `protobuf:"bytes,4,opt,name=expected_format,json=expectedFormat"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *ValidateSubtitlesRequest) Reset() {
@@ -67,20 +69,48 @@ func (x *ValidateSubtitlesRequest) GetSubtitleFileId() string {
 	return ""
 }
 
-func (x *ValidateSubtitlesRequest) GetOptions() *ValidationOptions {
+func (x *ValidateSubtitlesRequest) GetCheckTiming() bool {
 	if x != nil {
-		return x.xxx_hidden_Options
+		return x.xxx_hidden_CheckTiming
 	}
-	return nil
+	return false
+}
+
+func (x *ValidateSubtitlesRequest) GetCheckFormatting() bool {
+	if x != nil {
+		return x.xxx_hidden_CheckFormatting
+	}
+	return false
+}
+
+func (x *ValidateSubtitlesRequest) GetExpectedFormat() string {
+	if x != nil {
+		if x.xxx_hidden_ExpectedFormat != nil {
+			return *x.xxx_hidden_ExpectedFormat
+		}
+		return ""
+	}
+	return ""
 }
 
 func (x *ValidateSubtitlesRequest) SetSubtitleFileId(v string) {
 	x.xxx_hidden_SubtitleFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ValidateSubtitlesRequest) SetOptions(v *ValidationOptions) {
-	x.xxx_hidden_Options = v
+func (x *ValidateSubtitlesRequest) SetCheckTiming(v bool) {
+	x.xxx_hidden_CheckTiming = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *ValidateSubtitlesRequest) SetCheckFormatting(v bool) {
+	x.xxx_hidden_CheckFormatting = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *ValidateSubtitlesRequest) SetExpectedFormat(v string) {
+	x.xxx_hidden_ExpectedFormat = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *ValidateSubtitlesRequest) HasSubtitleFileId() bool {
@@ -90,11 +120,25 @@ func (x *ValidateSubtitlesRequest) HasSubtitleFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *ValidateSubtitlesRequest) HasOptions() bool {
+func (x *ValidateSubtitlesRequest) HasCheckTiming() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ValidateSubtitlesRequest) HasCheckFormatting() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ValidateSubtitlesRequest) HasExpectedFormat() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *ValidateSubtitlesRequest) ClearSubtitleFileId() {
@@ -102,15 +146,28 @@ func (x *ValidateSubtitlesRequest) ClearSubtitleFileId() {
 	x.xxx_hidden_SubtitleFileId = nil
 }
 
-func (x *ValidateSubtitlesRequest) ClearOptions() {
-	x.xxx_hidden_Options = nil
+func (x *ValidateSubtitlesRequest) ClearCheckTiming() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_CheckTiming = false
+}
+
+func (x *ValidateSubtitlesRequest) ClearCheckFormatting() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_CheckFormatting = false
+}
+
+func (x *ValidateSubtitlesRequest) ClearExpectedFormat() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_ExpectedFormat = nil
 }
 
 type ValidateSubtitlesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	SubtitleFileId *string
-	Options        *ValidationOptions
+	SubtitleFileId  *string
+	CheckTiming     *bool
+	CheckFormatting *bool
+	ExpectedFormat  *string
 }
 
 func (b0 ValidateSubtitlesRequest_builder) Build() *ValidateSubtitlesRequest {
@@ -118,205 +175,20 @@ func (b0 ValidateSubtitlesRequest_builder) Build() *ValidateSubtitlesRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.SubtitleFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
 		x.xxx_hidden_SubtitleFileId = b.SubtitleFileId
 	}
-	x.xxx_hidden_Options = b.Options
-	return m0
-}
-
-// Options for subtitle validation.
-type ValidationOptions struct {
-	state                            protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_CheckTimingOverlap    bool                   `protobuf:"varint,1,opt,name=check_timing_overlap,json=checkTimingOverlap"`
-	xxx_hidden_CheckEncoding         bool                   `protobuf:"varint,2,opt,name=check_encoding,json=checkEncoding"`
-	xxx_hidden_CheckFormatCompliance bool                   `protobuf:"varint,3,opt,name=check_format_compliance,json=checkFormatCompliance"`
-	xxx_hidden_CheckReadingSpeed     bool                   `protobuf:"varint,4,opt,name=check_reading_speed,json=checkReadingSpeed"`
-	xxx_hidden_MaxReadingSpeedWpm    float64                `protobuf:"fixed64,5,opt,name=max_reading_speed_wpm,json=maxReadingSpeedWpm"`
-	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
-	XXX_presence                     [1]uint32
-	unknownFields                    protoimpl.UnknownFields
-	sizeCache                        protoimpl.SizeCache
-}
-
-func (x *ValidationOptions) Reset() {
-	*x = ValidationOptions{}
-	mi := &file_gcommon_v1_media_validate_subtitles_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValidationOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValidationOptions) ProtoMessage() {}
-
-func (x *ValidationOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_validate_subtitles_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+	if b.CheckTiming != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_CheckTiming = *b.CheckTiming
 	}
-	return mi.MessageOf(x)
-}
-
-func (x *ValidationOptions) GetCheckTimingOverlap() bool {
-	if x != nil {
-		return x.xxx_hidden_CheckTimingOverlap
+	if b.CheckFormatting != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_CheckFormatting = *b.CheckFormatting
 	}
-	return false
-}
-
-func (x *ValidationOptions) GetCheckEncoding() bool {
-	if x != nil {
-		return x.xxx_hidden_CheckEncoding
-	}
-	return false
-}
-
-func (x *ValidationOptions) GetCheckFormatCompliance() bool {
-	if x != nil {
-		return x.xxx_hidden_CheckFormatCompliance
-	}
-	return false
-}
-
-func (x *ValidationOptions) GetCheckReadingSpeed() bool {
-	if x != nil {
-		return x.xxx_hidden_CheckReadingSpeed
-	}
-	return false
-}
-
-func (x *ValidationOptions) GetMaxReadingSpeedWpm() float64 {
-	if x != nil {
-		return x.xxx_hidden_MaxReadingSpeedWpm
-	}
-	return 0
-}
-
-func (x *ValidationOptions) SetCheckTimingOverlap(v bool) {
-	x.xxx_hidden_CheckTimingOverlap = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *ValidationOptions) SetCheckEncoding(v bool) {
-	x.xxx_hidden_CheckEncoding = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *ValidationOptions) SetCheckFormatCompliance(v bool) {
-	x.xxx_hidden_CheckFormatCompliance = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *ValidationOptions) SetCheckReadingSpeed(v bool) {
-	x.xxx_hidden_CheckReadingSpeed = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *ValidationOptions) SetMaxReadingSpeedWpm(v float64) {
-	x.xxx_hidden_MaxReadingSpeedWpm = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-}
-
-func (x *ValidationOptions) HasCheckTimingOverlap() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidationOptions) HasCheckEncoding() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidationOptions) HasCheckFormatCompliance() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidationOptions) HasCheckReadingSpeed() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ValidationOptions) HasMaxReadingSpeedWpm() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *ValidationOptions) ClearCheckTimingOverlap() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_CheckTimingOverlap = false
-}
-
-func (x *ValidationOptions) ClearCheckEncoding() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_CheckEncoding = false
-}
-
-func (x *ValidationOptions) ClearCheckFormatCompliance() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_CheckFormatCompliance = false
-}
-
-func (x *ValidationOptions) ClearCheckReadingSpeed() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_CheckReadingSpeed = false
-}
-
-func (x *ValidationOptions) ClearMaxReadingSpeedWpm() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_MaxReadingSpeedWpm = 0
-}
-
-type ValidationOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	CheckTimingOverlap    *bool
-	CheckEncoding         *bool
-	CheckFormatCompliance *bool
-	CheckReadingSpeed     *bool
-	MaxReadingSpeedWpm    *float64
-}
-
-func (b0 ValidationOptions_builder) Build() *ValidationOptions {
-	m0 := &ValidationOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.CheckTimingOverlap != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_CheckTimingOverlap = *b.CheckTimingOverlap
-	}
-	if b.CheckEncoding != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_CheckEncoding = *b.CheckEncoding
-	}
-	if b.CheckFormatCompliance != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_CheckFormatCompliance = *b.CheckFormatCompliance
-	}
-	if b.CheckReadingSpeed != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_CheckReadingSpeed = *b.CheckReadingSpeed
-	}
-	if b.MaxReadingSpeedWpm != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_MaxReadingSpeedWpm = *b.MaxReadingSpeedWpm
+	if b.ExpectedFormat != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_ExpectedFormat = b.ExpectedFormat
 	}
 	return m0
 }
@@ -325,29 +197,23 @@ var File_gcommon_v1_media_validate_subtitles_request_proto protoreflect.FileDesc
 
 const file_gcommon_v1_media_validate_subtitles_request_proto_rawDesc = "" +
 	"\n" +
-	"1gcommon/v1/media/validate_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x83\x01\n" +
+	"1gcommon/v1/media/validate_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xbb\x01\n" +
 	"\x18ValidateSubtitlesRequest\x12(\n" +
-	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12=\n" +
-	"\aoptions\x18\x02 \x01(\v2#.gcommon.v1.media.ValidationOptionsR\aoptions\"\x87\x02\n" +
-	"\x11ValidationOptions\x120\n" +
-	"\x14check_timing_overlap\x18\x01 \x01(\bR\x12checkTimingOverlap\x12%\n" +
-	"\x0echeck_encoding\x18\x02 \x01(\bR\rcheckEncoding\x126\n" +
-	"\x17check_format_compliance\x18\x03 \x01(\bR\x15checkFormatCompliance\x12.\n" +
-	"\x13check_reading_speed\x18\x04 \x01(\bR\x11checkReadingSpeed\x121\n" +
-	"\x15max_reading_speed_wpm\x18\x05 \x01(\x01R\x12maxReadingSpeedWpmB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12!\n" +
+	"\fcheck_timing\x18\x02 \x01(\bR\vcheckTiming\x12)\n" +
+	"\x10check_formatting\x18\x03 \x01(\bR\x0fcheckFormatting\x12'\n" +
+	"\x0fexpected_format\x18\x04 \x01(\tR\x0eexpectedFormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_validate_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_validate_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_validate_subtitles_request_proto_goTypes = []any{
 	(*ValidateSubtitlesRequest)(nil), // 0: gcommon.v1.media.ValidateSubtitlesRequest
-	(*ValidationOptions)(nil),        // 1: gcommon.v1.media.ValidationOptions
 }
 var file_gcommon_v1_media_validate_subtitles_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.ValidateSubtitlesRequest.options:type_name -> gcommon.v1.media.ValidationOptions
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_validate_subtitles_request_proto_init() }
@@ -361,7 +227,7 @@ func file_gcommon_v1_media_validate_subtitles_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_validate_subtitles_request_proto_rawDesc), len(file_gcommon_v1_media_validate_subtitles_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

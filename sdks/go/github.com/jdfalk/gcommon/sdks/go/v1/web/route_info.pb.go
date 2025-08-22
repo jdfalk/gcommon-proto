@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +27,7 @@ const (
 type RouteInfo struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Config      *RouteConfig           `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_RouteType   RouteType              `protobuf:"varint,2,opt,name=route_type,json=routeType,enum=gcommon.v1.web.RouteType"`
+	xxx_hidden_RouteType   common.RouteType       `protobuf:"varint,2,opt,name=route_type,json=routeType,enum=gcommon.v1.common.RouteType"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -67,13 +68,13 @@ func (x *RouteInfo) GetConfig() *RouteConfig {
 	return nil
 }
 
-func (x *RouteInfo) GetRouteType() RouteType {
+func (x *RouteInfo) GetRouteType() common.RouteType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_RouteType
 		}
 	}
-	return RouteType_ROUTE_TYPE_UNSPECIFIED
+	return common.RouteType(0)
 }
 
 func (x *RouteInfo) GetCreatedAt() *timestamppb.Timestamp {
@@ -94,7 +95,7 @@ func (x *RouteInfo) SetConfig(v *RouteConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *RouteInfo) SetRouteType(v RouteType) {
+func (x *RouteInfo) SetRouteType(v common.RouteType) {
 	x.xxx_hidden_RouteType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -141,7 +142,7 @@ func (x *RouteInfo) ClearConfig() {
 
 func (x *RouteInfo) ClearRouteType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RouteType = RouteType_ROUTE_TYPE_UNSPECIFIED
+	x.xxx_hidden_RouteType = common.RouteType_ROUTE_TYPE_UNSPECIFIED
 }
 
 func (x *RouteInfo) ClearCreatedAt() {
@@ -158,7 +159,7 @@ type RouteInfo_builder struct {
 	// Route configuration
 	Config *RouteConfig
 	// Type of route
-	RouteType *RouteType
+	RouteType *common.RouteType
 	// Creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -183,11 +184,11 @@ var File_gcommon_v1_web_route_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_route_info_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgcommon/v1/web/route_info.proto\x12\x0egcommon.v1.web\x1a\x1fgcommon/v1/web/route_type.proto\x1a!gcommon/v1/web/route_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf0\x01\n" +
+	"\x1fgcommon/v1/web/route_info.proto\x12\x0egcommon.v1.web\x1a\"gcommon/v1/common/route_type.proto\x1a!gcommon/v1/web/route_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf3\x01\n" +
 	"\tRouteInfo\x123\n" +
-	"\x06config\x18\x01 \x01(\v2\x1b.gcommon.v1.web.RouteConfigR\x06config\x128\n" +
+	"\x06config\x18\x01 \x01(\v2\x1b.gcommon.v1.web.RouteConfigR\x06config\x12;\n" +
 	"\n" +
-	"route_type\x18\x02 \x01(\x0e2\x19.gcommon.v1.web.RouteTypeR\trouteType\x129\n" +
+	"route_type\x18\x02 \x01(\x0e2\x1c.gcommon.v1.common.RouteTypeR\trouteType\x129\n" +
 	"\n" +
 	"created_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
@@ -197,12 +198,12 @@ var file_gcommon_v1_web_route_info_proto_msgTypes = make([]protoimpl.MessageInfo
 var file_gcommon_v1_web_route_info_proto_goTypes = []any{
 	(*RouteInfo)(nil),             // 0: gcommon.v1.web.RouteInfo
 	(*RouteConfig)(nil),           // 1: gcommon.v1.web.RouteConfig
-	(RouteType)(0),                // 2: gcommon.v1.web.RouteType
+	(common.RouteType)(0),         // 2: gcommon.v1.common.RouteType
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_web_route_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.RouteInfo.config:type_name -> gcommon.v1.web.RouteConfig
-	2, // 1: gcommon.v1.web.RouteInfo.route_type:type_name -> gcommon.v1.web.RouteType
+	2, // 1: gcommon.v1.web.RouteInfo.route_type:type_name -> gcommon.v1.common.RouteType
 	3, // 2: gcommon.v1.web.RouteInfo.created_at:type_name -> google.protobuf.Timestamp
 	3, // 3: gcommon.v1.web.RouteInfo.updated_at:type_name -> google.protobuf.Timestamp
 	4, // [4:4] is the sub-list for method output_type
@@ -217,7 +218,6 @@ func file_gcommon_v1_web_route_info_proto_init() {
 	if File_gcommon_v1_web_route_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_route_type_proto_init()
 	file_gcommon_v1_web_route_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

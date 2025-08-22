@@ -224,7 +224,7 @@ var File_gcommon_v1_queue_health_check_response_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_queue_health_check_response_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/queue/health_check_response.proto\x12\x10gcommon.v1.queue\x1a%gcommon/v1/common/health_status.proto\x1a\x1dgcommon/v1/common/error.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf6\x01\n" +
+	",gcommon/v1/queue/health_check_response.proto\x12\x10gcommon.v1.queue\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/health_status.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf6\x01\n" +
 	"\x18QueueHealthCheckResponse\x12=\n" +
 	"\x06status\x18\x01 \x01(\x0e2%.gcommon.v1.common.CommonHealthStatusR\x06status\x12#\n" +
 	"\rconnection_ok\x18\x02 \x01(\bR\fconnectionOk\x12B\n" +

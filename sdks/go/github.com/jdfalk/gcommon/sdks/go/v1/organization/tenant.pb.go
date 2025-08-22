@@ -28,27 +28,27 @@ const (
 // Supports multi-tenant architecture with configurable isolation levels,
 // resource quotas, and tenant-specific settings.
 type Tenant struct {
-	state                     protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Id             *string                    `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_OrganizationId *string                    `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Name           *string                    `protobuf:"bytes,3,opt,name=name"`
-	xxx_hidden_Slug           *string                    `protobuf:"bytes,4,opt,name=slug"`
-	xxx_hidden_Description    *string                    `protobuf:"bytes,5,opt,name=description"`
-	xxx_hidden_Status         TenantStatus               `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
-	xxx_hidden_IsolationLevel OrganizationIsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.OrganizationIsolationLevel"`
-	xxx_hidden_Metadata       *[]*common.KeyValue        `protobuf:"bytes,8,rep,name=metadata"`
-	xxx_hidden_CreatedAt      *timestamppb.Timestamp     `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt      *timestamppb.Timestamp     `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_CreatedBy      *string                    `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
-	xxx_hidden_UpdatedBy      *string                    `protobuf:"bytes,12,opt,name=updated_by,json=updatedBy"`
-	xxx_hidden_DatabaseConfig *string                    `protobuf:"bytes,13,opt,name=database_config,json=databaseConfig"`
-	xxx_hidden_NetworkConfig  *string                    `protobuf:"bytes,14,opt,name=network_config,json=networkConfig"`
-	xxx_hidden_Quota          *TenantQuota               `protobuf:"bytes,15,opt,name=quota"`
-	xxx_hidden_CustomDomain   *string                    `protobuf:"bytes,16,opt,name=custom_domain,json=customDomain"`
-	xxx_hidden_Timezone       *string                    `protobuf:"bytes,17,opt,name=timezone"`
-	xxx_hidden_Locale         *string                    `protobuf:"bytes,18,opt,name=locale"`
-	xxx_hidden_TrialMode      bool                       `protobuf:"varint,19,opt,name=trial_mode,json=trialMode"`
-	xxx_hidden_TrialExpiresAt *timestamppb.Timestamp     `protobuf:"bytes,20,opt,name=trial_expires_at,json=trialExpiresAt"`
+	state                     protoimpl.MessageState            `protogen:"opaque.v1"`
+	xxx_hidden_Id             *string                           `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_OrganizationId *string                           `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_Name           *string                           `protobuf:"bytes,3,opt,name=name"`
+	xxx_hidden_Slug           *string                           `protobuf:"bytes,4,opt,name=slug"`
+	xxx_hidden_Description    *string                           `protobuf:"bytes,5,opt,name=description"`
+	xxx_hidden_Status         common.TenantStatus               `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.common.TenantStatus"`
+	xxx_hidden_IsolationLevel common.OrganizationIsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.common.OrganizationIsolationLevel"`
+	xxx_hidden_Metadata       *[]*common.KeyValue               `protobuf:"bytes,8,rep,name=metadata"`
+	xxx_hidden_CreatedAt      *timestamppb.Timestamp            `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt      *timestamppb.Timestamp            `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_CreatedBy      *string                           `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
+	xxx_hidden_UpdatedBy      *string                           `protobuf:"bytes,12,opt,name=updated_by,json=updatedBy"`
+	xxx_hidden_DatabaseConfig *string                           `protobuf:"bytes,13,opt,name=database_config,json=databaseConfig"`
+	xxx_hidden_NetworkConfig  *string                           `protobuf:"bytes,14,opt,name=network_config,json=networkConfig"`
+	xxx_hidden_Quota          *TenantQuota                      `protobuf:"bytes,15,opt,name=quota"`
+	xxx_hidden_CustomDomain   *string                           `protobuf:"bytes,16,opt,name=custom_domain,json=customDomain"`
+	xxx_hidden_Timezone       *string                           `protobuf:"bytes,17,opt,name=timezone"`
+	xxx_hidden_Locale         *string                           `protobuf:"bytes,18,opt,name=locale"`
+	xxx_hidden_TrialMode      bool                              `protobuf:"varint,19,opt,name=trial_mode,json=trialMode"`
+	xxx_hidden_TrialExpiresAt *timestamppb.Timestamp            `protobuf:"bytes,20,opt,name=trial_expires_at,json=trialExpiresAt"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -132,22 +132,22 @@ func (x *Tenant) GetDescription() string {
 	return ""
 }
 
-func (x *Tenant) GetStatus() TenantStatus {
+func (x *Tenant) GetStatus() common.TenantStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return TenantStatus_TENANT_STATUS_UNSPECIFIED
+	return common.TenantStatus(0)
 }
 
-func (x *Tenant) GetIsolationLevel() OrganizationIsolationLevel {
+func (x *Tenant) GetIsolationLevel() common.OrganizationIsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_IsolationLevel
 		}
 	}
-	return OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	return common.OrganizationIsolationLevel(0)
 }
 
 func (x *Tenant) GetMetadata() []*common.KeyValue {
@@ -315,12 +315,12 @@ func (x *Tenant) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 20)
 }
 
-func (x *Tenant) SetStatus(v TenantStatus) {
+func (x *Tenant) SetStatus(v common.TenantStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 20)
 }
 
-func (x *Tenant) SetIsolationLevel(v OrganizationIsolationLevel) {
+func (x *Tenant) SetIsolationLevel(v common.OrganizationIsolationLevel) {
 	x.xxx_hidden_IsolationLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 20)
 }
@@ -567,12 +567,12 @@ func (x *Tenant) ClearDescription() {
 
 func (x *Tenant) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Status = TenantStatus_TENANT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
 func (x *Tenant) ClearIsolationLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_IsolationLevel = OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_IsolationLevel = common.OrganizationIsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *Tenant) ClearCreatedAt() {
@@ -648,9 +648,9 @@ type Tenant_builder struct {
 	// Tenant description
 	Description *string
 	// Current status of the tenant
-	Status *TenantStatus
+	Status *common.TenantStatus
 	// Isolation level for this tenant
-	IsolationLevel *OrganizationIsolationLevel
+	IsolationLevel *common.OrganizationIsolationLevel
 	// Tenant metadata and custom attributes
 	Metadata []*common.KeyValue
 	// Tenant creation timestamp (immutable)
@@ -767,15 +767,15 @@ var File_gcommon_v1_organization_tenant_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_organization_tenant_proto_rawDesc = "" +
 	"\n" +
-	"$gcommon/v1/organization/tenant.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a-gcommon/v1/organization/isolation_level.proto\x1a+gcommon/v1/organization/tenant_status.proto\x1a*gcommon/v1/organization/tenant_quota.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xef\x06\n" +
+	"$gcommon/v1/organization/tenant.proto\x12\x17gcommon.v1.organization\x1a'gcommon/v1/common/isolation_level.proto\x1a!gcommon/v1/common/key_value.proto\x1a%gcommon/v1/common/tenant_status.proto\x1a*gcommon/v1/organization/tenant_quota.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe3\x06\n" +
 	"\x06Tenant\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12'\n" +
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x12\n" +
 	"\x04slug\x18\x04 \x01(\tR\x04slug\x12 \n" +
-	"\vdescription\x18\x05 \x01(\tR\vdescription\x12=\n" +
-	"\x06status\x18\x06 \x01(\x0e2%.gcommon.v1.organization.TenantStatusR\x06status\x12\\\n" +
-	"\x0fisolation_level\x18\a \x01(\x0e23.gcommon.v1.organization.OrganizationIsolationLevelR\x0eisolationLevel\x12;\n" +
+	"\vdescription\x18\x05 \x01(\tR\vdescription\x127\n" +
+	"\x06status\x18\x06 \x01(\x0e2\x1f.gcommon.v1.common.TenantStatusR\x06status\x12V\n" +
+	"\x0fisolation_level\x18\a \x01(\x0e2-.gcommon.v1.common.OrganizationIsolationLevelR\x0eisolationLevel\x12;\n" +
 	"\bmetadata\x18\b \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\bmetadata\x12=\n" +
 	"\n" +
 	"created_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
@@ -798,16 +798,16 @@ const file_gcommon_v1_organization_tenant_proto_rawDesc = "" +
 
 var file_gcommon_v1_organization_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_tenant_proto_goTypes = []any{
-	(*Tenant)(nil),                  // 0: gcommon.v1.organization.Tenant
-	(TenantStatus)(0),               // 1: gcommon.v1.organization.TenantStatus
-	(OrganizationIsolationLevel)(0), // 2: gcommon.v1.organization.OrganizationIsolationLevel
-	(*common.KeyValue)(nil),         // 3: gcommon.v1.common.KeyValue
-	(*timestamppb.Timestamp)(nil),   // 4: google.protobuf.Timestamp
-	(*TenantQuota)(nil),             // 5: gcommon.v1.organization.TenantQuota
+	(*Tenant)(nil),                         // 0: gcommon.v1.organization.Tenant
+	(common.TenantStatus)(0),               // 1: gcommon.v1.common.TenantStatus
+	(common.OrganizationIsolationLevel)(0), // 2: gcommon.v1.common.OrganizationIsolationLevel
+	(*common.KeyValue)(nil),                // 3: gcommon.v1.common.KeyValue
+	(*timestamppb.Timestamp)(nil),          // 4: google.protobuf.Timestamp
+	(*TenantQuota)(nil),                    // 5: gcommon.v1.organization.TenantQuota
 }
 var file_gcommon_v1_organization_tenant_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.organization.Tenant.status:type_name -> gcommon.v1.organization.TenantStatus
-	2, // 1: gcommon.v1.organization.Tenant.isolation_level:type_name -> gcommon.v1.organization.OrganizationIsolationLevel
+	1, // 0: gcommon.v1.organization.Tenant.status:type_name -> gcommon.v1.common.TenantStatus
+	2, // 1: gcommon.v1.organization.Tenant.isolation_level:type_name -> gcommon.v1.common.OrganizationIsolationLevel
 	3, // 2: gcommon.v1.organization.Tenant.metadata:type_name -> gcommon.v1.common.KeyValue
 	4, // 3: gcommon.v1.organization.Tenant.created_at:type_name -> google.protobuf.Timestamp
 	4, // 4: gcommon.v1.organization.Tenant.updated_at:type_name -> google.protobuf.Timestamp
@@ -825,8 +825,6 @@ func file_gcommon_v1_organization_tenant_proto_init() {
 	if File_gcommon_v1_organization_tenant_proto != nil {
 		return
 	}
-	file_gcommon_v1_organization_isolation_level_proto_init()
-	file_gcommon_v1_organization_tenant_status_proto_init()
 	file_gcommon_v1_organization_tenant_quota_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

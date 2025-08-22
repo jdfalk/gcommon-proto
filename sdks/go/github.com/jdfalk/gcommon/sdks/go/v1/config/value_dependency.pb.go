@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type ValueDependency struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type          DependencyType         `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.DependencyType"`
+	xxx_hidden_Type          common.DependencyType  `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.DependencyType"`
 	xxx_hidden_DependentKey  *string                `protobuf:"bytes,2,opt,name=dependent_key,json=dependentKey"`
 	xxx_hidden_DependencyKey *string                `protobuf:"bytes,3,opt,name=dependency_key,json=dependencyKey"`
 	xxx_hidden_Condition     *string                `protobuf:"bytes,4,opt,name=condition"`
@@ -59,13 +60,13 @@ func (x *ValueDependency) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValueDependency) GetType() DependencyType {
+func (x *ValueDependency) GetType() common.DependencyType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
+	return common.DependencyType(0)
 }
 
 func (x *ValueDependency) GetDependentKey() string {
@@ -105,7 +106,7 @@ func (x *ValueDependency) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *ValueDependency) SetType(v DependencyType) {
+func (x *ValueDependency) SetType(v common.DependencyType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -159,7 +160,7 @@ func (x *ValueDependency) HasCondition() bool {
 
 func (x *ValueDependency) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.DependencyType_DEPENDENCY_TYPE_UNSPECIFIED
 }
 
 func (x *ValueDependency) ClearDependentKey() {
@@ -181,7 +182,7 @@ type ValueDependency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Dependency type
-	Type *DependencyType
+	Type *common.DependencyType
 	// Dependent value key
 	DependentKey *string
 	// Dependency key
@@ -220,9 +221,9 @@ var File_gcommon_v1_config_value_dependency_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_value_dependency_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/config/value_dependency.proto\x12\x11gcommon.v1.config\x1a'gcommon/v1/config/dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xbd\x02\n" +
+	"(gcommon/v1/config/value_dependency.proto\x12\x11gcommon.v1.config\x1a'gcommon/v1/common/dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xbd\x02\n" +
 	"\x0fValueDependency\x125\n" +
-	"\x04type\x18\x01 \x01(\x0e2!.gcommon.v1.config.DependencyTypeR\x04type\x12#\n" +
+	"\x04type\x18\x01 \x01(\x0e2!.gcommon.v1.common.DependencyTypeR\x04type\x12#\n" +
 	"\rdependent_key\x18\x02 \x01(\tR\fdependentKey\x12%\n" +
 	"\x0edependency_key\x18\x03 \x01(\tR\rdependencyKey\x12\x1c\n" +
 	"\tcondition\x18\x04 \x01(\tR\tcondition\x12L\n" +
@@ -233,12 +234,12 @@ const file_gcommon_v1_config_value_dependency_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_value_dependency_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_value_dependency_proto_goTypes = []any{
-	(*ValueDependency)(nil), // 0: gcommon.v1.config.ValueDependency
-	nil,                     // 1: gcommon.v1.config.ValueDependency.MetadataEntry
-	(DependencyType)(0),     // 2: gcommon.v1.config.DependencyType
+	(*ValueDependency)(nil),    // 0: gcommon.v1.config.ValueDependency
+	nil,                        // 1: gcommon.v1.config.ValueDependency.MetadataEntry
+	(common.DependencyType)(0), // 2: gcommon.v1.common.DependencyType
 }
 var file_gcommon_v1_config_value_dependency_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ValueDependency.type:type_name -> gcommon.v1.config.DependencyType
+	2, // 0: gcommon.v1.config.ValueDependency.type:type_name -> gcommon.v1.common.DependencyType
 	1, // 1: gcommon.v1.config.ValueDependency.metadata:type_name -> gcommon.v1.config.ValueDependency.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -252,7 +253,6 @@ func file_gcommon_v1_config_value_dependency_proto_init() {
 	if File_gcommon_v1_config_value_dependency_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_dependency_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

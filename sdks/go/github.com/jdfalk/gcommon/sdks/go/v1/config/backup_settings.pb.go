@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,7 +25,7 @@ const (
 type BackupSettings struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Enabled         bool                   `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Frequency       BackupFrequency        `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.config.BackupFrequency"`
+	xxx_hidden_Frequency       common.BackupFrequency `protobuf:"varint,2,opt,name=frequency,enum=gcommon.v1.common.BackupFrequency"`
 	xxx_hidden_RetentionDays   int32                  `protobuf:"varint,3,opt,name=retention_days,json=retentionDays"`
 	xxx_hidden_StorageLocation *string                `protobuf:"bytes,4,opt,name=storage_location,json=storageLocation"`
 	xxx_hidden_Encrypted       bool                   `protobuf:"varint,5,opt,name=encrypted"`
@@ -68,13 +69,13 @@ func (x *BackupSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *BackupSettings) GetFrequency() BackupFrequency {
+func (x *BackupSettings) GetFrequency() common.BackupFrequency {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Frequency
 		}
 	}
-	return BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
+	return common.BackupFrequency(0)
 }
 
 func (x *BackupSettings) GetRetentionDays() int32 {
@@ -120,7 +121,7 @@ func (x *BackupSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *BackupSettings) SetFrequency(v BackupFrequency) {
+func (x *BackupSettings) SetFrequency(v common.BackupFrequency) {
 	x.xxx_hidden_Frequency = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -198,7 +199,7 @@ func (x *BackupSettings) ClearEnabled() {
 
 func (x *BackupSettings) ClearFrequency() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Frequency = BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
+	x.xxx_hidden_Frequency = common.BackupFrequency_BACKUP_FREQUENCY_UNSPECIFIED
 }
 
 func (x *BackupSettings) ClearRetentionDays() {
@@ -227,7 +228,7 @@ type BackupSettings_builder struct {
 	// Whether backup is enabled
 	Enabled *bool
 	// Backup frequency
-	Frequency *BackupFrequency
+	Frequency *common.BackupFrequency
 	// Backup retention period in days
 	RetentionDays *int32
 	// Backup storage location
@@ -276,10 +277,10 @@ var File_gcommon_v1_config_backup_settings_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_backup_settings_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/config/backup_settings.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/config/backup_frequency.proto\x1a!google/protobuf/go_features.proto\"\x86\x03\n" +
+	"'gcommon/v1/config/backup_settings.proto\x12\x11gcommon.v1.config\x1a(gcommon/v1/common/backup_frequency.proto\x1a!google/protobuf/go_features.proto\"\x86\x03\n" +
 	"\x0eBackupSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12@\n" +
-	"\tfrequency\x18\x02 \x01(\x0e2\".gcommon.v1.config.BackupFrequencyR\tfrequency\x12%\n" +
+	"\tfrequency\x18\x02 \x01(\x0e2\".gcommon.v1.common.BackupFrequencyR\tfrequency\x12%\n" +
 	"\x0eretention_days\x18\x03 \x01(\x05R\rretentionDays\x12)\n" +
 	"\x10storage_location\x18\x04 \x01(\tR\x0fstorageLocation\x12\x1c\n" +
 	"\tencrypted\x18\x05 \x01(\bR\tencrypted\x12\x1e\n" +
@@ -293,12 +294,12 @@ const file_gcommon_v1_config_backup_settings_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_backup_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_backup_settings_proto_goTypes = []any{
-	(*BackupSettings)(nil), // 0: gcommon.v1.config.BackupSettings
-	nil,                    // 1: gcommon.v1.config.BackupSettings.MetadataEntry
-	(BackupFrequency)(0),   // 2: gcommon.v1.config.BackupFrequency
+	(*BackupSettings)(nil),      // 0: gcommon.v1.config.BackupSettings
+	nil,                         // 1: gcommon.v1.config.BackupSettings.MetadataEntry
+	(common.BackupFrequency)(0), // 2: gcommon.v1.common.BackupFrequency
 }
 var file_gcommon_v1_config_backup_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.BackupSettings.frequency:type_name -> gcommon.v1.config.BackupFrequency
+	2, // 0: gcommon.v1.config.BackupSettings.frequency:type_name -> gcommon.v1.common.BackupFrequency
 	1, // 1: gcommon.v1.config.BackupSettings.metadata:type_name -> gcommon.v1.config.BackupSettings.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -312,7 +313,6 @@ func file_gcommon_v1_config_backup_settings_proto_init() {
 	if File_gcommon_v1_config_backup_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_backup_frequency_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

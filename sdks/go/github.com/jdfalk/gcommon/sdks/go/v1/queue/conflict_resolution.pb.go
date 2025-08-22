@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,11 +23,11 @@ const (
 )
 
 type QueueConflictResolution struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Strategy         ResolutionStrategy     `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.queue.ResolutionStrategy"`
-	xxx_hidden_CustomResolution *CustomResolution      `protobuf:"bytes,2,opt,name=custom_resolution,json=customResolution"`
-	xxx_hidden_LwwConfig        *LastWriterWins        `protobuf:"bytes,3,opt,name=lww_config,json=lwwConfig"`
-	xxx_hidden_MultiValue       *MultiValueConfig      `protobuf:"bytes,4,opt,name=multi_value,json=multiValue"`
+	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Strategy         common.ResolutionStrategy `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.common.ResolutionStrategy"`
+	xxx_hidden_CustomResolution *CustomResolution         `protobuf:"bytes,2,opt,name=custom_resolution,json=customResolution"`
+	xxx_hidden_LwwConfig        *LastWriterWins           `protobuf:"bytes,3,opt,name=lww_config,json=lwwConfig"`
+	xxx_hidden_MultiValue       *MultiValueConfig         `protobuf:"bytes,4,opt,name=multi_value,json=multiValue"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -58,13 +59,13 @@ func (x *QueueConflictResolution) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueueConflictResolution) GetStrategy() ResolutionStrategy {
+func (x *QueueConflictResolution) GetStrategy() common.ResolutionStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
+	return common.ResolutionStrategy(0)
 }
 
 func (x *QueueConflictResolution) GetCustomResolution() *CustomResolution {
@@ -88,7 +89,7 @@ func (x *QueueConflictResolution) GetMultiValue() *MultiValueConfig {
 	return nil
 }
 
-func (x *QueueConflictResolution) SetStrategy(v ResolutionStrategy) {
+func (x *QueueConflictResolution) SetStrategy(v common.ResolutionStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -135,7 +136,7 @@ func (x *QueueConflictResolution) HasMultiValue() bool {
 
 func (x *QueueConflictResolution) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Strategy = ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = common.ResolutionStrategy_RESOLUTION_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueConflictResolution) ClearCustomResolution() {
@@ -154,7 +155,7 @@ type QueueConflictResolution_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Conflict resolution strategy
-	Strategy *ResolutionStrategy
+	Strategy *common.ResolutionStrategy
 	// Custom resolution function settings
 	CustomResolution *CustomResolution
 	// Last-writer-wins settings
@@ -181,9 +182,9 @@ var File_gcommon_v1_queue_conflict_resolution_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_conflict_resolution_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/queue/conflict_resolution.proto\x12\x10gcommon.v1.queue\x1a*gcommon/v1/queue/resolution_strategy.proto\x1a(gcommon/v1/queue/custom_resolution.proto\x1a'gcommon/v1/queue/last_writer_wins.proto\x1a)gcommon/v1/queue/multi_value_config.proto\x1a!google/protobuf/go_features.proto\"\xb2\x02\n" +
-	"\x17QueueConflictResolution\x12@\n" +
-	"\bstrategy\x18\x01 \x01(\x0e2$.gcommon.v1.queue.ResolutionStrategyR\bstrategy\x12O\n" +
+	"*gcommon/v1/queue/conflict_resolution.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/common/resolution_strategy.proto\x1a(gcommon/v1/queue/custom_resolution.proto\x1a'gcommon/v1/queue/last_writer_wins.proto\x1a)gcommon/v1/queue/multi_value_config.proto\x1a!google/protobuf/go_features.proto\"\xb3\x02\n" +
+	"\x17QueueConflictResolution\x12A\n" +
+	"\bstrategy\x18\x01 \x01(\x0e2%.gcommon.v1.common.ResolutionStrategyR\bstrategy\x12O\n" +
 	"\x11custom_resolution\x18\x02 \x01(\v2\".gcommon.v1.queue.CustomResolutionR\x10customResolution\x12?\n" +
 	"\n" +
 	"lww_config\x18\x03 \x01(\v2 .gcommon.v1.queue.LastWriterWinsR\tlwwConfig\x12C\n" +
@@ -193,13 +194,13 @@ const file_gcommon_v1_queue_conflict_resolution_proto_rawDesc = "" +
 var file_gcommon_v1_queue_conflict_resolution_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_conflict_resolution_proto_goTypes = []any{
 	(*QueueConflictResolution)(nil), // 0: gcommon.v1.queue.QueueConflictResolution
-	(ResolutionStrategy)(0),         // 1: gcommon.v1.queue.ResolutionStrategy
+	(common.ResolutionStrategy)(0),  // 1: gcommon.v1.common.ResolutionStrategy
 	(*CustomResolution)(nil),        // 2: gcommon.v1.queue.CustomResolution
 	(*LastWriterWins)(nil),          // 3: gcommon.v1.queue.LastWriterWins
 	(*MultiValueConfig)(nil),        // 4: gcommon.v1.queue.MultiValueConfig
 }
 var file_gcommon_v1_queue_conflict_resolution_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.QueueConflictResolution.strategy:type_name -> gcommon.v1.queue.ResolutionStrategy
+	1, // 0: gcommon.v1.queue.QueueConflictResolution.strategy:type_name -> gcommon.v1.common.ResolutionStrategy
 	2, // 1: gcommon.v1.queue.QueueConflictResolution.custom_resolution:type_name -> gcommon.v1.queue.CustomResolution
 	3, // 2: gcommon.v1.queue.QueueConflictResolution.lww_config:type_name -> gcommon.v1.queue.LastWriterWins
 	4, // 3: gcommon.v1.queue.QueueConflictResolution.multi_value:type_name -> gcommon.v1.queue.MultiValueConfig
@@ -215,7 +216,6 @@ func file_gcommon_v1_queue_conflict_resolution_proto_init() {
 	if File_gcommon_v1_queue_conflict_resolution_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_resolution_strategy_proto_init()
 	file_gcommon_v1_queue_custom_resolution_proto_init()
 	file_gcommon_v1_queue_last_writer_wins_proto_init()
 	file_gcommon_v1_queue_multi_value_config_proto_init()

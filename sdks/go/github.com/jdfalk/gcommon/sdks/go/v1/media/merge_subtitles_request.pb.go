@@ -21,62 +21,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// How to resolve conflicting subtitle timings.
-type ConflictResolution int32
-
-const (
-	ConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED ConflictResolution = 0
-	ConflictResolution_CONFLICT_RESOLUTION_KEEP_FIRST  ConflictResolution = 1 // Keep first subtitle when overlapping
-	ConflictResolution_CONFLICT_RESOLUTION_KEEP_LAST   ConflictResolution = 2 // Keep last subtitle when overlapping
-	ConflictResolution_CONFLICT_RESOLUTION_COMBINE     ConflictResolution = 3 // Combine overlapping subtitles
-	ConflictResolution_CONFLICT_RESOLUTION_ERROR       ConflictResolution = 4 // Return error on conflicts
-)
-
-// Enum value maps for ConflictResolution.
-var (
-	ConflictResolution_name = map[int32]string{
-		0: "CONFLICT_RESOLUTION_UNSPECIFIED",
-		1: "CONFLICT_RESOLUTION_KEEP_FIRST",
-		2: "CONFLICT_RESOLUTION_KEEP_LAST",
-		3: "CONFLICT_RESOLUTION_COMBINE",
-		4: "CONFLICT_RESOLUTION_ERROR",
-	}
-	ConflictResolution_value = map[string]int32{
-		"CONFLICT_RESOLUTION_UNSPECIFIED": 0,
-		"CONFLICT_RESOLUTION_KEEP_FIRST":  1,
-		"CONFLICT_RESOLUTION_KEEP_LAST":   2,
-		"CONFLICT_RESOLUTION_COMBINE":     3,
-		"CONFLICT_RESOLUTION_ERROR":       4,
-	}
-)
-
-func (x ConflictResolution) Enum() *ConflictResolution {
-	p := new(ConflictResolution)
-	*p = x
-	return p
-}
-
-func (x ConflictResolution) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ConflictResolution) Descriptor() protoreflect.EnumDescriptor {
-	return file_gcommon_v1_media_merge_subtitles_request_proto_enumTypes[0].Descriptor()
-}
-
-func (ConflictResolution) Type() protoreflect.EnumType {
-	return &file_gcommon_v1_media_merge_subtitles_request_proto_enumTypes[0]
-}
-
-func (x ConflictResolution) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
 // Request to merge multiple subtitle files.
 type MergeSubtitlesRequest struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_SubtitleFileIds []string               `protobuf:"bytes,1,rep,name=subtitle_file_ids,json=subtitleFileIds"`
-	xxx_hidden_Options         *MergeOptions          `protobuf:"bytes,2,opt,name=options"`
+	xxx_hidden_OutputFileId    *string                `protobuf:"bytes,2,opt,name=output_file_id,json=outputFileId"`
+	xxx_hidden_MergeOptions    *MergeOptions          `protobuf:"bytes,3,opt,name=merge_options,json=mergeOptions"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -113,9 +65,19 @@ func (x *MergeSubtitlesRequest) GetSubtitleFileIds() []string {
 	return nil
 }
 
-func (x *MergeSubtitlesRequest) GetOptions() *MergeOptions {
+func (x *MergeSubtitlesRequest) GetOutputFileId() string {
 	if x != nil {
-		return x.xxx_hidden_Options
+		if x.xxx_hidden_OutputFileId != nil {
+			return *x.xxx_hidden_OutputFileId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *MergeSubtitlesRequest) GetMergeOptions() *MergeOptions {
+	if x != nil {
+		return x.xxx_hidden_MergeOptions
 	}
 	return nil
 }
@@ -124,26 +86,44 @@ func (x *MergeSubtitlesRequest) SetSubtitleFileIds(v []string) {
 	x.xxx_hidden_SubtitleFileIds = v
 }
 
-func (x *MergeSubtitlesRequest) SetOptions(v *MergeOptions) {
-	x.xxx_hidden_Options = v
+func (x *MergeSubtitlesRequest) SetOutputFileId(v string) {
+	x.xxx_hidden_OutputFileId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *MergeSubtitlesRequest) HasOptions() bool {
+func (x *MergeSubtitlesRequest) SetMergeOptions(v *MergeOptions) {
+	x.xxx_hidden_MergeOptions = v
+}
+
+func (x *MergeSubtitlesRequest) HasOutputFileId() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *MergeSubtitlesRequest) ClearOptions() {
-	x.xxx_hidden_Options = nil
+func (x *MergeSubtitlesRequest) HasMergeOptions() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_MergeOptions != nil
+}
+
+func (x *MergeSubtitlesRequest) ClearOutputFileId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_OutputFileId = nil
+}
+
+func (x *MergeSubtitlesRequest) ClearMergeOptions() {
+	x.xxx_hidden_MergeOptions = nil
 }
 
 type MergeSubtitlesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	SubtitleFileIds []string
-	Options         *MergeOptions
+	OutputFileId    *string
+	MergeOptions    *MergeOptions
 }
 
 func (b0 MergeSubtitlesRequest_builder) Build() *MergeSubtitlesRequest {
@@ -151,178 +131,11 @@ func (b0 MergeSubtitlesRequest_builder) Build() *MergeSubtitlesRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_SubtitleFileIds = b.SubtitleFileIds
-	x.xxx_hidden_Options = b.Options
-	return m0
-}
-
-// Options for merging subtitles.
-type MergeOptions struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_OutputFormat       *string                `protobuf:"bytes,1,opt,name=output_format,json=outputFormat"`
-	xxx_hidden_PreserveFormatting bool                   `protobuf:"varint,2,opt,name=preserve_formatting,json=preserveFormatting"`
-	xxx_hidden_ConflictResolution ConflictResolution     `protobuf:"varint,3,opt,name=conflict_resolution,json=conflictResolution,enum=gcommon.v1.media.ConflictResolution"`
-	xxx_hidden_SortByTimestamp    bool                   `protobuf:"varint,4,opt,name=sort_by_timestamp,json=sortByTimestamp"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
-}
-
-func (x *MergeOptions) Reset() {
-	*x = MergeOptions{}
-	mi := &file_gcommon_v1_media_merge_subtitles_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MergeOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MergeOptions) ProtoMessage() {}
-
-func (x *MergeOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_merge_subtitles_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+	if b.OutputFileId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_OutputFileId = b.OutputFileId
 	}
-	return mi.MessageOf(x)
-}
-
-func (x *MergeOptions) GetOutputFormat() string {
-	if x != nil {
-		if x.xxx_hidden_OutputFormat != nil {
-			return *x.xxx_hidden_OutputFormat
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *MergeOptions) GetPreserveFormatting() bool {
-	if x != nil {
-		return x.xxx_hidden_PreserveFormatting
-	}
-	return false
-}
-
-func (x *MergeOptions) GetConflictResolution() ConflictResolution {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			return x.xxx_hidden_ConflictResolution
-		}
-	}
-	return ConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
-}
-
-func (x *MergeOptions) GetSortByTimestamp() bool {
-	if x != nil {
-		return x.xxx_hidden_SortByTimestamp
-	}
-	return false
-}
-
-func (x *MergeOptions) SetOutputFormat(v string) {
-	x.xxx_hidden_OutputFormat = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *MergeOptions) SetPreserveFormatting(v bool) {
-	x.xxx_hidden_PreserveFormatting = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *MergeOptions) SetConflictResolution(v ConflictResolution) {
-	x.xxx_hidden_ConflictResolution = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *MergeOptions) SetSortByTimestamp(v bool) {
-	x.xxx_hidden_SortByTimestamp = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *MergeOptions) HasOutputFormat() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *MergeOptions) HasPreserveFormatting() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *MergeOptions) HasConflictResolution() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *MergeOptions) HasSortByTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *MergeOptions) ClearOutputFormat() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OutputFormat = nil
-}
-
-func (x *MergeOptions) ClearPreserveFormatting() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PreserveFormatting = false
-}
-
-func (x *MergeOptions) ClearConflictResolution() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_ConflictResolution = ConflictResolution_CONFLICT_RESOLUTION_UNSPECIFIED
-}
-
-func (x *MergeOptions) ClearSortByTimestamp() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_SortByTimestamp = false
-}
-
-type MergeOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	OutputFormat       *string
-	PreserveFormatting *bool
-	ConflictResolution *ConflictResolution
-	SortByTimestamp    *bool
-}
-
-func (b0 MergeOptions_builder) Build() *MergeOptions {
-	m0 := &MergeOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.OutputFormat != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_OutputFormat = b.OutputFormat
-	}
-	if b.PreserveFormatting != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_PreserveFormatting = *b.PreserveFormatting
-	}
-	if b.ConflictResolution != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_ConflictResolution = *b.ConflictResolution
-	}
-	if b.SortByTimestamp != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_SortByTimestamp = *b.SortByTimestamp
-	}
+	x.xxx_hidden_MergeOptions = b.MergeOptions
 	return m0
 }
 
@@ -330,37 +143,24 @@ var File_gcommon_v1_media_merge_subtitles_request_proto protoreflect.FileDescrip
 
 const file_gcommon_v1_media_merge_subtitles_request_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/media/merge_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"}\n" +
+	".gcommon/v1/media/merge_subtitles_request.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/merge_options.proto\x1a!google/protobuf/go_features.proto\"\xae\x01\n" +
 	"\x15MergeSubtitlesRequest\x12*\n" +
-	"\x11subtitle_file_ids\x18\x01 \x03(\tR\x0fsubtitleFileIds\x128\n" +
-	"\aoptions\x18\x02 \x01(\v2\x1e.gcommon.v1.media.MergeOptionsR\aoptions\"\xe7\x01\n" +
-	"\fMergeOptions\x12#\n" +
-	"\routput_format\x18\x01 \x01(\tR\foutputFormat\x12/\n" +
-	"\x13preserve_formatting\x18\x02 \x01(\bR\x12preserveFormatting\x12U\n" +
-	"\x13conflict_resolution\x18\x03 \x01(\x0e2$.gcommon.v1.media.ConflictResolutionR\x12conflictResolution\x12*\n" +
-	"\x11sort_by_timestamp\x18\x04 \x01(\bR\x0fsortByTimestamp*\xc0\x01\n" +
-	"\x12ConflictResolution\x12#\n" +
-	"\x1fCONFLICT_RESOLUTION_UNSPECIFIED\x10\x00\x12\"\n" +
-	"\x1eCONFLICT_RESOLUTION_KEEP_FIRST\x10\x01\x12!\n" +
-	"\x1dCONFLICT_RESOLUTION_KEEP_LAST\x10\x02\x12\x1f\n" +
-	"\x1bCONFLICT_RESOLUTION_COMBINE\x10\x03\x12\x1d\n" +
-	"\x19CONFLICT_RESOLUTION_ERROR\x10\x04B4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11subtitle_file_ids\x18\x01 \x03(\tR\x0fsubtitleFileIds\x12$\n" +
+	"\x0eoutput_file_id\x18\x02 \x01(\tR\foutputFileId\x12C\n" +
+	"\rmerge_options\x18\x03 \x01(\v2\x1e.gcommon.v1.media.MergeOptionsR\fmergeOptionsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_merge_subtitles_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gcommon_v1_media_merge_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_merge_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_merge_subtitles_request_proto_goTypes = []any{
-	(ConflictResolution)(0),       // 0: gcommon.v1.media.ConflictResolution
-	(*MergeSubtitlesRequest)(nil), // 1: gcommon.v1.media.MergeSubtitlesRequest
-	(*MergeOptions)(nil),          // 2: gcommon.v1.media.MergeOptions
+	(*MergeSubtitlesRequest)(nil), // 0: gcommon.v1.media.MergeSubtitlesRequest
+	(*MergeOptions)(nil),          // 1: gcommon.v1.media.MergeOptions
 }
 var file_gcommon_v1_media_merge_subtitles_request_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.media.MergeSubtitlesRequest.options:type_name -> gcommon.v1.media.MergeOptions
-	0, // 1: gcommon.v1.media.MergeOptions.conflict_resolution:type_name -> gcommon.v1.media.ConflictResolution
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	1, // 0: gcommon.v1.media.MergeSubtitlesRequest.merge_options:type_name -> gcommon.v1.media.MergeOptions
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_merge_subtitles_request_proto_init() }
@@ -368,19 +168,19 @@ func file_gcommon_v1_media_merge_subtitles_request_proto_init() {
 	if File_gcommon_v1_media_merge_subtitles_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_merge_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_merge_subtitles_request_proto_rawDesc), len(file_gcommon_v1_media_merge_subtitles_request_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   2,
+			NumEnums:      0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_gcommon_v1_media_merge_subtitles_request_proto_goTypes,
 		DependencyIndexes: file_gcommon_v1_media_merge_subtitles_request_proto_depIdxs,
-		EnumInfos:         file_gcommon_v1_media_merge_subtitles_request_proto_enumTypes,
 		MessageInfos:      file_gcommon_v1_media_merge_subtitles_request_proto_msgTypes,
 	}.Build()
 	File_gcommon_v1_media_merge_subtitles_request_proto = out.File

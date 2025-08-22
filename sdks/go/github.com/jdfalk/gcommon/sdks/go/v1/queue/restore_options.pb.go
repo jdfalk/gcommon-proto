@@ -246,6 +246,7 @@ type RestoreOptions_builder struct {
 	// Restore messages from specific offset range
 	OffsetRange *OffsetRange
 	// Restore messages within time range
+	// Time range for restore
 	TimeRange *metrics.MetricsTimeRange
 	// Restore specific message priorities
 	PriorityLevels []int32

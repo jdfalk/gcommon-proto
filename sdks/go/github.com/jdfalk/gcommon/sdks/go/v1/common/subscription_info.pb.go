@@ -272,7 +272,7 @@ var File_gcommon_v1_common_subscription_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_subscription_info_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/common/subscription_info.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/subscription_status.proto\x1a#gcommon/v1/common/client_info.proto\x1a&gcommon/v1/common/filter_options.proto\x1a,gcommon/v1/common/subscription_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n" +
+	")gcommon/v1/common/subscription_info.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/client_info.proto\x1a&gcommon/v1/common/filter_options.proto\x1a,gcommon/v1/common/subscription_options.proto\x1a+gcommon/v1/common/subscription_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xad\x03\n" +
 	"\x16CommonSubscriptionInfo\x12'\n" +
 	"\x0fsubscription_id\x18\x01 \x01(\tR\x0esubscriptionId\x128\n" +
 	"\x06filter\x18\x02 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x129\n" +
@@ -313,10 +313,10 @@ func file_gcommon_v1_common_subscription_info_proto_init() {
 	if File_gcommon_v1_common_subscription_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_subscription_status_proto_init()
 	file_gcommon_v1_common_client_info_proto_init()
 	file_gcommon_v1_common_filter_options_proto_init()
 	file_gcommon_v1_common_subscription_options_proto_init()
+	file_gcommon_v1_common_subscription_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

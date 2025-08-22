@@ -396,7 +396,7 @@ type GetTopicInfoResponse_builder struct {
 	Tags []string
 	// Owner information
 	Owner *OwnerInfo
-	// Retention policy details
+	// Retention policy for messages in this topic
 	Retention *metrics.MetricsRetentionInfo
 }
 

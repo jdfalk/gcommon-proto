@@ -7,6 +7,7 @@
 package web
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +32,7 @@ type CookieData struct {
 	xxx_hidden_ExpiresAt   *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
 	xxx_hidden_HttpOnly    bool                   `protobuf:"varint,6,opt,name=http_only,json=httpOnly"`
 	xxx_hidden_Secure      bool                   `protobuf:"varint,7,opt,name=secure"`
-	xxx_hidden_SameSite    CookieSameSite         `protobuf:"varint,8,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
+	xxx_hidden_SameSite    common.CookieSameSite  `protobuf:"varint,8,opt,name=same_site,json=sameSite,enum=gcommon.v1.common.CookieSameSite"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -124,13 +125,13 @@ func (x *CookieData) GetSecure() bool {
 	return false
 }
 
-func (x *CookieData) GetSameSite() CookieSameSite {
+func (x *CookieData) GetSameSite() common.CookieSameSite {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_SameSite
 		}
 	}
-	return CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+	return common.CookieSameSite(0)
 }
 
 func (x *CookieData) SetName(v string) {
@@ -167,7 +168,7 @@ func (x *CookieData) SetSecure(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
 
-func (x *CookieData) SetSameSite(v CookieSameSite) {
+func (x *CookieData) SetSameSite(v common.CookieSameSite) {
 	x.xxx_hidden_SameSite = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
 }
@@ -264,7 +265,7 @@ func (x *CookieData) ClearSecure() {
 
 func (x *CookieData) ClearSameSite() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_SameSite = CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+	x.xxx_hidden_SameSite = common.CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 type CookieData_builder struct {
@@ -285,7 +286,7 @@ type CookieData_builder struct {
 	// Whether cookie is Secure
 	Secure *bool
 	// SameSite policy
-	SameSite *CookieSameSite
+	SameSite *common.CookieSameSite
 }
 
 func (b0 CookieData_builder) Build() *CookieData {
@@ -328,7 +329,7 @@ var File_gcommon_v1_web_cookie_data_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_cookie_data_proto_rawDesc = "" +
 	"\n" +
-	" gcommon/v1/web/cookie_data.proto\x12\x0egcommon.v1.web\x1a%gcommon/v1/web/cookie_same_site.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8f\x02\n" +
+	" gcommon/v1/web/cookie_data.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/common/cookie_same_site.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x92\x02\n" +
 	"\n" +
 	"CookieData\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
@@ -338,18 +339,18 @@ const file_gcommon_v1_web_cookie_data_proto_rawDesc = "" +
 	"\n" +
 	"expires_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
 	"\thttp_only\x18\x06 \x01(\bR\bhttpOnly\x12\x16\n" +
-	"\x06secure\x18\a \x01(\bR\x06secure\x12;\n" +
-	"\tsame_site\x18\b \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06secure\x18\a \x01(\bR\x06secure\x12>\n" +
+	"\tsame_site\x18\b \x01(\x0e2!.gcommon.v1.common.CookieSameSiteR\bsameSiteB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_cookie_data_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_cookie_data_proto_goTypes = []any{
 	(*CookieData)(nil),            // 0: gcommon.v1.web.CookieData
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(CookieSameSite)(0),           // 2: gcommon.v1.web.CookieSameSite
+	(common.CookieSameSite)(0),    // 2: gcommon.v1.common.CookieSameSite
 }
 var file_gcommon_v1_web_cookie_data_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.CookieData.expires_at:type_name -> google.protobuf.Timestamp
-	2, // 1: gcommon.v1.web.CookieData.same_site:type_name -> gcommon.v1.web.CookieSameSite
+	2, // 1: gcommon.v1.web.CookieData.same_site:type_name -> gcommon.v1.common.CookieSameSite
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -362,7 +363,6 @@ func file_gcommon_v1_web_cookie_data_proto_init() {
 	if File_gcommon_v1_web_cookie_data_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_cookie_same_site_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

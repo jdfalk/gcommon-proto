@@ -7,6 +7,7 @@
 package queue
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,14 +28,14 @@ const (
 // Defines how failed messages should be retried before being
 // sent to dead letter queue.
 type QueueRetryPolicy struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxAttempts       int32                  `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
-	xxx_hidden_InitialDelay      *durationpb.Duration   `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
-	xxx_hidden_MaxDelay          *durationpb.Duration   `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
-	xxx_hidden_BackoffMultiplier float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
-	xxx_hidden_DelayStrategy     RetryDelayStrategy     `protobuf:"varint,5,opt,name=delay_strategy,json=delayStrategy,enum=gcommon.v1.queue.RetryDelayStrategy"`
-	xxx_hidden_EnableJitter      bool                   `protobuf:"varint,6,opt,name=enable_jitter,json=enableJitter"`
-	xxx_hidden_JitterFactor      float64                `protobuf:"fixed64,7,opt,name=jitter_factor,json=jitterFactor"`
+	state                        protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_MaxAttempts       int32                     `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
+	xxx_hidden_InitialDelay      *durationpb.Duration      `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
+	xxx_hidden_MaxDelay          *durationpb.Duration      `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
+	xxx_hidden_BackoffMultiplier float64                   `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
+	xxx_hidden_DelayStrategy     common.RetryDelayStrategy `protobuf:"varint,5,opt,name=delay_strategy,json=delayStrategy,enum=gcommon.v1.common.RetryDelayStrategy"`
+	xxx_hidden_EnableJitter      bool                      `protobuf:"varint,6,opt,name=enable_jitter,json=enableJitter"`
+	xxx_hidden_JitterFactor      float64                   `protobuf:"fixed64,7,opt,name=jitter_factor,json=jitterFactor"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
 	unknownFields                protoimpl.UnknownFields
@@ -94,13 +95,13 @@ func (x *QueueRetryPolicy) GetBackoffMultiplier() float64 {
 	return 0
 }
 
-func (x *QueueRetryPolicy) GetDelayStrategy() RetryDelayStrategy {
+func (x *QueueRetryPolicy) GetDelayStrategy() common.RetryDelayStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_DelayStrategy
 		}
 	}
-	return RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
+	return common.RetryDelayStrategy(0)
 }
 
 func (x *QueueRetryPolicy) GetEnableJitter() bool {
@@ -135,7 +136,7 @@ func (x *QueueRetryPolicy) SetBackoffMultiplier(v float64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
-func (x *QueueRetryPolicy) SetDelayStrategy(v RetryDelayStrategy) {
+func (x *QueueRetryPolicy) SetDelayStrategy(v common.RetryDelayStrategy) {
 	x.xxx_hidden_DelayStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
@@ -219,7 +220,7 @@ func (x *QueueRetryPolicy) ClearBackoffMultiplier() {
 
 func (x *QueueRetryPolicy) ClearDelayStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_DelayStrategy = RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_DelayStrategy = common.RetryDelayStrategy_RETRY_DELAY_STRATEGY_UNSPECIFIED
 }
 
 func (x *QueueRetryPolicy) ClearEnableJitter() {
@@ -244,7 +245,7 @@ type QueueRetryPolicy_builder struct {
 	// Backoff multiplier for exponential backoff
 	BackoffMultiplier *float64
 	// Retry delay strategy
-	DelayStrategy *RetryDelayStrategy
+	DelayStrategy *common.RetryDelayStrategy
 	// Whether to enable jitter in retry delays
 	EnableJitter *bool
 	// Jitter factor (0.0 to 1.0) for randomizing delays
@@ -284,26 +285,26 @@ var File_gcommon_v1_queue_retry_policy_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_retry_policy_proto_rawDesc = "" +
 	"\n" +
-	"#gcommon/v1/queue/retry_policy.proto\x12\x10gcommon.v1.queue\x1a+gcommon/v1/queue/retry_delay_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf3\x02\n" +
+	"#gcommon/v1/queue/retry_policy.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/common/retry_delay_strategy.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xf4\x02\n" +
 	"\x10QueueRetryPolicy\x12!\n" +
 	"\fmax_attempts\x18\x01 \x01(\x05R\vmaxAttempts\x12>\n" +
 	"\rinitial_delay\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\finitialDelay\x126\n" +
 	"\tmax_delay\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\bmaxDelay\x12-\n" +
-	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12K\n" +
-	"\x0edelay_strategy\x18\x05 \x01(\x0e2$.gcommon.v1.queue.RetryDelayStrategyR\rdelayStrategy\x12#\n" +
+	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12L\n" +
+	"\x0edelay_strategy\x18\x05 \x01(\x0e2%.gcommon.v1.common.RetryDelayStrategyR\rdelayStrategy\x12#\n" +
 	"\renable_jitter\x18\x06 \x01(\bR\fenableJitter\x12#\n" +
 	"\rjitter_factor\x18\a \x01(\x01R\fjitterFactorB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_retry_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_retry_policy_proto_goTypes = []any{
-	(*QueueRetryPolicy)(nil),    // 0: gcommon.v1.queue.QueueRetryPolicy
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(RetryDelayStrategy)(0),     // 2: gcommon.v1.queue.RetryDelayStrategy
+	(*QueueRetryPolicy)(nil),       // 0: gcommon.v1.queue.QueueRetryPolicy
+	(*durationpb.Duration)(nil),    // 1: google.protobuf.Duration
+	(common.RetryDelayStrategy)(0), // 2: gcommon.v1.common.RetryDelayStrategy
 }
 var file_gcommon_v1_queue_retry_policy_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.QueueRetryPolicy.initial_delay:type_name -> google.protobuf.Duration
 	1, // 1: gcommon.v1.queue.QueueRetryPolicy.max_delay:type_name -> google.protobuf.Duration
-	2, // 2: gcommon.v1.queue.QueueRetryPolicy.delay_strategy:type_name -> gcommon.v1.queue.RetryDelayStrategy
+	2, // 2: gcommon.v1.queue.QueueRetryPolicy.delay_strategy:type_name -> gcommon.v1.common.RetryDelayStrategy
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -316,7 +317,6 @@ func file_gcommon_v1_queue_retry_policy_proto_init() {
 	if File_gcommon_v1_queue_retry_policy_proto != nil {
 		return
 	}
-	file_gcommon_v1_queue_retry_delay_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

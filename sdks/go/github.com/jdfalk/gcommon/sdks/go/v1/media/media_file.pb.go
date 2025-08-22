@@ -7,6 +7,7 @@
 package media
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +29,7 @@ type MediaFile struct {
 	xxx_hidden_Id             *string                `protobuf:"bytes,1,opt,name=id"`
 	xxx_hidden_Path           *string                `protobuf:"bytes,2,opt,name=path"`
 	xxx_hidden_Filename       *string                `protobuf:"bytes,3,opt,name=filename"`
-	xxx_hidden_Type           MediaType              `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.media.MediaType"`
+	xxx_hidden_Type           common.MediaType       `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.common.MediaType"`
 	xxx_hidden_SizeBytes      int64                  `protobuf:"varint,5,opt,name=size_bytes,json=sizeBytes"`
 	xxx_hidden_CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
 	xxx_hidden_ModifiedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=modified_at,json=modifiedAt"`
@@ -99,13 +100,13 @@ func (x *MediaFile) GetFilename() string {
 	return ""
 }
 
-func (x *MediaFile) GetType() MediaType {
+func (x *MediaFile) GetType() common.MediaType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return MediaType_MEDIA_TYPE_UNSPECIFIED
+	return common.MediaType(0)
 }
 
 func (x *MediaFile) GetSizeBytes() int64 {
@@ -190,7 +191,7 @@ func (x *MediaFile) SetFilename(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 11)
 }
 
-func (x *MediaFile) SetType(v MediaType) {
+func (x *MediaFile) SetType(v common.MediaType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 11)
 }
@@ -314,7 +315,7 @@ func (x *MediaFile) ClearFilename() {
 
 func (x *MediaFile) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Type = MediaType_MEDIA_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.MediaType_MEDIA_TYPE_UNSPECIFIED
 }
 
 func (x *MediaFile) ClearSizeBytes() {
@@ -346,7 +347,7 @@ type MediaFile_builder struct {
 	Id             *string
 	Path           *string
 	Filename       *string
-	Type           *MediaType
+	Type           *common.MediaType
 	SizeBytes      *int64
 	CreatedAt      *timestamppb.Timestamp
 	ModifiedAt     *timestamppb.Timestamp
@@ -399,12 +400,12 @@ var File_gcommon_v1_media_media_file_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_media_file_proto_rawDesc = "" +
 	"\n" +
-	"!gcommon/v1/media/media_file.proto\x12\x10gcommon.v1.media\x1a!gcommon/v1/media/media_type.proto\x1a\"gcommon/v1/media/audio_track.proto\x1a%gcommon/v1/media/media_metadata.proto\x1a$gcommon/v1/media/media_quality.proto\x1a%gcommon/v1/media/subtitle_track.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9d\x04\n" +
+	"!gcommon/v1/media/media_file.proto\x12\x10gcommon.v1.media\x1a\"gcommon/v1/common/media_type.proto\x1a\"gcommon/v1/media/audio_track.proto\x1a%gcommon/v1/media/media_metadata.proto\x1a$gcommon/v1/media/media_quality.proto\x1a%gcommon/v1/media/subtitle_track.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9e\x04\n" +
 	"\tMediaFile\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04path\x18\x02 \x01(\tR\x04path\x12\x1a\n" +
-	"\bfilename\x18\x03 \x01(\tR\bfilename\x12/\n" +
-	"\x04type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.media.MediaTypeR\x04type\x12\x1d\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\x120\n" +
+	"\x04type\x18\x04 \x01(\x0e2\x1c.gcommon.v1.common.MediaTypeR\x04type\x12\x1d\n" +
 	"\n" +
 	"size_bytes\x18\x05 \x01(\x03R\tsizeBytes\x12=\n" +
 	"\n" +
@@ -420,7 +421,7 @@ const file_gcommon_v1_media_media_file_proto_rawDesc = "" +
 var file_gcommon_v1_media_media_file_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_media_file_proto_goTypes = []any{
 	(*MediaFile)(nil),             // 0: gcommon.v1.media.MediaFile
-	(MediaType)(0),                // 1: gcommon.v1.media.MediaType
+	(common.MediaType)(0),         // 1: gcommon.v1.common.MediaType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*MediaMetadata)(nil),         // 3: gcommon.v1.media.MediaMetadata
 	(*SubtitleTrack)(nil),         // 4: gcommon.v1.media.SubtitleTrack
@@ -428,7 +429,7 @@ var file_gcommon_v1_media_media_file_proto_goTypes = []any{
 	(*MediaQuality)(nil),          // 6: gcommon.v1.media.MediaQuality
 }
 var file_gcommon_v1_media_media_file_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.MediaFile.type:type_name -> gcommon.v1.media.MediaType
+	1, // 0: gcommon.v1.media.MediaFile.type:type_name -> gcommon.v1.common.MediaType
 	2, // 1: gcommon.v1.media.MediaFile.created_at:type_name -> google.protobuf.Timestamp
 	2, // 2: gcommon.v1.media.MediaFile.modified_at:type_name -> google.protobuf.Timestamp
 	3, // 3: gcommon.v1.media.MediaFile.metadata:type_name -> gcommon.v1.media.MediaMetadata
@@ -447,7 +448,6 @@ func file_gcommon_v1_media_media_file_proto_init() {
 	if File_gcommon_v1_media_media_file_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_type_proto_init()
 	file_gcommon_v1_media_audio_track_proto_init()
 	file_gcommon_v1_media_media_metadata_proto_init()
 	file_gcommon_v1_media_media_quality_proto_init()

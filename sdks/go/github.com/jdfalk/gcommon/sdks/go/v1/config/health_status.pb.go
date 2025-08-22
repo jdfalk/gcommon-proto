@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,12 +24,12 @@ const (
 )
 
 type ConfigHealthStatus struct {
-	state                   protoimpl.MessageState      `protogen:"opaque.v1"`
-	xxx_hidden_Overall      HealthState                 `protobuf:"varint,1,opt,name=overall,enum=gcommon.v1.config.HealthState"`
-	xxx_hidden_Components   map[string]HealthState      `protobuf:"bytes,2,rep,name=components" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value,enum=gcommon.v1.config.HealthState"`
-	xxx_hidden_HealthChecks *[]*ConfigHealthCheckResult `protobuf:"bytes,3,rep,name=health_checks,json=healthChecks"`
-	xxx_hidden_LastCheck    *timestamppb.Timestamp      `protobuf:"bytes,4,opt,name=last_check,json=lastCheck"`
-	xxx_hidden_Metrics      map[string]float64          `protobuf:"bytes,5,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
+	state                   protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Overall      common.HealthState            `protobuf:"varint,1,opt,name=overall,enum=gcommon.v1.common.HealthState"`
+	xxx_hidden_Components   map[string]common.HealthState `protobuf:"bytes,2,rep,name=components" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value,enum=gcommon.v1.common.HealthState"`
+	xxx_hidden_HealthChecks *[]*ConfigHealthCheckResult   `protobuf:"bytes,3,rep,name=health_checks,json=healthChecks"`
+	xxx_hidden_LastCheck    *timestamppb.Timestamp        `protobuf:"bytes,4,opt,name=last_check,json=lastCheck"`
+	xxx_hidden_Metrics      map[string]float64            `protobuf:"bytes,5,rep,name=metrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -60,16 +61,16 @@ func (x *ConfigHealthStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ConfigHealthStatus) GetOverall() HealthState {
+func (x *ConfigHealthStatus) GetOverall() common.HealthState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Overall
 		}
 	}
-	return HealthState_HEALTH_STATE_UNSPECIFIED
+	return common.HealthState(0)
 }
 
-func (x *ConfigHealthStatus) GetComponents() map[string]HealthState {
+func (x *ConfigHealthStatus) GetComponents() map[string]common.HealthState {
 	if x != nil {
 		return x.xxx_hidden_Components
 	}
@@ -99,12 +100,12 @@ func (x *ConfigHealthStatus) GetMetrics() map[string]float64 {
 	return nil
 }
 
-func (x *ConfigHealthStatus) SetOverall(v HealthState) {
+func (x *ConfigHealthStatus) SetOverall(v common.HealthState) {
 	x.xxx_hidden_Overall = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *ConfigHealthStatus) SetComponents(v map[string]HealthState) {
+func (x *ConfigHealthStatus) SetComponents(v map[string]common.HealthState) {
 	x.xxx_hidden_Components = v
 }
 
@@ -136,7 +137,7 @@ func (x *ConfigHealthStatus) HasLastCheck() bool {
 
 func (x *ConfigHealthStatus) ClearOverall() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Overall = HealthState_HEALTH_STATE_UNSPECIFIED
+	x.xxx_hidden_Overall = common.HealthState_HEALTH_STATE_UNSPECIFIED
 }
 
 func (x *ConfigHealthStatus) ClearLastCheck() {
@@ -147,9 +148,9 @@ type ConfigHealthStatus_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health
-	Overall *HealthState
+	Overall *common.HealthState
 	// Component health
-	Components map[string]HealthState
+	Components map[string]common.HealthState
 	// Health checks
 	HealthChecks []*ConfigHealthCheckResult
 	// Last health check
@@ -177,9 +178,9 @@ var File_gcommon_v1_config_health_status_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_health_status_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/config/health_status.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/health_state.proto\x1a+gcommon/v1/config/health_check_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x04\n" +
+	"%gcommon/v1/config/health_status.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/common/health_state.proto\x1a+gcommon/v1/config/health_check_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x04\n" +
 	"\x12ConfigHealthStatus\x128\n" +
-	"\aoverall\x18\x01 \x01(\x0e2\x1e.gcommon.v1.config.HealthStateR\aoverall\x12U\n" +
+	"\aoverall\x18\x01 \x01(\x0e2\x1e.gcommon.v1.common.HealthStateR\aoverall\x12U\n" +
 	"\n" +
 	"components\x18\x02 \x03(\v25.gcommon.v1.config.ConfigHealthStatus.ComponentsEntryR\n" +
 	"components\x12O\n" +
@@ -189,7 +190,7 @@ const file_gcommon_v1_config_health_status_proto_rawDesc = "" +
 	"\ametrics\x18\x05 \x03(\v22.gcommon.v1.config.ConfigHealthStatus.MetricsEntryR\ametrics\x1a]\n" +
 	"\x0fComponentsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
-	"\x05value\x18\x02 \x01(\x0e2\x1e.gcommon.v1.config.HealthStateR\x05value:\x028\x01\x1a:\n" +
+	"\x05value\x18\x02 \x01(\x0e2\x1e.gcommon.v1.common.HealthStateR\x05value:\x028\x01\x1a:\n" +
 	"\fMetricsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
@@ -199,17 +200,17 @@ var file_gcommon_v1_config_health_status_proto_goTypes = []any{
 	(*ConfigHealthStatus)(nil),      // 0: gcommon.v1.config.ConfigHealthStatus
 	nil,                             // 1: gcommon.v1.config.ConfigHealthStatus.ComponentsEntry
 	nil,                             // 2: gcommon.v1.config.ConfigHealthStatus.MetricsEntry
-	(HealthState)(0),                // 3: gcommon.v1.config.HealthState
+	(common.HealthState)(0),         // 3: gcommon.v1.common.HealthState
 	(*ConfigHealthCheckResult)(nil), // 4: gcommon.v1.config.ConfigHealthCheckResult
 	(*timestamppb.Timestamp)(nil),   // 5: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_health_status_proto_depIdxs = []int32{
-	3, // 0: gcommon.v1.config.ConfigHealthStatus.overall:type_name -> gcommon.v1.config.HealthState
+	3, // 0: gcommon.v1.config.ConfigHealthStatus.overall:type_name -> gcommon.v1.common.HealthState
 	1, // 1: gcommon.v1.config.ConfigHealthStatus.components:type_name -> gcommon.v1.config.ConfigHealthStatus.ComponentsEntry
 	4, // 2: gcommon.v1.config.ConfigHealthStatus.health_checks:type_name -> gcommon.v1.config.ConfigHealthCheckResult
 	5, // 3: gcommon.v1.config.ConfigHealthStatus.last_check:type_name -> google.protobuf.Timestamp
 	2, // 4: gcommon.v1.config.ConfigHealthStatus.metrics:type_name -> gcommon.v1.config.ConfigHealthStatus.MetricsEntry
-	3, // 5: gcommon.v1.config.ConfigHealthStatus.ComponentsEntry.value:type_name -> gcommon.v1.config.HealthState
+	3, // 5: gcommon.v1.config.ConfigHealthStatus.ComponentsEntry.value:type_name -> gcommon.v1.common.HealthState
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -222,7 +223,6 @@ func file_gcommon_v1_config_health_status_proto_init() {
 	if File_gcommon_v1_config_health_status_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_health_state_proto_init()
 	file_gcommon_v1_config_health_check_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

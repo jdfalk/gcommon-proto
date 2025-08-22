@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,13 +23,13 @@ const (
 )
 
 type ConfigValidationResult struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_RuleName    *string                `protobuf:"bytes,1,opt,name=rule_name,json=ruleName"`
-	xxx_hidden_Result      ValidationResultType   `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.config.ValidationResultType"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,3,opt,name=message"`
-	xxx_hidden_Severity    ValidationSeverity     `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.config.ValidationSeverity"`
-	xxx_hidden_Field       *string                `protobuf:"bytes,5,opt,name=field"`
-	xxx_hidden_Context     map[string]string      `protobuf:"bytes,6,rep,name=context" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState      `protogen:"opaque.v1"`
+	xxx_hidden_RuleName    *string                     `protobuf:"bytes,1,opt,name=rule_name,json=ruleName"`
+	xxx_hidden_Result      common.ValidationResultType `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.common.ValidationResultType"`
+	xxx_hidden_Message     *string                     `protobuf:"bytes,3,opt,name=message"`
+	xxx_hidden_Severity    common.ValidationSeverity   `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.common.ValidationSeverity"`
+	xxx_hidden_Field       *string                     `protobuf:"bytes,5,opt,name=field"`
+	xxx_hidden_Context     map[string]string           `protobuf:"bytes,6,rep,name=context" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -70,13 +71,13 @@ func (x *ConfigValidationResult) GetRuleName() string {
 	return ""
 }
 
-func (x *ConfigValidationResult) GetResult() ValidationResultType {
+func (x *ConfigValidationResult) GetResult() common.ValidationResultType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Result
 		}
 	}
-	return ValidationResultType_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	return common.ValidationResultType(0)
 }
 
 func (x *ConfigValidationResult) GetMessage() string {
@@ -89,13 +90,13 @@ func (x *ConfigValidationResult) GetMessage() string {
 	return ""
 }
 
-func (x *ConfigValidationResult) GetSeverity() ValidationSeverity {
+func (x *ConfigValidationResult) GetSeverity() common.ValidationSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
+	return common.ValidationSeverity(0)
 }
 
 func (x *ConfigValidationResult) GetField() string {
@@ -120,7 +121,7 @@ func (x *ConfigValidationResult) SetRuleName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *ConfigValidationResult) SetResult(v ValidationResultType) {
+func (x *ConfigValidationResult) SetResult(v common.ValidationResultType) {
 	x.xxx_hidden_Result = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
@@ -130,7 +131,7 @@ func (x *ConfigValidationResult) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *ConfigValidationResult) SetSeverity(v ValidationSeverity) {
+func (x *ConfigValidationResult) SetSeverity(v common.ValidationSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -186,7 +187,7 @@ func (x *ConfigValidationResult) ClearRuleName() {
 
 func (x *ConfigValidationResult) ClearResult() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Result = ValidationResultType_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	x.xxx_hidden_Result = common.ValidationResultType_VALIDATION_RESULT_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValidationResult) ClearMessage() {
@@ -196,7 +197,7 @@ func (x *ConfigValidationResult) ClearMessage() {
 
 func (x *ConfigValidationResult) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Severity = ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.ValidationSeverity_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 func (x *ConfigValidationResult) ClearField() {
@@ -210,11 +211,11 @@ type ConfigValidationResult_builder struct {
 	// Validation rule name
 	RuleName *string
 	// Validation result
-	Result *ValidationResultType
+	Result *common.ValidationResultType
 	// Validation message
 	Message *string
 	// Severity level
-	Severity *ValidationSeverity
+	Severity *common.ValidationSeverity
 	// Field that was validated
 	Field *string
 	// Additional context
@@ -253,12 +254,12 @@ var File_gcommon_v1_config_validation_result_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_validation_result_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/config/validation_result.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/config/validation_result_type.proto\x1a+gcommon/v1/config/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\xf7\x02\n" +
+	")gcommon/v1/config/validation_result.proto\x12\x11gcommon.v1.config\x1a.gcommon/v1/common/validation_result_type.proto\x1a+gcommon/v1/common/validation_severity.proto\x1a!google/protobuf/go_features.proto\"\xf7\x02\n" +
 	"\x16ConfigValidationResult\x12\x1b\n" +
 	"\trule_name\x18\x01 \x01(\tR\bruleName\x12?\n" +
-	"\x06result\x18\x02 \x01(\x0e2'.gcommon.v1.config.ValidationResultTypeR\x06result\x12\x18\n" +
+	"\x06result\x18\x02 \x01(\x0e2'.gcommon.v1.common.ValidationResultTypeR\x06result\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12A\n" +
-	"\bseverity\x18\x04 \x01(\x0e2%.gcommon.v1.config.ValidationSeverityR\bseverity\x12\x14\n" +
+	"\bseverity\x18\x04 \x01(\x0e2%.gcommon.v1.common.ValidationSeverityR\bseverity\x12\x14\n" +
 	"\x05field\x18\x05 \x01(\tR\x05field\x12P\n" +
 	"\acontext\x18\x06 \x03(\v26.gcommon.v1.config.ConfigValidationResult.ContextEntryR\acontext\x1a:\n" +
 	"\fContextEntry\x12\x10\n" +
@@ -267,14 +268,14 @@ const file_gcommon_v1_config_validation_result_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_validation_result_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_validation_result_proto_goTypes = []any{
-	(*ConfigValidationResult)(nil), // 0: gcommon.v1.config.ConfigValidationResult
-	nil,                            // 1: gcommon.v1.config.ConfigValidationResult.ContextEntry
-	(ValidationResultType)(0),      // 2: gcommon.v1.config.ValidationResultType
-	(ValidationSeverity)(0),        // 3: gcommon.v1.config.ValidationSeverity
+	(*ConfigValidationResult)(nil),   // 0: gcommon.v1.config.ConfigValidationResult
+	nil,                              // 1: gcommon.v1.config.ConfigValidationResult.ContextEntry
+	(common.ValidationResultType)(0), // 2: gcommon.v1.common.ValidationResultType
+	(common.ValidationSeverity)(0),   // 3: gcommon.v1.common.ValidationSeverity
 }
 var file_gcommon_v1_config_validation_result_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ConfigValidationResult.result:type_name -> gcommon.v1.config.ValidationResultType
-	3, // 1: gcommon.v1.config.ConfigValidationResult.severity:type_name -> gcommon.v1.config.ValidationSeverity
+	2, // 0: gcommon.v1.config.ConfigValidationResult.result:type_name -> gcommon.v1.common.ValidationResultType
+	3, // 1: gcommon.v1.config.ConfigValidationResult.severity:type_name -> gcommon.v1.common.ValidationSeverity
 	1, // 2: gcommon.v1.config.ConfigValidationResult.context:type_name -> gcommon.v1.config.ConfigValidationResult.ContextEntry
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
@@ -288,8 +289,6 @@ func file_gcommon_v1_config_validation_result_proto_init() {
 	if File_gcommon_v1_config_validation_result_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_validation_result_type_proto_init()
-	file_gcommon_v1_config_validation_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

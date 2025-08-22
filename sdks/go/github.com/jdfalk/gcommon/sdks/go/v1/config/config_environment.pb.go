@@ -8,7 +8,6 @@ package config
 
 import (
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
 	organization "github.com/jdfalk/gcommon/sdks/go/v1/organization"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -30,8 +29,8 @@ type ConfigEnvironment struct {
 	xxx_hidden_EnvironmentId        *string                                        `protobuf:"bytes,1,opt,name=environment_id,json=environmentId"`
 	xxx_hidden_Name                 *string                                        `protobuf:"bytes,2,opt,name=name"`
 	xxx_hidden_Description          *string                                        `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Type                 EnvironmentType                                `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.config.EnvironmentType"`
-	xxx_hidden_Status               EnvironmentStatus                              `protobuf:"varint,5,opt,name=status,enum=gcommon.v1.config.EnvironmentStatus"`
+	xxx_hidden_Type                 common.EnvironmentType                         `protobuf:"varint,4,opt,name=type,enum=gcommon.v1.common.EnvironmentType"`
+	xxx_hidden_Status               common.EnvironmentStatus                       `protobuf:"varint,5,opt,name=status,enum=gcommon.v1.common.EnvironmentStatus"`
 	xxx_hidden_CreatedAt            *timestamppb.Timestamp                         `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt            *timestamppb.Timestamp                         `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_Owner                *string                                        `protobuf:"bytes,8,opt,name=owner"`
@@ -50,7 +49,7 @@ type ConfigEnvironment struct {
 	xxx_hidden_BackupPolicy         *BackupPolicy                                  `protobuf:"bytes,21,opt,name=backup_policy,json=backupPolicy"`
 	xxx_hidden_ApprovalWorkflow     *ApprovalWorkflow                              `protobuf:"bytes,22,opt,name=approval_workflow,json=approvalWorkflow"`
 	xxx_hidden_MonitoringConfig     *ConfigMonitoringConfig                        `protobuf:"bytes,23,opt,name=monitoring_config,json=monitoringConfig"`
-	xxx_hidden_RetentionPolicy      metrics.MetricsRetentionPolicy                 `protobuf:"varint,24,opt,name=retention_policy,json=retentionPolicy,enum=gcommon.v1.metrics.MetricsRetentionPolicy"`
+	xxx_hidden_RetentionPolicy      common.MetricsRetentionPolicy                  `protobuf:"varint,24,opt,name=retention_policy,json=retentionPolicy,enum=gcommon.v1.common.MetricsRetentionPolicy"`
 	xxx_hidden_ComplianceSettings   *organization.OrganizationComplianceSettings   `protobuf:"bytes,25,opt,name=compliance_settings,json=complianceSettings"`
 	xxx_hidden_EncryptionSettings   *EncryptionSettings                            `protobuf:"bytes,26,opt,name=encryption_settings,json=encryptionSettings"`
 	xxx_hidden_AuditSettings        *AuditSettings                                 `protobuf:"bytes,27,opt,name=audit_settings,json=auditSettings"`
@@ -118,22 +117,22 @@ func (x *ConfigEnvironment) GetDescription() string {
 	return ""
 }
 
-func (x *ConfigEnvironment) GetType() EnvironmentType {
+func (x *ConfigEnvironment) GetType() common.EnvironmentType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return EnvironmentType_ENVIRONMENT_TYPE_UNSPECIFIED
+	return common.EnvironmentType(0)
 }
 
-func (x *ConfigEnvironment) GetStatus() EnvironmentStatus {
+func (x *ConfigEnvironment) GetStatus() common.EnvironmentStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return EnvironmentStatus_ENVIRONMENT_STATUS_UNSPECIFIED
+	return common.EnvironmentStatus(0)
 }
 
 func (x *ConfigEnvironment) GetCreatedAt() *timestamppb.Timestamp {
@@ -274,13 +273,13 @@ func (x *ConfigEnvironment) GetMonitoringConfig() *ConfigMonitoringConfig {
 	return nil
 }
 
-func (x *ConfigEnvironment) GetRetentionPolicy() metrics.MetricsRetentionPolicy {
+func (x *ConfigEnvironment) GetRetentionPolicy() common.MetricsRetentionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 23) {
 			return x.xxx_hidden_RetentionPolicy
 		}
 	}
-	return metrics.MetricsRetentionPolicy(0)
+	return common.MetricsRetentionPolicy(0)
 }
 
 func (x *ConfigEnvironment) GetComplianceSettings() *organization.OrganizationComplianceSettings {
@@ -343,12 +342,12 @@ func (x *ConfigEnvironment) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 30)
 }
 
-func (x *ConfigEnvironment) SetType(v EnvironmentType) {
+func (x *ConfigEnvironment) SetType(v common.EnvironmentType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 30)
 }
 
-func (x *ConfigEnvironment) SetStatus(v EnvironmentStatus) {
+func (x *ConfigEnvironment) SetStatus(v common.EnvironmentStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 30)
 }
@@ -428,7 +427,7 @@ func (x *ConfigEnvironment) SetMonitoringConfig(v *ConfigMonitoringConfig) {
 	x.xxx_hidden_MonitoringConfig = v
 }
 
-func (x *ConfigEnvironment) SetRetentionPolicy(v metrics.MetricsRetentionPolicy) {
+func (x *ConfigEnvironment) SetRetentionPolicy(v common.MetricsRetentionPolicy) {
 	x.xxx_hidden_RetentionPolicy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 23, 30)
 }
@@ -629,12 +628,12 @@ func (x *ConfigEnvironment) ClearDescription() {
 
 func (x *ConfigEnvironment) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Type = EnvironmentType_ENVIRONMENT_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.EnvironmentType_ENVIRONMENT_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigEnvironment) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Status = EnvironmentStatus_ENVIRONMENT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.EnvironmentStatus_ENVIRONMENT_STATUS_UNSPECIFIED
 }
 
 func (x *ConfigEnvironment) ClearCreatedAt() {
@@ -682,7 +681,7 @@ func (x *ConfigEnvironment) ClearMonitoringConfig() {
 
 func (x *ConfigEnvironment) ClearRetentionPolicy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 23)
-	x.xxx_hidden_RetentionPolicy = metrics.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_RetentionPolicy = common.MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
 }
 
 func (x *ConfigEnvironment) ClearComplianceSettings() {
@@ -720,9 +719,9 @@ type ConfigEnvironment_builder struct {
 	// Environment description
 	Description *string
 	// Environment type
-	Type *EnvironmentType
+	Type *common.EnvironmentType
 	// Environment status
-	Status *EnvironmentStatus
+	Status *common.EnvironmentStatus
 	// Creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last modification timestamp
@@ -760,7 +759,7 @@ type ConfigEnvironment_builder struct {
 	// Environment monitoring config
 	MonitoringConfig *ConfigMonitoringConfig
 	// Environment retention policy
-	RetentionPolicy *metrics.MetricsRetentionPolicy
+	RetentionPolicy *common.MetricsRetentionPolicy
 	// Environment compliance settings
 	ComplianceSettings *organization.OrganizationComplianceSettings
 	// Environment encryption settings
@@ -846,13 +845,13 @@ var File_gcommon_v1_config_config_environment_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_config_environment_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/config/config_environment.proto\x12\x11gcommon.v1.config\x1a%gcommon/v1/common/health_status.proto\x1a*gcommon/v1/config/environment_status.proto\x1a(gcommon/v1/config/environment_type.proto\x1a)gcommon/v1/config/approval_workflow.proto\x1a&gcommon/v1/config/audit_settings.proto\x1a%gcommon/v1/config/backup_policy.proto\x1a'gcommon/v1/config/deployment_info.proto\x1a+gcommon/v1/config/encryption_settings.proto\x1a)gcommon/v1/config/monitoring_config.proto\x1a&gcommon/v1/config/promotion_rule.proto\x1a%gcommon/v1/config/sync_settings.proto\x1a)gcommon/v1/metrics/retention_policy.proto\x1a,gcommon/v1/organization/access_control.proto\x1a1gcommon/v1/organization/compliance_settings.proto\x1a3gcommon/v1/organization/notification_settings.proto\x1a-gcommon/v1/organization/resource_limits.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x11\n" +
+	"*gcommon/v1/config/config_environment.proto\x12\x11gcommon.v1.config\x1a*gcommon/v1/common/environment_status.proto\x1a(gcommon/v1/common/environment_type.proto\x1a%gcommon/v1/common/health_status.proto\x1a(gcommon/v1/common/retention_policy.proto\x1a)gcommon/v1/config/approval_workflow.proto\x1a&gcommon/v1/config/audit_settings.proto\x1a%gcommon/v1/config/backup_policy.proto\x1a'gcommon/v1/config/deployment_info.proto\x1a+gcommon/v1/config/encryption_settings.proto\x1a)gcommon/v1/config/monitoring_config.proto\x1a&gcommon/v1/config/promotion_rule.proto\x1a%gcommon/v1/config/sync_settings.proto\x1a,gcommon/v1/organization/access_control.proto\x1a1gcommon/v1/organization/compliance_settings.proto\x1a3gcommon/v1/organization/notification_settings.proto\x1a-gcommon/v1/organization/resource_limits.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd9\x11\n" +
 	"\x11ConfigEnvironment\x12%\n" +
 	"\x0eenvironment_id\x18\x01 \x01(\tR\renvironmentId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x126\n" +
-	"\x04type\x18\x04 \x01(\x0e2\".gcommon.v1.config.EnvironmentTypeR\x04type\x12<\n" +
-	"\x06status\x18\x05 \x01(\x0e2$.gcommon.v1.config.EnvironmentStatusR\x06status\x129\n" +
+	"\x04type\x18\x04 \x01(\x0e2\".gcommon.v1.common.EnvironmentTypeR\x04type\x12<\n" +
+	"\x06status\x18\x05 \x01(\x0e2$.gcommon.v1.common.EnvironmentStatusR\x06status\x129\n" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
@@ -873,8 +872,8 @@ const file_gcommon_v1_config_config_environment_proto_rawDesc = "" +
 	"\x0fresource_limits\x18\x14 \x01(\v23.gcommon.v1.organization.OrganizationResourceLimitsR\x0eresourceLimits\x12D\n" +
 	"\rbackup_policy\x18\x15 \x01(\v2\x1f.gcommon.v1.config.BackupPolicyR\fbackupPolicy\x12P\n" +
 	"\x11approval_workflow\x18\x16 \x01(\v2#.gcommon.v1.config.ApprovalWorkflowR\x10approvalWorkflow\x12V\n" +
-	"\x11monitoring_config\x18\x17 \x01(\v2).gcommon.v1.config.ConfigMonitoringConfigR\x10monitoringConfig\x12U\n" +
-	"\x10retention_policy\x18\x18 \x01(\x0e2*.gcommon.v1.metrics.MetricsRetentionPolicyR\x0fretentionPolicy\x12h\n" +
+	"\x11monitoring_config\x18\x17 \x01(\v2).gcommon.v1.config.ConfigMonitoringConfigR\x10monitoringConfig\x12T\n" +
+	"\x10retention_policy\x18\x18 \x01(\x0e2).gcommon.v1.common.MetricsRetentionPolicyR\x0fretentionPolicy\x12h\n" +
 	"\x13compliance_settings\x18\x19 \x01(\v27.gcommon.v1.organization.OrganizationComplianceSettingsR\x12complianceSettings\x12V\n" +
 	"\x13encryption_settings\x18\x1a \x01(\v2%.gcommon.v1.config.EncryptionSettingsR\x12encryptionSettings\x12G\n" +
 	"\x0eaudit_settings\x18\x1b \x01(\v2 .gcommon.v1.config.AuditSettingsR\rauditSettings\x12n\n" +
@@ -901,8 +900,8 @@ var file_gcommon_v1_config_config_environment_proto_goTypes = []any{
 	nil,                           // 2: gcommon.v1.config.ConfigEnvironment.ConfigEntry
 	nil,                           // 3: gcommon.v1.config.ConfigEnvironment.SecretsEntry
 	nil,                           // 4: gcommon.v1.config.ConfigEnvironment.VariablesEntry
-	(EnvironmentType)(0),          // 5: gcommon.v1.config.EnvironmentType
-	(EnvironmentStatus)(0),        // 6: gcommon.v1.config.EnvironmentStatus
+	(common.EnvironmentType)(0),   // 5: gcommon.v1.common.EnvironmentType
+	(common.EnvironmentStatus)(0), // 6: gcommon.v1.common.EnvironmentStatus
 	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 	(*PromotionRule)(nil),         // 8: gcommon.v1.config.PromotionRule
 	(*organization.OrganizationAccessControl)(nil),        // 9: gcommon.v1.organization.OrganizationAccessControl
@@ -912,7 +911,7 @@ var file_gcommon_v1_config_config_environment_proto_goTypes = []any{
 	(*BackupPolicy)(nil),                                  // 13: gcommon.v1.config.BackupPolicy
 	(*ApprovalWorkflow)(nil),                              // 14: gcommon.v1.config.ApprovalWorkflow
 	(*ConfigMonitoringConfig)(nil),                        // 15: gcommon.v1.config.ConfigMonitoringConfig
-	(metrics.MetricsRetentionPolicy)(0),                   // 16: gcommon.v1.metrics.MetricsRetentionPolicy
+	(common.MetricsRetentionPolicy)(0),                    // 16: gcommon.v1.common.MetricsRetentionPolicy
 	(*organization.OrganizationComplianceSettings)(nil),   // 17: gcommon.v1.organization.OrganizationComplianceSettings
 	(*EncryptionSettings)(nil),                            // 18: gcommon.v1.config.EncryptionSettings
 	(*AuditSettings)(nil),                                 // 19: gcommon.v1.config.AuditSettings
@@ -920,8 +919,8 @@ var file_gcommon_v1_config_config_environment_proto_goTypes = []any{
 	(*SyncSettings)(nil),                                  // 21: gcommon.v1.config.SyncSettings
 }
 var file_gcommon_v1_config_config_environment_proto_depIdxs = []int32{
-	5,  // 0: gcommon.v1.config.ConfigEnvironment.type:type_name -> gcommon.v1.config.EnvironmentType
-	6,  // 1: gcommon.v1.config.ConfigEnvironment.status:type_name -> gcommon.v1.config.EnvironmentStatus
+	5,  // 0: gcommon.v1.config.ConfigEnvironment.type:type_name -> gcommon.v1.common.EnvironmentType
+	6,  // 1: gcommon.v1.config.ConfigEnvironment.status:type_name -> gcommon.v1.common.EnvironmentStatus
 	7,  // 2: gcommon.v1.config.ConfigEnvironment.created_at:type_name -> google.protobuf.Timestamp
 	7,  // 3: gcommon.v1.config.ConfigEnvironment.updated_at:type_name -> google.protobuf.Timestamp
 	1,  // 4: gcommon.v1.config.ConfigEnvironment.metadata:type_name -> gcommon.v1.config.ConfigEnvironment.MetadataEntry
@@ -936,7 +935,7 @@ var file_gcommon_v1_config_config_environment_proto_depIdxs = []int32{
 	13, // 13: gcommon.v1.config.ConfigEnvironment.backup_policy:type_name -> gcommon.v1.config.BackupPolicy
 	14, // 14: gcommon.v1.config.ConfigEnvironment.approval_workflow:type_name -> gcommon.v1.config.ApprovalWorkflow
 	15, // 15: gcommon.v1.config.ConfigEnvironment.monitoring_config:type_name -> gcommon.v1.config.ConfigMonitoringConfig
-	16, // 16: gcommon.v1.config.ConfigEnvironment.retention_policy:type_name -> gcommon.v1.metrics.MetricsRetentionPolicy
+	16, // 16: gcommon.v1.config.ConfigEnvironment.retention_policy:type_name -> gcommon.v1.common.MetricsRetentionPolicy
 	17, // 17: gcommon.v1.config.ConfigEnvironment.compliance_settings:type_name -> gcommon.v1.organization.OrganizationComplianceSettings
 	18, // 18: gcommon.v1.config.ConfigEnvironment.encryption_settings:type_name -> gcommon.v1.config.EncryptionSettings
 	19, // 19: gcommon.v1.config.ConfigEnvironment.audit_settings:type_name -> gcommon.v1.config.AuditSettings
@@ -954,8 +953,6 @@ func file_gcommon_v1_config_config_environment_proto_init() {
 	if File_gcommon_v1_config_config_environment_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_environment_status_proto_init()
-	file_gcommon_v1_config_environment_type_proto_init()
 	file_gcommon_v1_config_approval_workflow_proto_init()
 	file_gcommon_v1_config_audit_settings_proto_init()
 	file_gcommon_v1_config_backup_policy_proto_init()

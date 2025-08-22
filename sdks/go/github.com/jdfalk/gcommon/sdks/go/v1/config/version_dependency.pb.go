@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,13 +23,13 @@ const (
 )
 
 type VersionDependency struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
-	xxx_hidden_Type        VersionDependencyType  `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.config.VersionDependencyType"`
-	xxx_hidden_Scope       *string                `protobuf:"bytes,4,opt,name=scope"`
-	xxx_hidden_Constraints []string               `protobuf:"bytes,6,rep,name=constraints"`
-	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState       `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                      `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Version     *string                      `protobuf:"bytes,2,opt,name=version"`
+	xxx_hidden_Type        common.VersionDependencyType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.common.VersionDependencyType"`
+	xxx_hidden_Scope       *string                      `protobuf:"bytes,4,opt,name=scope"`
+	xxx_hidden_Constraints []string                     `protobuf:"bytes,6,rep,name=constraints"`
+	xxx_hidden_Metadata    map[string]string            `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -80,13 +81,13 @@ func (x *VersionDependency) GetVersion() string {
 	return ""
 }
 
-func (x *VersionDependency) GetType() VersionDependencyType {
+func (x *VersionDependency) GetType() common.VersionDependencyType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return VersionDependencyType_VERSION_DEPENDENCY_TYPE_UNSPECIFIED
+	return common.VersionDependencyType(0)
 }
 
 func (x *VersionDependency) GetScope() string {
@@ -123,7 +124,7 @@ func (x *VersionDependency) SetVersion(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
-func (x *VersionDependency) SetType(v VersionDependencyType) {
+func (x *VersionDependency) SetType(v common.VersionDependencyType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
@@ -181,7 +182,7 @@ func (x *VersionDependency) ClearVersion() {
 
 func (x *VersionDependency) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = VersionDependencyType_VERSION_DEPENDENCY_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.VersionDependencyType_VERSION_DEPENDENCY_TYPE_UNSPECIFIED
 }
 
 func (x *VersionDependency) ClearScope() {
@@ -197,7 +198,7 @@ type VersionDependency_builder struct {
 	// Dependency version
 	Version *string
 	// Dependency type
-	Type *VersionDependencyType
+	Type *common.VersionDependencyType
 	// Dependency scope
 	Scope *string
 	// Dependency constraints
@@ -235,11 +236,11 @@ var File_gcommon_v1_config_version_dependency_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_version_dependency_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/config/version_dependency.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/config/version_dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n" +
+	"*gcommon/v1/config/version_dependency.proto\x12\x11gcommon.v1.config\x1a/gcommon/v1/common/version_dependency_type.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n" +
 	"\x11VersionDependency\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12<\n" +
-	"\x04type\x18\x03 \x01(\x0e2(.gcommon.v1.config.VersionDependencyTypeR\x04type\x12\x14\n" +
+	"\x04type\x18\x03 \x01(\x0e2(.gcommon.v1.common.VersionDependencyTypeR\x04type\x12\x14\n" +
 	"\x05scope\x18\x04 \x01(\tR\x05scope\x12 \n" +
 	"\vconstraints\x18\x06 \x03(\tR\vconstraints\x12N\n" +
 	"\bmetadata\x18\a \x03(\v22.gcommon.v1.config.VersionDependency.MetadataEntryR\bmetadata\x1a;\n" +
@@ -249,12 +250,12 @@ const file_gcommon_v1_config_version_dependency_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_version_dependency_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_version_dependency_proto_goTypes = []any{
-	(*VersionDependency)(nil),  // 0: gcommon.v1.config.VersionDependency
-	nil,                        // 1: gcommon.v1.config.VersionDependency.MetadataEntry
-	(VersionDependencyType)(0), // 2: gcommon.v1.config.VersionDependencyType
+	(*VersionDependency)(nil),         // 0: gcommon.v1.config.VersionDependency
+	nil,                               // 1: gcommon.v1.config.VersionDependency.MetadataEntry
+	(common.VersionDependencyType)(0), // 2: gcommon.v1.common.VersionDependencyType
 }
 var file_gcommon_v1_config_version_dependency_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.VersionDependency.type:type_name -> gcommon.v1.config.VersionDependencyType
+	2, // 0: gcommon.v1.config.VersionDependency.type:type_name -> gcommon.v1.common.VersionDependencyType
 	1, // 1: gcommon.v1.config.VersionDependency.metadata:type_name -> gcommon.v1.config.VersionDependency.MetadataEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -268,7 +269,6 @@ func file_gcommon_v1_config_version_dependency_proto_init() {
 	if File_gcommon_v1_config_version_dependency_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_version_dependency_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

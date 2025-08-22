@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ const (
 type ApprovalInfo struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Required    bool                   `protobuf:"varint,1,opt,name=required"`
-	xxx_hidden_Status      ApprovalStatus         `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.config.ApprovalStatus"`
+	xxx_hidden_Status      common.ApprovalStatus  `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.ApprovalStatus"`
 	xxx_hidden_ApprovedBy  *string                `protobuf:"bytes,3,opt,name=approved_by,json=approvedBy"`
 	xxx_hidden_ApprovedAt  *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=approved_at,json=approvedAt"`
 	xxx_hidden_Comments    *string                `protobuf:"bytes,5,opt,name=comments"`
@@ -69,13 +70,13 @@ func (x *ApprovalInfo) GetRequired() bool {
 	return false
 }
 
-func (x *ApprovalInfo) GetStatus() ApprovalStatus {
+func (x *ApprovalInfo) GetStatus() common.ApprovalStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return ApprovalStatus_APPROVAL_STATUS_UNSPECIFIED
+	return common.ApprovalStatus(0)
 }
 
 func (x *ApprovalInfo) GetApprovedBy() string {
@@ -130,7 +131,7 @@ func (x *ApprovalInfo) SetRequired(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *ApprovalInfo) SetStatus(v ApprovalStatus) {
+func (x *ApprovalInfo) SetStatus(v common.ApprovalStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
@@ -215,7 +216,7 @@ func (x *ApprovalInfo) ClearRequired() {
 
 func (x *ApprovalInfo) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = ApprovalStatus_APPROVAL_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = common.ApprovalStatus_APPROVAL_STATUS_UNSPECIFIED
 }
 
 func (x *ApprovalInfo) ClearApprovedBy() {
@@ -248,7 +249,7 @@ type ApprovalInfo_builder struct {
 	// Whether approval was required
 	Required *bool
 	// Approval status
-	Status *ApprovalStatus
+	Status *common.ApprovalStatus
 	// User who approved
 	ApprovedBy *string
 	// Approval timestamp
@@ -297,10 +298,10 @@ var File_gcommon_v1_config_approval_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_approval_info_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/config/approval_info.proto\x12\x11gcommon.v1.config\x1a'gcommon/v1/config/approval_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa1\x02\n" +
+	"%gcommon/v1/config/approval_info.proto\x12\x11gcommon.v1.config\x1a'gcommon/v1/common/approval_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa1\x02\n" +
 	"\fApprovalInfo\x12\x1a\n" +
 	"\brequired\x18\x01 \x01(\bR\brequired\x129\n" +
-	"\x06status\x18\x02 \x01(\x0e2!.gcommon.v1.config.ApprovalStatusR\x06status\x12\x1f\n" +
+	"\x06status\x18\x02 \x01(\x0e2!.gcommon.v1.common.ApprovalStatusR\x06status\x12\x1f\n" +
 	"\vapproved_by\x18\x03 \x01(\tR\n" +
 	"approvedBy\x12;\n" +
 	"\vapproved_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
@@ -314,11 +315,11 @@ const file_gcommon_v1_config_approval_info_proto_rawDesc = "" +
 var file_gcommon_v1_config_approval_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_config_approval_info_proto_goTypes = []any{
 	(*ApprovalInfo)(nil),          // 0: gcommon.v1.config.ApprovalInfo
-	(ApprovalStatus)(0),           // 1: gcommon.v1.config.ApprovalStatus
+	(common.ApprovalStatus)(0),    // 1: gcommon.v1.common.ApprovalStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_approval_info_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.config.ApprovalInfo.status:type_name -> gcommon.v1.config.ApprovalStatus
+	1, // 0: gcommon.v1.config.ApprovalInfo.status:type_name -> gcommon.v1.common.ApprovalStatus
 	2, // 1: gcommon.v1.config.ApprovalInfo.approved_at:type_name -> google.protobuf.Timestamp
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -332,7 +333,6 @@ func file_gcommon_v1_config_approval_info_proto_init() {
 	if File_gcommon_v1_config_approval_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_approval_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

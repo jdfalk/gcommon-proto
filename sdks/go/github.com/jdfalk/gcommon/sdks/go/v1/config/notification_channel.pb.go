@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,7 +24,7 @@ const (
 
 type ConfigNotificationChannel struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        ChannelType            `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.config.ChannelType"`
+	xxx_hidden_Type        common.ChannelType     `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.ChannelType"`
 	xxx_hidden_Config      map[string]string      `protobuf:"bytes,2,rep,name=config" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_Enabled     bool                   `protobuf:"varint,3,opt,name=enabled"`
 	xxx_hidden_Priority    int32                  `protobuf:"varint,4,opt,name=priority"`
@@ -58,13 +59,13 @@ func (x *ConfigNotificationChannel) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ConfigNotificationChannel) GetType() ChannelType {
+func (x *ConfigNotificationChannel) GetType() common.ChannelType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return ChannelType_CHANNEL_TYPE_UNSPECIFIED
+	return common.ChannelType(0)
 }
 
 func (x *ConfigNotificationChannel) GetConfig() map[string]string {
@@ -88,7 +89,7 @@ func (x *ConfigNotificationChannel) GetPriority() int32 {
 	return 0
 }
 
-func (x *ConfigNotificationChannel) SetType(v ChannelType) {
+func (x *ConfigNotificationChannel) SetType(v common.ChannelType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
@@ -130,7 +131,7 @@ func (x *ConfigNotificationChannel) HasPriority() bool {
 
 func (x *ConfigNotificationChannel) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = ChannelType_CHANNEL_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = common.ChannelType_CHANNEL_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigNotificationChannel) ClearEnabled() {
@@ -147,7 +148,7 @@ type ConfigNotificationChannel_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Channel type
-	Type *ChannelType
+	Type *common.ChannelType
 	// Channel configuration
 	Config map[string]string
 	// Whether channel is enabled
@@ -180,9 +181,9 @@ var File_gcommon_v1_config_notification_channel_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_config_notification_channel_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/config/notification_channel.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/channel_type.proto\x1a!google/protobuf/go_features.proto\"\x92\x02\n" +
+	",gcommon/v1/config/notification_channel.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/common/channel_type.proto\x1a!google/protobuf/go_features.proto\"\x92\x02\n" +
 	"\x19ConfigNotificationChannel\x122\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1e.gcommon.v1.config.ChannelTypeR\x04type\x12P\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1e.gcommon.v1.common.ChannelTypeR\x04type\x12P\n" +
 	"\x06config\x18\x02 \x03(\v28.gcommon.v1.config.ConfigNotificationChannel.ConfigEntryR\x06config\x12\x18\n" +
 	"\aenabled\x18\x03 \x01(\bR\aenabled\x12\x1a\n" +
 	"\bpriority\x18\x04 \x01(\x05R\bpriority\x1a9\n" +
@@ -194,10 +195,10 @@ var file_gcommon_v1_config_notification_channel_proto_msgTypes = make([]protoimp
 var file_gcommon_v1_config_notification_channel_proto_goTypes = []any{
 	(*ConfigNotificationChannel)(nil), // 0: gcommon.v1.config.ConfigNotificationChannel
 	nil,                               // 1: gcommon.v1.config.ConfigNotificationChannel.ConfigEntry
-	(ChannelType)(0),                  // 2: gcommon.v1.config.ChannelType
+	(common.ChannelType)(0),           // 2: gcommon.v1.common.ChannelType
 }
 var file_gcommon_v1_config_notification_channel_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ConfigNotificationChannel.type:type_name -> gcommon.v1.config.ChannelType
+	2, // 0: gcommon.v1.config.ConfigNotificationChannel.type:type_name -> gcommon.v1.common.ChannelType
 	1, // 1: gcommon.v1.config.ConfigNotificationChannel.config:type_name -> gcommon.v1.config.ConfigNotificationChannel.ConfigEntry
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -211,7 +212,6 @@ func file_gcommon_v1_config_notification_channel_proto_init() {
 	if File_gcommon_v1_config_notification_channel_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_channel_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -24,12 +25,12 @@ const (
 type InheritanceSettings struct {
 	state                      protoimpl.MessageState        `protogen:"opaque.v1"`
 	xxx_hidden_Enabled         bool                          `protobuf:"varint,1,opt,name=enabled"`
-	xxx_hidden_Strategy        InheritanceStrategy           `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.config.InheritanceStrategy"`
+	xxx_hidden_Strategy        common.InheritanceStrategy    `protobuf:"varint,2,opt,name=strategy,enum=gcommon.v1.common.InheritanceStrategy"`
 	xxx_hidden_Sources         []string                      `protobuf:"bytes,3,rep,name=sources"`
 	xxx_hidden_Filters         *[]*InheritanceFilter         `protobuf:"bytes,4,rep,name=filters"`
 	xxx_hidden_Transformations *[]*InheritanceTransformation `protobuf:"bytes,5,rep,name=transformations"`
 	xxx_hidden_MergeValues     bool                          `protobuf:"varint,6,opt,name=merge_values,json=mergeValues"`
-	xxx_hidden_MergeStrategy   MergeStrategy                 `protobuf:"varint,7,opt,name=merge_strategy,json=mergeStrategy,enum=gcommon.v1.config.MergeStrategy"`
+	xxx_hidden_MergeStrategy   common.MergeStrategy          `protobuf:"varint,7,opt,name=merge_strategy,json=mergeStrategy,enum=gcommon.v1.common.MergeStrategy"`
 	xxx_hidden_Metadata        map[string]string             `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
@@ -69,13 +70,13 @@ func (x *InheritanceSettings) GetEnabled() bool {
 	return false
 }
 
-func (x *InheritanceSettings) GetStrategy() InheritanceStrategy {
+func (x *InheritanceSettings) GetStrategy() common.InheritanceStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Strategy
 		}
 	}
-	return InheritanceStrategy_INHERITANCE_STRATEGY_UNSPECIFIED
+	return common.InheritanceStrategy(0)
 }
 
 func (x *InheritanceSettings) GetSources() []string {
@@ -110,13 +111,13 @@ func (x *InheritanceSettings) GetMergeValues() bool {
 	return false
 }
 
-func (x *InheritanceSettings) GetMergeStrategy() MergeStrategy {
+func (x *InheritanceSettings) GetMergeStrategy() common.MergeStrategy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_MergeStrategy
 		}
 	}
-	return MergeStrategy_MERGE_STRATEGY_UNSPECIFIED
+	return common.MergeStrategy(0)
 }
 
 func (x *InheritanceSettings) GetMetadata() map[string]string {
@@ -131,7 +132,7 @@ func (x *InheritanceSettings) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *InheritanceSettings) SetStrategy(v InheritanceStrategy) {
+func (x *InheritanceSettings) SetStrategy(v common.InheritanceStrategy) {
 	x.xxx_hidden_Strategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
@@ -153,7 +154,7 @@ func (x *InheritanceSettings) SetMergeValues(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
-func (x *InheritanceSettings) SetMergeStrategy(v MergeStrategy) {
+func (x *InheritanceSettings) SetMergeStrategy(v common.MergeStrategy) {
 	x.xxx_hidden_MergeStrategy = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -197,7 +198,7 @@ func (x *InheritanceSettings) ClearEnabled() {
 
 func (x *InheritanceSettings) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Strategy = InheritanceStrategy_INHERITANCE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_Strategy = common.InheritanceStrategy_INHERITANCE_STRATEGY_UNSPECIFIED
 }
 
 func (x *InheritanceSettings) ClearMergeValues() {
@@ -207,7 +208,7 @@ func (x *InheritanceSettings) ClearMergeValues() {
 
 func (x *InheritanceSettings) ClearMergeStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_MergeStrategy = MergeStrategy_MERGE_STRATEGY_UNSPECIFIED
+	x.xxx_hidden_MergeStrategy = common.MergeStrategy_MERGE_STRATEGY_UNSPECIFIED
 }
 
 type InheritanceSettings_builder struct {
@@ -216,7 +217,7 @@ type InheritanceSettings_builder struct {
 	// Whether inheritance is enabled
 	Enabled *bool
 	// Inheritance strategy
-	Strategy *InheritanceStrategy
+	Strategy *common.InheritanceStrategy
 	// Inheritance sources in order of priority
 	Sources []string
 	// Inheritance filters
@@ -226,7 +227,7 @@ type InheritanceSettings_builder struct {
 	// Whether to merge inherited values
 	MergeValues *bool
 	// Merge strategy for complex values
-	MergeStrategy *MergeStrategy
+	MergeStrategy *common.MergeStrategy
 	// Inheritance metadata
 	Metadata map[string]string
 }
@@ -262,15 +263,15 @@ var File_gcommon_v1_config_inheritance_settings_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_config_inheritance_settings_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/config/inheritance_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/config/inheritance_strategy.proto\x1a&gcommon/v1/config/merge_strategy.proto\x1a*gcommon/v1/config/inheritance_filter.proto\x1a2gcommon/v1/config/inheritance_transformation.proto\x1a!google/protobuf/go_features.proto\"\xa0\x04\n" +
+	",gcommon/v1/config/inheritance_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/common/inheritance_strategy.proto\x1a&gcommon/v1/common/merge_strategy.proto\x1a*gcommon/v1/config/inheritance_filter.proto\x1a2gcommon/v1/config/inheritance_transformation.proto\x1a!google/protobuf/go_features.proto\"\xa0\x04\n" +
 	"\x13InheritanceSettings\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12B\n" +
-	"\bstrategy\x18\x02 \x01(\x0e2&.gcommon.v1.config.InheritanceStrategyR\bstrategy\x12\x18\n" +
+	"\bstrategy\x18\x02 \x01(\x0e2&.gcommon.v1.common.InheritanceStrategyR\bstrategy\x12\x18\n" +
 	"\asources\x18\x03 \x03(\tR\asources\x12>\n" +
 	"\afilters\x18\x04 \x03(\v2$.gcommon.v1.config.InheritanceFilterR\afilters\x12V\n" +
 	"\x0ftransformations\x18\x05 \x03(\v2,.gcommon.v1.config.InheritanceTransformationR\x0ftransformations\x12!\n" +
 	"\fmerge_values\x18\x06 \x01(\bR\vmergeValues\x12G\n" +
-	"\x0emerge_strategy\x18\a \x01(\x0e2 .gcommon.v1.config.MergeStrategyR\rmergeStrategy\x12P\n" +
+	"\x0emerge_strategy\x18\a \x01(\x0e2 .gcommon.v1.common.MergeStrategyR\rmergeStrategy\x12P\n" +
 	"\bmetadata\x18\b \x03(\v24.gcommon.v1.config.InheritanceSettings.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
@@ -280,16 +281,16 @@ var file_gcommon_v1_config_inheritance_settings_proto_msgTypes = make([]protoimp
 var file_gcommon_v1_config_inheritance_settings_proto_goTypes = []any{
 	(*InheritanceSettings)(nil),       // 0: gcommon.v1.config.InheritanceSettings
 	nil,                               // 1: gcommon.v1.config.InheritanceSettings.MetadataEntry
-	(InheritanceStrategy)(0),          // 2: gcommon.v1.config.InheritanceStrategy
+	(common.InheritanceStrategy)(0),   // 2: gcommon.v1.common.InheritanceStrategy
 	(*InheritanceFilter)(nil),         // 3: gcommon.v1.config.InheritanceFilter
 	(*InheritanceTransformation)(nil), // 4: gcommon.v1.config.InheritanceTransformation
-	(MergeStrategy)(0),                // 5: gcommon.v1.config.MergeStrategy
+	(common.MergeStrategy)(0),         // 5: gcommon.v1.common.MergeStrategy
 }
 var file_gcommon_v1_config_inheritance_settings_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.InheritanceSettings.strategy:type_name -> gcommon.v1.config.InheritanceStrategy
+	2, // 0: gcommon.v1.config.InheritanceSettings.strategy:type_name -> gcommon.v1.common.InheritanceStrategy
 	3, // 1: gcommon.v1.config.InheritanceSettings.filters:type_name -> gcommon.v1.config.InheritanceFilter
 	4, // 2: gcommon.v1.config.InheritanceSettings.transformations:type_name -> gcommon.v1.config.InheritanceTransformation
-	5, // 3: gcommon.v1.config.InheritanceSettings.merge_strategy:type_name -> gcommon.v1.config.MergeStrategy
+	5, // 3: gcommon.v1.config.InheritanceSettings.merge_strategy:type_name -> gcommon.v1.common.MergeStrategy
 	1, // 4: gcommon.v1.config.InheritanceSettings.metadata:type_name -> gcommon.v1.config.InheritanceSettings.MetadataEntry
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
@@ -303,8 +304,6 @@ func file_gcommon_v1_config_inheritance_settings_proto_init() {
 	if File_gcommon_v1_config_inheritance_settings_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_inheritance_strategy_proto_init()
-	file_gcommon_v1_config_merge_strategy_proto_init()
 	file_gcommon_v1_config_inheritance_filter_proto_init()
 	file_gcommon_v1_config_inheritance_transformation_proto_init()
 	type x struct{}

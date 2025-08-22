@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,7 +26,7 @@ const (
 type ConfigHealthCheckResult struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Status      HealthState            `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.config.HealthState"`
+	xxx_hidden_Status      common.HealthState     `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthState"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,3,opt,name=message"`
 	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=timestamp"`
 	xxx_hidden_DurationMs  int32                  `protobuf:"varint,5,opt,name=duration_ms,json=durationMs"`
@@ -71,13 +72,13 @@ func (x *ConfigHealthCheckResult) GetName() string {
 	return ""
 }
 
-func (x *ConfigHealthCheckResult) GetStatus() HealthState {
+func (x *ConfigHealthCheckResult) GetStatus() common.HealthState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return HealthState_HEALTH_STATE_UNSPECIFIED
+	return common.HealthState(0)
 }
 
 func (x *ConfigHealthCheckResult) GetMessage() string {
@@ -116,7 +117,7 @@ func (x *ConfigHealthCheckResult) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *ConfigHealthCheckResult) SetStatus(v HealthState) {
+func (x *ConfigHealthCheckResult) SetStatus(v common.HealthState) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
@@ -181,7 +182,7 @@ func (x *ConfigHealthCheckResult) ClearName() {
 
 func (x *ConfigHealthCheckResult) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = HealthState_HEALTH_STATE_UNSPECIFIED
+	x.xxx_hidden_Status = common.HealthState_HEALTH_STATE_UNSPECIFIED
 }
 
 func (x *ConfigHealthCheckResult) ClearMessage() {
@@ -204,7 +205,7 @@ type ConfigHealthCheckResult_builder struct {
 	// Health check name
 	Name *string
 	// Health check status
-	Status *HealthState
+	Status *common.HealthState
 	// Health check message
 	Message *string
 	// Health check timestamp
@@ -244,10 +245,10 @@ var File_gcommon_v1_config_health_check_result_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_config_health_check_result_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/config/health_check_result.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/health_state.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe9\x02\n" +
+	"+gcommon/v1/config/health_check_result.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/common/health_state.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe9\x02\n" +
 	"\x17ConfigHealthCheckResult\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x126\n" +
-	"\x06status\x18\x02 \x01(\x0e2\x1e.gcommon.v1.config.HealthStateR\x06status\x12\x18\n" +
+	"\x06status\x18\x02 \x01(\x0e2\x1e.gcommon.v1.common.HealthStateR\x06status\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x128\n" +
 	"\ttimestamp\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1f\n" +
 	"\vduration_ms\x18\x05 \x01(\x05R\n" +
@@ -261,11 +262,11 @@ var file_gcommon_v1_config_health_check_result_proto_msgTypes = make([]protoimpl
 var file_gcommon_v1_config_health_check_result_proto_goTypes = []any{
 	(*ConfigHealthCheckResult)(nil), // 0: gcommon.v1.config.ConfigHealthCheckResult
 	nil,                             // 1: gcommon.v1.config.ConfigHealthCheckResult.DetailsEntry
-	(HealthState)(0),                // 2: gcommon.v1.config.HealthState
+	(common.HealthState)(0),         // 2: gcommon.v1.common.HealthState
 	(*timestamppb.Timestamp)(nil),   // 3: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_health_check_result_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.ConfigHealthCheckResult.status:type_name -> gcommon.v1.config.HealthState
+	2, // 0: gcommon.v1.config.ConfigHealthCheckResult.status:type_name -> gcommon.v1.common.HealthState
 	3, // 1: gcommon.v1.config.ConfigHealthCheckResult.timestamp:type_name -> google.protobuf.Timestamp
 	1, // 2: gcommon.v1.config.ConfigHealthCheckResult.details:type_name -> gcommon.v1.config.ConfigHealthCheckResult.DetailsEntry
 	3, // [3:3] is the sub-list for method output_type
@@ -280,7 +281,6 @@ func file_gcommon_v1_config_health_check_result_proto_init() {
 	if File_gcommon_v1_config_health_check_result_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_health_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

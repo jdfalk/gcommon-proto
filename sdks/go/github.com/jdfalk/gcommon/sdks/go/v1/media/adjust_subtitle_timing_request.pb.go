@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -24,13 +23,14 @@ const (
 
 // Request to adjust subtitle timing.
 type AdjustSubtitleTimingRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubtitleFileId *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
-	xxx_hidden_Adjustment     *TimingAdjustment      `protobuf:"bytes,2,opt,name=adjustment"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubtitleFileId   *string                `protobuf:"bytes,1,opt,name=subtitle_file_id,json=subtitleFileId"`
+	xxx_hidden_TimeOffsetMs     int64                  `protobuf:"varint,2,opt,name=time_offset_ms,json=timeOffsetMs"`
+	xxx_hidden_PreserveDuration bool                   `protobuf:"varint,3,opt,name=preserve_duration,json=preserveDuration"`
+	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
+	XXX_presence                [1]uint32
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *AdjustSubtitleTimingRequest) Reset() {
@@ -68,20 +68,33 @@ func (x *AdjustSubtitleTimingRequest) GetSubtitleFileId() string {
 	return ""
 }
 
-func (x *AdjustSubtitleTimingRequest) GetAdjustment() *TimingAdjustment {
+func (x *AdjustSubtitleTimingRequest) GetTimeOffsetMs() int64 {
 	if x != nil {
-		return x.xxx_hidden_Adjustment
+		return x.xxx_hidden_TimeOffsetMs
 	}
-	return nil
+	return 0
+}
+
+func (x *AdjustSubtitleTimingRequest) GetPreserveDuration() bool {
+	if x != nil {
+		return x.xxx_hidden_PreserveDuration
+	}
+	return false
 }
 
 func (x *AdjustSubtitleTimingRequest) SetSubtitleFileId(v string) {
 	x.xxx_hidden_SubtitleFileId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *AdjustSubtitleTimingRequest) SetAdjustment(v *TimingAdjustment) {
-	x.xxx_hidden_Adjustment = v
+func (x *AdjustSubtitleTimingRequest) SetTimeOffsetMs(v int64) {
+	x.xxx_hidden_TimeOffsetMs = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *AdjustSubtitleTimingRequest) SetPreserveDuration(v bool) {
+	x.xxx_hidden_PreserveDuration = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *AdjustSubtitleTimingRequest) HasSubtitleFileId() bool {
@@ -91,11 +104,18 @@ func (x *AdjustSubtitleTimingRequest) HasSubtitleFileId() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *AdjustSubtitleTimingRequest) HasAdjustment() bool {
+func (x *AdjustSubtitleTimingRequest) HasTimeOffsetMs() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Adjustment != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *AdjustSubtitleTimingRequest) HasPreserveDuration() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *AdjustSubtitleTimingRequest) ClearSubtitleFileId() {
@@ -103,15 +123,22 @@ func (x *AdjustSubtitleTimingRequest) ClearSubtitleFileId() {
 	x.xxx_hidden_SubtitleFileId = nil
 }
 
-func (x *AdjustSubtitleTimingRequest) ClearAdjustment() {
-	x.xxx_hidden_Adjustment = nil
+func (x *AdjustSubtitleTimingRequest) ClearTimeOffsetMs() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_TimeOffsetMs = 0
+}
+
+func (x *AdjustSubtitleTimingRequest) ClearPreserveDuration() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PreserveDuration = false
 }
 
 type AdjustSubtitleTimingRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	SubtitleFileId *string
-	Adjustment     *TimingAdjustment
+	SubtitleFileId   *string
+	TimeOffsetMs     *int64
+	PreserveDuration *bool
 }
 
 func (b0 AdjustSubtitleTimingRequest_builder) Build() *AdjustSubtitleTimingRequest {
@@ -119,161 +146,17 @@ func (b0 AdjustSubtitleTimingRequest_builder) Build() *AdjustSubtitleTimingReque
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.SubtitleFileId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
 		x.xxx_hidden_SubtitleFileId = b.SubtitleFileId
 	}
-	x.xxx_hidden_Adjustment = b.Adjustment
-	return m0
-}
-
-// Timing adjustment parameters.
-type TimingAdjustment struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Offset      *durationpb.Duration   `protobuf:"bytes,1,opt,name=offset"`
-	xxx_hidden_SpeedFactor float64                `protobuf:"fixed64,2,opt,name=speed_factor,json=speedFactor"`
-	xxx_hidden_StartTime   *durationpb.Duration   `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime     *durationpb.Duration   `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *TimingAdjustment) Reset() {
-	*x = TimingAdjustment{}
-	mi := &file_gcommon_v1_media_adjust_subtitle_timing_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TimingAdjustment) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TimingAdjustment) ProtoMessage() {}
-
-func (x *TimingAdjustment) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_adjust_subtitle_timing_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+	if b.TimeOffsetMs != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_TimeOffsetMs = *b.TimeOffsetMs
 	}
-	return mi.MessageOf(x)
-}
-
-func (x *TimingAdjustment) GetOffset() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_Offset
+	if b.PreserveDuration != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PreserveDuration = *b.PreserveDuration
 	}
-	return nil
-}
-
-func (x *TimingAdjustment) GetSpeedFactor() float64 {
-	if x != nil {
-		return x.xxx_hidden_SpeedFactor
-	}
-	return 0
-}
-
-func (x *TimingAdjustment) GetStartTime() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_StartTime
-	}
-	return nil
-}
-
-func (x *TimingAdjustment) GetEndTime() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_EndTime
-	}
-	return nil
-}
-
-func (x *TimingAdjustment) SetOffset(v *durationpb.Duration) {
-	x.xxx_hidden_Offset = v
-}
-
-func (x *TimingAdjustment) SetSpeedFactor(v float64) {
-	x.xxx_hidden_SpeedFactor = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *TimingAdjustment) SetStartTime(v *durationpb.Duration) {
-	x.xxx_hidden_StartTime = v
-}
-
-func (x *TimingAdjustment) SetEndTime(v *durationpb.Duration) {
-	x.xxx_hidden_EndTime = v
-}
-
-func (x *TimingAdjustment) HasOffset() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Offset != nil
-}
-
-func (x *TimingAdjustment) HasSpeedFactor() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *TimingAdjustment) HasStartTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_StartTime != nil
-}
-
-func (x *TimingAdjustment) HasEndTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_EndTime != nil
-}
-
-func (x *TimingAdjustment) ClearOffset() {
-	x.xxx_hidden_Offset = nil
-}
-
-func (x *TimingAdjustment) ClearSpeedFactor() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SpeedFactor = 0
-}
-
-func (x *TimingAdjustment) ClearStartTime() {
-	x.xxx_hidden_StartTime = nil
-}
-
-func (x *TimingAdjustment) ClearEndTime() {
-	x.xxx_hidden_EndTime = nil
-}
-
-type TimingAdjustment_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Offset      *durationpb.Duration
-	SpeedFactor *float64
-	StartTime   *durationpb.Duration
-	EndTime     *durationpb.Duration
-}
-
-func (b0 TimingAdjustment_builder) Build() *TimingAdjustment {
-	m0 := &TimingAdjustment{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Offset = b.Offset
-	if b.SpeedFactor != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_SpeedFactor = *b.SpeedFactor
-	}
-	x.xxx_hidden_StartTime = b.StartTime
-	x.xxx_hidden_EndTime = b.EndTime
 	return m0
 }
 
@@ -281,35 +164,22 @@ var File_gcommon_v1_media_adjust_subtitle_timing_request_proto protoreflect.File
 
 const file_gcommon_v1_media_adjust_subtitle_timing_request_proto_rawDesc = "" +
 	"\n" +
-	"5gcommon/v1/media/adjust_subtitle_timing_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\x8b\x01\n" +
+	"5gcommon/v1/media/adjust_subtitle_timing_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\x9a\x01\n" +
 	"\x1bAdjustSubtitleTimingRequest\x12(\n" +
-	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12B\n" +
-	"\n" +
-	"adjustment\x18\x02 \x01(\v2\".gcommon.v1.media.TimingAdjustmentR\n" +
-	"adjustment\"\xd8\x01\n" +
-	"\x10TimingAdjustment\x121\n" +
-	"\x06offset\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\x06offset\x12!\n" +
-	"\fspeed_factor\x18\x02 \x01(\x01R\vspeedFactor\x128\n" +
-	"\n" +
-	"start_time\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\tstartTime\x124\n" +
-	"\bend_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\aendTimeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x10subtitle_file_id\x18\x01 \x01(\tR\x0esubtitleFileId\x12$\n" +
+	"\x0etime_offset_ms\x18\x02 \x01(\x03R\ftimeOffsetMs\x12+\n" +
+	"\x11preserve_duration\x18\x03 \x01(\bR\x10preserveDurationB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_adjust_subtitle_timing_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_adjust_subtitle_timing_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_adjust_subtitle_timing_request_proto_goTypes = []any{
 	(*AdjustSubtitleTimingRequest)(nil), // 0: gcommon.v1.media.AdjustSubtitleTimingRequest
-	(*TimingAdjustment)(nil),            // 1: gcommon.v1.media.TimingAdjustment
-	(*durationpb.Duration)(nil),         // 2: google.protobuf.Duration
 }
 var file_gcommon_v1_media_adjust_subtitle_timing_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.AdjustSubtitleTimingRequest.adjustment:type_name -> gcommon.v1.media.TimingAdjustment
-	2, // 1: gcommon.v1.media.TimingAdjustment.offset:type_name -> google.protobuf.Duration
-	2, // 2: gcommon.v1.media.TimingAdjustment.start_time:type_name -> google.protobuf.Duration
-	2, // 3: gcommon.v1.media.TimingAdjustment.end_time:type_name -> google.protobuf.Duration
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_adjust_subtitle_timing_request_proto_init() }
@@ -323,7 +193,7 @@ func file_gcommon_v1_media_adjust_subtitle_timing_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_adjust_subtitle_timing_request_proto_rawDesc), len(file_gcommon_v1_media_adjust_subtitle_timing_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

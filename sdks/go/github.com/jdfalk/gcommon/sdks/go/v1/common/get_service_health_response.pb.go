@@ -159,7 +159,7 @@ var File_gcommon_v1_common_get_service_health_response_proto protoreflect.FileDe
 
 const file_gcommon_v1_common_get_service_health_response_proto_rawDesc = "" +
 	"\n" +
-	"3gcommon/v1/common/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/health_status.proto\x1a\x1dgcommon/v1/common/error.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n" +
+	"3gcommon/v1/common/get_service_health_response.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a%gcommon/v1/common/health_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\x01\n" +
 	"\x18GetServiceHealthResponse\x12=\n" +
 	"\x06status\x18\x01 \x01(\x0e2%.gcommon.v1.common.CommonHealthStatusR\x06status\x129\n" +
 	"\n" +
@@ -189,8 +189,8 @@ func file_gcommon_v1_common_get_service_health_response_proto_init() {
 	if File_gcommon_v1_common_get_service_health_response_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_health_status_proto_init()
 	file_gcommon_v1_common_error_proto_init()
+	file_gcommon_v1_common_health_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

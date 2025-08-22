@@ -32,7 +32,7 @@ type SessionMetadata struct {
 	xxx_hidden_UserAgent    *string                `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
 	xxx_hidden_DeviceInfo   *DeviceInfo            `protobuf:"bytes,8,opt,name=device_info,json=deviceInfo"`
 	xxx_hidden_LocationInfo *LocationInfo          `protobuf:"bytes,9,opt,name=location_info,json=locationInfo"`
-	xxx_hidden_State        AuthSessionState       `protobuf:"varint,10,opt,name=state,enum=gcommon.v1.common.AuthSessionState"`
+	xxx_hidden_State        SessionState           `protobuf:"varint,10,opt,name=state,enum=gcommon.v1.common.SessionState"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -139,13 +139,13 @@ func (x *SessionMetadata) GetLocationInfo() *LocationInfo {
 	return nil
 }
 
-func (x *SessionMetadata) GetState() AuthSessionState {
+func (x *SessionMetadata) GetState() SessionState {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			return x.xxx_hidden_State
 		}
 	}
-	return AuthSessionState_SESSION_STATE_UNSPECIFIED
+	return SessionState_COMMON_SESSION_STATE_UNSPECIFIED
 }
 
 func (x *SessionMetadata) SetSessionId(v string) {
@@ -191,7 +191,7 @@ func (x *SessionMetadata) SetLocationInfo(v *LocationInfo) {
 	x.xxx_hidden_LocationInfo = v
 }
 
-func (x *SessionMetadata) SetState(v AuthSessionState) {
+func (x *SessionMetadata) SetState(v SessionState) {
 	x.xxx_hidden_State = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
 }
@@ -311,7 +311,7 @@ func (x *SessionMetadata) ClearLocationInfo() {
 
 func (x *SessionMetadata) ClearState() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_State = AuthSessionState_SESSION_STATE_UNSPECIFIED
+	x.xxx_hidden_State = SessionState_COMMON_SESSION_STATE_UNSPECIFIED
 }
 
 type SessionMetadata_builder struct {
@@ -335,7 +335,7 @@ type SessionMetadata_builder struct {
 	DeviceInfo *DeviceInfo
 	// Location information
 	LocationInfo *LocationInfo
-	State        *AuthSessionState
+	State        *SessionState
 }
 
 func (b0 SessionMetadata_builder) Build() *SessionMetadata {
@@ -383,7 +383,7 @@ var File_gcommon_v1_common_session_metadata_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_session_metadata_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/common/session_metadata.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/session_state.proto\x1a#gcommon/v1/common/device_info.proto\x1a%gcommon/v1/common/location_info.proto\x1a!google/protobuf/go_features.proto\"\xab\x03\n" +
+	"(gcommon/v1/common/session_metadata.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/device_info.proto\x1a%gcommon/v1/common/location_info.proto\x1a%gcommon/v1/common/session_state.proto\x1a!google/protobuf/go_features.proto\"\xa7\x03\n" +
 	"\x0fSessionMetadata\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n" +
@@ -399,21 +399,21 @@ const file_gcommon_v1_common_session_metadata_proto_rawDesc = "" +
 	"user_agent\x18\a \x01(\tR\tuserAgent\x12>\n" +
 	"\vdevice_info\x18\b \x01(\v2\x1d.gcommon.v1.common.DeviceInfoR\n" +
 	"deviceInfo\x12D\n" +
-	"\rlocation_info\x18\t \x01(\v2\x1f.gcommon.v1.common.LocationInfoR\flocationInfo\x129\n" +
+	"\rlocation_info\x18\t \x01(\v2\x1f.gcommon.v1.common.LocationInfoR\flocationInfo\x125\n" +
 	"\x05state\x18\n" +
-	" \x01(\x0e2#.gcommon.v1.common.AuthSessionStateR\x05stateB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\x0e2\x1f.gcommon.v1.common.SessionStateR\x05stateB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_session_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_session_metadata_proto_goTypes = []any{
 	(*SessionMetadata)(nil), // 0: gcommon.v1.common.SessionMetadata
 	(*DeviceInfo)(nil),      // 1: gcommon.v1.common.DeviceInfo
 	(*LocationInfo)(nil),    // 2: gcommon.v1.common.LocationInfo
-	(AuthSessionState)(0),   // 3: gcommon.v1.common.AuthSessionState
+	(SessionState)(0),       // 3: gcommon.v1.common.SessionState
 }
 var file_gcommon_v1_common_session_metadata_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.SessionMetadata.device_info:type_name -> gcommon.v1.common.DeviceInfo
 	2, // 1: gcommon.v1.common.SessionMetadata.location_info:type_name -> gcommon.v1.common.LocationInfo
-	3, // 2: gcommon.v1.common.SessionMetadata.state:type_name -> gcommon.v1.common.AuthSessionState
+	3, // 2: gcommon.v1.common.SessionMetadata.state:type_name -> gcommon.v1.common.SessionState
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -426,9 +426,9 @@ func file_gcommon_v1_common_session_metadata_proto_init() {
 	if File_gcommon_v1_common_session_metadata_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_session_state_proto_init()
 	file_gcommon_v1_common_device_info_proto_init()
 	file_gcommon_v1_common_location_info_proto_init()
+	file_gcommon_v1_common_session_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

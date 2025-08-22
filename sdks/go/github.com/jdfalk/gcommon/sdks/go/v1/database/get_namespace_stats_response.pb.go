@@ -135,6 +135,7 @@ type GetNamespaceStatsResponse_builder struct {
 	// Namespace ID
 	NamespaceId *string
 	// Statistics
+	// Statistics for the requested namespace
 	Stats *NamespaceStats
 	// When stats were collected
 	CollectedAt *timestamppb.Timestamp

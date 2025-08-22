@@ -7,6 +7,7 @@
 package config
 
 import (
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +24,13 @@ const (
 )
 
 type SecretValidationResult struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                    `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Result      SecretValidationResultType `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.config.SecretValidationResultType"`
-	xxx_hidden_Message     *string                    `protobuf:"bytes,3,opt,name=message"`
-	xxx_hidden_Severity    SecretValidationSeverity   `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.config.SecretValidationSeverity"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp     `protobuf:"bytes,5,opt,name=timestamp"`
-	xxx_hidden_Details     map[string]string          `protobuf:"bytes,6,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState            `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                           `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Result      common.SecretValidationResultType `protobuf:"varint,2,opt,name=result,enum=gcommon.v1.common.SecretValidationResultType"`
+	xxx_hidden_Message     *string                           `protobuf:"bytes,3,opt,name=message"`
+	xxx_hidden_Severity    common.SecretValidationSeverity   `protobuf:"varint,4,opt,name=severity,enum=gcommon.v1.common.SecretValidationSeverity"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp            `protobuf:"bytes,5,opt,name=timestamp"`
+	xxx_hidden_Details     map[string]string                 `protobuf:"bytes,6,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -71,13 +72,13 @@ func (x *SecretValidationResult) GetName() string {
 	return ""
 }
 
-func (x *SecretValidationResult) GetResult() SecretValidationResultType {
+func (x *SecretValidationResult) GetResult() common.SecretValidationResultType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Result
 		}
 	}
-	return SecretValidationResultType_SECRET_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	return common.SecretValidationResultType(0)
 }
 
 func (x *SecretValidationResult) GetMessage() string {
@@ -90,13 +91,13 @@ func (x *SecretValidationResult) GetMessage() string {
 	return ""
 }
 
-func (x *SecretValidationResult) GetSeverity() SecretValidationSeverity {
+func (x *SecretValidationResult) GetSeverity() common.SecretValidationSeverity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_Severity
 		}
 	}
-	return SecretValidationSeverity_SECRET_VALIDATION_SEVERITY_UNSPECIFIED
+	return common.SecretValidationSeverity(0)
 }
 
 func (x *SecretValidationResult) GetTimestamp() *timestamppb.Timestamp {
@@ -118,7 +119,7 @@ func (x *SecretValidationResult) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *SecretValidationResult) SetResult(v SecretValidationResultType) {
+func (x *SecretValidationResult) SetResult(v common.SecretValidationResultType) {
 	x.xxx_hidden_Result = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
@@ -128,7 +129,7 @@ func (x *SecretValidationResult) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *SecretValidationResult) SetSeverity(v SecretValidationSeverity) {
+func (x *SecretValidationResult) SetSeverity(v common.SecretValidationSeverity) {
 	x.xxx_hidden_Severity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
@@ -183,7 +184,7 @@ func (x *SecretValidationResult) ClearName() {
 
 func (x *SecretValidationResult) ClearResult() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Result = SecretValidationResultType_SECRET_VALIDATION_RESULT_TYPE_UNSPECIFIED
+	x.xxx_hidden_Result = common.SecretValidationResultType_SECRET_VALIDATION_RESULT_TYPE_UNSPECIFIED
 }
 
 func (x *SecretValidationResult) ClearMessage() {
@@ -193,7 +194,7 @@ func (x *SecretValidationResult) ClearMessage() {
 
 func (x *SecretValidationResult) ClearSeverity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Severity = SecretValidationSeverity_SECRET_VALIDATION_SEVERITY_UNSPECIFIED
+	x.xxx_hidden_Severity = common.SecretValidationSeverity_SECRET_VALIDATION_SEVERITY_UNSPECIFIED
 }
 
 func (x *SecretValidationResult) ClearTimestamp() {
@@ -206,11 +207,11 @@ type SecretValidationResult_builder struct {
 	// Validation name
 	Name *string
 	// Validation result
-	Result *SecretValidationResultType
+	Result *common.SecretValidationResultType
 	// Validation message
 	Message *string
 	// Validation severity
-	Severity *SecretValidationSeverity
+	Severity *common.SecretValidationSeverity
 	// Validation timestamp
 	Timestamp *timestamppb.Timestamp
 	// Validation details
@@ -246,12 +247,12 @@ var File_gcommon_v1_config_secret_validation_result_proto protoreflect.FileDescr
 
 const file_gcommon_v1_config_secret_validation_result_proto_rawDesc = "" +
 	"\n" +
-	"0gcommon/v1/config/secret_validation_result.proto\x12\x11gcommon.v1.config\x1a5gcommon/v1/config/secret_validation_result_type.proto\x1a2gcommon/v1/config/secret_validation_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9e\x03\n" +
+	"0gcommon/v1/config/secret_validation_result.proto\x12\x11gcommon.v1.config\x1a5gcommon/v1/common/secret_validation_result_type.proto\x1a2gcommon/v1/common/secret_validation_severity.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9e\x03\n" +
 	"\x16SecretValidationResult\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12E\n" +
-	"\x06result\x18\x02 \x01(\x0e2-.gcommon.v1.config.SecretValidationResultTypeR\x06result\x12\x18\n" +
+	"\x06result\x18\x02 \x01(\x0e2-.gcommon.v1.common.SecretValidationResultTypeR\x06result\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12G\n" +
-	"\bseverity\x18\x04 \x01(\x0e2+.gcommon.v1.config.SecretValidationSeverityR\bseverity\x128\n" +
+	"\bseverity\x18\x04 \x01(\x0e2+.gcommon.v1.common.SecretValidationSeverityR\bseverity\x128\n" +
 	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12P\n" +
 	"\adetails\x18\x06 \x03(\v26.gcommon.v1.config.SecretValidationResult.DetailsEntryR\adetails\x1a:\n" +
 	"\fDetailsEntry\x12\x10\n" +
@@ -260,15 +261,15 @@ const file_gcommon_v1_config_secret_validation_result_proto_rawDesc = "" +
 
 var file_gcommon_v1_config_secret_validation_result_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_config_secret_validation_result_proto_goTypes = []any{
-	(*SecretValidationResult)(nil),  // 0: gcommon.v1.config.SecretValidationResult
-	nil,                             // 1: gcommon.v1.config.SecretValidationResult.DetailsEntry
-	(SecretValidationResultType)(0), // 2: gcommon.v1.config.SecretValidationResultType
-	(SecretValidationSeverity)(0),   // 3: gcommon.v1.config.SecretValidationSeverity
-	(*timestamppb.Timestamp)(nil),   // 4: google.protobuf.Timestamp
+	(*SecretValidationResult)(nil),         // 0: gcommon.v1.config.SecretValidationResult
+	nil,                                    // 1: gcommon.v1.config.SecretValidationResult.DetailsEntry
+	(common.SecretValidationResultType)(0), // 2: gcommon.v1.common.SecretValidationResultType
+	(common.SecretValidationSeverity)(0),   // 3: gcommon.v1.common.SecretValidationSeverity
+	(*timestamppb.Timestamp)(nil),          // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_config_secret_validation_result_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.config.SecretValidationResult.result:type_name -> gcommon.v1.config.SecretValidationResultType
-	3, // 1: gcommon.v1.config.SecretValidationResult.severity:type_name -> gcommon.v1.config.SecretValidationSeverity
+	2, // 0: gcommon.v1.config.SecretValidationResult.result:type_name -> gcommon.v1.common.SecretValidationResultType
+	3, // 1: gcommon.v1.config.SecretValidationResult.severity:type_name -> gcommon.v1.common.SecretValidationSeverity
 	4, // 2: gcommon.v1.config.SecretValidationResult.timestamp:type_name -> google.protobuf.Timestamp
 	1, // 3: gcommon.v1.config.SecretValidationResult.details:type_name -> gcommon.v1.config.SecretValidationResult.DetailsEntry
 	4, // [4:4] is the sub-list for method output_type
@@ -283,8 +284,6 @@ func file_gcommon_v1_config_secret_validation_result_proto_init() {
 	if File_gcommon_v1_config_secret_validation_result_proto != nil {
 		return
 	}
-	file_gcommon_v1_config_secret_validation_result_type_proto_init()
-	file_gcommon_v1_config_secret_validation_severity_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -21,17 +21,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Response from subtitle validation.
+// Response from validating subtitle file.
 type ValidateSubtitlesResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_IsValid     bool                   `protobuf:"varint,1,opt,name=is_valid,json=isValid"`
-	xxx_hidden_Errors      *[]*ValidationError    `protobuf:"bytes,2,rep,name=errors"`
-	xxx_hidden_Warnings    *[]*ValidationWarning  `protobuf:"bytes,3,rep,name=warnings"`
-	xxx_hidden_Statistics  *ValidationStatistics  `protobuf:"bytes,4,opt,name=statistics"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                         protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_IsValid            bool                   `protobuf:"varint,1,opt,name=is_valid,json=isValid"`
+	xxx_hidden_ValidationErrors   []string               `protobuf:"bytes,2,rep,name=validation_errors,json=validationErrors"`
+	xxx_hidden_ValidationWarnings []string               `protobuf:"bytes,3,rep,name=validation_warnings,json=validationWarnings"`
+	xxx_hidden_DetectedFormat     *string                `protobuf:"bytes,4,opt,name=detected_format,json=detectedFormat"`
+	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
+	XXX_presence                  [1]uint32
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
 }
 
 func (x *ValidateSubtitlesResponse) Reset() {
@@ -66,29 +66,28 @@ func (x *ValidateSubtitlesResponse) GetIsValid() bool {
 	return false
 }
 
-func (x *ValidateSubtitlesResponse) GetErrors() []*ValidationError {
+func (x *ValidateSubtitlesResponse) GetValidationErrors() []string {
 	if x != nil {
-		if x.xxx_hidden_Errors != nil {
-			return *x.xxx_hidden_Errors
-		}
+		return x.xxx_hidden_ValidationErrors
 	}
 	return nil
 }
 
-func (x *ValidateSubtitlesResponse) GetWarnings() []*ValidationWarning {
+func (x *ValidateSubtitlesResponse) GetValidationWarnings() []string {
 	if x != nil {
-		if x.xxx_hidden_Warnings != nil {
-			return *x.xxx_hidden_Warnings
-		}
+		return x.xxx_hidden_ValidationWarnings
 	}
 	return nil
 }
 
-func (x *ValidateSubtitlesResponse) GetStatistics() *ValidationStatistics {
+func (x *ValidateSubtitlesResponse) GetDetectedFormat() string {
 	if x != nil {
-		return x.xxx_hidden_Statistics
+		if x.xxx_hidden_DetectedFormat != nil {
+			return *x.xxx_hidden_DetectedFormat
+		}
+		return ""
 	}
-	return nil
+	return ""
 }
 
 func (x *ValidateSubtitlesResponse) SetIsValid(v bool) {
@@ -96,16 +95,17 @@ func (x *ValidateSubtitlesResponse) SetIsValid(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ValidateSubtitlesResponse) SetErrors(v []*ValidationError) {
-	x.xxx_hidden_Errors = &v
+func (x *ValidateSubtitlesResponse) SetValidationErrors(v []string) {
+	x.xxx_hidden_ValidationErrors = v
 }
 
-func (x *ValidateSubtitlesResponse) SetWarnings(v []*ValidationWarning) {
-	x.xxx_hidden_Warnings = &v
+func (x *ValidateSubtitlesResponse) SetValidationWarnings(v []string) {
+	x.xxx_hidden_ValidationWarnings = v
 }
 
-func (x *ValidateSubtitlesResponse) SetStatistics(v *ValidationStatistics) {
-	x.xxx_hidden_Statistics = v
+func (x *ValidateSubtitlesResponse) SetDetectedFormat(v string) {
+	x.xxx_hidden_DetectedFormat = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *ValidateSubtitlesResponse) HasIsValid() bool {
@@ -115,11 +115,11 @@ func (x *ValidateSubtitlesResponse) HasIsValid() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *ValidateSubtitlesResponse) HasStatistics() bool {
+func (x *ValidateSubtitlesResponse) HasDetectedFormat() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_Statistics != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *ValidateSubtitlesResponse) ClearIsValid() {
@@ -127,17 +127,18 @@ func (x *ValidateSubtitlesResponse) ClearIsValid() {
 	x.xxx_hidden_IsValid = false
 }
 
-func (x *ValidateSubtitlesResponse) ClearStatistics() {
-	x.xxx_hidden_Statistics = nil
+func (x *ValidateSubtitlesResponse) ClearDetectedFormat() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_DetectedFormat = nil
 }
 
 type ValidateSubtitlesResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	IsValid    *bool
-	Errors     []*ValidationError
-	Warnings   []*ValidationWarning
-	Statistics *ValidationStatistics
+	IsValid            *bool
+	ValidationErrors   []string
+	ValidationWarnings []string
+	DetectedFormat     *string
 }
 
 func (b0 ValidateSubtitlesResponse_builder) Build() *ValidateSubtitlesResponse {
@@ -148,491 +149,11 @@ func (b0 ValidateSubtitlesResponse_builder) Build() *ValidateSubtitlesResponse {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
 		x.xxx_hidden_IsValid = *b.IsValid
 	}
-	x.xxx_hidden_Errors = &b.Errors
-	x.xxx_hidden_Warnings = &b.Warnings
-	x.xxx_hidden_Statistics = b.Statistics
-	return m0
-}
-
-// Validation error.
-type ValidationError struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Code        *string                `protobuf:"bytes,1,opt,name=code"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_LineNumber  int32                  `protobuf:"varint,3,opt,name=line_number,json=lineNumber"`
-	xxx_hidden_Severity    *string                `protobuf:"bytes,4,opt,name=severity"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *ValidationError) Reset() {
-	*x = ValidationError{}
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValidationError) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValidationError) ProtoMessage() {}
-
-func (x *ValidationError) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ValidationError) GetCode() string {
-	if x != nil {
-		if x.xxx_hidden_Code != nil {
-			return *x.xxx_hidden_Code
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ValidationError) GetMessage() string {
-	if x != nil {
-		if x.xxx_hidden_Message != nil {
-			return *x.xxx_hidden_Message
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ValidationError) GetLineNumber() int32 {
-	if x != nil {
-		return x.xxx_hidden_LineNumber
-	}
-	return 0
-}
-
-func (x *ValidationError) GetSeverity() string {
-	if x != nil {
-		if x.xxx_hidden_Severity != nil {
-			return *x.xxx_hidden_Severity
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ValidationError) SetCode(v string) {
-	x.xxx_hidden_Code = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *ValidationError) SetMessage(v string) {
-	x.xxx_hidden_Message = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *ValidationError) SetLineNumber(v int32) {
-	x.xxx_hidden_LineNumber = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *ValidationError) SetSeverity(v string) {
-	x.xxx_hidden_Severity = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *ValidationError) HasCode() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidationError) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidationError) HasLineNumber() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidationError) HasSeverity() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ValidationError) ClearCode() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Code = nil
-}
-
-func (x *ValidationError) ClearMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Message = nil
-}
-
-func (x *ValidationError) ClearLineNumber() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_LineNumber = 0
-}
-
-func (x *ValidationError) ClearSeverity() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Severity = nil
-}
-
-type ValidationError_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Code       *string
-	Message    *string
-	LineNumber *int32
-	Severity   *string
-}
-
-func (b0 ValidationError_builder) Build() *ValidationError {
-	m0 := &ValidationError{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Code != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Code = b.Code
-	}
-	if b.Message != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Message = b.Message
-	}
-	if b.LineNumber != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_LineNumber = *b.LineNumber
-	}
-	if b.Severity != nil {
+	x.xxx_hidden_ValidationErrors = b.ValidationErrors
+	x.xxx_hidden_ValidationWarnings = b.ValidationWarnings
+	if b.DetectedFormat != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Severity = b.Severity
-	}
-	return m0
-}
-
-// Validation warning.
-type ValidationWarning struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Code        *string                `protobuf:"bytes,1,opt,name=code"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_LineNumber  int32                  `protobuf:"varint,3,opt,name=line_number,json=lineNumber"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *ValidationWarning) Reset() {
-	*x = ValidationWarning{}
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValidationWarning) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValidationWarning) ProtoMessage() {}
-
-func (x *ValidationWarning) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ValidationWarning) GetCode() string {
-	if x != nil {
-		if x.xxx_hidden_Code != nil {
-			return *x.xxx_hidden_Code
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ValidationWarning) GetMessage() string {
-	if x != nil {
-		if x.xxx_hidden_Message != nil {
-			return *x.xxx_hidden_Message
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *ValidationWarning) GetLineNumber() int32 {
-	if x != nil {
-		return x.xxx_hidden_LineNumber
-	}
-	return 0
-}
-
-func (x *ValidationWarning) SetCode(v string) {
-	x.xxx_hidden_Code = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *ValidationWarning) SetMessage(v string) {
-	x.xxx_hidden_Message = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-}
-
-func (x *ValidationWarning) SetLineNumber(v int32) {
-	x.xxx_hidden_LineNumber = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *ValidationWarning) HasCode() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidationWarning) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidationWarning) HasLineNumber() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidationWarning) ClearCode() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Code = nil
-}
-
-func (x *ValidationWarning) ClearMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Message = nil
-}
-
-func (x *ValidationWarning) ClearLineNumber() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_LineNumber = 0
-}
-
-type ValidationWarning_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Code       *string
-	Message    *string
-	LineNumber *int32
-}
-
-func (b0 ValidationWarning_builder) Build() *ValidationWarning {
-	m0 := &ValidationWarning{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Code != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_Code = b.Code
-	}
-	if b.Message != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_Message = b.Message
-	}
-	if b.LineNumber != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_LineNumber = *b.LineNumber
-	}
-	return m0
-}
-
-// Validation statistics.
-type ValidationStatistics struct {
-	state                             protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TotalEntries           int32                  `protobuf:"varint,1,opt,name=total_entries,json=totalEntries"`
-	xxx_hidden_OverlappingEntries     int32                  `protobuf:"varint,2,opt,name=overlapping_entries,json=overlappingEntries"`
-	xxx_hidden_AverageReadingSpeedWpm float64                `protobuf:"fixed64,3,opt,name=average_reading_speed_wpm,json=averageReadingSpeedWpm"`
-	xxx_hidden_MaxReadingSpeedWpm     float64                `protobuf:"fixed64,4,opt,name=max_reading_speed_wpm,json=maxReadingSpeedWpm"`
-	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
-	XXX_presence                      [1]uint32
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
-}
-
-func (x *ValidationStatistics) Reset() {
-	*x = ValidationStatistics{}
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValidationStatistics) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValidationStatistics) ProtoMessage() {}
-
-func (x *ValidationStatistics) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ValidationStatistics) GetTotalEntries() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalEntries
-	}
-	return 0
-}
-
-func (x *ValidationStatistics) GetOverlappingEntries() int32 {
-	if x != nil {
-		return x.xxx_hidden_OverlappingEntries
-	}
-	return 0
-}
-
-func (x *ValidationStatistics) GetAverageReadingSpeedWpm() float64 {
-	if x != nil {
-		return x.xxx_hidden_AverageReadingSpeedWpm
-	}
-	return 0
-}
-
-func (x *ValidationStatistics) GetMaxReadingSpeedWpm() float64 {
-	if x != nil {
-		return x.xxx_hidden_MaxReadingSpeedWpm
-	}
-	return 0
-}
-
-func (x *ValidationStatistics) SetTotalEntries(v int32) {
-	x.xxx_hidden_TotalEntries = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *ValidationStatistics) SetOverlappingEntries(v int32) {
-	x.xxx_hidden_OverlappingEntries = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *ValidationStatistics) SetAverageReadingSpeedWpm(v float64) {
-	x.xxx_hidden_AverageReadingSpeedWpm = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *ValidationStatistics) SetMaxReadingSpeedWpm(v float64) {
-	x.xxx_hidden_MaxReadingSpeedWpm = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *ValidationStatistics) HasTotalEntries() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidationStatistics) HasOverlappingEntries() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidationStatistics) HasAverageReadingSpeedWpm() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidationStatistics) HasMaxReadingSpeedWpm() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ValidationStatistics) ClearTotalEntries() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TotalEntries = 0
-}
-
-func (x *ValidationStatistics) ClearOverlappingEntries() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_OverlappingEntries = 0
-}
-
-func (x *ValidationStatistics) ClearAverageReadingSpeedWpm() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_AverageReadingSpeedWpm = 0
-}
-
-func (x *ValidationStatistics) ClearMaxReadingSpeedWpm() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_MaxReadingSpeedWpm = 0
-}
-
-type ValidationStatistics_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	TotalEntries           *int32
-	OverlappingEntries     *int32
-	AverageReadingSpeedWpm *float64
-	MaxReadingSpeedWpm     *float64
-}
-
-func (b0 ValidationStatistics_builder) Build() *ValidationStatistics {
-	m0 := &ValidationStatistics{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.TotalEntries != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_TotalEntries = *b.TotalEntries
-	}
-	if b.OverlappingEntries != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_OverlappingEntries = *b.OverlappingEntries
-	}
-	if b.AverageReadingSpeedWpm != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_AverageReadingSpeedWpm = *b.AverageReadingSpeedWpm
-	}
-	if b.MaxReadingSpeedWpm != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_MaxReadingSpeedWpm = *b.MaxReadingSpeedWpm
+		x.xxx_hidden_DetectedFormat = b.DetectedFormat
 	}
 	return m0
 }
@@ -641,47 +162,23 @@ var File_gcommon_v1_media_validate_subtitles_response_proto protoreflect.FileDes
 
 const file_gcommon_v1_media_validate_subtitles_response_proto_rawDesc = "" +
 	"\n" +
-	"2gcommon/v1/media/validate_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xfa\x01\n" +
+	"2gcommon/v1/media/validate_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xbd\x01\n" +
 	"\x19ValidateSubtitlesResponse\x12\x19\n" +
-	"\bis_valid\x18\x01 \x01(\bR\aisValid\x129\n" +
-	"\x06errors\x18\x02 \x03(\v2!.gcommon.v1.media.ValidationErrorR\x06errors\x12?\n" +
-	"\bwarnings\x18\x03 \x03(\v2#.gcommon.v1.media.ValidationWarningR\bwarnings\x12F\n" +
-	"\n" +
-	"statistics\x18\x04 \x01(\v2&.gcommon.v1.media.ValidationStatisticsR\n" +
-	"statistics\"|\n" +
-	"\x0fValidationError\x12\x12\n" +
-	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1f\n" +
-	"\vline_number\x18\x03 \x01(\x05R\n" +
-	"lineNumber\x12\x1a\n" +
-	"\bseverity\x18\x04 \x01(\tR\bseverity\"b\n" +
-	"\x11ValidationWarning\x12\x12\n" +
-	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1f\n" +
-	"\vline_number\x18\x03 \x01(\x05R\n" +
-	"lineNumber\"\xda\x01\n" +
-	"\x14ValidationStatistics\x12#\n" +
-	"\rtotal_entries\x18\x01 \x01(\x05R\ftotalEntries\x12/\n" +
-	"\x13overlapping_entries\x18\x02 \x01(\x05R\x12overlappingEntries\x129\n" +
-	"\x19average_reading_speed_wpm\x18\x03 \x01(\x01R\x16averageReadingSpeedWpm\x121\n" +
-	"\x15max_reading_speed_wpm\x18\x04 \x01(\x01R\x12maxReadingSpeedWpmB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bis_valid\x18\x01 \x01(\bR\aisValid\x12+\n" +
+	"\x11validation_errors\x18\x02 \x03(\tR\x10validationErrors\x12/\n" +
+	"\x13validation_warnings\x18\x03 \x03(\tR\x12validationWarnings\x12'\n" +
+	"\x0fdetected_format\x18\x04 \x01(\tR\x0edetectedFormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_gcommon_v1_media_validate_subtitles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_validate_subtitles_response_proto_goTypes = []any{
 	(*ValidateSubtitlesResponse)(nil), // 0: gcommon.v1.media.ValidateSubtitlesResponse
-	(*ValidationError)(nil),           // 1: gcommon.v1.media.ValidationError
-	(*ValidationWarning)(nil),         // 2: gcommon.v1.media.ValidationWarning
-	(*ValidationStatistics)(nil),      // 3: gcommon.v1.media.ValidationStatistics
 }
 var file_gcommon_v1_media_validate_subtitles_response_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.media.ValidateSubtitlesResponse.errors:type_name -> gcommon.v1.media.ValidationError
-	2, // 1: gcommon.v1.media.ValidateSubtitlesResponse.warnings:type_name -> gcommon.v1.media.ValidationWarning
-	3, // 2: gcommon.v1.media.ValidateSubtitlesResponse.statistics:type_name -> gcommon.v1.media.ValidationStatistics
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_validate_subtitles_response_proto_init() }
@@ -695,7 +192,7 @@ func file_gcommon_v1_media_validate_subtitles_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_validate_subtitles_response_proto_rawDesc), len(file_gcommon_v1_media_validate_subtitles_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

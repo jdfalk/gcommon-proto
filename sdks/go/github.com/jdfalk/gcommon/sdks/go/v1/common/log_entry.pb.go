@@ -452,7 +452,7 @@ var File_gcommon_v1_common_log_entry_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_log_entry_proto_rawDesc = "" +
 	"\n" +
-	"!gcommon/v1/common/log_entry.proto\x12\x11gcommon.v1.common\x1a!gcommon/v1/common/log_level.proto\x1a\"gcommon/v1/common/error_info.proto\x1a'gcommon/v1/common/source_location.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcb\x04\n" +
+	"!gcommon/v1/common/log_entry.proto\x12\x11gcommon.v1.common\x1a\"gcommon/v1/common/error_info.proto\x1a!gcommon/v1/common/log_level.proto\x1a'gcommon/v1/common/source_location.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xcb\x04\n" +
 	"\bLogEntry\x121\n" +
 	"\x05level\x18\x01 \x01(\x0e2\x1b.gcommon.v1.common.LogLevelR\x05level\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x128\n" +
@@ -503,8 +503,8 @@ func file_gcommon_v1_common_log_entry_proto_init() {
 	if File_gcommon_v1_common_log_entry_proto != nil {
 		return
 	}
-	file_gcommon_v1_common_log_level_proto_init()
 	file_gcommon_v1_common_error_info_proto_init()
+	file_gcommon_v1_common_log_level_proto_init()
 	file_gcommon_v1_common_source_location_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

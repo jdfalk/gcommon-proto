@@ -33,7 +33,7 @@ type ListFilesRequest struct {
 	xxx_hidden_Limit         int32                   `protobuf:"varint,4,opt,name=limit"`
 	xxx_hidden_Offset        int32                   `protobuf:"varint,5,opt,name=offset"`
 	xxx_hidden_IncludeHidden bool                    `protobuf:"varint,6,opt,name=include_hidden,json=includeHidden"`
-	xxx_hidden_SortOrder     FileSortOrder           `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.web.FileSortOrder"`
+	xxx_hidden_SortOrder     common.FileSortOrder    `protobuf:"varint,7,opt,name=sort_order,json=sortOrder,enum=gcommon.v1.common.FileSortOrder"`
 	xxx_hidden_Metadata      *common.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
@@ -114,13 +114,13 @@ func (x *ListFilesRequest) GetIncludeHidden() bool {
 	return false
 }
 
-func (x *ListFilesRequest) GetSortOrder() FileSortOrder {
+func (x *ListFilesRequest) GetSortOrder() common.FileSortOrder {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_SortOrder
 		}
 	}
-	return FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
+	return common.FileSortOrder(0)
 }
 
 func (x *ListFilesRequest) GetMetadata() *common.RequestMetadata {
@@ -160,7 +160,7 @@ func (x *ListFilesRequest) SetIncludeHidden(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
-func (x *ListFilesRequest) SetSortOrder(v FileSortOrder) {
+func (x *ListFilesRequest) SetSortOrder(v common.FileSortOrder) {
 	x.xxx_hidden_SortOrder = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
@@ -257,7 +257,7 @@ func (x *ListFilesRequest) ClearIncludeHidden() {
 
 func (x *ListFilesRequest) ClearSortOrder() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_SortOrder = FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
+	x.xxx_hidden_SortOrder = common.FileSortOrder_FILE_SORT_ORDER_UNSPECIFIED
 }
 
 func (x *ListFilesRequest) ClearMetadata() {
@@ -280,7 +280,7 @@ type ListFilesRequest_builder struct {
 	// Whether to include hidden files (starting with .)
 	IncludeHidden *bool
 	// Sort order for the files
-	SortOrder *FileSortOrder
+	SortOrder *common.FileSortOrder
 	// Request metadata for tracing and correlation
 	Metadata *common.RequestMetadata
 }
@@ -325,26 +325,26 @@ var File_gcommon_v1_web_list_files_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_web_list_files_request_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/web/list_files_request.proto\x12\x0egcommon.v1.web\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/web/file_sort_order.proto\x1a!google/protobuf/go_features.proto\"\xc4\x02\n" +
+	"'gcommon/v1/web/list_files_request.proto\x12\x0egcommon.v1.web\x1a'gcommon/v1/common/file_sort_order.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\xc7\x02\n" +
 	"\x10ListFilesRequest\x12%\n" +
 	"\x0edirectory_path\x18\x01 \x01(\tR\rdirectoryPath\x12\x1c\n" +
 	"\trecursive\x18\x02 \x01(\bR\trecursive\x12\x18\n" +
 	"\apattern\x18\x03 \x01(\tR\apattern\x12\x14\n" +
 	"\x05limit\x18\x04 \x01(\x05R\x05limit\x12\x16\n" +
 	"\x06offset\x18\x05 \x01(\x05R\x06offset\x12%\n" +
-	"\x0einclude_hidden\x18\x06 \x01(\bR\rincludeHidden\x12<\n" +
+	"\x0einclude_hidden\x18\x06 \x01(\bR\rincludeHidden\x12?\n" +
 	"\n" +
-	"sort_order\x18\a \x01(\x0e2\x1d.gcommon.v1.web.FileSortOrderR\tsortOrder\x12>\n" +
+	"sort_order\x18\a \x01(\x0e2 .gcommon.v1.common.FileSortOrderR\tsortOrder\x12>\n" +
 	"\bmetadata\x18\b \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_web_list_files_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_web_list_files_request_proto_goTypes = []any{
 	(*ListFilesRequest)(nil),       // 0: gcommon.v1.web.ListFilesRequest
-	(FileSortOrder)(0),             // 1: gcommon.v1.web.FileSortOrder
+	(common.FileSortOrder)(0),      // 1: gcommon.v1.common.FileSortOrder
 	(*common.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_gcommon_v1_web_list_files_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.web.ListFilesRequest.sort_order:type_name -> gcommon.v1.web.FileSortOrder
+	1, // 0: gcommon.v1.web.ListFilesRequest.sort_order:type_name -> gcommon.v1.common.FileSortOrder
 	2, // 1: gcommon.v1.web.ListFilesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
@@ -358,7 +358,6 @@ func file_gcommon_v1_web_list_files_request_proto_init() {
 	if File_gcommon_v1_web_list_files_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_web_file_sort_order_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
