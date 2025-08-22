@@ -581,13 +581,13 @@ jobs:
           echo "📦 Generating protocol buffers..."
           if [ -f "buf.yaml" ] && [ -f "buf.gen.yaml" ]; then
             buf generate
-            
+
             # Run post-generation processing if available
             if [ -f "post-buf-generate.py" ]; then
               echo "⚙️ Running post-generation processing..."
               python3 post-buf-generate.py
             fi
-            
+
             # Setup Go modules if available
             if [ -f "setup-go-modules.py" ]; then
               echo "🔧 Setting up Go modules..."
@@ -682,7 +682,7 @@ jobs:
     name: Matrix Build
     needs: [detect-changes]
     if: needs.detect-changes.outputs.should-build == 'true'
-    uses: ./.github/workflows/matrix-build.yml
+    uses: ./.github/workflows/release.yml
     secrets: inherit
 
   # Final status check
