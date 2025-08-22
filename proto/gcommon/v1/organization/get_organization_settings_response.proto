@@ -20,5 +20,5 @@ message GetOrganizationSettingsResponse {
   bool success = 2;
 
   // Retrieved settings data
-  gcommon.v1.common.OrganizationSettings settings = 3 [lazy = true];
+  OrganizationSettings settings = 3 [lazy = true];
 }

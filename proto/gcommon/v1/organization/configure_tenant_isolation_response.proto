@@ -20,5 +20,5 @@ message ConfigureTenantIsolationResponse {
   bool success = 2;
 
   // Applied isolation configuration
-  gcommon.v1.common.TenantIsolation isolation = 3 [lazy = true];
+  TenantIsolation isolation = 3 [lazy = true];
 }
