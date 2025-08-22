@@ -6,9 +6,10 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/environment_status.proto";
+import "gcommon/v1/common/environment_type.proto";
 import "gcommon/v1/common/health_status.proto";
-import "gcommon/v1/config/environment_status.proto";
-import "gcommon/v1/config/environment_type.proto";
+import "gcommon/v1/common/retention_policy.proto";
 import "gcommon/v1/config/approval_workflow.proto";
 import "gcommon/v1/config/audit_settings.proto";
 import "gcommon/v1/config/backup_policy.proto";
@@ -17,7 +18,6 @@ import "gcommon/v1/config/encryption_settings.proto";
 import "gcommon/v1/config/monitoring_config.proto";
 import "gcommon/v1/config/promotion_rule.proto";
 import "gcommon/v1/config/sync_settings.proto";
-import "gcommon/v1/metrics/retention_policy.proto";
 import "gcommon/v1/organization/access_control.proto";
 import "gcommon/v1/organization/compliance_settings.proto";
 import "gcommon/v1/organization/notification_settings.proto";

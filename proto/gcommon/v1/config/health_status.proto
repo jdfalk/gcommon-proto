@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "gcommon/v1/config/health_state.proto";
+import "gcommon/v1/common/health_state.proto";
 import "gcommon/v1/config/health_check_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
