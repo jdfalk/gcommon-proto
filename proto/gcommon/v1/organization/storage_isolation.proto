@@ -26,14 +26,14 @@ message StorageIsolation {
   bool dedicated_storage = 3;
 
   // Storage encryption configuration
-  gcommon.v1.config.StorageEncryption encryption = 4;
+  StorageEncryption encryption = 4;
 
   // Storage access policies
-  repeated gcommon.v1.config.StoragePolicy policies = 5;
+  repeated StoragePolicy policies = 5;
 
   // Backup and replication configuration
-  gcommon.v1.config.StorageBackupConfig backup = 6;
+  StorageBackupConfig backup = 6;
 
   // Storage quota limits
-  gcommon.v1.config.StorageQuota quota = 7;
+  StorageQuota quota = 7;
 }
