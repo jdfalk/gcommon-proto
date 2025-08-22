@@ -9,11 +9,11 @@ plugins:
   - local: protoc-gen-go-grpc
     out: sdks/go
     strategy: directory
-  # Python messages via protoc built-in generator
-  - protoc_builtin: python
-    out: sdks/python
-    strategy: directory
-  # Optional: Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
-  - protoc_builtin: pyi
-    out: sdks/python
-    strategy: directory
+  # # Python messages via protoc built-in generator
+  # - protoc_builtin: python
+  #   out: sdks/python
+  #   strategy: directory
+  # # Optional: Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
+  # - protoc_builtin: pyi
+  #   out: sdks/python
+  #   strategy: directory
