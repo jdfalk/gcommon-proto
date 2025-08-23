@@ -1,5 +1,5 @@
-from gcommon.v1.organization import email_template_pb2 as _email_template_pb2
-from gcommon.v1.organization import notification_frequency_pb2 as _notification_frequency_pb2
+from gcommon.v1.common import email_template_pb2 as _email_template_pb2
+from gcommon.v1.common import notification_frequency_pb2 as _notification_frequency_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
