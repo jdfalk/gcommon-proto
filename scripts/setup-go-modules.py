@@ -135,9 +135,7 @@ def main():
     if packages_created:
         print(f"✅ Created go.mod files for {len(packages_created)} packages:")
         for package in sorted(packages_created):
-            print(
-                f"   - {package}: github.com/jdfalk/gcommon/sdks/go/v1/{package}"
-            )
+            print(f"   - {package}: github.com/jdfalk/gcommon/sdks/go/v1/{package}")
     else:
         print("⚠️  No package directories found for go.mod creation")
 
@@ -154,9 +152,7 @@ def main():
 
     print("✅ Go module setup complete!")
     print(f"   - Main SDK Module: {module_name}")
-    print(
-        "   - Package modules: github.com/jdfalk/gcommon/sdks/go/v1/<package>"
-    )
+    print("   - Package modules: github.com/jdfalk/gcommon/sdks/go/v1/<package>")
     print("   - Replace directive: ./sdks/go/v1")
 
     return 0
