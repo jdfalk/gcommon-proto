@@ -1,12 +1,12 @@
 // file: proto/gcommon/v1/common/organization_access_control.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 0327cd1d-766b-46e4-b980-f039bbde89ef
 
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/organization/time_restriction.proto";
+import "gcommon/v1/common/time_restriction.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -29,5 +29,5 @@ message OrganizationAccessControl {
   repeated string allowed_countries = 5;
 
   // Time-based access restrictions
-  repeated gcommon.v1.organization.TimeRestriction time_restrictions = 6;
+  repeated TimeRestriction time_restrictions = 6;
 }
