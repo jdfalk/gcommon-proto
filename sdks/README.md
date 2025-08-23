@@ -15,7 +15,7 @@ Import gcommon packages in your Go applications:
 ```go
 import (
     "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/common"
-    "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue" 
+    "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/queue"
     "github.com/jdfalk/gcommon/sdks/go/gcommon/v1/config"
     // ... other packages
 )
@@ -50,7 +50,7 @@ pip install -e ./sdks/python
 All SDKs include the following protobuf packages:
 
 - **common** - Common data types and utilities
-- **queue** - Message queue and streaming systems  
+- **queue** - Message queue and streaming systems
 - **config** - Configuration management
 - **database** - Database operations and schemas
 - **media** - Media processing and metadata

@@ -331,6 +331,17 @@
 				"-m",
 				"feat(sdks): complete multi-language SDK structure with Go and Python support\n\nAdded comprehensive SDK structure with proper module configuration for both Go and Python, enabling easy import of gcommon protobuf packages in various applications.\n\nFiles changed:\n- sdks/go/go.mod - Go module definition for generated protobuf code\n- sdks/python/setup.py - Python package setup configuration\n- sdks/python/__init__.py - Python package initialization\n- sdks/python/gcommon/__init__.py - Main gcommon package\n- sdks/python/gcommon/v1/__init__.py - Version 1 API package\n- sdks/README.md - Comprehensive documentation for both Go and Python SDKs"
 			]
+		},
+		{
+			"label": "Git Commit SDK Build System",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(build): modernize SDK build system with improved Makefile and post-processing scripts\n\nUpdated build automation to properly handle both Go and Python SDK generation with correct module structures and package initialization.\n\nIssues Addressed:\n\nfeat(makefile): enhance Makefile with multi-language SDK support\n- Makefile - Updated to support both Go and Python SDK post-processing\n- Added python-install target for development mode installation\n- Improved clean target to handle both Go and Python generated code\n- Enhanced help documentation with all available targets\n\nfeat(scripts): modernize Go module setup script\n- scripts/setup-go-modules.py - Complete rewrite to match current SDK structure\n- Removed outdated symlink logic and complex path management\n- Simplified to ensure go.mod exists with correct module name\n- Validates generated code location and reports package count\n- Updated version to 2.0.0 to reflect major changes\n\nfeat(scripts): add Python SDK setup automation\n- scripts/setup-python-sdk.py - New script for Python package structure\n- Ensures __init__.py files exist in all package directories\n- Creates proper package hierarchy with documentation\n- Validates setup.py existence for pip installation\n- Handles all 8 protobuf packages (common, metrics, queue, etc.)\n\nfeat(sdks): restore missing Python setup.py configuration\n- sdks/python/setup.py - Recreated complete setup configuration\n- Proper dependencies (protobuf>=3.20.0, grpcio>=1.50.0)\n- Development extras for testing and linting\n- Complete package metadata and classifiers\n\nResult: 'make generate' now properly sets up both Go and Python SDKs with correct module structures, package initialization, and development-ready configuration."
+			]
 		}
 	],
 	"inputs": [
