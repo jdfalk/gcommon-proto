@@ -26,14 +26,14 @@ from gcommon.v1.metrics import error_type_count_pb2 as gcommon_dot_v1_dot_metric
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/common/metrics_error_stats.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/metrics/error_type_count.proto\x1a!google/protobuf/go_features.proto\"\xbb\x01\n\x11MetricsErrorStats\x12!\n\x0ctotal_errors\x18\x01 \x01(\x03R\x0btotalErrors\x12\x1d\n\nerror_rate\x18\x02 \x01(\x01R\terrorRate\x12\x43\n\x0b\x65rror_types\x18\x03 \x03(\x0b\x32\".gcommon.v1.metrics.ErrorTypeCountR\nerrorTypes\x12\x1f\n\x0b\x65rror_trend\x18\x04 \x01(\tR\nerrorTrendB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/common/metrics_error_stats.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/metrics/error_type_count.proto\x1a!google/protobuf/go_features.proto\"\xbb\x01\n\x11MetricsErrorStats\x12!\n\x0ctotal_errors\x18\x01 \x01(\x03R\x0btotalErrors\x12\x1d\n\nerror_rate\x18\x02 \x01(\x01R\terrorRate\x12\x43\n\x0b\x65rror_types\x18\x03 \x03(\x0b\x32\".gcommon.v1.metrics.ErrorTypeCountR\nerrorTypes\x12\x1f\n\x0b\x65rror_trend\x18\x04 \x01(\tR\nerrorTrendB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.metrics_error_stats_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdk/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
   _globals['_METRICSERRORSTATS']._serialized_start=145
   _globals['_METRICSERRORSTATS']._serialized_end=332
 # @@protoc_insertion_point(module_scope)

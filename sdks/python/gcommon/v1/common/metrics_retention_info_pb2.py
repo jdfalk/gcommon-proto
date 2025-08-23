@@ -26,14 +26,14 @@ from gcommon.v1.common import metrics_retention_policy_config_pb2 as gcommon_dot
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/common/metrics_retention_info.proto\x12\x11gcommon.v1.common\x1a\x37gcommon/v1/common/metrics_retention_policy_config.proto\x1a!google/protobuf/go_features.proto\"\xeb\x01\n\x14MetricsRetentionInfo\x12\x30\n\x14total_retained_bytes\x18\x01 \x01(\x03R\x12totalRetainedBytes\x12,\n\x12total_purged_bytes\x18\x02 \x01(\x03R\x10totalPurgedBytes\x12&\n\x0foldest_data_age\x18\x03 \x01(\tR\roldestDataAge\x12K\n\x08policies\x18\x04 \x03(\x0b\x32/.gcommon.v1.common.MetricsRetentionPolicyConfigR\x08policiesB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/common/metrics_retention_info.proto\x12\x11gcommon.v1.common\x1a\x37gcommon/v1/common/metrics_retention_policy_config.proto\x1a!google/protobuf/go_features.proto\"\xeb\x01\n\x14MetricsRetentionInfo\x12\x30\n\x14total_retained_bytes\x18\x01 \x01(\x03R\x12totalRetainedBytes\x12,\n\x12total_purged_bytes\x18\x02 \x01(\x03R\x10totalPurgedBytes\x12&\n\x0foldest_data_age\x18\x03 \x01(\tR\roldestDataAge\x12K\n\x08policies\x18\x04 \x03(\x0b\x32/.gcommon.v1.common.MetricsRetentionPolicyConfigR\x08policiesB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.metrics_retention_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdk/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
   _globals['_METRICSRETENTIONINFO']._serialized_start=162
   _globals['_METRICSRETENTIONINFO']._serialized_end=397
 # @@protoc_insertion_point(module_scope)

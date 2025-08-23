@@ -26,14 +26,14 @@ from gcommon.v1.common import backoff_strategy_pb2 as gcommon_dot_v1_dot_common_
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/config_retry_settings.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/backoff_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe4\x01\n\x13\x43onfigRetrySettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bmax_retries\x18\x02 \x01(\x05R\nmaxRetries\x12#\n\rdelay_seconds\x18\x03 \x01(\x05R\x0c\x64\x65laySeconds\x12M\n\x10\x62\x61\x63koff_strategy\x18\x04 \x01(\x0e\x32\".gcommon.v1.common.BackoffStrategyR\x0f\x62\x61\x63koffStrategy\x12\x1e\n\nconditions\x18\x05 \x03(\tR\nconditionsB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/config_retry_settings.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/backoff_strategy.proto\x1a!google/protobuf/go_features.proto\"\xe4\x01\n\x13\x43onfigRetrySettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bmax_retries\x18\x02 \x01(\x05R\nmaxRetries\x12#\n\rdelay_seconds\x18\x03 \x01(\x05R\x0c\x64\x65laySeconds\x12M\n\x10\x62\x61\x63koff_strategy\x18\x04 \x01(\x0e\x32\".gcommon.v1.common.BackoffStrategyR\x0f\x62\x61\x63koffStrategy\x12\x1e\n\nconditions\x18\x05 \x03(\tR\nconditionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.config_retry_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdk/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
   _globals['_CONFIGRETRYSETTINGS']._serialized_start=146
   _globals['_CONFIGRETRYSETTINGS']._serialized_end=374
 # @@protoc_insertion_point(module_scope)

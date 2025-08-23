@@ -26,14 +26,14 @@ from gcommon.v1.organization import time_restriction_pb2 as gcommon_dot_v1_dot_o
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/organization_access_control.proto\x12\x11gcommon.v1.common\x1a.gcommon/v1/organization/time_restriction.proto\x1a!google/protobuf/go_features.proto\"\xc6\x02\n\x19OrganizationAccessControl\x12!\n\x0cip_whitelist\x18\x01 \x03(\tR\x0bipWhitelist\x12!\n\x0c\x61uth_methods\x18\x02 \x03(\tR\x0b\x61uthMethods\x12\'\n\x0fsession_timeout\x18\x03 \x01(\x05R\x0esessionTimeout\x12\x36\n\x17max_concurrent_sessions\x18\x04 \x01(\x05R\x15maxConcurrentSessions\x12+\n\x11\x61llowed_countries\x18\x05 \x03(\tR\x10\x61llowedCountries\x12U\n\x11time_restrictions\x18\x06 \x03(\x0b\x32(.gcommon.v1.organization.TimeRestrictionR\x10timeRestrictionsB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/organization_access_control.proto\x12\x11gcommon.v1.common\x1a.gcommon/v1/organization/time_restriction.proto\x1a!google/protobuf/go_features.proto\"\xc6\x02\n\x19OrganizationAccessControl\x12!\n\x0cip_whitelist\x18\x01 \x03(\tR\x0bipWhitelist\x12!\n\x0c\x61uth_methods\x18\x02 \x03(\tR\x0b\x61uthMethods\x12\'\n\x0fsession_timeout\x18\x03 \x01(\x05R\x0esessionTimeout\x12\x36\n\x17max_concurrent_sessions\x18\x04 \x01(\x05R\x15maxConcurrentSessions\x12+\n\x11\x61llowed_countries\x18\x05 \x03(\tR\x10\x61llowedCountries\x12U\n\x11time_restrictions\x18\x06 \x03(\x0b\x32(.gcommon.v1.organization.TimeRestrictionR\x10timeRestrictionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.organization_access_control_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdk/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
   _globals['_ORGANIZATIONACCESSCONTROL']._serialized_start=158
   _globals['_ORGANIZATIONACCESSCONTROL']._serialized_end=484
 # @@protoc_insertion_point(module_scope)
