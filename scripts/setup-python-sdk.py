@@ -95,7 +95,7 @@ Generated protobuf definitions for {package_dir.name}.
     else:
         print(f"⚠️  setup.py not found: {setup_py}")
         print("   Creating setup.py for Python package installation")
-        
+
         # Create setup.py content
         setup_py_content = '''#!/usr/bin/env python3
 # file: sdks/python/setup.py
@@ -165,7 +165,7 @@ setup(
     },
 )
 '''
-        
+
         with open(setup_py, "w") as f:
             f.write(setup_py_content)
         print(f"✅ Created setup.py: {setup_py}")
