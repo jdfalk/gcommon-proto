@@ -1,13 +1,13 @@
 // file: proto/gcommon/v1/common/organization_notification_settings.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 5c93685f-3692-4596-bb11-a848cfce9365
 
 edition = "2023";
 
 package gcommon.v1.common;
 
-import "gcommon/v1/organization/email_template.proto";
-import "gcommon/v1/organization/notification_frequency.proto";
+import "gcommon/v1/common/email_template.proto";
+import "gcommon/v1/common/notification_frequency.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -30,8 +30,8 @@ message OrganizationNotificationSettings {
   bool in_app_enabled = 5;
 
   // Email template customizations
-  repeated gcommon.v1.organization.EmailTemplate email_templates = 6;
+  repeated EmailTemplate email_templates = 6;
 
   // Notification frequency settings
-  gcommon.v1.organization.NotificationFrequency frequency = 7;
+  NotificationFrequency frequency = 7;
 }
