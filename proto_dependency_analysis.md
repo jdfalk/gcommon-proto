@@ -6,12 +6,12 @@ This report analyzes all protobuf file dependencies to identify cyclical imports
 
 | Package | Files | Total Imports | Times Imported By Others |
 |---------|-------|---------------|--------------------------|
-| common | 493 | 348 | 926 |
-| config | 115 | 163 | 75 |
+| common | 505 | 355 | 963 |
+| config | 114 | 162 | 73 |
 | database | 139 | 195 | 102 |
 | media | 59 | 70 | 64 |
-| metrics | 226 | 310 | 214 |
-| organization | 121 | 240 | 156 |
+| metrics | 219 | 307 | 188 |
+| organization | 117 | 237 | 147 |
 | queue | 322 | 311 | 198 |
 | web | 202 | 126 | 28 |
 
@@ -21,41 +21,20 @@ These files import from packages other than 'common' and their own package:
 
 | File | File Package | Imports From | Imported Package |
 |------|--------------|--------------|------------------|
-| gcommon/v1/organization/integration_settings | organization | gcommon/v1/metrics/api_key_config.proto | metrics |
-| gcommon/v1/metrics/provider_config | metrics | gcommon/v1/organization/resource_limits.proto | organization |
-| gcommon/v1/config/get_config_history_response | config | gcommon/v1/metrics/config_change.proto | metrics |
-| gcommon/v1/config/config_environment | config | gcommon/v1/organization/access_control.proto | organization |
-| gcommon/v1/config/config_environment | config | gcommon/v1/organization/compliance_settings.proto | organization |
-| gcommon/v1/config/config_environment | config | gcommon/v1/organization/notification_settings.proto | organization |
-| gcommon/v1/config/config_environment | config | gcommon/v1/organization/resource_limits.proto | organization |
-| gcommon/v1/common/retention_policy_info | common | gcommon/v1/metrics/retention_policy_config.proto | metrics |
-| gcommon/v1/queue/get_queue_stats_response | queue | gcommon/v1/metrics/error_stats.proto | metrics |
-| gcommon/v1/queue/get_queue_stats_request | queue | gcommon/v1/metrics/time_range.proto | metrics |
-| gcommon/v1/queue/subscription_config_update | queue | gcommon/v1/config/retry_settings.proto | config |
-| gcommon/v1/queue/get_topic_info_response | queue | gcommon/v1/metrics/retention_info.proto | metrics |
-| gcommon/v1/queue/restore_queue_response | queue | gcommon/v1/metrics/validation_result.proto | metrics |
-| gcommon/v1/queue/restore_options | queue | gcommon/v1/metrics/time_range.proto | metrics |
-| gcommon/v1/queue/export_queue_request | queue | gcommon/v1/metrics/time_range.proto | metrics |
+| gcommon/v1/common/organization_notification_settings | common | gcommon/v1/organization/email_template.proto | organization |
+| gcommon/v1/common/organization_notification_settings | common | gcommon/v1/organization/notification_frequency.proto | organization |
+| gcommon/v1/common/metrics_error_stats | common | gcommon/v1/metrics/error_type_count.proto | metrics |
+| gcommon/v1/common/organization_access_control | common | gcommon/v1/organization/time_restriction.proto | organization |
 
 ### Recommended Actions:
 
-**Move from metrics to common:**
-- gcommon/v1/metrics/validation_result.proto
-- gcommon/v1/metrics/config_change.proto
-- gcommon/v1/metrics/retention_policy_config.proto
-- gcommon/v1/metrics/time_range.proto
-- gcommon/v1/metrics/error_stats.proto
-- gcommon/v1/metrics/api_key_config.proto
-- gcommon/v1/metrics/retention_info.proto
-
 **Move from organization to common:**
-- gcommon/v1/organization/access_control.proto
-- gcommon/v1/organization/notification_settings.proto
-- gcommon/v1/organization/compliance_settings.proto
-- gcommon/v1/organization/resource_limits.proto
+- gcommon/v1/organization/time_restriction.proto
+- gcommon/v1/organization/notification_frequency.proto
+- gcommon/v1/organization/email_template.proto
 
-**Move from config to common:**
-- gcommon/v1/config/retry_settings.proto
+**Move from metrics to common:**
+- gcommon/v1/metrics/error_type_count.proto
 
 
 ## Complete File Dependencies
@@ -134,6 +113,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/config_change_type | common | None | None |
 | gcommon/v1/common/config_config_change_type | common | None | None |
 | gcommon/v1/common/config_data_type | common | None | None |
+| gcommon/v1/common/config_retry_settings | common | gcommon/v1/common/backoff_strategy.proto | None |
 | gcommon/v1/common/config_value | common | gcommon/v1/common/value_type.proto | None |
 | gcommon/v1/common/configure_alerting_request | common | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/common/configure_alerting_response | common | gcommon/v1/common/error.proto | None |
@@ -199,7 +179,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/file_sort_order | common | None | None |
 | gcommon/v1/common/filter_action | common | None | None |
 | gcommon/v1/common/filter_operation | common | None | None |
-| gcommon/v1/common/filter_options | common | gcommon/v1/common/filter_value.proto<br>gcommon/v1/common/time_range.proto | None |
+| gcommon/v1/common/filter_options | common | gcommon/v1/common/filter_value.proto<br>gcommon/v1/common/metrics_time_range.proto | None |
 | gcommon/v1/common/filter_type | common | None | None |
 | gcommon/v1/common/filter_value | common | gcommon/v1/common/filter_operation.proto<br>gcommon/v1/common/int64_array.proto<br>gcommon/v1/common/string_array.proto | None |
 | gcommon/v1/common/flush_policy | common | None | None |
@@ -313,8 +293,15 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/metric_status | common | None | None |
 | gcommon/v1/common/metric_type | common | None | None |
 | gcommon/v1/common/metrics_alert_severity | common | None | None |
+| gcommon/v1/common/metrics_api_key_config | common | None | None |
+| gcommon/v1/common/metrics_config_change | common | gcommon/v1/common/change_type.proto | None |
+| gcommon/v1/common/metrics_error_stats | common | gcommon/v1/metrics/error_type_count.proto | None |
 | gcommon/v1/common/metrics_export_format | common | None | None |
 | gcommon/v1/common/metrics_provider_type | common | None | None |
+| gcommon/v1/common/metrics_retention_info | common | gcommon/v1/common/metrics_retention_policy_config.proto | None |
+| gcommon/v1/common/metrics_retention_policy_config | common | None | None |
+| gcommon/v1/common/metrics_time_range | common | None | None |
+| gcommon/v1/common/metrics_validation_result | common | None | None |
 | gcommon/v1/common/mfa_config | common | None | None |
 | gcommon/v1/common/mfa_method | common | None | None |
 | gcommon/v1/common/mfa_setup_instruction | common | gcommon/v1/common/mfa_method.proto | None |
@@ -335,6 +322,10 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/offset_reset_strategy | common | None | None |
 | gcommon/v1/common/offset_type | common | None | None |
 | gcommon/v1/common/ordering_level | common | None | None |
+| gcommon/v1/common/organization_access_control | common | gcommon/v1/organization/time_restriction.proto | None |
+| gcommon/v1/common/organization_compliance_settings | common | None | None |
+| gcommon/v1/common/organization_notification_settings | common | gcommon/v1/organization/email_template.proto<br>gcommon/v1/organization/notification_frequency.proto | None |
+| gcommon/v1/common/organization_resource_limits | common | None | None |
 | gcommon/v1/common/organization_status | common | None | None |
 | gcommon/v1/common/output_config | common | None | None |
 | gcommon/v1/common/paginated_response | common | None | None |
@@ -404,7 +395,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/restore_point_type | common | None | None |
 | gcommon/v1/common/restriction_type | common | None | None |
 | gcommon/v1/common/retention_policy | common | None | None |
-| gcommon/v1/common/retention_policy_info | common | gcommon/v1/common/retention_policy.proto<br>gcommon/v1/metrics/retention_policy_config.proto | None |
+| gcommon/v1/common/retention_policy_info | common | gcommon/v1/common/metrics_retention_policy_config.proto<br>gcommon/v1/common/retention_policy.proto | None |
 | gcommon/v1/common/retention_unit | common | None | None |
 | gcommon/v1/common/retry_delay_strategy | common | None | None |
 | gcommon/v1/common/retry_policy | common | gcommon/v1/common/error_code.proto | None |
@@ -489,7 +480,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/common/tenant_status | common | None | None |
 | gcommon/v1/common/terminate_session_request | common | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/common/terminate_session_response | common | None | None |
-| gcommon/v1/common/time_range | common | None | None |
+| gcommon/v1/common/time_range_metrics | common | None | None |
 | gcommon/v1/common/time_unit | common | None | None |
 | gcommon/v1/common/time_window | common | None | None |
 | gcommon/v1/common/token | common | gcommon/v1/common/token_status.proto<br>gcommon/v1/common/token_type.proto | None |
@@ -576,7 +567,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/config/config_diff | config | gcommon/v1/config/config_diff_entry.proto | None |
 | gcommon/v1/config/config_diff_entry | config | None | None |
 | gcommon/v1/config/config_entry | config | gcommon/v1/common/config_value.proto<br>gcommon/v1/common/resource_status.proto | None |
-| gcommon/v1/config/config_environment | config | gcommon/v1/common/environment_status.proto<br>gcommon/v1/common/environment_type.proto<br>gcommon/v1/common/health_status.proto<br>gcommon/v1/common/retention_policy.proto<br>gcommon/v1/config/approval_workflow.proto<br>gcommon/v1/config/audit_settings.proto<br>gcommon/v1/config/backup_policy.proto<br>gcommon/v1/config/deployment_info.proto<br>gcommon/v1/config/encryption_settings.proto<br>gcommon/v1/config/monitoring_config.proto<br>gcommon/v1/config/promotion_rule.proto<br>gcommon/v1/config/sync_settings.proto<br>gcommon/v1/organization/access_control.proto<br>gcommon/v1/organization/compliance_settings.proto<br>gcommon/v1/organization/notification_settings.proto<br>gcommon/v1/organization/resource_limits.proto | None |
+| gcommon/v1/config/config_environment | config | gcommon/v1/common/environment_status.proto<br>gcommon/v1/common/environment_type.proto<br>gcommon/v1/common/health_status.proto<br>gcommon/v1/common/organization_access_control.proto<br>gcommon/v1/common/organization_compliance_settings.proto<br>gcommon/v1/common/organization_notification_settings.proto<br>gcommon/v1/common/organization_resource_limits.proto<br>gcommon/v1/common/retention_policy.proto<br>gcommon/v1/config/approval_workflow.proto<br>gcommon/v1/config/audit_settings.proto<br>gcommon/v1/config/backup_policy.proto<br>gcommon/v1/config/deployment_info.proto<br>gcommon/v1/config/encryption_settings.proto<br>gcommon/v1/config/monitoring_config.proto<br>gcommon/v1/config/promotion_rule.proto<br>gcommon/v1/config/sync_settings.proto | None |
 | gcommon/v1/config/config_schema | config | None | None |
 | gcommon/v1/config/config_service | config | gcommon/v1/config/delete_config_request.proto<br>gcommon/v1/config/get_config_request.proto<br>gcommon/v1/config/get_config_response.proto<br>gcommon/v1/config/get_multiple_config_request.proto<br>gcommon/v1/config/get_multiple_config_response.proto<br>gcommon/v1/config/get_schema_request.proto<br>gcommon/v1/config/get_schema_response.proto<br>gcommon/v1/config/list_config_request.proto<br>gcommon/v1/config/list_config_response.proto<br>gcommon/v1/config/set_config_request.proto<br>gcommon/v1/config/set_config_response.proto<br>gcommon/v1/config/set_multiple_config_request.proto<br>gcommon/v1/config/set_multiple_config_response.proto<br>gcommon/v1/config/validate_config_request.proto<br>gcommon/v1/config/validate_config_response.proto<br>gcommon/v1/config/watch_config_request.proto<br>gcommon/v1/config/watch_config_response.proto | None |
 | gcommon/v1/config/config_snapshot | config | None | None |
@@ -594,7 +585,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/config/encryption_settings | config | None | None |
 | gcommon/v1/config/export_config_request | config | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/config/get_config_history_request | config | gcommon/v1/common/request_metadata.proto | None |
-| gcommon/v1/config/get_config_history_response | config | gcommon/v1/metrics/config_change.proto | None |
+| gcommon/v1/config/get_config_history_response | config | gcommon/v1/common/metrics_config_change.proto | None |
 | gcommon/v1/config/get_config_request | config | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/config/get_config_response | config | gcommon/v1/common/error.proto<br>gcommon/v1/config/config_entry.proto | None |
 | gcommon/v1/config/get_config_stats_request | config | gcommon/v1/common/request_metadata.proto | None |
@@ -625,7 +616,6 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/config/resource_limits | config | None | None |
 | gcommon/v1/config/restore_config_request | config | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/config/retention_policy | config | None | None |
-| gcommon/v1/config/retry_settings | config | gcommon/v1/common/backoff_strategy.proto | None |
 | gcommon/v1/config/rollback_config_request | config | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/config/rollback_info | config | gcommon/v1/common/rollback_method.proto | None |
 | gcommon/v1/config/rotation_event | config | None | None |
@@ -653,7 +643,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/config/validate_config_response | config | gcommon/v1/config/config_validation_error.proto<br>gcommon/v1/config/config_validation_warning.proto | None |
 | gcommon/v1/config/validation_result | config | gcommon/v1/common/validation_result_type.proto<br>gcommon/v1/common/validation_severity.proto | None |
 | gcommon/v1/config/validation_rule | config | gcommon/v1/common/validation_severity.proto | None |
-| gcommon/v1/config/validation_settings | config | gcommon/v1/config/retry_settings.proto<br>gcommon/v1/config/validation_rule.proto | None |
+| gcommon/v1/config/validation_settings | config | gcommon/v1/common/config_retry_settings.proto<br>gcommon/v1/config/validation_rule.proto | None |
 | gcommon/v1/config/value_dependency | config | gcommon/v1/common/dependency_type.proto | None |
 | gcommon/v1/config/value_history_entry | config | gcommon/v1/common/config_change_type.proto | None |
 | gcommon/v1/config/value_reference | config | gcommon/v1/common/reference_type.proto | None |
@@ -872,7 +862,6 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/alert_notification | metrics | gcommon/v1/common/metrics_alert_severity.proto | None |
 | gcommon/v1/metrics/alerting_condition | metrics | gcommon/v1/common/comparison_operator.proto | None |
 | gcommon/v1/metrics/alerting_rule | metrics | None | None |
-| gcommon/v1/metrics/api_key_config | metrics | None | None |
 | gcommon/v1/metrics/api_key_config_update | metrics | None | None |
 | gcommon/v1/metrics/applied_config | metrics | gcommon/v1/metrics/resource_allocations.proto | None |
 | gcommon/v1/metrics/backup_info | metrics | None | None |
@@ -881,7 +870,6 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/batch_stats | metrics | None | None |
 | gcommon/v1/metrics/bucket_info | metrics | None | None |
 | gcommon/v1/metrics/buffer_config | metrics | gcommon/v1/common/buffer_overflow_strategy.proto | None |
-| gcommon/v1/metrics/config_change | metrics | gcommon/v1/common/change_type.proto | None |
 | gcommon/v1/metrics/configuration_summary | metrics | gcommon/v1/metrics/resource_limits_summary.proto<br>gcommon/v1/metrics/security_summary.proto | None |
 | gcommon/v1/metrics/counter_config | metrics | None | None |
 | gcommon/v1/metrics/counter_metric | metrics | None | None |
@@ -889,7 +877,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/create_metric_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/metric_data.proto | None |
 | gcommon/v1/metrics/create_metric_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metric_metadata.proto | None |
 | gcommon/v1/metrics/create_provider_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/provider_config.proto | None |
-| gcommon/v1/metrics/create_provider_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/applied_config.proto<br>gcommon/v1/metrics/provider_endpoints.proto<br>gcommon/v1/metrics/provider_status.proto<br>gcommon/v1/metrics/validation_result.proto | None |
+| gcommon/v1/metrics/create_provider_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/metrics_validation_result.proto<br>gcommon/v1/metrics/applied_config.proto<br>gcommon/v1/metrics/provider_endpoints.proto<br>gcommon/v1/metrics/provider_status.proto | None |
 | gcommon/v1/metrics/data_volume_data_point | metrics | None | None |
 | gcommon/v1/metrics/data_volume_stats | metrics | gcommon/v1/metrics/data_volume_data_point.proto | None |
 | gcommon/v1/metrics/data_volume_trend | metrics | None | None |
@@ -903,7 +891,6 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/dry_run_result | metrics | None | None |
 | gcommon/v1/metrics/error_data_point | metrics | None | None |
 | gcommon/v1/metrics/error_entry | metrics | None | None |
-| gcommon/v1/metrics/error_stats | metrics | gcommon/v1/metrics/error_type_count.proto | None |
 | gcommon/v1/metrics/error_trend | metrics | None | None |
 | gcommon/v1/metrics/error_type_count | metrics | None | None |
 | gcommon/v1/metrics/error_type_stats | metrics | None | None |
@@ -927,12 +914,12 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/get_metric_metadata_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metric_metadata.proto<br>gcommon/v1/metrics/pagination_info.proto | None |
 | gcommon/v1/metrics/get_metric_request | metrics | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/metrics/get_metric_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metric_data.proto | None |
-| gcommon/v1/metrics/get_metrics_request | metrics | gcommon/v1/common/pagination_options.proto<br>gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/metric_aggregation.proto<br>gcommon/v1/metrics/metric_filter.proto<br>gcommon/v1/metrics/output_options.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/metrics/get_metrics_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metric_data.proto<br>gcommon/v1/metrics/metric_metadata.proto<br>gcommon/v1/metrics/pagination_info.proto<br>gcommon/v1/metrics/query_stats.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/metrics/get_metrics_summary_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/metric_filter.proto<br>gcommon/v1/metrics/summary_options.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/metrics/get_metrics_summary_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metrics_health_info.proto<br>gcommon/v1/metrics/metrics_summary.proto<br>gcommon/v1/metrics/provider_summary.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/metrics/get_provider_stats_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/stats_options.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/metrics/get_provider_stats_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/provider_statistics.proto<br>gcommon/v1/metrics/time_range.proto | None |
+| gcommon/v1/metrics/get_metrics_request | metrics | gcommon/v1/common/pagination_options.proto<br>gcommon/v1/common/request_metadata.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/metric_aggregation.proto<br>gcommon/v1/metrics/metric_filter.proto<br>gcommon/v1/metrics/output_options.proto | None |
+| gcommon/v1/metrics/get_metrics_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/metric_data.proto<br>gcommon/v1/metrics/metric_metadata.proto<br>gcommon/v1/metrics/pagination_info.proto<br>gcommon/v1/metrics/query_stats.proto | None |
+| gcommon/v1/metrics/get_metrics_summary_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/metric_filter.proto<br>gcommon/v1/metrics/summary_options.proto | None |
+| gcommon/v1/metrics/get_metrics_summary_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/metrics_health_info.proto<br>gcommon/v1/metrics/metrics_summary.proto<br>gcommon/v1/metrics/provider_summary.proto | None |
+| gcommon/v1/metrics/get_provider_stats_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/stats_options.proto | None |
+| gcommon/v1/metrics/get_provider_stats_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/provider_statistics.proto | None |
 | gcommon/v1/metrics/get_scrape_config_request | metrics | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/metrics/get_scrape_config_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/scrape_config.proto | None |
 | gcommon/v1/metrics/get_stats_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/timestamp_range.proto | None |
@@ -959,14 +946,14 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/metric_bucket | metrics | None | None |
 | gcommon/v1/metrics/metric_config | metrics | gcommon/v1/metrics/export_config.proto | None |
 | gcommon/v1/metrics/metric_data | metrics | gcommon/v1/common/metric_type.proto<br>gcommon/v1/metrics/metric_value.proto | None |
-| gcommon/v1/metrics/metric_definition | metrics | gcommon/v1/common/metric_type.proto<br>gcommon/v1/metrics/export_config.proto<br>gcommon/v1/metrics/label_definition.proto<br>gcommon/v1/metrics/metric_type_config.proto<br>gcommon/v1/metrics/retention_policy_config.proto<br>gcommon/v1/metrics/validation_rules.proto | None |
+| gcommon/v1/metrics/metric_definition | metrics | gcommon/v1/common/metric_type.proto<br>gcommon/v1/common/metrics_retention_policy_config.proto<br>gcommon/v1/metrics/export_config.proto<br>gcommon/v1/metrics/label_definition.proto<br>gcommon/v1/metrics/metric_type_config.proto<br>gcommon/v1/metrics/validation_rules.proto | None |
 | gcommon/v1/metrics/metric_filter | metrics | None | None |
 | gcommon/v1/metrics/metric_health | metrics | gcommon/v1/common/health_status.proto | None |
 | gcommon/v1/metrics/metric_info | metrics | None | None |
 | gcommon/v1/metrics/metric_label | metrics | None | None |
 | gcommon/v1/metrics/metric_metadata | metrics | None | None |
 | gcommon/v1/metrics/metric_quantile | metrics | None | None |
-| gcommon/v1/metrics/metric_query | metrics | gcommon/v1/common/sort_options.proto<br>gcommon/v1/metrics/aggregation_spec.proto<br>gcommon/v1/metrics/group_by_spec.proto<br>gcommon/v1/metrics/metric_filter.proto<br>gcommon/v1/metrics/time_range.proto | None |
+| gcommon/v1/metrics/metric_query | metrics | gcommon/v1/common/sort_options.proto<br>gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/metrics/aggregation_spec.proto<br>gcommon/v1/metrics/group_by_spec.proto<br>gcommon/v1/metrics/metric_filter.proto | None |
 | gcommon/v1/metrics/metric_result | metrics | gcommon/v1/common/error.proto | None |
 | gcommon/v1/metrics/metric_sample | metrics | None | None |
 | gcommon/v1/metrics/metric_series | metrics | gcommon/v1/common/metric_type.proto<br>gcommon/v1/metrics/metric_value.proto | None |
@@ -978,7 +965,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/metrics_health_info | metrics | gcommon/v1/common/health_status.proto | None |
 | gcommon/v1/metrics/metrics_management_service | metrics | gcommon/v1/metrics/create_provider_request.proto<br>gcommon/v1/metrics/create_provider_response.proto<br>gcommon/v1/metrics/delete_provider_request.proto<br>gcommon/v1/metrics/delete_provider_response.proto<br>gcommon/v1/metrics/get_provider_stats_request.proto<br>gcommon/v1/metrics/get_provider_stats_response.proto<br>gcommon/v1/metrics/list_providers_request.proto<br>gcommon/v1/metrics/list_providers_response.proto<br>gcommon/v1/metrics/update_provider_request.proto<br>gcommon/v1/metrics/update_provider_response.proto | None |
 | gcommon/v1/metrics/metrics_service | metrics | gcommon/v1/metrics/get_metric_metadata_request.proto<br>gcommon/v1/metrics/get_metric_metadata_response.proto<br>gcommon/v1/metrics/get_metrics_request.proto<br>gcommon/v1/metrics/get_metrics_response.proto<br>gcommon/v1/metrics/get_metrics_summary_request.proto<br>gcommon/v1/metrics/get_metrics_summary_response.proto<br>gcommon/v1/metrics/metric_data.proto<br>gcommon/v1/metrics/query_metrics_request.proto<br>gcommon/v1/metrics/query_metrics_response.proto<br>gcommon/v1/metrics/record_metric_request.proto<br>gcommon/v1/metrics/record_metric_response.proto<br>gcommon/v1/metrics/record_metrics_request.proto<br>gcommon/v1/metrics/record_metrics_response.proto<br>gcommon/v1/metrics/register_metric_request.proto<br>gcommon/v1/metrics/register_metric_response.proto<br>gcommon/v1/metrics/stream_metrics_request.proto<br>gcommon/v1/metrics/unregister_metric_request.proto<br>gcommon/v1/metrics/unregister_metric_response.proto | None |
-| gcommon/v1/metrics/metrics_summary | metrics | gcommon/v1/metrics/error_stats.proto<br>gcommon/v1/metrics/export_status.proto<br>gcommon/v1/metrics/metric_type_counts.proto<br>gcommon/v1/metrics/performance_stats.proto<br>gcommon/v1/metrics/retention_info.proto<br>gcommon/v1/metrics/top_metrics.proto | None |
+| gcommon/v1/metrics/metrics_summary | metrics | gcommon/v1/common/metrics_error_stats.proto<br>gcommon/v1/common/metrics_retention_info.proto<br>gcommon/v1/metrics/export_status.proto<br>gcommon/v1/metrics/metric_type_counts.proto<br>gcommon/v1/metrics/performance_stats.proto<br>gcommon/v1/metrics/top_metrics.proto | None |
 | gcommon/v1/metrics/network_usage | metrics | None | None |
 | gcommon/v1/metrics/open_telemetry_settings | metrics | None | None |
 | gcommon/v1/metrics/open_telemetry_settings_update | metrics | None | None |
@@ -990,7 +977,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/performance_trend | metrics | None | None |
 | gcommon/v1/metrics/prometheus_settings | metrics | None | None |
 | gcommon/v1/metrics/prometheus_settings_update | metrics | None | None |
-| gcommon/v1/metrics/provider_config | metrics | gcommon/v1/common/metrics_provider_type.proto<br>gcommon/v1/metrics/export_config.proto<br>gcommon/v1/metrics/provider_settings.proto<br>gcommon/v1/metrics/security_config.proto<br>gcommon/v1/organization/resource_limits.proto | None |
+| gcommon/v1/metrics/provider_config | metrics | gcommon/v1/common/metrics_provider_type.proto<br>gcommon/v1/common/organization_resource_limits.proto<br>gcommon/v1/metrics/export_config.proto<br>gcommon/v1/metrics/provider_settings.proto<br>gcommon/v1/metrics/security_config.proto | None |
 | gcommon/v1/metrics/provider_config_summary | metrics | gcommon/v1/metrics/resource_limits_summary.proto | None |
 | gcommon/v1/metrics/provider_config_update | metrics | gcommon/v1/metrics/export_config_update.proto<br>gcommon/v1/metrics/provider_settings_update.proto<br>gcommon/v1/metrics/resource_limits_update.proto<br>gcommon/v1/metrics/security_config_update.proto<br>gcommon/v1/metrics/tag_updates.proto | None |
 | gcommon/v1/metrics/provider_endpoints | metrics | None | None |
@@ -998,7 +985,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/provider_info | metrics | gcommon/v1/metrics/provider_status.proto | None |
 | gcommon/v1/metrics/provider_settings | metrics | gcommon/v1/metrics/open_telemetry_settings.proto<br>gcommon/v1/metrics/prometheus_settings.proto<br>gcommon/v1/metrics/stats_d_settings.proto | None |
 | gcommon/v1/metrics/provider_settings_update | metrics | gcommon/v1/metrics/open_telemetry_settings_update.proto<br>gcommon/v1/metrics/prometheus_settings_update.proto<br>gcommon/v1/metrics/stats_d_settings_update.proto | None |
-| gcommon/v1/metrics/provider_statistics | metrics | gcommon/v1/metrics/configuration_summary.proto<br>gcommon/v1/metrics/data_volume_stats.proto<br>gcommon/v1/metrics/error_stats.proto<br>gcommon/v1/metrics/export_stats.proto<br>gcommon/v1/metrics/health_status_entry.proto<br>gcommon/v1/metrics/performance_stats.proto<br>gcommon/v1/metrics/provider_info.proto<br>gcommon/v1/metrics/resource_usage_stats.proto<br>gcommon/v1/metrics/top_metrics.proto<br>gcommon/v1/metrics/trend_analysis.proto | None |
+| gcommon/v1/metrics/provider_statistics | metrics | gcommon/v1/common/metrics_error_stats.proto<br>gcommon/v1/metrics/configuration_summary.proto<br>gcommon/v1/metrics/data_volume_stats.proto<br>gcommon/v1/metrics/export_stats.proto<br>gcommon/v1/metrics/health_status_entry.proto<br>gcommon/v1/metrics/performance_stats.proto<br>gcommon/v1/metrics/provider_info.proto<br>gcommon/v1/metrics/resource_usage_stats.proto<br>gcommon/v1/metrics/top_metrics.proto<br>gcommon/v1/metrics/trend_analysis.proto | None |
 | gcommon/v1/metrics/provider_stats | metrics | gcommon/v1/metrics/resource_usage.proto | None |
 | gcommon/v1/metrics/provider_status | metrics | gcommon/v1/common/provider_state.proto | None |
 | gcommon/v1/metrics/provider_summary | metrics | gcommon/v1/metrics/provider_status.proto | None |
@@ -1017,7 +1004,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/record_histogram_request | metrics | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/metrics/record_histogram_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/bucket_info.proto<br>gcommon/v1/metrics/histogram_metric.proto<br>gcommon/v1/metrics/histogram_stats.proto<br>gcommon/v1/metrics/recording_stats.proto | None |
 | gcommon/v1/metrics/record_metric_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/batch_context.proto<br>gcommon/v1/metrics/metric_data.proto | None |
-| gcommon/v1/metrics/record_metric_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/recording_stats.proto<br>gcommon/v1/metrics/validation_result.proto | None |
+| gcommon/v1/metrics/record_metric_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/metrics_validation_result.proto<br>gcommon/v1/metrics/recording_stats.proto | None |
 | gcommon/v1/metrics/record_metrics_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/metric_data.proto | None |
 | gcommon/v1/metrics/record_metrics_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/batch_stats.proto<br>gcommon/v1/metrics/metric_result.proto<br>gcommon/v1/metrics/validation_summary.proto | None |
 | gcommon/v1/metrics/record_summary_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/summary_metric.proto | None |
@@ -1038,14 +1025,12 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/resource_usage | metrics | None | None |
 | gcommon/v1/metrics/resource_usage_stats | metrics | gcommon/v1/metrics/cpu_usage.proto<br>gcommon/v1/metrics/disk_usage.proto<br>gcommon/v1/metrics/memory_usage.proto<br>gcommon/v1/metrics/network_usage.proto<br>gcommon/v1/metrics/resource_data_point.proto | None |
 | gcommon/v1/metrics/resource_usage_trend | metrics | None | None |
-| gcommon/v1/metrics/retention_info | metrics | gcommon/v1/metrics/retention_policy_config.proto | None |
-| gcommon/v1/metrics/retention_policy_config | metrics | None | None |
 | gcommon/v1/metrics/schema_change | metrics | None | None |
 | gcommon/v1/metrics/scrape_config | metrics | gcommon/v1/metrics/scrape_target.proto | None |
 | gcommon/v1/metrics/scrape_job | metrics | gcommon/v1/metrics/scrape_config.proto | None |
 | gcommon/v1/metrics/scrape_target | metrics | None | None |
 | gcommon/v1/metrics/secondary_sort_field | metrics | gcommon/v1/common/sort_direction.proto | None |
-| gcommon/v1/metrics/security_config | metrics | gcommon/v1/metrics/api_key_config.proto<br>gcommon/v1/metrics/tls_config.proto | None |
+| gcommon/v1/metrics/security_config | metrics | gcommon/v1/common/metrics_api_key_config.proto<br>gcommon/v1/metrics/tls_config.proto | None |
 | gcommon/v1/metrics/security_config_update | metrics | gcommon/v1/metrics/api_key_config_update.proto<br>gcommon/v1/metrics/tls_config_update.proto | None |
 | gcommon/v1/metrics/security_summary | metrics | None | None |
 | gcommon/v1/metrics/set_alerting_rules_request | metrics | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/metrics/alerting_rule.proto | None |
@@ -1072,7 +1057,6 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/summary_quantile | metrics | None | None |
 | gcommon/v1/metrics/summary_value | metrics | gcommon/v1/metrics/quantile.proto | None |
 | gcommon/v1/metrics/tag_updates | metrics | None | None |
-| gcommon/v1/metrics/time_range | metrics | None | None |
 | gcommon/v1/metrics/time_series | metrics | gcommon/v1/metrics/metric_sample.proto | None |
 | gcommon/v1/metrics/timer_metric | metrics | gcommon/v1/metrics/percentile_measurement.proto<br>gcommon/v1/metrics/timer_statistics.proto | None |
 | gcommon/v1/metrics/timer_statistics | metrics | None | None |
@@ -1089,12 +1073,10 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/metrics/update_metric_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/metric_metadata.proto | None |
 | gcommon/v1/metrics/update_options | metrics | gcommon/v1/common/update_strategy.proto | None |
 | gcommon/v1/metrics/update_provider_request | metrics | gcommon/v1/common/request_metadata.proto | None |
-| gcommon/v1/metrics/update_provider_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/metrics/provider_status.proto<br>gcommon/v1/metrics/validation_result.proto | None |
-| gcommon/v1/metrics/update_result | metrics | gcommon/v1/common/update_action.proto<br>gcommon/v1/metrics/config_change.proto | None |
-| gcommon/v1/metrics/validation_result | metrics | None | None |
+| gcommon/v1/metrics/update_provider_response | metrics | gcommon/v1/common/error.proto<br>gcommon/v1/common/metrics_validation_result.proto<br>gcommon/v1/metrics/provider_status.proto | None |
+| gcommon/v1/metrics/update_result | metrics | gcommon/v1/common/metrics_config_change.proto<br>gcommon/v1/common/update_action.proto | None |
 | gcommon/v1/metrics/validation_rules | metrics | None | None |
 | gcommon/v1/metrics/validation_summary | metrics | None | None |
-| gcommon/v1/organization/access_control | organization | gcommon/v1/organization/time_restriction.proto | None |
 | gcommon/v1/organization/add_member_request | organization | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/organization/organization_member.proto | None |
 | gcommon/v1/organization/add_member_response | organization | gcommon/v1/common/error.proto<br>gcommon/v1/organization/organization_member.proto | None |
 | gcommon/v1/organization/api_key_config | organization | None | None |
@@ -1106,8 +1088,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/organization/cache_behavior | organization | gcommon/v1/organization/cache_key_policy.proto | None |
 | gcommon/v1/organization/cache_key_policy | organization | None | None |
 | gcommon/v1/organization/cdn_config | organization | gcommon/v1/organization/cache_behavior.proto<br>gcommon/v1/organization/origin_config.proto | None |
-| gcommon/v1/organization/compliance_settings | organization | None | None |
-| gcommon/v1/organization/compute_isolation | organization | gcommon/v1/organization/auto_scaling_config.proto<br>gcommon/v1/organization/cpu_allocation.proto<br>gcommon/v1/organization/memory_allocation.proto<br>gcommon/v1/organization/resource_limits.proto | None |
+| gcommon/v1/organization/compute_isolation | organization | gcommon/v1/common/organization_resource_limits.proto<br>gcommon/v1/organization/auto_scaling_config.proto<br>gcommon/v1/organization/cpu_allocation.proto<br>gcommon/v1/organization/memory_allocation.proto | None |
 | gcommon/v1/organization/configure_tenant_isolation_request | organization | gcommon/v1/common/request_metadata.proto<br>gcommon/v1/organization/tenant_isolation.proto | None |
 | gcommon/v1/organization/configure_tenant_isolation_response | organization | gcommon/v1/common/error.proto<br>gcommon/v1/organization/tenant_isolation.proto | None |
 | gcommon/v1/organization/cpu_allocation | organization | None | None |
@@ -1156,7 +1137,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/organization/hierarchy_path | organization | None | None |
 | gcommon/v1/organization/hierarchy_service | organization | gcommon/v1/organization/create_department_request.proto<br>gcommon/v1/organization/create_department_response.proto<br>gcommon/v1/organization/create_team_request.proto<br>gcommon/v1/organization/create_team_response.proto<br>gcommon/v1/organization/delete_department_request.proto<br>gcommon/v1/organization/delete_department_response.proto<br>gcommon/v1/organization/delete_team_request.proto<br>gcommon/v1/organization/delete_team_response.proto<br>gcommon/v1/organization/get_department_request.proto<br>gcommon/v1/organization/get_department_response.proto<br>gcommon/v1/organization/get_hierarchy_request.proto<br>gcommon/v1/organization/get_hierarchy_response.proto<br>gcommon/v1/organization/get_team_request.proto<br>gcommon/v1/organization/get_team_response.proto<br>gcommon/v1/organization/list_departments_request.proto<br>gcommon/v1/organization/list_departments_response.proto<br>gcommon/v1/organization/list_teams_request.proto<br>gcommon/v1/organization/list_teams_response.proto<br>gcommon/v1/organization/update_department_request.proto<br>gcommon/v1/organization/update_department_response.proto<br>gcommon/v1/organization/update_hierarchy_request.proto<br>gcommon/v1/organization/update_hierarchy_response.proto<br>gcommon/v1/organization/update_team_request.proto<br>gcommon/v1/organization/update_team_response.proto | None |
 | gcommon/v1/organization/integration | organization | gcommon/v1/common/key_value.proto | None |
-| gcommon/v1/organization/integration_settings | organization | gcommon/v1/metrics/api_key_config.proto<br>gcommon/v1/organization/integration.proto<br>gcommon/v1/organization/o_auth_app_config.proto<br>gcommon/v1/organization/webhook_config.proto | None |
+| gcommon/v1/organization/integration_settings | organization | gcommon/v1/common/metrics_api_key_config.proto<br>gcommon/v1/organization/integration.proto<br>gcommon/v1/organization/o_auth_app_config.proto<br>gcommon/v1/organization/webhook_config.proto | None |
 | gcommon/v1/organization/list_departments_request | organization | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/organization/list_departments_response | organization | gcommon/v1/common/error.proto<br>gcommon/v1/common/paginated_response.proto<br>gcommon/v1/organization/department.proto | None |
 | gcommon/v1/organization/list_members_request | organization | gcommon/v1/common/request_metadata.proto | None |
@@ -1172,18 +1153,16 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/organization/network_acl_rule | organization | None | None |
 | gcommon/v1/organization/network_isolation | organization | gcommon/v1/organization/cdn_config.proto<br>gcommon/v1/organization/domain_config.proto<br>gcommon/v1/organization/load_balancer_config.proto<br>gcommon/v1/organization/network_acl_rule.proto | None |
 | gcommon/v1/organization/notification_frequency | organization | None | None |
-| gcommon/v1/organization/notification_settings | organization | gcommon/v1/organization/email_template.proto<br>gcommon/v1/organization/notification_frequency.proto | None |
 | gcommon/v1/organization/o_auth_app_config | organization | None | None |
 | gcommon/v1/organization/organization | organization | gcommon/v1/common/key_value.proto<br>gcommon/v1/common/organization_status.proto | None |
 | gcommon/v1/organization/organization_hierarchy | organization | gcommon/v1/common/hierarchy_type.proto<br>gcommon/v1/common/key_value.proto<br>gcommon/v1/organization/hierarchy_node.proto | None |
 | gcommon/v1/organization/organization_member | organization | gcommon/v1/common/key_value.proto<br>gcommon/v1/common/member_role.proto | None |
 | gcommon/v1/organization/organization_service | organization | gcommon/v1/organization/add_member_request.proto<br>gcommon/v1/organization/add_member_response.proto<br>gcommon/v1/organization/create_organization_request.proto<br>gcommon/v1/organization/create_organization_response.proto<br>gcommon/v1/organization/delete_organization_request.proto<br>gcommon/v1/organization/delete_organization_response.proto<br>gcommon/v1/organization/get_organization_request.proto<br>gcommon/v1/organization/get_organization_response.proto<br>gcommon/v1/organization/get_organization_settings_request.proto<br>gcommon/v1/organization/get_organization_settings_response.proto<br>gcommon/v1/organization/list_members_request.proto<br>gcommon/v1/organization/list_members_response.proto<br>gcommon/v1/organization/list_organizations_request.proto<br>gcommon/v1/organization/list_organizations_response.proto<br>gcommon/v1/organization/remove_member_request.proto<br>gcommon/v1/organization/remove_member_response.proto<br>gcommon/v1/organization/update_member_request.proto<br>gcommon/v1/organization/update_member_response.proto<br>gcommon/v1/organization/update_organization_request.proto<br>gcommon/v1/organization/update_organization_response.proto<br>gcommon/v1/organization/update_organization_settings_request.proto<br>gcommon/v1/organization/update_organization_settings_response.proto | None |
-| gcommon/v1/organization/organization_settings | organization | gcommon/v1/common/key_value.proto<br>gcommon/v1/organization/billing_settings.proto<br>gcommon/v1/organization/compliance_settings.proto<br>gcommon/v1/organization/feature_flag.proto<br>gcommon/v1/organization/integration_settings.proto<br>gcommon/v1/organization/notification_settings.proto<br>gcommon/v1/organization/security_settings.proto<br>gcommon/v1/organization/ui_settings.proto | None |
+| gcommon/v1/organization/organization_settings | organization | gcommon/v1/common/key_value.proto<br>gcommon/v1/common/organization_compliance_settings.proto<br>gcommon/v1/common/organization_notification_settings.proto<br>gcommon/v1/organization/billing_settings.proto<br>gcommon/v1/organization/feature_flag.proto<br>gcommon/v1/organization/integration_settings.proto<br>gcommon/v1/organization/security_settings.proto<br>gcommon/v1/organization/ui_settings.proto | None |
 | gcommon/v1/organization/origin_config | organization | gcommon/v1/common/key_value.proto | None |
 | gcommon/v1/organization/rate_limit_config | organization | None | None |
 | gcommon/v1/organization/remove_member_request | organization | gcommon/v1/common/request_metadata.proto | None |
 | gcommon/v1/organization/remove_member_response | organization | gcommon/v1/common/error.proto | None |
-| gcommon/v1/organization/resource_limits | organization | None | None |
 | gcommon/v1/organization/security_settings | organization | gcommon/v1/organization/rate_limit_config.proto | None |
 | gcommon/v1/organization/ssl_config | organization | None | None |
 | gcommon/v1/organization/storage_backup_config | organization | None | None |
@@ -1193,7 +1172,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/organization/storage_quota | organization | None | None |
 | gcommon/v1/organization/team | organization | gcommon/v1/common/key_value.proto | None |
 | gcommon/v1/organization/tenant | organization | gcommon/v1/common/isolation_level.proto<br>gcommon/v1/common/key_value.proto<br>gcommon/v1/common/tenant_status.proto<br>gcommon/v1/organization/tenant_quota.proto | None |
-| gcommon/v1/organization/tenant_isolation | organization | gcommon/v1/common/isolation_level.proto<br>gcommon/v1/common/key_value.proto<br>gcommon/v1/organization/access_control.proto<br>gcommon/v1/organization/audit_config.proto<br>gcommon/v1/organization/compute_isolation.proto<br>gcommon/v1/organization/database_isolation.proto<br>gcommon/v1/organization/encryption_config.proto<br>gcommon/v1/organization/network_isolation.proto<br>gcommon/v1/organization/storage_isolation.proto | None |
+| gcommon/v1/organization/tenant_isolation | organization | gcommon/v1/common/isolation_level.proto<br>gcommon/v1/common/key_value.proto<br>gcommon/v1/common/organization_access_control.proto<br>gcommon/v1/organization/audit_config.proto<br>gcommon/v1/organization/compute_isolation.proto<br>gcommon/v1/organization/database_isolation.proto<br>gcommon/v1/organization/encryption_config.proto<br>gcommon/v1/organization/network_isolation.proto<br>gcommon/v1/organization/storage_isolation.proto | None |
 | gcommon/v1/organization/tenant_quota | organization | None | None |
 | gcommon/v1/organization/tenant_service | organization | gcommon/v1/organization/configure_tenant_isolation_request.proto<br>gcommon/v1/organization/configure_tenant_isolation_response.proto<br>gcommon/v1/organization/create_tenant_request.proto<br>gcommon/v1/organization/create_tenant_response.proto<br>gcommon/v1/organization/delete_tenant_request.proto<br>gcommon/v1/organization/delete_tenant_response.proto<br>gcommon/v1/organization/get_tenant_isolation_request.proto<br>gcommon/v1/organization/get_tenant_isolation_response.proto<br>gcommon/v1/organization/get_tenant_request.proto<br>gcommon/v1/organization/get_tenant_response.proto<br>gcommon/v1/organization/get_tenant_usage_request.proto<br>gcommon/v1/organization/get_tenant_usage_response.proto<br>gcommon/v1/organization/list_tenants_request.proto<br>gcommon/v1/organization/list_tenants_response.proto<br>gcommon/v1/organization/update_tenant_quota_request.proto<br>gcommon/v1/organization/update_tenant_quota_response.proto<br>gcommon/v1/organization/update_tenant_request.proto<br>gcommon/v1/organization/update_tenant_response.proto | None |
 | gcommon/v1/organization/time_restriction | organization | None | None |
@@ -1310,7 +1289,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/queue/error_stats | queue | gcommon/v1/queue/error_type_stat.proto | None |
 | gcommon/v1/queue/error_type_stat | queue | None | None |
 | gcommon/v1/queue/exchange_config | queue | None | None |
-| gcommon/v1/queue/export_queue_request | queue | gcommon/v1/common/queue_export_format.proto<br>gcommon/v1/metrics/time_range.proto | None |
+| gcommon/v1/queue/export_queue_request | queue | gcommon/v1/common/queue_export_format.proto<br>gcommon/v1/common/time_range_metrics.proto | None |
 | gcommon/v1/queue/export_queue_response | queue | None | None |
 | gcommon/v1/queue/external_auth_service | queue | gcommon/v1/queue/auth_cache_config.proto<br>gcommon/v1/queue/retry_config.proto | None |
 | gcommon/v1/queue/external_role_provider | queue | None | None |
@@ -1338,12 +1317,12 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/queue/get_queue_health_response | queue | gcommon/v1/queue/cluster_health.proto<br>gcommon/v1/queue/queue_health.proto | None |
 | gcommon/v1/queue/get_queue_info_request | queue | gcommon/v1/queue/time_range_filter.proto | None |
 | gcommon/v1/queue/get_queue_info_response | queue | gcommon/v1/queue/queue_info.proto | None |
-| gcommon/v1/queue/get_queue_stats_request | queue | gcommon/v1/common/stats_granularity.proto<br>gcommon/v1/metrics/time_range.proto | None |
-| gcommon/v1/queue/get_queue_stats_response | queue | gcommon/v1/common/response_metadata.proto<br>gcommon/v1/metrics/error_stats.proto<br>gcommon/v1/queue/consumer_stats.proto<br>gcommon/v1/queue/historical_stats.proto<br>gcommon/v1/queue/performance_metrics.proto<br>gcommon/v1/queue/queue_stats.proto<br>gcommon/v1/queue/queue_stats_summary.proto | None |
+| gcommon/v1/queue/get_queue_stats_request | queue | gcommon/v1/common/stats_granularity.proto<br>gcommon/v1/common/time_range_metrics.proto | None |
+| gcommon/v1/queue/get_queue_stats_response | queue | gcommon/v1/common/metrics_error_stats.proto<br>gcommon/v1/common/response_metadata.proto<br>gcommon/v1/queue/consumer_stats.proto<br>gcommon/v1/queue/historical_stats.proto<br>gcommon/v1/queue/performance_metrics.proto<br>gcommon/v1/queue/queue_stats.proto<br>gcommon/v1/queue/queue_stats_summary.proto | None |
 | gcommon/v1/queue/get_subscription_info_request | queue | None | None |
 | gcommon/v1/queue/get_subscription_info_response | queue | None | None |
 | gcommon/v1/queue/get_topic_info_request | queue | gcommon/v1/common/request_metadata.proto | None |
-| gcommon/v1/queue/get_topic_info_response | queue | gcommon/v1/metrics/retention_info.proto<br>gcommon/v1/queue/owner_info.proto<br>gcommon/v1/queue/partition_info.proto<br>gcommon/v1/queue/topic_configuration.proto<br>gcommon/v1/queue/topic_permissions.proto<br>gcommon/v1/queue/topic_stats.proto | None |
+| gcommon/v1/queue/get_topic_info_response | queue | gcommon/v1/common/metrics_retention_info.proto<br>gcommon/v1/queue/owner_info.proto<br>gcommon/v1/queue/partition_info.proto<br>gcommon/v1/queue/topic_configuration.proto<br>gcommon/v1/queue/topic_permissions.proto<br>gcommon/v1/queue/topic_stats.proto | None |
 | gcommon/v1/queue/group_coordinator | queue | gcommon/v1/common/coordinator_state.proto | None |
 | gcommon/v1/queue/header_routing_config | queue | None | None |
 | gcommon/v1/queue/health_check_request | queue | gcommon/v1/common/request_metadata.proto | None |
@@ -1451,9 +1430,9 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/queue/reset_queue_stats_response | queue | gcommon/v1/queue/preserved_stats.proto<br>gcommon/v1/queue/reset_details.proto | None |
 | gcommon/v1/queue/restore_config | queue | None | None |
 | gcommon/v1/queue/restore_error | queue | gcommon/v1/queue/offset_range.proto | None |
-| gcommon/v1/queue/restore_options | queue | gcommon/v1/metrics/time_range.proto<br>gcommon/v1/queue/filter_criteria.proto<br>gcommon/v1/queue/offset_range.proto<br>gcommon/v1/queue/performance_options.proto | None |
+| gcommon/v1/queue/restore_options | queue | gcommon/v1/common/time_range_metrics.proto<br>gcommon/v1/queue/filter_criteria.proto<br>gcommon/v1/queue/offset_range.proto<br>gcommon/v1/queue/performance_options.proto | None |
 | gcommon/v1/queue/restore_queue_request | queue | gcommon/v1/queue/backup_source.proto<br>gcommon/v1/queue/restore_config.proto<br>gcommon/v1/queue/restore_options.proto | None |
-| gcommon/v1/queue/restore_queue_response | queue | gcommon/v1/metrics/validation_result.proto<br>gcommon/v1/queue/partition_restore_result.proto<br>gcommon/v1/queue/restore_error.proto<br>gcommon/v1/queue/restore_statistics.proto<br>gcommon/v1/queue/restore_status.proto<br>gcommon/v1/queue/restore_warning.proto | None |
+| gcommon/v1/queue/restore_queue_response | queue | gcommon/v1/common/metrics_validation_result.proto<br>gcommon/v1/queue/partition_restore_result.proto<br>gcommon/v1/queue/restore_error.proto<br>gcommon/v1/queue/restore_statistics.proto<br>gcommon/v1/queue/restore_status.proto<br>gcommon/v1/queue/restore_warning.proto | None |
 | gcommon/v1/queue/restore_statistics | queue | None | None |
 | gcommon/v1/queue/restore_status | queue | None | None |
 | gcommon/v1/queue/restore_warning | queue | None | None |
@@ -1496,7 +1475,7 @@ These files import from packages other than 'common' and their own package:
 | gcommon/v1/queue/subscribe_request | queue | gcommon/v1/queue/delivery_configuration.proto<br>gcommon/v1/queue/error_handling_config.proto<br>gcommon/v1/queue/message_filter_config.proto<br>gcommon/v1/queue/subscription_configuration.proto | None |
 | gcommon/v1/queue/subscribe_response | queue | gcommon/v1/queue/connection_details.proto<br>gcommon/v1/queue/partition_offset.proto<br>gcommon/v1/queue/queue_message.proto | None |
 | gcommon/v1/queue/subscription_config | queue | gcommon/v1/common/priority_level.proto<br>gcommon/v1/common/routing_strategy.proto<br>gcommon/v1/common/subscription_state.proto<br>gcommon/v1/queue/delivery_options.proto | None |
-| gcommon/v1/queue/subscription_config_update | queue | gcommon/v1/config/retry_settings.proto<br>gcommon/v1/queue/delivery_settings.proto<br>gcommon/v1/queue/filter_settings.proto<br>gcommon/v1/queue/routing_settings.proto | None |
+| gcommon/v1/queue/subscription_config_update | queue | gcommon/v1/common/config_retry_settings.proto<br>gcommon/v1/queue/delivery_settings.proto<br>gcommon/v1/queue/filter_settings.proto<br>gcommon/v1/queue/routing_settings.proto | None |
 | gcommon/v1/queue/subscription_configuration | queue | gcommon/v1/common/ack_level.proto<br>gcommon/v1/common/delivery_mode.proto | None |
 | gcommon/v1/queue/subscription_info | queue | None | None |
 | gcommon/v1/queue/subscription_stats | queue | None | None |
@@ -1746,7 +1725,6 @@ Files that are imported by many others (good candidates for common package):
 
 | File | Current Package | Reference Count | Referenced By |
 |------|-----------------|-----------------|---------------|
-| gcommon/v1/metrics/time_range.proto | metrics | 10 | gcommon/v1/metrics/get_provider_stats_request<br>gcommon/v1/metrics/get_metrics_request<br>gcommon/v1/metrics/get_metrics_summary_request<br>gcommon/v1/metrics/get_metrics_summary_response<br>gcommon/v1/metrics/metric_query<br>gcommon/v1/metrics/get_provider_stats_response<br>gcommon/v1/metrics/get_metrics_response<br>gcommon/v1/queue/get_queue_stats_request<br>gcommon/v1/queue/restore_options<br>gcommon/v1/queue/export_queue_request |
 | gcommon/v1/queue/queue_message.proto | queue | 10 | gcommon/v1/queue/batch_pull_response<br>gcommon/v1/queue/send_message_request<br>gcommon/v1/queue/subscribe_response<br>gcommon/v1/queue/peek_response<br>gcommon/v1/queue/list_messages_response<br>gcommon/v1/queue/push_request<br>gcommon/v1/queue/batch_publish_request<br>gcommon/v1/queue/dequeue_response<br>gcommon/v1/queue/stream_messages_response<br>gcommon/v1/queue/publish_request |
 | gcommon/v1/organization/tenant.proto | organization | 8 | gcommon/v1/organization/list_tenants_response<br>gcommon/v1/organization/get_tenant_response<br>gcommon/v1/organization/create_tenant_response<br>gcommon/v1/organization/create_tenant_request<br>gcommon/v1/organization/update_tenant_request<br>gcommon/v1/organization/get_organization_response<br>gcommon/v1/organization/update_tenant_response<br>gcommon/v1/organization/create_organization_response |
 | gcommon/v1/metrics/metric_data.proto | metrics | 8 | gcommon/v1/metrics/get_metric_response<br>gcommon/v1/metrics/record_metric_request<br>gcommon/v1/metrics/create_metric_request<br>gcommon/v1/metrics/update_metric_request<br>gcommon/v1/metrics/get_metrics_response<br>gcommon/v1/metrics/record_metrics_request<br>gcommon/v1/metrics/metrics_service<br>gcommon/v1/metrics/import_metrics_request |
@@ -1762,26 +1740,18 @@ Files that are imported by many others (good candidates for common package):
 | gcommon/v1/metrics/recording_stats.proto | metrics | 4 | gcommon/v1/metrics/record_gauge_response<br>gcommon/v1/metrics/record_summary_response<br>gcommon/v1/metrics/record_histogram_response<br>gcommon/v1/metrics/record_metric_response |
 | gcommon/v1/metrics/metric_filter.proto | metrics | 4 | gcommon/v1/metrics/stream_metrics_request<br>gcommon/v1/metrics/get_metrics_request<br>gcommon/v1/metrics/get_metrics_summary_request<br>gcommon/v1/metrics/metric_query |
 | gcommon/v1/metrics/provider_status.proto | metrics | 4 | gcommon/v1/metrics/provider_info<br>gcommon/v1/metrics/update_provider_response<br>gcommon/v1/metrics/provider_summary<br>gcommon/v1/metrics/create_provider_response |
-| gcommon/v1/metrics/validation_result.proto | metrics | 4 | gcommon/v1/metrics/update_provider_response<br>gcommon/v1/metrics/record_metric_response<br>gcommon/v1/metrics/create_provider_response<br>gcommon/v1/queue/restore_queue_response |
 | gcommon/v1/database/query_parameter.proto | database | 4 | gcommon/v1/database/batch_operation<br>gcommon/v1/database/execute_request<br>gcommon/v1/database/query_request<br>gcommon/v1/database/query_row_request |
 | gcommon/v1/web/session_data.proto | web | 4 | gcommon/v1/web/list_sessions_response<br>gcommon/v1/web/get_session_response<br>gcommon/v1/web/create_session_response<br>gcommon/v1/web/update_session_response |
 | gcommon/v1/organization/tenant_isolation.proto | organization | 3 | gcommon/v1/organization/configure_tenant_isolation_response<br>gcommon/v1/organization/configure_tenant_isolation_request<br>gcommon/v1/organization/get_tenant_isolation_response |
 | gcommon/v1/organization/organization_hierarchy.proto | organization | 3 | gcommon/v1/organization/get_hierarchy_response<br>gcommon/v1/organization/update_hierarchy_request<br>gcommon/v1/organization/update_hierarchy_response |
 | gcommon/v1/organization/tenant_quota.proto | organization | 3 | gcommon/v1/organization/tenant<br>gcommon/v1/organization/update_tenant_quota_request<br>gcommon/v1/organization/update_tenant_quota_response |
-| gcommon/v1/organization/resource_limits.proto | organization | 3 | gcommon/v1/organization/compute_isolation<br>gcommon/v1/metrics/provider_config<br>gcommon/v1/config/config_environment |
 | gcommon/v1/metrics/export_config.proto | metrics | 3 | gcommon/v1/metrics/metric_definition<br>gcommon/v1/metrics/provider_config<br>gcommon/v1/metrics/metric_config |
-| gcommon/v1/metrics/retention_policy_config.proto | metrics | 3 | gcommon/v1/metrics/metric_definition<br>gcommon/v1/metrics/retention_info<br>gcommon/v1/common/retention_policy_info |
 | gcommon/v1/metrics/pagination_info.proto | metrics | 3 | gcommon/v1/metrics/list_providers_response<br>gcommon/v1/metrics/get_metric_metadata_response<br>gcommon/v1/metrics/get_metrics_response |
-| gcommon/v1/metrics/error_stats.proto | metrics | 3 | gcommon/v1/metrics/metrics_summary<br>gcommon/v1/metrics/provider_statistics<br>gcommon/v1/queue/get_queue_stats_response |
 | gcommon/v1/web/mime_type.proto | web | 3 | gcommon/v1/web/file_upload<br>gcommon/v1/web/file_metadata<br>gcommon/v1/web/file_info |
 | gcommon/v1/queue/topic_config.proto | queue | 3 | gcommon/v1/queue/create_topic_response<br>gcommon/v1/queue/update_topic_config_request<br>gcommon/v1/queue/create_topic_request |
 | gcommon/v1/queue/queue_stats.proto | queue | 3 | gcommon/v1/queue/get_queue_stats_response<br>gcommon/v1/queue/queue_stats_response<br>gcommon/v1/queue/queue_stats_point |
 | gcommon/v1/queue/offset_range.proto | queue | 3 | gcommon/v1/queue/validation_error<br>gcommon/v1/queue/restore_options<br>gcommon/v1/queue/restore_error |
 | gcommon/v1/queue/delivery_options.proto | queue | 3 | gcommon/v1/queue/send_message_request<br>gcommon/v1/queue/subscription_config<br>gcommon/v1/queue/publish_request |
-| gcommon/v1/metrics/api_key_config.proto | metrics | 2 | gcommon/v1/organization/integration_settings<br>gcommon/v1/metrics/security_config |
-| gcommon/v1/organization/compliance_settings.proto | organization | 2 | gcommon/v1/organization/organization_settings<br>gcommon/v1/config/config_environment |
-| gcommon/v1/organization/notification_settings.proto | organization | 2 | gcommon/v1/organization/organization_settings<br>gcommon/v1/config/config_environment |
-| gcommon/v1/organization/access_control.proto | organization | 2 | gcommon/v1/organization/tenant_isolation<br>gcommon/v1/config/config_environment |
 | gcommon/v1/metrics/query_stats.proto | metrics | 2 | gcommon/v1/metrics/get_stats_response<br>gcommon/v1/metrics/get_metrics_response |
 | gcommon/v1/metrics/summary_metric.proto | metrics | 2 | gcommon/v1/metrics/record_summary_response<br>gcommon/v1/metrics/record_summary_request |
 | gcommon/v1/metrics/provider_info.proto | metrics | 2 | gcommon/v1/metrics/list_providers_response<br>gcommon/v1/metrics/provider_statistics |
@@ -1792,17 +1762,14 @@ Files that are imported by many others (good candidates for common package):
 | gcommon/v1/metrics/dry_run_result.proto | metrics | 2 | gcommon/v1/metrics/deletion_result<br>gcommon/v1/metrics/unregistration_result |
 | gcommon/v1/metrics/resource_limits_summary.proto | metrics | 2 | gcommon/v1/metrics/configuration_summary<br>gcommon/v1/metrics/provider_config_summary |
 | gcommon/v1/metrics/performance_stats.proto | metrics | 2 | gcommon/v1/metrics/metrics_summary<br>gcommon/v1/metrics/provider_statistics |
-| gcommon/v1/metrics/retention_info.proto | metrics | 2 | gcommon/v1/metrics/metrics_summary<br>gcommon/v1/queue/get_topic_info_response |
 | gcommon/v1/metrics/top_metrics.proto | metrics | 2 | gcommon/v1/metrics/metrics_summary<br>gcommon/v1/metrics/provider_statistics |
 | gcommon/v1/metrics/metric_value.proto | metrics | 2 | gcommon/v1/metrics/metric_data<br>gcommon/v1/metrics/metric_series |
 | gcommon/v1/metrics/alerting_rule.proto | metrics | 2 | gcommon/v1/metrics/set_alerting_rules_request<br>gcommon/v1/metrics/get_alerting_rules_response |
 | gcommon/v1/metrics/scrape_job.proto | metrics | 2 | gcommon/v1/metrics/start_scraping_response<br>gcommon/v1/metrics/stop_scraping_response |
-| gcommon/v1/metrics/config_change.proto | metrics | 2 | gcommon/v1/metrics/update_result<br>gcommon/v1/config/get_config_history_response |
 | gcommon/v1/database/database_info.proto | database | 2 | gcommon/v1/database/get_database_info_response<br>gcommon/v1/database/get_connection_info_response |
 | gcommon/v1/database/query_stats.proto | database | 2 | gcommon/v1/database/query_row_response<br>gcommon/v1/database/query_response |
 | gcommon/v1/database/query_options.proto | database | 2 | gcommon/v1/database/query_request<br>gcommon/v1/database/query_row_request |
 | gcommon/v1/config/config_schema.proto | config | 2 | gcommon/v1/config/get_schema_response<br>gcommon/v1/config/set_config_schema_request |
-| gcommon/v1/config/retry_settings.proto | config | 2 | gcommon/v1/config/validation_settings<br>gcommon/v1/queue/subscription_config_update |
 | gcommon/v1/web/cache_config.proto | web | 2 | gcommon/v1/web/get_cache_config_response<br>gcommon/v1/web/update_cache_config_request |
 | gcommon/v1/web/middleware_config.proto | web | 2 | gcommon/v1/web/register_middleware_request<br>gcommon/v1/web/update_middleware_config_request |
 | gcommon/v1/web/middleware_info.proto | web | 2 | gcommon/v1/web/register_middleware_response<br>gcommon/v1/web/list_middleware_response |
@@ -1820,4 +1787,4 @@ Files that are imported by many others (good candidates for common package):
 | gcommon/v1/media/media_quality.proto | media | 2 | gcommon/v1/media/media_analysis<br>gcommon/v1/media/media_file |
 
 ---
-Report generated on Fri Aug 22 18:48:27 EDT 2025
+Report generated on Fri Aug 22 23:41:08 EDT 2025

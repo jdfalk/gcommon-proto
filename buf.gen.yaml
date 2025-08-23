@@ -6,13 +6,15 @@ plugins:
     out: sdks/go
     strategy: directory
     opt:
-      - paths=source_relative
+      - paths=import
+      - module=github.com/jdfalk/gcommon/sdks/go
   # Go gRPC services
   - local: protoc-gen-go-grpc
     out: sdks/go
     strategy: directory
     opt:
-      - paths=source_relative
+      - paths=import
+      - module=github.com/jdfalk/gcommon/sdks/go
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python
