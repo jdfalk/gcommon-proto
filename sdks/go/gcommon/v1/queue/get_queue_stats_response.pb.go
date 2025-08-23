@@ -7,7 +7,6 @@
 package queue
 
 import (
-	common1 "github.com/jdfalk/gcommon/sdk/go/v1/common"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -25,15 +24,15 @@ const (
 )
 
 type GetQueueStatsResponse struct {
-	state                         protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Metadata           *common.ResponseMetadata   `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Summary            *QueueStatsSummary         `protobuf:"bytes,2,opt,name=summary"`
-	xxx_hidden_QueueStats         *[]*QueueStats             `protobuf:"bytes,3,rep,name=queue_stats,json=queueStats"`
-	xxx_hidden_ConsumerStats      *[]*ConsumerStats          `protobuf:"bytes,4,rep,name=consumer_stats,json=consumerStats"`
-	xxx_hidden_HistoricalStats    *HistoricalStats           `protobuf:"bytes,5,opt,name=historical_stats,json=historicalStats"`
-	xxx_hidden_ErrorStats         *common1.MetricsErrorStats `protobuf:"bytes,6,opt,name=error_stats,json=errorStats"`
-	xxx_hidden_PerformanceMetrics *PerformanceMetrics        `protobuf:"bytes,7,opt,name=performance_metrics,json=performanceMetrics"`
-	xxx_hidden_GeneratedAt        *timestamppb.Timestamp     `protobuf:"bytes,8,opt,name=generated_at,json=generatedAt"`
+	state                         protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Metadata           *common.ResponseMetadata  `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Summary            *QueueStatsSummary        `protobuf:"bytes,2,opt,name=summary"`
+	xxx_hidden_QueueStats         *[]*QueueStats            `protobuf:"bytes,3,rep,name=queue_stats,json=queueStats"`
+	xxx_hidden_ConsumerStats      *[]*ConsumerStats         `protobuf:"bytes,4,rep,name=consumer_stats,json=consumerStats"`
+	xxx_hidden_HistoricalStats    *HistoricalStats          `protobuf:"bytes,5,opt,name=historical_stats,json=historicalStats"`
+	xxx_hidden_ErrorStats         *common.MetricsErrorStats `protobuf:"bytes,6,opt,name=error_stats,json=errorStats"`
+	xxx_hidden_PerformanceMetrics *PerformanceMetrics       `protobuf:"bytes,7,opt,name=performance_metrics,json=performanceMetrics"`
+	xxx_hidden_GeneratedAt        *timestamppb.Timestamp    `protobuf:"bytes,8,opt,name=generated_at,json=generatedAt"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -102,7 +101,7 @@ func (x *GetQueueStatsResponse) GetHistoricalStats() *HistoricalStats {
 	return nil
 }
 
-func (x *GetQueueStatsResponse) GetErrorStats() *common1.MetricsErrorStats {
+func (x *GetQueueStatsResponse) GetErrorStats() *common.MetricsErrorStats {
 	if x != nil {
 		return x.xxx_hidden_ErrorStats
 	}
@@ -143,7 +142,7 @@ func (x *GetQueueStatsResponse) SetHistoricalStats(v *HistoricalStats) {
 	x.xxx_hidden_HistoricalStats = v
 }
 
-func (x *GetQueueStatsResponse) SetErrorStats(v *common1.MetricsErrorStats) {
+func (x *GetQueueStatsResponse) SetErrorStats(v *common.MetricsErrorStats) {
 	x.xxx_hidden_ErrorStats = v
 }
 
@@ -235,7 +234,7 @@ type GetQueueStatsResponse_builder struct {
 	// Historical statistics (if requested)
 	HistoricalStats *HistoricalStats
 	// Error statistics (if requested)
-	ErrorStats *common1.MetricsErrorStats
+	ErrorStats *common.MetricsErrorStats
 	// Performance metrics
 	PerformanceMetrics *PerformanceMetrics
 	// Timestamp when these statistics were generated
@@ -276,15 +275,15 @@ const file_gcommon_v1_queue_get_queue_stats_response_proto_rawDesc = "" +
 
 var file_gcommon_v1_queue_get_queue_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_get_queue_stats_response_proto_goTypes = []any{
-	(*GetQueueStatsResponse)(nil),     // 0: gcommon.v1.queue.GetQueueStatsResponse
-	(*common.ResponseMetadata)(nil),   // 1: gcommon.v1.common.ResponseMetadata
-	(*QueueStatsSummary)(nil),         // 2: gcommon.v1.queue.QueueStatsSummary
-	(*QueueStats)(nil),                // 3: gcommon.v1.queue.QueueStats
-	(*ConsumerStats)(nil),             // 4: gcommon.v1.queue.ConsumerStats
-	(*HistoricalStats)(nil),           // 5: gcommon.v1.queue.HistoricalStats
-	(*common1.MetricsErrorStats)(nil), // 6: gcommon.v1.common.MetricsErrorStats
-	(*PerformanceMetrics)(nil),        // 7: gcommon.v1.queue.PerformanceMetrics
-	(*timestamppb.Timestamp)(nil),     // 8: google.protobuf.Timestamp
+	(*GetQueueStatsResponse)(nil),    // 0: gcommon.v1.queue.GetQueueStatsResponse
+	(*common.ResponseMetadata)(nil),  // 1: gcommon.v1.common.ResponseMetadata
+	(*QueueStatsSummary)(nil),        // 2: gcommon.v1.queue.QueueStatsSummary
+	(*QueueStats)(nil),               // 3: gcommon.v1.queue.QueueStats
+	(*ConsumerStats)(nil),            // 4: gcommon.v1.queue.ConsumerStats
+	(*HistoricalStats)(nil),          // 5: gcommon.v1.queue.HistoricalStats
+	(*common.MetricsErrorStats)(nil), // 6: gcommon.v1.common.MetricsErrorStats
+	(*PerformanceMetrics)(nil),       // 7: gcommon.v1.queue.PerformanceMetrics
+	(*timestamppb.Timestamp)(nil),    // 8: google.protobuf.Timestamp
 }
 var file_gcommon_v1_queue_get_queue_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.GetQueueStatsResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata

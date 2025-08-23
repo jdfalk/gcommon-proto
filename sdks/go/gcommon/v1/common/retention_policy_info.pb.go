@@ -7,7 +7,6 @@
 package common
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,9 +25,9 @@ const (
 // RetentionPolicyInfo combines a retention policy enum with
 // optional configuration details.
 type RetentionPolicyInfo struct {
-	state                  protoimpl.MessageState               `protogen:"opaque.v1"`
-	xxx_hidden_Policy      MetricsRetentionPolicy               `protobuf:"varint,1,opt,name=policy,enum=gcommon.v1.common.MetricsRetentionPolicy"`
-	xxx_hidden_Config      *common.MetricsRetentionPolicyConfig `protobuf:"bytes,2,opt,name=config"`
+	state                  protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Policy      MetricsRetentionPolicy        `protobuf:"varint,1,opt,name=policy,enum=gcommon.v1.common.MetricsRetentionPolicy"`
+	xxx_hidden_Config      *MetricsRetentionPolicyConfig `protobuf:"bytes,2,opt,name=config"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -69,7 +68,7 @@ func (x *RetentionPolicyInfo) GetPolicy() MetricsRetentionPolicy {
 	return MetricsRetentionPolicy_RETENTION_POLICY_UNSPECIFIED
 }
 
-func (x *RetentionPolicyInfo) GetConfig() *common.MetricsRetentionPolicyConfig {
+func (x *RetentionPolicyInfo) GetConfig() *MetricsRetentionPolicyConfig {
 	if x != nil {
 		return x.xxx_hidden_Config
 	}
@@ -81,7 +80,7 @@ func (x *RetentionPolicyInfo) SetPolicy(v MetricsRetentionPolicy) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *RetentionPolicyInfo) SetConfig(v *common.MetricsRetentionPolicyConfig) {
+func (x *RetentionPolicyInfo) SetConfig(v *MetricsRetentionPolicyConfig) {
 	x.xxx_hidden_Config = v
 }
 
@@ -114,7 +113,7 @@ type RetentionPolicyInfo_builder struct {
 	// Predefined policy selection
 	Policy *MetricsRetentionPolicy
 	// Detailed configuration for custom policies
-	Config *common.MetricsRetentionPolicyConfig
+	Config *MetricsRetentionPolicyConfig
 }
 
 func (b0 RetentionPolicyInfo_builder) Build() *RetentionPolicyInfo {
@@ -140,9 +139,9 @@ const file_gcommon_v1_common_retention_policy_info_proto_rawDesc = "" +
 
 var file_gcommon_v1_common_retention_policy_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_retention_policy_info_proto_goTypes = []any{
-	(*RetentionPolicyInfo)(nil),                 // 0: gcommon.v1.common.RetentionPolicyInfo
-	(MetricsRetentionPolicy)(0),                 // 1: gcommon.v1.common.MetricsRetentionPolicy
-	(*common.MetricsRetentionPolicyConfig)(nil), // 2: gcommon.v1.common.MetricsRetentionPolicyConfig
+	(*RetentionPolicyInfo)(nil),          // 0: gcommon.v1.common.RetentionPolicyInfo
+	(MetricsRetentionPolicy)(0),          // 1: gcommon.v1.common.MetricsRetentionPolicy
+	(*MetricsRetentionPolicyConfig)(nil), // 2: gcommon.v1.common.MetricsRetentionPolicyConfig
 }
 var file_gcommon_v1_common_retention_policy_info_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.RetentionPolicyInfo.policy:type_name -> gcommon.v1.common.MetricsRetentionPolicy
@@ -159,6 +158,7 @@ func file_gcommon_v1_common_retention_policy_info_proto_init() {
 	if File_gcommon_v1_common_retention_policy_info_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_metrics_retention_policy_config_proto_init()
 	file_gcommon_v1_common_retention_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

@@ -7,8 +7,7 @@
 package metrics
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
-	common1 "github.com/jdfalk/gcommon/sdks/go/v1/common"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type MetricQuery struct {
 	xxx_hidden_TimeFilter   *common.TimeRangeMetrics `protobuf:"bytes,5,opt,name=time_filter,json=timeFilter"`
 	xxx_hidden_Aggregations *[]*AggregationSpec      `protobuf:"bytes,6,rep,name=aggregations"`
 	xxx_hidden_GroupBy      *[]*GroupBySpec          `protobuf:"bytes,7,rep,name=group_by,json=groupBy"`
-	xxx_hidden_SortCriteria *[]*common1.SortOptions  `protobuf:"bytes,8,rep,name=sort_criteria,json=sortCriteria"`
+	xxx_hidden_SortCriteria *[]*common.SortOptions   `protobuf:"bytes,8,rep,name=sort_criteria,json=sortCriteria"`
 	xxx_hidden_Limit        int32                    `protobuf:"varint,9,opt,name=limit"`
 	xxx_hidden_Offset       int32                    `protobuf:"varint,10,opt,name=offset"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
@@ -128,7 +127,7 @@ func (x *MetricQuery) GetGroupBy() []*GroupBySpec {
 	return nil
 }
 
-func (x *MetricQuery) GetSortCriteria() []*common1.SortOptions {
+func (x *MetricQuery) GetSortCriteria() []*common.SortOptions {
 	if x != nil {
 		if x.xxx_hidden_SortCriteria != nil {
 			return *x.xxx_hidden_SortCriteria
@@ -182,7 +181,7 @@ func (x *MetricQuery) SetGroupBy(v []*GroupBySpec) {
 	x.xxx_hidden_GroupBy = &v
 }
 
-func (x *MetricQuery) SetSortCriteria(v []*common1.SortOptions) {
+func (x *MetricQuery) SetSortCriteria(v []*common.SortOptions) {
 	x.xxx_hidden_SortCriteria = &v
 }
 
@@ -296,7 +295,7 @@ type MetricQuery_builder struct {
 	// Group by specifications
 	GroupBy []*GroupBySpec
 	// Sort criteria
-	SortCriteria []*common1.SortOptions
+	SortCriteria []*common.SortOptions
 	// Maximum number of results to return
 	Limit *int32
 	// Offset for pagination
@@ -361,7 +360,7 @@ var file_gcommon_v1_metrics_metric_query_proto_goTypes = []any{
 	(*common.TimeRangeMetrics)(nil), // 2: gcommon.v1.common.TimeRangeMetrics
 	(*AggregationSpec)(nil),         // 3: gcommon.v1.metrics.AggregationSpec
 	(*GroupBySpec)(nil),             // 4: gcommon.v1.metrics.GroupBySpec
-	(*common1.SortOptions)(nil),     // 5: gcommon.v1.common.SortOptions
+	(*common.SortOptions)(nil),      // 5: gcommon.v1.common.SortOptions
 }
 var file_gcommon_v1_metrics_metric_query_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricQuery.filter:type_name -> gcommon.v1.metrics.MetricFilter

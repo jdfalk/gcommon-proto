@@ -7,7 +7,6 @@
 package metrics
 
 import (
-	common1 "github.com/jdfalk/gcommon/sdk/go/v1/common"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -27,7 +26,7 @@ type MetricsGetMetricsRequest struct {
 	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
 	xxx_hidden_Metadata        *common.RequestMetadata   `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_Filter          *MetricFilter             `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_TimeRange       *common1.TimeRangeMetrics `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_TimeRange       *common.TimeRangeMetrics  `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
 	xxx_hidden_Aggregation     *MetricAggregation        `protobuf:"bytes,4,opt,name=aggregation"`
 	xxx_hidden_Pagination      *common.PaginationOptions `protobuf:"bytes,5,opt,name=pagination"`
 	xxx_hidden_ProviderId      *string                   `protobuf:"bytes,6,opt,name=provider_id,json=providerId"`
@@ -79,7 +78,7 @@ func (x *MetricsGetMetricsRequest) GetFilter() *MetricFilter {
 	return nil
 }
 
-func (x *MetricsGetMetricsRequest) GetTimeRange() *common1.TimeRangeMetrics {
+func (x *MetricsGetMetricsRequest) GetTimeRange() *common.TimeRangeMetrics {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -139,7 +138,7 @@ func (x *MetricsGetMetricsRequest) SetFilter(v *MetricFilter) {
 	x.xxx_hidden_Filter = v
 }
 
-func (x *MetricsGetMetricsRequest) SetTimeRange(v *common1.TimeRangeMetrics) {
+func (x *MetricsGetMetricsRequest) SetTimeRange(v *common.TimeRangeMetrics) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -280,7 +279,7 @@ type MetricsGetMetricsRequest_builder struct {
 	// Filter to determine which metrics to retrieve
 	Filter *MetricFilter
 	// Time range for the request
-	TimeRange *common1.TimeRangeMetrics
+	TimeRange *common.TimeRangeMetrics
 	// Aggregation options for the metrics
 	Aggregation *MetricAggregation
 	// Pagination options
@@ -345,7 +344,7 @@ var file_gcommon_v1_metrics_get_metrics_request_proto_goTypes = []any{
 	(*MetricsGetMetricsRequest)(nil), // 0: gcommon.v1.metrics.MetricsGetMetricsRequest
 	(*common.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 	(*MetricFilter)(nil),             // 2: gcommon.v1.metrics.MetricFilter
-	(*common1.TimeRangeMetrics)(nil), // 3: gcommon.v1.common.TimeRangeMetrics
+	(*common.TimeRangeMetrics)(nil),  // 3: gcommon.v1.common.TimeRangeMetrics
 	(*MetricAggregation)(nil),        // 4: gcommon.v1.metrics.MetricAggregation
 	(*common.PaginationOptions)(nil), // 5: gcommon.v1.common.PaginationOptions
 	(*OutputOptions)(nil),            // 6: gcommon.v1.metrics.OutputOptions

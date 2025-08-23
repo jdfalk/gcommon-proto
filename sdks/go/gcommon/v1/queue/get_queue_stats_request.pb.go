@@ -7,8 +7,7 @@
 package queue
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
-	common1 "github.com/jdfalk/gcommon/sdks/go/v1/common"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +26,7 @@ type GetQueueStatsRequest struct {
 	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_QueueName   *string                  `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
 	xxx_hidden_TimeRange   *common.TimeRangeMetrics `protobuf:"bytes,2,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Granularity common1.StatsGranularity `protobuf:"varint,3,opt,name=granularity,enum=gcommon.v1.common.StatsGranularity"`
+	xxx_hidden_Granularity common.StatsGranularity  `protobuf:"varint,3,opt,name=granularity,enum=gcommon.v1.common.StatsGranularity"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -76,13 +75,13 @@ func (x *GetQueueStatsRequest) GetTimeRange() *common.TimeRangeMetrics {
 	return nil
 }
 
-func (x *GetQueueStatsRequest) GetGranularity() common1.StatsGranularity {
+func (x *GetQueueStatsRequest) GetGranularity() common.StatsGranularity {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Granularity
 		}
 	}
-	return common1.StatsGranularity(0)
+	return common.StatsGranularity(0)
 }
 
 func (x *GetQueueStatsRequest) SetQueueName(v string) {
@@ -94,7 +93,7 @@ func (x *GetQueueStatsRequest) SetTimeRange(v *common.TimeRangeMetrics) {
 	x.xxx_hidden_TimeRange = v
 }
 
-func (x *GetQueueStatsRequest) SetGranularity(v common1.StatsGranularity) {
+func (x *GetQueueStatsRequest) SetGranularity(v common.StatsGranularity) {
 	x.xxx_hidden_Granularity = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
@@ -131,7 +130,7 @@ func (x *GetQueueStatsRequest) ClearTimeRange() {
 
 func (x *GetQueueStatsRequest) ClearGranularity() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Granularity = common1.StatsGranularity_STATS_GRANULARITY_UNSPECIFIED
+	x.xxx_hidden_Granularity = common.StatsGranularity_STATS_GRANULARITY_UNSPECIFIED
 }
 
 type GetQueueStatsRequest_builder struct {
@@ -142,7 +141,7 @@ type GetQueueStatsRequest_builder struct {
 	// Time range for statistics
 	TimeRange *common.TimeRangeMetrics
 	// Granularity of statistics (hourly, daily, etc.)
-	Granularity *common1.StatsGranularity
+	Granularity *common.StatsGranularity
 }
 
 func (b0 GetQueueStatsRequest_builder) Build() *GetQueueStatsRequest {
@@ -177,7 +176,7 @@ var file_gcommon_v1_queue_get_queue_stats_request_proto_msgTypes = make([]protoi
 var file_gcommon_v1_queue_get_queue_stats_request_proto_goTypes = []any{
 	(*GetQueueStatsRequest)(nil),    // 0: gcommon.v1.queue.GetQueueStatsRequest
 	(*common.TimeRangeMetrics)(nil), // 1: gcommon.v1.common.TimeRangeMetrics
-	(common1.StatsGranularity)(0),   // 2: gcommon.v1.common.StatsGranularity
+	(common.StatsGranularity)(0),    // 2: gcommon.v1.common.StatsGranularity
 }
 var file_gcommon_v1_queue_get_queue_stats_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.GetQueueStatsRequest.time_range:type_name -> gcommon.v1.common.TimeRangeMetrics

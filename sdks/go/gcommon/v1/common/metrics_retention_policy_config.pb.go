@@ -171,7 +171,7 @@ const file_gcommon_v1_common_metrics_retention_policy_config_proto_rawDesc = "" 
 	"\x1cMetricsRetentionPolicyConfig\x125\n" +
 	"\bduration\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12!\n" +
 	"\fstorage_tier\x18\x02 \x01(\tR\vstorageTier\x12 \n" +
-	"\vcompression\x18\x03 \x01(\tR\vcompressionB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vcompression\x18\x03 \x01(\tR\vcompressionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_metrics_retention_policy_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_metrics_retention_policy_config_proto_goTypes = []any{

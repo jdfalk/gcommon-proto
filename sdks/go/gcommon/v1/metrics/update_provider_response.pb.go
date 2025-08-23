@@ -7,8 +7,7 @@
 package metrics
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
-	common1 "github.com/jdfalk/gcommon/sdks/go/v1/common"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type UpdateProviderResponse struct {
 	xxx_hidden_ProviderId        *string                            `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
 	xxx_hidden_Status            *ProviderStatus                    `protobuf:"bytes,3,opt,name=status"`
 	xxx_hidden_ValidationResults *[]*common.MetricsValidationResult `protobuf:"bytes,4,rep,name=validation_results,json=validationResults"`
-	xxx_hidden_Error             *common1.Error                     `protobuf:"bytes,5,opt,name=error"`
+	xxx_hidden_Error             *common.Error                      `protobuf:"bytes,5,opt,name=error"`
 	xxx_hidden_UpdatedAt         *timestamppb.Timestamp             `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_AppliedChanges    []string                           `protobuf:"bytes,7,rep,name=applied_changes,json=appliedChanges"`
 	xxx_hidden_Warnings          []string                           `protobuf:"bytes,8,rep,name=warnings"`
@@ -100,7 +99,7 @@ func (x *UpdateProviderResponse) GetValidationResults() []*common.MetricsValidat
 	return nil
 }
 
-func (x *UpdateProviderResponse) GetError() *common1.Error {
+func (x *UpdateProviderResponse) GetError() *common.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -146,7 +145,7 @@ func (x *UpdateProviderResponse) SetValidationResults(v []*common.MetricsValidat
 	x.xxx_hidden_ValidationResults = &v
 }
 
-func (x *UpdateProviderResponse) SetError(v *common1.Error) {
+func (x *UpdateProviderResponse) SetError(v *common.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -231,7 +230,7 @@ type UpdateProviderResponse_builder struct {
 	// Validation results from the update operation
 	ValidationResults []*common.MetricsValidationResult
 	// Error information if update failed
-	Error *common1.Error
+	Error *common.Error
 	// Timestamp when the update was processed
 	UpdatedAt *timestamppb.Timestamp
 	// Configuration changes that were applied
@@ -283,7 +282,7 @@ var file_gcommon_v1_metrics_update_provider_response_proto_goTypes = []any{
 	(*UpdateProviderResponse)(nil),         // 0: gcommon.v1.metrics.UpdateProviderResponse
 	(*ProviderStatus)(nil),                 // 1: gcommon.v1.metrics.ProviderStatus
 	(*common.MetricsValidationResult)(nil), // 2: gcommon.v1.common.MetricsValidationResult
-	(*common1.Error)(nil),                  // 3: gcommon.v1.common.Error
+	(*common.Error)(nil),                   // 3: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),          // 4: google.protobuf.Timestamp
 }
 var file_gcommon_v1_metrics_update_provider_response_proto_depIdxs = []int32{

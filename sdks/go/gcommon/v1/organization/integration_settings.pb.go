@@ -7,7 +7,7 @@
 package organization
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"

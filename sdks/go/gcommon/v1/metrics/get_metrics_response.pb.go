@@ -7,7 +7,6 @@
 package metrics
 
 import (
-	common1 "github.com/jdfalk/gcommon/sdk/go/v1/common"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -27,17 +26,17 @@ const (
 // *
 // GetMetricsResponse contains the retrieved metrics data.
 type MetricsGetMetricsResponse struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Success     bool                      `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *common.Error             `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_Metrics     *[]*MetricData            `protobuf:"bytes,3,rep,name=metrics"`
-	xxx_hidden_Metadata    *[]*MetricMetadata        `protobuf:"bytes,4,rep,name=metadata"`
-	xxx_hidden_Pagination  *MetricsPaginationInfo    `protobuf:"bytes,5,opt,name=pagination"`
-	xxx_hidden_Stats       *MetricsQueryStats        `protobuf:"bytes,6,opt,name=stats"`
-	xxx_hidden_GeneratedAt *timestamppb.Timestamp    `protobuf:"bytes,7,opt,name=generated_at,json=generatedAt"`
-	xxx_hidden_TimeRange   *common1.TimeRangeMetrics `protobuf:"bytes,8,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Warnings    []string                  `protobuf:"bytes,9,rep,name=warnings"`
-	xxx_hidden_ProviderId  *string                   `protobuf:"bytes,10,opt,name=provider_id,json=providerId"`
+	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                     `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error       *common.Error            `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Metrics     *[]*MetricData           `protobuf:"bytes,3,rep,name=metrics"`
+	xxx_hidden_Metadata    *[]*MetricMetadata       `protobuf:"bytes,4,rep,name=metadata"`
+	xxx_hidden_Pagination  *MetricsPaginationInfo   `protobuf:"bytes,5,opt,name=pagination"`
+	xxx_hidden_Stats       *MetricsQueryStats       `protobuf:"bytes,6,opt,name=stats"`
+	xxx_hidden_GeneratedAt *timestamppb.Timestamp   `protobuf:"bytes,7,opt,name=generated_at,json=generatedAt"`
+	xxx_hidden_TimeRange   *common.TimeRangeMetrics `protobuf:"bytes,8,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Warnings    []string                 `protobuf:"bytes,9,rep,name=warnings"`
+	xxx_hidden_ProviderId  *string                  `protobuf:"bytes,10,opt,name=provider_id,json=providerId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -122,7 +121,7 @@ func (x *MetricsGetMetricsResponse) GetGeneratedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *MetricsGetMetricsResponse) GetTimeRange() *common1.TimeRangeMetrics {
+func (x *MetricsGetMetricsResponse) GetTimeRange() *common.TimeRangeMetrics {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -175,7 +174,7 @@ func (x *MetricsGetMetricsResponse) SetGeneratedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_GeneratedAt = v
 }
 
-func (x *MetricsGetMetricsResponse) SetTimeRange(v *common1.TimeRangeMetrics) {
+func (x *MetricsGetMetricsResponse) SetTimeRange(v *common.TimeRangeMetrics) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -285,7 +284,7 @@ type MetricsGetMetricsResponse_builder struct {
 	// When the response was generated
 	GeneratedAt *timestamppb.Timestamp
 	// Time range covered by the response
-	TimeRange *common1.TimeRangeMetrics
+	TimeRange *common.TimeRangeMetrics
 	// Warnings or informational messages
 	Warnings []string
 	// Provider that handled the request
@@ -346,7 +345,7 @@ var file_gcommon_v1_metrics_get_metrics_response_proto_goTypes = []any{
 	(*MetricsPaginationInfo)(nil),     // 4: gcommon.v1.metrics.MetricsPaginationInfo
 	(*MetricsQueryStats)(nil),         // 5: gcommon.v1.metrics.MetricsQueryStats
 	(*timestamppb.Timestamp)(nil),     // 6: google.protobuf.Timestamp
-	(*common1.TimeRangeMetrics)(nil),  // 7: gcommon.v1.common.TimeRangeMetrics
+	(*common.TimeRangeMetrics)(nil),   // 7: gcommon.v1.common.TimeRangeMetrics
 }
 var file_gcommon_v1_metrics_get_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.MetricsGetMetricsResponse.error:type_name -> gcommon.v1.common.Error

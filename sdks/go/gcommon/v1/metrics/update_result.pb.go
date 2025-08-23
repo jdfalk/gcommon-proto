@@ -7,7 +7,6 @@
 package metrics
 
 import (
-	common1 "github.com/jdfalk/gcommon/sdk/go/v1/common"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -26,14 +25,14 @@ const (
 // *
 // UpdateResult contains information about what was changed.
 type UpdateResult struct {
-	state                      protoimpl.MessageState          `protogen:"opaque.v1"`
-	xxx_hidden_Action          common.UpdateAction             `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.common.UpdateAction"`
-	xxx_hidden_ConfigChanges   *[]*common1.MetricsConfigChange `protobuf:"bytes,2,rep,name=config_changes,json=configChanges"`
-	xxx_hidden_UpdatedSettings []string                        `protobuf:"bytes,3,rep,name=updated_settings,json=updatedSettings"`
-	xxx_hidden_RemovedSettings []string                        `protobuf:"bytes,4,rep,name=removed_settings,json=removedSettings"`
-	xxx_hidden_Restarted       bool                            `protobuf:"varint,5,opt,name=restarted"`
-	xxx_hidden_StrategyUsed    *string                         `protobuf:"bytes,6,opt,name=strategy_used,json=strategyUsed"`
-	xxx_hidden_UpdateDuration  *string                         `protobuf:"bytes,7,opt,name=update_duration,json=updateDuration"`
+	state                      protoimpl.MessageState         `protogen:"opaque.v1"`
+	xxx_hidden_Action          common.UpdateAction            `protobuf:"varint,1,opt,name=action,enum=gcommon.v1.common.UpdateAction"`
+	xxx_hidden_ConfigChanges   *[]*common.MetricsConfigChange `protobuf:"bytes,2,rep,name=config_changes,json=configChanges"`
+	xxx_hidden_UpdatedSettings []string                       `protobuf:"bytes,3,rep,name=updated_settings,json=updatedSettings"`
+	xxx_hidden_RemovedSettings []string                       `protobuf:"bytes,4,rep,name=removed_settings,json=removedSettings"`
+	xxx_hidden_Restarted       bool                           `protobuf:"varint,5,opt,name=restarted"`
+	xxx_hidden_StrategyUsed    *string                        `protobuf:"bytes,6,opt,name=strategy_used,json=strategyUsed"`
+	xxx_hidden_UpdateDuration  *string                        `protobuf:"bytes,7,opt,name=update_duration,json=updateDuration"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -74,7 +73,7 @@ func (x *UpdateResult) GetAction() common.UpdateAction {
 	return common.UpdateAction(0)
 }
 
-func (x *UpdateResult) GetConfigChanges() []*common1.MetricsConfigChange {
+func (x *UpdateResult) GetConfigChanges() []*common.MetricsConfigChange {
 	if x != nil {
 		if x.xxx_hidden_ConfigChanges != nil {
 			return *x.xxx_hidden_ConfigChanges
@@ -129,7 +128,7 @@ func (x *UpdateResult) SetAction(v common.UpdateAction) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *UpdateResult) SetConfigChanges(v []*common1.MetricsConfigChange) {
+func (x *UpdateResult) SetConfigChanges(v []*common.MetricsConfigChange) {
 	x.xxx_hidden_ConfigChanges = &v
 }
 
@@ -210,7 +209,7 @@ type UpdateResult_builder struct {
 	// What update action was taken
 	Action *common.UpdateAction
 	// Configuration changes that were applied
-	ConfigChanges []*common1.MetricsConfigChange
+	ConfigChanges []*common.MetricsConfigChange
 	// Settings that were updated
 	UpdatedSettings []string
 	// Settings that were removed
@@ -265,9 +264,9 @@ const file_gcommon_v1_metrics_update_result_proto_rawDesc = "" +
 
 var file_gcommon_v1_metrics_update_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_metrics_update_result_proto_goTypes = []any{
-	(*UpdateResult)(nil),                // 0: gcommon.v1.metrics.UpdateResult
-	(common.UpdateAction)(0),            // 1: gcommon.v1.common.UpdateAction
-	(*common1.MetricsConfigChange)(nil), // 2: gcommon.v1.common.MetricsConfigChange
+	(*UpdateResult)(nil),               // 0: gcommon.v1.metrics.UpdateResult
+	(common.UpdateAction)(0),           // 1: gcommon.v1.common.UpdateAction
+	(*common.MetricsConfigChange)(nil), // 2: gcommon.v1.common.MetricsConfigChange
 }
 var file_gcommon_v1_metrics_update_result_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.UpdateResult.action:type_name -> gcommon.v1.common.UpdateAction

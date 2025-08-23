@@ -7,8 +7,7 @@
 package organization
 
 import (
-	common "github.com/jdfalk/gcommon/sdk/go/v1/common"
-	common1 "github.com/jdfalk/gcommon/sdks/go/v1/common"
+	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +33,7 @@ type OrganizationSettings struct {
 	xxx_hidden_Billing        *BillingSettings                         `protobuf:"bytes,6,opt,name=billing"`
 	xxx_hidden_Compliance     *common.OrganizationComplianceSettings   `protobuf:"bytes,7,opt,name=compliance"`
 	xxx_hidden_FeatureFlags   *[]*FeatureFlag                          `protobuf:"bytes,8,rep,name=feature_flags,json=featureFlags"`
-	xxx_hidden_CustomSettings *[]*common1.KeyValue                     `protobuf:"bytes,9,rep,name=custom_settings,json=customSettings"`
+	xxx_hidden_CustomSettings *[]*common.KeyValue                      `protobuf:"bytes,9,rep,name=custom_settings,json=customSettings"`
 	xxx_hidden_UpdatedAt      *timestamppb.Timestamp                   `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_UpdatedBy      *string                                  `protobuf:"bytes,11,opt,name=updated_by,json=updatedBy"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -131,13 +130,13 @@ func (x *OrganizationSettings) GetFeatureFlags() []*FeatureFlag {
 	return nil
 }
 
-func (x *OrganizationSettings) GetCustomSettings() []*common1.KeyValue {
+func (x *OrganizationSettings) GetCustomSettings() []*common.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CustomSettings) {
 				protoimpl.X.UnmarshalField(x, 9)
 			}
-			var rv *[]*common1.KeyValue
+			var rv *[]*common.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -202,11 +201,11 @@ func (x *OrganizationSettings) SetFeatureFlags(v []*FeatureFlag) {
 	x.xxx_hidden_FeatureFlags = &v
 }
 
-func (x *OrganizationSettings) SetCustomSettings(v []*common1.KeyValue) {
-	var sv *[]*common1.KeyValue
+func (x *OrganizationSettings) SetCustomSettings(v []*common.KeyValue) {
+	var sv *[]*common.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*common1.KeyValue{}
+		sv = &[]*common.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -349,7 +348,7 @@ type OrganizationSettings_builder struct {
 	// Feature flags and experimental features
 	FeatureFlags []*FeatureFlag
 	// Custom organization-specific settings
-	CustomSettings []*common1.KeyValue
+	CustomSettings []*common.KeyValue
 	// Settings last update timestamp
 	UpdatedAt *timestamppb.Timestamp
 	// User ID who last updated these settings
@@ -419,7 +418,7 @@ var file_gcommon_v1_organization_organization_settings_proto_goTypes = []any{
 	(*BillingSettings)(nil),                         // 5: gcommon.v1.organization.BillingSettings
 	(*common.OrganizationComplianceSettings)(nil),   // 6: gcommon.v1.common.OrganizationComplianceSettings
 	(*FeatureFlag)(nil),                             // 7: gcommon.v1.organization.FeatureFlag
-	(*common1.KeyValue)(nil),                        // 8: gcommon.v1.common.KeyValue
+	(*common.KeyValue)(nil),                         // 8: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil),                   // 9: google.protobuf.Timestamp
 }
 var file_gcommon_v1_organization_organization_settings_proto_depIdxs = []int32{

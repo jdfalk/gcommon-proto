@@ -7,7 +7,6 @@
 package common
 
 import (
-	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,12 +24,12 @@ const (
 // *
 // ConfigChange describes a configuration change that was made.
 type MetricsConfigChange struct {
-	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_ChangeType  common.MetricsChangeType `protobuf:"varint,1,opt,name=change_type,json=changeType,enum=gcommon.v1.common.MetricsChangeType"`
-	xxx_hidden_SettingPath *string                  `protobuf:"bytes,2,opt,name=setting_path,json=settingPath"`
-	xxx_hidden_OldValue    *string                  `protobuf:"bytes,3,opt,name=old_value,json=oldValue"`
-	xxx_hidden_NewValue    *string                  `protobuf:"bytes,4,opt,name=new_value,json=newValue"`
-	xxx_hidden_Description *string                  `protobuf:"bytes,5,opt,name=description"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ChangeType  MetricsChangeType      `protobuf:"varint,1,opt,name=change_type,json=changeType,enum=gcommon.v1.common.MetricsChangeType"`
+	xxx_hidden_SettingPath *string                `protobuf:"bytes,2,opt,name=setting_path,json=settingPath"`
+	xxx_hidden_OldValue    *string                `protobuf:"bytes,3,opt,name=old_value,json=oldValue"`
+	xxx_hidden_NewValue    *string                `protobuf:"bytes,4,opt,name=new_value,json=newValue"`
+	xxx_hidden_Description *string                `protobuf:"bytes,5,opt,name=description"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -62,13 +61,13 @@ func (x *MetricsConfigChange) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricsConfigChange) GetChangeType() common.MetricsChangeType {
+func (x *MetricsConfigChange) GetChangeType() MetricsChangeType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_ChangeType
 		}
 	}
-	return common.MetricsChangeType(0)
+	return MetricsChangeType_CHANGE_TYPE_UNSPECIFIED
 }
 
 func (x *MetricsConfigChange) GetSettingPath() string {
@@ -111,7 +110,7 @@ func (x *MetricsConfigChange) GetDescription() string {
 	return ""
 }
 
-func (x *MetricsConfigChange) SetChangeType(v common.MetricsChangeType) {
+func (x *MetricsConfigChange) SetChangeType(v MetricsChangeType) {
 	x.xxx_hidden_ChangeType = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
@@ -173,7 +172,7 @@ func (x *MetricsConfigChange) HasDescription() bool {
 
 func (x *MetricsConfigChange) ClearChangeType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_ChangeType = common.MetricsChangeType_CHANGE_TYPE_UNSPECIFIED
+	x.xxx_hidden_ChangeType = MetricsChangeType_CHANGE_TYPE_UNSPECIFIED
 }
 
 func (x *MetricsConfigChange) ClearSettingPath() {
@@ -200,7 +199,7 @@ type MetricsConfigChange_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of change
-	ChangeType *common.MetricsChangeType
+	ChangeType *MetricsChangeType
 	// Setting that was changed
 	SettingPath *string
 	// Old value (if applicable)
@@ -249,12 +248,12 @@ const file_gcommon_v1_common_metrics_config_change_proto_rawDesc = "" +
 	"\fsetting_path\x18\x02 \x01(\tR\vsettingPath\x12\x1b\n" +
 	"\told_value\x18\x03 \x01(\tR\boldValue\x12\x1b\n" +
 	"\tnew_value\x18\x04 \x01(\tR\bnewValue\x12 \n" +
-	"\vdescription\x18\x05 \x01(\tR\vdescriptionB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vdescription\x18\x05 \x01(\tR\vdescriptionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_metrics_config_change_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_metrics_config_change_proto_goTypes = []any{
-	(*MetricsConfigChange)(nil),   // 0: gcommon.v1.common.MetricsConfigChange
-	(common.MetricsChangeType)(0), // 1: gcommon.v1.common.MetricsChangeType
+	(*MetricsConfigChange)(nil), // 0: gcommon.v1.common.MetricsConfigChange
+	(MetricsChangeType)(0),      // 1: gcommon.v1.common.MetricsChangeType
 }
 var file_gcommon_v1_common_metrics_config_change_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.MetricsConfigChange.change_type:type_name -> gcommon.v1.common.MetricsChangeType
@@ -270,6 +269,7 @@ func file_gcommon_v1_common_metrics_config_change_proto_init() {
 	if File_gcommon_v1_common_metrics_config_change_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_change_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

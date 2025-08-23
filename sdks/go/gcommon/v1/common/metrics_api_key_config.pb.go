@@ -155,7 +155,7 @@ const file_gcommon_v1_common_metrics_api_key_config_proto_rawDesc = "" +
 	"\vheader_name\x18\x01 \x01(\tR\n" +
 	"headerName\x12\x1a\n" +
 	"\brequired\x18\x02 \x01(\bR\brequired\x12!\n" +
-	"\fallowed_keys\x18\x03 \x03(\tR\vallowedKeysB4Z*github.com/jdfalk/gcommon/sdk/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fallowed_keys\x18\x03 \x03(\tR\vallowedKeysB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_metrics_api_key_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_metrics_api_key_config_proto_goTypes = []any{
