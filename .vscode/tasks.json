@@ -320,6 +320,17 @@
 				"-m",
 				"feat(sdks): add Go module support for generated protobuf code\n\nAdded proper Go module configuration to enable import of generated protobuf packages in other Go applications like subtitle-manager.\n\nFiles changed:\n- sdks/go/go.mod - Added Go module definition for generated protobuf code\n- sdk/go/go.mod - Removed (incorrect path)\n- examples/gcommon_usage.go - Example showing how to use gcommon protobuf packages"
 			]
+		},
+		{
+			"label": "Git Commit Complete SDK Structure",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(sdks): complete multi-language SDK structure with Go and Python support\n\nAdded comprehensive SDK structure with proper module configuration for both Go and Python, enabling easy import of gcommon protobuf packages in various applications.\n\nFiles changed:\n- sdks/go/go.mod - Go module definition for generated protobuf code\n- sdks/python/setup.py - Python package setup configuration\n- sdks/python/__init__.py - Python package initialization\n- sdks/python/gcommon/__init__.py - Main gcommon package\n- sdks/python/gcommon/v1/__init__.py - Version 1 API package\n- sdks/README.md - Comprehensive documentation for both Go and Python SDKs"
+			]
 		}
 	],
 	"inputs": [
