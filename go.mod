@@ -7,3 +7,4 @@ module github.com/jdfalk/gcommon
 go 1.23
 
 replace github.com/jdfalk/gcommon/proto => ./sdks/go/gcommon/v1
+
