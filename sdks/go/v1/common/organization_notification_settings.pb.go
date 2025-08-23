@@ -7,7 +7,6 @@
 package common
 
 import (
-	organization "github.com/jdfalk/gcommon/sdks/go/v1/organization"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,14 +22,14 @@ const (
 )
 
 type OrganizationNotificationSettings struct {
-	state                     protoimpl.MessageState              `protogen:"opaque.v1"`
-	xxx_hidden_SenderEmail    *string                             `protobuf:"bytes,1,opt,name=sender_email,json=senderEmail"`
-	xxx_hidden_SenderName     *string                             `protobuf:"bytes,2,opt,name=sender_name,json=senderName"`
-	xxx_hidden_EmailEnabled   bool                                `protobuf:"varint,3,opt,name=email_enabled,json=emailEnabled"`
-	xxx_hidden_SmsEnabled     bool                                `protobuf:"varint,4,opt,name=sms_enabled,json=smsEnabled"`
-	xxx_hidden_InAppEnabled   bool                                `protobuf:"varint,5,opt,name=in_app_enabled,json=inAppEnabled"`
-	xxx_hidden_EmailTemplates *[]*organization.EmailTemplate      `protobuf:"bytes,6,rep,name=email_templates,json=emailTemplates"`
-	xxx_hidden_Frequency      *organization.NotificationFrequency `protobuf:"bytes,7,opt,name=frequency"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SenderEmail    *string                `protobuf:"bytes,1,opt,name=sender_email,json=senderEmail"`
+	xxx_hidden_SenderName     *string                `protobuf:"bytes,2,opt,name=sender_name,json=senderName"`
+	xxx_hidden_EmailEnabled   bool                   `protobuf:"varint,3,opt,name=email_enabled,json=emailEnabled"`
+	xxx_hidden_SmsEnabled     bool                   `protobuf:"varint,4,opt,name=sms_enabled,json=smsEnabled"`
+	xxx_hidden_InAppEnabled   bool                   `protobuf:"varint,5,opt,name=in_app_enabled,json=inAppEnabled"`
+	xxx_hidden_EmailTemplates *[]*EmailTemplate      `protobuf:"bytes,6,rep,name=email_templates,json=emailTemplates"`
+	xxx_hidden_Frequency      *NotificationFrequency `protobuf:"bytes,7,opt,name=frequency"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -103,7 +102,7 @@ func (x *OrganizationNotificationSettings) GetInAppEnabled() bool {
 	return false
 }
 
-func (x *OrganizationNotificationSettings) GetEmailTemplates() []*organization.EmailTemplate {
+func (x *OrganizationNotificationSettings) GetEmailTemplates() []*EmailTemplate {
 	if x != nil {
 		if x.xxx_hidden_EmailTemplates != nil {
 			return *x.xxx_hidden_EmailTemplates
@@ -112,7 +111,7 @@ func (x *OrganizationNotificationSettings) GetEmailTemplates() []*organization.E
 	return nil
 }
 
-func (x *OrganizationNotificationSettings) GetFrequency() *organization.NotificationFrequency {
+func (x *OrganizationNotificationSettings) GetFrequency() *NotificationFrequency {
 	if x != nil {
 		return x.xxx_hidden_Frequency
 	}
@@ -144,11 +143,11 @@ func (x *OrganizationNotificationSettings) SetInAppEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
 
-func (x *OrganizationNotificationSettings) SetEmailTemplates(v []*organization.EmailTemplate) {
+func (x *OrganizationNotificationSettings) SetEmailTemplates(v []*EmailTemplate) {
 	x.xxx_hidden_EmailTemplates = &v
 }
 
-func (x *OrganizationNotificationSettings) SetFrequency(v *organization.NotificationFrequency) {
+func (x *OrganizationNotificationSettings) SetFrequency(v *NotificationFrequency) {
 	x.xxx_hidden_Frequency = v
 }
 
@@ -237,9 +236,9 @@ type OrganizationNotificationSettings_builder struct {
 	// Whether in-app notifications are enabled
 	InAppEnabled *bool
 	// Email template customizations
-	EmailTemplates []*organization.EmailTemplate
+	EmailTemplates []*EmailTemplate
 	// Notification frequency settings
-	Frequency *organization.NotificationFrequency
+	Frequency *NotificationFrequency
 }
 
 func (b0 OrganizationNotificationSettings_builder) Build() *OrganizationNotificationSettings {
@@ -275,7 +274,7 @@ var File_gcommon_v1_common_organization_notification_settings_proto protoreflect
 
 const file_gcommon_v1_common_organization_notification_settings_proto_rawDesc = "" +
 	"\n" +
-	":gcommon/v1/common/organization_notification_settings.proto\x12\x11gcommon.v1.common\x1a,gcommon/v1/organization/email_template.proto\x1a4gcommon/v1/organization/notification_frequency.proto\x1a!google/protobuf/go_features.proto\"\xf1\x02\n" +
+	":gcommon/v1/common/organization_notification_settings.proto\x12\x11gcommon.v1.common\x1a&gcommon/v1/common/email_template.proto\x1a.gcommon/v1/common/notification_frequency.proto\x1a!google/protobuf/go_features.proto\"\xe5\x02\n" +
 	" OrganizationNotificationSettings\x12!\n" +
 	"\fsender_email\x18\x01 \x01(\tR\vsenderEmail\x12\x1f\n" +
 	"\vsender_name\x18\x02 \x01(\tR\n" +
@@ -283,19 +282,19 @@ const file_gcommon_v1_common_organization_notification_settings_proto_rawDesc = 
 	"\remail_enabled\x18\x03 \x01(\bR\femailEnabled\x12\x1f\n" +
 	"\vsms_enabled\x18\x04 \x01(\bR\n" +
 	"smsEnabled\x12$\n" +
-	"\x0ein_app_enabled\x18\x05 \x01(\bR\finAppEnabled\x12O\n" +
-	"\x0femail_templates\x18\x06 \x03(\v2&.gcommon.v1.organization.EmailTemplateR\x0eemailTemplates\x12L\n" +
-	"\tfrequency\x18\a \x01(\v2..gcommon.v1.organization.NotificationFrequencyR\tfrequencyB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ein_app_enabled\x18\x05 \x01(\bR\finAppEnabled\x12I\n" +
+	"\x0femail_templates\x18\x06 \x03(\v2 .gcommon.v1.common.EmailTemplateR\x0eemailTemplates\x12F\n" +
+	"\tfrequency\x18\a \x01(\v2(.gcommon.v1.common.NotificationFrequencyR\tfrequencyB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_organization_notification_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_organization_notification_settings_proto_goTypes = []any{
-	(*OrganizationNotificationSettings)(nil),   // 0: gcommon.v1.common.OrganizationNotificationSettings
-	(*organization.EmailTemplate)(nil),         // 1: gcommon.v1.organization.EmailTemplate
-	(*organization.NotificationFrequency)(nil), // 2: gcommon.v1.organization.NotificationFrequency
+	(*OrganizationNotificationSettings)(nil), // 0: gcommon.v1.common.OrganizationNotificationSettings
+	(*EmailTemplate)(nil),                    // 1: gcommon.v1.common.EmailTemplate
+	(*NotificationFrequency)(nil),            // 2: gcommon.v1.common.NotificationFrequency
 }
 var file_gcommon_v1_common_organization_notification_settings_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.common.OrganizationNotificationSettings.email_templates:type_name -> gcommon.v1.organization.EmailTemplate
-	2, // 1: gcommon.v1.common.OrganizationNotificationSettings.frequency:type_name -> gcommon.v1.organization.NotificationFrequency
+	1, // 0: gcommon.v1.common.OrganizationNotificationSettings.email_templates:type_name -> gcommon.v1.common.EmailTemplate
+	2, // 1: gcommon.v1.common.OrganizationNotificationSettings.frequency:type_name -> gcommon.v1.common.NotificationFrequency
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -308,6 +307,8 @@ func file_gcommon_v1_common_organization_notification_settings_proto_init() {
 	if File_gcommon_v1_common_organization_notification_settings_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_email_template_proto_init()
+	file_gcommon_v1_common_notification_frequency_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

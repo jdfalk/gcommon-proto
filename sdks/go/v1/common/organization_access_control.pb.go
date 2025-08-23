@@ -7,7 +7,6 @@
 package common
 
 import (
-	organization "github.com/jdfalk/gcommon/sdks/go/v1/organization"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,13 +22,13 @@ const (
 )
 
 type OrganizationAccessControl struct {
-	state                            protoimpl.MessageState           `protogen:"opaque.v1"`
-	xxx_hidden_IpWhitelist           []string                         `protobuf:"bytes,1,rep,name=ip_whitelist,json=ipWhitelist"`
-	xxx_hidden_AuthMethods           []string                         `protobuf:"bytes,2,rep,name=auth_methods,json=authMethods"`
-	xxx_hidden_SessionTimeout        int32                            `protobuf:"varint,3,opt,name=session_timeout,json=sessionTimeout"`
-	xxx_hidden_MaxConcurrentSessions int32                            `protobuf:"varint,4,opt,name=max_concurrent_sessions,json=maxConcurrentSessions"`
-	xxx_hidden_AllowedCountries      []string                         `protobuf:"bytes,5,rep,name=allowed_countries,json=allowedCountries"`
-	xxx_hidden_TimeRestrictions      *[]*organization.TimeRestriction `protobuf:"bytes,6,rep,name=time_restrictions,json=timeRestrictions"`
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_IpWhitelist           []string               `protobuf:"bytes,1,rep,name=ip_whitelist,json=ipWhitelist"`
+	xxx_hidden_AuthMethods           []string               `protobuf:"bytes,2,rep,name=auth_methods,json=authMethods"`
+	xxx_hidden_SessionTimeout        int32                  `protobuf:"varint,3,opt,name=session_timeout,json=sessionTimeout"`
+	xxx_hidden_MaxConcurrentSessions int32                  `protobuf:"varint,4,opt,name=max_concurrent_sessions,json=maxConcurrentSessions"`
+	xxx_hidden_AllowedCountries      []string               `protobuf:"bytes,5,rep,name=allowed_countries,json=allowedCountries"`
+	xxx_hidden_TimeRestrictions      *[]*TimeRestriction    `protobuf:"bytes,6,rep,name=time_restrictions,json=timeRestrictions"`
 	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
 	XXX_presence                     [1]uint32
 	unknownFields                    protoimpl.UnknownFields
@@ -96,7 +95,7 @@ func (x *OrganizationAccessControl) GetAllowedCountries() []string {
 	return nil
 }
 
-func (x *OrganizationAccessControl) GetTimeRestrictions() []*organization.TimeRestriction {
+func (x *OrganizationAccessControl) GetTimeRestrictions() []*TimeRestriction {
 	if x != nil {
 		if x.xxx_hidden_TimeRestrictions != nil {
 			return *x.xxx_hidden_TimeRestrictions
@@ -127,7 +126,7 @@ func (x *OrganizationAccessControl) SetAllowedCountries(v []string) {
 	x.xxx_hidden_AllowedCountries = v
 }
 
-func (x *OrganizationAccessControl) SetTimeRestrictions(v []*organization.TimeRestriction) {
+func (x *OrganizationAccessControl) SetTimeRestrictions(v []*TimeRestriction) {
 	x.xxx_hidden_TimeRestrictions = &v
 }
 
@@ -169,7 +168,7 @@ type OrganizationAccessControl_builder struct {
 	// Geographic access restrictions
 	AllowedCountries []string
 	// Time-based access restrictions
-	TimeRestrictions []*organization.TimeRestriction
+	TimeRestrictions []*TimeRestriction
 }
 
 func (b0 OrganizationAccessControl_builder) Build() *OrganizationAccessControl {
@@ -195,22 +194,22 @@ var File_gcommon_v1_common_organization_access_control_proto protoreflect.FileDe
 
 const file_gcommon_v1_common_organization_access_control_proto_rawDesc = "" +
 	"\n" +
-	"3gcommon/v1/common/organization_access_control.proto\x12\x11gcommon.v1.common\x1a.gcommon/v1/organization/time_restriction.proto\x1a!google/protobuf/go_features.proto\"\xc6\x02\n" +
+	"3gcommon/v1/common/organization_access_control.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/time_restriction.proto\x1a!google/protobuf/go_features.proto\"\xc0\x02\n" +
 	"\x19OrganizationAccessControl\x12!\n" +
 	"\fip_whitelist\x18\x01 \x03(\tR\vipWhitelist\x12!\n" +
 	"\fauth_methods\x18\x02 \x03(\tR\vauthMethods\x12'\n" +
 	"\x0fsession_timeout\x18\x03 \x01(\x05R\x0esessionTimeout\x126\n" +
 	"\x17max_concurrent_sessions\x18\x04 \x01(\x05R\x15maxConcurrentSessions\x12+\n" +
-	"\x11allowed_countries\x18\x05 \x03(\tR\x10allowedCountries\x12U\n" +
-	"\x11time_restrictions\x18\x06 \x03(\v2(.gcommon.v1.organization.TimeRestrictionR\x10timeRestrictionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x11allowed_countries\x18\x05 \x03(\tR\x10allowedCountries\x12O\n" +
+	"\x11time_restrictions\x18\x06 \x03(\v2\".gcommon.v1.common.TimeRestrictionR\x10timeRestrictionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_organization_access_control_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_organization_access_control_proto_goTypes = []any{
-	(*OrganizationAccessControl)(nil),    // 0: gcommon.v1.common.OrganizationAccessControl
-	(*organization.TimeRestriction)(nil), // 1: gcommon.v1.organization.TimeRestriction
+	(*OrganizationAccessControl)(nil), // 0: gcommon.v1.common.OrganizationAccessControl
+	(*TimeRestriction)(nil),           // 1: gcommon.v1.common.TimeRestriction
 }
 var file_gcommon_v1_common_organization_access_control_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.common.OrganizationAccessControl.time_restrictions:type_name -> gcommon.v1.organization.TimeRestriction
+	1, // 0: gcommon.v1.common.OrganizationAccessControl.time_restrictions:type_name -> gcommon.v1.common.TimeRestriction
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -223,6 +222,7 @@ func file_gcommon_v1_common_organization_access_control_proto_init() {
 	if File_gcommon_v1_common_organization_access_control_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_time_restriction_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

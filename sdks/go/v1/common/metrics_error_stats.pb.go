@@ -7,7 +7,6 @@
 package common
 
 import (
-	metrics "github.com/jdfalk/gcommon/sdks/go/v1/metrics"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,11 +22,11 @@ const (
 )
 
 type MetricsErrorStats struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_TotalErrors int64                      `protobuf:"varint,1,opt,name=total_errors,json=totalErrors"`
-	xxx_hidden_ErrorRate   float64                    `protobuf:"fixed64,2,opt,name=error_rate,json=errorRate"`
-	xxx_hidden_ErrorTypes  *[]*metrics.ErrorTypeCount `protobuf:"bytes,3,rep,name=error_types,json=errorTypes"`
-	xxx_hidden_ErrorTrend  *string                    `protobuf:"bytes,4,opt,name=error_trend,json=errorTrend"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TotalErrors int64                  `protobuf:"varint,1,opt,name=total_errors,json=totalErrors"`
+	xxx_hidden_ErrorRate   float64                `protobuf:"fixed64,2,opt,name=error_rate,json=errorRate"`
+	xxx_hidden_ErrorTypes  *[]*ErrorTypeCount     `protobuf:"bytes,3,rep,name=error_types,json=errorTypes"`
+	xxx_hidden_ErrorTrend  *string                `protobuf:"bytes,4,opt,name=error_trend,json=errorTrend"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -73,7 +72,7 @@ func (x *MetricsErrorStats) GetErrorRate() float64 {
 	return 0
 }
 
-func (x *MetricsErrorStats) GetErrorTypes() []*metrics.ErrorTypeCount {
+func (x *MetricsErrorStats) GetErrorTypes() []*ErrorTypeCount {
 	if x != nil {
 		if x.xxx_hidden_ErrorTypes != nil {
 			return *x.xxx_hidden_ErrorTypes
@@ -102,7 +101,7 @@ func (x *MetricsErrorStats) SetErrorRate(v float64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *MetricsErrorStats) SetErrorTypes(v []*metrics.ErrorTypeCount) {
+func (x *MetricsErrorStats) SetErrorTypes(v []*ErrorTypeCount) {
 	x.xxx_hidden_ErrorTypes = &v
 }
 
@@ -155,7 +154,7 @@ type MetricsErrorStats_builder struct {
 	// Error rate (errors per total operations)
 	ErrorRate *float64
 	// Most common error types
-	ErrorTypes []*metrics.ErrorTypeCount
+	ErrorTypes []*ErrorTypeCount
 	// Recent error trend (increasing/decreasing/stable)
 	ErrorTrend *string
 }
@@ -184,23 +183,23 @@ var File_gcommon_v1_common_metrics_error_stats_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_metrics_error_stats_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/common/metrics_error_stats.proto\x12\x11gcommon.v1.common\x1a)gcommon/v1/metrics/error_type_count.proto\x1a!google/protobuf/go_features.proto\"\xbb\x01\n" +
+	"+gcommon/v1/common/metrics_error_stats.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/error_type_count.proto\x1a!google/protobuf/go_features.proto\"\xba\x01\n" +
 	"\x11MetricsErrorStats\x12!\n" +
 	"\ftotal_errors\x18\x01 \x01(\x03R\vtotalErrors\x12\x1d\n" +
 	"\n" +
-	"error_rate\x18\x02 \x01(\x01R\terrorRate\x12C\n" +
-	"\verror_types\x18\x03 \x03(\v2\".gcommon.v1.metrics.ErrorTypeCountR\n" +
+	"error_rate\x18\x02 \x01(\x01R\terrorRate\x12B\n" +
+	"\verror_types\x18\x03 \x03(\v2!.gcommon.v1.common.ErrorTypeCountR\n" +
 	"errorTypes\x12\x1f\n" +
 	"\verror_trend\x18\x04 \x01(\tR\n" +
 	"errorTrendB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_common_metrics_error_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_common_metrics_error_stats_proto_goTypes = []any{
-	(*MetricsErrorStats)(nil),      // 0: gcommon.v1.common.MetricsErrorStats
-	(*metrics.ErrorTypeCount)(nil), // 1: gcommon.v1.metrics.ErrorTypeCount
+	(*MetricsErrorStats)(nil), // 0: gcommon.v1.common.MetricsErrorStats
+	(*ErrorTypeCount)(nil),    // 1: gcommon.v1.common.ErrorTypeCount
 }
 var file_gcommon_v1_common_metrics_error_stats_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.common.MetricsErrorStats.error_types:type_name -> gcommon.v1.metrics.ErrorTypeCount
+	1, // 0: gcommon.v1.common.MetricsErrorStats.error_types:type_name -> gcommon.v1.common.ErrorTypeCount
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -213,6 +212,7 @@ func file_gcommon_v1_common_metrics_error_stats_proto_init() {
 	if File_gcommon_v1_common_metrics_error_stats_proto != nil {
 		return
 	}
+	file_gcommon_v1_common_error_type_count_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
