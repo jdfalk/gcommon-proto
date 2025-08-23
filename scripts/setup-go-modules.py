@@ -73,8 +73,8 @@ def create_package_go_mods(generated_path):
     for package_dir in generated_path.iterdir():
         if package_dir.is_dir() and not package_dir.name.startswith("."):
             package_name = package_dir.name
-            module_name = f"github.com/jdfalk/gcommon/sdks/go/gcommon/v1/{package_name}"
-            file_path_comment = f"sdks/go/gcommon/v1/{package_name}/go.mod"
+            module_name = f"github.com/jdfalk/gcommon/sdks/go/v1/{package_name}"
+            file_path_comment = f"sdks/go/v1/{package_name}/go.mod"
 
             ensure_go_mod_exists(package_dir, module_name, file_path_comment)
             packages_created.append(package_name)
@@ -95,8 +95,8 @@ def update_root_go_mod(project_root):
         content = f.read()
 
     # Check if it has the old incorrect replace directive
-    old_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/v1"
-    new_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/gcommon/v1"
+    old_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/gcommon/v1"
+    new_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/v1"
 
     if old_replace in content:
         content = content.replace(old_replace, new_replace)
@@ -129,14 +129,14 @@ def main():
     update_root_go_mod(project_root)
 
     # Create go.mod files in each package directory
-    generated_path = go_sdk_dir / "gcommon" / "v1"
+    generated_path = go_sdk_dir / "v1"
     packages_created = create_package_go_mods(generated_path)
 
     if packages_created:
         print(f"✅ Created go.mod files for {len(packages_created)} packages:")
         for package in sorted(packages_created):
             print(
-                f"   - {package}: github.com/jdfalk/gcommon/sdks/go/gcommon/v1/{package}"
+                f"   - {package}: github.com/jdfalk/gcommon/sdks/go/v1/{package}"
             )
     else:
         print("⚠️  No package directories found for go.mod creation")
@@ -155,9 +155,9 @@ def main():
     print("✅ Go module setup complete!")
     print(f"   - Main SDK Module: {module_name}")
     print(
-        "   - Package modules: github.com/jdfalk/gcommon/sdks/go/gcommon/v1/<package>"
+        "   - Package modules: github.com/jdfalk/gcommon/sdks/go/v1/<package>"
     )
-    print("   - Replace directive: ./sdks/go/gcommon/v1")
+    print("   - Replace directive: ./sdks/go/v1")
 
     return 0
 
