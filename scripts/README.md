@@ -1,5 +1,7 @@
 # file: scripts/README.md
+
 # version: 1.0.0
+
 # guid: c3d4e5f6-a7b8-9012-cdef-345678901234
 
 # Scripts Directory
@@ -13,12 +15,14 @@ This directory contains utility scripts for managing the gcommon repository.
 A Python script to automatically dismiss code scanning alerts for unused imports in the SDK folder.
 
 **Features:**
+
 - Finds all open code scanning alerts for unused imports/variables in `sdks/` folder
 - Supports dry-run mode to preview what would be dismissed
 - Configurable dismiss reason
 - Detailed logging and progress reporting
 
 **Usage:**
+
 ```bash
 # Preview what would be dismissed (recommended first step)
 python3 scripts/dismiss_sdk_unused_import_alerts.py --dry-run
@@ -34,6 +38,7 @@ python3 scripts/dismiss_sdk_unused_import_alerts.py --help
 ```
 
 **Dismiss Reasons:**
+
 - `used in library` (default) - For imports that are actually used but not detected
 - `false positive` - For incorrect alerts
 - `wont fix` - For alerts that won't be addressed
@@ -43,6 +48,7 @@ python3 scripts/dismiss_sdk_unused_import_alerts.py --help
 A simple bash wrapper for the Python script that provides a more convenient interface.
 
 **Usage:**
+
 ```bash
 # Dry run
 ./scripts/dismiss-sdk-alerts.sh --dry-run

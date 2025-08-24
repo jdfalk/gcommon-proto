@@ -33,12 +33,25 @@ def get_latest_version_tag():
         return "v1.0.0"  # Default if no tags exist
 
 
-def ensure_go_mod_exists(module_path, module_name, file_path_comment="sdks/go/go.mod"):
+def ensure_go_mod_exists(module_path, module_name, file_path_comment="sdks/go/go.mod", dependencies=None):
     """Ensure go.mod file exists and has correct content."""
     go_mod_path = module_path / "go.mod"
 
+    # Base dependencies
+    requires = [
+        "\tgoogle.golang.org/protobuf v1.34.2",
+        "\tgoogle.golang.org/grpc v1.65.0"
+    ]
+    
+    # Add module dependencies if provided
+    if dependencies:
+        for dep_module, dep_version in dependencies.items():
+            requires.append(f"\t{dep_module} {dep_version}")
+    
+    requires_section = "\n".join(requires)
+
     go_mod_content = f"""// file: {file_path_comment}
-// version: 1.1.0
+// version: 1.2.0
 // guid: abcdef01-2345-6789-abcd-ef0123456789
 
 module {module_name}
@@ -46,8 +59,7 @@ module {module_name}
 go 1.23
 
 require (
-\tgoogle.golang.org/protobuf v1.34.2
-\tgoogle.golang.org/grpc v1.65.0
+{requires_section}
 )
 
 require (
@@ -63,21 +75,114 @@ require (
     print(f"Created/updated go.mod: {go_mod_path}")
 
 
+def add_replace_directives(module_path, dependencies=None):
+    """Add replace directives to go.mod for local development."""
+    if not dependencies:
+        return
+        
+    go_mod_path = module_path / "go.mod"
+    if not go_mod_path.exists():
+        return
+        
+    # Read current content
+    with open(go_mod_path, "r") as f:
+        content = f.read()
+    
+    # Check if replace directives already exist
+    has_replace_section = "replace (" in content or any(line.strip().startswith("replace ") for line in content.split('\n'))
+    
+    if not has_replace_section:
+        # Add replace directives
+        replace_lines = []
+        for dep_module in dependencies.keys():
+            if "github.com/jdfalk/gcommon/sdks/go/v1/" in dep_module:
+                package_name = dep_module.split("/")[-1]
+                replace_lines.append(f"\t{dep_module} => ../{package_name}")
+        
+        if replace_lines:
+            replace_section = "replace (\n" + "\n".join(replace_lines) + "\n)\n"
+            content = content.rstrip() + "\n\n" + replace_section
+            
+            with open(go_mod_path, "w") as f:
+                f.write(content)
+            print(f"Added replace directives to: {go_mod_path}")
+
+
+def run_go_mod_tidy(module_path):
+    """Run go mod tidy in the module directory."""
+    try:
+        subprocess.run(
+            ["go", "mod", "tidy"],
+            cwd=module_path,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        print(f"✅ go mod tidy successful: {module_path}")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"❌ go mod tidy failed in {module_path}:")
+        print(f"   stdout: {e.stdout}")
+        print(f"   stderr: {e.stderr}")
+        return False
+
+
 def create_package_go_mods(generated_path):
     """Create go.mod files in each package directory."""
     if not generated_path.exists():
         print(f"⚠️  Generated code path not found: {generated_path}")
         return []
 
-    packages_created = []
-    for package_dir in generated_path.iterdir():
-        if package_dir.is_dir() and not package_dir.name.startswith("."):
-            package_name = package_dir.name
-            module_name = f"github.com/jdfalk/gcommon/sdks/go/v1/{package_name}"
-            file_path_comment = f"sdks/go/v1/{package_name}/go.mod"
+    # Define dependencies between modules
+    module_dependencies = {
+        "config": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "database": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "media": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "metrics": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "organization": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "queue": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+        "web": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
+    }
 
-            ensure_go_mod_exists(package_dir, module_name, file_path_comment)
-            packages_created.append(package_name)
+    # Process modules in order: common first, then dependent modules
+    processing_order = ["common"]  # Process common first
+    dependent_modules = list(module_dependencies.keys())
+    processing_order.extend(sorted(dependent_modules))  # Then the rest in sorted order
+
+    packages_created = []
+    packages_tidy_success = []
+    packages_tidy_failed = []
+    
+    for package_name in processing_order:
+        package_dir = generated_path / package_name
+        if not package_dir.is_dir():
+            print(f"⚠️  Package directory not found: {package_dir}")
+            continue
+            
+        module_name = f"github.com/jdfalk/gcommon/sdks/go/v1/{package_name}"
+        file_path_comment = f"sdks/go/v1/{package_name}/go.mod"
+        
+        # Get dependencies for this package
+        dependencies = module_dependencies.get(package_name, None)
+
+        ensure_go_mod_exists(package_dir, module_name, file_path_comment, dependencies)
+        add_replace_directives(package_dir, dependencies)
+        
+        # Run go mod tidy
+        if run_go_mod_tidy(package_dir):
+            packages_tidy_success.append(package_name)
+        else:
+            packages_tidy_failed.append(package_name)
+            
+        packages_created.append(package_name)
+
+    print("\n📊 Package Summary:")
+    print(f"   Packages processed: {len(packages_created)}")
+    print(f"   go mod tidy successful: {len(packages_tidy_success)}")
+    print(f"   go mod tidy failed: {len(packages_tidy_failed)}")
+    
+    if packages_tidy_failed:
+        print(f"   Failed packages: {', '.join(packages_tidy_failed)}")
 
     return packages_created
 
@@ -128,12 +233,19 @@ def main():
     # Update root go.mod with correct replace directive
     update_root_go_mod(project_root)
 
-    # Create go.mod files in each package directory
+    # Create go.mod files in each package directory (with dependencies and go mod tidy)
     generated_path = go_sdk_dir / "v1"
     packages_created = create_package_go_mods(generated_path)
 
+    # Run go mod tidy on the main SDK module
+    print("\n🔧 Running go mod tidy on main SDK module...")
+    if run_go_mod_tidy(go_sdk_dir):
+        print("✅ Main SDK module go mod tidy successful")
+    else:
+        print("❌ Main SDK module go mod tidy failed")
+
     if packages_created:
-        print(f"✅ Created go.mod files for {len(packages_created)} packages:")
+        print(f"\n✅ Created go.mod files for {len(packages_created)} packages:")
         for package in sorted(packages_created):
             print(f"   - {package}: github.com/jdfalk/gcommon/sdks/go/v1/{package}")
     else:
@@ -150,10 +262,12 @@ def main():
         print(f"⚠️  Generated code not found: {generated_path}")
         print("   This is normal if buf generate hasn't run yet.")
 
-    print("✅ Go module setup complete!")
+    print("\n✅ Go module setup complete!")
     print(f"   - Main SDK Module: {module_name}")
     print("   - Package modules: github.com/jdfalk/gcommon/sdks/go/v1/<package>")
     print("   - Replace directive: ./sdks/go/v1")
+    print("   - Dependencies: Added common module dependencies where needed")
+    print("   - go mod tidy: Run on all modules")
 
     return 0
 
