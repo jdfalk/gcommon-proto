@@ -100,8 +100,8 @@ def add_replace_directives(module_path, dependencies=None):
                 replace_lines.append(f"\t{dep_module} => ../{package_name}")
         
         if replace_lines:
-            replace_section = "replace (\n" + "\n".join(replace_lines) + "\n)\n"
-            content = content.rstrip() + "\n\n" + replace_section
+            replace_section = "\nreplace (\n" + "\n".join(replace_lines) + "\n)\n"
+            content = content.rstrip() + replace_section
             
             with open(go_mod_path, "w") as f:
                 f.write(content)
@@ -122,6 +122,29 @@ def run_go_mod_tidy(module_path):
         return True
     except subprocess.CalledProcessError as e:
         print(f"❌ go mod tidy failed in {module_path}:")
+        print(f"   stdout: {e.stdout}")
+        print(f"   stderr: {e.stderr}")
+        return False
+
+
+def run_go_fmt(module_path):
+    """Run go fmt in the module directory."""
+    try:
+        result = subprocess.run(
+            ["go", "fmt", "./..."],
+            cwd=module_path,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        if result.stdout.strip():
+            print(f"✅ go fmt formatted files: {module_path}")
+            print(f"   formatted: {result.stdout.strip()}")
+        else:
+            print(f"✅ go fmt: no formatting needed: {module_path}")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"❌ go fmt failed in {module_path}:")
         print(f"   stdout: {e.stdout}")
         print(f"   stderr: {e.stderr}")
         return False
@@ -168,9 +191,11 @@ def create_package_go_mods(generated_path):
         ensure_go_mod_exists(package_dir, module_name, file_path_comment, dependencies)
         add_replace_directives(package_dir, dependencies)
         
-        # Run go mod tidy
+        # Run go mod tidy and go fmt
         if run_go_mod_tidy(package_dir):
             packages_tidy_success.append(package_name)
+            # Run go fmt after successful tidy
+            run_go_fmt(package_dir)
         else:
             packages_tidy_failed.append(package_name)
             
@@ -237,10 +262,11 @@ def main():
     generated_path = go_sdk_dir / "v1"
     packages_created = create_package_go_mods(generated_path)
 
-    # Run go mod tidy on the main SDK module
-    print("\n🔧 Running go mod tidy on main SDK module...")
+    # Run go mod tidy and go fmt on the main SDK module
+    print("\n🔧 Running go mod tidy and go fmt on main SDK module...")
     if run_go_mod_tidy(go_sdk_dir):
         print("✅ Main SDK module go mod tidy successful")
+        run_go_fmt(go_sdk_dir)
     else:
         print("❌ Main SDK module go mod tidy failed")
 
