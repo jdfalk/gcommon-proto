@@ -1,5 +1,7 @@
 # file: sdks/README.md
+
 # version: 1.0.0
+
 # guid: 56789012-5678-9012-def0-567890123456
 
 # gcommon SDKs
@@ -22,6 +24,7 @@ import (
 ```
 
 **Installation:**
+
 ```bash
 go mod init your-project
 go get github.com/jdfalk/gcommon/sdks/go
@@ -39,6 +42,7 @@ from gcommon.v1.config import config_pb2
 ```
 
 **Installation:**
+
 ```bash
 pip install ./sdks/python
 # or for development:

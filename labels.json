@@ -71,7 +71,12 @@
     "id": "LA_kwDOO7oZus8AAAACE35zDw",
     "name": "github-actions"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACE56P2w", "name": "bugfix" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACE56P2w",
+    "name": "bugfix"
+  },
   {
     "color": "d93f0b",
     "description": "Security-related issue",
@@ -504,33 +509,78 @@
     "id": "LA_kwDOO7oZus8AAAACFIuZEg",
     "name": "ui/ux"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcCXQ", "name": "community" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcCXQ",
+    "name": "community"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcCkg",
     "name": "version-control"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcClQ", "name": "workflows" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcClQ",
+    "name": "workflows"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcClw",
     "name": "collaboration"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDFA", "name": "ci" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDFQ", "name": "issues" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDWw", "name": "api" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDFA",
+    "name": "ci"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDFQ",
+    "name": "issues"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDWw",
+    "name": "api"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcDXw",
     "name": "compatibility"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDXA", "name": "versioning" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDhg", "name": "changelog" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcDhQ", "name": "release" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcECA", "name": "backup" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDXA",
+    "name": "versioning"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDhg",
+    "name": "changelog"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcDhQ",
+    "name": "release"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcECA",
+    "name": "backup"
+  },
   {
     "color": "ededed",
     "description": "",
@@ -543,20 +593,60 @@
     "id": "LA_kwDOO7oZus8AAAACFwcECg",
     "name": "reliability"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcENg", "name": "real-time" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcENw", "name": "teamwork" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcENg",
+    "name": "real-time"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcENw",
+    "name": "teamwork"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcEUg",
     "name": "benchmarking"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFLw", "name": "audit" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFLg", "name": "compliance" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFMA", "name": "enterprise" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFaA", "name": "refactor" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFxw", "name": "feature" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcFyQ", "name": "ui" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFLw",
+    "name": "audit"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFLg",
+    "name": "compliance"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFMA",
+    "name": "enterprise"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFaA",
+    "name": "refactor"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFxw",
+    "name": "feature"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcFyQ",
+    "name": "ui"
+  },
   {
     "color": "ededed",
     "description": "",
@@ -569,42 +659,102 @@
     "id": "LA_kwDOO7oZus8AAAACFwcGCw",
     "name": "quality-assurance"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcGXQ", "name": "cleanup" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcGdQ", "name": "e2e" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcGXQ",
+    "name": "cleanup"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcGdQ",
+    "name": "e2e"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcG9Q",
     "name": "accessibility"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcG9g", "name": "i18n" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcHHw", "name": "validation" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcG9g",
+    "name": "i18n"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcHHw",
+    "name": "validation"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcHSg",
     "name": "architecture"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcHTA", "name": "python" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcHWQ", "name": "quality" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcHTA",
+    "name": "python"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcHWQ",
+    "name": "quality"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcHmQ",
     "name": "marketplace"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcHmg", "name": "templates" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcHmg",
+    "name": "templates"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcHwg",
     "name": "observability"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcI2Q", "name": "examples" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcJPA", "name": "workflow" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcJ3Q", "name": "planning" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcJ8Q", "name": "dogfooding" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcKbA", "name": "ai" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcI2Q",
+    "name": "examples"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcJPA",
+    "name": "workflow"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcJ3Q",
+    "name": "planning"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcJ8Q",
+    "name": "dogfooding"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcKbA",
+    "name": "ai"
+  },
   {
     "color": "ededed",
     "description": "",
@@ -623,30 +773,60 @@
     "id": "LA_kwDOO7oZus8AAAACFwcL1w",
     "name": "developer-experience"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcMKw", "name": "apps" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcMKw",
+    "name": "apps"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcMLQ",
     "name": "cross-platform"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcMKg", "name": "mobile" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcMkQ", "name": "analytics" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcMKg",
+    "name": "mobile"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcMkQ",
+    "name": "analytics"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcMkw",
     "name": "business-intelligence"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcMlg", "name": "metrics" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcMlg",
+    "name": "metrics"
+  },
   {
     "color": "ededed",
     "description": "",
     "id": "LA_kwDOO7oZus8AAAACFwcM1g",
     "name": "containerization"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcM2A", "name": "devops" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcM1Q", "name": "docker" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcM2A",
+    "name": "devops"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcM1Q",
+    "name": "docker"
+  },
   {
     "color": "ededed",
     "description": "",
@@ -671,7 +851,12 @@
     "id": "LA_kwDOO7oZus8AAAACFwcNlQ",
     "name": "high-priority"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcNyA", "name": "debugging" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcNyA",
+    "name": "debugging"
+  },
   {
     "color": "ededed",
     "description": "",
@@ -684,7 +869,12 @@
     "id": "LA_kwDOO7oZus8AAAACFwcNyg",
     "name": "troubleshooting"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACFwcN-Q", "name": "test" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACFwcN-Q",
+    "name": "test"
+  },
   {
     "color": "b60205",
     "description": "Pull request has merge conflicts",
@@ -697,9 +887,24 @@
     "id": "LA_kwDOO7oZus8AAAACHbdBOA",
     "name": "auto-generated"
   },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACHtzzwg", "name": "size/M" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACHtz3CQ", "name": "tests" },
-  { "color": "ededed", "description": "", "id": "LA_kwDOO7oZus8AAAACHt0Dxw", "name": "size/L" },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACHtzzwg",
+    "name": "size/M"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACHtz3CQ",
+    "name": "tests"
+  },
+  {
+    "color": "ededed",
+    "description": "",
+    "id": "LA_kwDOO7oZus8AAAACHt0Dxw",
+    "name": "size/L"
+  },
   {
     "color": "ededed",
     "description": "",
