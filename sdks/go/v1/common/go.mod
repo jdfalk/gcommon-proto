@@ -1,5 +1,5 @@
 // file: sdks/go/v1/common/go.mod
-// version: 1.1.0
+// version: 1.2.0
 // guid: abcdef01-2345-6789-abcd-ef0123456789
 
 module github.com/jdfalk/gcommon/sdks/go/v1/common
@@ -7,8 +7,8 @@ module github.com/jdfalk/gcommon/sdks/go/v1/common
 go 1.23
 
 require (
-	google.golang.org/protobuf v1.34.2
 	google.golang.org/grpc v1.65.0
+	google.golang.org/protobuf v1.34.2
 )
 
 require (
