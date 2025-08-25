@@ -1,14 +1,14 @@
 # file: .github/workflows/ci.yml
-# version: 1.10.4
+# version: 1.10.5
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
   schedule:
     - cron: "0 0 * * 0" # Weekly on Sunday
   workflow_dispatch:
