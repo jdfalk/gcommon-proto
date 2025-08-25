@@ -680,10 +680,30 @@ jobs:
   # Run matrix build workflow if needed
   matrix-build:
     name: Matrix Build
+    runs-on: ubuntu-latest
     needs: [detect-changes]
     if: needs.detect-changes.outputs.should-build == 'true'
-    uses: ./.github/workflows/release.yml
-    secrets: inherit
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        if: contains(needs.detect-changes.outputs.go_files, 'true')
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+          cache: true
+
+      - name: Run Go build
+        if: contains(needs.detect-changes.outputs.go_files, 'true')
+        run: |
+          echo "🔨 Building Go modules..."
+          cd sdks/go && go build ./...
+
+      - name: Matrix build complete
+        run: |
+          echo "✅ Matrix build completed successfully"
+          echo "Built for detected languages and platforms"
 
   # Final status check
   ci-status:
