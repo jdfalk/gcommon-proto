@@ -29,3 +29,8 @@ plugins:
 # Post-generation commands (Note: buf doesn't support this directly)
 # Use: buf generate && python3 scripts/post-buf-generate.py
 # Or use the Makefile: make generate
+# Don't modify any file option or field option for protovalidate. Without
+# this, generated Go will fail to compile.
+disable:
+  - file_option: go_package
+    module: buf.build/bufbuild/protovalidate
