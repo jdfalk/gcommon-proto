@@ -1,5 +1,5 @@
 # file: .github/workflows/release-python.yml
-# version: 1.0.0
+# version: 1.0.1
 # guid: d1e2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6a
 
 name: Python Release Build
@@ -43,6 +43,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Ensure pip cache directory
+        run: mkdir -p ~/.cache/pip
 
       - name: Install dependencies
         run: |
