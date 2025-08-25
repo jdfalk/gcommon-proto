@@ -168,7 +168,6 @@ jobs:
           # Ensure plugins are in PATH
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
-
       - name: Lint protocol buffers
         run: |
           echo "🔍 Linting protocol buffers..."
