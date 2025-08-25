@@ -1,5 +1,5 @@
 # file: .github/workflows/protobuf-generation.yml
-# version: 1.0.0
+# version: 1.1.0
 # guid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
 
 name: Protocol Buffer Generation & Versioning
@@ -39,8 +39,10 @@ on:
         type: boolean
 
 env:
-  GO_VERSION: "1.23"
+  GO_VERSION: "1.23.x"
   PYTHON_VERSION: "3.12"
+  BUF_VERSION: "1.56.0"
+  PROTOC_VERSION: "32.0"
 
 permissions:
   contents: write
@@ -121,6 +123,7 @@ jobs:
         with:
           go-version: ${{ env.GO_VERSION }}
           cache: true
+          check-latest: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -128,10 +131,20 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
 
+      - name: Install protoc
+        run: |
+          # Install Protocol Compiler (protoc)
+          PROTOC_VERSION="${{ env.PROTOC_VERSION }}"
+          PB_REL="https://github.com/protocolbuffers/protobuf/releases"
+          curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
+          unzip protoc-${PROTOC_VERSION}-linux-x86_64.zip -d /usr/local
+          chmod +x /usr/local/bin/protoc
+          protoc --version
+
       - name: Install buf
         run: |
-          # Install buf CLI
-          BUF_VERSION="1.47.2"
+          # Install buf CLI - latest version
+          BUF_VERSION="${{ env.BUF_VERSION }}"
           curl -sSL \
             "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-$(uname -s)-$(uname -m)" \
             -o "/usr/local/bin/buf"
@@ -140,8 +153,18 @@ jobs:
 
       - name: Install protoc plugins
         run: |
+          # Install the latest protoc plugins for Go
+          echo "Installing protoc-gen-go..."
           go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          echo "Installing protoc-gen-go-grpc..."
           go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+          # Verify installations
+          protoc-gen-go --version
+          protoc-gen-go-grpc --version
+
+          # Ensure plugins are in PATH
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
       - name: Lint protocol buffers
         run: |
