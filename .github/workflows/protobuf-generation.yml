@@ -11,16 +11,16 @@ on:
       - "proto/**/*.proto"
       - "buf.yaml"
       - "buf.gen.yaml"
-      - "scripts/post-buf-generate.py"
-      - "scripts/setup-go-modules.py"
+      - "post-buf-generate.py"
+      - "setup-go-modules.py"
   pull_request:
     branches: [main, develop]
     paths:
       - "proto/**/*.proto"
       - "buf.yaml"
       - "buf.gen.yaml"
-      - "scripts/post-buf-generate.py"
-      - "scripts/setup-go-modules.py"
+      - "post-buf-generate.py"
+      - "setup-go-modules.py"
   workflow_dispatch:
     inputs:
       version_type:
@@ -74,8 +74,8 @@ jobs:
               - 'buf.yaml'
               - 'buf.gen.yaml'
             scripts:
-              - 'scripts/post-buf-generate.py'
-              - 'scripts/setup-go-modules.py'
+              - 'post-buf-generate.py'
+              - 'setup-go-modules.py'
 
       - name: Determine workflow execution
         id: determine
@@ -156,19 +156,19 @@ jobs:
       - name: Run post-generation processing
         run: |
           echo "⚙️ Running post-generation processing..."
-          if [ -f "scripts/post-buf-generate.py" ]; then
-            python3 scripts/post-buf-generate.py
+          if [ -f "post-buf-generate.py" ]; then
+            python3 post-buf-generate.py
           else
-            echo "⚠️ scripts/post-buf-generate.py not found, skipping post-processing"
+            echo "⚠️ post-buf-generate.py not found, skipping post-processing"
           fi
 
       - name: Setup Go modules
         run: |
           echo "🔧 Setting up Go modules..."
-          if [ -f "scripts/setup-go-modules.py" ]; then
-            python3 scripts/setup-go-modules.py
+          if [ -f "setup-go-modules.py" ]; then
+            python3 setup-go-modules.py
           else
-            echo "⚠️ scripts/setup-go-modules.py not found, skipping Go module setup"
+            echo "⚠️ setup-go-modules.py not found, skipping Go module setup"
           fi
 
       - name: Determine version bump
