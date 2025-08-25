@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.10.1
+# version: 1.10.4
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -30,6 +30,10 @@ permissions:
   actions: write
   checks: write
   packages: write
+  # Added to satisfy permissions required by reusable release workflow (.github/workflows/release.yml)
+  security-events: write
+  id-token: write
+  attestations: write
 
 jobs:
   # Check for commit override flags
@@ -689,6 +693,13 @@ jobs:
     name: Matrix Build
     needs: [detect-changes]
     if: needs.detect-changes.outputs.should-build == 'true'
+    permissions:
+      # Elevated only for invoking reusable release workflow requiring these
+      contents: write
+      packages: write
+      security-events: write
+      id-token: write
+      attestations: write
     uses: ./.github/workflows/release.yml
     secrets: inherit
 
