@@ -1,11 +1,12 @@
 // file: proto/gcommon/v1/organization/create_organization_request.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 56789abc-def0-1234-5678-9abcdef01234
 
 edition = "2023";
 
 package gcommon.v1.organization;
 
+import "buf/validate/validate.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/organization/organization.proto";
 import "google/protobuf/go_features.proto";
@@ -14,24 +15,34 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message CreateOrganizationRequest {
-  // Request metadata for tracing and context
-  gcommon.v1.common.RequestMetadata metadata = 1;
+  // Request metadata for tracing and context - required
+  gcommon.v1.common.RequestMetadata metadata = 1 [(buf.validate.field).required = true];
 
-  // Organization information to create
-  Organization organization = 2;
+  // Organization information to create - required
+  Organization organization = 2 [(buf.validate.field).required = true];
 
   // Whether to create a default tenant for this organization
   bool create_default_tenant = 3;
 
-  // Initial organization settings (optional)
-  string initial_settings_json = 4;
+  // Initial organization settings (optional) - must be valid JSON if provided
+  string initial_settings_json = 4 [(buf.validate.field).cel = {
+    id: "initial_settings_json.valid_json"
+    message: "Initial settings must be valid JSON if provided."
+    expression: "this == '' || this.matches(r'^\\s*[\\{\\[].*[\\}\\]]\\s*$')"
+  }];
 
-  // Owner user ID (will be added as organization owner)
-  string owner_user_id = 5;
+  // Owner user ID (will be added as organization owner) - required, must be valid UUID format
+  string owner_user_id = 5 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+  ];
 
   // Whether to send welcome email to owner
   bool send_welcome_email = 6;
 
-  // Template to use for organization creation (if applicable)
-  string organization_template = 7;
+  // Template to use for organization creation (if applicable) - alphanumeric with underscores only
+  string organization_template = 7 [(buf.validate.field).string = {
+    pattern: "^[a-zA-Z0-9_]*$"
+    max_len: 100
+  }];
 }
