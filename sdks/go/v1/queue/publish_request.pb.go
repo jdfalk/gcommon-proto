@@ -7,6 +7,7 @@
 package queue
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -155,13 +156,13 @@ func (x *QueuePublishRequest) ClearMetadata() {
 type QueuePublishRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Name of the topic to publish to.
+	// Name of the topic to publish to - required, alphanumeric with dots/hyphens, 3-255 chars
 	TopicName *string
-	// Message to publish.
+	// Message to publish - required
 	Message *QueueMessage
-	// Optional delivery parameters controlling retries and delays.
+	// Optional delivery parameters controlling retries and delays
 	DeliveryOptions *DeliveryOptions
-	// Standard request metadata for tracing and auth.
+	// Standard request metadata for tracing and auth - required
 	Metadata *common.RequestMetadata
 }
 
@@ -183,13 +184,13 @@ var File_gcommon_v1_queue_publish_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_publish_request_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/queue/publish_request.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/common/request_metadata.proto\x1a'gcommon/v1/queue/delivery_options.proto\x1a$gcommon/v1/queue/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xfc\x01\n" +
-	"\x13QueuePublishRequest\x12\x1d\n" +
+	"&gcommon/v1/queue/publish_request.proto\x12\x10gcommon.v1.queue\x1a\x1bbuf/validate/validate.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a'gcommon/v1/queue/delivery_options.proto\x1a$gcommon/v1/queue/queue_message.proto\x1a!google/protobuf/go_features.proto\"\xc7\x02\n" +
+	"\x13QueuePublishRequest\x12X\n" +
 	"\n" +
-	"topic_name\x18\x01 \x01(\tR\ttopicName\x128\n" +
-	"\amessage\x18\x02 \x01(\v2\x1e.gcommon.v1.queue.QueueMessageR\amessage\x12L\n" +
-	"\x10delivery_options\x18\x03 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"topic_name\x18\x01 \x01(\tB9\xbaH6\xc8\x01\x01r1\x10\x03\x18\xff\x012*^[a-zA-Z0-9]([a-zA-Z0-9._-]*[a-zA-Z0-9])?$R\ttopicName\x12@\n" +
+	"\amessage\x18\x02 \x01(\v2\x1e.gcommon.v1.queue.QueueMessageB\x06\xbaH\x03\xc8\x01\x01R\amessage\x12L\n" +
+	"\x10delivery_options\x18\x03 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12F\n" +
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x06\xbaH\x03\xc8\x01\x01R\bmetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_queue_publish_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_queue_publish_request_proto_goTypes = []any{

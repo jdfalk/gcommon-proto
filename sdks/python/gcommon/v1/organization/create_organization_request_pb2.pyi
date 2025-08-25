@@ -1,3 +1,4 @@
+from buf.validate import validate_pb2 as _validate_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from gcommon.v1.organization import organization_pb2 as _organization_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

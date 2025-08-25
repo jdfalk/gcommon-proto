@@ -7,6 +7,7 @@
 package organization
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -688,49 +689,49 @@ func (x *Organization) ClearBillingEmail() {
 type Organization_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Unique organization identifier (immutable)
+	// Unique organization identifier (immutable) - must be valid UUID
 	Id *string
-	// Organization name (human-readable identifier)
+	// Organization name (human-readable identifier) - required, 1-100 characters
 	Name *string
-	// URL-friendly slug for the organization (e.g., for subdomains)
+	// URL-friendly slug for the organization (e.g., for subdomains) - required, alphanumeric with hyphens
 	Slug *string
-	// Organization description or mission statement
+	// Organization description or mission statement - max 1000 characters
 	Description *string
-	// Primary website URL for the organization
+	// Primary website URL for the organization - must be valid URL if provided
 	Website *string
-	// Primary contact email for the organization
+	// Primary contact email for the organization - must be valid email if provided
 	ContactEmail *string
-	// Organization's physical address or headquarters location
+	// Organization's physical address or headquarters location - max 500 characters
 	Address *string
-	// Phone number for organization contact
+	// Phone number for organization contact - basic phone format validation
 	Phone *string
-	// Tax identifier or business registration number
+	// Tax identifier or business registration number - alphanumeric only, max 50 characters
 	TaxId *string
-	// Organization's industry or business sector
+	// Organization's industry or business sector - max 100 characters
 	Industry *string
-	// Current operational status of the organization
+	// Current operational status of the organization - required
 	Status *common.OrganizationStatus
-	// Organization metadata and custom attributes
+	// Organization metadata and custom attributes - max 50 entries
 	Metadata []*common.KeyValue
-	// Organization creation timestamp (immutable)
+	// Organization creation timestamp (immutable) - required
 	CreatedAt *timestamppb.Timestamp
-	// Last update timestamp
+	// Last update timestamp - required
 	UpdatedAt *timestamppb.Timestamp
-	// User ID who created this organization
+	// User ID who created this organization - must be valid UUID
 	CreatedBy *string
-	// User ID who last updated this organization
+	// User ID who last updated this organization - must be valid UUID
 	UpdatedBy *string
-	// Organization's timezone (IANA timezone identifier)
+	// Organization's timezone (IANA timezone identifier) - must be valid timezone format
 	Timezone *string
-	// Organization's primary language/locale
+	// Organization's primary language/locale - must be valid locale format (e.g., en-US, fr-FR)
 	Locale *string
-	// Maximum number of members allowed in this organization
+	// Maximum number of members allowed in this organization - must be positive
 	MaxMembers *int32
 	// Whether this organization supports multi-tenancy
 	MultiTenantEnabled *bool
-	// Organization's logo or avatar URL
+	// Organization's logo or avatar URL - must be valid URL if provided
 	AvatarUrl *string
-	// Organization's billing contact email (if different from contact_email)
+	// Organization's billing contact email (if different from contact_email) - must be valid email if provided
 	BillingEmail *string
 }
 
@@ -833,37 +834,39 @@ var File_gcommon_v1_organization_organization_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_organization_organization_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/organization/organization.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a+gcommon/v1/common/organization_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8d\x06\n" +
-	"\fOrganization\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
-	"\x04slug\x18\x03 \x01(\tR\x04slug\x12 \n" +
-	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x18\n" +
-	"\awebsite\x18\x05 \x01(\tR\awebsite\x12#\n" +
-	"\rcontact_email\x18\x06 \x01(\tR\fcontactEmail\x12\x18\n" +
-	"\aaddress\x18\a \x01(\tR\aaddress\x12\x14\n" +
-	"\x05phone\x18\b \x01(\tR\x05phone\x12\x15\n" +
-	"\x06tax_id\x18\t \x01(\tR\x05taxId\x12\x1a\n" +
+	"*gcommon/v1/organization/organization.proto\x12\x17gcommon.v1.organization\x1a\x1bbuf/validate/validate.proto\x1a!gcommon/v1/common/key_value.proto\x1a+gcommon/v1/common/organization_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\n" +
+	"\n" +
+	"\fOrganization\x12d\n" +
+	"\x02id\x18\x01 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\x02id\x12 \n" +
+	"\x04name\x18\x02 \x01(\tB\f\xbaH\t\xc8\x01\x01r\x04\x10\x01\x18dR\x04name\x12A\n" +
+	"\x04slug\x18\x03 \x01(\tB-\xbaH*\xc8\x01\x01r%\x10\x02\x1822\x1f^[a-z0-9]([a-z0-9-]*[a-z0-9])?$R\x04slug\x12*\n" +
+	"\vdescription\x18\x04 \x01(\tB\b\xbaH\x05r\x03\x18\xe8\aR\vdescription\x12\"\n" +
+	"\awebsite\x18\x05 \x01(\tB\b\xbaH\x05r\x03\x88\x01\x01R\awebsite\x12,\n" +
+	"\rcontact_email\x18\x06 \x01(\tB\a\xbaH\x04r\x02`\x01R\fcontactEmail\x12\"\n" +
+	"\aaddress\x18\a \x01(\tB\b\xbaH\x05r\x03\x18\xf4\x03R\aaddress\x125\n" +
+	"\x05phone\x18\b \x01(\tB\x1f\xbaH\x1cr\x1a2\x18^[\\+]?[1-9]?[0-9]{7,15}$R\x05phone\x12.\n" +
+	"\x06tax_id\x18\t \x01(\tB\x17\xbaH\x14r\x12\x1822\x0e^[a-zA-Z0-9]*$R\x05taxId\x12#\n" +
 	"\bindustry\x18\n" +
-	" \x01(\tR\bindustry\x12=\n" +
-	"\x06status\x18\v \x01(\x0e2%.gcommon.v1.common.OrganizationStatusR\x06status\x12;\n" +
-	"\bmetadata\x18\f \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\bmetadata\x12=\n" +
+	" \x01(\tB\a\xbaH\x04r\x02\x18dR\bindustry\x12E\n" +
+	"\x06status\x18\v \x01(\x0e2%.gcommon.v1.common.OrganizationStatusB\x06\xbaH\x03\xc8\x01\x01R\x06status\x12C\n" +
+	"\bmetadata\x18\f \x03(\v2\x1b.gcommon.v1.common.KeyValueB\n" +
+	"\xbaH\x05\x92\x01\x02\x102(\x01R\bmetadata\x12C\n" +
 	"\n" +
-	"created_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
+	"created_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampB\b\xbaH\x03\xc8\x01\x01(\x01R\tcreatedAt\x12C\n" +
 	"\n" +
-	"updated_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampB\b\xbaH\x03\xc8\x01\x01(\x01R\tupdatedAt\x12s\n" +
 	"\n" +
-	"created_by\x18\x0f \x01(\tR\tcreatedBy\x12\x1d\n" +
+	"created_by\x18\x0f \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tcreatedBy\x12s\n" +
 	"\n" +
-	"updated_by\x18\x10 \x01(\tR\tupdatedBy\x12\x1a\n" +
-	"\btimezone\x18\x11 \x01(\tR\btimezone\x12\x16\n" +
-	"\x06locale\x18\x12 \x01(\tR\x06locale\x12\x1f\n" +
-	"\vmax_members\x18\x13 \x01(\x05R\n" +
+	"updated_by\x18\x10 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tupdatedBy\x12H\n" +
+	"\btimezone\x18\x11 \x01(\tB,\xbaH)r'2%^[A-Za-z]+\\/[A-Za-z_]+([A-Za-z_\\/]*)$R\btimezone\x125\n" +
+	"\x06locale\x18\x12 \x01(\tB\x1d\xbaH\x1ar\x182\x16^[a-z]{2}(-[A-Z]{2})?$R\x06locale\x12,\n" +
+	"\vmax_members\x18\x13 \x01(\x05B\v\xbaH\b\x1a\x06\x18\xa0\x8d\x06(\x01R\n" +
 	"maxMembers\x120\n" +
-	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12\x1d\n" +
+	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12'\n" +
 	"\n" +
-	"avatar_url\x18\x15 \x01(\tR\tavatarUrl\x12#\n" +
-	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"avatar_url\x18\x15 \x01(\tB\b\xbaH\x05r\x03\x88\x01\x01R\tavatarUrl\x12,\n" +
+	"\rbilling_email\x18\x16 \x01(\tB\a\xbaH\x04r\x02`\x01R\fbillingEmailB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_organization_proto_goTypes = []any{

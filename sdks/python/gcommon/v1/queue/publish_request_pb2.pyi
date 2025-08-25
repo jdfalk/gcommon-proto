@@ -1,3 +1,4 @@
+from buf.validate import validate_pb2 as _validate_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from gcommon.v1.queue import delivery_options_pb2 as _delivery_options_pb2
 from gcommon.v1.queue import queue_message_pb2 as _queue_message_pb2

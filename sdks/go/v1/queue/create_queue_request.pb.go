@@ -7,6 +7,7 @@
 package queue
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -200,17 +201,17 @@ func (x *CreateQueueRequest) ClearDescription() {
 type CreateQueueRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Name of the queue to create (required)
+	// Name of the queue to create (required) - alphanumeric with hyphens/underscores, 3-63 chars
 	QueueName *string
-	// Configuration for the new queue
+	// Configuration for the new queue - required
 	Config *QueueConfig
 	// Whether to create the queue even if it already exists
 	IfNotExists *bool
-	// Request metadata for tracing and correlation
+	// Request metadata for tracing and correlation - required
 	Metadata *common.RequestMetadata
-	// Tags to associate with the queue
+	// Tags to associate with the queue - max 20 tags, each key/value max 100 chars
 	Tags map[string]string
-	// Description of the queue
+	// Description of the queue - max 500 characters
 	Description *string
 }
 
@@ -240,15 +241,15 @@ var File_gcommon_v1_queue_create_queue_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_queue_create_queue_request_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/queue/create_queue_request.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/common/request_metadata.proto\x1a#gcommon/v1/queue/queue_config.proto\x1a!google/protobuf/go_features.proto\"\xed\x02\n" +
-	"\x12CreateQueueRequest\x12\x1d\n" +
+	"+gcommon/v1/queue/create_queue_request.proto\x12\x10gcommon.v1.queue\x1a\x1bbuf/validate/validate.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a#gcommon/v1/queue/queue_config.proto\x1a!google/protobuf/go_features.proto\"\xd7\x03\n" +
+	"\x12CreateQueueRequest\x12W\n" +
 	"\n" +
-	"queue_name\x18\x01 \x01(\tR\tqueueName\x125\n" +
-	"\x06config\x18\x02 \x01(\v2\x1d.gcommon.v1.queue.QueueConfigR\x06config\x12\"\n" +
-	"\rif_not_exists\x18\x03 \x01(\bR\vifNotExists\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12B\n" +
-	"\x04tags\x18\x05 \x03(\v2..gcommon.v1.queue.CreateQueueRequest.TagsEntryR\x04tags\x12 \n" +
-	"\vdescription\x18\x06 \x01(\tR\vdescription\x1a7\n" +
+	"queue_name\x18\x01 \x01(\tB8\xbaH5\xc8\x01\x01r0\x10\x03\x18?2*^[a-zA-Z0-9]([a-zA-Z0-9._-]*[a-zA-Z0-9])?$R\tqueueName\x12=\n" +
+	"\x06config\x18\x02 \x01(\v2\x1d.gcommon.v1.queue.QueueConfigB\x06\xbaH\x03\xc8\x01\x01R\x06config\x12\"\n" +
+	"\rif_not_exists\x18\x03 \x01(\bR\vifNotExists\x12F\n" +
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x06\xbaH\x03\xc8\x01\x01R\bmetadata\x12X\n" +
+	"\x04tags\x18\x05 \x03(\v2..gcommon.v1.queue.CreateQueueRequest.TagsEntryB\x14\xbaH\x11\x9a\x01\x0e\x10\x14\"\x04r\x02\x18d*\x04r\x02\x18dR\x04tags\x12*\n" +
+	"\vdescription\x18\x06 \x01(\tB\b\xbaH\x05r\x03\x18\xf4\x03R\vdescription\x1a7\n" +
 	"\tTagsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"

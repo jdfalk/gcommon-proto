@@ -7,6 +7,7 @@
 package organization
 
 import (
+	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	common "github.com/jdfalk/gcommon/sdks/go/v1/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -238,19 +239,19 @@ func (x *CreateOrganizationRequest) ClearOrganizationTemplate() {
 type CreateOrganizationRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Request metadata for tracing and context
+	// Request metadata for tracing and context - required
 	Metadata *common.RequestMetadata
-	// Organization information to create
+	// Organization information to create - required
 	Organization *Organization
 	// Whether to create a default tenant for this organization
 	CreateDefaultTenant *bool
-	// Initial organization settings (optional)
+	// Initial organization settings (optional) - must be valid JSON if provided
 	InitialSettingsJson *string
-	// Owner user ID (will be added as organization owner)
+	// Owner user ID (will be added as organization owner) - required, must be valid UUID format
 	OwnerUserId *string
 	// Whether to send welcome email to owner
 	SendWelcomeEmail *bool
-	// Template to use for organization creation (if applicable)
+	// Template to use for organization creation (if applicable) - alphanumeric with underscores only
 	OrganizationTemplate *string
 }
 
@@ -287,15 +288,16 @@ var File_gcommon_v1_organization_create_organization_request_proto protoreflect.
 
 const file_gcommon_v1_organization_create_organization_request_proto_rawDesc = "" +
 	"\n" +
-	"9gcommon/v1/organization/create_organization_request.proto\x12\x17gcommon.v1.organization\x1a(gcommon/v1/common/request_metadata.proto\x1a*gcommon/v1/organization/organization.proto\x1a!google/protobuf/go_features.proto\"\x95\x03\n" +
-	"\x19CreateOrganizationRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12I\n" +
-	"\forganization\x18\x02 \x01(\v2%.gcommon.v1.organization.OrganizationR\forganization\x122\n" +
-	"\x15create_default_tenant\x18\x03 \x01(\bR\x13createDefaultTenant\x122\n" +
-	"\x15initial_settings_json\x18\x04 \x01(\tR\x13initialSettingsJson\x12\"\n" +
-	"\rowner_user_id\x18\x05 \x01(\tR\vownerUserId\x12,\n" +
-	"\x12send_welcome_email\x18\x06 \x01(\bR\x10sendWelcomeEmail\x123\n" +
-	"\x15organization_template\x18\a \x01(\tR\x14organizationTemplateB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"9gcommon/v1/organization/create_organization_request.proto\x12\x17gcommon.v1.organization\x1a\x1bbuf/validate/validate.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a*gcommon/v1/organization/organization.proto\x1a!google/protobuf/go_features.proto\"\xaf\x05\n" +
+	"\x19CreateOrganizationRequest\x12F\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x06\xbaH\x03\xc8\x01\x01R\bmetadata\x12Q\n" +
+	"\forganization\x18\x02 \x01(\v2%.gcommon.v1.organization.OrganizationB\x06\xbaH\x03\xc8\x01\x01R\forganization\x122\n" +
+	"\x15create_default_tenant\x18\x03 \x01(\bR\x13createDefaultTenant\x12\xc8\x01\n" +
+	"\x15initial_settings_json\x18\x04 \x01(\tB\x93\x01\xbaH\x8f\x01\xba\x01\x8b\x01\n" +
+	" initial_settings_json.valid_json\x120Initial settings must be valid JSON if provided.\x1a5this == '' || this.matches(r'^\\s*[\\{\\[].*[\\}\\]]\\s*$')R\x13initialSettingsJson\x12{\n" +
+	"\rowner_user_id\x18\x05 \x01(\tBW\xbaHT\xc8\x01\x01rO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\vownerUserId\x12,\n" +
+	"\x12send_welcome_email\x18\x06 \x01(\bR\x10sendWelcomeEmail\x12M\n" +
+	"\x15organization_template\x18\a \x01(\tB\x18\xbaH\x15r\x13\x18d2\x0f^[a-zA-Z0-9_]*$R\x14organizationTemplateB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_gcommon_v1_organization_create_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_organization_create_organization_request_proto_goTypes = []any{
