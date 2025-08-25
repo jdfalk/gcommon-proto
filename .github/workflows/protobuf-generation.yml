@@ -1,5 +1,5 @@
 # file: .github/workflows/protobuf-generation.yml
-# version: 1.1.0
+# version: 1.2.0
 # guid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
 
 name: Protocol Buffer Generation & Versioning
@@ -171,30 +171,12 @@ jobs:
       - name: Lint protocol buffers
         run: |
           echo "🔍 Linting protocol buffers..."
-          buf lint
+          make lint
 
       - name: Generate protocol buffers
         run: |
-          echo "📦 Generating protocol buffers..."
-          buf generate
-
-      - name: Run post-generation processing
-        run: |
-          echo "⚙️ Running post-generation processing..."
-          if [ -f "post-buf-generate.py" ]; then
-            python3 post-buf-generate.py
-          else
-            echo "⚠️ post-buf-generate.py not found, skipping post-processing"
-          fi
-
-      - name: Setup Go modules
-        run: |
-          echo "🔧 Setting up Go modules..."
-          if [ -f "setup-go-modules.py" ]; then
-            python3 setup-go-modules.py
-          else
-            echo "⚠️ setup-go-modules.py not found, skipping Go module setup"
-          fi
+          echo "📦 Generating protocol buffers with full post-processing..."
+          make generate
 
       - name: Determine version bump
         id: version
