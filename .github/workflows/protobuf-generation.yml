@@ -137,8 +137,9 @@ jobs:
           PROTOC_VERSION="${{ env.PROTOC_VERSION }}"
           PB_REL="https://github.com/protocolbuffers/protobuf/releases"
           curl -LO $PB_REL/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-          unzip protoc-${PROTOC_VERSION}-linux-x86_64.zip -d /usr/local
-          chmod +x /usr/local/bin/protoc
+          unzip protoc-${PROTOC_VERSION}-linux-x86_64.zip -d $HOME/protoc
+          sudo cp $HOME/protoc/bin/protoc /usr/local/bin/
+          sudo cp -r $HOME/protoc/include/* /usr/local/include/
           protoc --version
 
       - name: Install buf
@@ -147,8 +148,9 @@ jobs:
           BUF_VERSION="${{ env.BUF_VERSION }}"
           curl -sSL \
             "https://github.com/bufbuild/buf/releases/download/v${BUF_VERSION}/buf-$(uname -s)-$(uname -m)" \
-            -o "/usr/local/bin/buf"
-          chmod +x "/usr/local/bin/buf"
+            -o "/tmp/buf"
+          sudo mv /tmp/buf /usr/local/bin/buf
+          sudo chmod +x /usr/local/bin/buf
           buf --version
 
       - name: Install protoc plugins
