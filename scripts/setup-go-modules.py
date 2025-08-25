@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/setup-go-modules.py
-# version: 2.2.0
+# version: 2.5.0
 # guid: f1e2d3c4-b5a6-789c-def0-123456789abc
 
 """
@@ -39,10 +39,10 @@ def ensure_go_mod_exists(
     """Ensure go.mod file exists and has correct content."""
     go_mod_path = module_path / "go.mod"
 
-    # Base dependencies
+    # Base dependencies - using latest versions
     requires = [
-        "\tgoogle.golang.org/protobuf v1.34.2",
-        "\tgoogle.golang.org/grpc v1.65.0",
+        "\tgoogle.golang.org/protobuf v1.36.8",
+        "\tgoogle.golang.org/grpc v1.75.0",
     ]
 
     # Add module dependencies if provided
@@ -65,10 +65,10 @@ require (
 )
 
 require (
-\tgolang.org/x/net v0.28.0 // indirect
-\tgolang.org/x/sys v0.24.0 // indirect
-\tgolang.org/x/text v0.17.0 // indirect
-\tgoogle.golang.org/genproto/googleapis/rpc v0.0.0-20240730163845-b1a4ccb954bf // indirect
+\tgolang.org/x/net v0.43.0 // indirect
+\tgolang.org/x/sys v0.35.0 // indirect
+\tgolang.org/x/text v0.28.0 // indirect
+\tgoogle.golang.org/genproto/googleapis/rpc v0.0.0-20250818200422-3122310a409c // indirect
 )
 """
 

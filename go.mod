@@ -7,3 +7,5 @@ module github.com/jdfalk/gcommon
 go 1.23
 
 replace github.com/jdfalk/gcommon/proto => ./sdks/go/v1
+
+require google.golang.org/protobuf v1.36.8 // indirect
