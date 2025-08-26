@@ -54,7 +54,10 @@ API_ROOT = "https://api.github.com"
 def _auth_token() -> str:
     token = os.getenv("JF_CI_GH_PAT") or os.getenv("GITHUB_TOKEN")
     if not token:
-        print("ERROR: Neither JF_CI_GH_PAT nor GITHUB_TOKEN is set in the environment", file=sys.stderr)
+        print(
+            "ERROR: Neither JF_CI_GH_PAT nor GITHUB_TOKEN is set in the environment",
+            file=sys.stderr,
+        )
         sys.exit(1)
     return token
 
@@ -64,7 +67,7 @@ def _headers(token: str) -> Dict[str, str]:
         "Authorization": f"Bearer {token}",
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "workflow-cleanup-script"
+        "User-Agent": "workflow-cleanup-script",
     }
 
 
@@ -77,7 +80,7 @@ def _request(url: str, token: str, method: str = "GET") -> dict:
             data = resp.read().decode("utf-8")
             return json.loads(data)
     except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", errors="replace") if hasattr(e, 'read') else ''
+        body = e.read().decode("utf-8", errors="replace") if hasattr(e, "read") else ""
         print(f"HTTP {e.code} for {method} {url}: {body}", file=sys.stderr)
         # 404 on deletion of an in-flight or already-removed run: treat as non-fatal
         if e.code in (404, 410):
@@ -88,15 +91,51 @@ def _request(url: str, token: str, method: str = "GET") -> dict:
 
 def _parse_args(argv: Optional[Iterable[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Cleanup old GitHub Actions workflow runs")
-    p.add_argument("--days", type=int, default=7, help="Age threshold in days (default 7)")
-    p.add_argument("--workflow", action="append", default=[], help="Workflow name or filename to restrict (repeatable)")
-    p.add_argument("--status", action="append", default=[], help="Limit to specific statuses (completed, failure, success, cancelled, etc.)")
-    p.add_argument("--per-page", type=int, default=100, help="Runs per page to fetch (max 100)")
-    p.add_argument("--max-delete", type=int, default=500, help="Safety cap on number of deletions (default 500)")
-    p.add_argument("--apply", action="store_true", help="Actually perform deletions (omit for dry-run)")
-    p.add_argument("--owner", default=os.getenv("GITHUB_REPOSITORY", "" ).split("/")[0], help="Repository owner (auto from GITHUB_REPOSITORY)")
-    p.add_argument("--repo", default=os.getenv("GITHUB_REPOSITORY", "" ).split("/")[-1], help="Repository name (auto from GITHUB_REPOSITORY)")
-    p.add_argument("--sleep", type=float, default=0.25, help="Sleep between deletions to avoid secondary rate limits")
+    p.add_argument(
+        "--days", type=int, default=7, help="Age threshold in days (default 7)"
+    )
+    p.add_argument(
+        "--workflow",
+        action="append",
+        default=[],
+        help="Workflow name or filename to restrict (repeatable)",
+    )
+    p.add_argument(
+        "--status",
+        action="append",
+        default=[],
+        help="Limit to specific statuses (completed, failure, success, cancelled, etc.)",
+    )
+    p.add_argument(
+        "--per-page", type=int, default=100, help="Runs per page to fetch (max 100)"
+    )
+    p.add_argument(
+        "--max-delete",
+        type=int,
+        default=500,
+        help="Safety cap on number of deletions (default 500)",
+    )
+    p.add_argument(
+        "--apply",
+        action="store_true",
+        help="Actually perform deletions (omit for dry-run)",
+    )
+    p.add_argument(
+        "--owner",
+        default=os.getenv("GITHUB_REPOSITORY", "").split("/")[0],
+        help="Repository owner (auto from GITHUB_REPOSITORY)",
+    )
+    p.add_argument(
+        "--repo",
+        default=os.getenv("GITHUB_REPOSITORY", "").split("/")[-1],
+        help="Repository name (auto from GITHUB_REPOSITORY)",
+    )
+    p.add_argument(
+        "--sleep",
+        type=float,
+        default=0.25,
+        help="Sleep between deletions to avoid secondary rate limits",
+    )
     return p.parse_args(list(argv) if argv is not None else None)
 
 
@@ -110,7 +149,9 @@ def _resolve_workflows(owner: str, repo: str, token: str) -> Dict[str, int]:
     return workflows
 
 
-def _list_runs(owner: str, repo: str, workflow_id: int, token: str, per_page: int) -> Iterable[dict]:
+def _list_runs(
+    owner: str, repo: str, workflow_id: int, token: str, per_page: int
+) -> Iterable[dict]:
     page = 1
     while True:
         url = f"{API_ROOT}/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs?per_page={per_page}&page={page}"
@@ -128,7 +169,10 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     token = _auth_token()
 
     if not args.owner or not args.repo:
-        print("ERROR: Could not determine owner/repo; supply --owner and --repo explicitly", file=sys.stderr)
+        print(
+            "ERROR: Could not determine owner/repo; supply --owner and --repo explicitly",
+            file=sys.stderr,
+        )
         return 1
 
     cutoff = dt.datetime.utcnow() - dt.timedelta(days=args.days)
@@ -149,7 +193,10 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
             if w in workflows:
                 selected[w] = workflows[w]
             else:
-                print(f"WARNING: workflow identifier '{w}' not found; skipping", file=sys.stderr)
+                print(
+                    f"WARNING: workflow identifier '{w}' not found; skipping",
+                    file=sys.stderr,
+                )
     else:
         selected = workflows
 
@@ -174,7 +221,11 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
 
                 # Parse created_at
                 try:
-                    run_dt = dt.datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%SZ") if created_at else None
+                    run_dt = (
+                        dt.datetime.strptime(created_at, "%Y-%m-%dT%H:%M:%SZ")
+                        if created_at
+                        else None
+                    )
                 except ValueError:
                     run_dt = None
 
@@ -195,7 +246,9 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
                     return 0
 
                 url = f"{API_ROOT}/repos/{args.owner}/{args.repo}/actions/runs/{run_id}"
-                print(f"Delete candidate: run_id={run_id} created_at={created_at} status={status}")
+                print(
+                    f"Delete candidate: run_id={run_id} created_at={created_at} status={status}"
+                )
                 if args.apply:
                     try:
                         _request(url, token, method="DELETE")
