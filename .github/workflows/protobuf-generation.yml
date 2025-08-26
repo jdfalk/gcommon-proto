@@ -185,15 +185,29 @@ jobs:
       - name: Determine version bump
         id: version
         run: |
-          # Get current version from git tags
-          current_version=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.0")
+          # Get current version from repository-level git tags (not module tags)
+          # Look for tags matching pattern v*.*.* (repository-level versioning)
+          current_version=$(git tag -l 'v*.*.*' --sort=-version:refname | head -1 | sed 's/^v//' || echo "0.0.0")
+
+          # Fallback to git describe if no semantic version tags found
+          if [[ "$current_version" == "0.0.0" ]]; then
+            current_version=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.0")
+          fi
+
           echo "Current version: $current_version"
 
           # Determine version bump type
           version_type="${{ github.event.inputs.version_type || 'patch' }}"
 
-          # Parse semantic version
-          IFS='.' read -r major minor patch <<< "$current_version"
+          # Parse semantic version with validation
+          if [[ "$current_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            IFS='.' read -r major minor patch <<< "$current_version"
+          else
+            echo "Invalid version format: $current_version, defaulting to 0.0.0"
+            major=0
+            minor=0
+            patch=0
+          fi
 
           case "$version_type" in
             "major")
