@@ -36,7 +36,7 @@ build:
   enable_protobuf: true
   enable_docker: true
   enable_cross_compile: true
-  enable_coverage: true
+  enable_coverage: false
   enable_security_scan: true
 
 # Repository sync configuration
