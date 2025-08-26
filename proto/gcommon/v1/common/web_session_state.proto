@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/session_state.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a34ac56d-96ba-4c3e-b36b-a60ba1e62d86
 //
 // SessionState describes the lifecycle of a user session.
@@ -8,8 +8,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

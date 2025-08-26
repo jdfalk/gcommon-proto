@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/session_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: cdb77963-bfe4-405f-86a2-e3d6ba7fb232
 edition = "2023";
 
@@ -22,8 +22,6 @@ import "gcommon/v1/common/update_session_response.proto";
 import "gcommon/v1/common/validate_session_request.proto";
 import "gcommon/v1/common/validate_session_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

@@ -1,6 +1,6 @@
 // file: proto/gcommon/v1/common/types/create_role_response.proto
 // file: proto/gcommon/v1/common/create_role_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 345e6789-a1b2-3c4d-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
@@ -10,8 +10,6 @@ package gcommon.v1.common;
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/role.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

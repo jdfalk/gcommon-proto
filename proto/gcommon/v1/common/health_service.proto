@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/health_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 81fada90-f4d6-4bfc-9756-b7b144fcbdf6
 edition = "2023";
 
@@ -22,8 +22,6 @@ import "gcommon/v1/common/unregister_check_response.proto";
 import "gcommon/v1/common/watch_request.proto";
 import "gcommon/v1/common/watch_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

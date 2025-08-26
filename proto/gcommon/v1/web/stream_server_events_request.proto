@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/stream_server_events_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0316e0ad-e7e2-4a26-82d6-0a4b3d92c9ec
 
 edition = "2023";
@@ -9,7 +9,6 @@ package gcommon.v1.web;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 // Standard imports
 // Common types

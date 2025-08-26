@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/auth_admin_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 253654c0-690d-48e1-b4fd-24d978958200
 edition = "2023";
 
@@ -28,7 +28,6 @@ import "gcommon/v1/common/update_user_request.proto";
 import "gcommon/v1/common/update_user_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/config/get_config_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0fdacefb-f7a3-40cd-9ed7-2faf4e61c032
 edition = "2023";
 
@@ -8,8 +8,6 @@ package gcommon.v1.config;
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/config/config_entry.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";

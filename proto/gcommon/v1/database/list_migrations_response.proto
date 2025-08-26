@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/schema/list_migrations_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 2d1040e2-056b-4264-8f84-d731b345d924
 
 edition = "2023";
@@ -19,5 +19,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ListMigrationsResponse {
   // List of migration metadata entries
-  repeated MigrationInfo migrations = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated MigrationInfo migrations = 1 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

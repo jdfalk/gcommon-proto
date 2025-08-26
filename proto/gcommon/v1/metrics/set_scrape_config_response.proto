@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/set_scrape_config_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e328641f-32d3-4439-b78e-d7fbd14ede9d
 // file: proto/gcommon/v1/metrics/v1/set_scrape_config_response.proto
 //
@@ -11,8 +11,6 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

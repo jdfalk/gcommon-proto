@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/notification_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
 
 edition = "2023";
@@ -19,8 +19,6 @@ import "gcommon/v1/common/send_notification_response.proto";
 import "gcommon/v1/common/update_preferences_request.proto";
 import "gcommon/v1/common/update_preferences_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

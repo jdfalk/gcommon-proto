@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/schema/run_migration_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 666b0a89-7fc5-48ce-ac8a-9a886d9d039a
 
 edition = "2023";
@@ -20,7 +20,7 @@ message RunMigrationRequest {
   string database = 1 [(buf.validate.field).string.min_len = 1];
 
   // List of migration scripts to execute
-  repeated MigrationScript scripts = 2 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated MigrationScript scripts = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Request metadata for tracing and authentication
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];

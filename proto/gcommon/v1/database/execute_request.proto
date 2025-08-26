@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/execute_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c2d8bf6f-1805-4fbe-8c00-77c616083610
 
 edition = "2023";
@@ -21,7 +21,7 @@ message ExecuteRequest {
   string statement = 1 [(buf.validate.field).string.min_len = 1];
 
   // Statement parameters for parameterized operations
-  repeated QueryParameter parameters = 2 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated QueryParameter parameters = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Database name (optional, uses default if not specified)
   string database = 3 [(buf.validate.field).string.min_len = 1];

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/server_state.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: edc8f45d-5db0-4b28-b04a-c6eedc98b19b
 //
 // ServerState represents lifecycle states of the server.
@@ -8,8 +8,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

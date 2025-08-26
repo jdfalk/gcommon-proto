@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/organization/get_tenant_usage_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c93fcd4c-7090-4c96-9c04-1e2b77a10337
 edition = "2023";
 
@@ -22,5 +22,5 @@ message GetTenantUsageResponse {
   bool success = 2;
 
   // Usage statistics for the tenant
-  repeated gcommon.v1.common.KeyValue usage_stats = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated gcommon.v1.common.KeyValue usage_stats = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

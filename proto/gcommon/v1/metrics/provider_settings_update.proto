@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/provider_settings_update.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d2e3f4a5-678d-023c-7890-345678901234
 
 edition = "2023";
@@ -10,8 +10,6 @@ import "gcommon/v1/metrics/open_telemetry_settings_update.proto";
 import "gcommon/v1/metrics/prometheus_settings_update.proto";
 import "gcommon/v1/metrics/stats_d_settings_update.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

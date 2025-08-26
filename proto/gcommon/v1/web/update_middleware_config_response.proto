@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/update_middleware_config_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e8328b61-1bdf-487b-b874-01de9424625e
 
 edition = "2023";
@@ -8,8 +8,6 @@ package gcommon.v1.web;
 
 import "gcommon/v1/common/response_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";

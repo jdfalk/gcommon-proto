@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/media/media_processing_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 789abcd-ef01-2345-d2e3-f4a5b6c7d8e9
 
 edition = "2023";
@@ -17,8 +17,6 @@ import "gcommon/v1/media/get_processing_status_response.proto";
 import "gcommon/v1/media/transcode_media_request.proto";
 import "gcommon/v1/media/transcode_media_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";

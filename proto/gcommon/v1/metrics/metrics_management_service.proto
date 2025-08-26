@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/metrics_management_service.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: a1b2c3d4-e5f6-7890-abcd-1234567890ab
 
 edition = "2023";
@@ -17,7 +17,6 @@ import "gcommon/v1/metrics/list_providers_response.proto";
 import "gcommon/v1/metrics/update_provider_request.proto";
 import "gcommon/v1/metrics/update_provider_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 // Import all required request and response messages
 

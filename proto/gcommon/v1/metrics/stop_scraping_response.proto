@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/stop_scraping_response.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 7d2eb263-b398-4b98-af07-c9950ab73d05
 
 edition = "2023";
@@ -10,8 +10,6 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/metrics/scrape_job.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

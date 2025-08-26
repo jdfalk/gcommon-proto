@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/row.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: b3495bf9-4671-40b0-8d44-3fe8f9aac6ca
 edition = "2023";
 
@@ -19,5 +19,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message Row {
   // Column values in order matching the column metadata
-  repeated google.protobuf.Any values = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated google.protobuf.Any values = 1 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/media/audio_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0123456-789a-bcde-e7f8-a9b0c1d2e3f4
 
 edition = "2023";
@@ -17,8 +17,6 @@ import "gcommon/v1/media/normalize_audio_response.proto";
 import "gcommon/v1/media/split_audio_request.proto";
 import "gcommon/v1/media/split_audio_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";

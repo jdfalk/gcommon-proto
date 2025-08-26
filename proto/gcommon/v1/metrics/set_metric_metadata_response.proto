@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/set_metric_metadata_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 2594ce5a-5795-4689-b2f9-433919c5cc67
 // file: proto/gcommon/v1/metrics/v1/set_metric_metadata_response.proto
 //
@@ -12,8 +12,6 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/metrics/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

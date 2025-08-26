@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/ssl_protocol.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 2f6af5d4-4f52-42cd-9ae8-9c6506e0da5e
 //
 // SSLProtocol lists supported TLS protocol versions.
@@ -8,8 +8,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

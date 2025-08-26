@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/timeout_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e3a21e33-e66f-47e7-b7ff-6c6df8a0e9a1
 
 edition = "2023";
@@ -8,8 +8,6 @@ package gcommon.v1.web;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";

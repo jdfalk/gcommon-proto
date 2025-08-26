@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/organization/list_organizations_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3da96ff2-b3f3-479b-86e8-77a5ae8bcd5d
 edition = "2023";
 
@@ -23,7 +23,7 @@ message ListOrganizationsResponse {
   bool success = 2;
 
   // List of organizations returned
-  repeated Organization organizations = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated Organization organizations = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;
