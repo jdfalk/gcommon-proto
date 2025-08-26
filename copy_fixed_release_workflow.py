@@ -26,7 +26,9 @@ repos = [
     "/Users/jdfalk/repos/github.com/jdfalk/public-scratch",
 ]
 
-source_file = "/Users/jdfalk/repos/github.com/jdfalk/gcommon/.github/workflows/release.yml"
+source_file = (
+    "/Users/jdfalk/repos/github.com/jdfalk/gcommon/.github/workflows/release.yml"
+)
 
 
 def copy_release_workflow():
@@ -122,7 +124,7 @@ Files changed:
                 ["git", "status", "--porcelain"],
                 capture_output=True,
                 text=True,
-                check=True
+                check=True,
             )
 
             if not result.stdout.strip():
@@ -133,10 +135,7 @@ Files changed:
             subprocess.run(["git", "add", ".github/workflows/release.yml"], check=True)
 
             # Commit the changes
-            subprocess.run(
-                ["git", "commit", "-m", commit_message],
-                check=True
-            )
+            subprocess.run(["git", "commit", "-m", commit_message], check=True)
 
             print(f"   ✅ {repo_name} - Changes committed")
 
