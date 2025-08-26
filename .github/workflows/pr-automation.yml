@@ -1,5 +1,5 @@
 # file: .github/workflows/pr-automation.yml
-# version: 4.3.0
+# version: 4.3.1
 # guid: a7b8c9d0-e1f2-3456-a789-0123456789bc
 # NOTE: This file should be updated in ghcommon repository first, then copied to other repositories.
 # To update: Edit in https://github.com/jdfalk/ghcommon/.github/workflows/pr-automation.yml then copy to other repos
@@ -74,7 +74,6 @@ jobs:
           VALIDATE_DOCKERFILE_HADOLINT: true
 
           # Auto-fix settings - use FIX_ as default behavior
-          FIX_ANSIBLE: true
           FIX_CLANG_FORMAT: true
           FIX_CSHARP: true
           FIX_CSS_PRETTIER: true # Prettier for CSS formatting
