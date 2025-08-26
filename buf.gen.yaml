@@ -15,8 +15,12 @@ plugins:
     opt:
       - paths=import
       - module=github.com/jdfalk/gcommon/sdks/go
-  # Protovalidate plugin temporarily removed: generation failed with not_found for buf.build/bufbuild/protovalidate-go:v0.6.3
-  # Reintroduce once protovalidate validations are actually used (imports/options present) or correct plugin reference is confirmed.
+  # Protovalidate Go support
+  - remote: buf.build/bufbuild/protovalidate-go:v0.6.3
+    out: sdks/go
+    opt:
+      - paths=import
+      - module=github.com/jdfalk/gcommon/sdks/go
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python
