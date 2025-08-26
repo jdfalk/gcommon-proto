@@ -8,6 +8,8 @@ package gcommon.v1.database;
 import "gcommon/v1/common/pagination.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,10 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message KeysRequest {
   // Key pattern to match (supports wildcards)
-  string pattern = 1;
+  string pattern = 1 [(buf.validate.field).string.min_len = 1];
 
   // Optional namespace
-  string namespace = 2;
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // Pagination options
   gcommon.v1.common.Pagination pagination = 3 [lazy = true];

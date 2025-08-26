@@ -12,6 +12,8 @@ import "gcommon/v1/metrics/metric_filter.proto";
 import "gcommon/v1/metrics/stream_options.proto";
 import "gcommon/v1/metrics/stream_start.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -27,7 +29,7 @@ message MetricsStreamMetricsRequest {
   StreamOptions options = 3;
 
   // Optional provider ID to stream from
-  string provider_id = 4;
+  string provider_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Starting point for the stream
   StreamStart start = 5;

@@ -10,6 +10,8 @@ import "gcommon/v1/common/conflict_resolution.proto";
 import "gcommon/v1/common/synchronization_frequency.proto";
 import "gcommon/v1/config/synchronization_target.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -19,7 +21,7 @@ message SynchronizationSettings {
   bool enabled = 1;
 
   // Synchronization targets
-  repeated gcommon.v1.config.SynchronizationTarget targets = 2;
+  repeated gcommon.v1.config.SynchronizationTarget targets = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Synchronization frequency
   gcommon.v1.common.SynchronizationFrequency frequency = 3;

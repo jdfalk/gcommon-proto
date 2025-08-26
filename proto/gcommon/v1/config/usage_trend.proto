@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,8 +19,8 @@ message UsageTrend {
   google.protobuf.Timestamp timestamp = 1;
 
   // Usage count
-  int64 usage_count = 2;
+  int64 usage_count = 2 [(buf.validate.field).int64.gte = 0];
 
   // Trend direction
-  string direction = 3;
+  string direction = 3 [(buf.validate.field).string.min_len = 1];
 }

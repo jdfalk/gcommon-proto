@@ -17,6 +17,8 @@ import "gcommon/v1/metrics/resource_usage_stats.proto";
 import "gcommon/v1/metrics/top_metrics.proto";
 import "gcommon/v1/metrics/trend_analysis.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -41,7 +43,7 @@ message ProviderStatistics {
   ExportStats exports = 6;
 
   // Health status history
-  repeated HealthStatusEntry health_history = 7;
+  repeated HealthStatusEntry health_history = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Configuration summary
   ConfigurationSummary config = 8;

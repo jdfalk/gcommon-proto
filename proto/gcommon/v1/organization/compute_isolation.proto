@@ -11,16 +11,18 @@ import "gcommon/v1/organization/auto_scaling_config.proto";
 import "gcommon/v1/organization/cpu_allocation.proto";
 import "gcommon/v1/organization/memory_allocation.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message ComputeIsolation {
   // Dedicated compute instance identifier
-  string compute_instance = 1;
+  string compute_instance = 1 [(buf.validate.field).string.min_len = 1];
 
   // Container or namespace identifier
-  string namespace = 2;
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // CPU allocation for this tenant
   CPUAllocation cpu = 3;

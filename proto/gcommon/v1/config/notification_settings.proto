@@ -10,6 +10,8 @@ import "gcommon/v1/common/notification_trigger.proto";
 import "gcommon/v1/config/batching_settings.proto";
 import "gcommon/v1/config/notification_channel.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -19,19 +21,19 @@ message ConfigNotificationSettings {
   bool enabled = 1;
 
   // Notification channels
-  repeated ConfigNotificationChannel channels = 2;
+  repeated ConfigNotificationChannel channels = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Notification triggers
-  repeated gcommon.v1.common.NotificationTrigger triggers = 3;
+  repeated gcommon.v1.common.NotificationTrigger triggers = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Notification template
-  string template = 4;
+  string template = 4 [(buf.validate.field).string.min_len = 1];
 
   // Notification recipients
-  repeated string recipients = 5;
+  repeated string recipients = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Notification delay in minutes
-  int32 delay_minutes = 6;
+  int32 delay_minutes = 6 [(buf.validate.field).int32.gte = 0];
 
   // Notification batching settings
   BatchingSettings batching = 7;

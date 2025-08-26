@@ -9,16 +9,18 @@ package gcommon.v1.organization;
 import "gcommon/v1/organization/health_check_config.proto";
 import "gcommon/v1/organization/ssl_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message OrganizationLoadBalancerConfig {
   // Load balancer type (application, network)
-  string type = 1;
+  string type = 1 [(buf.validate.field).string.min_len = 1];
 
   // Load balancing algorithm
-  string algorithm = 2;
+  string algorithm = 2 [(buf.validate.field).string.min_len = 1];
 
   // Health check configuration
   OrganizationHealthCheckConfig health_check = 3;

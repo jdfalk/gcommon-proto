@@ -9,19 +9,21 @@ package gcommon.v1.config;
 import "gcommon/v1/config/compliance_audit.proto";
 import "gcommon/v1/config/compliance_reporting.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ConfigComplianceSettings {
   // Compliance frameworks
-  repeated string frameworks = 1;
+  repeated string frameworks = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Compliance policies
-  repeated string policies = 2;
+  repeated string policies = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Compliance audits
-  repeated gcommon.v1.config.ComplianceAudit audits = 3;
+  repeated gcommon.v1.config.ComplianceAudit audits = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Compliance reporting
   gcommon.v1.config.ComplianceReporting reporting = 4;

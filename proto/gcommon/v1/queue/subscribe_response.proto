@@ -11,6 +11,8 @@ import "gcommon/v1/queue/connection_details.proto";
 import "gcommon/v1/queue/partition_offset.proto";
 import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -27,8 +29,8 @@ message SubscribeResponse {
   ConnectionDetails connection_details = 3;
 
   // Subscription ID
-  string subscription_id = 4;
+  string subscription_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Error message if any
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 // TODO FIX THIS
 //
 
@@ -14,10 +16,10 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message ApiKeyStats {
-  int32 total_requests = 1;
-  int32 successful_requests = 2;
-  int32 failed_requests = 3;
-  int64 last_used_at = 4;
+  int32 total_requests = 1 [(buf.validate.field).int32.gte = 0];
+  int32 successful_requests = 2 [(buf.validate.field).int32.gte = 0];
+  int32 failed_requests = 3 [(buf.validate.field).int32.gte = 0];
+  int64 last_used_at = 4 [(buf.validate.field).int64.gte = 0];
   // TODO FIX THIS
   // repeated DailyUsage daily_usage = 5;
 }

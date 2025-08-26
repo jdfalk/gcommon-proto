@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,17 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricStats {
   // Minimum value observed.
-  double min = 1;
+  double min = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Maximum value observed.
-  double max = 2;
+  double max = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Average of all values.
-  double average = 3;
+  double average = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Sum of all values.
-  double sum = 4;
+  double sum = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Number of samples.
-  int64 count = 5;
+  int64 count = 5 [(buf.validate.field).int64.gte = 0];
 }

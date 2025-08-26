@@ -13,6 +13,8 @@ import "gcommon/v1/common/metrics_validation_result.proto";
 import "gcommon/v1/metrics/provider_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -25,13 +27,13 @@ message UpdateProviderResponse {
   bool success = 1;
 
   // Provider ID that was updated
-  string provider_id = 2;
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated provider status
   ProviderStatus status = 3;
 
   // Validation results from the update operation
-  repeated gcommon.v1.common.MetricsValidationResult validation_results = 4;
+  repeated gcommon.v1.common.MetricsValidationResult validation_results = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error information if update failed
   gcommon.v1.common.Error error = 5;
@@ -40,8 +42,8 @@ message UpdateProviderResponse {
   google.protobuf.Timestamp updated_at = 6;
 
   // Configuration changes that were applied
-  repeated string applied_changes = 7;
+  repeated string applied_changes = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Warning messages about the update
-  repeated string warnings = 8;
+  repeated string warnings = 8 [(buf.validate.field).repeated.min_items = 1];
 }

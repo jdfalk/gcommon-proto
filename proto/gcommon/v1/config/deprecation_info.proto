@@ -9,6 +9,8 @@ package gcommon.v1.config;
 import "gcommon/v1/common/deprecation_level.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -18,19 +20,19 @@ message DeprecationInfo {
   bool deprecated = 1;
 
   // Deprecation reason
-  string reason = 2;
+  string reason = 2 [(buf.validate.field).string.min_len = 1];
 
   // Deprecation date
   google.protobuf.Timestamp deprecated_at = 3;
 
   // Replacement configuration key
-  string replacement_key = 4;
+  string replacement_key = 4 [(buf.validate.field).string.min_len = 1];
 
   // Removal date
   google.protobuf.Timestamp removal_date = 5;
 
   // Migration guide
-  string migration_guide = 6;
+  string migration_guide = 6 [(buf.validate.field).string.min_len = 1];
 
   // Deprecation level
   gcommon.v1.common.DeprecationLevel level = 7;

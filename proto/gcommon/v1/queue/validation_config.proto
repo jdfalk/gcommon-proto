@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,7 +18,7 @@ message ValidationConfig {
   // Whether to validate message schema.
   bool validate_schema = 1;
   // Maximum allowed size of the message body in bytes.
-  int64 max_body_bytes = 2;
+  int64 max_body_bytes = 2 [(buf.validate.field).int64.gte = 0];
   // If true, reject messages that exceed validation limits.
   bool reject_invalid = 3;
 }

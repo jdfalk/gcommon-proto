@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/ordering_level.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -26,5 +28,5 @@ message OrderingConfig {
   bool causal_ordering = 4;
 
   // Ordering timeout (milliseconds)
-  int32 ordering_timeout_ms = 5;
+  int32 ordering_timeout_ms = 5 [(buf.validate.field).int32.gt = 0];
 }

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -16,13 +18,13 @@ message BackupPolicy {
   bool enabled = 1;
 
   // Backup schedule
-  string schedule = 2;
+  string schedule = 2 [(buf.validate.field).string.min_len = 1];
 
   // Backup retention
-  int32 retention_days = 3;
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
 
   // Backup location
-  string location = 4;
+  string location = 4 [(buf.validate.field).string.min_len = 1];
 
   // Backup encryption
   bool encrypted = 5;

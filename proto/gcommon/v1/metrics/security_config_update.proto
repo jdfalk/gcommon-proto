@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/api_key_config_update.proto";
 import "gcommon/v1/metrics/tls_config_update.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,7 +23,7 @@ message SecurityConfigUpdate {
   bool require_auth = 1;
 
   // Updated authentication methods
-  repeated string auth_methods = 2;
+  repeated string auth_methods = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Updated TLS requirement
   bool require_tls = 3;

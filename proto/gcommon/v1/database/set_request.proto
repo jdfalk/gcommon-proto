@@ -9,6 +9,8 @@ import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -19,13 +21,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message SetRequest {
   // Cache key to store
-  string key = 1;
+  string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Value to store (supports any type)
   google.protobuf.Any value = 2 [lazy = true];
 
   // Optional namespace for cache isolation
-  string namespace = 3;
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
 
   // Time-to-live for the cache entry (0 for no expiration)
   google.protobuf.Duration ttl = 4 [lazy = true];

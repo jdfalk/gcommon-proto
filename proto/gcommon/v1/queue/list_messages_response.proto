@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,17 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Response for listing messages
 message ListMessagesResponse {
   // List of messages
-  repeated QueueMessage messages = 1;
+  repeated QueueMessage messages = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Total number of messages available
-  int64 total_count = 2;
+  int64 total_count = 2 [(buf.validate.field).int64.gte = 0];
 
   // Next page token for pagination
-  string next_page_token = 3;
+  string next_page_token = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether there are more messages
   bool has_more = 4;
 
   // Error message if listing failed
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }

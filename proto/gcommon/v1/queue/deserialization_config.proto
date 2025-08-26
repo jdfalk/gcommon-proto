@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/serialization_format.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,7 +22,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message DeserializationConfig {
   // Supported serialization formats
-  repeated gcommon.v1.common.SerializationFormat supported_formats = 1;
+  repeated gcommon.v1.common.SerializationFormat supported_formats = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Default format if not specified
   gcommon.v1.common.SerializationFormat default_format = 2;
@@ -32,8 +34,8 @@ message DeserializationConfig {
   bool allow_unknown_fields = 4;
 
   // Custom deserializer class name
-  string custom_deserializer = 5;
+  string custom_deserializer = 5 [(buf.validate.field).string.min_len = 1];
 
   // Maximum message size for deserialization (bytes)
-  uint64 max_message_size = 6;
+  uint64 max_message_size = 6 [(buf.validate.field).uint64.gte = 0];
 }

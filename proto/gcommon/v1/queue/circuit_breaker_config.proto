@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,16 +25,16 @@ message QueueCircuitBreakerConfig {
   bool enabled = 1;
 
   // Failure threshold to open circuit
-  uint32 failure_threshold = 2;
+  uint32 failure_threshold = 2 [(buf.validate.field).uint32.gte = 0];
 
   // Success threshold to close circuit
-  uint32 success_threshold = 3;
+  uint32 success_threshold = 3 [(buf.validate.field).uint32.gte = 0];
 
   // Timeout before attempting to close circuit
   google.protobuf.Duration timeout = 4;
 
   // Maximum number of concurrent requests in half-open state
-  uint32 max_requests = 5;
+  uint32 max_requests = 5 [(buf.validate.field).uint32.gte = 0];
 
   // Time window for failure counting
   google.protobuf.Duration interval = 6;

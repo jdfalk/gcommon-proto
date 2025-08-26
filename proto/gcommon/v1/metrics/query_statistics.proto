@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,22 +20,22 @@ message QueryStatistics {
   google.protobuf.Duration execution_time = 1;
 
   // Number of data points processed
-  int64 data_points_processed = 2;
+  int64 data_points_processed = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of metrics examined
-  int64 metrics_examined = 3;
+  int64 metrics_examined = 3 [(buf.validate.field).int64.gte = 0];
 
   // Number of series returned
-  int64 series_returned = 4;
+  int64 series_returned = 4 [(buf.validate.field).int64.gte = 0];
 
   // Memory used during query execution (bytes)
-  int64 memory_used_bytes = 5;
+  int64 memory_used_bytes = 5 [(buf.validate.field).int64.gte = 0];
 
   // Storage backends queried
-  repeated string storage_backends_used = 6;
+  repeated string storage_backends_used = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Cache hit rate (0.0 to 1.0)
-  double cache_hit_rate = 7;
+  double cache_hit_rate = 7 [(buf.validate.field).double.gte = 0.0];
 
   // When the query was executed
   google.protobuf.Timestamp query_time = 8;

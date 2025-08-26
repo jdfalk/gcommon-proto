@@ -7,26 +7,28 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message NetworkACLRule {
   // Rule action (allow, deny)
-  string action = 1;
+  string action = 1 [(buf.validate.field).string.min_len = 1];
 
   // Source IP or CIDR block
-  string source = 2;
+  string source = 2 [(buf.validate.field).string.min_len = 1];
 
   // Destination IP or CIDR block
-  string destination = 3;
+  string destination = 3 [(buf.validate.field).string.min_len = 1];
 
   // Protocol (TCP, UDP, ICMP)
-  string protocol = 4;
+  string protocol = 4 [(buf.validate.field).string.min_len = 1];
 
   // Port range
-  string port_range = 5;
+  string port_range = 5 [(buf.validate.field).string.min_len = 1];
 
   // Rule priority
-  int32 priority = 6;
+  int32 priority = 6 [(buf.validate.field).int32.gte = 0];
 }

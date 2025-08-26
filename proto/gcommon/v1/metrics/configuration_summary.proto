@@ -9,13 +9,15 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/resource_limits_summary.proto";
 import "gcommon/v1/metrics/security_summary.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ConfigurationSummary {
   // Number of configured exporters
-  int32 exporter_count = 1;
+  int32 exporter_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Security settings summary
   SecuritySummary security = 2;
@@ -24,5 +26,5 @@ message ConfigurationSummary {
   ResourceLimitsSummary resource_limits = 3;
 
   // Configuration version
-  string config_version = 4;
+  string config_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 }

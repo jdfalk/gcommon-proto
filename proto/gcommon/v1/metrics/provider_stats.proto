@@ -8,25 +8,27 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/metrics/resource_usage.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ProviderStats {
   // Number of metrics managed
-  int64 metrics_count = 1;
+  int64 metrics_count = 1 [(buf.validate.field).int64.gte = 0];
 
   // Number of data points
-  int64 data_points_count = 2;
+  int64 data_points_count = 2 [(buf.validate.field).int64.gte = 0];
 
   // Data volume (bytes)
-  int64 data_volume_bytes = 3;
+  int64 data_volume_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Operations per second
-  double operations_per_second = 4;
+  double operations_per_second = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Error rate
-  double error_rate = 5;
+  double error_rate = 5 [(buf.validate.field).double.gte = 0.0];
 
   // Resource usage
   ResourceUsage resource_usage = 6;

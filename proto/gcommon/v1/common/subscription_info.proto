@@ -11,6 +11,8 @@ import "gcommon/v1/common/subscription_options.proto";
 import "gcommon/v1/common/subscription_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -22,7 +24,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message CommonSubscriptionInfo {
   // Unique identifier for this subscription
-  string subscription_id = 1;
+  string subscription_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Filter criteria for subscription events
   FilterOptions filter = 2;

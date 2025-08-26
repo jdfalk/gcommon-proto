@@ -8,6 +8,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/error_code.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message CommonRetryPolicy {
   // Maximum number of retry attempts (including initial attempt)
-  int32 max_attempts = 1;
+  int32 max_attempts = 1 [(buf.validate.field).int32.gte = 0];
 
   // Initial delay before first retry
   google.protobuf.Duration initial_delay = 2;
@@ -28,13 +30,13 @@ message CommonRetryPolicy {
   google.protobuf.Duration max_delay = 3;
 
   // Multiplier for exponential backoff (e.g., 2.0 for doubling)
-  double backoff_multiplier = 4;
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Whether to add random jitter to retry timing
   bool enable_jitter = 5;
 
   // List of error codes that should trigger retries
-  repeated ErrorCode retryable_errors = 6;
+  repeated ErrorCode retryable_errors = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Total timeout for all retry attempts combined
   google.protobuf.Duration total_timeout = 7;

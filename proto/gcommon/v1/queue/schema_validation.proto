@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,11 +18,11 @@ message SchemaValidation {
   bool passed = 1;
 
   // Schema version in backup
-  string backup_schema_version = 2;
+  string backup_schema_version = 2 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Current schema version
-  string current_schema_version = 3;
+  string current_schema_version = 3 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Schema compatibility status
-  string compatibility_status = 4;
+  string compatibility_status = 4 [(buf.validate.field).string.min_len = 1];
 }

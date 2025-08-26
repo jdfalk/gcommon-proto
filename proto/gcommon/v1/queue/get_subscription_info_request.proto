@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -15,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Request to get subscription information
 message GetSubscriptionInfoRequest {
   // Subscription ID to get info for
-  string subscription_id = 1;
+  string subscription_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Include detailed metrics
   bool include_metrics = 2;
@@ -27,5 +29,5 @@ message GetSubscriptionInfoRequest {
   bool include_partitions = 4;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 5;
+  int32 timeout_ms = 5 [(buf.validate.field).int32.gt = 0];
 }

@@ -8,6 +8,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/ack_mode.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -22,7 +24,7 @@ message SubscriptionOptions {
   bool include_history = 1;
 
   // Maximum number of events to batch together
-  int32 max_batch_size = 2;
+  int32 max_batch_size = 2 [(buf.validate.field).int32.gte = 0];
 
   // Acknowledgment mode for message delivery
   gcommon.v1.common.AckMode ack_mode = 3;

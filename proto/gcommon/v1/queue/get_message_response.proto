@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/message_envelope.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,14 +25,14 @@ message GetMessageResponse {
   MessageEnvelope message = 1;
 
   // Acknowledgment token for this message (used to ack/nack)
-  string ack_token = 2;
+  string ack_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether more messages are available in the queue
   bool has_more = 3;
 
   // Position/offset of this message in the queue
-  int64 message_offset = 4;
+  int64 message_offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // Queue depth at the time of retrieval
-  int64 queue_depth = 5;
+  int64 queue_depth = 5 [(buf.validate.field).int64.gte = 0];
 }

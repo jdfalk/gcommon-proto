@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/role.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -18,14 +20,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message GetUserPermissionsResponse {
   // Direct permissions assigned to the user
-  repeated string permissions = 1;
+  repeated string permissions = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Permissions inherited from roles
-  repeated string role_permissions = 2;
+  repeated string role_permissions = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // All effective permissions (union of direct and role permissions)
-  repeated string effective_permissions = 3;
+  repeated string effective_permissions = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // User's roles (includes permission details)
-  repeated Role roles = 4 [lazy = true];
+  repeated Role roles = 4 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 }

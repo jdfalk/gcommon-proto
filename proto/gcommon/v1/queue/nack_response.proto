@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,10 +20,10 @@ message NackResponse {
   bool success = 1;
 
   // Error message if nack failed
-  string error = 2;
+  string error = 2 [(buf.validate.field).string.min_len = 1];
 
   // Message ID that was nacked
-  string message_id = 3;
+  string message_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when nack was processed
   int64 timestamp = 4;

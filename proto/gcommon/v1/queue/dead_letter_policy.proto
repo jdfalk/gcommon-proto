@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -22,10 +24,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message DeadLetterPolicy {
   // Name of the dead letter queue where failed messages will be sent
-  string dead_letter_queue = 1;
+  string dead_letter_queue = 1 [(buf.validate.field).string.min_len = 1];
 
   // Maximum number of delivery attempts before sending to dead letter queue
-  int32 max_delivery_attempts = 2;
+  int32 max_delivery_attempts = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum age of a message before it's considered expired and sent to DLQ
   google.protobuf.Duration max_message_age = 3;

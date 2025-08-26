@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -15,22 +17,22 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // ServerConfig defines basic web server settings.
 message ServerConfig {
   // Hostname or IP address to bind
-  string host = 1;
+  string host = 1 [(buf.validate.field).string.min_len = 1];
 
   // Listening port number
-  int32 port = 2;
+  int32 port = 2 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Enable TLS for secure communication
   bool enable_tls = 3;
 
   // Path to TLS certificate
-  string tls_cert_path = 4;
+  string tls_cert_path = 4 [(buf.validate.field).string.min_len = 1];
 
   // Path to TLS key
-  string tls_key_path = 5;
+  string tls_key_path = 5 [(buf.validate.field).string.min_len = 1];
 
   // Trusted proxy addresses
-  repeated string trusted_proxies = 6;
+  repeated string trusted_proxies = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Additional server options
   map<string, string> options = 7;

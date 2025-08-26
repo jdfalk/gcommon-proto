@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,17 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message StatsDSettingsUpdate {
   // Updated server address
-  string address = 1;
+  string address = 1 [(buf.validate.field).string.min_len = 1];
 
   // Updated protocol
-  string protocol = 2;
+  string protocol = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated prefix
-  string prefix = 3;
+  string prefix = 3 [(buf.validate.field).string.min_len = 1];
 
   // Updated sample rate
-  double sample_rate = 4;
+  double sample_rate = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Updated buffer size
-  int32 buffer_size = 5;
+  int32 buffer_size = 5 [(buf.validate.field).int32.gte = 0];
 }

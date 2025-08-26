@@ -8,6 +8,8 @@ package gcommon.v1.database;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -21,11 +23,11 @@ message SetMultipleResponse {
   bool success = 1;
 
   // List of keys that failed to be set
-  repeated string failed_keys = 2;
+  repeated string failed_keys = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error details if operation failed
   gcommon.v1.common.Error error = 3;
 
   // Number of keys that were successfully set
-  int32 set_count = 4;
+  int32 set_count = 4 [(buf.validate.field).int32.gte = 0];
 }

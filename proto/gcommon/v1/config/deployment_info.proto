@@ -11,6 +11,8 @@ import "gcommon/v1/config/deployment_rollback_info.proto";
 import "gcommon/v1/config/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -23,19 +25,19 @@ message DeploymentInfo {
   google.protobuf.Timestamp last_deployed_at = 2;
 
   // Deployment version
-  string version = 3;
+  string version = 3 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Deployment method
-  string method = 4;
+  string method = 4 [(buf.validate.field).string.min_len = 1];
 
   // Deployment target
-  string target = 5;
+  string target = 5 [(buf.validate.field).string.min_len = 1];
 
   // Deployment configuration
   map<string, string> config = 6;
 
   // Deployment health checks
-  repeated HealthCheck health_checks = 7;
+  repeated HealthCheck health_checks = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Deployment rollback info
   DeploymentRollbackInfo rollback_info = 8;

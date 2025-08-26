@@ -10,6 +10,8 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/metrics/metric_query.proto";
 import "gcommon/v1/metrics/query_output_options.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -22,7 +24,7 @@ message QueryMetricsRequest {
   MetricQuery query = 2;
 
   // Optional query timeout in seconds
-  int32 timeout_seconds = 3;
+  int32 timeout_seconds = 3 [(buf.validate.field).int32.gt = 0];
 
   // Whether to return query execution plan (for debugging)
   bool include_query_plan = 4;

@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/numeric_format.proto";
 import "gcommon/v1/common/response_compression.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -30,5 +32,5 @@ message OutputOptions {
   bool flatten_response = 5;
 
   // Time zone for timestamp formatting
-  string timezone = 6;
+  string timezone = 6 [(buf.validate.field).string.min_len = 1];
 }

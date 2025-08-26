@@ -13,19 +13,21 @@ import "gcommon/v1/metrics/metric_type_counts.proto";
 import "gcommon/v1/metrics/performance_stats.proto";
 import "gcommon/v1/metrics/top_metrics.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message MetricsSummary {
   // Total number of unique metrics
-  int64 total_metrics = 1;
+  int64 total_metrics = 1 [(buf.validate.field).int64.gte = 0];
 
   // Total number of data points
-  int64 total_data_points = 2;
+  int64 total_data_points = 2 [(buf.validate.field).int64.gte = 0];
 
   // Total data volume (bytes)
-  int64 total_data_volume_bytes = 3;
+  int64 total_data_volume_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Metrics by type
   MetricTypeCounts type_counts = 4;

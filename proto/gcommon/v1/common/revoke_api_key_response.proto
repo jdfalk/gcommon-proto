@@ -11,6 +11,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,10 +22,10 @@ message RevokeApiKeyResponse {
   bool success = 1;
 
   // Error message if revocation failed
-  string error_message = 2;
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Revocation timestamp
-  int64 revoked_at = 3;
+  int64 revoked_at = 3 [(buf.validate.field).int64.gte = 0];
 }
 
 // Implement the actual protobuf definitions according to the auth module requirements

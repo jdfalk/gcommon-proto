@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,7 +19,7 @@ message QueueRetentionPolicy {
   // Maximum age of a message before it is removed.
   google.protobuf.Duration max_age = 1;
   // Maximum total storage size for the queue in bytes.
-  int64 max_size_bytes = 2;
+  int64 max_size_bytes = 2 [(buf.validate.field).int64.gte = 0];
   // If true, older messages are discarded when limits are reached.
   bool discard_old = 3;
 }

@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,23 +22,23 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message OffsetInfo {
   // The offset value
-  uint64 offset = 1;
+  uint64 offset = 1 [(buf.validate.field).uint64.gte = 0];
 
   // Partition this offset belongs to
-  uint32 partition_id = 2;
+  uint32 partition_id = 2 [(buf.validate.field).uint32.gte = 0];
 
   // Timestamp of the message at this offset
   google.protobuf.Timestamp timestamp = 3;
 
   // Size of the message at this offset
-  uint64 message_size = 4;
+  uint64 message_size = 4 [(buf.validate.field).uint64.gte = 0];
 
   // Whether this offset is valid/available
   bool is_valid = 5;
 
   // Consumer group that owns this offset
-  string consumer_group = 6;
+  string consumer_group = 6 [(buf.validate.field).string.min_len = 1];
 
   // Last committed offset for this consumer
-  uint64 committed_offset = 7;
+  uint64 committed_offset = 7 [(buf.validate.field).uint64.gte = 0];
 }

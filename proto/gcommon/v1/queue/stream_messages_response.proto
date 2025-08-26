@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,19 +22,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message StreamMessagesResponse {
   // List of messages in the stream
-  repeated QueueMessage messages = 1;
+  repeated QueueMessage messages = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether there are more messages available
   bool has_more = 2;
 
   // Continuation token for next batch
-  string continuation_token = 3;
+  string continuation_token = 3 [(buf.validate.field).string.min_len = 1];
 
   // Total number of messages available
-  uint64 total_messages = 4;
+  uint64 total_messages = 4 [(buf.validate.field).uint64.gte = 0];
 
   // Current stream position
-  uint64 stream_position = 5;
+  uint64 stream_position = 5 [(buf.validate.field).uint64.gte = 0];
 
   // Whether the stream has ended
   bool stream_ended = 6;

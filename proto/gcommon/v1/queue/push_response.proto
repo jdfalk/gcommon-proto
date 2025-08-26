@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,16 +22,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message PushResponse {
   // Unique identifier assigned to the published message
-  string message_id = 1;
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when the message was accepted by the queue
   google.protobuf.Timestamp accepted_at = 2;
 
   // Position/offset of the message in the queue
-  int64 message_offset = 3;
+  int64 message_offset = 3 [(buf.validate.field).int64.gte = 0];
 
   // Current queue depth after the message was added
-  int64 queue_depth = 4;
+  int64 queue_depth = 4 [(buf.validate.field).int64.gte = 0];
 
   // Whether the message was persisted to storage
   bool persisted = 5;

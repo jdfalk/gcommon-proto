@@ -13,22 +13,24 @@ import "gcommon/v1/queue/priority_update.proto";
 import "gcommon/v1/queue/update_condition.proto";
 import "gcommon/v1/queue/visibility_update.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message UpdateMessageRequest {
   // Message identifier to update
-  string message_id = 1;
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Topic or queue containing the message
-  string topic = 2;
+  string topic = 2 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID (if applicable)
-  int32 partition_id = 3;
+  int32 partition_id = 3 [(buf.validate.field).int32.gte = 0];
 
   // Message offset (for precise identification)
-  int64 message_offset = 4;
+  int64 message_offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // Updated message properties
   MessageUpdateProperties properties = 5;
@@ -46,7 +48,7 @@ message UpdateMessageRequest {
   ContentUpdate content_update = 9;
 
   // Specify which fields to update
-  repeated string update_fields = 10;
+  repeated string update_fields = 10 [(buf.validate.field).repeated.min_items = 1];
 
   // Conditional update based on current state
   UpdateCondition condition = 11;

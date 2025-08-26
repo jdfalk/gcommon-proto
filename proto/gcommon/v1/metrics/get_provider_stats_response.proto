@@ -11,6 +11,8 @@ import "gcommon/v1/common/time_range_metrics.proto";
 import "gcommon/v1/metrics/provider_statistics.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -23,7 +25,7 @@ message GetProviderStatsResponse {
   gcommon.v1.common.Error error = 2;
 
   // Provider ID these stats are for
-  string provider_id = 3;
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Comprehensive provider statistics
   ProviderStatistics statistics = 4;
@@ -35,5 +37,5 @@ message GetProviderStatsResponse {
   gcommon.v1.common.TimeRangeMetrics time_range = 6;
 
   // Warnings or informational messages
-  repeated string warnings = 7;
+  repeated string warnings = 7 [(buf.validate.field).repeated.min_items = 1];
 }

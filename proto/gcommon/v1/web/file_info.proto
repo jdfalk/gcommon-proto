@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "gcommon/v1/web/mime_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -16,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // FileInfo message definition.
 message FileInfo {
   // Full file path
-  string path = 1;
+  string path = 1 [(buf.validate.field).string.min_len = 1];
 
   // File size in bytes
-  int64 size_bytes = 2;
+  int64 size_bytes = 2 [(buf.validate.field).int64.gte = 0];
 
   // MIME type information
   MimeType mime_type = 3;
@@ -28,5 +30,5 @@ message FileInfo {
   google.protobuf.Timestamp modified_at = 4;
 
   // Optional checksum of the file contents
-  string checksum = 5;
+  string checksum = 5 [(buf.validate.field).string.min_len = 1];
 }

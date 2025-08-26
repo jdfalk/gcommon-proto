@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -16,17 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message ReadLogsRequest {
   // Filter by log level
-  string level = 1;
+  string level = 1 [(buf.validate.field).string.min_len = 1];
 
   // Filter by source
-  string source = 2;
+  string source = 2 [(buf.validate.field).string.min_len = 1];
 
   // Start time for log range
-  int64 start_time = 3;
+  int64 start_time = 3 [(buf.validate.field).int64.gte = 0];
 
   // End time for log range
-  int64 end_time = 4;
+  int64 end_time = 4 [(buf.validate.field).int64.gte = 0];
 
   // Maximum number of entries to return
-  int32 limit = 5;
+  int32 limit = 5 [(buf.validate.field).int32.gte = 0];
 }

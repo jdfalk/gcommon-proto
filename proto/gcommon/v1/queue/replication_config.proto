@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -14,14 +16,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // ReplicationConfig message definition.
 message ReplicationConfig {
   // Number of replicas
-  int32 replica_count = 1;
+  int32 replica_count = 1 [(buf.validate.field).int32.gte = 0];
 
   // Replication factor
-  int32 factor = 2;
+  int32 factor = 2 [(buf.validate.field).int32.gte = 0];
 
   // Enable synchronous replication
   bool synchronous = 3;
 
   // Minimum in-sync replicas
-  int32 min_in_sync_replicas = 4;
+  int32 min_in_sync_replicas = 4 [(buf.validate.field).int32.gte = 0];
 }

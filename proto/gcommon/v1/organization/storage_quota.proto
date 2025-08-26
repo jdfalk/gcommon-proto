@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message StorageQuota {
   // Maximum storage size in bytes
-  int64 max_size_bytes = 1;
+  int64 max_size_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // Maximum number of objects
-  int64 max_objects = 2;
+  int64 max_objects = 2 [(buf.validate.field).int64.gte = 0];
 
   // Maximum request rate per second
-  int32 max_requests_per_second = 3;
+  int32 max_requests_per_second = 3 [(buf.validate.field).int32.gte = 0];
 
   // Transfer quota in bytes per month
-  int64 transfer_quota_bytes = 4;
+  int64 transfer_quota_bytes = 4 [(buf.validate.field).int64.gte = 0];
 }

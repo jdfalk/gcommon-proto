@@ -11,6 +11,8 @@ import "gcommon/v1/metrics/gauge_metric.proto";
 import "gcommon/v1/metrics/recording_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -29,7 +31,7 @@ message RecordGaugeResponse {
   GaugeMetric metric = 3;
 
   // Previous value of the gauge (if applicable)
-  double previous_value = 4;
+  double previous_value = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Timestamp when the gauge was recorded
   google.protobuf.Timestamp recorded_at = 5;

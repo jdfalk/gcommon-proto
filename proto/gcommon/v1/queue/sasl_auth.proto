@@ -7,19 +7,21 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message SASLAuth {
   // SASL mechanism (PLAIN, SCRAM-SHA-256, etc.)
-  string mechanism = 1;
+  string mechanism = 1 [(buf.validate.field).string.min_len = 1];
 
   // Username
-  string username = 2;
+  string username = 2 [(buf.validate.field).string.min_len = 1];
 
   // Password
-  string password = 3;
+  string password = 3 [(buf.validate.field).string.min_len = 8];
 
   // Additional SASL properties
   map<string, string> properties = 4;

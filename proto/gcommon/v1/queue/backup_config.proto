@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -22,7 +24,7 @@ message QueueBackupConfig {
   google.protobuf.Duration retention = 2;
 
   // Storage location for backups (e.g., S3 bucket).
-  string location = 3;
+  string location = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether backups are enabled for this queue.
   bool enabled = 4;

@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "gcommon/v1/config/approval_stage.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,17 +19,17 @@ message ApprovalWorkflow {
   bool enabled = 1;
 
   // Workflow type
-  string type = 2;
+  string type = 2 [(buf.validate.field).string.min_len = 1];
 
   // Approval stages
-  repeated gcommon.v1.config.ApprovalStage stages = 3;
+  repeated gcommon.v1.config.ApprovalStage stages = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Workflow timeout
-  int32 timeout_hours = 4;
+  int32 timeout_hours = 4 [(buf.validate.field).int32.gt = 0];
 
   // Workflow conditions
-  repeated string conditions = 5;
+  repeated string conditions = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Workflow notifications
-  repeated string notifications = 6;
+  repeated string notifications = 6 [(buf.validate.field).repeated.min_items = 1];
 }

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -16,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message DeleteNamespaceRequest {
   // ID of the namespace to delete
-  string namespace_id = 1;
+  string namespace_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Force deletion even if namespace contains data
   bool force = 2;

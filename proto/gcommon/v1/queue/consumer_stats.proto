@@ -7,23 +7,25 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ConsumerStats {
   // Consumer ID
-  string consumer_id = 1;
+  string consumer_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Messages processed
-  int64 messages_processed = 2;
+  int64 messages_processed = 2 [(buf.validate.field).int64.gte = 0];
 
   // Processing rate per second
-  double processing_rate = 3;
+  double processing_rate = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Error count
-  int64 error_count = 4;
+  int64 error_count = 4 [(buf.validate.field).int64.gte = 0];
 
   // Last active timestamp
-  int64 last_active = 5;
+  int64 last_active = 5 [(buf.validate.field).int64.gte = 0];
 }

@@ -8,6 +8,8 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/batch_priority.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -20,7 +22,7 @@ message MetricsBatchOptions {
   bool parallel_processing = 1;
 
   // Maximum concurrent operations (if parallel processing is enabled)
-  int32 max_concurrency = 2;
+  int32 max_concurrency = 2 [(buf.validate.field).int32.gte = 0];
 
   // Whether to deduplicate metrics within the batch
   bool deduplicate = 3;
@@ -29,7 +31,7 @@ message MetricsBatchOptions {
   bool return_detailed_results = 4;
 
   // Timeout for the entire batch operation (seconds)
-  int32 timeout_seconds = 5;
+  int32 timeout_seconds = 5 [(buf.validate.field).int32.gt = 0];
 
   // Whether to enable transactional semantics (all or nothing)
   bool transactional = 6;

@@ -8,20 +8,22 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RebalanceStats {
   // Total number of rebalances
-  int64 total_rebalances = 1;
+  int64 total_rebalances = 1 [(buf.validate.field).int64.gte = 0];
 
   // Last rebalance timestamp
   google.protobuf.Timestamp last_rebalance = 2;
 
   // Average rebalance duration (milliseconds)
-  int64 avg_rebalance_duration_ms = 3;
+  int64 avg_rebalance_duration_ms = 3 [(buf.validate.field).int64.gt = 0];
 
   // Failed rebalances
-  int64 failed_rebalances = 4;
+  int64 failed_rebalances = 4 [(buf.validate.field).int64.gte = 0];
 }

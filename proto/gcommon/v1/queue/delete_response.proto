@@ -10,6 +10,8 @@ import "gcommon/v1/queue/backup_info.proto";
 import "gcommon/v1/queue/deletion_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,19 +21,19 @@ message QueueDeleteResponse {
   bool success = 1;
 
   // Identifier of the deleted resource
-  string deleted_resource_id = 2;
+  string deleted_resource_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Type of resource that was deleted
-  string resource_type = 3;
+  string resource_type = 3 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when deletion completed
   google.protobuf.Timestamp deleted_at = 4;
 
   // Error message if deletion failed
-  string error_message = 5;
+  string error_message = 5 [(buf.validate.field).string.min_len = 1];
 
   // Error code for programmatic handling
-  string error_code = 6;
+  string error_code = 6 [(buf.validate.field).string.min_len = 1];
 
   // Statistics about the deletion
   DeletionStats deletion_stats = 7;
@@ -40,7 +42,7 @@ message QueueDeleteResponse {
   QueueBackupInfo backup_info = 8;
 
   // Warning messages
-  repeated string warnings = 9;
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
 
   // Operation metadata
   map<string, string> metadata = 10;

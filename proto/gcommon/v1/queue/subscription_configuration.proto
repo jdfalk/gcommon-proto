@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/ack_level.proto";
 import "gcommon/v1/common/delivery_mode.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -21,13 +23,13 @@ message SubscriptionConfiguration {
   gcommon.v1.common.DeliveryMode delivery_mode = 2;
 
   // Maximum number of unacknowledged messages
-  int32 max_unacked_messages = 3;
+  int32 max_unacked_messages = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Acknowledgment timeout (milliseconds)
-  int32 ack_timeout_ms = 4;
+  int32 ack_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // Message priority filter (minimum priority)
-  int32 min_priority = 5;
+  int32 min_priority = 5 [(buf.validate.field).int32.gte = 0];
 
   // Enable message ordering
   bool ordered_delivery = 6;
@@ -36,11 +38,11 @@ message SubscriptionConfiguration {
   bool auto_acknowledge = 7;
 
   // Subscription expiration time (seconds, 0 = no expiration)
-  int64 expiration_seconds = 8;
+  int64 expiration_seconds = 8 [(buf.validate.field).int64.gte = 0];
 
   // Enable duplicate message detection
   bool duplicate_detection = 9;
 
   // Maximum message age to accept (seconds)
-  int64 max_message_age_seconds = 10;
+  int64 max_message_age_seconds = 10 [(buf.validate.field).int64.gte = 0];
 }

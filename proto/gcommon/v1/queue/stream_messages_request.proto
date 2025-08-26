@@ -11,34 +11,36 @@ import "gcommon/v1/queue/message_filter.proto";
 import "gcommon/v1/queue/offset_config.proto";
 import "gcommon/v1/queue/stream_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message StreamMessagesRequest {
   // Topic or queue identifier to stream from
-  string topic = 1;
+  string topic = 1 [(buf.validate.field).string.min_len = 1];
 
   // Consumer group ID for coordinated consumption
-  string consumer_group_id = 2;
+  string consumer_group_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Individual consumer ID within the group
-  string consumer_id = 3;
+  string consumer_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Starting offset configuration
   OffsetConfig offset_config = 4;
 
   // Maximum number of messages to stream
-  int64 max_messages = 5;
+  int64 max_messages = 5 [(buf.validate.field).int64.gte = 0];
 
   // Maximum time to keep stream open (milliseconds)
-  int32 stream_timeout_ms = 6;
+  int32 stream_timeout_ms = 6 [(buf.validate.field).int32.gt = 0];
 
   // Acknowledgment level required
   gcommon.v1.common.AckLevel ack_level = 7;
 
   // Batch size for message delivery
-  int32 batch_size = 8;
+  int32 batch_size = 8 [(buf.validate.field).int32.gte = 0];
 
   // Message filter criteria
   MessageFilter filter = 9;
@@ -53,7 +55,7 @@ message StreamMessagesRequest {
   bool include_metadata = 12;
 
   // Specific partition IDs to stream from (empty = all partitions)
-  repeated int32 partition_ids = 13;
+  repeated int32 partition_ids = 13 [(buf.validate.field).repeated.min_items = 1];
 
   // Stream configuration options
   StreamConfig stream_config = 14;

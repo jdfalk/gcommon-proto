@@ -9,31 +9,33 @@ package gcommon.v1.config;
 import "gcommon/v1/config/access_restriction.proto";
 import "gcommon/v1/config/rate_limits.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ConfigAccessControl {
   // Access policy
-  string policy = 1;
+  string policy = 1 [(buf.validate.field).string.min_len = 1];
 
   // Allowed users
-  repeated string allowed_users = 2;
+  repeated string allowed_users = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed roles
-  repeated string allowed_roles = 3;
+  repeated string allowed_roles = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed services
-  repeated string allowed_services = 4;
+  repeated string allowed_services = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed environments
-  repeated string allowed_environments = 5;
+  repeated string allowed_environments = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Access restrictions
-  repeated AccessRestriction restrictions = 6;
+  repeated AccessRestriction restrictions = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Maximum access count
-  int32 max_access_count = 7;
+  int32 max_access_count = 7 [(buf.validate.field).int32.gte = 0];
 
   // Access rate limits
   RateLimits rate_limits = 8;

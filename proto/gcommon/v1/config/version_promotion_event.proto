@@ -8,34 +8,36 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message VersionPromotionEvent {
   // Source environment
-  string source_environment = 1;
+  string source_environment = 1 [(buf.validate.field).string.min_len = 1];
 
   // Target environment
-  string target_environment = 2;
+  string target_environment = 2 [(buf.validate.field).string.min_len = 1];
 
   // Promotion timestamp
   google.protobuf.Timestamp timestamp = 3;
 
   // Promotion user
-  string promoted_by = 4;
+  string promoted_by = 4 [(buf.validate.field).string.min_len = 1];
 
   // Promotion reason
-  string reason = 5;
+  string reason = 5 [(buf.validate.field).string.min_len = 1];
 
   // Promotion method
-  string method = 6;
+  string method = 6 [(buf.validate.field).string.min_len = 1];
 
   // Promotion success
   bool success = 7;
 
   // Promotion error
-  string error = 8;
+  string error = 8 [(buf.validate.field).string.min_len = 1];
 
   // Promotion metadata
   map<string, string> metadata = 9;

@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -15,16 +17,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Request to list messages in a queue
 message ListMessagesRequest {
   // Topic name
-  string topic = 1;
+  string topic = 1 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID (optional, all partitions if not specified)
-  int32 partition_id = 2;
+  int32 partition_id = 2 [(buf.validate.field).int32.gte = 0];
 
   // Starting offset
-  int64 start_offset = 3;
+  int64 start_offset = 3 [(buf.validate.field).int64.gte = 0];
 
   // Maximum number of messages to return
-  int32 limit = 4;
+  int32 limit = 4 [(buf.validate.field).int32.gte = 0];
 
   // Include message headers
   bool include_headers = 5;
@@ -33,8 +35,8 @@ message ListMessagesRequest {
   bool include_metadata = 6;
 
   // Filter by message status (optional)
-  string status_filter = 7;
+  string status_filter = 7 [(buf.validate.field).string.min_len = 1];
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 8;
+  int32 timeout_ms = 8 [(buf.validate.field).int32.gt = 0];
 }

@@ -12,6 +12,8 @@ import "gcommon/v1/queue/jwt_auth.proto";
 import "gcommon/v1/queue/permission_rule.proto";
 import "gcommon/v1/queue/role_based_access_control.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -21,10 +23,10 @@ message AuthorizationConfig {
   bool enabled = 1;
 
   // Default permission policy (allow/deny)
-  string default_policy = 2;
+  string default_policy = 2 [(buf.validate.field).string.min_len = 1];
 
   // Permission rules for different operations
-  repeated PermissionRule rules = 3;
+  repeated PermissionRule rules = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Role-based access control settings
   RoleBasedAccessControl rbac = 4;

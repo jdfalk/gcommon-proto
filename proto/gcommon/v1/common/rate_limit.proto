@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -18,13 +20,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message RateLimit {
   // Maximum number of requests allowed per time window
-  int32 limit = 1;
+  int32 limit = 1 [(buf.validate.field).int32.gte = 0];
 
   // Duration of the time window for rate limiting
   google.protobuf.Duration window = 2;
 
   // Number of requests remaining in the current window
-  int32 remaining = 3;
+  int32 remaining = 3 [(buf.validate.field).int32.gte = 0];
 
   // Time until the rate limit window resets
   google.protobuf.Duration reset_time = 4;

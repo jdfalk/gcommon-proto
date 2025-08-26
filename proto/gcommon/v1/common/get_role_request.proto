@@ -8,6 +8,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message GetRoleRequest {
   // Unique identifier of the role
-  string role_id = 1;
+  string role_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Include permissions in the response
   bool include_permissions = 2;

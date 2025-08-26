@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,20 +20,20 @@ message MigrateQueueResponse {
   bool success = 1;
 
   // New queue location/endpoint
-  string new_queue_endpoint = 2;
+  string new_queue_endpoint = 2 [(buf.validate.field).string.min_len = 1];
 
   // Number of messages migrated
-  int64 messages_migrated = 3;
+  int64 messages_migrated = 3 [(buf.validate.field).int64.gte = 0];
 
   // Migration duration (milliseconds)
-  int32 migration_duration_ms = 4;
+  int32 migration_duration_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // Source queue name
-  string source_queue = 5;
+  string source_queue = 5 [(buf.validate.field).string.min_len = 1];
 
   // Destination queue name
-  string destination_queue = 6;
+  string destination_queue = 6 [(buf.validate.field).string.min_len = 1];
 
   // Error message if migration failed
-  string error = 7;
+  string error = 7 [(buf.validate.field).string.min_len = 1];
 }

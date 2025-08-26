@@ -8,17 +8,19 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/metric_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message QueueStreamMetricsRequest {
   // Queue names to monitor (empty = all queues)
-  repeated string queue_names = 1;
+  repeated string queue_names = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Types of metrics to include
-  repeated gcommon.v1.common.MetricsMetricType metric_types = 2;
+  repeated gcommon.v1.common.MetricsMetricType metric_types = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Streaming interval in seconds
-  int32 interval_seconds = 3;
+  int32 interval_seconds = 3 [(buf.validate.field).int32.gte = 0];
 }

@@ -6,6 +6,8 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -16,5 +18,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ListSchemasResponse {
   // List of schema names in the database
-  repeated string schemas = 1;
+  repeated string schemas = 1 [(buf.validate.field).repeated.min_items = 1];
 }

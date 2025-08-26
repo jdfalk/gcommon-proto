@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 // Standard imports
 // Common types
 

@@ -11,6 +11,8 @@ package gcommon.v1.database;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -21,10 +23,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message MGetRequest {
   // List of keys to retrieve
-  repeated string keys = 1;
+  repeated string keys = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Namespace to search in (optional)
-  string namespace = 2;
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether to return expired entries
   bool include_expired = 3;

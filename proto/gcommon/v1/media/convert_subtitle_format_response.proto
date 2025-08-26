@@ -7,14 +7,16 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 // Response from converting subtitle format.
 message ConvertSubtitleFormatResponse {
-  string converted_subtitle_file_id = 1;
+  string converted_subtitle_file_id = 1 [(buf.validate.field).string.min_len = 1];
   bool success = 2;
-  string error_message = 3;
+  string error_message = 3 [(buf.validate.field).string.min_len = 1];
   string output_format = 4; // The format the file was converted to
 }

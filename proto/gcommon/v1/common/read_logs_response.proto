@@ -8,6 +8,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/log_entry.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,11 +19,11 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message ReadLogsResponse {
   // Retrieved log entries
-  repeated LogEntry entries = 1;
+  repeated LogEntry entries = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Total count of matching entries
-  int32 total_count = 2;
+  int32 total_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // Error message if any
-  string error = 3;
+  string error = 3 [(buf.validate.field).string.min_len = 1];
 }

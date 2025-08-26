@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,11 +18,11 @@ message AutoCommitConfig {
   bool enabled = 1;
 
   // Auto-commit interval (milliseconds)
-  int32 interval_ms = 2;
+  int32 interval_ms = 2 [(buf.validate.field).int32.gte = 0];
 
   // Commit on message processing completion
   bool commit_on_completion = 3;
 
   // Batch size for auto-commit
-  int32 batch_size = 4;
+  int32 batch_size = 4 [(buf.validate.field).int32.gte = 0];
 }

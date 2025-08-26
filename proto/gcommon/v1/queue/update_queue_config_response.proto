@@ -10,6 +10,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -22,14 +24,14 @@ message UpdateQueueConfigResponse {
   bool success = 1;
 
   // Error message if update failed
-  string error_message = 2;
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated configuration version
-  uint64 config_version = 3;
+  uint64 config_version = 3 [(buf.validate.field).uint64.gte = 0];
 
   // Timestamp of the update
-  uint64 updated_at = 4;
+  uint64 updated_at = 4 [(buf.validate.field).uint64.gte = 0];
 
   // List of configuration fields that were updated
-  repeated string updated_fields = 5;
+  repeated string updated_fields = 5 [(buf.validate.field).repeated.min_items = 1];
 }

@@ -15,6 +15,8 @@ import "gcommon/v1/queue/queue_stats.proto";
 import "gcommon/v1/queue/queue_stats_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -27,10 +29,10 @@ message GetQueueStatsResponse {
   QueueStatsSummary summary = 2;
 
   // Per-queue statistics (if multiple queues requested)
-  repeated QueueStats queue_stats = 3;
+  repeated QueueStats queue_stats = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Consumer statistics (if requested)
-  repeated ConsumerStats consumer_stats = 4;
+  repeated ConsumerStats consumer_stats = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Historical statistics (if requested)
   HistoricalStats historical_stats = 5;

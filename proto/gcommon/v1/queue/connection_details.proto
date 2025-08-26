@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -15,16 +17,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // ConnectionDetails contains information for establishing message delivery connections
 message ConnectionDetails {
   // Delivery endpoint (for push mode)
-  string delivery_endpoint = 1;
+  string delivery_endpoint = 1 [(buf.validate.field).string.min_len = 1];
 
   // Authentication token for delivery
-  string auth_token = 2;
+  string auth_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Heartbeat interval (milliseconds)
-  int32 heartbeat_interval_ms = 3;
+  int32 heartbeat_interval_ms = 3 [(buf.validate.field).int32.gte = 0];
 
   // Keep-alive timeout (milliseconds)
-  int32 keep_alive_timeout_ms = 4;
+  int32 keep_alive_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // SSL/TLS configuration
   bool ssl_enabled = 5;

@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/registration_action.proto";
 import "gcommon/v1/metrics/schema_change.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,17 +20,17 @@ message RegistrationResult {
   gcommon.v1.common.RegistrationAction action = 1;
 
   // Indices that were created for the metric
-  repeated string created_indices = 2;
+  repeated string created_indices = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Alert rules that were created (if alerting was enabled)
-  repeated string created_alerts = 3;
+  repeated string created_alerts = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Export configurations that were set up
-  repeated string configured_exports = 4;
+  repeated string configured_exports = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Retention policies that were applied
-  repeated string applied_retention_policies = 5;
+  repeated string applied_retention_policies = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Schema changes that were made
-  repeated SchemaChange schema_changes = 6;
+  repeated SchemaChange schema_changes = 6 [(buf.validate.field).repeated.min_items = 1];
 }

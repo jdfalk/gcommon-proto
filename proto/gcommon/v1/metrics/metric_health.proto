@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricHealth {
   // Metric identifier or scrape job id
-  string target_id = 1;
+  string target_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Health status
   gcommon.v1.common.CommonHealthStatus status = 2;
@@ -27,5 +29,5 @@ message MetricHealth {
   google.protobuf.Timestamp checked_at = 3;
 
   // Additional message or context
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 }

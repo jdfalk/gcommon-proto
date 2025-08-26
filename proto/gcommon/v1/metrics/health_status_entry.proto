@@ -8,12 +8,14 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message HealthStatusEntry {
   google.protobuf.Timestamp timestamp = 1;
-  string health_status = 2;
-  string status_message = 3;
+  string health_status = 2 [(buf.validate.field).string.min_len = 1];
+  string status_message = 3 [(buf.validate.field).string.min_len = 1];
 }

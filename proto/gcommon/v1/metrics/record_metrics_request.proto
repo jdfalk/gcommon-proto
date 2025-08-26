@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/metrics/metric_data.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,14 +23,14 @@ message RecordMetricsRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Batch of metrics to record
-  repeated MetricData metrics = 2;
+  repeated MetricData metrics = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether to validate all metrics before recording any
   bool atomic = 3;
 
   // Optional batch ID for tracking
-  string batch_id = 4;
+  string batch_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Maximum number of retries for failed metrics
-  int32 max_retries = 5;
+  int32 max_retries = 5 [(buf.validate.field).int32.gte = 0];
 }

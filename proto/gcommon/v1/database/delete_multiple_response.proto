@@ -8,6 +8,8 @@ package gcommon.v1.database;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -18,13 +20,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message DeleteMultipleResponse {
   // Number of keys that were successfully deleted
-  int32 deleted_count = 1;
+  int32 deleted_count = 1 [(buf.validate.field).int32.gte = 0];
 
   // Number of keys that failed to delete
-  int32 failed_count = 2;
+  int32 failed_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // List of keys that failed to delete
-  repeated string failed_keys = 3;
+  repeated string failed_keys = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Error details if any deletions failed
   gcommon.v1.common.Error error = 4;

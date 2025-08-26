@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -16,10 +18,10 @@ message StorageBackupConfig {
   bool enabled = 1;
 
   // Backup schedule (cron expression)
-  string schedule = 2;
+  string schedule = 2 [(buf.validate.field).string.min_len = 1];
 
   // Backup retention period
-  int32 retention_days = 3;
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
 
   // Cross-region backup enabled
   bool cross_region = 4;

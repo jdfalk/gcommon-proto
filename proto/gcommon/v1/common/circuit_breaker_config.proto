@@ -8,6 +8,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/circuit_breaker_state.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,16 +21,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message CommonCircuitBreakerConfig {
   // Number of consecutive failures to trigger circuit opening
-  int32 failure_threshold = 1;
+  int32 failure_threshold = 1 [(buf.validate.field).int32.gte = 0];
 
   // Number of consecutive successes to close the circuit
-  int32 success_threshold = 2;
+  int32 success_threshold = 2 [(buf.validate.field).int32.gte = 0];
 
   // Duration to keep circuit open before attempting half-open
   google.protobuf.Duration timeout = 3;
 
   // Maximum concurrent requests allowed in half-open state
-  int32 max_requests = 4;
+  int32 max_requests = 4 [(buf.validate.field).int32.gte = 0];
 
   // Time window for counting failures and successes
   google.protobuf.Duration window_size = 5;

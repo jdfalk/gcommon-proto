@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/priority_range.proto";
 import "gcommon/v1/queue/size_range.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -21,13 +23,13 @@ message RoutingCondition {
   map<string, string> header_matches = 1;
 
   // Content pattern matching
-  string content_pattern = 2;
+  string content_pattern = 2 [(buf.validate.field).string.min_len = 1];
 
   // Routing key pattern
-  string routing_key_pattern = 3;
+  string routing_key_pattern = 3 [(buf.validate.field).string.min_len = 1];
 
   // Message type filter
-  string message_type = 4;
+  string message_type = 4 [(buf.validate.field).string.min_len = 1];
 
   // Priority range filter
   PriorityRange priority_range = 5;

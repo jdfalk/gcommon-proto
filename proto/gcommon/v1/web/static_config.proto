@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -14,10 +16,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // StaticConfig message definition.
 message StaticConfig {
   // Root directory for static files
-  string directory = 1;
+  string directory = 1 [(buf.validate.field).string.min_len = 1];
 
   // Default index files
-  repeated string index_files = 2;
+  repeated string index_files = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Enable directory listing
   bool enable_listing = 3;

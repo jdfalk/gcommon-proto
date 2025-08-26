@@ -12,6 +12,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/mfa_method.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -21,10 +23,10 @@ message DisableMfaResponse {
   bool success = 1;
 
   // Methods that were disabled
-  repeated gcommon.v1.common.MfaMethod disabled_methods = 2;
+  repeated gcommon.v1.common.MfaMethod disabled_methods = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if operation failed
-  string error_message = 3;
+  string error_message = 3 [(buf.validate.field).string.min_len = 1];
 }
 
 // Implement the actual protobuf definitions according to the auth module requirements

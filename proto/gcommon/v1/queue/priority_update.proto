@@ -7,16 +7,18 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message PriorityUpdate {
   // New priority level
-  int32 priority_level = 1;
+  int32 priority_level = 1 [(buf.validate.field).int32.gte = 0];
 
   // Priority change reason
-  string priority_reason = 2;
+  string priority_reason = 2 [(buf.validate.field).string.min_len = 1];
 
   // Maintain relative priority ordering
   bool maintain_order = 3;

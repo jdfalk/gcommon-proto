@@ -11,6 +11,8 @@ import "gcommon/v1/queue/filter_criteria.proto";
 import "gcommon/v1/queue/offset_range.proto";
 import "gcommon/v1/queue/performance_options.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,7 +25,7 @@ message RestoreOptions {
   bool metadata_only = 2;
 
   // Maximum number of messages to restore
-  int64 max_messages = 3;
+  int64 max_messages = 3 [(buf.validate.field).int64.gte = 0];
 
   // Restore messages from specific offset range
   OffsetRange offset_range = 4;
@@ -33,7 +35,7 @@ message RestoreOptions {
   gcommon.v1.common.TimeRangeMetrics time_range = 5;
 
   // Restore specific message priorities
-  repeated int32 priority_levels = 6;
+  repeated int32 priority_levels = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Include/exclude patterns for message filtering
   FilterCriteria filter_criteria = 7;

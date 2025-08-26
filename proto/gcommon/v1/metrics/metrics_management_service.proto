@@ -17,6 +17,8 @@ import "gcommon/v1/metrics/list_providers_response.proto";
 import "gcommon/v1/metrics/update_provider_request.proto";
 import "gcommon/v1/metrics/update_provider_response.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 // Import all required request and response messages
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -16,16 +18,16 @@ message EncryptionSettings {
   bool enabled = 1;
 
   // Encryption provider
-  string provider = 2;
+  string provider = 2 [(buf.validate.field).string.min_len = 1];
 
   // Encryption key
-  string key_id = 3;
+  string key_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Encryption algorithm
-  string algorithm = 4;
+  string algorithm = 4 [(buf.validate.field).string.min_len = 1];
 
   // Encryption mode
-  string mode = 5;
+  string mode = 5 [(buf.validate.field).string.min_len = 1];
 
   // Encryption configuration
   map<string, string> config = 6;

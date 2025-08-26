@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/external_role_provider.proto";
 import "gcommon/v1/queue/role_inheritance.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,7 +20,7 @@ message RoleBasedAccessControl {
   bool enabled = 1;
 
   // Default roles for new users
-  repeated string default_roles = 2;
+  repeated string default_roles = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Role inheritance rules
   map<string, RoleInheritance> role_inheritance = 3;

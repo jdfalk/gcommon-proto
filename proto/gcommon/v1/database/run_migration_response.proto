@@ -7,6 +7,8 @@ package gcommon.v1.database;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -20,7 +22,7 @@ message RunMigrationResponse {
   bool success = 1;
 
   // List of migration versions that were successfully applied
-  repeated string applied_versions = 2;
+  repeated string applied_versions = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error information if any migration failed
   gcommon.v1.common.Error error = 3 [lazy = true];

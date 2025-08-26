@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/metrics_config_change.proto";
 import "gcommon/v1/common/update_action.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,20 +23,20 @@ message UpdateResult {
   gcommon.v1.common.UpdateAction action = 1;
 
   // Configuration changes that were applied
-  repeated gcommon.v1.common.MetricsConfigChange config_changes = 2;
+  repeated gcommon.v1.common.MetricsConfigChange config_changes = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Settings that were updated
-  repeated string updated_settings = 3;
+  repeated string updated_settings = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Settings that were removed
-  repeated string removed_settings = 4;
+  repeated string removed_settings = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether a restart occurred
   bool restarted = 5;
 
   // Update strategy that was used
-  string strategy_used = 6;
+  string strategy_used = 6 [(buf.validate.field).string.min_len = 1];
 
   // Time taken for the update
-  string update_duration = 7;
+  string update_duration = 7 [(buf.validate.field).string.min_len = 1];
 }

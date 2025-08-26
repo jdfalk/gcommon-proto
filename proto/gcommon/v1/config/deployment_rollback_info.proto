@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,14 +19,14 @@ message DeploymentRollbackInfo {
   bool available = 1;
 
   // Previous version
-  string previous_version = 2;
+  string previous_version = 2 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Rollback timestamp
   google.protobuf.Timestamp rollback_timestamp = 3;
 
   // Rollback reason
-  string reason = 4;
+  string reason = 4 [(buf.validate.field).string.min_len = 1];
 
   // Rollback method
-  string method = 5;
+  string method = 5 [(buf.validate.field).string.min_len = 1];
 }

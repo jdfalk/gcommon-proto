@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -19,11 +21,11 @@ message OrganizationEncryptionConfig {
   bool encryption_in_transit = 2;
 
   // Encryption key management service
-  string key_management_service = 3;
+  string key_management_service = 3 [(buf.validate.field).string.min_len = 1];
 
   // Customer-managed encryption key ID
-  string customer_key_id = 4;
+  string customer_key_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Encryption algorithm used
-  string encryption_algorithm = 5;
+  string encryption_algorithm = 5 [(buf.validate.field).string.min_len = 1];
 }

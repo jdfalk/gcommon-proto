@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ResourceAllocations {
   // Allocated memory (bytes)
-  int64 allocated_memory_bytes = 1;
+  int64 allocated_memory_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // Allocated CPU (percentage)
-  double allocated_cpu_percent = 2;
+  double allocated_cpu_percent = 2 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // Allocated disk space (bytes)
-  int64 allocated_disk_bytes = 3;
+  int64 allocated_disk_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Network ports allocated
-  repeated int32 allocated_ports = 4;
+  repeated int32 allocated_ports = 4 [(buf.validate.field).repeated.min_items = 1];
 }

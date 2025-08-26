@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message DiskUsage {
   // Currently used disk space (bytes)
-  int64 used_bytes = 1;
+  int64 used_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // Disk space limit (bytes)
-  int64 limit_bytes = 2;
+  int64 limit_bytes = 2 [(buf.validate.field).int64.gte = 0];
 
   // Usage percentage
-  double usage_percent = 3;
+  double usage_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // I/O operations per second
-  double iops = 4;
+  double iops = 4 [(buf.validate.field).double.gte = 0.0];
 }

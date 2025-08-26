@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,25 +19,25 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message HealthMetrics {
   // Total number of health checks
-  int32 total_checks = 1;
+  int32 total_checks = 1 [(buf.validate.field).int32.gte = 0];
 
   // Number of healthy checks
-  int32 healthy_checks = 2;
+  int32 healthy_checks = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of unhealthy checks
-  int32 unhealthy_checks = 3;
+  int32 unhealthy_checks = 3 [(buf.validate.field).int32.gte = 0];
 
   // Number of unknown status checks
-  int32 unknown_checks = 4;
+  int32 unknown_checks = 4 [(buf.validate.field).int32.gte = 0];
 
   // Average response time across all checks
-  double average_response_time_ms = 5;
+  double average_response_time_ms = 5 [(buf.validate.field).double.gte = 0.0];
 
   // Last update timestamp
   google.protobuf.Timestamp last_updated = 6;
 
   // System uptime
-  double uptime_seconds = 7;
+  double uptime_seconds = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Additional custom metrics
   map<string, double> custom_metrics = 8;

@@ -8,34 +8,36 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
 
 message NamespaceStats {
   // Total keys in namespace
-  int64 total_keys = 1;
+  int64 total_keys = 1 [(buf.validate.field).int64.gte = 0];
 
   // Memory usage in bytes
-  int64 memory_usage_bytes = 2;
+  int64 memory_usage_bytes = 2 [(buf.validate.field).int64.gte = 0];
 
   // Hit rate percentage
-  double hit_rate_percent = 3;
+  double hit_rate_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // Cache hits
-  int64 cache_hits = 4;
+  int64 cache_hits = 4 [(buf.validate.field).int64.gte = 0];
 
   // Cache misses
-  int64 cache_misses = 5;
+  int64 cache_misses = 5 [(buf.validate.field).int64.gte = 0];
 
   // Evictions
-  int64 evictions = 6;
+  int64 evictions = 6 [(buf.validate.field).int64.gte = 0];
 
   // Average key size
-  double avg_key_size_bytes = 7;
+  double avg_key_size_bytes = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Average value size
-  double avg_value_size_bytes = 8;
+  double avg_value_size_bytes = 8 [(buf.validate.field).double.gte = 0.0];
 
   // Last access time
   google.protobuf.Timestamp last_access_time = 9;

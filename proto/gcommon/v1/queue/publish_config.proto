@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/retry_policy.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,7 +19,7 @@ message PublishConfig {
   bool wait_for_ack = 1;
 
   // Acknowledgment timeout (milliseconds)
-  int32 ack_timeout_ms = 2;
+  int32 ack_timeout_ms = 2 [(buf.validate.field).int32.gt = 0];
 
   // Enable duplicate detection
   bool duplicate_detection = 3;
@@ -32,5 +34,5 @@ message PublishConfig {
   gcommon.v1.common.CommonRetryPolicy retry_config = 6;
 
   // Persistence level required
-  string persistence_level = 7;
+  string persistence_level = 7 [(buf.validate.field).string.min_len = 1];
 }

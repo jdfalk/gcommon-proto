@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -21,10 +23,10 @@ message AuthAuthorizeResponse {
   bool authorized = 1;
 
   // Permissions that granted this authorization (if any)
-  repeated string permissions = 2;
+  repeated string permissions = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Reason for denial if authorization failed
-  string denial_reason = 3;
+  string denial_reason = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error information if authorization check failed
   gcommon.v1.common.Error error = 4 [lazy = true];

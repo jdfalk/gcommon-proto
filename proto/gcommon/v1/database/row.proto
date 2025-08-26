@@ -7,6 +7,8 @@ package gcommon.v1.database;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,5 +19,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message Row {
   // Column values in order matching the column metadata
-  repeated google.protobuf.Any values = 1 [lazy = true];
+  repeated google.protobuf.Any values = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 }

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,10 +18,10 @@ message SyncReplication {
   bool enabled = 1;
 
   // Minimum synchronous replicas
-  int32 min_sync_replicas = 2;
+  int32 min_sync_replicas = 2 [(buf.validate.field).int32.gte = 0];
 
   // Timeout for synchronous replication (milliseconds)
-  int32 sync_timeout_ms = 3;
+  int32 sync_timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
 
   // Fallback to async on timeout
   bool fallback_to_async = 4;

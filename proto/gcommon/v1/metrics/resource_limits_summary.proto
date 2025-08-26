@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,32 +18,32 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message ResourceLimitsSummary {
   // Memory limit in bytes
-  int64 memory_limit_bytes = 1;
+  int64 memory_limit_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // CPU limit as percentage (0.0 to 100.0)
-  double cpu_limit_percent = 2;
+  double cpu_limit_percent = 2 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // Disk limit in bytes
-  int64 disk_limit_bytes = 3;
+  int64 disk_limit_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Network bandwidth limit in bytes per second
-  int64 network_limit_bytes_per_sec = 4;
+  int64 network_limit_bytes_per_sec = 4 [(buf.validate.field).int64.gte = 0];
 
   // Current memory usage in bytes
-  int64 memory_used_bytes = 5;
+  int64 memory_used_bytes = 5 [(buf.validate.field).int64.gte = 0];
 
   // Current CPU usage as percentage (0.0 to 100.0)
-  double cpu_used_percent = 6;
+  double cpu_used_percent = 6 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // Current disk usage in bytes
-  int64 disk_used_bytes = 7;
+  int64 disk_used_bytes = 7 [(buf.validate.field).int64.gte = 0];
 
   // Current network usage in bytes per second
-  int64 network_used_bytes_per_sec = 8;
+  int64 network_used_bytes_per_sec = 8 [(buf.validate.field).int64.gte = 0];
 
   // Whether limits are enforced
   bool limits_enforced = 9;
 
   // Number of limit violations in the last hour
-  uint32 violations_count = 10;
+  uint32 violations_count = 10 [(buf.validate.field).uint32.gte = 0];
 }

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,14 +18,14 @@ message RegistrationValidation {
   bool valid = 1;
 
   // Validation errors (if any)
-  repeated string errors = 2;
+  repeated string errors = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Validation warnings (if any)
-  repeated string warnings = 3;
+  repeated string warnings = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Schema version used for validation
-  string schema_version = 4;
+  string schema_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Suggestions for improving the metric definition
-  repeated string suggestions = 5;
+  repeated string suggestions = 5 [(buf.validate.field).repeated.min_items = 1];
 }

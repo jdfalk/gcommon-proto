@@ -9,13 +9,15 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message MetricResult {
   // Index of the metric in the original batch (0-based)
-  int32 index = 1;
+  int32 index = 1 [(buf.validate.field).int32.gte = 0];
 
   // Success status for this specific metric
   bool success = 2;
@@ -24,13 +26,13 @@ message MetricResult {
   gcommon.v1.common.Error error = 3;
 
   // Unique ID assigned to the metric (if successful)
-  string metric_id = 4;
+  string metric_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when this metric was recorded
   google.protobuf.Timestamp recorded_at = 5;
 
   // Warnings specific to this metric
-  repeated string warnings = 6;
+  repeated string warnings = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether this metric was deduplicated
   bool deduplicated = 7;

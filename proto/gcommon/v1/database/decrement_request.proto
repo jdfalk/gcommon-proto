@@ -8,6 +8,8 @@ package gcommon.v1.database;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,19 +19,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message DecrementRequest {
   // Counter key
-  string key = 1;
+  string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Decrement delta (can be negative)
-  int64 delta = 2;
+  int64 delta = 2 [(buf.validate.field).int64.gte = 0];
 
   // Initial value if key doesn't exist
-  int64 initial_value = 3;
+  int64 initial_value = 3 [(buf.validate.field).int64.gte = 0];
 
   // TTL for the counter
   google.protobuf.Duration ttl = 4 [lazy = true];
 
   // Optional namespace
-  string namespace = 5;
+  string namespace = 5 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 6 [lazy = true];

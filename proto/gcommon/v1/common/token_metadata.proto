@@ -8,35 +8,37 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/token_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message TokenMetadata {
   // Token ID
-  string token_id = 1;
+  string token_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Token type
   gcommon.v1.common.TokenType type = 2;
 
   // Subject (user ID)
-  string subject = 3;
+  string subject = 3 [(buf.validate.field).string.min_len = 1];
 
   // Audience
-  repeated string audience = 4;
+  repeated string audience = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Scopes
-  repeated string scopes = 5;
+  repeated string scopes = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Issued at timestamp
-  int64 issued_at = 6;
+  int64 issued_at = 6 [(buf.validate.field).int64.gte = 0];
 
   // Expires at timestamp
-  int64 expires_at = 7;
+  int64 expires_at = 7 [(buf.validate.field).int64.gte = 0];
 
   // Not before timestamp
-  int64 not_before = 8;
+  int64 not_before = 8 [(buf.validate.field).int64.gte = 0];
 
   // Issuer
-  string issuer = 9;
+  string issuer = 9 [(buf.validate.field).string.min_len = 1];
 }

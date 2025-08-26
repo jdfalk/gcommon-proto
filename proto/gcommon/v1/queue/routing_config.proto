@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -14,14 +16,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // RoutingConfig message definition.
 message RoutingConfig {
   // Routing strategy
-  string strategy = 1;
+  string strategy = 1 [(buf.validate.field).string.min_len = 1];
 
   // Routing key pattern
-  string key_pattern = 2;
+  string key_pattern = 2 [(buf.validate.field).string.min_len = 1];
 
   // Enable sticky routing
   bool sticky = 3;
 
   // Load balancing algorithm
-  string load_balancer = 4;
+  string load_balancer = 4 [(buf.validate.field).string.min_len = 1];
 }

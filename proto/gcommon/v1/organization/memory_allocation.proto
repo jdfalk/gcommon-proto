@@ -7,17 +7,19 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message MemoryAllocation {
   // Memory size in MB
-  int64 size_mb = 1;
+  int64 size_mb = 1 [(buf.validate.field).int64.gte = 0];
 
   // Memory usage limit percentage
-  int32 usage_limit_percent = 2;
+  int32 usage_limit_percent = 2 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Swap allocation in MB
-  int64 swap_mb = 3;
+  int64 swap_mb = 3 [(buf.validate.field).int64.gte = 0];
 }

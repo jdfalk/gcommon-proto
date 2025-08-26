@@ -8,13 +8,15 @@ package gcommon.v1.media;
 
 import "gcommon/v1/media/media_analysis.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 // Response from media analysis.
 message AnalyzeMediaResponse {
-  string job_id = 1;
+  string job_id = 1 [(buf.validate.field).string.min_len = 1];
   string status = 2; // pending, processing, completed, failed
   MediaAnalysis analysis = 3; // Analysis results (when completed)
   string error_message = 4; // Error details if failed

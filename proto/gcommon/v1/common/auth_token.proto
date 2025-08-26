@@ -8,6 +8,8 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,10 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message AuthToken {
   // Access token used for authenticated requests.
-  string access_token = 1;
+  string access_token = 1 [(buf.validate.field).string.min_len = 1];
 
   // Refresh token used to obtain new access tokens.
-  string refresh_token = 2;
+  string refresh_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Expiration time of the access token.
   google.protobuf.Timestamp expires_at = 3 [lazy = true];

@@ -15,6 +15,8 @@ import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -34,7 +36,7 @@ message WatchResponse {
   CommonHealthStatus status = 1;
 
   // Service name
-  string service = 2;
+  string service = 2 [(buf.validate.field).string.min_len = 1];
 
   // Check timestamp
   google.protobuf.Timestamp timestamp = 3;
@@ -43,10 +45,10 @@ message WatchResponse {
   google.protobuf.Duration response_time = 4;
 
   // Detailed check results
-  repeated CheckResult check_results = 5;
+  repeated CheckResult check_results = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Health message
-  string message = 6;
+  string message = 6 [(buf.validate.field).string.min_len = 1];
 
   // Error information if unhealthy
   gcommon.v1.common.Error error = 7;

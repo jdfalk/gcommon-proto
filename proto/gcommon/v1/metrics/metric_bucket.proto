@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,11 +18,11 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricBucket {
   // Lower bound inclusive.
-  double lower_bound = 1;
+  double lower_bound = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Upper bound exclusive.
-  double upper_bound = 2;
+  double upper_bound = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Number of samples in the bucket.
-  int64 count = 3;
+  int64 count = 3 [(buf.validate.field).int64.gte = 0];
 }

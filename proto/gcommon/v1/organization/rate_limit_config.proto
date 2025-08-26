@@ -7,17 +7,19 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message OrganizationRateLimitConfig {
   // Maximum requests per minute
-  int32 requests_per_minute = 1;
+  int32 requests_per_minute = 1 [(buf.validate.field).int32.gte = 0];
 
   // Maximum requests per hour
-  int32 requests_per_hour = 2;
+  int32 requests_per_hour = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum requests per day
-  int32 requests_per_day = 3;
+  int32 requests_per_day = 3 [(buf.validate.field).int32.gte = 0];
 }

@@ -10,6 +10,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,29 +21,29 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message SubscriptionStats {
   // Subscription identifier
-  string subscription_id = 1;
+  string subscription_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Number of messages consumed
-  uint64 messages_consumed = 2;
+  uint64 messages_consumed = 2 [(buf.validate.field).uint64.gte = 0];
 
   // Number of messages acknowledged
-  uint64 messages_acknowledged = 3;
+  uint64 messages_acknowledged = 3 [(buf.validate.field).uint64.gte = 0];
 
   // Number of messages rejected/nacked
-  uint64 messages_rejected = 4;
+  uint64 messages_rejected = 4 [(buf.validate.field).uint64.gte = 0];
 
   // Current lag (unprocessed messages)
-  uint64 consumer_lag = 5;
+  uint64 consumer_lag = 5 [(buf.validate.field).uint64.gte = 0];
 
   // Messages per second consumption rate
-  double consumption_rate = 6;
+  double consumption_rate = 6 [(buf.validate.field).double.gte = 0.0];
 
   // Average processing time per message (milliseconds)
-  double avg_processing_time_ms = 7;
+  double avg_processing_time_ms = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Number of active consumers
-  uint32 active_consumers = 8;
+  uint32 active_consumers = 8 [(buf.validate.field).uint32.gte = 0];
 
   // Last activity timestamp
-  uint64 last_activity_time = 9;
+  uint64 last_activity_time = 9 [(buf.validate.field).uint64.gte = 0];
 }

@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "gcommon/v1/common/handler_type.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -22,7 +24,7 @@ message HandlerConfig {
   google.protobuf.Any config = 2;
 
   // Target for the handler (URL, function name, etc.)
-  string target = 3;
+  string target = 3 [(buf.validate.field).string.min_len = 1];
 
   // Additional handler options
   map<string, string> options = 4;

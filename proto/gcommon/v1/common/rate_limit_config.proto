@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -18,16 +20,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message AuthRateLimitConfig {
   // Maximum number of requests allowed
-  int32 max_requests = 1;
+  int32 max_requests = 1 [(buf.validate.field).int32.gte = 0];
 
   // Time window for rate limiting
   google.protobuf.Duration time_window = 2;
 
   // Burst allowance (max requests in short burst)
-  int32 burst_allowance = 3;
+  int32 burst_allowance = 3 [(buf.validate.field).int32.gte = 0];
 
   // Rate limit scope (per user, per IP, etc.)
-  string scope = 4;
+  string scope = 4 [(buf.validate.field).string.min_len = 1];
 
   // Action to take when rate limit is exceeded
   string action = 5; // "block", "delay", "throttle"

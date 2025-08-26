@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/time_range_filter.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // GetPartitionInfoRequest retrieves information about topic partitions
 message GetPartitionInfoRequest {
   // Topic identifier
-  string topic_id = 1;
+  string topic_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Specific partition IDs (empty = all partitions)
-  repeated int32 partition_ids = 2;
+  repeated int32 partition_ids = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Include partition statistics
   bool include_stats = 3;
@@ -43,6 +45,6 @@ message GetPartitionInfoRequest {
   TimeRangeFilter time_range = 9;
 
   // Access control context
-  string access_token = 10;
+  string access_token = 10 [(buf.validate.field).string.min_len = 1];
 }
 // This file needs proper implementation

@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -14,22 +16,22 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 // Configuration for exporting metrics data
 message ExportConfig {
   // Export destination URL or endpoint
-  string destination = 1;
+  string destination = 1 [(buf.validate.field).string.min_len = 1];
 
   // Export format (json, csv, prometheus, etc.)
-  string format = 2;
+  string format = 2 [(buf.validate.field).string.min_len = 1];
 
   // Export frequency in seconds
-  int32 frequency_seconds = 3;
+  int32 frequency_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
   // Whether to compress exported data
   bool compress = 4;
 
   // Batch size for exports
-  int32 batch_size = 5;
+  int32 batch_size = 5 [(buf.validate.field).int32.gte = 0];
 
   // Timeout for export operations in seconds
-  int32 timeout_seconds = 6;
+  int32 timeout_seconds = 6 [(buf.validate.field).int32.gt = 0];
 
   // Custom headers for HTTP exports
   map<string, string> headers = 7;
@@ -41,21 +43,21 @@ message ExportConfig {
   MetricsRetryConfig retry_config = 9;
 
   // Filtering rules for what to export
-  repeated string include_patterns = 10;
-  repeated string exclude_patterns = 11;
+  repeated string include_patterns = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated string exclude_patterns = 11 [(buf.validate.field).repeated.min_items = 1];
 }
 
 // Retry configuration for exports
 message MetricsRetryConfig {
   // Maximum number of retries
-  int32 max_retries = 1;
+  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
 
   // Initial retry delay in seconds
-  int32 initial_delay_seconds = 2;
+  int32 initial_delay_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum retry delay in seconds
-  int32 max_delay_seconds = 3;
+  int32 max_delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
   // Backoff multiplier
-  double backoff_multiplier = 4;
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 }

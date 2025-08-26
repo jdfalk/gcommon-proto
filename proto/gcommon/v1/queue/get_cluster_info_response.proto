@@ -12,6 +12,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/cluster_info.proto";
 import "gcommon/v1/queue/node_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -24,15 +26,15 @@ message GetClusterInfoResponse {
   ClusterInfo cluster_info = 1;
 
   // Node information
-  repeated NodeInfo nodes = 2;
+  repeated NodeInfo nodes = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether the cluster is currently healthy
   bool is_healthy = 3;
 
   // Any warnings or issues with the cluster
-  repeated string warnings = 4;
+  repeated string warnings = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if failed to get info
-  string error_message = 5;
+  string error_message = 5 [(buf.validate.field).string.min_len = 1];
 }
 // This file needs proper implementation

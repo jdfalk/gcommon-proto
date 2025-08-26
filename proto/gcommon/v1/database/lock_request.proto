@@ -8,6 +8,8 @@ package gcommon.v1.database;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,13 +19,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message LockRequest {
   // Lock key
-  string key = 1;
+  string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Lock expiration
   google.protobuf.Duration ttl = 2 [lazy = true];
 
   // Optional namespace
-  string namespace = 3;
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];

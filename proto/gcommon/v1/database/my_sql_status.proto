@@ -7,6 +7,8 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -16,14 +18,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message MySQLStatus {
   // Server version string
-  string version = 1;
+  string version = 1 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Server start time
   google.protobuf.Timestamp started_at = 2;
 
   // Number of open connections
-  int32 open_connections = 3;
+  int32 open_connections = 3 [(buf.validate.field).int32.gte = 0];
 
   // Replication role (e.g., master, replica)
-  string role = 4;
+  string role = 4 [(buf.validate.field).string.min_len = 1];
 }

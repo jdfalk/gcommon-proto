@@ -8,12 +8,14 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ErrorDataPoint {
   google.protobuf.Timestamp timestamp = 1;
-  int64 error_count = 2;
-  double error_rate = 3;
+  int64 error_count = 2 [(buf.validate.field).int64.gte = 0];
+  double error_rate = 3 [(buf.validate.field).double.gte = 0.0];
 }

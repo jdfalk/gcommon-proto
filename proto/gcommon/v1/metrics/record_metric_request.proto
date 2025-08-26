@@ -11,6 +11,8 @@ import "gcommon/v1/metrics/batch_context.proto";
 import "gcommon/v1/metrics/metric_data.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -23,7 +25,7 @@ message RecordMetricRequest {
   MetricData metric = 2;
 
   // Optional provider ID to use for recording
-  string provider_id = 3;
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether to validate the metric before recording
   bool validate = 4;

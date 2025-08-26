@@ -11,20 +11,22 @@ import "gcommon/v1/organization/integration.proto";
 import "gcommon/v1/organization/o_auth_app_config.proto";
 import "gcommon/v1/organization/webhook_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message IntegrationSettings {
   // Enabled third-party integrations
-  repeated Integration enabled_integrations = 1;
+  repeated Integration enabled_integrations = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Webhook configuration for external notifications
-  repeated WebhookConfig webhooks = 2;
+  repeated WebhookConfig webhooks = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // API keys for external services
-  repeated gcommon.v1.common.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
+  repeated gcommon.v1.common.MetricsAPIKeyConfig api_keys = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // OAuth applications registered for this organization
-  repeated OAuthAppConfig oauth_apps = 4;
+  repeated OAuthAppConfig oauth_apps = 4 [(buf.validate.field).repeated.min_items = 1];
 }

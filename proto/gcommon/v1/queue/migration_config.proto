@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,16 +22,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message MigrationConfig {
   // Source queue configuration
-  string source_queue = 1;
+  string source_queue = 1 [(buf.validate.field).string.min_len = 1];
 
   // Destination queue configuration
-  string destination_queue = 2;
+  string destination_queue = 2 [(buf.validate.field).string.min_len = 1];
 
   // Migration strategy (live, batch, hybrid)
-  string migration_strategy = 3;
+  string migration_strategy = 3 [(buf.validate.field).string.min_len = 1];
 
   // Batch size for batch migration
-  uint32 batch_size = 4;
+  uint32 batch_size = 4 [(buf.validate.field).uint32.gte = 0];
 
   // Migration timeout
   google.protobuf.Duration timeout = 5;
@@ -41,5 +43,5 @@ message MigrationConfig {
   bool keep_source = 7;
 
   // Maximum concurrent operations
-  uint32 max_concurrency = 8;
+  uint32 max_concurrency = 8 [(buf.validate.field).uint32.gte = 0];
 }

@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,35 +22,35 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message MessageMetadata {
   // Unique message identifier
-  string message_id = 1;
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Message timestamp
   google.protobuf.Timestamp timestamp = 2;
 
   // Producer/sender identifier
-  string producer_id = 3;
+  string producer_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Content type of the message
-  string content_type = 4;
+  string content_type = 4 [(buf.validate.field).string.min_len = 1];
 
   // Content encoding (gzip, deflate, etc.)
-  string content_encoding = 5;
+  string content_encoding = 5 [(buf.validate.field).string.min_len = 1];
 
   // Message priority (0-255, higher is more priority)
-  uint32 priority = 6;
+  uint32 priority = 6 [(buf.validate.field).uint32.gte = 0];
 
   // Time-to-live in milliseconds
-  uint64 ttl_ms = 7;
+  uint64 ttl_ms = 7 [(buf.validate.field).uint64.gte = 0];
 
   // Custom headers
   map<string, string> headers = 8;
 
   // Routing key
-  string routing_key = 9;
+  string routing_key = 9 [(buf.validate.field).string.min_len = 1];
 
   // Correlation ID for request-response patterns
-  string correlation_id = 10;
+  string correlation_id = 10 [(buf.validate.field).string.min_len = 1];
 
   // Reply-to address
-  string reply_to = 11;
+  string reply_to = 11 [(buf.validate.field).string.min_len = 1];
 }

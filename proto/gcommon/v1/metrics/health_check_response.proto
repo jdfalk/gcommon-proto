@@ -11,6 +11,8 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -26,7 +28,7 @@ message MetricsHealthCheckResponse {
   google.protobuf.Duration response_time = 2 [lazy = true];
 
   // Optional human-readable message.
-  string message = 3;
+  string message = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error details if unhealthy.
   gcommon.v1.common.Error error = 4 [lazy = true];

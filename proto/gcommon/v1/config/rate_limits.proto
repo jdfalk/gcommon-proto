@@ -7,17 +7,19 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message RateLimits {
   // Maximum requests per second
-  int32 requests_per_second = 1;
+  int32 requests_per_second = 1 [(buf.validate.field).int32.gte = 0];
 
   // Maximum burst size
-  int32 burst_size = 2;
+  int32 burst_size = 2 [(buf.validate.field).int32.gte = 0];
 
   // Rate limit window in seconds
-  int32 window_seconds = 3;
+  int32 window_seconds = 3 [(buf.validate.field).int32.gte = 0];
 }

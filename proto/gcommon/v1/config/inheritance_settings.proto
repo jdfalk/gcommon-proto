@@ -11,6 +11,8 @@ import "gcommon/v1/common/merge_strategy.proto";
 import "gcommon/v1/config/inheritance_filter.proto";
 import "gcommon/v1/config/inheritance_transformation.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -23,13 +25,13 @@ message InheritanceSettings {
   gcommon.v1.common.InheritanceStrategy strategy = 2;
 
   // Inheritance sources in order of priority
-  repeated string sources = 3;
+  repeated string sources = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Inheritance filters
-  repeated InheritanceFilter filters = 4;
+  repeated InheritanceFilter filters = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Inheritance transformations
-  repeated InheritanceTransformation transformations = 5;
+  repeated InheritanceTransformation transformations = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether to merge inherited values
   bool merge_values = 6;

@@ -10,6 +10,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,11 +21,11 @@ message QueueListSubscriptionsRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Name of the topic or queue to list subscriptions for
-  string parent = 2;
+  string parent = 2 [(buf.validate.field).string.min_len = 1];
 
   // Optional page size
-  int32 page_size = 3;
+  int32 page_size = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Optional page token
-  string page_token = 4;
+  string page_token = 4 [(buf.validate.field).string.min_len = 1];
 }

@@ -11,16 +11,18 @@ import "gcommon/v1/organization/storage_encryption.proto";
 import "gcommon/v1/organization/storage_policy.proto";
 import "gcommon/v1/organization/storage_quota.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message StorageIsolation {
   // Storage bucket or container identifier
-  string storage_bucket = 1;
+  string storage_bucket = 1 [(buf.validate.field).string.min_len = 1];
 
   // Storage path prefix for this tenant
-  string path_prefix = 2;
+  string path_prefix = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether tenant has dedicated storage
   bool dedicated_storage = 3;
@@ -29,7 +31,7 @@ message StorageIsolation {
   StorageEncryption encryption = 4;
 
   // Storage access policies
-  repeated StoragePolicy policies = 5;
+  repeated StoragePolicy policies = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Backup and replication configuration
   StorageBackupConfig backup = 6;

@@ -8,6 +8,8 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/metrics/metric_sample.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -17,10 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message TimeSeries {
   // Identifier of the metric this series belongs to
-  string metric_id = 1;
+  string metric_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Ordered list of samples
-  repeated MetricSample samples = 2;
+  repeated MetricSample samples = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Labels associated with the series
   map<string, string> labels = 3;

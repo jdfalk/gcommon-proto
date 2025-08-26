@@ -11,6 +11,8 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -20,7 +22,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message ImportMetricsResponse {
   // Number of metrics successfully imported
-  int32 imported_count = 1;
+  int32 imported_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Error information if the import failed
   gcommon.v1.common.Error error = 2;

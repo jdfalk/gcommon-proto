@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -22,8 +24,8 @@ message NotificationFrequency {
   bool instant_notifications = 3;
 
   // Quiet hours start time (24-hour format, e.g., "22:00")
-  string quiet_hours_start = 4;
+  string quiet_hours_start = 4 [(buf.validate.field).string.min_len = 1];
 
   // Quiet hours end time (24-hour format, e.g., "08:00")
-  string quiet_hours_end = 5;
+  string quiet_hours_end = 5 [(buf.validate.field).string.min_len = 1];
 }

@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ConfigStats {
   // Total number of configurations
-  int64 total_configs = 1;
+  int64 total_configs = 1 [(buf.validate.field).int64.gte = 0];
 
   // Number of active configurations
-  int64 active_configs = 2;
+  int64 active_configs = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of deprecated configurations
-  int64 deprecated_configs = 3;
+  int64 deprecated_configs = 3 [(buf.validate.field).int64.gte = 0];
 
   // Average access frequency
-  double avg_access_frequency = 4;
+  double avg_access_frequency = 4 [(buf.validate.field).double.gte = 0.0];
 }

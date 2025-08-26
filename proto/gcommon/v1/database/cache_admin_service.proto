@@ -16,6 +16,8 @@ import "gcommon/v1/database/list_namespaces_request.proto";
 import "gcommon/v1/database/list_namespaces_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 // (duplicates removed)
 

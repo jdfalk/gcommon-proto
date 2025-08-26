@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -28,8 +30,8 @@ message UserPreferences {
   bool two_factor_enabled = 5;
 
   // Session timeout preference (minutes)
-  int32 session_timeout_minutes = 6;
+  int32 session_timeout_minutes = 6 [(buf.validate.field).int32.gt = 0];
 
   // Theme preference (light, dark, auto)
-  string theme = 7;
+  string theme = 7 [(buf.validate.field).string.min_len = 1];
 }

@@ -8,6 +8,8 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -17,17 +19,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricsBackupInfo {
   // Unique backup identifier
-  string backup_id = 1;
+  string backup_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Location where backup is stored
-  string backup_location = 2;
+  string backup_location = 2 [(buf.validate.field).string.min_len = 1];
 
   // Size of backup in bytes
-  int64 backup_size_bytes = 3;
+  int64 backup_size_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // When backup was created
   google.protobuf.Timestamp backup_created_at = 4;
 
   // Backup retention period
-  string backup_retention = 5;
+  string backup_retention = 5 [(buf.validate.field).string.min_len = 1];
 }

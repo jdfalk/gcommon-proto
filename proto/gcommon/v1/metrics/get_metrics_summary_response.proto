@@ -13,6 +13,8 @@ import "gcommon/v1/metrics/metrics_summary.proto";
 import "gcommon/v1/metrics/provider_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -28,7 +30,7 @@ message GetMetricsSummaryResponse {
   MetricsSummary summary = 3;
 
   // Provider-level statistics (if requested)
-  repeated ProviderSummary provider_summaries = 4;
+  repeated ProviderSummary provider_summaries = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Health status information (if requested)
   MetricsHealthInfo health_status = 5;
@@ -40,5 +42,5 @@ message GetMetricsSummaryResponse {
   gcommon.v1.common.TimeRangeMetrics time_range = 7;
 
   // Warnings or informational messages
-  repeated string warnings = 8;
+  repeated string warnings = 8 [(buf.validate.field).repeated.min_items = 1];
 }
