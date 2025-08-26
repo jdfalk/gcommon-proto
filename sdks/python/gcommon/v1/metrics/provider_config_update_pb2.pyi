@@ -4,10 +4,10 @@ from gcommon.v1.metrics import resource_limits_update_pb2 as _resource_limits_up
 from gcommon.v1.metrics import security_config_update_pb2 as _security_config_update_pb2
 from gcommon.v1.metrics import tag_updates_pb2 as _tag_updates_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 

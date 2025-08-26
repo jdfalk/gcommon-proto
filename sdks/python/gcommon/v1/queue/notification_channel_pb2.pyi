@@ -1,11 +1,11 @@
 from gcommon.v1.common import metrics_alert_severity_pb2 as _metrics_alert_severity_pb2
 from gcommon.v1.common import notification_channel_type_pb2 as _notification_channel_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +28,4 @@ class QueueNotificationChannel(_message.Message):
     config: _containers.ScalarMap[str, str]
     enabled: bool
     min_severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
-    def __init__(self, id: _Optional[str] = ..., type: _Optional[_Union[_notification_channel_type_pb2.NotificationChannelType, str]] = ..., config: _Optional[_Mapping[str, str]] = ..., enabled: _Optional[bool] = ..., min_severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., type: _Optional[_Union[_notification_channel_type_pb2.NotificationChannelType, str]] = ..., config: _Optional[_Mapping[str, str]] = ..., enabled: bool = ..., min_severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ...) -> None: ...

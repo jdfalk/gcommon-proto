@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -27,4 +28,4 @@ class StatsOptions(_message.Message):
     include_top_metrics: bool
     top_metrics_limit: int
     include_trends: bool
-    def __init__(self, include_performance: _Optional[bool] = ..., include_resource_usage: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., include_data_volume: _Optional[bool] = ..., include_exports: _Optional[bool] = ..., include_health_history: _Optional[bool] = ..., include_config: _Optional[bool] = ..., include_top_metrics: _Optional[bool] = ..., top_metrics_limit: _Optional[int] = ..., include_trends: _Optional[bool] = ...) -> None: ...
+    def __init__(self, include_performance: bool = ..., include_resource_usage: bool = ..., include_errors: bool = ..., include_data_volume: bool = ..., include_exports: bool = ..., include_health_history: bool = ..., include_config: bool = ..., include_top_metrics: bool = ..., top_metrics_limit: _Optional[int] = ..., include_trends: bool = ...) -> None: ...

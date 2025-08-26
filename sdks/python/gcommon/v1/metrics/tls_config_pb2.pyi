@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class MetricsTLSConfig(_message.Message):
     key_file: str
     ca_file: str
     verify_certs: bool
-    def __init__(self, cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., verify_certs: _Optional[bool] = ...) -> None: ...
+    def __init__(self, cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., verify_certs: bool = ...) -> None: ...

@@ -1,15 +1,13 @@
-import datetime
-
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from gcommon.v1.queue import queue_message_pb2 as _queue_message_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -41,4 +39,4 @@ class DequeueResponse(_message.Message):
     error: _error_pb2.Error
     operation_started_at: _timestamp_pb2.Timestamp
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(self, messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., success: _Optional[bool] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., messages_remaining: _Optional[int] = ..., approximate_queue_size: _Optional[int] = ..., consumer_id: _Optional[str] = ..., wait_started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., wait_duration_ms: _Optional[int] = ..., timed_out: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., operation_started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., success: bool = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., messages_remaining: _Optional[int] = ..., approximate_queue_size: _Optional[int] = ..., consumer_id: _Optional[str] = ..., wait_started_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., wait_duration_ms: _Optional[int] = ..., timed_out: bool = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., operation_started_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

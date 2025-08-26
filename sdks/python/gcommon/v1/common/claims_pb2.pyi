@@ -1,9 +1,9 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -54,4 +54,4 @@ class Claims(_message.Message):
     session_id: str
     is_refresh_token: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, issuer: _Optional[str] = ..., subject: _Optional[str] = ..., audience: _Optional[_Iterable[str]] = ..., expires_at: _Optional[int] = ..., not_before: _Optional[int] = ..., issued_at: _Optional[int] = ..., jwt_id: _Optional[str] = ..., user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., email_verified: _Optional[bool] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ..., mfa_verified: _Optional[bool] = ..., mfa_method: _Optional[str] = ..., session_id: _Optional[str] = ..., is_refresh_token: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, issuer: _Optional[str] = ..., subject: _Optional[str] = ..., audience: _Optional[_Iterable[str]] = ..., expires_at: _Optional[int] = ..., not_before: _Optional[int] = ..., issued_at: _Optional[int] = ..., jwt_id: _Optional[str] = ..., user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., email_verified: bool = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ..., mfa_verified: bool = ..., mfa_method: _Optional[str] = ..., session_id: _Optional[str] = ..., is_refresh_token: bool = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

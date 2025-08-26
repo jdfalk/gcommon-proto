@@ -1,14 +1,12 @@
-import datetime
-
 from gcommon.v1.queue import backup_info_pb2 as _backup_info_pb2
 from gcommon.v1.queue import deletion_stats_pb2 as _deletion_stats_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -41,4 +39,4 @@ class QueueDeleteResponse(_message.Message):
     backup_info: _backup_info_pb2.QueueBackupInfo
     warnings: _containers.RepeatedScalarFieldContainer[str]
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: _Optional[bool] = ..., deleted_resource_id: _Optional[str] = ..., resource_type: _Optional[str] = ..., deleted_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., deletion_stats: _Optional[_Union[_deletion_stats_pb2.DeletionStats, _Mapping]] = ..., backup_info: _Optional[_Union[_backup_info_pb2.QueueBackupInfo, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, success: bool = ..., deleted_resource_id: _Optional[str] = ..., resource_type: _Optional[str] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., deletion_stats: _Optional[_Union[_deletion_stats_pb2.DeletionStats, _Mapping]] = ..., backup_info: _Optional[_Union[_backup_info_pb2.QueueBackupInfo, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

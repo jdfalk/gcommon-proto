@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class FlushQueueResponse(_message.Message):
     bytes_flushed: int
     flush_duration_ms: int
     error: str
-    def __init__(self, success: _Optional[bool] = ..., messages_flushed: _Optional[int] = ..., bytes_flushed: _Optional[int] = ..., flush_duration_ms: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: bool = ..., messages_flushed: _Optional[int] = ..., bytes_flushed: _Optional[int] = ..., flush_duration_ms: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

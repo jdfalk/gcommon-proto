@@ -1,11 +1,11 @@
 from gcommon.v1.common import metrics_export_format_pb2 as _metrics_export_format_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -23,4 +23,4 @@ class ExportMetricsRequest(_message.Message):
     destination: str
     metric_names: _containers.RepeatedScalarFieldContainer[str]
     include_metadata: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., format: _Optional[_Union[_metrics_export_format_pb2.MetricsExportFormat, str]] = ..., destination: _Optional[str] = ..., metric_names: _Optional[_Iterable[str]] = ..., include_metadata: _Optional[bool] = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., format: _Optional[_Union[_metrics_export_format_pb2.MetricsExportFormat, str]] = ..., destination: _Optional[str] = ..., metric_names: _Optional[_Iterable[str]] = ..., include_metadata: bool = ...) -> None: ...

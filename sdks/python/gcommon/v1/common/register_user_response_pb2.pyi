@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class RegisterUserResponse(_message.Message):
     email_verification_required: bool
     error_message: str
     session_token: str
-    def __init__(self, success: _Optional[bool] = ..., user_id: _Optional[str] = ..., email_verification_required: _Optional[bool] = ..., error_message: _Optional[str] = ..., session_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: bool = ..., user_id: _Optional[str] = ..., email_verification_required: bool = ..., error_message: _Optional[str] = ..., session_token: _Optional[str] = ...) -> None: ...

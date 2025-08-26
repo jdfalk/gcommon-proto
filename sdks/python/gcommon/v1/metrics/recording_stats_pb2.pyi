@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class RecordingStats(_message.Message):
     retry_count: int
     buffered: bool
     persisted: bool
-    def __init__(self, processing_time_ms: _Optional[int] = ..., retry_count: _Optional[int] = ..., buffered: _Optional[bool] = ..., persisted: _Optional[bool] = ...) -> None: ...
+    def __init__(self, processing_time_ms: _Optional[int] = ..., retry_count: _Optional[int] = ..., buffered: bool = ..., persisted: bool = ...) -> None: ...

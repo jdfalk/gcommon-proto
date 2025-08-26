@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class SSLConfig(_message.Message):
     ssl_policy: str
     redirect_http: bool
     min_tls_version: str
-    def __init__(self, certificate_id: _Optional[str] = ..., ssl_policy: _Optional[str] = ..., redirect_http: _Optional[bool] = ..., min_tls_version: _Optional[str] = ...) -> None: ...
+    def __init__(self, certificate_id: _Optional[str] = ..., ssl_policy: _Optional[str] = ..., redirect_http: bool = ..., min_tls_version: _Optional[str] = ...) -> None: ...

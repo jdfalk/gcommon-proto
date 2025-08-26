@@ -1,5 +1,6 @@
 from gcommon.v1.common import replication_level_pb2 as _replication_level_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -20,4 +21,4 @@ class ReplicationConsistency(_message.Message):
     replication_level: _replication_level_pb2.ReplicationLevel
     anti_entropy_enabled: bool
     repair_interval_seconds: int
-    def __init__(self, min_write_replicas: _Optional[int] = ..., min_read_replicas: _Optional[int] = ..., replication_factor: _Optional[int] = ..., replication_level: _Optional[_Union[_replication_level_pb2.ReplicationLevel, str]] = ..., anti_entropy_enabled: _Optional[bool] = ..., repair_interval_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, min_write_replicas: _Optional[int] = ..., min_read_replicas: _Optional[int] = ..., replication_factor: _Optional[int] = ..., replication_level: _Optional[_Union[_replication_level_pb2.ReplicationLevel, str]] = ..., anti_entropy_enabled: bool = ..., repair_interval_seconds: _Optional[int] = ...) -> None: ...

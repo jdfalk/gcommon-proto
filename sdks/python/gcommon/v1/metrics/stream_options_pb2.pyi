@@ -1,6 +1,7 @@
 from gcommon.v1.common import stream_compression_pb2 as _stream_compression_pb2
 from gcommon.v1.common import stream_qos_pb2 as _stream_qos_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -27,4 +28,4 @@ class StreamOptions(_message.Message):
     heartbeat_interval_seconds: int
     auto_retry: bool
     qos: _stream_qos_pb2.StreamQOS
-    def __init__(self, include_historical: _Optional[bool] = ..., batch_size: _Optional[int] = ..., batch_timeout_ms: _Optional[int] = ..., include_metadata: _Optional[bool] = ..., compression: _Optional[_Union[_stream_compression_pb2.StreamCompression, str]] = ..., send_heartbeats: _Optional[bool] = ..., heartbeat_interval_seconds: _Optional[int] = ..., auto_retry: _Optional[bool] = ..., qos: _Optional[_Union[_stream_qos_pb2.StreamQOS, str]] = ...) -> None: ...
+    def __init__(self, include_historical: bool = ..., batch_size: _Optional[int] = ..., batch_timeout_ms: _Optional[int] = ..., include_metadata: bool = ..., compression: _Optional[_Union[_stream_compression_pb2.StreamCompression, str]] = ..., send_heartbeats: bool = ..., heartbeat_interval_seconds: _Optional[int] = ..., auto_retry: bool = ..., qos: _Optional[_Union[_stream_qos_pb2.StreamQOS, str]] = ...) -> None: ...

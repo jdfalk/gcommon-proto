@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class OrganizationEncryptionConfig(_message.Message):
     key_management_service: str
     customer_key_id: str
     encryption_algorithm: str
-    def __init__(self, encryption_at_rest: _Optional[bool] = ..., encryption_in_transit: _Optional[bool] = ..., key_management_service: _Optional[str] = ..., customer_key_id: _Optional[str] = ..., encryption_algorithm: _Optional[str] = ...) -> None: ...
+    def __init__(self, encryption_at_rest: bool = ..., encryption_in_transit: bool = ..., key_management_service: _Optional[str] = ..., customer_key_id: _Optional[str] = ..., encryption_algorithm: _Optional[str] = ...) -> None: ...

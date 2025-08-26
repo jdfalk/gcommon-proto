@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -25,4 +26,4 @@ class HealthConfig(_message.Message):
     interval_seconds: int
     grace_period_seconds: int
     retries: int
-    def __init__(self, enabled: _Optional[bool] = ..., endpoint: _Optional[str] = ..., liveness_path: _Optional[str] = ..., readiness_path: _Optional[str] = ..., startup_path: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., interval_seconds: _Optional[int] = ..., grace_period_seconds: _Optional[int] = ..., retries: _Optional[int] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., endpoint: _Optional[str] = ..., liveness_path: _Optional[str] = ..., readiness_path: _Optional[str] = ..., startup_path: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., interval_seconds: _Optional[int] = ..., grace_period_seconds: _Optional[int] = ..., retries: _Optional[int] = ...) -> None: ...

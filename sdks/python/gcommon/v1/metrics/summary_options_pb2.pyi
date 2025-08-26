@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class SummaryOptions(_message.Message):
     include_retention: bool
     include_export_status: bool
     top_metrics_limit: int
-    def __init__(self, include_counts: _Optional[bool] = ..., include_data_volume: _Optional[bool] = ..., include_performance: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., include_top_metrics: _Optional[bool] = ..., include_retention: _Optional[bool] = ..., include_export_status: _Optional[bool] = ..., top_metrics_limit: _Optional[int] = ...) -> None: ...
+    def __init__(self, include_counts: bool = ..., include_data_volume: bool = ..., include_performance: bool = ..., include_errors: bool = ..., include_top_metrics: bool = ..., include_retention: bool = ..., include_export_status: bool = ..., top_metrics_limit: _Optional[int] = ...) -> None: ...

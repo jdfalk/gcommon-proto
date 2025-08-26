@@ -1,5 +1,6 @@
 from gcommon.v1.common import cleanup_strategy_pb2 as _cleanup_strategy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -30,4 +31,4 @@ class DeletionOptions(_message.Message):
     cleanup_strategy: _cleanup_strategy_pb2.CleanupStrategy
     wait_for_completion: bool
     completion_timeout: str
-    def __init__(self, delete_data: _Optional[bool] = ..., delete_indices: _Optional[bool] = ..., delete_backups: _Optional[bool] = ..., stop_exports: _Optional[bool] = ..., grace_period: _Optional[str] = ..., dry_run: _Optional[bool] = ..., force: _Optional[bool] = ..., create_backup: _Optional[bool] = ..., cleanup_strategy: _Optional[_Union[_cleanup_strategy_pb2.CleanupStrategy, str]] = ..., wait_for_completion: _Optional[bool] = ..., completion_timeout: _Optional[str] = ...) -> None: ...
+    def __init__(self, delete_data: bool = ..., delete_indices: bool = ..., delete_backups: bool = ..., stop_exports: bool = ..., grace_period: _Optional[str] = ..., dry_run: bool = ..., force: bool = ..., create_backup: bool = ..., cleanup_strategy: _Optional[_Union[_cleanup_strategy_pb2.CleanupStrategy, str]] = ..., wait_for_completion: bool = ..., completion_timeout: _Optional[str] = ...) -> None: ...

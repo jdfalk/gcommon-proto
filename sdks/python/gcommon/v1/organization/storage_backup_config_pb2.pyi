@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class StorageBackupConfig(_message.Message):
     retention_days: int
     cross_region: bool
     encryption_enabled: bool
-    def __init__(self, enabled: _Optional[bool] = ..., schedule: _Optional[str] = ..., retention_days: _Optional[int] = ..., cross_region: _Optional[bool] = ..., encryption_enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., schedule: _Optional[str] = ..., retention_days: _Optional[int] = ..., cross_region: bool = ..., encryption_enabled: bool = ...) -> None: ...

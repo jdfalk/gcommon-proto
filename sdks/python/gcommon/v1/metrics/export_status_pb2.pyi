@@ -1,13 +1,11 @@
-import datetime
-
 from gcommon.v1.metrics import exporter_status_pb2 as _exporter_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -21,4 +19,4 @@ class ExportStatus(_message.Message):
     failed_exports: int
     last_export: _timestamp_pb2.Timestamp
     exporters: _containers.RepeatedCompositeFieldContainer[_exporter_status_pb2.ExporterStatus]
-    def __init__(self, total_exported_metrics: _Optional[int] = ..., failed_exports: _Optional[int] = ..., last_export: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., exporters: _Optional[_Iterable[_Union[_exporter_status_pb2.ExporterStatus, _Mapping]]] = ...) -> None: ...
+    def __init__(self, total_exported_metrics: _Optional[int] = ..., failed_exports: _Optional[int] = ..., last_export: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., exporters: _Optional[_Iterable[_Union[_exporter_status_pb2.ExporterStatus, _Mapping]]] = ...) -> None: ...

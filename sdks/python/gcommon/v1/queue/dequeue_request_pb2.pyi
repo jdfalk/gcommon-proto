@@ -1,13 +1,11 @@
-import datetime
-
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -46,4 +44,4 @@ class DequeueRequest(_message.Message):
     include_metadata: bool
     peek_only: bool
     min_priority: int
-    def __init__(self, queue_name: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., max_messages: _Optional[int] = ..., visibility_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., wait_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., group_id_filter: _Optional[str] = ..., attribute_filters: _Optional[_Mapping[str, str]] = ..., message_type_filter: _Optional[str] = ..., consumer_id: _Optional[str] = ..., include_attributes: _Optional[bool] = ..., include_metadata: _Optional[bool] = ..., peek_only: _Optional[bool] = ..., min_priority: _Optional[int] = ...) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., max_messages: _Optional[int] = ..., visibility_timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., wait_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., group_id_filter: _Optional[str] = ..., attribute_filters: _Optional[_Mapping[str, str]] = ..., message_type_filter: _Optional[str] = ..., consumer_id: _Optional[str] = ..., include_attributes: bool = ..., include_metadata: bool = ..., peek_only: bool = ..., min_priority: _Optional[int] = ...) -> None: ...

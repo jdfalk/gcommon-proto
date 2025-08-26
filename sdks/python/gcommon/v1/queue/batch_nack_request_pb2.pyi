@@ -1,10 +1,10 @@
 from gcommon.v1.queue import message_nack_pb2 as _message_nack_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -35,4 +35,4 @@ class BatchNackRequest(_message.Message):
     send_to_dlq: bool
     nack_reason: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, consumer_group_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., message_nacks: _Optional[_Iterable[_Union[_message_nack_pb2.MessageNack, _Mapping]]] = ..., requeue_messages: _Optional[bool] = ..., requeue_delay_ms: _Optional[int] = ..., max_requeue_attempts: _Optional[int] = ..., send_to_dlq: _Optional[bool] = ..., nack_reason: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, consumer_group_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., message_nacks: _Optional[_Iterable[_Union[_message_nack_pb2.MessageNack, _Mapping]]] = ..., requeue_messages: bool = ..., requeue_delay_ms: _Optional[int] = ..., max_requeue_attempts: _Optional[int] = ..., send_to_dlq: bool = ..., nack_reason: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -1,12 +1,10 @@
-import datetime
-
 from gcommon.v1.metrics import scrape_config_pb2 as _scrape_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +20,4 @@ class ScrapeJob(_message.Message):
     active: bool
     last_scrape_time: _timestamp_pb2.Timestamp
     next_scrape_time: _timestamp_pb2.Timestamp
-    def __init__(self, job_id: _Optional[str] = ..., config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ..., active: _Optional[bool] = ..., last_scrape_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., next_scrape_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, job_id: _Optional[str] = ..., config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ..., active: bool = ..., last_scrape_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., next_scrape_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

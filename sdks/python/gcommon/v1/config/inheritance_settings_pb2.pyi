@@ -3,11 +3,11 @@ from gcommon.v1.common import merge_strategy_pb2 as _merge_strategy_pb2
 from gcommon.v1.config import inheritance_filter_pb2 as _inheritance_filter_pb2
 from gcommon.v1.config import inheritance_transformation_pb2 as _inheritance_transformation_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -36,4 +36,4 @@ class InheritanceSettings(_message.Message):
     merge_values: bool
     merge_strategy: _merge_strategy_pb2.MergeStrategy
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., strategy: _Optional[_Union[_inheritance_strategy_pb2.InheritanceStrategy, str]] = ..., sources: _Optional[_Iterable[str]] = ..., filters: _Optional[_Iterable[_Union[_inheritance_filter_pb2.InheritanceFilter, _Mapping]]] = ..., transformations: _Optional[_Iterable[_Union[_inheritance_transformation_pb2.InheritanceTransformation, _Mapping]]] = ..., merge_values: _Optional[bool] = ..., merge_strategy: _Optional[_Union[_merge_strategy_pb2.MergeStrategy, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., strategy: _Optional[_Union[_inheritance_strategy_pb2.InheritanceStrategy, str]] = ..., sources: _Optional[_Iterable[str]] = ..., filters: _Optional[_Iterable[_Union[_inheritance_filter_pb2.InheritanceFilter, _Mapping]]] = ..., transformations: _Optional[_Iterable[_Union[_inheritance_transformation_pb2.InheritanceTransformation, _Mapping]]] = ..., merge_values: bool = ..., merge_strategy: _Optional[_Union[_merge_strategy_pb2.MergeStrategy, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

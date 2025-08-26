@@ -1,8 +1,8 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -24,4 +24,4 @@ class ChapterDetectionOptions(_message.Message):
     min_chapter_length_seconds: float
     use_metadata: bool
     use_ai_detection: bool
-    def __init__(self, silence_threshold_db: _Optional[float] = ..., min_chapter_length_seconds: _Optional[float] = ..., use_metadata: _Optional[bool] = ..., use_ai_detection: _Optional[bool] = ...) -> None: ...
+    def __init__(self, silence_threshold_db: _Optional[float] = ..., min_chapter_length_seconds: _Optional[float] = ..., use_metadata: bool = ..., use_ai_detection: bool = ...) -> None: ...

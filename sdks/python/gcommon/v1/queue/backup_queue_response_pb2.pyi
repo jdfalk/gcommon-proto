@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class BackupQueueResponse(_message.Message):
     checksum: str
     backup_timestamp: int
     error: str
-    def __init__(self, success: _Optional[bool] = ..., backup_location: _Optional[str] = ..., messages_backed_up: _Optional[int] = ..., backup_size_bytes: _Optional[int] = ..., backup_duration_ms: _Optional[int] = ..., checksum: _Optional[str] = ..., backup_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: bool = ..., backup_location: _Optional[str] = ..., messages_backed_up: _Optional[int] = ..., backup_size_bytes: _Optional[int] = ..., backup_duration_ms: _Optional[int] = ..., checksum: _Optional[str] = ..., backup_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class ContentFilter(_message.Message):
     operator: str
     value: str
     case_sensitive: bool
-    def __init__(self, field_path: _Optional[str] = ..., operator: _Optional[str] = ..., value: _Optional[str] = ..., case_sensitive: _Optional[bool] = ...) -> None: ...
+    def __init__(self, field_path: _Optional[str] = ..., operator: _Optional[str] = ..., value: _Optional[str] = ..., case_sensitive: bool = ...) -> None: ...

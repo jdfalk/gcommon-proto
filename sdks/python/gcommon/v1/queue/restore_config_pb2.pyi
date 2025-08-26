@@ -1,11 +1,9 @@
-import datetime
-
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +25,4 @@ class RestoreConfig(_message.Message):
     preserve_timestamps: bool
     max_concurrency: int
     skip_corrupted: bool
-    def __init__(self, backup_source: _Optional[str] = ..., verify_integrity: _Optional[bool] = ..., restore_strategy: _Optional[str] = ..., overwrite_existing: _Optional[bool] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., preserve_timestamps: _Optional[bool] = ..., max_concurrency: _Optional[int] = ..., skip_corrupted: _Optional[bool] = ...) -> None: ...
+    def __init__(self, backup_source: _Optional[str] = ..., verify_integrity: bool = ..., restore_strategy: _Optional[str] = ..., overwrite_existing: bool = ..., timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., preserve_timestamps: bool = ..., max_concurrency: _Optional[int] = ..., skip_corrupted: bool = ...) -> None: ...

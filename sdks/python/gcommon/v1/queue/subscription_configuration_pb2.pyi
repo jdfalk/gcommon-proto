@@ -1,6 +1,7 @@
 from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
 from gcommon.v1.common import delivery_mode_pb2 as _delivery_mode_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -29,4 +30,4 @@ class SubscriptionConfiguration(_message.Message):
     expiration_seconds: int
     duplicate_detection: bool
     max_message_age_seconds: int
-    def __init__(self, ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ..., max_unacked_messages: _Optional[int] = ..., ack_timeout_ms: _Optional[int] = ..., min_priority: _Optional[int] = ..., ordered_delivery: _Optional[bool] = ..., auto_acknowledge: _Optional[bool] = ..., expiration_seconds: _Optional[int] = ..., duplicate_detection: _Optional[bool] = ..., max_message_age_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ..., max_unacked_messages: _Optional[int] = ..., ack_timeout_ms: _Optional[int] = ..., min_priority: _Optional[int] = ..., ordered_delivery: bool = ..., auto_acknowledge: bool = ..., expiration_seconds: _Optional[int] = ..., duplicate_detection: bool = ..., max_message_age_seconds: _Optional[int] = ...) -> None: ...

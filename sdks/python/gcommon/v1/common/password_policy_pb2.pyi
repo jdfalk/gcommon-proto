@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class PasswordPolicy(_message.Message):
     max_age_days: int
     history: int
     allow_reuse: bool
-    def __init__(self, min_length: _Optional[int] = ..., require_uppercase: _Optional[bool] = ..., require_lowercase: _Optional[bool] = ..., require_number: _Optional[bool] = ..., require_symbol: _Optional[bool] = ..., max_age_days: _Optional[int] = ..., history: _Optional[int] = ..., allow_reuse: _Optional[bool] = ...) -> None: ...
+    def __init__(self, min_length: _Optional[int] = ..., require_uppercase: bool = ..., require_lowercase: bool = ..., require_number: bool = ..., require_symbol: bool = ..., max_age_days: _Optional[int] = ..., history: _Optional[int] = ..., allow_reuse: bool = ...) -> None: ...

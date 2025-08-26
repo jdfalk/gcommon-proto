@@ -1,5 +1,6 @@
 from gcommon.v1.common import queue_export_format_pb2 as _queue_export_format_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -22,4 +23,4 @@ class ImportQueueRequest(_message.Message):
     validate: bool
     max_messages: int
     timeout_ms: int
-    def __init__(self, queue_name: _Optional[str] = ..., source_path: _Optional[str] = ..., format: _Optional[_Union[_queue_export_format_pb2.QueueExportFormat, str]] = ..., overwrite: _Optional[bool] = ..., validate: _Optional[bool] = ..., max_messages: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., source_path: _Optional[str] = ..., format: _Optional[_Union[_queue_export_format_pb2.QueueExportFormat, str]] = ..., overwrite: bool = ..., validate: bool = ..., max_messages: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

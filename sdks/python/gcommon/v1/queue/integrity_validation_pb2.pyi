@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class IntegrityValidation(_message.Message):
     corrupted_messages: int
     missing_messages: int
     duplicate_messages: int
-    def __init__(self, passed: _Optional[bool] = ..., corrupted_messages: _Optional[int] = ..., missing_messages: _Optional[int] = ..., duplicate_messages: _Optional[int] = ...) -> None: ...
+    def __init__(self, passed: bool = ..., corrupted_messages: _Optional[int] = ..., missing_messages: _Optional[int] = ..., duplicate_messages: _Optional[int] = ...) -> None: ...

@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class Enable2FaRequest(_message.Message):
     phone_number: str
     use_authenticator: bool
     generate_backup_codes: bool
-    def __init__(self, user_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., use_authenticator: _Optional[bool] = ..., generate_backup_codes: _Optional[bool] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., use_authenticator: bool = ..., generate_backup_codes: bool = ...) -> None: ...

@@ -1,10 +1,10 @@
 from gcommon.v1.metrics import dry_run_result_pb2 as _dry_run_result_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +30,4 @@ class DeletionResult(_message.Message):
     cleanup_strategy_used: str
     deletion_duration: str
     dry_run_result: _dry_run_result_pb2.DryRunResult
-    def __init__(self, provider_deleted: _Optional[bool] = ..., data_deleted_bytes: _Optional[int] = ..., metrics_deleted: _Optional[int] = ..., data_points_deleted: _Optional[int] = ..., deleted_indices: _Optional[_Iterable[str]] = ..., stopped_exports: _Optional[_Iterable[str]] = ..., deleted_backups: _Optional[_Iterable[str]] = ..., cleanup_strategy_used: _Optional[str] = ..., deletion_duration: _Optional[str] = ..., dry_run_result: _Optional[_Union[_dry_run_result_pb2.DryRunResult, _Mapping]] = ...) -> None: ...
+    def __init__(self, provider_deleted: bool = ..., data_deleted_bytes: _Optional[int] = ..., metrics_deleted: _Optional[int] = ..., data_points_deleted: _Optional[int] = ..., deleted_indices: _Optional[_Iterable[str]] = ..., stopped_exports: _Optional[_Iterable[str]] = ..., deleted_backups: _Optional[_Iterable[str]] = ..., cleanup_strategy_used: _Optional[str] = ..., deletion_duration: _Optional[str] = ..., dry_run_result: _Optional[_Union[_dry_run_result_pb2.DryRunResult, _Mapping]] = ...) -> None: ...

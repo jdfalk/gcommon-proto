@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class BatchSettings(_message.Message):
     max_batch_bytes: int
     batch_timeout_ms: int
     flush_on_complete: bool
-    def __init__(self, enabled: _Optional[bool] = ..., max_batch_size: _Optional[int] = ..., max_batch_bytes: _Optional[int] = ..., batch_timeout_ms: _Optional[int] = ..., flush_on_complete: _Optional[bool] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., max_batch_size: _Optional[int] = ..., max_batch_bytes: _Optional[int] = ..., batch_timeout_ms: _Optional[int] = ..., flush_on_complete: bool = ...) -> None: ...

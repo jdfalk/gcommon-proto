@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -19,4 +20,4 @@ class GetClusterInfoRequest(_message.Message):
     include_resources: bool
     include_topology: bool
     timeout_ms: int
-    def __init__(self, include_nodes: _Optional[bool] = ..., include_metrics: _Optional[bool] = ..., include_health: _Optional[bool] = ..., include_resources: _Optional[bool] = ..., include_topology: _Optional[bool] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, include_nodes: bool = ..., include_metrics: bool = ..., include_health: bool = ..., include_resources: bool = ..., include_topology: bool = ..., timeout_ms: _Optional[int] = ...) -> None: ...

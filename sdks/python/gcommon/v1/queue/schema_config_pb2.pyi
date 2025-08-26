@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class SchemaConfig(_message.Message):
     definition: str
     type: str
     validate: bool
-    def __init__(self, version: _Optional[int] = ..., definition: _Optional[str] = ..., type: _Optional[str] = ..., validate: _Optional[bool] = ...) -> None: ...
+    def __init__(self, version: _Optional[int] = ..., definition: _Optional[str] = ..., type: _Optional[str] = ..., validate: bool = ...) -> None: ...

@@ -1,16 +1,14 @@
-import datetime
-
 from gcommon.v1.common import error_info_pb2 as _error_info_pb2
 from gcommon.v1.common import log_level_pb2 as _log_level_pb2
 from gcommon.v1.common import source_location_pb2 as _source_location_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -49,4 +47,4 @@ class LogEntry(_message.Message):
     user_id: str
     request_id: str
     error_info: _error_info_pb2.ErrorInfo
-    def __init__(self, level: _Optional[_Union[_log_level_pb2.LogLevel, str]] = ..., message: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., logger: _Optional[str] = ..., thread: _Optional[str] = ..., source: _Optional[_Union[_source_location_pb2.SourceLocation, _Mapping]] = ..., fields: _Optional[_Mapping[str, _any_pb2.Any]] = ..., tags: _Optional[_Iterable[str]] = ..., trace_id: _Optional[str] = ..., span_id: _Optional[str] = ..., user_id: _Optional[str] = ..., request_id: _Optional[str] = ..., error_info: _Optional[_Union[_error_info_pb2.ErrorInfo, _Mapping]] = ...) -> None: ...
+    def __init__(self, level: _Optional[_Union[_log_level_pb2.LogLevel, str]] = ..., message: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., logger: _Optional[str] = ..., thread: _Optional[str] = ..., source: _Optional[_Union[_source_location_pb2.SourceLocation, _Mapping]] = ..., fields: _Optional[_Mapping[str, _any_pb2.Any]] = ..., tags: _Optional[_Iterable[str]] = ..., trace_id: _Optional[str] = ..., span_id: _Optional[str] = ..., user_id: _Optional[str] = ..., request_id: _Optional[str] = ..., error_info: _Optional[_Union[_error_info_pb2.ErrorInfo, _Mapping]] = ...) -> None: ...

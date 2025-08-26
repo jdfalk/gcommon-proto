@@ -1,10 +1,10 @@
 from gcommon.v1.common import aggregation_type_pb2 as _aggregation_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -24,4 +24,4 @@ class MetricAggregation(_message.Message):
     custom_function: str
     include_nulls: bool
     min_samples: int
-    def __init__(self, type: _Optional[_Union[_aggregation_type_pb2.AggregationType, str]] = ..., window_seconds: _Optional[int] = ..., group_by: _Optional[_Iterable[str]] = ..., percentiles: _Optional[_Iterable[float]] = ..., custom_function: _Optional[str] = ..., include_nulls: _Optional[bool] = ..., min_samples: _Optional[int] = ...) -> None: ...
+    def __init__(self, type: _Optional[_Union[_aggregation_type_pb2.AggregationType, str]] = ..., window_seconds: _Optional[int] = ..., group_by: _Optional[_Iterable[str]] = ..., percentiles: _Optional[_Iterable[float]] = ..., custom_function: _Optional[str] = ..., include_nulls: bool = ..., min_samples: _Optional[int] = ...) -> None: ...

@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -21,4 +22,4 @@ class UserPreferences(_message.Message):
     two_factor_enabled: bool
     session_timeout_minutes: int
     theme: str
-    def __init__(self, email_notifications: _Optional[bool] = ..., sms_notifications: _Optional[bool] = ..., push_notifications: _Optional[bool] = ..., marketing_emails: _Optional[bool] = ..., two_factor_enabled: _Optional[bool] = ..., session_timeout_minutes: _Optional[int] = ..., theme: _Optional[str] = ...) -> None: ...
+    def __init__(self, email_notifications: bool = ..., sms_notifications: bool = ..., push_notifications: bool = ..., marketing_emails: bool = ..., two_factor_enabled: bool = ..., session_timeout_minutes: _Optional[int] = ..., theme: _Optional[str] = ...) -> None: ...
