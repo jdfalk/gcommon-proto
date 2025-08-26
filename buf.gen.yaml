@@ -19,7 +19,7 @@ plugins:
   - protoc_builtin: python
     out: sdks/python
     strategy: directory
-  # Optional: Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
+  # Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
   - protoc_builtin: pyi
     out: sdks/python
     strategy: directory

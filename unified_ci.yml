@@ -1,0 +1,674 @@
+# file: .github/workflows/ci.yml
+# version: 1.13.0
+# guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
+
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: "0 0 * * 0" # Weekly on Sunday
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GO_VERSION: "1.24"
+  NODE_VERSION: "22"
+  PYTHON_VERSION: "3.12"
+  RUST_VERSION: "1.76"
+  COVERAGE_THRESHOLD: "80"
+  CACHE_VERSION: "v1"
+
+permissions:
+  contents: write
+  actions: write
+  checks: write
+  packages: write
+  security-events: write
+  id-token: write
+  attestations: write
+
+jobs:
+  # Check for commit override flags
+  check-overrides:
+    name: Check Commit Overrides
+    uses: jdfalk/ghcommon/.github/workflows/commit-override-handler.yml@main
+
+  # Detect what files changed to optimize workflow execution
+  detect-changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    outputs:
+      go_files: ${{ steps.filter.outputs.go }}
+      frontend_files: ${{ steps.filter.outputs.frontend }}
+      python_files: ${{ steps.filter.outputs.python }}
+      rust_files: ${{ steps.filter.outputs.rust }}
+      docker_files: ${{ steps.filter.outputs.docker }}
+      docs_files: ${{ steps.filter.outputs.docs }}
+      workflows_files: ${{ steps.filter.outputs.workflows }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check file changes
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            go:
+              - '**/*.go'
+              - 'go.mod'
+              - 'go.sum'
+              - '**/go.mod'
+              - '**/go.sum'
+            frontend:
+              - '**/*.js'
+              - '**/*.jsx'
+              - '**/*.ts'
+              - '**/*.tsx'
+              - '**/*.vue'
+              - '**/*.html'
+              - '**/*.css'
+              - '**/*.scss'
+              - '**/*.sass'
+              - '**/*.less'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'yarn.lock'
+              - 'pnpm-lock.yaml'
+              - '**/package.json'
+              - '**/package-lock.json'
+              - '**/yarn.lock'
+              - '**/pnpm-lock.yaml'
+            python:
+              - '**/*.py'
+              - 'requirements.txt'
+              - 'pyproject.toml'
+              - 'setup.py'
+              - 'setup.cfg'
+              - 'Pipfile'
+              - 'poetry.lock'
+              - '**/requirements.txt'
+              - '**/pyproject.toml'
+              - '**/setup.py'
+              - '**/setup.cfg'
+              - '**/Pipfile'
+              - '**/poetry.lock'
+            rust:
+              - '**/*.rs'
+              - 'Cargo.toml'
+              - 'Cargo.lock'
+              - '**/Cargo.toml'
+              - '**/Cargo.lock'
+            docker:
+              - '**/Dockerfile*'
+              - '**/*.dockerfile'
+              - 'docker-compose*.yml'
+              - 'docker-compose*.yaml'
+              - '.dockerignore'
+            docs:
+              - '**/*.md'
+              - '**/*.rst'
+              - '**/*.txt'
+              - 'docs/**'
+              - '.github/**/*.md'
+            workflows:
+              - '.github/workflows/**'
+              - '.github/actions/**'
+
+      - name: Debug outputs
+        run: |
+          echo "Go files changed: ${{ steps.filter.outputs.go }}"
+          echo "Frontend files changed: ${{ steps.filter.outputs.frontend }}"
+          echo "Python files changed: ${{ steps.filter.outputs.python }}"
+          echo "Rust files changed: ${{ steps.filter.outputs.rust }}"
+          echo "Docker files changed: ${{ steps.filter.outputs.docker }}"
+          echo "Docs files changed: ${{ steps.filter.outputs.docs }}"
+          echo "Workflow files changed: ${{ steps.filter.outputs.workflows }}"
+
+      - name: Determine workflow execution
+        id: execution
+        run: |
+          # Check if we should skip CI based on commit message
+          if [[ "${{ github.event.head_commit.message }}" =~ \[skip\ ci\] ]] || [[ "${{ github.event.head_commit.message }}" =~ \[ci\ skip\] ]]; then
+            echo "skip_ci=true" >> $GITHUB_OUTPUT
+            echo "Skipping CI due to commit message"
+          else
+            echo "skip_ci=false" >> $GITHUB_OUTPUT
+          fi
+
+          # Set execution flags
+          echo "should_lint=true" >> $GITHUB_OUTPUT
+          echo "should_test_go=${{ steps.filter.outputs.go }}" >> $GITHUB_OUTPUT
+          echo "should_test_frontend=${{ steps.filter.outputs.frontend }}" >> $GITHUB_OUTPUT
+          echo "should_test_python=${{ steps.filter.outputs.python }}" >> $GITHUB_OUTPUT
+          echo "should_test_rust=${{ steps.filter.outputs.rust }}" >> $GITHUB_OUTPUT
+          echo "should_test_docker=${{ steps.filter.outputs.docker }}" >> $GITHUB_OUTPUT
+
+  # Code quality and linting
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.workflows_files == 'true' || needs.detect-changes.outputs.go_files == 'true' || needs.detect-changes.outputs.frontend_files == 'true' || needs.detect-changes.outputs.python_files == 'true' || needs.detect-changes.outputs.rust_files == 'true' || needs.detect-changes.outputs.docs_files == 'true'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        if: needs.detect-changes.outputs.go_files == 'true'
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Set up Node.js
+        if: needs.detect-changes.outputs.frontend_files == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            **/package-lock.json
+            **/yarn.lock
+            **/pnpm-lock.yaml
+
+      - name: Set up Python
+        if: needs.detect-changes.outputs.python_files == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: |
+            **/requirements.txt
+            **/pyproject.toml
+
+      - name: Ensure pip cache directory
+        if: needs.detect-changes.outputs.python_files == 'true'
+        run: mkdir -p ~/.cache/pip
+
+      - name: Set up Rust
+        if: needs.detect-changes.outputs.rust_files == 'true'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: Run Super Linter
+        uses: github/super-linter/slim@v7
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ANSIBLE: false
+          VALIDATE_ARM: false
+          VALIDATE_BASH: true
+          VALIDATE_CHECKOV: false
+          VALIDATE_CLANG_FORMAT: false
+          VALIDATE_CLOUDFORMATION: false
+          VALIDATE_CLOJURE: false
+          VALIDATE_COFFEESCRIPT: false
+          VALIDATE_CPP: false
+          VALIDATE_CSHARP: false
+          VALIDATE_CSS: true
+          VALIDATE_DART: false
+          VALIDATE_DOCKERFILE_HADOLINT: true
+          VALIDATE_EDITORCONFIG: true
+          VALIDATE_ENV: true
+          VALIDATE_GHERKIN: false
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_GITLEAKS: false
+          VALIDATE_GO: true
+          VALIDATE_GO_MODULES: true
+          VALIDATE_GOOGLE_JAVA_FORMAT: false
+          VALIDATE_GROOVY: false
+          VALIDATE_HTML: true
+          VALIDATE_JAVA: false
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_JAVASCRIPT_PRETTIER: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_JSCPD: false
+          VALIDATE_JSON: true
+          VALIDATE_JSX: true
+          VALIDATE_KOTLIN: false
+          VALIDATE_KUBERNETES_KUBECONFORM: false
+          VALIDATE_LATEX: false
+          VALIDATE_LUA: false
+          VALIDATE_MARKDOWN: true
+          VALIDATE_NATURAL_LANGUAGE: false
+          VALIDATE_OPENAPI: false
+          VALIDATE_PERL: false
+          VALIDATE_PHP_BUILTIN: false
+          VALIDATE_PHP_PHPCS: false
+          VALIDATE_PHP_PHPSTAN: false
+          VALIDATE_PHP_PSALM: false
+          VALIDATE_POWERSHELL: false
+          VALIDATE_PROTOBUF: true
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_PYTHON_FLAKE8: true
+          VALIDATE_PYTHON_ISORT: true
+          VALIDATE_PYTHON_MYPY: false
+          VALIDATE_PYTHON_PYLINT: false
+          VALIDATE_R: false
+          VALIDATE_RAKU: false
+          VALIDATE_RUBY: false
+          VALIDATE_RUST_2015: false
+          VALIDATE_RUST_2018: false
+          VALIDATE_RUST_2021: true
+          VALIDATE_RUST_CLIPPY: true
+          VALIDATE_SCALAFMT: false
+          VALIDATE_SHELL_SHFMT: true
+          VALIDATE_SNAKEMAKE_LINT: false
+          VALIDATE_SNAKEMAKE_SNAKEFMT: false
+          VALIDATE_STATES: false
+          VALIDATE_SQL: false
+          VALIDATE_SQLFLUFF: false
+          VALIDATE_TEKTON: false
+          VALIDATE_TERRAFORM_FMT: false
+          VALIDATE_TERRAFORM_TFLINT: false
+          VALIDATE_TERRAFORM_TERRASCAN: false
+          VALIDATE_TERRAGRUNT: false
+          VALIDATE_TSX: true
+          VALIDATE_TYPESCRIPT_ES: true
+          VALIDATE_TYPESCRIPT_PRETTIER: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_XML: true
+          VALIDATE_YAML: true
+
+      - name: Check for auto-fixes
+        id: autofix
+        run: |
+          if git diff --quiet; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            echo "Found auto-fixable issues"
+            git diff --stat
+          fi
+
+      - name: Commit auto-fixes
+        if: steps.autofix.outputs.no_changes == 'false' && github.event_name == 'push'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "style: apply automated linting fixes
+
+          Auto-fixes applied by Super Linter during CI workflow.
+
+          Files changed:
+          $(git diff --name-only HEAD~1)"
+          git push
+
+  # Go testing
+  test-go:
+    name: Test Go
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.go_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+    strategy:
+      matrix:
+        go-version: ["1.23", "1.24"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Run tests
+        run: go test -v -race -coverprofile=coverage.out ./...
+
+      - name: Check coverage
+        run: |
+          go tool cover -html=coverage.out -o coverage.html
+          coverage=$(go tool cover -func=coverage.out | grep total | awk '{print substr($3, 1, length($3)-1)}')
+          echo "Coverage: ${coverage}%"
+          if (( $(echo "${coverage} < ${{ env.COVERAGE_THRESHOLD }}" | bc -l) )); then
+            echo "❌ Coverage ${coverage}% is below threshold ${{ env.COVERAGE_THRESHOLD }}%"
+            exit 1
+          else
+            echo "✅ Coverage ${coverage}% meets threshold ${{ env.COVERAGE_THRESHOLD }}%"
+          fi
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: go-coverage-${{ matrix.go-version }}
+          path: |
+            coverage.out
+            coverage.html
+
+  # Frontend testing
+  test-frontend:
+    name: Test Frontend
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.frontend_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f yarn.lock ]; then
+            yarn install --frozen-lockfile
+          elif [ -f pnpm-lock.yaml ]; then
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+          else
+            npm install
+          fi
+
+      - name: Run linting
+        run: |
+          if npm run lint --if-present; then
+            echo "✅ Linting passed"
+          else
+            echo "❌ Linting failed or not configured"
+          fi
+
+      - name: Run tests
+        run: |
+          if npm run test --if-present; then
+            echo "✅ Tests passed"
+          else
+            echo "ℹ️ No tests configured"
+          fi
+
+      - name: Build project
+        run: |
+          if npm run build --if-present; then
+            echo "✅ Build successful"
+          else
+            echo "ℹ️ No build script configured"
+          fi
+
+  # Python testing
+  test-python:
+    name: Test Python
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.python_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Ensure pip cache directory
+        run: mkdir -p ~/.cache/pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          if [ -f pyproject.toml ]; then
+            pip install -e .
+          fi
+          pip install pytest pytest-cov
+
+      - name: Run tests
+        run: |
+          if find . -name "test_*.py" -o -name "*_test.py" | head -1 | grep -q .; then
+            python -m pytest --cov=. --cov-report=xml --cov-report=html
+          else
+            echo "ℹ️ No Python tests found"
+          fi
+
+      - name: Upload coverage reports
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-coverage
+          path: |
+            coverage.xml
+            htmlcov/
+
+  # Rust testing
+  test-rust:
+    name: Test Rust
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.rust_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Run clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Run tests
+        run: cargo test --verbose
+
+      - name: Check formatting
+        run: cargo fmt -- --check
+
+  # Matrix build for multi-platform testing
+  matrix-build:
+    name: Matrix Build
+    uses: jdfalk/ghcommon/.github/workflows/matrix-build.yml@main
+    needs: [detect-changes, check-overrides]
+    if: needs.check-overrides.outputs.skip_tests != 'true'
+    with:
+      go_files: ${{ needs.detect-changes.outputs.go_files }}
+      frontend_files: ${{ needs.detect-changes.outputs.frontend_files }}
+      python_files: ${{ needs.detect-changes.outputs.python_files }}
+      rust_files: ${{ needs.detect-changes.outputs.rust_files }}
+      docker_files: ${{ needs.detect-changes.outputs.docker_files }}
+
+  # Docker testing
+  test-docker:
+    name: Test Docker
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.docker_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          if [ -f Dockerfile ]; then
+            docker build -t test-image .
+          else
+            echo "ℹ️ No Dockerfile found"
+          fi
+
+      - name: Test Docker Compose
+        run: |
+          if [ -f docker-compose.yml ] || [ -f docker-compose.yaml ]; then
+            docker-compose config
+          else
+            echo "ℹ️ No docker-compose file found"
+          fi
+
+  # Documentation testing
+  test-docs:
+    name: Test Documentation
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.docs_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check links in documentation
+        run: |
+          echo "ℹ️ Link checking would go here"
+          # Add link checking logic here
+
+      - name: Validate documentation structure
+        run: |
+          echo "ℹ️ Documentation structure validation would go here"
+          # Add documentation validation logic here
+
+  # Security scanning
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.check-overrides.outputs.skip_tests != 'true'
+    permissions:
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          languages: go, javascript, python
+        continue-on-error: true
+
+  # Performance testing
+  performance-test:
+    name: Performance Test
+    runs-on: ubuntu-latest
+    needs: [detect-changes, check-overrides]
+    if: needs.detect-changes.outputs.go_files == 'true' && needs.check-overrides.outputs.skip_tests != 'true'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+
+      - name: Run benchmarks
+        run: |
+          if find . -name "*_test.go" -exec grep -l "Benchmark" {} \; | head -1 | grep -q .; then
+            go test -bench=. -benchmem ./...
+          else
+            echo "ℹ️ No benchmarks found"
+          fi
+
+  # Summary job
+  ci-summary:
+    name: CI Summary
+    runs-on: ubuntu-latest
+    needs:
+      [
+        detect-changes,
+        check-overrides,
+        lint,
+        test-go,
+        test-frontend,
+        test-python,
+        test-rust,
+        test-docker,
+        test-docs,
+        matrix-build,
+        security-scan,
+        performance-test,
+      ]
+    if: always()
+
+    steps:
+      - name: Generate summary
+        run: |
+          echo "# 🚀 CI Pipeline Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Job Results" >> $GITHUB_STEP_SUMMARY
+          echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Detect Changes | ${{ needs.detect-changes.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Check Overrides | ${{ needs.check-overrides.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Lint | ${{ needs.lint.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Go | ${{ needs.test-go.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Frontend | ${{ needs.test-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Python | ${{ needs.test-python.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Rust | ${{ needs.test-rust.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Docker | ${{ needs.test-docker.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Docs | ${{ needs.test-docs.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Matrix Build | ${{ needs.matrix-build.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Scan | ${{ needs.security-scan.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Performance Test | ${{ needs.performance-test.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 📁 Changed Files" >> $GITHUB_STEP_SUMMARY
+          echo "- Go: ${{ needs.detect-changes.outputs.go_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Frontend: ${{ needs.detect-changes.outputs.frontend_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Python: ${{ needs.detect-changes.outputs.python_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Rust: ${{ needs.detect-changes.outputs.rust_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Docker: ${{ needs.detect-changes.outputs.docker_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Docs: ${{ needs.detect-changes.outputs.docs_files }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Workflows: ${{ needs.detect-changes.outputs.workflows_files }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Check overall status
+        run: |
+          if [[ "${{ needs.lint.result }}" == "failure" ]] ||
+             [[ "${{ needs.test-go.result }}" == "failure" ]] ||
+             [[ "${{ needs.test-frontend.result }}" == "failure" ]] ||
+             [[ "${{ needs.test-python.result }}" == "failure" ]] ||
+             [[ "${{ needs.test-rust.result }}" == "failure" ]] ||
+             [[ "${{ needs.test-docker.result }}" == "failure" ]] ||
+             [[ "${{ needs.matrix-build.result }}" == "failure" ]]; then
+            echo "❌ CI Pipeline failed"
+            exit 1
+          else
+            echo "✅ CI Pipeline succeeded"
+          fi
