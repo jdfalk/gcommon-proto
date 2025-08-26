@@ -18,7 +18,6 @@ repos = [
     "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util-rust",
     "/Users/jdfalk/repos/github.com/jdfalk/apt-cacher-go",
     "/Users/jdfalk/repos/github.com/jdfalk/audiobook-organizer",
-    "/Users/jdfalk/repos/github.com/jdfalk/merge-srt-subtitles",
     "/Users/jdfalk/repos/github.com/jdfalk/public-scratch",
 ]
 

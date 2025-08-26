@@ -305,7 +305,6 @@ def main():
         "copilot-agent-util-rust",
         "apt-cacher-go",
         "audiobook-organizer",
-        "merge-srt-subtitles",
         "public-scratch",
     ]
 
