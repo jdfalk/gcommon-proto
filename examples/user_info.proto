@@ -1,0 +1,71 @@
+// file: examples/user_info.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174002
+
+edition = "2023";
+
+package gcommon.v1.examples;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/examples";
+
+/**
+ * Example user information message for demonstrating protovalidate integration.
+ * This shows various field types and how validation rules are applied.
+ */
+message UserInfo {
+  // User ID - should have minimum length validation
+  string user_id = 1;
+
+  // Email address - should have email pattern validation  
+  string email = 2;
+
+  // User's age - should have reasonable range validation
+  int32 age = 3;
+
+  // Profile URL - should have URI validation
+  string profile_url = 4;
+
+  // User roles - repeated field should have minimum items
+  repeated string roles = 5;
+
+  // Server port - should have valid port range
+  int32 server_port = 6;
+
+  // Completion percentage - should be 0-100 range
+  float completion_percentage = 7;
+
+  // Phone number - should have phone pattern validation
+  string phone = 8;
+
+  // Display name - should have minimum length
+  string display_name = 9;
+
+  // Password hash - should have minimum length (this will get special treatment)
+  string password = 10;
+
+  // API token - should have minimum length
+  string api_token = 11;
+
+  // Version string - should match semantic version pattern
+  string version = 12;
+
+  // Login count - should be non-negative
+  int64 login_count = 13;
+
+  // Session timeout - should be positive
+  int32 session_timeout = 14;
+
+  // Metadata - complex type, should be skipped
+  map<string, string> metadata = 15;
+
+  // Timestamps - should be skipped
+  google.protobuf.Timestamp created_at = 16;
+  google.protobuf.Timestamp updated_at = 17;
+
+  // Status field - should be skipped as it's likely an enum
+  string status = 18;
+}

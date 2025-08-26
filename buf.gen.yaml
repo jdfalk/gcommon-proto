@@ -15,6 +15,13 @@ plugins:
     opt:
       - paths=import
       - module=github.com/jdfalk/gcommon/sdks/go
+  # Go protovalidate validation
+  - plugin: buf.build/bufbuild/protovalidate-go:v0.6.3
+    out: sdks/go
+    strategy: directory
+    opt:
+      - paths=import
+      - module=github.com/jdfalk/gcommon/sdks/go
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python
