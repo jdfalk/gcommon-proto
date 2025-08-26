@@ -2,6 +2,7 @@ from gcommon.v1.common import priority_level_pb2 as _priority_level_pb2
 from gcommon.v1.common import queue_type_pb2 as _queue_type_pb2
 from gcommon.v1.common import retention_policy_pb2 as _retention_policy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -24,4 +25,4 @@ class QueueConfig(_message.Message):
     default_priority: _priority_level_pb2.PriorityLevel
     durable: bool
     auto_delete: bool
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_queue_type_pb2.QueueType, str]] = ..., partitions: _Optional[int] = ..., retention: _Optional[_Union[_retention_policy_pb2.MetricsRetentionPolicy, str]] = ..., default_priority: _Optional[_Union[_priority_level_pb2.PriorityLevel, str]] = ..., durable: _Optional[bool] = ..., auto_delete: _Optional[bool] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_queue_type_pb2.QueueType, str]] = ..., partitions: _Optional[int] = ..., retention: _Optional[_Union[_retention_policy_pb2.MetricsRetentionPolicy, str]] = ..., default_priority: _Optional[_Union[_priority_level_pb2.PriorityLevel, str]] = ..., durable: bool = ..., auto_delete: bool = ...) -> None: ...

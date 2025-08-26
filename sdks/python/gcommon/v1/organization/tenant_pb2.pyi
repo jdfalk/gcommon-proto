@@ -1,16 +1,14 @@
-import datetime
-
 from gcommon.v1.common import isolation_level_pb2 as _isolation_level_pb2
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
 from gcommon.v1.common import tenant_status_pb2 as _tenant_status_pb2
 from gcommon.v1.organization import tenant_quota_pb2 as _tenant_quota_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -56,4 +54,4 @@ class Tenant(_message.Message):
     locale: str
     trial_mode: bool
     trial_expires_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., status: _Optional[_Union[_tenant_status_pb2.TenantStatus, str]] = ..., isolation_level: _Optional[_Union[_isolation_level_pb2.OrganizationIsolationLevel, str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., database_config: _Optional[str] = ..., network_config: _Optional[str] = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ..., custom_domain: _Optional[str] = ..., timezone: _Optional[str] = ..., locale: _Optional[str] = ..., trial_mode: _Optional[bool] = ..., trial_expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., status: _Optional[_Union[_tenant_status_pb2.TenantStatus, str]] = ..., isolation_level: _Optional[_Union[_isolation_level_pb2.OrganizationIsolationLevel, str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., database_config: _Optional[str] = ..., network_config: _Optional[str] = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ..., custom_domain: _Optional[str] = ..., timezone: _Optional[str] = ..., locale: _Optional[str] = ..., trial_mode: bool = ..., trial_expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

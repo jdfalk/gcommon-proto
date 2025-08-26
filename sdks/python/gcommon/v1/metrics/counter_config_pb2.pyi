@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -13,4 +14,4 @@ class CounterConfig(_message.Message):
     initial_value: float
     allow_reset: bool
     max_value: float
-    def __init__(self, initial_value: _Optional[float] = ..., allow_reset: _Optional[bool] = ..., max_value: _Optional[float] = ...) -> None: ...
+    def __init__(self, initial_value: _Optional[float] = ..., allow_reset: bool = ..., max_value: _Optional[float] = ...) -> None: ...

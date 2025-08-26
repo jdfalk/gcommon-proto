@@ -1,9 +1,9 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +28,4 @@ class ConnectionDetails(_message.Message):
     keep_alive_timeout_ms: int
     ssl_enabled: bool
     connection_metadata: _containers.ScalarMap[str, str]
-    def __init__(self, delivery_endpoint: _Optional[str] = ..., auth_token: _Optional[str] = ..., heartbeat_interval_ms: _Optional[int] = ..., keep_alive_timeout_ms: _Optional[int] = ..., ssl_enabled: _Optional[bool] = ..., connection_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, delivery_endpoint: _Optional[str] = ..., auth_token: _Optional[str] = ..., heartbeat_interval_ms: _Optional[int] = ..., keep_alive_timeout_ms: _Optional[int] = ..., ssl_enabled: bool = ..., connection_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

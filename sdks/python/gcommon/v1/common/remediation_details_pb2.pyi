@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class RemediationDetails(_message.Message):
     last_attempt_timestamp: int
     success: bool
     error_message: str
-    def __init__(self, action_type: _Optional[str] = ..., description: _Optional[str] = ..., auto_remediation_enabled: _Optional[bool] = ..., max_attempts: _Optional[int] = ..., current_attempts: _Optional[int] = ..., last_attempt_timestamp: _Optional[int] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(self, action_type: _Optional[str] = ..., description: _Optional[str] = ..., auto_remediation_enabled: bool = ..., max_attempts: _Optional[int] = ..., current_attempts: _Optional[int] = ..., last_attempt_timestamp: _Optional[int] = ..., success: bool = ..., error_message: _Optional[str] = ...) -> None: ...

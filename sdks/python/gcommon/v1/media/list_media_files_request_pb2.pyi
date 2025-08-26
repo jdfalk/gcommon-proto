@@ -1,5 +1,6 @@
 from gcommon.v1.common import media_type_pb2 as _media_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -18,4 +19,4 @@ class ListMediaFilesRequest(_message.Message):
     media_type: _media_type_pb2.MediaType
     path_prefix: str
     include_metadata: bool
-    def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., media_type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., path_prefix: _Optional[str] = ..., include_metadata: _Optional[bool] = ...) -> None: ...
+    def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., media_type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., path_prefix: _Optional[str] = ..., include_metadata: bool = ...) -> None: ...

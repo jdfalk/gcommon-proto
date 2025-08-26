@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class MigrateQueueRequest(_message.Message):
     max_duration_ms: int
     batch_size: int
     timeout_ms: int
-    def __init__(self, source_queue: _Optional[str] = ..., destination_queue: _Optional[str] = ..., destination_endpoint: _Optional[str] = ..., preserve_order: _Optional[bool] = ..., verify_integrity: _Optional[bool] = ..., max_duration_ms: _Optional[int] = ..., batch_size: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, source_queue: _Optional[str] = ..., destination_queue: _Optional[str] = ..., destination_endpoint: _Optional[str] = ..., preserve_order: bool = ..., verify_integrity: bool = ..., max_duration_ms: _Optional[int] = ..., batch_size: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

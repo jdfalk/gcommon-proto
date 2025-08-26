@@ -1,9 +1,9 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -25,4 +25,4 @@ class PartitionInfo(_message.Message):
     message_count: int
     size_bytes: int
     is_online: bool
-    def __init__(self, partition_id: _Optional[int] = ..., leader_node: _Optional[str] = ..., replica_nodes: _Optional[_Iterable[str]] = ..., current_offset: _Optional[int] = ..., earliest_offset: _Optional[int] = ..., message_count: _Optional[int] = ..., size_bytes: _Optional[int] = ..., is_online: _Optional[bool] = ...) -> None: ...
+    def __init__(self, partition_id: _Optional[int] = ..., leader_node: _Optional[str] = ..., replica_nodes: _Optional[_Iterable[str]] = ..., current_offset: _Optional[int] = ..., earliest_offset: _Optional[int] = ..., message_count: _Optional[int] = ..., size_bytes: _Optional[int] = ..., is_online: bool = ...) -> None: ...

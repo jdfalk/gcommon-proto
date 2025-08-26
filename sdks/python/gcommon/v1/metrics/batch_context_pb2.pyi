@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class BatchContext(_message.Message):
     batch_position: int
     batch_size: int
     is_last: bool
-    def __init__(self, batch_id: _Optional[str] = ..., batch_position: _Optional[int] = ..., batch_size: _Optional[int] = ..., is_last: _Optional[bool] = ...) -> None: ...
+    def __init__(self, batch_id: _Optional[str] = ..., batch_position: _Optional[int] = ..., batch_size: _Optional[int] = ..., is_last: bool = ...) -> None: ...

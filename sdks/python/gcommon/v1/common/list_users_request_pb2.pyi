@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -25,4 +26,4 @@ class ListUsersRequest(_message.Message):
     sort_by: str
     sort_direction: str
     include_deleted: bool
-    def __init__(self, page: _Optional[int] = ..., page_size: _Optional[int] = ..., username_filter: _Optional[str] = ..., email_filter: _Optional[str] = ..., enabled_filter: _Optional[bool] = ..., role_filter: _Optional[str] = ..., sort_by: _Optional[str] = ..., sort_direction: _Optional[str] = ..., include_deleted: _Optional[bool] = ...) -> None: ...
+    def __init__(self, page: _Optional[int] = ..., page_size: _Optional[int] = ..., username_filter: _Optional[str] = ..., email_filter: _Optional[str] = ..., enabled_filter: bool = ..., role_filter: _Optional[str] = ..., sort_by: _Optional[str] = ..., sort_direction: _Optional[str] = ..., include_deleted: bool = ...) -> None: ...

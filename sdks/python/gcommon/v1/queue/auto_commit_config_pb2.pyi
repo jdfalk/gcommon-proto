@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class AutoCommitConfig(_message.Message):
     interval_ms: int
     commit_on_completion: bool
     batch_size: int
-    def __init__(self, enabled: _Optional[bool] = ..., interval_ms: _Optional[int] = ..., commit_on_completion: _Optional[bool] = ..., batch_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., interval_ms: _Optional[int] = ..., commit_on_completion: bool = ..., batch_size: _Optional[int] = ...) -> None: ...

@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -27,4 +28,4 @@ class UISettings(_message.Message):
     date_format: str
     time_format: str
     dark_mode_default: bool
-    def __init__(self, primary_color: _Optional[str] = ..., secondary_color: _Optional[str] = ..., logo_url: _Optional[str] = ..., favicon_url: _Optional[str] = ..., custom_css: _Optional[str] = ..., default_locale: _Optional[str] = ..., default_timezone: _Optional[str] = ..., date_format: _Optional[str] = ..., time_format: _Optional[str] = ..., dark_mode_default: _Optional[bool] = ...) -> None: ...
+    def __init__(self, primary_color: _Optional[str] = ..., secondary_color: _Optional[str] = ..., logo_url: _Optional[str] = ..., favicon_url: _Optional[str] = ..., custom_css: _Optional[str] = ..., default_locale: _Optional[str] = ..., default_timezone: _Optional[str] = ..., date_format: _Optional[str] = ..., time_format: _Optional[str] = ..., dark_mode_default: bool = ...) -> None: ...

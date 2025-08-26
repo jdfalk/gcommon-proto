@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class DeviceInfo(_message.Message):
     os: str
     browser: str
     is_trusted: bool
-    def __init__(self, device_id: _Optional[str] = ..., device_type: _Optional[str] = ..., os: _Optional[str] = ..., browser: _Optional[str] = ..., is_trusted: _Optional[bool] = ...) -> None: ...
+    def __init__(self, device_id: _Optional[str] = ..., device_type: _Optional[str] = ..., os: _Optional[str] = ..., browser: _Optional[str] = ..., is_trusted: bool = ...) -> None: ...

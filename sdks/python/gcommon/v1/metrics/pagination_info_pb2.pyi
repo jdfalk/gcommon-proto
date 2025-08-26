@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class MetricsPaginationInfo(_message.Message):
     has_previous: bool
     next_cursor: str
     previous_cursor: str
-    def __init__(self, page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_items: _Optional[int] = ..., total_pages: _Optional[int] = ..., has_next: _Optional[bool] = ..., has_previous: _Optional[bool] = ..., next_cursor: _Optional[str] = ..., previous_cursor: _Optional[str] = ...) -> None: ...
+    def __init__(self, page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_items: _Optional[int] = ..., total_pages: _Optional[int] = ..., has_next: bool = ..., has_previous: bool = ..., next_cursor: _Optional[str] = ..., previous_cursor: _Optional[str] = ...) -> None: ...

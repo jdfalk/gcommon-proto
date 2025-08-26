@@ -1,5 +1,3 @@
-import datetime
-
 from buf.validate import validate_pb2 as _validate_pb2
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
 from gcommon.v1.common import organization_status_pb2 as _organization_status_pb2
@@ -8,8 +6,7 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -59,4 +56,4 @@ class Organization(_message.Message):
     multi_tenant_enabled: bool
     avatar_url: str
     billing_email: str
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., website: _Optional[str] = ..., contact_email: _Optional[str] = ..., address: _Optional[str] = ..., phone: _Optional[str] = ..., tax_id: _Optional[str] = ..., industry: _Optional[str] = ..., status: _Optional[_Union[_organization_status_pb2.OrganizationStatus, str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., timezone: _Optional[str] = ..., locale: _Optional[str] = ..., max_members: _Optional[int] = ..., multi_tenant_enabled: _Optional[bool] = ..., avatar_url: _Optional[str] = ..., billing_email: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., website: _Optional[str] = ..., contact_email: _Optional[str] = ..., address: _Optional[str] = ..., phone: _Optional[str] = ..., tax_id: _Optional[str] = ..., industry: _Optional[str] = ..., status: _Optional[_Union[_organization_status_pb2.OrganizationStatus, str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., timezone: _Optional[str] = ..., locale: _Optional[str] = ..., max_members: _Optional[int] = ..., multi_tenant_enabled: bool = ..., avatar_url: _Optional[str] = ..., billing_email: _Optional[str] = ...) -> None: ...

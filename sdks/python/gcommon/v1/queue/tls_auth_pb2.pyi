@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class TLSAuth(_message.Message):
     key_pem: str
     ca_pem: str
     verify_server: bool
-    def __init__(self, cert_pem: _Optional[str] = ..., key_pem: _Optional[str] = ..., ca_pem: _Optional[str] = ..., verify_server: _Optional[bool] = ...) -> None: ...
+    def __init__(self, cert_pem: _Optional[str] = ..., key_pem: _Optional[str] = ..., ca_pem: _Optional[str] = ..., verify_server: bool = ...) -> None: ...

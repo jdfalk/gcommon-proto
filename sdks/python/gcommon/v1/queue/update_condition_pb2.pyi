@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -19,4 +20,4 @@ class UpdateCondition(_message.Message):
     only_if_not_delivered: bool
     only_if_visible: bool
     condition_expression: str
-    def __init__(self, expected_version: _Optional[str] = ..., expected_state: _Optional[str] = ..., max_age_seconds: _Optional[int] = ..., only_if_not_delivered: _Optional[bool] = ..., only_if_visible: _Optional[bool] = ..., condition_expression: _Optional[str] = ...) -> None: ...
+    def __init__(self, expected_version: _Optional[str] = ..., expected_state: _Optional[str] = ..., max_age_seconds: _Optional[int] = ..., only_if_not_delivered: bool = ..., only_if_visible: bool = ..., condition_expression: _Optional[str] = ...) -> None: ...

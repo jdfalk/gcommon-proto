@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class AnalyzeAudioQualityResponse(_message.Message):
     dynamic_range_db: float
     signal_to_noise_ratio: float
     clipping_detected: bool
-    def __init__(self, peak_level_db: _Optional[float] = ..., rms_level_db: _Optional[float] = ..., dynamic_range_db: _Optional[float] = ..., signal_to_noise_ratio: _Optional[float] = ..., clipping_detected: _Optional[bool] = ...) -> None: ...
+    def __init__(self, peak_level_db: _Optional[float] = ..., rms_level_db: _Optional[float] = ..., dynamic_range_db: _Optional[float] = ..., signal_to_noise_ratio: _Optional[float] = ..., clipping_detected: bool = ...) -> None: ...

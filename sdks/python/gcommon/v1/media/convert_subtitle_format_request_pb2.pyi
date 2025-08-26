@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -13,4 +14,4 @@ class ConvertSubtitleFormatRequest(_message.Message):
     subtitle_file_id: str
     target_format: str
     preserve_styling: bool
-    def __init__(self, subtitle_file_id: _Optional[str] = ..., target_format: _Optional[str] = ..., preserve_styling: _Optional[bool] = ...) -> None: ...
+    def __init__(self, subtitle_file_id: _Optional[str] = ..., target_format: _Optional[str] = ..., preserve_styling: bool = ...) -> None: ...

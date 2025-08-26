@@ -3,8 +3,7 @@ from gcommon.v1.metrics import provider_config_pb2 as _provider_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -20,4 +19,4 @@ class CreateProviderRequest(_message.Message):
     validate_config: bool
     dry_run: bool
     auto_start: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., config: _Optional[_Union[_provider_config_pb2.ProviderConfig, _Mapping]] = ..., validate_config: _Optional[bool] = ..., dry_run: _Optional[bool] = ..., auto_start: _Optional[bool] = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., config: _Optional[_Union[_provider_config_pb2.ProviderConfig, _Mapping]] = ..., validate_config: bool = ..., dry_run: bool = ..., auto_start: bool = ...) -> None: ...

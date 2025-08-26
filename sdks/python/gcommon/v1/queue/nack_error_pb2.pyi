@@ -1,5 +1,6 @@
 from gcommon.v1.common import nack_error_category_pb2 as _nack_error_category_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -18,4 +19,4 @@ class NackError(_message.Message):
     category: _nack_error_category_pb2.NackErrorCategory
     retryable: bool
     details: str
-    def __init__(self, code: _Optional[str] = ..., message: _Optional[str] = ..., category: _Optional[_Union[_nack_error_category_pb2.NackErrorCategory, str]] = ..., retryable: _Optional[bool] = ..., details: _Optional[str] = ...) -> None: ...
+    def __init__(self, code: _Optional[str] = ..., message: _Optional[str] = ..., category: _Optional[_Union[_nack_error_category_pb2.NackErrorCategory, str]] = ..., retryable: bool = ..., details: _Optional[str] = ...) -> None: ...

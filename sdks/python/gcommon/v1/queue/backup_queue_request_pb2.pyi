@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -25,4 +26,4 @@ class BackupQueueRequest(_message.Message):
     start_timestamp: int
     end_timestamp: int
     timeout_ms: int
-    def __init__(self, queue_name: _Optional[str] = ..., backup_path: _Optional[str] = ..., include_messages: _Optional[bool] = ..., metadata_only: _Optional[bool] = ..., format: _Optional[str] = ..., compression: _Optional[str] = ..., start_timestamp: _Optional[int] = ..., end_timestamp: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., backup_path: _Optional[str] = ..., include_messages: bool = ..., metadata_only: bool = ..., format: _Optional[str] = ..., compression: _Optional[str] = ..., start_timestamp: _Optional[int] = ..., end_timestamp: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

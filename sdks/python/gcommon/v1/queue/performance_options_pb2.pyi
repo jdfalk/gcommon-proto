@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class PerformanceOptions(_message.Message):
     buffer_size_mb: int
     enable_compression: bool
     throttle_rate: int
-    def __init__(self, worker_count: _Optional[int] = ..., batch_size: _Optional[int] = ..., buffer_size_mb: _Optional[int] = ..., enable_compression: _Optional[bool] = ..., throttle_rate: _Optional[int] = ...) -> None: ...
+    def __init__(self, worker_count: _Optional[int] = ..., batch_size: _Optional[int] = ..., buffer_size_mb: _Optional[int] = ..., enable_compression: bool = ..., throttle_rate: _Optional[int] = ...) -> None: ...

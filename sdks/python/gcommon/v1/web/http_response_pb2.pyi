@@ -1,15 +1,13 @@
-import datetime
-
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -89,4 +87,4 @@ class HttpResponse(_message.Message):
     processing_started_at: _timestamp_pb2.Timestamp
     generated_at: _timestamp_pb2.Timestamp
     sent_at: _timestamp_pb2.Timestamp
-    def __init__(self, status_code: _Optional[int] = ..., status_message: _Optional[str] = ..., protocol_version: _Optional[str] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., cache_control: _Optional[str] = ..., etag: _Optional[str] = ..., location: _Optional[str] = ..., server: _Optional[str] = ..., access_control_allow_origin: _Optional[str] = ..., access_control_allow_methods: _Optional[str] = ..., access_control_allow_headers: _Optional[str] = ..., request_id: _Optional[str] = ..., service_name: _Optional[str] = ..., service_version: _Optional[str] = ..., processing_time_ms: _Optional[int] = ..., served_from_cache: _Optional[bool] = ..., streaming: _Optional[bool] = ..., keep_alive: _Optional[bool] = ..., compressed: _Optional[bool] = ..., compression_ratio: _Optional[float] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., processing_started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., sent_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, status_code: _Optional[int] = ..., status_message: _Optional[str] = ..., protocol_version: _Optional[str] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., cache_control: _Optional[str] = ..., etag: _Optional[str] = ..., location: _Optional[str] = ..., server: _Optional[str] = ..., access_control_allow_origin: _Optional[str] = ..., access_control_allow_methods: _Optional[str] = ..., access_control_allow_headers: _Optional[str] = ..., request_id: _Optional[str] = ..., service_name: _Optional[str] = ..., service_version: _Optional[str] = ..., processing_time_ms: _Optional[int] = ..., served_from_cache: bool = ..., streaming: bool = ..., keep_alive: bool = ..., compressed: bool = ..., compression_ratio: _Optional[float] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., processing_started_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., generated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., sent_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

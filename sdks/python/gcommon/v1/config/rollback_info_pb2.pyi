@@ -1,5 +1,6 @@
 from gcommon.v1.common import rollback_method_pb2 as _rollback_method_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -18,4 +19,4 @@ class RollbackInfo(_message.Message):
     method: _rollback_method_pb2.RollbackMethod
     target_version: str
     automatic: bool
-    def __init__(self, original_audit_id: _Optional[str] = ..., reason: _Optional[str] = ..., method: _Optional[_Union[_rollback_method_pb2.RollbackMethod, str]] = ..., target_version: _Optional[str] = ..., automatic: _Optional[bool] = ...) -> None: ...
+    def __init__(self, original_audit_id: _Optional[str] = ..., reason: _Optional[str] = ..., method: _Optional[_Union[_rollback_method_pb2.RollbackMethod, str]] = ..., target_version: _Optional[str] = ..., automatic: bool = ...) -> None: ...

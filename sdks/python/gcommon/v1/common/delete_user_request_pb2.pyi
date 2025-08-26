@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class DeleteUserRequest(_message.Message):
     reason: str
     transfer_to_user_id: str
     revoke_sessions: bool
-    def __init__(self, user_id: _Optional[str] = ..., soft_delete: _Optional[bool] = ..., reason: _Optional[str] = ..., transfer_to_user_id: _Optional[str] = ..., revoke_sessions: _Optional[bool] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., soft_delete: bool = ..., reason: _Optional[str] = ..., transfer_to_user_id: _Optional[str] = ..., revoke_sessions: bool = ...) -> None: ...

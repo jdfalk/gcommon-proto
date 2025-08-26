@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class PebbleConfig(_message.Message):
     memtable_size: int
     max_open_files: int
     compression: bool
-    def __init__(self, path: _Optional[str] = ..., cache_size: _Optional[int] = ..., memtable_size: _Optional[int] = ..., max_open_files: _Optional[int] = ..., compression: _Optional[bool] = ...) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., cache_size: _Optional[int] = ..., memtable_size: _Optional[int] = ..., max_open_files: _Optional[int] = ..., compression: bool = ...) -> None: ...

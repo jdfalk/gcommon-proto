@@ -1,11 +1,11 @@
 from gcommon.v1.common import metrics_config_change_pb2 as _metrics_config_change_pb2
 from gcommon.v1.common import update_action_pb2 as _update_action_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -25,4 +25,4 @@ class UpdateResult(_message.Message):
     restarted: bool
     strategy_used: str
     update_duration: str
-    def __init__(self, action: _Optional[_Union[_update_action_pb2.UpdateAction, str]] = ..., config_changes: _Optional[_Iterable[_Union[_metrics_config_change_pb2.MetricsConfigChange, _Mapping]]] = ..., updated_settings: _Optional[_Iterable[str]] = ..., removed_settings: _Optional[_Iterable[str]] = ..., restarted: _Optional[bool] = ..., strategy_used: _Optional[str] = ..., update_duration: _Optional[str] = ...) -> None: ...
+    def __init__(self, action: _Optional[_Union[_update_action_pb2.UpdateAction, str]] = ..., config_changes: _Optional[_Iterable[_Union[_metrics_config_change_pb2.MetricsConfigChange, _Mapping]]] = ..., updated_settings: _Optional[_Iterable[str]] = ..., removed_settings: _Optional[_Iterable[str]] = ..., restarted: bool = ..., strategy_used: _Optional[str] = ..., update_duration: _Optional[str] = ...) -> None: ...

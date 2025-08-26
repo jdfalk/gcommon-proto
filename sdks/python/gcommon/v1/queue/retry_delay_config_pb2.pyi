@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class RetryDelayConfig(_message.Message):
     max_delay_ms: int
     backoff_multiplier: float
     jitter_enabled: bool
-    def __init__(self, initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., jitter_enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(self, initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., jitter_enabled: bool = ...) -> None: ...

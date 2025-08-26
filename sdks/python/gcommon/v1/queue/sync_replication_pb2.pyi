@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -15,4 +16,4 @@ class SyncReplication(_message.Message):
     min_sync_replicas: int
     sync_timeout_ms: int
     fallback_to_async: bool
-    def __init__(self, enabled: _Optional[bool] = ..., min_sync_replicas: _Optional[int] = ..., sync_timeout_ms: _Optional[int] = ..., fallback_to_async: _Optional[bool] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., min_sync_replicas: _Optional[int] = ..., sync_timeout_ms: _Optional[int] = ..., fallback_to_async: bool = ...) -> None: ...

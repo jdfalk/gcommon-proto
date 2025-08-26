@@ -1,14 +1,12 @@
-import datetime
-
 from gcommon.v1.queue import failed_field_update_pb2 as _failed_field_update_pb2
 from gcommon.v1.queue import updated_properties_pb2 as _updated_properties_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -43,4 +41,4 @@ class UpdateMessageResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     updated_properties: _updated_properties_pb2.UpdatedProperties
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: _Optional[bool] = ..., message_id: _Optional[str] = ..., new_version: _Optional[str] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_fields: _Optional[_Iterable[str]] = ..., failed_fields: _Optional[_Iterable[_Union[_failed_field_update_pb2.FailedFieldUpdate, _Mapping]]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., updated_properties: _Optional[_Union[_updated_properties_pb2.UpdatedProperties, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, success: bool = ..., message_id: _Optional[str] = ..., new_version: _Optional[str] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_fields: _Optional[_Iterable[str]] = ..., failed_fields: _Optional[_Iterable[_Union[_failed_field_update_pb2.FailedFieldUpdate, _Mapping]]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., updated_properties: _Optional[_Union[_updated_properties_pb2.UpdatedProperties, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

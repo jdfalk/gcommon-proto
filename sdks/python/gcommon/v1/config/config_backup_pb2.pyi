@@ -1,13 +1,11 @@
-import datetime
-
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -55,4 +53,4 @@ class ConfigBackup(_message.Message):
     storage_path: str
     retention_policy: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, backup_id: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., config_values: _Optional[_Mapping[str, _any_pb2.Any]] = ..., version: _Optional[str] = ..., environment: _Optional[str] = ..., created_by: _Optional[str] = ..., description: _Optional[str] = ..., backup_type: _Optional[str] = ..., checksum: _Optional[str] = ..., size_bytes: _Optional[int] = ..., compression: _Optional[str] = ..., storage_path: _Optional[str] = ..., retention_policy: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, backup_id: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., config_values: _Optional[_Mapping[str, _any_pb2.Any]] = ..., version: _Optional[str] = ..., environment: _Optional[str] = ..., created_by: _Optional[str] = ..., description: _Optional[str] = ..., backup_type: _Optional[str] = ..., checksum: _Optional[str] = ..., size_bytes: _Optional[int] = ..., compression: _Optional[str] = ..., storage_path: _Optional[str] = ..., retention_policy: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

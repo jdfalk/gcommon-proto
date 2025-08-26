@@ -6,9 +6,10 @@ module github.com/jdfalk/gcommon/sdks/go/v1/web
 
 go 1.23.0
 
-toolchain go1.23.12
+toolchain go1.24.6
 
 require (
+	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.8-20250717185734-6c6e0d3c608e.1
 	github.com/jdfalk/gcommon/sdks/go/v1/common v1.3.0
 	google.golang.org/grpc v1.75.0
 	google.golang.org/protobuf v1.36.8

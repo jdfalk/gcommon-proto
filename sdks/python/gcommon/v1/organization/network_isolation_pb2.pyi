@@ -3,11 +3,11 @@ from gcommon.v1.organization import domain_config_pb2 as _domain_config_pb2
 from gcommon.v1.organization import load_balancer_config_pb2 as _load_balancer_config_pb2
 from gcommon.v1.organization import network_acl_rule_pb2 as _network_acl_rule_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +29,4 @@ class NetworkIsolation(_message.Message):
     load_balancer: _load_balancer_config_pb2.OrganizationLoadBalancerConfig
     cdn: _cdn_config_pb2.CDNConfig
     domain: _domain_config_pb2.DomainConfig
-    def __init__(self, vpc_id: _Optional[str] = ..., subnet_id: _Optional[str] = ..., security_group_ids: _Optional[_Iterable[str]] = ..., acl_rules: _Optional[_Iterable[_Union[_network_acl_rule_pb2.NetworkACLRule, _Mapping]]] = ..., dedicated_network: _Optional[bool] = ..., load_balancer: _Optional[_Union[_load_balancer_config_pb2.OrganizationLoadBalancerConfig, _Mapping]] = ..., cdn: _Optional[_Union[_cdn_config_pb2.CDNConfig, _Mapping]] = ..., domain: _Optional[_Union[_domain_config_pb2.DomainConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, vpc_id: _Optional[str] = ..., subnet_id: _Optional[str] = ..., security_group_ids: _Optional[_Iterable[str]] = ..., acl_rules: _Optional[_Iterable[_Union[_network_acl_rule_pb2.NetworkACLRule, _Mapping]]] = ..., dedicated_network: bool = ..., load_balancer: _Optional[_Union[_load_balancer_config_pb2.OrganizationLoadBalancerConfig, _Mapping]] = ..., cdn: _Optional[_Union[_cdn_config_pb2.CDNConfig, _Mapping]] = ..., domain: _Optional[_Union[_domain_config_pb2.DomainConfig, _Mapping]] = ...) -> None: ...

@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -17,4 +18,4 @@ class NormalizeAudioResponse(_message.Message):
     normalized_lufs: float
     gain_applied_db: float
     limiting_applied: bool
-    def __init__(self, normalized_audio_file_id: _Optional[str] = ..., original_lufs: _Optional[float] = ..., normalized_lufs: _Optional[float] = ..., gain_applied_db: _Optional[float] = ..., limiting_applied: _Optional[bool] = ...) -> None: ...
+    def __init__(self, normalized_audio_file_id: _Optional[str] = ..., original_lufs: _Optional[float] = ..., normalized_lufs: _Optional[float] = ..., gain_applied_db: _Optional[float] = ..., limiting_applied: bool = ...) -> None: ...

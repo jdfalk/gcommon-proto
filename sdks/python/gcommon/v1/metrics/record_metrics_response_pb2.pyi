@@ -1,16 +1,14 @@
-import datetime
-
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.metrics import batch_stats_pb2 as _batch_stats_pb2
 from gcommon.v1.metrics import metric_result_pb2 as _metric_result_pb2
 from gcommon.v1.metrics import validation_summary_pb2 as _validation_summary_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +36,4 @@ class RecordMetricsResponse(_message.Message):
     stats: _batch_stats_pb2.MetricsBatchStats
     warnings: _containers.RepeatedScalarFieldContainer[str]
     validation_summary: _validation_summary_pb2.ValidationSummary
-    def __init__(self, success: _Optional[bool] = ..., success_count: _Optional[int] = ..., failure_count: _Optional[int] = ..., total_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., results: _Optional[_Iterable[_Union[_metric_result_pb2.MetricResult, _Mapping]]] = ..., completed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., provider_id: _Optional[str] = ..., stats: _Optional[_Union[_batch_stats_pb2.MetricsBatchStats, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., validation_summary: _Optional[_Union[_validation_summary_pb2.ValidationSummary, _Mapping]] = ...) -> None: ...
+    def __init__(self, success: bool = ..., success_count: _Optional[int] = ..., failure_count: _Optional[int] = ..., total_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., results: _Optional[_Iterable[_Union[_metric_result_pb2.MetricResult, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., provider_id: _Optional[str] = ..., stats: _Optional[_Union[_batch_stats_pb2.MetricsBatchStats, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., validation_summary: _Optional[_Union[_validation_summary_pb2.ValidationSummary, _Mapping]] = ...) -> None: ...

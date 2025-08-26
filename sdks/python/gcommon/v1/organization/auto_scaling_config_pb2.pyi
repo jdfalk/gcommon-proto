@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -21,4 +22,4 @@ class AutoScalingConfig(_message.Message):
     target_memory_percent: int
     scale_up_cooldown: int
     scale_down_cooldown: int
-    def __init__(self, enabled: _Optional[bool] = ..., min_instances: _Optional[int] = ..., max_instances: _Optional[int] = ..., target_cpu_percent: _Optional[int] = ..., target_memory_percent: _Optional[int] = ..., scale_up_cooldown: _Optional[int] = ..., scale_down_cooldown: _Optional[int] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., min_instances: _Optional[int] = ..., max_instances: _Optional[int] = ..., target_cpu_percent: _Optional[int] = ..., target_memory_percent: _Optional[int] = ..., scale_up_cooldown: _Optional[int] = ..., scale_down_cooldown: _Optional[int] = ...) -> None: ...

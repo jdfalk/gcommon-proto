@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -27,4 +28,4 @@ class TopicConfiguration(_message.Message):
     cleanup_policy: str
     min_insync_replicas: int
     segment_size_bytes: int
-    def __init__(self, partition_count: _Optional[int] = ..., replication_factor: _Optional[int] = ..., retention_period_seconds: _Optional[int] = ..., max_message_size_bytes: _Optional[int] = ..., compression_enabled: _Optional[bool] = ..., compression_algorithm: _Optional[str] = ..., encryption_enabled: _Optional[bool] = ..., cleanup_policy: _Optional[str] = ..., min_insync_replicas: _Optional[int] = ..., segment_size_bytes: _Optional[int] = ...) -> None: ...
+    def __init__(self, partition_count: _Optional[int] = ..., replication_factor: _Optional[int] = ..., retention_period_seconds: _Optional[int] = ..., max_message_size_bytes: _Optional[int] = ..., compression_enabled: bool = ..., compression_algorithm: _Optional[str] = ..., encryption_enabled: bool = ..., cleanup_policy: _Optional[str] = ..., min_insync_replicas: _Optional[int] = ..., segment_size_bytes: _Optional[int] = ...) -> None: ...

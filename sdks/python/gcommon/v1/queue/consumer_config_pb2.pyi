@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -19,4 +20,4 @@ class ConsumerConfig(_message.Message):
     fetch_max_wait_ms: int
     auto_offset_reset: bool
     priority: int
-    def __init__(self, timeout_ms: _Optional[int] = ..., max_poll_records: _Optional[int] = ..., fetch_min_bytes: _Optional[int] = ..., fetch_max_wait_ms: _Optional[int] = ..., auto_offset_reset: _Optional[bool] = ..., priority: _Optional[int] = ...) -> None: ...
+    def __init__(self, timeout_ms: _Optional[int] = ..., max_poll_records: _Optional[int] = ..., fetch_min_bytes: _Optional[int] = ..., fetch_max_wait_ms: _Optional[int] = ..., auto_offset_reset: bool = ..., priority: _Optional[int] = ...) -> None: ...

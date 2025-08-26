@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -23,4 +24,4 @@ class ListMessagesRequest(_message.Message):
     include_metadata: bool
     status_filter: str
     timeout_ms: int
-    def __init__(self, topic: _Optional[str] = ..., partition_id: _Optional[int] = ..., start_offset: _Optional[int] = ..., limit: _Optional[int] = ..., include_headers: _Optional[bool] = ..., include_metadata: _Optional[bool] = ..., status_filter: _Optional[str] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, topic: _Optional[str] = ..., partition_id: _Optional[int] = ..., start_offset: _Optional[int] = ..., limit: _Optional[int] = ..., include_headers: bool = ..., include_metadata: bool = ..., status_filter: _Optional[str] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

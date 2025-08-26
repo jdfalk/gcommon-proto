@@ -1,5 +1,6 @@
 from gcommon.v1.common import ssl_protocol_pb2 as _ssl_protocol_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
@@ -18,4 +19,4 @@ class SslConfig(_message.Message):
     key_file: str
     ca_file: str
     require_client_auth: bool
-    def __init__(self, protocol: _Optional[_Union[_ssl_protocol_pb2.SSLProtocol, str]] = ..., cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., require_client_auth: _Optional[bool] = ...) -> None: ...
+    def __init__(self, protocol: _Optional[_Union[_ssl_protocol_pb2.SSLProtocol, str]] = ..., cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., require_client_auth: bool = ...) -> None: ...

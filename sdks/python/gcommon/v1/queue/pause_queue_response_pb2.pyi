@@ -1,4 +1,5 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Optional as _Optional
@@ -19,4 +20,4 @@ class PauseQueueResponse(_message.Message):
     affected_consumers: int
     pause_timestamp: int
     error: str
-    def __init__(self, success: _Optional[bool] = ..., queue_name: _Optional[str] = ..., pause_status: _Optional[str] = ..., affected_consumers: _Optional[int] = ..., pause_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: bool = ..., queue_name: _Optional[str] = ..., pause_status: _Optional[str] = ..., affected_consumers: _Optional[int] = ..., pause_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

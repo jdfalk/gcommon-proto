@@ -1,9 +1,9 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
+from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +38,4 @@ class ListTopicsRequest(_message.Message):
     topic_states: _containers.RepeatedScalarFieldContainer[str]
     access_check: bool
     filters: _containers.ScalarMap[str, str]
-    def __init__(self, name_pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., include_metadata: _Optional[bool] = ..., include_stats: _Optional[bool] = ..., limit: _Optional[int] = ..., page_token: _Optional[str] = ..., sort_by: _Optional[str] = ..., sort_order: _Optional[str] = ..., topic_states: _Optional[_Iterable[str]] = ..., access_check: _Optional[bool] = ..., filters: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, name_pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., include_metadata: bool = ..., include_stats: bool = ..., limit: _Optional[int] = ..., page_token: _Optional[str] = ..., sort_by: _Optional[str] = ..., sort_order: _Optional[str] = ..., topic_states: _Optional[_Iterable[str]] = ..., access_check: bool = ..., filters: _Optional[_Mapping[str, str]] = ...) -> None: ...
