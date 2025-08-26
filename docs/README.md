@@ -59,6 +59,7 @@ This directory contains auto-generated documentation for this project.
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing to GCommon](CONTRIBUTING.md)
 - [Protovalidate Integration for gcommon Repository](PROTOVALIDATE_INTEGRATION.md)
+- [Protocol Buffer Validation Status Report](PROTO_STATUS.md)
 - [Install the Rust version](README.md)
 - [GCommon Project Roadmap & Implementation Plan](TODO.md)
 - [Documentation Index](docs/README.md)
@@ -122,4 +123,4 @@ This directory contains auto-generated documentation for this project.
 - [file: scripts/README.md](scripts/README.md)
 - [file: sdks/README.md](sdks/README.md)
 
-_Generated on Tue Aug 26 15:55:35 UTC 2025_
+_Generated on Tue Aug 26 21:00:35 UTC 2025_
