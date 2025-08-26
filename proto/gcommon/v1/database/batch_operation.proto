@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/batch_operation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5d1d11c4-d351-47d7-afeb-48167f63e928
 edition = "2023";
 
@@ -22,5 +22,5 @@ message DatabaseBatchOperation {
   string statement = 1 [(buf.validate.field).string.min_len = 1];
 
   // Parameters for the statement
-  repeated QueryParameter parameters = 2 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated QueryParameter parameters = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

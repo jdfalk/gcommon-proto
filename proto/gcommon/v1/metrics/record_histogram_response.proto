@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/record_histogram_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 33d2781c-78d0-4293-8c90-1a2b4e20c522
 
 edition = "2023";
@@ -13,8 +13,6 @@ import "gcommon/v1/metrics/histogram_stats.proto";
 import "gcommon/v1/metrics/recording_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/conflict_resolution.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 6757adde-ed50-4ff7-9771-170223aaeca8
 
 edition = "2023";
@@ -11,8 +11,6 @@ import "gcommon/v1/queue/custom_resolution.proto";
 import "gcommon/v1/queue/last_writer_wins.proto";
 import "gcommon/v1/queue/multi_value_config.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";

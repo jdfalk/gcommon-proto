@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/get_user_permissions_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 732b72be-148e-459b-861f-220b83fc9903
 edition = "2023";
 
@@ -29,5 +29,5 @@ message GetUserPermissionsResponse {
   repeated string effective_permissions = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // User's roles (includes permission details)
-  repeated Role roles = 4 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated Role roles = 4 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

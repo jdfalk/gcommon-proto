@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/cache_admin_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d7b6285b-2286-46f8-a2aa-5ef8715919f9
 edition = "2023";
 
@@ -16,8 +16,6 @@ import "gcommon/v1/database/list_namespaces_request.proto";
 import "gcommon/v1/database/list_namespaces_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 // (duplicates removed)
 

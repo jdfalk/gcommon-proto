@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/organization/list_members_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: b11659ab-afa5-4b48-a417-b3b28ade628a
 edition = "2023";
 
@@ -23,7 +23,7 @@ message ListMembersResponse {
   bool success = 2;
 
   // List of members returned
-  repeated OrganizationMember members = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated OrganizationMember members = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;

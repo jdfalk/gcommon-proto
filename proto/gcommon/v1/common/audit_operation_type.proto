@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/config/audit_operation_type.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a
 
 edition = "2023";
@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

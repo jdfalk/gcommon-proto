@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/routing_pattern.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c
 
 edition = "2023";
@@ -7,8 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

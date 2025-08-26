@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/web_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
@@ -11,8 +11,6 @@ import "gcommon/v1/web/handle_request_response.proto";
 import "gcommon/v1/web/health_check_request.proto";
 import "gcommon/v1/web/health_check_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";

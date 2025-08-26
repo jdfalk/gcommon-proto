@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/get_database_info_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 82b01a11-1af8-4919-9361-f49aa8b3f822
 edition = "2023";
 
@@ -7,8 +7,6 @@ package gcommon.v1.database;
 
 import "gcommon/v1/database/database_info.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";

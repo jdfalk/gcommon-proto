@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/media/chapter_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3456789-abcd-ef01-b0c1-d2e3f4a5b6c7
 
 edition = "2023";
@@ -8,8 +8,6 @@ package gcommon.v1.media;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";

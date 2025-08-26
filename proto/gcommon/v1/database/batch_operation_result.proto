@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/batch_operation_result.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: ac8d0f0b-4515-44a4-9978-0fba3e8ad463
 edition = "2023";
 
@@ -26,7 +26,7 @@ message BatchOperationResult {
   int64 affected_rows = 2 [(buf.validate.field).int64.gte = 0];
 
   // Generated keys for INSERT operations
-  repeated google.protobuf.Any generated_keys = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated google.protobuf.Any generated_keys = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Error information if the operation failed
   gcommon.v1.common.Error error = 4 [lazy = true];

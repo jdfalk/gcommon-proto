@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/buffer_overflow_strategy.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";
@@ -7,8 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

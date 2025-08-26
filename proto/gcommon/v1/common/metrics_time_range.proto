@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/metrics_time_range.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: cdd6726e-7f39-47bb-b9d3-23e7e3a1be64
 edition = "2023";
 
@@ -7,8 +7,6 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

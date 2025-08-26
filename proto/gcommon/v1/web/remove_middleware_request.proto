@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/remove_middleware_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 8a7398c4-58cc-47b4-a4db-e53da72f74d5
 
 edition = "2023";
@@ -9,7 +9,6 @@ package gcommon.v1.web;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 // Standard imports
 // Common types

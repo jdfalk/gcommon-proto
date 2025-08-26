@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/batch_priority.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f9429991-ff0a-4c70-a6e5-7d639281f030
 
 edition = "2023";
@@ -7,8 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

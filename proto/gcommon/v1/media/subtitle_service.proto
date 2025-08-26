@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/media/subtitle_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3456789-abcd-ef01-d4e5-f6a7b8c9d0e1
 
 edition = "2023";
@@ -17,8 +17,6 @@ import "gcommon/v1/media/sync_subtitles_response.proto";
 import "gcommon/v1/media/validate_subtitles_request.proto";
 import "gcommon/v1/media/validate_subtitles_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";

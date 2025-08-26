@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/health_admin_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 852f060f-cb4f-4a6c-9eb5-1a8cbdf34351
 // file: proto/gcommon/v1/common/health_admin_service.proto
 //
@@ -22,8 +22,6 @@ import "gcommon/v1/common/run_check_response.proto";
 import "gcommon/v1/common/set_health_request.proto";
 import "gcommon/v1/common/set_health_response.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

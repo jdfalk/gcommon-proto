@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/execute_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d8b5ff82-aa9b-4a8d-a4fb-ef485e3d076d
 edition = "2023";
 
@@ -24,7 +24,7 @@ message ExecuteResponse {
   int64 affected_rows = 1 [(buf.validate.field).int64.gte = 0];
 
   // Generated keys from INSERT operations
-  repeated google.protobuf.Any generated_keys = 2 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated google.protobuf.Any generated_keys = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Execution statistics and performance metrics
   ExecuteStats stats = 3 [lazy = true];

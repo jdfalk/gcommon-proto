@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/organization/list_departments_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 7b9579ba-6f96-40bb-b38c-79de470de2ff
 edition = "2023";
 
@@ -23,7 +23,7 @@ message ListDepartmentsResponse {
   bool success = 2;
 
   // List of departments returned
-  repeated Department departments = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated Department departments = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/consistency_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 038986e0-4267-432c-99a3-7271a9427b29
 
 edition = "2023";
@@ -15,8 +15,6 @@ import "gcommon/v1/queue/read_consistency.proto";
 import "gcommon/v1/queue/replication_consistency.proto";
 import "gcommon/v1/queue/write_consistency.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";

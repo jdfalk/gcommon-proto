@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/web/configure_global_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0719dc91-a213-44de-817e-6f26efe9dc68
 
 edition = "2023";
@@ -10,7 +10,6 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 // Standard imports
 // Common types

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/queue/conflict_detection.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 49cc6bab-66b1-4e09-9337-76d6644a2b81
 
 edition = "2023";
@@ -10,8 +10,6 @@ import "gcommon/v1/common/conflict_strategy.proto";
 import "gcommon/v1/queue/timestamp_config.proto";
 import "gcommon/v1/queue/vector_clock_config.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";

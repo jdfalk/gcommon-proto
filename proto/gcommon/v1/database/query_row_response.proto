@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/query_row_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: dff9c212-0d7d-4f0a-bcca-8a0a641a29f9
 
 edition = "2023";
@@ -28,7 +28,7 @@ message QueryRowResponse {
   repeated string columns = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Row values encoded as generic Any values
-  repeated google.protobuf.Any values = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated google.protobuf.Any values = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Query execution statistics
   DatabaseQueryStats stats = 4 [lazy = true];

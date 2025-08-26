@@ -1,13 +1,11 @@
 // file: proto/gcommon/v1/common/role_scope.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d731d279-8c61-4854-ae41-17da08e62494
 edition = "2023";
 
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

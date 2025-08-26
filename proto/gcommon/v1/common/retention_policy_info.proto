@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/retention_policy_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9b18ea2c-8470-4b90-93e1-437821fdd7f8
 
 edition = "2023";
@@ -9,8 +9,6 @@ package gcommon.v1.common;
 import "gcommon/v1/common/metrics_retention_policy_config.proto";
 import "gcommon/v1/common/retention_policy.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

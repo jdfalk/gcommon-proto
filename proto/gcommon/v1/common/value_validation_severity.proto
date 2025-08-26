@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/config/value_validation_severity.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 55cd1c6a-887d-49f5-b248-9025dc9f5084
 
 edition = "2023";
@@ -7,8 +7,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

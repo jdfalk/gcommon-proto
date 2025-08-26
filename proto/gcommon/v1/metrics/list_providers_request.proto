@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/metrics/v1/list_providers_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: cc2b7794-28e4-442f-88a3-24bcd696fe6a
 
 edition = "2023";
@@ -10,8 +10,6 @@ import "gcommon/v1/common/pagination_options.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/metrics/provider_filter.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";

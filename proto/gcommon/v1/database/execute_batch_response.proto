@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/database/execute_batch_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 963b8126-4c56-42c0-a78c-6079e70987ed
 edition = "2023";
 
@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ExecuteBatchResponse {
   // Results for each operation in the batch
-  repeated BatchOperationResult results = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
+  repeated BatchOperationResult results = 1 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Overall batch execution statistics
   DatabaseBatchStats stats = 2 [lazy = true];

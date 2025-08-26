@@ -16,9 +16,8 @@ plugins:
       - paths=import
       - module=github.com/jdfalk/gcommon/sdks/go
   # Protovalidate Go support
-  - plugin: buf.build/bufbuild/protovalidate-go:v0.6.3
+  - remote: buf.build/bufbuild/protovalidate-go:v0.6.3
     out: sdks/go
-    strategy: directory
     opt:
       - paths=import
       - module=github.com/jdfalk/gcommon/sdks/go

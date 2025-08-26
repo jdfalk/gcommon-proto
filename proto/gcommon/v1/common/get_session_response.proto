@@ -1,5 +1,5 @@
 // file: proto/gcommon/v1/common/types/get_session_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e2dfbf3c-a64b-4e03-8728-bb79288e0998
 // file: proto/gcommon/v1/common/get_session_response.proto
 //
@@ -11,8 +11,6 @@ package gcommon.v1.common;
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/session.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
