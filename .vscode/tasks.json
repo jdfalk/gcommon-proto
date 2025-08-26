@@ -290,6 +290,111 @@
         "-m",
         "fix(protobuf): resolve buf lint dependency and configuration issues\n\nFixed protobuf linting failures by adding missing Google protobuf dependency and cleaning up invalid buf.gen.yaml configuration.\n\nIssues Addressed:\n\nfix(deps): add protocolbuffers/protobuf dependency to buf.yaml\n- Added buf.build/protocolbuffers/protobuf to dependencies\n- Resolves 'google/protobuf/go_features.proto: file does not exist' error\n- Enables support for Go protobuf features and edition=2023 syntax\n\nfix(config): remove invalid 'disable' field from buf.gen.yaml v2\n- Removed unsupported 'disable' configuration block\n- Fixed 'field disable not found in type bufconfig.externalBufGenYAMLFileV2' error\n- Buf generate now executes successfully\n\nResult: Both 'buf lint' and 'buf generate' now complete successfully, resolving GitHub Actions workflow failures and enabling proper protobuf compilation."
       ]
+    },
+    {
+      "label": "Add Protovalidate - All Files",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+      "args": ["--all"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "detail": "Add protovalidate validation rules to all proto files"
+    },
+    {
+      "label": "Add Protovalidate - Dry Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+      "args": ["--dry-run"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "detail": "Preview protovalidate changes without modifying files"
+    },
+    {
+      "label": "Add Protovalidate - Compatibility Mode",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+      "args": ["--compatibility", "--all"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "detail": "Add validation rules as comments for gradual adoption"
+    },
+    {
+      "label": "Add Protovalidate - Specific File",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+      "args": ["--file", "${input:protoFile}"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "detail": "Add validation rules to a specific proto file"
+    },
+    {
+      "label": "Add Protovalidate - Using Wrapper Script",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+      "args": ["--help"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "detail": "Show protovalidate script usage and options"
     }
   ],
   "inputs": [
@@ -303,6 +408,12 @@
       "id": "filePattern",
       "description": "File pattern to add (e.g., '*.proto', 'pkg/auth/', '**/*.go')",
       "default": "*.proto",
+      "type": "promptString"
+    },
+    {
+      "id": "protoFile",
+      "description": "Proto file path (e.g., 'proto/gcommon/v1/auth/user.proto')",
+      "default": "proto/gcommon/v1/common/user_info.proto",
       "type": "promptString"
     }
   ]

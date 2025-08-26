@@ -1,0 +1,44 @@
+// file: examples/auth_request.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174003
+
+edition = "2023";
+
+package gcommon.v1.examples;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/examples";
+
+/**
+ * Example authentication request demonstrating various validation patterns.
+ */
+message AuthRequest {
+  // Client ID for authentication
+  string client_id = 1;
+
+  // Username for login
+  string username = 2;
+
+  // User password
+  string password = 3;
+
+  // Contact email
+  string contact_email = 4;
+
+  // Two-factor authentication code (6 digits)
+  string tfa_code = 5;
+
+  // Request origin URL
+  string origin_url = 6;
+
+  // Session duration in seconds
+  int32 session_duration = 7;
+
+  // Maximum retry attempts
+  int32 max_retries = 8;
+
+  // Backup email addresses
+  repeated string backup_emails = 9;
+}
