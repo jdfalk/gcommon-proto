@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -31,4 +32,4 @@ class ValidationSettings(_message.Message):
     timeout_seconds: int
     retry: _config_retry_settings_pb2.ConfigRetrySettings
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: bool = ..., rules: _Optional[_Iterable[_Union[_validation_rule_pb2.ValidationRule, _Mapping]]] = ..., validate_on_change: bool = ..., validate_on_access: bool = ..., timeout_seconds: _Optional[int] = ..., retry: _Optional[_Union[_config_retry_settings_pb2.ConfigRetrySettings, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., rules: _Optional[_Iterable[_Union[_validation_rule_pb2.ValidationRule, _Mapping]]] = ..., validate_on_change: _Optional[bool] = ..., validate_on_access: _Optional[bool] = ..., timeout_seconds: _Optional[int] = ..., retry: _Optional[_Union[_config_retry_settings_pb2.ConfigRetrySettings, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

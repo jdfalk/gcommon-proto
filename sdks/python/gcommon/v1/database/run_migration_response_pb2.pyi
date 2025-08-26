@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -15,4 +16,4 @@ class RunMigrationResponse(_message.Message):
     success: bool
     applied_versions: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
-    def __init__(self, success: bool = ..., applied_versions: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., applied_versions: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

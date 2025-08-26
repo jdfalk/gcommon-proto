@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +31,4 @@ class BackupSettings(_message.Message):
     encrypted: bool
     compressed: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: bool = ..., frequency: _Optional[_Union[_backup_frequency_pb2.BackupFrequency, str]] = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., encrypted: bool = ..., compressed: bool = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., frequency: _Optional[_Union[_backup_frequency_pb2.BackupFrequency, str]] = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., encrypted: _Optional[bool] = ..., compressed: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

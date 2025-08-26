@@ -5,7 +5,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -32,4 +33,4 @@ class DeliveryConfiguration(_message.Message):
     flow_control: _flow_control_settings_pb2.FlowControlSettings
     enable_compression: bool
     auth_headers: _containers.ScalarMap[str, str]
-    def __init__(self, push_endpoint: _Optional[str] = ..., delivery_timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_delivery_retry_config_pb2.DeliveryRetryConfig, _Mapping]] = ..., batch_config: _Optional[_Union[_batch_delivery_config_pb2.BatchDeliveryConfig, _Mapping]] = ..., flow_control: _Optional[_Union[_flow_control_settings_pb2.FlowControlSettings, _Mapping]] = ..., enable_compression: bool = ..., auth_headers: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, push_endpoint: _Optional[str] = ..., delivery_timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_delivery_retry_config_pb2.DeliveryRetryConfig, _Mapping]] = ..., batch_config: _Optional[_Union[_batch_delivery_config_pb2.BatchDeliveryConfig, _Mapping]] = ..., flow_control: _Optional[_Union[_flow_control_settings_pb2.FlowControlSettings, _Mapping]] = ..., enable_compression: _Optional[bool] = ..., auth_headers: _Optional[_Mapping[str, str]] = ...) -> None: ...

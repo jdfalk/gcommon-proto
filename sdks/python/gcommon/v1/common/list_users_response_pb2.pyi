@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -23,4 +24,4 @@ class ListUsersResponse(_message.Message):
     total_pages: int
     has_next_page: bool
     has_previous_page: bool
-    def __init__(self, users: _Optional[_Iterable[_Union[_user_info_pb2.UserInfo, _Mapping]]] = ..., total_count: _Optional[int] = ..., page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_pages: _Optional[int] = ..., has_next_page: bool = ..., has_previous_page: bool = ...) -> None: ...
+    def __init__(self, users: _Optional[_Iterable[_Union[_user_info_pb2.UserInfo, _Mapping]]] = ..., total_count: _Optional[int] = ..., page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_pages: _Optional[int] = ..., has_next_page: _Optional[bool] = ..., has_previous_page: _Optional[bool] = ...) -> None: ...

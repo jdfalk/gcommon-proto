@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +29,4 @@ class MessageFilterConfig(_message.Message):
     message_types: _containers.RepeatedScalarFieldContainer[str]
     filter_expressions: _containers.RepeatedScalarFieldContainer[str]
     exclude_matching: bool
-    def __init__(self, header_filters: _Optional[_Mapping[str, str]] = ..., content_filters: _Optional[_Iterable[_Union[_content_filter_pb2.ContentFilter, _Mapping]]] = ..., routing_key_patterns: _Optional[_Iterable[str]] = ..., message_types: _Optional[_Iterable[str]] = ..., filter_expressions: _Optional[_Iterable[str]] = ..., exclude_matching: bool = ...) -> None: ...
+    def __init__(self, header_filters: _Optional[_Mapping[str, str]] = ..., content_filters: _Optional[_Iterable[_Union[_content_filter_pb2.ContentFilter, _Mapping]]] = ..., routing_key_patterns: _Optional[_Iterable[str]] = ..., message_types: _Optional[_Iterable[str]] = ..., filter_expressions: _Optional[_Iterable[str]] = ..., exclude_matching: _Optional[bool] = ...) -> None: ...

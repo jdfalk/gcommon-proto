@@ -2,7 +2,8 @@ from gcommon.v1.queue import topic_config_pb2 as _topic_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,4 +19,4 @@ class UpdateTopicConfigRequest(_message.Message):
     validate_only: bool
     incremental_update: bool
     timeout_ms: int
-    def __init__(self, topic_name: _Optional[str] = ..., config: _Optional[_Union[_topic_config_pb2.TopicConfig, _Mapping]] = ..., validate_only: bool = ..., incremental_update: bool = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(self, topic_name: _Optional[str] = ..., config: _Optional[_Union[_topic_config_pb2.TopicConfig, _Mapping]] = ..., validate_only: _Optional[bool] = ..., incremental_update: _Optional[bool] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

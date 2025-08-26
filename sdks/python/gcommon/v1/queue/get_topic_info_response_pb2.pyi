@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import metrics_retention_info_pb2 as _metrics_retention_info_pb2
 from gcommon.v1.queue import owner_info_pb2 as _owner_info_pb2
 from gcommon.v1.queue import partition_info_pb2 as _partition_info_pb2
@@ -9,7 +11,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -50,4 +53,4 @@ class GetTopicInfoResponse(_message.Message):
     tags: _containers.RepeatedScalarFieldContainer[str]
     owner: _owner_info_pb2.OwnerInfo
     retention: _metrics_retention_info_pb2.MetricsRetentionInfo
-    def __init__(self, topic_id: _Optional[str] = ..., topic_name: _Optional[str] = ..., description: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., stats: _Optional[_Union[_topic_stats_pb2.TopicStats, _Mapping]] = ..., partitions: _Optional[_Iterable[_Union[_partition_info_pb2.PartitionInfo, _Mapping]]] = ..., config: _Optional[_Union[_topic_configuration_pb2.TopicConfiguration, _Mapping]] = ..., state: _Optional[str] = ..., permissions: _Optional[_Union[_topic_permissions_pb2.TopicPermissions, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., tags: _Optional[_Iterable[str]] = ..., owner: _Optional[_Union[_owner_info_pb2.OwnerInfo, _Mapping]] = ..., retention: _Optional[_Union[_metrics_retention_info_pb2.MetricsRetentionInfo, _Mapping]] = ...) -> None: ...
+    def __init__(self, topic_id: _Optional[str] = ..., topic_name: _Optional[str] = ..., description: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., stats: _Optional[_Union[_topic_stats_pb2.TopicStats, _Mapping]] = ..., partitions: _Optional[_Iterable[_Union[_partition_info_pb2.PartitionInfo, _Mapping]]] = ..., config: _Optional[_Union[_topic_configuration_pb2.TopicConfiguration, _Mapping]] = ..., state: _Optional[str] = ..., permissions: _Optional[_Union[_topic_permissions_pb2.TopicPermissions, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., tags: _Optional[_Iterable[str]] = ..., owner: _Optional[_Union[_owner_info_pb2.OwnerInfo, _Mapping]] = ..., retention: _Optional[_Union[_metrics_retention_info_pb2.MetricsRetentionInfo, _Mapping]] = ...) -> None: ...

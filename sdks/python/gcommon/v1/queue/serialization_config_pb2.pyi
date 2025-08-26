@@ -5,7 +5,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +39,4 @@ class SerializationConfig(_message.Message):
     validate_on_deserialize: bool
     max_message_size: int
     backwards_compatible: bool
-    def __init__(self, default_format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., supported_formats: _Optional[_Iterable[_Union[_serialization_format_pb2.SerializationFormat, str]]] = ..., auto_detect_format: bool = ..., default_compression: _Optional[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]] = ..., supported_compressions: _Optional[_Iterable[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]]] = ..., auto_detect_compression: bool = ..., format_options: _Optional[_Mapping[str, _format_options_pb2.FormatOptions]] = ..., validate_on_deserialize: bool = ..., max_message_size: _Optional[int] = ..., backwards_compatible: bool = ...) -> None: ...
+    def __init__(self, default_format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., supported_formats: _Optional[_Iterable[_Union[_serialization_format_pb2.SerializationFormat, str]]] = ..., auto_detect_format: _Optional[bool] = ..., default_compression: _Optional[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]] = ..., supported_compressions: _Optional[_Iterable[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]]] = ..., auto_detect_compression: _Optional[bool] = ..., format_options: _Optional[_Mapping[str, _format_options_pb2.FormatOptions]] = ..., validate_on_deserialize: _Optional[bool] = ..., max_message_size: _Optional[int] = ..., backwards_compatible: _Optional[bool] = ...) -> None: ...

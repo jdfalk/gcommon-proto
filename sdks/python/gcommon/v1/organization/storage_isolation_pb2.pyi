@@ -6,7 +6,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -26,4 +27,4 @@ class StorageIsolation(_message.Message):
     policies: _containers.RepeatedCompositeFieldContainer[_storage_policy_pb2.StoragePolicy]
     backup: _storage_backup_config_pb2.StorageBackupConfig
     quota: _storage_quota_pb2.StorageQuota
-    def __init__(self, storage_bucket: _Optional[str] = ..., path_prefix: _Optional[str] = ..., dedicated_storage: bool = ..., encryption: _Optional[_Union[_storage_encryption_pb2.StorageEncryption, _Mapping]] = ..., policies: _Optional[_Iterable[_Union[_storage_policy_pb2.StoragePolicy, _Mapping]]] = ..., backup: _Optional[_Union[_storage_backup_config_pb2.StorageBackupConfig, _Mapping]] = ..., quota: _Optional[_Union[_storage_quota_pb2.StorageQuota, _Mapping]] = ...) -> None: ...
+    def __init__(self, storage_bucket: _Optional[str] = ..., path_prefix: _Optional[str] = ..., dedicated_storage: _Optional[bool] = ..., encryption: _Optional[_Union[_storage_encryption_pb2.StorageEncryption, _Mapping]] = ..., policies: _Optional[_Iterable[_Union[_storage_policy_pb2.StoragePolicy, _Mapping]]] = ..., backup: _Optional[_Union[_storage_backup_config_pb2.StorageBackupConfig, _Mapping]] = ..., quota: _Optional[_Union[_storage_quota_pb2.StorageQuota, _Mapping]] = ...) -> None: ...

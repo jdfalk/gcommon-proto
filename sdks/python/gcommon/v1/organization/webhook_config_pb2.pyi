@@ -2,7 +2,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -16,4 +17,4 @@ class WebhookConfig(_message.Message):
     events: _containers.RepeatedScalarFieldContainer[str]
     active: bool
     secret: str
-    def __init__(self, url: _Optional[str] = ..., events: _Optional[_Iterable[str]] = ..., active: bool = ..., secret: _Optional[str] = ...) -> None: ...
+    def __init__(self, url: _Optional[str] = ..., events: _Optional[_Iterable[str]] = ..., active: _Optional[bool] = ..., secret: _Optional[str] = ...) -> None: ...

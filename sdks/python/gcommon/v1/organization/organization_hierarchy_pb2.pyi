@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import hierarchy_type_pb2 as _hierarchy_type_pb2
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
 from gcommon.v1.organization import hierarchy_node_pb2 as _hierarchy_node_pb2
@@ -6,7 +8,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -36,4 +39,4 @@ class OrganizationHierarchy(_message.Message):
     updated_at: _timestamp_pb2.Timestamp
     created_by: str
     updated_by: str
-    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., hierarchy_type: _Optional[_Union[_hierarchy_type_pb2.HierarchyType, str]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., root_node: _Optional[_Union[_hierarchy_node_pb2.HierarchyNode, _Mapping]] = ..., active: bool = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., hierarchy_type: _Optional[_Union[_hierarchy_type_pb2.HierarchyType, str]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., root_node: _Optional[_Union[_hierarchy_node_pb2.HierarchyNode, _Mapping]] = ..., active: _Optional[bool] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ...) -> None: ...

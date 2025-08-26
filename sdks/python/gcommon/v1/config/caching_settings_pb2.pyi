@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +28,4 @@ class CachingSettings(_message.Message):
     refresh_strategy: _cache_refresh_strategy_pb2.CacheRefreshStrategy
     triggers: _containers.RepeatedScalarFieldContainer[_cache_invalidation_trigger_pb2.CacheInvalidationTrigger]
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: bool = ..., ttl_seconds: _Optional[int] = ..., refresh_strategy: _Optional[_Union[_cache_refresh_strategy_pb2.CacheRefreshStrategy, str]] = ..., triggers: _Optional[_Iterable[_Union[_cache_invalidation_trigger_pb2.CacheInvalidationTrigger, str]]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., ttl_seconds: _Optional[int] = ..., refresh_strategy: _Optional[_Union[_cache_refresh_strategy_pb2.CacheRefreshStrategy, str]] = ..., triggers: _Optional[_Iterable[_Union[_cache_invalidation_trigger_pb2.CacheInvalidationTrigger, str]]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

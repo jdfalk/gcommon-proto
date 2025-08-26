@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -26,4 +27,4 @@ class DatabaseIsolation(_message.Message):
     allowed_operations: _containers.RepeatedScalarFieldContainer[str]
     max_connections: int
     query_timeout_seconds: int
-    def __init__(self, database_instance: _Optional[str] = ..., schema_name: _Optional[str] = ..., connection_params: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., dedicated_database: bool = ..., backup: _Optional[_Union[_backup_config_pb2.OrganizationBackupConfig, _Mapping]] = ..., allowed_operations: _Optional[_Iterable[str]] = ..., max_connections: _Optional[int] = ..., query_timeout_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, database_instance: _Optional[str] = ..., schema_name: _Optional[str] = ..., connection_params: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., dedicated_database: _Optional[bool] = ..., backup: _Optional[_Union[_backup_config_pb2.OrganizationBackupConfig, _Mapping]] = ..., allowed_operations: _Optional[_Iterable[str]] = ..., max_connections: _Optional[int] = ..., query_timeout_seconds: _Optional[int] = ...) -> None: ...

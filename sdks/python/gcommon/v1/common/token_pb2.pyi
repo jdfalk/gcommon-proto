@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import token_status_pb2 as _token_status_pb2
 from gcommon.v1.common import token_type_pb2 as _token_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -5,7 +7,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -46,4 +49,4 @@ class Token(_message.Message):
     ip_address: str
     user_agent: str
     refresh_token_id: str
-    def __init__(self, id: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ..., status: _Optional[_Union[_token_status_pb2.TokenStatus, str]] = ..., user_id: _Optional[str] = ..., client_id: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_used_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., refresh_token_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ..., status: _Optional[_Union[_token_status_pb2.TokenStatus, str]] = ..., user_id: _Optional[str] = ..., client_id: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_used_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., refresh_token_id: _Optional[str] = ...) -> None: ...

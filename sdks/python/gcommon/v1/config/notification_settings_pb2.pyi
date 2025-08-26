@@ -5,7 +5,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -25,4 +26,4 @@ class ConfigNotificationSettings(_message.Message):
     recipients: _containers.RepeatedScalarFieldContainer[str]
     delay_minutes: int
     batching: _batching_settings_pb2.BatchingSettings
-    def __init__(self, enabled: bool = ..., channels: _Optional[_Iterable[_Union[_notification_channel_pb2.ConfigNotificationChannel, _Mapping]]] = ..., triggers: _Optional[_Iterable[_Union[_notification_trigger_pb2.NotificationTrigger, str]]] = ..., template: _Optional[str] = ..., recipients: _Optional[_Iterable[str]] = ..., delay_minutes: _Optional[int] = ..., batching: _Optional[_Union[_batching_settings_pb2.BatchingSettings, _Mapping]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., channels: _Optional[_Iterable[_Union[_notification_channel_pb2.ConfigNotificationChannel, _Mapping]]] = ..., triggers: _Optional[_Iterable[_Union[_notification_trigger_pb2.NotificationTrigger, str]]] = ..., template: _Optional[str] = ..., recipients: _Optional[_Iterable[str]] = ..., delay_minutes: _Optional[int] = ..., batching: _Optional[_Union[_batching_settings_pb2.BatchingSettings, _Mapping]] = ...) -> None: ...

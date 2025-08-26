@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import metric_type_pb2 as _metric_type_pb2
 from gcommon.v1.metrics import metric_value_pb2 as _metric_value_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -5,7 +7,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -40,4 +43,4 @@ class MetricData(_message.Message):
     source: str
     namespace: str
     schema_version: str
-    def __init__(self, metric_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., description: _Optional[str] = ..., unit: _Optional[str] = ..., labels: _Optional[_Mapping[str, str]] = ..., values: _Optional[_Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., source: _Optional[str] = ..., namespace: _Optional[str] = ..., schema_version: _Optional[str] = ...) -> None: ...
+    def __init__(self, metric_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., description: _Optional[str] = ..., unit: _Optional[str] = ..., labels: _Optional[_Mapping[str, str]] = ..., values: _Optional[_Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., source: _Optional[str] = ..., namespace: _Optional[str] = ..., schema_version: _Optional[str] = ...) -> None: ...

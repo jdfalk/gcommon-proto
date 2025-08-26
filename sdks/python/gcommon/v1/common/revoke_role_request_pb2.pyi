@@ -2,7 +2,8 @@ from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +23,4 @@ class RevokeRoleRequest(_message.Message):
     revoked_by: str
     reason: str
     force: bool
-    def __init__(self, user_id: _Optional[str] = ..., role_id: _Optional[str] = ..., organization_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., revoked_by: _Optional[str] = ..., reason: _Optional[str] = ..., force: bool = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., role_id: _Optional[str] = ..., organization_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., revoked_by: _Optional[str] = ..., reason: _Optional[str] = ..., force: _Optional[bool] = ...) -> None: ...

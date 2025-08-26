@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import user_preferences_pb2 as _user_preferences_pb2
 from gcommon.v1.common import verification_status_pb2 as _verification_status_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -5,7 +7,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -48,4 +51,4 @@ class UserMetadata(_message.Message):
     custom_fields: _containers.ScalarMap[str, str]
     preferences: _user_preferences_pb2.UserPreferences
     verification: _verification_status_pb2.VerificationStatus
-    def __init__(self, display_name: _Optional[str] = ..., avatar_url: _Optional[str] = ..., timezone: _Optional[str] = ..., language: _Optional[str] = ..., locale: _Optional[str] = ..., bio: _Optional[str] = ..., website: _Optional[str] = ..., location: _Optional[str] = ..., birth_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gender: _Optional[str] = ..., occupation: _Optional[str] = ..., company: _Optional[str] = ..., custom_fields: _Optional[_Mapping[str, str]] = ..., preferences: _Optional[_Union[_user_preferences_pb2.UserPreferences, _Mapping]] = ..., verification: _Optional[_Union[_verification_status_pb2.VerificationStatus, _Mapping]] = ...) -> None: ...
+    def __init__(self, display_name: _Optional[str] = ..., avatar_url: _Optional[str] = ..., timezone: _Optional[str] = ..., language: _Optional[str] = ..., locale: _Optional[str] = ..., bio: _Optional[str] = ..., website: _Optional[str] = ..., location: _Optional[str] = ..., birth_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., gender: _Optional[str] = ..., occupation: _Optional[str] = ..., company: _Optional[str] = ..., custom_fields: _Optional[_Mapping[str, str]] = ..., preferences: _Optional[_Union[_user_preferences_pb2.UserPreferences, _Mapping]] = ..., verification: _Optional[_Union[_verification_status_pb2.VerificationStatus, _Mapping]] = ...) -> None: ...

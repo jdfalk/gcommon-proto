@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import metrics_error_stats_pb2 as _metrics_error_stats_pb2
 from gcommon.v1.common import response_metadata_pb2 as _response_metadata_pb2
 from gcommon.v1.queue import consumer_stats_pb2 as _consumer_stats_pb2
@@ -10,7 +12,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -32,4 +35,4 @@ class GetQueueStatsResponse(_message.Message):
     error_stats: _metrics_error_stats_pb2.MetricsErrorStats
     performance_metrics: _performance_metrics_pb2.PerformanceMetrics
     generated_at: _timestamp_pb2.Timestamp
-    def __init__(self, metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., summary: _Optional[_Union[_queue_stats_summary_pb2.QueueStatsSummary, _Mapping]] = ..., queue_stats: _Optional[_Iterable[_Union[_queue_stats_pb2.QueueStats, _Mapping]]] = ..., consumer_stats: _Optional[_Iterable[_Union[_consumer_stats_pb2.ConsumerStats, _Mapping]]] = ..., historical_stats: _Optional[_Union[_historical_stats_pb2.HistoricalStats, _Mapping]] = ..., error_stats: _Optional[_Union[_metrics_error_stats_pb2.MetricsErrorStats, _Mapping]] = ..., performance_metrics: _Optional[_Union[_performance_metrics_pb2.PerformanceMetrics, _Mapping]] = ..., generated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., summary: _Optional[_Union[_queue_stats_summary_pb2.QueueStatsSummary, _Mapping]] = ..., queue_stats: _Optional[_Iterable[_Union[_queue_stats_pb2.QueueStats, _Mapping]]] = ..., consumer_stats: _Optional[_Iterable[_Union[_consumer_stats_pb2.ConsumerStats, _Mapping]]] = ..., historical_stats: _Optional[_Union[_historical_stats_pb2.HistoricalStats, _Mapping]] = ..., error_stats: _Optional[_Union[_metrics_error_stats_pb2.MetricsErrorStats, _Mapping]] = ..., performance_metrics: _Optional[_Union[_performance_metrics_pb2.PerformanceMetrics, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

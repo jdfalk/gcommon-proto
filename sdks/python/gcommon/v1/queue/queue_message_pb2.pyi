@@ -1,10 +1,13 @@
+import datetime
+
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -46,4 +49,4 @@ class QueueMessage(_message.Message):
     content_type: str
     content_encoding: str
     created_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., attributes: _Optional[_Mapping[str, str]] = ..., headers: _Optional[_Mapping[str, str]] = ..., priority: _Optional[int] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., correlation_id: _Optional[str] = ..., reply_to: _Optional[str] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., attributes: _Optional[_Mapping[str, str]] = ..., headers: _Optional[_Mapping[str, str]] = ..., priority: _Optional[int] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., correlation_id: _Optional[str] = ..., reply_to: _Optional[str] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

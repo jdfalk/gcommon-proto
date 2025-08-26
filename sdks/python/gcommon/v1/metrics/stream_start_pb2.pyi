@@ -1,8 +1,11 @@
+import datetime
+
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -16,4 +19,4 @@ class StreamStart(_message.Message):
     from_beginning: bool
     from_now: bool
     from_offset: str
-    def __init__(self, from_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., from_beginning: bool = ..., from_now: bool = ..., from_offset: _Optional[str] = ...) -> None: ...
+    def __init__(self, from_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., from_beginning: _Optional[bool] = ..., from_now: _Optional[bool] = ..., from_offset: _Optional[str] = ...) -> None: ...

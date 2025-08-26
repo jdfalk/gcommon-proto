@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from gcommon.v1.queue import message_ack_result_pb2 as _message_ack_result_pb2
@@ -6,7 +8,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -40,4 +43,4 @@ class AcknowledgeResponse(_message.Message):
     error: _error_pb2.Error
     acknowledged_at: _timestamp_pb2.Timestamp
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(self, success: bool = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., message_results: _Optional[_Iterable[_Union[_message_ack_result_pb2.MessageAckResult, _Mapping]]] = ..., consumer_id: _Optional[str] = ..., operation_time_ms: _Optional[int] = ..., batch_mode: bool = ..., already_acknowledged_count: _Optional[int] = ..., expired_timeout_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., acknowledged_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., message_results: _Optional[_Iterable[_Union[_message_ack_result_pb2.MessageAckResult, _Mapping]]] = ..., consumer_id: _Optional[str] = ..., operation_time_ms: _Optional[int] = ..., batch_mode: _Optional[bool] = ..., already_acknowledged_count: _Optional[int] = ..., expired_timeout_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., acknowledged_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

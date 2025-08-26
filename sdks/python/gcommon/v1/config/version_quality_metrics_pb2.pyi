@@ -1,10 +1,13 @@
+import datetime
+
 from gcommon.v1.config import version_quality_issue_pb2 as _version_quality_issue_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +31,4 @@ class VersionQualityMetrics(_message.Message):
     quality_gate_passed: bool
     issues: _containers.RepeatedCompositeFieldContainer[_version_quality_issue_pb2.VersionQualityIssue]
     timestamp: _timestamp_pb2.Timestamp
-    def __init__(self, quality_score: _Optional[float] = ..., test_coverage: _Optional[float] = ..., security_score: _Optional[float] = ..., performance_score: _Optional[float] = ..., complexity_score: _Optional[float] = ..., technical_debt_score: _Optional[float] = ..., quality_gate_passed: bool = ..., issues: _Optional[_Iterable[_Union[_version_quality_issue_pb2.VersionQualityIssue, _Mapping]]] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, quality_score: _Optional[float] = ..., test_coverage: _Optional[float] = ..., security_score: _Optional[float] = ..., performance_score: _Optional[float] = ..., complexity_score: _Optional[float] = ..., technical_debt_score: _Optional[float] = ..., quality_gate_passed: _Optional[bool] = ..., issues: _Optional[_Iterable[_Union[_version_quality_issue_pb2.VersionQualityIssue, _Mapping]]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -1,8 +1,11 @@
+import datetime
+
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -16,4 +19,4 @@ class PerformanceDataPoint(_message.Message):
     ops_per_second: float
     latency_ms: float
     throughput_bytes_per_second: float
-    def __init__(self, timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ops_per_second: _Optional[float] = ..., latency_ms: _Optional[float] = ..., throughput_bytes_per_second: _Optional[float] = ...) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., ops_per_second: _Optional[float] = ..., latency_ms: _Optional[float] = ..., throughput_bytes_per_second: _Optional[float] = ...) -> None: ...

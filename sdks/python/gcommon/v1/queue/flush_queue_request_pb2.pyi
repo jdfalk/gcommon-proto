@@ -1,10 +1,13 @@
+import datetime
+
 from gcommon.v1.common import flush_policy_pb2 as _flush_policy_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +36,4 @@ class FlushQueueRequest(_message.Message):
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     force_flush: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, queue_id: _Optional[str] = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., wait_for_completion: bool = ..., timeout_ms: _Optional[int] = ..., flush_until: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., partition_ids: _Optional[_Iterable[int]] = ..., force_flush: bool = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, queue_id: _Optional[str] = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., wait_for_completion: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., flush_until: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., partition_ids: _Optional[_Iterable[int]] = ..., force_flush: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

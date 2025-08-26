@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -31,4 +32,4 @@ class SecuritySettings(_message.Message):
     api_access_enabled: bool
     api_rate_limit: _rate_limit_config_pb2.OrganizationRateLimitConfig
     audit_log_retention_days: int
-    def __init__(self, require_mfa: bool = ..., min_password_length: _Optional[int] = ..., require_password_complexity: bool = ..., password_expiry_days: _Optional[int] = ..., session_timeout_minutes: _Optional[int] = ..., sso_enabled: bool = ..., sso_providers: _Optional[_Iterable[str]] = ..., ip_whitelist: _Optional[_Iterable[str]] = ..., api_access_enabled: bool = ..., api_rate_limit: _Optional[_Union[_rate_limit_config_pb2.OrganizationRateLimitConfig, _Mapping]] = ..., audit_log_retention_days: _Optional[int] = ...) -> None: ...
+    def __init__(self, require_mfa: _Optional[bool] = ..., min_password_length: _Optional[int] = ..., require_password_complexity: _Optional[bool] = ..., password_expiry_days: _Optional[int] = ..., session_timeout_minutes: _Optional[int] = ..., sso_enabled: _Optional[bool] = ..., sso_providers: _Optional[_Iterable[str]] = ..., ip_whitelist: _Optional[_Iterable[str]] = ..., api_access_enabled: _Optional[bool] = ..., api_rate_limit: _Optional[_Union[_rate_limit_config_pb2.OrganizationRateLimitConfig, _Mapping]] = ..., audit_log_retention_days: _Optional[int] = ...) -> None: ...

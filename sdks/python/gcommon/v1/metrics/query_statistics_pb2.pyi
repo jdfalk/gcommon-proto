@@ -1,10 +1,13 @@
+import datetime
+
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -26,4 +29,4 @@ class QueryStatistics(_message.Message):
     storage_backends_used: _containers.RepeatedScalarFieldContainer[str]
     cache_hit_rate: float
     query_time: _timestamp_pb2.Timestamp
-    def __init__(self, execution_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., data_points_processed: _Optional[int] = ..., metrics_examined: _Optional[int] = ..., series_returned: _Optional[int] = ..., memory_used_bytes: _Optional[int] = ..., storage_backends_used: _Optional[_Iterable[str]] = ..., cache_hit_rate: _Optional[float] = ..., query_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, execution_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., data_points_processed: _Optional[int] = ..., metrics_examined: _Optional[int] = ..., series_returned: _Optional[int] = ..., memory_used_bytes: _Optional[int] = ..., storage_backends_used: _Optional[_Iterable[str]] = ..., cache_hit_rate: _Optional[float] = ..., query_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

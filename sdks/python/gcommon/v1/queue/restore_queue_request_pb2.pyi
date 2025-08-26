@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.queue import backup_source_pb2 as _backup_source_pb2
 from gcommon.v1.queue import restore_config_pb2 as _restore_config_pb2
 from gcommon.v1.queue import restore_options_pb2 as _restore_options_pb2
@@ -6,7 +8,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +40,4 @@ class RestoreQueueRequest(_message.Message):
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     options: _restore_options_pb2.RestoreOptions
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, target_queue_id: _Optional[str] = ..., backup_source: _Optional[_Union[_backup_source_pb2.BackupSource, _Mapping]] = ..., restore_config: _Optional[_Union[_restore_config_pb2.RestoreConfig, _Mapping]] = ..., restore_point: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., overwrite_existing: bool = ..., validate_backup: bool = ..., partition_ids: _Optional[_Iterable[int]] = ..., options: _Optional[_Union[_restore_options_pb2.RestoreOptions, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, target_queue_id: _Optional[str] = ..., backup_source: _Optional[_Union[_backup_source_pb2.BackupSource, _Mapping]] = ..., restore_config: _Optional[_Union[_restore_config_pb2.RestoreConfig, _Mapping]] = ..., restore_point: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., overwrite_existing: _Optional[bool] = ..., validate_backup: _Optional[bool] = ..., partition_ids: _Optional[_Iterable[int]] = ..., options: _Optional[_Union[_restore_options_pb2.RestoreOptions, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

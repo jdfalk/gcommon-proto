@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.queue import preserved_stats_pb2 as _preserved_stats_pb2
 from gcommon.v1.queue import reset_details_pb2 as _reset_details_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -5,7 +7,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -40,4 +43,4 @@ class ResetQueueStatsResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     reset_details: _reset_details_pb2.ResetDetails
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: bool = ..., queue_id: _Optional[str] = ..., reset_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., preserved_stats: _Optional[_Union[_preserved_stats_pb2.PreservedStats, _Mapping]] = ..., reset_stat_types: _Optional[_Iterable[str]] = ..., preserved_stat_types: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., reset_details: _Optional[_Union[_reset_details_pb2.ResetDetails, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., queue_id: _Optional[str] = ..., reset_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., preserved_stats: _Optional[_Union[_preserved_stats_pb2.PreservedStats, _Mapping]] = ..., reset_stat_types: _Optional[_Iterable[str]] = ..., preserved_stat_types: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., reset_details: _Optional[_Union[_reset_details_pb2.ResetDetails, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
