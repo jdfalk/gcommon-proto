@@ -10,6 +10,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,7 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message QueueInfo {
   // Name of the queue
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Type of queue implementation (e.g., "rabbitmq", "nats")
   string type = 2;
@@ -32,7 +36,7 @@ message QueueInfo {
   int32 consumer_count = 4;
 
   // Time when the queue was created
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
 
   // Additional metadata or labels for the queue
   map<string, string> labels = 6;

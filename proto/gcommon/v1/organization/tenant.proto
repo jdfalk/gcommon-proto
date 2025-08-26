@@ -11,6 +11,7 @@ import "gcommon/v1/common/tenant_status.proto";
 import "gcommon/v1/organization/tenant_quota.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -22,19 +23,28 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
  */
 message Tenant {
   // Unique tenant identifier (immutable)
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Parent organization identifier
-  string organization_id = 2;
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Tenant name (human-readable identifier)
-  string name = 3;
+  string name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // URL-friendly slug for the tenant (e.g., for subdomains)
   string slug = 4;
 
   // Tenant description
-  string description = 5;
+  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Current status of the tenant
   gcommon.v1.common.TenantStatus status = 6;
@@ -46,16 +56,16 @@ message Tenant {
   repeated gcommon.v1.common.KeyValue metadata = 8 [lazy = true];
 
   // Tenant creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 9 [lazy = true];
+  google.protobuf.Timestamp created_at = 9 [lazy = true, (buf.validate.field).required = true];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 10 [lazy = true];
 
   // User ID who created this tenant
-  string created_by = 11;
+  string created_by = 11 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // User ID who last updated this tenant
-  string updated_by = 12;
+  string updated_by = 12 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // Database connection string or identifier (for DATABASE isolation)
   string database_config = 13;

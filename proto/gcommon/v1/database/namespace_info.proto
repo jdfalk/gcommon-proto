@@ -8,6 +8,7 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,13 +18,16 @@ message NamespaceInfo {
   string namespace_id = 1;
 
   // Name of the namespace
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Description
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // When created
-  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 4 [ (buf.validate.field).required = true ];
 
   // Current key count
   int64 current_keys = 5;

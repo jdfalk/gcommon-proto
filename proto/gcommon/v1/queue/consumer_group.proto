@@ -14,6 +14,7 @@ import "gcommon/v1/queue/group_coordinator.proto";
 import "gcommon/v1/queue/partition_assignment.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,7 +24,10 @@ message ConsumerGroup {
   string group_id = 1;
 
   // Group name (human-readable)
-  string group_name = 2;
+  string group_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Topic or queue this group is consuming from
   string topic = 3;
@@ -50,7 +54,7 @@ message ConsumerGroup {
   map<string, string> metadata = 10;
 
   // Creation timestamp
-  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp created_at = 11 [ (buf.validate.field).required = true ];
 
   // Last updated timestamp
   google.protobuf.Timestamp updated_at = 12;

@@ -8,6 +8,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/resource_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -25,10 +26,13 @@ message OAuthClient {
   string client_secret = 2;
 
   // Client name
-  string name = 3;
+  string name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Client description
-  string description = 4;
+  string description = 4 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Client type ("public" or "confidential")
   string client_type = 5;
@@ -46,7 +50,7 @@ message OAuthClient {
   repeated string scopes = 9;
 
   // Client creation timestamp
-  google.protobuf.Timestamp created_at = 10 [lazy = true];
+  google.protobuf.Timestamp created_at = 10 [lazy = true, (buf.validate.field).required = true];
 
   // Client status
   gcommon.v1.common.ResourceStatus status = 11;
@@ -55,10 +59,10 @@ message OAuthClient {
   map<string, string> metadata = 12 [lazy = true];
 
   // Client logo URL
-  string logo_url = 13;
+  string logo_url = 13 [ (buf.validate.field).string.uri = true ];
 
   // Client website URL
-  string website_url = 14;
+  string website_url = 14 [ (buf.validate.field).string.uri = true ];
 
   // Client owner user ID
   string owner_user_id = 15;

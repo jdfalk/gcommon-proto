@@ -17,6 +17,7 @@ import "gcommon/v1/organization/network_isolation.proto";
 import "gcommon/v1/organization/storage_isolation.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -53,7 +54,7 @@ message TenantIsolation {
   repeated gcommon.v1.common.KeyValue metadata = 10 [lazy = true];
 
   // Isolation configuration creation timestamp
-  google.protobuf.Timestamp created_at = 11 [lazy = true];
+  google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 12 [lazy = true];

@@ -7,6 +7,7 @@ package gcommon.v1.database;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -17,7 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message QueryParameter {
   // Parameter name for named parameters
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Parameter value as Any type for flexibility
   google.protobuf.Any value = 2 [lazy = true];

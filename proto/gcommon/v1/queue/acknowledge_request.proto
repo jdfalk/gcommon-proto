@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -27,7 +28,10 @@ message AcknowledgeRequest {
    * The name/identifier of the queue containing the messages.
    * Must match the queue from which messages were dequeued.
    */
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Receipt handles of messages to acknowledge.

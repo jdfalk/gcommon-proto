@@ -9,6 +9,7 @@ import "gcommon/v1/common/token_status.proto";
 import "gcommon/v1/common/token_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,7 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message Token {
   // Unique token identifier
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Token value (may be JWT or opaque)
   string value = 2;
@@ -32,7 +36,10 @@ message Token {
   gcommon.v1.common.TokenStatus status = 4;
 
   // User ID associated with this token
-  string user_id = 5;
+  string user_id = 5 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Client ID that requested this token
   string client_id = 6;
@@ -41,7 +48,7 @@ message Token {
   repeated string scopes = 7;
 
   // Token creation timestamp
-  google.protobuf.Timestamp created_at = 8 [lazy = true];
+  google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];
 
   // Token expiration timestamp
   google.protobuf.Timestamp expires_at = 9 [lazy = true];

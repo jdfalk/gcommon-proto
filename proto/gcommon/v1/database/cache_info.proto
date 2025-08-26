@@ -9,6 +9,7 @@ package gcommon.v1.database;
 import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -19,7 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message CacheInfo {
   // Cache instance name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Cache version
   string version = 2;
@@ -31,7 +35,7 @@ message CacheInfo {
   gcommon.v1.common.CommonHealthStatus health_status = 4;
 
   // Cache creation timestamp
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
 
   // Last access timestamp
   google.protobuf.Timestamp last_accessed = 6;
@@ -40,7 +44,7 @@ message CacheInfo {
   string instance_id = 7;
 
   // Cache description
-  string description = 8;
+  string description = 8 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Additional metadata
   map<string, string> metadata = 9;

@@ -11,6 +11,7 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -20,7 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message RecordCounterRequest {
   // Metric name (e.g., "http_requests_total")
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Value to add to the counter (default: 1.0)
   double value = 2;

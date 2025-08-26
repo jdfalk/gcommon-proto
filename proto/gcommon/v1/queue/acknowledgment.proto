@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/ack_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -25,7 +26,10 @@ message Acknowledgment {
   string consumer_id = 2;
 
   // Queue or topic name
-  string queue_name = 3;
+  string queue_name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Partition ID (for partitioned queues)
   int32 partition_id = 4;

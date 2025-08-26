@@ -8,6 +8,7 @@ package gcommon.v1.organization;
 import "gcommon/v1/common/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -19,22 +20,31 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
  */
 message Team {
   // Unique team identifier
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Organization identifier
-  string organization_id = 2;
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Department identifier (teams can belong to departments)
   string department_id = 3;
 
   // Team name
-  string name = 4;
+  string name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // URL-friendly slug for the team
   string slug = 5;
 
   // Team description or purpose
-  string description = 6;
+  string description = 6 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Team lead/manager user ID
   string lead_id = 7;
@@ -49,22 +59,22 @@ message Team {
   repeated gcommon.v1.common.KeyValue metadata = 10 [lazy = true];
 
   // Team creation timestamp
-  google.protobuf.Timestamp created_at = 11 [lazy = true];
+  google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 12 [lazy = true];
 
   // User ID who created this team
-  string created_by = 13;
+  string created_by = 13 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // User ID who last updated this team
-  string updated_by = 14;
+  string updated_by = 14 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // Whether this team is currently active
   bool active = 15;
 
   // Team's email address for external communications
-  string contact_email = 16;
+  string contact_email = 16 [ (buf.validate.field).string.email = true ];
 
   // Team's communication channel (e.g., Slack channel, Discord server)
   string communication_channel = 17;

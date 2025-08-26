@@ -8,6 +8,7 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,16 +18,22 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message UpdateUserRequest {
   // Unique identifier of the user to update
-  string user_id = 1;
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // New email address (optional)
-  string email = 2;
+  string email = 2 [ (buf.validate.field).string.email = true ];
 
   // New password (should be hashed, optional)
   string password = 3;
 
   // New full name (optional)
-  string full_name = 4;
+  string full_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Whether to enable/disable the account (optional)
   bool enabled = 5;

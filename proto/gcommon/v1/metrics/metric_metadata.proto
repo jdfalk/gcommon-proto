@@ -12,6 +12,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -24,10 +25,13 @@ message MetricMetadata {
   string metric_id = 1;
 
   // Human-readable name of the metric
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Description of what this metric measures
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Metric type (counter, gauge, histogram, etc.)
   string type = 4;
@@ -39,7 +43,7 @@ message MetricMetadata {
   map<string, string> labels = 6;
 
   // When this metric was first created
-  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp created_at = 7 [ (buf.validate.field).required = true ];
 
   // When this metric was last updated
   google.protobuf.Timestamp updated_at = 8;

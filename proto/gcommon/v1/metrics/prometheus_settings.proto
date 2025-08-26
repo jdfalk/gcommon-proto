@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -19,10 +20,13 @@ message PrometheusSettings {
   bool enable_push_gateway = 2;
 
   // Push gateway URL
-  string push_gateway_url = 3;
+  string push_gateway_url = 3 [ (buf.validate.field).string.uri = true ];
 
   // Job name for push gateway
-  string job_name = 4;
+  string job_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Instance name
   string instance = 5;

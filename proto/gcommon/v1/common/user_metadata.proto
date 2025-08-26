@@ -10,16 +10,20 @@ import "gcommon/v1/common/user_preferences.proto";
 import "gcommon/v1/common/verification_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message UserMetadata {
   // User's preferred display name
-  string display_name = 1;
+  string display_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // User's profile picture URL
-  string avatar_url = 2;
+  string avatar_url = 2 [ (buf.validate.field).string.uri = true ];
 
   // User's timezone
   string timezone = 3;

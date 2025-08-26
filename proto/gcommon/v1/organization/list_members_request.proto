@@ -8,6 +8,7 @@ package gcommon.v1.organization;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -17,7 +18,10 @@ message ListMembersRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Organization identifier
-  string organization_id = 2;
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Optional team identifier to filter
   string team_id = 3;

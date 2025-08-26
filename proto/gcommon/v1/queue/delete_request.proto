@@ -9,13 +9,17 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/queue/delete_criteria.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message QueueDeleteRequest {
   // Name of the queue containing the message
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Unique identifier of the message to delete
   string message_id = 2;

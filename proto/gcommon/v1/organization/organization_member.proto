@@ -9,6 +9,7 @@ import "gcommon/v1/common/key_value.proto";
 import "gcommon/v1/common/member_role.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -19,19 +20,31 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
  */
 message OrganizationMember {
   // Unique membership identifier
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Organization identifier
-  string organization_id = 2;
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // User identifier from the auth system
-  string user_id = 3;
+  string user_id = 3 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // User's email address (cached for quick access)
-  string email = 4;
+  string email = 4 [ (buf.validate.field).string.email = true ];
 
   // User's display name (cached for quick access)
-  string display_name = 5;
+  string display_name = 5 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Primary role of the user in this organization
   gcommon.v1.common.MemberRole role = 6;
@@ -55,7 +68,7 @@ message OrganizationMember {
   repeated gcommon.v1.common.KeyValue metadata = 12 [lazy = true];
 
   // Membership creation timestamp (when user joined organization)
-  google.protobuf.Timestamp created_at = 13 [lazy = true];
+  google.protobuf.Timestamp created_at = 13 [lazy = true, (buf.validate.field).required = true];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 14 [lazy = true];
@@ -67,7 +80,7 @@ message OrganizationMember {
   string invited_by = 16;
 
   // User ID who last updated this member's information
-  string updated_by = 17;
+  string updated_by = 17 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // Whether this member is currently active
   bool active = 18;
@@ -82,7 +95,7 @@ message OrganizationMember {
   repeated string direct_report_ids = 21;
 
   // Member's avatar/profile picture URL
-  string avatar_url = 22;
+  string avatar_url = 22 [ (buf.validate.field).string.uri = true ];
 
   // Member's phone number (organization context)
   string phone = 23;

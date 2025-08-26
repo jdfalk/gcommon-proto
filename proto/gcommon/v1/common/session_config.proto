@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -25,7 +26,10 @@ message AuthSessionConfig {
   bool persist_across_restarts = 3;
 
   // Name of the session cookie.
-  string cookie_name = 4;
+  string cookie_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Whether to mark the cookie as secure.
   bool secure_cookie = 5;

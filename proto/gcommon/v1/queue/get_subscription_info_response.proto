@@ -11,6 +11,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,10 +24,16 @@ message GetSubscriptionInfoResponse {
   string subscription_id = 1;
 
   // Name of the subscription
-  string subscription_name = 2;
+  string subscription_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Topic this subscription is bound to
-  string topic_name = 3;
+  string topic_name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Current state of the subscription
   string state = 4;
@@ -44,7 +51,7 @@ message GetSubscriptionInfoResponse {
   uint64 unacked_count = 8;
 
   // Subscription creation timestamp
-  google.protobuf.Timestamp created_at = 9;
+  google.protobuf.Timestamp created_at = 9 [ (buf.validate.field).required = true ];
 
   // Last activity timestamp
   google.protobuf.Timestamp last_activity = 10;

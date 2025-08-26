@@ -9,6 +9,7 @@ import "gcommon/v1/common/client_info.proto";
 import "gcommon/v1/common/session_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,13 +21,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message Session {
   // Unique session identifier (immutable)
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // User ID associated with this session
-  string user_id = 2;
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Session creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 3 [lazy = true];
+  google.protobuf.Timestamp created_at = 3 [lazy = true, (buf.validate.field).required = true];
 
   // Last activity timestamp (updated on each request)
   google.protobuf.Timestamp last_activity_at = 4 [lazy = true];

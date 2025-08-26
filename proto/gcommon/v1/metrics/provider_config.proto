@@ -12,6 +12,7 @@ import "gcommon/v1/metrics/export_config.proto";
 import "gcommon/v1/metrics/provider_settings.proto";
 import "gcommon/v1/metrics/security_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,7 +22,10 @@ message ProviderConfig {
   string provider_id = 1;
 
   // Human-readable name for the provider
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Type of provider (prometheus, opentelemetry, custom, etc.)
   gcommon.v1.common.MetricsProviderType type = 3;
@@ -42,5 +46,5 @@ message ProviderConfig {
   map<string, string> tags = 8;
 
   // Description of the provider
-  string description = 9;
+  string description = 9 [ (buf.validate.field).string.max_len = 1000 ];
 }

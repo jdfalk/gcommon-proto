@@ -10,6 +10,7 @@ import "gcommon/v1/common/device_info.proto";
 import "gcommon/v1/common/location_info.proto";
 import "gcommon/v1/common/session_state.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,7 +20,10 @@ message SessionMetadata {
   string session_id = 1;
 
   // User ID
-  string user_id = 2;
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Session start time
   int64 started_at = 3;

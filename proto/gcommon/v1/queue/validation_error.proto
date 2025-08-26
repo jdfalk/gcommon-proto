@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/offset_range.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,7 +18,7 @@ message ValidationError {
   string error_type = 1;
 
   // Error description
-  string description = 2;
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Affected partition
   int32 partition_id = 3;

@@ -16,13 +16,17 @@ import "gcommon/v1/organization/security_settings.proto";
 import "gcommon/v1/organization/ui_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message OrganizationSettings {
   // Organization identifier
-  string organization_id = 1;
+  string organization_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Security and authentication settings
   SecuritySettings security = 2;
@@ -52,5 +56,5 @@ message OrganizationSettings {
   google.protobuf.Timestamp updated_at = 10 [lazy = true];
 
   // User ID who last updated these settings
-  string updated_by = 11;
+  string updated_by = 11 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 }

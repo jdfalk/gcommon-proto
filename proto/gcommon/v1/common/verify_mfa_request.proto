@@ -12,13 +12,17 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/mfa_method.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message VerifyMfaRequest {
   // User ID
-  string user_id = 1;
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // MFA verification code
   string code = 2;

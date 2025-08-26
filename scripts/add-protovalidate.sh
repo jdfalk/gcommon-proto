@@ -6,7 +6,7 @@
 set -euo pipefail
 
 # Protovalidate Integration Wrapper Script
-# 
+#
 # This script provides a user-friendly interface to the protovalidate-adder.py tool
 # for adding validation rules to protobuf files in the gcommon repository.
 
@@ -78,7 +78,7 @@ check_tool() {
         print_info "Please ensure the protovalidate-adder.py tool is available"
         exit 1
     fi
-    
+
     if [[ ! -x "$TOOL_PATH" ]]; then
         print_warning "Making tool executable..."
         chmod +x "$TOOL_PATH"
@@ -92,7 +92,7 @@ main() {
     local show_help=false
     local file_mode=false
     local compatibility_mode=false
-    
+
     # Parse arguments
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -134,28 +134,28 @@ main() {
                 ;;
         esac
     done
-    
+
     # Show help if requested
     if [[ "$show_help" == true ]]; then
         show_usage
         exit 0
     fi
-    
+
     # Check tool availability
     check_tool
-    
+
     # Change to project root
     cd "$PROJECT_ROOT"
-    
+
     # Show operation info
     if [[ "$dry_run" == true ]]; then
         print_info "Running in DRY-RUN mode - no files will be modified"
     fi
-    
+
     if [[ "$compatibility_mode" == true ]]; then
         print_info "Running in COMPATIBILITY mode - validation rules will be added as comments"
     fi
-    
+
     if [[ "$file_mode" == true ]]; then
         print_info "Processing specific file"
     else
@@ -168,15 +168,23 @@ main() {
             exit 0
         fi
     fi
-    
+
     # Run the Python tool
     print_info "Starting protovalidate integration..."
     echo
-    
-    if python3 "$TOOL_PATH" "${args[@]}"; then
+
+    # Handle empty args array properly
+    if [[ ${#args[@]} -eq 0 ]]; then
+        python3 "$TOOL_PATH"
+    else
+        python3 "$TOOL_PATH" "${args[@]}"
+    fi
+
+    local exit_code=$?
+    if [[ $exit_code -eq 0 ]]; then
         echo
         print_success "Protovalidate integration completed successfully!"
-        
+
         if [[ "$dry_run" == false ]]; then
             print_info "Next steps:"
             print_info "  1. Review the changes: git diff"

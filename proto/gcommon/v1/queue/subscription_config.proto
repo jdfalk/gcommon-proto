@@ -11,6 +11,7 @@ import "gcommon/v1/common/routing_strategy.proto";
 import "gcommon/v1/common/subscription_state.proto";
 import "gcommon/v1/queue/delivery_options.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,7 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // SubscriptionConfig describes how a consumer subscribes to a queue.
 message SubscriptionConfig {
   // Name of the subscription.
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
   // Current state of the subscription.
   gcommon.v1.common.SubscriptionState state = 2;
   // Message routing strategy for this subscription.

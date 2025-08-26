@@ -9,16 +9,20 @@ package gcommon.v1.common;
 import "gcommon/v1/common/parameter_constraints.proto";
 import "gcommon/v1/common/parameter_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message TemplateParameter {
   // Parameter name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Parameter description
-  string description = 2;
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Parameter type
   gcommon.v1.common.ParameterType type = 3;
@@ -54,7 +58,10 @@ message TemplateParameter {
   string documentation = 13;
 
   // Parameter display name
-  string display_name = 14;
+  string display_name = 14 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Parameter placeholder text
   string placeholder = 15;

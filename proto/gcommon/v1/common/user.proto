@@ -8,6 +8,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/user_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,28 +20,40 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message User {
   // Unique user identifier (immutable)
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Username (may be mutable depending on system policy)
   string username = 2;
 
   // Primary email address
-  string email = 3;
+  string email = 3 [ (buf.validate.field).string.email = true ];
 
   // Display name
-  string display_name = 4;
+  string display_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // First name
-  string first_name = 5;
+  string first_name = 5 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Last name
-  string last_name = 6;
+  string last_name = 6 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // User account status
   gcommon.v1.common.UserStatus status = 7;
 
   // Account creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 8 [lazy = true];
+  google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];
 
   // Last account update timestamp
   google.protobuf.Timestamp updated_at = 9 [lazy = true];
@@ -64,7 +77,7 @@ message User {
   map<string, string> metadata = 15 [lazy = true];
 
   // Avatar/profile image URL
-  string avatar_url = 16;
+  string avatar_url = 16 [ (buf.validate.field).string.uri = true ];
 
   // User timezone
   string timezone = 17;

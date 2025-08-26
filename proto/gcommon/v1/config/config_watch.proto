@@ -8,6 +8,7 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -26,10 +27,10 @@ message ConfigWatch {
   string watch_type = 4;
 
   // Timestamp when watch was created
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
 
   // User or service that created the watch
-  string created_by = 6;
+  string created_by = 6 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
 
   // Watch configuration options
   map<string, string> options = 7;

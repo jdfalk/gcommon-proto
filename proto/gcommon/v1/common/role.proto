@@ -9,6 +9,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/resource_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,13 +21,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message Role {
   // Unique role identifier (immutable)
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Human-readable role name
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Role description explaining its purpose
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Permissions granted by this role
   repeated string permissions = 4;
@@ -35,7 +42,7 @@ message Role {
   map<string, string> metadata = 5 [lazy = true];
 
   // Role creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 6 [lazy = true];
+  google.protobuf.Timestamp created_at = 6 [lazy = true, (buf.validate.field).required = true];
 
   // Role status (active, inactive, etc.)
   ResourceStatus status = 7;

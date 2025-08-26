@@ -10,6 +10,7 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 // Common types
 
@@ -50,7 +51,10 @@ message EnqueueResponse {
    * Name of the queue where the message was enqueued.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * MD5 hash of the message payload for integrity verification.

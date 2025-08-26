@@ -14,6 +14,7 @@ import "gcommon/v1/queue/topic_permissions.proto";
 import "gcommon/v1/queue/topic_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,13 +24,16 @@ message GetTopicInfoResponse {
   string topic_id = 1;
 
   // Topic name
-  string topic_name = 2;
+  string topic_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Topic description
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Topic creation timestamp
-  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 4 [ (buf.validate.field).required = true ];
 
   // Last modification timestamp
   google.protobuf.Timestamp updated_at = 5;

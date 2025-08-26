@@ -8,6 +8,7 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -21,22 +22,31 @@ message RegisterUserRequest {
   string username = 1;
 
   // Email address for the new account (required)
-  string email = 2;
+  string email = 2 [ (buf.validate.field).string.email = true ];
 
   // Password for the new account (required)
   string password = 3;
 
   // First name of the user
-  string first_name = 4;
+  string first_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Last name of the user
-  string last_name = 5;
+  string last_name = 5 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Phone number (optional)
   string phone_number = 6;
 
   // Initial organization to associate user with (optional)
-  string organization_id = 7;
+  string organization_id = 7 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Whether email verification is required
   bool require_email_verification = 8;

@@ -10,6 +10,7 @@ import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 // Common types
 
@@ -170,5 +171,5 @@ message HttpRequest {
   /**
    * When the request was created/initiated by the client.
    */
-  google.protobuf.Timestamp created_at = 52;
+  google.protobuf.Timestamp created_at = 52 [ (buf.validate.field).required = true ];
 }

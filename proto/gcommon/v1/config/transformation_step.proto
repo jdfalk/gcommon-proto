@@ -8,13 +8,17 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/transformation_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message TransformationStep {
   // Step name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Step type
   gcommon.v1.common.TransformationType type = 2;

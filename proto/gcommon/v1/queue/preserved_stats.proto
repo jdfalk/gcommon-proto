@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,7 +18,7 @@ message PreservedStats {
   int64 lifetime_message_count = 1;
 
   // Queue creation timestamp
-  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp created_at = 2 [ (buf.validate.field).required = true ];
 
   // Last configuration change timestamp
   google.protobuf.Timestamp last_config_change = 3;

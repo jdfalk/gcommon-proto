@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,7 +17,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // QueueMessage represents a single item in a queue.
 message QueueMessage {
   // Message ID (auto-generated if not provided).
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Arbitrary payload for the message.
   google.protobuf.Any body = 2;
@@ -46,5 +50,5 @@ message QueueMessage {
   string content_encoding = 10;
 
   // Creation timestamp of the message.
-  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp created_at = 11 [ (buf.validate.field).required = true ];
 }

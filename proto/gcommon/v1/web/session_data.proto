@@ -9,6 +9,7 @@ package gcommon.v1.web;
 import "gcommon/v1/common/web_session_state.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -19,13 +20,16 @@ message SessionData {
   string session_id = 1;
 
   // User ID associated with the session
-  string user_id = 2;
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Current session state
   gcommon.v1.common.WebSessionState state = 3;
 
   // Session creation timestamp
-  google.protobuf.Timestamp created_at = 4 [lazy = true];
+  google.protobuf.Timestamp created_at = 4 [lazy = true, (buf.validate.field).required = true];
 
   // Last access timestamp
   google.protobuf.Timestamp last_access_at = 5 [lazy = true];

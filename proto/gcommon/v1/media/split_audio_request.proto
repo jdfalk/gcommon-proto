@@ -8,6 +8,7 @@ package gcommon.v1.media;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -19,5 +20,8 @@ message SplitAudioRequest {
 
 message SplitPoint {
   google.protobuf.Duration timestamp = 1;
-  string segment_name = 2;
+  string segment_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 }

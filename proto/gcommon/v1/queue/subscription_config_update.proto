@@ -11,13 +11,17 @@ import "gcommon/v1/queue/delivery_settings.proto";
 import "gcommon/v1/queue/filter_settings.proto";
 import "gcommon/v1/queue/routing_settings.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message SubscriptionConfigUpdate {
   // Updated subscription name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Updated delivery settings
   DeliverySettings delivery_settings = 2;

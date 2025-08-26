@@ -11,6 +11,7 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/queue/message_ack_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -46,7 +47,10 @@ message AcknowledgeResponse {
    * Name of the queue where messages were acknowledged.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Detailed results for each message acknowledgment.

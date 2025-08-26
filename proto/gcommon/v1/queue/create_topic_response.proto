@@ -13,6 +13,7 @@ import "gcommon/v1/queue/topic_config.proto";
 import "gcommon/v1/queue/topic_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -28,7 +29,7 @@ message CreateTopicResponse {
   bool created = 2;
 
   // Timestamp when the topic was created
-  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp created_at = 3 [ (buf.validate.field).required = true ];
 
   // Any warnings during topic creation
   repeated string warnings = 4;

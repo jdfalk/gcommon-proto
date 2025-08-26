@@ -11,13 +11,17 @@ import "gcommon/v1/metrics/summary_quantile.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message SummaryMetric {
   // Metric name (e.g., "http_request_duration_seconds")
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Total count of observations
   uint64 sample_count = 2;

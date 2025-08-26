@@ -9,6 +9,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/jwt_config.proto";
 import "gcommon/v1/common/oauth2_flow_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,7 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message OAuth2Config {
   // OAuth2 provider name
-  string provider_name = 1;
+  string provider_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Client ID for OAuth2 application
   string client_id = 2;
@@ -37,7 +41,7 @@ message OAuth2Config {
   string userinfo_endpoint = 6;
 
   // Redirect URI after authorization
-  string redirect_uri = 7;
+  string redirect_uri = 7 [ (buf.validate.field).string.uri = true ];
 
   // Requested scopes
   repeated string scopes = 8;

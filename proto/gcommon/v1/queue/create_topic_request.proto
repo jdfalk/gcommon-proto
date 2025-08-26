@@ -11,6 +11,7 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/topic_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,7 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message CreateTopicRequest {
   // Name of the topic to create
-  string topic_name = 1;
+  string topic_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Configuration for the topic
   TopicConfig config = 2;

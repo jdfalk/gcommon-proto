@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/metrics_alert_severity.proto";
 import "gcommon/v1/common/notification_channel_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,7 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message QueueNotificationChannel {
   // Unique identifier for the channel
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Type of notification channel
   gcommon.v1.common.NotificationChannelType type = 2;

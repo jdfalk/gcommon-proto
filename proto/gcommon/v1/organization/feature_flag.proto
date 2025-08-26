@@ -7,19 +7,23 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message FeatureFlag {
   // Feature flag name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Whether the feature is enabled
   bool enabled = 2;
 
   // Feature flag description
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Rollout percentage (0-100)
   int32 rollout_percentage = 4;

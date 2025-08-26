@@ -9,6 +9,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 // Common types
 
@@ -30,7 +31,10 @@ message TerminateSessionRequest {
    * This can be the requesting user's own ID or another user's ID
    * if the requester has appropriate permissions.
    */
-  string user_id = 1;
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   /**
    * Specific session IDs to terminate. If empty, the termination

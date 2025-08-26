@@ -8,6 +8,7 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -18,7 +19,10 @@ message LogoutRequest {
   string session_id = 1;
 
   // Optional user ID for audit purposes
-  string user_id = 2;
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Request metadata for tracing
   gcommon.v1.common.RequestMetadata metadata = 3;

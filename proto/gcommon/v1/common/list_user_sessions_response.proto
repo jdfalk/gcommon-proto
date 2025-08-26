@@ -12,6 +12,7 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/common/session_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 
 // Common types
@@ -73,7 +74,10 @@ message ListUserSessionsResponse {
    * User ID for which sessions were retrieved.
    * Echoed from the request for verification.
    */
-  string user_id = 15;
+  string user_id = 15 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Status and error fields (61-70)
 

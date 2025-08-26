@@ -10,6 +10,7 @@ import "gcommon/v1/common/alert_condition.proto";
 import "gcommon/v1/common/metrics_alert_severity.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,13 +20,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message AlertRule {
   // Unique name for the rule
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Human-readable description
-  string description = 2;
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Metric to monitor
-  string metric_name = 3;
+  string metric_name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Condition for triggering the alert
   gcommon.v1.common.AlertCondition condition = 4;

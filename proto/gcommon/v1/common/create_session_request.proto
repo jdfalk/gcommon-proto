@@ -8,6 +8,7 @@ package gcommon.v1.common;
 import "gcommon/v1/common/client_info.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -22,7 +23,10 @@ message AuthCreateSessionRequest {
   gcommon.v1.common.RequestMetadata metadata = 1 [lazy = true];
 
   // User ID for which to create the session
-  string user_id = 2;
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Client information for session tracking
   gcommon.v1.common.ClientInfo client_info = 3 [lazy = true];

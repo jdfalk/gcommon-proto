@@ -8,6 +8,7 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -18,7 +19,7 @@ message GetProcessingStatusResponse {
   string status = 2; // pending, processing, completed, failed, cancelled
   string job_type = 3; // transcode, analyze, extract_audio, extract_subtitles
   int32 progress_percent = 4; // Progress percentage (0-100)
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
   google.protobuf.Timestamp updated_at = 6;
   google.protobuf.Timestamp completed_at = 7;
   string error_message = 8; // Error details if failed

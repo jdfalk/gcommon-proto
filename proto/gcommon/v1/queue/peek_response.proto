@@ -11,6 +11,7 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 // Common types
 
@@ -52,7 +53,10 @@ message PeekResponse {
    * Name of the queue that was peeked.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Total number of messages that matched the peek criteria.

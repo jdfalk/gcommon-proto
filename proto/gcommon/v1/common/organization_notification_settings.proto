@@ -9,16 +9,20 @@ package gcommon.v1.common;
 import "gcommon/v1/common/email_template.proto";
 import "gcommon/v1/common/notification_frequency.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message OrganizationNotificationSettings {
   // Default email sender address for organization notifications
-  string sender_email = 1;
+  string sender_email = 1 [ (buf.validate.field).string.email = true ];
 
   // Default email sender name
-  string sender_name = 2;
+  string sender_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Whether email notifications are enabled
   bool email_enabled = 3;

@@ -11,6 +11,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -24,7 +25,10 @@ message DeadLetterConfig {
   bool enabled = 1;
 
   // Name of the dead letter queue
-  string dead_letter_queue_name = 2;
+  string dead_letter_queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Maximum number of delivery attempts before sending to DLQ
   int32 max_delivery_attempts = 3;

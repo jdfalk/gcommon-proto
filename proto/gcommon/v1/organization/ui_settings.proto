@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -19,10 +20,10 @@ message UISettings {
   string secondary_color = 2;
 
   // Organization's logo URL
-  string logo_url = 3;
+  string logo_url = 3 [ (buf.validate.field).string.uri = true ];
 
   // Organization's favicon URL
-  string favicon_url = 4;
+  string favicon_url = 4 [ (buf.validate.field).string.uri = true ];
 
   // Custom CSS for organization branding
   string custom_css = 5;

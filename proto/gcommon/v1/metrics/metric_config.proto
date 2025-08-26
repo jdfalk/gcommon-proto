@@ -9,6 +9,7 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/export_config.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,7 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricConfig {
   // Metric name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Metric type (counter, gauge, histogram, summary, etc.)
   string metric_type = 2;
@@ -36,7 +40,7 @@ message MetricConfig {
   map<string, string> default_labels = 6;
 
   // Description of the metric
-  string description = 7;
+  string description = 7 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Unit of measurement
   string unit = 8;

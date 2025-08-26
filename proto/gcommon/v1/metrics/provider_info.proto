@@ -9,6 +9,7 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/provider_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,7 +22,10 @@ message ProviderInfo {
   string provider_id = 1;
 
   // Human-readable name of the provider
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Provider type (e.g., "prometheus", "datadog", "custom")
   string type = 3;
@@ -39,7 +43,7 @@ message ProviderInfo {
   string version = 7;
 
   // When this provider was created
-  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp created_at = 8 [ (buf.validate.field).required = true ];
 
   // When this provider was last updated
   google.protobuf.Timestamp last_updated = 9;
@@ -51,5 +55,5 @@ message ProviderInfo {
   repeated string tags = 11;
 
   // Description of the provider
-  string description = 12;
+  string description = 12 [ (buf.validate.field).string.max_len = 1000 ];
 }

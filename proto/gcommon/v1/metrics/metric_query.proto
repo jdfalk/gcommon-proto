@@ -12,6 +12,7 @@ import "gcommon/v1/metrics/aggregation_spec.proto";
 import "gcommon/v1/metrics/group_by_spec.proto";
 import "gcommon/v1/metrics/metric_filter.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,7 +22,10 @@ message MetricQuery {
   string query_id = 1;
 
   // Human-readable query name or description
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Query string (PromQL, SQL, or custom query language)
   string query_string = 3;

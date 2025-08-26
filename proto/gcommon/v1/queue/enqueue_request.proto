@@ -11,6 +11,7 @@ import "google/protobuf/any.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 // Standard imports
 // Common types
 
@@ -31,7 +32,10 @@ message EnqueueRequest {
    * The name/identifier of the queue to send the message to.
    * Must be a valid queue that exists or will be created.
    */
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * The message payload. Can contain any data type.

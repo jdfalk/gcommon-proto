@@ -8,6 +8,7 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,16 +18,22 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message UserInfo {
   // Unique user identifier
-  string user_id = 1;
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Username
   string username = 2;
 
   // User's email address
-  string email = 3;
+  string email = 3 [ (buf.validate.field).string.email = true ];
 
   // User's display name
-  string display_name = 4;
+  string display_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // User roles
   repeated string roles = 5;
@@ -41,7 +48,7 @@ message UserInfo {
   map<string, string> metadata = 8;
 
   // When the user was created
-  google.protobuf.Timestamp created_at = 9;
+  google.protobuf.Timestamp created_at = 9 [ (buf.validate.field).required = true ];
 
   // When the user was last updated
   google.protobuf.Timestamp updated_at = 10;
@@ -56,5 +63,5 @@ message UserInfo {
   bool email_verified = 13;
 
   // User's profile picture URL
-  string avatar_url = 14;
+  string avatar_url = 14 [ (buf.validate.field).string.uri = true ];
 }

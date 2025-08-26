@@ -13,19 +13,23 @@ import "gcommon/v1/metrics/label_definition.proto";
 import "gcommon/v1/metrics/metric_type_config.proto";
 import "gcommon/v1/metrics/validation_rules.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message MetricDefinition {
   // Unique name for the metric
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Type of metric (counter, gauge, histogram, etc.)
   gcommon.v1.common.MetricsMetricType type = 2;
 
   // Human-readable description
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Unit of measurement (e.g., "bytes", "requests", "seconds")
   string unit = 4;

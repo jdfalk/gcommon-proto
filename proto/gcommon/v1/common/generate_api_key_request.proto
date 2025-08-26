@@ -8,6 +8,7 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,10 +18,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message GenerateAPIKeyRequest {
   // User ID for whom to generate the key
-  string user_id = 1;
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Optional name/description for the key
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Optional expiration in seconds
   int32 expires_in = 3;

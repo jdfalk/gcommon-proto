@@ -13,6 +13,7 @@ import "gcommon/v1/metrics/provider_endpoints.proto";
 import "gcommon/v1/metrics/provider_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -28,7 +29,7 @@ message CreateProviderResponse {
   string provider_id = 3;
 
   // When the provider was created
-  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp created_at = 4 [ (buf.validate.field).required = true ];
 
   // Current status of the provider
   ProviderStatus status = 5;

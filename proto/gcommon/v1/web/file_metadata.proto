@@ -9,6 +9,7 @@ package gcommon.v1.web;
 import "gcommon/v1/web/mime_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -16,7 +17,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // FileMetadata message definition.
 message FileMetadata {
   // File name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // File size in bytes
   int64 size_bytes = 2;
