@@ -11,6 +11,8 @@ import "gcommon/v1/metrics/metric_series.proto";
 import "gcommon/v1/metrics/query_plan.proto";
 import "gcommon/v1/metrics/query_statistics.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -23,7 +25,7 @@ message QueryMetricsResponse {
   gcommon.v1.common.Error error = 2;
 
   // Query results organized as metric series
-  repeated MetricSeries series = 3;
+  repeated MetricSeries series = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Query execution statistics
   QueryStatistics statistics = 4;
@@ -32,11 +34,11 @@ message QueryMetricsResponse {
   QueryPlan query_plan = 5;
 
   // Warnings or informational messages about the query
-  repeated string warnings = 6;
+  repeated string warnings = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Pagination token for retrieving more results
-  string next_page_token = 7;
+  string next_page_token = 7 [(buf.validate.field).string.min_len = 1];
 
   // Total number of results available (for pagination)
-  int64 total_results = 8;
+  int64 total_results = 8 [(buf.validate.field).int64.gte = 0];
 }

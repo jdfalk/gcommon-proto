@@ -9,6 +9,8 @@ import "gcommon/v1/common/eviction_policy.proto";
 import "gcommon/v1/common/expiration_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -26,10 +28,10 @@ message CachePolicy {
   gcommon.v1.common.EvictionPolicy eviction = 2;
 
   // Maximum cache size in bytes (0 for unlimited)
-  int64 max_size_bytes = 3;
+  int64 max_size_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Maximum number of cache entries (0 for unlimited)
-  int64 max_entries = 4;
+  int64 max_entries = 4 [(buf.validate.field).int64.gte = 0];
 
   // Default time-to-live for cache entries
   google.protobuf.Duration default_ttl = 5;

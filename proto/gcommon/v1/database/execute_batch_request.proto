@@ -10,6 +10,8 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/database/batch_execute_options.proto";
 import "gcommon/v1/database/batch_operation.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 // Use DB-specific batch operation definitions
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -17,10 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
 
 message ExecuteBatchRequest {
   // List of operations to execute in the batch
-  repeated DatabaseBatchOperation operations = 1 [lazy = true];
+  repeated DatabaseBatchOperation operations = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // Database name (optional, uses default if not specified)
-  string database = 2;
+  string database = 2 [(buf.validate.field).string.min_len = 1];
 
   // Batch execution options and configuration
   BatchExecuteOptions options = 3 [lazy = true];
@@ -29,5 +31,5 @@ message ExecuteBatchRequest {
   gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
 
   // Transaction ID if this batch is part of a transaction
-  string transaction_id = 5;
+  string transaction_id = 5 [(buf.validate.field).string.min_len = 1];
 }

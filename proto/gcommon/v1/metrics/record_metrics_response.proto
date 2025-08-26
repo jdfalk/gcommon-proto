@@ -12,6 +12,8 @@ import "gcommon/v1/metrics/metric_result.proto";
 import "gcommon/v1/metrics/validation_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,31 +23,31 @@ message RecordMetricsResponse {
   bool success = 1;
 
   // Number of metrics successfully recorded
-  int32 success_count = 2;
+  int32 success_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of metrics that failed to record
-  int32 failure_count = 3;
+  int32 failure_count = 3 [(buf.validate.field).int32.gte = 0];
 
   // Total number of metrics processed
-  int32 total_count = 4;
+  int32 total_count = 4 [(buf.validate.field).int32.gte = 0];
 
   // Overall error information if the batch operation failed
   gcommon.v1.common.Error error = 5;
 
   // Detailed results for each metric (if requested)
-  repeated MetricResult results = 6;
+  repeated MetricResult results = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Timestamp when the batch operation was completed
   google.protobuf.Timestamp completed_at = 7;
 
   // Provider that handled the batch
-  string provider_id = 8;
+  string provider_id = 8 [(buf.validate.field).string.min_len = 1];
 
   // Batch processing statistics
   MetricsBatchStats stats = 9;
 
   // Warnings or informational messages about the batch
-  repeated string warnings = 10;
+  repeated string warnings = 10 [(buf.validate.field).repeated.min_items = 1];
 
   // Summary of validation results (if validation was enabled)
   ValidationSummary validation_summary = 11;

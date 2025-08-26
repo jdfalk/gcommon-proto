@@ -9,6 +9,8 @@ package gcommon.v1.media;
 import "gcommon/v1/common/quality_score.proto";
 import "gcommon/v1/common/resolution.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -16,8 +18,8 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 // Media quality assessment.
 message MediaQuality {
   gcommon.v1.common.Resolution resolution = 1;
-  string video_codec = 2;
-  int32 bitrate_kbps = 3;
-  float duration_seconds = 4;
+  string video_codec = 2 [(buf.validate.field).string.min_len = 1];
+  int32 bitrate_kbps = 3 [(buf.validate.field).int32.gte = 0];
+  float duration_seconds = 4 [(buf.validate.field).float.gte = 0.0];
   gcommon.v1.common.QualityScore quality_score = 5;
 }

@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,13 +22,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message RestoreConfig {
   // Source backup location
-  string backup_source = 1;
+  string backup_source = 1 [(buf.validate.field).string.min_len = 1];
 
   // Whether to verify backup integrity before restore
   bool verify_integrity = 2;
 
   // Restore strategy (full, incremental, selective)
-  string restore_strategy = 3;
+  string restore_strategy = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether to overwrite existing data
   bool overwrite_existing = 4;
@@ -38,7 +40,7 @@ message RestoreConfig {
   bool preserve_timestamps = 6;
 
   // Maximum concurrent restore operations
-  uint32 max_concurrency = 7;
+  uint32 max_concurrency = 7 [(buf.validate.field).uint32.gte = 0];
 
   // Whether to skip corrupted messages
   bool skip_corrupted = 8;

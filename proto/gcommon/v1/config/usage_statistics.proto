@@ -9,38 +9,40 @@ package gcommon.v1.config;
 import "gcommon/v1/config/usage_trend.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message UsageStatistics {
   // Total access count
-  int64 total_access_count = 1;
+  int64 total_access_count = 1 [(buf.validate.field).int64.gte = 0];
 
   // Access count in last 24 hours
-  int64 access_count_24h = 2;
+  int64 access_count_24h = 2 [(buf.validate.field).int64.gte = 0];
 
   // Access count in last 7 days
-  int64 access_count_7d = 3;
+  int64 access_count_7d = 3 [(buf.validate.field).int64.gte = 0];
 
   // Access count in last 30 days
-  int64 access_count_30d = 4;
+  int64 access_count_30d = 4 [(buf.validate.field).int64.gte = 0];
 
   // Unique users count
-  int64 unique_users_count = 5;
+  int64 unique_users_count = 5 [(buf.validate.field).int64.gte = 0];
 
   // Unique services count
-  int64 unique_services_count = 6;
+  int64 unique_services_count = 6 [(buf.validate.field).int64.gte = 0];
 
   // Average access frequency per day
-  double avg_access_frequency = 7;
+  double avg_access_frequency = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Peak access timestamp
   google.protobuf.Timestamp peak_access_at = 8;
 
   // Peak access count
-  int64 peak_access_count = 9;
+  int64 peak_access_count = 9 [(buf.validate.field).int64.gte = 0];
 
   // Usage trends
-  repeated gcommon.v1.config.UsageTrend trends = 10;
+  repeated gcommon.v1.config.UsageTrend trends = 10 [(buf.validate.field).repeated.min_items = 1];
 }

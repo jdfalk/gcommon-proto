@@ -8,25 +8,27 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message PartitionAssignment {
   // Partition ID
-  int32 partition_id = 1;
+  int32 partition_id = 1 [(buf.validate.field).int32.gte = 0];
 
   // Assigned consumer ID
-  string consumer_id = 2;
+  string consumer_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Current offset position
-  int64 current_offset = 3;
+  int64 current_offset = 3 [(buf.validate.field).int64.gte = 0];
 
   // Committed offset
-  int64 committed_offset = 4;
+  int64 committed_offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // High water mark (latest available offset)
-  int64 high_water_mark = 5;
+  int64 high_water_mark = 5 [(buf.validate.field).int64.gte = 0];
 
   // Assignment timestamp
   google.protobuf.Timestamp assigned_at = 6;

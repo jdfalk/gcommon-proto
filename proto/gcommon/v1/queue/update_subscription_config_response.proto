@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,14 +20,14 @@ message UpdateSubscriptionConfigResponse {
   bool success = 1;
 
   // Subscription ID that was updated
-  string subscription_id = 2;
+  string subscription_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Configuration changes that were applied
   map<string, string> applied_changes = 3;
 
   // Validation warnings (non-fatal)
-  repeated string warnings = 4;
+  repeated string warnings = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if update failed
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }

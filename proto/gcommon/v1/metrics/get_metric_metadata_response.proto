@@ -15,6 +15,8 @@ import "gcommon/v1/metrics/metric_metadata.proto";
 import "gcommon/v1/metrics/pagination_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -30,7 +32,7 @@ message GetMetricMetadataResponse {
   gcommon.v1.common.Error error = 2;
 
   // Provider ID that handled the request
-  string provider_id = 3;
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Retrieved metadata entries
   repeated MetricMetadata metadata = 4;
@@ -39,14 +41,14 @@ message GetMetricMetadataResponse {
   MetricsPaginationInfo pagination = 5;
 
   // Total number of matching metrics
-  int64 total_count = 6;
+  int64 total_count = 6 [(buf.validate.field).int64.gte = 0];
 
   // When the response was generated
   google.protobuf.Timestamp generated_at = 7;
 
   // Warnings or informational messages
-  repeated string warnings = 8;
+  repeated string warnings = 8 [(buf.validate.field).repeated.min_items = 1];
 
   // Query execution time in milliseconds
-  int64 execution_time_ms = 9;
+  int64 execution_time_ms = 9 [(buf.validate.field).int64.gte = 0];
 }

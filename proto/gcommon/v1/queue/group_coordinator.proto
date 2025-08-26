@@ -8,23 +8,25 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/coordinator_state.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message GroupCoordinator {
   // Coordinator node ID
-  string node_id = 1;
+  string node_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Coordinator host
-  string host = 2;
+  string host = 2 [(buf.validate.field).string.min_len = 1];
 
   // Coordinator port
-  int32 port = 3;
+  int32 port = 3 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Coordinator state
   gcommon.v1.common.CoordinatorState state = 4;
 
   // Leadership epoch
-  int64 epoch = 5;
+  int64 epoch = 5 [(buf.validate.field).int64.gte = 0];
 }

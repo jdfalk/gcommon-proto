@@ -8,6 +8,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/user_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -27,14 +29,14 @@ message ValidateTokenResponse {
   UserInfo user_info = 3 [lazy = true];
 
   // Token scopes/permissions
-  repeated string scopes = 4;
+  repeated string scopes = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Token subject (user ID)
-  string subject = 5;
+  string subject = 5 [(buf.validate.field).string.min_len = 1];
 
   // Token issuer
-  string issuer = 6;
+  string issuer = 6 [(buf.validate.field).string.min_len = 1];
 
   // Time until token expires (in seconds)
-  int32 expires_in = 7;
+  int32 expires_in = 7 [(buf.validate.field).int32.gte = 0];
 }

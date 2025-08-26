@@ -8,6 +8,8 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/aggregation_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,20 +20,20 @@ message MetricAggregation {
   gcommon.v1.common.AggregationType type = 1;
 
   // Time window for aggregation
-  int32 window_seconds = 2;
+  int32 window_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
   // Group by fields
-  repeated string group_by = 3;
+  repeated string group_by = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Percentiles to calculate (for percentile aggregation)
-  repeated double percentiles = 4;
+  repeated double percentiles = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Custom aggregation function (for custom type)
-  string custom_function = 5;
+  string custom_function = 5 [(buf.validate.field).string.min_len = 1];
 
   // Whether to include null values in aggregation
   bool include_nulls = 6;
 
   // Minimum number of samples required
-  int32 min_samples = 7;
+  int32 min_samples = 7 [(buf.validate.field).int32.gte = 0];
 }

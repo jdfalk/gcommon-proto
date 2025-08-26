@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -37,7 +39,7 @@ message StatsOptions {
   bool include_top_metrics = 8;
 
   // Maximum number of top metrics to include
-  int32 top_metrics_limit = 9;
+  int32 top_metrics_limit = 9 [(buf.validate.field).int32.gte = 0];
 
   // Include trend analysis
   bool include_trends = 10;

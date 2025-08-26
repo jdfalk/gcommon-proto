@@ -12,6 +12,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/partition_config.proto";
 import "gcommon/v1/queue/retention_policy.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -21,10 +23,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message TopicConfig {
   // Maximum number of messages in the topic
-  uint64 max_messages = 1;
+  uint64 max_messages = 1 [(buf.validate.field).uint64.gte = 0];
 
   // Maximum size of the topic in bytes
-  uint64 max_size_bytes = 2;
+  uint64 max_size_bytes = 2 [(buf.validate.field).uint64.gte = 0];
 
   // Message retention policy
   QueueRetentionPolicy retention_policy = 3;
@@ -39,7 +41,7 @@ message TopicConfig {
   bool replicated = 6;
 
   // Replication factor
-  uint32 replication_factor = 7;
+  uint32 replication_factor = 7 [(buf.validate.field).uint32.gte = 0];
 
   // Whether to compact duplicate messages
   bool enable_compaction = 8;

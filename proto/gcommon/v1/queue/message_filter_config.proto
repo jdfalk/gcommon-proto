@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/queue/content_filter.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,16 +19,16 @@ message MessageFilterConfig {
   map<string, string> header_filters = 1;
 
   // Content-based filters
-  repeated ContentFilter content_filters = 2;
+  repeated ContentFilter content_filters = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Routing key patterns
-  repeated string routing_key_patterns = 3;
+  repeated string routing_key_patterns = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Message type filters
-  repeated string message_types = 4;
+  repeated string message_types = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Custom filter expressions
-  repeated string filter_expressions = 5;
+  repeated string filter_expressions = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Exclude messages matching these criteria
   bool exclude_matching = 6;

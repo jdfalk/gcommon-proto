@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/response_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -21,16 +23,16 @@ message SeekResponse {
   bool success = 1;
 
   // The actual position seeked to
-  int64 position = 2;
+  int64 position = 2 [(buf.validate.field).int64.gte = 0];
 
   // The offset within the partition (for partitioned queues)
-  int64 offset = 3;
+  int64 offset = 3 [(buf.validate.field).int64.gte = 0];
 
   // The partition ID (for partitioned queues)
-  int32 partition_id = 4;
+  int32 partition_id = 4 [(buf.validate.field).int32.gte = 0];
 
   // Error message if seek failed
-  string error_message = 5;
+  string error_message = 5 [(buf.validate.field).string.min_len = 1];
 
   // Response metadata
   gcommon.v1.common.ResponseMetadata metadata = 6;

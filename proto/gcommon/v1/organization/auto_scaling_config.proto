@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -16,20 +18,20 @@ message AutoScalingConfig {
   bool enabled = 1;
 
   // Minimum number of instances
-  int32 min_instances = 2;
+  int32 min_instances = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum number of instances
-  int32 max_instances = 3;
+  int32 max_instances = 3 [(buf.validate.field).int32.gte = 0];
 
   // Target CPU utilization percentage
-  int32 target_cpu_percent = 4;
+  int32 target_cpu_percent = 4 [(buf.validate.field).int32.gte = 0];
 
   // Target memory utilization percentage
-  int32 target_memory_percent = 5;
+  int32 target_memory_percent = 5 [(buf.validate.field).int32.gte = 0];
 
   // Scale-up cooldown period in seconds
-  int32 scale_up_cooldown = 6;
+  int32 scale_up_cooldown = 6 [(buf.validate.field).int32.gte = 0];
 
   // Scale-down cooldown period in seconds
-  int32 scale_down_cooldown = 7;
+  int32 scale_down_cooldown = 7 [(buf.validate.field).int32.gte = 0];
 }

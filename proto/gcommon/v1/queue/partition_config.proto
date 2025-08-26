@@ -10,6 +10,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,26 +21,26 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message PartitionConfig {
   // Number of partitions
-  uint32 partition_count = 1;
+  uint32 partition_count = 1 [(buf.validate.field).uint32.gte = 0];
 
   // Partitioning strategy (hash, round-robin, custom)
-  string partition_strategy = 2;
+  string partition_strategy = 2 [(buf.validate.field).string.min_len = 1];
 
   // Key field to use for partitioning
-  string partition_key = 3;
+  string partition_key = 3 [(buf.validate.field).string.min_len = 1];
 
   // Custom partition function (if strategy is custom)
-  string custom_partition_function = 4;
+  string custom_partition_function = 4 [(buf.validate.field).string.min_len = 1];
 
   // Whether to enable partition auto-scaling
   bool auto_scale = 5;
 
   // Minimum number of partitions
-  uint32 min_partitions = 6;
+  uint32 min_partitions = 6 [(buf.validate.field).uint32.gte = 0];
 
   // Maximum number of partitions
-  uint32 max_partitions = 7;
+  uint32 max_partitions = 7 [(buf.validate.field).uint32.gte = 0];
 
   // Partition size threshold for auto-scaling (in MB)
-  uint64 scale_threshold_mb = 8;
+  uint64 scale_threshold_mb = 8 [(buf.validate.field).uint64.gte = 0];
 }

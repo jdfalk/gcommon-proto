@@ -6,6 +6,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,19 +19,19 @@ message HealthConfig {
   // Whether health checking is enabled
   bool enabled = 1;
   // Health endpoint path
-  string endpoint = 2;
+  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
   // Liveness check path
-  string liveness_path = 3;
+  string liveness_path = 3 [(buf.validate.field).string.min_len = 1];
   // Readiness check path
-  string readiness_path = 4;
+  string readiness_path = 4 [(buf.validate.field).string.min_len = 1];
   // Startup check path
-  string startup_path = 5;
+  string startup_path = 5 [(buf.validate.field).string.min_len = 1];
   // Check timeout in seconds
-  int32 timeout_seconds = 6;
+  int32 timeout_seconds = 6 [(buf.validate.field).int32.gt = 0];
   // Check interval in seconds
-  int32 interval_seconds = 7;
+  int32 interval_seconds = 7 [(buf.validate.field).int32.gte = 0];
   // Grace period in seconds
-  int32 grace_period_seconds = 8;
+  int32 grace_period_seconds = 8 [(buf.validate.field).int32.gte = 0];
   // Number of retries
-  int32 retries = 9;
+  int32 retries = 9 [(buf.validate.field).int32.gte = 0];
 }

@@ -9,6 +9,8 @@ package gcommon.v1.config;
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -19,10 +21,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
  */
 message ConfigConfigChange {
   // Unique identifier for this change
-  string change_id = 1;
+  string change_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Configuration key that changed
-  string key = 2;
+  string key = 2 [(buf.validate.field).string.min_len = 1];
 
   // Previous value (if any)
   google.protobuf.Any old_value = 3;
@@ -31,19 +33,19 @@ message ConfigConfigChange {
   google.protobuf.Any new_value = 4;
 
   // Type of change (CREATE, UPDATE, DELETE)
-  string change_type = 5;
+  string change_type = 5 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp of the change
   google.protobuf.Timestamp timestamp = 6;
 
   // User or service that made the change
-  string changed_by = 7;
+  string changed_by = 7 [(buf.validate.field).string.min_len = 1];
 
   // Reason for the change
-  string reason = 8;
+  string reason = 8 [(buf.validate.field).string.min_len = 1];
 
   // Configuration namespace or section
-  string namespace = 9;
+  string namespace = 9 [(buf.validate.field).string.min_len = 1];
 
   // Additional metadata about the change
   map<string, string> metadata = 10;

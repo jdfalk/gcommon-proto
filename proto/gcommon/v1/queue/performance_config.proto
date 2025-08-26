@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,25 +22,25 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message PerformanceConfig {
   // Buffer size for batching operations
-  uint32 buffer_size = 1;
+  uint32 buffer_size = 1 [(buf.validate.field).uint32.gte = 0];
 
   // Maximum batch size for operations
-  uint32 max_batch_size = 2;
+  uint32 max_batch_size = 2 [(buf.validate.field).uint32.gte = 0];
 
   // Flush interval for buffered operations
   google.protobuf.Duration flush_interval = 3;
 
   // Number of worker threads
-  uint32 worker_threads = 4;
+  uint32 worker_threads = 4 [(buf.validate.field).uint32.gte = 0];
 
   // Queue capacity for in-memory operations
-  uint32 queue_capacity = 5;
+  uint32 queue_capacity = 5 [(buf.validate.field).uint32.gte = 0];
 
   // Enable async processing
   bool async_processing = 6;
 
   // Connection pool size
-  uint32 connection_pool_size = 7;
+  uint32 connection_pool_size = 7 [(buf.validate.field).uint32.gte = 0];
 
   // Maximum idle time for connections
   google.protobuf.Duration max_idle_time = 8;

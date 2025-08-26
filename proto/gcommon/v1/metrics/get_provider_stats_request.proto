@@ -10,6 +10,8 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/common/time_range_metrics.proto";
 import "gcommon/v1/metrics/stats_options.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -19,7 +21,7 @@ message GetProviderStatsRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Provider ID to get stats for
-  string provider_id = 2;
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Time range for statistics
   gcommon.v1.common.TimeRangeMetrics time_range = 3;

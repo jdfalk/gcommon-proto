@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/metrics_alert_severity.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -19,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message AlertNotification {
   // Identifier of the alerting rule that triggered.
-  string rule_id = 1;
+  string rule_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when the notification was generated.
   google.protobuf.Timestamp time = 2;
@@ -28,5 +30,5 @@ message AlertNotification {
   gcommon.v1.common.MetricsAlertSeverity severity = 3;
 
   // Human readable message describing the alert.
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 }

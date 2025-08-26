@@ -11,6 +11,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,8 +22,8 @@ message DeleteUserResponse {
   bool success = 1;
 
   // Error message if deletion failed
-  string error_message = 2;
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Data retention information
-  string data_retention_info = 3;
+  string data_retention_info = 3 [(buf.validate.field).string.min_len = 1];
 }

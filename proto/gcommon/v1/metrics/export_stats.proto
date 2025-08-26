@@ -9,28 +9,30 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/export_destination_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ExportStats {
   // Total exported metrics
-  int64 total_exported_metrics = 1;
+  int64 total_exported_metrics = 1 [(buf.validate.field).int64.gte = 0];
 
   // Total exported data points
-  int64 total_exported_data_points = 2;
+  int64 total_exported_data_points = 2 [(buf.validate.field).int64.gte = 0];
 
   // Export rate (metrics per second)
-  double export_rate_metrics_per_second = 3;
+  double export_rate_metrics_per_second = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Failed exports
-  int64 failed_exports = 4;
+  int64 failed_exports = 4 [(buf.validate.field).int64.gte = 0];
 
   // Export success rate
-  double export_success_rate = 5;
+  double export_success_rate = 5 [(buf.validate.field).double.gte = 0.0];
 
   // Exports by destination
-  repeated ExportDestinationStats export_destinations = 6;
+  repeated ExportDestinationStats export_destinations = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Last successful export
   google.protobuf.Timestamp last_successful_export = 7;

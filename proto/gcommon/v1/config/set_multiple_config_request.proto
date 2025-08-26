@@ -8,6 +8,8 @@ package gcommon.v1.config;
 import "gcommon/v1/common/config_value.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -20,7 +22,7 @@ message SetMultipleConfigRequest {
   map<string, gcommon.v1.common.ConfigValue> entries = 1;
 
   // Optional namespace/environment
-  string namespace = 2;
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // Common metadata for all entries
   map<string, string> metadata = 3;

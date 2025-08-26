@@ -9,6 +9,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -19,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message AuthDeleteSessionRequest {
   // Session ID to delete
-  string session_id = 1;
+  string session_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Force delete even if session is active (admin only)
   bool force = 2;

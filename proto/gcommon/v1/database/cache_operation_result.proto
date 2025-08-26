@@ -9,6 +9,8 @@ package gcommon.v1.database;
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -22,22 +24,22 @@ message CacheOperationResult {
   bool success = 1;
 
   // Operation type (e.g., "GET", "SET", "DELETE")
-  string operation_type = 2;
+  string operation_type = 2 [(buf.validate.field).string.min_len = 1];
 
   // Key involved in the operation
-  string key = 3;
+  string key = 3 [(buf.validate.field).string.min_len = 1];
 
   // Namespace (if applicable)
-  string namespace = 4;
+  string namespace = 4 [(buf.validate.field).string.min_len = 1];
 
   // Operation duration
-  int64 duration_microseconds = 5;
+  int64 duration_microseconds = 5 [(buf.validate.field).int64.gt = 0];
 
   // Timestamp of operation
   google.protobuf.Timestamp timestamp = 6;
 
   // Number of items affected
-  int64 items_affected = 7;
+  int64 items_affected = 7 [(buf.validate.field).int64.gte = 0];
 
   // Error details if operation failed
   gcommon.v1.common.Error error = 8;

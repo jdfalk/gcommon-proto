@@ -8,25 +8,27 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RestoreWarning {
   // Warning code
-  string warning_code = 1;
+  string warning_code = 1 [(buf.validate.field).string.min_len = 1];
 
   // Warning message
-  string warning_message = 2;
+  string warning_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Warning category
-  string warning_category = 3;
+  string warning_category = 3 [(buf.validate.field).string.min_len = 1];
 
   // Affected component
-  string affected_component = 4;
+  string affected_component = 4 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID if warning is partition-specific
-  int32 partition_id = 5;
+  int32 partition_id = 5 [(buf.validate.field).int32.gte = 0];
 
   // Warning timestamp
   google.protobuf.Timestamp warning_time = 6;

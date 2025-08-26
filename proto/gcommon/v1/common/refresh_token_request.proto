@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -18,10 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message RefreshTokenRequest {
   // Refresh token to exchange for new access token
-  string refresh_token = 1;
+  string refresh_token = 1 [(buf.validate.field).string.min_len = 1];
 
   // Requested scopes for the new access token
-  repeated string scopes = 2;
+  repeated string scopes = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 3;

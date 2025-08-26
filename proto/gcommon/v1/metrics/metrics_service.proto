@@ -25,6 +25,8 @@ import "gcommon/v1/metrics/stream_metrics_request.proto";
 import "gcommon/v1/metrics/unregister_metric_request.proto";
 import "gcommon/v1/metrics/unregister_metric_response.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 // Import response messages
 

@@ -12,6 +12,8 @@ import "gcommon/v1/metrics/memory_usage.proto";
 import "gcommon/v1/metrics/network_usage.proto";
 import "gcommon/v1/metrics/resource_data_point.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -30,5 +32,5 @@ message ResourceUsageStats {
   NetworkUsage network = 4;
 
   // Time-series resource usage data
-  repeated ResourceDataPoint resource_timeseries = 5;
+  repeated ResourceDataPoint resource_timeseries = 5 [(buf.validate.field).repeated.min_items = 1];
 }

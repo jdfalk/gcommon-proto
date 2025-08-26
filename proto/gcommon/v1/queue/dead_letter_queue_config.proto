@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,10 +18,10 @@ message DeadLetterQueueConfig {
   bool enabled = 1;
 
   // Dead letter queue topic
-  string dlq_topic = 2;
+  string dlq_topic = 2 [(buf.validate.field).string.min_len = 1];
 
   // Maximum message age in DLQ (seconds)
-  int64 dlq_max_age_seconds = 3;
+  int64 dlq_max_age_seconds = 3 [(buf.validate.field).int64.gte = 0];
 
   // Include original error information
   bool include_error_info = 4;

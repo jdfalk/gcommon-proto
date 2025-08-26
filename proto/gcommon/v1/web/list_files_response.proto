@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "gcommon/v1/common/response_metadata.proto";
 import "gcommon/v1/web/file_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -19,13 +21,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
  */
 message ListFilesResponse {
   // List of files and directories
-  repeated FileInfo files = 1;
+  repeated FileInfo files = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Total number of files (may be larger than returned list if paginated)
-  int64 total_count = 2;
+  int64 total_count = 2 [(buf.validate.field).int64.gte = 0];
 
   // Token for next page (if paginated)
-  string next_page_token = 3;
+  string next_page_token = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether there are more results
   bool has_more = 4;

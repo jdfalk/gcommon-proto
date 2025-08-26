@@ -7,14 +7,16 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RoleInheritance {
   // Parent roles that this role inherits from
-  repeated string inherits_from = 1;
+  repeated string inherits_from = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Additional permissions for this role
-  repeated string additional_permissions = 2;
+  repeated string additional_permissions = 2 [(buf.validate.field).repeated.min_items = 1];
 }

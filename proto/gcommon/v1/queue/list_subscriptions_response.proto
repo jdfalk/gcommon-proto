@@ -12,16 +12,18 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/response_metadata.proto";
 import "gcommon/v1/common/subscription_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ListSubscriptionsResponse {
   // Subscriptions returned
-  repeated gcommon.v1.common.CommonSubscriptionInfo subscriptions = 1;
+  repeated gcommon.v1.common.CommonSubscriptionInfo subscriptions = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Token for fetching the next page
-  string next_page_token = 2;
+  string next_page_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Response metadata common across services
   gcommon.v1.common.ResponseMetadata metadata = 3;

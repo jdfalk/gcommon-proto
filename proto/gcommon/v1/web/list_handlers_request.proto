@@ -8,6 +8,8 @@ package gcommon.v1.web;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -18,19 +20,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
  */
 message ListHandlersRequest {
   // Filter by HTTP method (GET, POST, etc.)
-  string method_filter = 1;
+  string method_filter = 1 [(buf.validate.field).string.min_len = 1];
 
   // Filter by path pattern
-  string path_filter = 2;
+  string path_filter = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether to include middleware information
   bool include_middleware = 3;
 
   // Maximum number of handlers to return
-  int32 limit = 4;
+  int32 limit = 4 [(buf.validate.field).int32.gte = 0];
 
   // Pagination offset
-  int32 offset = 5;
+  int32 offset = 5 [(buf.validate.field).int32.gte = 0];
 
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 6;

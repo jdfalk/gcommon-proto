@@ -7,19 +7,21 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message TLSAuth {
   // Client certificate (PEM format)
-  string cert_pem = 1;
+  string cert_pem = 1 [(buf.validate.field).string.min_len = 1];
 
   // Client private key (PEM format)
-  string key_pem = 2;
+  string key_pem = 2 [(buf.validate.field).string.min_len = 1];
 
   // CA certificate (PEM format)
-  string ca_pem = 3;
+  string ca_pem = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether to verify server certificate
   bool verify_server = 4;

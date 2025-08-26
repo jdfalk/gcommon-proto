@@ -11,13 +11,15 @@ import "gcommon/v1/queue/restore_config.proto";
 import "gcommon/v1/queue/restore_options.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RestoreQueueRequest {
   // Target queue identifier for restoration
-  string target_queue_id = 1;
+  string target_queue_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Backup source information
   BackupSource backup_source = 2;
@@ -35,7 +37,7 @@ message RestoreQueueRequest {
   bool validate_backup = 6;
 
   // Restore only specific partitions (empty = all partitions)
-  repeated int32 partition_ids = 7;
+  repeated int32 partition_ids = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Restore options
   RestoreOptions options = 8;

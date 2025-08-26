@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -14,16 +16,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // HealthCheckConfig defines parameters for performing HTTP health checks.
 message WebHealthCheckConfig {
   // HTTP path used for the health check request.
-  string path = 1;
+  string path = 1 [(buf.validate.field).string.min_len = 1];
 
   // Interval between health checks in seconds.
-  double interval_seconds = 2;
+  double interval_seconds = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Timeout for a single health check in seconds.
-  double timeout_seconds = 3;
+  double timeout_seconds = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Expected HTTP status code indicating a healthy response.
-  int32 expected_status = 4;
+  int32 expected_status = 4 [(buf.validate.field).int32.gte = 0];
 
   // Additional headers to include with the request.
   map<string, string> headers = 5;

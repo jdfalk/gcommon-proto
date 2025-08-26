@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/backup_frequency.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -20,10 +22,10 @@ message BackupSettings {
   gcommon.v1.common.BackupFrequency frequency = 2;
 
   // Backup retention period in days
-  int32 retention_days = 3;
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
 
   // Backup storage location
-  string storage_location = 4;
+  string storage_location = 4 [(buf.validate.field).string.min_len = 1];
 
   // Backup encryption
   bool encrypted = 5;

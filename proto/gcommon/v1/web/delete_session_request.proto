@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -14,5 +16,5 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // DeleteSessionRequest request definition.
 message WebDeleteSessionRequest {
   // Identifier of the session to delete
-  string session_id = 1;
+  string session_id = 1 [(buf.validate.field).string.min_len = 1];
 }

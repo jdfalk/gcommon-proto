@@ -9,23 +9,25 @@ package gcommon.v1.media;
 import "gcommon/v1/media/movie_info.proto";
 import "gcommon/v1/media/series_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 // Metadata information for a media file from external sources.
 message MediaMetadata {
-  string title = 1;
-  string original_title = 2;
-  int32 year = 3;
-  string plot = 4;
-  repeated string genres = 5;
-  string imdb_id = 6;
-  string tmdb_id = 7;
-  float rating = 8;
-  repeated string languages = 9;
-  repeated string actors = 10;
-  repeated string directors = 11;
+  string title = 1 [(buf.validate.field).string.min_len = 1];
+  string original_title = 2 [(buf.validate.field).string.min_len = 1];
+  int32 year = 3 [(buf.validate.field).int32.gte = 0];
+  string plot = 4 [(buf.validate.field).string.min_len = 1];
+  repeated string genres = 5 [(buf.validate.field).repeated.min_items = 1];
+  string imdb_id = 6 [(buf.validate.field).string.min_len = 1];
+  string tmdb_id = 7 [(buf.validate.field).string.min_len = 1];
+  float rating = 8 [(buf.validate.field).float.gte = 0.0];
+  repeated string languages = 9 [(buf.validate.field).repeated.min_items = 1];
+  repeated string actors = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated string directors = 11 [(buf.validate.field).repeated.min_items = 1];
   SeriesInfo series_info = 12;
   MovieInfo movie_info = 13;
 }

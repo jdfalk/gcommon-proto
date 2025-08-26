@@ -7,35 +7,37 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RestoreStatistics {
   // Total messages restored
-  int64 messages_restored = 1;
+  int64 messages_restored = 1 [(buf.validate.field).int64.gte = 0];
 
   // Total bytes restored
-  int64 bytes_restored = 2;
+  int64 bytes_restored = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of partitions restored
-  int32 partitions_restored = 3;
+  int32 partitions_restored = 3 [(buf.validate.field).int32.gte = 0];
 
   // Messages skipped due to filters
-  int64 messages_skipped = 4;
+  int64 messages_skipped = 4 [(buf.validate.field).int64.gte = 0];
 
   // Messages failed to restore
-  int64 messages_failed = 5;
+  int64 messages_failed = 5 [(buf.validate.field).int64.gte = 0];
 
   // Average restore rate (messages/second)
-  double restore_rate = 6;
+  double restore_rate = 6 [(buf.validate.field).double.gte = 0.0];
 
   // Throughput (bytes/second)
-  double throughput_bps = 7;
+  double throughput_bps = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Backup file size processed
-  int64 backup_size_bytes = 8;
+  int64 backup_size_bytes = 8 [(buf.validate.field).int64.gte = 0];
 
   // Compression ratio achieved
-  double compression_ratio = 9;
+  double compression_ratio = 9 [(buf.validate.field).double.gte = 0.0];
 }

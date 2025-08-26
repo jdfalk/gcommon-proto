@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -16,16 +18,16 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ConfigurePolicyRequest {
   // Namespace ID to configure
-  string namespace_id = 1;
+  string namespace_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Eviction policy (LRU, LFU, FIFO, etc.)
-  string eviction_policy = 2;
+  string eviction_policy = 2 [(buf.validate.field).string.min_len = 1];
 
   // Maximum TTL in seconds
-  int32 max_ttl_seconds = 3;
+  int32 max_ttl_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
   // Memory threshold for eviction (percentage)
-  double memory_threshold_percent = 4;
+  double memory_threshold_percent = 4 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
   // Additional policy configuration
   map<string, string> policy_config = 5;

@@ -8,13 +8,15 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message PerformanceDataPoint {
   google.protobuf.Timestamp timestamp = 1;
-  double ops_per_second = 2;
-  double latency_ms = 3;
-  double throughput_bytes_per_second = 4;
+  double ops_per_second = 2 [(buf.validate.field).double.gte = 0.0];
+  double latency_ms = 3 [(buf.validate.field).double.gte = 0.0];
+  double throughput_bytes_per_second = 4 [(buf.validate.field).double.gte = 0.0];
 }

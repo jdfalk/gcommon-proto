@@ -7,22 +7,24 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message CommonPaginationInfo {
   // Current page number (1-based)
-  int32 current_page = 1;
+  int32 current_page = 1 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Number of items per page
-  int32 page_size = 2;
+  int32 page_size = 2 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Total number of items available
-  int64 total_items = 3;
+  int64 total_items = 3 [(buf.validate.field).int64.gte = 0];
 
   // Total number of pages available
-  int32 total_pages = 4;
+  int32 total_pages = 4 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Whether there is a next page
   bool has_next = 5;
@@ -31,8 +33,8 @@ message CommonPaginationInfo {
   bool has_previous = 6;
 
   // Token for retrieving the next page
-  string next_page_token = 7;
+  string next_page_token = 7 [(buf.validate.field).string.min_len = 1];
 
   // Token for retrieving the previous page
-  string previous_page_token = 8;
+  string previous_page_token = 8 [(buf.validate.field).string.min_len = 1];
 }

@@ -7,6 +7,8 @@ package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -20,11 +22,11 @@ message DatabaseBatchStats {
   google.protobuf.Duration total_time = 1 [lazy = true];
 
   // Number of operations that completed successfully
-  int32 successful_operations = 2;
+  int32 successful_operations = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of operations that failed
-  int32 failed_operations = 3;
+  int32 failed_operations = 3 [(buf.validate.field).int32.gte = 0];
 
   // Total number of rows affected across all operations
-  int64 total_affected_rows = 4;
+  int64 total_affected_rows = 4 [(buf.validate.field).int64.gte = 0];
 }

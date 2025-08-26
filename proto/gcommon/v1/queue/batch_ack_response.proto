@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/response_metadata.proto";
 import "gcommon/v1/queue/failed_ack.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,17 +20,17 @@ message BatchAckResponse {
   bool success = 1;
 
   // Number of messages successfully acknowledged
-  int32 acknowledged_count = 2;
+  int32 acknowledged_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of messages that failed to acknowledge
-  int32 failed_count = 3;
+  int32 failed_count = 3 [(buf.validate.field).int32.gte = 0];
 
   // Failed message IDs and their error reasons
-  repeated FailedAck failed_acks = 4;
+  repeated FailedAck failed_acks = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Response metadata
   gcommon.v1.common.ResponseMetadata metadata = 5;
 
   // Batch ID for tracking
-  string batch_id = 6;
+  string batch_id = 6 [(buf.validate.field).string.min_len = 1];
 }

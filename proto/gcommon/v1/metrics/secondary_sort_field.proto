@@ -8,11 +8,13 @@ package gcommon.v1.metrics;
 
 import "gcommon/v1/common/sort_direction.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message SecondarySortField {
-  string field = 1;
+  string field = 1 [(buf.validate.field).string.min_len = 1];
   gcommon.v1.common.SortDirection direction = 2;
 }

@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/metrics/dry_run_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -18,19 +20,19 @@ message UnregistrationResult {
   bool definition_deleted = 1;
 
   // Amount of data that was deleted (bytes)
-  int64 data_deleted_bytes = 2;
+  int64 data_deleted_bytes = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of data points deleted
-  int64 data_points_deleted = 3;
+  int64 data_points_deleted = 3 [(buf.validate.field).int64.gte = 0];
 
   // Indices that were deleted
-  repeated string deleted_indices = 4;
+  repeated string deleted_indices = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Alert rules that were removed
-  repeated string removed_alerts = 5;
+  repeated string removed_alerts = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Export configurations that were stopped
-  repeated string stopped_exports = 6;
+  repeated string stopped_exports = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Time when actual deletion will occur (if grace period is set)
   google.protobuf.Timestamp scheduled_deletion = 7;

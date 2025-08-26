@@ -9,19 +9,21 @@ package gcommon.v1.organization;
 import "gcommon/v1/organization/cache_behavior.proto";
 import "gcommon/v1/organization/origin_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message CDNConfig {
   // CDN provider
-  string provider = 1;
+  string provider = 1 [(buf.validate.field).string.min_len = 1];
 
   // CDN distribution ID
-  string distribution_id = 2;
+  string distribution_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Cache behavior settings
-  repeated CacheBehavior cache_behaviors = 3;
+  repeated CacheBehavior cache_behaviors = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Origin configuration
   OriginConfig origin = 4;

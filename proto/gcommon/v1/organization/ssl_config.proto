@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message SSLConfig {
   // SSL certificate ARN or ID
-  string certificate_id = 1;
+  string certificate_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // SSL policy
-  string ssl_policy = 2;
+  string ssl_policy = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether to redirect HTTP to HTTPS
   bool redirect_http = 3;
 
   // Minimum TLS version
-  string min_tls_version = 4;
+  string min_tls_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 }

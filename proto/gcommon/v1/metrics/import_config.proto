@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -17,10 +19,10 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message ImportConfig {
   // List of source identifiers or URLs
-  repeated string sources = 1;
+  repeated string sources = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Cron-style schedule for imports
-  string schedule = 2;
+  string schedule = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether importing is enabled
   bool enabled = 3;

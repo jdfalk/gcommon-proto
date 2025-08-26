@@ -7,29 +7,31 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ProviderFilter {
   // Filter by provider type
-  repeated string provider_types = 1;
+  repeated string provider_types = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Filter by provider state
-  repeated string states = 2;
+  repeated string states = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Filter by tags
   map<string, string> tags = 3;
 
   // Filter by name pattern (regex)
-  string name_pattern = 4;
+  string name_pattern = 4 [(buf.validate.field).string.min_len = 1];
 
   // Filter by health status
-  repeated string health_statuses = 5;
+  repeated string health_statuses = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Filter providers created after this time
-  string created_after = 6;
+  string created_after = 6 [(buf.validate.field).string.min_len = 1];
 
   // Filter providers created before this time
-  string created_before = 7;
+  string created_before = 7 [(buf.validate.field).string.min_len = 1];
 }

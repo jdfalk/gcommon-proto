@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/auth_cache_config.proto";
 import "gcommon/v1/queue/retry_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,10 +20,10 @@ message ExternalAuthService {
   bool enabled = 1;
 
   // Authorization service endpoint
-  string endpoint = 2;
+  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
 
   // Request timeout (milliseconds)
-  int32 timeout_ms = 3;
+  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
 
   // Retry configuration - references existing RetryConfig
   QueueRetryConfig retry_config = 4;

@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message MetricsQueryStats {
   // Total queries executed
-  int64 total_queries = 1;
+  int64 total_queries = 1 [(buf.validate.field).int64.gte = 0];
 
   // Average execution time in milliseconds
-  double avg_execution_time_ms = 2;
+  double avg_execution_time_ms = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Number of failed queries
-  int64 failed_queries = 3;
+  int64 failed_queries = 3 [(buf.validate.field).int64.gte = 0];
 
   // Cache hit rate
-  double cache_hit_rate = 4;
+  double cache_hit_rate = 4 [(buf.validate.field).double.gte = 0.0];
 }

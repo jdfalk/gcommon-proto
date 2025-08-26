@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -16,8 +18,8 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message ConfigureLoggerResponse {
   // Status of the configuration
-  string status = 1;
+  string status = 1 [(buf.validate.field).string.min_len = 1];
 
   // Error message if any
-  string error = 2;
+  string error = 2 [(buf.validate.field).string.min_len = 1];
 }

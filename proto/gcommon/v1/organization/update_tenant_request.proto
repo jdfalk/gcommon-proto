@@ -10,6 +10,8 @@ import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/organization/tenant.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
@@ -19,7 +21,7 @@ message UpdateTenantRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Tenant identifier to update
-  string tenant_id = 2;
+  string tenant_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated tenant information
   Tenant tenant = 3;

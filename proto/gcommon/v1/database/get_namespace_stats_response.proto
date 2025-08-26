@@ -9,13 +9,15 @@ package gcommon.v1.database;
 import "gcommon/v1/database/namespace_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
 
 message GetNamespaceStatsResponse {
   // Namespace ID
-  string namespace_id = 1;
+  string namespace_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Statistics
   // Statistics for the requested namespace

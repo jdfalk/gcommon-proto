@@ -7,16 +7,18 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message StorageEncryption {
   // Encryption type (AES256, KMS)
-  string type = 1;
+  string type = 1 [(buf.validate.field).string.min_len = 1];
 
   // Key ID for KMS encryption
-  string key_id = 2;
+  string key_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether server-side encryption is enabled
   bool server_side = 3;

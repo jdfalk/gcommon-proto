@@ -8,20 +8,22 @@ package gcommon.v1.organization;
 
 import "gcommon/v1/organization/dns_record.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message DNSConfig {
   // DNS provider
-  string provider = 1;
+  string provider = 1 [(buf.validate.field).string.min_len = 1];
 
   // DNS zone ID
-  string zone_id = 2;
+  string zone_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // DNS records
-  repeated DNSRecord records = 3;
+  repeated DNSRecord records = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // TTL for DNS records
-  int32 ttl = 4;
+  int32 ttl = 4 [(buf.validate.field).int32.gte = 0];
 }

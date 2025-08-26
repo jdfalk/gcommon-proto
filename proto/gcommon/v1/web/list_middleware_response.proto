@@ -10,6 +10,8 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/pagination.proto";
 import "gcommon/v1/web/middleware_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -17,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // ListMiddlewareResponse response definition.
 message ListMiddlewareResponse {
   // Middleware information
-  repeated MiddlewareInfo middleware = 1;
+  repeated MiddlewareInfo middleware = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Pagination details
   gcommon.v1.common.Pagination pagination = 2;

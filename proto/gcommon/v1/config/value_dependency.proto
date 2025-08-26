@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/dependency_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,13 +19,13 @@ message ValueDependency {
   gcommon.v1.common.DependencyType type = 1;
 
   // Dependent value key
-  string dependent_key = 2;
+  string dependent_key = 2 [(buf.validate.field).string.min_len = 1];
 
   // Dependency key
-  string dependency_key = 3;
+  string dependency_key = 3 [(buf.validate.field).string.min_len = 1];
 
   // Dependency condition
-  string condition = 4;
+  string condition = 4 [(buf.validate.field).string.min_len = 1];
 
   // Dependency metadata
   map<string, string> metadata = 5;

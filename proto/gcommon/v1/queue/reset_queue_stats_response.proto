@@ -10,6 +10,8 @@ import "gcommon/v1/queue/preserved_stats.proto";
 import "gcommon/v1/queue/reset_details.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,7 +21,7 @@ message ResetQueueStatsResponse {
   bool success = 1;
 
   // Queue identifier whose stats were reset
-  string queue_id = 2;
+  string queue_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when reset operation completed
   google.protobuf.Timestamp reset_at = 3;
@@ -28,19 +30,19 @@ message ResetQueueStatsResponse {
   PreservedStats preserved_stats = 4;
 
   // Types of statistics that were reset
-  repeated string reset_stat_types = 5;
+  repeated string reset_stat_types = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Types of statistics that were preserved
-  repeated string preserved_stat_types = 6;
+  repeated string preserved_stat_types = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if reset failed
-  string error_message = 7;
+  string error_message = 7 [(buf.validate.field).string.min_len = 1];
 
   // Error code for programmatic handling
-  string error_code = 8;
+  string error_code = 8 [(buf.validate.field).string.min_len = 1];
 
   // Warning messages about the reset operation
-  repeated string warnings = 9;
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
 
   // Reset operation details
   ResetDetails reset_details = 10;

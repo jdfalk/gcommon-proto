@@ -7,20 +7,22 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message HierarchyPath {
   // Descendant node ID
-  string descendant_id = 1;
+  string descendant_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Ancestor node ID
-  string ancestor_id = 2;
+  string ancestor_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Distance between ancestor and descendant (1 = direct parent-child)
-  int32 distance = 3;
+  int32 distance = 3 [(buf.validate.field).int32.gte = 0];
 
   // Complete path from ancestor to descendant
-  repeated string path_nodes = 4;
+  repeated string path_nodes = 4 [(buf.validate.field).repeated.min_items = 1];
 }

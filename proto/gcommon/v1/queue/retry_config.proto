@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -23,7 +25,7 @@ message QueueRetryConfig {
   bool enabled = 1;
 
   // Maximum number of retry attempts
-  uint32 max_retries = 2;
+  uint32 max_retries = 2 [(buf.validate.field).uint32.gte = 0];
 
   // Initial delay before first retry
   google.protobuf.Duration initial_delay = 3;
@@ -32,10 +34,10 @@ message QueueRetryConfig {
   google.protobuf.Duration max_delay = 4;
 
   // Backoff multiplier for exponential backoff
-  double backoff_multiplier = 5;
+  double backoff_multiplier = 5 [(buf.validate.field).double.gte = 0.0];
 
   // Jitter factor to randomize delays (0.0 to 1.0)
-  double jitter_factor = 6;
+  double jitter_factor = 6 [(buf.validate.field).double.gte = 0.0];
 
   // Total timeout for all retry attempts
   google.protobuf.Duration total_timeout = 7;

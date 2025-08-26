@@ -10,6 +10,8 @@ import "gcommon/v1/common/delivery_mode.proto";
 import "gcommon/v1/common/priority_level.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -25,23 +27,23 @@ message MessageProperties {
   google.protobuf.Timestamp expiration_time = 3;
 
   // Correlation ID for request-response patterns
-  string correlation_id = 4;
+  string correlation_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Reply-to address/topic
-  string reply_to = 5;
+  string reply_to = 5 [(buf.validate.field).string.min_len = 1];
 
   // Content type of the payload
-  string content_type = 6;
+  string content_type = 6 [(buf.validate.field).string.min_len = 1];
 
   // Content encoding
-  string content_encoding = 7;
+  string content_encoding = 7 [(buf.validate.field).string.min_len = 1];
 
   // Compression applied to payload
-  string compression = 8;
+  string compression = 8 [(buf.validate.field).string.min_len = 1];
 
   // Message deduplication ID
-  string deduplication_id = 9;
+  string deduplication_id = 9 [(buf.validate.field).string.min_len = 1];
 
   // Delay before message becomes available (milliseconds)
-  int64 delivery_delay_ms = 10;
+  int64 delivery_delay_ms = 10 [(buf.validate.field).int64.gte = 0];
 }

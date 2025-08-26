@@ -6,6 +6,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,19 +19,19 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message RefreshTokenResponse {
   // New access token for API authentication
-  string access_token = 1;
+  string access_token = 1 [(buf.validate.field).string.min_len = 1];
 
   // New refresh token (may be the same as input)
-  string refresh_token = 2;
+  string refresh_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Token type (always "Bearer")
-  string token_type = 3;
+  string token_type = 3 [(buf.validate.field).string.min_len = 1];
 
   // Access token expiration time in seconds
-  int32 expires_in = 4;
+  int32 expires_in = 4 [(buf.validate.field).int32.gte = 0];
 
   // Granted scopes for the new access token
-  repeated string scopes = 5;
+  repeated string scopes = 5 [(buf.validate.field).repeated.min_items = 1];
 }
 // This is a placeholder file created during 1-1-1 migration
 // Implement the actual protobuf definitions according to the auth module requirements

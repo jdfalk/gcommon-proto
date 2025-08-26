@@ -10,6 +10,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,25 +21,25 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message PartitionInfo {
   // Partition identifier
-  uint32 partition_id = 1;
+  uint32 partition_id = 1 [(buf.validate.field).uint32.gte = 0];
 
   // Leader node for this partition
-  string leader_node = 2;
+  string leader_node = 2 [(buf.validate.field).string.min_len = 1];
 
   // Replica nodes for this partition
-  repeated string replica_nodes = 3;
+  repeated string replica_nodes = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Current offset (latest message)
-  uint64 current_offset = 4;
+  uint64 current_offset = 4 [(buf.validate.field).uint64.gte = 0];
 
   // Earliest available offset
-  uint64 earliest_offset = 5;
+  uint64 earliest_offset = 5 [(buf.validate.field).uint64.gte = 0];
 
   // Number of messages in partition
-  uint64 message_count = 6;
+  uint64 message_count = 6 [(buf.validate.field).uint64.gte = 0];
 
   // Partition size in bytes
-  uint64 size_bytes = 7;
+  uint64 size_bytes = 7 [(buf.validate.field).uint64.gte = 0];
 
   // Whether partition is online
   bool is_online = 8;

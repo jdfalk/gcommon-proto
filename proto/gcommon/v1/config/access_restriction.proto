@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/restriction_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,11 +19,11 @@ message AccessRestriction {
   gcommon.v1.common.RestrictionType type = 1;
 
   // Restriction value
-  string value = 2;
+  string value = 2 [(buf.validate.field).string.min_len = 1];
 
   // Restriction operator
-  string operator = 3;
+  string operator = 3 [(buf.validate.field).string.min_len = 1];
 
   // Restriction reason
-  string reason = 4;
+  string reason = 4 [(buf.validate.field).string.min_len = 1];
 }

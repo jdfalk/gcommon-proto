@@ -7,22 +7,24 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ReadRetryConfig {
   // Maximum retry attempts
-  int32 max_retries = 1;
+  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
 
   // Initial retry delay (milliseconds)
-  int32 initial_delay_ms = 2;
+  int32 initial_delay_ms = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum retry delay (milliseconds)
-  int32 max_delay_ms = 3;
+  int32 max_delay_ms = 3 [(buf.validate.field).int32.gte = 0];
 
   // Backoff multiplier
-  double backoff_multiplier = 4;
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Retry on different replica
   bool retry_different_replica = 5;

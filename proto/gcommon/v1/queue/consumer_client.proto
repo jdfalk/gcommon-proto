@@ -7,23 +7,25 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ConsumerClient {
   // Client ID
-  string client_id = 1;
+  string client_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Client host/IP address
-  string client_host = 2;
+  string client_host = 2 [(buf.validate.field).string.min_len = 1];
 
   // Client application name
-  string client_app = 3;
+  string client_app = 3 [(buf.validate.field).string.min_len = 1];
 
   // Client version
-  string client_version = 4;
+  string client_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Client rack (for rack-aware assignment)
-  string client_rack = 5;
+  string client_rack = 5 [(buf.validate.field).string.min_len = 1];
 }

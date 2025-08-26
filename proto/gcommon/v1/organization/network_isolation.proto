@@ -11,22 +11,24 @@ import "gcommon/v1/organization/domain_config.proto";
 import "gcommon/v1/organization/load_balancer_config.proto";
 import "gcommon/v1/organization/network_acl_rule.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/organization";
 
 message NetworkIsolation {
   // Virtual private cloud (VPC) identifier
-  string vpc_id = 1;
+  string vpc_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Subnet identifier for this tenant
-  string subnet_id = 2;
+  string subnet_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Security group identifiers
-  repeated string security_group_ids = 3;
+  repeated string security_group_ids = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Network access control list (ACL) rules
-  repeated NetworkACLRule acl_rules = 4;
+  repeated NetworkACLRule acl_rules = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether tenant has dedicated network
   bool dedicated_network = 5;

@@ -10,6 +10,8 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/database/query_stats.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -23,10 +25,10 @@ message QueryRowResponse {
   bool found = 1;
 
   // Column names matching the returned values
-  repeated string columns = 2;
+  repeated string columns = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Row values encoded as generic Any values
-  repeated google.protobuf.Any values = 3 [lazy = true];
+  repeated google.protobuf.Any values = 3 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // Query execution statistics
   DatabaseQueryStats stats = 4 [lazy = true];

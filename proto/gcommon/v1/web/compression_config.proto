@@ -8,6 +8,8 @@ package gcommon.v1.web;
 
 import "gcommon/v1/common/compression_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -19,8 +21,8 @@ message WebCompressionConfig {
   gcommon.v1.common.LogCompressionType compression_type = 1;
 
   // Minimum content length in bytes before compression is applied
-  int32 min_length = 2;
+  int32 min_length = 2 [(buf.validate.field).int32.gte = 0];
 
   // Compression level (implementation specific)
-  int32 level = 3;
+  int32 level = 3 [(buf.validate.field).int32.gte = 0];
 }

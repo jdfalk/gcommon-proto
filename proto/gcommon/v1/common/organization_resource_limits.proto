@@ -7,26 +7,28 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message OrganizationResourceLimits {
   // Maximum CPU usage percentage
-  int32 max_cpu_percent = 1;
+  int32 max_cpu_percent = 1 [(buf.validate.field).int32.gte = 0];
 
   // Maximum memory usage in MB
-  int64 max_memory_mb = 2;
+  int64 max_memory_mb = 2 [(buf.validate.field).int64.gte = 0];
 
   // Maximum disk I/O operations per second
-  int32 max_disk_iops = 3;
+  int32 max_disk_iops = 3 [(buf.validate.field).int32.gte = 0];
 
   // Maximum network bandwidth in Mbps
-  int32 max_network_mbps = 4;
+  int32 max_network_mbps = 4 [(buf.validate.field).int32.gte = 0];
 
   // Maximum number of processes
-  int32 max_processes = 5;
+  int32 max_processes = 5 [(buf.validate.field).int32.gte = 0];
 
   // Maximum number of file descriptors
-  int32 max_file_descriptors = 6;
+  int32 max_file_descriptors = 6 [(buf.validate.field).int32.gte = 0];
 }

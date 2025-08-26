@@ -13,19 +13,21 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ImportConfigRequest {
   // Namespace/environment for imported values
-  string namespace = 1;
+  string namespace = 1 [(buf.validate.field).string.min_len = 1];
 
   // Serialized configuration content
   bytes content = 2;
 
   // Input format (e.g., JSON, YAML)
-  string format = 3;
+  string format = 3 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 4;

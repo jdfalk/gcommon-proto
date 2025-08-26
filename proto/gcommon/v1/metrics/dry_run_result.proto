@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -16,17 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message DryRunResult {
   // Number of bytes that would be deleted
-  int64 would_delete_bytes = 1;
+  int64 would_delete_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // Number of data points that would be deleted
-  int64 would_delete_points = 2;
+  int64 would_delete_points = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of indices that would be deleted
-  int64 would_delete_indices = 3;
+  int64 would_delete_indices = 3 [(buf.validate.field).int64.gte = 0];
 
   // Number of exports that would be stopped
-  int64 would_stop_exports = 4;
+  int64 would_stop_exports = 4 [(buf.validate.field).int64.gte = 0];
 
   // Estimated time for deletion to complete
-  string estimated_deletion_time = 5;
+  string estimated_deletion_time = 5 [(buf.validate.field).string.min_len = 1];
 }

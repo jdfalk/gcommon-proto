@@ -8,6 +8,8 @@ package gcommon.v1.database;
 import "gcommon/v1/database/column_metadata.proto";
 import "gcommon/v1/database/row.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -18,13 +20,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ResultSet {
   // Metadata for each column in the result set
-  repeated ColumnMetadata columns = 1 [lazy = true];
+  repeated ColumnMetadata columns = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // Data rows matching the query
-  repeated Row rows = 2 [lazy = true];
+  repeated Row rows = 2 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // Total row count if known (for pagination)
-  int64 total_count = 3;
+  int64 total_count = 3 [(buf.validate.field).int64.gte = 0];
 
   // Whether more rows are available beyond this result set
   bool has_more = 4;

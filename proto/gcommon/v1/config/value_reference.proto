@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "gcommon/v1/common/reference_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
@@ -17,10 +19,10 @@ message ValueReference {
   gcommon.v1.common.ReferenceType type = 1;
 
   // Referenced value key
-  string referenced_key = 2;
+  string referenced_key = 2 [(buf.validate.field).string.min_len = 1];
 
   // Reference path
-  string path = 3;
+  string path = 3 [(buf.validate.field).string.min_len = 1];
 
   // Reference metadata
   map<string, string> metadata = 4;

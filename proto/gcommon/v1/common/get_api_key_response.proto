@@ -9,6 +9,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/api_key.proto";
 import "gcommon/v1/common/api_key_stats.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -21,5 +23,5 @@ message GetApiKeyResponse {
   gcommon.v1.common.ApiKeyStats stats = 2;
 
   // Error message if not found
-  string error_message = 3;
+  string error_message = 3 [(buf.validate.field).string.min_len = 1];
 }

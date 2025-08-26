@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,5 +21,5 @@ message FilterSettings {
   map<string, string> header_filters = 2;
 
   // Filter expression
-  string filter_expression = 3;
+  string filter_expression = 3 [(buf.validate.field).string.min_len = 1];
 }

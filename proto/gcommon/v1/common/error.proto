@@ -8,6 +8,8 @@ package gcommon.v1.common;
 import "gcommon/v1/common/error_code.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -22,17 +24,17 @@ message Error {
   gcommon.v1.common.ErrorCode code = 1;
 
   // Human-readable error message describing what went wrong
-  string message = 2;
+  string message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Additional error details for debugging and troubleshooting
   map<string, string> details = 3;
 
   // Distributed trace ID for request correlation across services
-  string trace_id = 4;
+  string trace_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when the error occurred
   google.protobuf.Timestamp timestamp = 5;
 
   // Source module or component that generated the error
-  string source = 6;
+  string source = 6 [(buf.validate.field).string.min_len = 1];
 }

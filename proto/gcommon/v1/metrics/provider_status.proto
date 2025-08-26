@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/provider_state.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -21,14 +23,14 @@ message ProviderStatus {
   gcommon.v1.common.ProviderState state = 1;
 
   // Status message
-  string message = 2;
+  string message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Health check status
-  string health = 3;
+  string health = 3 [(buf.validate.field).string.min_len = 1];
 
   // Last update time
   google.protobuf.Timestamp last_updated = 4;
 
   // Provider version
-  string version = 5;
+  string version = 5 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 }

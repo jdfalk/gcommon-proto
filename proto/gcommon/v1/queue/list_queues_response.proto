@@ -12,16 +12,18 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/response_metadata.proto";
 import "gcommon/v1/queue/queue_info.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ListQueuesResponse {
   // Collection of queues
-  repeated QueueInfo queues = 1;
+  repeated QueueInfo queues = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Token to retrieve the next page
-  string next_page_token = 2;
+  string next_page_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Standard response metadata
   gcommon.v1.common.ResponseMetadata metadata = 3;

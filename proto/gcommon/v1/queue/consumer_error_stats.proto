@@ -8,22 +8,24 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ConsumerErrorStats {
   // Total processing errors
-  int64 total_errors = 1;
+  int64 total_errors = 1 [(buf.validate.field).int64.gte = 0];
 
   // Connection errors
-  int64 connection_errors = 2;
+  int64 connection_errors = 2 [(buf.validate.field).int64.gte = 0];
 
   // Timeout errors
-  int64 timeout_errors = 3;
+  int64 timeout_errors = 3 [(buf.validate.field).int64.gt = 0];
 
   // Serialization errors
-  int64 serialization_errors = 4;
+  int64 serialization_errors = 4 [(buf.validate.field).int64.gte = 0];
 
   // Last error timestamp
   google.protobuf.Timestamp last_error = 5;

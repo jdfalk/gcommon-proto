@@ -7,26 +7,28 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ConsumerConfig {
   // Consumer timeout (milliseconds)
-  int32 timeout_ms = 1;
+  int32 timeout_ms = 1 [(buf.validate.field).int32.gt = 0];
 
   // Maximum messages to poll at once
-  int32 max_poll_records = 2;
+  int32 max_poll_records = 2 [(buf.validate.field).int32.gte = 0];
 
   // Fetch minimum bytes
-  int32 fetch_min_bytes = 3;
+  int32 fetch_min_bytes = 3 [(buf.validate.field).int32.gte = 0];
 
   // Fetch maximum wait time (milliseconds)
-  int32 fetch_max_wait_ms = 4;
+  int32 fetch_max_wait_ms = 4 [(buf.validate.field).int32.gte = 0];
 
   // Enable auto-offset reset
   bool auto_offset_reset = 5;
 
   // Consumer priority (for priority-based assignment)
-  int32 priority = 6;
+  int32 priority = 6 [(buf.validate.field).int32.gte = 0];
 }

@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 // Standard imports
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -26,7 +28,7 @@ message ServerEvent {
   /**
    * Type of server event.
    */
-  string event_type = 1;
+  string event_type = 1 [(buf.validate.field).string.min_len = 1];
 
   /**
    * Event data payload.
@@ -38,7 +40,7 @@ message ServerEvent {
   /**
    * Server ID that generated this event.
    */
-  string server_id = 11;
+  string server_id = 11 [(buf.validate.field).string.min_len = 1];
 
   /**
    * Additional event metadata.

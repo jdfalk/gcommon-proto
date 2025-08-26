@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -17,11 +19,11 @@ message ClusterHealth {
   gcommon.v1.common.CommonHealthStatus status = 1;
 
   // Number of healthy nodes
-  int32 healthy_nodes = 2;
+  int32 healthy_nodes = 2 [(buf.validate.field).int32.gte = 0];
 
   // Total number of nodes
-  int32 total_nodes = 3;
+  int32 total_nodes = 3 [(buf.validate.field).int32.gte = 0];
 
   // Health issues affecting the cluster
-  repeated string issues = 4;
+  repeated string issues = 4 [(buf.validate.field).repeated.min_items = 1];
 }

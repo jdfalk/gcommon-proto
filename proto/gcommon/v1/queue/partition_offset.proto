@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,14 +18,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // PartitionOffset represents the offset position within a partition
 message PartitionOffset {
   // Partition ID
-  int32 partition_id = 1;
+  int32 partition_id = 1 [(buf.validate.field).int32.gte = 0];
 
   // Starting offset value
-  int64 offset = 2;
+  int64 offset = 2 [(buf.validate.field).int64.gte = 0];
 
   // Offset timestamp
   google.protobuf.Timestamp offset_timestamp = 3;
 
   // High water mark for this partition
-  int64 high_water_mark = 4;
+  int64 high_water_mark = 4 [(buf.validate.field).int64.gte = 0];
 }

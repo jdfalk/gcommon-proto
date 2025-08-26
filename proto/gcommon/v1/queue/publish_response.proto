@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 import "gcommon/v1/common/error.proto";
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // and success status.
 message PublishResponse {
   // Unique identifier of the message as stored by the broker.
-  string message_id = 1;
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Whether the publish operation succeeded.
   bool success = 2;

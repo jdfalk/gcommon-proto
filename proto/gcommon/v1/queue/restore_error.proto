@@ -9,25 +9,27 @@ package gcommon.v1.queue;
 import "gcommon/v1/queue/offset_range.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message RestoreError {
   // Error code for programmatic handling
-  string error_code = 1;
+  string error_code = 1 [(buf.validate.field).string.min_len = 1];
 
   // Human-readable error message
-  string error_message = 2;
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Error category (validation, io, corruption, etc.)
-  string error_category = 3;
+  string error_category = 3 [(buf.validate.field).string.min_len = 1];
 
   // Specific component that failed
-  string failed_component = 4;
+  string failed_component = 4 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID if error is partition-specific
-  int32 partition_id = 5;
+  int32 partition_id = 5 [(buf.validate.field).int32.gte = 0];
 
   // Message offset range affected by error
   OffsetRange affected_range = 6;

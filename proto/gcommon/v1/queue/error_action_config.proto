@@ -7,16 +7,18 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message ErrorActionConfig {
   // Error code or pattern
-  string error_pattern = 1;
+  string error_pattern = 1 [(buf.validate.field).string.min_len = 1];
 
   // Action to take (retry, dlq, drop, pause)
-  string action = 2;
+  string action = 2 [(buf.validate.field).string.min_len = 1];
 
   // Action parameters
   map<string, string> action_params = 3;

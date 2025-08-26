@@ -12,6 +12,8 @@ import "gcommon/v1/common/rebalance_strategy.proto";
 import "gcommon/v1/queue/auto_commit_config.proto";
 import "gcommon/v1/queue/dead_letter_queue_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -24,13 +26,13 @@ message ConsumerGroupConfig {
   gcommon.v1.common.RebalanceStrategy rebalance_strategy = 2;
 
   // Session timeout for consumer heartbeats (milliseconds)
-  int32 session_timeout_ms = 3;
+  int32 session_timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
 
   // Heartbeat interval (milliseconds)
-  int32 heartbeat_interval_ms = 4;
+  int32 heartbeat_interval_ms = 4 [(buf.validate.field).int32.gte = 0];
 
   // Maximum poll interval (milliseconds)
-  int32 max_poll_interval_ms = 5;
+  int32 max_poll_interval_ms = 5 [(buf.validate.field).int32.gte = 0];
 
   // Auto-commit configuration
   AutoCommitConfig auto_commit = 6;
@@ -39,7 +41,7 @@ message ConsumerGroupConfig {
   gcommon.v1.common.OffsetResetStrategy offset_reset_strategy = 7;
 
   // Maximum number of consumers allowed in the group
-  int32 max_consumers = 8;
+  int32 max_consumers = 8 [(buf.validate.field).int32.gte = 0];
 
   // Enable exactly-once semantics
   bool exactly_once_enabled = 9;

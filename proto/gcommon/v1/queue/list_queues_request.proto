@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,8 +22,8 @@ message ListQueuesRequest {
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Optional page size for results
-  int32 page_size = 2;
+  int32 page_size = 2 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Optional token for fetching the next page
-  string page_token = 3;
+  string page_token = 3 [(buf.validate.field).string.min_len = 1];
 }

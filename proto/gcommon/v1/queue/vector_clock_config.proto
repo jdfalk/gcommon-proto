@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,8 +18,8 @@ message VectorClockConfig {
   bool enabled = 1;
 
   // Clock precision (nanoseconds, microseconds, milliseconds)
-  string precision = 2;
+  string precision = 2 [(buf.validate.field).string.min_len = 1];
 
   // Maximum clock drift tolerance (milliseconds)
-  int64 max_drift_ms = 3;
+  int64 max_drift_ms = 3 [(buf.validate.field).int64.gte = 0];
 }

@@ -9,6 +9,8 @@ package gcommon.v1.database;
 import "gcommon/v1/common/eviction_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -19,22 +21,22 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message EvictionResult {
   // Number of items evicted
-  int64 evicted_count = 1;
+  int64 evicted_count = 1 [(buf.validate.field).int64.gte = 0];
 
   // List of evicted keys
-  repeated string evicted_keys = 2;
+  repeated string evicted_keys = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Eviction policy used
   gcommon.v1.common.EvictionPolicy policy_used = 3;
 
   // Reason for eviction
-  string eviction_reason = 4;
+  string eviction_reason = 4 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp of eviction
   google.protobuf.Timestamp evicted_at = 5;
 
   // Memory freed by eviction (bytes)
-  int64 memory_freed = 6;
+  int64 memory_freed = 6 [(buf.validate.field).int64.gte = 0];
 
   // Whether eviction was successful
   bool success = 7;

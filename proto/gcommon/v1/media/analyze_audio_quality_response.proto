@@ -7,14 +7,16 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 message AnalyzeAudioQualityResponse {
-  double peak_level_db = 1;
-  double rms_level_db = 2;
-  double dynamic_range_db = 3;
-  double signal_to_noise_ratio = 4;
+  double peak_level_db = 1 [(buf.validate.field).double.gte = 0.0];
+  double rms_level_db = 2 [(buf.validate.field).double.gte = 0.0];
+  double dynamic_range_db = 3 [(buf.validate.field).double.gte = 0.0];
+  double signal_to_noise_ratio = 4 [(buf.validate.field).double.gte = 0.0];
   bool clipping_detected = 5;
 }

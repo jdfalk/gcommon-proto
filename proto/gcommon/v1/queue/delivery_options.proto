@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -18,19 +20,19 @@ message DeliveryOptions {
   google.protobuf.Duration delay = 1;
 
   // Maximum retry attempts before sending to dead letter queue.
-  int32 max_retries = 2;
+  int32 max_retries = 2 [(buf.validate.field).int32.gte = 0];
 
   // Delay between retry attempts.
   google.protobuf.Duration retry_delay = 3;
 
   // Multiplier for exponential backoff.
-  double backoff_multiplier = 4;
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Maximum delay allowed between retries.
   google.protobuf.Duration max_retry_delay = 5;
 
   // Name of the dead letter queue.
-  string dead_letter_queue = 6;
+  string dead_letter_queue = 6 [(buf.validate.field).string.min_len = 1];
 
   // Whether acknowledgment is required for delivery.
   bool require_ack = 7;

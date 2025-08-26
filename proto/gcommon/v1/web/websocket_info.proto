@@ -8,6 +8,8 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -15,13 +17,13 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 // WebsocketInfo message definition.
 message WebsocketInfo {
   // Connection identifier
-  string connection_id = 1;
+  string connection_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Client IP address
-  string client_ip = 2;
+  string client_ip = 2 [(buf.validate.field).string.min_len = 1];
 
   // User agent string
-  string user_agent = 3;
+  string user_agent = 3 [(buf.validate.field).string.min_len = 1];
 
   // Connection established timestamp
   google.protobuf.Timestamp connected_at = 4;

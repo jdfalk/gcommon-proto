@@ -8,6 +8,8 @@ package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -17,11 +19,11 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
  */
 message SecurityPolicy {
   // Minimum password length requirement
-  uint32 min_password_length = 1;
+  uint32 min_password_length = 1 [(buf.validate.field).uint32.gte = 0];
 
   // Password expiration duration
   google.protobuf.Duration password_ttl = 2;
 
   // Maximum failed login attempts before lockout
-  uint32 max_failed_attempts = 3;
+  uint32 max_failed_attempts = 3 [(buf.validate.field).uint32.gte = 0];
 }

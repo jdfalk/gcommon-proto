@@ -9,6 +9,8 @@ package gcommon.v1.web;
 import "gcommon/v1/common/load_balance_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
@@ -19,10 +21,10 @@ message WebLoadBalancerConfig {
   gcommon.v1.common.LoadBalanceStrategy strategy = 1;
 
   // Upstream server addresses
-  repeated string upstreams = 2;
+  repeated string upstreams = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Health check path
-  string health_check_path = 3;
+  string health_check_path = 3 [(buf.validate.field).string.min_len = 1];
 
   // Timeout for proxy requests
   google.protobuf.Duration timeout = 4;

@@ -7,17 +7,19 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message TimestampConfig {
   // Timestamp source (system, ntp, atomic)
-  string source = 1;
+  string source = 1 [(buf.validate.field).string.min_len = 1];
 
   // Clock synchronization interval (seconds)
-  int32 sync_interval_seconds = 2;
+  int32 sync_interval_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum timestamp skew tolerance (milliseconds)
-  int64 max_skew_ms = 3;
+  int64 max_skew_ms = 3 [(buf.validate.field).int64.gte = 0];
 }

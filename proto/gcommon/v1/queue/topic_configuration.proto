@@ -7,38 +7,40 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message TopicConfiguration {
   // Number of partitions
-  int32 partition_count = 1;
+  int32 partition_count = 1 [(buf.validate.field).int32.gte = 0];
 
   // Replication factor
-  int32 replication_factor = 2;
+  int32 replication_factor = 2 [(buf.validate.field).int32.gte = 0];
 
   // Message retention period (seconds)
-  int64 retention_period_seconds = 3;
+  int64 retention_period_seconds = 3 [(buf.validate.field).int64.gte = 0];
 
   // Maximum message size (bytes)
-  int64 max_message_size_bytes = 4;
+  int64 max_message_size_bytes = 4 [(buf.validate.field).int64.gte = 0];
 
   // Compression enabled
   bool compression_enabled = 5;
 
   // Compression algorithm
-  string compression_algorithm = 6;
+  string compression_algorithm = 6 [(buf.validate.field).string.min_len = 1];
 
   // Encryption enabled
   bool encryption_enabled = 7;
 
   // Cleanup policy (delete, compact)
-  string cleanup_policy = 8;
+  string cleanup_policy = 8 [(buf.validate.field).string.min_len = 1];
 
   // Minimum in-sync replicas
-  int32 min_insync_replicas = 9;
+  int32 min_insync_replicas = 9 [(buf.validate.field).int32.gte = 0];
 
   // Segment size (bytes)
-  int64 segment_size_bytes = 10;
+  int64 segment_size_bytes = 10 [(buf.validate.field).int64.gte = 0];
 }

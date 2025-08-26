@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
@@ -17,8 +19,8 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
  */
 message MetricLabel {
   // Label key
-  string key = 1;
+  string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Label value
-  string value = 2;
+  string value = 2 [(buf.validate.field).string.min_len = 1];
 }

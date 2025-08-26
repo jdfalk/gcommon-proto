@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -14,8 +16,8 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 // PaginationOptions defines standard paging parameters.
 message PaginationOptions {
   // Maximum number of items to return.
-  int32 page_size = 1;
+  int32 page_size = 1 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Opaque token representing the next page.
-  string page_token = 2;
+  string page_token = 2 [(buf.validate.field).string.min_len = 1];
 }

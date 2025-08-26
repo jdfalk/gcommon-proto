@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,13 +18,13 @@ message BatchSettings {
   bool enabled = 1;
 
   // Maximum messages per batch
-  int32 max_batch_size = 2;
+  int32 max_batch_size = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum batch size in bytes
-  int64 max_batch_bytes = 3;
+  int64 max_batch_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Maximum time to wait for batch completion (milliseconds)
-  int32 batch_timeout_ms = 4;
+  int32 batch_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // Flush batch on publish request completion
   bool flush_on_complete = 5;

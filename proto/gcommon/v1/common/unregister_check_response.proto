@@ -7,6 +7,8 @@ package gcommon.v1.common;
 
 import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -20,11 +22,11 @@ message UnregisterCheckResponse {
   bool success = 1;
 
   // Check ID that was unregistered
-  string check_id = 2;
+  string check_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Error information if unregistration failed
   gcommon.v1.common.Error error = 3;
 
   // Confirmation message
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 }

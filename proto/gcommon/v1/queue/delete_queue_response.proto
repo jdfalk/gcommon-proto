@@ -6,6 +6,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -19,8 +21,8 @@ message DeleteQueueResponse {
   bool success = 1;
 
   // Number of messages that were purged during deletion
-  int64 purged_messages = 2;
+  int64 purged_messages = 2 [(buf.validate.field).int64.gte = 0];
 
   // Human-readable message describing the deletion result
-  string message = 3;
+  string message = 3 [(buf.validate.field).string.min_len = 1];
 }

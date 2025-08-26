@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,11 +18,11 @@ message AuthCacheConfig {
   bool enabled = 1;
 
   // Cache TTL (seconds)
-  int32 ttl_seconds = 2;
+  int32 ttl_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
   // Maximum cache size
-  int32 max_size = 3;
+  int32 max_size = 3 [(buf.validate.field).int32.gte = 0];
 
   // Cache cleanup interval (seconds)
-  int32 cleanup_interval_seconds = 4;
+  int32 cleanup_interval_seconds = 4 [(buf.validate.field).int32.gte = 0];
 }

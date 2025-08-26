@@ -8,19 +8,21 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message QueueBackupInfo {
   // Backup identifier
-  string backup_id = 1;
+  string backup_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Backup location
-  string backup_location = 2;
+  string backup_location = 2 [(buf.validate.field).string.min_len = 1];
 
   // Backup size (bytes)
-  int64 backup_size_bytes = 3;
+  int64 backup_size_bytes = 3 [(buf.validate.field).int64.gte = 0];
 
   // Backup timestamp
   google.protobuf.Timestamp backup_created_at = 4;

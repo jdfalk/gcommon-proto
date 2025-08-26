@@ -10,6 +10,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -22,10 +24,10 @@ message TransformationConfig {
   bool enabled = 1;
 
   // Transformation script or function name
-  string transformation_script = 2;
+  string transformation_script = 2 [(buf.validate.field).string.min_len = 1];
 
   // Script language (javascript, python, lua, etc.)
-  string script_language = 3;
+  string script_language = 3 [(buf.validate.field).string.min_len = 1];
 
   // Whether to transform on ingress
   bool transform_on_ingress = 4;
@@ -34,10 +36,10 @@ message TransformationConfig {
   bool transform_on_egress = 5;
 
   // Transformation timeout in milliseconds
-  uint64 timeout_ms = 6;
+  uint64 timeout_ms = 6 [(buf.validate.field).uint64.gte = 0];
 
   // Maximum script execution memory in MB
-  uint32 max_memory_mb = 7;
+  uint32 max_memory_mb = 7 [(buf.validate.field).uint32.gte = 0];
 
   // Custom transformation parameters
   map<string, string> parameters = 8;

@@ -11,6 +11,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -20,20 +22,20 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
  */
 message BatchConfig {
   // Maximum number of messages per batch
-  uint32 max_batch_size = 1;
+  uint32 max_batch_size = 1 [(buf.validate.field).uint32.gte = 0];
 
   // Maximum time to wait before sending partial batch
   google.protobuf.Duration max_wait_time = 2;
 
   // Maximum total size of batch in bytes
-  uint64 max_batch_bytes = 3;
+  uint64 max_batch_bytes = 3 [(buf.validate.field).uint64.gte = 0];
 
   // Whether to enable batch compression
   bool enable_compression = 4;
 
   // Number of parallel batch workers
-  uint32 worker_count = 5;
+  uint32 worker_count = 5 [(buf.validate.field).uint32.gte = 0];
 
   // Buffer size for pending batches
-  uint32 buffer_size = 6;
+  uint32 buffer_size = 6 [(buf.validate.field).uint32.gte = 0];
 }

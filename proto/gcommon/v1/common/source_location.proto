@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -14,14 +16,14 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 // SourceLocation describes the origin of a log entry
 message SourceLocation {
   // File name where the log occurred
-  string file = 1;
+  string file = 1 [(buf.validate.field).string.min_len = 1];
 
   // Line number in the source file
-  int32 line = 2;
+  int32 line = 2 [(buf.validate.field).int32.gte = 0];
 
   // Function name
-  string function = 3;
+  string function = 3 [(buf.validate.field).string.min_len = 1];
 
   // Package or module name
-  string package = 4;
+  string package = 4 [(buf.validate.field).string.min_len = 1];
 }

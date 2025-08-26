@@ -8,6 +8,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -15,20 +17,20 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 // Request to get a specific message
 message GetMessageRequest {
   // Topic name
-  string topic = 1;
+  string topic = 1 [(buf.validate.field).string.min_len = 1];
 
   // Message ID to retrieve
-  string message_id = 2;
+  string message_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID (optional)
-  int32 partition_id = 3;
+  int32 partition_id = 3 [(buf.validate.field).int32.gte = 0];
 
   // Offset within partition (optional)
-  int64 offset = 4;
+  int64 offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // Include message metadata
   bool include_metadata = 5;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 6;
+  int32 timeout_ms = 6 [(buf.validate.field).int32.gt = 0];
 }

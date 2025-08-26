@@ -12,16 +12,18 @@ import "gcommon/v1/common/rate_limit_info.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
 message ResponseMetadata {
   // Trace ID from the corresponding request for correlation
-  string trace_id = 1;
+  string trace_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request ID for unique identification of this specific request
-  string request_id = 2;
+  string request_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when the response was generated
   google.protobuf.Timestamp timestamp = 3;
@@ -30,7 +32,7 @@ message ResponseMetadata {
   google.protobuf.Duration processing_time = 4;
 
   // Service version that processed the request
-  string service_version = 5;
+  string service_version = 5 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
 
   // Success indicator (true if operation succeeded)
   bool success = 6;

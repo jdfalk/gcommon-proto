@@ -13,13 +13,15 @@ package gcommon.v1.metrics;
 import "gcommon/v1/common/request_metadata.proto";
 import "gcommon/v1/metrics/timestamp_range.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message MetricsGetStatsRequest {
   // Metric name or ID to query
-  string metric = 1;
+  string metric = 1 [(buf.validate.field).string.min_len = 1];
 
   // Time range for stats
   MetricsTimestampRange range = 2;

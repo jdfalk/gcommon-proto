@@ -9,6 +9,8 @@ import "gcommon/v1/common/error.proto";
 import "gcommon/v1/database/batch_operation_result.proto";
 import "gcommon/v1/database/batch_stats.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
@@ -19,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/database";
  */
 message ExecuteBatchResponse {
   // Results for each operation in the batch
-  repeated BatchOperationResult results = 1 [lazy = true];
+  repeated BatchOperationResult results = 1 [lazy = true] [(buf.validate.field).repeated.min_items = 1];
 
   // Overall batch execution statistics
   DatabaseBatchStats stats = 2 [lazy = true];

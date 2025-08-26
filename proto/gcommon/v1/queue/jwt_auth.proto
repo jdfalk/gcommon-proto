@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
@@ -16,19 +18,19 @@ message JwtAuth {
   bool enabled = 1;
 
   // JWT signing algorithm
-  string algorithm = 2;
+  string algorithm = 2 [(buf.validate.field).string.min_len = 1];
 
   // Public key or secret for verification
-  string verification_key = 3;
+  string verification_key = 3 [(buf.validate.field).string.min_len = 1];
 
   // Expected issuer
-  string expected_issuer = 4;
+  string expected_issuer = 4 [(buf.validate.field).string.min_len = 1];
 
   // Expected audience
-  repeated string expected_audience = 5;
+  repeated string expected_audience = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Clock skew tolerance (seconds)
-  int32 clock_skew_seconds = 6;
+  int32 clock_skew_seconds = 6 [(buf.validate.field).int32.gte = 0];
 
   // Required claims
   map<string, string> required_claims = 7;

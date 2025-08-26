@@ -7,22 +7,24 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ProviderEndpoints {
   // Main service endpoint
-  string service_endpoint = 1;
+  string service_endpoint = 1 [(buf.validate.field).string.min_len = 1];
 
   // Metrics endpoint (for scraping)
-  string metrics_endpoint = 2;
+  string metrics_endpoint = 2 [(buf.validate.field).string.min_len = 1];
 
   // Health check endpoint
-  string health_endpoint = 3;
+  string health_endpoint = 3 [(buf.validate.field).string.min_len = 1];
 
   // Admin/management endpoint
-  string admin_endpoint = 4;
+  string admin_endpoint = 4 [(buf.validate.field).string.min_len = 1];
 
   // Additional endpoints
   map<string, string> additional_endpoints = 5;
