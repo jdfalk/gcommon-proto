@@ -20,4 +20,12 @@ class UpdateOrganizationRequest(_message.Message):
     organization_id: str
     organization: _organization_pb2.Organization
     update_fields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ..., update_fields: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        organization_id: _Optional[str] = ...,
+        organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...,
+        update_fields: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

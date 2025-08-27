@@ -16,4 +16,11 @@ class ResetPasswordResponse(_message.Message):
     success: bool
     message: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, success: _Optional[bool] = ..., message: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        message: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

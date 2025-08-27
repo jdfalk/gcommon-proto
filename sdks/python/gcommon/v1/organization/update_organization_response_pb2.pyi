@@ -18,4 +18,9 @@ class UpdateOrganizationResponse(_message.Message):
     organization: _organization_pb2.Organization
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
-    def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ..., errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+    ) -> None: ...

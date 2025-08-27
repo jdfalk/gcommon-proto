@@ -12,6 +12,7 @@ class AckType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ACK_TYPE_RETRY: _ClassVar[AckType]
     ACK_TYPE_REJECT: _ClassVar[AckType]
     ACK_TYPE_TIMEOUT: _ClassVar[AckType]
+
 ACK_TYPE_UNSPECIFIED: AckType
 ACK_TYPE_SUCCESS: AckType
 ACK_TYPE_RETRY: AckType

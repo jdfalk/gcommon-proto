@@ -16,11 +16,19 @@ class StartWorkflowRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     WORKFLOW_ID_FIELD_NUMBER: _ClassVar[int]
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     workflow_id: str
     workflow_definition: str
     parameters: _containers.ScalarMap[str, str]
-    def __init__(self, workflow_id: _Optional[str] = ..., workflow_definition: _Optional[str] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        workflow_id: _Optional[str] = ...,
+        workflow_definition: _Optional[str] = ...,
+        parameters: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

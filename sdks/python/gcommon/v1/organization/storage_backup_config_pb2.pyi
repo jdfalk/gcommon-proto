@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class StorageBackupConfig(_message.Message):
-    __slots__ = ("enabled", "schedule", "retention_days", "cross_region", "encryption_enabled")
+    __slots__ = (
+        "enabled",
+        "schedule",
+        "retention_days",
+        "cross_region",
+        "encryption_enabled",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class StorageBackupConfig(_message.Message):
     retention_days: int
     cross_region: bool
     encryption_enabled: bool
-    def __init__(self, enabled: _Optional[bool] = ..., schedule: _Optional[str] = ..., retention_days: _Optional[int] = ..., cross_region: _Optional[bool] = ..., encryption_enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        schedule: _Optional[str] = ...,
+        retention_days: _Optional[int] = ...,
+        cross_region: _Optional[bool] = ...,
+        encryption_enabled: _Optional[bool] = ...,
+    ) -> None: ...

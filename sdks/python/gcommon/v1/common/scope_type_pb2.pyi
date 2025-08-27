@@ -12,6 +12,7 @@ class ScopeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCOPE_TYPE_ORGANIZATION: _ClassVar[ScopeType]
     SCOPE_TYPE_PROJECT: _ClassVar[ScopeType]
     SCOPE_TYPE_RESOURCE: _ClassVar[ScopeType]
+
 SCOPE_TYPE_UNSPECIFIED: ScopeType
 SCOPE_TYPE_GLOBAL: ScopeType
 SCOPE_TYPE_ORGANIZATION: ScopeType

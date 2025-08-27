@@ -12,6 +12,7 @@ class SecretValidationSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper
     SECRET_VALIDATION_SEVERITY_WARNING: _ClassVar[SecretValidationSeverity]
     SECRET_VALIDATION_SEVERITY_ERROR: _ClassVar[SecretValidationSeverity]
     SECRET_VALIDATION_SEVERITY_CRITICAL: _ClassVar[SecretValidationSeverity]
+
 SECRET_VALIDATION_SEVERITY_UNSPECIFIED: SecretValidationSeverity
 SECRET_VALIDATION_SEVERITY_INFO: SecretValidationSeverity
 SECRET_VALIDATION_SEVERITY_WARNING: SecretValidationSeverity

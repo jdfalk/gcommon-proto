@@ -22,4 +22,13 @@ class ListMiddlewareRequest(_message.Message):
     enabled: bool
     pagination: _pagination_pb2.Pagination
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, server_id: _Optional[str] = ..., type: _Optional[_Union[_middleware_type_pb2.MiddlewareType, str]] = ..., enabled: _Optional[bool] = ..., pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        server_id: _Optional[str] = ...,
+        type: _Optional[_Union[_middleware_type_pb2.MiddlewareType, str]] = ...,
+        enabled: _Optional[bool] = ...,
+        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

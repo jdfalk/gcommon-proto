@@ -13,4 +13,8 @@ class ConfigHealthCheckResponse(_message.Message):
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     status: _health_status_pb2.CommonHealthStatus
     message: str
-    def __init__(self, status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...

@@ -7,7 +7,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsBatchStats(_message.Message):
-    __slots__ = ("total_processing_time_ms", "avg_processing_time_ms", "total_data_size_bytes", "deduplication_count", "parallel_workers", "storage_latency_ms", "memory_usage_bytes")
+    __slots__ = (
+        "total_processing_time_ms",
+        "avg_processing_time_ms",
+        "total_data_size_bytes",
+        "deduplication_count",
+        "parallel_workers",
+        "storage_latency_ms",
+        "memory_usage_bytes",
+    )
     TOTAL_PROCESSING_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     AVG_PROCESSING_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_DATA_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +30,13 @@ class MetricsBatchStats(_message.Message):
     parallel_workers: int
     storage_latency_ms: int
     memory_usage_bytes: int
-    def __init__(self, total_processing_time_ms: _Optional[int] = ..., avg_processing_time_ms: _Optional[int] = ..., total_data_size_bytes: _Optional[int] = ..., deduplication_count: _Optional[int] = ..., parallel_workers: _Optional[int] = ..., storage_latency_ms: _Optional[int] = ..., memory_usage_bytes: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        total_processing_time_ms: _Optional[int] = ...,
+        avg_processing_time_ms: _Optional[int] = ...,
+        total_data_size_bytes: _Optional[int] = ...,
+        deduplication_count: _Optional[int] = ...,
+        parallel_workers: _Optional[int] = ...,
+        storage_latency_ms: _Optional[int] = ...,
+        memory_usage_bytes: _Optional[int] = ...,
+    ) -> None: ...

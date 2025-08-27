@@ -7,7 +7,22 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsPerformanceStats(_message.Message):
-    __slots__ = ("avg_response_time_ms", "max_response_time_ms", "min_response_time_ms", "p95_response_time_ms", "p99_response_time_ms", "requests_per_second", "total_requests", "successful_requests", "failed_requests", "success_rate", "cpu_utilization", "memory_utilization", "network_io_bytes_per_sec", "disk_io_bytes_per_sec")
+    __slots__ = (
+        "avg_response_time_ms",
+        "max_response_time_ms",
+        "min_response_time_ms",
+        "p95_response_time_ms",
+        "p99_response_time_ms",
+        "requests_per_second",
+        "total_requests",
+        "successful_requests",
+        "failed_requests",
+        "success_rate",
+        "cpu_utilization",
+        "memory_utilization",
+        "network_io_bytes_per_sec",
+        "disk_io_bytes_per_sec",
+    )
     AVG_RESPONSE_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     MAX_RESPONSE_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     MIN_RESPONSE_TIME_MS_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +51,20 @@ class MetricsPerformanceStats(_message.Message):
     memory_utilization: float
     network_io_bytes_per_sec: float
     disk_io_bytes_per_sec: float
-    def __init__(self, avg_response_time_ms: _Optional[float] = ..., max_response_time_ms: _Optional[float] = ..., min_response_time_ms: _Optional[float] = ..., p95_response_time_ms: _Optional[float] = ..., p99_response_time_ms: _Optional[float] = ..., requests_per_second: _Optional[float] = ..., total_requests: _Optional[int] = ..., successful_requests: _Optional[int] = ..., failed_requests: _Optional[int] = ..., success_rate: _Optional[float] = ..., cpu_utilization: _Optional[float] = ..., memory_utilization: _Optional[float] = ..., network_io_bytes_per_sec: _Optional[float] = ..., disk_io_bytes_per_sec: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        avg_response_time_ms: _Optional[float] = ...,
+        max_response_time_ms: _Optional[float] = ...,
+        min_response_time_ms: _Optional[float] = ...,
+        p95_response_time_ms: _Optional[float] = ...,
+        p99_response_time_ms: _Optional[float] = ...,
+        requests_per_second: _Optional[float] = ...,
+        total_requests: _Optional[int] = ...,
+        successful_requests: _Optional[int] = ...,
+        failed_requests: _Optional[int] = ...,
+        success_rate: _Optional[float] = ...,
+        cpu_utilization: _Optional[float] = ...,
+        memory_utilization: _Optional[float] = ...,
+        network_io_bytes_per_sec: _Optional[float] = ...,
+        disk_io_bytes_per_sec: _Optional[float] = ...,
+    ) -> None: ...

@@ -15,7 +15,18 @@ class ListSubscriptionsResponse(_message.Message):
     SUBSCRIPTIONS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
-    subscriptions: _containers.RepeatedCompositeFieldContainer[_subscription_info_pb2.CommonSubscriptionInfo]
+    subscriptions: _containers.RepeatedCompositeFieldContainer[
+        _subscription_info_pb2.CommonSubscriptionInfo
+    ]
     next_page_token: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, subscriptions: _Optional[_Iterable[_Union[_subscription_info_pb2.CommonSubscriptionInfo, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        subscriptions: _Optional[
+            _Iterable[_Union[_subscription_info_pb2.CommonSubscriptionInfo, _Mapping]]
+        ] = ...,
+        next_page_token: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

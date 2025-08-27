@@ -12,6 +12,7 @@ class CacheStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CACHE_STRATEGY_MEMORY: _ClassVar[CacheStrategy]
     CACHE_STRATEGY_DISTRIBUTED: _ClassVar[CacheStrategy]
     CACHE_STRATEGY_CDN: _ClassVar[CacheStrategy]
+
 CACHE_STRATEGY_UNSPECIFIED: CacheStrategy
 CACHE_STRATEGY_NONE: CacheStrategy
 CACHE_STRATEGY_MEMORY: CacheStrategy

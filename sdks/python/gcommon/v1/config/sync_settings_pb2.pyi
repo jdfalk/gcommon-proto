@@ -9,14 +9,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SyncSettings(_message.Message):
-    __slots__ = ("enabled", "source", "target", "schedule", "filters", "transformations", "config")
+    __slots__ = (
+        "enabled",
+        "source",
+        "target",
+        "schedule",
+        "filters",
+        "transformations",
+        "config",
+    )
     class ConfigEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_NUMBER: _ClassVar[int]
     TARGET_FIELD_NUMBER: _ClassVar[int]
@@ -31,4 +42,13 @@ class SyncSettings(_message.Message):
     filters: _containers.RepeatedScalarFieldContainer[str]
     transformations: _containers.RepeatedScalarFieldContainer[str]
     config: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., source: _Optional[str] = ..., target: _Optional[str] = ..., schedule: _Optional[str] = ..., filters: _Optional[_Iterable[str]] = ..., transformations: _Optional[_Iterable[str]] = ..., config: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        source: _Optional[str] = ...,
+        target: _Optional[str] = ...,
+        schedule: _Optional[str] = ...,
+        filters: _Optional[_Iterable[str]] = ...,
+        transformations: _Optional[_Iterable[str]] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

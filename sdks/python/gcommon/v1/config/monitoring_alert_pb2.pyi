@@ -18,4 +18,11 @@ class MonitoringAlert(_message.Message):
     condition: str
     threshold: float
     enabled: bool
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., condition: _Optional[str] = ..., threshold: _Optional[float] = ..., enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        condition: _Optional[str] = ...,
+        threshold: _Optional[float] = ...,
+        enabled: _Optional[bool] = ...,
+    ) -> None: ...

@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PerformanceOptions(_message.Message):
-    __slots__ = ("worker_count", "batch_size", "buffer_size_mb", "enable_compression", "throttle_rate")
+    __slots__ = (
+        "worker_count",
+        "batch_size",
+        "buffer_size_mb",
+        "enable_compression",
+        "throttle_rate",
+    )
     WORKER_COUNT_FIELD_NUMBER: _ClassVar[int]
     BATCH_SIZE_FIELD_NUMBER: _ClassVar[int]
     BUFFER_SIZE_MB_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class PerformanceOptions(_message.Message):
     buffer_size_mb: int
     enable_compression: bool
     throttle_rate: int
-    def __init__(self, worker_count: _Optional[int] = ..., batch_size: _Optional[int] = ..., buffer_size_mb: _Optional[int] = ..., enable_compression: _Optional[bool] = ..., throttle_rate: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        worker_count: _Optional[int] = ...,
+        batch_size: _Optional[int] = ...,
+        buffer_size_mb: _Optional[int] = ...,
+        enable_compression: _Optional[bool] = ...,
+        throttle_rate: _Optional[int] = ...,
+    ) -> None: ...

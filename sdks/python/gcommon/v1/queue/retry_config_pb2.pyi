@@ -11,7 +11,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueRetryConfig(_message.Message):
-    __slots__ = ("enabled", "max_retries", "initial_delay", "max_delay", "backoff_multiplier", "jitter_factor", "total_timeout")
+    __slots__ = (
+        "enabled",
+        "max_retries",
+        "initial_delay",
+        "max_delay",
+        "backoff_multiplier",
+        "jitter_factor",
+        "total_timeout",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     MAX_RETRIES_FIELD_NUMBER: _ClassVar[int]
     INITIAL_DELAY_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +34,19 @@ class QueueRetryConfig(_message.Message):
     backoff_multiplier: float
     jitter_factor: float
     total_timeout: _duration_pb2.Duration
-    def __init__(self, enabled: _Optional[bool] = ..., max_retries: _Optional[int] = ..., initial_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., backoff_multiplier: _Optional[float] = ..., jitter_factor: _Optional[float] = ..., total_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        max_retries: _Optional[int] = ...,
+        initial_delay: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        max_delay: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        backoff_multiplier: _Optional[float] = ...,
+        jitter_factor: _Optional[float] = ...,
+        total_timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

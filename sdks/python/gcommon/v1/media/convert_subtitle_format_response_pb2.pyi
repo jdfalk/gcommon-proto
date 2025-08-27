@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConvertSubtitleFormatResponse(_message.Message):
-    __slots__ = ("converted_subtitle_file_id", "success", "error_message", "output_format")
+    __slots__ = (
+        "converted_subtitle_file_id",
+        "success",
+        "error_message",
+        "output_format",
+    )
     CONVERTED_SUBTITLE_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class ConvertSubtitleFormatResponse(_message.Message):
     success: bool
     error_message: str
     output_format: str
-    def __init__(self, converted_subtitle_file_id: _Optional[str] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ..., output_format: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        converted_subtitle_file_id: _Optional[str] = ...,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        output_format: _Optional[str] = ...,
+    ) -> None: ...

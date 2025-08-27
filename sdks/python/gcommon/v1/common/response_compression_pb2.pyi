@@ -11,6 +11,7 @@ class ResponseCompression(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESPONSE_COMPRESSION_NONE: _ClassVar[ResponseCompression]
     RESPONSE_COMPRESSION_GZIP: _ClassVar[ResponseCompression]
     RESPONSE_COMPRESSION_SNAPPY: _ClassVar[ResponseCompression]
+
 RESPONSE_COMPRESSION_UNSPECIFIED: ResponseCompression
 RESPONSE_COMPRESSION_NONE: ResponseCompression
 RESPONSE_COMPRESSION_GZIP: ResponseCompression

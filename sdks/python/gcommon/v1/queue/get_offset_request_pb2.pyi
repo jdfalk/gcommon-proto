@@ -10,7 +10,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetOffsetRequest(_message.Message):
-    __slots__ = ("queue_name", "partition_id", "consumer_group", "consumer_id", "offset_type", "metadata")
+    __slots__ = (
+        "queue_name",
+        "partition_id",
+        "consumer_group",
+        "consumer_id",
+        "offset_type",
+        "metadata",
+    )
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_GROUP_FIELD_NUMBER: _ClassVar[int]
@@ -23,4 +30,14 @@ class GetOffsetRequest(_message.Message):
     consumer_id: str
     offset_type: _offset_type_pb2.OffsetType
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, queue_name: _Optional[str] = ..., partition_id: _Optional[int] = ..., consumer_group: _Optional[str] = ..., consumer_id: _Optional[str] = ..., offset_type: _Optional[_Union[_offset_type_pb2.OffsetType, str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        consumer_group: _Optional[str] = ...,
+        consumer_id: _Optional[str] = ...,
+        offset_type: _Optional[_Union[_offset_type_pb2.OffsetType, str]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

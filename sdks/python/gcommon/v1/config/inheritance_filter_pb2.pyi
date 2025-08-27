@@ -18,7 +18,10 @@ class InheritanceFilter(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TYPE_FIELD_NUMBER: _ClassVar[int]
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +30,10 @@ class InheritanceFilter(_message.Message):
     expression: str
     action: _filter_action_pb2.FilterAction
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, type: _Optional[_Union[_filter_type_pb2.LogFilterType, str]] = ..., expression: _Optional[str] = ..., action: _Optional[_Union[_filter_action_pb2.FilterAction, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[_Union[_filter_type_pb2.LogFilterType, str]] = ...,
+        expression: _Optional[str] = ...,
+        action: _Optional[_Union[_filter_action_pb2.FilterAction, str]] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

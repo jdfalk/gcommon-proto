@@ -15,4 +15,8 @@ class DeleteTeamResponse(_message.Message):
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+    ) -> None: ...

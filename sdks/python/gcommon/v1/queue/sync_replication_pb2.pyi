@@ -16,4 +16,10 @@ class SyncReplication(_message.Message):
     min_sync_replicas: int
     sync_timeout_ms: int
     fallback_to_async: bool
-    def __init__(self, enabled: _Optional[bool] = ..., min_sync_replicas: _Optional[int] = ..., sync_timeout_ms: _Optional[int] = ..., fallback_to_async: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        min_sync_replicas: _Optional[int] = ...,
+        sync_timeout_ms: _Optional[int] = ...,
+        fallback_to_async: _Optional[bool] = ...,
+    ) -> None: ...

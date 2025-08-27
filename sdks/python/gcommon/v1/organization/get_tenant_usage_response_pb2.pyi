@@ -18,4 +18,11 @@ class GetTenantUsageResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     usage_stats: _containers.RepeatedCompositeFieldContainer[_key_value_pb2.KeyValue]
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., usage_stats: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        usage_stats: _Optional[
+            _Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]
+        ] = ...,
+    ) -> None: ...

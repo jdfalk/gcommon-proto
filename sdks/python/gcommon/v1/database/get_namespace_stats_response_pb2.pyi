@@ -19,4 +19,11 @@ class GetNamespaceStatsResponse(_message.Message):
     namespace_id: str
     stats: _namespace_stats_pb2.NamespaceStats
     collected_at: _timestamp_pb2.Timestamp
-    def __init__(self, namespace_id: _Optional[str] = ..., stats: _Optional[_Union[_namespace_stats_pb2.NamespaceStats, _Mapping]] = ..., collected_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        namespace_id: _Optional[str] = ...,
+        stats: _Optional[_Union[_namespace_stats_pb2.NamespaceStats, _Mapping]] = ...,
+        collected_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

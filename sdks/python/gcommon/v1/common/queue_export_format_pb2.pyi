@@ -12,6 +12,7 @@ class QueueExportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_EXPORT_FORMAT_PROTOBUF: _ClassVar[QueueExportFormat]
     QUEUE_EXPORT_FORMAT_CSV: _ClassVar[QueueExportFormat]
     QUEUE_EXPORT_FORMAT_CUSTOM: _ClassVar[QueueExportFormat]
+
 QUEUE_EXPORT_FORMAT_UNSPECIFIED: QueueExportFormat
 QUEUE_EXPORT_FORMAT_JSON: QueueExportFormat
 QUEUE_EXPORT_FORMAT_PROTOBUF: QueueExportFormat

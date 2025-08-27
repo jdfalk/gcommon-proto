@@ -4,57 +4,109 @@
 # source: gcommon/v1/organization/organization_service.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/organization_service.proto'
+    "",
+    "gcommon/v1/organization/organization_service.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.organization import add_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_add__member__request__pb2
-from gcommon.v1.organization import add_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_add__member__response__pb2
-from gcommon.v1.organization import create_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_create__organization__request__pb2
-from gcommon.v1.organization import create_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_create__organization__response__pb2
-from gcommon.v1.organization import delete_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_delete__organization__request__pb2
-from gcommon.v1.organization import delete_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_delete__organization__response__pb2
-from gcommon.v1.organization import get_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__request__pb2
-from gcommon.v1.organization import get_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__response__pb2
-from gcommon.v1.organization import get_organization_settings_request_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__settings__request__pb2
-from gcommon.v1.organization import get_organization_settings_response_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__settings__response__pb2
-from gcommon.v1.organization import list_members_request_pb2 as gcommon_dot_v1_dot_organization_dot_list__members__request__pb2
-from gcommon.v1.organization import list_members_response_pb2 as gcommon_dot_v1_dot_organization_dot_list__members__response__pb2
-from gcommon.v1.organization import list_organizations_request_pb2 as gcommon_dot_v1_dot_organization_dot_list__organizations__request__pb2
-from gcommon.v1.organization import list_organizations_response_pb2 as gcommon_dot_v1_dot_organization_dot_list__organizations__response__pb2
-from gcommon.v1.organization import remove_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_remove__member__request__pb2
-from gcommon.v1.organization import remove_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_remove__member__response__pb2
-from gcommon.v1.organization import update_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__member__request__pb2
-from gcommon.v1.organization import update_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__member__response__pb2
-from gcommon.v1.organization import update_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__request__pb2
-from gcommon.v1.organization import update_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__response__pb2
-from gcommon.v1.organization import update_organization_settings_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__settings__request__pb2
-from gcommon.v1.organization import update_organization_settings_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__settings__response__pb2
+from gcommon.v1.organization import (
+    add_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_add__member__request__pb2,
+)
+from gcommon.v1.organization import (
+    add_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_add__member__response__pb2,
+)
+from gcommon.v1.organization import (
+    create_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_create__organization__request__pb2,
+)
+from gcommon.v1.organization import (
+    create_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_create__organization__response__pb2,
+)
+from gcommon.v1.organization import (
+    delete_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_delete__organization__request__pb2,
+)
+from gcommon.v1.organization import (
+    delete_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_delete__organization__response__pb2,
+)
+from gcommon.v1.organization import (
+    get_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__request__pb2,
+)
+from gcommon.v1.organization import (
+    get_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__response__pb2,
+)
+from gcommon.v1.organization import (
+    get_organization_settings_request_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__settings__request__pb2,
+)
+from gcommon.v1.organization import (
+    get_organization_settings_response_pb2 as gcommon_dot_v1_dot_organization_dot_get__organization__settings__response__pb2,
+)
+from gcommon.v1.organization import (
+    list_members_request_pb2 as gcommon_dot_v1_dot_organization_dot_list__members__request__pb2,
+)
+from gcommon.v1.organization import (
+    list_members_response_pb2 as gcommon_dot_v1_dot_organization_dot_list__members__response__pb2,
+)
+from gcommon.v1.organization import (
+    list_organizations_request_pb2 as gcommon_dot_v1_dot_organization_dot_list__organizations__request__pb2,
+)
+from gcommon.v1.organization import (
+    list_organizations_response_pb2 as gcommon_dot_v1_dot_organization_dot_list__organizations__response__pb2,
+)
+from gcommon.v1.organization import (
+    remove_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_remove__member__request__pb2,
+)
+from gcommon.v1.organization import (
+    remove_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_remove__member__response__pb2,
+)
+from gcommon.v1.organization import (
+    update_member_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__member__request__pb2,
+)
+from gcommon.v1.organization import (
+    update_member_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__member__response__pb2,
+)
+from gcommon.v1.organization import (
+    update_organization_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__request__pb2,
+)
+from gcommon.v1.organization import (
+    update_organization_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__response__pb2,
+)
+from gcommon.v1.organization import (
+    update_organization_settings_request_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__settings__request__pb2,
+)
+from gcommon.v1.organization import (
+    update_organization_settings_response_pb2 as gcommon_dot_v1_dot_organization_dot_update__organization__settings__response__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/organization/organization_service.proto\x12\x17gcommon.v1.organization\x1a\x30gcommon/v1/organization/add_member_request.proto\x1a\x31gcommon/v1/organization/add_member_response.proto\x1a\x39gcommon/v1/organization/create_organization_request.proto\x1a:gcommon/v1/organization/create_organization_response.proto\x1a\x39gcommon/v1/organization/delete_organization_request.proto\x1a:gcommon/v1/organization/delete_organization_response.proto\x1a\x36gcommon/v1/organization/get_organization_request.proto\x1a\x37gcommon/v1/organization/get_organization_response.proto\x1a?gcommon/v1/organization/get_organization_settings_request.proto\x1a@gcommon/v1/organization/get_organization_settings_response.proto\x1a\x32gcommon/v1/organization/list_members_request.proto\x1a\x33gcommon/v1/organization/list_members_response.proto\x1a\x38gcommon/v1/organization/list_organizations_request.proto\x1a\x39gcommon/v1/organization/list_organizations_response.proto\x1a\x33gcommon/v1/organization/remove_member_request.proto\x1a\x34gcommon/v1/organization/remove_member_response.proto\x1a\x33gcommon/v1/organization/update_member_request.proto\x1a\x34gcommon/v1/organization/update_member_response.proto\x1a\x39gcommon/v1/organization/update_organization_request.proto\x1a:gcommon/v1/organization/update_organization_response.proto\x1a\x42gcommon/v1/organization/update_organization_settings_request.proto\x1a\x43gcommon/v1/organization/update_organization_settings_response.proto\x1a!google/protobuf/go_features.proto2\xd3\n\n\x13OrganizationService\x12}\n\x12\x43reateOrganization\x12\x32.gcommon.v1.organization.CreateOrganizationRequest\x1a\x33.gcommon.v1.organization.CreateOrganizationResponse\x12t\n\x0fGetOrganization\x12/.gcommon.v1.organization.GetOrganizationRequest\x1a\x30.gcommon.v1.organization.GetOrganizationResponse\x12}\n\x12UpdateOrganization\x12\x32.gcommon.v1.organization.UpdateOrganizationRequest\x1a\x33.gcommon.v1.organization.UpdateOrganizationResponse\x12}\n\x12\x44\x65leteOrganization\x12\x32.gcommon.v1.organization.DeleteOrganizationRequest\x1a\x33.gcommon.v1.organization.DeleteOrganizationResponse\x12z\n\x11ListOrganizations\x12\x31.gcommon.v1.organization.ListOrganizationsRequest\x1a\x32.gcommon.v1.organization.ListOrganizationsResponse\x12\x62\n\tAddMember\x12).gcommon.v1.organization.AddMemberRequest\x1a*.gcommon.v1.organization.AddMemberResponse\x12k\n\x0cRemoveMember\x12,.gcommon.v1.organization.RemoveMemberRequest\x1a-.gcommon.v1.organization.RemoveMemberResponse\x12k\n\x0cUpdateMember\x12,.gcommon.v1.organization.UpdateMemberRequest\x1a-.gcommon.v1.organization.UpdateMemberResponse\x12h\n\x0bListMembers\x12+.gcommon.v1.organization.ListMembersRequest\x1a,.gcommon.v1.organization.ListMembersResponse\x12\x8c\x01\n\x17GetOrganizationSettings\x12\x37.gcommon.v1.organization.GetOrganizationSettingsRequest\x1a\x38.gcommon.v1.organization.GetOrganizationSettingsResponse\x12\x95\x01\n\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n2gcommon/v1/organization/organization_service.proto\x12\x17gcommon.v1.organization\x1a\x30gcommon/v1/organization/add_member_request.proto\x1a\x31gcommon/v1/organization/add_member_response.proto\x1a\x39gcommon/v1/organization/create_organization_request.proto\x1a:gcommon/v1/organization/create_organization_response.proto\x1a\x39gcommon/v1/organization/delete_organization_request.proto\x1a:gcommon/v1/organization/delete_organization_response.proto\x1a\x36gcommon/v1/organization/get_organization_request.proto\x1a\x37gcommon/v1/organization/get_organization_response.proto\x1a?gcommon/v1/organization/get_organization_settings_request.proto\x1a@gcommon/v1/organization/get_organization_settings_response.proto\x1a\x32gcommon/v1/organization/list_members_request.proto\x1a\x33gcommon/v1/organization/list_members_response.proto\x1a\x38gcommon/v1/organization/list_organizations_request.proto\x1a\x39gcommon/v1/organization/list_organizations_response.proto\x1a\x33gcommon/v1/organization/remove_member_request.proto\x1a\x34gcommon/v1/organization/remove_member_response.proto\x1a\x33gcommon/v1/organization/update_member_request.proto\x1a\x34gcommon/v1/organization/update_member_response.proto\x1a\x39gcommon/v1/organization/update_organization_request.proto\x1a:gcommon/v1/organization/update_organization_response.proto\x1a\x42gcommon/v1/organization/update_organization_settings_request.proto\x1a\x43gcommon/v1/organization/update_organization_settings_response.proto\x1a!google/protobuf/go_features.proto2\xd3\n\n\x13OrganizationService\x12}\n\x12\x43reateOrganization\x12\x32.gcommon.v1.organization.CreateOrganizationRequest\x1a\x33.gcommon.v1.organization.CreateOrganizationResponse\x12t\n\x0fGetOrganization\x12/.gcommon.v1.organization.GetOrganizationRequest\x1a\x30.gcommon.v1.organization.GetOrganizationResponse\x12}\n\x12UpdateOrganization\x12\x32.gcommon.v1.organization.UpdateOrganizationRequest\x1a\x33.gcommon.v1.organization.UpdateOrganizationResponse\x12}\n\x12\x44\x65leteOrganization\x12\x32.gcommon.v1.organization.DeleteOrganizationRequest\x1a\x33.gcommon.v1.organization.DeleteOrganizationResponse\x12z\n\x11ListOrganizations\x12\x31.gcommon.v1.organization.ListOrganizationsRequest\x1a\x32.gcommon.v1.organization.ListOrganizationsResponse\x12\x62\n\tAddMember\x12).gcommon.v1.organization.AddMemberRequest\x1a*.gcommon.v1.organization.AddMemberResponse\x12k\n\x0cRemoveMember\x12,.gcommon.v1.organization.RemoveMemberRequest\x1a-.gcommon.v1.organization.RemoveMemberResponse\x12k\n\x0cUpdateMember\x12,.gcommon.v1.organization.UpdateMemberRequest\x1a-.gcommon.v1.organization.UpdateMemberResponse\x12h\n\x0bListMembers\x12+.gcommon.v1.organization.ListMembersRequest\x1a,.gcommon.v1.organization.ListMembersResponse\x12\x8c\x01\n\x17GetOrganizationSettings\x12\x37.gcommon.v1.organization.GetOrganizationSettingsRequest\x1a\x38.gcommon.v1.organization.GetOrganizationSettingsResponse\x12\x95\x01\n\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.organization_service_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.organization_service_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_ORGANIZATIONSERVICE']._serialized_start=1390
-  _globals['_ORGANIZATIONSERVICE']._serialized_end=2753
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_ORGANIZATIONSERVICE"]._serialized_start = 1390
+    _globals["_ORGANIZATIONSERVICE"]._serialized_end = 2753
 # @@protoc_insertion_point(module_scope)

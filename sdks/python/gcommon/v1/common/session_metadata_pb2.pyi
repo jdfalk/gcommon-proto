@@ -11,7 +11,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SessionMetadata(_message.Message):
-    __slots__ = ("session_id", "user_id", "started_at", "last_activity", "expires_at", "ip_address", "user_agent", "device_info", "location_info", "state")
+    __slots__ = (
+        "session_id",
+        "user_id",
+        "started_at",
+        "last_activity",
+        "expires_at",
+        "ip_address",
+        "user_agent",
+        "device_info",
+        "location_info",
+        "state",
+    )
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     STARTED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +43,18 @@ class SessionMetadata(_message.Message):
     device_info: _device_info_pb2.DeviceInfo
     location_info: _location_info_pb2.LocationInfo
     state: _session_state_pb2.SessionState
-    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., started_at: _Optional[int] = ..., last_activity: _Optional[int] = ..., expires_at: _Optional[int] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., device_info: _Optional[_Union[_device_info_pb2.DeviceInfo, _Mapping]] = ..., location_info: _Optional[_Union[_location_info_pb2.LocationInfo, _Mapping]] = ..., state: _Optional[_Union[_session_state_pb2.SessionState, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        session_id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        started_at: _Optional[int] = ...,
+        last_activity: _Optional[int] = ...,
+        expires_at: _Optional[int] = ...,
+        ip_address: _Optional[str] = ...,
+        user_agent: _Optional[str] = ...,
+        device_info: _Optional[_Union[_device_info_pb2.DeviceInfo, _Mapping]] = ...,
+        location_info: _Optional[
+            _Union[_location_info_pb2.LocationInfo, _Mapping]
+        ] = ...,
+        state: _Optional[_Union[_session_state_pb2.SessionState, str]] = ...,
+    ) -> None: ...

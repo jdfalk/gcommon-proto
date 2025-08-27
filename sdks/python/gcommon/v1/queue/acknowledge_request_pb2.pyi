@@ -10,7 +10,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AcknowledgeRequest(_message.Message):
-    __slots__ = ("queue_name", "receipt_handles", "metadata", "consumer_id", "processing_results", "processing_notes", "processing_times_ms", "force_acknowledge", "batch_mode")
+    __slots__ = (
+        "queue_name",
+        "receipt_handles",
+        "metadata",
+        "consumer_id",
+        "processing_results",
+        "processing_notes",
+        "processing_times_ms",
+        "force_acknowledge",
+        "batch_mode",
+    )
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     RECEIPT_HANDLES_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +39,17 @@ class AcknowledgeRequest(_message.Message):
     processing_times_ms: _containers.RepeatedScalarFieldContainer[int]
     force_acknowledge: bool
     batch_mode: bool
-    def __init__(self, queue_name: _Optional[str] = ..., receipt_handles: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., consumer_id: _Optional[str] = ..., processing_results: _Optional[_Iterable[str]] = ..., processing_notes: _Optional[_Iterable[str]] = ..., processing_times_ms: _Optional[_Iterable[int]] = ..., force_acknowledge: _Optional[bool] = ..., batch_mode: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        receipt_handles: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        consumer_id: _Optional[str] = ...,
+        processing_results: _Optional[_Iterable[str]] = ...,
+        processing_notes: _Optional[_Iterable[str]] = ...,
+        processing_times_ms: _Optional[_Iterable[int]] = ...,
+        force_acknowledge: _Optional[bool] = ...,
+        batch_mode: _Optional[bool] = ...,
+    ) -> None: ...

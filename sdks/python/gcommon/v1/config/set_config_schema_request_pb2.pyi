@@ -17,4 +17,11 @@ class SetConfigSchemaRequest(_message.Message):
     namespace: str
     schema: _config_schema_pb2.ConfigSchema
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, namespace: _Optional[str] = ..., schema: _Optional[_Union[_config_schema_pb2.ConfigSchema, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        namespace: _Optional[str] = ...,
+        schema: _Optional[_Union[_config_schema_pb2.ConfigSchema, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

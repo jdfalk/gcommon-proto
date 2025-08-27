@@ -13,4 +13,10 @@ class TransactionRequest(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     operations: bytes
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, operations: _Optional[bytes] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        operations: _Optional[bytes] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

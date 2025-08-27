@@ -12,6 +12,7 @@ class FilterAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILTER_ACTION_EXCLUDE: _ClassVar[FilterAction]
     FILTER_ACTION_TRANSFORM: _ClassVar[FilterAction]
     FILTER_ACTION_VALIDATE: _ClassVar[FilterAction]
+
 FILTER_ACTION_UNSPECIFIED: FilterAction
 FILTER_ACTION_INCLUDE: FilterAction
 FILTER_ACTION_EXCLUDE: FilterAction

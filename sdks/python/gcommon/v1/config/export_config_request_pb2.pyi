@@ -16,4 +16,11 @@ class ExportConfigRequest(_message.Message):
     namespace: str
     format: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, namespace: _Optional[str] = ..., format: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        namespace: _Optional[str] = ...,
+        format: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

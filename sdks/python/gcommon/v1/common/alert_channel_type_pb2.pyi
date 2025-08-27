@@ -20,6 +20,7 @@ class AlertChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ALERT_CHANNEL_TYPE_JIRA: _ClassVar[AlertChannelType]
     ALERT_CHANNEL_TYPE_SERVICENOW: _ClassVar[AlertChannelType]
     ALERT_CHANNEL_TYPE_CUSTOM: _ClassVar[AlertChannelType]
+
 ALERT_CHANNEL_TYPE_UNSPECIFIED: AlertChannelType
 ALERT_CHANNEL_TYPE_EMAIL: AlertChannelType
 ALERT_CHANNEL_TYPE_SLACK: AlertChannelType

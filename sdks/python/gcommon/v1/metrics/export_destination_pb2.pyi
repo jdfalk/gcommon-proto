@@ -16,11 +16,19 @@ class ExportDestination(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TYPE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     type: str
     config: _containers.ScalarMap[str, str]
     enabled: bool
-    def __init__(self, type: _Optional[str] = ..., config: _Optional[_Mapping[str, str]] = ..., enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[str] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+        enabled: _Optional[bool] = ...,
+    ) -> None: ...

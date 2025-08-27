@@ -14,4 +14,9 @@ class FailedAck(_message.Message):
     message_id: str
     error_reason: str
     error_code: str
-    def __init__(self, message_id: _Optional[str] = ..., error_reason: _Optional[str] = ..., error_code: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        message_id: _Optional[str] = ...,
+        error_reason: _Optional[str] = ...,
+        error_code: _Optional[str] = ...,
+    ) -> None: ...

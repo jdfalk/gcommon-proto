@@ -11,6 +11,7 @@ class OrderingLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ORDERING_LEVEL_NONE: _ClassVar[OrderingLevel]
     ORDERING_LEVEL_PARTIAL: _ClassVar[OrderingLevel]
     ORDERING_LEVEL_TOTAL: _ClassVar[OrderingLevel]
+
 ORDERING_LEVEL_UNSPECIFIED: OrderingLevel
 ORDERING_LEVEL_NONE: OrderingLevel
 ORDERING_LEVEL_PARTIAL: OrderingLevel

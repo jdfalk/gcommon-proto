@@ -12,7 +12,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UnsubscribeResponse(_message.Message):
-    __slots__ = ("success", "subscription_name", "unsubscribed_at", "lost_messages", "warnings")
+    __slots__ = (
+        "success",
+        "subscription_name",
+        "unsubscribed_at",
+        "lost_messages",
+        "warnings",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_NAME_FIELD_NUMBER: _ClassVar[int]
     UNSUBSCRIBED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -23,4 +29,13 @@ class UnsubscribeResponse(_message.Message):
     unsubscribed_at: _timestamp_pb2.Timestamp
     lost_messages: int
     warnings: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., subscription_name: _Optional[str] = ..., unsubscribed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., lost_messages: _Optional[int] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        subscription_name: _Optional[str] = ...,
+        unsubscribed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        lost_messages: _Optional[int] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

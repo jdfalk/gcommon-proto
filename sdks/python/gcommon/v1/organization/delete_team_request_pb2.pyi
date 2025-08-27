@@ -16,4 +16,11 @@ class DeleteTeamRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     team_id: str
     force: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., team_id: _Optional[str] = ..., force: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        team_id: _Optional[str] = ...,
+        force: _Optional[bool] = ...,
+    ) -> None: ...

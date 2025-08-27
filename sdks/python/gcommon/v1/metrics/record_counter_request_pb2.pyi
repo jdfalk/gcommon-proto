@@ -17,7 +17,10 @@ class RecordCounterRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +35,15 @@ class RecordCounterRequest(_message.Message):
     unit: str
     sample_rate: float
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, name: _Optional[str] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ..., help: _Optional[str] = ..., unit: _Optional[str] = ..., sample_rate: _Optional[float] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        value: _Optional[float] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        help: _Optional[str] = ...,
+        unit: _Optional[str] = ...,
+        sample_rate: _Optional[float] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

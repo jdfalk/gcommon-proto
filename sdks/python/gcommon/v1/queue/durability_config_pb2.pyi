@@ -13,7 +13,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DurabilityConfig(_message.Message):
-    __slots__ = ("persistent", "flush_policy", "replication_factor", "ack_level", "durability_timeout", "write_ahead_log", "sync_interval", "verify_checksums")
+    __slots__ = (
+        "persistent",
+        "flush_policy",
+        "replication_factor",
+        "ack_level",
+        "durability_timeout",
+        "write_ahead_log",
+        "sync_interval",
+        "verify_checksums",
+    )
     PERSISTENT_FIELD_NUMBER: _ClassVar[int]
     FLUSH_POLICY_FIELD_NUMBER: _ClassVar[int]
     REPLICATION_FACTOR_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +39,18 @@ class DurabilityConfig(_message.Message):
     write_ahead_log: bool
     sync_interval: _duration_pb2.Duration
     verify_checksums: bool
-    def __init__(self, persistent: _Optional[bool] = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., replication_factor: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., durability_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., write_ahead_log: _Optional[bool] = ..., sync_interval: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., verify_checksums: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        persistent: _Optional[bool] = ...,
+        flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ...,
+        replication_factor: _Optional[int] = ...,
+        ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ...,
+        durability_timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        write_ahead_log: _Optional[bool] = ...,
+        sync_interval: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        verify_checksums: _Optional[bool] = ...,
+    ) -> None: ...

@@ -14,7 +14,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthAuthenticateRequest(_message.Message):
-    __slots__ = ("metadata", "password", "api_key", "oauth2", "jwt", "scopes", "client_info")
+    __slots__ = (
+        "metadata",
+        "password",
+        "api_key",
+        "oauth2",
+        "jwt",
+        "scopes",
+        "client_info",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     API_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +37,21 @@ class AuthAuthenticateRequest(_message.Message):
     jwt: _jwt_credentials_pb2.JWTCredentials
     scopes: _containers.RepeatedScalarFieldContainer[str]
     client_info: _client_info_pb2.ClientInfo
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., password: _Optional[_Union[_password_credentials_pb2.PasswordCredentials, _Mapping]] = ..., api_key: _Optional[_Union[_api_key_credentials_pb2.APIKeyCredentials, _Mapping]] = ..., oauth2: _Optional[_Union[_o_auth2_credentials_pb2.OAuth2Credentials, _Mapping]] = ..., jwt: _Optional[_Union[_jwt_credentials_pb2.JWTCredentials, _Mapping]] = ..., scopes: _Optional[_Iterable[str]] = ..., client_info: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        password: _Optional[
+            _Union[_password_credentials_pb2.PasswordCredentials, _Mapping]
+        ] = ...,
+        api_key: _Optional[
+            _Union[_api_key_credentials_pb2.APIKeyCredentials, _Mapping]
+        ] = ...,
+        oauth2: _Optional[
+            _Union[_o_auth2_credentials_pb2.OAuth2Credentials, _Mapping]
+        ] = ...,
+        jwt: _Optional[_Union[_jwt_credentials_pb2.JWTCredentials, _Mapping]] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+        client_info: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ...,
+    ) -> None: ...

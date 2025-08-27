@@ -17,7 +17,10 @@ class RoutingRule(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     PRIORITY_FIELD_NUMBER: _ClassVar[int]
     CONDITION_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +33,14 @@ class RoutingRule(_message.Message):
     destination: str
     enabled: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., priority: _Optional[int] = ..., condition: _Optional[_Union[_routing_condition_pb2.RoutingCondition, _Mapping]] = ..., destination: _Optional[str] = ..., enabled: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        priority: _Optional[int] = ...,
+        condition: _Optional[
+            _Union[_routing_condition_pb2.RoutingCondition, _Mapping]
+        ] = ...,
+        destination: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ApiKeyStats(_message.Message):
-    __slots__ = ("total_requests", "successful_requests", "failed_requests", "last_used_at")
+    __slots__ = (
+        "total_requests",
+        "successful_requests",
+        "failed_requests",
+        "last_used_at",
+    )
     TOTAL_REQUESTS_FIELD_NUMBER: _ClassVar[int]
     SUCCESSFUL_REQUESTS_FIELD_NUMBER: _ClassVar[int]
     FAILED_REQUESTS_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class ApiKeyStats(_message.Message):
     successful_requests: int
     failed_requests: int
     last_used_at: int
-    def __init__(self, total_requests: _Optional[int] = ..., successful_requests: _Optional[int] = ..., failed_requests: _Optional[int] = ..., last_used_at: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        total_requests: _Optional[int] = ...,
+        successful_requests: _Optional[int] = ...,
+        failed_requests: _Optional[int] = ...,
+        last_used_at: _Optional[int] = ...,
+    ) -> None: ...

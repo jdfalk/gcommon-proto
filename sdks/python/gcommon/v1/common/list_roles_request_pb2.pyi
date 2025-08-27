@@ -20,4 +20,12 @@ class ListRolesRequest(_message.Message):
     filter: _filter_options_pb2.FilterOptions
     sort: _sort_options_pb2.SortOptions
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., filter: _Optional[_Union[_filter_options_pb2.FilterOptions, _Mapping]] = ..., sort: _Optional[_Union[_sort_options_pb2.SortOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
+        filter: _Optional[_Union[_filter_options_pb2.FilterOptions, _Mapping]] = ...,
+        sort: _Optional[_Union[_sort_options_pb2.SortOptions, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

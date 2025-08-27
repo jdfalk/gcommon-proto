@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SchemaValidation(_message.Message):
-    __slots__ = ("passed", "backup_schema_version", "current_schema_version", "compatibility_status")
+    __slots__ = (
+        "passed",
+        "backup_schema_version",
+        "current_schema_version",
+        "compatibility_status",
+    )
     PASSED_FIELD_NUMBER: _ClassVar[int]
     BACKUP_SCHEMA_VERSION_FIELD_NUMBER: _ClassVar[int]
     CURRENT_SCHEMA_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class SchemaValidation(_message.Message):
     backup_schema_version: str
     current_schema_version: str
     compatibility_status: str
-    def __init__(self, passed: _Optional[bool] = ..., backup_schema_version: _Optional[str] = ..., current_schema_version: _Optional[str] = ..., compatibility_status: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        passed: _Optional[bool] = ...,
+        backup_schema_version: _Optional[str] = ...,
+        current_schema_version: _Optional[str] = ...,
+        compatibility_status: _Optional[str] = ...,
+    ) -> None: ...

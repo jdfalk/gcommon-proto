@@ -7,7 +7,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListMessagesRequest(_message.Message):
-    __slots__ = ("topic", "partition_id", "start_offset", "limit", "include_headers", "include_metadata", "status_filter", "timeout_ms")
+    __slots__ = (
+        "topic",
+        "partition_id",
+        "start_offset",
+        "limit",
+        "include_headers",
+        "include_metadata",
+        "status_filter",
+        "timeout_ms",
+    )
     TOPIC_FIELD_NUMBER: _ClassVar[int]
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     START_OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +33,14 @@ class ListMessagesRequest(_message.Message):
     include_metadata: bool
     status_filter: str
     timeout_ms: int
-    def __init__(self, topic: _Optional[str] = ..., partition_id: _Optional[int] = ..., start_offset: _Optional[int] = ..., limit: _Optional[int] = ..., include_headers: _Optional[bool] = ..., include_metadata: _Optional[bool] = ..., status_filter: _Optional[str] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        topic: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        start_offset: _Optional[int] = ...,
+        limit: _Optional[int] = ...,
+        include_headers: _Optional[bool] = ...,
+        include_metadata: _Optional[bool] = ...,
+        status_filter: _Optional[str] = ...,
+        timeout_ms: _Optional[int] = ...,
+    ) -> None: ...

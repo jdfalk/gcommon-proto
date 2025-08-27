@@ -4,39 +4,55 @@
 # source: gcommon/v1/common/metrics_config_change.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/common/metrics_config_change.proto'
+    "",
+    "gcommon/v1/common/metrics_config_change.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import change_type_pb2 as gcommon_dot_v1_dot_common_dot_change__type__pb2
+from gcommon.v1.common import (
+    change_type_pb2 as gcommon_dot_v1_dot_common_dot_change__type__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/metrics_config_change.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/change_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe5\x01\n\x13MetricsConfigChange\x12\x45\n\x0b\x63hange_type\x18\x01 \x01(\x0e\x32$.gcommon.v1.common.MetricsChangeTypeR\nchangeType\x12!\n\x0csetting_path\x18\x02 \x01(\tR\x0bsettingPath\x12\x1b\n\told_value\x18\x03 \x01(\tR\x08oldValue\x12\x1b\n\tnew_value\x18\x04 \x01(\tR\x08newValue\x12*\n\x0b\x64\x65scription\x18\x05 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scriptionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n-gcommon/v1/common/metrics_config_change.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/change_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xe5\x01\n\x13MetricsConfigChange\x12\x45\n\x0b\x63hange_type\x18\x01 \x01(\x0e\x32$.gcommon.v1.common.MetricsChangeTypeR\nchangeType\x12!\n\x0csetting_path\x18\x02 \x01(\tR\x0bsettingPath\x12\x1b\n\told_value\x18\x03 \x01(\tR\x08oldValue\x12\x1b\n\tnew_value\x18\x04 \x01(\tR\x08newValue\x12*\n\x0b\x64\x65scription\x18\x05 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scriptionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.metrics_config_change_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.common.metrics_config_change_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
-  _globals['_METRICSCONFIGCHANGE'].fields_by_name['description']._loaded_options = None
-  _globals['_METRICSCONFIGCHANGE'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
-  _globals['_METRICSCONFIGCHANGE']._serialized_start=170
-  _globals['_METRICSCONFIGCHANGE']._serialized_end=399
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
+    )
+    _globals["_METRICSCONFIGCHANGE"].fields_by_name[
+        "description"
+    ]._loaded_options = None
+    _globals["_METRICSCONFIGCHANGE"].fields_by_name[
+        "description"
+    ]._serialized_options = b"\272H\005r\003\030\350\007"
+    _globals["_METRICSCONFIGCHANGE"]._serialized_start = 170
+    _globals["_METRICSCONFIGCHANGE"]._serialized_end = 399
 # @@protoc_insertion_point(module_scope)

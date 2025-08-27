@@ -21,4 +21,14 @@ class RateLimitInfo(_message.Message):
     limit: int
     reset_time: _timestamp_pb2.Timestamp
     retry_after: _duration_pb2.Duration
-    def __init__(self, remaining: _Optional[int] = ..., limit: _Optional[int] = ..., reset_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., retry_after: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        remaining: _Optional[int] = ...,
+        limit: _Optional[int] = ...,
+        reset_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        retry_after: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

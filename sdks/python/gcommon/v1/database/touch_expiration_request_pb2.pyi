@@ -21,4 +21,14 @@ class TouchExpirationRequest(_message.Message):
     ttl: _duration_pb2.Duration
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, key: _Optional[str] = ..., ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        ttl: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

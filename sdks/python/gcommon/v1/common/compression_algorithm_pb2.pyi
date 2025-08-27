@@ -14,6 +14,7 @@ class CompressionAlgorithm(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPRESSION_ALGORITHM_SNAPPY: _ClassVar[CompressionAlgorithm]
     COMPRESSION_ALGORITHM_ZSTD: _ClassVar[CompressionAlgorithm]
     COMPRESSION_ALGORITHM_BROTLI: _ClassVar[CompressionAlgorithm]
+
 COMPRESSION_ALGORITHM_UNSPECIFIED: CompressionAlgorithm
 COMPRESSION_ALGORITHM_NONE: CompressionAlgorithm
 COMPRESSION_ALGORITHM_GZIP: CompressionAlgorithm

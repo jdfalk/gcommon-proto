@@ -13,6 +13,7 @@ class FlushPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FLUSH_POLICY_TIMED: _ClassVar[FlushPolicy]
     FLUSH_POLICY_BUFFER_FULL: _ClassVar[FlushPolicy]
     FLUSH_POLICY_MANUAL: _ClassVar[FlushPolicy]
+
 FLUSH_POLICY_UNSPECIFIED: FlushPolicy
 FLUSH_POLICY_IMMEDIATE: FlushPolicy
 FLUSH_POLICY_BATCH: FlushPolicy

@@ -14,4 +14,12 @@ class SetMetricMetadataRequest(_message.Message):
     REQUEST_META_FIELD_NUMBER: _ClassVar[int]
     metadata: _metric_metadata_pb2.MetricMetadata
     request_meta: _request_metadata_pb2.RequestMetadata
-    def __init__(self, metadata: _Optional[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]] = ..., request_meta: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_metric_metadata_pb2.MetricMetadata, _Mapping]
+        ] = ...,
+        request_meta: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

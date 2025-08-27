@@ -14,6 +14,7 @@ class AppenderType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     APPENDER_TYPE_SYSLOG: _ClassVar[AppenderType]
     APPENDER_TYPE_NETWORK: _ClassVar[AppenderType]
     APPENDER_TYPE_DATABASE: _ClassVar[AppenderType]
+
 APPENDER_TYPE_UNSPECIFIED: AppenderType
 APPENDER_TYPE_CONSOLE: AppenderType
 APPENDER_TYPE_FILE: AppenderType

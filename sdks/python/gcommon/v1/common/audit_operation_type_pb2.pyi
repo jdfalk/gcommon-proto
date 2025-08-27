@@ -21,6 +21,7 @@ class AuditOperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AUDIT_OPERATION_TYPE_ROLLBACK: _ClassVar[AuditOperationType]
     AUDIT_OPERATION_TYPE_VALIDATE: _ClassVar[AuditOperationType]
     AUDIT_OPERATION_TYPE_SYNC: _ClassVar[AuditOperationType]
+
 AUDIT_OPERATION_TYPE_UNSPECIFIED: AuditOperationType
 AUDIT_OPERATION_TYPE_CREATE: AuditOperationType
 AUDIT_OPERATION_TYPE_UPDATE: AuditOperationType

@@ -12,7 +12,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SeekRequest(_message.Message):
-    __slots__ = ("queue_name", "subscription_name", "timestamp", "offset", "beginning", "end", "message_id", "metadata")
+    __slots__ = (
+        "queue_name",
+        "subscription_name",
+        "timestamp",
+        "offset",
+        "beginning",
+        "end",
+        "message_id",
+        "metadata",
+    )
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_NAME_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +38,18 @@ class SeekRequest(_message.Message):
     end: bool
     message_id: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, queue_name: _Optional[str] = ..., subscription_name: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., offset: _Optional[int] = ..., beginning: _Optional[bool] = ..., end: _Optional[bool] = ..., message_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        subscription_name: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        offset: _Optional[int] = ...,
+        beginning: _Optional[bool] = ...,
+        end: _Optional[bool] = ...,
+        message_id: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

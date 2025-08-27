@@ -4,18 +4,20 @@
 # source: gcommon/v1/database/cache_metrics.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/database/cache_metrics.proto'
+    "",
+    "gcommon/v1/database/cache_metrics.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,32 +30,62 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/database/cache_metrics.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb4\x06\n\x0c\x43\x61\x63heMetrics\x12\x34\n\x0eops_per_second\x18\x01 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0copsPerSecond\x12\x38\n\x10reads_per_second\x18\x02 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0ereadsPerSecond\x12:\n\x11writes_per_second\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0fwritesPerSecond\x12\x45\n\x11\x61vg_response_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0f\x61vgResponseTime\x12\x45\n\x11p95_response_time\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0fp95ResponseTime\x12\x45\n\x11p99_response_time\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0fp99ResponseTime\x12\x34\n\x11total_connections\x18\x07 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x10totalConnections\x12\x36\n\x12\x61\x63tive_connections\x18\x08 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x11\x61\x63tiveConnections\x12\x31\n\x10network_bytes_in\x18\t \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0enetworkBytesIn\x12\x33\n\x11network_bytes_out\x18\n \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0fnetworkBytesOut\x12\x43\n\x11\x63pu_usage_percent\x18\x0b \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x0f\x63puUsagePercent\x12I\n\x14memory_usage_percent\x18\x0c \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x12memoryUsagePercent\x12=\n\x0c\x63ollected_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63ollectedAtB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\'gcommon/v1/database/cache_metrics.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xb4\x06\n\x0c\x43\x61\x63heMetrics\x12\x34\n\x0eops_per_second\x18\x01 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0copsPerSecond\x12\x38\n\x10reads_per_second\x18\x02 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0ereadsPerSecond\x12:\n\x11writes_per_second\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0fwritesPerSecond\x12\x45\n\x11\x61vg_response_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0f\x61vgResponseTime\x12\x45\n\x11p95_response_time\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0fp95ResponseTime\x12\x45\n\x11p99_response_time\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0fp99ResponseTime\x12\x34\n\x11total_connections\x18\x07 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x10totalConnections\x12\x36\n\x12\x61\x63tive_connections\x18\x08 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x11\x61\x63tiveConnections\x12\x31\n\x10network_bytes_in\x18\t \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0enetworkBytesIn\x12\x33\n\x11network_bytes_out\x18\n \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0fnetworkBytesOut\x12\x43\n\x11\x63pu_usage_percent\x18\x0b \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x0f\x63puUsagePercent\x12I\n\x14memory_usage_percent\x18\x0c \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x12memoryUsagePercent\x12=\n\x0c\x63ollected_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63ollectedAtB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.cache_metrics_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.database.cache_metrics_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
-  _globals['_CACHEMETRICS'].fields_by_name['ops_per_second']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['ops_per_second']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_CACHEMETRICS'].fields_by_name['reads_per_second']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['reads_per_second']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_CACHEMETRICS'].fields_by_name['writes_per_second']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['writes_per_second']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_CACHEMETRICS'].fields_by_name['total_connections']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['total_connections']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_CACHEMETRICS'].fields_by_name['active_connections']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['active_connections']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_CACHEMETRICS'].fields_by_name['network_bytes_in']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['network_bytes_in']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_CACHEMETRICS'].fields_by_name['network_bytes_out']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['network_bytes_out']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_CACHEMETRICS'].fields_by_name['cpu_usage_percent']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['cpu_usage_percent']._serialized_options = b'\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000'
-  _globals['_CACHEMETRICS'].fields_by_name['memory_usage_percent']._loaded_options = None
-  _globals['_CACHEMETRICS'].fields_by_name['memory_usage_percent']._serialized_options = b'\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000'
-  _globals['_CACHEMETRICS']._serialized_start=194
-  _globals['_CACHEMETRICS']._serialized_end=1014
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
+    )
+    _globals["_CACHEMETRICS"].fields_by_name["ops_per_second"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "ops_per_second"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_CACHEMETRICS"].fields_by_name["reads_per_second"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "reads_per_second"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_CACHEMETRICS"].fields_by_name["writes_per_second"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "writes_per_second"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_CACHEMETRICS"].fields_by_name["total_connections"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "total_connections"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "active_connections"
+    ]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "active_connections"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_CACHEMETRICS"].fields_by_name["network_bytes_in"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "network_bytes_in"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_CACHEMETRICS"].fields_by_name["network_bytes_out"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "network_bytes_out"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_CACHEMETRICS"].fields_by_name["cpu_usage_percent"]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "cpu_usage_percent"
+    ]._serialized_options = b"\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000"
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "memory_usage_percent"
+    ]._loaded_options = None
+    _globals["_CACHEMETRICS"].fields_by_name[
+        "memory_usage_percent"
+    ]._serialized_options = b"\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000"
+    _globals["_CACHEMETRICS"]._serialized_start = 194
+    _globals["_CACHEMETRICS"]._serialized_end = 1014
 # @@protoc_insertion_point(module_scope)

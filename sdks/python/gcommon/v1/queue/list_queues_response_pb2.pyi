@@ -18,4 +18,11 @@ class ListQueuesResponse(_message.Message):
     queues: _containers.RepeatedCompositeFieldContainer[_queue_info_pb2.QueueInfo]
     next_page_token: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, queues: _Optional[_Iterable[_Union[_queue_info_pb2.QueueInfo, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queues: _Optional[_Iterable[_Union[_queue_info_pb2.QueueInfo, _Mapping]]] = ...,
+        next_page_token: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

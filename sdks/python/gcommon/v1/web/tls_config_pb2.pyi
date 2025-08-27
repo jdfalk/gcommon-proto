@@ -9,7 +9,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WebTLSConfig(_message.Message):
-    __slots__ = ("cert_file", "key_file", "ca_file", "min_version", "max_version", "cipher_suites", "require_client_cert", "verify_client_cert", "server_name")
+    __slots__ = (
+        "cert_file",
+        "key_file",
+        "ca_file",
+        "min_version",
+        "max_version",
+        "cipher_suites",
+        "require_client_cert",
+        "verify_client_cert",
+        "server_name",
+    )
     CERT_FILE_FIELD_NUMBER: _ClassVar[int]
     KEY_FILE_FIELD_NUMBER: _ClassVar[int]
     CA_FILE_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +38,15 @@ class WebTLSConfig(_message.Message):
     require_client_cert: bool
     verify_client_cert: bool
     server_name: str
-    def __init__(self, cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., min_version: _Optional[str] = ..., max_version: _Optional[str] = ..., cipher_suites: _Optional[_Iterable[str]] = ..., require_client_cert: _Optional[bool] = ..., verify_client_cert: _Optional[bool] = ..., server_name: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        cert_file: _Optional[str] = ...,
+        key_file: _Optional[str] = ...,
+        ca_file: _Optional[str] = ...,
+        min_version: _Optional[str] = ...,
+        max_version: _Optional[str] = ...,
+        cipher_suites: _Optional[_Iterable[str]] = ...,
+        require_client_cert: _Optional[bool] = ...,
+        verify_client_cert: _Optional[bool] = ...,
+        server_name: _Optional[str] = ...,
+    ) -> None: ...

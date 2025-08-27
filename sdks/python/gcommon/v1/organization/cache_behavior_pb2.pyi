@@ -10,7 +10,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheBehavior(_message.Message):
-    __slots__ = ("path_pattern", "ttl_seconds", "compress", "allowed_methods", "cache_key")
+    __slots__ = (
+        "path_pattern",
+        "ttl_seconds",
+        "compress",
+        "allowed_methods",
+        "cache_key",
+    )
     PATH_PATTERN_FIELD_NUMBER: _ClassVar[int]
     TTL_SECONDS_FIELD_NUMBER: _ClassVar[int]
     COMPRESS_FIELD_NUMBER: _ClassVar[int]
@@ -21,4 +27,13 @@ class CacheBehavior(_message.Message):
     compress: bool
     allowed_methods: _containers.RepeatedScalarFieldContainer[str]
     cache_key: _cache_key_policy_pb2.CacheKeyPolicy
-    def __init__(self, path_pattern: _Optional[str] = ..., ttl_seconds: _Optional[int] = ..., compress: _Optional[bool] = ..., allowed_methods: _Optional[_Iterable[str]] = ..., cache_key: _Optional[_Union[_cache_key_policy_pb2.CacheKeyPolicy, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        path_pattern: _Optional[str] = ...,
+        ttl_seconds: _Optional[int] = ...,
+        compress: _Optional[bool] = ...,
+        allowed_methods: _Optional[_Iterable[str]] = ...,
+        cache_key: _Optional[
+            _Union[_cache_key_policy_pb2.CacheKeyPolicy, _Mapping]
+        ] = ...,
+    ) -> None: ...

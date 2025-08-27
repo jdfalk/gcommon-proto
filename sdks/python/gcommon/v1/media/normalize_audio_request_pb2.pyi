@@ -13,7 +13,11 @@ class NormalizeAudioRequest(_message.Message):
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
     audio_file_id: str
     options: NormalizationOptions
-    def __init__(self, audio_file_id: _Optional[str] = ..., options: _Optional[_Union[NormalizationOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        audio_file_id: _Optional[str] = ...,
+        options: _Optional[_Union[NormalizationOptions, _Mapping]] = ...,
+    ) -> None: ...
 
 class NormalizationOptions(_message.Message):
     __slots__ = ("target_lufs", "max_peak_db", "enable_limiter")
@@ -23,4 +27,9 @@ class NormalizationOptions(_message.Message):
     target_lufs: float
     max_peak_db: float
     enable_limiter: bool
-    def __init__(self, target_lufs: _Optional[float] = ..., max_peak_db: _Optional[float] = ..., enable_limiter: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        target_lufs: _Optional[float] = ...,
+        max_peak_db: _Optional[float] = ...,
+        enable_limiter: _Optional[bool] = ...,
+    ) -> None: ...

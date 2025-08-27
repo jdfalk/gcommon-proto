@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeleteUserRequest(_message.Message):
-    __slots__ = ("user_id", "soft_delete", "reason", "transfer_to_user_id", "revoke_sessions")
+    __slots__ = (
+        "user_id",
+        "soft_delete",
+        "reason",
+        "transfer_to_user_id",
+        "revoke_sessions",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     SOFT_DELETE_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class DeleteUserRequest(_message.Message):
     reason: str
     transfer_to_user_id: str
     revoke_sessions: bool
-    def __init__(self, user_id: _Optional[str] = ..., soft_delete: _Optional[bool] = ..., reason: _Optional[str] = ..., transfer_to_user_id: _Optional[str] = ..., revoke_sessions: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        soft_delete: _Optional[bool] = ...,
+        reason: _Optional[str] = ...,
+        transfer_to_user_id: _Optional[str] = ...,
+        revoke_sessions: _Optional[bool] = ...,
+    ) -> None: ...

@@ -18,4 +18,12 @@ class GenerateAPIKeyRequest(_message.Message):
     name: str
     expires_in: int
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., expires_in: _Optional[int] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        expires_in: _Optional[int] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

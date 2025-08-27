@@ -20,4 +20,11 @@ class RegistrationValidation(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     schema_version: str
     suggestions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, valid: _Optional[bool] = ..., errors: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ..., schema_version: _Optional[str] = ..., suggestions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        valid: _Optional[bool] = ...,
+        errors: _Optional[_Iterable[str]] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        schema_version: _Optional[str] = ...,
+        suggestions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

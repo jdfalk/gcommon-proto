@@ -13,14 +13,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigDiff(_message.Message):
-    __slots__ = ("diff_id", "source_version", "target_version", "added", "modified", "removed", "computed_at", "requested_by", "metadata")
+    __slots__ = (
+        "diff_id",
+        "source_version",
+        "target_version",
+        "added",
+        "modified",
+        "removed",
+        "computed_at",
+        "requested_by",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     DIFF_ID_FIELD_NUMBER: _ClassVar[int]
     SOURCE_VERSION_FIELD_NUMBER: _ClassVar[int]
     TARGET_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -33,10 +46,35 @@ class ConfigDiff(_message.Message):
     diff_id: str
     source_version: str
     target_version: str
-    added: _containers.RepeatedCompositeFieldContainer[_config_diff_entry_pb2.ConfigDiffEntry]
-    modified: _containers.RepeatedCompositeFieldContainer[_config_diff_entry_pb2.ConfigDiffEntry]
-    removed: _containers.RepeatedCompositeFieldContainer[_config_diff_entry_pb2.ConfigDiffEntry]
+    added: _containers.RepeatedCompositeFieldContainer[
+        _config_diff_entry_pb2.ConfigDiffEntry
+    ]
+    modified: _containers.RepeatedCompositeFieldContainer[
+        _config_diff_entry_pb2.ConfigDiffEntry
+    ]
+    removed: _containers.RepeatedCompositeFieldContainer[
+        _config_diff_entry_pb2.ConfigDiffEntry
+    ]
     computed_at: _timestamp_pb2.Timestamp
     requested_by: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, diff_id: _Optional[str] = ..., source_version: _Optional[str] = ..., target_version: _Optional[str] = ..., added: _Optional[_Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]] = ..., modified: _Optional[_Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]] = ..., removed: _Optional[_Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]] = ..., computed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., requested_by: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        diff_id: _Optional[str] = ...,
+        source_version: _Optional[str] = ...,
+        target_version: _Optional[str] = ...,
+        added: _Optional[
+            _Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]
+        ] = ...,
+        modified: _Optional[
+            _Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]
+        ] = ...,
+        removed: _Optional[
+            _Iterable[_Union[_config_diff_entry_pb2.ConfigDiffEntry, _Mapping]]
+        ] = ...,
+        computed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        requested_by: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

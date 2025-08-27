@@ -18,4 +18,11 @@ class ErrorDataPoint(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     error_count: int
     error_rate: float
-    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error_count: _Optional[int] = ..., error_rate: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        error_count: _Optional[int] = ...,
+        error_rate: _Optional[float] = ...,
+    ) -> None: ...

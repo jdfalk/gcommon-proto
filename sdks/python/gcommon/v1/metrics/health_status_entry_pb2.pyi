@@ -18,4 +18,11 @@ class HealthStatusEntry(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     health_status: str
     status_message: str
-    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., health_status: _Optional[str] = ..., status_message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        health_status: _Optional[str] = ...,
+        status_message: _Optional[str] = ...,
+    ) -> None: ...

@@ -1,7 +1,11 @@
 import datetime
 
-from gcommon.v1.common import secret_validation_result_type_pb2 as _secret_validation_result_type_pb2
-from gcommon.v1.common import secret_validation_severity_pb2 as _secret_validation_severity_pb2
+from gcommon.v1.common import (
+    secret_validation_result_type_pb2 as _secret_validation_result_type_pb2,
+)
+from gcommon.v1.common import (
+    secret_validation_severity_pb2 as _secret_validation_severity_pb2,
+)
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -21,7 +25,10 @@ class SecretValidationResult(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     RESULT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -34,4 +41,18 @@ class SecretValidationResult(_message.Message):
     severity: _secret_validation_severity_pb2.SecretValidationSeverity
     timestamp: _timestamp_pb2.Timestamp
     details: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., result: _Optional[_Union[_secret_validation_result_type_pb2.SecretValidationResultType, str]] = ..., message: _Optional[str] = ..., severity: _Optional[_Union[_secret_validation_severity_pb2.SecretValidationSeverity, str]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., details: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        result: _Optional[
+            _Union[_secret_validation_result_type_pb2.SecretValidationResultType, str]
+        ] = ...,
+        message: _Optional[str] = ...,
+        severity: _Optional[
+            _Union[_secret_validation_severity_pb2.SecretValidationSeverity, str]
+        ] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        details: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

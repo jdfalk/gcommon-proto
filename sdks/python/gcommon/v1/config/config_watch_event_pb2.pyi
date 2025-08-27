@@ -13,14 +13,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigWatchEvent(_message.Message):
-    __slots__ = ("watch_id", "key", "old_value", "new_value", "change_type", "timestamp", "namespace", "metadata")
+    __slots__ = (
+        "watch_id",
+        "key",
+        "old_value",
+        "new_value",
+        "change_type",
+        "timestamp",
+        "namespace",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     WATCH_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
     OLD_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -37,4 +49,16 @@ class ConfigWatchEvent(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     namespace: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, watch_id: _Optional[str] = ..., key: _Optional[str] = ..., old_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., new_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., change_type: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        watch_id: _Optional[str] = ...,
+        key: _Optional[str] = ...,
+        old_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        new_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        change_type: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -16,7 +16,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RecordMetricsResponse(_message.Message):
-    __slots__ = ("success", "success_count", "failure_count", "total_count", "error", "results", "completed_at", "provider_id", "stats", "warnings", "validation_summary")
+    __slots__ = (
+        "success",
+        "success_count",
+        "failure_count",
+        "total_count",
+        "error",
+        "results",
+        "completed_at",
+        "provider_id",
+        "stats",
+        "warnings",
+        "validation_summary",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_COUNT_FIELD_NUMBER: _ClassVar[int]
     FAILURE_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -33,10 +45,31 @@ class RecordMetricsResponse(_message.Message):
     failure_count: int
     total_count: int
     error: _error_pb2.Error
-    results: _containers.RepeatedCompositeFieldContainer[_metric_result_pb2.MetricResult]
+    results: _containers.RepeatedCompositeFieldContainer[
+        _metric_result_pb2.MetricResult
+    ]
     completed_at: _timestamp_pb2.Timestamp
     provider_id: str
     stats: _batch_stats_pb2.MetricsBatchStats
     warnings: _containers.RepeatedScalarFieldContainer[str]
     validation_summary: _validation_summary_pb2.ValidationSummary
-    def __init__(self, success: _Optional[bool] = ..., success_count: _Optional[int] = ..., failure_count: _Optional[int] = ..., total_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., results: _Optional[_Iterable[_Union[_metric_result_pb2.MetricResult, _Mapping]]] = ..., completed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., provider_id: _Optional[str] = ..., stats: _Optional[_Union[_batch_stats_pb2.MetricsBatchStats, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., validation_summary: _Optional[_Union[_validation_summary_pb2.ValidationSummary, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        success_count: _Optional[int] = ...,
+        failure_count: _Optional[int] = ...,
+        total_count: _Optional[int] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        results: _Optional[
+            _Iterable[_Union[_metric_result_pb2.MetricResult, _Mapping]]
+        ] = ...,
+        completed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        provider_id: _Optional[str] = ...,
+        stats: _Optional[_Union[_batch_stats_pb2.MetricsBatchStats, _Mapping]] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        validation_summary: _Optional[
+            _Union[_validation_summary_pb2.ValidationSummary, _Mapping]
+        ] = ...,
+    ) -> None: ...

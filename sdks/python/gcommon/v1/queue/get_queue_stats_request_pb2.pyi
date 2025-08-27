@@ -17,4 +17,13 @@ class GetQueueStatsRequest(_message.Message):
     queue_name: str
     time_range: _time_range_metrics_pb2.TimeRangeMetrics
     granularity: _stats_granularity_pb2.StatsGranularity
-    def __init__(self, queue_name: _Optional[str] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., granularity: _Optional[_Union[_stats_granularity_pb2.StatsGranularity, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        granularity: _Optional[
+            _Union[_stats_granularity_pb2.StatsGranularity, str]
+        ] = ...,
+    ) -> None: ...

@@ -16,10 +16,20 @@ class ExtractSubtitlesRequest(_message.Message):
     media_file_id: str
     track_indices: _containers.RepeatedScalarFieldContainer[int]
     options: SubtitleExtractionOptions
-    def __init__(self, media_file_id: _Optional[str] = ..., track_indices: _Optional[_Iterable[int]] = ..., options: _Optional[_Union[SubtitleExtractionOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        media_file_id: _Optional[str] = ...,
+        track_indices: _Optional[_Iterable[int]] = ...,
+        options: _Optional[_Union[SubtitleExtractionOptions, _Mapping]] = ...,
+    ) -> None: ...
 
 class SubtitleExtractionOptions(_message.Message):
-    __slots__ = ("output_format", "include_hearing_impaired", "include_forced", "languages")
+    __slots__ = (
+        "output_format",
+        "include_hearing_impaired",
+        "include_forced",
+        "languages",
+    )
     OUTPUT_FORMAT_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_HEARING_IMPAIRED_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_FORCED_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +38,10 @@ class SubtitleExtractionOptions(_message.Message):
     include_hearing_impaired: bool
     include_forced: bool
     languages: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, output_format: _Optional[str] = ..., include_hearing_impaired: _Optional[bool] = ..., include_forced: _Optional[bool] = ..., languages: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        output_format: _Optional[str] = ...,
+        include_hearing_impaired: _Optional[bool] = ...,
+        include_forced: _Optional[bool] = ...,
+        languages: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

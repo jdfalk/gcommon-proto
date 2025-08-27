@@ -23,4 +23,13 @@ class ProviderStatus(_message.Message):
     health: str
     last_updated: _timestamp_pb2.Timestamp
     version: str
-    def __init__(self, state: _Optional[_Union[_provider_state_pb2.ProviderState, str]] = ..., message: _Optional[str] = ..., health: _Optional[str] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        state: _Optional[_Union[_provider_state_pb2.ProviderState, str]] = ...,
+        message: _Optional[str] = ...,
+        health: _Optional[str] = ...,
+        last_updated: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        version: _Optional[str] = ...,
+    ) -> None: ...

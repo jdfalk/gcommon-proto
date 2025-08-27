@@ -11,6 +11,7 @@ class HandlerType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HANDLER_TYPE_HTTP: _ClassVar[HandlerType]
     HANDLER_TYPE_GRPC: _ClassVar[HandlerType]
     HANDLER_TYPE_WEBSOCKET: _ClassVar[HandlerType]
+
 HANDLER_TYPE_UNSPECIFIED: HandlerType
 HANDLER_TYPE_HTTP: HandlerType
 HANDLER_TYPE_GRPC: HandlerType

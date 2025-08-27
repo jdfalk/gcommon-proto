@@ -12,14 +12,23 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OriginalQueueInfo(_message.Message):
-    __slots__ = ("queue_id", "queue_name", "partition_count", "config_snapshot", "backup_point")
+    __slots__ = (
+        "queue_id",
+        "queue_name",
+        "partition_count",
+        "config_snapshot",
+        "backup_point",
+    )
     class ConfigSnapshotEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     QUEUE_ID_FIELD_NUMBER: _ClassVar[int]
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     PARTITION_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +39,13 @@ class OriginalQueueInfo(_message.Message):
     partition_count: int
     config_snapshot: _containers.ScalarMap[str, str]
     backup_point: _timestamp_pb2.Timestamp
-    def __init__(self, queue_id: _Optional[str] = ..., queue_name: _Optional[str] = ..., partition_count: _Optional[int] = ..., config_snapshot: _Optional[_Mapping[str, str]] = ..., backup_point: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_id: _Optional[str] = ...,
+        queue_name: _Optional[str] = ...,
+        partition_count: _Optional[int] = ...,
+        config_snapshot: _Optional[_Mapping[str, str]] = ...,
+        backup_point: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

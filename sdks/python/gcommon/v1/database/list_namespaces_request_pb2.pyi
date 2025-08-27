@@ -16,4 +16,10 @@ class ListNamespacesRequest(_message.Message):
     page_size: int
     name_filter: str
     include_stats: bool
-    def __init__(self, page: _Optional[int] = ..., page_size: _Optional[int] = ..., name_filter: _Optional[str] = ..., include_stats: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        page: _Optional[int] = ...,
+        page_size: _Optional[int] = ...,
+        name_filter: _Optional[str] = ...,
+        include_stats: _Optional[bool] = ...,
+    ) -> None: ...

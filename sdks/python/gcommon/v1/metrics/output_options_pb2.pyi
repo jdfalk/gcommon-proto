@@ -9,7 +9,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OutputOptions(_message.Message):
-    __slots__ = ("numeric_format", "include_timestamps", "include_labels", "compression", "flatten_response", "timezone")
+    __slots__ = (
+        "numeric_format",
+        "include_timestamps",
+        "include_labels",
+        "compression",
+        "flatten_response",
+        "timezone",
+    )
     NUMERIC_FORMAT_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_TIMESTAMPS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +29,14 @@ class OutputOptions(_message.Message):
     compression: _response_compression_pb2.ResponseCompression
     flatten_response: bool
     timezone: str
-    def __init__(self, numeric_format: _Optional[_Union[_numeric_format_pb2.NumericFormat, str]] = ..., include_timestamps: _Optional[bool] = ..., include_labels: _Optional[bool] = ..., compression: _Optional[_Union[_response_compression_pb2.ResponseCompression, str]] = ..., flatten_response: _Optional[bool] = ..., timezone: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        numeric_format: _Optional[_Union[_numeric_format_pb2.NumericFormat, str]] = ...,
+        include_timestamps: _Optional[bool] = ...,
+        include_labels: _Optional[bool] = ...,
+        compression: _Optional[
+            _Union[_response_compression_pb2.ResponseCompression, str]
+        ] = ...,
+        flatten_response: _Optional[bool] = ...,
+        timezone: _Optional[str] = ...,
+    ) -> None: ...

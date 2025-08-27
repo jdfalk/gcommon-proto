@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/get_provider_stats_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/get_provider_stats_response.proto'
+    "",
+    "gcommon/v1/metrics/get_provider_stats_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -23,25 +25,45 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
-from gcommon.v1.common import time_range_metrics_pb2 as gcommon_dot_v1_dot_common_dot_time__range__metrics__pb2
-from gcommon.v1.metrics import provider_statistics_pb2 as gcommon_dot_v1_dot_metrics_dot_provider__statistics__pb2
+from gcommon.v1.common import (
+    time_range_metrics_pb2 as gcommon_dot_v1_dot_common_dot_time__range__metrics__pb2,
+)
+from gcommon.v1.metrics import (
+    provider_statistics_pb2 as gcommon_dot_v1_dot_metrics_dot_provider__statistics__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/metrics/get_provider_stats_response.proto\x12\x12gcommon.v1.metrics\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/time_range_metrics.proto\x1a,gcommon/v1/metrics/provider_statistics.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xff\x02\n\x18GetProviderStatsResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12(\n\x0bprovider_id\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12\x46\n\nstatistics\x18\x04 \x01(\x0b\x32&.gcommon.v1.metrics.ProviderStatisticsR\nstatistics\x12=\n\x0cgenerated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bgeneratedAt\x12\x42\n\ntime_range\x18\x06 \x01(\x0b\x32#.gcommon.v1.common.TimeRangeMetricsR\ttimeRange\x12$\n\x08warnings\x18\x07 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08warningsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n4gcommon/v1/metrics/get_provider_stats_response.proto\x12\x12gcommon.v1.metrics\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/time_range_metrics.proto\x1a,gcommon/v1/metrics/provider_statistics.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xff\x02\n\x18GetProviderStatsResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12(\n\x0bprovider_id\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12\x46\n\nstatistics\x18\x04 \x01(\x0b\x32&.gcommon.v1.metrics.ProviderStatisticsR\nstatistics\x12=\n\x0cgenerated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bgeneratedAt\x12\x42\n\ntime_range\x18\x06 \x01(\x0b\x32#.gcommon.v1.common.TimeRangeMetricsR\ttimeRange\x12$\n\x08warnings\x18\x07 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08warningsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.get_provider_stats_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.get_provider_stats_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_GETPROVIDERSTATSRESPONSE'].fields_by_name['provider_id']._loaded_options = None
-  _globals['_GETPROVIDERSTATSRESPONSE'].fields_by_name['provider_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_GETPROVIDERSTATSRESPONSE'].fields_by_name['warnings']._loaded_options = None
-  _globals['_GETPROVIDERSTATSRESPONSE'].fields_by_name['warnings']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_GETPROVIDERSTATSRESPONSE']._serialized_start=295
-  _globals['_GETPROVIDERSTATSRESPONSE']._serialized_end=678
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_GETPROVIDERSTATSRESPONSE"].fields_by_name[
+        "provider_id"
+    ]._loaded_options = None
+    _globals["_GETPROVIDERSTATSRESPONSE"].fields_by_name[
+        "provider_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_GETPROVIDERSTATSRESPONSE"].fields_by_name[
+        "warnings"
+    ]._loaded_options = None
+    _globals["_GETPROVIDERSTATSRESPONSE"].fields_by_name[
+        "warnings"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_GETPROVIDERSTATSRESPONSE"]._serialized_start = 295
+    _globals["_GETPROVIDERSTATSRESPONSE"]._serialized_end = 678
 # @@protoc_insertion_point(module_scope)

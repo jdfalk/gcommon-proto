@@ -25,4 +25,15 @@ class CreateTopicResponse(_message.Message):
     created_at: _timestamp_pb2.Timestamp
     warnings: _containers.RepeatedScalarFieldContainer[str]
     applied_config: _topic_config_pb2.TopicConfig
-    def __init__(self, topic_info: _Optional[_Union[_topic_info_pb2.TopicInfo, _Mapping]] = ..., created: _Optional[bool] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., applied_config: _Optional[_Union[_topic_config_pb2.TopicConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        topic_info: _Optional[_Union[_topic_info_pb2.TopicInfo, _Mapping]] = ...,
+        created: _Optional[bool] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        applied_config: _Optional[
+            _Union[_topic_config_pb2.TopicConfig, _Mapping]
+        ] = ...,
+    ) -> None: ...

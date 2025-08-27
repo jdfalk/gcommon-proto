@@ -9,7 +9,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheGetStatsResponse(_message.Message):
-    __slots__ = ("total_items", "cache_hits", "cache_misses", "hit_ratio", "memory_usage", "memory_limit", "evicted_items", "success", "error")
+    __slots__ = (
+        "total_items",
+        "cache_hits",
+        "cache_misses",
+        "hit_ratio",
+        "memory_usage",
+        "memory_limit",
+        "evicted_items",
+        "success",
+        "error",
+    )
     TOTAL_ITEMS_FIELD_NUMBER: _ClassVar[int]
     CACHE_HITS_FIELD_NUMBER: _ClassVar[int]
     CACHE_MISSES_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +38,15 @@ class CacheGetStatsResponse(_message.Message):
     evicted_items: int
     success: bool
     error: _error_pb2.Error
-    def __init__(self, total_items: _Optional[int] = ..., cache_hits: _Optional[int] = ..., cache_misses: _Optional[int] = ..., hit_ratio: _Optional[float] = ..., memory_usage: _Optional[int] = ..., memory_limit: _Optional[int] = ..., evicted_items: _Optional[int] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        total_items: _Optional[int] = ...,
+        cache_hits: _Optional[int] = ...,
+        cache_misses: _Optional[int] = ...,
+        hit_ratio: _Optional[float] = ...,
+        memory_usage: _Optional[int] = ...,
+        memory_limit: _Optional[int] = ...,
+        evicted_items: _Optional[int] = ...,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

@@ -4,38 +4,54 @@
 # source: gcommon/v1/queue/conflict_detection.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/conflict_detection.proto'
+    "",
+    "gcommon/v1/queue/conflict_detection.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import conflict_strategy_pb2 as gcommon_dot_v1_dot_common_dot_conflict__strategy__pb2
-from gcommon.v1.queue import timestamp_config_pb2 as gcommon_dot_v1_dot_queue_dot_timestamp__config__pb2
-from gcommon.v1.queue import vector_clock_config_pb2 as gcommon_dot_v1_dot_queue_dot_vector__clock__config__pb2
+from gcommon.v1.common import (
+    conflict_strategy_pb2 as gcommon_dot_v1_dot_common_dot_conflict__strategy__pb2,
+)
+from gcommon.v1.queue import (
+    timestamp_config_pb2 as gcommon_dot_v1_dot_queue_dot_timestamp__config__pb2,
+)
+from gcommon.v1.queue import (
+    vector_clock_config_pb2 as gcommon_dot_v1_dot_queue_dot_vector__clock__config__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/queue/conflict_detection.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/conflict_strategy.proto\x1a\'gcommon/v1/queue/timestamp_config.proto\x1a*gcommon/v1/queue/vector_clock_config.proto\x1a!google/protobuf/go_features.proto\"\x84\x02\n\x11\x43onflictDetection\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12?\n\x08strategy\x18\x02 \x01(\x0e\x32#.gcommon.v1.common.ConflictStrategyR\x08strategy\x12\x46\n\x0cvector_clock\x18\x03 \x01(\x0b\x32#.gcommon.v1.queue.VectorClockConfigR\x0bvectorClock\x12L\n\x10timestamp_config\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.TimestampConfigR\x0ftimestampConfigB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n)gcommon/v1/queue/conflict_detection.proto\x12\x10gcommon.v1.queue\x1a)gcommon/v1/common/conflict_strategy.proto\x1a'gcommon/v1/queue/timestamp_config.proto\x1a*gcommon/v1/queue/vector_clock_config.proto\x1a!google/protobuf/go_features.proto\"\x84\x02\n\x11\x43onflictDetection\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12?\n\x08strategy\x18\x02 \x01(\x0e\x32#.gcommon.v1.common.ConflictStrategyR\x08strategy\x12\x46\n\x0cvector_clock\x18\x03 \x01(\x0b\x32#.gcommon.v1.queue.VectorClockConfigR\x0bvectorClock\x12L\n\x10timestamp_config\x18\x04 \x01(\x0b\x32!.gcommon.v1.queue.TimestampConfigR\x0ftimestampConfigB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.conflict_detection_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.conflict_detection_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_CONFLICTDETECTION']._serialized_start=227
-  _globals['_CONFLICTDETECTION']._serialized_end=487
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_CONFLICTDETECTION"]._serialized_start = 227
+    _globals["_CONFLICTDETECTION"]._serialized_end = 487
 # @@protoc_insertion_point(module_scope)

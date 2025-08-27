@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MergeOptions(_message.Message):
-    __slots__ = ("output_format", "preserve_formatting", "conflict_resolution", "sort_by_timestamp")
+    __slots__ = (
+        "output_format",
+        "preserve_formatting",
+        "conflict_resolution",
+        "sort_by_timestamp",
+    )
     OUTPUT_FORMAT_FIELD_NUMBER: _ClassVar[int]
     PRESERVE_FORMATTING_FIELD_NUMBER: _ClassVar[int]
     CONFLICT_RESOLUTION_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,12 @@ class MergeOptions(_message.Message):
     preserve_formatting: bool
     conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     sort_by_timestamp: bool
-    def __init__(self, output_format: _Optional[str] = ..., preserve_formatting: _Optional[bool] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., sort_by_timestamp: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        output_format: _Optional[str] = ...,
+        preserve_formatting: _Optional[bool] = ...,
+        conflict_resolution: _Optional[
+            _Union[_conflict_resolution_pb2.ConflictResolution, str]
+        ] = ...,
+        sort_by_timestamp: _Optional[bool] = ...,
+    ) -> None: ...

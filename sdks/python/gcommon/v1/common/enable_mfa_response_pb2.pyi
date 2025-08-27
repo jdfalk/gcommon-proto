@@ -15,6 +15,15 @@ class EnableMfaResponse(_message.Message):
     SETUP_INSTRUCTIONS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     success: bool
-    setup_instructions: _containers.RepeatedCompositeFieldContainer[_mfa_setup_instruction_pb2.MfaSetupInstruction]
+    setup_instructions: _containers.RepeatedCompositeFieldContainer[
+        _mfa_setup_instruction_pb2.MfaSetupInstruction
+    ]
     error_message: str
-    def __init__(self, success: _Optional[bool] = ..., setup_instructions: _Optional[_Iterable[_Union[_mfa_setup_instruction_pb2.MfaSetupInstruction, _Mapping]]] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        setup_instructions: _Optional[
+            _Iterable[_Union[_mfa_setup_instruction_pb2.MfaSetupInstruction, _Mapping]]
+        ] = ...,
+        error_message: _Optional[str] = ...,
+    ) -> None: ...

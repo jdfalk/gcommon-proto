@@ -22,4 +22,13 @@ class UpdateTenantRequest(_message.Message):
     tenant: _tenant_pb2.Tenant
     update_mask: _field_mask_pb2.FieldMask
     validate_only: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tenant_id: _Optional[str] = ..., tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., validate_only: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        tenant_id: _Optional[str] = ...,
+        tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ...,
+        update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...,
+        validate_only: _Optional[bool] = ...,
+    ) -> None: ...

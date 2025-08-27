@@ -16,7 +16,10 @@ class ColumnMetadata(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     NULLABLE_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +32,12 @@ class ColumnMetadata(_message.Message):
     size: int
     scale: int
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., nullable: _Optional[bool] = ..., size: _Optional[int] = ..., scale: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        type: _Optional[str] = ...,
+        nullable: _Optional[bool] = ...,
+        size: _Optional[int] = ...,
+        scale: _Optional[int] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

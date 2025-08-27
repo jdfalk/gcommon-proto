@@ -17,11 +17,19 @@ class GetMultipleResponse(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bytes
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[bytes] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[bytes] = ...
+        ) -> None: ...
+
     VALUES_FIELD_NUMBER: _ClassVar[int]
     MISSING_KEYS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     values: _containers.ScalarMap[str, bytes]
     missing_keys: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
-    def __init__(self, values: _Optional[_Mapping[str, bytes]] = ..., missing_keys: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        values: _Optional[_Mapping[str, bytes]] = ...,
+        missing_keys: _Optional[_Iterable[str]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

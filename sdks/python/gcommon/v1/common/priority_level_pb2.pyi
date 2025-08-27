@@ -12,6 +12,7 @@ class PriorityLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_PRIORITY_LEVEL_MEDIUM: _ClassVar[PriorityLevel]
     QUEUE_PRIORITY_LEVEL_HIGH: _ClassVar[PriorityLevel]
     QUEUE_PRIORITY_LEVEL_CRITICAL: _ClassVar[PriorityLevel]
+
 QUEUE_PRIORITY_LEVEL_UNSPECIFIED: PriorityLevel
 QUEUE_PRIORITY_LEVEL_LOW: PriorityLevel
 QUEUE_PRIORITY_LEVEL_MEDIUM: PriorityLevel

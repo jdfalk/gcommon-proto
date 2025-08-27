@@ -4,18 +4,20 @@
 # source: gcommon/v1/common/assign_role_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/common/assign_role_response.proto'
+    "",
+    "gcommon/v1/common/assign_role_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,18 +28,34 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/common/assign_role_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x9b\x01\n\x12\x41ssignRoleResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\rerror_message\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65rrorMessage\x12=\n\x15\x65\x66\x66\x65\x63tive_permissions\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x14\x65\x66\x66\x65\x63tivePermissionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n,gcommon/v1/common/assign_role_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x9b\x01\n\x12\x41ssignRoleResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\rerror_message\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65rrorMessage\x12=\n\x15\x65\x66\x66\x65\x63tive_permissions\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x14\x65\x66\x66\x65\x63tivePermissionsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.assign_role_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.common.assign_role_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
-  _globals['_ASSIGNROLERESPONSE'].fields_by_name['error_message']._loaded_options = None
-  _globals['_ASSIGNROLERESPONSE'].fields_by_name['error_message']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_ASSIGNROLERESPONSE'].fields_by_name['effective_permissions']._loaded_options = None
-  _globals['_ASSIGNROLERESPONSE'].fields_by_name['effective_permissions']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_ASSIGNROLERESPONSE']._serialized_start=132
-  _globals['_ASSIGNROLERESPONSE']._serialized_end=287
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
+    )
+    _globals["_ASSIGNROLERESPONSE"].fields_by_name[
+        "error_message"
+    ]._loaded_options = None
+    _globals["_ASSIGNROLERESPONSE"].fields_by_name[
+        "error_message"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_ASSIGNROLERESPONSE"].fields_by_name[
+        "effective_permissions"
+    ]._loaded_options = None
+    _globals["_ASSIGNROLERESPONSE"].fields_by_name[
+        "effective_permissions"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_ASSIGNROLERESPONSE"]._serialized_start = 132
+    _globals["_ASSIGNROLERESPONSE"]._serialized_end = 287
 # @@protoc_insertion_point(module_scope)

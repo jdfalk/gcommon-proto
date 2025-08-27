@@ -16,4 +16,11 @@ class GetPartitionInfoResponse(_message.Message):
     partition_info: _partition_info_pb2.PartitionInfo
     success: bool
     error: str
-    def __init__(self, partition_info: _Optional[_Union[_partition_info_pb2.PartitionInfo, _Mapping]] = ..., success: _Optional[bool] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        partition_info: _Optional[
+            _Union[_partition_info_pb2.PartitionInfo, _Mapping]
+        ] = ...,
+        success: _Optional[bool] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

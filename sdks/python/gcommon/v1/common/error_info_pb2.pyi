@@ -16,7 +16,10 @@ class ErrorInfo(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     STACK_TRACE_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +32,12 @@ class ErrorInfo(_message.Message):
     code: str
     context: _containers.ScalarMap[str, str]
     causes: _containers.RepeatedCompositeFieldContainer[ErrorInfo]
-    def __init__(self, message: _Optional[str] = ..., type: _Optional[str] = ..., stack_trace: _Optional[str] = ..., code: _Optional[str] = ..., context: _Optional[_Mapping[str, str]] = ..., causes: _Optional[_Iterable[_Union[ErrorInfo, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        message: _Optional[str] = ...,
+        type: _Optional[str] = ...,
+        stack_trace: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        context: _Optional[_Mapping[str, str]] = ...,
+        causes: _Optional[_Iterable[_Union[ErrorInfo, _Mapping]]] = ...,
+    ) -> None: ...

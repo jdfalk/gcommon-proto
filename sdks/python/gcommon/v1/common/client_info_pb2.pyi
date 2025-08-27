@@ -18,4 +18,11 @@ class ClientInfo(_message.Message):
     ip_address: str
     user_agent: str
     platform: str
-    def __init__(self, name: _Optional[str] = ..., version: _Optional[str] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., platform: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        version: _Optional[str] = ...,
+        ip_address: _Optional[str] = ...,
+        user_agent: _Optional[str] = ...,
+        platform: _Optional[str] = ...,
+    ) -> None: ...

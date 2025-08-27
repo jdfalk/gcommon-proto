@@ -13,4 +13,10 @@ class UpdateMiddlewareConfigResponse(_message.Message):
     UPDATED_FIELD_NUMBER: _ClassVar[int]
     metadata: _response_metadata_pb2.ResponseMetadata
     updated: bool
-    def __init__(self, metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., updated: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+        updated: _Optional[bool] = ...,
+    ) -> None: ...

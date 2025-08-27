@@ -18,4 +18,10 @@ class OAuthAppConfig(_message.Message):
     client_id: str
     redirect_uris: _containers.RepeatedScalarFieldContainer[str]
     scopes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, name: _Optional[str] = ..., client_id: _Optional[str] = ..., redirect_uris: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        client_id: _Optional[str] = ...,
+        redirect_uris: _Optional[_Iterable[str]] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -17,4 +17,9 @@ class ListTopicsResponse(_message.Message):
     topics: _containers.RepeatedCompositeFieldContainer[_topic_info_pb2.TopicInfo]
     next_page_token: str
     total_count: int
-    def __init__(self, topics: _Optional[_Iterable[_Union[_topic_info_pb2.TopicInfo, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        topics: _Optional[_Iterable[_Union[_topic_info_pb2.TopicInfo, _Mapping]]] = ...,
+        next_page_token: _Optional[str] = ...,
+        total_count: _Optional[int] = ...,
+    ) -> None: ...

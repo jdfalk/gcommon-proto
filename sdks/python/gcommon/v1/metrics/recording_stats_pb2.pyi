@@ -16,4 +16,10 @@ class RecordingStats(_message.Message):
     retry_count: int
     buffered: bool
     persisted: bool
-    def __init__(self, processing_time_ms: _Optional[int] = ..., retry_count: _Optional[int] = ..., buffered: _Optional[bool] = ..., persisted: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        processing_time_ms: _Optional[int] = ...,
+        retry_count: _Optional[int] = ...,
+        buffered: _Optional[bool] = ...,
+        persisted: _Optional[bool] = ...,
+    ) -> None: ...

@@ -7,7 +7,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PerformanceMetrics(_message.Message):
-    __slots__ = ("memory_used_bytes", "memory_available_bytes", "cpu_usage_percent", "disk_used_bytes", "disk_available_bytes", "network_bytes_per_second", "active_connections", "max_connections")
+    __slots__ = (
+        "memory_used_bytes",
+        "memory_available_bytes",
+        "cpu_usage_percent",
+        "disk_used_bytes",
+        "disk_available_bytes",
+        "network_bytes_per_second",
+        "active_connections",
+        "max_connections",
+    )
     MEMORY_USED_BYTES_FIELD_NUMBER: _ClassVar[int]
     MEMORY_AVAILABLE_BYTES_FIELD_NUMBER: _ClassVar[int]
     CPU_USAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +33,14 @@ class PerformanceMetrics(_message.Message):
     network_bytes_per_second: float
     active_connections: int
     max_connections: int
-    def __init__(self, memory_used_bytes: _Optional[int] = ..., memory_available_bytes: _Optional[int] = ..., cpu_usage_percent: _Optional[float] = ..., disk_used_bytes: _Optional[int] = ..., disk_available_bytes: _Optional[int] = ..., network_bytes_per_second: _Optional[float] = ..., active_connections: _Optional[int] = ..., max_connections: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        memory_used_bytes: _Optional[int] = ...,
+        memory_available_bytes: _Optional[int] = ...,
+        cpu_usage_percent: _Optional[float] = ...,
+        disk_used_bytes: _Optional[int] = ...,
+        disk_available_bytes: _Optional[int] = ...,
+        network_bytes_per_second: _Optional[float] = ...,
+        active_connections: _Optional[int] = ...,
+        max_connections: _Optional[int] = ...,
+    ) -> None: ...

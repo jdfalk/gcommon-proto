@@ -20,4 +20,11 @@ class RefreshTokenResponse(_message.Message):
     token_type: str
     expires_in: int
     scopes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, access_token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., token_type: _Optional[str] = ..., expires_in: _Optional[int] = ..., scopes: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        access_token: _Optional[str] = ...,
+        refresh_token: _Optional[str] = ...,
+        token_type: _Optional[str] = ...,
+        expires_in: _Optional[int] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -24,5 +24,16 @@ class ResourceUsageStats(_message.Message):
     cpu: _cpu_usage_pb2.CPUUsage
     disk: _disk_usage_pb2.DiskUsage
     network: _network_usage_pb2.NetworkUsage
-    resource_timeseries: _containers.RepeatedCompositeFieldContainer[_resource_data_point_pb2.ResourceDataPoint]
-    def __init__(self, memory: _Optional[_Union[_memory_usage_pb2.MemoryUsage, _Mapping]] = ..., cpu: _Optional[_Union[_cpu_usage_pb2.CPUUsage, _Mapping]] = ..., disk: _Optional[_Union[_disk_usage_pb2.DiskUsage, _Mapping]] = ..., network: _Optional[_Union[_network_usage_pb2.NetworkUsage, _Mapping]] = ..., resource_timeseries: _Optional[_Iterable[_Union[_resource_data_point_pb2.ResourceDataPoint, _Mapping]]] = ...) -> None: ...
+    resource_timeseries: _containers.RepeatedCompositeFieldContainer[
+        _resource_data_point_pb2.ResourceDataPoint
+    ]
+    def __init__(
+        self,
+        memory: _Optional[_Union[_memory_usage_pb2.MemoryUsage, _Mapping]] = ...,
+        cpu: _Optional[_Union[_cpu_usage_pb2.CPUUsage, _Mapping]] = ...,
+        disk: _Optional[_Union[_disk_usage_pb2.DiskUsage, _Mapping]] = ...,
+        network: _Optional[_Union[_network_usage_pb2.NetworkUsage, _Mapping]] = ...,
+        resource_timeseries: _Optional[
+            _Iterable[_Union[_resource_data_point_pb2.ResourceDataPoint, _Mapping]]
+        ] = ...,
+    ) -> None: ...

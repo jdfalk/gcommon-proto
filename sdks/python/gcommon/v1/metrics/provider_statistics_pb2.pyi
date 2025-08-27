@@ -19,7 +19,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProviderStatistics(_message.Message):
-    __slots__ = ("provider_info", "performance", "resource_usage", "errors", "data_volume", "exports", "health_history", "config", "top_metrics", "trends")
+    __slots__ = (
+        "provider_info",
+        "performance",
+        "resource_usage",
+        "errors",
+        "data_volume",
+        "exports",
+        "health_history",
+        "config",
+        "top_metrics",
+        "trends",
+    )
     PROVIDER_INFO_FIELD_NUMBER: _ClassVar[int]
     PERFORMANCE_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_USAGE_FIELD_NUMBER: _ClassVar[int]
@@ -36,8 +47,36 @@ class ProviderStatistics(_message.Message):
     errors: _metrics_error_stats_pb2.MetricsErrorStats
     data_volume: _data_volume_stats_pb2.DataVolumeStats
     exports: _export_stats_pb2.ExportStats
-    health_history: _containers.RepeatedCompositeFieldContainer[_health_status_entry_pb2.HealthStatusEntry]
+    health_history: _containers.RepeatedCompositeFieldContainer[
+        _health_status_entry_pb2.HealthStatusEntry
+    ]
     config: _configuration_summary_pb2.ConfigurationSummary
     top_metrics: _top_metrics_pb2.TopMetrics
     trends: _trend_analysis_pb2.TrendAnalysis
-    def __init__(self, provider_info: _Optional[_Union[_provider_info_pb2.ProviderInfo, _Mapping]] = ..., performance: _Optional[_Union[_performance_stats_pb2.MetricsPerformanceStats, _Mapping]] = ..., resource_usage: _Optional[_Union[_resource_usage_stats_pb2.ResourceUsageStats, _Mapping]] = ..., errors: _Optional[_Union[_metrics_error_stats_pb2.MetricsErrorStats, _Mapping]] = ..., data_volume: _Optional[_Union[_data_volume_stats_pb2.DataVolumeStats, _Mapping]] = ..., exports: _Optional[_Union[_export_stats_pb2.ExportStats, _Mapping]] = ..., health_history: _Optional[_Iterable[_Union[_health_status_entry_pb2.HealthStatusEntry, _Mapping]]] = ..., config: _Optional[_Union[_configuration_summary_pb2.ConfigurationSummary, _Mapping]] = ..., top_metrics: _Optional[_Union[_top_metrics_pb2.TopMetrics, _Mapping]] = ..., trends: _Optional[_Union[_trend_analysis_pb2.TrendAnalysis, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        provider_info: _Optional[
+            _Union[_provider_info_pb2.ProviderInfo, _Mapping]
+        ] = ...,
+        performance: _Optional[
+            _Union[_performance_stats_pb2.MetricsPerformanceStats, _Mapping]
+        ] = ...,
+        resource_usage: _Optional[
+            _Union[_resource_usage_stats_pb2.ResourceUsageStats, _Mapping]
+        ] = ...,
+        errors: _Optional[
+            _Union[_metrics_error_stats_pb2.MetricsErrorStats, _Mapping]
+        ] = ...,
+        data_volume: _Optional[
+            _Union[_data_volume_stats_pb2.DataVolumeStats, _Mapping]
+        ] = ...,
+        exports: _Optional[_Union[_export_stats_pb2.ExportStats, _Mapping]] = ...,
+        health_history: _Optional[
+            _Iterable[_Union[_health_status_entry_pb2.HealthStatusEntry, _Mapping]]
+        ] = ...,
+        config: _Optional[
+            _Union[_configuration_summary_pb2.ConfigurationSummary, _Mapping]
+        ] = ...,
+        top_metrics: _Optional[_Union[_top_metrics_pb2.TopMetrics, _Mapping]] = ...,
+        trends: _Optional[_Union[_trend_analysis_pb2.TrendAnalysis, _Mapping]] = ...,
+    ) -> None: ...

@@ -14,4 +14,9 @@ class CPUUsage(_message.Message):
     current_percent: float
     avg_percent: float
     peak_percent: float
-    def __init__(self, current_percent: _Optional[float] = ..., avg_percent: _Optional[float] = ..., peak_percent: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        current_percent: _Optional[float] = ...,
+        avg_percent: _Optional[float] = ...,
+        peak_percent: _Optional[float] = ...,
+    ) -> None: ...

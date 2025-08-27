@@ -18,4 +18,13 @@ class SetAlertingRulesRequest(_message.Message):
     metric_id: str
     rules: _containers.RepeatedCompositeFieldContainer[_alerting_rule_pb2.AlertingRule]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, metric_id: _Optional[str] = ..., rules: _Optional[_Iterable[_Union[_alerting_rule_pb2.AlertingRule, _Mapping]]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metric_id: _Optional[str] = ...,
+        rules: _Optional[
+            _Iterable[_Union[_alerting_rule_pb2.AlertingRule, _Mapping]]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -13,6 +13,7 @@ class DurabilityLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DURABILITY_LEVEL_DISK_SYNC: _ClassVar[DurabilityLevel]
     DURABILITY_LEVEL_DISK_ASYNC: _ClassVar[DurabilityLevel]
     DURABILITY_LEVEL_REPLICATED: _ClassVar[DurabilityLevel]
+
 DURABILITY_LEVEL_UNSPECIFIED: DurabilityLevel
 DURABILITY_LEVEL_NONE: DurabilityLevel
 DURABILITY_LEVEL_MEMORY: DurabilityLevel

@@ -16,4 +16,9 @@ class DecrementResponse(_message.Message):
     new_value: int
     success: bool
     error: _error_pb2.Error
-    def __init__(self, new_value: _Optional[int] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        new_value: _Optional[int] = ...,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

@@ -4,43 +4,65 @@
 # source: gcommon/v1/organization/list_organizations_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/list_organizations_request.proto'
+    "",
+    "gcommon/v1/organization/list_organizations_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
+from gcommon.v1.common import (
+    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8gcommon/v1/organization/list_organizations_request.proto\x12\x17gcommon.v1.organization\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xcc\x01\n\x18ListOrganizationsRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\'\n\tpage_size\x18\x02 \x01(\x05\x42\n\xbaH\x07\x1a\x05\x18\x96\x01(\x00R\x08pageSize\x12&\n\npage_token\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tpageToken\x12\x1f\n\x06\x66ilter\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ilterB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n8gcommon/v1/organization/list_organizations_request.proto\x12\x17gcommon.v1.organization\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xcc\x01\n\x18ListOrganizationsRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataR\x08metadata\x12\'\n\tpage_size\x18\x02 \x01(\x05\x42\n\xbaH\x07\x1a\x05\x18\x96\x01(\x00R\x08pageSize\x12&\n\npage_token\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tpageToken\x12\x1f\n\x06\x66ilter\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ilterB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.list_organizations_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.list_organizations_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['page_size']._loaded_options = None
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['page_size']._serialized_options = b'\272H\007\032\005\030\226\001(\000'
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['page_token']._loaded_options = None
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['page_token']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['filter']._loaded_options = None
-  _globals['_LISTORGANIZATIONSREQUEST'].fields_by_name['filter']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_LISTORGANIZATIONSREQUEST']._serialized_start=192
-  _globals['_LISTORGANIZATIONSREQUEST']._serialized_end=396
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "page_size"
+    ]._loaded_options = None
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "page_size"
+    ]._serialized_options = b"\272H\007\032\005\030\226\001(\000"
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "page_token"
+    ]._loaded_options = None
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "page_token"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "filter"
+    ]._loaded_options = None
+    _globals["_LISTORGANIZATIONSREQUEST"].fields_by_name[
+        "filter"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_LISTORGANIZATIONSREQUEST"]._serialized_start = 192
+    _globals["_LISTORGANIZATIONSREQUEST"]._serialized_end = 396
 # @@protoc_insertion_point(module_scope)

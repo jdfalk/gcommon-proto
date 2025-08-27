@@ -16,7 +16,16 @@ class ListMiddlewareResponse(_message.Message):
     MIDDLEWARE_FIELD_NUMBER: _ClassVar[int]
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
-    middleware: _containers.RepeatedCompositeFieldContainer[_middleware_info_pb2.MiddlewareInfo]
+    middleware: _containers.RepeatedCompositeFieldContainer[
+        _middleware_info_pb2.MiddlewareInfo
+    ]
     pagination: _pagination_pb2.Pagination
     error: _error_pb2.Error
-    def __init__(self, middleware: _Optional[_Iterable[_Union[_middleware_info_pb2.MiddlewareInfo, _Mapping]]] = ..., pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        middleware: _Optional[
+            _Iterable[_Union[_middleware_info_pb2.MiddlewareInfo, _Mapping]]
+        ] = ...,
+        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

@@ -14,7 +14,11 @@ class UploadMediaRequest(_message.Message):
     CHUNK_FIELD_NUMBER: _ClassVar[int]
     metadata: UploadMetadata
     chunk: bytes
-    def __init__(self, metadata: _Optional[_Union[UploadMetadata, _Mapping]] = ..., chunk: _Optional[bytes] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[_Union[UploadMetadata, _Mapping]] = ...,
+        chunk: _Optional[bytes] = ...,
+    ) -> None: ...
 
 class UploadMetadata(_message.Message):
     __slots__ = ("filename", "content_type", "total_size", "media_metadata")
@@ -26,4 +30,12 @@ class UploadMetadata(_message.Message):
     content_type: str
     total_size: int
     media_metadata: _media_metadata_pb2.MediaMetadata
-    def __init__(self, filename: _Optional[str] = ..., content_type: _Optional[str] = ..., total_size: _Optional[int] = ..., media_metadata: _Optional[_Union[_media_metadata_pb2.MediaMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        filename: _Optional[str] = ...,
+        content_type: _Optional[str] = ...,
+        total_size: _Optional[int] = ...,
+        media_metadata: _Optional[
+            _Union[_media_metadata_pb2.MediaMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

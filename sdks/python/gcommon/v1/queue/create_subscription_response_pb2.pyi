@@ -7,7 +7,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateSubscriptionResponse(_message.Message):
-    __slots__ = ("success", "error_message", "subscription_id", "subscription_name", "created_at", "initial_position")
+    __slots__ = (
+        "success",
+        "error_message",
+        "subscription_id",
+        "subscription_name",
+        "created_at",
+        "initial_position",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +27,12 @@ class CreateSubscriptionResponse(_message.Message):
     subscription_name: str
     created_at: int
     initial_position: int
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., subscription_id: _Optional[str] = ..., subscription_name: _Optional[str] = ..., created_at: _Optional[int] = ..., initial_position: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        subscription_id: _Optional[str] = ...,
+        subscription_name: _Optional[str] = ...,
+        created_at: _Optional[int] = ...,
+        initial_position: _Optional[int] = ...,
+    ) -> None: ...

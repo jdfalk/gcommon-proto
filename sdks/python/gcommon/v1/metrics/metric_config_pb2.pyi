@@ -13,14 +13,28 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricConfig(_message.Message):
-    __slots__ = ("name", "metric_type", "enabled", "collection_interval", "retention_period", "default_labels", "description", "unit", "sampling_rate", "export_config")
+    __slots__ = (
+        "name",
+        "metric_type",
+        "enabled",
+        "collection_interval",
+        "retention_period",
+        "default_labels",
+        "description",
+        "unit",
+        "sampling_rate",
+        "export_config",
+    )
     class DefaultLabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
@@ -41,4 +55,22 @@ class MetricConfig(_message.Message):
     unit: str
     sampling_rate: float
     export_config: _export_config_pb2.ExportConfig
-    def __init__(self, name: _Optional[str] = ..., metric_type: _Optional[str] = ..., enabled: _Optional[bool] = ..., collection_interval: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., retention_period: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., default_labels: _Optional[_Mapping[str, str]] = ..., description: _Optional[str] = ..., unit: _Optional[str] = ..., sampling_rate: _Optional[float] = ..., export_config: _Optional[_Union[_export_config_pb2.ExportConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        metric_type: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        collection_interval: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        retention_period: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        default_labels: _Optional[_Mapping[str, str]] = ...,
+        description: _Optional[str] = ...,
+        unit: _Optional[str] = ...,
+        sampling_rate: _Optional[float] = ...,
+        export_config: _Optional[
+            _Union[_export_config_pb2.ExportConfig, _Mapping]
+        ] = ...,
+    ) -> None: ...

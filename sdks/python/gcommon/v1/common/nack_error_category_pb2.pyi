@@ -14,6 +14,7 @@ class NackErrorCategory(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NACK_ERROR_CATEGORY_NETWORK: _ClassVar[NackErrorCategory]
     NACK_ERROR_CATEGORY_AUTH: _ClassVar[NackErrorCategory]
     NACK_ERROR_CATEGORY_RATE_LIMIT: _ClassVar[NackErrorCategory]
+
 NACK_ERROR_CATEGORY_UNSPECIFIED: NackErrorCategory
 NACK_ERROR_CATEGORY_TEMPORARY: NackErrorCategory
 NACK_ERROR_CATEGORY_PERMANENT: NackErrorCategory

@@ -16,4 +16,11 @@ class CreateTenantRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     tenant: _tenant_pb2.Tenant
     validate_only: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ..., validate_only: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ...,
+        validate_only: _Optional[bool] = ...,
+    ) -> None: ...

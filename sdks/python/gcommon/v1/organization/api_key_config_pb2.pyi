@@ -21,4 +21,12 @@ class OrganizationAPIKeyConfig(_message.Message):
     masked_key: str
     scopes: _containers.RepeatedScalarFieldContainer[str]
     expires_at: _timestamp_pb2.Timestamp
-    def __init__(self, name: _Optional[str] = ..., masked_key: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        masked_key: _Optional[str] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

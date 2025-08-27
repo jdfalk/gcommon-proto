@@ -18,10 +18,26 @@ class ExtractSubtitlesResponse(_message.Message):
     status: str
     extracted_subtitles: _containers.RepeatedCompositeFieldContainer[ExtractedSubtitle]
     error_message: str
-    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., extracted_subtitles: _Optional[_Iterable[_Union[ExtractedSubtitle, _Mapping]]] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        job_id: _Optional[str] = ...,
+        status: _Optional[str] = ...,
+        extracted_subtitles: _Optional[
+            _Iterable[_Union[ExtractedSubtitle, _Mapping]]
+        ] = ...,
+        error_message: _Optional[str] = ...,
+    ) -> None: ...
 
 class ExtractedSubtitle(_message.Message):
-    __slots__ = ("file_id", "track_index", "language", "title", "forced", "hearing_impaired", "format")
+    __slots__ = (
+        "file_id",
+        "track_index",
+        "language",
+        "title",
+        "forced",
+        "hearing_impaired",
+        "format",
+    )
     FILE_ID_FIELD_NUMBER: _ClassVar[int]
     TRACK_INDEX_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +52,13 @@ class ExtractedSubtitle(_message.Message):
     forced: bool
     hearing_impaired: bool
     format: str
-    def __init__(self, file_id: _Optional[str] = ..., track_index: _Optional[int] = ..., language: _Optional[str] = ..., title: _Optional[str] = ..., forced: _Optional[bool] = ..., hearing_impaired: _Optional[bool] = ..., format: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        file_id: _Optional[str] = ...,
+        track_index: _Optional[int] = ...,
+        language: _Optional[str] = ...,
+        title: _Optional[str] = ...,
+        forced: _Optional[bool] = ...,
+        hearing_impaired: _Optional[bool] = ...,
+        format: _Optional[str] = ...,
+    ) -> None: ...

@@ -20,6 +20,7 @@ class TimeWindow(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_WINDOW_1_MONTH: _ClassVar[TimeWindow]
     TIME_WINDOW_1_YEAR: _ClassVar[TimeWindow]
     TIME_WINDOW_CUSTOM: _ClassVar[TimeWindow]
+
 TIME_WINDOW_UNSPECIFIED: TimeWindow
 TIME_WINDOW_1_MINUTE: TimeWindow
 TIME_WINDOW_5_MINUTES: TimeWindow

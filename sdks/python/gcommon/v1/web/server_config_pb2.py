@@ -4,18 +4,15 @@
 # source: gcommon/v1/web/server_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    32,
-    0,
-    '',
-    'gcommon/v1/web/server_config.proto'
+    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/web/server_config.proto"
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,28 +23,46 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/web/server_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf7\x02\n\x0cServerConfig\x12\x1b\n\x04host\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04host\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x1d\n\nenable_tls\x18\x03 \x01(\x08R\tenableTls\x12+\n\rtls_cert_path\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0btlsCertPath\x12)\n\x0ctls_key_path\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ntlsKeyPath\x12\x31\n\x0ftrusted_proxies\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0etrustedProxies\x12\x43\n\x07options\x18\x07 \x03(\x0b\x32).gcommon.v1.web.ServerConfig.OptionsEntryR\x07options\x1a:\n\x0cOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n"gcommon/v1/web/server_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf7\x02\n\x0cServerConfig\x12\x1b\n\x04host\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04host\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x1d\n\nenable_tls\x18\x03 \x01(\x08R\tenableTls\x12+\n\rtls_cert_path\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0btlsCertPath\x12)\n\x0ctls_key_path\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ntlsKeyPath\x12\x31\n\x0ftrusted_proxies\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0etrustedProxies\x12\x43\n\x07options\x18\x07 \x03(\x0b\x32).gcommon.v1.web.ServerConfig.OptionsEntryR\x07options\x1a:\n\x0cOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x32Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.server_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.web.server_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
-  _globals['_SERVERCONFIG_OPTIONSENTRY']._loaded_options = None
-  _globals['_SERVERCONFIG_OPTIONSENTRY']._serialized_options = b'8\001'
-  _globals['_SERVERCONFIG'].fields_by_name['host']._loaded_options = None
-  _globals['_SERVERCONFIG'].fields_by_name['host']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_SERVERCONFIG'].fields_by_name['port']._loaded_options = None
-  _globals['_SERVERCONFIG'].fields_by_name['port']._serialized_options = b'\272H\010\032\006\030\377\377\003(\001'
-  _globals['_SERVERCONFIG'].fields_by_name['tls_cert_path']._loaded_options = None
-  _globals['_SERVERCONFIG'].fields_by_name['tls_cert_path']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_SERVERCONFIG'].fields_by_name['tls_key_path']._loaded_options = None
-  _globals['_SERVERCONFIG'].fields_by_name['tls_key_path']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_SERVERCONFIG'].fields_by_name['trusted_proxies']._loaded_options = None
-  _globals['_SERVERCONFIG'].fields_by_name['trusted_proxies']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_SERVERCONFIG']._serialized_start=119
-  _globals['_SERVERCONFIG']._serialized_end=494
-  _globals['_SERVERCONFIG_OPTIONSENTRY']._serialized_start=436
-  _globals['_SERVERCONFIG_OPTIONSENTRY']._serialized_end=494
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003"
+    )
+    _globals["_SERVERCONFIG_OPTIONSENTRY"]._loaded_options = None
+    _globals["_SERVERCONFIG_OPTIONSENTRY"]._serialized_options = b"8\001"
+    _globals["_SERVERCONFIG"].fields_by_name["host"]._loaded_options = None
+    _globals["_SERVERCONFIG"].fields_by_name[
+        "host"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_SERVERCONFIG"].fields_by_name["port"]._loaded_options = None
+    _globals["_SERVERCONFIG"].fields_by_name[
+        "port"
+    ]._serialized_options = b"\272H\010\032\006\030\377\377\003(\001"
+    _globals["_SERVERCONFIG"].fields_by_name["tls_cert_path"]._loaded_options = None
+    _globals["_SERVERCONFIG"].fields_by_name[
+        "tls_cert_path"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_SERVERCONFIG"].fields_by_name["tls_key_path"]._loaded_options = None
+    _globals["_SERVERCONFIG"].fields_by_name[
+        "tls_key_path"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_SERVERCONFIG"].fields_by_name["trusted_proxies"]._loaded_options = None
+    _globals["_SERVERCONFIG"].fields_by_name[
+        "trusted_proxies"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_SERVERCONFIG"]._serialized_start = 119
+    _globals["_SERVERCONFIG"]._serialized_end = 494
+    _globals["_SERVERCONFIG_OPTIONSENTRY"]._serialized_start = 436
+    _globals["_SERVERCONFIG_OPTIONSENTRY"]._serialized_end = 494
 # @@protoc_insertion_point(module_scope)

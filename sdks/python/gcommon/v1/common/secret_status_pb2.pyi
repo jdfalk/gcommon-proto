@@ -15,6 +15,7 @@ class SecretStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SECRET_STATUS_COMPROMISED: _ClassVar[SecretStatus]
     SECRET_STATUS_DELETED: _ClassVar[SecretStatus]
     SECRET_STATUS_ERROR: _ClassVar[SecretStatus]
+
 SECRET_STATUS_UNSPECIFIED: SecretStatus
 SECRET_STATUS_ACTIVE: SecretStatus
 SECRET_STATUS_INACTIVE: SecretStatus

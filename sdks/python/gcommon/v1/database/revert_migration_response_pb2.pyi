@@ -16,4 +16,9 @@ class RevertMigrationResponse(_message.Message):
     success: bool
     reverted_to: str
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., reverted_to: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        reverted_to: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

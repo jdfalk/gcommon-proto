@@ -22,4 +22,13 @@ class SeriesInfo(_message.Message):
     series_name: str
     episode_title: str
     air_date: _timestamp_pb2.Timestamp
-    def __init__(self, season: _Optional[int] = ..., episode: _Optional[int] = ..., series_name: _Optional[str] = ..., episode_title: _Optional[str] = ..., air_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        season: _Optional[int] = ...,
+        episode: _Optional[int] = ...,
+        series_name: _Optional[str] = ...,
+        episode_title: _Optional[str] = ...,
+        air_date: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

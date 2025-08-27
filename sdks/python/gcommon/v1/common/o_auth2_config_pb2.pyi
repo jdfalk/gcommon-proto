@@ -11,14 +11,30 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OAuth2Config(_message.Message):
-    __slots__ = ("provider_name", "client_id", "client_secret", "authorization_endpoint", "token_endpoint", "userinfo_endpoint", "redirect_uri", "scopes", "flow_type", "additional_params", "require_pkce", "jwt_config")
+    __slots__ = (
+        "provider_name",
+        "client_id",
+        "client_secret",
+        "authorization_endpoint",
+        "token_endpoint",
+        "userinfo_endpoint",
+        "redirect_uri",
+        "scopes",
+        "flow_type",
+        "additional_params",
+        "require_pkce",
+        "jwt_config",
+    )
     class AdditionalParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     PROVIDER_NAME_FIELD_NUMBER: _ClassVar[int]
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
@@ -43,4 +59,18 @@ class OAuth2Config(_message.Message):
     additional_params: _containers.ScalarMap[str, str]
     require_pkce: bool
     jwt_config: _jwt_config_pb2.JWTConfig
-    def __init__(self, provider_name: _Optional[str] = ..., client_id: _Optional[str] = ..., client_secret: _Optional[str] = ..., authorization_endpoint: _Optional[str] = ..., token_endpoint: _Optional[str] = ..., userinfo_endpoint: _Optional[str] = ..., redirect_uri: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., flow_type: _Optional[_Union[_oauth2_flow_type_pb2.OAuth2FlowType, str]] = ..., additional_params: _Optional[_Mapping[str, str]] = ..., require_pkce: _Optional[bool] = ..., jwt_config: _Optional[_Union[_jwt_config_pb2.JWTConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        provider_name: _Optional[str] = ...,
+        client_id: _Optional[str] = ...,
+        client_secret: _Optional[str] = ...,
+        authorization_endpoint: _Optional[str] = ...,
+        token_endpoint: _Optional[str] = ...,
+        userinfo_endpoint: _Optional[str] = ...,
+        redirect_uri: _Optional[str] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+        flow_type: _Optional[_Union[_oauth2_flow_type_pb2.OAuth2FlowType, str]] = ...,
+        additional_params: _Optional[_Mapping[str, str]] = ...,
+        require_pkce: _Optional[bool] = ...,
+        jwt_config: _Optional[_Union[_jwt_config_pb2.JWTConfig, _Mapping]] = ...,
+    ) -> None: ...

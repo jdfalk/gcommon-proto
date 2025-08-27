@@ -16,9 +16,20 @@ class ListMessagesResponse(_message.Message):
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     HAS_MORE_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
-    messages: _containers.RepeatedCompositeFieldContainer[_queue_message_pb2.QueueMessage]
+    messages: _containers.RepeatedCompositeFieldContainer[
+        _queue_message_pb2.QueueMessage
+    ]
     total_count: int
     next_page_token: str
     has_more: bool
     error: str
-    def __init__(self, messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., total_count: _Optional[int] = ..., next_page_token: _Optional[str] = ..., has_more: _Optional[bool] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        messages: _Optional[
+            _Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]
+        ] = ...,
+        total_count: _Optional[int] = ...,
+        next_page_token: _Optional[str] = ...,
+        has_more: _Optional[bool] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

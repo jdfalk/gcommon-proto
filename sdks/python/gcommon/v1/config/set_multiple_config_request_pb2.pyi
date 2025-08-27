@@ -18,14 +18,22 @@ class SetMultipleConfigRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: _config_value_pb2.ConfigValue
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_config_value_pb2.ConfigValue, _Mapping]] = ...) -> None: ...
+        def __init__(
+            self,
+            key: _Optional[str] = ...,
+            value: _Optional[_Union[_config_value_pb2.ConfigValue, _Mapping]] = ...,
+        ) -> None: ...
+
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENTRIES_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +44,13 @@ class SetMultipleConfigRequest(_message.Message):
     metadata: _containers.ScalarMap[str, str]
     encrypt: bool
     request_metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, entries: _Optional[_Mapping[str, _config_value_pb2.ConfigValue]] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., encrypt: _Optional[bool] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        entries: _Optional[_Mapping[str, _config_value_pb2.ConfigValue]] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+        encrypt: _Optional[bool] = ...,
+        request_metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

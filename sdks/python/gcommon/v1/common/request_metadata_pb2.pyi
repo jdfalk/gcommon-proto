@@ -13,14 +13,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RequestMetadata(_message.Message):
-    __slots__ = ("trace_id", "user_id", "correlation_id", "headers", "client", "timestamp", "session_id")
+    __slots__ = (
+        "trace_id",
+        "user_id",
+        "correlation_id",
+        "headers",
+        "client",
+        "timestamp",
+        "session_id",
+    )
     class HeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TRACE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     CORRELATION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -35,4 +46,15 @@ class RequestMetadata(_message.Message):
     client: _client_info_pb2.ClientInfo
     timestamp: _timestamp_pb2.Timestamp
     session_id: str
-    def __init__(self, trace_id: _Optional[str] = ..., user_id: _Optional[str] = ..., correlation_id: _Optional[str] = ..., headers: _Optional[_Mapping[str, str]] = ..., client: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., session_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        trace_id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        correlation_id: _Optional[str] = ...,
+        headers: _Optional[_Mapping[str, str]] = ...,
+        client: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        session_id: _Optional[str] = ...,
+    ) -> None: ...

@@ -17,7 +17,10 @@ class MiddlewareInfo(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ORDER_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +29,10 @@ class MiddlewareInfo(_message.Message):
     type: _middleware_type_pb2.MiddlewareType
     order: int
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, id: _Optional[str] = ..., type: _Optional[_Union[_middleware_type_pb2.MiddlewareType, str]] = ..., order: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        type: _Optional[_Union[_middleware_type_pb2.MiddlewareType, str]] = ...,
+        order: _Optional[int] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

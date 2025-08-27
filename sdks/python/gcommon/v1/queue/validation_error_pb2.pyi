@@ -18,4 +18,12 @@ class ValidationError(_message.Message):
     description: str
     partition_id: int
     affected_range: _offset_range_pb2.OffsetRange
-    def __init__(self, error_type: _Optional[str] = ..., description: _Optional[str] = ..., partition_id: _Optional[int] = ..., affected_range: _Optional[_Union[_offset_range_pb2.OffsetRange, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        error_type: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        affected_range: _Optional[
+            _Union[_offset_range_pb2.OffsetRange, _Mapping]
+        ] = ...,
+    ) -> None: ...

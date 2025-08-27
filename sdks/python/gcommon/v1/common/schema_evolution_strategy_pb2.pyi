@@ -13,6 +13,7 @@ class SchemaEvolutionStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     SCHEMA_EVOLUTION_STRATEGY_BACKWARD: _ClassVar[SchemaEvolutionStrategy]
     SCHEMA_EVOLUTION_STRATEGY_FULL: _ClassVar[SchemaEvolutionStrategy]
     SCHEMA_EVOLUTION_STRATEGY_NONE_CHECK: _ClassVar[SchemaEvolutionStrategy]
+
 SCHEMA_EVOLUTION_STRATEGY_UNSPECIFIED: SchemaEvolutionStrategy
 SCHEMA_EVOLUTION_STRATEGY_NONE: SchemaEvolutionStrategy
 SCHEMA_EVOLUTION_STRATEGY_FORWARD: SchemaEvolutionStrategy

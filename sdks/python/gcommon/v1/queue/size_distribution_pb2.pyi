@@ -10,7 +10,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SizeDistribution(_message.Message):
-    __slots__ = ("buckets", "min_size_bytes", "max_size_bytes", "average_size_bytes", "median_size_bytes")
+    __slots__ = (
+        "buckets",
+        "min_size_bytes",
+        "max_size_bytes",
+        "average_size_bytes",
+        "median_size_bytes",
+    )
     BUCKETS_FIELD_NUMBER: _ClassVar[int]
     MIN_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     MAX_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -21,4 +27,13 @@ class SizeDistribution(_message.Message):
     max_size_bytes: int
     average_size_bytes: float
     median_size_bytes: float
-    def __init__(self, buckets: _Optional[_Iterable[_Union[_size_bucket_pb2.SizeBucket, _Mapping]]] = ..., min_size_bytes: _Optional[int] = ..., max_size_bytes: _Optional[int] = ..., average_size_bytes: _Optional[float] = ..., median_size_bytes: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        buckets: _Optional[
+            _Iterable[_Union[_size_bucket_pb2.SizeBucket, _Mapping]]
+        ] = ...,
+        min_size_bytes: _Optional[int] = ...,
+        max_size_bytes: _Optional[int] = ...,
+        average_size_bytes: _Optional[float] = ...,
+        median_size_bytes: _Optional[float] = ...,
+    ) -> None: ...

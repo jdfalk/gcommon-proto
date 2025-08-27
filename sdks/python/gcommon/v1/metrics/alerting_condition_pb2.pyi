@@ -17,4 +17,12 @@ class AlertingCondition(_message.Message):
     metric: str
     threshold: float
     duration_seconds: int
-    def __init__(self, operator: _Optional[_Union[_comparison_operator_pb2.ComparisonOperator, str]] = ..., metric: _Optional[str] = ..., threshold: _Optional[float] = ..., duration_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        operator: _Optional[
+            _Union[_comparison_operator_pb2.ComparisonOperator, str]
+        ] = ...,
+        metric: _Optional[str] = ...,
+        threshold: _Optional[float] = ...,
+        duration_seconds: _Optional[int] = ...,
+    ) -> None: ...

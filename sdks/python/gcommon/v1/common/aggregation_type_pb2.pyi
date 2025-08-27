@@ -20,6 +20,7 @@ class AggregationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGGREGATION_TYPE_P99: _ClassVar[AggregationType]
     AGGREGATION_TYPE_RATE: _ClassVar[AggregationType]
     AGGREGATION_TYPE_INCREASE: _ClassVar[AggregationType]
+
 AGGREGATION_TYPE_UNSPECIFIED: AggregationType
 AGGREGATION_TYPE_SUM: AggregationType
 AGGREGATION_TYPE_AVERAGE: AggregationType

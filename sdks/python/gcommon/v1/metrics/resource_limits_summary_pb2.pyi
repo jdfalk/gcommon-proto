@@ -7,7 +7,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResourceLimitsSummary(_message.Message):
-    __slots__ = ("memory_limit_bytes", "cpu_limit_percent", "disk_limit_bytes", "network_limit_bytes_per_sec", "memory_used_bytes", "cpu_used_percent", "disk_used_bytes", "network_used_bytes_per_sec", "limits_enforced", "violations_count")
+    __slots__ = (
+        "memory_limit_bytes",
+        "cpu_limit_percent",
+        "disk_limit_bytes",
+        "network_limit_bytes_per_sec",
+        "memory_used_bytes",
+        "cpu_used_percent",
+        "disk_used_bytes",
+        "network_used_bytes_per_sec",
+        "limits_enforced",
+        "violations_count",
+    )
     MEMORY_LIMIT_BYTES_FIELD_NUMBER: _ClassVar[int]
     CPU_LIMIT_PERCENT_FIELD_NUMBER: _ClassVar[int]
     DISK_LIMIT_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +39,16 @@ class ResourceLimitsSummary(_message.Message):
     network_used_bytes_per_sec: int
     limits_enforced: bool
     violations_count: int
-    def __init__(self, memory_limit_bytes: _Optional[int] = ..., cpu_limit_percent: _Optional[float] = ..., disk_limit_bytes: _Optional[int] = ..., network_limit_bytes_per_sec: _Optional[int] = ..., memory_used_bytes: _Optional[int] = ..., cpu_used_percent: _Optional[float] = ..., disk_used_bytes: _Optional[int] = ..., network_used_bytes_per_sec: _Optional[int] = ..., limits_enforced: _Optional[bool] = ..., violations_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        memory_limit_bytes: _Optional[int] = ...,
+        cpu_limit_percent: _Optional[float] = ...,
+        disk_limit_bytes: _Optional[int] = ...,
+        network_limit_bytes_per_sec: _Optional[int] = ...,
+        memory_used_bytes: _Optional[int] = ...,
+        cpu_used_percent: _Optional[float] = ...,
+        disk_used_bytes: _Optional[int] = ...,
+        network_used_bytes_per_sec: _Optional[int] = ...,
+        limits_enforced: _Optional[bool] = ...,
+        violations_count: _Optional[int] = ...,
+    ) -> None: ...

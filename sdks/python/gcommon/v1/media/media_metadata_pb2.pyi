@@ -11,7 +11,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MediaMetadata(_message.Message):
-    __slots__ = ("title", "original_title", "year", "plot", "genres", "imdb_id", "tmdb_id", "rating", "languages", "actors", "directors", "series_info", "movie_info")
+    __slots__ = (
+        "title",
+        "original_title",
+        "year",
+        "plot",
+        "genres",
+        "imdb_id",
+        "tmdb_id",
+        "rating",
+        "languages",
+        "actors",
+        "directors",
+        "series_info",
+        "movie_info",
+    )
     TITLE_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TITLE_FIELD_NUMBER: _ClassVar[int]
     YEAR_FIELD_NUMBER: _ClassVar[int]
@@ -38,4 +52,19 @@ class MediaMetadata(_message.Message):
     directors: _containers.RepeatedScalarFieldContainer[str]
     series_info: _series_info_pb2.SeriesInfo
     movie_info: _movie_info_pb2.MovieInfo
-    def __init__(self, title: _Optional[str] = ..., original_title: _Optional[str] = ..., year: _Optional[int] = ..., plot: _Optional[str] = ..., genres: _Optional[_Iterable[str]] = ..., imdb_id: _Optional[str] = ..., tmdb_id: _Optional[str] = ..., rating: _Optional[float] = ..., languages: _Optional[_Iterable[str]] = ..., actors: _Optional[_Iterable[str]] = ..., directors: _Optional[_Iterable[str]] = ..., series_info: _Optional[_Union[_series_info_pb2.SeriesInfo, _Mapping]] = ..., movie_info: _Optional[_Union[_movie_info_pb2.MovieInfo, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        title: _Optional[str] = ...,
+        original_title: _Optional[str] = ...,
+        year: _Optional[int] = ...,
+        plot: _Optional[str] = ...,
+        genres: _Optional[_Iterable[str]] = ...,
+        imdb_id: _Optional[str] = ...,
+        tmdb_id: _Optional[str] = ...,
+        rating: _Optional[float] = ...,
+        languages: _Optional[_Iterable[str]] = ...,
+        actors: _Optional[_Iterable[str]] = ...,
+        directors: _Optional[_Iterable[str]] = ...,
+        series_info: _Optional[_Union[_series_info_pb2.SeriesInfo, _Mapping]] = ...,
+        movie_info: _Optional[_Union[_movie_info_pb2.MovieInfo, _Mapping]] = ...,
+    ) -> None: ...

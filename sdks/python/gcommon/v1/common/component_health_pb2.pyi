@@ -17,4 +17,10 @@ class ComponentHealth(_message.Message):
     status: _serving_status_pb2.ServingStatus
     message: str
     duration_ms: int
-    def __init__(self, name: _Optional[str] = ..., status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ..., message: _Optional[str] = ..., duration_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ...,
+        message: _Optional[str] = ...,
+        duration_ms: _Optional[int] = ...,
+    ) -> None: ...

@@ -14,4 +14,8 @@ class TransactionStatusResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     status: str
     error: _error_pb2.Error
-    def __init__(self, status: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

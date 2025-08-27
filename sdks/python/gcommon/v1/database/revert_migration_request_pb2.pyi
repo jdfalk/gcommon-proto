@@ -16,4 +16,11 @@ class RevertMigrationRequest(_message.Message):
     database: str
     target_version: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, database: _Optional[str] = ..., target_version: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        database: _Optional[str] = ...,
+        target_version: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

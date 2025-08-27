@@ -16,6 +16,7 @@ class VersionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VERSION_STATUS_DELETED: _ClassVar[VersionStatus]
     VERSION_STATUS_FAILED: _ClassVar[VersionStatus]
     VERSION_STATUS_CANCELLED: _ClassVar[VersionStatus]
+
 VERSION_STATUS_UNSPECIFIED: VersionStatus
 VERSION_STATUS_DRAFT: VersionStatus
 VERSION_STATUS_PENDING: VersionStatus

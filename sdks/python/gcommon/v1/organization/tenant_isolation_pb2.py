@@ -4,52 +4,84 @@
 # source: gcommon/v1/organization/tenant_isolation.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/tenant_isolation.proto'
+    "",
+    "gcommon/v1/organization/tenant_isolation.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import isolation_level_pb2 as gcommon_dot_v1_dot_common_dot_isolation__level__pb2
-from gcommon.v1.common import key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2
-from gcommon.v1.common import organization_access_control_pb2 as gcommon_dot_v1_dot_common_dot_organization__access__control__pb2
-from gcommon.v1.organization import audit_config_pb2 as gcommon_dot_v1_dot_organization_dot_audit__config__pb2
-from gcommon.v1.organization import compute_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_compute__isolation__pb2
-from gcommon.v1.organization import database_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_database__isolation__pb2
-from gcommon.v1.organization import encryption_config_pb2 as gcommon_dot_v1_dot_organization_dot_encryption__config__pb2
-from gcommon.v1.organization import network_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_network__isolation__pb2
-from gcommon.v1.organization import storage_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_storage__isolation__pb2
+from gcommon.v1.common import (
+    isolation_level_pb2 as gcommon_dot_v1_dot_common_dot_isolation__level__pb2,
+)
+from gcommon.v1.common import (
+    key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2,
+)
+from gcommon.v1.common import (
+    organization_access_control_pb2 as gcommon_dot_v1_dot_common_dot_organization__access__control__pb2,
+)
+from gcommon.v1.organization import (
+    audit_config_pb2 as gcommon_dot_v1_dot_organization_dot_audit__config__pb2,
+)
+from gcommon.v1.organization import (
+    compute_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_compute__isolation__pb2,
+)
+from gcommon.v1.organization import (
+    database_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_database__isolation__pb2,
+)
+from gcommon.v1.organization import (
+    encryption_config_pb2 as gcommon_dot_v1_dot_organization_dot_encryption__config__pb2,
+)
+from gcommon.v1.organization import (
+    network_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_network__isolation__pb2,
+)
+from gcommon.v1.organization import (
+    storage_isolation_pb2 as gcommon_dot_v1_dot_organization_dot_storage__isolation__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/organization/tenant_isolation.proto\x12\x17gcommon.v1.organization\x1a\'gcommon/v1/common/isolation_level.proto\x1a!gcommon/v1/common/key_value.proto\x1a\x33gcommon/v1/common/organization_access_control.proto\x1a*gcommon/v1/organization/audit_config.proto\x1a/gcommon/v1/organization/compute_isolation.proto\x1a\x30gcommon/v1/organization/database_isolation.proto\x1a/gcommon/v1/organization/encryption_config.proto\x1a/gcommon/v1/organization/network_isolation.proto\x1a/gcommon/v1/organization/storage_isolation.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd8\x06\n\x0fTenantIsolation\x12\x1b\n\ttenant_id\x18\x01 \x01(\tR\x08tenantId\x12\x43\n\x05level\x18\x02 \x01(\x0e\x32-.gcommon.v1.common.OrganizationIsolationLevelR\x05level\x12\x46\n\x08\x64\x61tabase\x18\x03 \x01(\x0b\x32*.gcommon.v1.organization.DatabaseIsolationR\x08\x64\x61tabase\x12\x43\n\x07network\x18\x04 \x01(\x0b\x32).gcommon.v1.organization.NetworkIsolationR\x07network\x12\x43\n\x07storage\x18\x05 \x01(\x0b\x32).gcommon.v1.organization.StorageIsolationR\x07storage\x12\x43\n\x07\x63ompute\x18\x06 \x01(\x0b\x32).gcommon.v1.organization.ComputeIsolationR\x07\x63ompute\x12U\n\nencryption\x18\x07 \x01(\x0b\x32\x35.gcommon.v1.organization.OrganizationEncryptionConfigR\nencryption\x12S\n\x0e\x61\x63\x63\x65ss_control\x18\x08 \x01(\x0b\x32,.gcommon.v1.common.OrganizationAccessControlR\raccessControl\x12:\n\x05\x61udit\x18\t \x01(\x0b\x32$.gcommon.v1.organization.AuditConfigR\x05\x61udit\x12;\n\x08metadata\x18\n \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x08metadata\x12\x43\n\ncreated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12=\n\nupdated_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12#\n\rconfigured_by\x18\r \x01(\tR\x0c\x63onfiguredByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n.gcommon/v1/organization/tenant_isolation.proto\x12\x17gcommon.v1.organization\x1a'gcommon/v1/common/isolation_level.proto\x1a!gcommon/v1/common/key_value.proto\x1a\x33gcommon/v1/common/organization_access_control.proto\x1a*gcommon/v1/organization/audit_config.proto\x1a/gcommon/v1/organization/compute_isolation.proto\x1a\x30gcommon/v1/organization/database_isolation.proto\x1a/gcommon/v1/organization/encryption_config.proto\x1a/gcommon/v1/organization/network_isolation.proto\x1a/gcommon/v1/organization/storage_isolation.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd8\x06\n\x0fTenantIsolation\x12\x1b\n\ttenant_id\x18\x01 \x01(\tR\x08tenantId\x12\x43\n\x05level\x18\x02 \x01(\x0e\x32-.gcommon.v1.common.OrganizationIsolationLevelR\x05level\x12\x46\n\x08\x64\x61tabase\x18\x03 \x01(\x0b\x32*.gcommon.v1.organization.DatabaseIsolationR\x08\x64\x61tabase\x12\x43\n\x07network\x18\x04 \x01(\x0b\x32).gcommon.v1.organization.NetworkIsolationR\x07network\x12\x43\n\x07storage\x18\x05 \x01(\x0b\x32).gcommon.v1.organization.StorageIsolationR\x07storage\x12\x43\n\x07\x63ompute\x18\x06 \x01(\x0b\x32).gcommon.v1.organization.ComputeIsolationR\x07\x63ompute\x12U\n\nencryption\x18\x07 \x01(\x0b\x32\x35.gcommon.v1.organization.OrganizationEncryptionConfigR\nencryption\x12S\n\x0e\x61\x63\x63\x65ss_control\x18\x08 \x01(\x0b\x32,.gcommon.v1.common.OrganizationAccessControlR\raccessControl\x12:\n\x05\x61udit\x18\t \x01(\x0b\x32$.gcommon.v1.organization.AuditConfigR\x05\x61udit\x12;\n\x08metadata\x18\n \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x08metadata\x12\x43\n\ncreated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12=\n\nupdated_at\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12#\n\rconfigured_by\x18\r \x01(\tR\x0c\x63onfiguredByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.tenant_isolation_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.tenant_isolation_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_TENANTISOLATION'].fields_by_name['metadata']._loaded_options = None
-  _globals['_TENANTISOLATION'].fields_by_name['metadata']._serialized_options = b'(\001'
-  _globals['_TENANTISOLATION'].fields_by_name['created_at']._loaded_options = None
-  _globals['_TENANTISOLATION'].fields_by_name['created_at']._serialized_options = b'(\001\272H\003\310\001\001'
-  _globals['_TENANTISOLATION'].fields_by_name['updated_at']._loaded_options = None
-  _globals['_TENANTISOLATION'].fields_by_name['updated_at']._serialized_options = b'(\001'
-  _globals['_TENANTISOLATION']._serialized_start=592
-  _globals['_TENANTISOLATION']._serialized_end=1448
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_TENANTISOLATION"].fields_by_name["metadata"]._loaded_options = None
+    _globals["_TENANTISOLATION"].fields_by_name[
+        "metadata"
+    ]._serialized_options = b"(\001"
+    _globals["_TENANTISOLATION"].fields_by_name["created_at"]._loaded_options = None
+    _globals["_TENANTISOLATION"].fields_by_name[
+        "created_at"
+    ]._serialized_options = b"(\001\272H\003\310\001\001"
+    _globals["_TENANTISOLATION"].fields_by_name["updated_at"]._loaded_options = None
+    _globals["_TENANTISOLATION"].fields_by_name[
+        "updated_at"
+    ]._serialized_options = b"(\001"
+    _globals["_TENANTISOLATION"]._serialized_start = 592
+    _globals["_TENANTISOLATION"]._serialized_end = 1448
 # @@protoc_insertion_point(module_scope)

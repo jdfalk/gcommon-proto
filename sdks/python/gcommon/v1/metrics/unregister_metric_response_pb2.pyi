@@ -15,7 +15,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UnregisterMetricResponse(_message.Message):
-    __slots__ = ("success", "error", "metric_id", "metric_name", "unregistered_at", "provider_id", "result", "warnings", "backup_info")
+    __slots__ = (
+        "success",
+        "error",
+        "metric_id",
+        "metric_name",
+        "unregistered_at",
+        "provider_id",
+        "result",
+        "warnings",
+        "backup_info",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     METRIC_ID_FIELD_NUMBER: _ClassVar[int]
@@ -34,4 +44,21 @@ class UnregisterMetricResponse(_message.Message):
     result: _unregistration_result_pb2.UnregistrationResult
     warnings: _containers.RepeatedScalarFieldContainer[str]
     backup_info: _backup_info_pb2.MetricsBackupInfo
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metric_id: _Optional[str] = ..., metric_name: _Optional[str] = ..., unregistered_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., provider_id: _Optional[str] = ..., result: _Optional[_Union[_unregistration_result_pb2.UnregistrationResult, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., backup_info: _Optional[_Union[_backup_info_pb2.MetricsBackupInfo, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        metric_id: _Optional[str] = ...,
+        metric_name: _Optional[str] = ...,
+        unregistered_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        provider_id: _Optional[str] = ...,
+        result: _Optional[
+            _Union[_unregistration_result_pb2.UnregistrationResult, _Mapping]
+        ] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        backup_info: _Optional[
+            _Union[_backup_info_pb2.MetricsBackupInfo, _Mapping]
+        ] = ...,
+    ) -> None: ...

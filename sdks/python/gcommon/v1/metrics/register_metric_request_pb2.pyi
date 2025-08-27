@@ -22,4 +22,17 @@ class RegisterMetricRequest(_message.Message):
     provider_id: str
     replace_existing: bool
     options: _registration_options_pb2.RegistrationOptions
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., definition: _Optional[_Union[_metric_definition_pb2.MetricDefinition, _Mapping]] = ..., provider_id: _Optional[str] = ..., replace_existing: _Optional[bool] = ..., options: _Optional[_Union[_registration_options_pb2.RegistrationOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        definition: _Optional[
+            _Union[_metric_definition_pb2.MetricDefinition, _Mapping]
+        ] = ...,
+        provider_id: _Optional[str] = ...,
+        replace_existing: _Optional[bool] = ...,
+        options: _Optional[
+            _Union[_registration_options_pb2.RegistrationOptions, _Mapping]
+        ] = ...,
+    ) -> None: ...

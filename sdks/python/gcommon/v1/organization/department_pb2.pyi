@@ -13,7 +13,30 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Department(_message.Message):
-    __slots__ = ("id", "organization_id", "name", "slug", "description", "parent_department_id", "manager_id", "cost_center", "location", "metadata", "created_at", "updated_at", "created_by", "updated_by", "active", "contact_email", "phone", "max_members", "annual_budget", "timezone", "child_department_ids", "team_ids")
+    __slots__ = (
+        "id",
+        "organization_id",
+        "name",
+        "slug",
+        "description",
+        "parent_department_id",
+        "manager_id",
+        "cost_center",
+        "location",
+        "metadata",
+        "created_at",
+        "updated_at",
+        "created_by",
+        "updated_by",
+        "active",
+        "contact_email",
+        "phone",
+        "max_members",
+        "annual_budget",
+        "timezone",
+        "child_department_ids",
+        "team_ids",
+    )
     ID_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -58,4 +81,32 @@ class Department(_message.Message):
     timezone: str
     child_department_ids: _containers.RepeatedScalarFieldContainer[str]
     team_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., parent_department_id: _Optional[str] = ..., manager_id: _Optional[str] = ..., cost_center: _Optional[str] = ..., location: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., active: _Optional[bool] = ..., contact_email: _Optional[str] = ..., phone: _Optional[str] = ..., max_members: _Optional[int] = ..., annual_budget: _Optional[float] = ..., timezone: _Optional[str] = ..., child_department_ids: _Optional[_Iterable[str]] = ..., team_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        organization_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        slug: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        parent_department_id: _Optional[str] = ...,
+        manager_id: _Optional[str] = ...,
+        cost_center: _Optional[str] = ...,
+        location: _Optional[str] = ...,
+        metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        created_by: _Optional[str] = ...,
+        updated_by: _Optional[str] = ...,
+        active: _Optional[bool] = ...,
+        contact_email: _Optional[str] = ...,
+        phone: _Optional[str] = ...,
+        max_members: _Optional[int] = ...,
+        annual_budget: _Optional[float] = ...,
+        timezone: _Optional[str] = ...,
+        child_department_ids: _Optional[_Iterable[str]] = ...,
+        team_ids: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

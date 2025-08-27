@@ -7,7 +7,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PasswordPolicy(_message.Message):
-    __slots__ = ("min_length", "require_uppercase", "require_lowercase", "require_number", "require_symbol", "max_age_days", "history", "allow_reuse")
+    __slots__ = (
+        "min_length",
+        "require_uppercase",
+        "require_lowercase",
+        "require_number",
+        "require_symbol",
+        "max_age_days",
+        "history",
+        "allow_reuse",
+    )
     MIN_LENGTH_FIELD_NUMBER: _ClassVar[int]
     REQUIRE_UPPERCASE_FIELD_NUMBER: _ClassVar[int]
     REQUIRE_LOWERCASE_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +33,14 @@ class PasswordPolicy(_message.Message):
     max_age_days: int
     history: int
     allow_reuse: bool
-    def __init__(self, min_length: _Optional[int] = ..., require_uppercase: _Optional[bool] = ..., require_lowercase: _Optional[bool] = ..., require_number: _Optional[bool] = ..., require_symbol: _Optional[bool] = ..., max_age_days: _Optional[int] = ..., history: _Optional[int] = ..., allow_reuse: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        min_length: _Optional[int] = ...,
+        require_uppercase: _Optional[bool] = ...,
+        require_lowercase: _Optional[bool] = ...,
+        require_number: _Optional[bool] = ...,
+        require_symbol: _Optional[bool] = ...,
+        max_age_days: _Optional[int] = ...,
+        history: _Optional[int] = ...,
+        allow_reuse: _Optional[bool] = ...,
+    ) -> None: ...

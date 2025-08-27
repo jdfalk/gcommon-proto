@@ -15,6 +15,7 @@ class CommonAlertSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ALERT_SEVERITY_INFO: _ClassVar[CommonAlertSeverity]
     ALERT_SEVERITY_WARNING: _ClassVar[CommonAlertSeverity]
     ALERT_SEVERITY_ERROR: _ClassVar[CommonAlertSeverity]
+
 ALERT_SEVERITY_UNSPECIFIED: CommonAlertSeverity
 ALERT_SEVERITY_LOW: CommonAlertSeverity
 ALERT_SEVERITY_MEDIUM: CommonAlertSeverity

@@ -15,4 +15,10 @@ class RegistrationOptions(_message.Message):
     dry_run: bool
     create_indices: bool
     enable_alerting: bool
-    def __init__(self, validate_definition: _Optional[bool] = ..., dry_run: _Optional[bool] = ..., create_indices: _Optional[bool] = ..., enable_alerting: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        validate_definition: _Optional[bool] = ...,
+        dry_run: _Optional[bool] = ...,
+        create_indices: _Optional[bool] = ...,
+        enable_alerting: _Optional[bool] = ...,
+    ) -> None: ...

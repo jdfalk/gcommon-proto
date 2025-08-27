@@ -13,7 +13,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UnregistrationResult(_message.Message):
-    __slots__ = ("definition_deleted", "data_deleted_bytes", "data_points_deleted", "deleted_indices", "removed_alerts", "stopped_exports", "scheduled_deletion", "dry_run_result")
+    __slots__ = (
+        "definition_deleted",
+        "data_deleted_bytes",
+        "data_points_deleted",
+        "deleted_indices",
+        "removed_alerts",
+        "stopped_exports",
+        "scheduled_deletion",
+        "dry_run_result",
+    )
     DEFINITION_DELETED_FIELD_NUMBER: _ClassVar[int]
     DATA_DELETED_BYTES_FIELD_NUMBER: _ClassVar[int]
     DATA_POINTS_DELETED_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +39,18 @@ class UnregistrationResult(_message.Message):
     stopped_exports: _containers.RepeatedScalarFieldContainer[str]
     scheduled_deletion: _timestamp_pb2.Timestamp
     dry_run_result: _dry_run_result_pb2.DryRunResult
-    def __init__(self, definition_deleted: _Optional[bool] = ..., data_deleted_bytes: _Optional[int] = ..., data_points_deleted: _Optional[int] = ..., deleted_indices: _Optional[_Iterable[str]] = ..., removed_alerts: _Optional[_Iterable[str]] = ..., stopped_exports: _Optional[_Iterable[str]] = ..., scheduled_deletion: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., dry_run_result: _Optional[_Union[_dry_run_result_pb2.DryRunResult, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        definition_deleted: _Optional[bool] = ...,
+        data_deleted_bytes: _Optional[int] = ...,
+        data_points_deleted: _Optional[int] = ...,
+        deleted_indices: _Optional[_Iterable[str]] = ...,
+        removed_alerts: _Optional[_Iterable[str]] = ...,
+        stopped_exports: _Optional[_Iterable[str]] = ...,
+        scheduled_deletion: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        dry_run_result: _Optional[
+            _Union[_dry_run_result_pb2.DryRunResult, _Mapping]
+        ] = ...,
+    ) -> None: ...

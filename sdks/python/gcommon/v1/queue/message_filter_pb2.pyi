@@ -9,21 +9,34 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MessageFilter(_message.Message):
-    __slots__ = ("header_filters", "property_filters", "min_priority", "max_age_seconds", "content_type", "filter_expression")
+    __slots__ = (
+        "header_filters",
+        "property_filters",
+        "min_priority",
+        "max_age_seconds",
+        "content_type",
+        "filter_expression",
+    )
     class HeaderFiltersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     class PropertyFiltersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     HEADER_FILTERS_FIELD_NUMBER: _ClassVar[int]
     PROPERTY_FILTERS_FIELD_NUMBER: _ClassVar[int]
     MIN_PRIORITY_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +49,12 @@ class MessageFilter(_message.Message):
     max_age_seconds: int
     content_type: str
     filter_expression: str
-    def __init__(self, header_filters: _Optional[_Mapping[str, str]] = ..., property_filters: _Optional[_Mapping[str, str]] = ..., min_priority: _Optional[int] = ..., max_age_seconds: _Optional[int] = ..., content_type: _Optional[str] = ..., filter_expression: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        header_filters: _Optional[_Mapping[str, str]] = ...,
+        property_filters: _Optional[_Mapping[str, str]] = ...,
+        min_priority: _Optional[int] = ...,
+        max_age_seconds: _Optional[int] = ...,
+        content_type: _Optional[str] = ...,
+        filter_expression: _Optional[str] = ...,
+    ) -> None: ...

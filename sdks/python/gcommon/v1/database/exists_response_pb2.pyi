@@ -13,4 +13,8 @@ class ExistsResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     exists: bool
     error: _error_pb2.Error
-    def __init__(self, exists: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        exists: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

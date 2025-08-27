@@ -20,4 +20,10 @@ class BatchOperationResult(_message.Message):
     affected_rows: int
     generated_keys: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., affected_rows: _Optional[int] = ..., generated_keys: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        affected_rows: _Optional[int] = ...,
+        generated_keys: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

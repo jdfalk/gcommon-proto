@@ -20,4 +20,12 @@ class StreamStart(_message.Message):
     from_beginning: bool
     from_now: bool
     from_offset: str
-    def __init__(self, from_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., from_beginning: _Optional[bool] = ..., from_now: _Optional[bool] = ..., from_offset: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        from_timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        from_beginning: _Optional[bool] = ...,
+        from_now: _Optional[bool] = ...,
+        from_offset: _Optional[str] = ...,
+    ) -> None: ...

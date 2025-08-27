@@ -16,4 +16,10 @@ class AuthListSessionsResponse(_message.Message):
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
     sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.Session]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.Session, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        sessions: _Optional[_Iterable[_Union[_session_pb2.Session, _Mapping]]] = ...,
+        pagination: _Optional[
+            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
+        ] = ...,
+    ) -> None: ...

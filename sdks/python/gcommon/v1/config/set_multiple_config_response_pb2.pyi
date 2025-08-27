@@ -16,9 +16,16 @@ class SetMultipleConfigResponse(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[bool] = ...
+        ) -> None: ...
+
     RESULTS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     results: _containers.ScalarMap[str, bool]
     error: _error_pb2.Error
-    def __init__(self, results: _Optional[_Mapping[str, bool]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        results: _Optional[_Mapping[str, bool]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

@@ -16,4 +16,10 @@ class ChecksumValidation(_message.Message):
     expected_checksum: str
     actual_checksum: str
     checksum_algorithm: str
-    def __init__(self, passed: _Optional[bool] = ..., expected_checksum: _Optional[str] = ..., actual_checksum: _Optional[str] = ..., checksum_algorithm: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        passed: _Optional[bool] = ...,
+        expected_checksum: _Optional[str] = ...,
+        actual_checksum: _Optional[str] = ...,
+        checksum_algorithm: _Optional[str] = ...,
+    ) -> None: ...

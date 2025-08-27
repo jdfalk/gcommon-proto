@@ -21,4 +21,12 @@ class StopScrapingResponse(_message.Message):
     error: _error_pb2.Error
     job: _scrape_job_pb2.ScrapeJob
     stopped_at: _timestamp_pb2.Timestamp
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., job: _Optional[_Union[_scrape_job_pb2.ScrapeJob, _Mapping]] = ..., stopped_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        job: _Optional[_Union[_scrape_job_pb2.ScrapeJob, _Mapping]] = ...,
+        stopped_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

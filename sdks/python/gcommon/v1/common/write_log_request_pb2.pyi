@@ -16,7 +16,10 @@ class WriteLogRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_NUMBER: _ClassVar[int]
@@ -25,4 +28,10 @@ class WriteLogRequest(_message.Message):
     message: str
     source: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, level: _Optional[str] = ..., message: _Optional[str] = ..., source: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        level: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+        source: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

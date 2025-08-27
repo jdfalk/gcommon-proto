@@ -16,6 +16,7 @@ class MetricsProviderType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRICS_PROVIDER_TYPE_CLOUDWATCH: _ClassVar[MetricsProviderType]
     METRICS_PROVIDER_TYPE_STACKDRIVER: _ClassVar[MetricsProviderType]
     METRICS_PROVIDER_TYPE_CUSTOM: _ClassVar[MetricsProviderType]
+
 METRICS_PROVIDER_TYPE_UNSPECIFIED: MetricsProviderType
 METRICS_PROVIDER_TYPE_PROMETHEUS: MetricsProviderType
 METRICS_PROVIDER_TYPE_INFLUXDB: MetricsProviderType

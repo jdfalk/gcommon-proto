@@ -12,6 +12,7 @@ class MetricsExportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRICS_EXPORT_FORMAT_JSON: _ClassVar[MetricsExportFormat]
     METRICS_EXPORT_FORMAT_CSV: _ClassVar[MetricsExportFormat]
     METRICS_EXPORT_FORMAT_OPENTELEMETRY: _ClassVar[MetricsExportFormat]
+
 METRICS_EXPORT_FORMAT_UNSPECIFIED: MetricsExportFormat
 METRICS_EXPORT_FORMAT_PROMETHEUS: MetricsExportFormat
 METRICS_EXPORT_FORMAT_JSON: MetricsExportFormat

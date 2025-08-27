@@ -16,7 +16,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueValidationResult(_message.Message):
-    __slots__ = ("validation_passed", "checksum_validation", "schema_validation", "integrity_validation", "validation_errors", "validation_duration")
+    __slots__ = (
+        "validation_passed",
+        "checksum_validation",
+        "schema_validation",
+        "integrity_validation",
+        "validation_errors",
+        "validation_duration",
+    )
     VALIDATION_PASSED_FIELD_NUMBER: _ClassVar[int]
     CHECKSUM_VALIDATION_FIELD_NUMBER: _ClassVar[int]
     SCHEMA_VALIDATION_FIELD_NUMBER: _ClassVar[int]
@@ -27,6 +34,26 @@ class QueueValidationResult(_message.Message):
     checksum_validation: _checksum_validation_pb2.ChecksumValidation
     schema_validation: _schema_validation_pb2.SchemaValidation
     integrity_validation: _integrity_validation_pb2.IntegrityValidation
-    validation_errors: _containers.RepeatedCompositeFieldContainer[_validation_error_pb2.ValidationError]
+    validation_errors: _containers.RepeatedCompositeFieldContainer[
+        _validation_error_pb2.ValidationError
+    ]
     validation_duration: _duration_pb2.Duration
-    def __init__(self, validation_passed: _Optional[bool] = ..., checksum_validation: _Optional[_Union[_checksum_validation_pb2.ChecksumValidation, _Mapping]] = ..., schema_validation: _Optional[_Union[_schema_validation_pb2.SchemaValidation, _Mapping]] = ..., integrity_validation: _Optional[_Union[_integrity_validation_pb2.IntegrityValidation, _Mapping]] = ..., validation_errors: _Optional[_Iterable[_Union[_validation_error_pb2.ValidationError, _Mapping]]] = ..., validation_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        validation_passed: _Optional[bool] = ...,
+        checksum_validation: _Optional[
+            _Union[_checksum_validation_pb2.ChecksumValidation, _Mapping]
+        ] = ...,
+        schema_validation: _Optional[
+            _Union[_schema_validation_pb2.SchemaValidation, _Mapping]
+        ] = ...,
+        integrity_validation: _Optional[
+            _Union[_integrity_validation_pb2.IntegrityValidation, _Mapping]
+        ] = ...,
+        validation_errors: _Optional[
+            _Iterable[_Union[_validation_error_pb2.ValidationError, _Mapping]]
+        ] = ...,
+        validation_duration: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

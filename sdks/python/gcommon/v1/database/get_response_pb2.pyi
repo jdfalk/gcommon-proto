@@ -15,4 +15,9 @@ class GetResponse(_message.Message):
     entry: _cache_entry_pb2.CacheEntry
     found: bool
     cache_hit: bool
-    def __init__(self, entry: _Optional[_Union[_cache_entry_pb2.CacheEntry, _Mapping]] = ..., found: _Optional[bool] = ..., cache_hit: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        entry: _Optional[_Union[_cache_entry_pb2.CacheEntry, _Mapping]] = ...,
+        found: _Optional[bool] = ...,
+        cache_hit: _Optional[bool] = ...,
+    ) -> None: ...

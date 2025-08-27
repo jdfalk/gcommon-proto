@@ -13,6 +13,7 @@ class RestrictionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESTRICTION_TYPE_LOCATION: _ClassVar[RestrictionType]
     RESTRICTION_TYPE_USER_AGENT: _ClassVar[RestrictionType]
     RESTRICTION_TYPE_CUSTOM: _ClassVar[RestrictionType]
+
 RESTRICTION_TYPE_UNSPECIFIED: RestrictionType
 RESTRICTION_TYPE_IP_ADDRESS: RestrictionType
 RESTRICTION_TYPE_TIME_RANGE: RestrictionType

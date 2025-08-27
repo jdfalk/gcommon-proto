@@ -16,4 +16,9 @@ class RegisterCheckResponse(_message.Message):
     success: bool
     check_id: str
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., check_id: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        check_id: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

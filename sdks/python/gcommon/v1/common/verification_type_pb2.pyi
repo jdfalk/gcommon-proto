@@ -10,6 +10,7 @@ class AuthVerificationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VERIFICATION_TYPE_UNSPECIFIED: _ClassVar[AuthVerificationType]
     VERIFICATION_TYPE_EMAIL: _ClassVar[AuthVerificationType]
     VERIFICATION_TYPE_SMS: _ClassVar[AuthVerificationType]
+
 VERIFICATION_TYPE_UNSPECIFIED: AuthVerificationType
 VERIFICATION_TYPE_EMAIL: AuthVerificationType
 VERIFICATION_TYPE_SMS: AuthVerificationType

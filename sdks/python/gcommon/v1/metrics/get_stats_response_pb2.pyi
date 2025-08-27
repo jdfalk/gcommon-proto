@@ -14,4 +14,8 @@ class MetricsGetStatsResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     stats: _query_stats_pb2.MetricsQueryStats
     error: _error_pb2.Error
-    def __init__(self, stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

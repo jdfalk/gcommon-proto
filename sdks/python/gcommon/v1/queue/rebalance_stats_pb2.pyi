@@ -11,7 +11,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RebalanceStats(_message.Message):
-    __slots__ = ("total_rebalances", "last_rebalance", "avg_rebalance_duration_ms", "failed_rebalances")
+    __slots__ = (
+        "total_rebalances",
+        "last_rebalance",
+        "avg_rebalance_duration_ms",
+        "failed_rebalances",
+    )
     TOTAL_REBALANCES_FIELD_NUMBER: _ClassVar[int]
     LAST_REBALANCE_FIELD_NUMBER: _ClassVar[int]
     AVG_REBALANCE_DURATION_MS_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +25,12 @@ class RebalanceStats(_message.Message):
     last_rebalance: _timestamp_pb2.Timestamp
     avg_rebalance_duration_ms: int
     failed_rebalances: int
-    def __init__(self, total_rebalances: _Optional[int] = ..., last_rebalance: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., avg_rebalance_duration_ms: _Optional[int] = ..., failed_rebalances: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        total_rebalances: _Optional[int] = ...,
+        last_rebalance: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        avg_rebalance_duration_ms: _Optional[int] = ...,
+        failed_rebalances: _Optional[int] = ...,
+    ) -> None: ...

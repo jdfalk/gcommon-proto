@@ -9,14 +9,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BindingInfo(_message.Message):
-    __slots__ = ("binding_name", "source", "destination", "routing_key", "arguments", "durable", "auto_delete", "binding_type", "created_at")
+    __slots__ = (
+        "binding_name",
+        "source",
+        "destination",
+        "routing_key",
+        "arguments",
+        "durable",
+        "auto_delete",
+        "binding_type",
+        "created_at",
+    )
     class ArgumentsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     BINDING_NAME_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
@@ -35,4 +48,15 @@ class BindingInfo(_message.Message):
     auto_delete: bool
     binding_type: str
     created_at: int
-    def __init__(self, binding_name: _Optional[str] = ..., source: _Optional[str] = ..., destination: _Optional[str] = ..., routing_key: _Optional[str] = ..., arguments: _Optional[_Mapping[str, str]] = ..., durable: _Optional[bool] = ..., auto_delete: _Optional[bool] = ..., binding_type: _Optional[str] = ..., created_at: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        binding_name: _Optional[str] = ...,
+        source: _Optional[str] = ...,
+        destination: _Optional[str] = ...,
+        routing_key: _Optional[str] = ...,
+        arguments: _Optional[_Mapping[str, str]] = ...,
+        durable: _Optional[bool] = ...,
+        auto_delete: _Optional[bool] = ...,
+        binding_type: _Optional[str] = ...,
+        created_at: _Optional[int] = ...,
+    ) -> None: ...

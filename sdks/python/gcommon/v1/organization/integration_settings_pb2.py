@@ -4,48 +4,74 @@
 # source: gcommon/v1/organization/integration_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/integration_settings.proto'
+    "",
+    "gcommon/v1/organization/integration_settings.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import metrics_api_key_config_pb2 as gcommon_dot_v1_dot_common_dot_metrics__api__key__config__pb2
-from gcommon.v1.organization import integration_pb2 as gcommon_dot_v1_dot_organization_dot_integration__pb2
-from gcommon.v1.organization import o_auth_app_config_pb2 as gcommon_dot_v1_dot_organization_dot_o__auth__app__config__pb2
-from gcommon.v1.organization import webhook_config_pb2 as gcommon_dot_v1_dot_organization_dot_webhook__config__pb2
+from gcommon.v1.common import (
+    metrics_api_key_config_pb2 as gcommon_dot_v1_dot_common_dot_metrics__api__key__config__pb2,
+)
+from gcommon.v1.organization import (
+    integration_pb2 as gcommon_dot_v1_dot_organization_dot_integration__pb2,
+)
+from gcommon.v1.organization import (
+    o_auth_app_config_pb2 as gcommon_dot_v1_dot_organization_dot_o__auth__app__config__pb2,
+)
+from gcommon.v1.organization import (
+    webhook_config_pb2 as gcommon_dot_v1_dot_organization_dot_webhook__config__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/organization/integration_settings.proto\x12\x17gcommon.v1.organization\x1a.gcommon/v1/common/metrics_api_key_config.proto\x1a)gcommon/v1/organization/integration.proto\x1a/gcommon/v1/organization/o_auth_app_config.proto\x1a,gcommon/v1/organization/webhook_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe7\x02\n\x13IntegrationSettings\x12\x61\n\x14\x65nabled_integrations\x18\x01 \x03(\x0b\x32$.gcommon.v1.organization.IntegrationB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x13\x65nabledIntegrations\x12L\n\x08webhooks\x18\x02 \x03(\x0b\x32&.gcommon.v1.organization.WebhookConfigB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08webhooks\x12M\n\x08\x61pi_keys\x18\x03 \x03(\x0b\x32&.gcommon.v1.common.MetricsAPIKeyConfigB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\x07\x61piKeys\x12P\n\noauth_apps\x18\x04 \x03(\x0b\x32\'.gcommon.v1.organization.OAuthAppConfigB\x08\xbaH\x05\x92\x01\x02\x08\x01R\toauthAppsB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n2gcommon/v1/organization/integration_settings.proto\x12\x17gcommon.v1.organization\x1a.gcommon/v1/common/metrics_api_key_config.proto\x1a)gcommon/v1/organization/integration.proto\x1a/gcommon/v1/organization/o_auth_app_config.proto\x1a,gcommon/v1/organization/webhook_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe7\x02\n\x13IntegrationSettings\x12\x61\n\x14\x65nabled_integrations\x18\x01 \x03(\x0b\x32$.gcommon.v1.organization.IntegrationB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x13\x65nabledIntegrations\x12L\n\x08webhooks\x18\x02 \x03(\x0b\x32&.gcommon.v1.organization.WebhookConfigB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08webhooks\x12M\n\x08\x61pi_keys\x18\x03 \x03(\x0b\x32&.gcommon.v1.common.MetricsAPIKeyConfigB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\x07\x61piKeys\x12P\n\noauth_apps\x18\x04 \x03(\x0b\x32'.gcommon.v1.organization.OAuthAppConfigB\x08\xbaH\x05\x92\x01\x02\x08\x01R\toauthAppsB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.integration_settings_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.integration_settings_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['enabled_integrations']._loaded_options = None
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['enabled_integrations']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['webhooks']._loaded_options = None
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['webhooks']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['api_keys']._loaded_options = None
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['api_keys']._serialized_options = b'(\001\272H\005\222\001\002\010\001'
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['oauth_apps']._loaded_options = None
-  _globals['_INTEGRATIONSETTINGS'].fields_by_name['oauth_apps']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_INTEGRATIONSETTINGS']._serialized_start=330
-  _globals['_INTEGRATIONSETTINGS']._serialized_end=689
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name[
+        "enabled_integrations"
+    ]._loaded_options = None
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name[
+        "enabled_integrations"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name["webhooks"]._loaded_options = None
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name[
+        "webhooks"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name["api_keys"]._loaded_options = None
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name[
+        "api_keys"
+    ]._serialized_options = b"(\001\272H\005\222\001\002\010\001"
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name["oauth_apps"]._loaded_options = None
+    _globals["_INTEGRATIONSETTINGS"].fields_by_name[
+        "oauth_apps"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_INTEGRATIONSETTINGS"]._serialized_start = 330
+    _globals["_INTEGRATIONSETTINGS"]._serialized_end = 689
 # @@protoc_insertion_point(module_scope)

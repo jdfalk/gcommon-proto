@@ -16,4 +16,9 @@ class AssignRoleResponse(_message.Message):
     success: bool
     error_message: str
     effective_permissions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., effective_permissions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        effective_permissions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

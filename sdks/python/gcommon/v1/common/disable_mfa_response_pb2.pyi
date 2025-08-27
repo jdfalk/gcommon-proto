@@ -15,6 +15,15 @@ class DisableMfaResponse(_message.Message):
     DISABLED_METHODS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     success: bool
-    disabled_methods: _containers.RepeatedScalarFieldContainer[_mfa_method_pb2.MfaMethod]
+    disabled_methods: _containers.RepeatedScalarFieldContainer[
+        _mfa_method_pb2.MfaMethod
+    ]
     error_message: str
-    def __init__(self, success: _Optional[bool] = ..., disabled_methods: _Optional[_Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        disabled_methods: _Optional[
+            _Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]
+        ] = ...,
+        error_message: _Optional[str] = ...,
+    ) -> None: ...

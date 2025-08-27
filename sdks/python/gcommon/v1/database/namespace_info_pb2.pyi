@@ -12,14 +12,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NamespaceInfo(_message.Message):
-    __slots__ = ("namespace_id", "name", "description", "created_at", "current_keys", "current_memory_bytes", "config")
+    __slots__ = (
+        "namespace_id",
+        "name",
+        "description",
+        "created_at",
+        "current_keys",
+        "current_memory_bytes",
+        "config",
+    )
     class ConfigEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAMESPACE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -34,4 +45,15 @@ class NamespaceInfo(_message.Message):
     current_keys: int
     current_memory_bytes: int
     config: _containers.ScalarMap[str, str]
-    def __init__(self, namespace_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., current_keys: _Optional[int] = ..., current_memory_bytes: _Optional[int] = ..., config: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        namespace_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        current_keys: _Optional[int] = ...,
+        current_memory_bytes: _Optional[int] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

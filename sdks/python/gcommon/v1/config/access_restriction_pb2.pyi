@@ -17,4 +17,10 @@ class AccessRestriction(_message.Message):
     value: str
     operator: str
     reason: str
-    def __init__(self, type: _Optional[_Union[_restriction_type_pb2.RestrictionType, str]] = ..., value: _Optional[str] = ..., operator: _Optional[str] = ..., reason: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[_Union[_restriction_type_pb2.RestrictionType, str]] = ...,
+        value: _Optional[str] = ...,
+        operator: _Optional[str] = ...,
+        reason: _Optional[str] = ...,
+    ) -> None: ...

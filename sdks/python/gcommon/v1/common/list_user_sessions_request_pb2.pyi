@@ -13,7 +13,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListUserSessionsRequest(_message.Message):
-    __slots__ = ("user_id", "metadata", "pagination", "status_filter", "device_type_filter", "created_after", "created_before", "include_details", "sort_order")
+    __slots__ = (
+        "user_id",
+        "metadata",
+        "pagination",
+        "status_filter",
+        "device_type_filter",
+        "created_after",
+        "created_before",
+        "include_details",
+        "sort_order",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +42,23 @@ class ListUserSessionsRequest(_message.Message):
     created_before: _timestamp_pb2.Timestamp
     include_details: bool
     sort_order: str
-    def __init__(self, user_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., pagination: _Optional[_Union[_pagination_options_pb2.PaginationOptions, _Mapping]] = ..., status_filter: _Optional[str] = ..., device_type_filter: _Optional[str] = ..., created_after: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., include_details: _Optional[bool] = ..., sort_order: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        pagination: _Optional[
+            _Union[_pagination_options_pb2.PaginationOptions, _Mapping]
+        ] = ...,
+        status_filter: _Optional[str] = ...,
+        device_type_filter: _Optional[str] = ...,
+        created_after: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        created_before: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        include_details: _Optional[bool] = ...,
+        sort_order: _Optional[str] = ...,
+    ) -> None: ...

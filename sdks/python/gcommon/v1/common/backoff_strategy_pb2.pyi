@@ -12,6 +12,7 @@ class BackoffStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     BACKOFF_STRATEGY_LINEAR: _ClassVar[BackoffStrategy]
     BACKOFF_STRATEGY_EXPONENTIAL: _ClassVar[BackoffStrategy]
     BACKOFF_STRATEGY_CUSTOM: _ClassVar[BackoffStrategy]
+
 BACKOFF_STRATEGY_UNSPECIFIED: BackoffStrategy
 BACKOFF_STRATEGY_FIXED: BackoffStrategy
 BACKOFF_STRATEGY_LINEAR: BackoffStrategy

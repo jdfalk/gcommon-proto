@@ -21,4 +21,12 @@ class OffsetConfig(_message.Message):
     offset_value: int
     start_timestamp: _timestamp_pb2.Timestamp
     reset_on_not_found: bool
-    def __init__(self, offset_type: _Optional[_Union[_offset_type_pb2.OffsetType, str]] = ..., offset_value: _Optional[int] = ..., start_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., reset_on_not_found: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        offset_type: _Optional[_Union[_offset_type_pb2.OffsetType, str]] = ...,
+        offset_value: _Optional[int] = ...,
+        start_timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        reset_on_not_found: _Optional[bool] = ...,
+    ) -> None: ...

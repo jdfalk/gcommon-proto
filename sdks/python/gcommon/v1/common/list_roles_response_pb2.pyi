@@ -16,4 +16,10 @@ class ListRolesResponse(_message.Message):
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
     roles: _containers.RepeatedCompositeFieldContainer[_role_pb2.Role]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(self, roles: _Optional[_Iterable[_Union[_role_pb2.Role, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        roles: _Optional[_Iterable[_Union[_role_pb2.Role, _Mapping]]] = ...,
+        pagination: _Optional[
+            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
+        ] = ...,
+    ) -> None: ...

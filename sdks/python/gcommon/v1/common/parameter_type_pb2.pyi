@@ -22,6 +22,7 @@ class ParameterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PARAMETER_TYPE_DATE: _ClassVar[ParameterType]
     PARAMETER_TYPE_TIME: _ClassVar[ParameterType]
     PARAMETER_TYPE_DATETIME: _ClassVar[ParameterType]
+
 PARAMETER_TYPE_UNSPECIFIED: ParameterType
 PARAMETER_TYPE_STRING: ParameterType
 PARAMETER_TYPE_INTEGER: ParameterType

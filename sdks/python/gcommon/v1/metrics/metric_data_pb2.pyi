@@ -14,14 +14,29 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricData(_message.Message):
-    __slots__ = ("metric_id", "name", "type", "description", "unit", "labels", "values", "created_at", "source", "namespace", "schema_version")
+    __slots__ = (
+        "metric_id",
+        "name",
+        "type",
+        "description",
+        "unit",
+        "labels",
+        "values",
+        "created_at",
+        "source",
+        "namespace",
+        "schema_version",
+    )
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     METRIC_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -44,4 +59,21 @@ class MetricData(_message.Message):
     source: str
     namespace: str
     schema_version: str
-    def __init__(self, metric_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., description: _Optional[str] = ..., unit: _Optional[str] = ..., labels: _Optional[_Mapping[str, str]] = ..., values: _Optional[_Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., source: _Optional[str] = ..., namespace: _Optional[str] = ..., schema_version: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metric_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ...,
+        description: _Optional[str] = ...,
+        unit: _Optional[str] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        values: _Optional[
+            _Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]
+        ] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        source: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        schema_version: _Optional[str] = ...,
+    ) -> None: ...

@@ -20,4 +20,12 @@ class PartitionOffset(_message.Message):
     offset: int
     offset_timestamp: _timestamp_pb2.Timestamp
     high_water_mark: int
-    def __init__(self, partition_id: _Optional[int] = ..., offset: _Optional[int] = ..., offset_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., high_water_mark: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        partition_id: _Optional[int] = ...,
+        offset: _Optional[int] = ...,
+        offset_timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        high_water_mark: _Optional[int] = ...,
+    ) -> None: ...

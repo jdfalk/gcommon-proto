@@ -11,7 +11,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CompletePasswordResetResponse(_message.Message):
-    __slots__ = ("user_id", "username", "reset_completed_at", "sessions_terminated", "terminated_session_count", "tokens_revoked", "revoked_token_count", "requires_additional_verification", "message")
+    __slots__ = (
+        "user_id",
+        "username",
+        "reset_completed_at",
+        "sessions_terminated",
+        "terminated_session_count",
+        "tokens_revoked",
+        "revoked_token_count",
+        "requires_additional_verification",
+        "message",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     RESET_COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +40,17 @@ class CompletePasswordResetResponse(_message.Message):
     revoked_token_count: int
     requires_additional_verification: bool
     message: str
-    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., reset_completed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., sessions_terminated: _Optional[bool] = ..., terminated_session_count: _Optional[int] = ..., tokens_revoked: _Optional[bool] = ..., revoked_token_count: _Optional[int] = ..., requires_additional_verification: _Optional[bool] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        reset_completed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        sessions_terminated: _Optional[bool] = ...,
+        terminated_session_count: _Optional[int] = ...,
+        tokens_revoked: _Optional[bool] = ...,
+        revoked_token_count: _Optional[int] = ...,
+        requires_additional_verification: _Optional[bool] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...

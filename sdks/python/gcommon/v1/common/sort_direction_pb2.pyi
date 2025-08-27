@@ -10,6 +10,7 @@ class SortDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SORT_DIRECTION_UNSPECIFIED: _ClassVar[SortDirection]
     SORT_DIRECTION_ASC: _ClassVar[SortDirection]
     SORT_DIRECTION_DESC: _ClassVar[SortDirection]
+
 SORT_DIRECTION_UNSPECIFIED: SortDirection
 SORT_DIRECTION_ASC: SortDirection
 SORT_DIRECTION_DESC: SortDirection

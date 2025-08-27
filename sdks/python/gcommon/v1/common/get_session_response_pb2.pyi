@@ -14,4 +14,8 @@ class AuthGetSessionResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     session: _session_pb2.Session
     error: _error_pb2.Error
-    def __init__(self, session: _Optional[_Union[_session_pb2.Session, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        session: _Optional[_Union[_session_pb2.Session, _Mapping]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

@@ -19,4 +19,10 @@ class ConfigureAlertingResponse(_message.Message):
     config_id: str
     error: _error_pb2.Error
     applied_rules: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., config_id: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., applied_rules: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        config_id: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        applied_rules: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

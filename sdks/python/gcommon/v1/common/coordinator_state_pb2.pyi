@@ -11,6 +11,7 @@ class CoordinatorState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COORDINATOR_STATE_ACTIVE: _ClassVar[CoordinatorState]
     COORDINATOR_STATE_LOADING: _ClassVar[CoordinatorState]
     COORDINATOR_STATE_NOT_COORDINATOR: _ClassVar[CoordinatorState]
+
 COORDINATOR_STATE_UNSPECIFIED: CoordinatorState
 COORDINATOR_STATE_ACTIVE: CoordinatorState
 COORDINATOR_STATE_LOADING: CoordinatorState

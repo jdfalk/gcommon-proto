@@ -19,4 +19,10 @@ class StartServerResponse(_message.Message):
     status: _server_status_pb2.ServerStatus
     listen_address: str
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., status: _Optional[_Union[_server_status_pb2.ServerStatus, str]] = ..., listen_address: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        status: _Optional[_Union[_server_status_pb2.ServerStatus, str]] = ...,
+        listen_address: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

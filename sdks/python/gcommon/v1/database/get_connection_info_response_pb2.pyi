@@ -14,4 +14,12 @@ class GetConnectionInfoResponse(_message.Message):
     DATABASE_INFO_FIELD_NUMBER: _ClassVar[int]
     pool_info: _connection_pool_info_pb2.ConnectionPoolInfo
     database_info: _database_info_pb2.DatabaseInfo
-    def __init__(self, pool_info: _Optional[_Union[_connection_pool_info_pb2.ConnectionPoolInfo, _Mapping]] = ..., database_info: _Optional[_Union[_database_info_pb2.DatabaseInfo, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        pool_info: _Optional[
+            _Union[_connection_pool_info_pb2.ConnectionPoolInfo, _Mapping]
+        ] = ...,
+        database_info: _Optional[
+            _Union[_database_info_pb2.DatabaseInfo, _Mapping]
+        ] = ...,
+    ) -> None: ...

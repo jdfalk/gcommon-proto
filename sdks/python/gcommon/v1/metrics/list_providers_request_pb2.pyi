@@ -10,7 +10,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListProvidersRequest(_message.Message):
-    __slots__ = ("metadata", "filter", "pagination", "include_status", "include_config", "include_stats")
+    __slots__ = (
+        "metadata",
+        "filter",
+        "pagination",
+        "include_status",
+        "include_config",
+        "include_stats",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
@@ -23,4 +30,16 @@ class ListProvidersRequest(_message.Message):
     include_status: bool
     include_config: bool
     include_stats: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_provider_filter_pb2.ProviderFilter, _Mapping]] = ..., pagination: _Optional[_Union[_pagination_options_pb2.PaginationOptions, _Mapping]] = ..., include_status: _Optional[bool] = ..., include_config: _Optional[bool] = ..., include_stats: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        filter: _Optional[_Union[_provider_filter_pb2.ProviderFilter, _Mapping]] = ...,
+        pagination: _Optional[
+            _Union[_pagination_options_pb2.PaginationOptions, _Mapping]
+        ] = ...,
+        include_status: _Optional[bool] = ...,
+        include_config: _Optional[bool] = ...,
+        include_stats: _Optional[bool] = ...,
+    ) -> None: ...

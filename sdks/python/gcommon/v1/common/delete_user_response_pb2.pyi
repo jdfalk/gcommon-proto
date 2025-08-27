@@ -14,4 +14,9 @@ class DeleteUserResponse(_message.Message):
     success: bool
     error_message: str
     data_retention_info: str
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., data_retention_info: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        data_retention_info: _Optional[str] = ...,
+    ) -> None: ...

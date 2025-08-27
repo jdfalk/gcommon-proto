@@ -20,4 +20,14 @@ class SendMessageRequest(_message.Message):
     message: _queue_message_pb2.QueueMessage
     delivery_options: _delivery_options_pb2.DeliveryOptions
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, queue_name: _Optional[str] = ..., message: _Optional[_Union[_queue_message_pb2.QueueMessage, _Mapping]] = ..., delivery_options: _Optional[_Union[_delivery_options_pb2.DeliveryOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        message: _Optional[_Union[_queue_message_pb2.QueueMessage, _Mapping]] = ...,
+        delivery_options: _Optional[
+            _Union[_delivery_options_pb2.DeliveryOptions, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

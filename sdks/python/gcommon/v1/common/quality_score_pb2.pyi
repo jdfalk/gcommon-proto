@@ -12,6 +12,7 @@ class QualityScore(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUALITY_SCORE_MEDIUM: _ClassVar[QualityScore]
     QUALITY_SCORE_HIGH: _ClassVar[QualityScore]
     QUALITY_SCORE_EXCELLENT: _ClassVar[QualityScore]
+
 QUALITY_SCORE_UNSPECIFIED: QualityScore
 QUALITY_SCORE_LOW: QualityScore
 QUALITY_SCORE_MEDIUM: QualityScore

@@ -12,6 +12,7 @@ class ReadLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     READ_LEVEL_STRONG: _ClassVar[ReadLevel]
     READ_LEVEL_BOUNDED_STALENESS: _ClassVar[ReadLevel]
     READ_LEVEL_SESSION: _ClassVar[ReadLevel]
+
 READ_LEVEL_UNSPECIFIED: ReadLevel
 READ_LEVEL_EVENTUAL: ReadLevel
 READ_LEVEL_STRONG: ReadLevel

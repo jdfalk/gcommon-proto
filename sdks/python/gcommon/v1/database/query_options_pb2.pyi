@@ -23,4 +23,15 @@ class QueryOptions(_message.Message):
     timeout: _duration_pb2.Duration
     include_metadata: bool
     consistency: _consistency_level_pb2.DatabaseConsistencyLevel
-    def __init__(self, limit: _Optional[int] = ..., offset: _Optional[int] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., include_metadata: _Optional[bool] = ..., consistency: _Optional[_Union[_consistency_level_pb2.DatabaseConsistencyLevel, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        limit: _Optional[int] = ...,
+        offset: _Optional[int] = ...,
+        timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        include_metadata: _Optional[bool] = ...,
+        consistency: _Optional[
+            _Union[_consistency_level_pb2.DatabaseConsistencyLevel, str]
+        ] = ...,
+    ) -> None: ...

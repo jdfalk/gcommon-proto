@@ -17,4 +17,9 @@ class HealthCheckAllRequest(_message.Message):
     types: _containers.RepeatedScalarFieldContainer[_check_type_pb2.CheckType]
     include_details: bool
     timeout_seconds: int
-    def __init__(self, types: _Optional[_Iterable[_Union[_check_type_pb2.CheckType, str]]] = ..., include_details: _Optional[bool] = ..., timeout_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        types: _Optional[_Iterable[_Union[_check_type_pb2.CheckType, str]]] = ...,
+        include_details: _Optional[bool] = ...,
+        timeout_seconds: _Optional[int] = ...,
+    ) -> None: ...

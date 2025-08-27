@@ -17,4 +17,10 @@ class ListPermissionsRequest(_message.Message):
     subject_type: _subject_type_pb2.AuthSubjectType
     page_size: int
     page_token: str
-    def __init__(self, subject_id: _Optional[str] = ..., subject_type: _Optional[_Union[_subject_type_pb2.AuthSubjectType, str]] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        subject_id: _Optional[str] = ...,
+        subject_type: _Optional[_Union[_subject_type_pb2.AuthSubjectType, str]] = ...,
+        page_size: _Optional[int] = ...,
+        page_token: _Optional[str] = ...,
+    ) -> None: ...

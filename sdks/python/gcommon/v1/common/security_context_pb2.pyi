@@ -10,14 +10,28 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SecurityContext(_message.Message):
-    __slots__ = ("user_id", "session_id", "roles", "permissions", "auth_method", "mfa_verified", "ip_address", "user_agent", "auth_timestamp", "metadata")
+    __slots__ = (
+        "user_id",
+        "session_id",
+        "roles",
+        "permissions",
+        "auth_method",
+        "mfa_verified",
+        "ip_address",
+        "user_agent",
+        "auth_timestamp",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     ROLES_FIELD_NUMBER: _ClassVar[int]
@@ -38,4 +52,16 @@ class SecurityContext(_message.Message):
     user_agent: str
     auth_timestamp: int
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, user_id: _Optional[str] = ..., session_id: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., auth_method: _Optional[_Union[_auth_method_pb2.AuthAuthMethod, str]] = ..., mfa_verified: _Optional[bool] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., auth_timestamp: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        session_id: _Optional[str] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+        auth_method: _Optional[_Union[_auth_method_pb2.AuthAuthMethod, str]] = ...,
+        mfa_verified: _Optional[bool] = ...,
+        ip_address: _Optional[str] = ...,
+        user_agent: _Optional[str] = ...,
+        auth_timestamp: _Optional[int] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

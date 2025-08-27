@@ -4,43 +4,69 @@
 # source: gcommon/v1/queue/queue_monitoring_service.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/queue_monitoring_service.proto'
+    "",
+    "gcommon/v1/queue/queue_monitoring_service.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import get_cluster_info_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__cluster__info__request__pb2
-from gcommon.v1.queue import get_cluster_info_response_pb2 as gcommon_dot_v1_dot_queue_dot_get__cluster__info__response__pb2
-from gcommon.v1.queue import get_queue_health_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__health__request__pb2
-from gcommon.v1.queue import get_queue_health_response_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__health__response__pb2
-from gcommon.v1.queue import get_queue_stats_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__stats__request__pb2
-from gcommon.v1.queue import metrics_event_pb2 as gcommon_dot_v1_dot_queue_dot_metrics__event__pb2
-from gcommon.v1.queue import queue_stats_response_pb2 as gcommon_dot_v1_dot_queue_dot_queue__stats__response__pb2
-from gcommon.v1.queue import stream_metrics_request_pb2 as gcommon_dot_v1_dot_queue_dot_stream__metrics__request__pb2
+from gcommon.v1.queue import (
+    get_cluster_info_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__cluster__info__request__pb2,
+)
+from gcommon.v1.queue import (
+    get_cluster_info_response_pb2 as gcommon_dot_v1_dot_queue_dot_get__cluster__info__response__pb2,
+)
+from gcommon.v1.queue import (
+    get_queue_health_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__health__request__pb2,
+)
+from gcommon.v1.queue import (
+    get_queue_health_response_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__health__response__pb2,
+)
+from gcommon.v1.queue import (
+    get_queue_stats_request_pb2 as gcommon_dot_v1_dot_queue_dot_get__queue__stats__request__pb2,
+)
+from gcommon.v1.queue import (
+    metrics_event_pb2 as gcommon_dot_v1_dot_queue_dot_metrics__event__pb2,
+)
+from gcommon.v1.queue import (
+    queue_stats_response_pb2 as gcommon_dot_v1_dot_queue_dot_queue__stats__response__pb2,
+)
+from gcommon.v1.queue import (
+    stream_metrics_request_pb2 as gcommon_dot_v1_dot_queue_dot_stream__metrics__request__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/queue/queue_monitoring_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/get_cluster_info_request.proto\x1a\x30gcommon/v1/queue/get_cluster_info_response.proto\x1a/gcommon/v1/queue/get_queue_health_request.proto\x1a\x30gcommon/v1/queue/get_queue_health_response.proto\x1a.gcommon/v1/queue/get_queue_stats_request.proto\x1a$gcommon/v1/queue/metrics_event.proto\x1a+gcommon/v1/queue/queue_stats_response.proto\x1a-gcommon/v1/queue/stream_metrics_request.proto\x1a!google/protobuf/go_features.proto2\xa1\x03\n\x16QueueMonitoringService\x12\x63\n\x0eGetClusterInfo\x12\'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12\x63\n\x0eGetQueueHealth\x12\'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12^\n\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n/gcommon/v1/queue/queue_monitoring_service.proto\x12\x10gcommon.v1.queue\x1a/gcommon/v1/queue/get_cluster_info_request.proto\x1a\x30gcommon/v1/queue/get_cluster_info_response.proto\x1a/gcommon/v1/queue/get_queue_health_request.proto\x1a\x30gcommon/v1/queue/get_queue_health_response.proto\x1a.gcommon/v1/queue/get_queue_stats_request.proto\x1a$gcommon/v1/queue/metrics_event.proto\x1a+gcommon/v1/queue/queue_stats_response.proto\x1a-gcommon/v1/queue/stream_metrics_request.proto\x1a!google/protobuf/go_features.proto2\xa1\x03\n\x16QueueMonitoringService\x12\x63\n\x0eGetClusterInfo\x12'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12\x63\n\x0eGetQueueHealth\x12'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12^\n\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.queue_monitoring_service_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.queue_monitoring_service_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_QUEUEMONITORINGSERVICE']._serialized_start=481
-  _globals['_QUEUEMONITORINGSERVICE']._serialized_end=898
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_QUEUEMONITORINGSERVICE"]._serialized_start = 481
+    _globals["_QUEUEMONITORINGSERVICE"]._serialized_end = 898
 # @@protoc_insertion_point(module_scope)

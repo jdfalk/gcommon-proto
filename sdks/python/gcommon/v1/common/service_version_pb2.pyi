@@ -22,4 +22,13 @@ class ServiceVersion(_message.Message):
     commit: str
     build_time: _timestamp_pb2.Timestamp
     go_version: str
-    def __init__(self, name: _Optional[str] = ..., version: _Optional[str] = ..., commit: _Optional[str] = ..., build_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., go_version: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        version: _Optional[str] = ...,
+        commit: _Optional[str] = ...,
+        build_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        go_version: _Optional[str] = ...,
+    ) -> None: ...

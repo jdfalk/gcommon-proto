@@ -22,4 +22,13 @@ class UpdateTeamRequest(_message.Message):
     team: _team_pb2.Team
     update_mask: _field_mask_pb2.FieldMask
     validate_only: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., team_id: _Optional[str] = ..., team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., validate_only: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        team_id: _Optional[str] = ...,
+        team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ...,
+        update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...,
+        validate_only: _Optional[bool] = ...,
+    ) -> None: ...

@@ -15,7 +15,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeleteProviderResponse(_message.Message):
-    __slots__ = ("success", "error", "provider_id", "deleted_at", "deletion_result", "warnings", "backup_info", "scheduled_deletion")
+    __slots__ = (
+        "success",
+        "error",
+        "provider_id",
+        "deleted_at",
+        "deletion_result",
+        "warnings",
+        "backup_info",
+        "scheduled_deletion",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +41,22 @@ class DeleteProviderResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     backup_info: _backup_info_pb2.MetricsBackupInfo
     scheduled_deletion: _timestamp_pb2.Timestamp
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., provider_id: _Optional[str] = ..., deleted_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., deletion_result: _Optional[_Union[_deletion_result_pb2.DeletionResult, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., backup_info: _Optional[_Union[_backup_info_pb2.MetricsBackupInfo, _Mapping]] = ..., scheduled_deletion: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        provider_id: _Optional[str] = ...,
+        deleted_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        deletion_result: _Optional[
+            _Union[_deletion_result_pb2.DeletionResult, _Mapping]
+        ] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        backup_info: _Optional[
+            _Union[_backup_info_pb2.MetricsBackupInfo, _Mapping]
+        ] = ...,
+        scheduled_deletion: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

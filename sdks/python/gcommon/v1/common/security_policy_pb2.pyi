@@ -18,4 +18,11 @@ class SecurityPolicy(_message.Message):
     min_password_length: int
     password_ttl: _duration_pb2.Duration
     max_failed_attempts: int
-    def __init__(self, min_password_length: _Optional[int] = ..., password_ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_failed_attempts: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        min_password_length: _Optional[int] = ...,
+        password_ttl: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        max_failed_attempts: _Optional[int] = ...,
+    ) -> None: ...

@@ -9,14 +9,29 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListTopicsRequest(_message.Message):
-    __slots__ = ("name_pattern", "namespace", "include_metadata", "include_stats", "limit", "page_token", "sort_by", "sort_order", "topic_states", "access_check", "filters")
+    __slots__ = (
+        "name_pattern",
+        "namespace",
+        "include_metadata",
+        "include_stats",
+        "limit",
+        "page_token",
+        "sort_by",
+        "sort_order",
+        "topic_states",
+        "access_check",
+        "filters",
+    )
     class FiltersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_PATTERN_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -39,4 +54,17 @@ class ListTopicsRequest(_message.Message):
     topic_states: _containers.RepeatedScalarFieldContainer[str]
     access_check: bool
     filters: _containers.ScalarMap[str, str]
-    def __init__(self, name_pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., include_metadata: _Optional[bool] = ..., include_stats: _Optional[bool] = ..., limit: _Optional[int] = ..., page_token: _Optional[str] = ..., sort_by: _Optional[str] = ..., sort_order: _Optional[str] = ..., topic_states: _Optional[_Iterable[str]] = ..., access_check: _Optional[bool] = ..., filters: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name_pattern: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        include_metadata: _Optional[bool] = ...,
+        include_stats: _Optional[bool] = ...,
+        limit: _Optional[int] = ...,
+        page_token: _Optional[str] = ...,
+        sort_by: _Optional[str] = ...,
+        sort_order: _Optional[str] = ...,
+        topic_states: _Optional[_Iterable[str]] = ...,
+        access_check: _Optional[bool] = ...,
+        filters: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

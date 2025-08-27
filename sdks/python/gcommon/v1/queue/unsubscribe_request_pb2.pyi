@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueUnsubscribeRequest(_message.Message):
-    __slots__ = ("subscription_id", "consumer_group_id", "force", "close_connections", "timeout_ms")
+    __slots__ = (
+        "subscription_id",
+        "consumer_group_id",
+        "force",
+        "close_connections",
+        "timeout_ms",
+    )
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     FORCE_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class QueueUnsubscribeRequest(_message.Message):
     force: bool
     close_connections: bool
     timeout_ms: int
-    def __init__(self, subscription_id: _Optional[str] = ..., consumer_group_id: _Optional[str] = ..., force: _Optional[bool] = ..., close_connections: _Optional[bool] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        subscription_id: _Optional[str] = ...,
+        consumer_group_id: _Optional[str] = ...,
+        force: _Optional[bool] = ...,
+        close_connections: _Optional[bool] = ...,
+        timeout_ms: _Optional[int] = ...,
+    ) -> None: ...

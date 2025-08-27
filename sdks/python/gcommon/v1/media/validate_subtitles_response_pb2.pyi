@@ -8,7 +8,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValidateSubtitlesResponse(_message.Message):
-    __slots__ = ("is_valid", "validation_errors", "validation_warnings", "detected_format")
+    __slots__ = (
+        "is_valid",
+        "validation_errors",
+        "validation_warnings",
+        "detected_format",
+    )
     IS_VALID_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_ERRORS_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_WARNINGS_FIELD_NUMBER: _ClassVar[int]
@@ -17,4 +22,10 @@ class ValidateSubtitlesResponse(_message.Message):
     validation_errors: _containers.RepeatedScalarFieldContainer[str]
     validation_warnings: _containers.RepeatedScalarFieldContainer[str]
     detected_format: str
-    def __init__(self, is_valid: _Optional[bool] = ..., validation_errors: _Optional[_Iterable[str]] = ..., validation_warnings: _Optional[_Iterable[str]] = ..., detected_format: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        is_valid: _Optional[bool] = ...,
+        validation_errors: _Optional[_Iterable[str]] = ...,
+        validation_warnings: _Optional[_Iterable[str]] = ...,
+        detected_format: _Optional[str] = ...,
+    ) -> None: ...

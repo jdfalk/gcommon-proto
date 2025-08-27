@@ -12,6 +12,7 @@ class OffsetResetStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OFFSET_RESET_STRATEGY_LATEST: _ClassVar[OffsetResetStrategy]
     OFFSET_RESET_STRATEGY_NONE: _ClassVar[OffsetResetStrategy]
     OFFSET_RESET_STRATEGY_TIMESTAMP: _ClassVar[OffsetResetStrategy]
+
 OFFSET_RESET_STRATEGY_UNSPECIFIED: OffsetResetStrategy
 OFFSET_RESET_STRATEGY_EARLIEST: OffsetResetStrategy
 OFFSET_RESET_STRATEGY_LATEST: OffsetResetStrategy

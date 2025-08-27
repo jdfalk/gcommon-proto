@@ -18,4 +18,11 @@ class LocationInfo(_message.Message):
     city: str
     latitude: float
     longitude: float
-    def __init__(self, country: _Optional[str] = ..., region: _Optional[str] = ..., city: _Optional[str] = ..., latitude: _Optional[float] = ..., longitude: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        country: _Optional[str] = ...,
+        region: _Optional[str] = ...,
+        city: _Optional[str] = ...,
+        latitude: _Optional[float] = ...,
+        longitude: _Optional[float] = ...,
+    ) -> None: ...

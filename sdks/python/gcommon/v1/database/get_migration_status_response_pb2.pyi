@@ -16,4 +16,9 @@ class GetMigrationStatusResponse(_message.Message):
     current_version: str
     applied_versions: _containers.RepeatedScalarFieldContainer[str]
     pending_versions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, current_version: _Optional[str] = ..., applied_versions: _Optional[_Iterable[str]] = ..., pending_versions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        current_version: _Optional[str] = ...,
+        applied_versions: _Optional[_Iterable[str]] = ...,
+        pending_versions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -9,21 +9,32 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetadataUpdate(_message.Message):
-    __slots__ = ("add_metadata", "remove_metadata", "replace_metadata", "operation_type")
+    __slots__ = (
+        "add_metadata",
+        "remove_metadata",
+        "replace_metadata",
+        "operation_type",
+    )
     class AddMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     class ReplaceMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ADD_METADATA_FIELD_NUMBER: _ClassVar[int]
     REMOVE_METADATA_FIELD_NUMBER: _ClassVar[int]
     REPLACE_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +43,10 @@ class MetadataUpdate(_message.Message):
     remove_metadata: _containers.RepeatedScalarFieldContainer[str]
     replace_metadata: _containers.ScalarMap[str, str]
     operation_type: str
-    def __init__(self, add_metadata: _Optional[_Mapping[str, str]] = ..., remove_metadata: _Optional[_Iterable[str]] = ..., replace_metadata: _Optional[_Mapping[str, str]] = ..., operation_type: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        add_metadata: _Optional[_Mapping[str, str]] = ...,
+        remove_metadata: _Optional[_Iterable[str]] = ...,
+        replace_metadata: _Optional[_Mapping[str, str]] = ...,
+        operation_type: _Optional[str] = ...,
+    ) -> None: ...

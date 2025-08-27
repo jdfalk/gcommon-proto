@@ -18,6 +18,7 @@ class MetricsRetentionPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RETENTION_POLICY_COMPLIANCE: _ClassVar[MetricsRetentionPolicy]
     RETENTION_POLICY_REAL_TIME: _ClassVar[MetricsRetentionPolicy]
     RETENTION_POLICY_AGGREGATE: _ClassVar[MetricsRetentionPolicy]
+
 RETENTION_POLICY_UNSPECIFIED: MetricsRetentionPolicy
 RETENTION_POLICY_SHORT_TERM: MetricsRetentionPolicy
 RETENTION_POLICY_MEDIUM_TERM: MetricsRetentionPolicy

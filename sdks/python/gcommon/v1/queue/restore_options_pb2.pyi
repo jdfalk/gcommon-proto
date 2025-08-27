@@ -13,7 +13,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RestoreOptions(_message.Message):
-    __slots__ = ("skip_message_content", "metadata_only", "max_messages", "offset_range", "time_range", "priority_levels", "filter_criteria", "performance")
+    __slots__ = (
+        "skip_message_content",
+        "metadata_only",
+        "max_messages",
+        "offset_range",
+        "time_range",
+        "priority_levels",
+        "filter_criteria",
+        "performance",
+    )
     SKIP_MESSAGE_CONTENT_FIELD_NUMBER: _ClassVar[int]
     METADATA_ONLY_FIELD_NUMBER: _ClassVar[int]
     MAX_MESSAGES_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +39,20 @@ class RestoreOptions(_message.Message):
     priority_levels: _containers.RepeatedScalarFieldContainer[int]
     filter_criteria: _filter_criteria_pb2.FilterCriteria
     performance: _performance_options_pb2.PerformanceOptions
-    def __init__(self, skip_message_content: _Optional[bool] = ..., metadata_only: _Optional[bool] = ..., max_messages: _Optional[int] = ..., offset_range: _Optional[_Union[_offset_range_pb2.OffsetRange, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., priority_levels: _Optional[_Iterable[int]] = ..., filter_criteria: _Optional[_Union[_filter_criteria_pb2.FilterCriteria, _Mapping]] = ..., performance: _Optional[_Union[_performance_options_pb2.PerformanceOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        skip_message_content: _Optional[bool] = ...,
+        metadata_only: _Optional[bool] = ...,
+        max_messages: _Optional[int] = ...,
+        offset_range: _Optional[_Union[_offset_range_pb2.OffsetRange, _Mapping]] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        priority_levels: _Optional[_Iterable[int]] = ...,
+        filter_criteria: _Optional[
+            _Union[_filter_criteria_pb2.FilterCriteria, _Mapping]
+        ] = ...,
+        performance: _Optional[
+            _Union[_performance_options_pb2.PerformanceOptions, _Mapping]
+        ] = ...,
+    ) -> None: ...

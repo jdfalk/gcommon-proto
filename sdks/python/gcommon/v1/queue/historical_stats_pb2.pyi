@@ -16,6 +16,16 @@ class HistoricalStats(_message.Message):
     __slots__ = ("data_points", "aggregation_period")
     DATA_POINTS_FIELD_NUMBER: _ClassVar[int]
     AGGREGATION_PERIOD_FIELD_NUMBER: _ClassVar[int]
-    data_points: _containers.RepeatedCompositeFieldContainer[_historical_data_point_pb2.HistoricalDataPoint]
+    data_points: _containers.RepeatedCompositeFieldContainer[
+        _historical_data_point_pb2.HistoricalDataPoint
+    ]
     aggregation_period: _duration_pb2.Duration
-    def __init__(self, data_points: _Optional[_Iterable[_Union[_historical_data_point_pb2.HistoricalDataPoint, _Mapping]]] = ..., aggregation_period: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        data_points: _Optional[
+            _Iterable[_Union[_historical_data_point_pb2.HistoricalDataPoint, _Mapping]]
+        ] = ...,
+        aggregation_period: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

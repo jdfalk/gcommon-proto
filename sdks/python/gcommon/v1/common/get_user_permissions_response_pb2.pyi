@@ -19,4 +19,10 @@ class GetUserPermissionsResponse(_message.Message):
     role_permissions: _containers.RepeatedScalarFieldContainer[str]
     effective_permissions: _containers.RepeatedScalarFieldContainer[str]
     roles: _containers.RepeatedCompositeFieldContainer[_role_pb2.Role]
-    def __init__(self, permissions: _Optional[_Iterable[str]] = ..., role_permissions: _Optional[_Iterable[str]] = ..., effective_permissions: _Optional[_Iterable[str]] = ..., roles: _Optional[_Iterable[_Union[_role_pb2.Role, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        permissions: _Optional[_Iterable[str]] = ...,
+        role_permissions: _Optional[_Iterable[str]] = ...,
+        effective_permissions: _Optional[_Iterable[str]] = ...,
+        roles: _Optional[_Iterable[_Union[_role_pb2.Role, _Mapping]]] = ...,
+    ) -> None: ...

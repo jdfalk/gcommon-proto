@@ -10,6 +10,7 @@ class SessionState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMMON_SESSION_STATE_UNSPECIFIED: _ClassVar[SessionState]
     COMMON_SESSION_STATE_ACTIVE: _ClassVar[SessionState]
     COMMON_SESSION_STATE_EXPIRED: _ClassVar[SessionState]
+
 COMMON_SESSION_STATE_UNSPECIFIED: SessionState
 COMMON_SESSION_STATE_ACTIVE: SessionState
 COMMON_SESSION_STATE_EXPIRED: SessionState

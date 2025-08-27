@@ -4,18 +4,20 @@
 # source: gcommon/v1/organization/list_teams_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/list_teams_response.proto'
+    "",
+    "gcommon/v1/organization/list_teams_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -23,24 +25,38 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
-from gcommon.v1.common import paginated_response_pb2 as gcommon_dot_v1_dot_common_dot_paginated__response__pb2
-from gcommon.v1.organization import team_pb2 as gcommon_dot_v1_dot_organization_dot_team__pb2
+from gcommon.v1.common import (
+    paginated_response_pb2 as gcommon_dot_v1_dot_common_dot_paginated__response__pb2,
+)
+from gcommon.v1.organization import (
+    team_pb2 as gcommon_dot_v1_dot_organization_dot_team__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/organization/list_teams_response.proto\x12\x17gcommon.v1.organization\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a\"gcommon/v1/organization/team.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf0\x01\n\x11ListTeamsResponse\x12:\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12?\n\x05teams\x18\x03 \x03(\x0b\x32\x1d.gcommon.v1.organization.TeamB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\x05teams\x12\x44\n\npagination\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npaginationB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n1gcommon/v1/organization/list_teams_response.proto\x12\x17gcommon.v1.organization\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a"gcommon/v1/organization/team.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf0\x01\n\x11ListTeamsResponse\x12:\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.common.ErrorB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06\x65rrors\x12\x18\n\x07success\x18\x02 \x01(\x08R\x07success\x12?\n\x05teams\x18\x03 \x03(\x0b\x32\x1d.gcommon.v1.organization.TeamB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\x05teams\x12\x44\n\npagination\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npaginationB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.list_teams_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.list_teams_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_LISTTEAMSRESPONSE'].fields_by_name['errors']._loaded_options = None
-  _globals['_LISTTEAMSRESPONSE'].fields_by_name['errors']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_LISTTEAMSRESPONSE'].fields_by_name['teams']._loaded_options = None
-  _globals['_LISTTEAMSRESPONSE'].fields_by_name['teams']._serialized_options = b'(\001\272H\005\222\001\002\010\001'
-  _globals['_LISTTEAMSRESPONSE']._serialized_start=254
-  _globals['_LISTTEAMSRESPONSE']._serialized_end=494
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_LISTTEAMSRESPONSE"].fields_by_name["errors"]._loaded_options = None
+    _globals["_LISTTEAMSRESPONSE"].fields_by_name[
+        "errors"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_LISTTEAMSRESPONSE"].fields_by_name["teams"]._loaded_options = None
+    _globals["_LISTTEAMSRESPONSE"].fields_by_name[
+        "teams"
+    ]._serialized_options = b"(\001\272H\005\222\001\002\010\001"
+    _globals["_LISTTEAMSRESPONSE"]._serialized_start = 254
+    _globals["_LISTTEAMSRESPONSE"]._serialized_end = 494
 # @@protoc_insertion_point(module_scope)

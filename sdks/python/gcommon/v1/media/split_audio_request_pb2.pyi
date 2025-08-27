@@ -17,7 +17,11 @@ class SplitAudioRequest(_message.Message):
     SPLIT_POINTS_FIELD_NUMBER: _ClassVar[int]
     audio_file_id: str
     split_points: _containers.RepeatedCompositeFieldContainer[SplitPoint]
-    def __init__(self, audio_file_id: _Optional[str] = ..., split_points: _Optional[_Iterable[_Union[SplitPoint, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        audio_file_id: _Optional[str] = ...,
+        split_points: _Optional[_Iterable[_Union[SplitPoint, _Mapping]]] = ...,
+    ) -> None: ...
 
 class SplitPoint(_message.Message):
     __slots__ = ("timestamp", "segment_name")
@@ -25,4 +29,10 @@ class SplitPoint(_message.Message):
     SEGMENT_NAME_FIELD_NUMBER: _ClassVar[int]
     timestamp: _duration_pb2.Duration
     segment_name: str
-    def __init__(self, timestamp: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., segment_name: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        timestamp: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        segment_name: _Optional[str] = ...,
+    ) -> None: ...

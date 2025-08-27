@@ -15,7 +15,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConsistencyConfig(_message.Message):
-    __slots__ = ("durability_level", "ack_level", "replication", "read_consistency", "write_consistency", "ordering", "conflict_resolution", "validation")
+    __slots__ = (
+        "durability_level",
+        "ack_level",
+        "replication",
+        "read_consistency",
+        "write_consistency",
+        "ordering",
+        "conflict_resolution",
+        "validation",
+    )
     DURABILITY_LEVEL_FIELD_NUMBER: _ClassVar[int]
     ACK_LEVEL_FIELD_NUMBER: _ClassVar[int]
     REPLICATION_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +41,28 @@ class ConsistencyConfig(_message.Message):
     ordering: _ordering_config_pb2.OrderingConfig
     conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     validation: _consistency_validation_pb2.ConsistencyValidation
-    def __init__(self, durability_level: _Optional[_Union[_durability_level_pb2.DurabilityLevel, str]] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., replication: _Optional[_Union[_replication_consistency_pb2.ReplicationConsistency, _Mapping]] = ..., read_consistency: _Optional[_Union[_read_consistency_pb2.ReadConsistency, _Mapping]] = ..., write_consistency: _Optional[_Union[_write_consistency_pb2.WriteConsistency, _Mapping]] = ..., ordering: _Optional[_Union[_ordering_config_pb2.OrderingConfig, _Mapping]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., validation: _Optional[_Union[_consistency_validation_pb2.ConsistencyValidation, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        durability_level: _Optional[
+            _Union[_durability_level_pb2.DurabilityLevel, str]
+        ] = ...,
+        ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ...,
+        replication: _Optional[
+            _Union[_replication_consistency_pb2.ReplicationConsistency, _Mapping]
+        ] = ...,
+        read_consistency: _Optional[
+            _Union[_read_consistency_pb2.ReadConsistency, _Mapping]
+        ] = ...,
+        write_consistency: _Optional[
+            _Union[_write_consistency_pb2.WriteConsistency, _Mapping]
+        ] = ...,
+        ordering: _Optional[
+            _Union[_ordering_config_pb2.OrderingConfig, _Mapping]
+        ] = ...,
+        conflict_resolution: _Optional[
+            _Union[_conflict_resolution_pb2.ConflictResolution, str]
+        ] = ...,
+        validation: _Optional[
+            _Union[_consistency_validation_pb2.ConsistencyValidation, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -12,7 +12,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConnectionPoolInfo(_message.Message):
-    __slots__ = ("max_connections", "active_connections", "idle_connections", "avg_lifetime", "stats")
+    __slots__ = (
+        "max_connections",
+        "active_connections",
+        "idle_connections",
+        "avg_lifetime",
+        "stats",
+    )
     MAX_CONNECTIONS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_CONNECTIONS_FIELD_NUMBER: _ClassVar[int]
     IDLE_CONNECTIONS_FIELD_NUMBER: _ClassVar[int]
@@ -23,4 +29,13 @@ class ConnectionPoolInfo(_message.Message):
     idle_connections: int
     avg_lifetime: _duration_pb2.Duration
     stats: _pool_stats_pb2.PoolStats
-    def __init__(self, max_connections: _Optional[int] = ..., active_connections: _Optional[int] = ..., idle_connections: _Optional[int] = ..., avg_lifetime: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., stats: _Optional[_Union[_pool_stats_pb2.PoolStats, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        max_connections: _Optional[int] = ...,
+        active_connections: _Optional[int] = ...,
+        idle_connections: _Optional[int] = ...,
+        avg_lifetime: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        stats: _Optional[_Union[_pool_stats_pb2.PoolStats, _Mapping]] = ...,
+    ) -> None: ...

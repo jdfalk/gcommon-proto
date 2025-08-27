@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class StorageQuota(_message.Message):
-    __slots__ = ("max_size_bytes", "max_objects", "max_requests_per_second", "transfer_quota_bytes")
+    __slots__ = (
+        "max_size_bytes",
+        "max_objects",
+        "max_requests_per_second",
+        "transfer_quota_bytes",
+    )
     MAX_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     MAX_OBJECTS_FIELD_NUMBER: _ClassVar[int]
     MAX_REQUESTS_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class StorageQuota(_message.Message):
     max_objects: int
     max_requests_per_second: int
     transfer_quota_bytes: int
-    def __init__(self, max_size_bytes: _Optional[int] = ..., max_objects: _Optional[int] = ..., max_requests_per_second: _Optional[int] = ..., transfer_quota_bytes: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        max_size_bytes: _Optional[int] = ...,
+        max_objects: _Optional[int] = ...,
+        max_requests_per_second: _Optional[int] = ...,
+        transfer_quota_bytes: _Optional[int] = ...,
+    ) -> None: ...

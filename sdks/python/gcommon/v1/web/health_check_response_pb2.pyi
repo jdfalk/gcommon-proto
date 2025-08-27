@@ -19,4 +19,11 @@ class WebHealthCheckResponse(_message.Message):
     status: _health_status_pb2.CommonHealthStatus
     response_time: _duration_pb2.Duration
     error: _error_pb2.Error
-    def __init__(self, status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
+        response_time: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

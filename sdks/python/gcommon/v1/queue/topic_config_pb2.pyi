@@ -10,7 +10,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TopicConfig(_message.Message):
-    __slots__ = ("max_messages", "max_size_bytes", "retention_policy", "partition_config", "persistent", "replicated", "replication_factor", "enable_compaction")
+    __slots__ = (
+        "max_messages",
+        "max_size_bytes",
+        "retention_policy",
+        "partition_config",
+        "persistent",
+        "replicated",
+        "replication_factor",
+        "enable_compaction",
+    )
     MAX_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     MAX_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     RETENTION_POLICY_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +36,18 @@ class TopicConfig(_message.Message):
     replicated: bool
     replication_factor: int
     enable_compaction: bool
-    def __init__(self, max_messages: _Optional[int] = ..., max_size_bytes: _Optional[int] = ..., retention_policy: _Optional[_Union[_retention_policy_pb2.QueueRetentionPolicy, _Mapping]] = ..., partition_config: _Optional[_Union[_partition_config_pb2.PartitionConfig, _Mapping]] = ..., persistent: _Optional[bool] = ..., replicated: _Optional[bool] = ..., replication_factor: _Optional[int] = ..., enable_compaction: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        max_messages: _Optional[int] = ...,
+        max_size_bytes: _Optional[int] = ...,
+        retention_policy: _Optional[
+            _Union[_retention_policy_pb2.QueueRetentionPolicy, _Mapping]
+        ] = ...,
+        partition_config: _Optional[
+            _Union[_partition_config_pb2.PartitionConfig, _Mapping]
+        ] = ...,
+        persistent: _Optional[bool] = ...,
+        replicated: _Optional[bool] = ...,
+        replication_factor: _Optional[int] = ...,
+        enable_compaction: _Optional[bool] = ...,
+    ) -> None: ...

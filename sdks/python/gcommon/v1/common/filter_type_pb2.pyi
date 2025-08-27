@@ -12,6 +12,7 @@ class LogFilterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILTER_TYPE_LOGGER: _ClassVar[LogFilterType]
     FILTER_TYPE_MESSAGE: _ClassVar[LogFilterType]
     FILTER_TYPE_FIELD: _ClassVar[LogFilterType]
+
 FILTER_TYPE_UNSPECIFIED: LogFilterType
 FILTER_TYPE_LEVEL: LogFilterType
 FILTER_TYPE_LOGGER: LogFilterType

@@ -16,4 +16,10 @@ class ErrorTypeStat(_message.Message):
     count: int
     rate: float
     last_occurrence: str
-    def __init__(self, error_type: _Optional[str] = ..., count: _Optional[int] = ..., rate: _Optional[float] = ..., last_occurrence: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        error_type: _Optional[str] = ...,
+        count: _Optional[int] = ...,
+        rate: _Optional[float] = ...,
+        last_occurrence: _Optional[str] = ...,
+    ) -> None: ...

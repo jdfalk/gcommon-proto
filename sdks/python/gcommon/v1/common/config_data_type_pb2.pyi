@@ -33,6 +33,7 @@ class ConfigDataType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONFIG_DATA_TYPE_UUID: _ClassVar[ConfigDataType]
     CONFIG_DATA_TYPE_BASE64: _ClassVar[ConfigDataType]
     CONFIG_DATA_TYPE_HEX: _ClassVar[ConfigDataType]
+
 CONFIG_DATA_TYPE_UNSPECIFIED: ConfigDataType
 CONFIG_DATA_TYPE_STRING: ConfigDataType
 CONFIG_DATA_TYPE_INTEGER: ConfigDataType

@@ -16,4 +16,10 @@ class StorageEncryption(_message.Message):
     key_id: str
     server_side: bool
     client_side: bool
-    def __init__(self, type: _Optional[str] = ..., key_id: _Optional[str] = ..., server_side: _Optional[bool] = ..., client_side: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[str] = ...,
+        key_id: _Optional[str] = ...,
+        server_side: _Optional[bool] = ...,
+        client_side: _Optional[bool] = ...,
+    ) -> None: ...

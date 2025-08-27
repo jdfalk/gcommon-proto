@@ -19,4 +19,10 @@ class DisableMfaRequest(_message.Message):
     password: str
     verification_code: str
     methods: _containers.RepeatedScalarFieldContainer[_mfa_method_pb2.MfaMethod]
-    def __init__(self, user_id: _Optional[str] = ..., password: _Optional[str] = ..., verification_code: _Optional[str] = ..., methods: _Optional[_Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        verification_code: _Optional[str] = ...,
+        methods: _Optional[_Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]] = ...,
+    ) -> None: ...

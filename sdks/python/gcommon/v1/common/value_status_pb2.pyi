@@ -17,6 +17,7 @@ class ValueStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALUE_STATUS_PENDING: _ClassVar[ValueStatus]
     VALUE_STATUS_SYNCING: _ClassVar[ValueStatus]
     VALUE_STATUS_VALIDATING: _ClassVar[ValueStatus]
+
 VALUE_STATUS_UNSPECIFIED: ValueStatus
 VALUE_STATUS_ACTIVE: ValueStatus
 VALUE_STATUS_INACTIVE: ValueStatus

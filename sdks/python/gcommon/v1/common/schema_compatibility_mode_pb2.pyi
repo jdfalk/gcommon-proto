@@ -11,6 +11,7 @@ class SchemaCompatibilityMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     SCHEMA_COMPATIBILITY_MODE_STRICT: _ClassVar[SchemaCompatibilityMode]
     SCHEMA_COMPATIBILITY_MODE_LENIENT: _ClassVar[SchemaCompatibilityMode]
     SCHEMA_COMPATIBILITY_MODE_NONE: _ClassVar[SchemaCompatibilityMode]
+
 SCHEMA_COMPATIBILITY_MODE_UNSPECIFIED: SchemaCompatibilityMode
 SCHEMA_COMPATIBILITY_MODE_STRICT: SchemaCompatibilityMode
 SCHEMA_COMPATIBILITY_MODE_LENIENT: SchemaCompatibilityMode

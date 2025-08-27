@@ -11,6 +11,7 @@ class HookErrorHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HOOK_ERROR_HANDLING_IGNORE: _ClassVar[HookErrorHandling]
     HOOK_ERROR_HANDLING_WARN: _ClassVar[HookErrorHandling]
     HOOK_ERROR_HANDLING_FAIL: _ClassVar[HookErrorHandling]
+
 HOOK_ERROR_HANDLING_UNSPECIFIED: HookErrorHandling
 HOOK_ERROR_HANDLING_IGNORE: HookErrorHandling
 HOOK_ERROR_HANDLING_WARN: HookErrorHandling

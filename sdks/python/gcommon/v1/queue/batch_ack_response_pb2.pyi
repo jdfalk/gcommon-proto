@@ -11,7 +11,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchAckResponse(_message.Message):
-    __slots__ = ("success", "acknowledged_count", "failed_count", "failed_acks", "metadata", "batch_id")
+    __slots__ = (
+        "success",
+        "acknowledged_count",
+        "failed_count",
+        "failed_acks",
+        "metadata",
+        "batch_id",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ACKNOWLEDGED_COUNT_FIELD_NUMBER: _ClassVar[int]
     FAILED_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +31,16 @@ class BatchAckResponse(_message.Message):
     failed_acks: _containers.RepeatedCompositeFieldContainer[_failed_ack_pb2.FailedAck]
     metadata: _response_metadata_pb2.ResponseMetadata
     batch_id: str
-    def __init__(self, success: _Optional[bool] = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., failed_acks: _Optional[_Iterable[_Union[_failed_ack_pb2.FailedAck, _Mapping]]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., batch_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        acknowledged_count: _Optional[int] = ...,
+        failed_count: _Optional[int] = ...,
+        failed_acks: _Optional[
+            _Iterable[_Union[_failed_ack_pb2.FailedAck, _Mapping]]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+        batch_id: _Optional[str] = ...,
+    ) -> None: ...

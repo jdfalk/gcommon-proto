@@ -9,7 +9,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AssignRoleRequest(_message.Message):
-    __slots__ = ("user_id", "role_id", "organization_id", "metadata", "assigned_by", "reason", "temporary", "expires_at")
+    __slots__ = (
+        "user_id",
+        "role_id",
+        "organization_id",
+        "metadata",
+        "assigned_by",
+        "reason",
+        "temporary",
+        "expires_at",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROLE_ID_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +35,16 @@ class AssignRoleRequest(_message.Message):
     reason: str
     temporary: bool
     expires_at: int
-    def __init__(self, user_id: _Optional[str] = ..., role_id: _Optional[str] = ..., organization_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., assigned_by: _Optional[str] = ..., reason: _Optional[str] = ..., temporary: _Optional[bool] = ..., expires_at: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        role_id: _Optional[str] = ...,
+        organization_id: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        assigned_by: _Optional[str] = ...,
+        reason: _Optional[str] = ...,
+        temporary: _Optional[bool] = ...,
+        expires_at: _Optional[int] = ...,
+    ) -> None: ...

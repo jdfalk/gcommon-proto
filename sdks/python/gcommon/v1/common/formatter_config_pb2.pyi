@@ -13,4 +13,8 @@ class LogFormatterConfig(_message.Message):
     PATTERN_FIELD_NUMBER: _ClassVar[int]
     type: _formatter_type_pb2.FormatterType
     pattern: str
-    def __init__(self, type: _Optional[_Union[_formatter_type_pb2.FormatterType, str]] = ..., pattern: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[_Union[_formatter_type_pb2.FormatterType, str]] = ...,
+        pattern: _Optional[str] = ...,
+    ) -> None: ...

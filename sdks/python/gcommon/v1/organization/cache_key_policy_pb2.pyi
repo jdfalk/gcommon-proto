@@ -9,7 +9,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheKeyPolicy(_message.Message):
-    __slots__ = ("include_query_strings", "query_string_whitelist", "include_headers", "header_whitelist", "include_cookies", "cookie_whitelist")
+    __slots__ = (
+        "include_query_strings",
+        "query_string_whitelist",
+        "include_headers",
+        "header_whitelist",
+        "include_cookies",
+        "cookie_whitelist",
+    )
     INCLUDE_QUERY_STRINGS_FIELD_NUMBER: _ClassVar[int]
     QUERY_STRING_WHITELIST_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_HEADERS_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +29,12 @@ class CacheKeyPolicy(_message.Message):
     header_whitelist: _containers.RepeatedScalarFieldContainer[str]
     include_cookies: bool
     cookie_whitelist: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, include_query_strings: _Optional[bool] = ..., query_string_whitelist: _Optional[_Iterable[str]] = ..., include_headers: _Optional[bool] = ..., header_whitelist: _Optional[_Iterable[str]] = ..., include_cookies: _Optional[bool] = ..., cookie_whitelist: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        include_query_strings: _Optional[bool] = ...,
+        query_string_whitelist: _Optional[_Iterable[str]] = ...,
+        include_headers: _Optional[bool] = ...,
+        header_whitelist: _Optional[_Iterable[str]] = ...,
+        include_cookies: _Optional[bool] = ...,
+        cookie_whitelist: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

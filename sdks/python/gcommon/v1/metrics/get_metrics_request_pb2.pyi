@@ -14,7 +14,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsGetMetricsRequest(_message.Message):
-    __slots__ = ("metadata", "filter", "time_range", "aggregation", "pagination", "provider_id", "output_options", "include_metadata", "limit")
+    __slots__ = (
+        "metadata",
+        "filter",
+        "time_range",
+        "aggregation",
+        "pagination",
+        "provider_id",
+        "output_options",
+        "include_metadata",
+        "limit",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     TIME_RANGE_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +43,25 @@ class MetricsGetMetricsRequest(_message.Message):
     output_options: _output_options_pb2.OutputOptions
     include_metadata: bool
     limit: int
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., aggregation: _Optional[_Union[_metric_aggregation_pb2.MetricAggregation, _Mapping]] = ..., pagination: _Optional[_Union[_pagination_options_pb2.PaginationOptions, _Mapping]] = ..., provider_id: _Optional[str] = ..., output_options: _Optional[_Union[_output_options_pb2.OutputOptions, _Mapping]] = ..., include_metadata: _Optional[bool] = ..., limit: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        aggregation: _Optional[
+            _Union[_metric_aggregation_pb2.MetricAggregation, _Mapping]
+        ] = ...,
+        pagination: _Optional[
+            _Union[_pagination_options_pb2.PaginationOptions, _Mapping]
+        ] = ...,
+        provider_id: _Optional[str] = ...,
+        output_options: _Optional[
+            _Union[_output_options_pb2.OutputOptions, _Mapping]
+        ] = ...,
+        include_metadata: _Optional[bool] = ...,
+        limit: _Optional[int] = ...,
+    ) -> None: ...

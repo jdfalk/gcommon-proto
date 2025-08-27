@@ -9,14 +9,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TransformationConfig(_message.Message):
-    __slots__ = ("enabled", "transformation_script", "script_language", "transform_on_ingress", "transform_on_egress", "timeout_ms", "max_memory_mb", "parameters")
+    __slots__ = (
+        "enabled",
+        "transformation_script",
+        "script_language",
+        "transform_on_ingress",
+        "transform_on_egress",
+        "timeout_ms",
+        "max_memory_mb",
+        "parameters",
+    )
     class ParametersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     TRANSFORMATION_SCRIPT_FIELD_NUMBER: _ClassVar[int]
     SCRIPT_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +45,14 @@ class TransformationConfig(_message.Message):
     timeout_ms: int
     max_memory_mb: int
     parameters: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., transformation_script: _Optional[str] = ..., script_language: _Optional[str] = ..., transform_on_ingress: _Optional[bool] = ..., transform_on_egress: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., max_memory_mb: _Optional[int] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        transformation_script: _Optional[str] = ...,
+        script_language: _Optional[str] = ...,
+        transform_on_ingress: _Optional[bool] = ...,
+        transform_on_egress: _Optional[bool] = ...,
+        timeout_ms: _Optional[int] = ...,
+        max_memory_mb: _Optional[int] = ...,
+        parameters: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

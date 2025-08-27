@@ -17,4 +17,13 @@ class RegisterCheckRequest(_message.Message):
     service: str
     check: _health_check_request_pb2.HealthHealthCheckRequest
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, service: _Optional[str] = ..., check: _Optional[_Union[_health_check_request_pb2.HealthHealthCheckRequest, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        service: _Optional[str] = ...,
+        check: _Optional[
+            _Union[_health_check_request_pb2.HealthHealthCheckRequest, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

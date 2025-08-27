@@ -14,4 +14,12 @@ class UpdateMiddlewareConfigRequest(_message.Message):
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
     config: _middleware_config_pb2.MiddlewareConfig
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., config: _Optional[_Union[_middleware_config_pb2.MiddlewareConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        config: _Optional[
+            _Union[_middleware_config_pb2.MiddlewareConfig, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -12,7 +12,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RemoveRoleResponse(_message.Message):
-    __slots__ = ("user_id", "username", "role", "removed_at", "removed_by_user_id", "removed_by_username", "effective_immediately", "has_remaining_roles", "remaining_role_count", "message")
+    __slots__ = (
+        "user_id",
+        "username",
+        "role",
+        "removed_at",
+        "removed_by_user_id",
+        "removed_by_username",
+        "effective_immediately",
+        "has_remaining_roles",
+        "remaining_role_count",
+        "message",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     ROLE_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +44,18 @@ class RemoveRoleResponse(_message.Message):
     has_remaining_roles: bool
     remaining_role_count: int
     message: str
-    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ..., removed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., removed_by_user_id: _Optional[str] = ..., removed_by_username: _Optional[str] = ..., effective_immediately: _Optional[bool] = ..., has_remaining_roles: _Optional[bool] = ..., remaining_role_count: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ...,
+        removed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        removed_by_user_id: _Optional[str] = ...,
+        removed_by_username: _Optional[str] = ...,
+        effective_immediately: _Optional[bool] = ...,
+        has_remaining_roles: _Optional[bool] = ...,
+        remaining_role_count: _Optional[int] = ...,
+        message: _Optional[str] = ...,
+    ) -> None: ...

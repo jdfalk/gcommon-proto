@@ -16,7 +16,12 @@ class ExtractAudioRequest(_message.Message):
     media_file_id: str
     track_indices: _containers.RepeatedScalarFieldContainer[int]
     options: AudioExtractionOptions
-    def __init__(self, media_file_id: _Optional[str] = ..., track_indices: _Optional[_Iterable[int]] = ..., options: _Optional[_Union[AudioExtractionOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        media_file_id: _Optional[str] = ...,
+        track_indices: _Optional[_Iterable[int]] = ...,
+        options: _Optional[_Union[AudioExtractionOptions, _Mapping]] = ...,
+    ) -> None: ...
 
 class AudioExtractionOptions(_message.Message):
     __slots__ = ("output_format", "bitrate", "sample_rate", "normalize_audio")
@@ -28,4 +33,10 @@ class AudioExtractionOptions(_message.Message):
     bitrate: int
     sample_rate: int
     normalize_audio: bool
-    def __init__(self, output_format: _Optional[str] = ..., bitrate: _Optional[int] = ..., sample_rate: _Optional[int] = ..., normalize_audio: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        output_format: _Optional[str] = ...,
+        bitrate: _Optional[int] = ...,
+        sample_rate: _Optional[int] = ...,
+        normalize_audio: _Optional[bool] = ...,
+    ) -> None: ...

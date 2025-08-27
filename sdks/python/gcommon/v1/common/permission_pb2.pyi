@@ -23,4 +23,13 @@ class Permission(_message.Message):
     description: str
     scope: _scope_type_pb2.ScopeType
     created_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., scope: _Optional[_Union[_scope_type_pb2.ScopeType, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        scope: _Optional[_Union[_scope_type_pb2.ScopeType, str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

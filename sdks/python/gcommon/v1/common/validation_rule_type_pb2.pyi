@@ -16,6 +16,7 @@ class ValidationRuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_RULE_TYPE_CUSTOM: _ClassVar[ValidationRuleType]
     VALIDATION_RULE_TYPE_FUNCTION: _ClassVar[ValidationRuleType]
     VALIDATION_RULE_TYPE_SCHEMA: _ClassVar[ValidationRuleType]
+
 VALIDATION_RULE_TYPE_UNSPECIFIED: ValidationRuleType
 VALIDATION_RULE_TYPE_REGEX: ValidationRuleType
 VALIDATION_RULE_TYPE_RANGE: ValidationRuleType

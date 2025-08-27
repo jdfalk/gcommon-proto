@@ -13,7 +13,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueryPlan(_message.Message):
-    __slots__ = ("query_id", "estimated_duration", "estimated_data_points", "steps", "storage_backends")
+    __slots__ = (
+        "query_id",
+        "estimated_duration",
+        "estimated_data_points",
+        "steps",
+        "storage_backends",
+    )
     QUERY_ID_FIELD_NUMBER: _ClassVar[int]
     ESTIMATED_DURATION_FIELD_NUMBER: _ClassVar[int]
     ESTIMATED_DATA_POINTS_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +30,13 @@ class QueryPlan(_message.Message):
     estimated_data_points: int
     steps: _containers.RepeatedCompositeFieldContainer[_query_step_pb2.QueryStep]
     storage_backends: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, query_id: _Optional[str] = ..., estimated_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., estimated_data_points: _Optional[int] = ..., steps: _Optional[_Iterable[_Union[_query_step_pb2.QueryStep, _Mapping]]] = ..., storage_backends: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        query_id: _Optional[str] = ...,
+        estimated_duration: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        estimated_data_points: _Optional[int] = ...,
+        steps: _Optional[_Iterable[_Union[_query_step_pb2.QueryStep, _Mapping]]] = ...,
+        storage_backends: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

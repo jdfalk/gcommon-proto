@@ -4,49 +4,77 @@
 # source: gcommon/v1/queue/message_filter_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/message_filter_config.proto'
+    "",
+    "gcommon/v1/queue/message_filter_config.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import content_filter_pb2 as gcommon_dot_v1_dot_queue_dot_content__filter__pb2
+from gcommon.v1.queue import (
+    content_filter_pb2 as gcommon_dot_v1_dot_queue_dot_content__filter__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/message_filter_config.proto\x12\x10gcommon.v1.queue\x1a%gcommon/v1/queue/content_filter.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xdb\x03\n\x13MessageFilterConfig\x12_\n\x0eheader_filters\x18\x01 \x03(\x0b\x32\x38.gcommon.v1.queue.MessageFilterConfig.HeaderFiltersEntryR\rheaderFilters\x12R\n\x0f\x63ontent_filters\x18\x02 \x03(\x0b\x32\x1f.gcommon.v1.queue.ContentFilterB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0e\x63ontentFilters\x12:\n\x14routing_key_patterns\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12routingKeyPatterns\x12-\n\rmessage_types\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cmessageTypes\x12\x37\n\x12\x66ilter_expressions\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x11\x66ilterExpressions\x12)\n\x10\x65xclude_matching\x18\x06 \x01(\x08R\x0f\x65xcludeMatching\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n,gcommon/v1/queue/message_filter_config.proto\x12\x10gcommon.v1.queue\x1a%gcommon/v1/queue/content_filter.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xdb\x03\n\x13MessageFilterConfig\x12_\n\x0eheader_filters\x18\x01 \x03(\x0b\x32\x38.gcommon.v1.queue.MessageFilterConfig.HeaderFiltersEntryR\rheaderFilters\x12R\n\x0f\x63ontent_filters\x18\x02 \x03(\x0b\x32\x1f.gcommon.v1.queue.ContentFilterB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0e\x63ontentFilters\x12:\n\x14routing_key_patterns\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12routingKeyPatterns\x12-\n\rmessage_types\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cmessageTypes\x12\x37\n\x12\x66ilter_expressions\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x11\x66ilterExpressions\x12)\n\x10\x65xclude_matching\x18\x06 \x01(\x08R\x0f\x65xcludeMatching\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.message_filter_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.message_filter_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['content_filters']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['content_filters']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['routing_key_patterns']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['routing_key_patterns']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['message_types']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['message_types']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['filter_expressions']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG'].fields_by_name['filter_expressions']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_MESSAGEFILTERCONFIG']._serialized_start=170
-  _globals['_MESSAGEFILTERCONFIG']._serialized_end=645
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_start=581
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_end=645
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY"]._loaded_options = None
+    _globals["_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY"]._serialized_options = b"8\001"
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "content_filters"
+    ]._loaded_options = None
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "content_filters"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "routing_key_patterns"
+    ]._loaded_options = None
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "routing_key_patterns"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "message_types"
+    ]._loaded_options = None
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "message_types"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "filter_expressions"
+    ]._loaded_options = None
+    _globals["_MESSAGEFILTERCONFIG"].fields_by_name[
+        "filter_expressions"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_MESSAGEFILTERCONFIG"]._serialized_start = 170
+    _globals["_MESSAGEFILTERCONFIG"]._serialized_end = 645
+    _globals["_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY"]._serialized_start = 581
+    _globals["_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY"]._serialized_end = 645
 # @@protoc_insertion_point(module_scope)

@@ -22,4 +22,13 @@ class CsrfConfig(_message.Message):
     token_length: int
     token_ttl: _duration_pb2.Duration
     secure: bool
-    def __init__(self, header_name: _Optional[str] = ..., cookie_name: _Optional[str] = ..., token_length: _Optional[int] = ..., token_ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., secure: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        header_name: _Optional[str] = ...,
+        cookie_name: _Optional[str] = ...,
+        token_length: _Optional[int] = ...,
+        token_ttl: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        secure: _Optional[bool] = ...,
+    ) -> None: ...

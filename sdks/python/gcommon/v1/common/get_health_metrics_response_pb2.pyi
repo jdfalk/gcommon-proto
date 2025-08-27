@@ -14,6 +14,16 @@ class GetHealthMetricsResponse(_message.Message):
     __slots__ = ("metrics", "metadata")
     METRICS_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
-    metrics: _containers.RepeatedCompositeFieldContainer[_health_metric_data_pb2.HealthMetricData]
+    metrics: _containers.RepeatedCompositeFieldContainer[
+        _health_metric_data_pb2.HealthMetricData
+    ]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, metrics: _Optional[_Iterable[_Union[_health_metric_data_pb2.HealthMetricData, _Mapping]]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metrics: _Optional[
+            _Iterable[_Union[_health_metric_data_pb2.HealthMetricData, _Mapping]]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

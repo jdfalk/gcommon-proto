@@ -15,6 +15,7 @@ class AlertType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ALERT_TYPE_BACKUP_FAILURE: _ClassVar[AlertType]
     ALERT_TYPE_COMPLIANCE_VIOLATION: _ClassVar[AlertType]
     ALERT_TYPE_SECURITY_INCIDENT: _ClassVar[AlertType]
+
 ALERT_TYPE_UNSPECIFIED: AlertType
 ALERT_TYPE_EXPIRATION: AlertType
 ALERT_TYPE_ACCESS_ANOMALY: AlertType

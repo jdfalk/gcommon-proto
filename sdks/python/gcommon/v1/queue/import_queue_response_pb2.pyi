@@ -11,7 +11,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ImportQueueResponse(_message.Message):
-    __slots__ = ("import_id", "success", "error_message", "imported_count", "failed_count", "total_count", "start_time", "end_time", "duration_ms", "progress_percent")
+    __slots__ = (
+        "import_id",
+        "success",
+        "error_message",
+        "imported_count",
+        "failed_count",
+        "total_count",
+        "start_time",
+        "end_time",
+        "duration_ms",
+        "progress_percent",
+    )
     IMPORT_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +43,20 @@ class ImportQueueResponse(_message.Message):
     end_time: _timestamp_pb2.Timestamp
     duration_ms: int
     progress_percent: float
-    def __init__(self, import_id: _Optional[str] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ..., imported_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., total_count: _Optional[int] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., duration_ms: _Optional[int] = ..., progress_percent: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        import_id: _Optional[str] = ...,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        imported_count: _Optional[int] = ...,
+        failed_count: _Optional[int] = ...,
+        total_count: _Optional[int] = ...,
+        start_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        end_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        duration_ms: _Optional[int] = ...,
+        progress_percent: _Optional[float] = ...,
+    ) -> None: ...

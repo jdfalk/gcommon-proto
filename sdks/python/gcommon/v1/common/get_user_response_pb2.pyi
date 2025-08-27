@@ -13,4 +13,8 @@ class GetUserResponse(_message.Message):
     FOUND_FIELD_NUMBER: _ClassVar[int]
     user: _user_details_pb2.UserDetails
     found: bool
-    def __init__(self, user: _Optional[_Union[_user_details_pb2.UserDetails, _Mapping]] = ..., found: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        user: _Optional[_Union[_user_details_pb2.UserDetails, _Mapping]] = ...,
+        found: _Optional[bool] = ...,
+    ) -> None: ...

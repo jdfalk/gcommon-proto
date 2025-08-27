@@ -20,4 +20,13 @@ class CreateProviderRequest(_message.Message):
     validate_config: bool
     dry_run: bool
     auto_start: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., config: _Optional[_Union[_provider_config_pb2.ProviderConfig, _Mapping]] = ..., validate_config: _Optional[bool] = ..., dry_run: _Optional[bool] = ..., auto_start: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        config: _Optional[_Union[_provider_config_pb2.ProviderConfig, _Mapping]] = ...,
+        validate_config: _Optional[bool] = ...,
+        dry_run: _Optional[bool] = ...,
+        auto_start: _Optional[bool] = ...,
+    ) -> None: ...

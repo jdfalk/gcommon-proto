@@ -20,4 +20,13 @@ class GrantPermissionResponse(_message.Message):
     permission_id: str
     grantee_id: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., permission_id: _Optional[str] = ..., grantee_id: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        permission_id: _Optional[str] = ...,
+        grantee_id: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

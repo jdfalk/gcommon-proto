@@ -4,18 +4,20 @@
 # source: gcommon/v1/database/query_stats.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/database/query_stats.proto'
+    "",
+    "gcommon/v1/database/query_stats.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,24 +29,48 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/database/query_stats.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x89\x02\n\x12\x44\x61tabaseQueryStats\x12\x44\n\x0e\x65xecution_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\rexecutionTime\x12$\n\trow_count\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x08rowCount\x12*\n\x0c\x63olumn_count\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0b\x63olumnCount\x12&\n\nquery_plan\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tqueryPlan\x12\x33\n\rcost_estimate\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0c\x63ostEstimateB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n%gcommon/v1/database/query_stats.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x89\x02\n\x12\x44\x61tabaseQueryStats\x12\x44\n\x0e\x65xecution_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\rexecutionTime\x12$\n\trow_count\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x08rowCount\x12*\n\x0c\x63olumn_count\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0b\x63olumnCount\x12&\n\nquery_plan\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tqueryPlan\x12\x33\n\rcost_estimate\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0c\x63ostEstimateB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.query_stats_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.database.query_stats_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['execution_time']._loaded_options = None
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['execution_time']._serialized_options = b'(\001'
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['row_count']._loaded_options = None
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['row_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['column_count']._loaded_options = None
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['column_count']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['query_plan']._loaded_options = None
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['query_plan']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['cost_estimate']._loaded_options = None
-  _globals['_DATABASEQUERYSTATS'].fields_by_name['cost_estimate']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_DATABASEQUERYSTATS']._serialized_start=159
-  _globals['_DATABASEQUERYSTATS']._serialized_end=424
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
+    )
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "execution_time"
+    ]._loaded_options = None
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "execution_time"
+    ]._serialized_options = b"(\001"
+    _globals["_DATABASEQUERYSTATS"].fields_by_name["row_count"]._loaded_options = None
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "row_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "column_count"
+    ]._loaded_options = None
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "column_count"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_DATABASEQUERYSTATS"].fields_by_name["query_plan"]._loaded_options = None
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "query_plan"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "cost_estimate"
+    ]._loaded_options = None
+    _globals["_DATABASEQUERYSTATS"].fields_by_name[
+        "cost_estimate"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_DATABASEQUERYSTATS"]._serialized_start = 159
+    _globals["_DATABASEQUERYSTATS"]._serialized_end = 424
 # @@protoc_insertion_point(module_scope)

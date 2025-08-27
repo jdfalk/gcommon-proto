@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WebPerformanceStats(_message.Message):
-    __slots__ = ("request_count", "average_latency_ms", "active_connections", "error_rate")
+    __slots__ = (
+        "request_count",
+        "average_latency_ms",
+        "active_connections",
+        "error_rate",
+    )
     REQUEST_COUNT_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_LATENCY_MS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_CONNECTIONS_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class WebPerformanceStats(_message.Message):
     average_latency_ms: float
     active_connections: int
     error_rate: float
-    def __init__(self, request_count: _Optional[int] = ..., average_latency_ms: _Optional[float] = ..., active_connections: _Optional[int] = ..., error_rate: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        request_count: _Optional[int] = ...,
+        average_latency_ms: _Optional[float] = ...,
+        active_connections: _Optional[int] = ...,
+        error_rate: _Optional[float] = ...,
+    ) -> None: ...

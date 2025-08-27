@@ -23,4 +23,15 @@ class CommonBatchOperation(_message.Message):
     operations: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
     options: _batch_options_pb2.CommonBatchOptions
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, batch_id: _Optional[str] = ..., operation_type: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ..., options: _Optional[_Union[_batch_options_pb2.CommonBatchOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        batch_id: _Optional[str] = ...,
+        operation_type: _Optional[str] = ...,
+        operations: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
+        options: _Optional[
+            _Union[_batch_options_pb2.CommonBatchOptions, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -18,4 +18,10 @@ class DomainConfig(_message.Message):
     ssl_certificate: str
     dns: _dns_config_pb2.DNSConfig
     validation_status: str
-    def __init__(self, domain_name: _Optional[str] = ..., ssl_certificate: _Optional[str] = ..., dns: _Optional[_Union[_dns_config_pb2.DNSConfig, _Mapping]] = ..., validation_status: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        domain_name: _Optional[str] = ...,
+        ssl_certificate: _Optional[str] = ...,
+        dns: _Optional[_Union[_dns_config_pb2.DNSConfig, _Mapping]] = ...,
+        validation_status: _Optional[str] = ...,
+    ) -> None: ...

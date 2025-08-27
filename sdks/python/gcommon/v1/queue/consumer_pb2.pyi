@@ -16,7 +16,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Consumer(_message.Message):
-    __slots__ = ("consumer_id", "client_info", "state", "assigned_partitions", "config", "stats", "last_heartbeat", "joined_at")
+    __slots__ = (
+        "consumer_id",
+        "client_info",
+        "state",
+        "assigned_partitions",
+        "config",
+        "stats",
+        "last_heartbeat",
+        "joined_at",
+    )
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_INFO_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +42,20 @@ class Consumer(_message.Message):
     stats: _consumer_stats_pb2.ConsumerStats
     last_heartbeat: _timestamp_pb2.Timestamp
     joined_at: _timestamp_pb2.Timestamp
-    def __init__(self, consumer_id: _Optional[str] = ..., client_info: _Optional[_Union[_consumer_client_pb2.ConsumerClient, _Mapping]] = ..., state: _Optional[_Union[_consumer_state_pb2.ConsumerState, str]] = ..., assigned_partitions: _Optional[_Iterable[int]] = ..., config: _Optional[_Union[_consumer_config_pb2.ConsumerConfig, _Mapping]] = ..., stats: _Optional[_Union[_consumer_stats_pb2.ConsumerStats, _Mapping]] = ..., last_heartbeat: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., joined_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        consumer_id: _Optional[str] = ...,
+        client_info: _Optional[
+            _Union[_consumer_client_pb2.ConsumerClient, _Mapping]
+        ] = ...,
+        state: _Optional[_Union[_consumer_state_pb2.ConsumerState, str]] = ...,
+        assigned_partitions: _Optional[_Iterable[int]] = ...,
+        config: _Optional[_Union[_consumer_config_pb2.ConsumerConfig, _Mapping]] = ...,
+        stats: _Optional[_Union[_consumer_stats_pb2.ConsumerStats, _Mapping]] = ...,
+        last_heartbeat: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        joined_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

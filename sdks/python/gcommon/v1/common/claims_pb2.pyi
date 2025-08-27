@@ -9,14 +9,37 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Claims(_message.Message):
-    __slots__ = ("issuer", "subject", "audience", "expires_at", "not_before", "issued_at", "jwt_id", "user_id", "username", "email", "email_verified", "roles", "permissions", "scopes", "mfa_verified", "mfa_method", "session_id", "is_refresh_token", "metadata")
+    __slots__ = (
+        "issuer",
+        "subject",
+        "audience",
+        "expires_at",
+        "not_before",
+        "issued_at",
+        "jwt_id",
+        "user_id",
+        "username",
+        "email",
+        "email_verified",
+        "roles",
+        "permissions",
+        "scopes",
+        "mfa_verified",
+        "mfa_method",
+        "session_id",
+        "is_refresh_token",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ISSUER_FIELD_NUMBER: _ClassVar[int]
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
     AUDIENCE_FIELD_NUMBER: _ClassVar[int]
@@ -55,4 +78,25 @@ class Claims(_message.Message):
     session_id: str
     is_refresh_token: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, issuer: _Optional[str] = ..., subject: _Optional[str] = ..., audience: _Optional[_Iterable[str]] = ..., expires_at: _Optional[int] = ..., not_before: _Optional[int] = ..., issued_at: _Optional[int] = ..., jwt_id: _Optional[str] = ..., user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., email_verified: _Optional[bool] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ..., mfa_verified: _Optional[bool] = ..., mfa_method: _Optional[str] = ..., session_id: _Optional[str] = ..., is_refresh_token: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        issuer: _Optional[str] = ...,
+        subject: _Optional[str] = ...,
+        audience: _Optional[_Iterable[str]] = ...,
+        expires_at: _Optional[int] = ...,
+        not_before: _Optional[int] = ...,
+        issued_at: _Optional[int] = ...,
+        jwt_id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        email_verified: _Optional[bool] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+        scopes: _Optional[_Iterable[str]] = ...,
+        mfa_verified: _Optional[bool] = ...,
+        mfa_method: _Optional[str] = ...,
+        session_id: _Optional[str] = ...,
+        is_refresh_token: _Optional[bool] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

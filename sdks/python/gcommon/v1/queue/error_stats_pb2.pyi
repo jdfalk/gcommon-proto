@@ -17,6 +17,16 @@ class QueueErrorStats(_message.Message):
     RECENT_ERROR_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     total_errors: int
     error_rate: float
-    error_types: _containers.RepeatedCompositeFieldContainer[_error_type_stat_pb2.ErrorTypeStat]
+    error_types: _containers.RepeatedCompositeFieldContainer[
+        _error_type_stat_pb2.ErrorTypeStat
+    ]
     recent_error_messages: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, total_errors: _Optional[int] = ..., error_rate: _Optional[float] = ..., error_types: _Optional[_Iterable[_Union[_error_type_stat_pb2.ErrorTypeStat, _Mapping]]] = ..., recent_error_messages: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        total_errors: _Optional[int] = ...,
+        error_rate: _Optional[float] = ...,
+        error_types: _Optional[
+            _Iterable[_Union[_error_type_stat_pb2.ErrorTypeStat, _Mapping]]
+        ] = ...,
+        recent_error_messages: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -4,18 +4,15 @@
 # source: gcommon/v1/config/rate_limits.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    32,
-    0,
-    '',
-    'gcommon/v1/config/rate_limits.proto'
+    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/config/rate_limits.proto"
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,20 +23,34 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#gcommon/v1/config/rate_limits.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x9d\x01\n\nRateLimits\x12\x37\n\x13requests_per_second\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11requestsPerSecond\x12&\n\nburst_size\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tburstSize\x12.\n\x0ewindow_seconds\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\rwindowSecondsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n#gcommon/v1/config/rate_limits.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x9d\x01\n\nRateLimits\x12\x37\n\x13requests_per_second\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11requestsPerSecond\x12&\n\nburst_size\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tburstSize\x12.\n\x0ewindow_seconds\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\rwindowSecondsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.rate_limits_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.config.rate_limits_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
-  _globals['_RATELIMITS'].fields_by_name['requests_per_second']._loaded_options = None
-  _globals['_RATELIMITS'].fields_by_name['requests_per_second']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_RATELIMITS'].fields_by_name['burst_size']._loaded_options = None
-  _globals['_RATELIMITS'].fields_by_name['burst_size']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_RATELIMITS'].fields_by_name['window_seconds']._loaded_options = None
-  _globals['_RATELIMITS'].fields_by_name['window_seconds']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_RATELIMITS']._serialized_start=123
-  _globals['_RATELIMITS']._serialized_end=280
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
+    )
+    _globals["_RATELIMITS"].fields_by_name["requests_per_second"]._loaded_options = None
+    _globals["_RATELIMITS"].fields_by_name[
+        "requests_per_second"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_RATELIMITS"].fields_by_name["burst_size"]._loaded_options = None
+    _globals["_RATELIMITS"].fields_by_name[
+        "burst_size"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_RATELIMITS"].fields_by_name["window_seconds"]._loaded_options = None
+    _globals["_RATELIMITS"].fields_by_name[
+        "window_seconds"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_RATELIMITS"]._serialized_start = 123
+    _globals["_RATELIMITS"]._serialized_end = 280
 # @@protoc_insertion_point(module_scope)

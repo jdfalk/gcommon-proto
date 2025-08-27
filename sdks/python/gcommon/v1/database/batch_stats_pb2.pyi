@@ -11,7 +11,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DatabaseBatchStats(_message.Message):
-    __slots__ = ("total_time", "successful_operations", "failed_operations", "total_affected_rows")
+    __slots__ = (
+        "total_time",
+        "successful_operations",
+        "failed_operations",
+        "total_affected_rows",
+    )
     TOTAL_TIME_FIELD_NUMBER: _ClassVar[int]
     SUCCESSFUL_OPERATIONS_FIELD_NUMBER: _ClassVar[int]
     FAILED_OPERATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +25,12 @@ class DatabaseBatchStats(_message.Message):
     successful_operations: int
     failed_operations: int
     total_affected_rows: int
-    def __init__(self, total_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., successful_operations: _Optional[int] = ..., failed_operations: _Optional[int] = ..., total_affected_rows: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        total_time: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        successful_operations: _Optional[int] = ...,
+        failed_operations: _Optional[int] = ...,
+        total_affected_rows: _Optional[int] = ...,
+    ) -> None: ...

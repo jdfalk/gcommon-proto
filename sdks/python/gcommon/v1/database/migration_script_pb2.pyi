@@ -14,4 +14,9 @@ class MigrationScript(_message.Message):
     version: str
     script: str
     description: str
-    def __init__(self, version: _Optional[str] = ..., script: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        version: _Optional[str] = ...,
+        script: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+    ) -> None: ...

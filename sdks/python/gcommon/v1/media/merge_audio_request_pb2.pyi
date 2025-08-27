@@ -14,4 +14,8 @@ class MergeAudioRequest(_message.Message):
     OUTPUT_FORMAT_FIELD_NUMBER: _ClassVar[int]
     audio_file_ids: _containers.RepeatedScalarFieldContainer[str]
     output_format: str
-    def __init__(self, audio_file_ids: _Optional[_Iterable[str]] = ..., output_format: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        audio_file_ids: _Optional[_Iterable[str]] = ...,
+        output_format: _Optional[str] = ...,
+    ) -> None: ...

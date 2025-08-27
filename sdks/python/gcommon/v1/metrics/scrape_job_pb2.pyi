@@ -23,4 +23,15 @@ class ScrapeJob(_message.Message):
     active: bool
     last_scrape_time: _timestamp_pb2.Timestamp
     next_scrape_time: _timestamp_pb2.Timestamp
-    def __init__(self, job_id: _Optional[str] = ..., config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ..., active: _Optional[bool] = ..., last_scrape_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., next_scrape_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        job_id: _Optional[str] = ...,
+        config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ...,
+        active: _Optional[bool] = ...,
+        last_scrape_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        next_scrape_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

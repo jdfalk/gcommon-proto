@@ -4,18 +4,20 @@
 # source: gcommon/v1/media/split_audio_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/media/split_audio_request.proto'
+    "",
+    "gcommon/v1/media/split_audio_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,18 +29,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"x\n\x11SplitAudioRequest\x12\"\n\raudio_file_id\x18\x01 \x01(\tR\x0b\x61udioFileId\x12?\n\x0csplit_points\x18\x02 \x03(\x0b\x32\x1c.gcommon.v1.media.SplitPointR\x0bsplitPoints\"s\n\nSplitPoint\x12\x37\n\ttimestamp\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\ttimestamp\x12,\n\x0csegment_name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x0bsegmentNameB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"x\n\x11SplitAudioRequest\x12"\n\raudio_file_id\x18\x01 \x01(\tR\x0b\x61udioFileId\x12?\n\x0csplit_points\x18\x02 \x03(\x0b\x32\x1c.gcommon.v1.media.SplitPointR\x0bsplitPoints"s\n\nSplitPoint\x12\x37\n\ttimestamp\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\ttimestamp\x12,\n\x0csegment_name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x0bsegmentNameB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.split_audio_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.media.split_audio_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_SPLITPOINT'].fields_by_name['segment_name']._loaded_options = None
-  _globals['_SPLITPOINT'].fields_by_name['segment_name']._serialized_options = b'\272H\006r\004\020\001\030d'
-  _globals['_SPLITAUDIOREQUEST']._serialized_start=160
-  _globals['_SPLITAUDIOREQUEST']._serialized_end=280
-  _globals['_SPLITPOINT']._serialized_start=282
-  _globals['_SPLITPOINT']._serialized_end=397
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003"
+    )
+    _globals["_SPLITPOINT"].fields_by_name["segment_name"]._loaded_options = None
+    _globals["_SPLITPOINT"].fields_by_name[
+        "segment_name"
+    ]._serialized_options = b"\272H\006r\004\020\001\030d"
+    _globals["_SPLITAUDIOREQUEST"]._serialized_start = 160
+    _globals["_SPLITAUDIOREQUEST"]._serialized_end = 280
+    _globals["_SPLITPOINT"]._serialized_start = 282
+    _globals["_SPLITPOINT"]._serialized_end = 397
 # @@protoc_insertion_point(module_scope)

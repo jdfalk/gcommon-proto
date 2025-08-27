@@ -1,7 +1,15 @@
-from gcommon.v1.queue import get_cluster_info_request_pb2 as _get_cluster_info_request_pb2
-from gcommon.v1.queue import get_cluster_info_response_pb2 as _get_cluster_info_response_pb2
-from gcommon.v1.queue import get_queue_health_request_pb2 as _get_queue_health_request_pb2
-from gcommon.v1.queue import get_queue_health_response_pb2 as _get_queue_health_response_pb2
+from gcommon.v1.queue import (
+    get_cluster_info_request_pb2 as _get_cluster_info_request_pb2,
+)
+from gcommon.v1.queue import (
+    get_cluster_info_response_pb2 as _get_cluster_info_response_pb2,
+)
+from gcommon.v1.queue import (
+    get_queue_health_request_pb2 as _get_queue_health_request_pb2,
+)
+from gcommon.v1.queue import (
+    get_queue_health_response_pb2 as _get_queue_health_response_pb2,
+)
 from gcommon.v1.queue import get_queue_stats_request_pb2 as _get_queue_stats_request_pb2
 from gcommon.v1.queue import metrics_event_pb2 as _metrics_event_pb2
 from gcommon.v1.queue import queue_stats_response_pb2 as _queue_stats_response_pb2

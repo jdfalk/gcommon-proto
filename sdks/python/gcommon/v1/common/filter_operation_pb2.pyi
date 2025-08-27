@@ -19,6 +19,7 @@ class FilterOperation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILTER_OPERATION_ENDS_WITH: _ClassVar[FilterOperation]
     FILTER_OPERATION_IN: _ClassVar[FilterOperation]
     FILTER_OPERATION_NOT_IN: _ClassVar[FilterOperation]
+
 FILTER_OPERATION_UNSPECIFIED: FilterOperation
 FILTER_OPERATION_EQUALS: FilterOperation
 FILTER_OPERATION_NOT_EQUALS: FilterOperation

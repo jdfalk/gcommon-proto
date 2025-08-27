@@ -12,6 +12,7 @@ class SessionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SESSION_STATUS_EXPIRED: _ClassVar[SessionStatus]
     SESSION_STATUS_TERMINATED: _ClassVar[SessionStatus]
     SESSION_STATUS_INVALID: _ClassVar[SessionStatus]
+
 SESSION_STATUS_UNSPECIFIED: SessionStatus
 SESSION_STATUS_ACTIVE: SessionStatus
 SESSION_STATUS_EXPIRED: SessionStatus

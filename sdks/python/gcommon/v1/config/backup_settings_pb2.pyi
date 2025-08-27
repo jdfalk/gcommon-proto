@@ -10,14 +10,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BackupSettings(_message.Message):
-    __slots__ = ("enabled", "frequency", "retention_days", "storage_location", "encrypted", "compressed", "metadata")
+    __slots__ = (
+        "enabled",
+        "frequency",
+        "retention_days",
+        "storage_location",
+        "encrypted",
+        "compressed",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     FREQUENCY_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +43,13 @@ class BackupSettings(_message.Message):
     encrypted: bool
     compressed: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., frequency: _Optional[_Union[_backup_frequency_pb2.BackupFrequency, str]] = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., encrypted: _Optional[bool] = ..., compressed: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        frequency: _Optional[_Union[_backup_frequency_pb2.BackupFrequency, str]] = ...,
+        retention_days: _Optional[int] = ...,
+        storage_location: _Optional[str] = ...,
+        encrypted: _Optional[bool] = ...,
+        compressed: _Optional[bool] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -13,7 +13,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthCreateSessionResponse(_message.Message):
-    __slots__ = ("metadata", "session_id", "access_token", "refresh_token", "expires_at", "refresh_expires_at", "user_id", "roles", "permissions")
+    __slots__ = (
+        "metadata",
+        "session_id",
+        "access_token",
+        "refresh_token",
+        "expires_at",
+        "refresh_expires_at",
+        "user_id",
+        "roles",
+        "permissions",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +42,21 @@ class AuthCreateSessionResponse(_message.Message):
     user_id: str
     roles: _containers.RepeatedScalarFieldContainer[str]
     permissions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., session_id: _Optional[str] = ..., access_token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., refresh_expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., user_id: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+        session_id: _Optional[str] = ...,
+        access_token: _Optional[str] = ...,
+        refresh_token: _Optional[str] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        refresh_expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        user_id: _Optional[str] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConsumerClient(_message.Message):
-    __slots__ = ("client_id", "client_host", "client_app", "client_version", "client_rack")
+    __slots__ = (
+        "client_id",
+        "client_host",
+        "client_app",
+        "client_version",
+        "client_rack",
+    )
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_HOST_FIELD_NUMBER: _ClassVar[int]
     CLIENT_APP_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class ConsumerClient(_message.Message):
     client_app: str
     client_version: str
     client_rack: str
-    def __init__(self, client_id: _Optional[str] = ..., client_host: _Optional[str] = ..., client_app: _Optional[str] = ..., client_version: _Optional[str] = ..., client_rack: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        client_id: _Optional[str] = ...,
+        client_host: _Optional[str] = ...,
+        client_app: _Optional[str] = ...,
+        client_version: _Optional[str] = ...,
+        client_rack: _Optional[str] = ...,
+    ) -> None: ...

@@ -19,4 +19,11 @@ class GroupBySpec(_message.Message):
     label_keys: _containers.RepeatedScalarFieldContainer[str]
     time_group: _duration_pb2.Duration
     max_groups: int
-    def __init__(self, label_keys: _Optional[_Iterable[str]] = ..., time_group: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_groups: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        label_keys: _Optional[_Iterable[str]] = ...,
+        time_group: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        max_groups: _Optional[int] = ...,
+    ) -> None: ...

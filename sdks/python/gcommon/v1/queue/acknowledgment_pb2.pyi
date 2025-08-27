@@ -12,7 +12,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Acknowledgment(_message.Message):
-    __slots__ = ("message_id", "consumer_id", "queue_name", "partition_id", "offset", "ack_type", "ack_timestamp", "processing_duration_ms", "error_message", "retry_count")
+    __slots__ = (
+        "message_id",
+        "consumer_id",
+        "queue_name",
+        "partition_id",
+        "offset",
+        "ack_type",
+        "ack_timestamp",
+        "processing_duration_ms",
+        "error_message",
+        "retry_count",
+    )
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +44,18 @@ class Acknowledgment(_message.Message):
     processing_duration_ms: int
     error_message: str
     retry_count: int
-    def __init__(self, message_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., queue_name: _Optional[str] = ..., partition_id: _Optional[int] = ..., offset: _Optional[int] = ..., ack_type: _Optional[_Union[_ack_type_pb2.AckType, str]] = ..., ack_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., processing_duration_ms: _Optional[int] = ..., error_message: _Optional[str] = ..., retry_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        message_id: _Optional[str] = ...,
+        consumer_id: _Optional[str] = ...,
+        queue_name: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        offset: _Optional[int] = ...,
+        ack_type: _Optional[_Union[_ack_type_pb2.AckType, str]] = ...,
+        ack_timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        processing_duration_ms: _Optional[int] = ...,
+        error_message: _Optional[str] = ...,
+        retry_count: _Optional[int] = ...,
+    ) -> None: ...

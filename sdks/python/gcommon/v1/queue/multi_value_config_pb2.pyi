@@ -14,4 +14,9 @@ class MultiValueConfig(_message.Message):
     max_values: int
     value_ttl_seconds: int
     cleanup_strategy: str
-    def __init__(self, max_values: _Optional[int] = ..., value_ttl_seconds: _Optional[int] = ..., cleanup_strategy: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        max_values: _Optional[int] = ...,
+        value_ttl_seconds: _Optional[int] = ...,
+        cleanup_strategy: _Optional[str] = ...,
+    ) -> None: ...

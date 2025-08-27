@@ -4,47 +4,64 @@
 # source: gcommon/v1/queue/node_info.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    32,
-    0,
-    '',
-    'gcommon/v1/queue/node_info.proto'
+    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/queue/node_info.proto"
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import node_state_pb2 as gcommon_dot_v1_dot_common_dot_node__state__pb2
-from gcommon.v1.queue import node_stats_pb2 as gcommon_dot_v1_dot_queue_dot_node__stats__pb2
+from gcommon.v1.common import (
+    node_state_pb2 as gcommon_dot_v1_dot_common_dot_node__state__pb2,
+)
+from gcommon.v1.queue import (
+    node_stats_pb2 as gcommon_dot_v1_dot_queue_dot_node__stats__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n gcommon/v1/queue/node_info.proto\x12\x10gcommon.v1.queue\x1a\"gcommon/v1/common/node_state.proto\x1a!gcommon/v1/queue/node_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xbc\x02\n\x08NodeInfo\x12 \n\x07node_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06nodeId\x12#\n\x08hostname\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08hostname\x12\x1f\n\x04port\x18\x03 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x32\n\x05state\x18\x04 \x01(\x0e\x32\x1c.gcommon.v1.common.NodeStateR\x05state\x12\x1e\n\x05roles\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x05roles\x12\x41\n\x0elast_heartbeat\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rlastHeartbeat\x12\x31\n\x05stats\x18\x07 \x01(\x0b\x32\x1b.gcommon.v1.queue.NodeStatsR\x05statsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n gcommon/v1/queue/node_info.proto\x12\x10gcommon.v1.queue\x1a"gcommon/v1/common/node_state.proto\x1a!gcommon/v1/queue/node_stats.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xbc\x02\n\x08NodeInfo\x12 \n\x07node_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06nodeId\x12#\n\x08hostname\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08hostname\x12\x1f\n\x04port\x18\x03 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x32\n\x05state\x18\x04 \x01(\x0e\x32\x1c.gcommon.v1.common.NodeStateR\x05state\x12\x1e\n\x05roles\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x05roles\x12\x41\n\x0elast_heartbeat\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rlastHeartbeat\x12\x31\n\x05stats\x18\x07 \x01(\x0b\x32\x1b.gcommon.v1.queue.NodeStatsR\x05statsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.node_info_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.node_info_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_NODEINFO'].fields_by_name['node_id']._loaded_options = None
-  _globals['_NODEINFO'].fields_by_name['node_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_NODEINFO'].fields_by_name['hostname']._loaded_options = None
-  _globals['_NODEINFO'].fields_by_name['hostname']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_NODEINFO'].fields_by_name['port']._loaded_options = None
-  _globals['_NODEINFO'].fields_by_name['port']._serialized_options = b'\272H\010\032\006\030\377\377\003(\001'
-  _globals['_NODEINFO'].fields_by_name['roles']._loaded_options = None
-  _globals['_NODEINFO'].fields_by_name['roles']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_NODEINFO']._serialized_start=223
-  _globals['_NODEINFO']._serialized_end=539
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_NODEINFO"].fields_by_name["node_id"]._loaded_options = None
+    _globals["_NODEINFO"].fields_by_name[
+        "node_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_NODEINFO"].fields_by_name["hostname"]._loaded_options = None
+    _globals["_NODEINFO"].fields_by_name[
+        "hostname"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_NODEINFO"].fields_by_name["port"]._loaded_options = None
+    _globals["_NODEINFO"].fields_by_name[
+        "port"
+    ]._serialized_options = b"\272H\010\032\006\030\377\377\003(\001"
+    _globals["_NODEINFO"].fields_by_name["roles"]._loaded_options = None
+    _globals["_NODEINFO"].fields_by_name[
+        "roles"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_NODEINFO"]._serialized_start = 223
+    _globals["_NODEINFO"]._serialized_end = 539
 # @@protoc_insertion_point(module_scope)

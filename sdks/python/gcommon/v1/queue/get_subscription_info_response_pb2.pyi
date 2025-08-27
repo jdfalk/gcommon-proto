@@ -11,7 +11,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetSubscriptionInfoResponse(_message.Message):
-    __slots__ = ("subscription_id", "subscription_name", "topic_name", "state", "consumer_group", "current_offset", "latest_offset", "unacked_count", "created_at", "last_activity", "active_consumers", "total_consumed", "consumption_rate")
+    __slots__ = (
+        "subscription_id",
+        "subscription_name",
+        "topic_name",
+        "state",
+        "consumer_group",
+        "current_offset",
+        "latest_offset",
+        "unacked_count",
+        "created_at",
+        "last_activity",
+        "active_consumers",
+        "total_consumed",
+        "consumption_rate",
+    )
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_NAME_FIELD_NUMBER: _ClassVar[int]
     TOPIC_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -38,4 +52,23 @@ class GetSubscriptionInfoResponse(_message.Message):
     active_consumers: int
     total_consumed: int
     consumption_rate: float
-    def __init__(self, subscription_id: _Optional[str] = ..., subscription_name: _Optional[str] = ..., topic_name: _Optional[str] = ..., state: _Optional[str] = ..., consumer_group: _Optional[str] = ..., current_offset: _Optional[int] = ..., latest_offset: _Optional[int] = ..., unacked_count: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_activity: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active_consumers: _Optional[int] = ..., total_consumed: _Optional[int] = ..., consumption_rate: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        subscription_id: _Optional[str] = ...,
+        subscription_name: _Optional[str] = ...,
+        topic_name: _Optional[str] = ...,
+        state: _Optional[str] = ...,
+        consumer_group: _Optional[str] = ...,
+        current_offset: _Optional[int] = ...,
+        latest_offset: _Optional[int] = ...,
+        unacked_count: _Optional[int] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_activity: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        active_consumers: _Optional[int] = ...,
+        total_consumed: _Optional[int] = ...,
+        consumption_rate: _Optional[float] = ...,
+    ) -> None: ...

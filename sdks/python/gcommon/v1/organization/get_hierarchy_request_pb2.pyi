@@ -16,4 +16,11 @@ class GetHierarchyRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     organization_id: str
     hierarchy_id: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., hierarchy_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        organization_id: _Optional[str] = ...,
+        hierarchy_id: _Optional[str] = ...,
+    ) -> None: ...

@@ -7,7 +7,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AutoScalingConfig(_message.Message):
-    __slots__ = ("enabled", "min_instances", "max_instances", "target_cpu_percent", "target_memory_percent", "scale_up_cooldown", "scale_down_cooldown")
+    __slots__ = (
+        "enabled",
+        "min_instances",
+        "max_instances",
+        "target_cpu_percent",
+        "target_memory_percent",
+        "scale_up_cooldown",
+        "scale_down_cooldown",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     MIN_INSTANCES_FIELD_NUMBER: _ClassVar[int]
     MAX_INSTANCES_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +30,13 @@ class AutoScalingConfig(_message.Message):
     target_memory_percent: int
     scale_up_cooldown: int
     scale_down_cooldown: int
-    def __init__(self, enabled: _Optional[bool] = ..., min_instances: _Optional[int] = ..., max_instances: _Optional[int] = ..., target_cpu_percent: _Optional[int] = ..., target_memory_percent: _Optional[int] = ..., scale_up_cooldown: _Optional[int] = ..., scale_down_cooldown: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        min_instances: _Optional[int] = ...,
+        max_instances: _Optional[int] = ...,
+        target_cpu_percent: _Optional[int] = ...,
+        target_memory_percent: _Optional[int] = ...,
+        scale_up_cooldown: _Optional[int] = ...,
+        scale_down_cooldown: _Optional[int] = ...,
+    ) -> None: ...

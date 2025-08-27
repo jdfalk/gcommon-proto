@@ -14,4 +14,9 @@ class ConfigureLoggerRequest(_message.Message):
     logger_name: str
     level: str
     output_config: str
-    def __init__(self, logger_name: _Optional[str] = ..., level: _Optional[str] = ..., output_config: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        logger_name: _Optional[str] = ...,
+        level: _Optional[str] = ...,
+        output_config: _Optional[str] = ...,
+    ) -> None: ...

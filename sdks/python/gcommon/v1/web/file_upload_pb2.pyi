@@ -18,4 +18,10 @@ class FileUpload(_message.Message):
     content_type: _mime_type_pb2.MimeType
     data: bytes
     destination: str
-    def __init__(self, file_name: _Optional[str] = ..., content_type: _Optional[_Union[_mime_type_pb2.MimeType, _Mapping]] = ..., data: _Optional[bytes] = ..., destination: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        file_name: _Optional[str] = ...,
+        content_type: _Optional[_Union[_mime_type_pb2.MimeType, _Mapping]] = ...,
+        data: _Optional[bytes] = ...,
+        destination: _Optional[str] = ...,
+    ) -> None: ...

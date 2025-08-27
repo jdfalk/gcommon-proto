@@ -18,4 +18,10 @@ class ValidationSummary(_message.Message):
     invalid_count: int
     common_errors: _containers.RepeatedScalarFieldContainer[str]
     schema_version: str
-    def __init__(self, valid_count: _Optional[int] = ..., invalid_count: _Optional[int] = ..., common_errors: _Optional[_Iterable[str]] = ..., schema_version: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        valid_count: _Optional[int] = ...,
+        invalid_count: _Optional[int] = ...,
+        common_errors: _Optional[_Iterable[str]] = ...,
+        schema_version: _Optional[str] = ...,
+    ) -> None: ...

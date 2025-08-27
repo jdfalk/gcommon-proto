@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RetryDelayConfig(_message.Message):
-    __slots__ = ("initial_delay_ms", "max_delay_ms", "backoff_multiplier", "jitter_enabled")
+    __slots__ = (
+        "initial_delay_ms",
+        "max_delay_ms",
+        "backoff_multiplier",
+        "jitter_enabled",
+    )
     INITIAL_DELAY_MS_FIELD_NUMBER: _ClassVar[int]
     MAX_DELAY_MS_FIELD_NUMBER: _ClassVar[int]
     BACKOFF_MULTIPLIER_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class RetryDelayConfig(_message.Message):
     max_delay_ms: int
     backoff_multiplier: float
     jitter_enabled: bool
-    def __init__(self, initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., jitter_enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        initial_delay_ms: _Optional[int] = ...,
+        max_delay_ms: _Optional[int] = ...,
+        backoff_multiplier: _Optional[float] = ...,
+        jitter_enabled: _Optional[bool] = ...,
+    ) -> None: ...

@@ -12,6 +12,7 @@ class QueueAlertSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_ALERT_SEVERITY_WARNING: _ClassVar[QueueAlertSeverity]
     QUEUE_ALERT_SEVERITY_ERROR: _ClassVar[QueueAlertSeverity]
     QUEUE_ALERT_SEVERITY_CRITICAL: _ClassVar[QueueAlertSeverity]
+
 QUEUE_ALERT_SEVERITY_UNSPECIFIED: QueueAlertSeverity
 QUEUE_ALERT_SEVERITY_INFO: QueueAlertSeverity
 QUEUE_ALERT_SEVERITY_WARNING: QueueAlertSeverity

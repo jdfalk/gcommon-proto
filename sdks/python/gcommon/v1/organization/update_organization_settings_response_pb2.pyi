@@ -1,5 +1,7 @@
 from gcommon.v1.common import error_pb2 as _error_pb2
-from gcommon.v1.organization import organization_settings_pb2 as _organization_settings_pb2
+from gcommon.v1.organization import (
+    organization_settings_pb2 as _organization_settings_pb2,
+)
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
@@ -18,4 +20,11 @@ class UpdateOrganizationSettingsResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     settings: _organization_settings_pb2.OrganizationSettings
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., settings: _Optional[_Union[_organization_settings_pb2.OrganizationSettings, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        settings: _Optional[
+            _Union[_organization_settings_pb2.OrganizationSettings, _Mapping]
+        ] = ...,
+    ) -> None: ...

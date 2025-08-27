@@ -13,6 +13,7 @@ class QueueConsistencyLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_CONSISTENCY_LEVEL_STRONG: _ClassVar[QueueConsistencyLevel]
     QUEUE_CONSISTENCY_LEVEL_SEQUENTIAL: _ClassVar[QueueConsistencyLevel]
     QUEUE_CONSISTENCY_LEVEL_LINEARIZABLE: _ClassVar[QueueConsistencyLevel]
+
 QUEUE_CONSISTENCY_LEVEL_UNSPECIFIED: QueueConsistencyLevel
 QUEUE_CONSISTENCY_LEVEL_EVENTUAL: QueueConsistencyLevel
 QUEUE_CONSISTENCY_LEVEL_WEAK: QueueConsistencyLevel

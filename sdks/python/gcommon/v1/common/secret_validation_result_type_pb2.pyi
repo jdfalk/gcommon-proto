@@ -12,6 +12,7 @@ class SecretValidationResultType(int, metaclass=_enum_type_wrapper.EnumTypeWrapp
     SECRET_VALIDATION_RESULT_TYPE_FAIL: _ClassVar[SecretValidationResultType]
     SECRET_VALIDATION_RESULT_TYPE_WARNING: _ClassVar[SecretValidationResultType]
     SECRET_VALIDATION_RESULT_TYPE_SKIP: _ClassVar[SecretValidationResultType]
+
 SECRET_VALIDATION_RESULT_TYPE_UNSPECIFIED: SecretValidationResultType
 SECRET_VALIDATION_RESULT_TYPE_PASS: SecretValidationResultType
 SECRET_VALIDATION_RESULT_TYPE_FAIL: SecretValidationResultType

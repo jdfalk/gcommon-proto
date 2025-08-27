@@ -13,7 +13,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EventNotification(_message.Message):
-    __slots__ = ("event_id", "event_type", "event_payload", "notification", "event_time")
+    __slots__ = (
+        "event_id",
+        "event_type",
+        "event_payload",
+        "notification",
+        "event_time",
+    )
     EVENT_ID_FIELD_NUMBER: _ClassVar[int]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     EVENT_PAYLOAD_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +30,15 @@ class EventNotification(_message.Message):
     event_payload: _any_pb2.Any
     notification: _notification_message_pb2.NotificationMessage
     event_time: _timestamp_pb2.Timestamp
-    def __init__(self, event_id: _Optional[str] = ..., event_type: _Optional[str] = ..., event_payload: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., notification: _Optional[_Union[_notification_message_pb2.NotificationMessage, _Mapping]] = ..., event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        event_id: _Optional[str] = ...,
+        event_type: _Optional[str] = ...,
+        event_payload: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        notification: _Optional[
+            _Union[_notification_message_pb2.NotificationMessage, _Mapping]
+        ] = ...,
+        event_time: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

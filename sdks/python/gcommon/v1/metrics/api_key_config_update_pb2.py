@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/api_key_config_update.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/api_key_config_update.proto'
+    "",
+    "gcommon/v1/metrics/api_key_config_update.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,16 +28,26 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/api_key_config_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xbc\x01\n\x12\x41PIKeyConfigUpdate\x12*\n\x0bheader_name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\nheaderName\x12\x1a\n\x08required\x18\x02 \x01(\x08R\x08required\x12.\n\x13\x61llowed_key_updates\x18\x03 \x03(\tR\x11\x61llowedKeyUpdates\x12.\n\x13\x61llowed_key_removes\x18\x04 \x03(\tR\x11\x61llowedKeyRemovesB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n.gcommon/v1/metrics/api_key_config_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xbc\x01\n\x12\x41PIKeyConfigUpdate\x12*\n\x0bheader_name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\nheaderName\x12\x1a\n\x08required\x18\x02 \x01(\x08R\x08required\x12.\n\x13\x61llowed_key_updates\x18\x03 \x03(\tR\x11\x61llowedKeyUpdates\x12.\n\x13\x61llowed_key_removes\x18\x04 \x03(\tR\x11\x61llowedKeyRemovesB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.api_key_config_update_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.api_key_config_update_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_APIKEYCONFIGUPDATE'].fields_by_name['header_name']._loaded_options = None
-  _globals['_APIKEYCONFIGUPDATE'].fields_by_name['header_name']._serialized_options = b'\272H\006r\004\020\001\030d'
-  _globals['_APIKEYCONFIGUPDATE']._serialized_start=135
-  _globals['_APIKEYCONFIGUPDATE']._serialized_end=323
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_APIKEYCONFIGUPDATE"].fields_by_name["header_name"]._loaded_options = None
+    _globals["_APIKEYCONFIGUPDATE"].fields_by_name[
+        "header_name"
+    ]._serialized_options = b"\272H\006r\004\020\001\030d"
+    _globals["_APIKEYCONFIGUPDATE"]._serialized_start = 135
+    _globals["_APIKEYCONFIGUPDATE"]._serialized_end = 323
 # @@protoc_insertion_point(module_scope)

@@ -9,7 +9,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateQueueConfigResponse(_message.Message):
-    __slots__ = ("success", "error_message", "config_version", "updated_at", "updated_fields")
+    __slots__ = (
+        "success",
+        "error_message",
+        "config_version",
+        "updated_at",
+        "updated_fields",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +26,11 @@ class UpdateQueueConfigResponse(_message.Message):
     config_version: int
     updated_at: int
     updated_fields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., config_version: _Optional[int] = ..., updated_at: _Optional[int] = ..., updated_fields: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        config_version: _Optional[int] = ...,
+        updated_at: _Optional[int] = ...,
+        updated_fields: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

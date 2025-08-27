@@ -19,4 +19,12 @@ class KeysRequest(_message.Message):
     namespace: str
     pagination: _pagination_pb2.Pagination
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        pattern: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

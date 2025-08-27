@@ -9,7 +9,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SubscriptionConfiguration(_message.Message):
-    __slots__ = ("ack_level", "delivery_mode", "max_unacked_messages", "ack_timeout_ms", "min_priority", "ordered_delivery", "auto_acknowledge", "expiration_seconds", "duplicate_detection", "max_message_age_seconds")
+    __slots__ = (
+        "ack_level",
+        "delivery_mode",
+        "max_unacked_messages",
+        "ack_timeout_ms",
+        "min_priority",
+        "ordered_delivery",
+        "auto_acknowledge",
+        "expiration_seconds",
+        "duplicate_detection",
+        "max_message_age_seconds",
+    )
     ACK_LEVEL_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_MODE_FIELD_NUMBER: _ClassVar[int]
     MAX_UNACKED_MESSAGES_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +41,16 @@ class SubscriptionConfiguration(_message.Message):
     expiration_seconds: int
     duplicate_detection: bool
     max_message_age_seconds: int
-    def __init__(self, ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ..., max_unacked_messages: _Optional[int] = ..., ack_timeout_ms: _Optional[int] = ..., min_priority: _Optional[int] = ..., ordered_delivery: _Optional[bool] = ..., auto_acknowledge: _Optional[bool] = ..., expiration_seconds: _Optional[int] = ..., duplicate_detection: _Optional[bool] = ..., max_message_age_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ...,
+        delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ...,
+        max_unacked_messages: _Optional[int] = ...,
+        ack_timeout_ms: _Optional[int] = ...,
+        min_priority: _Optional[int] = ...,
+        ordered_delivery: _Optional[bool] = ...,
+        auto_acknowledge: _Optional[bool] = ...,
+        expiration_seconds: _Optional[int] = ...,
+        duplicate_detection: _Optional[bool] = ...,
+        max_message_age_seconds: _Optional[int] = ...,
+    ) -> None: ...

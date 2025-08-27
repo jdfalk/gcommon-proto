@@ -7,7 +7,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SubscriptionStats(_message.Message):
-    __slots__ = ("subscription_id", "messages_consumed", "messages_acknowledged", "messages_rejected", "consumer_lag", "consumption_rate", "avg_processing_time_ms", "active_consumers", "last_activity_time")
+    __slots__ = (
+        "subscription_id",
+        "messages_consumed",
+        "messages_acknowledged",
+        "messages_rejected",
+        "consumer_lag",
+        "consumption_rate",
+        "avg_processing_time_ms",
+        "active_consumers",
+        "last_activity_time",
+    )
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_CONSUMED_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_ACKNOWLEDGED_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +36,15 @@ class SubscriptionStats(_message.Message):
     avg_processing_time_ms: float
     active_consumers: int
     last_activity_time: int
-    def __init__(self, subscription_id: _Optional[str] = ..., messages_consumed: _Optional[int] = ..., messages_acknowledged: _Optional[int] = ..., messages_rejected: _Optional[int] = ..., consumer_lag: _Optional[int] = ..., consumption_rate: _Optional[float] = ..., avg_processing_time_ms: _Optional[float] = ..., active_consumers: _Optional[int] = ..., last_activity_time: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        subscription_id: _Optional[str] = ...,
+        messages_consumed: _Optional[int] = ...,
+        messages_acknowledged: _Optional[int] = ...,
+        messages_rejected: _Optional[int] = ...,
+        consumer_lag: _Optional[int] = ...,
+        consumption_rate: _Optional[float] = ...,
+        avg_processing_time_ms: _Optional[float] = ...,
+        active_consumers: _Optional[int] = ...,
+        last_activity_time: _Optional[int] = ...,
+    ) -> None: ...

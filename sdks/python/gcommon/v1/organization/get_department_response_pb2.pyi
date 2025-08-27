@@ -18,4 +18,9 @@ class GetDepartmentResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     department: _department_pb2.Department
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., department: _Optional[_Union[_department_pb2.Department, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        department: _Optional[_Union[_department_pb2.Department, _Mapping]] = ...,
+    ) -> None: ...

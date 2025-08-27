@@ -12,7 +12,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheCacheConfig(_message.Message):
-    __slots__ = ("max_entries", "max_memory_bytes", "default_ttl", "eviction_policy", "enable_stats", "enable_persistence", "persistence_file", "name")
+    __slots__ = (
+        "max_entries",
+        "max_memory_bytes",
+        "default_ttl",
+        "eviction_policy",
+        "enable_stats",
+        "enable_persistence",
+        "persistence_file",
+        "name",
+    )
     MAX_ENTRIES_FIELD_NUMBER: _ClassVar[int]
     MAX_MEMORY_BYTES_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_TTL_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +38,18 @@ class CacheCacheConfig(_message.Message):
     enable_persistence: bool
     persistence_file: str
     name: str
-    def __init__(self, max_entries: _Optional[int] = ..., max_memory_bytes: _Optional[int] = ..., default_ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., eviction_policy: _Optional[_Union[_eviction_policy_pb2.EvictionPolicy, str]] = ..., enable_stats: _Optional[bool] = ..., enable_persistence: _Optional[bool] = ..., persistence_file: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        max_entries: _Optional[int] = ...,
+        max_memory_bytes: _Optional[int] = ...,
+        default_ttl: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        eviction_policy: _Optional[
+            _Union[_eviction_policy_pb2.EvictionPolicy, str]
+        ] = ...,
+        enable_stats: _Optional[bool] = ...,
+        enable_persistence: _Optional[bool] = ...,
+        persistence_file: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+    ) -> None: ...

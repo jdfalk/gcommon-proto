@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/exporter_status.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/exporter_status.proto'
+    "",
+    "gcommon/v1/metrics/exporter_status.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,22 +29,38 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/metrics/exporter_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf6\x01\n\x0e\x45xporterStatus\x12(\n\x0b\x65xporter_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nexporterId\x12,\n\rexporter_type\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65xporterType\x12\x1f\n\x06status\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06status\x12.\n\x0e\x65xported_count\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\rexportedCount\x12;\n\x0blast_export\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastExportB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n(gcommon/v1/metrics/exporter_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xf6\x01\n\x0e\x45xporterStatus\x12(\n\x0b\x65xporter_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nexporterId\x12,\n\rexporter_type\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65xporterType\x12\x1f\n\x06status\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06status\x12.\n\x0e\x65xported_count\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\rexportedCount\x12;\n\x0blast_export\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastExportB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.exporter_status_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.exporter_status_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_EXPORTERSTATUS'].fields_by_name['exporter_id']._loaded_options = None
-  _globals['_EXPORTERSTATUS'].fields_by_name['exporter_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXPORTERSTATUS'].fields_by_name['exporter_type']._loaded_options = None
-  _globals['_EXPORTERSTATUS'].fields_by_name['exporter_type']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXPORTERSTATUS'].fields_by_name['status']._loaded_options = None
-  _globals['_EXPORTERSTATUS'].fields_by_name['status']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXPORTERSTATUS'].fields_by_name['exported_count']._loaded_options = None
-  _globals['_EXPORTERSTATUS'].fields_by_name['exported_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_EXPORTERSTATUS']._serialized_start=162
-  _globals['_EXPORTERSTATUS']._serialized_end=408
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_EXPORTERSTATUS"].fields_by_name["exporter_id"]._loaded_options = None
+    _globals["_EXPORTERSTATUS"].fields_by_name[
+        "exporter_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXPORTERSTATUS"].fields_by_name["exporter_type"]._loaded_options = None
+    _globals["_EXPORTERSTATUS"].fields_by_name[
+        "exporter_type"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXPORTERSTATUS"].fields_by_name["status"]._loaded_options = None
+    _globals["_EXPORTERSTATUS"].fields_by_name[
+        "status"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXPORTERSTATUS"].fields_by_name["exported_count"]._loaded_options = None
+    _globals["_EXPORTERSTATUS"].fields_by_name[
+        "exported_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_EXPORTERSTATUS"]._serialized_start = 162
+    _globals["_EXPORTERSTATUS"]._serialized_end = 408
 # @@protoc_insertion_point(module_scope)

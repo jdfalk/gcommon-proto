@@ -4,18 +4,20 @@
 # source: gcommon/v1/database/create_namespace_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/database/create_namespace_response.proto'
+    "",
+    "gcommon/v1/database/create_namespace_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,24 +29,42 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/database/create_namespace_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xcc\x03\n\x17\x43reateNamespaceResponse\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\x04name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12*\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x41\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x19\n\x08max_keys\x18\x05 \x01(\x03R\x07maxKeys\x12(\n\x10max_memory_bytes\x18\x06 \x01(\x03R\x0emaxMemoryBytes\x12.\n\x13\x64\x65\x66\x61ult_ttl_seconds\x18\x07 \x01(\x05R\x11\x64\x65\x66\x61ultTtlSeconds\x12P\n\x06\x63onfig\x18\x08 \x03(\x0b\x32\x38.gcommon.v1.database.CreateNamespaceResponse.ConfigEntryR\x06\x63onfig\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x37Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n3gcommon/v1/database/create_namespace_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xcc\x03\n\x17\x43reateNamespaceResponse\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\x04name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12*\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x41\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x19\n\x08max_keys\x18\x05 \x01(\x03R\x07maxKeys\x12(\n\x10max_memory_bytes\x18\x06 \x01(\x03R\x0emaxMemoryBytes\x12.\n\x13\x64\x65\x66\x61ult_ttl_seconds\x18\x07 \x01(\x05R\x11\x64\x65\x66\x61ultTtlSeconds\x12P\n\x06\x63onfig\x18\x08 \x03(\x0b\x32\x38.gcommon.v1.database.CreateNamespaceResponse.ConfigEntryR\x06\x63onfig\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x37Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.create_namespace_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.database.create_namespace_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
-  _globals['_CREATENAMESPACERESPONSE_CONFIGENTRY']._loaded_options = None
-  _globals['_CREATENAMESPACERESPONSE_CONFIGENTRY']._serialized_options = b'8\001'
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['name']._loaded_options = None
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['name']._serialized_options = b'\272H\006r\004\020\001\030d'
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['description']._loaded_options = None
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['created_at']._loaded_options = None
-  _globals['_CREATENAMESPACERESPONSE'].fields_by_name['created_at']._serialized_options = b'\272H\003\310\001\001'
-  _globals['_CREATENAMESPACERESPONSE']._serialized_start=174
-  _globals['_CREATENAMESPACERESPONSE']._serialized_end=634
-  _globals['_CREATENAMESPACERESPONSE_CONFIGENTRY']._serialized_start=577
-  _globals['_CREATENAMESPACERESPONSE_CONFIGENTRY']._serialized_end=634
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
+    )
+    _globals["_CREATENAMESPACERESPONSE_CONFIGENTRY"]._loaded_options = None
+    _globals["_CREATENAMESPACERESPONSE_CONFIGENTRY"]._serialized_options = b"8\001"
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name["name"]._loaded_options = None
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name[
+        "name"
+    ]._serialized_options = b"\272H\006r\004\020\001\030d"
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name[
+        "description"
+    ]._loaded_options = None
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name[
+        "description"
+    ]._serialized_options = b"\272H\005r\003\030\350\007"
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name[
+        "created_at"
+    ]._loaded_options = None
+    _globals["_CREATENAMESPACERESPONSE"].fields_by_name[
+        "created_at"
+    ]._serialized_options = b"\272H\003\310\001\001"
+    _globals["_CREATENAMESPACERESPONSE"]._serialized_start = 174
+    _globals["_CREATENAMESPACERESPONSE"]._serialized_end = 634
+    _globals["_CREATENAMESPACERESPONSE_CONFIGENTRY"]._serialized_start = 577
+    _globals["_CREATENAMESPACERESPONSE_CONFIGENTRY"]._serialized_end = 634
 # @@protoc_insertion_point(module_scope)

@@ -9,7 +9,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConsistencyValidation(_message.Message):
-    __slots__ = ("enabled", "validation_interval_seconds", "validation_scope", "failure_actions", "timeout_ms")
+    __slots__ = (
+        "enabled",
+        "validation_interval_seconds",
+        "validation_scope",
+        "failure_actions",
+        "timeout_ms",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_INTERVAL_SECONDS_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_SCOPE_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +26,11 @@ class ConsistencyValidation(_message.Message):
     validation_scope: str
     failure_actions: _containers.RepeatedScalarFieldContainer[str]
     timeout_ms: int
-    def __init__(self, enabled: _Optional[bool] = ..., validation_interval_seconds: _Optional[int] = ..., validation_scope: _Optional[str] = ..., failure_actions: _Optional[_Iterable[str]] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        validation_interval_seconds: _Optional[int] = ...,
+        validation_scope: _Optional[str] = ...,
+        failure_actions: _Optional[_Iterable[str]] = ...,
+        timeout_ms: _Optional[int] = ...,
+    ) -> None: ...

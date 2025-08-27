@@ -4,41 +4,61 @@
 # source: gcommon/v1/metrics/provider_config_summary.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/provider_config_summary.proto'
+    "",
+    "gcommon/v1/metrics/provider_config_summary.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import resource_limits_summary_pb2 as gcommon_dot_v1_dot_metrics_dot_resource__limits__summary__pb2
+from gcommon.v1.metrics import (
+    resource_limits_summary_pb2 as gcommon_dot_v1_dot_metrics_dot_resource__limits__summary__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/metrics/provider_config_summary.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/resource_limits_summary.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x85\x02\n\x15ProviderConfigSummary\x12\x32\n\x0e\x65xporter_count\x18\x01 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\rexporterCount\x12)\n\x10security_enabled\x18\x02 \x01(\x08R\x0fsecurityEnabled\x12R\n\x0fresource_limits\x18\x03 \x01(\x0b\x32).gcommon.v1.metrics.ResourceLimitsSummaryR\x0eresourceLimits\x12\x39\n\x13\x65xport_destinations\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x65xportDestinationsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n0gcommon/v1/metrics/provider_config_summary.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/resource_limits_summary.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x85\x02\n\x15ProviderConfigSummary\x12\x32\n\x0e\x65xporter_count\x18\x01 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\rexporterCount\x12)\n\x10security_enabled\x18\x02 \x01(\x08R\x0fsecurityEnabled\x12R\n\x0fresource_limits\x18\x03 \x01(\x0b\x32).gcommon.v1.metrics.ResourceLimitsSummaryR\x0eresourceLimits\x12\x39\n\x13\x65xport_destinations\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x65xportDestinationsB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.provider_config_summary_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.provider_config_summary_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_PROVIDERCONFIGSUMMARY'].fields_by_name['exporter_count']._loaded_options = None
-  _globals['_PROVIDERCONFIGSUMMARY'].fields_by_name['exporter_count']._serialized_options = b'\272H\010\032\006\030\377\377\003(\001'
-  _globals['_PROVIDERCONFIGSUMMARY'].fields_by_name['export_destinations']._loaded_options = None
-  _globals['_PROVIDERCONFIGSUMMARY'].fields_by_name['export_destinations']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_PROVIDERCONFIGSUMMARY']._serialized_start=187
-  _globals['_PROVIDERCONFIGSUMMARY']._serialized_end=448
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_PROVIDERCONFIGSUMMARY"].fields_by_name[
+        "exporter_count"
+    ]._loaded_options = None
+    _globals["_PROVIDERCONFIGSUMMARY"].fields_by_name[
+        "exporter_count"
+    ]._serialized_options = b"\272H\010\032\006\030\377\377\003(\001"
+    _globals["_PROVIDERCONFIGSUMMARY"].fields_by_name[
+        "export_destinations"
+    ]._loaded_options = None
+    _globals["_PROVIDERCONFIGSUMMARY"].fields_by_name[
+        "export_destinations"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_PROVIDERCONFIGSUMMARY"]._serialized_start = 187
+    _globals["_PROVIDERCONFIGSUMMARY"]._serialized_end = 448
 # @@protoc_insertion_point(module_scope)

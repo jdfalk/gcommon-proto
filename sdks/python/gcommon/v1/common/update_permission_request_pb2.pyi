@@ -10,7 +10,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdatePermissionRequest(_message.Message):
-    __slots__ = ("permission_id", "name", "description", "resource", "action", "conditions", "active", "update_mask", "metadata", "reason")
+    __slots__ = (
+        "permission_id",
+        "name",
+        "description",
+        "resource",
+        "action",
+        "conditions",
+        "active",
+        "update_mask",
+        "metadata",
+        "reason",
+    )
     PERMISSION_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -31,4 +42,18 @@ class UpdatePermissionRequest(_message.Message):
     update_mask: _containers.RepeatedScalarFieldContainer[str]
     metadata: _request_metadata_pb2.RequestMetadata
     reason: str
-    def __init__(self, permission_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., resource: _Optional[str] = ..., action: _Optional[str] = ..., conditions: _Optional[_Iterable[str]] = ..., active: _Optional[bool] = ..., update_mask: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., reason: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        permission_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        resource: _Optional[str] = ...,
+        action: _Optional[str] = ...,
+        conditions: _Optional[_Iterable[str]] = ...,
+        active: _Optional[bool] = ...,
+        update_mask: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        reason: _Optional[str] = ...,
+    ) -> None: ...

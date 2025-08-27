@@ -4,18 +4,20 @@
 # source: gcommon/v1/queue/message_envelope.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/message_envelope.proto'
+    "",
+    "gcommon/v1/queue/message_envelope.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,24 +30,34 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/queue/message_envelope.proto\x12\x10gcommon.v1.queue\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb0\x06\n\x0fMessageEnvelope\x12\x1d\n\nmessage_id\x18\x01 \x01(\tR\tmessageId\x12.\n\x07payload\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x07payload\x12H\n\x07headers\x18\x03 \x03(\x0b\x32..gcommon.v1.queue.MessageEnvelope.HeadersEntryR\x07headers\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x12\x41\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x39\n\nprocess_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tprocessAt\x12\x39\n\nexpires_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\x12%\n\x0e\x64\x65livery_count\x18\x08 \x01(\x05R\rdeliveryCount\x12%\n\x0e\x63orrelation_id\x18\t \x01(\tR\rcorrelationId\x12\x19\n\x08reply_to\x18\n \x01(\tR\x07replyTo\x12!\n\x0c\x63ontent_type\x18\x0b \x01(\tR\x0b\x63ontentType\x12)\n\x10\x63ontent_encoding\x18\x0c \x01(\tR\x0f\x63ontentEncoding\x12!\n\x0crequires_ack\x18\r \x01(\x08R\x0brequiresAck\x12X\n\rtrace_context\x18\x0e \x03(\x0b\x32\x33.gcommon.v1.queue.MessageEnvelope.TraceContextEntryR\x0ctraceContext\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a?\n\x11TraceContextEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n'gcommon/v1/queue/message_envelope.proto\x12\x10gcommon.v1.queue\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb0\x06\n\x0fMessageEnvelope\x12\x1d\n\nmessage_id\x18\x01 \x01(\tR\tmessageId\x12.\n\x07payload\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x07payload\x12H\n\x07headers\x18\x03 \x03(\x0b\x32..gcommon.v1.queue.MessageEnvelope.HeadersEntryR\x07headers\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x12\x41\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x39\n\nprocess_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tprocessAt\x12\x39\n\nexpires_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\x12%\n\x0e\x64\x65livery_count\x18\x08 \x01(\x05R\rdeliveryCount\x12%\n\x0e\x63orrelation_id\x18\t \x01(\tR\rcorrelationId\x12\x19\n\x08reply_to\x18\n \x01(\tR\x07replyTo\x12!\n\x0c\x63ontent_type\x18\x0b \x01(\tR\x0b\x63ontentType\x12)\n\x10\x63ontent_encoding\x18\x0c \x01(\tR\x0f\x63ontentEncoding\x12!\n\x0crequires_ack\x18\r \x01(\x08R\x0brequiresAck\x12X\n\rtrace_context\x18\x0e \x03(\x0b\x32\x33.gcommon.v1.queue.MessageEnvelope.TraceContextEntryR\x0ctraceContext\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a?\n\x11TraceContextEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.message_envelope_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.message_envelope_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_MESSAGEENVELOPE_HEADERSENTRY']._loaded_options = None
-  _globals['_MESSAGEENVELOPE_HEADERSENTRY']._serialized_options = b'8\001'
-  _globals['_MESSAGEENVELOPE_TRACECONTEXTENTRY']._loaded_options = None
-  _globals['_MESSAGEENVELOPE_TRACECONTEXTENTRY']._serialized_options = b'8\001'
-  _globals['_MESSAGEENVELOPE'].fields_by_name['created_at']._loaded_options = None
-  _globals['_MESSAGEENVELOPE'].fields_by_name['created_at']._serialized_options = b'\272H\003\310\001\001'
-  _globals['_MESSAGEENVELOPE']._serialized_start=186
-  _globals['_MESSAGEENVELOPE']._serialized_end=1002
-  _globals['_MESSAGEENVELOPE_HEADERSENTRY']._serialized_start=879
-  _globals['_MESSAGEENVELOPE_HEADERSENTRY']._serialized_end=937
-  _globals['_MESSAGEENVELOPE_TRACECONTEXTENTRY']._serialized_start=939
-  _globals['_MESSAGEENVELOPE_TRACECONTEXTENTRY']._serialized_end=1002
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_MESSAGEENVELOPE_HEADERSENTRY"]._loaded_options = None
+    _globals["_MESSAGEENVELOPE_HEADERSENTRY"]._serialized_options = b"8\001"
+    _globals["_MESSAGEENVELOPE_TRACECONTEXTENTRY"]._loaded_options = None
+    _globals["_MESSAGEENVELOPE_TRACECONTEXTENTRY"]._serialized_options = b"8\001"
+    _globals["_MESSAGEENVELOPE"].fields_by_name["created_at"]._loaded_options = None
+    _globals["_MESSAGEENVELOPE"].fields_by_name[
+        "created_at"
+    ]._serialized_options = b"\272H\003\310\001\001"
+    _globals["_MESSAGEENVELOPE"]._serialized_start = 186
+    _globals["_MESSAGEENVELOPE"]._serialized_end = 1002
+    _globals["_MESSAGEENVELOPE_HEADERSENTRY"]._serialized_start = 879
+    _globals["_MESSAGEENVELOPE_HEADERSENTRY"]._serialized_end = 937
+    _globals["_MESSAGEENVELOPE_TRACECONTEXTENTRY"]._serialized_start = 939
+    _globals["_MESSAGEENVELOPE_TRACECONTEXTENTRY"]._serialized_end = 1002
 # @@protoc_insertion_point(module_scope)

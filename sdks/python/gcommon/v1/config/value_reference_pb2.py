@@ -4,45 +4,61 @@
 # source: gcommon/v1/config/value_reference.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/config/value_reference.proto'
+    "",
+    "gcommon/v1/config/value_reference.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import reference_type_pb2 as gcommon_dot_v1_dot_common_dot_reference__type__pb2
+from gcommon.v1.common import (
+    reference_type_pb2 as gcommon_dot_v1_dot_common_dot_reference__type__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/config/value_reference.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/reference_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x9d\x02\n\x0eValueReference\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32 .gcommon.v1.common.ReferenceTypeR\x04type\x12.\n\x0ereferenced_key\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\rreferencedKey\x12\x1b\n\x04path\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12K\n\x08metadata\x18\x04 \x03(\x0b\x32/.gcommon.v1.config.ValueReference.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n'gcommon/v1/config/value_reference.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/reference_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x9d\x02\n\x0eValueReference\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32 .gcommon.v1.common.ReferenceTypeR\x04type\x12.\n\x0ereferenced_key\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\rreferencedKey\x12\x1b\n\x04path\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12K\n\x08metadata\x18\x04 \x03(\x0b\x32/.gcommon.v1.config.ValueReference.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.value_reference_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.config.value_reference_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
-  _globals['_VALUEREFERENCE_METADATAENTRY']._loaded_options = None
-  _globals['_VALUEREFERENCE_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_VALUEREFERENCE'].fields_by_name['referenced_key']._loaded_options = None
-  _globals['_VALUEREFERENCE'].fields_by_name['referenced_key']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_VALUEREFERENCE'].fields_by_name['path']._loaded_options = None
-  _globals['_VALUEREFERENCE'].fields_by_name['path']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_VALUEREFERENCE']._serialized_start=167
-  _globals['_VALUEREFERENCE']._serialized_end=452
-  _globals['_VALUEREFERENCE_METADATAENTRY']._serialized_start=393
-  _globals['_VALUEREFERENCE_METADATAENTRY']._serialized_end=452
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
+    )
+    _globals["_VALUEREFERENCE_METADATAENTRY"]._loaded_options = None
+    _globals["_VALUEREFERENCE_METADATAENTRY"]._serialized_options = b"8\001"
+    _globals["_VALUEREFERENCE"].fields_by_name["referenced_key"]._loaded_options = None
+    _globals["_VALUEREFERENCE"].fields_by_name[
+        "referenced_key"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_VALUEREFERENCE"].fields_by_name["path"]._loaded_options = None
+    _globals["_VALUEREFERENCE"].fields_by_name[
+        "path"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_VALUEREFERENCE"]._serialized_start = 167
+    _globals["_VALUEREFERENCE"]._serialized_end = 452
+    _globals["_VALUEREFERENCE_METADATAENTRY"]._serialized_start = 393
+    _globals["_VALUEREFERENCE_METADATAENTRY"]._serialized_end = 452
 # @@protoc_insertion_point(module_scope)

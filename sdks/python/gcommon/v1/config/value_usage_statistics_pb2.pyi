@@ -13,7 +13,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValueUsageStatistics(_message.Message):
-    __slots__ = ("read_count", "write_count", "last_read_at", "last_written_at", "read_frequency", "write_frequency", "unique_readers", "unique_writers", "peak_usage_at", "peak_usage_count", "trends")
+    __slots__ = (
+        "read_count",
+        "write_count",
+        "last_read_at",
+        "last_written_at",
+        "read_frequency",
+        "write_frequency",
+        "unique_readers",
+        "unique_writers",
+        "peak_usage_at",
+        "peak_usage_count",
+        "trends",
+    )
     READ_COUNT_FIELD_NUMBER: _ClassVar[int]
     WRITE_COUNT_FIELD_NUMBER: _ClassVar[int]
     LAST_READ_AT_FIELD_NUMBER: _ClassVar[int]
@@ -35,5 +47,28 @@ class ValueUsageStatistics(_message.Message):
     unique_writers: int
     peak_usage_at: _timestamp_pb2.Timestamp
     peak_usage_count: int
-    trends: _containers.RepeatedCompositeFieldContainer[_value_usage_trend_pb2.ValueUsageTrend]
-    def __init__(self, read_count: _Optional[int] = ..., write_count: _Optional[int] = ..., last_read_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_written_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., read_frequency: _Optional[float] = ..., write_frequency: _Optional[float] = ..., unique_readers: _Optional[int] = ..., unique_writers: _Optional[int] = ..., peak_usage_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., peak_usage_count: _Optional[int] = ..., trends: _Optional[_Iterable[_Union[_value_usage_trend_pb2.ValueUsageTrend, _Mapping]]] = ...) -> None: ...
+    trends: _containers.RepeatedCompositeFieldContainer[
+        _value_usage_trend_pb2.ValueUsageTrend
+    ]
+    def __init__(
+        self,
+        read_count: _Optional[int] = ...,
+        write_count: _Optional[int] = ...,
+        last_read_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_written_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        read_frequency: _Optional[float] = ...,
+        write_frequency: _Optional[float] = ...,
+        unique_readers: _Optional[int] = ...,
+        unique_writers: _Optional[int] = ...,
+        peak_usage_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        peak_usage_count: _Optional[int] = ...,
+        trends: _Optional[
+            _Iterable[_Union[_value_usage_trend_pb2.ValueUsageTrend, _Mapping]]
+        ] = ...,
+    ) -> None: ...

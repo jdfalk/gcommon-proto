@@ -18,7 +18,10 @@ class MetricSeries(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +32,13 @@ class MetricSeries(_message.Message):
     labels: _containers.ScalarMap[str, str]
     values: _containers.RepeatedCompositeFieldContainer[_metric_value_pb2.MetricValue]
     step_seconds: int
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., labels: _Optional[_Mapping[str, str]] = ..., values: _Optional[_Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]] = ..., step_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        values: _Optional[
+            _Iterable[_Union[_metric_value_pb2.MetricValue, _Mapping]]
+        ] = ...,
+        step_seconds: _Optional[int] = ...,
+    ) -> None: ...

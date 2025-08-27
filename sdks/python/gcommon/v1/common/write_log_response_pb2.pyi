@@ -14,4 +14,9 @@ class WriteLogResponse(_message.Message):
     status: str
     log_id: str
     error: str
-    def __init__(self, status: _Optional[str] = ..., log_id: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[str] = ...,
+        log_id: _Optional[str] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

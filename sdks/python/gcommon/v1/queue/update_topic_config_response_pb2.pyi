@@ -12,7 +12,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateTopicConfigResponse(_message.Message):
-    __slots__ = ("success", "error_message", "topic_name", "updated_at", "config_revision", "modified_fields", "warnings")
+    __slots__ = (
+        "success",
+        "error_message",
+        "topic_name",
+        "updated_at",
+        "config_revision",
+        "modified_fields",
+        "warnings",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TOPIC_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +35,15 @@ class UpdateTopicConfigResponse(_message.Message):
     config_revision: int
     modified_fields: _containers.RepeatedScalarFieldContainer[str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., topic_name: _Optional[str] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., config_revision: _Optional[int] = ..., modified_fields: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        topic_name: _Optional[str] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        config_revision: _Optional[int] = ...,
+        modified_fields: _Optional[_Iterable[str]] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

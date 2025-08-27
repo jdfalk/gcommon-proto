@@ -12,5 +12,12 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class ListMigrationsResponse(_message.Message):
     __slots__ = ("migrations",)
     MIGRATIONS_FIELD_NUMBER: _ClassVar[int]
-    migrations: _containers.RepeatedCompositeFieldContainer[_migration_info_pb2.MigrationInfo]
-    def __init__(self, migrations: _Optional[_Iterable[_Union[_migration_info_pb2.MigrationInfo, _Mapping]]] = ...) -> None: ...
+    migrations: _containers.RepeatedCompositeFieldContainer[
+        _migration_info_pb2.MigrationInfo
+    ]
+    def __init__(
+        self,
+        migrations: _Optional[
+            _Iterable[_Union[_migration_info_pb2.MigrationInfo, _Mapping]]
+        ] = ...,
+    ) -> None: ...

@@ -13,6 +13,7 @@ class SecretAuditLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SECRET_AUDIT_LEVEL_STANDARD: _ClassVar[SecretAuditLevel]
     SECRET_AUDIT_LEVEL_DETAILED: _ClassVar[SecretAuditLevel]
     SECRET_AUDIT_LEVEL_VERBOSE: _ClassVar[SecretAuditLevel]
+
 SECRET_AUDIT_LEVEL_UNSPECIFIED: SecretAuditLevel
 SECRET_AUDIT_LEVEL_NONE: SecretAuditLevel
 SECRET_AUDIT_LEVEL_MINIMAL: SecretAuditLevel

@@ -12,6 +12,7 @@ class DeliveryMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DELIVERY_MODE_AT_LEAST_ONCE: _ClassVar[DeliveryMode]
     DELIVERY_MODE_EXACTLY_ONCE: _ClassVar[DeliveryMode]
     DELIVERY_MODE_BEST_EFFORT: _ClassVar[DeliveryMode]
+
 DELIVERY_MODE_UNSPECIFIED: DeliveryMode
 DELIVERY_MODE_AT_MOST_ONCE: DeliveryMode
 DELIVERY_MODE_AT_LEAST_ONCE: DeliveryMode

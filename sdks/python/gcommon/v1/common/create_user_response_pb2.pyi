@@ -12,7 +12,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateUserResponse(_message.Message):
-    __slots__ = ("user_id", "username", "email", "full_name", "enabled", "roles", "created_at", "email_verification_required", "verification_token", "expires_at")
+    __slots__ = (
+        "user_id",
+        "username",
+        "email",
+        "full_name",
+        "enabled",
+        "roles",
+        "created_at",
+        "email_verification_required",
+        "verification_token",
+        "expires_at",
+    )
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +44,20 @@ class CreateUserResponse(_message.Message):
     email_verification_required: bool
     verification_token: str
     expires_at: _timestamp_pb2.Timestamp
-    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., full_name: _Optional[str] = ..., enabled: _Optional[bool] = ..., roles: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., email_verification_required: _Optional[bool] = ..., verification_token: _Optional[str] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        full_name: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        email_verification_required: _Optional[bool] = ...,
+        verification_token: _Optional[str] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

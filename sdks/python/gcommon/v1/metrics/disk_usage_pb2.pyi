@@ -16,4 +16,10 @@ class DiskUsage(_message.Message):
     limit_bytes: int
     usage_percent: float
     iops: float
-    def __init__(self, used_bytes: _Optional[int] = ..., limit_bytes: _Optional[int] = ..., usage_percent: _Optional[float] = ..., iops: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        used_bytes: _Optional[int] = ...,
+        limit_bytes: _Optional[int] = ...,
+        usage_percent: _Optional[float] = ...,
+        iops: _Optional[float] = ...,
+    ) -> None: ...

@@ -16,6 +16,7 @@ class VersionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VERSION_TYPE_SNAPSHOT: _ClassVar[VersionType]
     VERSION_TYPE_BRANCH: _ClassVar[VersionType]
     VERSION_TYPE_TAG: _ClassVar[VersionType]
+
 VERSION_TYPE_UNSPECIFIED: VersionType
 VERSION_TYPE_MAJOR: VersionType
 VERSION_TYPE_MINOR: VersionType

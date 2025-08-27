@@ -13,6 +13,7 @@ class CheckType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHECK_TYPE_STARTUP: _ClassVar[CheckType]
     CHECK_TYPE_COMPONENT: _ClassVar[CheckType]
     CHECK_TYPE_DEPENDENCY: _ClassVar[CheckType]
+
 CHECK_TYPE_UNSPECIFIED: CheckType
 CHECK_TYPE_LIVENESS: CheckType
 CHECK_TYPE_READINESS: CheckType

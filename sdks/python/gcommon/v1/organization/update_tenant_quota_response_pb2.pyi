@@ -18,4 +18,9 @@ class UpdateTenantQuotaResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     quota: _tenant_quota_pb2.TenantQuota
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...,
+    ) -> None: ...

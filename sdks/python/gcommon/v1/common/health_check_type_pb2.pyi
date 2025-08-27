@@ -15,6 +15,7 @@ class HealthCheckType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HEALTH_CHECK_TYPE_GRPC: _ClassVar[HealthCheckType]
     HEALTH_CHECK_TYPE_DATABASE: _ClassVar[HealthCheckType]
     HEALTH_CHECK_TYPE_CUSTOM: _ClassVar[HealthCheckType]
+
 HEALTH_CHECK_TYPE_UNSPECIFIED: HealthCheckType
 HEALTH_CHECK_TYPE_HTTP: HealthCheckType
 HEALTH_CHECK_TYPE_HTTPS: HealthCheckType

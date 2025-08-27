@@ -20,7 +20,10 @@ class Error(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     CODE_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     DETAILS_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +36,14 @@ class Error(_message.Message):
     trace_id: str
     timestamp: _timestamp_pb2.Timestamp
     source: str
-    def __init__(self, code: _Optional[_Union[_error_code_pb2.ErrorCode, str]] = ..., message: _Optional[str] = ..., details: _Optional[_Mapping[str, str]] = ..., trace_id: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., source: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        code: _Optional[_Union[_error_code_pb2.ErrorCode, str]] = ...,
+        message: _Optional[str] = ...,
+        details: _Optional[_Mapping[str, str]] = ...,
+        trace_id: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        source: _Optional[str] = ...,
+    ) -> None: ...

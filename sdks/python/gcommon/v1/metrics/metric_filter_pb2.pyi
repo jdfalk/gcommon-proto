@@ -9,14 +9,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricFilter(_message.Message):
-    __slots__ = ("metric_names", "labels", "namespace", "start_timestamp", "end_timestamp", "min_value", "max_value", "include_patterns", "exclude_patterns")
+    __slots__ = (
+        "metric_names",
+        "labels",
+        "namespace",
+        "start_timestamp",
+        "end_timestamp",
+        "min_value",
+        "max_value",
+        "include_patterns",
+        "exclude_patterns",
+    )
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     METRIC_NAMES_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
@@ -35,4 +48,15 @@ class MetricFilter(_message.Message):
     max_value: float
     include_patterns: _containers.RepeatedScalarFieldContainer[str]
     exclude_patterns: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, metric_names: _Optional[_Iterable[str]] = ..., labels: _Optional[_Mapping[str, str]] = ..., namespace: _Optional[str] = ..., start_timestamp: _Optional[int] = ..., end_timestamp: _Optional[int] = ..., min_value: _Optional[float] = ..., max_value: _Optional[float] = ..., include_patterns: _Optional[_Iterable[str]] = ..., exclude_patterns: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        metric_names: _Optional[_Iterable[str]] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        namespace: _Optional[str] = ...,
+        start_timestamp: _Optional[int] = ...,
+        end_timestamp: _Optional[int] = ...,
+        min_value: _Optional[float] = ...,
+        max_value: _Optional[float] = ...,
+        include_patterns: _Optional[_Iterable[str]] = ...,
+        exclude_patterns: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

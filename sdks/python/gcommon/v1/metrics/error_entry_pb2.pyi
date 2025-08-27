@@ -20,4 +20,12 @@ class ErrorEntry(_message.Message):
     error_type: str
     error_message: str
     count: int
-    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error_type: _Optional[str] = ..., error_message: _Optional[str] = ..., count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        error_type: _Optional[str] = ...,
+        error_message: _Optional[str] = ...,
+        count: _Optional[int] = ...,
+    ) -> None: ...

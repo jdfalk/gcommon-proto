@@ -18,4 +18,10 @@ class EnableCheckResponse(_message.Message):
     check_id: str
     error: _error_pb2.Error
     status: str
-    def __init__(self, success: _Optional[bool] = ..., check_id: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., status: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        check_id: _Optional[str] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        status: _Optional[str] = ...,
+    ) -> None: ...

@@ -16,4 +16,12 @@ class UpdateSSLCertificateRequest(_message.Message):
     REQUESTED_AT_FIELD_NUMBER: _ClassVar[int]
     request_metadata: _request_metadata_pb2.RequestMetadata
     requested_at: _timestamp_pb2.Timestamp
-    def __init__(self, request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., requested_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        request_metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        requested_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

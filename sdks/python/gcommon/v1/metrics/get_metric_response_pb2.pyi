@@ -14,4 +14,8 @@ class GetMetricResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     metric: _metric_data_pb2.MetricData
     error: _error_pb2.Error
-    def __init__(self, metric: _Optional[_Union[_metric_data_pb2.MetricData, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metric: _Optional[_Union[_metric_data_pb2.MetricData, _Mapping]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

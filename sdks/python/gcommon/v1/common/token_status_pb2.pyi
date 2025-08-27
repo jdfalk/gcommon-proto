@@ -14,6 +14,7 @@ class TokenStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TOKEN_STATUS_SUSPENDED: _ClassVar[TokenStatus]
     TOKEN_STATUS_PENDING: _ClassVar[TokenStatus]
     TOKEN_STATUS_INVALID: _ClassVar[TokenStatus]
+
 TOKEN_STATUS_UNSPECIFIED: TokenStatus
 TOKEN_STATUS_ACTIVE: TokenStatus
 TOKEN_STATUS_EXPIRED: TokenStatus

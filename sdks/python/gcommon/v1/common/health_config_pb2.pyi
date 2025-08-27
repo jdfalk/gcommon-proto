@@ -7,7 +7,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HealthConfig(_message.Message):
-    __slots__ = ("enabled", "endpoint", "liveness_path", "readiness_path", "startup_path", "timeout_seconds", "interval_seconds", "grace_period_seconds", "retries")
+    __slots__ = (
+        "enabled",
+        "endpoint",
+        "liveness_path",
+        "readiness_path",
+        "startup_path",
+        "timeout_seconds",
+        "interval_seconds",
+        "grace_period_seconds",
+        "retries",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     LIVENESS_PATH_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +36,15 @@ class HealthConfig(_message.Message):
     interval_seconds: int
     grace_period_seconds: int
     retries: int
-    def __init__(self, enabled: _Optional[bool] = ..., endpoint: _Optional[str] = ..., liveness_path: _Optional[str] = ..., readiness_path: _Optional[str] = ..., startup_path: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., interval_seconds: _Optional[int] = ..., grace_period_seconds: _Optional[int] = ..., retries: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        endpoint: _Optional[str] = ...,
+        liveness_path: _Optional[str] = ...,
+        readiness_path: _Optional[str] = ...,
+        startup_path: _Optional[str] = ...,
+        timeout_seconds: _Optional[int] = ...,
+        interval_seconds: _Optional[int] = ...,
+        grace_period_seconds: _Optional[int] = ...,
+        retries: _Optional[int] = ...,
+    ) -> None: ...

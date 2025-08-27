@@ -15,6 +15,7 @@ class TransformationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TRANSFORMATION_TYPE_JSONPATH: _ClassVar[TransformationType]
     TRANSFORMATION_TYPE_XPATH: _ClassVar[TransformationType]
     TRANSFORMATION_TYPE_CUSTOM: _ClassVar[TransformationType]
+
 TRANSFORMATION_TYPE_UNSPECIFIED: TransformationType
 TRANSFORMATION_TYPE_TEMPLATE: TransformationType
 TRANSFORMATION_TYPE_FUNCTION: TransformationType

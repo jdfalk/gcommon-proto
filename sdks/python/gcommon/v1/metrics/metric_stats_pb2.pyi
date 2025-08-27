@@ -18,4 +18,11 @@ class MetricStats(_message.Message):
     average: float
     sum: float
     count: int
-    def __init__(self, min: _Optional[float] = ..., max: _Optional[float] = ..., average: _Optional[float] = ..., sum: _Optional[float] = ..., count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        min: _Optional[float] = ...,
+        max: _Optional[float] = ...,
+        average: _Optional[float] = ...,
+        sum: _Optional[float] = ...,
+        count: _Optional[int] = ...,
+    ) -> None: ...

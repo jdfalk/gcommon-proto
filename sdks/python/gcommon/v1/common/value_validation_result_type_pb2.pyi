@@ -12,6 +12,7 @@ class ValueValidationResultType(int, metaclass=_enum_type_wrapper.EnumTypeWrappe
     VALUE_VALIDATION_RESULT_TYPE_FAIL: _ClassVar[ValueValidationResultType]
     VALUE_VALIDATION_RESULT_TYPE_WARNING: _ClassVar[ValueValidationResultType]
     VALUE_VALIDATION_RESULT_TYPE_SKIP: _ClassVar[ValueValidationResultType]
+
 VALUE_VALIDATION_RESULT_TYPE_UNSPECIFIED: ValueValidationResultType
 VALUE_VALIDATION_RESULT_TYPE_PASS: ValueValidationResultType
 VALUE_VALIDATION_RESULT_TYPE_FAIL: ValueValidationResultType

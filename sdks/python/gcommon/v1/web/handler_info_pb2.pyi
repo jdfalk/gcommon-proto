@@ -21,4 +21,14 @@ class HandlerInfo(_message.Message):
     config: _handler_config_pb2.HandlerConfig
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
-    def __init__(self, handler_id: _Optional[str] = ..., config: _Optional[_Union[_handler_config_pb2.HandlerConfig, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        handler_id: _Optional[str] = ...,
+        config: _Optional[_Union[_handler_config_pb2.HandlerConfig, _Mapping]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

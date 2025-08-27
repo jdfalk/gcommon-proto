@@ -9,14 +9,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BackupPolicy(_message.Message):
-    __slots__ = ("enabled", "schedule", "retention_days", "location", "encrypted", "compressed", "verified", "metadata")
+    __slots__ = (
+        "enabled",
+        "schedule",
+        "retention_days",
+        "location",
+        "encrypted",
+        "compressed",
+        "verified",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +45,14 @@ class BackupPolicy(_message.Message):
     compressed: bool
     verified: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., schedule: _Optional[str] = ..., retention_days: _Optional[int] = ..., location: _Optional[str] = ..., encrypted: _Optional[bool] = ..., compressed: _Optional[bool] = ..., verified: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        schedule: _Optional[str] = ...,
+        retention_days: _Optional[int] = ...,
+        location: _Optional[str] = ...,
+        encrypted: _Optional[bool] = ...,
+        compressed: _Optional[bool] = ...,
+        verified: _Optional[bool] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

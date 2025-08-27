@@ -14,6 +14,7 @@ class UserStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     USER_STATUS_PENDING_VERIFICATION: _ClassVar[UserStatus]
     USER_STATUS_LOCKED: _ClassVar[UserStatus]
     USER_STATUS_DELETED: _ClassVar[UserStatus]
+
 USER_STATUS_UNSPECIFIED: UserStatus
 USER_STATUS_ACTIVE: UserStatus
 USER_STATUS_INACTIVE: UserStatus

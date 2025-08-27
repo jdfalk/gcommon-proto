@@ -1,4 +1,6 @@
-from gcommon.v1.common import metrics_retention_policy_config_pb2 as _metrics_retention_policy_config_pb2
+from gcommon.v1.common import (
+    metrics_retention_policy_config_pb2 as _metrics_retention_policy_config_pb2,
+)
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
@@ -10,7 +12,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsRetentionInfo(_message.Message):
-    __slots__ = ("total_retained_bytes", "total_purged_bytes", "oldest_data_age", "policies")
+    __slots__ = (
+        "total_retained_bytes",
+        "total_purged_bytes",
+        "oldest_data_age",
+        "policies",
+    )
     TOTAL_RETAINED_BYTES_FIELD_NUMBER: _ClassVar[int]
     TOTAL_PURGED_BYTES_FIELD_NUMBER: _ClassVar[int]
     OLDEST_DATA_AGE_FIELD_NUMBER: _ClassVar[int]
@@ -18,5 +25,20 @@ class MetricsRetentionInfo(_message.Message):
     total_retained_bytes: int
     total_purged_bytes: int
     oldest_data_age: str
-    policies: _containers.RepeatedCompositeFieldContainer[_metrics_retention_policy_config_pb2.MetricsRetentionPolicyConfig]
-    def __init__(self, total_retained_bytes: _Optional[int] = ..., total_purged_bytes: _Optional[int] = ..., oldest_data_age: _Optional[str] = ..., policies: _Optional[_Iterable[_Union[_metrics_retention_policy_config_pb2.MetricsRetentionPolicyConfig, _Mapping]]] = ...) -> None: ...
+    policies: _containers.RepeatedCompositeFieldContainer[
+        _metrics_retention_policy_config_pb2.MetricsRetentionPolicyConfig
+    ]
+    def __init__(
+        self,
+        total_retained_bytes: _Optional[int] = ...,
+        total_purged_bytes: _Optional[int] = ...,
+        oldest_data_age: _Optional[str] = ...,
+        policies: _Optional[
+            _Iterable[
+                _Union[
+                    _metrics_retention_policy_config_pb2.MetricsRetentionPolicyConfig,
+                    _Mapping,
+                ]
+            ]
+        ] = ...,
+    ) -> None: ...

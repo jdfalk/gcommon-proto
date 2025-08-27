@@ -18,4 +18,11 @@ class ParameterConstraints(_message.Message):
     pattern: str
     required: bool
     default_value: str
-    def __init__(self, min_value: _Optional[str] = ..., max_value: _Optional[str] = ..., pattern: _Optional[str] = ..., required: _Optional[bool] = ..., default_value: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        min_value: _Optional[str] = ...,
+        max_value: _Optional[str] = ...,
+        pattern: _Optional[str] = ...,
+        required: _Optional[bool] = ...,
+        default_value: _Optional[str] = ...,
+    ) -> None: ...

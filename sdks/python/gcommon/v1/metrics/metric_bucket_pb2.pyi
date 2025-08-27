@@ -14,4 +14,9 @@ class MetricBucket(_message.Message):
     lower_bound: float
     upper_bound: float
     count: int
-    def __init__(self, lower_bound: _Optional[float] = ..., upper_bound: _Optional[float] = ..., count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        lower_bound: _Optional[float] = ...,
+        upper_bound: _Optional[float] = ...,
+        count: _Optional[int] = ...,
+    ) -> None: ...

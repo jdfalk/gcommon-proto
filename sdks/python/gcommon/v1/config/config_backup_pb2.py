@@ -4,18 +4,20 @@
 # source: gcommon/v1/config/config_backup.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/config/config_backup.proto'
+    "",
+    "gcommon/v1/config/config_backup.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,28 +30,42 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/config/config_backup.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xce\x06\n\x0c\x43onfigBackup\x12\x1b\n\tbackup_id\x18\x01 \x01(\tR\x08\x62\x61\x63kupId\x12\x41\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12V\n\rconfig_values\x18\x03 \x03(\x0b\x32\x31.gcommon.v1.config.ConfigBackup.ConfigValuesEntryR\x0c\x63onfigValues\x12\x18\n\x07version\x18\x04 \x01(\tR\x07version\x12 \n\x0b\x65nvironment\x18\x05 \x01(\tR\x0b\x65nvironment\x12s\n\ncreated_by\x18\x06 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tcreatedBy\x12*\n\x0b\x64\x65scription\x18\x07 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x1f\n\x0b\x62\x61\x63kup_type\x18\x08 \x01(\tR\nbackupType\x12\x1a\n\x08\x63hecksum\x18\t \x01(\tR\x08\x63hecksum\x12\x1d\n\nsize_bytes\x18\n \x01(\x03R\tsizeBytes\x12 \n\x0b\x63ompression\x18\x0b \x01(\tR\x0b\x63ompression\x12!\n\x0cstorage_path\x18\x0c \x01(\tR\x0bstoragePath\x12)\n\x10retention_policy\x18\r \x01(\tR\x0fretentionPolicy\x12I\n\x08metadata\x18\x0e \x03(\x0b\x32-.gcommon.v1.config.ConfigBackup.MetadataEntryR\x08metadata\x1aU\n\x11\x43onfigValuesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12*\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x05value:\x02\x38\x01\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n%gcommon/v1/config/config_backup.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xce\x06\n\x0c\x43onfigBackup\x12\x1b\n\tbackup_id\x18\x01 \x01(\tR\x08\x62\x61\x63kupId\x12\x41\n\ncreated_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12V\n\rconfig_values\x18\x03 \x03(\x0b\x32\x31.gcommon.v1.config.ConfigBackup.ConfigValuesEntryR\x0c\x63onfigValues\x12\x18\n\x07version\x18\x04 \x01(\tR\x07version\x12 \n\x0b\x65nvironment\x18\x05 \x01(\tR\x0b\x65nvironment\x12s\n\ncreated_by\x18\x06 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tcreatedBy\x12*\n\x0b\x64\x65scription\x18\x07 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x1f\n\x0b\x62\x61\x63kup_type\x18\x08 \x01(\tR\nbackupType\x12\x1a\n\x08\x63hecksum\x18\t \x01(\tR\x08\x63hecksum\x12\x1d\n\nsize_bytes\x18\n \x01(\x03R\tsizeBytes\x12 \n\x0b\x63ompression\x18\x0b \x01(\tR\x0b\x63ompression\x12!\n\x0cstorage_path\x18\x0c \x01(\tR\x0bstoragePath\x12)\n\x10retention_policy\x18\r \x01(\tR\x0fretentionPolicy\x12I\n\x08metadata\x18\x0e \x03(\x0b\x32-.gcommon.v1.config.ConfigBackup.MetadataEntryR\x08metadata\x1aU\n\x11\x43onfigValuesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12*\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyR\x05value:\x02\x38\x01\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.config_backup_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.config.config_backup_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
-  _globals['_CONFIGBACKUP_CONFIGVALUESENTRY']._loaded_options = None
-  _globals['_CONFIGBACKUP_CONFIGVALUESENTRY']._serialized_options = b'8\001'
-  _globals['_CONFIGBACKUP_METADATAENTRY']._loaded_options = None
-  _globals['_CONFIGBACKUP_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_CONFIGBACKUP'].fields_by_name['created_at']._loaded_options = None
-  _globals['_CONFIGBACKUP'].fields_by_name['created_at']._serialized_options = b'\272H\003\310\001\001'
-  _globals['_CONFIGBACKUP'].fields_by_name['created_by']._loaded_options = None
-  _globals['_CONFIGBACKUP'].fields_by_name['created_by']._serialized_options = b'\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
-  _globals['_CONFIGBACKUP'].fields_by_name['description']._loaded_options = None
-  _globals['_CONFIGBACKUP'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
-  _globals['_CONFIGBACKUP']._serialized_start=185
-  _globals['_CONFIGBACKUP']._serialized_end=1031
-  _globals['_CONFIGBACKUP_CONFIGVALUESENTRY']._serialized_start=885
-  _globals['_CONFIGBACKUP_CONFIGVALUESENTRY']._serialized_end=970
-  _globals['_CONFIGBACKUP_METADATAENTRY']._serialized_start=972
-  _globals['_CONFIGBACKUP_METADATAENTRY']._serialized_end=1031
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
+    )
+    _globals["_CONFIGBACKUP_CONFIGVALUESENTRY"]._loaded_options = None
+    _globals["_CONFIGBACKUP_CONFIGVALUESENTRY"]._serialized_options = b"8\001"
+    _globals["_CONFIGBACKUP_METADATAENTRY"]._loaded_options = None
+    _globals["_CONFIGBACKUP_METADATAENTRY"]._serialized_options = b"8\001"
+    _globals["_CONFIGBACKUP"].fields_by_name["created_at"]._loaded_options = None
+    _globals["_CONFIGBACKUP"].fields_by_name[
+        "created_at"
+    ]._serialized_options = b"\272H\003\310\001\001"
+    _globals["_CONFIGBACKUP"].fields_by_name["created_by"]._loaded_options = None
+    _globals["_CONFIGBACKUP"].fields_by_name[
+        "created_by"
+    ]._serialized_options = b"\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    _globals["_CONFIGBACKUP"].fields_by_name["description"]._loaded_options = None
+    _globals["_CONFIGBACKUP"].fields_by_name[
+        "description"
+    ]._serialized_options = b"\272H\005r\003\030\350\007"
+    _globals["_CONFIGBACKUP"]._serialized_start = 185
+    _globals["_CONFIGBACKUP"]._serialized_end = 1031
+    _globals["_CONFIGBACKUP_CONFIGVALUESENTRY"]._serialized_start = 885
+    _globals["_CONFIGBACKUP_CONFIGVALUESENTRY"]._serialized_end = 970
+    _globals["_CONFIGBACKUP_METADATAENTRY"]._serialized_start = 972
+    _globals["_CONFIGBACKUP_METADATAENTRY"]._serialized_end = 1031
 # @@protoc_insertion_point(module_scope)

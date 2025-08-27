@@ -12,7 +12,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CORSConfig(_message.Message):
-    __slots__ = ("enabled", "allowed_origins", "allowed_methods", "allowed_headers", "exposed_headers", "allow_credentials", "max_age")
+    __slots__ = (
+        "enabled",
+        "allowed_origins",
+        "allowed_methods",
+        "allowed_headers",
+        "exposed_headers",
+        "allow_credentials",
+        "max_age",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_ORIGINS_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_METHODS_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +35,15 @@ class CORSConfig(_message.Message):
     exposed_headers: _containers.RepeatedScalarFieldContainer[str]
     allow_credentials: bool
     max_age: _duration_pb2.Duration
-    def __init__(self, enabled: _Optional[bool] = ..., allowed_origins: _Optional[_Iterable[str]] = ..., allowed_methods: _Optional[_Iterable[str]] = ..., allowed_headers: _Optional[_Iterable[str]] = ..., exposed_headers: _Optional[_Iterable[str]] = ..., allow_credentials: _Optional[bool] = ..., max_age: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        allowed_origins: _Optional[_Iterable[str]] = ...,
+        allowed_methods: _Optional[_Iterable[str]] = ...,
+        allowed_headers: _Optional[_Iterable[str]] = ...,
+        exposed_headers: _Optional[_Iterable[str]] = ...,
+        allow_credentials: _Optional[bool] = ...,
+        max_age: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

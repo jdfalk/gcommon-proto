@@ -4,45 +4,75 @@
 # source: gcommon/v1/common/authenticate_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/common/authenticate_request.proto'
+    "",
+    "gcommon/v1/common/authenticate_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import api_key_credentials_pb2 as gcommon_dot_v1_dot_common_dot_api__key__credentials__pb2
-from gcommon.v1.common import client_info_pb2 as gcommon_dot_v1_dot_common_dot_client__info__pb2
-from gcommon.v1.common import jwt_credentials_pb2 as gcommon_dot_v1_dot_common_dot_jwt__credentials__pb2
-from gcommon.v1.common import o_auth2_credentials_pb2 as gcommon_dot_v1_dot_common_dot_o__auth2__credentials__pb2
-from gcommon.v1.common import password_credentials_pb2 as gcommon_dot_v1_dot_common_dot_password__credentials__pb2
-from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
+from gcommon.v1.common import (
+    api_key_credentials_pb2 as gcommon_dot_v1_dot_common_dot_api__key__credentials__pb2,
+)
+from gcommon.v1.common import (
+    client_info_pb2 as gcommon_dot_v1_dot_common_dot_client__info__pb2,
+)
+from gcommon.v1.common import (
+    jwt_credentials_pb2 as gcommon_dot_v1_dot_common_dot_jwt__credentials__pb2,
+)
+from gcommon.v1.common import (
+    o_auth2_credentials_pb2 as gcommon_dot_v1_dot_common_dot_o__auth2__credentials__pb2,
+)
+from gcommon.v1.common import (
+    password_credentials_pb2 as gcommon_dot_v1_dot_common_dot_password__credentials__pb2,
+)
+from gcommon.v1.common import (
+    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/common/authenticate_request.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/api_key_credentials.proto\x1a#gcommon/v1/common/client_info.proto\x1a\'gcommon/v1/common/jwt_credentials.proto\x1a+gcommon/v1/common/o_auth2_credentials.proto\x1a,gcommon/v1/common/password_credentials.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\"\xc6\x03\n\x17\x41uthAuthenticateRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12\x44\n\x08password\x18\x02 \x01(\x0b\x32&.gcommon.v1.common.PasswordCredentialsH\x00R\x08password\x12?\n\x07\x61pi_key\x18\x03 \x01(\x0b\x32$.gcommon.v1.common.APIKeyCredentialsH\x00R\x06\x61piKey\x12>\n\x06oauth2\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.OAuth2CredentialsH\x00R\x06oauth2\x12\x35\n\x03jwt\x18\x05 \x01(\x0b\x32!.gcommon.v1.common.JWTCredentialsH\x00R\x03jwt\x12\x16\n\x06scopes\x18\x06 \x03(\tR\x06scopes\x12\x42\n\x0b\x63lient_info\x18\x07 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\nclientInfoB\r\n\x0b\x63redentialsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n,gcommon/v1/common/authenticate_request.proto\x12\x11gcommon.v1.common\x1a+gcommon/v1/common/api_key_credentials.proto\x1a#gcommon/v1/common/client_info.proto\x1a\'gcommon/v1/common/jwt_credentials.proto\x1a+gcommon/v1/common/o_auth2_credentials.proto\x1a,gcommon/v1/common/password_credentials.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto"\xc6\x03\n\x17\x41uthAuthenticateRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12\x44\n\x08password\x18\x02 \x01(\x0b\x32&.gcommon.v1.common.PasswordCredentialsH\x00R\x08password\x12?\n\x07\x61pi_key\x18\x03 \x01(\x0b\x32$.gcommon.v1.common.APIKeyCredentialsH\x00R\x06\x61piKey\x12>\n\x06oauth2\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.OAuth2CredentialsH\x00R\x06oauth2\x12\x35\n\x03jwt\x18\x05 \x01(\x0b\x32!.gcommon.v1.common.JWTCredentialsH\x00R\x03jwt\x12\x16\n\x06scopes\x18\x06 \x03(\tR\x06scopes\x12\x42\n\x0b\x63lient_info\x18\x07 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\nclientInfoB\r\n\x0b\x63redentialsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.authenticate_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.common.authenticate_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
-  _globals['_AUTHAUTHENTICATEREQUEST'].fields_by_name['metadata']._loaded_options = None
-  _globals['_AUTHAUTHENTICATEREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
-  _globals['_AUTHAUTHENTICATEREQUEST'].fields_by_name['client_info']._loaded_options = None
-  _globals['_AUTHAUTHENTICATEREQUEST'].fields_by_name['client_info']._serialized_options = b'(\001'
-  _globals['_AUTHAUTHENTICATEREQUEST']._serialized_start=359
-  _globals['_AUTHAUTHENTICATEREQUEST']._serialized_end=813
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
+    )
+    _globals["_AUTHAUTHENTICATEREQUEST"].fields_by_name[
+        "metadata"
+    ]._loaded_options = None
+    _globals["_AUTHAUTHENTICATEREQUEST"].fields_by_name[
+        "metadata"
+    ]._serialized_options = b"(\001"
+    _globals["_AUTHAUTHENTICATEREQUEST"].fields_by_name[
+        "client_info"
+    ]._loaded_options = None
+    _globals["_AUTHAUTHENTICATEREQUEST"].fields_by_name[
+        "client_info"
+    ]._serialized_options = b"(\001"
+    _globals["_AUTHAUTHENTICATEREQUEST"]._serialized_start = 359
+    _globals["_AUTHAUTHENTICATEREQUEST"]._serialized_end = 813
 # @@protoc_insertion_point(module_scope)

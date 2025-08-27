@@ -20,6 +20,7 @@ class QueryOperation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUERY_OPERATION_SORT: _ClassVar[QueryOperation]
     QUERY_OPERATION_LIMIT: _ClassVar[QueryOperation]
     QUERY_OPERATION_JOIN: _ClassVar[QueryOperation]
+
 QUERY_OPERATION_UNSPECIFIED: QueryOperation
 QUERY_OPERATION_SELECT: QueryOperation
 QUERY_OPERATION_GROUP_BY: QueryOperation

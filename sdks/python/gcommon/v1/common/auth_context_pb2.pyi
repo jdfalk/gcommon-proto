@@ -19,7 +19,10 @@ class AuthContext(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROLES_FIELD_NUMBER: _ClassVar[int]
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +33,13 @@ class AuthContext(_message.Message):
     permissions: _containers.RepeatedScalarFieldContainer[str]
     issued_at: _timestamp_pb2.Timestamp
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, user_id: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., issued_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+        issued_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

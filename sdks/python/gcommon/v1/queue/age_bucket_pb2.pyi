@@ -14,4 +14,9 @@ class AgeBucket(_message.Message):
     min_age_seconds: int
     max_age_seconds: int
     message_count: int
-    def __init__(self, min_age_seconds: _Optional[int] = ..., max_age_seconds: _Optional[int] = ..., message_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        min_age_seconds: _Optional[int] = ...,
+        max_age_seconds: _Optional[int] = ...,
+        message_count: _Optional[int] = ...,
+    ) -> None: ...

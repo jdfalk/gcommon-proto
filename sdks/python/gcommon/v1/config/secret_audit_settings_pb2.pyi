@@ -10,14 +10,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SecretAuditSettings(_message.Message):
-    __slots__ = ("enabled", "level", "retention_days", "log_access", "log_rotation", "log_modification", "destinations", "format", "metadata")
+    __slots__ = (
+        "enabled",
+        "level",
+        "retention_days",
+        "log_access",
+        "log_rotation",
+        "log_modification",
+        "destinations",
+        "format",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +49,15 @@ class SecretAuditSettings(_message.Message):
     destinations: _containers.RepeatedScalarFieldContainer[str]
     format: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., level: _Optional[_Union[_secret_audit_level_pb2.SecretAuditLevel, str]] = ..., retention_days: _Optional[int] = ..., log_access: _Optional[bool] = ..., log_rotation: _Optional[bool] = ..., log_modification: _Optional[bool] = ..., destinations: _Optional[_Iterable[str]] = ..., format: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        level: _Optional[_Union[_secret_audit_level_pb2.SecretAuditLevel, str]] = ...,
+        retention_days: _Optional[int] = ...,
+        log_access: _Optional[bool] = ...,
+        log_rotation: _Optional[bool] = ...,
+        log_modification: _Optional[bool] = ...,
+        destinations: _Optional[_Iterable[str]] = ...,
+        format: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

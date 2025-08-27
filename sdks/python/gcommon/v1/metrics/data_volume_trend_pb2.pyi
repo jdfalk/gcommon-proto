@@ -14,4 +14,9 @@ class DataVolumeTrend(_message.Message):
     volume_trend: str
     ingestion_trend: str
     trend_confidence: float
-    def __init__(self, volume_trend: _Optional[str] = ..., ingestion_trend: _Optional[str] = ..., trend_confidence: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        volume_trend: _Optional[str] = ...,
+        ingestion_trend: _Optional[str] = ...,
+        trend_confidence: _Optional[float] = ...,
+    ) -> None: ...

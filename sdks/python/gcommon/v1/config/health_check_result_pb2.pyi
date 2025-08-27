@@ -20,7 +20,10 @@ class ConfigHealthCheckResult(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -33,4 +36,14 @@ class ConfigHealthCheckResult(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     duration_ms: int
     details: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., status: _Optional[_Union[_health_state_pb2.HealthState, str]] = ..., message: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., duration_ms: _Optional[int] = ..., details: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        status: _Optional[_Union[_health_state_pb2.HealthState, str]] = ...,
+        message: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        duration_ms: _Optional[int] = ...,
+        details: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

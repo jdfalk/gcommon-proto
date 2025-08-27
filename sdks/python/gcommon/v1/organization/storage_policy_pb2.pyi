@@ -20,4 +20,11 @@ class StoragePolicy(_message.Message):
     effect: str
     resources: _containers.RepeatedScalarFieldContainer[str]
     actions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, name: _Optional[str] = ..., statement: _Optional[str] = ..., effect: _Optional[str] = ..., resources: _Optional[_Iterable[str]] = ..., actions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        statement: _Optional[str] = ...,
+        effect: _Optional[str] = ...,
+        resources: _Optional[_Iterable[str]] = ...,
+        actions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

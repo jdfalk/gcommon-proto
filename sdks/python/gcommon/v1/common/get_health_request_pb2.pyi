@@ -16,4 +16,11 @@ class GetHealthRequest(_message.Message):
     service: str
     include_details: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, service: _Optional[str] = ..., include_details: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        service: _Optional[str] = ...,
+        include_details: _Optional[bool] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -12,6 +12,7 @@ class RateLimitStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RATE_LIMIT_STRATEGY_FIXED_WINDOW: _ClassVar[RateLimitStrategy]
     RATE_LIMIT_STRATEGY_SLIDING_WINDOW: _ClassVar[RateLimitStrategy]
     RATE_LIMIT_STRATEGY_LEAKY_BUCKET: _ClassVar[RateLimitStrategy]
+
 RATE_LIMIT_STRATEGY_UNSPECIFIED: RateLimitStrategy
 RATE_LIMIT_STRATEGY_TOKEN_BUCKET: RateLimitStrategy
 RATE_LIMIT_STRATEGY_FIXED_WINDOW: RateLimitStrategy

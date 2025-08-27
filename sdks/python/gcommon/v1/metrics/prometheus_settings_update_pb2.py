@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/prometheus_settings_update.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/prometheus_settings_update.proto'
+    "",
+    "gcommon/v1/metrics/prometheus_settings_update.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,22 +28,40 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/metrics/prometheus_settings_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xdb\x02\n\x18PrometheusSettingsUpdate\x12\x32\n\x10push_gateway_url\x18\x01 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x0epushGatewayUrl\x12$\n\x08job_name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x07jobName\x12\x1a\n\x08instance\x18\x03 \x01(\tR\x08instance\x12\x63\n\rlabel_updates\x18\x04 \x03(\x0b\x32>.gcommon.v1.metrics.PrometheusSettingsUpdate.LabelUpdatesEntryR\x0clabelUpdates\x12#\n\rlabel_removes\x18\x05 \x03(\tR\x0clabelRemoves\x1a?\n\x11LabelUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n3gcommon/v1/metrics/prometheus_settings_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xdb\x02\n\x18PrometheusSettingsUpdate\x12\x32\n\x10push_gateway_url\x18\x01 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x0epushGatewayUrl\x12$\n\x08job_name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x07jobName\x12\x1a\n\x08instance\x18\x03 \x01(\tR\x08instance\x12\x63\n\rlabel_updates\x18\x04 \x03(\x0b\x32>.gcommon.v1.metrics.PrometheusSettingsUpdate.LabelUpdatesEntryR\x0clabelUpdates\x12#\n\rlabel_removes\x18\x05 \x03(\tR\x0clabelRemoves\x1a?\n\x11LabelUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.prometheus_settings_update_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.prometheus_settings_update_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY']._loaded_options = None
-  _globals['_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY']._serialized_options = b'8\001'
-  _globals['_PROMETHEUSSETTINGSUPDATE'].fields_by_name['push_gateway_url']._loaded_options = None
-  _globals['_PROMETHEUSSETTINGSUPDATE'].fields_by_name['push_gateway_url']._serialized_options = b'\272H\005r\003\210\001\001'
-  _globals['_PROMETHEUSSETTINGSUPDATE'].fields_by_name['job_name']._loaded_options = None
-  _globals['_PROMETHEUSSETTINGSUPDATE'].fields_by_name['job_name']._serialized_options = b'\272H\006r\004\020\001\030d'
-  _globals['_PROMETHEUSSETTINGSUPDATE']._serialized_start=140
-  _globals['_PROMETHEUSSETTINGSUPDATE']._serialized_end=487
-  _globals['_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY']._serialized_start=424
-  _globals['_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY']._serialized_end=487
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY"]._loaded_options = None
+    _globals[
+        "_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY"
+    ]._serialized_options = b"8\001"
+    _globals["_PROMETHEUSSETTINGSUPDATE"].fields_by_name[
+        "push_gateway_url"
+    ]._loaded_options = None
+    _globals["_PROMETHEUSSETTINGSUPDATE"].fields_by_name[
+        "push_gateway_url"
+    ]._serialized_options = b"\272H\005r\003\210\001\001"
+    _globals["_PROMETHEUSSETTINGSUPDATE"].fields_by_name[
+        "job_name"
+    ]._loaded_options = None
+    _globals["_PROMETHEUSSETTINGSUPDATE"].fields_by_name[
+        "job_name"
+    ]._serialized_options = b"\272H\006r\004\020\001\030d"
+    _globals["_PROMETHEUSSETTINGSUPDATE"]._serialized_start = 140
+    _globals["_PROMETHEUSSETTINGSUPDATE"]._serialized_end = 487
+    _globals["_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY"]._serialized_start = 424
+    _globals["_PROMETHEUSSETTINGSUPDATE_LABELUPDATESENTRY"]._serialized_end = 487
 # @@protoc_insertion_point(module_scope)

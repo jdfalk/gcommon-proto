@@ -12,6 +12,7 @@ class LogSortField(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOG_SORT_FIELD_LEVEL: _ClassVar[LogSortField]
     LOG_SORT_FIELD_LOGGER: _ClassVar[LogSortField]
     LOG_SORT_FIELD_MESSAGE: _ClassVar[LogSortField]
+
 LOG_SORT_FIELD_UNSPECIFIED: LogSortField
 LOG_SORT_FIELD_TIMESTAMP: LogSortField
 LOG_SORT_FIELD_LEVEL: LogSortField

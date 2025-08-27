@@ -4,18 +4,15 @@
 # source: gcommon/v1/queue/retry_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    32,
-    0,
-    '',
-    'gcommon/v1/queue/retry_config.proto'
+    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/queue/retry_config.proto"
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,20 +24,36 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#gcommon/v1/queue/retry_config.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x82\x03\n\x10QueueRetryConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12(\n\x0bmax_retries\x18\x02 \x01(\rB\x07\xbaH\x04*\x02(\x00R\nmaxRetries\x12>\n\rinitial_delay\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0cinitialDelay\x12\x36\n\tmax_delay\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08maxDelay\x12=\n\x12\x62\x61\x63koff_multiplier\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x11\x62\x61\x63koffMultiplier\x12\x33\n\rjitter_factor\x18\x06 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0cjitterFactor\x12>\n\rtotal_timeout\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0ctotalTimeoutB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n#gcommon/v1/queue/retry_config.proto\x12\x10gcommon.v1.queue\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x82\x03\n\x10QueueRetryConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12(\n\x0bmax_retries\x18\x02 \x01(\rB\x07\xbaH\x04*\x02(\x00R\nmaxRetries\x12>\n\rinitial_delay\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0cinitialDelay\x12\x36\n\tmax_delay\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08maxDelay\x12=\n\x12\x62\x61\x63koff_multiplier\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x11\x62\x61\x63koffMultiplier\x12\x33\n\rjitter_factor\x18\x06 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0cjitterFactor\x12>\n\rtotal_timeout\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0ctotalTimeoutB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.retry_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.retry_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['max_retries']._loaded_options = None
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['max_retries']._serialized_options = b'\272H\004*\002(\000'
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['backoff_multiplier']._loaded_options = None
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['backoff_multiplier']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['jitter_factor']._loaded_options = None
-  _globals['_QUEUERETRYCONFIG'].fields_by_name['jitter_factor']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_QUEUERETRYCONFIG']._serialized_start=154
-  _globals['_QUEUERETRYCONFIG']._serialized_end=540
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_QUEUERETRYCONFIG"].fields_by_name["max_retries"]._loaded_options = None
+    _globals["_QUEUERETRYCONFIG"].fields_by_name[
+        "max_retries"
+    ]._serialized_options = b"\272H\004*\002(\000"
+    _globals["_QUEUERETRYCONFIG"].fields_by_name[
+        "backoff_multiplier"
+    ]._loaded_options = None
+    _globals["_QUEUERETRYCONFIG"].fields_by_name[
+        "backoff_multiplier"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_QUEUERETRYCONFIG"].fields_by_name["jitter_factor"]._loaded_options = None
+    _globals["_QUEUERETRYCONFIG"].fields_by_name[
+        "jitter_factor"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_QUEUERETRYCONFIG"]._serialized_start = 154
+    _globals["_QUEUERETRYCONFIG"]._serialized_end = 540
 # @@protoc_insertion_point(module_scope)

@@ -4,18 +4,20 @@
 # source: gcommon/v1/queue/filter_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/filter_settings.proto'
+    "",
+    "gcommon/v1/queue/filter_settings.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,24 +28,36 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/queue/filter_settings.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x86\x03\n\x0e\x46ilterSettings\x12]\n\x0f\x63ontent_filters\x18\x01 \x03(\x0b\x32\x34.gcommon.v1.queue.FilterSettings.ContentFiltersEntryR\x0e\x63ontentFilters\x12Z\n\x0eheader_filters\x18\x02 \x03(\x0b\x32\x33.gcommon.v1.queue.FilterSettings.HeaderFiltersEntryR\rheaderFilters\x12\x34\n\x11\x66ilter_expression\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x10\x66ilterExpression\x1a\x41\n\x13\x43ontentFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n&gcommon/v1/queue/filter_settings.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x86\x03\n\x0e\x46ilterSettings\x12]\n\x0f\x63ontent_filters\x18\x01 \x03(\x0b\x32\x34.gcommon.v1.queue.FilterSettings.ContentFiltersEntryR\x0e\x63ontentFilters\x12Z\n\x0eheader_filters\x18\x02 \x03(\x0b\x32\x33.gcommon.v1.queue.FilterSettings.HeaderFiltersEntryR\rheaderFilters\x12\x34\n\x11\x66ilter_expression\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x10\x66ilterExpression\x1a\x41\n\x13\x43ontentFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.filter_settings_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.filter_settings_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_FILTERSETTINGS_CONTENTFILTERSENTRY']._loaded_options = None
-  _globals['_FILTERSETTINGS_CONTENTFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_FILTERSETTINGS_HEADERFILTERSENTRY']._loaded_options = None
-  _globals['_FILTERSETTINGS_HEADERFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_FILTERSETTINGS'].fields_by_name['filter_expression']._loaded_options = None
-  _globals['_FILTERSETTINGS'].fields_by_name['filter_expression']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_FILTERSETTINGS']._serialized_start=125
-  _globals['_FILTERSETTINGS']._serialized_end=515
-  _globals['_FILTERSETTINGS_CONTENTFILTERSENTRY']._serialized_start=384
-  _globals['_FILTERSETTINGS_CONTENTFILTERSENTRY']._serialized_end=449
-  _globals['_FILTERSETTINGS_HEADERFILTERSENTRY']._serialized_start=451
-  _globals['_FILTERSETTINGS_HEADERFILTERSENTRY']._serialized_end=515
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_FILTERSETTINGS_CONTENTFILTERSENTRY"]._loaded_options = None
+    _globals["_FILTERSETTINGS_CONTENTFILTERSENTRY"]._serialized_options = b"8\001"
+    _globals["_FILTERSETTINGS_HEADERFILTERSENTRY"]._loaded_options = None
+    _globals["_FILTERSETTINGS_HEADERFILTERSENTRY"]._serialized_options = b"8\001"
+    _globals["_FILTERSETTINGS"].fields_by_name[
+        "filter_expression"
+    ]._loaded_options = None
+    _globals["_FILTERSETTINGS"].fields_by_name[
+        "filter_expression"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_FILTERSETTINGS"]._serialized_start = 125
+    _globals["_FILTERSETTINGS"]._serialized_end = 515
+    _globals["_FILTERSETTINGS_CONTENTFILTERSENTRY"]._serialized_start = 384
+    _globals["_FILTERSETTINGS_CONTENTFILTERSENTRY"]._serialized_end = 449
+    _globals["_FILTERSETTINGS_HEADERFILTERSENTRY"]._serialized_start = 451
+    _globals["_FILTERSETTINGS_HEADERFILTERSENTRY"]._serialized_end = 515
 # @@protoc_insertion_point(module_scope)

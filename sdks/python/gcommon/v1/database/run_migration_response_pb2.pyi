@@ -17,4 +17,9 @@ class RunMigrationResponse(_message.Message):
     success: bool
     applied_versions: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., applied_versions: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        applied_versions: _Optional[_Iterable[str]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

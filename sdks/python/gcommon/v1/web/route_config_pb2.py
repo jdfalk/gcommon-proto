@@ -4,46 +4,63 @@
 # source: gcommon/v1/web/route_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC,
-    6,
-    32,
-    0,
-    '',
-    'gcommon/v1/web/route_config.proto'
+    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/web/route_config.proto"
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import handler_type_pb2 as gcommon_dot_v1_dot_common_dot_handler__type__pb2
-from gcommon.v1.common import http_method_pb2 as gcommon_dot_v1_dot_common_dot_http__method__pb2
+from gcommon.v1.common import (
+    handler_type_pb2 as gcommon_dot_v1_dot_common_dot_handler__type__pb2,
+)
+from gcommon.v1.common import (
+    http_method_pb2 as gcommon_dot_v1_dot_common_dot_http__method__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/handler_type.proto\x1a#gcommon/v1/common/http_method.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa9\x02\n\x0bRouteConfig\x12\x1b\n\x04path\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12\x41\n\x07methods\x18\x02 \x03(\x0e\x32\x1d.gcommon.v1.common.HTTPMethodB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x07methods\x12!\n\x07handler\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07handler\x12\x41\n\x0chandler_type\x18\x04 \x01(\x0e\x32\x1e.gcommon.v1.common.HandlerTypeR\x0bhandlerType\x12/\n\x0emiddleware_ids\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rmiddlewareIds\x12#\n\rauth_required\x18\x06 \x01(\x08R\x0c\x61uthRequiredB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n!gcommon/v1/web/route_config.proto\x12\x0egcommon.v1.web\x1a$gcommon/v1/common/handler_type.proto\x1a#gcommon/v1/common/http_method.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xa9\x02\n\x0bRouteConfig\x12\x1b\n\x04path\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12\x41\n\x07methods\x18\x02 \x03(\x0e\x32\x1d.gcommon.v1.common.HTTPMethodB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x07methods\x12!\n\x07handler\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07handler\x12\x41\n\x0chandler_type\x18\x04 \x01(\x0e\x32\x1e.gcommon.v1.common.HandlerTypeR\x0bhandlerType\x12/\n\x0emiddleware_ids\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rmiddlewareIds\x12#\n\rauth_required\x18\x06 \x01(\x08R\x0c\x61uthRequiredB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.route_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.web.route_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
-  _globals['_ROUTECONFIG'].fields_by_name['path']._loaded_options = None
-  _globals['_ROUTECONFIG'].fields_by_name['path']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_ROUTECONFIG'].fields_by_name['methods']._loaded_options = None
-  _globals['_ROUTECONFIG'].fields_by_name['methods']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_ROUTECONFIG'].fields_by_name['handler']._loaded_options = None
-  _globals['_ROUTECONFIG'].fields_by_name['handler']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_ROUTECONFIG'].fields_by_name['middleware_ids']._loaded_options = None
-  _globals['_ROUTECONFIG'].fields_by_name['middleware_ids']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_ROUTECONFIG']._serialized_start=193
-  _globals['_ROUTECONFIG']._serialized_end=490
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003"
+    )
+    _globals["_ROUTECONFIG"].fields_by_name["path"]._loaded_options = None
+    _globals["_ROUTECONFIG"].fields_by_name[
+        "path"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_ROUTECONFIG"].fields_by_name["methods"]._loaded_options = None
+    _globals["_ROUTECONFIG"].fields_by_name[
+        "methods"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_ROUTECONFIG"].fields_by_name["handler"]._loaded_options = None
+    _globals["_ROUTECONFIG"].fields_by_name[
+        "handler"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_ROUTECONFIG"].fields_by_name["middleware_ids"]._loaded_options = None
+    _globals["_ROUTECONFIG"].fields_by_name[
+        "middleware_ids"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_ROUTECONFIG"]._serialized_start = 193
+    _globals["_ROUTECONFIG"]._serialized_end = 490
 # @@protoc_insertion_point(module_scope)

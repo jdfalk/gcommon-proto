@@ -19,4 +19,12 @@ class AuthUpdateSessionResponse(_message.Message):
     session: _session_info_pb2.SessionInfo
     error_message: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, success: _Optional[bool] = ..., session: _Optional[_Union[_session_info_pb2.SessionInfo, _Mapping]] = ..., error_message: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        session: _Optional[_Union[_session_info_pb2.SessionInfo, _Mapping]] = ...,
+        error_message: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

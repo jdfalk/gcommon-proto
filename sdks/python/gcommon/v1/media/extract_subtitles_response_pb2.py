@@ -4,18 +4,20 @@
 # source: gcommon/v1/media/extract_subtitles_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/media/extract_subtitles_response.proto'
+    "",
+    "gcommon/v1/media/extract_subtitles_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,30 +28,56 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/media/extract_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd7\x01\n\x18\x45xtractSubtitlesResponse\x12\x1e\n\x06job_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05jobId\x12\x16\n\x06status\x18\x02 \x01(\tR\x06status\x12^\n\x13\x65xtracted_subtitles\x18\x03 \x03(\x0b\x32#.gcommon.v1.media.ExtractedSubtitleB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x65xtractedSubtitles\x12#\n\rerror_message\x18\x04 \x01(\tR\x0c\x65rrorMessage\"\x87\x02\n\x11\x45xtractedSubtitle\x12 \n\x07\x66ile_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ileId\x12(\n\x0btrack_index\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\ntrackIndex\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired\x12\x1f\n\x06\x66ormat\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n1gcommon/v1/media/extract_subtitles_response.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xd7\x01\n\x18\x45xtractSubtitlesResponse\x12\x1e\n\x06job_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05jobId\x12\x16\n\x06status\x18\x02 \x01(\tR\x06status\x12^\n\x13\x65xtracted_subtitles\x18\x03 \x03(\x0b\x32#.gcommon.v1.media.ExtractedSubtitleB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x65xtractedSubtitles\x12#\n\rerror_message\x18\x04 \x01(\tR\x0c\x65rrorMessage"\x87\x02\n\x11\x45xtractedSubtitle\x12 \n\x07\x66ile_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ileId\x12(\n\x0btrack_index\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\ntrackIndex\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired\x12\x1f\n\x06\x66ormat\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ormatB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.extract_subtitles_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.media.extract_subtitles_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_EXTRACTSUBTITLESRESPONSE'].fields_by_name['job_id']._loaded_options = None
-  _globals['_EXTRACTSUBTITLESRESPONSE'].fields_by_name['job_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXTRACTSUBTITLESRESPONSE'].fields_by_name['extracted_subtitles']._loaded_options = None
-  _globals['_EXTRACTSUBTITLESRESPONSE'].fields_by_name['extracted_subtitles']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['file_id']._loaded_options = None
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['file_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['track_index']._loaded_options = None
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['track_index']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['language']._loaded_options = None
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['language']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['title']._loaded_options = None
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['title']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['format']._loaded_options = None
-  _globals['_EXTRACTEDSUBTITLE'].fields_by_name['format']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXTRACTSUBTITLESRESPONSE']._serialized_start=136
-  _globals['_EXTRACTSUBTITLESRESPONSE']._serialized_end=351
-  _globals['_EXTRACTEDSUBTITLE']._serialized_start=354
-  _globals['_EXTRACTEDSUBTITLE']._serialized_end=617
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003"
+    )
+    _globals["_EXTRACTSUBTITLESRESPONSE"].fields_by_name[
+        "job_id"
+    ]._loaded_options = None
+    _globals["_EXTRACTSUBTITLESRESPONSE"].fields_by_name[
+        "job_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXTRACTSUBTITLESRESPONSE"].fields_by_name[
+        "extracted_subtitles"
+    ]._loaded_options = None
+    _globals["_EXTRACTSUBTITLESRESPONSE"].fields_by_name[
+        "extracted_subtitles"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name["file_id"]._loaded_options = None
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name[
+        "file_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name["track_index"]._loaded_options = None
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name[
+        "track_index"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name["language"]._loaded_options = None
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name[
+        "language"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name["title"]._loaded_options = None
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name[
+        "title"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name["format"]._loaded_options = None
+    _globals["_EXTRACTEDSUBTITLE"].fields_by_name[
+        "format"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXTRACTSUBTITLESRESPONSE"]._serialized_start = 136
+    _globals["_EXTRACTSUBTITLESRESPONSE"]._serialized_end = 351
+    _globals["_EXTRACTEDSUBTITLE"]._serialized_start = 354
+    _globals["_EXTRACTEDSUBTITLE"]._serialized_end = 617
 # @@protoc_insertion_point(module_scope)

@@ -12,6 +12,7 @@ class HealthState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HEALTH_STATE_DEGRADED: _ClassVar[HealthState]
     HEALTH_STATE_UNHEALTHY: _ClassVar[HealthState]
     HEALTH_STATE_UNKNOWN: _ClassVar[HealthState]
+
 HEALTH_STATE_UNSPECIFIED: HealthState
 HEALTH_STATE_HEALTHY: HealthState
 HEALTH_STATE_DEGRADED: HealthState

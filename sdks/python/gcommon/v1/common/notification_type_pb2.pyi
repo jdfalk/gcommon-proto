@@ -21,6 +21,7 @@ class NotificationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NOTIFICATION_TYPE_TELEGRAM: _ClassVar[NotificationType]
     NOTIFICATION_TYPE_MATRIX: _ClassVar[NotificationType]
     NOTIFICATION_TYPE_VOICE: _ClassVar[NotificationType]
+
 NOTIFICATION_TYPE_UNSPECIFIED: NotificationType
 NOTIFICATION_TYPE_EMAIL: NotificationType
 NOTIFICATION_TYPE_SMS: NotificationType

@@ -12,14 +12,34 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UserDetails(_message.Message):
-    __slots__ = ("user_id", "username", "email", "full_name", "enabled", "roles", "permissions", "metadata", "created_at", "updated_at", "last_login_at", "expires_at", "deleted", "email_verified", "mfa_enabled", "active_sessions")
+    __slots__ = (
+        "user_id",
+        "username",
+        "email",
+        "full_name",
+        "enabled",
+        "roles",
+        "permissions",
+        "metadata",
+        "created_at",
+        "updated_at",
+        "last_login_at",
+        "expires_at",
+        "deleted",
+        "email_verified",
+        "mfa_enabled",
+        "active_sessions",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -52,4 +72,30 @@ class UserDetails(_message.Message):
     email_verified: bool
     mfa_enabled: bool
     active_sessions: int
-    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., full_name: _Optional[str] = ..., enabled: _Optional[bool] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_login_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., deleted: _Optional[bool] = ..., email_verified: _Optional[bool] = ..., mfa_enabled: _Optional[bool] = ..., active_sessions: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        username: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        full_name: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        roles: _Optional[_Iterable[str]] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_login_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        deleted: _Optional[bool] = ...,
+        email_verified: _Optional[bool] = ...,
+        mfa_enabled: _Optional[bool] = ...,
+        active_sessions: _Optional[int] = ...,
+    ) -> None: ...

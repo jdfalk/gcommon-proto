@@ -16,4 +16,10 @@ class EmailTemplate(_message.Message):
     subject: str
     body_html: str
     body_text: str
-    def __init__(self, name: _Optional[str] = ..., subject: _Optional[str] = ..., body_html: _Optional[str] = ..., body_text: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        subject: _Optional[str] = ...,
+        body_html: _Optional[str] = ...,
+        body_text: _Optional[str] = ...,
+    ) -> None: ...

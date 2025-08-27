@@ -14,4 +14,8 @@ class RoleInheritance(_message.Message):
     ADDITIONAL_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     inherits_from: _containers.RepeatedScalarFieldContainer[str]
     additional_permissions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, inherits_from: _Optional[_Iterable[str]] = ..., additional_permissions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        inherits_from: _Optional[_Iterable[str]] = ...,
+        additional_permissions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

@@ -16,11 +16,19 @@ class ErrorActionConfig(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ERROR_PATTERN_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]
     ACTION_PARAMS_FIELD_NUMBER: _ClassVar[int]
     error_pattern: str
     action: str
     action_params: _containers.ScalarMap[str, str]
-    def __init__(self, error_pattern: _Optional[str] = ..., action: _Optional[str] = ..., action_params: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        error_pattern: _Optional[str] = ...,
+        action: _Optional[str] = ...,
+        action_params: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

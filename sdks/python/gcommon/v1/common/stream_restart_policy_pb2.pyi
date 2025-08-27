@@ -12,6 +12,7 @@ class StreamRestartPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STREAM_RESTART_POLICY_IMMEDIATE: _ClassVar[StreamRestartPolicy]
     STREAM_RESTART_POLICY_EXPONENTIAL_BACKOFF: _ClassVar[StreamRestartPolicy]
     STREAM_RESTART_POLICY_FIXED_DELAY: _ClassVar[StreamRestartPolicy]
+
 STREAM_RESTART_POLICY_UNSPECIFIED: StreamRestartPolicy
 STREAM_RESTART_POLICY_NEVER: StreamRestartPolicy
 STREAM_RESTART_POLICY_IMMEDIATE: StreamRestartPolicy

@@ -4,43 +4,67 @@
 # source: gcommon/v1/queue/get_partition_info_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/get_partition_info_request.proto'
+    "",
+    "gcommon/v1/queue/get_partition_info_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import time_range_filter_pb2 as gcommon_dot_v1_dot_queue_dot_time__range__filter__pb2
+from gcommon.v1.queue import (
+    time_range_filter_pb2 as gcommon_dot_v1_dot_queue_dot_time__range__filter__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/queue/get_partition_info_request.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/time_range_filter.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe0\x03\n\x17GetPartitionInfoRequest\x12\"\n\x08topic_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07topicId\x12-\n\rpartition_ids\x18\x02 \x03(\x05\x42\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cpartitionIds\x12#\n\rinclude_stats\x18\x03 \x01(\x08R\x0cincludeStats\x12+\n\x11include_consumers\x18\x04 \x01(\x08R\x10includeConsumers\x12\'\n\x0finclude_offsets\x18\x05 \x01(\x08R\x0eincludeOffsets\x12\x32\n\x15include_health_status\x18\x06 \x01(\x08R\x13includeHealthStatus\x12.\n\x13include_leader_info\x18\x07 \x01(\x08R\x11includeLeaderInfo\x12%\n\x0einclude_config\x18\x08 \x01(\x08R\rincludeConfig\x12@\n\ntime_range\x18\t \x01(\x0b\x32!.gcommon.v1.queue.TimeRangeFilterR\ttimeRange\x12*\n\x0c\x61\x63\x63\x65ss_token\x18\n \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61\x63\x63\x65ssTokenB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n1gcommon/v1/queue/get_partition_info_request.proto\x12\x10gcommon.v1.queue\x1a(gcommon/v1/queue/time_range_filter.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xe0\x03\n\x17GetPartitionInfoRequest\x12"\n\x08topic_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07topicId\x12-\n\rpartition_ids\x18\x02 \x03(\x05\x42\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cpartitionIds\x12#\n\rinclude_stats\x18\x03 \x01(\x08R\x0cincludeStats\x12+\n\x11include_consumers\x18\x04 \x01(\x08R\x10includeConsumers\x12\'\n\x0finclude_offsets\x18\x05 \x01(\x08R\x0eincludeOffsets\x12\x32\n\x15include_health_status\x18\x06 \x01(\x08R\x13includeHealthStatus\x12.\n\x13include_leader_info\x18\x07 \x01(\x08R\x11includeLeaderInfo\x12%\n\x0einclude_config\x18\x08 \x01(\x08R\rincludeConfig\x12@\n\ntime_range\x18\t \x01(\x0b\x32!.gcommon.v1.queue.TimeRangeFilterR\ttimeRange\x12*\n\x0c\x61\x63\x63\x65ss_token\x18\n \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61\x63\x63\x65ssTokenB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.get_partition_info_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.get_partition_info_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['topic_id']._loaded_options = None
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['topic_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['partition_ids']._loaded_options = None
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['partition_ids']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['access_token']._loaded_options = None
-  _globals['_GETPARTITIONINFOREQUEST'].fields_by_name['access_token']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_GETPARTITIONINFOREQUEST']._serialized_start=178
-  _globals['_GETPARTITIONINFOREQUEST']._serialized_end=658
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "topic_id"
+    ]._loaded_options = None
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "topic_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "partition_ids"
+    ]._loaded_options = None
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "partition_ids"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "access_token"
+    ]._loaded_options = None
+    _globals["_GETPARTITIONINFOREQUEST"].fields_by_name[
+        "access_token"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_GETPARTITIONINFOREQUEST"]._serialized_start = 178
+    _globals["_GETPARTITIONINFOREQUEST"]._serialized_end = 658
 # @@protoc_insertion_point(module_scope)

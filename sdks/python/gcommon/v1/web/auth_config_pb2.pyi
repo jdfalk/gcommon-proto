@@ -16,7 +16,10 @@ class WebAuthConfig(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLE_AUTH_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_ROLES_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_SCOPES_FIELD_NUMBER: _ClassVar[int]
@@ -25,4 +28,10 @@ class WebAuthConfig(_message.Message):
     allowed_roles: _containers.RepeatedScalarFieldContainer[str]
     required_scopes: _containers.RepeatedScalarFieldContainer[str]
     options: _containers.ScalarMap[str, str]
-    def __init__(self, enable_auth: _Optional[bool] = ..., allowed_roles: _Optional[_Iterable[str]] = ..., required_scopes: _Optional[_Iterable[str]] = ..., options: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enable_auth: _Optional[bool] = ...,
+        allowed_roles: _Optional[_Iterable[str]] = ...,
+        required_scopes: _Optional[_Iterable[str]] = ...,
+        options: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

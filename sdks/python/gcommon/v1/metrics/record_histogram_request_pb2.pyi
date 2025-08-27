@@ -13,14 +13,28 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RecordHistogramRequest(_message.Message):
-    __slots__ = ("name", "value", "labels", "help", "unit", "buckets", "timestamp", "metadata", "sample_weight", "create_if_missing")
+    __slots__ = (
+        "name",
+        "value",
+        "labels",
+        "help",
+        "unit",
+        "buckets",
+        "timestamp",
+        "metadata",
+        "sample_weight",
+        "create_if_missing",
+    )
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -41,4 +55,20 @@ class RecordHistogramRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     sample_weight: float
     create_if_missing: bool
-    def __init__(self, name: _Optional[str] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ..., help: _Optional[str] = ..., unit: _Optional[str] = ..., buckets: _Optional[_Iterable[float]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., sample_weight: _Optional[float] = ..., create_if_missing: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        value: _Optional[float] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        help: _Optional[str] = ...,
+        unit: _Optional[str] = ...,
+        buckets: _Optional[_Iterable[float]] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        sample_weight: _Optional[float] = ...,
+        create_if_missing: _Optional[bool] = ...,
+    ) -> None: ...

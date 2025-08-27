@@ -18,4 +18,10 @@ class SchemaChange(_message.Message):
     description: str
     backward_compatible: bool
     migration_steps: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, change_type: _Optional[str] = ..., description: _Optional[str] = ..., backward_compatible: _Optional[bool] = ..., migration_steps: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        change_type: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        backward_compatible: _Optional[bool] = ...,
+        migration_steps: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

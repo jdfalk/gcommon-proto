@@ -4,44 +4,66 @@
 # source: gcommon/v1/config/list_config_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/config/list_config_request.proto'
+    "",
+    "gcommon/v1/config/list_config_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import filter_options_pb2 as gcommon_dot_v1_dot_common_dot_filter__options__pb2
-from gcommon.v1.common import pagination_pb2 as gcommon_dot_v1_dot_common_dot_pagination__pb2
-from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
-from gcommon.v1.common import sort_options_pb2 as gcommon_dot_v1_dot_common_dot_sort__options__pb2
+from gcommon.v1.common import (
+    filter_options_pb2 as gcommon_dot_v1_dot_common_dot_filter__options__pb2,
+)
+from gcommon.v1.common import (
+    pagination_pb2 as gcommon_dot_v1_dot_common_dot_pagination__pb2,
+)
+from gcommon.v1.common import (
+    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
+)
+from gcommon.v1.common import (
+    sort_options_pb2 as gcommon_dot_v1_dot_common_dot_sort__options__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/config/list_config_request.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/filter_options.proto\x1a\"gcommon/v1/common/pagination.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/common/sort_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xc8\x02\n\x11ListConfigRequest\x12\x1f\n\x06prefix\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06prefix\x12%\n\tnamespace\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tnamespace\x12=\n\npagination\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.PaginationR\npagination\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x32\n\x04sort\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n+gcommon/v1/config/list_config_request.proto\x12\x11gcommon.v1.config\x1a&gcommon/v1/common/filter_options.proto\x1a"gcommon/v1/common/pagination.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/common/sort_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xc8\x02\n\x11ListConfigRequest\x12\x1f\n\x06prefix\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06prefix\x12%\n\tnamespace\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tnamespace\x12=\n\npagination\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.PaginationR\npagination\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.common.FilterOptionsR\x06\x66ilter\x12\x32\n\x04sort\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n\x08metadata\x18\x06 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataR\x08metadataB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.list_config_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.config.list_config_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
-  _globals['_LISTCONFIGREQUEST'].fields_by_name['prefix']._loaded_options = None
-  _globals['_LISTCONFIGREQUEST'].fields_by_name['prefix']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_LISTCONFIGREQUEST'].fields_by_name['namespace']._loaded_options = None
-  _globals['_LISTCONFIGREQUEST'].fields_by_name['namespace']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_LISTCONFIGREQUEST']._serialized_start=287
-  _globals['_LISTCONFIGREQUEST']._serialized_end=615
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
+    )
+    _globals["_LISTCONFIGREQUEST"].fields_by_name["prefix"]._loaded_options = None
+    _globals["_LISTCONFIGREQUEST"].fields_by_name[
+        "prefix"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_LISTCONFIGREQUEST"].fields_by_name["namespace"]._loaded_options = None
+    _globals["_LISTCONFIGREQUEST"].fields_by_name[
+        "namespace"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_LISTCONFIGREQUEST"]._serialized_start = 287
+    _globals["_LISTCONFIGREQUEST"]._serialized_end = 615
 # @@protoc_insertion_point(module_scope)

@@ -14,4 +14,12 @@ class SendNotificationRequest(_message.Message):
     NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
     notification: _notification_message_pb2.NotificationMessage
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., notification: _Optional[_Union[_notification_message_pb2.NotificationMessage, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        notification: _Optional[
+            _Union[_notification_message_pb2.NotificationMessage, _Mapping]
+        ] = ...,
+    ) -> None: ...

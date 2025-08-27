@@ -12,6 +12,7 @@ class MFAType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MFA_TYPE_SMS: _ClassVar[MFAType]
     MFA_TYPE_EMAIL: _ClassVar[MFAType]
     MFA_TYPE_PUSH: _ClassVar[MFAType]
+
 MFA_TYPE_UNSPECIFIED: MFAType
 MFA_TYPE_TOTP: MFAType
 MFA_TYPE_SMS: MFAType

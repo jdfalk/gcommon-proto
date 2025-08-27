@@ -14,6 +14,7 @@ class AlertCondition(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ALERT_CONDITION_NOT_EQUALS: _ClassVar[AlertCondition]
     ALERT_CONDITION_INCREASING: _ClassVar[AlertCondition]
     ALERT_CONDITION_DECREASING: _ClassVar[AlertCondition]
+
 ALERT_CONDITION_UNSPECIFIED: AlertCondition
 ALERT_CONDITION_GREATER_THAN: AlertCondition
 ALERT_CONDITION_LESS_THAN: AlertCondition

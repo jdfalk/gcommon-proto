@@ -16,14 +16,20 @@ class OpenTelemetrySettings(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     class ResourceAttributesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     USE_TLS_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
@@ -34,4 +40,11 @@ class OpenTelemetrySettings(_message.Message):
     headers: _containers.ScalarMap[str, str]
     resource_attributes: _containers.ScalarMap[str, str]
     timeout: str
-    def __init__(self, endpoint: _Optional[str] = ..., use_tls: _Optional[bool] = ..., headers: _Optional[_Mapping[str, str]] = ..., resource_attributes: _Optional[_Mapping[str, str]] = ..., timeout: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        endpoint: _Optional[str] = ...,
+        use_tls: _Optional[bool] = ...,
+        headers: _Optional[_Mapping[str, str]] = ...,
+        resource_attributes: _Optional[_Mapping[str, str]] = ...,
+        timeout: _Optional[str] = ...,
+    ) -> None: ...

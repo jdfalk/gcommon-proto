@@ -18,4 +18,12 @@ class GetConfigRequest(_message.Message):
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
     decrypt: bool
-    def __init__(self, key: _Optional[str] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., decrypt: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        decrypt: _Optional[bool] = ...,
+    ) -> None: ...

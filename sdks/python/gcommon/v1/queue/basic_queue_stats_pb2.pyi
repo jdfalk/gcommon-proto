@@ -7,7 +7,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BasicQueueStats(_message.Message):
-    __slots__ = ("queue_name", "total_messages", "unacked_messages", "size_bytes", "consumer_count", "producer_count", "ingress_rate", "egress_rate", "avg_message_size", "queue_depth_ms")
+    __slots__ = (
+        "queue_name",
+        "total_messages",
+        "unacked_messages",
+        "size_bytes",
+        "consumer_count",
+        "producer_count",
+        "ingress_rate",
+        "egress_rate",
+        "avg_message_size",
+        "queue_depth_ms",
+    )
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     TOTAL_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     UNACKED_MESSAGES_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +39,16 @@ class BasicQueueStats(_message.Message):
     egress_rate: float
     avg_message_size: float
     queue_depth_ms: int
-    def __init__(self, queue_name: _Optional[str] = ..., total_messages: _Optional[int] = ..., unacked_messages: _Optional[int] = ..., size_bytes: _Optional[int] = ..., consumer_count: _Optional[int] = ..., producer_count: _Optional[int] = ..., ingress_rate: _Optional[float] = ..., egress_rate: _Optional[float] = ..., avg_message_size: _Optional[float] = ..., queue_depth_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        total_messages: _Optional[int] = ...,
+        unacked_messages: _Optional[int] = ...,
+        size_bytes: _Optional[int] = ...,
+        consumer_count: _Optional[int] = ...,
+        producer_count: _Optional[int] = ...,
+        ingress_rate: _Optional[float] = ...,
+        egress_rate: _Optional[float] = ...,
+        avg_message_size: _Optional[float] = ...,
+        queue_depth_ms: _Optional[int] = ...,
+    ) -> None: ...

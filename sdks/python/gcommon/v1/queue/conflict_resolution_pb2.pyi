@@ -20,4 +20,18 @@ class QueueConflictResolution(_message.Message):
     custom_resolution: _custom_resolution_pb2.CustomResolution
     lww_config: _last_writer_wins_pb2.LastWriterWins
     multi_value: _multi_value_config_pb2.MultiValueConfig
-    def __init__(self, strategy: _Optional[_Union[_resolution_strategy_pb2.ResolutionStrategy, str]] = ..., custom_resolution: _Optional[_Union[_custom_resolution_pb2.CustomResolution, _Mapping]] = ..., lww_config: _Optional[_Union[_last_writer_wins_pb2.LastWriterWins, _Mapping]] = ..., multi_value: _Optional[_Union[_multi_value_config_pb2.MultiValueConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        strategy: _Optional[
+            _Union[_resolution_strategy_pb2.ResolutionStrategy, str]
+        ] = ...,
+        custom_resolution: _Optional[
+            _Union[_custom_resolution_pb2.CustomResolution, _Mapping]
+        ] = ...,
+        lww_config: _Optional[
+            _Union[_last_writer_wins_pb2.LastWriterWins, _Mapping]
+        ] = ...,
+        multi_value: _Optional[
+            _Union[_multi_value_config_pb2.MultiValueConfig, _Mapping]
+        ] = ...,
+    ) -> None: ...

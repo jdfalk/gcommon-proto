@@ -4,45 +4,67 @@
 # source: gcommon/v1/queue/batch_pull_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/batch_pull_response.proto'
+    "",
+    "gcommon/v1/queue/batch_pull_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import queue_message_pb2 as gcommon_dot_v1_dot_queue_dot_queue__message__pb2
+from gcommon.v1.queue import (
+    queue_message_pb2 as gcommon_dot_v1_dot_queue_dot_queue__message__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/queue/batch_pull_response.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/queue/queue_message.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf4\x01\n\x11\x42\x61tchPullResponse\x12\x44\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08messages\x12,\n\rmessage_count\x18\x02 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0cmessageCount\x12\x19\n\x08has_more\x18\x03 \x01(\x08R\x07hasMore\x12&\n\nnext_token\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tnextToken\x12(\n\x0btotal_bytes\x18\x05 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\ntotalBytesB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n*gcommon/v1/queue/batch_pull_response.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/queue/queue_message.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf4\x01\n\x11\x42\x61tchPullResponse\x12\x44\n\x08messages\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.queue.QueueMessageB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08messages\x12,\n\rmessage_count\x18\x02 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0cmessageCount\x12\x19\n\x08has_more\x18\x03 \x01(\x08R\x07hasMore\x12&\n\nnext_token\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tnextToken\x12(\n\x0btotal_bytes\x18\x05 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\ntotalBytesB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.batch_pull_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.batch_pull_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['messages']._loaded_options = None
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['messages']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['message_count']._loaded_options = None
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['message_count']._serialized_options = b'\272H\004*\002(\000'
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['next_token']._loaded_options = None
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['next_token']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['total_bytes']._loaded_options = None
-  _globals['_BATCHPULLRESPONSE'].fields_by_name['total_bytes']._serialized_options = b'\272H\0042\002(\000'
-  _globals['_BATCHPULLRESPONSE']._serialized_start=167
-  _globals['_BATCHPULLRESPONSE']._serialized_end=411
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_BATCHPULLRESPONSE"].fields_by_name["messages"]._loaded_options = None
+    _globals["_BATCHPULLRESPONSE"].fields_by_name[
+        "messages"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_BATCHPULLRESPONSE"].fields_by_name[
+        "message_count"
+    ]._loaded_options = None
+    _globals["_BATCHPULLRESPONSE"].fields_by_name[
+        "message_count"
+    ]._serialized_options = b"\272H\004*\002(\000"
+    _globals["_BATCHPULLRESPONSE"].fields_by_name["next_token"]._loaded_options = None
+    _globals["_BATCHPULLRESPONSE"].fields_by_name[
+        "next_token"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_BATCHPULLRESPONSE"].fields_by_name["total_bytes"]._loaded_options = None
+    _globals["_BATCHPULLRESPONSE"].fields_by_name[
+        "total_bytes"
+    ]._serialized_options = b"\272H\0042\002(\000"
+    _globals["_BATCHPULLRESPONSE"]._serialized_start = 167
+    _globals["_BATCHPULLRESPONSE"]._serialized_end = 411
 # @@protoc_insertion_point(module_scope)

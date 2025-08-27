@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationEncryptionConfig(_message.Message):
-    __slots__ = ("encryption_at_rest", "encryption_in_transit", "key_management_service", "customer_key_id", "encryption_algorithm")
+    __slots__ = (
+        "encryption_at_rest",
+        "encryption_in_transit",
+        "key_management_service",
+        "customer_key_id",
+        "encryption_algorithm",
+    )
     ENCRYPTION_AT_REST_FIELD_NUMBER: _ClassVar[int]
     ENCRYPTION_IN_TRANSIT_FIELD_NUMBER: _ClassVar[int]
     KEY_MANAGEMENT_SERVICE_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class OrganizationEncryptionConfig(_message.Message):
     key_management_service: str
     customer_key_id: str
     encryption_algorithm: str
-    def __init__(self, encryption_at_rest: _Optional[bool] = ..., encryption_in_transit: _Optional[bool] = ..., key_management_service: _Optional[str] = ..., customer_key_id: _Optional[str] = ..., encryption_algorithm: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        encryption_at_rest: _Optional[bool] = ...,
+        encryption_in_transit: _Optional[bool] = ...,
+        key_management_service: _Optional[str] = ...,
+        customer_key_id: _Optional[str] = ...,
+        encryption_algorithm: _Optional[str] = ...,
+    ) -> None: ...

@@ -18,4 +18,12 @@ class GetRequest(_message.Message):
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
     update_access_time: bool
-    def __init__(self, key: _Optional[str] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., update_access_time: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        update_access_time: _Optional[bool] = ...,
+    ) -> None: ...

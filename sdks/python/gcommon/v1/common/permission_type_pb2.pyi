@@ -13,6 +13,7 @@ class PermissionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_TYPE_DELETE: _ClassVar[PermissionType]
     PERMISSION_TYPE_ADMIN: _ClassVar[PermissionType]
     PERMISSION_TYPE_EXECUTE: _ClassVar[PermissionType]
+
 PERMISSION_TYPE_UNSPECIFIED: PermissionType
 PERMISSION_TYPE_READ: PermissionType
 PERMISSION_TYPE_WRITE: PermissionType

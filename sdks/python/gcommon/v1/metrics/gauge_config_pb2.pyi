@@ -14,4 +14,9 @@ class GaugeConfig(_message.Message):
     min_value: float
     max_value: float
     allow_negative: bool
-    def __init__(self, min_value: _Optional[float] = ..., max_value: _Optional[float] = ..., allow_negative: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        min_value: _Optional[float] = ...,
+        max_value: _Optional[float] = ...,
+        allow_negative: _Optional[bool] = ...,
+    ) -> None: ...

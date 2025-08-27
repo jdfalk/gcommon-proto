@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/metric_type_counts.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/metric_type_counts.proto'
+    "",
+    "gcommon/v1/metrics/metric_type_counts.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,26 +28,48 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/metric_type_counts.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa0\x02\n\x10MetricTypeCounts\x12,\n\rcounter_count\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0c\x63ounterCount\x12(\n\x0bgauge_count\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\ngaugeCount\x12\x30\n\x0fhistogram_count\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0ehistogramCount\x12,\n\rsummary_count\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0csummaryCount\x12(\n\x0btimer_count\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\ntimerCount\x12*\n\x0c\x63ustom_count\x18\x06 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0b\x63ustomCountB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n+gcommon/v1/metrics/metric_type_counts.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xa0\x02\n\x10MetricTypeCounts\x12,\n\rcounter_count\x18\x01 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0c\x63ounterCount\x12(\n\x0bgauge_count\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\ngaugeCount\x12\x30\n\x0fhistogram_count\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0ehistogramCount\x12,\n\rsummary_count\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0csummaryCount\x12(\n\x0btimer_count\x18\x05 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\ntimerCount\x12*\n\x0c\x63ustom_count\x18\x06 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0b\x63ustomCountB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.metric_type_counts_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.metric_type_counts_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['counter_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['counter_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['gauge_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['gauge_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['histogram_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['histogram_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['summary_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['summary_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['timer_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['timer_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS'].fields_by_name['custom_count']._loaded_options = None
-  _globals['_METRICTYPECOUNTS'].fields_by_name['custom_count']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_METRICTYPECOUNTS']._serialized_start=132
-  _globals['_METRICTYPECOUNTS']._serialized_end=420
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_METRICTYPECOUNTS"].fields_by_name["counter_count"]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "counter_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"].fields_by_name["gauge_count"]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "gauge_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "histogram_count"
+    ]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "histogram_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"].fields_by_name["summary_count"]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "summary_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"].fields_by_name["timer_count"]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "timer_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"].fields_by_name["custom_count"]._loaded_options = None
+    _globals["_METRICTYPECOUNTS"].fields_by_name[
+        "custom_count"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_METRICTYPECOUNTS"]._serialized_start = 132
+    _globals["_METRICTYPECOUNTS"]._serialized_end = 420
 # @@protoc_insertion_point(module_scope)

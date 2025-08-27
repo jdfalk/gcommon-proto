@@ -16,4 +16,10 @@ class ResourceReference(_message.Message):
     id: str
     name: str
     module: str
-    def __init__(self, type: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., module: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[str] = ...,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        module: _Optional[str] = ...,
+    ) -> None: ...

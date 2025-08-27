@@ -14,4 +14,9 @@ class ConfigValidationWarning(_message.Message):
     key: str
     message: str
     code: str
-    def __init__(self, key: _Optional[str] = ..., message: _Optional[str] = ..., code: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        message: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+    ) -> None: ...

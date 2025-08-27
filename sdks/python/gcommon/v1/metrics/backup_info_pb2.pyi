@@ -11,7 +11,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsBackupInfo(_message.Message):
-    __slots__ = ("backup_id", "backup_location", "backup_size_bytes", "backup_created_at", "backup_retention")
+    __slots__ = (
+        "backup_id",
+        "backup_location",
+        "backup_size_bytes",
+        "backup_created_at",
+        "backup_retention",
+    )
     BACKUP_ID_FIELD_NUMBER: _ClassVar[int]
     BACKUP_LOCATION_FIELD_NUMBER: _ClassVar[int]
     BACKUP_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +28,13 @@ class MetricsBackupInfo(_message.Message):
     backup_size_bytes: int
     backup_created_at: _timestamp_pb2.Timestamp
     backup_retention: str
-    def __init__(self, backup_id: _Optional[str] = ..., backup_location: _Optional[str] = ..., backup_size_bytes: _Optional[int] = ..., backup_created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., backup_retention: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        backup_id: _Optional[str] = ...,
+        backup_location: _Optional[str] = ...,
+        backup_size_bytes: _Optional[int] = ...,
+        backup_created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        backup_retention: _Optional[str] = ...,
+    ) -> None: ...

@@ -14,4 +14,10 @@ class DeleteTenantRequest(_message.Message):
     TENANT_ID_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
     tenant_id: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tenant_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        tenant_id: _Optional[str] = ...,
+    ) -> None: ...

@@ -16,4 +16,9 @@ class RevokeRoleResponse(_message.Message):
     success: bool
     error_message: str
     remaining_permissions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., remaining_permissions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        remaining_permissions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

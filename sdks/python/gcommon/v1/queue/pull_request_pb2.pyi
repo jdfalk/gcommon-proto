@@ -16,4 +16,11 @@ class PullRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     queue_name: str
     visibility_timeout_seconds: int
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., visibility_timeout_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        queue_name: _Optional[str] = ...,
+        visibility_timeout_seconds: _Optional[int] = ...,
+    ) -> None: ...

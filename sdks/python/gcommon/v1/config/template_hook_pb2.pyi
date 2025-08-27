@@ -11,21 +11,36 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TemplateHook(_message.Message):
-    __slots__ = ("name", "type", "command", "timeout_seconds", "working_directory", "environment", "conditions", "error_handling")
+    __slots__ = (
+        "name",
+        "type",
+        "command",
+        "timeout_seconds",
+        "working_directory",
+        "environment",
+        "conditions",
+        "error_handling",
+    )
     class EnvironmentEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     class ConditionsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     COMMAND_FIELD_NUMBER: _ClassVar[int]
@@ -42,4 +57,16 @@ class TemplateHook(_message.Message):
     environment: _containers.ScalarMap[str, str]
     conditions: _containers.ScalarMap[str, str]
     error_handling: _hook_error_handling_pb2.HookErrorHandling
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_hook_type_pb2.HookType, str]] = ..., command: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., working_directory: _Optional[str] = ..., environment: _Optional[_Mapping[str, str]] = ..., conditions: _Optional[_Mapping[str, str]] = ..., error_handling: _Optional[_Union[_hook_error_handling_pb2.HookErrorHandling, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        type: _Optional[_Union[_hook_type_pb2.HookType, str]] = ...,
+        command: _Optional[str] = ...,
+        timeout_seconds: _Optional[int] = ...,
+        working_directory: _Optional[str] = ...,
+        environment: _Optional[_Mapping[str, str]] = ...,
+        conditions: _Optional[_Mapping[str, str]] = ...,
+        error_handling: _Optional[
+            _Union[_hook_error_handling_pb2.HookErrorHandling, str]
+        ] = ...,
+    ) -> None: ...

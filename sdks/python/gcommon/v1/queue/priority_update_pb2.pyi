@@ -14,4 +14,9 @@ class PriorityUpdate(_message.Message):
     priority_level: int
     priority_reason: str
     maintain_order: bool
-    def __init__(self, priority_level: _Optional[int] = ..., priority_reason: _Optional[str] = ..., maintain_order: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        priority_level: _Optional[int] = ...,
+        priority_reason: _Optional[str] = ...,
+        maintain_order: _Optional[bool] = ...,
+    ) -> None: ...

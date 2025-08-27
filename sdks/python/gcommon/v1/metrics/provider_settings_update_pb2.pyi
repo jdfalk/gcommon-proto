@@ -1,6 +1,12 @@
-from gcommon.v1.metrics import open_telemetry_settings_update_pb2 as _open_telemetry_settings_update_pb2
-from gcommon.v1.metrics import prometheus_settings_update_pb2 as _prometheus_settings_update_pb2
-from gcommon.v1.metrics import stats_d_settings_update_pb2 as _stats_d_settings_update_pb2
+from gcommon.v1.metrics import (
+    open_telemetry_settings_update_pb2 as _open_telemetry_settings_update_pb2,
+)
+from gcommon.v1.metrics import (
+    prometheus_settings_update_pb2 as _prometheus_settings_update_pb2,
+)
+from gcommon.v1.metrics import (
+    stats_d_settings_update_pb2 as _stats_d_settings_update_pb2,
+)
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -17,4 +23,18 @@ class ProviderSettingsUpdate(_message.Message):
     prometheus: _prometheus_settings_update_pb2.PrometheusSettingsUpdate
     opentelemetry: _open_telemetry_settings_update_pb2.OpenTelemetrySettingsUpdate
     statsd: _stats_d_settings_update_pb2.StatsDSettingsUpdate
-    def __init__(self, prometheus: _Optional[_Union[_prometheus_settings_update_pb2.PrometheusSettingsUpdate, _Mapping]] = ..., opentelemetry: _Optional[_Union[_open_telemetry_settings_update_pb2.OpenTelemetrySettingsUpdate, _Mapping]] = ..., statsd: _Optional[_Union[_stats_d_settings_update_pb2.StatsDSettingsUpdate, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        prometheus: _Optional[
+            _Union[_prometheus_settings_update_pb2.PrometheusSettingsUpdate, _Mapping]
+        ] = ...,
+        opentelemetry: _Optional[
+            _Union[
+                _open_telemetry_settings_update_pb2.OpenTelemetrySettingsUpdate,
+                _Mapping,
+            ]
+        ] = ...,
+        statsd: _Optional[
+            _Union[_stats_d_settings_update_pb2.StatsDSettingsUpdate, _Mapping]
+        ] = ...,
+    ) -> None: ...

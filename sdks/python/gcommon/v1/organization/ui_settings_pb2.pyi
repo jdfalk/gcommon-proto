@@ -7,7 +7,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UISettings(_message.Message):
-    __slots__ = ("primary_color", "secondary_color", "logo_url", "favicon_url", "custom_css", "default_locale", "default_timezone", "date_format", "time_format", "dark_mode_default")
+    __slots__ = (
+        "primary_color",
+        "secondary_color",
+        "logo_url",
+        "favicon_url",
+        "custom_css",
+        "default_locale",
+        "default_timezone",
+        "date_format",
+        "time_format",
+        "dark_mode_default",
+    )
     PRIMARY_COLOR_FIELD_NUMBER: _ClassVar[int]
     SECONDARY_COLOR_FIELD_NUMBER: _ClassVar[int]
     LOGO_URL_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +39,16 @@ class UISettings(_message.Message):
     date_format: str
     time_format: str
     dark_mode_default: bool
-    def __init__(self, primary_color: _Optional[str] = ..., secondary_color: _Optional[str] = ..., logo_url: _Optional[str] = ..., favicon_url: _Optional[str] = ..., custom_css: _Optional[str] = ..., default_locale: _Optional[str] = ..., default_timezone: _Optional[str] = ..., date_format: _Optional[str] = ..., time_format: _Optional[str] = ..., dark_mode_default: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        primary_color: _Optional[str] = ...,
+        secondary_color: _Optional[str] = ...,
+        logo_url: _Optional[str] = ...,
+        favicon_url: _Optional[str] = ...,
+        custom_css: _Optional[str] = ...,
+        default_locale: _Optional[str] = ...,
+        default_timezone: _Optional[str] = ...,
+        date_format: _Optional[str] = ...,
+        time_format: _Optional[str] = ...,
+        dark_mode_default: _Optional[bool] = ...,
+    ) -> None: ...

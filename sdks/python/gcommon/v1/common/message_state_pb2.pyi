@@ -14,6 +14,7 @@ class MessageState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MESSAGE_STATE_FAILED: _ClassVar[MessageState]
     MESSAGE_STATE_DEAD_LETTER: _ClassVar[MessageState]
     MESSAGE_STATE_EXPIRED: _ClassVar[MessageState]
+
 MESSAGE_STATE_UNSPECIFIED: MessageState
 MESSAGE_STATE_PENDING: MessageState
 MESSAGE_STATE_DELIVERED: MessageState

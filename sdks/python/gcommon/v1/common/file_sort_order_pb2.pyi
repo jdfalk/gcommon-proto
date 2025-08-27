@@ -14,6 +14,7 @@ class FileSortOrder(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILE_SORT_ORDER_SIZE_DESC: _ClassVar[FileSortOrder]
     FILE_SORT_ORDER_MODIFIED_ASC: _ClassVar[FileSortOrder]
     FILE_SORT_ORDER_MODIFIED_DESC: _ClassVar[FileSortOrder]
+
 FILE_SORT_ORDER_UNSPECIFIED: FileSortOrder
 FILE_SORT_ORDER_NAME_ASC: FileSortOrder
 FILE_SORT_ORDER_NAME_DESC: FileSortOrder

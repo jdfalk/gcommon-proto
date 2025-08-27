@@ -19,4 +19,13 @@ class ListConfigResponse(_message.Message):
     entries: _containers.RepeatedCompositeFieldContainer[_config_entry_pb2.ConfigEntry]
     pagination: _paginated_response_pb2.PaginatedResponse
     error: _error_pb2.Error
-    def __init__(self, entries: _Optional[_Iterable[_Union[_config_entry_pb2.ConfigEntry, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        entries: _Optional[
+            _Iterable[_Union[_config_entry_pb2.ConfigEntry, _Mapping]]
+        ] = ...,
+        pagination: _Optional[
+            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
+        ] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

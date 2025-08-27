@@ -9,7 +9,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchAckRequest(_message.Message):
-    __slots__ = ("message_ids", "consumer_group_id", "subscription_id", "ack_level", "timeout_ms")
+    __slots__ = (
+        "message_ids",
+        "consumer_group_id",
+        "subscription_id",
+        "ack_level",
+        "timeout_ms",
+    )
     MESSAGE_IDS_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +26,11 @@ class BatchAckRequest(_message.Message):
     subscription_id: str
     ack_level: str
     timeout_ms: int
-    def __init__(self, message_ids: _Optional[_Iterable[str]] = ..., consumer_group_id: _Optional[str] = ..., subscription_id: _Optional[str] = ..., ack_level: _Optional[str] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        message_ids: _Optional[_Iterable[str]] = ...,
+        consumer_group_id: _Optional[str] = ...,
+        subscription_id: _Optional[str] = ...,
+        ack_level: _Optional[str] = ...,
+        timeout_ms: _Optional[int] = ...,
+    ) -> None: ...

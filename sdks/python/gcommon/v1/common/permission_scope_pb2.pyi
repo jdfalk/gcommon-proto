@@ -13,6 +13,7 @@ class PermissionScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_SCOPE_PROJECT: _ClassVar[PermissionScope]
     PERMISSION_SCOPE_RESOURCE: _ClassVar[PermissionScope]
     PERMISSION_SCOPE_USER: _ClassVar[PermissionScope]
+
 PERMISSION_SCOPE_UNSPECIFIED: PermissionScope
 PERMISSION_SCOPE_GLOBAL: PermissionScope
 PERMISSION_SCOPE_ORGANIZATION: PermissionScope

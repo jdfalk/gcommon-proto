@@ -17,11 +17,23 @@ class TimeSeries(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     METRIC_ID_FIELD_NUMBER: _ClassVar[int]
     SAMPLES_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
     metric_id: str
-    samples: _containers.RepeatedCompositeFieldContainer[_metric_sample_pb2.MetricSample]
+    samples: _containers.RepeatedCompositeFieldContainer[
+        _metric_sample_pb2.MetricSample
+    ]
     labels: _containers.ScalarMap[str, str]
-    def __init__(self, metric_id: _Optional[str] = ..., samples: _Optional[_Iterable[_Union[_metric_sample_pb2.MetricSample, _Mapping]]] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        metric_id: _Optional[str] = ...,
+        samples: _Optional[
+            _Iterable[_Union[_metric_sample_pb2.MetricSample, _Mapping]]
+        ] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -21,4 +21,15 @@ class UnregisterMetricRequest(_message.Message):
     metric_id: str
     provider_id: str
     options: _unregistration_options_pb2.UnregistrationOptions
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., metric_name: _Optional[str] = ..., metric_id: _Optional[str] = ..., provider_id: _Optional[str] = ..., options: _Optional[_Union[_unregistration_options_pb2.UnregistrationOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        metric_name: _Optional[str] = ...,
+        metric_id: _Optional[str] = ...,
+        provider_id: _Optional[str] = ...,
+        options: _Optional[
+            _Union[_unregistration_options_pb2.UnregistrationOptions, _Mapping]
+        ] = ...,
+    ) -> None: ...

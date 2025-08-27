@@ -14,4 +14,9 @@ class RateLimits(_message.Message):
     requests_per_second: int
     burst_size: int
     window_seconds: int
-    def __init__(self, requests_per_second: _Optional[int] = ..., burst_size: _Optional[int] = ..., window_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        requests_per_second: _Optional[int] = ...,
+        burst_size: _Optional[int] = ...,
+        window_seconds: _Optional[int] = ...,
+    ) -> None: ...

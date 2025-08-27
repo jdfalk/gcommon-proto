@@ -16,4 +16,9 @@ class GetMemoryUsageResponse(_message.Message):
     memory_usage_bytes: int
     memory_usage_percent: float
     error: _error_pb2.Error
-    def __init__(self, memory_usage_bytes: _Optional[int] = ..., memory_usage_percent: _Optional[float] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        memory_usage_bytes: _Optional[int] = ...,
+        memory_usage_percent: _Optional[float] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

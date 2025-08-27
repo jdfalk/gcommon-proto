@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ReadRetryConfig(_message.Message):
-    __slots__ = ("max_retries", "initial_delay_ms", "max_delay_ms", "backoff_multiplier", "retry_different_replica")
+    __slots__ = (
+        "max_retries",
+        "initial_delay_ms",
+        "max_delay_ms",
+        "backoff_multiplier",
+        "retry_different_replica",
+    )
     MAX_RETRIES_FIELD_NUMBER: _ClassVar[int]
     INITIAL_DELAY_MS_FIELD_NUMBER: _ClassVar[int]
     MAX_DELAY_MS_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class ReadRetryConfig(_message.Message):
     max_delay_ms: int
     backoff_multiplier: float
     retry_different_replica: bool
-    def __init__(self, max_retries: _Optional[int] = ..., initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., retry_different_replica: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        max_retries: _Optional[int] = ...,
+        initial_delay_ms: _Optional[int] = ...,
+        max_delay_ms: _Optional[int] = ...,
+        backoff_multiplier: _Optional[float] = ...,
+        retry_different_replica: _Optional[bool] = ...,
+    ) -> None: ...

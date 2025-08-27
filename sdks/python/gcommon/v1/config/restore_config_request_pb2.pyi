@@ -16,4 +16,11 @@ class RestoreConfigRequest(_message.Message):
     restore_point_id: str
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, restore_point_id: _Optional[str] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        restore_point_id: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

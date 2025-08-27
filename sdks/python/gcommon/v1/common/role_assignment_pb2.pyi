@@ -13,14 +13,28 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RoleAssignment(_message.Message):
-    __slots__ = ("id", "user_id", "role_id", "resource", "scope", "created_at", "expires_at", "assigned_by_user_id", "metadata", "active")
+    __slots__ = (
+        "id",
+        "user_id",
+        "role_id",
+        "resource",
+        "scope",
+        "created_at",
+        "expires_at",
+        "assigned_by_user_id",
+        "metadata",
+        "active",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROLE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -41,4 +55,20 @@ class RoleAssignment(_message.Message):
     assigned_by_user_id: str
     metadata: _containers.ScalarMap[str, str]
     active: bool
-    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., role_id: _Optional[str] = ..., resource: _Optional[str] = ..., scope: _Optional[_Union[_role_scope_pb2.RoleScope, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., assigned_by_user_id: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., active: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        role_id: _Optional[str] = ...,
+        resource: _Optional[str] = ...,
+        scope: _Optional[_Union[_role_scope_pb2.RoleScope, str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        assigned_by_user_id: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+        active: _Optional[bool] = ...,
+    ) -> None: ...

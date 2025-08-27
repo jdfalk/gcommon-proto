@@ -22,4 +22,14 @@ class WebLoadBalancerConfig(_message.Message):
     upstreams: _containers.RepeatedScalarFieldContainer[str]
     health_check_path: str
     timeout: _duration_pb2.Duration
-    def __init__(self, strategy: _Optional[_Union[_load_balance_strategy_pb2.LoadBalanceStrategy, str]] = ..., upstreams: _Optional[_Iterable[str]] = ..., health_check_path: _Optional[str] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        strategy: _Optional[
+            _Union[_load_balance_strategy_pb2.LoadBalanceStrategy, str]
+        ] = ...,
+        upstreams: _Optional[_Iterable[str]] = ...,
+        health_check_path: _Optional[str] = ...,
+        timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+    ) -> None: ...

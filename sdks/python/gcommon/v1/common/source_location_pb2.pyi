@@ -16,4 +16,10 @@ class SourceLocation(_message.Message):
     line: int
     function: str
     package: str
-    def __init__(self, file: _Optional[str] = ..., line: _Optional[int] = ..., function: _Optional[str] = ..., package: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        file: _Optional[str] = ...,
+        line: _Optional[int] = ...,
+        function: _Optional[str] = ...,
+        package: _Optional[str] = ...,
+    ) -> None: ...

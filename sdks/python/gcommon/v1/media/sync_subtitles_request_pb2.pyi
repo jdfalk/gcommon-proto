@@ -9,7 +9,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SyncSubtitlesRequest(_message.Message):
-    __slots__ = ("subtitle_file_id", "media_file_id", "auto_detect_timing", "sync_points_ms")
+    __slots__ = (
+        "subtitle_file_id",
+        "media_file_id",
+        "auto_detect_timing",
+        "sync_points_ms",
+    )
     SUBTITLE_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     MEDIA_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_DETECT_TIMING_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +23,10 @@ class SyncSubtitlesRequest(_message.Message):
     media_file_id: str
     auto_detect_timing: bool
     sync_points_ms: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, subtitle_file_id: _Optional[str] = ..., media_file_id: _Optional[str] = ..., auto_detect_timing: _Optional[bool] = ..., sync_points_ms: _Optional[_Iterable[int]] = ...) -> None: ...
+    def __init__(
+        self,
+        subtitle_file_id: _Optional[str] = ...,
+        media_file_id: _Optional[str] = ...,
+        auto_detect_timing: _Optional[bool] = ...,
+        sync_points_ms: _Optional[_Iterable[int]] = ...,
+    ) -> None: ...

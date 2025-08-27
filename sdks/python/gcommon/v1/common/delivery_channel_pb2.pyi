@@ -17,11 +17,21 @@ class DeliveryChannel(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TARGET_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     type: _delivery_channel_type_pb2.DeliveryChannelType
     target: str
     config: _containers.ScalarMap[str, str]
-    def __init__(self, type: _Optional[_Union[_delivery_channel_type_pb2.DeliveryChannelType, str]] = ..., target: _Optional[str] = ..., config: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[
+            _Union[_delivery_channel_type_pb2.DeliveryChannelType, str]
+        ] = ...,
+        target: _Optional[str] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

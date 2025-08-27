@@ -7,7 +7,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PublishResult(_message.Message):
-    __slots__ = ("message_id", "success", "error", "partition_id", "offset", "timestamp")
+    __slots__ = (
+        "message_id",
+        "success",
+        "error",
+        "partition_id",
+        "offset",
+        "timestamp",
+    )
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +27,12 @@ class PublishResult(_message.Message):
     partition_id: int
     offset: int
     timestamp: int
-    def __init__(self, message_id: _Optional[str] = ..., success: _Optional[bool] = ..., error: _Optional[str] = ..., partition_id: _Optional[int] = ..., offset: _Optional[int] = ..., timestamp: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        message_id: _Optional[str] = ...,
+        success: _Optional[bool] = ...,
+        error: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        offset: _Optional[int] = ...,
+        timestamp: _Optional[int] = ...,
+    ) -> None: ...

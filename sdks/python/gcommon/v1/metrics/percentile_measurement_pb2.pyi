@@ -18,4 +18,11 @@ class PercentileMeasurement(_message.Message):
     percentile: float
     duration: _duration_pb2.Duration
     sample_count: int
-    def __init__(self, percentile: _Optional[float] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., sample_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        percentile: _Optional[float] = ...,
+        duration: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        sample_count: _Optional[int] = ...,
+    ) -> None: ...

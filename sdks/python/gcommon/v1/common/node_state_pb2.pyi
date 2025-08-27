@@ -13,6 +13,7 @@ class NodeState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NODE_STATE_UNREACHABLE: _ClassVar[NodeState]
     NODE_STATE_JOINING: _ClassVar[NodeState]
     NODE_STATE_LEAVING: _ClassVar[NodeState]
+
 NODE_STATE_UNSPECIFIED: NodeState
 NODE_STATE_ACTIVE: NodeState
 NODE_STATE_INACTIVE: NodeState

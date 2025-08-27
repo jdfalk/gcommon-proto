@@ -4,44 +4,70 @@
 # source: gcommon/v1/metrics/export_metrics_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/export_metrics_request.proto'
+    "",
+    "gcommon/v1/metrics/export_metrics_request.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import metrics_export_format_pb2 as gcommon_dot_v1_dot_common_dot_metrics__export__format__pb2
-from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
+from gcommon.v1.common import (
+    metrics_export_format_pb2 as gcommon_dot_v1_dot_common_dot_metrics__export__format__pb2,
+)
+from gcommon.v1.common import (
+    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/export_metrics_request.proto\x12\x12gcommon.v1.metrics\x1a-gcommon/v1/common/metrics_export_format.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xc3\x02\n\x14\x45xportMetricsRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12(\n\x0bprovider_id\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12>\n\x06\x66ormat\x18\x03 \x01(\x0e\x32&.gcommon.v1.common.MetricsExportFormatR\x06\x66ormat\x12)\n\x0b\x64\x65stination\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x64\x65stination\x12+\n\x0cmetric_names\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0bmetricNames\x12)\n\x10include_metadata\x18\x06 \x01(\x08R\x0fincludeMetadataB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n/gcommon/v1/metrics/export_metrics_request.proto\x12\x12gcommon.v1.metrics\x1a-gcommon/v1/common/metrics_export_format.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xc3\x02\n\x14\x45xportMetricsRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataR\x08metadata\x12(\n\x0bprovider_id\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12>\n\x06\x66ormat\x18\x03 \x01(\x0e\x32&.gcommon.v1.common.MetricsExportFormatR\x06\x66ormat\x12)\n\x0b\x64\x65stination\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x64\x65stination\x12+\n\x0cmetric_names\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0bmetricNames\x12)\n\x10include_metadata\x18\x06 \x01(\x08R\x0fincludeMetadataB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.export_metrics_request_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.export_metrics_request_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['provider_id']._loaded_options = None
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['provider_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['destination']._loaded_options = None
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['destination']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['metric_names']._loaded_options = None
-  _globals['_EXPORTMETRICSREQUEST'].fields_by_name['metric_names']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_EXPORTMETRICSREQUEST']._serialized_start=225
-  _globals['_EXPORTMETRICSREQUEST']._serialized_end=548
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "provider_id"
+    ]._loaded_options = None
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "provider_id"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "destination"
+    ]._loaded_options = None
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "destination"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "metric_names"
+    ]._loaded_options = None
+    _globals["_EXPORTMETRICSREQUEST"].fields_by_name[
+        "metric_names"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_EXPORTMETRICSREQUEST"]._serialized_start = 225
+    _globals["_EXPORTMETRICSREQUEST"]._serialized_end = 548
 # @@protoc_insertion_point(module_scope)

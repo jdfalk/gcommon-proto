@@ -16,4 +16,10 @@ class FeatureFlag(_message.Message):
     enabled: bool
     description: str
     rollout_percentage: int
-    def __init__(self, name: _Optional[str] = ..., enabled: _Optional[bool] = ..., description: _Optional[str] = ..., rollout_percentage: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        description: _Optional[str] = ...,
+        rollout_percentage: _Optional[int] = ...,
+    ) -> None: ...

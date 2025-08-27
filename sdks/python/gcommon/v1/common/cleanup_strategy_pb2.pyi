@@ -12,6 +12,7 @@ class CleanupStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CLEANUP_STRATEGY_GRACEFUL: _ClassVar[CleanupStrategy]
     CLEANUP_STRATEGY_BACKGROUND: _ClassVar[CleanupStrategy]
     CLEANUP_STRATEGY_SCHEDULED: _ClassVar[CleanupStrategy]
+
 CLEANUP_STRATEGY_UNSPECIFIED: CleanupStrategy
 CLEANUP_STRATEGY_IMMEDIATE: CleanupStrategy
 CLEANUP_STRATEGY_GRACEFUL: CleanupStrategy

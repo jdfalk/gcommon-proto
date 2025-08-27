@@ -14,4 +14,9 @@ class HistogramBucket(_message.Message):
     upper_bound: float
     count: int
     cumulative_count: int
-    def __init__(self, upper_bound: _Optional[float] = ..., count: _Optional[int] = ..., cumulative_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        upper_bound: _Optional[float] = ...,
+        count: _Optional[int] = ...,
+        cumulative_count: _Optional[int] = ...,
+    ) -> None: ...

@@ -14,4 +14,9 @@ class VerifyEmailResponse(_message.Message):
     verified: bool
     error_message: str
     user_id: str
-    def __init__(self, verified: _Optional[bool] = ..., error_message: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        verified: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+    ) -> None: ...

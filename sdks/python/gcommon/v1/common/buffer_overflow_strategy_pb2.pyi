@@ -12,6 +12,7 @@ class BufferOverflowStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     BUFFER_OVERFLOW_STRATEGY_DROP_NEWEST: _ClassVar[BufferOverflowStrategy]
     BUFFER_OVERFLOW_STRATEGY_BLOCK: _ClassVar[BufferOverflowStrategy]
     BUFFER_OVERFLOW_STRATEGY_ERROR: _ClassVar[BufferOverflowStrategy]
+
 BUFFER_OVERFLOW_STRATEGY_UNSPECIFIED: BufferOverflowStrategy
 BUFFER_OVERFLOW_STRATEGY_DROP_OLDEST: BufferOverflowStrategy
 BUFFER_OVERFLOW_STRATEGY_DROP_NEWEST: BufferOverflowStrategy

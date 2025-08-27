@@ -14,4 +14,10 @@ class GetPreferencesRequest(_message.Message):
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
     user_id: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        user_id: _Optional[str] = ...,
+    ) -> None: ...

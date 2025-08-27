@@ -13,14 +13,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FlushQueueRequest(_message.Message):
-    __slots__ = ("queue_id", "flush_policy", "wait_for_completion", "timeout_ms", "flush_until", "partition_ids", "force_flush", "metadata")
+    __slots__ = (
+        "queue_id",
+        "flush_policy",
+        "wait_for_completion",
+        "timeout_ms",
+        "flush_until",
+        "partition_ids",
+        "force_flush",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     QUEUE_ID_FIELD_NUMBER: _ClassVar[int]
     FLUSH_POLICY_FIELD_NUMBER: _ClassVar[int]
     WAIT_FOR_COMPLETION_FIELD_NUMBER: _ClassVar[int]
@@ -37,4 +49,16 @@ class FlushQueueRequest(_message.Message):
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     force_flush: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, queue_id: _Optional[str] = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., wait_for_completion: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., flush_until: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., partition_ids: _Optional[_Iterable[int]] = ..., force_flush: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_id: _Optional[str] = ...,
+        flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ...,
+        wait_for_completion: _Optional[bool] = ...,
+        timeout_ms: _Optional[int] = ...,
+        flush_until: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        partition_ids: _Optional[_Iterable[int]] = ...,
+        force_flush: _Optional[bool] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

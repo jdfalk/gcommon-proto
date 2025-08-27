@@ -1,4 +1,6 @@
-from gcommon.v1.metrics import resource_limits_summary_pb2 as _resource_limits_summary_pb2
+from gcommon.v1.metrics import (
+    resource_limits_summary_pb2 as _resource_limits_summary_pb2,
+)
 from gcommon.v1.metrics import security_summary_pb2 as _security_summary_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -19,4 +21,14 @@ class ConfigurationSummary(_message.Message):
     security: _security_summary_pb2.SecuritySummary
     resource_limits: _resource_limits_summary_pb2.ResourceLimitsSummary
     config_version: str
-    def __init__(self, exporter_count: _Optional[int] = ..., security: _Optional[_Union[_security_summary_pb2.SecuritySummary, _Mapping]] = ..., resource_limits: _Optional[_Union[_resource_limits_summary_pb2.ResourceLimitsSummary, _Mapping]] = ..., config_version: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        exporter_count: _Optional[int] = ...,
+        security: _Optional[
+            _Union[_security_summary_pb2.SecuritySummary, _Mapping]
+        ] = ...,
+        resource_limits: _Optional[
+            _Union[_resource_limits_summary_pb2.ResourceLimitsSummary, _Mapping]
+        ] = ...,
+        config_version: _Optional[str] = ...,
+    ) -> None: ...

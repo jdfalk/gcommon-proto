@@ -4,46 +4,70 @@
 # source: gcommon/v1/organization/storage_isolation.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/storage_isolation.proto'
+    "",
+    "gcommon/v1/organization/storage_isolation.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.organization import storage_backup_config_pb2 as gcommon_dot_v1_dot_organization_dot_storage__backup__config__pb2
-from gcommon.v1.organization import storage_encryption_pb2 as gcommon_dot_v1_dot_organization_dot_storage__encryption__pb2
-from gcommon.v1.organization import storage_policy_pb2 as gcommon_dot_v1_dot_organization_dot_storage__policy__pb2
-from gcommon.v1.organization import storage_quota_pb2 as gcommon_dot_v1_dot_organization_dot_storage__quota__pb2
+from gcommon.v1.organization import (
+    storage_backup_config_pb2 as gcommon_dot_v1_dot_organization_dot_storage__backup__config__pb2,
+)
+from gcommon.v1.organization import (
+    storage_encryption_pb2 as gcommon_dot_v1_dot_organization_dot_storage__encryption__pb2,
+)
+from gcommon.v1.organization import (
+    storage_policy_pb2 as gcommon_dot_v1_dot_organization_dot_storage__policy__pb2,
+)
+from gcommon.v1.organization import (
+    storage_quota_pb2 as gcommon_dot_v1_dot_organization_dot_storage__quota__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/organization/storage_isolation.proto\x12\x17gcommon.v1.organization\x1a\x33gcommon/v1/organization/storage_backup_config.proto\x1a\x30gcommon/v1/organization/storage_encryption.proto\x1a,gcommon/v1/organization/storage_policy.proto\x1a+gcommon/v1/organization/storage_quota.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb6\x03\n\x10StorageIsolation\x12.\n\x0estorage_bucket\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\rstorageBucket\x12(\n\x0bpath_prefix\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\npathPrefix\x12+\n\x11\x64\x65\x64icated_storage\x18\x03 \x01(\x08R\x10\x64\x65\x64icatedStorage\x12J\n\nencryption\x18\x04 \x01(\x0b\x32*.gcommon.v1.organization.StorageEncryptionR\nencryption\x12L\n\x08policies\x18\x05 \x03(\x0b\x32&.gcommon.v1.organization.StoragePolicyB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08policies\x12\x44\n\x06\x62\x61\x63kup\x18\x06 \x01(\x0b\x32,.gcommon.v1.organization.StorageBackupConfigR\x06\x62\x61\x63kup\x12;\n\x05quota\x18\x07 \x01(\x0b\x32%.gcommon.v1.organization.StorageQuotaR\x05quotaB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n/gcommon/v1/organization/storage_isolation.proto\x12\x17gcommon.v1.organization\x1a\x33gcommon/v1/organization/storage_backup_config.proto\x1a\x30gcommon/v1/organization/storage_encryption.proto\x1a,gcommon/v1/organization/storage_policy.proto\x1a+gcommon/v1/organization/storage_quota.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xb6\x03\n\x10StorageIsolation\x12.\n\x0estorage_bucket\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\rstorageBucket\x12(\n\x0bpath_prefix\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\npathPrefix\x12+\n\x11\x64\x65\x64icated_storage\x18\x03 \x01(\x08R\x10\x64\x65\x64icatedStorage\x12J\n\nencryption\x18\x04 \x01(\x0b\x32*.gcommon.v1.organization.StorageEncryptionR\nencryption\x12L\n\x08policies\x18\x05 \x03(\x0b\x32&.gcommon.v1.organization.StoragePolicyB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08policies\x12\x44\n\x06\x62\x61\x63kup\x18\x06 \x01(\x0b\x32,.gcommon.v1.organization.StorageBackupConfigR\x06\x62\x61\x63kup\x12;\n\x05quota\x18\x07 \x01(\x0b\x32%.gcommon.v1.organization.StorageQuotaR\x05quotaB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.storage_isolation_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.storage_isolation_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_STORAGEISOLATION'].fields_by_name['storage_bucket']._loaded_options = None
-  _globals['_STORAGEISOLATION'].fields_by_name['storage_bucket']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_STORAGEISOLATION'].fields_by_name['path_prefix']._loaded_options = None
-  _globals['_STORAGEISOLATION'].fields_by_name['path_prefix']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_STORAGEISOLATION'].fields_by_name['policies']._loaded_options = None
-  _globals['_STORAGEISOLATION'].fields_by_name['policies']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_STORAGEISOLATION']._serialized_start=335
-  _globals['_STORAGEISOLATION']._serialized_end=773
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_STORAGEISOLATION"].fields_by_name[
+        "storage_bucket"
+    ]._loaded_options = None
+    _globals["_STORAGEISOLATION"].fields_by_name[
+        "storage_bucket"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_STORAGEISOLATION"].fields_by_name["path_prefix"]._loaded_options = None
+    _globals["_STORAGEISOLATION"].fields_by_name[
+        "path_prefix"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_STORAGEISOLATION"].fields_by_name["policies"]._loaded_options = None
+    _globals["_STORAGEISOLATION"].fields_by_name[
+        "policies"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_STORAGEISOLATION"]._serialized_start = 335
+    _globals["_STORAGEISOLATION"]._serialized_end = 773
 # @@protoc_insertion_point(module_scope)

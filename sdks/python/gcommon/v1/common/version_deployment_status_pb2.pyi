@@ -14,6 +14,7 @@ class VersionDeploymentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     VERSION_DEPLOYMENT_STATUS_FAILED: _ClassVar[VersionDeploymentStatus]
     VERSION_DEPLOYMENT_STATUS_ROLLED_BACK: _ClassVar[VersionDeploymentStatus]
     VERSION_DEPLOYMENT_STATUS_CANCELLED: _ClassVar[VersionDeploymentStatus]
+
 VERSION_DEPLOYMENT_STATUS_UNSPECIFIED: VersionDeploymentStatus
 VERSION_DEPLOYMENT_STATUS_PENDING: VersionDeploymentStatus
 VERSION_DEPLOYMENT_STATUS_IN_PROGRESS: VersionDeploymentStatus

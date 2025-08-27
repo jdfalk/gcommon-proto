@@ -11,14 +11,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExportQueueRequest(_message.Message):
-    __slots__ = ("queue_name", "destination", "format", "include_message_data", "time_range", "compress", "max_messages", "options")
+    __slots__ = (
+        "queue_name",
+        "destination",
+        "format",
+        "include_message_data",
+        "time_range",
+        "compress",
+        "max_messages",
+        "options",
+    )
     class OptionsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -35,4 +47,18 @@ class ExportQueueRequest(_message.Message):
     compress: bool
     max_messages: int
     options: _containers.ScalarMap[str, str]
-    def __init__(self, queue_name: _Optional[str] = ..., destination: _Optional[str] = ..., format: _Optional[_Union[_queue_export_format_pb2.QueueExportFormat, str]] = ..., include_message_data: _Optional[bool] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., compress: _Optional[bool] = ..., max_messages: _Optional[int] = ..., options: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        destination: _Optional[str] = ...,
+        format: _Optional[
+            _Union[_queue_export_format_pb2.QueueExportFormat, str]
+        ] = ...,
+        include_message_data: _Optional[bool] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        compress: _Optional[bool] = ...,
+        max_messages: _Optional[int] = ...,
+        options: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

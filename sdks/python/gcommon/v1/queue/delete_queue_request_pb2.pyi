@@ -14,4 +14,9 @@ class DeleteQueueRequest(_message.Message):
     queue: str
     force: bool
     purge_first: bool
-    def __init__(self, queue: _Optional[str] = ..., force: _Optional[bool] = ..., purge_first: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        queue: _Optional[str] = ...,
+        force: _Optional[bool] = ...,
+        purge_first: _Optional[bool] = ...,
+    ) -> None: ...

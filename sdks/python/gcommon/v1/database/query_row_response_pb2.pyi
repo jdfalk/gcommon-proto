@@ -23,4 +23,11 @@ class QueryRowResponse(_message.Message):
     values: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
     stats: _query_stats_pb2.DatabaseQueryStats
     error: _error_pb2.Error
-    def __init__(self, found: _Optional[bool] = ..., columns: _Optional[_Iterable[str]] = ..., values: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ..., stats: _Optional[_Union[_query_stats_pb2.DatabaseQueryStats, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        found: _Optional[bool] = ...,
+        columns: _Optional[_Iterable[str]] = ...,
+        values: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
+        stats: _Optional[_Union[_query_stats_pb2.DatabaseQueryStats, _Mapping]] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

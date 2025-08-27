@@ -1,5 +1,7 @@
 from gcommon.v1.common import response_metadata_pb2 as _response_metadata_pb2
-from gcommon.v1.common import subscription_preferences_pb2 as _subscription_preferences_pb2
+from gcommon.v1.common import (
+    subscription_preferences_pb2 as _subscription_preferences_pb2,
+)
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -14,4 +16,12 @@ class GetPreferencesResponse(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     preferences: _subscription_preferences_pb2.SubscriptionPreferences
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, preferences: _Optional[_Union[_subscription_preferences_pb2.SubscriptionPreferences, _Mapping]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        preferences: _Optional[
+            _Union[_subscription_preferences_pb2.SubscriptionPreferences, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -19,4 +19,12 @@ class PrependRequest(_message.Message):
     value: _any_pb2.Any
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        namespace: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

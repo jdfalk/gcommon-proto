@@ -19,4 +19,12 @@ class OriginConfig(_message.Message):
     origin_path: str
     protocol_policy: str
     custom_headers: _containers.RepeatedCompositeFieldContainer[_key_value_pb2.KeyValue]
-    def __init__(self, domain_name: _Optional[str] = ..., origin_path: _Optional[str] = ..., protocol_policy: _Optional[str] = ..., custom_headers: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
+    def __init__(
+        self,
+        domain_name: _Optional[str] = ...,
+        origin_path: _Optional[str] = ...,
+        protocol_policy: _Optional[str] = ...,
+        custom_headers: _Optional[
+            _Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]
+        ] = ...,
+    ) -> None: ...

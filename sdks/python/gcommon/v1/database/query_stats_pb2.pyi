@@ -11,7 +11,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DatabaseQueryStats(_message.Message):
-    __slots__ = ("execution_time", "row_count", "column_count", "query_plan", "cost_estimate")
+    __slots__ = (
+        "execution_time",
+        "row_count",
+        "column_count",
+        "query_plan",
+        "cost_estimate",
+    )
     EXECUTION_TIME_FIELD_NUMBER: _ClassVar[int]
     ROW_COUNT_FIELD_NUMBER: _ClassVar[int]
     COLUMN_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +28,13 @@ class DatabaseQueryStats(_message.Message):
     column_count: int
     query_plan: str
     cost_estimate: float
-    def __init__(self, execution_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., row_count: _Optional[int] = ..., column_count: _Optional[int] = ..., query_plan: _Optional[str] = ..., cost_estimate: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        execution_time: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        row_count: _Optional[int] = ...,
+        column_count: _Optional[int] = ...,
+        query_plan: _Optional[str] = ...,
+        cost_estimate: _Optional[float] = ...,
+    ) -> None: ...

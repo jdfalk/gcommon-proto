@@ -19,7 +19,10 @@ class ValueUsageTrend(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     PERIOD_FIELD_NUMBER: _ClassVar[int]
     READ_COUNT_FIELD_NUMBER: _ClassVar[int]
     WRITE_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +33,13 @@ class ValueUsageTrend(_message.Message):
     write_count: int
     timestamp: _timestamp_pb2.Timestamp
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, period: _Optional[str] = ..., read_count: _Optional[int] = ..., write_count: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        period: _Optional[str] = ...,
+        read_count: _Optional[int] = ...,
+        write_count: _Optional[int] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

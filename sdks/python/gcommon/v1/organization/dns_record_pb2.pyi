@@ -18,4 +18,11 @@ class DNSRecord(_message.Message):
     value: str
     ttl: int
     priority: int
-    def __init__(self, type: _Optional[str] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., ttl: _Optional[int] = ..., priority: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        value: _Optional[str] = ...,
+        ttl: _Optional[int] = ...,
+        priority: _Optional[int] = ...,
+    ) -> None: ...

@@ -22,4 +22,14 @@ class RouteInfo(_message.Message):
     route_type: _route_type_pb2.RouteType
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
-    def __init__(self, config: _Optional[_Union[_route_config_pb2.RouteConfig, _Mapping]] = ..., route_type: _Optional[_Union[_route_type_pb2.RouteType, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        config: _Optional[_Union[_route_config_pb2.RouteConfig, _Mapping]] = ...,
+        route_type: _Optional[_Union[_route_type_pb2.RouteType, str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

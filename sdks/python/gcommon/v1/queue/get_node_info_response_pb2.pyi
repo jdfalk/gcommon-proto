@@ -16,4 +16,9 @@ class GetNodeInfoResponse(_message.Message):
     node_info: _node_info_pb2.NodeInfo
     success: bool
     error: str
-    def __init__(self, node_info: _Optional[_Union[_node_info_pb2.NodeInfo, _Mapping]] = ..., success: _Optional[bool] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        node_info: _Optional[_Union[_node_info_pb2.NodeInfo, _Mapping]] = ...,
+        success: _Optional[bool] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

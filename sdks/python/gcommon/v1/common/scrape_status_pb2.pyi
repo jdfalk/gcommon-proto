@@ -19,6 +19,7 @@ class ScrapeStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCRAPE_STATUS_RATE_LIMITED: _ClassVar[ScrapeStatus]
     SCRAPE_STATUS_CONFIG_ERROR: _ClassVar[ScrapeStatus]
     SCRAPE_STATUS_IN_PROGRESS: _ClassVar[ScrapeStatus]
+
 SCRAPE_STATUS_UNSPECIFIED: ScrapeStatus
 SCRAPE_STATUS_SUCCESS: ScrapeStatus
 SCRAPE_STATUS_NETWORK_ERROR: ScrapeStatus

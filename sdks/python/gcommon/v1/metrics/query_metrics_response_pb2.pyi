@@ -13,7 +13,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueryMetricsResponse(_message.Message):
-    __slots__ = ("success", "error", "series", "statistics", "query_plan", "warnings", "next_page_token", "total_results")
+    __slots__ = (
+        "success",
+        "error",
+        "series",
+        "statistics",
+        "query_plan",
+        "warnings",
+        "next_page_token",
+        "total_results",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     SERIES_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +39,18 @@ class QueryMetricsResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     next_page_token: str
     total_results: int
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., series: _Optional[_Iterable[_Union[_metric_series_pb2.MetricSeries, _Mapping]]] = ..., statistics: _Optional[_Union[_query_statistics_pb2.QueryStatistics, _Mapping]] = ..., query_plan: _Optional[_Union[_query_plan_pb2.QueryPlan, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., next_page_token: _Optional[str] = ..., total_results: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        series: _Optional[
+            _Iterable[_Union[_metric_series_pb2.MetricSeries, _Mapping]]
+        ] = ...,
+        statistics: _Optional[
+            _Union[_query_statistics_pb2.QueryStatistics, _Mapping]
+        ] = ...,
+        query_plan: _Optional[_Union[_query_plan_pb2.QueryPlan, _Mapping]] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        next_page_token: _Optional[str] = ...,
+        total_results: _Optional[int] = ...,
+    ) -> None: ...

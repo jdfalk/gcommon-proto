@@ -16,7 +16,10 @@ class UserProfile(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +30,11 @@ class UserProfile(_message.Message):
     email: str
     avatar_url: str
     attributes: _containers.ScalarMap[str, str]
-    def __init__(self, user_id: _Optional[str] = ..., display_name: _Optional[str] = ..., email: _Optional[str] = ..., avatar_url: _Optional[str] = ..., attributes: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        display_name: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        avatar_url: _Optional[str] = ...,
+        attributes: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

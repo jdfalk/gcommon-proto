@@ -19,4 +19,11 @@ class GroupCoordinator(_message.Message):
     port: int
     state: _coordinator_state_pb2.CoordinatorState
     epoch: int
-    def __init__(self, node_id: _Optional[str] = ..., host: _Optional[str] = ..., port: _Optional[int] = ..., state: _Optional[_Union[_coordinator_state_pb2.CoordinatorState, str]] = ..., epoch: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        node_id: _Optional[str] = ...,
+        host: _Optional[str] = ...,
+        port: _Optional[int] = ...,
+        state: _Optional[_Union[_coordinator_state_pb2.CoordinatorState, str]] = ...,
+        epoch: _Optional[int] = ...,
+    ) -> None: ...

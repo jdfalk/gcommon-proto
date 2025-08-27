@@ -15,6 +15,7 @@ class ConsumerState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONSUMER_STATE_ERROR: _ClassVar[ConsumerState]
     CONSUMER_STATE_CONNECTING: _ClassVar[ConsumerState]
     CONSUMER_STATE_DISCONNECTED: _ClassVar[ConsumerState]
+
 CONSUMER_STATE_UNSPECIFIED: ConsumerState
 CONSUMER_STATE_ACTIVE: ConsumerState
 CONSUMER_STATE_IDLE: ConsumerState

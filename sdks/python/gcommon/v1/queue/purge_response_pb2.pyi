@@ -9,7 +9,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PurgeResponse(_message.Message):
-    __slots__ = ("success", "messages_purged", "bytes_freed", "purge_duration_ms", "purged_partitions", "error")
+    __slots__ = (
+        "success",
+        "messages_purged",
+        "bytes_freed",
+        "purge_duration_ms",
+        "purged_partitions",
+        "error",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_PURGED_FIELD_NUMBER: _ClassVar[int]
     BYTES_FREED_FIELD_NUMBER: _ClassVar[int]
@@ -22,4 +29,12 @@ class PurgeResponse(_message.Message):
     purge_duration_ms: int
     purged_partitions: _containers.RepeatedScalarFieldContainer[int]
     error: str
-    def __init__(self, success: _Optional[bool] = ..., messages_purged: _Optional[int] = ..., bytes_freed: _Optional[int] = ..., purge_duration_ms: _Optional[int] = ..., purged_partitions: _Optional[_Iterable[int]] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        messages_purged: _Optional[int] = ...,
+        bytes_freed: _Optional[int] = ...,
+        purge_duration_ms: _Optional[int] = ...,
+        purged_partitions: _Optional[_Iterable[int]] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

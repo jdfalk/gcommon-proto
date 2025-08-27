@@ -13,6 +13,7 @@ class RestorePointStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESTORE_POINT_STATUS_EXPIRED: _ClassVar[RestorePointStatus]
     RESTORE_POINT_STATUS_DELETED: _ClassVar[RestorePointStatus]
     RESTORE_POINT_STATUS_ERROR: _ClassVar[RestorePointStatus]
+
 RESTORE_POINT_STATUS_UNSPECIFIED: RestorePointStatus
 RESTORE_POINT_STATUS_CREATING: RestorePointStatus
 RESTORE_POINT_STATUS_ACTIVE: RestorePointStatus

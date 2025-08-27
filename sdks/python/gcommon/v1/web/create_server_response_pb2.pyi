@@ -21,4 +21,14 @@ class CreateServerResponse(_message.Message):
     request_metadata: _request_metadata_pb2.RequestMetadata
     error: _error_pb2.Error
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(self, success: _Optional[bool] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        request_metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        response_generated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

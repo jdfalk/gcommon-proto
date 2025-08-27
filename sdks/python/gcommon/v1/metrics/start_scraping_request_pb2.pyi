@@ -17,4 +17,11 @@ class StartScrapingRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     provider_id: str
     config: _scrape_config_pb2.ScrapeConfig
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        provider_id: _Optional[str] = ...,
+        config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ...,
+    ) -> None: ...

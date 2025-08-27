@@ -14,4 +14,10 @@ class CreateRoleRequest(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     role: _role_pb2.Role
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

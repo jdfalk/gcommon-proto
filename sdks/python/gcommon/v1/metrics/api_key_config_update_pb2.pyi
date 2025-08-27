@@ -9,7 +9,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class APIKeyConfigUpdate(_message.Message):
-    __slots__ = ("header_name", "required", "allowed_key_updates", "allowed_key_removes")
+    __slots__ = (
+        "header_name",
+        "required",
+        "allowed_key_updates",
+        "allowed_key_removes",
+    )
     HEADER_NAME_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_KEY_UPDATES_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +23,10 @@ class APIKeyConfigUpdate(_message.Message):
     required: bool
     allowed_key_updates: _containers.RepeatedScalarFieldContainer[str]
     allowed_key_removes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, header_name: _Optional[str] = ..., required: _Optional[bool] = ..., allowed_key_updates: _Optional[_Iterable[str]] = ..., allowed_key_removes: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        header_name: _Optional[str] = ...,
+        required: _Optional[bool] = ...,
+        allowed_key_updates: _Optional[_Iterable[str]] = ...,
+        allowed_key_removes: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

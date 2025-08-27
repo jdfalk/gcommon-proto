@@ -14,6 +14,7 @@ class PartitionStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PARTITION_STRATEGY_MANUAL: _ClassVar[PartitionStrategy]
     PARTITION_STRATEGY_STICKY: _ClassVar[PartitionStrategy]
     PARTITION_STRATEGY_LOAD_BALANCED: _ClassVar[PartitionStrategy]
+
 PARTITION_STRATEGY_UNSPECIFIED: PartitionStrategy
 PARTITION_STRATEGY_ROUND_ROBIN: PartitionStrategy
 PARTITION_STRATEGY_HASH: PartitionStrategy

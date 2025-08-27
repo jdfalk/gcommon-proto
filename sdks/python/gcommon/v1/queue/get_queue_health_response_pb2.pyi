@@ -14,6 +14,16 @@ class GetQueueHealthResponse(_message.Message):
     __slots__ = ("queue_health", "cluster_health")
     QUEUE_HEALTH_FIELD_NUMBER: _ClassVar[int]
     CLUSTER_HEALTH_FIELD_NUMBER: _ClassVar[int]
-    queue_health: _containers.RepeatedCompositeFieldContainer[_queue_health_pb2.QueueHealth]
+    queue_health: _containers.RepeatedCompositeFieldContainer[
+        _queue_health_pb2.QueueHealth
+    ]
     cluster_health: _cluster_health_pb2.ClusterHealth
-    def __init__(self, queue_health: _Optional[_Iterable[_Union[_queue_health_pb2.QueueHealth, _Mapping]]] = ..., cluster_health: _Optional[_Union[_cluster_health_pb2.ClusterHealth, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_health: _Optional[
+            _Iterable[_Union[_queue_health_pb2.QueueHealth, _Mapping]]
+        ] = ...,
+        cluster_health: _Optional[
+            _Union[_cluster_health_pb2.ClusterHealth, _Mapping]
+        ] = ...,
+    ) -> None: ...

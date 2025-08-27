@@ -13,14 +13,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SessionData(_message.Message):
-    __slots__ = ("session_id", "user_id", "state", "created_at", "last_access_at", "expires_at", "ip_address", "user_agent", "metadata")
+    __slots__ = (
+        "session_id",
+        "user_id",
+        "state",
+        "created_at",
+        "last_access_at",
+        "expires_at",
+        "ip_address",
+        "user_agent",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
@@ -39,4 +52,21 @@ class SessionData(_message.Message):
     ip_address: str
     user_agent: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., state: _Optional[_Union[_web_session_state_pb2.WebSessionState, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_access_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        session_id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        state: _Optional[_Union[_web_session_state_pb2.WebSessionState, str]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_access_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        ip_address: _Optional[str] = ...,
+        user_agent: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

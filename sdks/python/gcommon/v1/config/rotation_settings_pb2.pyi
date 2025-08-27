@@ -14,7 +14,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RotationSettings(_message.Message):
-    __slots__ = ("enabled", "frequency", "schedule", "grace_period_days", "auto_rotate", "notification_recipients", "workflow", "last_rotated_at", "next_rotation_at", "rotation_history")
+    __slots__ = (
+        "enabled",
+        "frequency",
+        "schedule",
+        "grace_period_days",
+        "auto_rotate",
+        "notification_recipients",
+        "workflow",
+        "last_rotated_at",
+        "next_rotation_at",
+        "rotation_history",
+    )
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     FREQUENCY_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_FIELD_NUMBER: _ClassVar[int]
@@ -34,5 +45,27 @@ class RotationSettings(_message.Message):
     workflow: str
     last_rotated_at: _timestamp_pb2.Timestamp
     next_rotation_at: _timestamp_pb2.Timestamp
-    rotation_history: _containers.RepeatedCompositeFieldContainer[_rotation_event_pb2.RotationEvent]
-    def __init__(self, enabled: _Optional[bool] = ..., frequency: _Optional[_Union[_rotation_frequency_pb2.RotationFrequency, str]] = ..., schedule: _Optional[str] = ..., grace_period_days: _Optional[int] = ..., auto_rotate: _Optional[bool] = ..., notification_recipients: _Optional[_Iterable[str]] = ..., workflow: _Optional[str] = ..., last_rotated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., next_rotation_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., rotation_history: _Optional[_Iterable[_Union[_rotation_event_pb2.RotationEvent, _Mapping]]] = ...) -> None: ...
+    rotation_history: _containers.RepeatedCompositeFieldContainer[
+        _rotation_event_pb2.RotationEvent
+    ]
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        frequency: _Optional[
+            _Union[_rotation_frequency_pb2.RotationFrequency, str]
+        ] = ...,
+        schedule: _Optional[str] = ...,
+        grace_period_days: _Optional[int] = ...,
+        auto_rotate: _Optional[bool] = ...,
+        notification_recipients: _Optional[_Iterable[str]] = ...,
+        workflow: _Optional[str] = ...,
+        last_rotated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        next_rotation_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        rotation_history: _Optional[
+            _Iterable[_Union[_rotation_event_pb2.RotationEvent, _Mapping]]
+        ] = ...,
+    ) -> None: ...

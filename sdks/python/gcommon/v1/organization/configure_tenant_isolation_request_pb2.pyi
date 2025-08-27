@@ -17,4 +17,13 @@ class ConfigureTenantIsolationRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     tenant_id: str
     isolation: _tenant_isolation_pb2.TenantIsolation
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tenant_id: _Optional[str] = ..., isolation: _Optional[_Union[_tenant_isolation_pb2.TenantIsolation, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        tenant_id: _Optional[str] = ...,
+        isolation: _Optional[
+            _Union[_tenant_isolation_pb2.TenantIsolation, _Mapping]
+        ] = ...,
+    ) -> None: ...

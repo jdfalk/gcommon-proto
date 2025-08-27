@@ -14,14 +14,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SetRequest(_message.Message):
-    __slots__ = ("key", "value", "namespace", "ttl", "metadata", "overwrite", "entry_metadata")
+    __slots__ = (
+        "key",
+        "value",
+        "namespace",
+        "ttl",
+        "metadata",
+        "overwrite",
+        "entry_metadata",
+    )
     class EntryMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +47,17 @@ class SetRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     overwrite: bool
     entry_metadata: _containers.ScalarMap[str, str]
-    def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., namespace: _Optional[str] = ..., ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., overwrite: _Optional[bool] = ..., entry_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        namespace: _Optional[str] = ...,
+        ttl: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        overwrite: _Optional[bool] = ...,
+        entry_metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -11,6 +11,7 @@ class SameSitePolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SAME_SITE_POLICY_NONE: _ClassVar[SameSitePolicy]
     SAME_SITE_POLICY_LAX: _ClassVar[SameSitePolicy]
     SAME_SITE_POLICY_STRICT: _ClassVar[SameSitePolicy]
+
 SAME_SITE_POLICY_UNSPECIFIED: SameSitePolicy
 SAME_SITE_POLICY_NONE: SameSitePolicy
 SAME_SITE_POLICY_LAX: SameSitePolicy

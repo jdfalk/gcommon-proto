@@ -13,14 +13,30 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProviderInfo(_message.Message):
-    __slots__ = ("provider_id", "name", "type", "status", "detailed_status", "config", "version", "created_at", "last_updated", "enabled", "tags", "description")
+    __slots__ = (
+        "provider_id",
+        "name",
+        "type",
+        "status",
+        "detailed_status",
+        "config",
+        "version",
+        "created_at",
+        "last_updated",
+        "enabled",
+        "tags",
+        "description",
+    )
     class ConfigEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -45,4 +61,24 @@ class ProviderInfo(_message.Message):
     enabled: bool
     tags: _containers.RepeatedScalarFieldContainer[str]
     description: str
-    def __init__(self, provider_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[str] = ..., status: _Optional[str] = ..., detailed_status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ..., config: _Optional[_Mapping[str, str]] = ..., version: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., enabled: _Optional[bool] = ..., tags: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        provider_id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        type: _Optional[str] = ...,
+        status: _Optional[str] = ...,
+        detailed_status: _Optional[
+            _Union[_provider_status_pb2.ProviderStatus, _Mapping]
+        ] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+        version: _Optional[str] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_updated: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        enabled: _Optional[bool] = ...,
+        tags: _Optional[_Iterable[str]] = ...,
+        description: _Optional[str] = ...,
+    ) -> None: ...

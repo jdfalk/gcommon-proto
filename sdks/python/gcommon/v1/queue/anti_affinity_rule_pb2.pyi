@@ -17,4 +17,9 @@ class AntiAffinityRule(_message.Message):
     label_key: str
     label_values: _containers.RepeatedScalarFieldContainer[str]
     scope: _anti_affinity_scope_pb2.AntiAffinityScope
-    def __init__(self, label_key: _Optional[str] = ..., label_values: _Optional[_Iterable[str]] = ..., scope: _Optional[_Union[_anti_affinity_scope_pb2.AntiAffinityScope, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        label_key: _Optional[str] = ...,
+        label_values: _Optional[_Iterable[str]] = ...,
+        scope: _Optional[_Union[_anti_affinity_scope_pb2.AntiAffinityScope, str]] = ...,
+    ) -> None: ...

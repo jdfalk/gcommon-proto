@@ -15,4 +15,9 @@ class TouchExpirationResponse(_message.Message):
     success: bool
     key_existed: bool
     error: _error_pb2.Error
-    def __init__(self, success: _Optional[bool] = ..., key_existed: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        key_existed: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

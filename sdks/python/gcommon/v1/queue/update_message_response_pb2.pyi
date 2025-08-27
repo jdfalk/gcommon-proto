@@ -14,14 +14,29 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateMessageResponse(_message.Message):
-    __slots__ = ("success", "message_id", "new_version", "updated_at", "updated_fields", "failed_fields", "error_message", "error_code", "warnings", "updated_properties", "metadata")
+    __slots__ = (
+        "success",
+        "message_id",
+        "new_version",
+        "updated_at",
+        "updated_fields",
+        "failed_fields",
+        "error_message",
+        "error_code",
+        "warnings",
+        "updated_properties",
+        "metadata",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     NEW_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -38,10 +53,31 @@ class UpdateMessageResponse(_message.Message):
     new_version: str
     updated_at: _timestamp_pb2.Timestamp
     updated_fields: _containers.RepeatedScalarFieldContainer[str]
-    failed_fields: _containers.RepeatedCompositeFieldContainer[_failed_field_update_pb2.FailedFieldUpdate]
+    failed_fields: _containers.RepeatedCompositeFieldContainer[
+        _failed_field_update_pb2.FailedFieldUpdate
+    ]
     error_message: str
     error_code: str
     warnings: _containers.RepeatedScalarFieldContainer[str]
     updated_properties: _updated_properties_pb2.UpdatedProperties
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: _Optional[bool] = ..., message_id: _Optional[str] = ..., new_version: _Optional[str] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_fields: _Optional[_Iterable[str]] = ..., failed_fields: _Optional[_Iterable[_Union[_failed_field_update_pb2.FailedFieldUpdate, _Mapping]]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., updated_properties: _Optional[_Union[_updated_properties_pb2.UpdatedProperties, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        message_id: _Optional[str] = ...,
+        new_version: _Optional[str] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_fields: _Optional[_Iterable[str]] = ...,
+        failed_fields: _Optional[
+            _Iterable[_Union[_failed_field_update_pb2.FailedFieldUpdate, _Mapping]]
+        ] = ...,
+        error_message: _Optional[str] = ...,
+        error_code: _Optional[str] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        updated_properties: _Optional[
+            _Union[_updated_properties_pb2.UpdatedProperties, _Mapping]
+        ] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

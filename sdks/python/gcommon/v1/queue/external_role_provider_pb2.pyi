@@ -16,7 +16,10 @@ class ExternalRoleProvider(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     PROVIDER_TYPE_FIELD_NUMBER: _ClassVar[int]
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     CREDENTIALS_FIELD_NUMBER: _ClassVar[int]
@@ -25,4 +28,10 @@ class ExternalRoleProvider(_message.Message):
     endpoint: str
     credentials: _containers.ScalarMap[str, str]
     cache_ttl_seconds: int
-    def __init__(self, provider_type: _Optional[str] = ..., endpoint: _Optional[str] = ..., credentials: _Optional[_Mapping[str, str]] = ..., cache_ttl_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        provider_type: _Optional[str] = ...,
+        endpoint: _Optional[str] = ...,
+        credentials: _Optional[_Mapping[str, str]] = ...,
+        cache_ttl_seconds: _Optional[int] = ...,
+    ) -> None: ...

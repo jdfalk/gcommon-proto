@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/summary_options.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/summary_options.proto'
+    "",
+    "gcommon/v1/metrics/summary_options.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,16 +28,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/metrics/summary_options.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x85\x03\n\x0eSummaryOptions\x12%\n\x0einclude_counts\x18\x01 \x01(\x08R\rincludeCounts\x12.\n\x13include_data_volume\x18\x02 \x01(\x08R\x11includeDataVolume\x12/\n\x13include_performance\x18\x03 \x01(\x08R\x12includePerformance\x12%\n\x0einclude_errors\x18\x04 \x01(\x08R\rincludeErrors\x12.\n\x13include_top_metrics\x18\x05 \x01(\x08R\x11includeTopMetrics\x12+\n\x11include_retention\x18\x06 \x01(\x08R\x10includeRetention\x12\x32\n\x15include_export_status\x18\x07 \x01(\x08R\x13includeExportStatus\x12\x33\n\x11top_metrics_limit\x18\x08 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0ftopMetricsLimitB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n(gcommon/v1/metrics/summary_options.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x85\x03\n\x0eSummaryOptions\x12%\n\x0einclude_counts\x18\x01 \x01(\x08R\rincludeCounts\x12.\n\x13include_data_volume\x18\x02 \x01(\x08R\x11includeDataVolume\x12/\n\x13include_performance\x18\x03 \x01(\x08R\x12includePerformance\x12%\n\x0einclude_errors\x18\x04 \x01(\x08R\rincludeErrors\x12.\n\x13include_top_metrics\x18\x05 \x01(\x08R\x11includeTopMetrics\x12+\n\x11include_retention\x18\x06 \x01(\x08R\x10includeRetention\x12\x32\n\x15include_export_status\x18\x07 \x01(\x08R\x13includeExportStatus\x12\x33\n\x11top_metrics_limit\x18\x08 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0ftopMetricsLimitB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.summary_options_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.summary_options_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_SUMMARYOPTIONS'].fields_by_name['top_metrics_limit']._loaded_options = None
-  _globals['_SUMMARYOPTIONS'].fields_by_name['top_metrics_limit']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_SUMMARYOPTIONS']._serialized_start=129
-  _globals['_SUMMARYOPTIONS']._serialized_end=518
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_SUMMARYOPTIONS"].fields_by_name[
+        "top_metrics_limit"
+    ]._loaded_options = None
+    _globals["_SUMMARYOPTIONS"].fields_by_name[
+        "top_metrics_limit"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_SUMMARYOPTIONS"]._serialized_start = 129
+    _globals["_SUMMARYOPTIONS"]._serialized_end = 518
 # @@protoc_insertion_point(module_scope)

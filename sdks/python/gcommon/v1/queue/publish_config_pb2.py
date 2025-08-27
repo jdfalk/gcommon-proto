@@ -4,41 +4,59 @@
 # source: gcommon/v1/queue/publish_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/publish_config.proto'
+    "",
+    "gcommon/v1/queue/publish_config.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import retry_policy_pb2 as gcommon_dot_v1_dot_common_dot_retry__policy__pb2
+from gcommon.v1.common import (
+    retry_policy_pb2 as gcommon_dot_v1_dot_common_dot_retry__policy__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/queue/publish_config.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/common/retry_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe8\x02\n\rPublishConfig\x12 \n\x0cwait_for_ack\x18\x01 \x01(\x08R\nwaitForAck\x12-\n\x0e\x61\x63k_timeout_ms\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0c\x61\x63kTimeoutMs\x12/\n\x13\x64uplicate_detection\x18\x03 \x01(\x08R\x12\x64uplicateDetection\x12-\n\x12\x65nable_compression\x18\x04 \x01(\x08R\x11\x65nableCompression\x12\'\n\x0f\x65nable_ordering\x18\x05 \x01(\x08R\x0e\x65nableOrdering\x12G\n\x0cretry_config\x18\x06 \x01(\x0b\x32$.gcommon.v1.common.CommonRetryPolicyR\x0bretryConfig\x12\x34\n\x11persistence_level\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x10persistenceLevelB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n%gcommon/v1/queue/publish_config.proto\x12\x10gcommon.v1.queue\x1a$gcommon/v1/common/retry_policy.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe8\x02\n\rPublishConfig\x12 \n\x0cwait_for_ack\x18\x01 \x01(\x08R\nwaitForAck\x12-\n\x0e\x61\x63k_timeout_ms\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0c\x61\x63kTimeoutMs\x12/\n\x13\x64uplicate_detection\x18\x03 \x01(\x08R\x12\x64uplicateDetection\x12-\n\x12\x65nable_compression\x18\x04 \x01(\x08R\x11\x65nableCompression\x12'\n\x0f\x65nable_ordering\x18\x05 \x01(\x08R\x0e\x65nableOrdering\x12G\n\x0cretry_config\x18\x06 \x01(\x0b\x32$.gcommon.v1.common.CommonRetryPolicyR\x0bretryConfig\x12\x34\n\x11persistence_level\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x10persistenceLevelB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.publish_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.publish_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_PUBLISHCONFIG'].fields_by_name['ack_timeout_ms']._loaded_options = None
-  _globals['_PUBLISHCONFIG'].fields_by_name['ack_timeout_ms']._serialized_options = b'\272H\004\032\002 \000'
-  _globals['_PUBLISHCONFIG'].fields_by_name['persistence_level']._loaded_options = None
-  _globals['_PUBLISHCONFIG'].fields_by_name['persistence_level']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_PUBLISHCONFIG']._serialized_start=162
-  _globals['_PUBLISHCONFIG']._serialized_end=522
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_PUBLISHCONFIG"].fields_by_name["ack_timeout_ms"]._loaded_options = None
+    _globals["_PUBLISHCONFIG"].fields_by_name[
+        "ack_timeout_ms"
+    ]._serialized_options = b"\272H\004\032\002 \000"
+    _globals["_PUBLISHCONFIG"].fields_by_name[
+        "persistence_level"
+    ]._loaded_options = None
+    _globals["_PUBLISHCONFIG"].fields_by_name[
+        "persistence_level"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_PUBLISHCONFIG"]._serialized_start = 162
+    _globals["_PUBLISHCONFIG"]._serialized_end = 522
 # @@protoc_insertion_point(module_scope)

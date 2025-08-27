@@ -9,7 +9,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RoutingInfo(_message.Message):
-    __slots__ = ("routing_key", "partition_id", "partition_key", "exchange_name", "routing_tags")
+    __slots__ = (
+        "routing_key",
+        "partition_id",
+        "partition_key",
+        "exchange_name",
+        "routing_tags",
+    )
     ROUTING_KEY_FIELD_NUMBER: _ClassVar[int]
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     PARTITION_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +26,11 @@ class RoutingInfo(_message.Message):
     partition_key: str
     exchange_name: str
     routing_tags: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, routing_key: _Optional[str] = ..., partition_id: _Optional[int] = ..., partition_key: _Optional[str] = ..., exchange_name: _Optional[str] = ..., routing_tags: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        routing_key: _Optional[str] = ...,
+        partition_id: _Optional[int] = ...,
+        partition_key: _Optional[str] = ...,
+        exchange_name: _Optional[str] = ...,
+        routing_tags: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

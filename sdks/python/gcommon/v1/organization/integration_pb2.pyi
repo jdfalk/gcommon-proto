@@ -24,4 +24,13 @@ class Integration(_message.Message):
     config: _containers.RepeatedCompositeFieldContainer[_key_value_pb2.KeyValue]
     created_at: _timestamp_pb2.Timestamp
     configured_by: str
-    def __init__(self, name: _Optional[str] = ..., enabled: _Optional[bool] = ..., config: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., configured_by: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        enabled: _Optional[bool] = ...,
+        config: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        configured_by: _Optional[str] = ...,
+    ) -> None: ...

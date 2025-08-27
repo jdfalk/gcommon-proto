@@ -14,7 +14,30 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Organization(_message.Message):
-    __slots__ = ("id", "name", "slug", "description", "website", "contact_email", "address", "phone", "tax_id", "industry", "status", "metadata", "created_at", "updated_at", "created_by", "updated_by", "timezone", "locale", "max_members", "multi_tenant_enabled", "avatar_url", "billing_email")
+    __slots__ = (
+        "id",
+        "name",
+        "slug",
+        "description",
+        "website",
+        "contact_email",
+        "address",
+        "phone",
+        "tax_id",
+        "industry",
+        "status",
+        "metadata",
+        "created_at",
+        "updated_at",
+        "created_by",
+        "updated_by",
+        "timezone",
+        "locale",
+        "max_members",
+        "multi_tenant_enabled",
+        "avatar_url",
+        "billing_email",
+    )
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SLUG_FIELD_NUMBER: _ClassVar[int]
@@ -59,4 +82,34 @@ class Organization(_message.Message):
     multi_tenant_enabled: bool
     avatar_url: str
     billing_email: str
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., slug: _Optional[str] = ..., description: _Optional[str] = ..., website: _Optional[str] = ..., contact_email: _Optional[str] = ..., address: _Optional[str] = ..., phone: _Optional[str] = ..., tax_id: _Optional[str] = ..., industry: _Optional[str] = ..., status: _Optional[_Union[_organization_status_pb2.OrganizationStatus, str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., timezone: _Optional[str] = ..., locale: _Optional[str] = ..., max_members: _Optional[int] = ..., multi_tenant_enabled: _Optional[bool] = ..., avatar_url: _Optional[str] = ..., billing_email: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        name: _Optional[str] = ...,
+        slug: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        website: _Optional[str] = ...,
+        contact_email: _Optional[str] = ...,
+        address: _Optional[str] = ...,
+        phone: _Optional[str] = ...,
+        tax_id: _Optional[str] = ...,
+        industry: _Optional[str] = ...,
+        status: _Optional[
+            _Union[_organization_status_pb2.OrganizationStatus, str]
+        ] = ...,
+        metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        created_by: _Optional[str] = ...,
+        updated_by: _Optional[str] = ...,
+        timezone: _Optional[str] = ...,
+        locale: _Optional[str] = ...,
+        max_members: _Optional[int] = ...,
+        multi_tenant_enabled: _Optional[bool] = ...,
+        avatar_url: _Optional[str] = ...,
+        billing_email: _Optional[str] = ...,
+    ) -> None: ...

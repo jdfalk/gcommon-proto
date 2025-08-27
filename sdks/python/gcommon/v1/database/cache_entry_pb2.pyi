@@ -13,14 +13,27 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheEntry(_message.Message):
-    __slots__ = ("key", "value", "created_at", "last_accessed_at", "expires_at", "access_count", "size_bytes", "metadata", "namespace")
+    __slots__ = (
+        "key",
+        "value",
+        "created_at",
+        "last_accessed_at",
+        "expires_at",
+        "access_count",
+        "size_bytes",
+        "metadata",
+        "namespace",
+    )
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -39,4 +52,21 @@ class CacheEntry(_message.Message):
     size_bytes: int
     metadata: _containers.ScalarMap[str, str]
     namespace: str
-    def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_accessed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., access_count: _Optional[int] = ..., size_bytes: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ..., namespace: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_accessed_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        access_count: _Optional[int] = ...,
+        size_bytes: _Optional[int] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+        namespace: _Optional[str] = ...,
+    ) -> None: ...

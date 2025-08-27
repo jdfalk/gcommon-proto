@@ -11,7 +11,23 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TemplateParameter(_message.Message):
-    __slots__ = ("name", "description", "type", "required", "default_value", "allowed_values", "constraints", "group", "order", "sensitive", "validation_pattern", "examples", "documentation", "display_name", "placeholder")
+    __slots__ = (
+        "name",
+        "description",
+        "type",
+        "required",
+        "default_value",
+        "allowed_values",
+        "constraints",
+        "group",
+        "order",
+        "sensitive",
+        "validation_pattern",
+        "examples",
+        "documentation",
+        "display_name",
+        "placeholder",
+    )
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -42,4 +58,23 @@ class TemplateParameter(_message.Message):
     documentation: str
     display_name: str
     placeholder: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_parameter_type_pb2.ParameterType, str]] = ..., required: _Optional[bool] = ..., default_value: _Optional[str] = ..., allowed_values: _Optional[_Iterable[str]] = ..., constraints: _Optional[_Union[_parameter_constraints_pb2.ParameterConstraints, _Mapping]] = ..., group: _Optional[str] = ..., order: _Optional[int] = ..., sensitive: _Optional[bool] = ..., validation_pattern: _Optional[str] = ..., examples: _Optional[_Iterable[str]] = ..., documentation: _Optional[str] = ..., display_name: _Optional[str] = ..., placeholder: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        type: _Optional[_Union[_parameter_type_pb2.ParameterType, str]] = ...,
+        required: _Optional[bool] = ...,
+        default_value: _Optional[str] = ...,
+        allowed_values: _Optional[_Iterable[str]] = ...,
+        constraints: _Optional[
+            _Union[_parameter_constraints_pb2.ParameterConstraints, _Mapping]
+        ] = ...,
+        group: _Optional[str] = ...,
+        order: _Optional[int] = ...,
+        sensitive: _Optional[bool] = ...,
+        validation_pattern: _Optional[str] = ...,
+        examples: _Optional[_Iterable[str]] = ...,
+        documentation: _Optional[str] = ...,
+        display_name: _Optional[str] = ...,
+        placeholder: _Optional[str] = ...,
+    ) -> None: ...

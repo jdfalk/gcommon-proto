@@ -4,43 +4,63 @@
 # source: gcommon/v1/common/mfa_setup_instruction.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/common/mfa_setup_instruction.proto'
+    "",
+    "gcommon/v1/common/mfa_setup_instruction.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import mfa_method_pb2 as gcommon_dot_v1_dot_common_dot_mfa__method__pb2
+from gcommon.v1.common import (
+    mfa_method_pb2 as gcommon_dot_v1_dot_common_dot_mfa__method__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/common/mfa_setup_instruction.proto\x12\x11gcommon.v1.common\x1a\"gcommon/v1/common/mfa_method.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xc0\x01\n\x13MfaSetupInstruction\x12\x34\n\x06method\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.common.MfaMethodR\x06method\x12)\n\x0binstruction\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0binstruction\x12 \n\x07qr_code\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06qrCode\x12&\n\nsecret_key\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tsecretKeyB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n-gcommon/v1/common/mfa_setup_instruction.proto\x12\x11gcommon.v1.common\x1a"gcommon/v1/common/mfa_method.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xc0\x01\n\x13MfaSetupInstruction\x12\x34\n\x06method\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.common.MfaMethodR\x06method\x12)\n\x0binstruction\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0binstruction\x12 \n\x07qr_code\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06qrCode\x12&\n\nsecret_key\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tsecretKeyB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.mfa_setup_instruction_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.common.mfa_setup_instruction_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['instruction']._loaded_options = None
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['instruction']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['qr_code']._loaded_options = None
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['qr_code']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['secret_key']._loaded_options = None
-  _globals['_MFASETUPINSTRUCTION'].fields_by_name['secret_key']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_MFASETUPINSTRUCTION']._serialized_start=169
-  _globals['_MFASETUPINSTRUCTION']._serialized_end=361
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
+    )
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name[
+        "instruction"
+    ]._loaded_options = None
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name[
+        "instruction"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name["qr_code"]._loaded_options = None
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name[
+        "qr_code"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name["secret_key"]._loaded_options = None
+    _globals["_MFASETUPINSTRUCTION"].fields_by_name[
+        "secret_key"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_MFASETUPINSTRUCTION"]._serialized_start = 169
+    _globals["_MFASETUPINSTRUCTION"]._serialized_end = 361
 # @@protoc_insertion_point(module_scope)

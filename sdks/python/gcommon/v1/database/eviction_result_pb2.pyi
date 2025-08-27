@@ -13,7 +13,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EvictionResult(_message.Message):
-    __slots__ = ("evicted_count", "evicted_keys", "policy_used", "eviction_reason", "evicted_at", "memory_freed", "success")
+    __slots__ = (
+        "evicted_count",
+        "evicted_keys",
+        "policy_used",
+        "eviction_reason",
+        "evicted_at",
+        "memory_freed",
+        "success",
+    )
     EVICTED_COUNT_FIELD_NUMBER: _ClassVar[int]
     EVICTED_KEYS_FIELD_NUMBER: _ClassVar[int]
     POLICY_USED_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +36,15 @@ class EvictionResult(_message.Message):
     evicted_at: _timestamp_pb2.Timestamp
     memory_freed: int
     success: bool
-    def __init__(self, evicted_count: _Optional[int] = ..., evicted_keys: _Optional[_Iterable[str]] = ..., policy_used: _Optional[_Union[_eviction_policy_pb2.EvictionPolicy, str]] = ..., eviction_reason: _Optional[str] = ..., evicted_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., memory_freed: _Optional[int] = ..., success: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        evicted_count: _Optional[int] = ...,
+        evicted_keys: _Optional[_Iterable[str]] = ...,
+        policy_used: _Optional[_Union[_eviction_policy_pb2.EvictionPolicy, str]] = ...,
+        eviction_reason: _Optional[str] = ...,
+        evicted_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        memory_freed: _Optional[int] = ...,
+        success: _Optional[bool] = ...,
+    ) -> None: ...

@@ -14,4 +14,8 @@ class ListMetricsRequest(_message.Message):
     NAME_FILTER_FIELD_NUMBER: _ClassVar[int]
     pagination: _pagination_pb2.Pagination
     name_filter: str
-    def __init__(self, pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., name_filter: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
+        name_filter: _Optional[str] = ...,
+    ) -> None: ...

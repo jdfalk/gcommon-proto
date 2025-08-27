@@ -12,7 +12,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetMetricsSummaryRequest(_message.Message):
-    __slots__ = ("metadata", "filter", "time_range", "options", "provider_id", "include_provider_stats", "include_health_status")
+    __slots__ = (
+        "metadata",
+        "filter",
+        "time_range",
+        "options",
+        "provider_id",
+        "include_provider_stats",
+        "include_health_status",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     TIME_RANGE_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +35,17 @@ class GetMetricsSummaryRequest(_message.Message):
     provider_id: str
     include_provider_stats: bool
     include_health_status: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., options: _Optional[_Union[_summary_options_pb2.SummaryOptions, _Mapping]] = ..., provider_id: _Optional[str] = ..., include_provider_stats: _Optional[bool] = ..., include_health_status: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        options: _Optional[_Union[_summary_options_pb2.SummaryOptions, _Mapping]] = ...,
+        provider_id: _Optional[str] = ...,
+        include_provider_stats: _Optional[bool] = ...,
+        include_health_status: _Optional[bool] = ...,
+    ) -> None: ...

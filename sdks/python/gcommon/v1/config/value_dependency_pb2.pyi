@@ -17,7 +17,10 @@ class ValueDependency(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TYPE_FIELD_NUMBER: _ClassVar[int]
     DEPENDENT_KEY_FIELD_NUMBER: _ClassVar[int]
     DEPENDENCY_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +31,11 @@ class ValueDependency(_message.Message):
     dependency_key: str
     condition: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, type: _Optional[_Union[_dependency_type_pb2.DependencyType, str]] = ..., dependent_key: _Optional[str] = ..., dependency_key: _Optional[str] = ..., condition: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[_Union[_dependency_type_pb2.DependencyType, str]] = ...,
+        dependent_key: _Optional[str] = ...,
+        dependency_key: _Optional[str] = ...,
+        condition: _Optional[str] = ...,
+        metadata: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

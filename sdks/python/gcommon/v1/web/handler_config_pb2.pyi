@@ -18,7 +18,10 @@ class HandlerConfig(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     TYPE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     TARGET_FIELD_NUMBER: _ClassVar[int]
@@ -27,4 +30,10 @@ class HandlerConfig(_message.Message):
     config: _any_pb2.Any
     target: str
     options: _containers.ScalarMap[str, str]
-    def __init__(self, type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ..., config: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., target: _Optional[str] = ..., options: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ...,
+        config: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        target: _Optional[str] = ...,
+        options: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -17,4 +17,11 @@ class DetectChaptersResponse(_message.Message):
     chapters: _containers.RepeatedCompositeFieldContainer[_chapter_info_pb2.ChapterInfo]
     total_chapters: int
     confidence_score: float
-    def __init__(self, chapters: _Optional[_Iterable[_Union[_chapter_info_pb2.ChapterInfo, _Mapping]]] = ..., total_chapters: _Optional[int] = ..., confidence_score: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        chapters: _Optional[
+            _Iterable[_Union[_chapter_info_pb2.ChapterInfo, _Mapping]]
+        ] = ...,
+        total_chapters: _Optional[int] = ...,
+        confidence_score: _Optional[float] = ...,
+    ) -> None: ...

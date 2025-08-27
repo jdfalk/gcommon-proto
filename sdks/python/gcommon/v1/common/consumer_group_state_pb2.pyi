@@ -13,6 +13,7 @@ class ConsumerGroupState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONSUMER_GROUP_STATE_COMPLETING_REBALANCE: _ClassVar[ConsumerGroupState]
     CONSUMER_GROUP_STATE_DEAD: _ClassVar[ConsumerGroupState]
     CONSUMER_GROUP_STATE_EMPTY: _ClassVar[ConsumerGroupState]
+
 CONSUMER_GROUP_STATE_UNSPECIFIED: ConsumerGroupState
 CONSUMER_GROUP_STATE_STABLE: ConsumerGroupState
 CONSUMER_GROUP_STATE_PREPARING_REBALANCE: ConsumerGroupState

@@ -4,18 +4,20 @@
 # source: gcommon/v1/organization/ui_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/organization/ui_settings.proto'
+    "",
+    "gcommon/v1/organization/ui_settings.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,18 +28,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/organization/ui_settings.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x89\x03\n\nUISettings\x12#\n\rprimary_color\x18\x01 \x01(\tR\x0cprimaryColor\x12\'\n\x0fsecondary_color\x18\x02 \x01(\tR\x0esecondaryColor\x12#\n\x08logo_url\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x07logoUrl\x12)\n\x0b\x66\x61vicon_url\x18\x04 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\nfaviconUrl\x12\x1d\n\ncustom_css\x18\x05 \x01(\tR\tcustomCss\x12%\n\x0e\x64\x65\x66\x61ult_locale\x18\x06 \x01(\tR\rdefaultLocale\x12)\n\x10\x64\x65\x66\x61ult_timezone\x18\x07 \x01(\tR\x0f\x64\x65\x66\x61ultTimezone\x12\x1f\n\x0b\x64\x61te_format\x18\x08 \x01(\tR\ndateFormat\x12\x1f\n\x0btime_format\x18\t \x01(\tR\ntimeFormat\x12*\n\x11\x64\x61rk_mode_default\x18\n \x01(\x08R\x0f\x64\x61rkModeDefaultB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n)gcommon/v1/organization/ui_settings.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x89\x03\n\nUISettings\x12#\n\rprimary_color\x18\x01 \x01(\tR\x0cprimaryColor\x12'\n\x0fsecondary_color\x18\x02 \x01(\tR\x0esecondaryColor\x12#\n\x08logo_url\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x07logoUrl\x12)\n\x0b\x66\x61vicon_url\x18\x04 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\nfaviconUrl\x12\x1d\n\ncustom_css\x18\x05 \x01(\tR\tcustomCss\x12%\n\x0e\x64\x65\x66\x61ult_locale\x18\x06 \x01(\tR\rdefaultLocale\x12)\n\x10\x64\x65\x66\x61ult_timezone\x18\x07 \x01(\tR\x0f\x64\x65\x66\x61ultTimezone\x12\x1f\n\x0b\x64\x61te_format\x18\x08 \x01(\tR\ndateFormat\x12\x1f\n\x0btime_format\x18\t \x01(\tR\ntimeFormat\x12*\n\x11\x64\x61rk_mode_default\x18\n \x01(\x08R\x0f\x64\x61rkModeDefaultB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.ui_settings_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.organization.ui_settings_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
-  _globals['_UISETTINGS'].fields_by_name['logo_url']._loaded_options = None
-  _globals['_UISETTINGS'].fields_by_name['logo_url']._serialized_options = b'\272H\005r\003\210\001\001'
-  _globals['_UISETTINGS'].fields_by_name['favicon_url']._loaded_options = None
-  _globals['_UISETTINGS'].fields_by_name['favicon_url']._serialized_options = b'\272H\005r\003\210\001\001'
-  _globals['_UISETTINGS']._serialized_start=135
-  _globals['_UISETTINGS']._serialized_end=528
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
+    _globals["_UISETTINGS"].fields_by_name["logo_url"]._loaded_options = None
+    _globals["_UISETTINGS"].fields_by_name[
+        "logo_url"
+    ]._serialized_options = b"\272H\005r\003\210\001\001"
+    _globals["_UISETTINGS"].fields_by_name["favicon_url"]._loaded_options = None
+    _globals["_UISETTINGS"].fields_by_name[
+        "favicon_url"
+    ]._serialized_options = b"\272H\005r\003\210\001\001"
+    _globals["_UISETTINGS"]._serialized_start = 135
+    _globals["_UISETTINGS"]._serialized_end = 528
 # @@protoc_insertion_point(module_scope)

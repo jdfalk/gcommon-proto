@@ -14,4 +14,9 @@ class MemoryAllocation(_message.Message):
     size_mb: int
     usage_limit_percent: int
     swap_mb: int
-    def __init__(self, size_mb: _Optional[int] = ..., usage_limit_percent: _Optional[int] = ..., swap_mb: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        size_mb: _Optional[int] = ...,
+        usage_limit_percent: _Optional[int] = ...,
+        swap_mb: _Optional[int] = ...,
+    ) -> None: ...

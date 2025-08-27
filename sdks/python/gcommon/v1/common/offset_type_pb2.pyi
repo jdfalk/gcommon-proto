@@ -12,6 +12,7 @@ class OffsetType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OFFSET_TYPE_LATEST: _ClassVar[OffsetType]
     OFFSET_TYPE_CURRENT: _ClassVar[OffsetType]
     OFFSET_TYPE_COMMITTED: _ClassVar[OffsetType]
+
 OFFSET_TYPE_UNSPECIFIED: OffsetType
 OFFSET_TYPE_EARLIEST: OffsetType
 OFFSET_TYPE_LATEST: OffsetType

@@ -15,6 +15,7 @@ class ValueType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALUE_TYPE_BYTES: _ClassVar[ValueType]
     VALUE_TYPE_JSON: _ClassVar[ValueType]
     VALUE_TYPE_YAML: _ClassVar[ValueType]
+
 VALUE_TYPE_UNSPECIFIED: ValueType
 VALUE_TYPE_STRING: ValueType
 VALUE_TYPE_INT: ValueType

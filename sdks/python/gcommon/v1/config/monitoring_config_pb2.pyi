@@ -9,14 +9,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigMonitoringConfig(_message.Message):
-    __slots__ = ("enabled", "provider", "endpoints", "metrics", "alerts", "dashboards", "config")
+    __slots__ = (
+        "enabled",
+        "provider",
+        "endpoints",
+        "metrics",
+        "alerts",
+        "dashboards",
+        "config",
+    )
     class ConfigEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_FIELD_NUMBER: _ClassVar[int]
     ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
@@ -31,4 +42,13 @@ class ConfigMonitoringConfig(_message.Message):
     alerts: _containers.RepeatedScalarFieldContainer[str]
     dashboards: _containers.RepeatedScalarFieldContainer[str]
     config: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., provider: _Optional[str] = ..., endpoints: _Optional[_Iterable[str]] = ..., metrics: _Optional[_Iterable[str]] = ..., alerts: _Optional[_Iterable[str]] = ..., dashboards: _Optional[_Iterable[str]] = ..., config: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        provider: _Optional[str] = ...,
+        endpoints: _Optional[_Iterable[str]] = ...,
+        metrics: _Optional[_Iterable[str]] = ...,
+        alerts: _Optional[_Iterable[str]] = ...,
+        dashboards: _Optional[_Iterable[str]] = ...,
+        config: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

@@ -19,4 +19,12 @@ class GetMultipleConfigRequest(_message.Message):
     namespace: str
     decrypt: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, keys: _Optional[_Iterable[str]] = ..., namespace: _Optional[str] = ..., decrypt: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        keys: _Optional[_Iterable[str]] = ...,
+        namespace: _Optional[str] = ...,
+        decrypt: _Optional[bool] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

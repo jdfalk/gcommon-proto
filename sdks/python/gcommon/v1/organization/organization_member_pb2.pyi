@@ -14,7 +14,32 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationMember(_message.Message):
-    __slots__ = ("id", "organization_id", "user_id", "email", "display_name", "role", "additional_roles", "permissions", "department_ids", "team_ids", "tenant_ids", "metadata", "created_at", "updated_at", "last_active_at", "invited_by", "updated_by", "active", "job_title", "manager_id", "direct_report_ids", "avatar_url", "phone", "location")
+    __slots__ = (
+        "id",
+        "organization_id",
+        "user_id",
+        "email",
+        "display_name",
+        "role",
+        "additional_roles",
+        "permissions",
+        "department_ids",
+        "team_ids",
+        "tenant_ids",
+        "metadata",
+        "created_at",
+        "updated_at",
+        "last_active_at",
+        "invited_by",
+        "updated_by",
+        "active",
+        "job_title",
+        "manager_id",
+        "direct_report_ids",
+        "avatar_url",
+        "phone",
+        "location",
+    )
     ID_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -45,7 +70,9 @@ class OrganizationMember(_message.Message):
     email: str
     display_name: str
     role: _member_role_pb2.MemberRole
-    additional_roles: _containers.RepeatedScalarFieldContainer[_member_role_pb2.MemberRole]
+    additional_roles: _containers.RepeatedScalarFieldContainer[
+        _member_role_pb2.MemberRole
+    ]
     permissions: _containers.RepeatedScalarFieldContainer[str]
     department_ids: _containers.RepeatedScalarFieldContainer[str]
     team_ids: _containers.RepeatedScalarFieldContainer[str]
@@ -63,4 +90,38 @@ class OrganizationMember(_message.Message):
     avatar_url: str
     phone: str
     location: str
-    def __init__(self, id: _Optional[str] = ..., organization_id: _Optional[str] = ..., user_id: _Optional[str] = ..., email: _Optional[str] = ..., display_name: _Optional[str] = ..., role: _Optional[_Union[_member_role_pb2.MemberRole, str]] = ..., additional_roles: _Optional[_Iterable[_Union[_member_role_pb2.MemberRole, str]]] = ..., permissions: _Optional[_Iterable[str]] = ..., department_ids: _Optional[_Iterable[str]] = ..., team_ids: _Optional[_Iterable[str]] = ..., tenant_ids: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_active_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., invited_by: _Optional[str] = ..., updated_by: _Optional[str] = ..., active: _Optional[bool] = ..., job_title: _Optional[str] = ..., manager_id: _Optional[str] = ..., direct_report_ids: _Optional[_Iterable[str]] = ..., avatar_url: _Optional[str] = ..., phone: _Optional[str] = ..., location: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        id: _Optional[str] = ...,
+        organization_id: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        email: _Optional[str] = ...,
+        display_name: _Optional[str] = ...,
+        role: _Optional[_Union[_member_role_pb2.MemberRole, str]] = ...,
+        additional_roles: _Optional[
+            _Iterable[_Union[_member_role_pb2.MemberRole, str]]
+        ] = ...,
+        permissions: _Optional[_Iterable[str]] = ...,
+        department_ids: _Optional[_Iterable[str]] = ...,
+        team_ids: _Optional[_Iterable[str]] = ...,
+        tenant_ids: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ...,
+        created_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        updated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        last_active_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        invited_by: _Optional[str] = ...,
+        updated_by: _Optional[str] = ...,
+        active: _Optional[bool] = ...,
+        job_title: _Optional[str] = ...,
+        manager_id: _Optional[str] = ...,
+        direct_report_ids: _Optional[_Iterable[str]] = ...,
+        avatar_url: _Optional[str] = ...,
+        phone: _Optional[str] = ...,
+        location: _Optional[str] = ...,
+    ) -> None: ...

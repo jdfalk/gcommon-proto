@@ -11,6 +11,7 @@ class AckMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ACK_MODE_MANUAL: _ClassVar[AckMode]
     ACK_MODE_AUTO: _ClassVar[AckMode]
     ACK_MODE_CLIENT: _ClassVar[AckMode]
+
 ACK_MODE_UNSPECIFIED: AckMode
 ACK_MODE_MANUAL: AckMode
 ACK_MODE_AUTO: AckMode

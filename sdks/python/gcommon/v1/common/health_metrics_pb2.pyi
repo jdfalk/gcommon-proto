@@ -12,14 +12,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HealthMetrics(_message.Message):
-    __slots__ = ("total_checks", "healthy_checks", "unhealthy_checks", "unknown_checks", "average_response_time_ms", "last_updated", "uptime_seconds", "custom_metrics")
+    __slots__ = (
+        "total_checks",
+        "healthy_checks",
+        "unhealthy_checks",
+        "unknown_checks",
+        "average_response_time_ms",
+        "last_updated",
+        "uptime_seconds",
+        "custom_metrics",
+    )
     class CustomMetricsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: float
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[float] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[float] = ...
+        ) -> None: ...
+
     TOTAL_CHECKS_FIELD_NUMBER: _ClassVar[int]
     HEALTHY_CHECKS_FIELD_NUMBER: _ClassVar[int]
     UNHEALTHY_CHECKS_FIELD_NUMBER: _ClassVar[int]
@@ -36,4 +48,16 @@ class HealthMetrics(_message.Message):
     last_updated: _timestamp_pb2.Timestamp
     uptime_seconds: float
     custom_metrics: _containers.ScalarMap[str, float]
-    def __init__(self, total_checks: _Optional[int] = ..., healthy_checks: _Optional[int] = ..., unhealthy_checks: _Optional[int] = ..., unknown_checks: _Optional[int] = ..., average_response_time_ms: _Optional[float] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., uptime_seconds: _Optional[float] = ..., custom_metrics: _Optional[_Mapping[str, float]] = ...) -> None: ...
+    def __init__(
+        self,
+        total_checks: _Optional[int] = ...,
+        healthy_checks: _Optional[int] = ...,
+        unhealthy_checks: _Optional[int] = ...,
+        unknown_checks: _Optional[int] = ...,
+        average_response_time_ms: _Optional[float] = ...,
+        last_updated: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        uptime_seconds: _Optional[float] = ...,
+        custom_metrics: _Optional[_Mapping[str, float]] = ...,
+    ) -> None: ...

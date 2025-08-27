@@ -14,14 +14,26 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RecordGaugeRequest(_message.Message):
-    __slots__ = ("name", "value", "labels", "help", "unit", "timestamp", "metadata", "operation")
+    __slots__ = (
+        "name",
+        "value",
+        "labels",
+        "help",
+        "unit",
+        "timestamp",
+        "metadata",
+        "operation",
+    )
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -38,4 +50,18 @@ class RecordGaugeRequest(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     metadata: _request_metadata_pb2.RequestMetadata
     operation: _gauge_operation_pb2.GaugeOperation
-    def __init__(self, name: _Optional[str] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ..., help: _Optional[str] = ..., unit: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., operation: _Optional[_Union[_gauge_operation_pb2.GaugeOperation, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        value: _Optional[float] = ...,
+        labels: _Optional[_Mapping[str, str]] = ...,
+        help: _Optional[str] = ...,
+        unit: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        operation: _Optional[_Union[_gauge_operation_pb2.GaugeOperation, str]] = ...,
+    ) -> None: ...

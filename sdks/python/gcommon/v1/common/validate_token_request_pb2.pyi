@@ -18,4 +18,12 @@ class ValidateTokenRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     include_user_info: bool
     include_permissions: bool
-    def __init__(self, access_token: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., include_user_info: _Optional[bool] = ..., include_permissions: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        access_token: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        include_user_info: _Optional[bool] = ...,
+        include_permissions: _Optional[bool] = ...,
+    ) -> None: ...

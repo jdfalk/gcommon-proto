@@ -17,6 +17,7 @@ class SampleRate(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SAMPLE_RATE_THOUSANDTH: _ClassVar[SampleRate]
     SAMPLE_RATE_ADAPTIVE: _ClassVar[SampleRate]
     SAMPLE_RATE_CUSTOM: _ClassVar[SampleRate]
+
 SAMPLE_RATE_UNSPECIFIED: SampleRate
 SAMPLE_RATE_FULL: SampleRate
 SAMPLE_RATE_HALF: SampleRate

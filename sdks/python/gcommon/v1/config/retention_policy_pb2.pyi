@@ -9,14 +9,24 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigRetentionPolicy(_message.Message):
-    __slots__ = ("enabled", "config_retention_days", "audit_retention_days", "backup_retention_days", "metrics_retention_days", "custom_retention")
+    __slots__ = (
+        "enabled",
+        "config_retention_days",
+        "audit_retention_days",
+        "backup_retention_days",
+        "metrics_retention_days",
+        "custom_retention",
+    )
     class CustomRetentionEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: int
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[int] = ...
+        ) -> None: ...
+
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     CONFIG_RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
     AUDIT_RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +39,12 @@ class ConfigRetentionPolicy(_message.Message):
     backup_retention_days: int
     metrics_retention_days: int
     custom_retention: _containers.ScalarMap[str, int]
-    def __init__(self, enabled: _Optional[bool] = ..., config_retention_days: _Optional[int] = ..., audit_retention_days: _Optional[int] = ..., backup_retention_days: _Optional[int] = ..., metrics_retention_days: _Optional[int] = ..., custom_retention: _Optional[_Mapping[str, int]] = ...) -> None: ...
+    def __init__(
+        self,
+        enabled: _Optional[bool] = ...,
+        config_retention_days: _Optional[int] = ...,
+        audit_retention_days: _Optional[int] = ...,
+        backup_retention_days: _Optional[int] = ...,
+        metrics_retention_days: _Optional[int] = ...,
+        custom_retention: _Optional[_Mapping[str, int]] = ...,
+    ) -> None: ...

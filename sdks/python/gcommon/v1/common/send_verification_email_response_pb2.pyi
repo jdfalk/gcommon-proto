@@ -14,4 +14,9 @@ class SendVerificationEmailResponse(_message.Message):
     sent: bool
     error_message: str
     expires_at: int
-    def __init__(self, sent: _Optional[bool] = ..., error_message: _Optional[str] = ..., expires_at: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        sent: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        expires_at: _Optional[int] = ...,
+    ) -> None: ...

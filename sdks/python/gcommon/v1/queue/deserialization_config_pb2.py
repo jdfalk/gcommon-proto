@@ -4,43 +4,67 @@
 # source: gcommon/v1/queue/deserialization_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/deserialization_config.proto'
+    "",
+    "gcommon/v1/queue/deserialization_config.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import serialization_format_pb2 as gcommon_dot_v1_dot_common_dot_serialization__format__pb2
+from gcommon.v1.common import (
+    serialization_format_pb2 as gcommon_dot_v1_dot_common_dot_serialization__format__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/common/serialization_format.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x8d\x03\n\x15\x44\x65serializationConfig\x12]\n\x11supported_formats\x18\x01 \x03(\x0e\x32&.gcommon.v1.common.SerializationFormatB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x10supportedFormats\x12M\n\x0e\x64\x65\x66\x61ult_format\x18\x02 \x01(\x0e\x32&.gcommon.v1.common.SerializationFormatR\rdefaultFormat\x12\'\n\x0fvalidate_schema\x18\x03 \x01(\x08R\x0evalidateSchema\x12\x30\n\x14\x61llow_unknown_fields\x18\x04 \x01(\x08R\x12\x61llowUnknownFields\x12\x38\n\x13\x63ustom_deserializer\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x12\x63ustomDeserializer\x12\x31\n\x10max_message_size\x18\x06 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\x0emaxMessageSizeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n-gcommon/v1/queue/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a,gcommon/v1/common/serialization_format.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x8d\x03\n\x15\x44\x65serializationConfig\x12]\n\x11supported_formats\x18\x01 \x03(\x0e\x32&.gcommon.v1.common.SerializationFormatB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x10supportedFormats\x12M\n\x0e\x64\x65\x66\x61ult_format\x18\x02 \x01(\x0e\x32&.gcommon.v1.common.SerializationFormatR\rdefaultFormat\x12'\n\x0fvalidate_schema\x18\x03 \x01(\x08R\x0evalidateSchema\x12\x30\n\x14\x61llow_unknown_fields\x18\x04 \x01(\x08R\x12\x61llowUnknownFields\x12\x38\n\x13\x63ustom_deserializer\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x12\x63ustomDeserializer\x12\x31\n\x10max_message_size\x18\x06 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\x0emaxMessageSizeB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.deserialization_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.deserialization_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['supported_formats']._loaded_options = None
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['supported_formats']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['custom_deserializer']._loaded_options = None
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['custom_deserializer']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['max_message_size']._loaded_options = None
-  _globals['_DESERIALIZATIONCONFIG'].fields_by_name['max_message_size']._serialized_options = b'\272H\0042\002(\000'
-  _globals['_DESERIALIZATIONCONFIG']._serialized_start=178
-  _globals['_DESERIALIZATIONCONFIG']._serialized_end=575
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "supported_formats"
+    ]._loaded_options = None
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "supported_formats"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "custom_deserializer"
+    ]._loaded_options = None
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "custom_deserializer"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "max_message_size"
+    ]._loaded_options = None
+    _globals["_DESERIALIZATIONCONFIG"].fields_by_name[
+        "max_message_size"
+    ]._serialized_options = b"\272H\0042\002(\000"
+    _globals["_DESERIALIZATIONCONFIG"]._serialized_start = 178
+    _globals["_DESERIALIZATIONCONFIG"]._serialized_end = 575
 # @@protoc_insertion_point(module_scope)

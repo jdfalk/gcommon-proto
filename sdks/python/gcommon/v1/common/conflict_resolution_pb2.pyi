@@ -11,6 +11,7 @@ class ConflictResolution(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMMON_CONFLICT_RESOLUTION_MERGE: _ClassVar[ConflictResolution]
     COMMON_CONFLICT_RESOLUTION_OVERWRITE: _ClassVar[ConflictResolution]
     COMMON_CONFLICT_RESOLUTION_FAIL: _ClassVar[ConflictResolution]
+
 COMMON_CONFLICT_RESOLUTION_UNSPECIFIED: ConflictResolution
 COMMON_CONFLICT_RESOLUTION_MERGE: ConflictResolution
 COMMON_CONFLICT_RESOLUTION_OVERWRITE: ConflictResolution

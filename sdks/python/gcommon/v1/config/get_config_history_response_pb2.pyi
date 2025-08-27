@@ -12,5 +12,12 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class GetConfigHistoryResponse(_message.Message):
     __slots__ = ("changes",)
     CHANGES_FIELD_NUMBER: _ClassVar[int]
-    changes: _containers.RepeatedCompositeFieldContainer[_metrics_config_change_pb2.MetricsConfigChange]
-    def __init__(self, changes: _Optional[_Iterable[_Union[_metrics_config_change_pb2.MetricsConfigChange, _Mapping]]] = ...) -> None: ...
+    changes: _containers.RepeatedCompositeFieldContainer[
+        _metrics_config_change_pb2.MetricsConfigChange
+    ]
+    def __init__(
+        self,
+        changes: _Optional[
+            _Iterable[_Union[_metrics_config_change_pb2.MetricsConfigChange, _Mapping]]
+        ] = ...,
+    ) -> None: ...

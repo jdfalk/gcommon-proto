@@ -17,4 +17,9 @@ class GetApiKeyResponse(_message.Message):
     api_key: _api_key_pb2.APIKey
     stats: _api_key_stats_pb2.ApiKeyStats
     error_message: str
-    def __init__(self, api_key: _Optional[_Union[_api_key_pb2.APIKey, _Mapping]] = ..., stats: _Optional[_Union[_api_key_stats_pb2.ApiKeyStats, _Mapping]] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        api_key: _Optional[_Union[_api_key_pb2.APIKey, _Mapping]] = ...,
+        stats: _Optional[_Union[_api_key_stats_pb2.ApiKeyStats, _Mapping]] = ...,
+        error_message: _Optional[str] = ...,
+    ) -> None: ...

@@ -14,4 +14,9 @@ class BucketInfo(_message.Message):
     upper_bound: float
     count: int
     bucket_index: int
-    def __init__(self, upper_bound: _Optional[float] = ..., count: _Optional[int] = ..., bucket_index: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        upper_bound: _Optional[float] = ...,
+        count: _Optional[int] = ...,
+        bucket_index: _Optional[int] = ...,
+    ) -> None: ...

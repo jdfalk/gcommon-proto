@@ -19,4 +19,11 @@ class GetServiceHealthResponse(_message.Message):
     status: _health_status_pb2.CommonHealthStatus
     last_check: _timestamp_pb2.Timestamp
     error: _error_pb2.Error
-    def __init__(self, status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., last_check: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
+        last_check: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+    ) -> None: ...

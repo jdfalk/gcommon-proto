@@ -18,6 +18,7 @@ class TimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_UNIT_WEEKS: _ClassVar[TimeUnit]
     TIME_UNIT_MONTHS: _ClassVar[TimeUnit]
     TIME_UNIT_YEARS: _ClassVar[TimeUnit]
+
 TIME_UNIT_UNSPECIFIED: TimeUnit
 TIME_UNIT_NANOSECONDS: TimeUnit
 TIME_UNIT_MICROSECONDS: TimeUnit

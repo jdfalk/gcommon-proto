@@ -14,6 +14,7 @@ class ProcessingStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PROCESSING_STATUS_FAILED: _ClassVar[ProcessingStatus]
     PROCESSING_STATUS_CANCELLED: _ClassVar[ProcessingStatus]
     PROCESSING_STATUS_PAUSED: _ClassVar[ProcessingStatus]
+
 PROCESSING_STATUS_UNSPECIFIED: ProcessingStatus
 PROCESSING_STATUS_PENDING: ProcessingStatus
 PROCESSING_STATUS_PROCESSING: ProcessingStatus

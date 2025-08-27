@@ -12,6 +12,7 @@ class UpdateStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     UPDATE_STRATEGY_BLUE_GREEN: _ClassVar[UpdateStrategy]
     UPDATE_STRATEGY_IMMEDIATE: _ClassVar[UpdateStrategy]
     UPDATE_STRATEGY_SCHEDULED: _ClassVar[UpdateStrategy]
+
 UPDATE_STRATEGY_UNSPECIFIED: UpdateStrategy
 UPDATE_STRATEGY_ROLLING: UpdateStrategy
 UPDATE_STRATEGY_BLUE_GREEN: UpdateStrategy

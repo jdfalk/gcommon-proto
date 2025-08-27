@@ -11,6 +11,7 @@ class WebSessionState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     WEB_SESSION_STATE_ACTIVE: _ClassVar[WebSessionState]
     WEB_SESSION_STATE_EXPIRED: _ClassVar[WebSessionState]
     WEB_SESSION_STATE_REVOKED: _ClassVar[WebSessionState]
+
 WEB_SESSION_STATE_UNSPECIFIED: WebSessionState
 WEB_SESSION_STATE_ACTIVE: WebSessionState
 WEB_SESSION_STATE_EXPIRED: WebSessionState

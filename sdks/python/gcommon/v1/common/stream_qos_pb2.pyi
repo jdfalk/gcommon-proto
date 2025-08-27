@@ -11,6 +11,7 @@ class StreamQOS(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STREAM_QOS_BEST_EFFORT: _ClassVar[StreamQOS]
     STREAM_QOS_AT_LEAST_ONCE: _ClassVar[StreamQOS]
     STREAM_QOS_EXACTLY_ONCE: _ClassVar[StreamQOS]
+
 STREAM_QOS_UNSPECIFIED: StreamQOS
 STREAM_QOS_BEST_EFFORT: StreamQOS
 STREAM_QOS_AT_LEAST_ONCE: StreamQOS

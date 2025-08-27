@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigStats(_message.Message):
-    __slots__ = ("total_configs", "active_configs", "deprecated_configs", "avg_access_frequency")
+    __slots__ = (
+        "total_configs",
+        "active_configs",
+        "deprecated_configs",
+        "avg_access_frequency",
+    )
     TOTAL_CONFIGS_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_CONFIGS_FIELD_NUMBER: _ClassVar[int]
     DEPRECATED_CONFIGS_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class ConfigStats(_message.Message):
     active_configs: int
     deprecated_configs: int
     avg_access_frequency: float
-    def __init__(self, total_configs: _Optional[int] = ..., active_configs: _Optional[int] = ..., deprecated_configs: _Optional[int] = ..., avg_access_frequency: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        total_configs: _Optional[int] = ...,
+        active_configs: _Optional[int] = ...,
+        deprecated_configs: _Optional[int] = ...,
+        avg_access_frequency: _Optional[float] = ...,
+    ) -> None: ...

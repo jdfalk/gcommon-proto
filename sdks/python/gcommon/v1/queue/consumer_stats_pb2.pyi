@@ -7,7 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConsumerStats(_message.Message):
-    __slots__ = ("consumer_id", "messages_processed", "processing_rate", "error_count", "last_active")
+    __slots__ = (
+        "consumer_id",
+        "messages_processed",
+        "processing_rate",
+        "error_count",
+        "last_active",
+    )
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_PROCESSED_FIELD_NUMBER: _ClassVar[int]
     PROCESSING_RATE_FIELD_NUMBER: _ClassVar[int]
@@ -18,4 +24,11 @@ class ConsumerStats(_message.Message):
     processing_rate: float
     error_count: int
     last_active: int
-    def __init__(self, consumer_id: _Optional[str] = ..., messages_processed: _Optional[int] = ..., processing_rate: _Optional[float] = ..., error_count: _Optional[int] = ..., last_active: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        consumer_id: _Optional[str] = ...,
+        messages_processed: _Optional[int] = ...,
+        processing_rate: _Optional[float] = ...,
+        error_count: _Optional[int] = ...,
+        last_active: _Optional[int] = ...,
+    ) -> None: ...

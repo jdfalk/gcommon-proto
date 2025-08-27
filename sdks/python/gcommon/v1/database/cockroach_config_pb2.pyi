@@ -7,7 +7,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CockroachConfig(_message.Message):
-    __slots__ = ("host", "port", "user", "password", "database", "ssl_mode", "application_name", "retry_backoff_factor", "max_retries")
+    __slots__ = (
+        "host",
+        "port",
+        "user",
+        "password",
+        "database",
+        "ssl_mode",
+        "application_name",
+        "retry_backoff_factor",
+        "max_retries",
+    )
     HOST_FIELD_NUMBER: _ClassVar[int]
     PORT_FIELD_NUMBER: _ClassVar[int]
     USER_FIELD_NUMBER: _ClassVar[int]
@@ -26,4 +36,15 @@ class CockroachConfig(_message.Message):
     application_name: str
     retry_backoff_factor: float
     max_retries: int
-    def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., user: _Optional[str] = ..., password: _Optional[str] = ..., database: _Optional[str] = ..., ssl_mode: _Optional[str] = ..., application_name: _Optional[str] = ..., retry_backoff_factor: _Optional[float] = ..., max_retries: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        host: _Optional[str] = ...,
+        port: _Optional[int] = ...,
+        user: _Optional[str] = ...,
+        password: _Optional[str] = ...,
+        database: _Optional[str] = ...,
+        ssl_mode: _Optional[str] = ...,
+        application_name: _Optional[str] = ...,
+        retry_backoff_factor: _Optional[float] = ...,
+        max_retries: _Optional[int] = ...,
+    ) -> None: ...

@@ -18,4 +18,10 @@ class MetricsValidationResult(_message.Message):
     errors: _containers.RepeatedScalarFieldContainer[str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
     suggestions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, valid: _Optional[bool] = ..., errors: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ..., suggestions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        valid: _Optional[bool] = ...,
+        errors: _Optional[_Iterable[str]] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        suggestions: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

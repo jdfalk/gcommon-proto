@@ -16,4 +16,9 @@ class CacheDeleteResponse(_message.Message):
     success: bool
     error: _error_pb2.Error
     deleted_count: int
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., deleted_count: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        deleted_count: _Optional[int] = ...,
+    ) -> None: ...

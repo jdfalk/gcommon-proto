@@ -18,7 +18,18 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsGetMetricsResponse(_message.Message):
-    __slots__ = ("success", "error", "metrics", "metadata", "pagination", "stats", "generated_at", "time_range", "warnings", "provider_id")
+    __slots__ = (
+        "success",
+        "error",
+        "metrics",
+        "metadata",
+        "pagination",
+        "stats",
+        "generated_at",
+        "time_range",
+        "warnings",
+        "provider_id",
+    )
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     METRICS_FIELD_NUMBER: _ClassVar[int]
@@ -32,11 +43,35 @@ class MetricsGetMetricsResponse(_message.Message):
     success: bool
     error: _error_pb2.Error
     metrics: _containers.RepeatedCompositeFieldContainer[_metric_data_pb2.MetricData]
-    metadata: _containers.RepeatedCompositeFieldContainer[_metric_metadata_pb2.MetricMetadata]
+    metadata: _containers.RepeatedCompositeFieldContainer[
+        _metric_metadata_pb2.MetricMetadata
+    ]
     pagination: _pagination_info_pb2.MetricsPaginationInfo
     stats: _query_stats_pb2.MetricsQueryStats
     generated_at: _timestamp_pb2.Timestamp
     time_range: _time_range_metrics_pb2.TimeRangeMetrics
     warnings: _containers.RepeatedScalarFieldContainer[str]
     provider_id: str
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metrics: _Optional[_Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]] = ..., metadata: _Optional[_Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]] = ..., stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., provider_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
+        metrics: _Optional[
+            _Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]
+        ] = ...,
+        metadata: _Optional[
+            _Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]
+        ] = ...,
+        pagination: _Optional[
+            _Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]
+        ] = ...,
+        stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ...,
+        generated_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        time_range: _Optional[
+            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
+        ] = ...,
+        warnings: _Optional[_Iterable[str]] = ...,
+        provider_id: _Optional[str] = ...,
+    ) -> None: ...

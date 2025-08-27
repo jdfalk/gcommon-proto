@@ -14,4 +14,9 @@ class DeleteRoleResponse(_message.Message):
     success: bool
     error_message: str
     affected_subjects: int
-    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., affected_subjects: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        success: _Optional[bool] = ...,
+        error_message: _Optional[str] = ...,
+        affected_subjects: _Optional[int] = ...,
+    ) -> None: ...

@@ -10,6 +10,7 @@ class DatabaseStatusCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATABASE_STATUS_CODE_UNSPECIFIED: _ClassVar[DatabaseStatusCode]
     DATABASE_STATUS_CODE_OK: _ClassVar[DatabaseStatusCode]
     DATABASE_STATUS_CODE_ERROR: _ClassVar[DatabaseStatusCode]
+
 DATABASE_STATUS_CODE_UNSPECIFIED: DatabaseStatusCode
 DATABASE_STATUS_CODE_OK: DatabaseStatusCode
 DATABASE_STATUS_CODE_ERROR: DatabaseStatusCode

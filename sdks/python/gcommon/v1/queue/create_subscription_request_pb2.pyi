@@ -9,7 +9,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateSubscriptionRequest(_message.Message):
-    __slots__ = ("subscription_name", "topic", "consumer_group_id", "config", "start_position", "start_offset", "timeout_ms")
+    __slots__ = (
+        "subscription_name",
+        "topic",
+        "consumer_group_id",
+        "config",
+        "start_position",
+        "start_offset",
+        "timeout_ms",
+    )
     SUBSCRIPTION_NAME_FIELD_NUMBER: _ClassVar[int]
     TOPIC_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +32,15 @@ class CreateSubscriptionRequest(_message.Message):
     start_position: str
     start_offset: int
     timeout_ms: int
-    def __init__(self, subscription_name: _Optional[str] = ..., topic: _Optional[str] = ..., consumer_group_id: _Optional[str] = ..., config: _Optional[_Union[_subscription_config_pb2.SubscriptionConfig, _Mapping]] = ..., start_position: _Optional[str] = ..., start_offset: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        subscription_name: _Optional[str] = ...,
+        topic: _Optional[str] = ...,
+        consumer_group_id: _Optional[str] = ...,
+        config: _Optional[
+            _Union[_subscription_config_pb2.SubscriptionConfig, _Mapping]
+        ] = ...,
+        start_position: _Optional[str] = ...,
+        start_offset: _Optional[int] = ...,
+        timeout_ms: _Optional[int] = ...,
+    ) -> None: ...

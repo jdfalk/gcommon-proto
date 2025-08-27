@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/resource_usage.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/resource_usage.proto'
+    "",
+    "gcommon/v1/metrics/resource_usage.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,22 +28,42 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/metrics/resource_usage.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x87\x02\n\rResourceUsage\x12\x33\n\x11memory_used_bytes\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0fmemoryUsedBytes\x12\x41\n\x10\x63pu_used_percent\x18\x02 \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x0e\x63puUsedPercent\x12/\n\x0f\x64isk_used_bytes\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\rdiskUsedBytes\x12M\n\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x1bnetworkBandwidthBytesPerSecB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n\'gcommon/v1/metrics/resource_usage.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x87\x02\n\rResourceUsage\x12\x33\n\x11memory_used_bytes\x18\x01 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0fmemoryUsedBytes\x12\x41\n\x10\x63pu_used_percent\x18\x02 \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\x0e\x63puUsedPercent\x12/\n\x0f\x64isk_used_bytes\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\rdiskUsedBytes\x12M\n\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x1bnetworkBandwidthBytesPerSecB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.resource_usage_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.resource_usage_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_RESOURCEUSAGE'].fields_by_name['memory_used_bytes']._loaded_options = None
-  _globals['_RESOURCEUSAGE'].fields_by_name['memory_used_bytes']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_RESOURCEUSAGE'].fields_by_name['cpu_used_percent']._loaded_options = None
-  _globals['_RESOURCEUSAGE'].fields_by_name['cpu_used_percent']._serialized_options = b'\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000'
-  _globals['_RESOURCEUSAGE'].fields_by_name['disk_used_bytes']._loaded_options = None
-  _globals['_RESOURCEUSAGE'].fields_by_name['disk_used_bytes']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_RESOURCEUSAGE'].fields_by_name['network_bandwidth_bytes_per_sec']._loaded_options = None
-  _globals['_RESOURCEUSAGE'].fields_by_name['network_bandwidth_bytes_per_sec']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_RESOURCEUSAGE']._serialized_start=128
-  _globals['_RESOURCEUSAGE']._serialized_end=391
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "memory_used_bytes"
+    ]._loaded_options = None
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "memory_used_bytes"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_RESOURCEUSAGE"].fields_by_name["cpu_used_percent"]._loaded_options = None
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "cpu_used_percent"
+    ]._serialized_options = b"\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000"
+    _globals["_RESOURCEUSAGE"].fields_by_name["disk_used_bytes"]._loaded_options = None
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "disk_used_bytes"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "network_bandwidth_bytes_per_sec"
+    ]._loaded_options = None
+    _globals["_RESOURCEUSAGE"].fields_by_name[
+        "network_bandwidth_bytes_per_sec"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_RESOURCEUSAGE"]._serialized_start = 128
+    _globals["_RESOURCEUSAGE"]._serialized_end = 391
 # @@protoc_insertion_point(module_scope)

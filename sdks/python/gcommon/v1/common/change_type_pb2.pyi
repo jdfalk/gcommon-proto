@@ -12,6 +12,7 @@ class MetricsChangeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHANGE_TYPE_UPDATED: _ClassVar[MetricsChangeType]
     CHANGE_TYPE_REMOVED: _ClassVar[MetricsChangeType]
     CHANGE_TYPE_REPLACED: _ClassVar[MetricsChangeType]
+
 CHANGE_TYPE_UNSPECIFIED: MetricsChangeType
 CHANGE_TYPE_ADDED: MetricsChangeType
 CHANGE_TYPE_UPDATED: MetricsChangeType

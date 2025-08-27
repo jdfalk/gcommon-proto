@@ -11,14 +11,24 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateQueueRequest(_message.Message):
-    __slots__ = ("queue_name", "config", "if_not_exists", "metadata", "tags", "description")
+    __slots__ = (
+        "queue_name",
+        "config",
+        "if_not_exists",
+        "metadata",
+        "tags",
+        "description",
+    )
     class TagsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     IF_NOT_EXISTS_FIELD_NUMBER: _ClassVar[int]
@@ -31,4 +41,14 @@ class CreateQueueRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     tags: _containers.ScalarMap[str, str]
     description: str
-    def __init__(self, queue_name: _Optional[str] = ..., config: _Optional[_Union[_queue_config_pb2.QueueConfig, _Mapping]] = ..., if_not_exists: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tags: _Optional[_Mapping[str, str]] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        config: _Optional[_Union[_queue_config_pb2.QueueConfig, _Mapping]] = ...,
+        if_not_exists: _Optional[bool] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        tags: _Optional[_Mapping[str, str]] = ...,
+        description: _Optional[str] = ...,
+    ) -> None: ...

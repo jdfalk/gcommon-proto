@@ -19,4 +19,10 @@ class ClusterHealth(_message.Message):
     healthy_nodes: int
     total_nodes: int
     issues: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., healthy_nodes: _Optional[int] = ..., total_nodes: _Optional[int] = ..., issues: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
+        healthy_nodes: _Optional[int] = ...,
+        total_nodes: _Optional[int] = ...,
+        issues: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

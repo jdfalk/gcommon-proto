@@ -19,7 +19,10 @@ class DebugInfo(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     SERVICE_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -30,4 +33,13 @@ class DebugInfo(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     details: _containers.ScalarMap[str, str]
     tags: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, service: _Optional[str] = ..., method: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., details: _Optional[_Mapping[str, str]] = ..., tags: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(
+        self,
+        service: _Optional[str] = ...,
+        method: _Optional[str] = ...,
+        timestamp: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        details: _Optional[_Mapping[str, str]] = ...,
+        tags: _Optional[_Iterable[str]] = ...,
+    ) -> None: ...

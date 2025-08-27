@@ -17,4 +17,11 @@ class CachePublishRequest(_message.Message):
     topic: str
     payload: _any_pb2.Any
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, topic: _Optional[str] = ..., payload: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        topic: _Optional[str] = ...,
+        payload: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

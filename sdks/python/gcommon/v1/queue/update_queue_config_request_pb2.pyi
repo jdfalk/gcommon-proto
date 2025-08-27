@@ -24,4 +24,14 @@ class UpdateQueueConfigRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     force: bool
     reason: str
-    def __init__(self, queue_name: _Optional[str] = ..., config: _Optional[_Union[_queue_config_pb2.QueueConfig, _Mapping]] = ..., update_mask: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., force: _Optional[bool] = ..., reason: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        queue_name: _Optional[str] = ...,
+        config: _Optional[_Union[_queue_config_pb2.QueueConfig, _Mapping]] = ...,
+        update_mask: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        force: _Optional[bool] = ...,
+        reason: _Optional[str] = ...,
+    ) -> None: ...

@@ -4,54 +4,90 @@
 # source: gcommon/v1/queue/commit_offset_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/commit_offset_response.proto'
+    "",
+    "gcommon/v1/queue/commit_offset_response.proto",
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.queue import partition_commit_result_pb2 as gcommon_dot_v1_dot_queue_dot_partition__commit__result__pb2
+from gcommon.v1.queue import (
+    partition_commit_result_pb2 as gcommon_dot_v1_dot_queue_dot_partition__commit__result__pb2,
+)
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/queue/commit_offset_response.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/queue/partition_commit_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd4\x04\n\x14\x43ommitOffsetResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\rerror_message\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65rrorMessage\x12&\n\nerror_code\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\terrorCode\x12^\n\x11partition_results\x18\x04 \x03(\x0b\x32\'.gcommon.v1.queue.PartitionCommitResultB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x10partitionResults\x12\x30\n\x0f\x63ommitted_count\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0e\x63ommittedCount\x12*\n\x0c\x66\x61iled_count\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0b\x66\x61iledCount\x12\x45\n\x10\x63ommit_timestamp\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x63ommitTimestamp\x12\x38\n\x13\x63onsumer_generation\x18\x08 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x12\x63onsumerGeneration\x12P\n\x08metadata\x18\t \x03(\x0b\x32\x34.gcommon.v1.queue.CommitOffsetResponse.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n-gcommon/v1/queue/commit_offset_response.proto\x12\x10gcommon.v1.queue\x1a.gcommon/v1/queue/partition_commit_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xd4\x04\n\x14\x43ommitOffsetResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\rerror_message\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x65rrorMessage\x12&\n\nerror_code\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\terrorCode\x12^\n\x11partition_results\x18\x04 \x03(\x0b\x32\'.gcommon.v1.queue.PartitionCommitResultB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x10partitionResults\x12\x30\n\x0f\x63ommitted_count\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0e\x63ommittedCount\x12*\n\x0c\x66\x61iled_count\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0b\x66\x61iledCount\x12\x45\n\x10\x63ommit_timestamp\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x63ommitTimestamp\x12\x38\n\x13\x63onsumer_generation\x18\x08 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x12\x63onsumerGeneration\x12P\n\x08metadata\x18\t \x03(\x0b\x32\x34.gcommon.v1.queue.CommitOffsetResponse.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.commit_offset_response_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.commit_offset_response_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_COMMITOFFSETRESPONSE_METADATAENTRY']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['error_message']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['error_message']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['error_code']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['error_code']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['partition_results']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['partition_results']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['committed_count']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['committed_count']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['failed_count']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['failed_count']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['consumer_generation']._loaded_options = None
-  _globals['_COMMITOFFSETRESPONSE'].fields_by_name['consumer_generation']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_COMMITOFFSETRESPONSE']._serialized_start=213
-  _globals['_COMMITOFFSETRESPONSE']._serialized_end=809
-  _globals['_COMMITOFFSETRESPONSE_METADATAENTRY']._serialized_start=750
-  _globals['_COMMITOFFSETRESPONSE_METADATAENTRY']._serialized_end=809
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_COMMITOFFSETRESPONSE_METADATAENTRY"]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE_METADATAENTRY"]._serialized_options = b"8\001"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "error_message"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "error_message"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "error_code"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "error_code"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "partition_results"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "partition_results"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "committed_count"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "committed_count"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "failed_count"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "failed_count"
+    ]._serialized_options = b"\272H\004\032\002(\000"
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "consumer_generation"
+    ]._loaded_options = None
+    _globals["_COMMITOFFSETRESPONSE"].fields_by_name[
+        "consumer_generation"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_COMMITOFFSETRESPONSE"]._serialized_start = 213
+    _globals["_COMMITOFFSETRESPONSE"]._serialized_end = 809
+    _globals["_COMMITOFFSETRESPONSE_METADATAENTRY"]._serialized_start = 750
+    _globals["_COMMITOFFSETRESPONSE_METADATAENTRY"]._serialized_end = 809
 # @@protoc_insertion_point(module_scope)

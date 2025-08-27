@@ -14,4 +14,12 @@ class PullResponse(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     message: _received_message_pb2.ReceivedMessage
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(self, message: _Optional[_Union[_received_message_pb2.ReceivedMessage, _Mapping]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        message: _Optional[
+            _Union[_received_message_pb2.ReceivedMessage, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

@@ -12,6 +12,7 @@ class UpdateAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     UPDATE_ACTION_NO_CHANGE: _ClassVar[UpdateAction]
     UPDATE_ACTION_RESTARTED: _ClassVar[UpdateAction]
     UPDATE_ACTION_RECREATED: _ClassVar[UpdateAction]
+
 UPDATE_ACTION_UNSPECIFIED: UpdateAction
 UPDATE_ACTION_UPDATED: UpdateAction
 UPDATE_ACTION_NO_CHANGE: UpdateAction

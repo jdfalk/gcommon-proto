@@ -18,4 +18,13 @@ class ValidateConfigRequest(_message.Message):
     entries: _containers.RepeatedCompositeFieldContainer[_config_entry_pb2.ConfigEntry]
     schema_name: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, entries: _Optional[_Iterable[_Union[_config_entry_pb2.ConfigEntry, _Mapping]]] = ..., schema_name: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        entries: _Optional[
+            _Iterable[_Union[_config_entry_pb2.ConfigEntry, _Mapping]]
+        ] = ...,
+        schema_name: _Optional[str] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

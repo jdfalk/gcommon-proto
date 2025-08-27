@@ -17,4 +17,13 @@ class RegisterMiddlewareRequest(_message.Message):
     server_id: str
     middleware: _middleware_config_pb2.MiddlewareConfig
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, server_id: _Optional[str] = ..., middleware: _Optional[_Union[_middleware_config_pb2.MiddlewareConfig, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        server_id: _Optional[str] = ...,
+        middleware: _Optional[
+            _Union[_middleware_config_pb2.MiddlewareConfig, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

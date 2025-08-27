@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValidateSubtitlesRequest(_message.Message):
-    __slots__ = ("subtitle_file_id", "check_timing", "check_formatting", "expected_format")
+    __slots__ = (
+        "subtitle_file_id",
+        "check_timing",
+        "check_formatting",
+        "expected_format",
+    )
     SUBTITLE_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     CHECK_TIMING_FIELD_NUMBER: _ClassVar[int]
     CHECK_FORMATTING_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class ValidateSubtitlesRequest(_message.Message):
     check_timing: bool
     check_formatting: bool
     expected_format: str
-    def __init__(self, subtitle_file_id: _Optional[str] = ..., check_timing: _Optional[bool] = ..., check_formatting: _Optional[bool] = ..., expected_format: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        subtitle_file_id: _Optional[str] = ...,
+        check_timing: _Optional[bool] = ...,
+        check_formatting: _Optional[bool] = ...,
+        expected_format: _Optional[str] = ...,
+    ) -> None: ...

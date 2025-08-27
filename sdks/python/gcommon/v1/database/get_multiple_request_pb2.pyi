@@ -15,4 +15,10 @@ class GetMultipleRequest(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     keys: _containers.RepeatedScalarFieldContainer[str]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, keys: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        keys: _Optional[_Iterable[str]] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

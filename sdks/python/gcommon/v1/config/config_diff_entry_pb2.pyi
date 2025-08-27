@@ -20,4 +20,11 @@ class ConfigDiffEntry(_message.Message):
     new_value: _any_pb2.Any
     change_type: str
     namespace: str
-    def __init__(self, key: _Optional[str] = ..., old_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., new_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., change_type: _Optional[str] = ..., namespace: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        old_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        new_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
+        change_type: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+    ) -> None: ...

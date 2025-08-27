@@ -14,6 +14,7 @@ class OrganizationStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ORGANIZATION_STATUS_PENDING: _ClassVar[OrganizationStatus]
     ORGANIZATION_STATUS_ARCHIVED: _ClassVar[OrganizationStatus]
     ORGANIZATION_STATUS_DELETED: _ClassVar[OrganizationStatus]
+
 ORGANIZATION_STATUS_UNSPECIFIED: OrganizationStatus
 ORGANIZATION_STATUS_ACTIVE: OrganizationStatus
 ORGANIZATION_STATUS_INACTIVE: OrganizationStatus

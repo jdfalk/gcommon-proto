@@ -13,6 +13,7 @@ class DependencyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DEPENDENCY_TYPE_CONDITIONAL: _ClassVar[DependencyType]
     DEPENDENCY_TYPE_DERIVED: _ClassVar[DependencyType]
     DEPENDENCY_TYPE_CONFLICT: _ClassVar[DependencyType]
+
 DEPENDENCY_TYPE_UNSPECIFIED: DependencyType
 DEPENDENCY_TYPE_REQUIRED: DependencyType
 DEPENDENCY_TYPE_OPTIONAL: DependencyType

@@ -16,4 +16,10 @@ class ResourceUsageTrend(_message.Message):
     cpu_trend: str
     disk_trend: str
     trend_confidence: float
-    def __init__(self, memory_trend: _Optional[str] = ..., cpu_trend: _Optional[str] = ..., disk_trend: _Optional[str] = ..., trend_confidence: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        memory_trend: _Optional[str] = ...,
+        cpu_trend: _Optional[str] = ...,
+        disk_trend: _Optional[str] = ...,
+        trend_confidence: _Optional[float] = ...,
+    ) -> None: ...

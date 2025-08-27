@@ -14,4 +14,10 @@ class StopScrapingRequest(_message.Message):
     JOB_ID_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
     job_id: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., job_id: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        job_id: _Optional[str] = ...,
+    ) -> None: ...

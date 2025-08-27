@@ -21,4 +21,12 @@ class ListTenantsResponse(_message.Message):
     success: bool
     tenants: _containers.RepeatedCompositeFieldContainer[_tenant_pb2.Tenant]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., tenants: _Optional[_Iterable[_Union[_tenant_pb2.Tenant, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        tenants: _Optional[_Iterable[_Union[_tenant_pb2.Tenant, _Mapping]]] = ...,
+        pagination: _Optional[
+            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
+        ] = ...,
+    ) -> None: ...

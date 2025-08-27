@@ -10,14 +10,25 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValidationRule(_message.Message):
-    __slots__ = ("name", "description", "expression", "error_message", "severity", "parameters", "conditions")
+    __slots__ = (
+        "name",
+        "description",
+        "expression",
+        "error_message",
+        "severity",
+        "parameters",
+        "conditions",
+    )
     class ConditionsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
@@ -32,4 +43,15 @@ class ValidationRule(_message.Message):
     severity: _validation_severity_pb2.ValidationSeverity
     parameters: _containers.RepeatedScalarFieldContainer[str]
     conditions: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., expression: _Optional[str] = ..., error_message: _Optional[str] = ..., severity: _Optional[_Union[_validation_severity_pb2.ValidationSeverity, str]] = ..., parameters: _Optional[_Iterable[str]] = ..., conditions: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        name: _Optional[str] = ...,
+        description: _Optional[str] = ...,
+        expression: _Optional[str] = ...,
+        error_message: _Optional[str] = ...,
+        severity: _Optional[
+            _Union[_validation_severity_pb2.ValidationSeverity, str]
+        ] = ...,
+        parameters: _Optional[_Iterable[str]] = ...,
+        conditions: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

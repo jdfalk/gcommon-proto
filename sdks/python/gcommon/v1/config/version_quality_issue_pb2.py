@@ -4,18 +4,20 @@
 # source: gcommon/v1/config/version_quality_issue.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/config/version_quality_issue.proto'
+    "",
+    "gcommon/v1/config/version_quality_issue.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,16 +28,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/version_quality_issue.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xc8\x01\n\x13VersionQualityIssue\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x1a\n\x08severity\x18\x02 \x01(\tR\x08severity\x12*\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x1a\n\x08location\x18\x04 \x01(\tR\x08location\x12\x12\n\x04rule\x18\x05 \x01(\tR\x04rule\x12%\n\x0e\x66ix_suggestion\x18\x06 \x01(\tR\rfixSuggestionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n-gcommon/v1/config/version_quality_issue.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xc8\x01\n\x13VersionQualityIssue\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x1a\n\x08severity\x18\x02 \x01(\tR\x08severity\x12*\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x1a\n\x08location\x18\x04 \x01(\tR\x08location\x12\x12\n\x04rule\x18\x05 \x01(\tR\x04rule\x12%\n\x0e\x66ix_suggestion\x18\x06 \x01(\tR\rfixSuggestionB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.version_quality_issue_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.config.version_quality_issue_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
-  _globals['_VERSIONQUALITYISSUE'].fields_by_name['description']._loaded_options = None
-  _globals['_VERSIONQUALITYISSUE'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
-  _globals['_VERSIONQUALITYISSUE']._serialized_start=133
-  _globals['_VERSIONQUALITYISSUE']._serialized_end=333
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
+    )
+    _globals["_VERSIONQUALITYISSUE"].fields_by_name[
+        "description"
+    ]._loaded_options = None
+    _globals["_VERSIONQUALITYISSUE"].fields_by_name[
+        "description"
+    ]._serialized_options = b"\272H\005r\003\030\350\007"
+    _globals["_VERSIONQUALITYISSUE"]._serialized_start = 133
+    _globals["_VERSIONQUALITYISSUE"]._serialized_end = 333
 # @@protoc_insertion_point(module_scope)

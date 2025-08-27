@@ -14,6 +14,7 @@ class QueueMetricType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_METRIC_TYPE_ERROR_RATE: _ClassVar[QueueMetricType]
     QUEUE_METRIC_TYPE_CONSUMER_COUNT: _ClassVar[QueueMetricType]
     QUEUE_METRIC_TYPE_QUEUE_DEPTH: _ClassVar[QueueMetricType]
+
 QUEUE_METRIC_TYPE_UNSPECIFIED: QueueMetricType
 QUEUE_METRIC_TYPE_MESSAGE_COUNT: QueueMetricType
 QUEUE_METRIC_TYPE_MESSAGE_RATE: QueueMetricType

@@ -9,14 +9,24 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WebHealthCheckConfig(_message.Message):
-    __slots__ = ("path", "interval_seconds", "timeout_seconds", "expected_status", "headers", "enabled")
+    __slots__ = (
+        "path",
+        "interval_seconds",
+        "timeout_seconds",
+        "expected_status",
+        "headers",
+        "enabled",
+    )
     class HeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     PATH_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_SECONDS_FIELD_NUMBER: _ClassVar[int]
     TIMEOUT_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -29,4 +39,12 @@ class WebHealthCheckConfig(_message.Message):
     expected_status: int
     headers: _containers.ScalarMap[str, str]
     enabled: bool
-    def __init__(self, path: _Optional[str] = ..., interval_seconds: _Optional[float] = ..., timeout_seconds: _Optional[float] = ..., expected_status: _Optional[int] = ..., headers: _Optional[_Mapping[str, str]] = ..., enabled: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        path: _Optional[str] = ...,
+        interval_seconds: _Optional[float] = ...,
+        timeout_seconds: _Optional[float] = ...,
+        expected_status: _Optional[int] = ...,
+        headers: _Optional[_Mapping[str, str]] = ...,
+        enabled: _Optional[bool] = ...,
+    ) -> None: ...

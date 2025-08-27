@@ -17,7 +17,10 @@ class RoutingKey(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        def __init__(
+            self, key: _Optional[str] = ..., value: _Optional[str] = ...
+        ) -> None: ...
+
     KEY_FIELD_NUMBER: _ClassVar[int]
     PATTERN_TYPE_FIELD_NUMBER: _ClassVar[int]
     CASE_SENSITIVE_FIELD_NUMBER: _ClassVar[int]
@@ -28,4 +31,11 @@ class RoutingKey(_message.Message):
     case_sensitive: bool
     priority: int
     attributes: _containers.ScalarMap[str, str]
-    def __init__(self, key: _Optional[str] = ..., pattern_type: _Optional[_Union[_routing_pattern_pb2.RoutingPattern, str]] = ..., case_sensitive: _Optional[bool] = ..., priority: _Optional[int] = ..., attributes: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        pattern_type: _Optional[_Union[_routing_pattern_pb2.RoutingPattern, str]] = ...,
+        case_sensitive: _Optional[bool] = ...,
+        priority: _Optional[int] = ...,
+        attributes: _Optional[_Mapping[str, str]] = ...,
+    ) -> None: ...

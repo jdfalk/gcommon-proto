@@ -19,4 +19,12 @@ class DNSConfig(_message.Message):
     zone_id: str
     records: _containers.RepeatedCompositeFieldContainer[_dns_record_pb2.DNSRecord]
     ttl: int
-    def __init__(self, provider: _Optional[str] = ..., zone_id: _Optional[str] = ..., records: _Optional[_Iterable[_Union[_dns_record_pb2.DNSRecord, _Mapping]]] = ..., ttl: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        provider: _Optional[str] = ...,
+        zone_id: _Optional[str] = ...,
+        records: _Optional[
+            _Iterable[_Union[_dns_record_pb2.DNSRecord, _Mapping]]
+        ] = ...,
+        ttl: _Optional[int] = ...,
+    ) -> None: ...

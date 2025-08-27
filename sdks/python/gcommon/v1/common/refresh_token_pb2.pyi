@@ -18,4 +18,11 @@ class RefreshToken(_message.Message):
     value: str
     user_id: str
     expires_at: _timestamp_pb2.Timestamp
-    def __init__(self, value: _Optional[str] = ..., user_id: _Optional[str] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        value: _Optional[str] = ...,
+        user_id: _Optional[str] = ...,
+        expires_at: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+    ) -> None: ...

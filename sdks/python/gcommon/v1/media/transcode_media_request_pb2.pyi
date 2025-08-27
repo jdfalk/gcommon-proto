@@ -18,4 +18,12 @@ class TranscodeMediaRequest(_message.Message):
     output_format: str
     output_codec: str
     options: _transcode_options_pb2.TranscodeOptions
-    def __init__(self, media_file_id: _Optional[str] = ..., output_format: _Optional[str] = ..., output_codec: _Optional[str] = ..., options: _Optional[_Union[_transcode_options_pb2.TranscodeOptions, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        media_file_id: _Optional[str] = ...,
+        output_format: _Optional[str] = ...,
+        output_codec: _Optional[str] = ...,
+        options: _Optional[
+            _Union[_transcode_options_pb2.TranscodeOptions, _Mapping]
+        ] = ...,
+    ) -> None: ...

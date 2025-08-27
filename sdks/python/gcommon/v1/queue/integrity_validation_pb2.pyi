@@ -7,7 +7,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class IntegrityValidation(_message.Message):
-    __slots__ = ("passed", "corrupted_messages", "missing_messages", "duplicate_messages")
+    __slots__ = (
+        "passed",
+        "corrupted_messages",
+        "missing_messages",
+        "duplicate_messages",
+    )
     PASSED_FIELD_NUMBER: _ClassVar[int]
     CORRUPTED_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     MISSING_MESSAGES_FIELD_NUMBER: _ClassVar[int]
@@ -16,4 +21,10 @@ class IntegrityValidation(_message.Message):
     corrupted_messages: int
     missing_messages: int
     duplicate_messages: int
-    def __init__(self, passed: _Optional[bool] = ..., corrupted_messages: _Optional[int] = ..., missing_messages: _Optional[int] = ..., duplicate_messages: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        passed: _Optional[bool] = ...,
+        corrupted_messages: _Optional[int] = ...,
+        missing_messages: _Optional[int] = ...,
+        duplicate_messages: _Optional[int] = ...,
+    ) -> None: ...

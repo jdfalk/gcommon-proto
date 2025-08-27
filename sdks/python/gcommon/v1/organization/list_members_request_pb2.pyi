@@ -9,7 +9,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListMembersRequest(_message.Message):
-    __slots__ = ("metadata", "organization_id", "team_id", "department_id", "page_size", "page_token", "filter")
+    __slots__ = (
+        "metadata",
+        "organization_id",
+        "team_id",
+        "department_id",
+        "page_size",
+        "page_token",
+        "filter",
+    )
     METADATA_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
     TEAM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -24,4 +32,15 @@ class ListMembersRequest(_message.Message):
     page_size: int
     page_token: str
     filter: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., team_id: _Optional[str] = ..., department_id: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., filter: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        organization_id: _Optional[str] = ...,
+        team_id: _Optional[str] = ...,
+        department_id: _Optional[str] = ...,
+        page_size: _Optional[int] = ...,
+        page_token: _Optional[str] = ...,
+        filter: _Optional[str] = ...,
+    ) -> None: ...

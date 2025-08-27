@@ -17,4 +17,9 @@ class ReadLogsResponse(_message.Message):
     entries: _containers.RepeatedCompositeFieldContainer[_log_entry_pb2.LogEntry]
     total_count: int
     error: str
-    def __init__(self, entries: _Optional[_Iterable[_Union[_log_entry_pb2.LogEntry, _Mapping]]] = ..., total_count: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        entries: _Optional[_Iterable[_Union[_log_entry_pb2.LogEntry, _Mapping]]] = ...,
+        total_count: _Optional[int] = ...,
+        error: _Optional[str] = ...,
+    ) -> None: ...

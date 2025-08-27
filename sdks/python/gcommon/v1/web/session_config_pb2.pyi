@@ -12,7 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WebSessionConfig(_message.Message):
-    __slots__ = ("idle_timeout", "absolute_timeout", "cookie_name", "secure_cookies", "http_only", "same_site")
+    __slots__ = (
+        "idle_timeout",
+        "absolute_timeout",
+        "cookie_name",
+        "secure_cookies",
+        "http_only",
+        "same_site",
+    )
     IDLE_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     ABSOLUTE_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     COOKIE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -25,4 +32,16 @@ class WebSessionConfig(_message.Message):
     secure_cookies: bool
     http_only: bool
     same_site: _cookie_same_site_pb2.CookieSameSite
-    def __init__(self, idle_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., absolute_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., cookie_name: _Optional[str] = ..., secure_cookies: _Optional[bool] = ..., http_only: _Optional[bool] = ..., same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        idle_timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        absolute_timeout: _Optional[
+            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
+        ] = ...,
+        cookie_name: _Optional[str] = ...,
+        secure_cookies: _Optional[bool] = ...,
+        http_only: _Optional[bool] = ...,
+        same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ...,
+    ) -> None: ...

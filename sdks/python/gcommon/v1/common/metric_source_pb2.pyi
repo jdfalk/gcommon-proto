@@ -22,6 +22,7 @@ class MetricSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRIC_SOURCE_THIRD_PARTY: _ClassVar[MetricSource]
     METRIC_SOURCE_SYNTHETIC: _ClassVar[MetricSource]
     METRIC_SOURCE_LOG_DERIVED: _ClassVar[MetricSource]
+
 METRIC_SOURCE_UNSPECIFIED: MetricSource
 METRIC_SOURCE_APPLICATION: MetricSource
 METRIC_SOURCE_SYSTEM: MetricSource

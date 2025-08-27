@@ -15,4 +15,9 @@ class Verify2FaRequest(_message.Message):
     user_id: str
     code: str
     type: _two_fa_type_pb2.AuthTwoFaType
-    def __init__(self, user_id: _Optional[str] = ..., code: _Optional[str] = ..., type: _Optional[_Union[_two_fa_type_pb2.AuthTwoFaType, str]] = ...) -> None: ...
+    def __init__(
+        self,
+        user_id: _Optional[str] = ...,
+        code: _Optional[str] = ...,
+        type: _Optional[_Union[_two_fa_type_pb2.AuthTwoFaType, str]] = ...,
+    ) -> None: ...

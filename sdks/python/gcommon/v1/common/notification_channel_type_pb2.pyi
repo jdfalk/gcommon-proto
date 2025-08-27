@@ -13,6 +13,7 @@ class NotificationChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     NOTIFICATION_CHANNEL_TYPE_SMS: _ClassVar[NotificationChannelType]
     NOTIFICATION_CHANNEL_TYPE_WEBHOOK: _ClassVar[NotificationChannelType]
     NOTIFICATION_CHANNEL_TYPE_PAGERDUTY: _ClassVar[NotificationChannelType]
+
 NOTIFICATION_CHANNEL_TYPE_UNSPECIFIED: NotificationChannelType
 NOTIFICATION_CHANNEL_TYPE_EMAIL: NotificationChannelType
 NOTIFICATION_CHANNEL_TYPE_SLACK: NotificationChannelType

@@ -17,4 +17,9 @@ class SummaryValue(_message.Message):
     quantiles: _containers.RepeatedCompositeFieldContainer[_quantile_pb2.Quantile]
     count: int
     sum: float
-    def __init__(self, quantiles: _Optional[_Iterable[_Union[_quantile_pb2.Quantile, _Mapping]]] = ..., count: _Optional[int] = ..., sum: _Optional[float] = ...) -> None: ...
+    def __init__(
+        self,
+        quantiles: _Optional[_Iterable[_Union[_quantile_pb2.Quantile, _Mapping]]] = ...,
+        count: _Optional[int] = ...,
+        sum: _Optional[float] = ...,
+    ) -> None: ...

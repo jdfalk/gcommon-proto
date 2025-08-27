@@ -21,4 +21,14 @@ class GetConfigHistoryRequest(_message.Message):
     namespace: str
     since: _timestamp_pb2.Timestamp
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, key: _Optional[str] = ..., namespace: _Optional[str] = ..., since: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        key: _Optional[str] = ...,
+        namespace: _Optional[str] = ...,
+        since: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

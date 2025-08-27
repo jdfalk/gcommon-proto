@@ -4,18 +4,20 @@
 # source: gcommon/v1/queue/partition_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/queue/partition_config.proto'
+    "",
+    "gcommon/v1/queue/partition_config.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -26,28 +28,58 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/queue/partition_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa4\x03\n\x0fPartitionConfig\x12\x30\n\x0fpartition_count\x18\x01 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0epartitionCount\x12\x36\n\x12partition_strategy\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x11partitionStrategy\x12,\n\rpartition_key\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0cpartitionKey\x12\x43\n\x19\x63ustom_partition_function\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x17\x63ustomPartitionFunction\x12\x1d\n\nauto_scale\x18\x05 \x01(\x08R\tautoScale\x12.\n\x0emin_partitions\x18\x06 \x01(\rB\x07\xbaH\x04*\x02(\x00R\rminPartitions\x12.\n\x0emax_partitions\x18\x07 \x01(\rB\x07\xbaH\x04*\x02(\x00R\rmaxPartitions\x12\x35\n\x12scale_threshold_mb\x18\x08 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\x10scaleThresholdMbB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b"\n'gcommon/v1/queue/partition_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa4\x03\n\x0fPartitionConfig\x12\x30\n\x0fpartition_count\x18\x01 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0epartitionCount\x12\x36\n\x12partition_strategy\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x11partitionStrategy\x12,\n\rpartition_key\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0cpartitionKey\x12\x43\n\x19\x63ustom_partition_function\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x17\x63ustomPartitionFunction\x12\x1d\n\nauto_scale\x18\x05 \x01(\x08R\tautoScale\x12.\n\x0emin_partitions\x18\x06 \x01(\rB\x07\xbaH\x04*\x02(\x00R\rminPartitions\x12.\n\x0emax_partitions\x18\x07 \x01(\rB\x07\xbaH\x04*\x02(\x00R\rmaxPartitions\x12\x35\n\x12scale_threshold_mb\x18\x08 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\x10scaleThresholdMbB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.partition_config_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.queue.partition_config_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_count']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_count']._serialized_options = b'\272H\004*\002(\000'
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_strategy']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_strategy']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_key']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['partition_key']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_PARTITIONCONFIG'].fields_by_name['custom_partition_function']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['custom_partition_function']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_PARTITIONCONFIG'].fields_by_name['min_partitions']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['min_partitions']._serialized_options = b'\272H\004*\002(\000'
-  _globals['_PARTITIONCONFIG'].fields_by_name['max_partitions']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['max_partitions']._serialized_options = b'\272H\004*\002(\000'
-  _globals['_PARTITIONCONFIG'].fields_by_name['scale_threshold_mb']._loaded_options = None
-  _globals['_PARTITIONCONFIG'].fields_by_name['scale_threshold_mb']._serialized_options = b'\272H\0042\002(\000'
-  _globals['_PARTITIONCONFIG']._serialized_start=126
-  _globals['_PARTITIONCONFIG']._serialized_end=546
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
+    )
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "partition_count"
+    ]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "partition_count"
+    ]._serialized_options = b"\272H\004*\002(\000"
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "partition_strategy"
+    ]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "partition_strategy"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_PARTITIONCONFIG"].fields_by_name["partition_key"]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "partition_key"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "custom_partition_function"
+    ]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "custom_partition_function"
+    ]._serialized_options = b"\272H\004r\002\020\001"
+    _globals["_PARTITIONCONFIG"].fields_by_name["min_partitions"]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "min_partitions"
+    ]._serialized_options = b"\272H\004*\002(\000"
+    _globals["_PARTITIONCONFIG"].fields_by_name["max_partitions"]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "max_partitions"
+    ]._serialized_options = b"\272H\004*\002(\000"
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "scale_threshold_mb"
+    ]._loaded_options = None
+    _globals["_PARTITIONCONFIG"].fields_by_name[
+        "scale_threshold_mb"
+    ]._serialized_options = b"\272H\0042\002(\000"
+    _globals["_PARTITIONCONFIG"]._serialized_start = 126
+    _globals["_PARTITIONCONFIG"]._serialized_end = 546
 # @@protoc_insertion_point(module_scope)

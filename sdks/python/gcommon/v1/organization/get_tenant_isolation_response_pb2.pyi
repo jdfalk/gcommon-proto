@@ -18,4 +18,11 @@ class GetTenantIsolationResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     isolation: _tenant_isolation_pb2.TenantIsolation
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., isolation: _Optional[_Union[_tenant_isolation_pb2.TenantIsolation, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
+        success: _Optional[bool] = ...,
+        isolation: _Optional[
+            _Union[_tenant_isolation_pb2.TenantIsolation, _Mapping]
+        ] = ...,
+    ) -> None: ...

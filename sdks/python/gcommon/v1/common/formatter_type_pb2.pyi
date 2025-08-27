@@ -12,6 +12,7 @@ class FormatterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FORMATTER_TYPE_JSON: _ClassVar[FormatterType]
     FORMATTER_TYPE_XML: _ClassVar[FormatterType]
     FORMATTER_TYPE_CUSTOM: _ClassVar[FormatterType]
+
 FORMATTER_TYPE_UNSPECIFIED: FormatterType
 FORMATTER_TYPE_TEXT: FormatterType
 FORMATTER_TYPE_JSON: FormatterType

@@ -18,4 +18,13 @@ class TimeRangeMetrics(_message.Message):
     start: _timestamp_pb2.Timestamp
     end: _timestamp_pb2.Timestamp
     duration_seconds: int
-    def __init__(self, start: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., duration_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(
+        self,
+        start: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        end: _Optional[
+            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
+        ] = ...,
+        duration_seconds: _Optional[int] = ...,
+    ) -> None: ...

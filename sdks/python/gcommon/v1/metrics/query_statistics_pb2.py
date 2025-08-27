@@ -4,18 +4,20 @@
 # source: gcommon/v1/metrics/query_statistics.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
+
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
+
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    '',
-    'gcommon/v1/metrics/query_statistics.proto'
+    "",
+    "gcommon/v1/metrics/query_statistics.proto",
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,26 +30,56 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/metrics/query_statistics.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xda\x03\n\x0fQueryStatistics\x12@\n\x0e\x65xecution_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12;\n\x15\x64\x61ta_points_processed\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x13\x64\x61taPointsProcessed\x12\x32\n\x10metrics_examined\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0fmetricsExamined\x12\x30\n\x0fseries_returned\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0eseriesReturned\x12\x33\n\x11memory_used_bytes\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0fmemoryUsedBytes\x12<\n\x15storage_backends_used\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x13storageBackendsUsed\x12\x34\n\x0e\x63\x61\x63he_hit_rate\x18\x07 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0c\x63\x61\x63heHitRate\x12\x39\n\nquery_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tqueryTimeB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
+    b'\n)gcommon/v1/metrics/query_statistics.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xda\x03\n\x0fQueryStatistics\x12@\n\x0e\x65xecution_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12;\n\x15\x64\x61ta_points_processed\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x13\x64\x61taPointsProcessed\x12\x32\n\x10metrics_examined\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0fmetricsExamined\x12\x30\n\x0fseries_returned\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0eseriesReturned\x12\x33\n\x11memory_used_bytes\x18\x05 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0fmemoryUsedBytes\x12<\n\x15storage_backends_used\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x13storageBackendsUsed\x12\x34\n\x0e\x63\x61\x63he_hit_rate\x18\x07 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x0c\x63\x61\x63heHitRate\x12\x39\n\nquery_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tqueryTimeB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
+)
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.query_statistics_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(
+    DESCRIPTOR, "gcommon.v1.metrics.query_statistics_pb2", _globals
+)
 if not _descriptor._USE_C_DESCRIPTORS:
-  _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
-  _globals['_QUERYSTATISTICS'].fields_by_name['data_points_processed']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['data_points_processed']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_QUERYSTATISTICS'].fields_by_name['metrics_examined']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['metrics_examined']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_QUERYSTATISTICS'].fields_by_name['series_returned']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['series_returned']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_QUERYSTATISTICS'].fields_by_name['memory_used_bytes']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['memory_used_bytes']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_QUERYSTATISTICS'].fields_by_name['storage_backends_used']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['storage_backends_used']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_QUERYSTATISTICS'].fields_by_name['cache_hit_rate']._loaded_options = None
-  _globals['_QUERYSTATISTICS'].fields_by_name['cache_hit_rate']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_QUERYSTATISTICS']._serialized_start=195
-  _globals['_QUERYSTATISTICS']._serialized_end=669
+    _globals["DESCRIPTOR"]._loaded_options = None
+    _globals[
+        "DESCRIPTOR"
+    ]._serialized_options = (
+        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
+    )
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "data_points_processed"
+    ]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "data_points_processed"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "metrics_examined"
+    ]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "metrics_examined"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "series_returned"
+    ]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "series_returned"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "memory_used_bytes"
+    ]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "memory_used_bytes"
+    ]._serialized_options = b'\272H\004"\002(\000'
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "storage_backends_used"
+    ]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "storage_backends_used"
+    ]._serialized_options = b"\272H\005\222\001\002\010\001"
+    _globals["_QUERYSTATISTICS"].fields_by_name["cache_hit_rate"]._loaded_options = None
+    _globals["_QUERYSTATISTICS"].fields_by_name[
+        "cache_hit_rate"
+    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
+    _globals["_QUERYSTATISTICS"]._serialized_start = 195
+    _globals["_QUERYSTATISTICS"]._serialized_end = 669
 # @@protoc_insertion_point(module_scope)

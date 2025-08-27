@@ -16,6 +16,17 @@ class RunMigrationRequest(_message.Message):
     SCRIPTS_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     database: str
-    scripts: _containers.RepeatedCompositeFieldContainer[_migration_script_pb2.MigrationScript]
+    scripts: _containers.RepeatedCompositeFieldContainer[
+        _migration_script_pb2.MigrationScript
+    ]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, database: _Optional[str] = ..., scripts: _Optional[_Iterable[_Union[_migration_script_pb2.MigrationScript, _Mapping]]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(
+        self,
+        database: _Optional[str] = ...,
+        scripts: _Optional[
+            _Iterable[_Union[_migration_script_pb2.MigrationScript, _Mapping]]
+        ] = ...,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+    ) -> None: ...

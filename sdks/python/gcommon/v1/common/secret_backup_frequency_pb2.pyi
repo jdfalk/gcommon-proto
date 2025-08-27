@@ -14,6 +14,7 @@ class SecretBackupFrequency(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SECRET_BACKUP_FREQUENCY_WEEKLY: _ClassVar[SecretBackupFrequency]
     SECRET_BACKUP_FREQUENCY_MONTHLY: _ClassVar[SecretBackupFrequency]
     SECRET_BACKUP_FREQUENCY_ON_CHANGE: _ClassVar[SecretBackupFrequency]
+
 SECRET_BACKUP_FREQUENCY_UNSPECIFIED: SecretBackupFrequency
 SECRET_BACKUP_FREQUENCY_MANUAL: SecretBackupFrequency
 SECRET_BACKUP_FREQUENCY_HOURLY: SecretBackupFrequency

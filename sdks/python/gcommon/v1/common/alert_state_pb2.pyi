@@ -14,6 +14,7 @@ class AlertState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ALERT_STATE_ACKNOWLEDGED: _ClassVar[AlertState]
     ALERT_STATE_SILENCED: _ClassVar[AlertState]
     ALERT_STATE_ERROR: _ClassVar[AlertState]
+
 ALERT_STATE_UNSPECIFIED: AlertState
 ALERT_STATE_PENDING: AlertState
 ALERT_STATE_FIRING: AlertState

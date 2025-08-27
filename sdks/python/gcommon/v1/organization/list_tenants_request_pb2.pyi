@@ -20,4 +20,13 @@ class ListTenantsRequest(_message.Message):
     page_size: int
     page_token: str
     filter: str
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., filter: _Optional[str] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        organization_id: _Optional[str] = ...,
+        page_size: _Optional[int] = ...,
+        page_token: _Optional[str] = ...,
+        filter: _Optional[str] = ...,
+    ) -> None: ...

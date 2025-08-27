@@ -16,4 +16,11 @@ class CreateTeamRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     team: _team_pb2.Team
     validate_only: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ..., validate_only: _Optional[bool] = ...) -> None: ...
+    def __init__(
+        self,
+        metadata: _Optional[
+            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
+        ] = ...,
+        team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ...,
+        validate_only: _Optional[bool] = ...,
+    ) -> None: ...

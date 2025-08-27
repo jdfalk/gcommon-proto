@@ -13,6 +13,7 @@ class CommonHealthStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HEALTH_STATUS_DEGRADED: _ClassVar[CommonHealthStatus]
     HEALTH_STATUS_STARTING: _ClassVar[CommonHealthStatus]
     HEALTH_STATUS_STOPPING: _ClassVar[CommonHealthStatus]
+
 HEALTH_STATUS_UNSPECIFIED: CommonHealthStatus
 HEALTH_STATUS_HEALTHY: CommonHealthStatus
 HEALTH_STATUS_UNHEALTHY: CommonHealthStatus

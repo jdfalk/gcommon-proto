@@ -13,6 +13,7 @@ class OrganizationIsolationLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapp
     ISOLATION_LEVEL_INFRASTRUCTURE: _ClassVar[OrganizationIsolationLevel]
     ISOLATION_LEVEL_NETWORK: _ClassVar[OrganizationIsolationLevel]
     ISOLATION_LEVEL_PHYSICAL: _ClassVar[OrganizationIsolationLevel]
+
 ISOLATION_LEVEL_UNSPECIFIED: OrganizationIsolationLevel
 ISOLATION_LEVEL_SHARED: OrganizationIsolationLevel
 ISOLATION_LEVEL_DATABASE: OrganizationIsolationLevel
