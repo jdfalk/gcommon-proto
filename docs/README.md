@@ -58,6 +58,7 @@ This directory contains auto-generated documentation for this project.
 - [[1.0.0](https://github.com/jdfalk/gcommon/compare/v0.1.1...v1.0.0) (2025-08-15)](CHANGELOG.md)
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing to GCommon](CONTRIBUTING.md)
+- [Cosign Signature Verification](COSIGN_VERIFICATION.md)
 - [Protovalidate Integration for gcommon Repository](PROTOVALIDATE_INTEGRATION.md)
 - [Protocol Buffer Validation Status Report](PROTO_STATUS.md)
 - [](PROTO_STATUS_NEW.md)
@@ -124,4 +125,4 @@ This directory contains auto-generated documentation for this project.
 - [file: scripts/README.md](scripts/README.md)
 - [file: sdks/README.md](sdks/README.md)
 
-_Generated on Wed Aug 27 00:35:32 UTC 2025_
+_Generated on Wed Aug 27 17:15:46 UTC 2025_
