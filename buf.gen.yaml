@@ -15,12 +15,12 @@ plugins:
     opt:
       - paths=import
       - module=github.com/jdfalk/gcommon/sdks/go
-  # Protovalidate Go support
-  - remote: buf.build/bufbuild/protovalidate-go:v0.6.3
-    out: sdks/go
-    opt:
-      - paths=import
-      - module=github.com/jdfalk/gcommon/sdks/go
+  # # Protovalidate Go support
+  # - remote: buf.build/go/protovalidate@v0.14.0
+  #   out: sdks/go
+  #   opt:
+  #     - paths=import
+  #     - module=github.com/jdfalk/gcommon/sdks/go
   # Python messages via protoc built-in generator
   - protoc_builtin: python
     out: sdks/python

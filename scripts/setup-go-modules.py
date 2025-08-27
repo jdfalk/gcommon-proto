@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/setup-go-modules.py
-# version: 2.5.0
+# version: 2.6.0
 # guid: f1e2d3c4-b5a6-789c-def0-123456789abc
 
 """
@@ -43,6 +43,7 @@ def ensure_go_mod_exists(
     requires = [
         "\tgoogle.golang.org/protobuf v1.36.8",
         "\tgoogle.golang.org/grpc v1.75.0",
+        "\tbuf.build/go/protovalidate v0.14.0",
     ]
 
     # Add module dependencies if provided
@@ -53,7 +54,7 @@ def ensure_go_mod_exists(
     requires_section = "\n".join(requires)
 
     go_mod_content = f"""// file: {file_path_comment}
-// version: 1.2.0
+// version: 1.3.0
 // guid: abcdef01-2345-6789-abcd-ef0123456789
 
 module {module_name}
@@ -65,10 +66,18 @@ require (
 )
 
 require (
+\tbuf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.6-20250717165733-d22d418d82d8.1 // indirect
+\tcel.dev/expr v0.24.0 // indirect
+\tgithub.com/antlr4-go/antlr/v4 v4.13.0 // indirect
+\tgithub.com/google/cel-go v0.25.0 // indirect
+\tgithub.com/google/go-cmp v0.7.0 // indirect
+\tgithub.com/stoewer/go-strcase v1.3.0 // indirect
+\tgolang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
 \tgolang.org/x/net v0.43.0 // indirect
 \tgolang.org/x/sys v0.35.0 // indirect
-\tgolang.org/x/text v0.28.0 // indirect
-\tgoogle.golang.org/genproto/googleapis/rpc v0.0.0-20250818200422-3122310a409c // indirect
+\tgolang.org/x/text v0.26.0 // indirect
+\tgoogle.golang.org/genproto/googleapis/api v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
+\tgoogle.golang.org/genproto/googleapis/rpc v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
 )
 """
 
