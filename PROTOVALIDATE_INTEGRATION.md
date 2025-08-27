@@ -4,14 +4,15 @@ This document provides comprehensive guidance for implementing and using protova
 
 ## Overview
 
-The protovalidate integration system provides automated tools for adding validation rules to protobuf fields based on intelligent semantic analysis. This ensures data integrity, improves API reliability, and provides better error messages for invalid input.
+The protovalidate integration system provides automated tools for adding validation rules to protobuf fields based on intelligent semantic analysis. This ensures data integrity, improves API reliability, and provides better error messages
+for invalid input.
 
 ## Architecture
 
 ### Core Components
 
 1. **`tools/protovalidate-adder.py`** - Main automation tool for processing proto files
-2. **`scripts/add-protovalidate.sh`** - User-friendly wrapper script with command-line interface  
+2. **`scripts/add-protovalidate.sh`** - User-friendly wrapper script with command-line interface
 3. **VS Code Tasks** - Integrated development workflow support
 4. **Example Files** - Sample implementations demonstrating validation patterns
 
@@ -43,7 +44,7 @@ The repository is already configured with protovalidate dependencies. Verify the
 # Check buf.yaml includes protovalidate
 grep -A 10 "deps:" buf.yaml
 
-# Check buf.gen.yaml includes protovalidate-go plugin  
+# Check buf.gen.yaml includes protovalidate-go plugin
 grep -A 5 "protovalidate-go" buf.gen.yaml
 
 # Verify tools are executable
@@ -93,7 +94,7 @@ python3 tools/protovalidate-adder.py --verbose
 Use the integrated VS Code tasks for seamless development workflow:
 
 1. **Add Protovalidate - All Files**: Process entire repository
-2. **Add Protovalidate - Dry Run**: Preview changes without modification  
+2. **Add Protovalidate - Dry Run**: Preview changes without modification
 3. **Add Protovalidate - Compatibility Mode**: Add rules as comments
 4. **Add Protovalidate - Specific File**: Process individual files
 5. **Add Protovalidate - Using Wrapper Script**: Use the shell wrapper
@@ -106,37 +107,37 @@ The tool automatically generates appropriate validation rules based on field sem
 
 ### Field Pattern Recognition
 
-| Field Pattern | Applied Rule | Example Fields |
-|--------------|--------------|----------------|
-| `*_id`, `id` | `string.min_len = 1` | `user_id`, `client_id` |
-| `*email*` | Email regex pattern | `email`, `contact_email` |
-| `*age*` | `int32.gte = 0, int32.lte = 150` | `age`, `user_age` |
-| `*url*`, `*uri*` | `string.uri = true` | `api_url`, `profile_url` |
-| `*port*` | `int32.gte = 1, int32.lte = 65535` | `port`, `server_port` |
-| `*percent*` | `float.gte = 0.0, float.lte = 100.0` | `percentage`, `completion` |
-| `*phone*` | Phone number regex | `phone`, `mobile_phone` |
-| `*name*`, `*title*` | `string.min_len = 1` | `name`, `display_name` |
-| `*password*` | `string.min_len = 8` | `password`, `user_password` |
-| `*token*` | `string.min_len = 1` | `token`, `api_token` |
-| `*version*` | Semantic version regex | `version`, `api_version` |
-| `*count*`, `*size*` | `int32.gte = 0` | `count`, `file_size` |
-| `*timeout*`, `*duration*` | `int32.gt = 0` | `timeout`, `session_duration` |
-| `*code*` | `string.min_len = 1` | `code`, `tfa_code` |
-| `repeated` fields | `repeated.min_items = 1` | All repeated fields |
+| Field Pattern             | Applied Rule                         | Example Fields                |
+| ------------------------- | ------------------------------------ | ----------------------------- |
+| `*_id`, `id`              | `string.min_len = 1`                 | `user_id`, `client_id`        |
+| `*email*`                 | Email regex pattern                  | `email`, `contact_email`      |
+| `*age*`                   | `int32.gte = 0, int32.lte = 150`     | `age`, `user_age`             |
+| `*url*`, `*uri*`          | `string.uri = true`                  | `api_url`, `profile_url`      |
+| `*port*`                  | `int32.gte = 1, int32.lte = 65535`   | `port`, `server_port`         |
+| `*percent*`               | `float.gte = 0.0, float.lte = 100.0` | `percentage`, `completion`    |
+| `*phone*`                 | Phone number regex                   | `phone`, `mobile_phone`       |
+| `*name*`, `*title*`       | `string.min_len = 1`                 | `name`, `display_name`        |
+| `*password*`              | `string.min_len = 8`                 | `password`, `user_password`   |
+| `*token*`                 | `string.min_len = 1`                 | `token`, `api_token`          |
+| `*version*`               | Semantic version regex               | `version`, `api_version`      |
+| `*count*`, `*size*`       | `int32.gte = 0`                      | `count`, `file_size`          |
+| `*timeout*`, `*duration*` | `int32.gt = 0`                       | `timeout`, `session_duration` |
+| `*code*`                  | `string.min_len = 1`                 | `code`, `tfa_code`            |
+| `repeated` fields         | `repeated.min_items = 1`             | All repeated fields           |
 
 ### Default Type Rules
 
 For fields not matching specific patterns:
 
-| Type | Default Rule |
-|------|-------------|
-| `string` | `string.min_len = 1` |
-| `int32` | `int32.gte = 0` |
-| `int64` | `int64.gte = 0` |
-| `uint32` | `uint32.gte = 0` |
-| `uint64` | `uint64.gte = 0` |
-| `float` | `float.gte = 0.0` |
-| `double` | `double.gte = 0.0` |
+| Type       | Default Rule             |
+| ---------- | ------------------------ |
+| `string`   | `string.min_len = 1`     |
+| `int32`    | `int32.gte = 0`          |
+| `int64`    | `int64.gte = 0`          |
+| `uint32`   | `uint32.gte = 0`         |
+| `uint64`   | `uint64.gte = 0`         |
+| `float`    | `float.gte = 0.0`        |
+| `double`   | `double.gte = 0.0`       |
 | `repeated` | `repeated.min_items = 1` |
 
 ### Skipped Field Patterns
@@ -144,7 +145,7 @@ For fields not matching specific patterns:
 The tool intelligently skips fields that are typically optional or complex:
 
 - `*metadata*` - Configuration/metadata maps
-- `*timestamp*` - Timestamp fields  
+- `*timestamp*` - Timestamp fields
 - `*any*` - google.protobuf.Any fields
 
 ## Examples
@@ -283,22 +284,26 @@ For a repository with 1600+ files, expect:
 ### Common Issues
 
 **1. Import already exists error**
+
 ```
 Solution: Tool automatically detects existing imports
 ```
 
 **2. Validation rules already present**
+
 ```
 Solution: Tool preserves existing rules by default
 ```
 
 **3. Python not found**
+
 ```bash
 # Ensure Python 3.7+ is available
 python3 --version
 ```
 
 **4. Permission denied**
+
 ```bash
 # Make scripts executable
 chmod +x tools/protovalidate-adder.py
@@ -459,4 +464,5 @@ For issues or questions:
 
 ---
 
-**Note**: This integration system is designed to handle the scale and complexity of the gcommon repository with its 1600+ protobuf files. The intelligent pattern recognition and safe processing modes ensure reliable, large-scale validation rule deployment.
+**Note**: This integration system is designed to handle the scale and complexity of the gcommon repository with its 1600+ protobuf files. The intelligent pattern recognition and safe processing modes ensure reliable, large-scale validation
+rule deployment.
