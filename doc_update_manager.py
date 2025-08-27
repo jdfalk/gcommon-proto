@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/doc_update_manager.py
-# version: 2.1.0
+# version: 2.2.0
 # guid: 9e8d7c6b-5a49-3827-1605-4f3e2d1c0b9a
 
 """
@@ -501,7 +501,9 @@ class DocumentationUpdateManager:
             return
 
         # Apply the update
+        error_count_before = len(self.stats["errors"])
         success = self._apply_update(target_file, mode, content, options)
+        error_count_after = len(self.stats["errors"])
 
         if success:
             self.stats["files_processed"] += 1
@@ -509,7 +511,14 @@ class DocumentationUpdateManager:
             if str(target_file) not in self.stats["files_updated"]:
                 self.stats["files_updated"].append(str(target_file))
         else:
-            raise Exception("Update application failed")
+            # Check if _apply_update added any errors
+            if error_count_after > error_count_before:
+                # There were actual errors, this is a real failure
+                raise Exception("Update application failed")
+            else:
+                # No changes needed is not a failure
+                self.stats["files_processed"] += 1
+                logger.info(f"📄 No changes needed for {target_file}")
 
     # ...existing code...
 
