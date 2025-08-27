@@ -1,420 +1,506 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Buf Generate with Output",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["buf", "generate"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Generate Module",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["buf", "generate", "--module", "${input:module}"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Lint with Output",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["buf", "lint"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Lint Module",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["buf", "lint", "--module", "${input:module}"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Add All",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "add"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Add Selective",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "add", "${input:filePattern}"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Push",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "push"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Status",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "status"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Add All Auto",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "add", "."],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Commit Auto",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["git", "commit", "-m", "fix: systematic protobuf import fixes"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Check All Proto Files",
-      "type": "shell",
-      "command": "sh",
-      "args": [
-        "-c",
-        "find pkg -name '*.proto' -type f | while read file; do echo \"=== $file ===\"; buf lint --path \"$file\" 2>&1 | grep -E '(error|Error|file does not exist)' || echo 'OK'; done"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Generate with Args File",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "buf", "generate"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Buf Lint with Args File",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "buf", "lint"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Add All with Args File",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "add"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Push with Args File",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "push"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Status with Args File",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "status"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": []
-    },
-    {
-      "label": "Git Remove Legacy Sync Shell Scripts",
-      "type": "shell",
-      "command": "git",
-      "args": [
-        "rm",
-        "-f",
-        ".github/scripts/sync-determine-target-repos.sh",
-        ".github/scripts/sync-dispatch-events.sh",
-        ".github/scripts/sync-generate-summary.sh",
-        ".github/scripts/sync-receiver-check-changes.sh",
-        ".github/scripts/sync-receiver-commit-push.sh",
-        ".github/scripts/sync-receiver-generate-summary.sh",
-        ".github/scripts/sync-receiver-sync-files.sh"
-      ],
-      "isBackground": false,
-      "group": "build"
-    },
-    {
-      "label": "Git Commit Dependabot Setup",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "feat(deps): comprehensive dependabot.yml setup for all repositories\n\nCreated automated script to generate language-aware dependabot configurations across all repositories with support for Go, Rust, Python, Node.js, Docker, and GitHub Actions.\n\nFiles changed:\n- setup_dependabot_all_repos.py - Main automation script for creating dependabot.yml files\n- .github/dependabot.yml - Updated gcommon dependabot configuration\n- labels-current.json - Updated dependency labels\n- scripts/dismiss-sdk-alerts.sh - SDK alert management script\n- scripts/dismiss_sdk_unused_import_alerts.py - Python script for SDK alert cleanup"
-      ]
-    },
-    {
-      "label": "Git Commit Workflow Improvements",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "feat(ci): implement comprehensive protobuf generation and autoversioning workflows\n\nAdded dedicated protocol buffer generation workflow with automated versioning and enhanced CI integration for seamless buf generate execution with post-processing.\n\nIssues Addressed:\n\nfeat(workflows): add dedicated protobuf generation workflow\n- .github/workflows/protobuf-generation.yml - Comprehensive workflow for buf generate automation\n- Automated protocol buffer generation with change detection\n- Integration with post-buf-generate.py and setup-go-modules.py scripts\n- Semantic versioning with automatic tag creation and GitHub releases\n- Manual workflow dispatch with configurable version bump types\n- Intelligent change detection to optimize workflow execution\n\nfeat(ci): enhance CI workflow with protobuf generation\n- .github/workflows/ci.yml - Added buf generate step to build process\n- Integrated protobuf file change detection\n- Automatic installation of buf CLI and protoc plugins\n- Post-generation processing with Python automation scripts\n- Enhanced Go build process with protobuf regeneration\n\nfeature(automation): comprehensive workflow features\n- Change detection for proto files, buf configuration, and automation scripts\n- Conditional workflow execution based on file changes\n- Automated semantic versioning (patch/minor/major)\n- GitHub release creation with detailed changelogs\n- Workflow summary reporting for transparency\n- Support for manual triggers with version type selection\n\nGenerated by: Enhanced CI/CD automation system\nIntegration: buf generate + post-processing + versioning + releases"
-      ]
-    },
-    {
-      "label": "Git Commit Protobuf Fix",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "fix(protobuf): resolve all import dependencies and syntax errors for successful buf generate\n\nSystematically fixed critical protobuf compilation issues by correcting import paths, removing duplicate imports, fixing type references, and resolving cyclical dependencies. All protobuf files now compile successfully with buf generate.\n\nIssues Addressed:\n\nfix(imports): correct import paths for moved files to common package\n- Fixed imports referencing old locations (metrics/organization/config → common)\n- Removed duplicate import statements causing conflicts\n- Updated 14+ files with corrected import paths\n\nfix(syntax): resolve message declaration syntax errors\n- Fixed message names incorrectly qualified with full package paths\n- Corrected 11 files with malformed message declarations\n- Removed trailing dots and package qualifiers from message names\n\nfix(types): update type references to match reorganized package structure\n- Updated type references to use correct package qualifiers\n- Fixed cross-package dependencies per dependency analysis recommendations\n- Resolved unknown type errors by correcting qualified type names\n\nfix(structure): implement systematic dependency resolution\n- Followed proto_dependency_analysis.md recommendations\n- Moved problematic files to common package with prefixed naming\n- Eliminated cyclical dependencies between metrics/organization/config packages\n\nFiles changed:\n- fix_all_imports.py - Comprehensive import and type reference fix script\n- fix_message_names.py - Message declaration syntax fix script\n- proto/gcommon/v1/common/*.proto - Fixed import paths and message names\n- proto/gcommon/v1/config/config_environment.proto - Corrected compliance settings import\n- proto/gcommon/v1/organization/integration_settings.proto - Fixed API key config import\n- proto/gcommon/v1/organization/organization_settings.proto - Updated type references\n- proto/gcommon/v1/queue/*.proto - Corrected time range and validation imports\n- sdks/go/gcommon/v1/**/*.pb.go - Successfully generated Go protocol buffer files\n\nResult: buf generate now completes successfully, generating all Go files for use in subtitle-manager and other applications."
-      ]
-    },
-    {
-      "label": "Git Commit SDK Module",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "feat(sdks): add Go module support for generated protobuf code\n\nAdded proper Go module configuration to enable import of generated protobuf packages in other Go applications like subtitle-manager.\n\nFiles changed:\n- sdks/go/go.mod - Added Go module definition for generated protobuf code\n- sdk/go/go.mod - Removed (incorrect path)\n- examples/gcommon_usage.go - Example showing how to use gcommon protobuf packages"
-      ]
-    },
-    {
-      "label": "Git Commit Complete SDK Structure",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "feat(sdks): complete multi-language SDK structure with Go and Python support\n\nAdded comprehensive SDK structure with proper module configuration for both Go and Python, enabling easy import of gcommon protobuf packages in various applications.\n\nFiles changed:\n- sdks/go/go.mod - Go module definition for generated protobuf code\n- sdks/python/setup.py - Python package setup configuration\n- sdks/python/__init__.py - Python package initialization\n- sdks/python/gcommon/__init__.py - Main gcommon package\n- sdks/python/gcommon/v1/__init__.py - Version 1 API package\n- sdks/README.md - Comprehensive documentation for both Go and Python SDKs"
-      ]
-    },
-    {
-      "label": "Git Commit SDK Build System",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "feat(build): modernize SDK build system with improved Makefile and post-processing scripts\n\nUpdated build automation to properly handle both Go and Python SDK generation with correct module structures and package initialization.\n\nIssues Addressed:\n\nfeat(makefile): enhance Makefile with multi-language SDK support\n- Makefile - Updated to support both Go and Python SDK post-processing\n- Added python-install target for development mode installation\n- Improved clean target to handle both Go and Python generated code\n- Enhanced help documentation with all available targets\n\nfeat(scripts): modernize Go module setup script\n- scripts/setup-go-modules.py - Complete rewrite to match current SDK structure\n- Removed outdated symlink logic and complex path management\n- Simplified to ensure go.mod exists with correct module name\n- Validates generated code location and reports package count\n- Updated version to 2.0.0 to reflect major changes\n\nfeat(scripts): add Python SDK setup automation\n- scripts/setup-python-sdk.py - New script for Python package structure\n- Ensures __init__.py files exist in all package directories\n- Creates proper package hierarchy with documentation\n- Validates setup.py existence for pip installation\n- Handles all 8 protobuf packages (common, metrics, queue, etc.)\n\nfeat(sdks): restore missing Python setup.py configuration\n- sdks/python/setup.py - Recreated complete setup configuration\n- Proper dependencies (protobuf>=3.20.0, grpcio>=1.50.0)\n- Development extras for testing and linting\n- Complete package metadata and classifiers\n\nResult: 'make generate' now properly sets up both Go and Python SDKs with correct module structures, package initialization, and development-ready configuration."
-      ]
-    },
-    {
-      "label": "Git Commit Protobuf Lint Fix",
-      "type": "shell",
-      "command": "copilot-agent-util",
-      "args": [
-        "git",
-        "commit",
-        "-m",
-        "fix(protobuf): resolve buf lint dependency and configuration issues\n\nFixed protobuf linting failures by adding missing Google protobuf dependency and cleaning up invalid buf.gen.yaml configuration.\n\nIssues Addressed:\n\nfix(deps): add protocolbuffers/protobuf dependency to buf.yaml\n- Added buf.build/protocolbuffers/protobuf to dependencies\n- Resolves 'google/protobuf/go_features.proto: file does not exist' error\n- Enables support for Go protobuf features and edition=2023 syntax\n\nfix(config): remove invalid 'disable' field from buf.gen.yaml v2\n- Removed unsupported 'disable' configuration block\n- Fixed 'field disable not found in type bufconfig.externalBufGenYAMLFileV2' error\n- Buf generate now executes successfully\n\nResult: Both 'buf lint' and 'buf generate' now complete successfully, resolving GitHub Actions workflow failures and enabling proper protobuf compilation."
-      ]
-    },
-    {
-      "label": "Add Protovalidate - All Files",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--all"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "detail": "Add protovalidate validation rules to all proto files"
-    },
-    {
-      "label": "Add Protovalidate - Dry Run",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--dry-run"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "detail": "Preview protovalidate changes without modifying files"
-    },
-    {
-      "label": "Add Protovalidate - Compatibility Mode",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--compatibility", "--all"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "detail": "Add validation rules as comments for gradual adoption"
-    },
-    {
-      "label": "Add Protovalidate - Specific File",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--file", "${input:protoFile}"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "detail": "Add validation rules to a specific proto file"
-    },
-    {
-      "label": "Add Protovalidate - Using Wrapper Script",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--help"],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "isBackground": false,
-      "problemMatcher": [],
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "new",
-        "showReuseMessage": true,
-        "clear": false
-      },
-      "detail": "Show protovalidate script usage and options"
-    }
-  ],
-  "inputs": [
-    {
-      "id": "module",
-      "description": "Module to generate (e.g., auth, config, metrics)",
-      "default": "auth",
-      "type": "promptString"
-    },
-    {
-      "id": "filePattern",
-      "description": "File pattern to add (e.g., '*.proto', 'pkg/auth/', '**/*.go')",
-      "default": "*.proto",
-      "type": "promptString"
-    },
-    {
-      "id": "protoFile",
-      "description": "Proto file path (e.g., 'proto/gcommon/v1/auth/user.proto')",
-      "default": "proto/gcommon/v1/common/user_info.proto",
-      "type": "promptString"
-    }
-  ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Buf Generate with Output",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"generate"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Generate Module",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"generate",
+				"--module",
+				"${input:module}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Lint with Output",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"lint"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Lint Module",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"lint",
+				"--module",
+				"${input:module}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Add All",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Add Selective",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add",
+				"${input:filePattern}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Push",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"push"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Status",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"status"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Add All Auto",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add",
+				"."
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Commit Auto",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"fix: systematic protobuf import fixes"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Check All Proto Files",
+			"type": "shell",
+			"command": "sh",
+			"args": [
+				"-c",
+				"find pkg -name '*.proto' -type f | while read file; do echo \"=== $file ===\"; buf lint --path \"$file\" 2>&1 | grep -E '(error|Error|file does not exist)' || echo 'OK'; done"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Generate with Args File",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"--args-file",
+				"copilot-util-args",
+				"buf",
+				"generate"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Lint with Args File",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"--args-file",
+				"copilot-util-args",
+				"buf",
+				"lint"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Add All with Args File",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"--args-file",
+				"copilot-util-args",
+				"git",
+				"add"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Push with Args File",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"--args-file",
+				"copilot-util-args",
+				"git",
+				"push"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Status with Args File",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"--args-file",
+				"copilot-util-args",
+				"git",
+				"status"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Remove Legacy Sync Shell Scripts",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"rm",
+				"-f",
+				".github/scripts/sync-determine-target-repos.sh",
+				".github/scripts/sync-dispatch-events.sh",
+				".github/scripts/sync-generate-summary.sh",
+				".github/scripts/sync-receiver-check-changes.sh",
+				".github/scripts/sync-receiver-commit-push.sh",
+				".github/scripts/sync-receiver-generate-summary.sh",
+				".github/scripts/sync-receiver-sync-files.sh"
+			],
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Git Commit Dependabot Setup",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(deps): comprehensive dependabot.yml setup for all repositories\n\nCreated automated script to generate language-aware dependabot configurations across all repositories with support for Go, Rust, Python, Node.js, Docker, and GitHub Actions.\n\nFiles changed:\n- setup_dependabot_all_repos.py - Main automation script for creating dependabot.yml files\n- .github/dependabot.yml - Updated gcommon dependabot configuration\n- labels-current.json - Updated dependency labels\n- scripts/dismiss-sdk-alerts.sh - SDK alert management script\n- scripts/dismiss_sdk_unused_import_alerts.py - Python script for SDK alert cleanup"
+			]
+		},
+		{
+			"label": "Git Commit Workflow Improvements",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(ci): implement comprehensive protobuf generation and autoversioning workflows\n\nAdded dedicated protocol buffer generation workflow with automated versioning and enhanced CI integration for seamless buf generate execution with post-processing.\n\nIssues Addressed:\n\nfeat(workflows): add dedicated protobuf generation workflow\n- .github/workflows/protobuf-generation.yml - Comprehensive workflow for buf generate automation\n- Automated protocol buffer generation with change detection\n- Integration with post-buf-generate.py and setup-go-modules.py scripts\n- Semantic versioning with automatic tag creation and GitHub releases\n- Manual workflow dispatch with configurable version bump types\n- Intelligent change detection to optimize workflow execution\n\nfeat(ci): enhance CI workflow with protobuf generation\n- .github/workflows/ci.yml - Added buf generate step to build process\n- Integrated protobuf file change detection\n- Automatic installation of buf CLI and protoc plugins\n- Post-generation processing with Python automation scripts\n- Enhanced Go build process with protobuf regeneration\n\nfeature(automation): comprehensive workflow features\n- Change detection for proto files, buf configuration, and automation scripts\n- Conditional workflow execution based on file changes\n- Automated semantic versioning (patch/minor/major)\n- GitHub release creation with detailed changelogs\n- Workflow summary reporting for transparency\n- Support for manual triggers with version type selection\n\nGenerated by: Enhanced CI/CD automation system\nIntegration: buf generate + post-processing + versioning + releases"
+			]
+		},
+		{
+			"label": "Git Commit Protobuf Fix",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"fix(protobuf): resolve all import dependencies and syntax errors for successful buf generate\n\nSystematically fixed critical protobuf compilation issues by correcting import paths, removing duplicate imports, fixing type references, and resolving cyclical dependencies. All protobuf files now compile successfully with buf generate.\n\nIssues Addressed:\n\nfix(imports): correct import paths for moved files to common package\n- Fixed imports referencing old locations (metrics/organization/config → common)\n- Removed duplicate import statements causing conflicts\n- Updated 14+ files with corrected import paths\n\nfix(syntax): resolve message declaration syntax errors\n- Fixed message names incorrectly qualified with full package paths\n- Corrected 11 files with malformed message declarations\n- Removed trailing dots and package qualifiers from message names\n\nfix(types): update type references to match reorganized package structure\n- Updated type references to use correct package qualifiers\n- Fixed cross-package dependencies per dependency analysis recommendations\n- Resolved unknown type errors by correcting qualified type names\n\nfix(structure): implement systematic dependency resolution\n- Followed proto_dependency_analysis.md recommendations\n- Moved problematic files to common package with prefixed naming\n- Eliminated cyclical dependencies between metrics/organization/config packages\n\nFiles changed:\n- fix_all_imports.py - Comprehensive import and type reference fix script\n- fix_message_names.py - Message declaration syntax fix script\n- proto/gcommon/v1/common/*.proto - Fixed import paths and message names\n- proto/gcommon/v1/config/config_environment.proto - Corrected compliance settings import\n- proto/gcommon/v1/organization/integration_settings.proto - Fixed API key config import\n- proto/gcommon/v1/organization/organization_settings.proto - Updated type references\n- proto/gcommon/v1/queue/*.proto - Corrected time range and validation imports\n- sdks/go/gcommon/v1/**/*.pb.go - Successfully generated Go protocol buffer files\n\nResult: buf generate now completes successfully, generating all Go files for use in subtitle-manager and other applications."
+			]
+		},
+		{
+			"label": "Git Commit SDK Module",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(sdks): add Go module support for generated protobuf code\n\nAdded proper Go module configuration to enable import of generated protobuf packages in other Go applications like subtitle-manager.\n\nFiles changed:\n- sdks/go/go.mod - Added Go module definition for generated protobuf code\n- sdk/go/go.mod - Removed (incorrect path)\n- examples/gcommon_usage.go - Example showing how to use gcommon protobuf packages"
+			]
+		},
+		{
+			"label": "Git Commit Complete SDK Structure",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(sdks): complete multi-language SDK structure with Go and Python support\n\nAdded comprehensive SDK structure with proper module configuration for both Go and Python, enabling easy import of gcommon protobuf packages in various applications.\n\nFiles changed:\n- sdks/go/go.mod - Go module definition for generated protobuf code\n- sdks/python/setup.py - Python package setup configuration\n- sdks/python/__init__.py - Python package initialization\n- sdks/python/gcommon/__init__.py - Main gcommon package\n- sdks/python/gcommon/v1/__init__.py - Version 1 API package\n- sdks/README.md - Comprehensive documentation for both Go and Python SDKs"
+			]
+		},
+		{
+			"label": "Git Commit SDK Build System",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(build): modernize SDK build system with improved Makefile and post-processing scripts\n\nUpdated build automation to properly handle both Go and Python SDK generation with correct module structures and package initialization.\n\nIssues Addressed:\n\nfeat(makefile): enhance Makefile with multi-language SDK support\n- Makefile - Updated to support both Go and Python SDK post-processing\n- Added python-install target for development mode installation\n- Improved clean target to handle both Go and Python generated code\n- Enhanced help documentation with all available targets\n\nfeat(scripts): modernize Go module setup script\n- scripts/setup-go-modules.py - Complete rewrite to match current SDK structure\n- Removed outdated symlink logic and complex path management\n- Simplified to ensure go.mod exists with correct module name\n- Validates generated code location and reports package count\n- Updated version to 2.0.0 to reflect major changes\n\nfeat(scripts): add Python SDK setup automation\n- scripts/setup-python-sdk.py - New script for Python package structure\n- Ensures __init__.py files exist in all package directories\n- Creates proper package hierarchy with documentation\n- Validates setup.py existence for pip installation\n- Handles all 8 protobuf packages (common, metrics, queue, etc.)\n\nfeat(sdks): restore missing Python setup.py configuration\n- sdks/python/setup.py - Recreated complete setup configuration\n- Proper dependencies (protobuf>=3.20.0, grpcio>=1.50.0)\n- Development extras for testing and linting\n- Complete package metadata and classifiers\n\nResult: 'make generate' now properly sets up both Go and Python SDKs with correct module structures, package initialization, and development-ready configuration."
+			]
+		},
+		{
+			"label": "Git Commit Protobuf Lint Fix",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"fix(protobuf): resolve buf lint dependency and configuration issues\n\nFixed protobuf linting failures by adding missing Google protobuf dependency and cleaning up invalid buf.gen.yaml configuration.\n\nIssues Addressed:\n\nfix(deps): add protocolbuffers/protobuf dependency to buf.yaml\n- Added buf.build/protocolbuffers/protobuf to dependencies\n- Resolves 'google/protobuf/go_features.proto: file does not exist' error\n- Enables support for Go protobuf features and edition=2023 syntax\n\nfix(config): remove invalid 'disable' field from buf.gen.yaml v2\n- Removed unsupported 'disable' configuration block\n- Fixed 'field disable not found in type bufconfig.externalBufGenYAMLFileV2' error\n- Buf generate now executes successfully\n\nResult: Both 'buf lint' and 'buf generate' now complete successfully, resolving GitHub Actions workflow failures and enabling proper protobuf compilation."
+			]
+		},
+		{
+			"label": "Add Protovalidate - All Files",
+			"type": "shell",
+			"command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+			"args": [
+				"--all"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Add protovalidate validation rules to all proto files"
+		},
+		{
+			"label": "Add Protovalidate - Dry Run",
+			"type": "shell",
+			"command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+			"args": [
+				"--dry-run"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Preview protovalidate changes without modifying files"
+		},
+		{
+			"label": "Add Protovalidate - Compatibility Mode",
+			"type": "shell",
+			"command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+			"args": [
+				"--compatibility",
+				"--all"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Add validation rules as comments for gradual adoption"
+		},
+		{
+			"label": "Add Protovalidate - Specific File",
+			"type": "shell",
+			"command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+			"args": [
+				"--file",
+				"${input:protoFile}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Add validation rules to a specific proto file"
+		},
+		{
+			"label": "Add Protovalidate - Using Wrapper Script",
+			"type": "shell",
+			"command": "${workspaceFolder}/scripts/add-protovalidate.sh",
+			"args": [
+				"--help"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Show protovalidate script usage and options"
+		},
+		{
+			"label": "Git Commit Fixed CI",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"fix(ci): resolve Super Linter configuration and git commit issues in CI workflow\n\nFixed critical issues preventing successful CI workflow execution across all repositories.\n\nIssues Addressed:\n\nfix(linter): resolve ESLint configuration file path error\n- .github/linters/.eslintrc.yml - Created proper ESLint configuration file\n- .github/linters/super-linter-ci.env - Fixed JAVASCRIPT_ES_CONFIG_FILE path from .eslintrc.json to .github/linters/.eslintrc.yml\n- Resolves 'JAVASCRIPT_ES_LINTER_RULES rules file doesn't exist' fatal error\n\nfix(workflow): remove inappropriate git commit from validation-only CI\n- .github/workflows/ci.yml - Removed git add/commit/push commands from validation summary step\n- Fixed 'Author identity unknown' and 'empty ident name not allowed' git errors\n- CI workflow now properly validates without attempting to commit changes\n- Updated workflow version to 1.18.0\n\nfeat(automation): comprehensive CI fix propagation script\n- copy_fixed_ci_workflow.py - Created script to propagate fixes to all repositories\n- Automatically copies fixed CI workflow, Super Linter config, and ESLint config\n- Applied fixes to ghcommon, subtitle-manager, audiobook-organizer, and copilot-agent-util-rust\n\nResult: CI workflows now execute successfully without ESLint configuration errors or git commit failures. All repositories have consistent, working CI validation."
+			]
+		}
+	],
+	"inputs": [
+		{
+			"id": "module",
+			"description": "Module to generate (e.g., auth, config, metrics)",
+			"default": "auth",
+			"type": "promptString"
+		},
+		{
+			"id": "filePattern",
+			"description": "File pattern to add (e.g., '*.proto', 'pkg/auth/', '**/*.go')",
+			"default": "*.proto",
+			"type": "promptString"
+		},
+		{
+			"id": "protoFile",
+			"description": "Proto file path (e.g., 'proto/gcommon/v1/auth/user.proto')",
+			"default": "proto/gcommon/v1/common/user_info.proto",
+			"type": "promptString"
+		}
+	]
 }
