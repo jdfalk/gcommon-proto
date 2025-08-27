@@ -1,0 +1,58 @@
+// file: proto/gcommon/v1/health/messages/health_result.proto
+// version: 1.0.0
+// guid: 2b3c4d5e-6f70-8901-bcde-234567890123
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/enums/health_status.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthResult represents the result of a health check execution.
+ * Contains status, timing, and diagnostic information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthResult {
+  // ID of the health check that generated this result
+  string check_id = 1;
+
+  // Current health status
+  HealthStatus status = 2;
+
+  // When this check was performed
+  google.protobuf.Timestamp checked_at = 3;
+
+  // How long the check took to complete
+  google.protobuf.Duration duration = 4;
+
+  // Human-readable status message
+  string message = 5;
+
+  // Detailed error information if check failed
+  string error = 6;
+
+  // Additional diagnostic data
+  map<string, string> details = 7;
+
+  // Sequence number for this check result
+  int64 sequence = 8;
+
+  // Whether this result represents a status change
+  bool status_changed = 9;
+
+  // Previous status before this check (if status_changed is true)
+  HealthStatus previous_status = 10;
+
+  // Number of consecutive results with the same status
+  int32 consecutive_count = 11;
+
+  // Performance metrics for the check
+  map<string, double> metrics = 12;
+}

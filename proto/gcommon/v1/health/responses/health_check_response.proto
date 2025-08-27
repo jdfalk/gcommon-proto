@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/health/responses/health_check_response.proto
+// version: 1.0.0
+// guid: 6f708192-0314-2345-f012-678901234567
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/health_result.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthCheckResponse returns the result of a health check request.
+ * Contains health status and diagnostic information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthCheckResponse {
+  // Results of the health checks performed
+  repeated HealthResult results = 1;
+
+  // Overall health summary
+  string summary = 2;
+
+  // Total number of checks performed
+  int32 total_checks = 3;
+
+  // Number of healthy checks
+  int32 healthy_checks = 4;
+
+  // Number of unhealthy checks
+  int32 unhealthy_checks = 5;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 6;
+
+  // Whether all requested checks completed successfully
+  bool all_checks_completed = 7;
+
+  // Any warnings or notices about the health check process
+  repeated string warnings = 8;
+}

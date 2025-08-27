@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/health/requests/health_check_request.proto
+// version: 1.0.0
+// guid: 4d5e6f70-8192-0123-def0-456789012345
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthCheckRequest requests a health check for a specific service or component.
+ * Can be used for on-demand health verification.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthCheckRequest {
+  // Service name to check (empty for overall system health)
+  string service_name = 1;
+
+  // Component name within the service (optional)
+  string component_name = 2;
+
+  // Specific check ID to execute (optional, defaults to all checks for service)
+  string check_id = 3;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 4;
+
+  // Maximum time to wait for the check to complete
+  google.protobuf.Duration timeout = 5;
+
+  // Whether to include detailed diagnostic information in the response
+  bool include_details = 6;
+
+  // Whether to force a fresh check (bypass cache)
+  bool force_refresh = 7;
+
+  // Tags to filter which checks to run
+  repeated string tags = 8;
+}
