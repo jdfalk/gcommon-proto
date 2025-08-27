@@ -371,8 +371,8 @@ class DocumentationUpdateManager:
         self.stats["errors"].append(f"Failed file {update_file.name}: {error_msg}")
 
         try:
-            from datetime import datetime
             import traceback
+            from datetime import datetime
 
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             failed_name = f"{timestamp}_{update_file.name}"
