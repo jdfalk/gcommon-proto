@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/health/messages/liveness_check.proto
+// version: 1.0.0
+// guid: 5f607182-9ca3-1234-8901-567890123456
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * LivenessCheck represents a liveness check configuration.
+ * Defines criteria for determining if a service is alive and responsive.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message LivenessCheck {
+  // Unique identifier for this liveness check
+  string id = 1;
+
+  // Service name this check applies to
+  string service_name = 2;
+
+  // Probe endpoint or method
+  string probe_endpoint = 3;
+
+  // Check interval
+  google.protobuf.Duration interval = 4;
+
+  // Timeout for each check
+  google.protobuf.Duration timeout = 5;
+
+  // Number of failures before considering service dead
+  int32 failure_threshold = 6;
+
+  // Initial delay before starting checks
+  google.protobuf.Duration initial_delay = 7;
+
+  // When this check was created
+  google.protobuf.Timestamp created_at = 8;
+
+  // Whether this check is currently active
+  bool active = 9;
+}

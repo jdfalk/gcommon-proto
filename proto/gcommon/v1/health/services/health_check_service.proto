@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/health/services/health_check_service.proto
+// version: 1.0.0
+// guid: 192a3b4c-586e-3456-0123-789012345678
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/requests/dependency_check_request.proto";
+import "gcommon/v1/health/requests/list_checks_request.proto";
+import "gcommon/v1/health/requests/register_check_request.proto";
+import "gcommon/v1/health/requests/unregister_check_request.proto";
+import "gcommon/v1/health/responses/dependency_check_response.proto";
+import "gcommon/v1/health/responses/list_checks_response.proto";
+import "gcommon/v1/health/responses/register_check_response.proto";
+import "gcommon/v1/health/responses/unregister_check_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthCheckService provides health check management capabilities.
+ * Allows registration, configuration, and management of health checks.
+ * Follows 1-1-1 pattern: one service per file.
+ */
+service HealthCheckService {
+  // RegisterCheck registers a new health check
+  rpc RegisterCheck(RegisterCheckRequest) returns (RegisterCheckResponse);
+
+  // UnregisterCheck removes a health check
+  rpc UnregisterCheck(UnregisterCheckRequest) returns (UnregisterCheckResponse);
+
+  // ListChecks returns all registered health checks
+  rpc ListChecks(ListChecksRequest) returns (ListChecksResponse);
+
+  // CheckDependencies verifies external dependencies
+  rpc CheckDependencies(DependencyCheckRequest) returns (DependencyCheckResponse);
+}
