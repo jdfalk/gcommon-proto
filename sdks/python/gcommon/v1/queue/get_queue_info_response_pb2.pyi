@@ -16,9 +16,4 @@ class GetQueueInfoResponse(_message.Message):
     queue_info: _queue_info_pb2.QueueInfo
     success: bool
     error: str
-    def __init__(
-        self,
-        queue_info: _Optional[_Union[_queue_info_pb2.QueueInfo, _Mapping]] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, queue_info: _Optional[_Union[_queue_info_pb2.QueueInfo, _Mapping]] = ..., success: _Optional[bool] = ..., error: _Optional[str] = ...) -> None: ...

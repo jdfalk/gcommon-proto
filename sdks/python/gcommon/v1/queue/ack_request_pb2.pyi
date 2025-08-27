@@ -16,11 +16,4 @@ class AckRequest(_message.Message):
     queue_name: str
     receipt_handle: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        receipt_handle: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., receipt_handle: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

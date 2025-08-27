@@ -13,15 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricResult(_message.Message):
-    __slots__ = (
-        "index",
-        "success",
-        "error",
-        "metric_id",
-        "recorded_at",
-        "warnings",
-        "deduplicated",
-    )
+    __slots__ = ("index", "success", "error", "metric_id", "recorded_at", "warnings", "deduplicated")
     INDEX_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
@@ -36,15 +28,4 @@ class MetricResult(_message.Message):
     recorded_at: _timestamp_pb2.Timestamp
     warnings: _containers.RepeatedScalarFieldContainer[str]
     deduplicated: bool
-    def __init__(
-        self,
-        index: _Optional[int] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        metric_id: _Optional[str] = ...,
-        recorded_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        deduplicated: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, index: _Optional[int] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metric_id: _Optional[str] = ..., recorded_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., deduplicated: _Optional[bool] = ...) -> None: ...

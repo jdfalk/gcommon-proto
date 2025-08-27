@@ -19,23 +19,11 @@ class SetMultipleRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bytes
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[bytes] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bytes] = ...) -> None: ...
     VALUES_FIELD_NUMBER: _ClassVar[int]
     TTL_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     values: _containers.ScalarMap[str, bytes]
     ttl: _duration_pb2.Duration
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        values: _Optional[_Mapping[str, bytes]] = ...,
-        ttl: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, values: _Optional[_Mapping[str, bytes]] = ..., ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -17,9 +17,4 @@ class QueryResponse(_message.Message):
     result_set: _result_set_pb2.ResultSet
     stats: _query_stats_pb2.DatabaseQueryStats
     error: _error_pb2.Error
-    def __init__(
-        self,
-        result_set: _Optional[_Union[_result_set_pb2.ResultSet, _Mapping]] = ...,
-        stats: _Optional[_Union[_query_stats_pb2.DatabaseQueryStats, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, result_set: _Optional[_Union[_result_set_pb2.ResultSet, _Mapping]] = ..., stats: _Optional[_Union[_query_stats_pb2.DatabaseQueryStats, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

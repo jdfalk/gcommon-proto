@@ -20,12 +20,4 @@ class MovieInfo(_message.Message):
     budget: int
     revenue: int
     runtime_minutes: int
-    def __init__(
-        self,
-        release_date: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        budget: _Optional[int] = ...,
-        revenue: _Optional[int] = ...,
-        runtime_minutes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, release_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., budget: _Optional[int] = ..., revenue: _Optional[int] = ..., runtime_minutes: _Optional[int] = ...) -> None: ...

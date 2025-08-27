@@ -11,23 +11,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthCreateSessionRequest(_message.Message):
-    __slots__ = (
-        "metadata",
-        "user_id",
-        "client_info",
-        "duration_seconds",
-        "session_metadata",
-    )
+    __slots__ = ("metadata", "user_id", "client_info", "duration_seconds", "session_metadata")
     class SessionMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     METADATA_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_INFO_FIELD_NUMBER: _ClassVar[int]
@@ -38,13 +29,4 @@ class AuthCreateSessionRequest(_message.Message):
     client_info: _client_info_pb2.ClientInfo
     duration_seconds: int
     session_metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        user_id: _Optional[str] = ...,
-        client_info: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ...,
-        duration_seconds: _Optional[int] = ...,
-        session_metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., user_id: _Optional[str] = ..., client_info: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ..., duration_seconds: _Optional[int] = ..., session_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

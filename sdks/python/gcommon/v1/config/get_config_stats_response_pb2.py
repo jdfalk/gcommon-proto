@@ -4,48 +4,36 @@
 # source: gcommon/v1/config/get_config_stats_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/config/get_config_stats_response.proto",
+    '',
+    'gcommon/v1/config/get_config_stats_response.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.config import (
-    config_stats_pb2 as gcommon_dot_v1_dot_config_dot_config__stats__pb2,
-)
+from gcommon.v1.config import config_stats_pb2 as gcommon_dot_v1_dot_config_dot_config__stats__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n1gcommon/v1/config/get_config_stats_response.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/config_stats.proto\x1a!google/protobuf/go_features.proto"N\n\x16GetConfigStatsResponse\x12\x34\n\x05stats\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.config.ConfigStatsR\x05statsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/config/get_config_stats_response.proto\x12\x11gcommon.v1.config\x1a$gcommon/v1/config/config_stats.proto\x1a!google/protobuf/go_features.proto\"N\n\x16GetConfigStatsResponse\x12\x34\n\x05stats\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.config.ConfigStatsR\x05statsB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.config.get_config_stats_response_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.get_config_stats_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
-    )
-    _globals["_GETCONFIGSTATSRESPONSE"]._serialized_start = 145
-    _globals["_GETCONFIGSTATSRESPONSE"]._serialized_end = 223
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
+  _globals['_GETCONFIGSTATSRESPONSE']._serialized_start=145
+  _globals['_GETCONFIGSTATSRESPONSE']._serialized_end=223
 # @@protoc_insertion_point(module_scope)

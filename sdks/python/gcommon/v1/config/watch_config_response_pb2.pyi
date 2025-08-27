@@ -1,8 +1,6 @@
 import datetime
 
-from gcommon.v1.common import (
-    config_config_change_type_pb2 as _config_config_change_type_pb2,
-)
+from gcommon.v1.common import config_config_change_type_pb2 as _config_config_change_type_pb2
 from gcommon.v1.config import config_entry_pb2 as _config_entry_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -23,16 +21,4 @@ class WatchConfigResponse(_message.Message):
     entry: _config_entry_pb2.ConfigEntry
     previous_entry: _config_entry_pb2.ConfigEntry
     timestamp: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        change_type: _Optional[
-            _Union[_config_config_change_type_pb2.ConfigChangeType, str]
-        ] = ...,
-        entry: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ...,
-        previous_entry: _Optional[
-            _Union[_config_entry_pb2.ConfigEntry, _Mapping]
-        ] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, change_type: _Optional[_Union[_config_config_change_type_pb2.ConfigChangeType, str]] = ..., entry: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ..., previous_entry: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

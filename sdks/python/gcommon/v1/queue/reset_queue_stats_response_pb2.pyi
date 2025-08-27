@@ -14,29 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResetQueueStatsResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "queue_id",
-        "reset_at",
-        "preserved_stats",
-        "reset_stat_types",
-        "preserved_stat_types",
-        "error_message",
-        "error_code",
-        "warnings",
-        "reset_details",
-        "metadata",
-    )
+    __slots__ = ("success", "queue_id", "reset_at", "preserved_stats", "reset_stat_types", "preserved_stat_types", "error_message", "error_code", "warnings", "reset_details", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     QUEUE_ID_FIELD_NUMBER: _ClassVar[int]
     RESET_AT_FIELD_NUMBER: _ClassVar[int]
@@ -59,23 +44,4 @@ class ResetQueueStatsResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     reset_details: _reset_details_pb2.ResetDetails
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        queue_id: _Optional[str] = ...,
-        reset_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        preserved_stats: _Optional[
-            _Union[_preserved_stats_pb2.PreservedStats, _Mapping]
-        ] = ...,
-        reset_stat_types: _Optional[_Iterable[str]] = ...,
-        preserved_stat_types: _Optional[_Iterable[str]] = ...,
-        error_message: _Optional[str] = ...,
-        error_code: _Optional[str] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        reset_details: _Optional[
-            _Union[_reset_details_pb2.ResetDetails, _Mapping]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., queue_id: _Optional[str] = ..., reset_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., preserved_stats: _Optional[_Union[_preserved_stats_pb2.PreservedStats, _Mapping]] = ..., reset_stat_types: _Optional[_Iterable[str]] = ..., preserved_stat_types: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., reset_details: _Optional[_Union[_reset_details_pb2.ResetDetails, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

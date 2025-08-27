@@ -18,11 +18,4 @@ class ExecuteStats(_message.Message):
     execution_time: _duration_pb2.Duration
     affected_rows: int
     cost_estimate: float
-    def __init__(
-        self,
-        execution_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        affected_rows: _Optional[int] = ...,
-        cost_estimate: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, execution_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., affected_rows: _Optional[int] = ..., cost_estimate: _Optional[float] = ...) -> None: ...

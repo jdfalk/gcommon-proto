@@ -9,15 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RevokeRoleRequest(_message.Message):
-    __slots__ = (
-        "user_id",
-        "role_id",
-        "organization_id",
-        "metadata",
-        "revoked_by",
-        "reason",
-        "force",
-    )
+    __slots__ = ("user_id", "role_id", "organization_id", "metadata", "revoked_by", "reason", "force")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROLE_ID_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -32,15 +24,4 @@ class RevokeRoleRequest(_message.Message):
     revoked_by: str
     reason: str
     force: bool
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        role_id: _Optional[str] = ...,
-        organization_id: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        revoked_by: _Optional[str] = ...,
-        reason: _Optional[str] = ...,
-        force: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., role_id: _Optional[str] = ..., organization_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., revoked_by: _Optional[str] = ..., reason: _Optional[str] = ..., force: _Optional[bool] = ...) -> None: ...

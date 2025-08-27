@@ -18,10 +18,4 @@ class SendMessageResponse(_message.Message):
     success: bool
     queue_position: int
     error: _error_pb2.Error
-    def __init__(
-        self,
-        message_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        queue_position: _Optional[int] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, message_id: _Optional[str] = ..., success: _Optional[bool] = ..., queue_position: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

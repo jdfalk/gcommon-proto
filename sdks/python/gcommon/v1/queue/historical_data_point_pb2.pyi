@@ -11,13 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HistoricalDataPoint(_message.Message):
-    __slots__ = (
-        "timestamp",
-        "message_count",
-        "throughput",
-        "average_latency_ms",
-        "error_rate",
-    )
+    __slots__ = ("timestamp", "message_count", "throughput", "average_latency_ms", "error_rate")
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
     THROUGHPUT_FIELD_NUMBER: _ClassVar[int]
@@ -28,13 +22,4 @@ class HistoricalDataPoint(_message.Message):
     throughput: float
     average_latency_ms: float
     error_rate: float
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        message_count: _Optional[int] = ...,
-        throughput: _Optional[float] = ...,
-        average_latency_ms: _Optional[float] = ...,
-        error_rate: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., message_count: _Optional[int] = ..., throughput: _Optional[float] = ..., average_latency_ms: _Optional[float] = ..., error_rate: _Optional[float] = ...) -> None: ...

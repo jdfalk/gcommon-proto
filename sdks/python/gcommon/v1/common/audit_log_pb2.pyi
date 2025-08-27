@@ -14,28 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CommonAuditLog(_message.Message):
-    __slots__ = (
-        "id",
-        "user_id",
-        "action",
-        "resource",
-        "timestamp",
-        "source_ip",
-        "user_agent",
-        "metadata",
-        "result",
-        "session_id",
-    )
+    __slots__ = ("id", "user_id", "action", "resource", "timestamp", "source_ip", "user_agent", "metadata", "result", "session_id")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]
@@ -56,20 +42,4 @@ class CommonAuditLog(_message.Message):
     metadata: _containers.ScalarMap[str, str]
     result: _audit_result_pb2.AuditResult
     session_id: str
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        user_id: _Optional[str] = ...,
-        action: _Optional[str] = ...,
-        resource: _Optional[
-            _Union[_resource_reference_pb2.ResourceReference, _Mapping]
-        ] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        source_ip: _Optional[str] = ...,
-        user_agent: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        result: _Optional[_Union[_audit_result_pb2.AuditResult, str]] = ...,
-        session_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., action: _Optional[str] = ..., resource: _Optional[_Union[_resource_reference_pb2.ResourceReference, _Mapping]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., source_ip: _Optional[str] = ..., user_agent: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., result: _Optional[_Union[_audit_result_pb2.AuditResult, str]] = ..., session_id: _Optional[str] = ...) -> None: ...

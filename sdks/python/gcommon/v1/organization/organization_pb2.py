@@ -4,20 +4,18 @@
 # source: gcommon/v1/organization/organization.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/organization/organization.proto",
+    '',
+    'gcommon/v1/organization/organization.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -25,116 +23,62 @@ _sym_db = _symbol_database.Default()
 
 
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
-from gcommon.v1.common import (
-    key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2,
-)
-from gcommon.v1.common import (
-    organization_status_pb2 as gcommon_dot_v1_dot_common_dot_organization__status__pb2,
-)
+from gcommon.v1.common import key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2
+from gcommon.v1.common import organization_status_pb2 as gcommon_dot_v1_dot_common_dot_organization__status__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n*gcommon/v1/organization/organization.proto\x12\x17gcommon.v1.organization\x1a\x1b\x62uf/validate/validate.proto\x1a!gcommon/v1/common/key_value.proto\x1a+gcommon/v1/common/organization_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\xbf\n\n\x0cOrganization\x12\x64\n\x02id\x18\x01 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\x02id\x12 \n\x04name\x18\x02 \x01(\tB\x0c\xbaH\tr\x04\x10\x01\x18\x64\xc8\x01\x01R\x04name\x12\x41\n\x04slug\x18\x03 \x01(\tB-\xbaH*r%\x10\x02\x18\x32\x32\x1f^[a-z0-9]([a-z0-9-]*[a-z0-9])?$\xc8\x01\x01R\x04slug\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12"\n\x07website\x18\x05 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x07website\x12,\n\rcontact_email\x18\x06 \x01(\tB\x07\xbaH\x04r\x02`\x01R\x0c\x63ontactEmail\x12"\n\x07\x61\x64\x64ress\x18\x07 \x01(\tB\x08\xbaH\x05r\x03\x18\xf4\x03R\x07\x61\x64\x64ress\x12\x35\n\x05phone\x18\x08 \x01(\tB\x1f\xbaH\x1cr\x1a\x32\x18^[\\+]?[1-9]?[0-9]{7,15}$R\x05phone\x12.\n\x06tax_id\x18\t \x01(\tB\x17\xbaH\x14r\x12\x18\x32\x32\x0e^[a-zA-Z0-9]*$R\x05taxId\x12#\n\x08industry\x18\n \x01(\tB\x07\xbaH\x04r\x02\x18\x64R\x08industry\x12\x45\n\x06status\x18\x0b \x01(\x0e\x32%.gcommon.v1.common.OrganizationStatusB\x06\xbaH\x03\xc8\x01\x01R\x06status\x12\x43\n\x08metadata\x18\x0c \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\n(\x01\xbaH\x05\x92\x01\x02\x10\x32R\x08metadata\x12\x43\n\ncreated_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x43\n\nupdated_at\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12s\n\ncreated_by\x18\x0f \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tcreatedBy\x12s\n\nupdated_by\x18\x10 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tupdatedBy\x12H\n\x08timezone\x18\x11 \x01(\tB,\xbaH)r\'2%^[A-Za-z]+\\/[A-Za-z_]+([A-Za-z_\\/]*)$R\x08timezone\x12\x35\n\x06locale\x18\x12 \x01(\tB\x1d\xbaH\x1ar\x18\x32\x16^[a-z]{2}(-[A-Z]{2})?$R\x06locale\x12,\n\x0bmax_members\x18\x13 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xa0\x8d\x06(\x01R\nmaxMembers\x12\x30\n\x14multi_tenant_enabled\x18\x14 \x01(\x08R\x12multiTenantEnabled\x12\'\n\navatar_url\x18\x15 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\tavatarUrl\x12,\n\rbilling_email\x18\x16 \x01(\tB\x07\xbaH\x04r\x02`\x01R\x0c\x62illingEmailB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/organization/organization.proto\x12\x17gcommon.v1.organization\x1a\x1b\x62uf/validate/validate.proto\x1a!gcommon/v1/common/key_value.proto\x1a+gcommon/v1/common/organization_status.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\n\n\x0cOrganization\x12\x64\n\x02id\x18\x01 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\x02id\x12 \n\x04name\x18\x02 \x01(\tB\x0c\xbaH\tr\x04\x10\x01\x18\x64\xc8\x01\x01R\x04name\x12\x41\n\x04slug\x18\x03 \x01(\tB-\xbaH*r%\x10\x02\x18\x32\x32\x1f^[a-z0-9]([a-z0-9-]*[a-z0-9])?$\xc8\x01\x01R\x04slug\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\"\n\x07website\x18\x05 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\x07website\x12,\n\rcontact_email\x18\x06 \x01(\tB\x07\xbaH\x04r\x02`\x01R\x0c\x63ontactEmail\x12\"\n\x07\x61\x64\x64ress\x18\x07 \x01(\tB\x08\xbaH\x05r\x03\x18\xf4\x03R\x07\x61\x64\x64ress\x12\x35\n\x05phone\x18\x08 \x01(\tB\x1f\xbaH\x1cr\x1a\x32\x18^[\\+]?[1-9]?[0-9]{7,15}$R\x05phone\x12.\n\x06tax_id\x18\t \x01(\tB\x17\xbaH\x14r\x12\x18\x32\x32\x0e^[a-zA-Z0-9]*$R\x05taxId\x12#\n\x08industry\x18\n \x01(\tB\x07\xbaH\x04r\x02\x18\x64R\x08industry\x12\x45\n\x06status\x18\x0b \x01(\x0e\x32%.gcommon.v1.common.OrganizationStatusB\x06\xbaH\x03\xc8\x01\x01R\x06status\x12\x43\n\x08metadata\x18\x0c \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\n(\x01\xbaH\x05\x92\x01\x02\x10\x32R\x08metadata\x12\x43\n\ncreated_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12\x43\n\nupdated_at\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tupdatedAt\x12s\n\ncreated_by\x18\x0f \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tcreatedBy\x12s\n\nupdated_by\x18\x10 \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tupdatedBy\x12H\n\x08timezone\x18\x11 \x01(\tB,\xbaH)r\'2%^[A-Za-z]+\\/[A-Za-z_]+([A-Za-z_\\/]*)$R\x08timezone\x12\x35\n\x06locale\x18\x12 \x01(\tB\x1d\xbaH\x1ar\x18\x32\x16^[a-z]{2}(-[A-Z]{2})?$R\x06locale\x12,\n\x0bmax_members\x18\x13 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xa0\x8d\x06(\x01R\nmaxMembers\x12\x30\n\x14multi_tenant_enabled\x18\x14 \x01(\x08R\x12multiTenantEnabled\x12\'\n\navatar_url\x18\x15 \x01(\tB\x08\xbaH\x05r\x03\x88\x01\x01R\tavatarUrl\x12,\n\rbilling_email\x18\x16 \x01(\tB\x07\xbaH\x04r\x02`\x01R\x0c\x62illingEmailB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.organization.organization_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.organization_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
-    _globals["_ORGANIZATION"].fields_by_name["id"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "id"
-    ]._serialized_options = b"\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    _globals["_ORGANIZATION"].fields_by_name["name"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "name"
-    ]._serialized_options = b"\272H\tr\004\020\001\030d\310\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["slug"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "slug"
-    ]._serialized_options = (
-        b"\272H*r%\020\002\03022\037^[a-z0-9]([a-z0-9-]*[a-z0-9])?$\310\001\001"
-    )
-    _globals["_ORGANIZATION"].fields_by_name["description"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "description"
-    ]._serialized_options = b"\272H\005r\003\030\350\007"
-    _globals["_ORGANIZATION"].fields_by_name["website"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "website"
-    ]._serialized_options = b"\272H\005r\003\210\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["contact_email"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "contact_email"
-    ]._serialized_options = b"\272H\004r\002`\001"
-    _globals["_ORGANIZATION"].fields_by_name["address"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "address"
-    ]._serialized_options = b"\272H\005r\003\030\364\003"
-    _globals["_ORGANIZATION"].fields_by_name["phone"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "phone"
-    ]._serialized_options = b"\272H\034r\0322\030^[\\+]?[1-9]?[0-9]{7,15}$"
-    _globals["_ORGANIZATION"].fields_by_name["tax_id"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "tax_id"
-    ]._serialized_options = b"\272H\024r\022\03022\016^[a-zA-Z0-9]*$"
-    _globals["_ORGANIZATION"].fields_by_name["industry"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "industry"
-    ]._serialized_options = b"\272H\004r\002\030d"
-    _globals["_ORGANIZATION"].fields_by_name["status"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "status"
-    ]._serialized_options = b"\272H\003\310\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["metadata"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "metadata"
-    ]._serialized_options = b"(\001\272H\005\222\001\002\0202"
-    _globals["_ORGANIZATION"].fields_by_name["created_at"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "created_at"
-    ]._serialized_options = b"(\001\272H\003\310\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["updated_at"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "updated_at"
-    ]._serialized_options = b"(\001\272H\003\310\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["created_by"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "created_by"
-    ]._serialized_options = b"\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    _globals["_ORGANIZATION"].fields_by_name["updated_by"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "updated_by"
-    ]._serialized_options = b"\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    _globals["_ORGANIZATION"].fields_by_name["timezone"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "timezone"
-    ]._serialized_options = b"\272H)r'2%^[A-Za-z]+\\/[A-Za-z_]+([A-Za-z_\\/]*)$"
-    _globals["_ORGANIZATION"].fields_by_name["locale"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "locale"
-    ]._serialized_options = b"\272H\032r\0302\026^[a-z]{2}(-[A-Z]{2})?$"
-    _globals["_ORGANIZATION"].fields_by_name["max_members"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "max_members"
-    ]._serialized_options = b"\272H\010\032\006\030\240\215\006(\001"
-    _globals["_ORGANIZATION"].fields_by_name["avatar_url"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "avatar_url"
-    ]._serialized_options = b"\272H\005r\003\210\001\001"
-    _globals["_ORGANIZATION"].fields_by_name["billing_email"]._loaded_options = None
-    _globals["_ORGANIZATION"].fields_by_name[
-        "billing_email"
-    ]._serialized_options = b"\272H\004r\002`\001"
-    _globals["_ORGANIZATION"]._serialized_start = 249
-    _globals["_ORGANIZATION"]._serialized_end = 1592
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
+  _globals['_ORGANIZATION'].fields_by_name['id']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['id']._serialized_options = b'\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+  _globals['_ORGANIZATION'].fields_by_name['name']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['name']._serialized_options = b'\272H\tr\004\020\001\030d\310\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['slug']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['slug']._serialized_options = b'\272H*r%\020\002\03022\037^[a-z0-9]([a-z0-9-]*[a-z0-9])?$\310\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['description']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
+  _globals['_ORGANIZATION'].fields_by_name['website']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['website']._serialized_options = b'\272H\005r\003\210\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['contact_email']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['contact_email']._serialized_options = b'\272H\004r\002`\001'
+  _globals['_ORGANIZATION'].fields_by_name['address']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['address']._serialized_options = b'\272H\005r\003\030\364\003'
+  _globals['_ORGANIZATION'].fields_by_name['phone']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['phone']._serialized_options = b'\272H\034r\0322\030^[\\+]?[1-9]?[0-9]{7,15}$'
+  _globals['_ORGANIZATION'].fields_by_name['tax_id']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['tax_id']._serialized_options = b'\272H\024r\022\03022\016^[a-zA-Z0-9]*$'
+  _globals['_ORGANIZATION'].fields_by_name['industry']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['industry']._serialized_options = b'\272H\004r\002\030d'
+  _globals['_ORGANIZATION'].fields_by_name['status']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['status']._serialized_options = b'\272H\003\310\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['metadata']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['metadata']._serialized_options = b'(\001\272H\005\222\001\002\0202'
+  _globals['_ORGANIZATION'].fields_by_name['created_at']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['created_at']._serialized_options = b'(\001\272H\003\310\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['updated_at']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['updated_at']._serialized_options = b'(\001\272H\003\310\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['created_by']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['created_by']._serialized_options = b'\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+  _globals['_ORGANIZATION'].fields_by_name['updated_by']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['updated_by']._serialized_options = b'\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+  _globals['_ORGANIZATION'].fields_by_name['timezone']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['timezone']._serialized_options = b'\272H)r\'2%^[A-Za-z]+\\/[A-Za-z_]+([A-Za-z_\\/]*)$'
+  _globals['_ORGANIZATION'].fields_by_name['locale']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['locale']._serialized_options = b'\272H\032r\0302\026^[a-z]{2}(-[A-Z]{2})?$'
+  _globals['_ORGANIZATION'].fields_by_name['max_members']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['max_members']._serialized_options = b'\272H\010\032\006\030\240\215\006(\001'
+  _globals['_ORGANIZATION'].fields_by_name['avatar_url']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['avatar_url']._serialized_options = b'\272H\005r\003\210\001\001'
+  _globals['_ORGANIZATION'].fields_by_name['billing_email']._loaded_options = None
+  _globals['_ORGANIZATION'].fields_by_name['billing_email']._serialized_options = b'\272H\004r\002`\001'
+  _globals['_ORGANIZATION']._serialized_start=249
+  _globals['_ORGANIZATION']._serialized_end=1592
 # @@protoc_insertion_point(module_scope)

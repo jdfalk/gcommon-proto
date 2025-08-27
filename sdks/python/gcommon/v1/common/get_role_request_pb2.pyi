@@ -16,11 +16,4 @@ class GetRoleRequest(_message.Message):
     role_id: str
     include_permissions: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        role_id: _Optional[str] = ...,
-        include_permissions: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, role_id: _Optional[str] = ..., include_permissions: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -4,78 +4,48 @@
 # source: gcommon/v1/database/connection_pool_info.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/database/connection_pool_info.proto",
+    '',
+    'gcommon/v1/database/connection_pool_info.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.database import (
-    pool_stats_pb2 as gcommon_dot_v1_dot_database_dot_pool__stats__pb2,
-)
+from gcommon.v1.database import pool_stats_pb2 as gcommon_dot_v1_dot_database_dot_pool__stats__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n.gcommon/v1/database/connection_pool_info.proto\x12\x13gcommon.v1.database\x1a$gcommon/v1/database/pool_stats.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xae\x02\n\x12\x43onnectionPoolInfo\x12\x30\n\x0fmax_connections\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0emaxConnections\x12\x36\n\x12\x61\x63tive_connections\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11\x61\x63tiveConnections\x12\x32\n\x10idle_connections\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0fidleConnections\x12@\n\x0c\x61vg_lifetime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0b\x61vgLifetime\x12\x38\n\x05stats\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/database/connection_pool_info.proto\x12\x13gcommon.v1.database\x1a$gcommon/v1/database/pool_stats.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xae\x02\n\x12\x43onnectionPoolInfo\x12\x30\n\x0fmax_connections\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0emaxConnections\x12\x36\n\x12\x61\x63tive_connections\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11\x61\x63tiveConnections\x12\x32\n\x10idle_connections\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0fidleConnections\x12@\n\x0c\x61vg_lifetime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0b\x61vgLifetime\x12\x38\n\x05stats\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.database.connection_pool_info_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.connection_pool_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
-    )
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "max_connections"
-    ]._loaded_options = None
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "max_connections"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "active_connections"
-    ]._loaded_options = None
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "active_connections"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "idle_connections"
-    ]._loaded_options = None
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "idle_connections"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "avg_lifetime"
-    ]._loaded_options = None
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "avg_lifetime"
-    ]._serialized_options = b"(\001"
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name["stats"]._loaded_options = None
-    _globals["_CONNECTIONPOOLINFO"].fields_by_name[
-        "stats"
-    ]._serialized_options = b"(\001"
-    _globals["_CONNECTIONPOOLINFO"]._serialized_start = 206
-    _globals["_CONNECTIONPOOLINFO"]._serialized_end = 508
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['max_connections']._loaded_options = None
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['max_connections']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['active_connections']._loaded_options = None
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['active_connections']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['idle_connections']._loaded_options = None
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['idle_connections']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['avg_lifetime']._loaded_options = None
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['avg_lifetime']._serialized_options = b'(\001'
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['stats']._loaded_options = None
+  _globals['_CONNECTIONPOOLINFO'].fields_by_name['stats']._serialized_options = b'(\001'
+  _globals['_CONNECTIONPOOLINFO']._serialized_start=206
+  _globals['_CONNECTIONPOOLINFO']._serialized_end=508
 # @@protoc_insertion_point(module_scope)

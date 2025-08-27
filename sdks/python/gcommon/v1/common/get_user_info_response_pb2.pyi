@@ -16,16 +16,9 @@ class GetUserInfoResponse(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     USER_INFO_FIELD_NUMBER: _ClassVar[int]
     ATTRIBUTES_FIELD_NUMBER: _ClassVar[int]
     user_info: _user_info_pb2.UserInfo
     attributes: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ...,
-        attributes: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., attributes: _Optional[_Mapping[str, str]] = ...) -> None: ...

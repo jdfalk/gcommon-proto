@@ -16,9 +16,4 @@ class SecuritySummary(_message.Message):
     auth_enabled: bool
     tls_enabled: bool
     auth_methods: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        auth_enabled: _Optional[bool] = ...,
-        tls_enabled: _Optional[bool] = ...,
-        auth_methods: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, auth_enabled: _Optional[bool] = ..., tls_enabled: _Optional[bool] = ..., auth_methods: _Optional[_Iterable[str]] = ...) -> None: ...

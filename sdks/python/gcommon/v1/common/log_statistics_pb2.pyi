@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LogStatistics(_message.Message):
-    __slots__ = (
-        "total_entries",
-        "entries_per_second",
-        "average_size",
-        "total_size",
-        "error_count",
-        "warning_count",
-    )
+    __slots__ = ("total_entries", "entries_per_second", "average_size", "total_size", "error_count", "warning_count")
     TOTAL_ENTRIES_FIELD_NUMBER: _ClassVar[int]
     ENTRIES_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class LogStatistics(_message.Message):
     total_size: int
     error_count: int
     warning_count: int
-    def __init__(
-        self,
-        total_entries: _Optional[int] = ...,
-        entries_per_second: _Optional[float] = ...,
-        average_size: _Optional[int] = ...,
-        total_size: _Optional[int] = ...,
-        error_count: _Optional[int] = ...,
-        warning_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, total_entries: _Optional[int] = ..., entries_per_second: _Optional[float] = ..., average_size: _Optional[int] = ..., total_size: _Optional[int] = ..., error_count: _Optional[int] = ..., warning_count: _Optional[int] = ...) -> None: ...

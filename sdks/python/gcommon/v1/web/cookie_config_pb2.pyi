@@ -12,15 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CookieConfig(_message.Message):
-    __slots__ = (
-        "name",
-        "domain",
-        "path",
-        "secure",
-        "http_only",
-        "same_site",
-        "max_age",
-    )
+    __slots__ = ("name", "domain", "path", "secure", "http_only", "same_site", "max_age")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DOMAIN_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
@@ -35,15 +27,4 @@ class CookieConfig(_message.Message):
     http_only: bool
     same_site: _cookie_same_site_pb2.CookieSameSite
     max_age: _duration_pb2.Duration
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        domain: _Optional[str] = ...,
-        path: _Optional[str] = ...,
-        secure: _Optional[bool] = ...,
-        http_only: _Optional[bool] = ...,
-        same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ...,
-        max_age: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., domain: _Optional[str] = ..., path: _Optional[str] = ..., secure: _Optional[bool] = ..., http_only: _Optional[bool] = ..., same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ..., max_age: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

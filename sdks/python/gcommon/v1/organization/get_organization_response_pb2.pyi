@@ -1,8 +1,6 @@
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.organization import organization_pb2 as _organization_pb2
-from gcommon.v1.organization import (
-    organization_settings_pb2 as _organization_settings_pb2,
-)
+from gcommon.v1.organization import organization_settings_pb2 as _organization_settings_pb2
 from gcommon.v1.organization import tenant_pb2 as _tenant_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -15,14 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetOrganizationResponse(_message.Message):
-    __slots__ = (
-        "organization",
-        "settings",
-        "member_count",
-        "tenants",
-        "errors",
-        "success",
-    )
+    __slots__ = ("organization", "settings", "member_count", "tenants", "errors", "success")
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
     MEMBER_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -35,14 +26,4 @@ class GetOrganizationResponse(_message.Message):
     tenants: _containers.RepeatedCompositeFieldContainer[_tenant_pb2.Tenant]
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
-    def __init__(
-        self,
-        organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...,
-        settings: _Optional[
-            _Union[_organization_settings_pb2.OrganizationSettings, _Mapping]
-        ] = ...,
-        member_count: _Optional[int] = ...,
-        tenants: _Optional[_Iterable[_Union[_tenant_pb2.Tenant, _Mapping]]] = ...,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ..., settings: _Optional[_Union[_organization_settings_pb2.OrganizationSettings, _Mapping]] = ..., member_count: _Optional[int] = ..., tenants: _Optional[_Iterable[_Union[_tenant_pb2.Tenant, _Mapping]]] = ..., errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ...) -> None: ...

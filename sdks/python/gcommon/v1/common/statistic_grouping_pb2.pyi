@@ -13,7 +13,6 @@ class StatisticGrouping(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STATISTIC_GROUPING_BY_CONSUMER: _ClassVar[StatisticGrouping]
     STATISTIC_GROUPING_BY_TIME_PERIOD: _ClassVar[StatisticGrouping]
     STATISTIC_GROUPING_BY_MESSAGE_TYPE: _ClassVar[StatisticGrouping]
-
 STATISTIC_GROUPING_UNSPECIFIED: StatisticGrouping
 STATISTIC_GROUPING_NONE: StatisticGrouping
 STATISTIC_GROUPING_BY_QUEUE: StatisticGrouping

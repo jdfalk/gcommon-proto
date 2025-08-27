@@ -17,13 +17,4 @@ class AuthAuthConfig(_message.Message):
     access_token_ttl: _timestamp_pb2.Timestamp
     refresh_token_ttl: _timestamp_pb2.Timestamp
     require_mfa: bool
-    def __init__(
-        self,
-        access_token_ttl: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        refresh_token_ttl: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        require_mfa: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, access_token_ttl: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., refresh_token_ttl: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., require_mfa: _Optional[bool] = ...) -> None: ...

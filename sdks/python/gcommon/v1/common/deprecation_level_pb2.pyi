@@ -11,7 +11,6 @@ class DeprecationLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DEPRECATION_LEVEL_SOFT: _ClassVar[DeprecationLevel]
     DEPRECATION_LEVEL_HARD: _ClassVar[DeprecationLevel]
     DEPRECATION_LEVEL_REMOVAL: _ClassVar[DeprecationLevel]
-
 DEPRECATION_LEVEL_UNSPECIFIED: DeprecationLevel
 DEPRECATION_LEVEL_SOFT: DeprecationLevel
 DEPRECATION_LEVEL_HARD: DeprecationLevel

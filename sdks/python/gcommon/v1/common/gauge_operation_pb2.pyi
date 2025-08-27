@@ -13,7 +13,6 @@ class GaugeOperation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GAUGE_OPERATION_SUBTRACT: _ClassVar[GaugeOperation]
     GAUGE_OPERATION_INCREMENT: _ClassVar[GaugeOperation]
     GAUGE_OPERATION_DECREMENT: _ClassVar[GaugeOperation]
-
 GAUGE_OPERATION_UNSPECIFIED: GaugeOperation
 GAUGE_OPERATION_SET: GaugeOperation
 GAUGE_OPERATION_ADD: GaugeOperation

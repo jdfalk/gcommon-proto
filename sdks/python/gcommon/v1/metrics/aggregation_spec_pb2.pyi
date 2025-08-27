@@ -20,10 +20,7 @@ class AggregationSpec(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     AGGREGATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     FIELD_FIELD_NUMBER: _ClassVar[int]
     WINDOW_FIELD_NUMBER: _ClassVar[int]
@@ -34,17 +31,4 @@ class AggregationSpec(_message.Message):
     window: _duration_pb2.Duration
     step: _duration_pb2.Duration
     parameters: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        aggregation_type: _Optional[
-            _Union[_aggregation_type_pb2.AggregationType, str]
-        ] = ...,
-        field: _Optional[str] = ...,
-        window: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        step: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        parameters: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, aggregation_type: _Optional[_Union[_aggregation_type_pb2.AggregationType, str]] = ..., field: _Optional[str] = ..., window: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., step: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...

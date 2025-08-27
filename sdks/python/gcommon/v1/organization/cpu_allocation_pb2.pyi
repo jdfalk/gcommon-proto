@@ -16,10 +16,4 @@ class CPUAllocation(_message.Message):
     frequency_mhz: int
     usage_limit_percent: int
     priority: int
-    def __init__(
-        self,
-        cores: _Optional[int] = ...,
-        frequency_mhz: _Optional[int] = ...,
-        usage_limit_percent: _Optional[int] = ...,
-        priority: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, cores: _Optional[int] = ..., frequency_mhz: _Optional[int] = ..., usage_limit_percent: _Optional[int] = ..., priority: _Optional[int] = ...) -> None: ...

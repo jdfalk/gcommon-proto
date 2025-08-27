@@ -10,14 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VerificationStatus(_message.Message):
-    __slots__ = (
-        "email_verified",
-        "phone_verified",
-        "identity_verified",
-        "email_verified_at",
-        "phone_verified_at",
-        "identity_verified_at",
-    )
+    __slots__ = ("email_verified", "phone_verified", "identity_verified", "email_verified_at", "phone_verified_at", "identity_verified_at")
     EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     PHONE_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     IDENTITY_VERIFIED_FIELD_NUMBER: _ClassVar[int]
@@ -30,18 +23,4 @@ class VerificationStatus(_message.Message):
     email_verified_at: _timestamp_pb2.Timestamp
     phone_verified_at: _timestamp_pb2.Timestamp
     identity_verified_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        email_verified: _Optional[bool] = ...,
-        phone_verified: _Optional[bool] = ...,
-        identity_verified: _Optional[bool] = ...,
-        email_verified_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        phone_verified_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        identity_verified_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, email_verified: _Optional[bool] = ..., phone_verified: _Optional[bool] = ..., identity_verified: _Optional[bool] = ..., email_verified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., phone_verified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., identity_verified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

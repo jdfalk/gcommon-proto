@@ -16,14 +16,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListProvidersResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "error",
-        "providers",
-        "pagination",
-        "summary",
-        "generated_at",
-    )
+    __slots__ = ("success", "error", "providers", "pagination", "summary", "generated_at")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     PROVIDERS_FIELD_NUMBER: _ClassVar[int]
@@ -32,26 +25,8 @@ class ListProvidersResponse(_message.Message):
     GENERATED_AT_FIELD_NUMBER: _ClassVar[int]
     success: bool
     error: _error_pb2.Error
-    providers: _containers.RepeatedCompositeFieldContainer[
-        _provider_info_pb2.ProviderInfo
-    ]
+    providers: _containers.RepeatedCompositeFieldContainer[_provider_info_pb2.ProviderInfo]
     pagination: _pagination_info_pb2.MetricsPaginationInfo
     summary: _provider_summary_pb2.ProviderSummary
     generated_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        providers: _Optional[
-            _Iterable[_Union[_provider_info_pb2.ProviderInfo, _Mapping]]
-        ] = ...,
-        pagination: _Optional[
-            _Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]
-        ] = ...,
-        summary: _Optional[
-            _Union[_provider_summary_pb2.ProviderSummary, _Mapping]
-        ] = ...,
-        generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., providers: _Optional[_Iterable[_Union[_provider_info_pb2.ProviderInfo, _Mapping]]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]] = ..., summary: _Optional[_Union[_provider_summary_pb2.ProviderSummary, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -13,26 +13,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValueHistoryEntry(_message.Message):
-    __slots__ = (
-        "entry_id",
-        "previous_value",
-        "new_value",
-        "timestamp",
-        "changed_by",
-        "reason",
-        "change_type",
-        "metadata",
-    )
+    __slots__ = ("entry_id", "previous_value", "new_value", "timestamp", "changed_by", "reason", "change_type", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     PREVIOUS_VALUE_FIELD_NUMBER: _ClassVar[int]
     NEW_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -49,18 +37,4 @@ class ValueHistoryEntry(_message.Message):
     reason: str
     change_type: _config_change_type_pb2.TemplateChangeType
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        entry_id: _Optional[str] = ...,
-        previous_value: _Optional[str] = ...,
-        new_value: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        changed_by: _Optional[str] = ...,
-        reason: _Optional[str] = ...,
-        change_type: _Optional[
-            _Union[_config_change_type_pb2.TemplateChangeType, str]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, entry_id: _Optional[str] = ..., previous_value: _Optional[str] = ..., new_value: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., changed_by: _Optional[str] = ..., reason: _Optional[str] = ..., change_type: _Optional[_Union[_config_change_type_pb2.TemplateChangeType, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

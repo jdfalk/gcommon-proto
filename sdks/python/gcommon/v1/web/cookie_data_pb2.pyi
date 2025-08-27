@@ -12,16 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CookieData(_message.Message):
-    __slots__ = (
-        "name",
-        "value",
-        "path",
-        "domain",
-        "expires_at",
-        "http_only",
-        "secure",
-        "same_site",
-    )
+    __slots__ = ("name", "value", "path", "domain", "expires_at", "http_only", "secure", "same_site")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
@@ -38,16 +29,4 @@ class CookieData(_message.Message):
     http_only: bool
     secure: bool
     same_site: _cookie_same_site_pb2.CookieSameSite
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        value: _Optional[str] = ...,
-        path: _Optional[str] = ...,
-        domain: _Optional[str] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        http_only: _Optional[bool] = ...,
-        secure: _Optional[bool] = ...,
-        same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[str] = ..., path: _Optional[str] = ..., domain: _Optional[str] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., http_only: _Optional[bool] = ..., secure: _Optional[bool] = ..., same_site: _Optional[_Union[_cookie_same_site_pb2.CookieSameSite, str]] = ...) -> None: ...

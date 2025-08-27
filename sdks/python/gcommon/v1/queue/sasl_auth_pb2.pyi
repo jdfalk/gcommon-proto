@@ -16,10 +16,7 @@ class SASLAuth(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     MECHANISM_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
@@ -28,10 +25,4 @@ class SASLAuth(_message.Message):
     username: str
     password: str
     properties: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        mechanism: _Optional[str] = ...,
-        username: _Optional[str] = ...,
-        password: _Optional[str] = ...,
-        properties: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, mechanism: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., properties: _Optional[_Mapping[str, str]] = ...) -> None: ...

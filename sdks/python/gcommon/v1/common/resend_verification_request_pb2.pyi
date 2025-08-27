@@ -13,8 +13,4 @@ class ResendVerificationRequest(_message.Message):
     TYPE_FIELD_NUMBER: _ClassVar[int]
     identifier: str
     type: _verification_type_pb2.AuthVerificationType
-    def __init__(
-        self,
-        identifier: _Optional[str] = ...,
-        type: _Optional[_Union[_verification_type_pb2.AuthVerificationType, str]] = ...,
-    ) -> None: ...
+    def __init__(self, identifier: _Optional[str] = ..., type: _Optional[_Union[_verification_type_pb2.AuthVerificationType, str]] = ...) -> None: ...

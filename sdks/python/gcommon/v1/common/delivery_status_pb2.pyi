@@ -12,7 +12,6 @@ class DeliveryStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DELIVERY_STATUS_SENT: _ClassVar[DeliveryStatus]
     DELIVERY_STATUS_FAILED: _ClassVar[DeliveryStatus]
     DELIVERY_STATUS_ACKNOWLEDGED: _ClassVar[DeliveryStatus]
-
 DELIVERY_STATUS_UNSPECIFIED: DeliveryStatus
 DELIVERY_STATUS_PENDING: DeliveryStatus
 DELIVERY_STATUS_SENT: DeliveryStatus

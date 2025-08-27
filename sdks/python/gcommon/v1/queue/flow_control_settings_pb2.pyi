@@ -14,9 +14,4 @@ class FlowControlSettings(_message.Message):
     max_outstanding_messages: int
     max_outstanding_bytes: int
     algorithm: str
-    def __init__(
-        self,
-        max_outstanding_messages: _Optional[int] = ...,
-        max_outstanding_bytes: _Optional[int] = ...,
-        algorithm: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, max_outstanding_messages: _Optional[int] = ..., max_outstanding_bytes: _Optional[int] = ..., algorithm: _Optional[str] = ...) -> None: ...

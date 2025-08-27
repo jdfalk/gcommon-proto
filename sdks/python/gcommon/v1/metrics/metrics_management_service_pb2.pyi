@@ -1,31 +1,13 @@
-from gcommon.v1.metrics import (
-    create_provider_request_pb2 as _create_provider_request_pb2,
-)
-from gcommon.v1.metrics import (
-    create_provider_response_pb2 as _create_provider_response_pb2,
-)
-from gcommon.v1.metrics import (
-    delete_provider_request_pb2 as _delete_provider_request_pb2,
-)
-from gcommon.v1.metrics import (
-    delete_provider_response_pb2 as _delete_provider_response_pb2,
-)
-from gcommon.v1.metrics import (
-    get_provider_stats_request_pb2 as _get_provider_stats_request_pb2,
-)
-from gcommon.v1.metrics import (
-    get_provider_stats_response_pb2 as _get_provider_stats_response_pb2,
-)
+from gcommon.v1.metrics import create_provider_request_pb2 as _create_provider_request_pb2
+from gcommon.v1.metrics import create_provider_response_pb2 as _create_provider_response_pb2
+from gcommon.v1.metrics import delete_provider_request_pb2 as _delete_provider_request_pb2
+from gcommon.v1.metrics import delete_provider_response_pb2 as _delete_provider_response_pb2
+from gcommon.v1.metrics import get_provider_stats_request_pb2 as _get_provider_stats_request_pb2
+from gcommon.v1.metrics import get_provider_stats_response_pb2 as _get_provider_stats_response_pb2
 from gcommon.v1.metrics import list_providers_request_pb2 as _list_providers_request_pb2
-from gcommon.v1.metrics import (
-    list_providers_response_pb2 as _list_providers_response_pb2,
-)
-from gcommon.v1.metrics import (
-    update_provider_request_pb2 as _update_provider_request_pb2,
-)
-from gcommon.v1.metrics import (
-    update_provider_response_pb2 as _update_provider_response_pb2,
-)
+from gcommon.v1.metrics import list_providers_response_pb2 as _list_providers_response_pb2
+from gcommon.v1.metrics import update_provider_request_pb2 as _update_provider_request_pb2
+from gcommon.v1.metrics import update_provider_response_pb2 as _update_provider_response_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from typing import ClassVar as _ClassVar

@@ -18,12 +18,4 @@ class CommitOffsetRequest(_message.Message):
     consumer_group: str
     offset: int
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        consumer_group: _Optional[str] = ...,
-        offset: _Optional[int] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., consumer_group: _Optional[str] = ..., offset: _Optional[int] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

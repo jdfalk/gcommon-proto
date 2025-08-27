@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateCondition(_message.Message):
-    __slots__ = (
-        "expected_version",
-        "expected_state",
-        "max_age_seconds",
-        "only_if_not_delivered",
-        "only_if_visible",
-        "condition_expression",
-    )
+    __slots__ = ("expected_version", "expected_state", "max_age_seconds", "only_if_not_delivered", "only_if_visible", "condition_expression")
     EXPECTED_VERSION_FIELD_NUMBER: _ClassVar[int]
     EXPECTED_STATE_FIELD_NUMBER: _ClassVar[int]
     MAX_AGE_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class UpdateCondition(_message.Message):
     only_if_not_delivered: bool
     only_if_visible: bool
     condition_expression: str
-    def __init__(
-        self,
-        expected_version: _Optional[str] = ...,
-        expected_state: _Optional[str] = ...,
-        max_age_seconds: _Optional[int] = ...,
-        only_if_not_delivered: _Optional[bool] = ...,
-        only_if_visible: _Optional[bool] = ...,
-        condition_expression: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, expected_version: _Optional[str] = ..., expected_state: _Optional[str] = ..., max_age_seconds: _Optional[int] = ..., only_if_not_delivered: _Optional[bool] = ..., only_if_visible: _Optional[bool] = ..., condition_expression: _Optional[str] = ...) -> None: ...

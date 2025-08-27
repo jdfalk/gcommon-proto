@@ -1,7 +1,5 @@
 from gcommon.v1.common import conflict_resolution_pb2 as _conflict_resolution_pb2
-from gcommon.v1.common import (
-    synchronization_frequency_pb2 as _synchronization_frequency_pb2,
-)
+from gcommon.v1.common import synchronization_frequency_pb2 as _synchronization_frequency_pb2
 from gcommon.v1.config import synchronization_target_pb2 as _synchronization_target_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -21,35 +19,15 @@ class SynchronizationSettings(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     TARGETS_FIELD_NUMBER: _ClassVar[int]
     FREQUENCY_FIELD_NUMBER: _ClassVar[int]
     CONFLICT_RESOLUTION_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     enabled: bool
-    targets: _containers.RepeatedCompositeFieldContainer[
-        _synchronization_target_pb2.SynchronizationTarget
-    ]
+    targets: _containers.RepeatedCompositeFieldContainer[_synchronization_target_pb2.SynchronizationTarget]
     frequency: _synchronization_frequency_pb2.SynchronizationFrequency
     conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        targets: _Optional[
-            _Iterable[
-                _Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]
-            ]
-        ] = ...,
-        frequency: _Optional[
-            _Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]
-        ] = ...,
-        conflict_resolution: _Optional[
-            _Union[_conflict_resolution_pb2.ConflictResolution, str]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., targets: _Optional[_Iterable[_Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]]] = ..., frequency: _Optional[_Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

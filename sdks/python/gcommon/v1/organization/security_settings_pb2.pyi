@@ -10,19 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SecuritySettings(_message.Message):
-    __slots__ = (
-        "require_mfa",
-        "min_password_length",
-        "require_password_complexity",
-        "password_expiry_days",
-        "session_timeout_minutes",
-        "sso_enabled",
-        "sso_providers",
-        "ip_whitelist",
-        "api_access_enabled",
-        "api_rate_limit",
-        "audit_log_retention_days",
-    )
+    __slots__ = ("require_mfa", "min_password_length", "require_password_complexity", "password_expiry_days", "session_timeout_minutes", "sso_enabled", "sso_providers", "ip_whitelist", "api_access_enabled", "api_rate_limit", "audit_log_retention_days")
     REQUIRE_MFA_FIELD_NUMBER: _ClassVar[int]
     MIN_PASSWORD_LENGTH_FIELD_NUMBER: _ClassVar[int]
     REQUIRE_PASSWORD_COMPLEXITY_FIELD_NUMBER: _ClassVar[int]
@@ -45,19 +33,4 @@ class SecuritySettings(_message.Message):
     api_access_enabled: bool
     api_rate_limit: _rate_limit_config_pb2.OrganizationRateLimitConfig
     audit_log_retention_days: int
-    def __init__(
-        self,
-        require_mfa: _Optional[bool] = ...,
-        min_password_length: _Optional[int] = ...,
-        require_password_complexity: _Optional[bool] = ...,
-        password_expiry_days: _Optional[int] = ...,
-        session_timeout_minutes: _Optional[int] = ...,
-        sso_enabled: _Optional[bool] = ...,
-        sso_providers: _Optional[_Iterable[str]] = ...,
-        ip_whitelist: _Optional[_Iterable[str]] = ...,
-        api_access_enabled: _Optional[bool] = ...,
-        api_rate_limit: _Optional[
-            _Union[_rate_limit_config_pb2.OrganizationRateLimitConfig, _Mapping]
-        ] = ...,
-        audit_log_retention_days: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, require_mfa: _Optional[bool] = ..., min_password_length: _Optional[int] = ..., require_password_complexity: _Optional[bool] = ..., password_expiry_days: _Optional[int] = ..., session_timeout_minutes: _Optional[int] = ..., sso_enabled: _Optional[bool] = ..., sso_providers: _Optional[_Iterable[str]] = ..., ip_whitelist: _Optional[_Iterable[str]] = ..., api_access_enabled: _Optional[bool] = ..., api_rate_limit: _Optional[_Union[_rate_limit_config_pb2.OrganizationRateLimitConfig, _Mapping]] = ..., audit_log_retention_days: _Optional[int] = ...) -> None: ...

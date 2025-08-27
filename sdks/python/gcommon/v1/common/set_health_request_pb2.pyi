@@ -17,11 +17,4 @@ class SetHealthRequest(_message.Message):
     service: str
     status: _health_status_pb2.CommonHealthStatus
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        service: _Optional[str] = ...,
-        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, service: _Optional[str] = ..., status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

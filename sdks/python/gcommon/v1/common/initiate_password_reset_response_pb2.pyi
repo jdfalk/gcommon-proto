@@ -18,11 +18,4 @@ class InitiatePasswordResetResponse(_message.Message):
     reset_token: str
     expires_at: _timestamp_pb2.Timestamp
     message: str
-    def __init__(
-        self,
-        reset_token: _Optional[str] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, reset_token: _Optional[str] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., message: _Optional[str] = ...) -> None: ...

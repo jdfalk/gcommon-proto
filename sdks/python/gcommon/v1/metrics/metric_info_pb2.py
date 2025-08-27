@@ -4,15 +4,18 @@
 # source: gcommon/v1/metrics/metric_info.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/metrics/metric_info.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/metrics/metric_info.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -24,26 +27,16 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n$gcommon/v1/metrics/metric_info.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xf7\x01\n\nMetricInfo\x12\x1d\n\x04name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12\x1f\n\x0bmetric_type\x18\x02 \x01(\tR\nmetricType\x12\x1f\n\x0b\x64\x61ta_points\x18\x03 \x01(\x03R\ndataPoints\x12*\n\x11\x64\x61ta_volume_bytes\x18\x04 \x01(\x03R\x0f\x64\x61taVolumeBytes\x12\x1d\n\nerror_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n\x0clast_updated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0blastUpdatedB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/metrics/metric_info.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf7\x01\n\nMetricInfo\x12\x1d\n\x04name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12\x1f\n\x0bmetric_type\x18\x02 \x01(\tR\nmetricType\x12\x1f\n\x0b\x64\x61ta_points\x18\x03 \x01(\x03R\ndataPoints\x12*\n\x11\x64\x61ta_volume_bytes\x18\x04 \x01(\x03R\x0f\x64\x61taVolumeBytes\x12\x1d\n\nerror_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n\x0clast_updated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0blastUpdatedB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.metric_info_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.metric_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_METRICINFO"].fields_by_name["name"]._loaded_options = None
-    _globals["_METRICINFO"].fields_by_name[
-        "name"
-    ]._serialized_options = b"\272H\006r\004\020\001\030d"
-    _globals["_METRICINFO"]._serialized_start = 158
-    _globals["_METRICINFO"]._serialized_end = 405
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_METRICINFO'].fields_by_name['name']._loaded_options = None
+  _globals['_METRICINFO'].fields_by_name['name']._serialized_options = b'\272H\006r\004\020\001\030d'
+  _globals['_METRICINFO']._serialized_start=158
+  _globals['_METRICINFO']._serialized_end=405
 # @@protoc_insertion_point(module_scope)

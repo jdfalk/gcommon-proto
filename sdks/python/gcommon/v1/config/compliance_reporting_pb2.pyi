@@ -16,9 +16,4 @@ class ComplianceReporting(_message.Message):
     enabled: bool
     frequency_hours: int
     recipients: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        frequency_hours: _Optional[int] = ...,
-        recipients: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., frequency_hours: _Optional[int] = ..., recipients: _Optional[_Iterable[str]] = ...) -> None: ...

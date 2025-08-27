@@ -18,24 +18,9 @@ class ExecuteBatchRequest(_message.Message):
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     TRANSACTION_ID_FIELD_NUMBER: _ClassVar[int]
-    operations: _containers.RepeatedCompositeFieldContainer[
-        _batch_operation_pb2.DatabaseBatchOperation
-    ]
+    operations: _containers.RepeatedCompositeFieldContainer[_batch_operation_pb2.DatabaseBatchOperation]
     database: str
     options: _batch_execute_options_pb2.BatchExecuteOptions
     metadata: _request_metadata_pb2.RequestMetadata
     transaction_id: str
-    def __init__(
-        self,
-        operations: _Optional[
-            _Iterable[_Union[_batch_operation_pb2.DatabaseBatchOperation, _Mapping]]
-        ] = ...,
-        database: _Optional[str] = ...,
-        options: _Optional[
-            _Union[_batch_execute_options_pb2.BatchExecuteOptions, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        transaction_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, operations: _Optional[_Iterable[_Union[_batch_operation_pb2.DatabaseBatchOperation, _Mapping]]] = ..., database: _Optional[str] = ..., options: _Optional[_Union[_batch_execute_options_pb2.BatchExecuteOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., transaction_id: _Optional[str] = ...) -> None: ...

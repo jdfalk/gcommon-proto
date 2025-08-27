@@ -17,10 +17,4 @@ class AuthProvider(_message.Message):
     name: str
     type: _provider_type_pb2.AuthProviderType
     config: str
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        type: _Optional[_Union[_provider_type_pb2.AuthProviderType, str]] = ...,
-        config: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_provider_type_pb2.AuthProviderType, str]] = ..., config: _Optional[str] = ...) -> None: ...

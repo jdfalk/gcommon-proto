@@ -14,15 +14,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RunCheckResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "check_id",
-        "status",
-        "executed_at",
-        "execution_time",
-        "message",
-        "error",
-    )
+    __slots__ = ("success", "check_id", "status", "executed_at", "execution_time", "message", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     CHECK_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -37,17 +29,4 @@ class RunCheckResponse(_message.Message):
     execution_time: _duration_pb2.Duration
     message: str
     error: _error_pb2.Error
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        check_id: _Optional[str] = ...,
-        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
-        executed_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        execution_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        message: _Optional[str] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., check_id: _Optional[str] = ..., status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., executed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., execution_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., message: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

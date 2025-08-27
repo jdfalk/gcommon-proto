@@ -16,11 +16,4 @@ class SetConfigResponse(_message.Message):
     success: bool
     previous_entry: _config_entry_pb2.ConfigEntry
     error: _error_pb2.Error
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        previous_entry: _Optional[
-            _Union[_config_entry_pb2.ConfigEntry, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., previous_entry: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

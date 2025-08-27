@@ -10,14 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ReadConsistency(_message.Message):
-    __slots__ = (
-        "level",
-        "max_staleness_ms",
-        "read_your_writes",
-        "monotonic_reads",
-        "timeout_ms",
-        "retry_config",
-    )
+    __slots__ = ("level", "max_staleness_ms", "read_your_writes", "monotonic_reads", "timeout_ms", "retry_config")
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     MAX_STALENESS_MS_FIELD_NUMBER: _ClassVar[int]
     READ_YOUR_WRITES_FIELD_NUMBER: _ClassVar[int]
@@ -30,14 +23,4 @@ class ReadConsistency(_message.Message):
     monotonic_reads: bool
     timeout_ms: int
     retry_config: _read_retry_config_pb2.ReadRetryConfig
-    def __init__(
-        self,
-        level: _Optional[_Union[_read_level_pb2.ReadLevel, str]] = ...,
-        max_staleness_ms: _Optional[int] = ...,
-        read_your_writes: _Optional[bool] = ...,
-        monotonic_reads: _Optional[bool] = ...,
-        timeout_ms: _Optional[int] = ...,
-        retry_config: _Optional[
-            _Union[_read_retry_config_pb2.ReadRetryConfig, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, level: _Optional[_Union[_read_level_pb2.ReadLevel, str]] = ..., max_staleness_ms: _Optional[int] = ..., read_your_writes: _Optional[bool] = ..., monotonic_reads: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_read_retry_config_pb2.ReadRetryConfig, _Mapping]] = ...) -> None: ...

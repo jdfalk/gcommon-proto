@@ -10,16 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListFilesRequest(_message.Message):
-    __slots__ = (
-        "directory_path",
-        "recursive",
-        "pattern",
-        "limit",
-        "offset",
-        "include_hidden",
-        "sort_order",
-        "metadata",
-    )
+    __slots__ = ("directory_path", "recursive", "pattern", "limit", "offset", "include_hidden", "sort_order", "metadata")
     DIRECTORY_PATH_FIELD_NUMBER: _ClassVar[int]
     RECURSIVE_FIELD_NUMBER: _ClassVar[int]
     PATTERN_FIELD_NUMBER: _ClassVar[int]
@@ -36,16 +27,4 @@ class ListFilesRequest(_message.Message):
     include_hidden: bool
     sort_order: _file_sort_order_pb2.FileSortOrder
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        directory_path: _Optional[str] = ...,
-        recursive: _Optional[bool] = ...,
-        pattern: _Optional[str] = ...,
-        limit: _Optional[int] = ...,
-        offset: _Optional[int] = ...,
-        include_hidden: _Optional[bool] = ...,
-        sort_order: _Optional[_Union[_file_sort_order_pb2.FileSortOrder, str]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, directory_path: _Optional[str] = ..., recursive: _Optional[bool] = ..., pattern: _Optional[str] = ..., limit: _Optional[int] = ..., offset: _Optional[int] = ..., include_hidden: _Optional[bool] = ..., sort_order: _Optional[_Union[_file_sort_order_pb2.FileSortOrder, str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

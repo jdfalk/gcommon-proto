@@ -16,9 +16,4 @@ class ErrorTrend(_message.Message):
     error_rate_trend: str
     trend_confidence: float
     emerging_error_types: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        error_rate_trend: _Optional[str] = ...,
-        trend_confidence: _Optional[float] = ...,
-        emerging_error_types: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, error_rate_trend: _Optional[str] = ..., trend_confidence: _Optional[float] = ..., emerging_error_types: _Optional[_Iterable[str]] = ...) -> None: ...

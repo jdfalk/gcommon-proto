@@ -18,12 +18,4 @@ class ImportConfigRequest(_message.Message):
     content: bytes
     format: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        namespace: _Optional[str] = ...,
-        content: _Optional[bytes] = ...,
-        format: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, namespace: _Optional[str] = ..., content: _Optional[bytes] = ..., format: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

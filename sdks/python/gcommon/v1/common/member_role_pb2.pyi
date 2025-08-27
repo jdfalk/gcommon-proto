@@ -13,7 +13,6 @@ class MemberRole(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MEMBER_ROLE_MEMBER: _ClassVar[MemberRole]
     MEMBER_ROLE_VIEWER: _ClassVar[MemberRole]
     MEMBER_ROLE_GUEST: _ClassVar[MemberRole]
-
 MEMBER_ROLE_UNSPECIFIED: MemberRole
 MEMBER_ROLE_OWNER: MemberRole
 MEMBER_ROLE_ADMIN: MemberRole

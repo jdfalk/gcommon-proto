@@ -19,12 +19,4 @@ class SearchMediaResponse(_message.Message):
     next_page_token: str
     total_count: int
     suggested_terms: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        media_files: _Optional[
-            _Iterable[_Union[_media_file_pb2.MediaFile, _Mapping]]
-        ] = ...,
-        next_page_token: _Optional[str] = ...,
-        total_count: _Optional[int] = ...,
-        suggested_terms: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, media_files: _Optional[_Iterable[_Union[_media_file_pb2.MediaFile, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total_count: _Optional[int] = ..., suggested_terms: _Optional[_Iterable[str]] = ...) -> None: ...

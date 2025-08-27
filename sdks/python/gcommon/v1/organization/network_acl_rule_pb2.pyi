@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NetworkACLRule(_message.Message):
-    __slots__ = (
-        "action",
-        "source",
-        "destination",
-        "protocol",
-        "port_range",
-        "priority",
-    )
+    __slots__ = ("action", "source", "destination", "protocol", "port_range", "priority")
     ACTION_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class NetworkACLRule(_message.Message):
     protocol: str
     port_range: str
     priority: int
-    def __init__(
-        self,
-        action: _Optional[str] = ...,
-        source: _Optional[str] = ...,
-        destination: _Optional[str] = ...,
-        protocol: _Optional[str] = ...,
-        port_range: _Optional[str] = ...,
-        priority: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, action: _Optional[str] = ..., source: _Optional[str] = ..., destination: _Optional[str] = ..., protocol: _Optional[str] = ..., port_range: _Optional[str] = ..., priority: _Optional[int] = ...) -> None: ...

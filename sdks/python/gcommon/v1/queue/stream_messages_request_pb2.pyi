@@ -13,22 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class StreamMessagesRequest(_message.Message):
-    __slots__ = (
-        "topic",
-        "consumer_group_id",
-        "consumer_id",
-        "offset_config",
-        "max_messages",
-        "stream_timeout_ms",
-        "ack_level",
-        "batch_size",
-        "filter",
-        "auto_acknowledge",
-        "pause_on_error",
-        "include_metadata",
-        "partition_ids",
-        "stream_config",
-    )
+    __slots__ = ("topic", "consumer_group_id", "consumer_id", "offset_config", "max_messages", "stream_timeout_ms", "ack_level", "batch_size", "filter", "auto_acknowledge", "pause_on_error", "include_metadata", "partition_ids", "stream_config")
     TOPIC_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -57,24 +42,4 @@ class StreamMessagesRequest(_message.Message):
     include_metadata: bool
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     stream_config: _stream_config_pb2.StreamConfig
-    def __init__(
-        self,
-        topic: _Optional[str] = ...,
-        consumer_group_id: _Optional[str] = ...,
-        consumer_id: _Optional[str] = ...,
-        offset_config: _Optional[
-            _Union[_offset_config_pb2.OffsetConfig, _Mapping]
-        ] = ...,
-        max_messages: _Optional[int] = ...,
-        stream_timeout_ms: _Optional[int] = ...,
-        ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ...,
-        batch_size: _Optional[int] = ...,
-        filter: _Optional[_Union[_message_filter_pb2.MessageFilter, _Mapping]] = ...,
-        auto_acknowledge: _Optional[bool] = ...,
-        pause_on_error: _Optional[bool] = ...,
-        include_metadata: _Optional[bool] = ...,
-        partition_ids: _Optional[_Iterable[int]] = ...,
-        stream_config: _Optional[
-            _Union[_stream_config_pb2.StreamConfig, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, topic: _Optional[str] = ..., consumer_group_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., offset_config: _Optional[_Union[_offset_config_pb2.OffsetConfig, _Mapping]] = ..., max_messages: _Optional[int] = ..., stream_timeout_ms: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., batch_size: _Optional[int] = ..., filter: _Optional[_Union[_message_filter_pb2.MessageFilter, _Mapping]] = ..., auto_acknowledge: _Optional[bool] = ..., pause_on_error: _Optional[bool] = ..., include_metadata: _Optional[bool] = ..., partition_ids: _Optional[_Iterable[int]] = ..., stream_config: _Optional[_Union[_stream_config_pb2.StreamConfig, _Mapping]] = ...) -> None: ...

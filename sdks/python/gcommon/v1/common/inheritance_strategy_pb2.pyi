@@ -13,7 +13,6 @@ class InheritanceStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     INHERITANCE_STRATEGY_FALLBACK: _ClassVar[InheritanceStrategy]
     INHERITANCE_STRATEGY_PRIORITY: _ClassVar[InheritanceStrategy]
     INHERITANCE_STRATEGY_WEIGHTED: _ClassVar[InheritanceStrategy]
-
 INHERITANCE_STRATEGY_UNSPECIFIED: InheritanceStrategy
 INHERITANCE_STRATEGY_OVERRIDE: InheritanceStrategy
 INHERITANCE_STRATEGY_MERGE: InheritanceStrategy

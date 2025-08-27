@@ -11,25 +11,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValidationSettings(_message.Message):
-    __slots__ = (
-        "enabled",
-        "rules",
-        "validate_on_change",
-        "validate_on_access",
-        "timeout_seconds",
-        "retry",
-        "metadata",
-    )
+    __slots__ = ("enabled", "rules", "validate_on_change", "validate_on_access", "timeout_seconds", "retry", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     RULES_FIELD_NUMBER: _ClassVar[int]
     VALIDATE_ON_CHANGE_FIELD_NUMBER: _ClassVar[int]
@@ -38,25 +27,10 @@ class ValidationSettings(_message.Message):
     RETRY_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     enabled: bool
-    rules: _containers.RepeatedCompositeFieldContainer[
-        _validation_rule_pb2.ValidationRule
-    ]
+    rules: _containers.RepeatedCompositeFieldContainer[_validation_rule_pb2.ValidationRule]
     validate_on_change: bool
     validate_on_access: bool
     timeout_seconds: int
     retry: _config_retry_settings_pb2.ConfigRetrySettings
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        rules: _Optional[
-            _Iterable[_Union[_validation_rule_pb2.ValidationRule, _Mapping]]
-        ] = ...,
-        validate_on_change: _Optional[bool] = ...,
-        validate_on_access: _Optional[bool] = ...,
-        timeout_seconds: _Optional[int] = ...,
-        retry: _Optional[
-            _Union[_config_retry_settings_pb2.ConfigRetrySettings, _Mapping]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., rules: _Optional[_Iterable[_Union[_validation_rule_pb2.ValidationRule, _Mapping]]] = ..., validate_on_change: _Optional[bool] = ..., validate_on_access: _Optional[bool] = ..., timeout_seconds: _Optional[int] = ..., retry: _Optional[_Union[_config_retry_settings_pb2.ConfigRetrySettings, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

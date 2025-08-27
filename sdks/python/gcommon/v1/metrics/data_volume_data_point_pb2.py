@@ -4,20 +4,18 @@
 # source: gcommon/v1/metrics/data_volume_data_point.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/data_volume_data_point.proto",
+    '',
+    'gcommon/v1/metrics/data_volume_data_point.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -29,46 +27,22 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n/gcommon/v1/metrics/data_volume_data_point.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\x93\x02\n\x13\x44\x61taVolumeDataPoint\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12(\n\x0btotal_bytes\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\ntotalBytes\x12,\n\rtotal_metrics\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0ctotalMetrics\x12\x33\n\x11total_data_points\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0ftotalDataPoints\x12\x35\n\x0eingestion_rate\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\ringestionRateB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/metrics/data_volume_data_point.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\x93\x02\n\x13\x44\x61taVolumeDataPoint\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12(\n\x0btotal_bytes\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\ntotalBytes\x12,\n\rtotal_metrics\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0ctotalMetrics\x12\x33\n\x11total_data_points\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0ftotalDataPoints\x12\x35\n\x0eingestion_rate\x18\x05 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\ringestionRateB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.data_volume_data_point_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.data_volume_data_point_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_bytes"
-    ]._loaded_options = None
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_bytes"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_metrics"
-    ]._loaded_options = None
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_metrics"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_data_points"
-    ]._loaded_options = None
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "total_data_points"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "ingestion_rate"
-    ]._loaded_options = None
-    _globals["_DATAVOLUMEDATAPOINT"].fields_by_name[
-        "ingestion_rate"
-    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
-    _globals["_DATAVOLUMEDATAPOINT"]._serialized_start = 169
-    _globals["_DATAVOLUMEDATAPOINT"]._serialized_end = 444
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_bytes']._loaded_options = None
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_bytes']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_metrics']._loaded_options = None
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_metrics']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_data_points']._loaded_options = None
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['total_data_points']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['ingestion_rate']._loaded_options = None
+  _globals['_DATAVOLUMEDATAPOINT'].fields_by_name['ingestion_rate']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
+  _globals['_DATAVOLUMEDATAPOINT']._serialized_start=169
+  _globals['_DATAVOLUMEDATAPOINT']._serialized_end=444
 # @@protoc_insertion_point(module_scope)

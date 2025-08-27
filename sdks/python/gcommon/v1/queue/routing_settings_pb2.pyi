@@ -16,9 +16,4 @@ class RoutingSettings(_message.Message):
     routing_key_pattern: str
     target_partitions: _containers.RepeatedScalarFieldContainer[int]
     routing_strategy: str
-    def __init__(
-        self,
-        routing_key_pattern: _Optional[str] = ...,
-        target_partitions: _Optional[_Iterable[int]] = ...,
-        routing_strategy: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, routing_key_pattern: _Optional[str] = ..., target_partitions: _Optional[_Iterable[int]] = ..., routing_strategy: _Optional[str] = ...) -> None: ...

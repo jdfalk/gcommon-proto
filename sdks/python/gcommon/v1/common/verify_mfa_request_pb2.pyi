@@ -17,10 +17,4 @@ class VerifyMfaRequest(_message.Message):
     code: str
     method: _mfa_method_pb2.MfaMethod
     context: str
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        code: _Optional[str] = ...,
-        method: _Optional[_Union[_mfa_method_pb2.MfaMethod, str]] = ...,
-        context: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., code: _Optional[str] = ..., method: _Optional[_Union[_mfa_method_pb2.MfaMethod, str]] = ..., context: _Optional[str] = ...) -> None: ...

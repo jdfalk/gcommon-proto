@@ -10,7 +10,6 @@ class AuthSubjectType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SUBJECT_TYPE_UNSPECIFIED: _ClassVar[AuthSubjectType]
     SUBJECT_TYPE_USER: _ClassVar[AuthSubjectType]
     SUBJECT_TYPE_ROLE: _ClassVar[AuthSubjectType]
-
 SUBJECT_TYPE_UNSPECIFIED: AuthSubjectType
 SUBJECT_TYPE_USER: AuthSubjectType
 SUBJECT_TYPE_ROLE: AuthSubjectType

@@ -12,32 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UserInfo(_message.Message):
-    __slots__ = (
-        "user_id",
-        "username",
-        "email",
-        "display_name",
-        "roles",
-        "permissions",
-        "groups",
-        "metadata",
-        "created_at",
-        "updated_at",
-        "last_login_at",
-        "active",
-        "email_verified",
-        "avatar_url",
-    )
+    __slots__ = ("user_id", "username", "email", "display_name", "roles", "permissions", "groups", "metadata", "created_at", "updated_at", "last_login_at", "active", "email_verified", "avatar_url")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
@@ -66,26 +48,4 @@ class UserInfo(_message.Message):
     active: bool
     email_verified: bool
     avatar_url: str
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        username: _Optional[str] = ...,
-        email: _Optional[str] = ...,
-        display_name: _Optional[str] = ...,
-        roles: _Optional[_Iterable[str]] = ...,
-        permissions: _Optional[_Iterable[str]] = ...,
-        groups: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        updated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        last_login_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        active: _Optional[bool] = ...,
-        email_verified: _Optional[bool] = ...,
-        avatar_url: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., display_name: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., groups: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_login_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active: _Optional[bool] = ..., email_verified: _Optional[bool] = ..., avatar_url: _Optional[str] = ...) -> None: ...

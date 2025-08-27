@@ -15,58 +15,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HttpResponse(_message.Message):
-    __slots__ = (
-        "status_code",
-        "status_message",
-        "protocol_version",
-        "request_metadata",
-        "headers",
-        "body",
-        "cookies",
-        "content_length",
-        "content_type",
-        "content_encoding",
-        "cache_control",
-        "etag",
-        "location",
-        "server",
-        "access_control_allow_origin",
-        "access_control_allow_methods",
-        "access_control_allow_headers",
-        "request_id",
-        "service_name",
-        "service_version",
-        "processing_time_ms",
-        "served_from_cache",
-        "streaming",
-        "keep_alive",
-        "compressed",
-        "compression_ratio",
-        "error",
-        "processing_started_at",
-        "generated_at",
-        "sent_at",
-    )
+    __slots__ = ("status_code", "status_message", "protocol_version", "request_metadata", "headers", "body", "cookies", "content_length", "content_type", "content_encoding", "cache_control", "etag", "location", "server", "access_control_allow_origin", "access_control_allow_methods", "access_control_allow_headers", "request_id", "service_name", "service_version", "processing_time_ms", "served_from_cache", "streaming", "keep_alive", "compressed", "compression_ratio", "error", "processing_started_at", "generated_at", "sent_at")
     class HeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class CookiesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     STATUS_CODE_FIELD_NUMBER: _ClassVar[int]
     STATUS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     PROTOCOL_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -127,44 +90,4 @@ class HttpResponse(_message.Message):
     processing_started_at: _timestamp_pb2.Timestamp
     generated_at: _timestamp_pb2.Timestamp
     sent_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        status_code: _Optional[int] = ...,
-        status_message: _Optional[str] = ...,
-        protocol_version: _Optional[str] = ...,
-        request_metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        headers: _Optional[_Mapping[str, str]] = ...,
-        body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        cookies: _Optional[_Mapping[str, str]] = ...,
-        content_length: _Optional[int] = ...,
-        content_type: _Optional[str] = ...,
-        content_encoding: _Optional[str] = ...,
-        cache_control: _Optional[str] = ...,
-        etag: _Optional[str] = ...,
-        location: _Optional[str] = ...,
-        server: _Optional[str] = ...,
-        access_control_allow_origin: _Optional[str] = ...,
-        access_control_allow_methods: _Optional[str] = ...,
-        access_control_allow_headers: _Optional[str] = ...,
-        request_id: _Optional[str] = ...,
-        service_name: _Optional[str] = ...,
-        service_version: _Optional[str] = ...,
-        processing_time_ms: _Optional[int] = ...,
-        served_from_cache: _Optional[bool] = ...,
-        streaming: _Optional[bool] = ...,
-        keep_alive: _Optional[bool] = ...,
-        compressed: _Optional[bool] = ...,
-        compression_ratio: _Optional[float] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        processing_started_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        sent_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, status_code: _Optional[int] = ..., status_message: _Optional[str] = ..., protocol_version: _Optional[str] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., cache_control: _Optional[str] = ..., etag: _Optional[str] = ..., location: _Optional[str] = ..., server: _Optional[str] = ..., access_control_allow_origin: _Optional[str] = ..., access_control_allow_methods: _Optional[str] = ..., access_control_allow_headers: _Optional[str] = ..., request_id: _Optional[str] = ..., service_name: _Optional[str] = ..., service_version: _Optional[str] = ..., processing_time_ms: _Optional[int] = ..., served_from_cache: _Optional[bool] = ..., streaming: _Optional[bool] = ..., keep_alive: _Optional[bool] = ..., compressed: _Optional[bool] = ..., compression_ratio: _Optional[float] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., processing_started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., sent_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -14,9 +14,4 @@ class Pagination(_message.Message):
     page_size: int
     page_token: str
     page_number: int
-    def __init__(
-        self,
-        page_size: _Optional[int] = ...,
-        page_token: _Optional[str] = ...,
-        page_number: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., page_number: _Optional[int] = ...) -> None: ...

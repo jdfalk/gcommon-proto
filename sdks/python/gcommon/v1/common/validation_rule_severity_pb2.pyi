@@ -12,7 +12,6 @@ class ValidationRuleSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_RULE_SEVERITY_WARNING: _ClassVar[ValidationRuleSeverity]
     VALIDATION_RULE_SEVERITY_ERROR: _ClassVar[ValidationRuleSeverity]
     VALIDATION_RULE_SEVERITY_CRITICAL: _ClassVar[ValidationRuleSeverity]
-
 VALIDATION_RULE_SEVERITY_UNSPECIFIED: ValidationRuleSeverity
 VALIDATION_RULE_SEVERITY_INFO: ValidationRuleSeverity
 VALIDATION_RULE_SEVERITY_WARNING: ValidationRuleSeverity

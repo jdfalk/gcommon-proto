@@ -9,13 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetOrganizationRequest(_message.Message):
-    __slots__ = (
-        "metadata",
-        "organization_id",
-        "include_settings",
-        "include_member_count",
-        "include_tenants",
-    )
+    __slots__ = ("metadata", "organization_id", "include_settings", "include_member_count", "include_tenants")
     METADATA_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SETTINGS_FIELD_NUMBER: _ClassVar[int]
@@ -26,13 +20,4 @@ class GetOrganizationRequest(_message.Message):
     include_settings: bool
     include_member_count: bool
     include_tenants: bool
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        organization_id: _Optional[str] = ...,
-        include_settings: _Optional[bool] = ...,
-        include_member_count: _Optional[bool] = ...,
-        include_tenants: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., include_settings: _Optional[bool] = ..., include_member_count: _Optional[bool] = ..., include_tenants: _Optional[bool] = ...) -> None: ...

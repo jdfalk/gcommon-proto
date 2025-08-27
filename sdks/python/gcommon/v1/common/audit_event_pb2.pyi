@@ -19,10 +19,7 @@ class AuditEvent(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -31,12 +28,4 @@ class AuditEvent(_message.Message):
     user_id: str
     timestamp: _timestamp_pb2.Timestamp
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        event_type: _Optional[str] = ...,
-        user_id: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, event_type: _Optional[str] = ..., user_id: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

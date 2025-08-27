@@ -21,12 +21,4 @@ class TemplateData(_message.Message):
     context: _any_pb2.Any
     template_body: str
     compiled_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        context: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        template_body: _Optional[str] = ...,
-        compiled_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., context: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., template_body: _Optional[str] = ..., compiled_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

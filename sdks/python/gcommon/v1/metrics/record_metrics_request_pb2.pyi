@@ -22,15 +22,4 @@ class RecordMetricsRequest(_message.Message):
     atomic: bool
     batch_id: str
     max_retries: int
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        metrics: _Optional[
-            _Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]
-        ] = ...,
-        atomic: _Optional[bool] = ...,
-        batch_id: _Optional[str] = ...,
-        max_retries: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., metrics: _Optional[_Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]] = ..., atomic: _Optional[bool] = ..., batch_id: _Optional[str] = ..., max_retries: _Optional[int] = ...) -> None: ...

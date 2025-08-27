@@ -24,13 +24,4 @@ class WebCacheConfig(_message.Message):
     ttl: _duration_pb2.Duration
     enabled: bool
     cache_name: str
-    def __init__(
-        self,
-        strategy: _Optional[_Union[_cache_strategy_pb2.CacheStrategy, str]] = ...,
-        policy: _Optional[_Union[_cache_policy_pb2.CachePolicy, _Mapping]] = ...,
-        ttl: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        enabled: _Optional[bool] = ...,
-        cache_name: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, strategy: _Optional[_Union[_cache_strategy_pb2.CacheStrategy, str]] = ..., policy: _Optional[_Union[_cache_policy_pb2.CachePolicy, _Mapping]] = ..., ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., enabled: _Optional[bool] = ..., cache_name: _Optional[str] = ...) -> None: ...

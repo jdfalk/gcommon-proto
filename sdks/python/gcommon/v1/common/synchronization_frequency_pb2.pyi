@@ -13,7 +13,6 @@ class SynchronizationFrequency(int, metaclass=_enum_type_wrapper.EnumTypeWrapper
     SYNCHRONIZATION_FREQUENCY_DAILY: _ClassVar[SynchronizationFrequency]
     SYNCHRONIZATION_FREQUENCY_WEEKLY: _ClassVar[SynchronizationFrequency]
     SYNCHRONIZATION_FREQUENCY_ON_CHANGE: _ClassVar[SynchronizationFrequency]
-
 SYNCHRONIZATION_FREQUENCY_UNSPECIFIED: SynchronizationFrequency
 SYNCHRONIZATION_FREQUENCY_REAL_TIME: SynchronizationFrequency
 SYNCHRONIZATION_FREQUENCY_HOURLY: SynchronizationFrequency

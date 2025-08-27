@@ -13,8 +13,4 @@ class SortOptions(_message.Message):
     DIRECTION_FIELD_NUMBER: _ClassVar[int]
     sort_field: str
     direction: _sort_direction_pb2.SortDirection
-    def __init__(
-        self,
-        sort_field: _Optional[str] = ...,
-        direction: _Optional[_Union[_sort_direction_pb2.SortDirection, str]] = ...,
-    ) -> None: ...
+    def __init__(self, sort_field: _Optional[str] = ..., direction: _Optional[_Union[_sort_direction_pb2.SortDirection, str]] = ...) -> None: ...

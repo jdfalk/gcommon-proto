@@ -12,25 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MessageUpdateProperties(_message.Message):
-    __slots__ = (
-        "expiration_time",
-        "delivery_delay_ms",
-        "retry_count",
-        "routing_key",
-        "correlation_id",
-        "reply_to",
-        "headers",
-    )
+    __slots__ = ("expiration_time", "delivery_delay_ms", "retry_count", "routing_key", "correlation_id", "reply_to", "headers")
     class HeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     EXPIRATION_TIME_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_DELAY_MS_FIELD_NUMBER: _ClassVar[int]
     RETRY_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -45,15 +34,4 @@ class MessageUpdateProperties(_message.Message):
     correlation_id: str
     reply_to: str
     headers: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        expiration_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        delivery_delay_ms: _Optional[int] = ...,
-        retry_count: _Optional[int] = ...,
-        routing_key: _Optional[str] = ...,
-        correlation_id: _Optional[str] = ...,
-        reply_to: _Optional[str] = ...,
-        headers: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, expiration_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delivery_delay_ms: _Optional[int] = ..., retry_count: _Optional[int] = ..., routing_key: _Optional[str] = ..., correlation_id: _Optional[str] = ..., reply_to: _Optional[str] = ..., headers: _Optional[_Mapping[str, str]] = ...) -> None: ...

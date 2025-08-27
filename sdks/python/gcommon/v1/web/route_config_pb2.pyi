@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RouteConfig(_message.Message):
-    __slots__ = (
-        "path",
-        "methods",
-        "handler",
-        "handler_type",
-        "middleware_ids",
-        "auth_required",
-    )
+    __slots__ = ("path", "methods", "handler", "handler_type", "middleware_ids", "auth_required")
     PATH_FIELD_NUMBER: _ClassVar[int]
     METHODS_FIELD_NUMBER: _ClassVar[int]
     HANDLER_FIELD_NUMBER: _ClassVar[int]
@@ -31,12 +24,4 @@ class RouteConfig(_message.Message):
     handler_type: _handler_type_pb2.HandlerType
     middleware_ids: _containers.RepeatedScalarFieldContainer[str]
     auth_required: bool
-    def __init__(
-        self,
-        path: _Optional[str] = ...,
-        methods: _Optional[_Iterable[_Union[_http_method_pb2.HTTPMethod, str]]] = ...,
-        handler: _Optional[str] = ...,
-        handler_type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ...,
-        middleware_ids: _Optional[_Iterable[str]] = ...,
-        auth_required: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., methods: _Optional[_Iterable[_Union[_http_method_pb2.HTTPMethod, str]]] = ..., handler: _Optional[str] = ..., handler_type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ..., middleware_ids: _Optional[_Iterable[str]] = ..., auth_required: _Optional[bool] = ...) -> None: ...

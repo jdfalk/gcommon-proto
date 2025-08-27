@@ -20,7 +20,6 @@ class DashboardType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DASHBOARD_TYPE_SERVICE_HEALTH: _ClassVar[DashboardType]
     DASHBOARD_TYPE_CAPACITY_PLANNING: _ClassVar[DashboardType]
     DASHBOARD_TYPE_SLA_SLO: _ClassVar[DashboardType]
-
 DASHBOARD_TYPE_UNSPECIFIED: DashboardType
 DASHBOARD_TYPE_SYSTEM_OVERVIEW: DashboardType
 DASHBOARD_TYPE_APPLICATION_PERFORMANCE: DashboardType

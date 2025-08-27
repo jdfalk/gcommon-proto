@@ -1,7 +1,5 @@
 from gcommon.v1.common import metrics_provider_type_pb2 as _metrics_provider_type_pb2
-from gcommon.v1.common import (
-    organization_resource_limits_pb2 as _organization_resource_limits_pb2,
-)
+from gcommon.v1.common import organization_resource_limits_pb2 as _organization_resource_limits_pb2
 from gcommon.v1.metrics import export_config_pb2 as _export_config_pb2
 from gcommon.v1.metrics import provider_settings_pb2 as _provider_settings_pb2
 from gcommon.v1.metrics import security_config_pb2 as _security_config_pb2
@@ -16,27 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProviderConfig(_message.Message):
-    __slots__ = (
-        "provider_id",
-        "name",
-        "type",
-        "settings",
-        "export_config",
-        "resource_limits",
-        "security_config",
-        "tags",
-        "description",
-    )
+    __slots__ = ("provider_id", "name", "type", "settings", "export_config", "resource_limits", "security_config", "tags", "description")
     class TagsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -55,27 +40,4 @@ class ProviderConfig(_message.Message):
     security_config: _security_config_pb2.MetricsSecurityConfig
     tags: _containers.ScalarMap[str, str]
     description: str
-    def __init__(
-        self,
-        provider_id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        type: _Optional[
-            _Union[_metrics_provider_type_pb2.MetricsProviderType, str]
-        ] = ...,
-        settings: _Optional[
-            _Union[_provider_settings_pb2.ProviderSettings, _Mapping]
-        ] = ...,
-        export_config: _Optional[
-            _Union[_export_config_pb2.ExportConfig, _Mapping]
-        ] = ...,
-        resource_limits: _Optional[
-            _Union[
-                _organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping
-            ]
-        ] = ...,
-        security_config: _Optional[
-            _Union[_security_config_pb2.MetricsSecurityConfig, _Mapping]
-        ] = ...,
-        tags: _Optional[_Mapping[str, str]] = ...,
-        description: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, provider_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[_metrics_provider_type_pb2.MetricsProviderType, str]] = ..., settings: _Optional[_Union[_provider_settings_pb2.ProviderSettings, _Mapping]] = ..., export_config: _Optional[_Union[_export_config_pb2.ExportConfig, _Mapping]] = ..., resource_limits: _Optional[_Union[_organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., security_config: _Optional[_Union[_security_config_pb2.MetricsSecurityConfig, _Mapping]] = ..., tags: _Optional[_Mapping[str, str]] = ..., description: _Optional[str] = ...) -> None: ...

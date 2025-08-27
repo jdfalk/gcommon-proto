@@ -13,33 +13,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OAuthClient(_message.Message):
-    __slots__ = (
-        "client_id",
-        "client_secret",
-        "name",
-        "description",
-        "client_type",
-        "redirect_uris",
-        "grant_types",
-        "response_types",
-        "scopes",
-        "created_at",
-        "status",
-        "metadata",
-        "logo_url",
-        "website_url",
-        "owner_user_id",
-    )
+    __slots__ = ("client_id", "client_secret", "name", "description", "client_type", "redirect_uris", "grant_types", "response_types", "scopes", "created_at", "status", "metadata", "logo_url", "website_url", "owner_user_id")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -70,23 +51,4 @@ class OAuthClient(_message.Message):
     logo_url: str
     website_url: str
     owner_user_id: str
-    def __init__(
-        self,
-        client_id: _Optional[str] = ...,
-        client_secret: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        client_type: _Optional[str] = ...,
-        redirect_uris: _Optional[_Iterable[str]] = ...,
-        grant_types: _Optional[_Iterable[str]] = ...,
-        response_types: _Optional[_Iterable[str]] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        status: _Optional[_Union[_resource_status_pb2.ResourceStatus, str]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        logo_url: _Optional[str] = ...,
-        website_url: _Optional[str] = ...,
-        owner_user_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, client_id: _Optional[str] = ..., client_secret: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., client_type: _Optional[str] = ..., redirect_uris: _Optional[_Iterable[str]] = ..., grant_types: _Optional[_Iterable[str]] = ..., response_types: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_resource_status_pb2.ResourceStatus, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., logo_url: _Optional[str] = ..., website_url: _Optional[str] = ..., owner_user_id: _Optional[str] = ...) -> None: ...

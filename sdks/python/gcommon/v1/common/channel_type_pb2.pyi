@@ -16,7 +16,6 @@ class ChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHANNEL_TYPE_TEAMS: _ClassVar[ChannelType]
     CHANNEL_TYPE_DISCORD: _ClassVar[ChannelType]
     CHANNEL_TYPE_JIRA: _ClassVar[ChannelType]
-
 CHANNEL_TYPE_UNSPECIFIED: ChannelType
 CHANNEL_TYPE_EMAIL: ChannelType
 CHANNEL_TYPE_SLACK: ChannelType

@@ -3,18 +3,10 @@ import datetime
 from gcommon.v1.common import environment_status_pb2 as _environment_status_pb2
 from gcommon.v1.common import environment_type_pb2 as _environment_type_pb2
 from gcommon.v1.common import health_status_pb2 as _health_status_pb2
-from gcommon.v1.common import (
-    organization_access_control_pb2 as _organization_access_control_pb2,
-)
-from gcommon.v1.common import (
-    organization_compliance_settings_pb2 as _organization_compliance_settings_pb2,
-)
-from gcommon.v1.common import (
-    organization_notification_settings_pb2 as _organization_notification_settings_pb2,
-)
-from gcommon.v1.common import (
-    organization_resource_limits_pb2 as _organization_resource_limits_pb2,
-)
+from gcommon.v1.common import organization_access_control_pb2 as _organization_access_control_pb2
+from gcommon.v1.common import organization_compliance_settings_pb2 as _organization_compliance_settings_pb2
+from gcommon.v1.common import organization_notification_settings_pb2 as _organization_notification_settings_pb2
+from gcommon.v1.common import organization_resource_limits_pb2 as _organization_resource_limits_pb2
 from gcommon.v1.common import retention_policy_pb2 as _retention_policy_pb2
 from gcommon.v1.config import approval_workflow_pb2 as _approval_workflow_pb2
 from gcommon.v1.config import audit_settings_pb2 as _audit_settings_pb2
@@ -36,78 +28,35 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigEnvironment(_message.Message):
-    __slots__ = (
-        "environment_id",
-        "name",
-        "description",
-        "type",
-        "status",
-        "created_at",
-        "updated_at",
-        "owner",
-        "tags",
-        "metadata",
-        "config",
-        "secrets",
-        "variables",
-        "parent_environment_id",
-        "child_environment_ids",
-        "promotion_rules",
-        "access_controls",
-        "deployment_info",
-        "health_status",
-        "resource_limits",
-        "backup_policy",
-        "approval_workflow",
-        "monitoring_config",
-        "retention_policy",
-        "compliance_settings",
-        "encryption_settings",
-        "audit_settings",
-        "notification_settings",
-        "sync_settings",
-        "version",
-    )
+    __slots__ = ("environment_id", "name", "description", "type", "status", "created_at", "updated_at", "owner", "tags", "metadata", "config", "secrets", "variables", "parent_environment_id", "child_environment_ids", "promotion_rules", "access_controls", "deployment_info", "health_status", "resource_limits", "backup_policy", "approval_workflow", "monitoring_config", "retention_policy", "compliance_settings", "encryption_settings", "audit_settings", "notification_settings", "sync_settings", "version")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class ConfigEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class SecretsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class VariablesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENVIRONMENT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -153,12 +102,8 @@ class ConfigEnvironment(_message.Message):
     variables: _containers.ScalarMap[str, str]
     parent_environment_id: str
     child_environment_ids: _containers.RepeatedScalarFieldContainer[str]
-    promotion_rules: _containers.RepeatedCompositeFieldContainer[
-        _promotion_rule_pb2.PromotionRule
-    ]
-    access_controls: _containers.RepeatedCompositeFieldContainer[
-        _organization_access_control_pb2.OrganizationAccessControl
-    ]
+    promotion_rules: _containers.RepeatedCompositeFieldContainer[_promotion_rule_pb2.PromotionRule]
+    access_controls: _containers.RepeatedCompositeFieldContainer[_organization_access_control_pb2.OrganizationAccessControl]
     deployment_info: _deployment_info_pb2.DeploymentInfo
     health_status: _health_status_pb2.CommonHealthStatus
     resource_limits: _organization_resource_limits_pb2.OrganizationResourceLimits
@@ -166,90 +111,10 @@ class ConfigEnvironment(_message.Message):
     approval_workflow: _approval_workflow_pb2.ApprovalWorkflow
     monitoring_config: _monitoring_config_pb2.ConfigMonitoringConfig
     retention_policy: _retention_policy_pb2.MetricsRetentionPolicy
-    compliance_settings: (
-        _organization_compliance_settings_pb2.OrganizationComplianceSettings
-    )
+    compliance_settings: _organization_compliance_settings_pb2.OrganizationComplianceSettings
     encryption_settings: _encryption_settings_pb2.EncryptionSettings
     audit_settings: _audit_settings_pb2.AuditSettings
-    notification_settings: (
-        _organization_notification_settings_pb2.OrganizationNotificationSettings
-    )
+    notification_settings: _organization_notification_settings_pb2.OrganizationNotificationSettings
     sync_settings: _sync_settings_pb2.SyncSettings
     version: str
-    def __init__(
-        self,
-        environment_id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        type: _Optional[_Union[_environment_type_pb2.EnvironmentType, str]] = ...,
-        status: _Optional[_Union[_environment_status_pb2.EnvironmentStatus, str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        updated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        owner: _Optional[str] = ...,
-        tags: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        config: _Optional[_Mapping[str, str]] = ...,
-        secrets: _Optional[_Mapping[str, str]] = ...,
-        variables: _Optional[_Mapping[str, str]] = ...,
-        parent_environment_id: _Optional[str] = ...,
-        child_environment_ids: _Optional[_Iterable[str]] = ...,
-        promotion_rules: _Optional[
-            _Iterable[_Union[_promotion_rule_pb2.PromotionRule, _Mapping]]
-        ] = ...,
-        access_controls: _Optional[
-            _Iterable[
-                _Union[
-                    _organization_access_control_pb2.OrganizationAccessControl, _Mapping
-                ]
-            ]
-        ] = ...,
-        deployment_info: _Optional[
-            _Union[_deployment_info_pb2.DeploymentInfo, _Mapping]
-        ] = ...,
-        health_status: _Optional[
-            _Union[_health_status_pb2.CommonHealthStatus, str]
-        ] = ...,
-        resource_limits: _Optional[
-            _Union[
-                _organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping
-            ]
-        ] = ...,
-        backup_policy: _Optional[
-            _Union[_backup_policy_pb2.BackupPolicy, _Mapping]
-        ] = ...,
-        approval_workflow: _Optional[
-            _Union[_approval_workflow_pb2.ApprovalWorkflow, _Mapping]
-        ] = ...,
-        monitoring_config: _Optional[
-            _Union[_monitoring_config_pb2.ConfigMonitoringConfig, _Mapping]
-        ] = ...,
-        retention_policy: _Optional[
-            _Union[_retention_policy_pb2.MetricsRetentionPolicy, str]
-        ] = ...,
-        compliance_settings: _Optional[
-            _Union[
-                _organization_compliance_settings_pb2.OrganizationComplianceSettings,
-                _Mapping,
-            ]
-        ] = ...,
-        encryption_settings: _Optional[
-            _Union[_encryption_settings_pb2.EncryptionSettings, _Mapping]
-        ] = ...,
-        audit_settings: _Optional[
-            _Union[_audit_settings_pb2.AuditSettings, _Mapping]
-        ] = ...,
-        notification_settings: _Optional[
-            _Union[
-                _organization_notification_settings_pb2.OrganizationNotificationSettings,
-                _Mapping,
-            ]
-        ] = ...,
-        sync_settings: _Optional[
-            _Union[_sync_settings_pb2.SyncSettings, _Mapping]
-        ] = ...,
-        version: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, environment_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_environment_type_pb2.EnvironmentType, str]] = ..., status: _Optional[_Union[_environment_status_pb2.EnvironmentStatus, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., owner: _Optional[str] = ..., tags: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., config: _Optional[_Mapping[str, str]] = ..., secrets: _Optional[_Mapping[str, str]] = ..., variables: _Optional[_Mapping[str, str]] = ..., parent_environment_id: _Optional[str] = ..., child_environment_ids: _Optional[_Iterable[str]] = ..., promotion_rules: _Optional[_Iterable[_Union[_promotion_rule_pb2.PromotionRule, _Mapping]]] = ..., access_controls: _Optional[_Iterable[_Union[_organization_access_control_pb2.OrganizationAccessControl, _Mapping]]] = ..., deployment_info: _Optional[_Union[_deployment_info_pb2.DeploymentInfo, _Mapping]] = ..., health_status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., resource_limits: _Optional[_Union[_organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., backup_policy: _Optional[_Union[_backup_policy_pb2.BackupPolicy, _Mapping]] = ..., approval_workflow: _Optional[_Union[_approval_workflow_pb2.ApprovalWorkflow, _Mapping]] = ..., monitoring_config: _Optional[_Union[_monitoring_config_pb2.ConfigMonitoringConfig, _Mapping]] = ..., retention_policy: _Optional[_Union[_retention_policy_pb2.MetricsRetentionPolicy, str]] = ..., compliance_settings: _Optional[_Union[_organization_compliance_settings_pb2.OrganizationComplianceSettings, _Mapping]] = ..., encryption_settings: _Optional[_Union[_encryption_settings_pb2.EncryptionSettings, _Mapping]] = ..., audit_settings: _Optional[_Union[_audit_settings_pb2.AuditSettings, _Mapping]] = ..., notification_settings: _Optional[_Union[_organization_notification_settings_pb2.OrganizationNotificationSettings, _Mapping]] = ..., sync_settings: _Optional[_Union[_sync_settings_pb2.SyncSettings, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...

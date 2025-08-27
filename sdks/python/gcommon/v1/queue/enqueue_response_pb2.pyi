@@ -13,23 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EnqueueResponse(_message.Message):
-    __slots__ = (
-        "message_id",
-        "success",
-        "request_metadata",
-        "queue_name",
-        "payload_md5",
-        "message_size",
-        "sequence_number",
-        "assigned_priority",
-        "deduplication_id",
-        "group_id",
-        "available_at",
-        "expires_at",
-        "error",
-        "enqueued_at",
-        "response_generated_at",
-    )
+    __slots__ = ("message_id", "success", "request_metadata", "queue_name", "payload_md5", "message_size", "sequence_number", "assigned_priority", "deduplication_id", "group_id", "available_at", "expires_at", "error", "enqueued_at", "response_generated_at")
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     REQUEST_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -60,31 +44,4 @@ class EnqueueResponse(_message.Message):
     error: _error_pb2.Error
     enqueued_at: _timestamp_pb2.Timestamp
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        message_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        request_metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        queue_name: _Optional[str] = ...,
-        payload_md5: _Optional[str] = ...,
-        message_size: _Optional[int] = ...,
-        sequence_number: _Optional[int] = ...,
-        assigned_priority: _Optional[int] = ...,
-        deduplication_id: _Optional[str] = ...,
-        group_id: _Optional[str] = ...,
-        available_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        enqueued_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        response_generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, message_id: _Optional[str] = ..., success: _Optional[bool] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., payload_md5: _Optional[str] = ..., message_size: _Optional[int] = ..., sequence_number: _Optional[int] = ..., assigned_priority: _Optional[int] = ..., deduplication_id: _Optional[str] = ..., group_id: _Optional[str] = ..., available_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., enqueued_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

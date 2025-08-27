@@ -4,194 +4,114 @@
 # source: gcommon/v1/media/media_analysis.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/media/media_analysis.proto",
+    '',
+    'gcommon/v1/media/media_analysis.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import (
-    media_quality_pb2 as gcommon_dot_v1_dot_media_dot_media__quality__pb2,
-)
+from gcommon.v1.media import media_quality_pb2 as gcommon_dot_v1_dot_media_dot_media__quality__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n%gcommon/v1/media/media_analysis.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf4\x02\n\rMediaAnalysis\x12\x41\n\ttechnical\x18\x01 \x01(\x0b\x32#.gcommon.v1.media.TechnicalMetadataR\ttechnical\x12I\n\x10quality_analysis\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.media.MediaQualityR\x0fqualityAnalysis\x12\x42\n\x06scenes\x18\x03 \x03(\x0b\x32 .gcommon.v1.media.SceneDetectionB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06scenes\x12I\n\nthumbnails\x18\x04 \x03(\x0b\x32\x1f.gcommon.v1.media.ThumbnailInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\nthumbnails\x12\x46\n\x0e\x61udio_analysis\x18\x05 \x01(\x0b\x32\x1f.gcommon.v1.media.AudioAnalysisR\raudioAnalysis"\xad\x03\n\x11TechnicalMetadata\x12\x35\n\x08\x64uration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08\x64uration\x12$\n\tfile_size\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x08\x66ileSize\x12!\n\x07\x62itrate\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x07\x62itrate\x12\x32\n\x10\x63ontainer_format\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0f\x63ontainerFormat\x12\x37\n\x05video\x18\x05 \x01(\x0b\x32!.gcommon.v1.media.VideoStreamInfoR\x05video\x12P\n\raudio_streams\x18\x06 \x03(\x0b\x32!.gcommon.v1.media.AudioStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x61udioStreams\x12Y\n\x10subtitle_streams\x18\x07 \x03(\x0b\x32$.gcommon.v1.media.SubtitleStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fsubtitleStreams"\x98\x02\n\x0fVideoStreamInfo\x12\x1d\n\x05\x63odec\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12\x1d\n\x05width\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height\x12-\n\nframe_rate\x18\x04 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\tframeRate\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x07\x62itrate\x12*\n\x0cpixel_format\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bpixelFormat\x12(\n\x0b\x63olor_space\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ncolorSpace"\x92\x02\n\x0f\x41udioStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12(\n\x0bsample_rate\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nsampleRate\x12#\n\x08\x63hannels\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x08\x63hannels\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x07\x62itrate\x12#\n\x08language\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title"\xe6\x01\n\x12SubtitleStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired"\xcf\x01\n\x0eSceneDetection\x12\x38\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tstartTime\x12\x34\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07\x65ndTime\x12.\n\nconfidence\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\nconfidence\x12\x1d\n\nscene_type\x18\x04 \x01(\tR\tsceneType"\xae\x01\n\rThumbnailInfo\x12\x37\n\ttimestamp\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\ttimestamp\x12$\n\tfile_path\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08\x66ilePath\x12\x1d\n\x05width\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height"\xc4\x01\n\rAudioAnalysis\x12\x1d\n\npeak_level\x18\x01 \x01(\x01R\tpeakLevel\x12\x1b\n\trms_level\x18\x02 \x01(\x01R\x08rmsLevel\x12R\n\x0fsilent_segments\x18\x03 \x03(\x0b\x32\x1f.gcommon.v1.media.SilentSegmentB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0esilentSegments\x12#\n\rdynamic_range\x18\x04 \x01(\x01R\x0c\x64ynamicRange"\xa2\x01\n\rSilentSegment\x12\x38\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tstartTime\x12\x34\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07\x65ndTime\x12!\n\x0cthreshold_db\x18\x03 \x01(\x01R\x0bthresholdDbB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/media/media_analysis.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf4\x02\n\rMediaAnalysis\x12\x41\n\ttechnical\x18\x01 \x01(\x0b\x32#.gcommon.v1.media.TechnicalMetadataR\ttechnical\x12I\n\x10quality_analysis\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.media.MediaQualityR\x0fqualityAnalysis\x12\x42\n\x06scenes\x18\x03 \x03(\x0b\x32 .gcommon.v1.media.SceneDetectionB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06scenes\x12I\n\nthumbnails\x18\x04 \x03(\x0b\x32\x1f.gcommon.v1.media.ThumbnailInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\nthumbnails\x12\x46\n\x0e\x61udio_analysis\x18\x05 \x01(\x0b\x32\x1f.gcommon.v1.media.AudioAnalysisR\raudioAnalysis\"\xad\x03\n\x11TechnicalMetadata\x12\x35\n\x08\x64uration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08\x64uration\x12$\n\tfile_size\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x08\x66ileSize\x12!\n\x07\x62itrate\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12\x32\n\x10\x63ontainer_format\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0f\x63ontainerFormat\x12\x37\n\x05video\x18\x05 \x01(\x0b\x32!.gcommon.v1.media.VideoStreamInfoR\x05video\x12P\n\raudio_streams\x18\x06 \x03(\x0b\x32!.gcommon.v1.media.AudioStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x61udioStreams\x12Y\n\x10subtitle_streams\x18\x07 \x03(\x0b\x32$.gcommon.v1.media.SubtitleStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fsubtitleStreams\"\x98\x02\n\x0fVideoStreamInfo\x12\x1d\n\x05\x63odec\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12\x1d\n\x05width\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height\x12-\n\nframe_rate\x18\x04 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\tframeRate\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12*\n\x0cpixel_format\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bpixelFormat\x12(\n\x0b\x63olor_space\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ncolorSpace\"\x92\x02\n\x0f\x41udioStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12(\n\x0bsample_rate\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nsampleRate\x12#\n\x08\x63hannels\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x08\x63hannels\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12#\n\x08language\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\"\xe6\x01\n\x12SubtitleStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpaired\"\xcf\x01\n\x0eSceneDetection\x12\x38\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tstartTime\x12\x34\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07\x65ndTime\x12.\n\nconfidence\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\nconfidence\x12\x1d\n\nscene_type\x18\x04 \x01(\tR\tsceneType\"\xae\x01\n\rThumbnailInfo\x12\x37\n\ttimestamp\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\ttimestamp\x12$\n\tfile_path\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08\x66ilePath\x12\x1d\n\x05width\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height\"\xc4\x01\n\rAudioAnalysis\x12\x1d\n\npeak_level\x18\x01 \x01(\x01R\tpeakLevel\x12\x1b\n\trms_level\x18\x02 \x01(\x01R\x08rmsLevel\x12R\n\x0fsilent_segments\x18\x03 \x03(\x0b\x32\x1f.gcommon.v1.media.SilentSegmentB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0esilentSegments\x12#\n\rdynamic_range\x18\x04 \x01(\x01R\x0c\x64ynamicRange\"\xa2\x01\n\rSilentSegment\x12\x38\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\tstartTime\x12\x34\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07\x65ndTime\x12!\n\x0cthreshold_db\x18\x03 \x01(\x01R\x0bthresholdDbB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.media.media_analysis_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.media_analysis_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003"
-    )
-    _globals["_MEDIAANALYSIS"].fields_by_name["scenes"]._loaded_options = None
-    _globals["_MEDIAANALYSIS"].fields_by_name[
-        "scenes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_MEDIAANALYSIS"].fields_by_name["thumbnails"]._loaded_options = None
-    _globals["_MEDIAANALYSIS"].fields_by_name[
-        "thumbnails"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_TECHNICALMETADATA"].fields_by_name["file_size"]._loaded_options = None
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "file_size"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_TECHNICALMETADATA"].fields_by_name["bitrate"]._loaded_options = None
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "bitrate"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "container_format"
-    ]._loaded_options = None
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "container_format"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "audio_streams"
-    ]._loaded_options = None
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "audio_streams"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "subtitle_streams"
-    ]._loaded_options = None
-    _globals["_TECHNICALMETADATA"].fields_by_name[
-        "subtitle_streams"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["codec"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "codec"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["width"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "width"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["height"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "height"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["frame_rate"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "frame_rate"
-    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["bitrate"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "bitrate"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["pixel_format"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "pixel_format"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_VIDEOSTREAMINFO"].fields_by_name["color_space"]._loaded_options = None
-    _globals["_VIDEOSTREAMINFO"].fields_by_name[
-        "color_space"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["stream_index"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "stream_index"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["codec"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "codec"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["sample_rate"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "sample_rate"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["channels"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "channels"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["bitrate"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "bitrate"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["language"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "language"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_AUDIOSTREAMINFO"].fields_by_name["title"]._loaded_options = None
-    _globals["_AUDIOSTREAMINFO"].fields_by_name[
-        "title"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name[
-        "stream_index"
-    ]._loaded_options = None
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name[
-        "stream_index"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name["codec"]._loaded_options = None
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name[
-        "codec"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name["language"]._loaded_options = None
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name[
-        "language"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name["title"]._loaded_options = None
-    _globals["_SUBTITLESTREAMINFO"].fields_by_name[
-        "title"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_SCENEDETECTION"].fields_by_name["confidence"]._loaded_options = None
-    _globals["_SCENEDETECTION"].fields_by_name[
-        "confidence"
-    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
-    _globals["_THUMBNAILINFO"].fields_by_name["file_path"]._loaded_options = None
-    _globals["_THUMBNAILINFO"].fields_by_name[
-        "file_path"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_THUMBNAILINFO"].fields_by_name["width"]._loaded_options = None
-    _globals["_THUMBNAILINFO"].fields_by_name[
-        "width"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_THUMBNAILINFO"].fields_by_name["height"]._loaded_options = None
-    _globals["_THUMBNAILINFO"].fields_by_name[
-        "height"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_AUDIOANALYSIS"].fields_by_name["silent_segments"]._loaded_options = None
-    _globals["_AUDIOANALYSIS"].fields_by_name[
-        "silent_segments"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_MEDIAANALYSIS"]._serialized_start = 194
-    _globals["_MEDIAANALYSIS"]._serialized_end = 566
-    _globals["_TECHNICALMETADATA"]._serialized_start = 569
-    _globals["_TECHNICALMETADATA"]._serialized_end = 998
-    _globals["_VIDEOSTREAMINFO"]._serialized_start = 1001
-    _globals["_VIDEOSTREAMINFO"]._serialized_end = 1281
-    _globals["_AUDIOSTREAMINFO"]._serialized_start = 1284
-    _globals["_AUDIOSTREAMINFO"]._serialized_end = 1558
-    _globals["_SUBTITLESTREAMINFO"]._serialized_start = 1561
-    _globals["_SUBTITLESTREAMINFO"]._serialized_end = 1791
-    _globals["_SCENEDETECTION"]._serialized_start = 1794
-    _globals["_SCENEDETECTION"]._serialized_end = 2001
-    _globals["_THUMBNAILINFO"]._serialized_start = 2004
-    _globals["_THUMBNAILINFO"]._serialized_end = 2178
-    _globals["_AUDIOANALYSIS"]._serialized_start = 2181
-    _globals["_AUDIOANALYSIS"]._serialized_end = 2377
-    _globals["_SILENTSEGMENT"]._serialized_start = 2380
-    _globals["_SILENTSEGMENT"]._serialized_end = 2542
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
+  _globals['_MEDIAANALYSIS'].fields_by_name['scenes']._loaded_options = None
+  _globals['_MEDIAANALYSIS'].fields_by_name['scenes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_MEDIAANALYSIS'].fields_by_name['thumbnails']._loaded_options = None
+  _globals['_MEDIAANALYSIS'].fields_by_name['thumbnails']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_TECHNICALMETADATA'].fields_by_name['file_size']._loaded_options = None
+  _globals['_TECHNICALMETADATA'].fields_by_name['file_size']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_TECHNICALMETADATA'].fields_by_name['bitrate']._loaded_options = None
+  _globals['_TECHNICALMETADATA'].fields_by_name['bitrate']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_TECHNICALMETADATA'].fields_by_name['container_format']._loaded_options = None
+  _globals['_TECHNICALMETADATA'].fields_by_name['container_format']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_TECHNICALMETADATA'].fields_by_name['audio_streams']._loaded_options = None
+  _globals['_TECHNICALMETADATA'].fields_by_name['audio_streams']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_TECHNICALMETADATA'].fields_by_name['subtitle_streams']._loaded_options = None
+  _globals['_TECHNICALMETADATA'].fields_by_name['subtitle_streams']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['codec']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['codec']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['width']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['width']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['height']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['height']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['frame_rate']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['frame_rate']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['bitrate']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['bitrate']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['pixel_format']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['pixel_format']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['color_space']._loaded_options = None
+  _globals['_VIDEOSTREAMINFO'].fields_by_name['color_space']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['stream_index']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['stream_index']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['codec']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['codec']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['sample_rate']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['sample_rate']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['channels']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['channels']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['bitrate']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['bitrate']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['language']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['language']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['title']._loaded_options = None
+  _globals['_AUDIOSTREAMINFO'].fields_by_name['title']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['stream_index']._loaded_options = None
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['stream_index']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['codec']._loaded_options = None
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['codec']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['language']._loaded_options = None
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['language']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['title']._loaded_options = None
+  _globals['_SUBTITLESTREAMINFO'].fields_by_name['title']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_SCENEDETECTION'].fields_by_name['confidence']._loaded_options = None
+  _globals['_SCENEDETECTION'].fields_by_name['confidence']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
+  _globals['_THUMBNAILINFO'].fields_by_name['file_path']._loaded_options = None
+  _globals['_THUMBNAILINFO'].fields_by_name['file_path']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_THUMBNAILINFO'].fields_by_name['width']._loaded_options = None
+  _globals['_THUMBNAILINFO'].fields_by_name['width']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_THUMBNAILINFO'].fields_by_name['height']._loaded_options = None
+  _globals['_THUMBNAILINFO'].fields_by_name['height']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_AUDIOANALYSIS'].fields_by_name['silent_segments']._loaded_options = None
+  _globals['_AUDIOANALYSIS'].fields_by_name['silent_segments']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_MEDIAANALYSIS']._serialized_start=194
+  _globals['_MEDIAANALYSIS']._serialized_end=566
+  _globals['_TECHNICALMETADATA']._serialized_start=569
+  _globals['_TECHNICALMETADATA']._serialized_end=998
+  _globals['_VIDEOSTREAMINFO']._serialized_start=1001
+  _globals['_VIDEOSTREAMINFO']._serialized_end=1281
+  _globals['_AUDIOSTREAMINFO']._serialized_start=1284
+  _globals['_AUDIOSTREAMINFO']._serialized_end=1558
+  _globals['_SUBTITLESTREAMINFO']._serialized_start=1561
+  _globals['_SUBTITLESTREAMINFO']._serialized_end=1791
+  _globals['_SCENEDETECTION']._serialized_start=1794
+  _globals['_SCENEDETECTION']._serialized_end=2001
+  _globals['_THUMBNAILINFO']._serialized_start=2004
+  _globals['_THUMBNAILINFO']._serialized_end=2178
+  _globals['_AUDIOANALYSIS']._serialized_start=2181
+  _globals['_AUDIOANALYSIS']._serialized_end=2377
+  _globals['_SILENTSEGMENT']._serialized_start=2380
+  _globals['_SILENTSEGMENT']._serialized_end=2542
 # @@protoc_insertion_point(module_scope)

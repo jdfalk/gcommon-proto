@@ -9,23 +9,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProviderEndpoints(_message.Message):
-    __slots__ = (
-        "service_endpoint",
-        "metrics_endpoint",
-        "health_endpoint",
-        "admin_endpoint",
-        "additional_endpoints",
-    )
+    __slots__ = ("service_endpoint", "metrics_endpoint", "health_endpoint", "admin_endpoint", "additional_endpoints")
     class AdditionalEndpointsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SERVICE_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     METRICS_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     HEALTH_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
@@ -36,11 +27,4 @@ class ProviderEndpoints(_message.Message):
     health_endpoint: str
     admin_endpoint: str
     additional_endpoints: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        service_endpoint: _Optional[str] = ...,
-        metrics_endpoint: _Optional[str] = ...,
-        health_endpoint: _Optional[str] = ...,
-        admin_endpoint: _Optional[str] = ...,
-        additional_endpoints: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, service_endpoint: _Optional[str] = ..., metrics_endpoint: _Optional[str] = ..., health_endpoint: _Optional[str] = ..., admin_endpoint: _Optional[str] = ..., additional_endpoints: _Optional[_Mapping[str, str]] = ...) -> None: ...

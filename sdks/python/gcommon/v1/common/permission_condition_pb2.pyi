@@ -16,9 +16,4 @@ class PermissionCondition(_message.Message):
     key: str
     operator: str
     values: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        key: _Optional[str] = ...,
-        operator: _Optional[str] = ...,
-        values: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, key: _Optional[str] = ..., operator: _Optional[str] = ..., values: _Optional[_Iterable[str]] = ...) -> None: ...

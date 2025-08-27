@@ -18,9 +18,4 @@ class UpdateTeamResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     team: _team_pb2.Team
-    def __init__(
-        self,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., team: _Optional[_Union[_team_pb2.Team, _Mapping]] = ...) -> None: ...

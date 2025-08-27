@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/response_metadata.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/response_metadata.proto",
+    '',
+    'gcommon/v1/common/response_metadata.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -25,52 +23,32 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
-from gcommon.v1.common import (
-    pagination_info_pb2 as gcommon_dot_v1_dot_common_dot_pagination__info__pb2,
-)
-from gcommon.v1.common import (
-    rate_limit_info_pb2 as gcommon_dot_v1_dot_common_dot_rate__limit__info__pb2,
-)
+from gcommon.v1.common import pagination_info_pb2 as gcommon_dot_v1_dot_common_dot_pagination__info__pb2
+from gcommon.v1.common import rate_limit_info_pb2 as gcommon_dot_v1_dot_common_dot_rate__limit__info__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n)gcommon/v1/common/response_metadata.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a'gcommon/v1/common/pagination_info.proto\x1a'gcommon/v1/common/rate_limit_info.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xfe\x04\n\x10ResponseMetadata\x12\"\n\x08trace_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07traceId\x12&\n\nrequest_id\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\trequestId\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x42\n\x0fprocessing_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0eprocessingTime\x12@\n\x0fservice_version\x18\x05 \x01(\tB\x17\xbaH\x14r\x12\x32\x10^v?\\d+\\.\\d+\\.\\d+R\x0eserviceVersion\x12\x18\n\x07success\x18\x06 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x07 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12M\n\x08metadata\x18\x08 \x03(\x0b\x32\x31.gcommon.v1.common.ResponseMetadata.MetadataEntryR\x08metadata\x12?\n\nrate_limit\x18\t \x01(\x0b\x32 .gcommon.v1.common.RateLimitInfoR\trateLimit\x12G\n\npagination\x18\n \x01(\x0b\x32'.gcommon.v1.common.CommonPaginationInfoR\npagination\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/response_metadata.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a\'gcommon/v1/common/pagination_info.proto\x1a\'gcommon/v1/common/rate_limit_info.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xfe\x04\n\x10ResponseMetadata\x12\"\n\x08trace_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07traceId\x12&\n\nrequest_id\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\trequestId\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x42\n\x0fprocessing_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0eprocessingTime\x12@\n\x0fservice_version\x18\x05 \x01(\tB\x17\xbaH\x14r\x12\x32\x10^v?\\d+\\.\\d+\\.\\d+R\x0eserviceVersion\x12\x18\n\x07success\x18\x06 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x07 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12M\n\x08metadata\x18\x08 \x03(\x0b\x32\x31.gcommon.v1.common.ResponseMetadata.MetadataEntryR\x08metadata\x12?\n\nrate_limit\x18\t \x01(\x0b\x32 .gcommon.v1.common.RateLimitInfoR\trateLimit\x12G\n\npagination\x18\n \x01(\x0b\x32\'.gcommon.v1.common.CommonPaginationInfoR\npagination\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.response_metadata_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.response_metadata_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_RESPONSEMETADATA_METADATAENTRY"]._loaded_options = None
-    _globals["_RESPONSEMETADATA_METADATAENTRY"]._serialized_options = b"8\001"
-    _globals["_RESPONSEMETADATA"].fields_by_name["trace_id"]._loaded_options = None
-    _globals["_RESPONSEMETADATA"].fields_by_name[
-        "trace_id"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_RESPONSEMETADATA"].fields_by_name["request_id"]._loaded_options = None
-    _globals["_RESPONSEMETADATA"].fields_by_name[
-        "request_id"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_RESPONSEMETADATA"].fields_by_name[
-        "service_version"
-    ]._loaded_options = None
-    _globals["_RESPONSEMETADATA"].fields_by_name[
-        "service_version"
-    ]._serialized_options = b"\272H\024r\0222\020^v?\\d+\\.\\d+\\.\\d+"
-    _globals["_RESPONSEMETADATA"]._serialized_start = 307
-    _globals["_RESPONSEMETADATA"]._serialized_end = 945
-    _globals["_RESPONSEMETADATA_METADATAENTRY"]._serialized_start = 886
-    _globals["_RESPONSEMETADATA_METADATAENTRY"]._serialized_end = 945
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_RESPONSEMETADATA_METADATAENTRY']._loaded_options = None
+  _globals['_RESPONSEMETADATA_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_RESPONSEMETADATA'].fields_by_name['trace_id']._loaded_options = None
+  _globals['_RESPONSEMETADATA'].fields_by_name['trace_id']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_RESPONSEMETADATA'].fields_by_name['request_id']._loaded_options = None
+  _globals['_RESPONSEMETADATA'].fields_by_name['request_id']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_RESPONSEMETADATA'].fields_by_name['service_version']._loaded_options = None
+  _globals['_RESPONSEMETADATA'].fields_by_name['service_version']._serialized_options = b'\272H\024r\0222\020^v?\\d+\\.\\d+\\.\\d+'
+  _globals['_RESPONSEMETADATA']._serialized_start=307
+  _globals['_RESPONSEMETADATA']._serialized_end=945
+  _globals['_RESPONSEMETADATA_METADATAENTRY']._serialized_start=886
+  _globals['_RESPONSEMETADATA_METADATAENTRY']._serialized_end=945
 # @@protoc_insertion_point(module_scope)

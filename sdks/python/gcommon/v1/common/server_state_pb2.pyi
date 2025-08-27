@@ -12,7 +12,6 @@ class ServerState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SERVER_STATE_RUNNING: _ClassVar[ServerState]
     SERVER_STATE_STOPPING: _ClassVar[ServerState]
     SERVER_STATE_STOPPED: _ClassVar[ServerState]
-
 SERVER_STATE_UNSPECIFIED: ServerState
 SERVER_STATE_STARTING: ServerState
 SERVER_STATE_RUNNING: ServerState

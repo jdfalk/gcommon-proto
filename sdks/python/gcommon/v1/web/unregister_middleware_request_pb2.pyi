@@ -16,11 +16,4 @@ class UnregisterMiddlewareRequest(_message.Message):
     server_id: str
     middleware_id: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        server_id: _Optional[str] = ...,
-        middleware_id: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, server_id: _Optional[str] = ..., middleware_id: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

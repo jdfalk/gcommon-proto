@@ -4,20 +4,18 @@
 # source: gcommon/v1/organization/memory_allocation.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/organization/memory_allocation.proto",
+    '',
+    'gcommon/v1/organization/memory_allocation.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,34 +26,20 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n/gcommon/v1/organization/memory_allocation.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x92\x01\n\x10MemoryAllocation\x12 \n\x07size_mb\x18\x01 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x06sizeMb\x12:\n\x13usage_limit_percent\x18\x02 \x01(\x05\x42\n\xbaH\x07\x1a\x05\x18\x96\x01(\x00R\x11usageLimitPercent\x12 \n\x07swap_mb\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x06swapMbB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/organization/memory_allocation.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x92\x01\n\x10MemoryAllocation\x12 \n\x07size_mb\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x06sizeMb\x12:\n\x13usage_limit_percent\x18\x02 \x01(\x05\x42\n\xbaH\x07\x1a\x05\x18\x96\x01(\x00R\x11usageLimitPercent\x12 \n\x07swap_mb\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x06swapMbB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.organization.memory_allocation_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.memory_allocation_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
-    _globals["_MEMORYALLOCATION"].fields_by_name["size_mb"]._loaded_options = None
-    _globals["_MEMORYALLOCATION"].fields_by_name[
-        "size_mb"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MEMORYALLOCATION"].fields_by_name[
-        "usage_limit_percent"
-    ]._loaded_options = None
-    _globals["_MEMORYALLOCATION"].fields_by_name[
-        "usage_limit_percent"
-    ]._serialized_options = b"\272H\007\032\005\030\226\001(\000"
-    _globals["_MEMORYALLOCATION"].fields_by_name["swap_mb"]._loaded_options = None
-    _globals["_MEMORYALLOCATION"].fields_by_name[
-        "swap_mb"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MEMORYALLOCATION"]._serialized_start = 141
-    _globals["_MEMORYALLOCATION"]._serialized_end = 287
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
+  _globals['_MEMORYALLOCATION'].fields_by_name['size_mb']._loaded_options = None
+  _globals['_MEMORYALLOCATION'].fields_by_name['size_mb']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MEMORYALLOCATION'].fields_by_name['usage_limit_percent']._loaded_options = None
+  _globals['_MEMORYALLOCATION'].fields_by_name['usage_limit_percent']._serialized_options = b'\272H\007\032\005\030\226\001(\000'
+  _globals['_MEMORYALLOCATION'].fields_by_name['swap_mb']._loaded_options = None
+  _globals['_MEMORYALLOCATION'].fields_by_name['swap_mb']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MEMORYALLOCATION']._serialized_start=141
+  _globals['_MEMORYALLOCATION']._serialized_end=287
 # @@protoc_insertion_point(module_scope)

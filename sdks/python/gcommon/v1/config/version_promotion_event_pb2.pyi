@@ -12,27 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VersionPromotionEvent(_message.Message):
-    __slots__ = (
-        "source_environment",
-        "target_environment",
-        "timestamp",
-        "promoted_by",
-        "reason",
-        "method",
-        "success",
-        "error",
-        "metadata",
-    )
+    __slots__ = ("source_environment", "target_environment", "timestamp", "promoted_by", "reason", "method", "success", "error", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SOURCE_ENVIRONMENT_FIELD_NUMBER: _ClassVar[int]
     TARGET_ENVIRONMENT_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -51,17 +38,4 @@ class VersionPromotionEvent(_message.Message):
     success: bool
     error: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        source_environment: _Optional[str] = ...,
-        target_environment: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        promoted_by: _Optional[str] = ...,
-        reason: _Optional[str] = ...,
-        method: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, source_environment: _Optional[str] = ..., target_environment: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., promoted_by: _Optional[str] = ..., reason: _Optional[str] = ..., method: _Optional[str] = ..., success: _Optional[bool] = ..., error: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

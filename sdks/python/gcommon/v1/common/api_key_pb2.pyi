@@ -11,15 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class APIKey(_message.Message):
-    __slots__ = (
-        "id",
-        "user_id",
-        "description",
-        "key_hash",
-        "created_at",
-        "expires_at",
-        "active",
-    )
+    __slots__ = ("id", "user_id", "description", "key_hash", "created_at", "expires_at", "active")
     ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -34,17 +26,4 @@ class APIKey(_message.Message):
     created_at: _timestamp_pb2.Timestamp
     expires_at: _timestamp_pb2.Timestamp
     active: bool
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        user_id: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        key_hash: _Optional[str] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        active: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., description: _Optional[str] = ..., key_hash: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active: _Optional[bool] = ...) -> None: ...

@@ -13,7 +13,6 @@ class ReferenceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REFERENCE_TYPE_ALIAS: _ClassVar[ReferenceType]
     REFERENCE_TYPE_COMPUTED: _ClassVar[ReferenceType]
     REFERENCE_TYPE_DERIVED: _ClassVar[ReferenceType]
-
 REFERENCE_TYPE_UNSPECIFIED: ReferenceType
 REFERENCE_TYPE_TEMPLATE: ReferenceType
 REFERENCE_TYPE_POINTER: ReferenceType

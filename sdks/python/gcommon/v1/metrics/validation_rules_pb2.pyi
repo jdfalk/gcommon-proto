@@ -18,10 +18,4 @@ class ValidationRules(_message.Message):
     max_value: float
     allow_null: bool
     validation_expressions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        min_value: _Optional[float] = ...,
-        max_value: _Optional[float] = ...,
-        allow_null: _Optional[bool] = ...,
-        validation_expressions: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, min_value: _Optional[float] = ..., max_value: _Optional[float] = ..., allow_null: _Optional[bool] = ..., validation_expressions: _Optional[_Iterable[str]] = ...) -> None: ...

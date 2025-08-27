@@ -1,9 +1,5 @@
-from gcommon.v1.config import (
-    config_validation_error_pb2 as _config_validation_error_pb2,
-)
-from gcommon.v1.config import (
-    config_validation_warning_pb2 as _config_validation_warning_pb2,
-)
+from gcommon.v1.config import config_validation_error_pb2 as _config_validation_error_pb2
+from gcommon.v1.config import config_validation_warning_pb2 as _config_validation_warning_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
@@ -20,23 +16,6 @@ class ValidateConfigResponse(_message.Message):
     ERRORS_FIELD_NUMBER: _ClassVar[int]
     WARNINGS_FIELD_NUMBER: _ClassVar[int]
     valid: bool
-    errors: _containers.RepeatedCompositeFieldContainer[
-        _config_validation_error_pb2.ConfigValidationError
-    ]
-    warnings: _containers.RepeatedCompositeFieldContainer[
-        _config_validation_warning_pb2.ConfigValidationWarning
-    ]
-    def __init__(
-        self,
-        valid: _Optional[bool] = ...,
-        errors: _Optional[
-            _Iterable[
-                _Union[_config_validation_error_pb2.ConfigValidationError, _Mapping]
-            ]
-        ] = ...,
-        warnings: _Optional[
-            _Iterable[
-                _Union[_config_validation_warning_pb2.ConfigValidationWarning, _Mapping]
-            ]
-        ] = ...,
-    ) -> None: ...
+    errors: _containers.RepeatedCompositeFieldContainer[_config_validation_error_pb2.ConfigValidationError]
+    warnings: _containers.RepeatedCompositeFieldContainer[_config_validation_warning_pb2.ConfigValidationWarning]
+    def __init__(self, valid: _Optional[bool] = ..., errors: _Optional[_Iterable[_Union[_config_validation_error_pb2.ConfigValidationError, _Mapping]]] = ..., warnings: _Optional[_Iterable[_Union[_config_validation_warning_pb2.ConfigValidationWarning, _Mapping]]] = ...) -> None: ...

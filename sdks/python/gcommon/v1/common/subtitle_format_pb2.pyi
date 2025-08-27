@@ -15,7 +15,6 @@ class SubtitleFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SUBTITLE_FORMAT_TTML: _ClassVar[SubtitleFormat]
     SUBTITLE_FORMAT_SCC: _ClassVar[SubtitleFormat]
     SUBTITLE_FORMAT_SBV: _ClassVar[SubtitleFormat]
-
 SUBTITLE_FORMAT_UNSPECIFIED: SubtitleFormat
 SUBTITLE_FORMAT_SRT: SubtitleFormat
 SUBTITLE_FORMAT_VTT: SubtitleFormat

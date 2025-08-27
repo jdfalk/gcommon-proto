@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FailedFieldUpdate(_message.Message):
-    __slots__ = (
-        "field_name",
-        "failure_reason",
-        "error_code",
-        "original_value",
-        "attempted_value",
-    )
+    __slots__ = ("field_name", "failure_reason", "error_code", "original_value", "attempted_value")
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     FAILURE_REASON_FIELD_NUMBER: _ClassVar[int]
     ERROR_CODE_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class FailedFieldUpdate(_message.Message):
     error_code: str
     original_value: str
     attempted_value: str
-    def __init__(
-        self,
-        field_name: _Optional[str] = ...,
-        failure_reason: _Optional[str] = ...,
-        error_code: _Optional[str] = ...,
-        original_value: _Optional[str] = ...,
-        attempted_value: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, field_name: _Optional[str] = ..., failure_reason: _Optional[str] = ..., error_code: _Optional[str] = ..., original_value: _Optional[str] = ..., attempted_value: _Optional[str] = ...) -> None: ...

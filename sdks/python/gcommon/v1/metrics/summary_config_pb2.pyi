@@ -16,9 +16,4 @@ class SummaryConfig(_message.Message):
     quantiles: _containers.RepeatedScalarFieldContainer[float]
     time_window: str
     max_age: str
-    def __init__(
-        self,
-        quantiles: _Optional[_Iterable[float]] = ...,
-        time_window: _Optional[str] = ...,
-        max_age: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, quantiles: _Optional[_Iterable[float]] = ..., time_window: _Optional[str] = ..., max_age: _Optional[str] = ...) -> None: ...

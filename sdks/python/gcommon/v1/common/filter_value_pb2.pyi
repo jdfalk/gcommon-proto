@@ -11,15 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FilterValue(_message.Message):
-    __slots__ = (
-        "string_value",
-        "int_value",
-        "double_value",
-        "bool_value",
-        "string_array",
-        "int_array",
-        "operation",
-    )
+    __slots__ = ("string_value", "int_value", "double_value", "bool_value", "string_array", "int_array", "operation")
     STRING_VALUE_FIELD_NUMBER: _ClassVar[int]
     INT_VALUE_FIELD_NUMBER: _ClassVar[int]
     DOUBLE_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -34,13 +26,4 @@ class FilterValue(_message.Message):
     string_array: _string_array_pb2.StringArray
     int_array: _int64_array_pb2.Int64Array
     operation: _filter_operation_pb2.FilterOperation
-    def __init__(
-        self,
-        string_value: _Optional[str] = ...,
-        int_value: _Optional[int] = ...,
-        double_value: _Optional[float] = ...,
-        bool_value: _Optional[bool] = ...,
-        string_array: _Optional[_Union[_string_array_pb2.StringArray, _Mapping]] = ...,
-        int_array: _Optional[_Union[_int64_array_pb2.Int64Array, _Mapping]] = ...,
-        operation: _Optional[_Union[_filter_operation_pb2.FilterOperation, str]] = ...,
-    ) -> None: ...
+    def __init__(self, string_value: _Optional[str] = ..., int_value: _Optional[int] = ..., double_value: _Optional[float] = ..., bool_value: _Optional[bool] = ..., string_array: _Optional[_Union[_string_array_pb2.StringArray, _Mapping]] = ..., int_array: _Optional[_Union[_int64_array_pb2.Int64Array, _Mapping]] = ..., operation: _Optional[_Union[_filter_operation_pb2.FilterOperation, str]] = ...) -> None: ...

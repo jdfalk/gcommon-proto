@@ -14,32 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Token(_message.Message):
-    __slots__ = (
-        "id",
-        "value",
-        "type",
-        "status",
-        "user_id",
-        "client_id",
-        "scopes",
-        "created_at",
-        "expires_at",
-        "last_used_at",
-        "metadata",
-        "ip_address",
-        "user_agent",
-        "refresh_token_id",
-    )
+    __slots__ = ("id", "value", "type", "status", "user_id", "client_id", "scopes", "created_at", "expires_at", "last_used_at", "metadata", "ip_address", "user_agent", "refresh_token_id")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -68,26 +50,4 @@ class Token(_message.Message):
     ip_address: str
     user_agent: str
     refresh_token_id: str
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        value: _Optional[str] = ...,
-        type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ...,
-        status: _Optional[_Union[_token_status_pb2.TokenStatus, str]] = ...,
-        user_id: _Optional[str] = ...,
-        client_id: _Optional[str] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        last_used_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        ip_address: _Optional[str] = ...,
-        user_agent: _Optional[str] = ...,
-        refresh_token_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ..., status: _Optional[_Union[_token_status_pb2.TokenStatus, str]] = ..., user_id: _Optional[str] = ..., client_id: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_used_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., refresh_token_id: _Optional[str] = ...) -> None: ...

@@ -7,16 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SummaryOptions(_message.Message):
-    __slots__ = (
-        "include_counts",
-        "include_data_volume",
-        "include_performance",
-        "include_errors",
-        "include_top_metrics",
-        "include_retention",
-        "include_export_status",
-        "top_metrics_limit",
-    )
+    __slots__ = ("include_counts", "include_data_volume", "include_performance", "include_errors", "include_top_metrics", "include_retention", "include_export_status", "top_metrics_limit")
     INCLUDE_COUNTS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_DATA_VOLUME_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_PERFORMANCE_FIELD_NUMBER: _ClassVar[int]
@@ -33,14 +24,4 @@ class SummaryOptions(_message.Message):
     include_retention: bool
     include_export_status: bool
     top_metrics_limit: int
-    def __init__(
-        self,
-        include_counts: _Optional[bool] = ...,
-        include_data_volume: _Optional[bool] = ...,
-        include_performance: _Optional[bool] = ...,
-        include_errors: _Optional[bool] = ...,
-        include_top_metrics: _Optional[bool] = ...,
-        include_retention: _Optional[bool] = ...,
-        include_export_status: _Optional[bool] = ...,
-        top_metrics_limit: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, include_counts: _Optional[bool] = ..., include_data_volume: _Optional[bool] = ..., include_performance: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., include_top_metrics: _Optional[bool] = ..., include_retention: _Optional[bool] = ..., include_export_status: _Optional[bool] = ..., top_metrics_limit: _Optional[int] = ...) -> None: ...

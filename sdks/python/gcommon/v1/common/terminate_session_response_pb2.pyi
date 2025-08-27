@@ -11,18 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TerminateSessionResponse(_message.Message):
-    __slots__ = (
-        "session_id",
-        "user_id",
-        "username",
-        "terminated_at",
-        "termination_reason",
-        "tokens_revoked",
-        "revoked_token_count",
-        "forced_termination",
-        "remaining_session_count",
-        "message",
-    )
+    __slots__ = ("session_id", "user_id", "username", "terminated_at", "termination_reason", "tokens_revoked", "revoked_token_count", "forced_termination", "remaining_session_count", "message")
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
@@ -43,18 +32,4 @@ class TerminateSessionResponse(_message.Message):
     forced_termination: bool
     remaining_session_count: int
     message: str
-    def __init__(
-        self,
-        session_id: _Optional[str] = ...,
-        user_id: _Optional[str] = ...,
-        username: _Optional[str] = ...,
-        terminated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        termination_reason: _Optional[str] = ...,
-        tokens_revoked: _Optional[bool] = ...,
-        revoked_token_count: _Optional[int] = ...,
-        forced_termination: _Optional[bool] = ...,
-        remaining_session_count: _Optional[int] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, session_id: _Optional[str] = ..., user_id: _Optional[str] = ..., username: _Optional[str] = ..., terminated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., termination_reason: _Optional[str] = ..., tokens_revoked: _Optional[bool] = ..., revoked_token_count: _Optional[int] = ..., forced_termination: _Optional[bool] = ..., remaining_session_count: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...

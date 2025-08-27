@@ -13,44 +13,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigBackup(_message.Message):
-    __slots__ = (
-        "backup_id",
-        "created_at",
-        "config_values",
-        "version",
-        "environment",
-        "created_by",
-        "description",
-        "backup_type",
-        "checksum",
-        "size_bytes",
-        "compression",
-        "storage_path",
-        "retention_policy",
-        "metadata",
-    )
+    __slots__ = ("backup_id", "created_at", "config_values", "version", "environment", "created_by", "description", "backup_type", "checksum", "size_bytes", "compression", "storage_path", "retention_policy", "metadata")
     class ConfigValuesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: _any_pb2.Any
-        def __init__(
-            self,
-            key: _Optional[str] = ...,
-            value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...) -> None: ...
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     BACKUP_ID_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     CONFIG_VALUES_FIELD_NUMBER: _ClassVar[int]
@@ -79,22 +56,4 @@ class ConfigBackup(_message.Message):
     storage_path: str
     retention_policy: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        backup_id: _Optional[str] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        config_values: _Optional[_Mapping[str, _any_pb2.Any]] = ...,
-        version: _Optional[str] = ...,
-        environment: _Optional[str] = ...,
-        created_by: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        backup_type: _Optional[str] = ...,
-        checksum: _Optional[str] = ...,
-        size_bytes: _Optional[int] = ...,
-        compression: _Optional[str] = ...,
-        storage_path: _Optional[str] = ...,
-        retention_policy: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, backup_id: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., config_values: _Optional[_Mapping[str, _any_pb2.Any]] = ..., version: _Optional[str] = ..., environment: _Optional[str] = ..., created_by: _Optional[str] = ..., description: _Optional[str] = ..., backup_type: _Optional[str] = ..., checksum: _Optional[str] = ..., size_bytes: _Optional[int] = ..., compression: _Optional[str] = ..., storage_path: _Optional[str] = ..., retention_policy: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

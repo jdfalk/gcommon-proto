@@ -11,7 +11,6 @@ class WebAuthMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     WEB_AUTH_METHOD_NONE: _ClassVar[WebAuthMethod]
     WEB_AUTH_METHOD_TOKEN: _ClassVar[WebAuthMethod]
     WEB_AUTH_METHOD_OAUTH2: _ClassVar[WebAuthMethod]
-
 WEB_AUTH_METHOD_UNSPECIFIED: WebAuthMethod
 WEB_AUTH_METHOD_NONE: WebAuthMethod
 WEB_AUTH_METHOD_TOKEN: WebAuthMethod

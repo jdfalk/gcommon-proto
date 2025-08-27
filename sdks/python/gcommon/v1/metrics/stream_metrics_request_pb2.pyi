@@ -13,14 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsStreamMetricsRequest(_message.Message):
-    __slots__ = (
-        "metadata",
-        "filter",
-        "options",
-        "provider_id",
-        "start",
-        "buffer_config",
-    )
+    __slots__ = ("metadata", "filter", "options", "provider_id", "start", "buffer_config")
     METADATA_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
@@ -33,16 +26,4 @@ class MetricsStreamMetricsRequest(_message.Message):
     provider_id: str
     start: _stream_start_pb2.StreamStart
     buffer_config: _buffer_config_pb2.BufferConfig
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ...,
-        options: _Optional[_Union[_stream_options_pb2.StreamOptions, _Mapping]] = ...,
-        provider_id: _Optional[str] = ...,
-        start: _Optional[_Union[_stream_start_pb2.StreamStart, _Mapping]] = ...,
-        buffer_config: _Optional[
-            _Union[_buffer_config_pb2.BufferConfig, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ..., options: _Optional[_Union[_stream_options_pb2.StreamOptions, _Mapping]] = ..., provider_id: _Optional[str] = ..., start: _Optional[_Union[_stream_start_pb2.StreamStart, _Mapping]] = ..., buffer_config: _Optional[_Union[_buffer_config_pb2.BufferConfig, _Mapping]] = ...) -> None: ...

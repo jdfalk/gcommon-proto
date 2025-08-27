@@ -17,11 +17,4 @@ class ListPermissionsResponse(_message.Message):
     permissions: _containers.RepeatedCompositeFieldContainer[_permission_pb2.Permission]
     next_page_token: str
     total_count: int
-    def __init__(
-        self,
-        permissions: _Optional[
-            _Iterable[_Union[_permission_pb2.Permission, _Mapping]]
-        ] = ...,
-        next_page_token: _Optional[str] = ...,
-        total_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, permissions: _Optional[_Iterable[_Union[_permission_pb2.Permission, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total_count: _Optional[int] = ...) -> None: ...

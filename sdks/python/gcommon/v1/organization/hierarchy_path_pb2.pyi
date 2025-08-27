@@ -18,10 +18,4 @@ class HierarchyPath(_message.Message):
     ancestor_id: str
     distance: int
     path_nodes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        descendant_id: _Optional[str] = ...,
-        ancestor_id: _Optional[str] = ...,
-        distance: _Optional[int] = ...,
-        path_nodes: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, descendant_id: _Optional[str] = ..., ancestor_id: _Optional[str] = ..., distance: _Optional[int] = ..., path_nodes: _Optional[_Iterable[str]] = ...) -> None: ...

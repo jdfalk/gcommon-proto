@@ -20,12 +20,4 @@ class MySQLStatus(_message.Message):
     started_at: _timestamp_pb2.Timestamp
     open_connections: int
     role: str
-    def __init__(
-        self,
-        version: _Optional[str] = ...,
-        started_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        open_connections: _Optional[int] = ...,
-        role: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, version: _Optional[str] = ..., started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., open_connections: _Optional[int] = ..., role: _Optional[str] = ...) -> None: ...

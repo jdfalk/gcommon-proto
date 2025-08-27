@@ -20,12 +20,4 @@ class WebsocketMessage(_message.Message):
     data: bytes
     message_type: str
     sent_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        connection_id: _Optional[str] = ...,
-        data: _Optional[bytes] = ...,
-        message_type: _Optional[str] = ...,
-        sent_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, connection_id: _Optional[str] = ..., data: _Optional[bytes] = ..., message_type: _Optional[str] = ..., sent_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

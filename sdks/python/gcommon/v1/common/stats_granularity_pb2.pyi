@@ -12,7 +12,6 @@ class StatsGranularity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STATS_GRANULARITY_HOUR: _ClassVar[StatsGranularity]
     STATS_GRANULARITY_DAY: _ClassVar[StatsGranularity]
     STATS_GRANULARITY_WEEK: _ClassVar[StatsGranularity]
-
 STATS_GRANULARITY_UNSPECIFIED: StatsGranularity
 STATS_GRANULARITY_MINUTE: StatsGranularity
 STATS_GRANULARITY_HOUR: StatsGranularity

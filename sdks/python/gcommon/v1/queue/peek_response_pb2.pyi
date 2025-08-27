@@ -15,23 +15,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PeekResponse(_message.Message):
-    __slots__ = (
-        "messages",
-        "success",
-        "request_metadata",
-        "queue_name",
-        "total_matching_messages",
-        "approximate_queue_size",
-        "start_position",
-        "end_position",
-        "has_more_messages",
-        "filtered_message_count",
-        "oldest_message_time",
-        "newest_message_time",
-        "error",
-        "peeked_at",
-        "response_generated_at",
-    )
+    __slots__ = ("messages", "success", "request_metadata", "queue_name", "total_matching_messages", "approximate_queue_size", "start_position", "end_position", "has_more_messages", "filtered_message_count", "oldest_message_time", "newest_message_time", "error", "peeked_at", "response_generated_at")
     MESSAGES_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     REQUEST_METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -47,9 +31,7 @@ class PeekResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     PEEKED_AT_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_GENERATED_AT_FIELD_NUMBER: _ClassVar[int]
-    messages: _containers.RepeatedCompositeFieldContainer[
-        _queue_message_pb2.QueueMessage
-    ]
+    messages: _containers.RepeatedCompositeFieldContainer[_queue_message_pb2.QueueMessage]
     success: bool
     request_metadata: _request_metadata_pb2.RequestMetadata
     queue_name: str
@@ -64,33 +46,4 @@ class PeekResponse(_message.Message):
     error: _error_pb2.Error
     peeked_at: _timestamp_pb2.Timestamp
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        messages: _Optional[
-            _Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]
-        ] = ...,
-        success: _Optional[bool] = ...,
-        request_metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        queue_name: _Optional[str] = ...,
-        total_matching_messages: _Optional[int] = ...,
-        approximate_queue_size: _Optional[int] = ...,
-        start_position: _Optional[int] = ...,
-        end_position: _Optional[int] = ...,
-        has_more_messages: _Optional[bool] = ...,
-        filtered_message_count: _Optional[int] = ...,
-        oldest_message_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        newest_message_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        peeked_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        response_generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., success: _Optional[bool] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., total_matching_messages: _Optional[int] = ..., approximate_queue_size: _Optional[int] = ..., start_position: _Optional[int] = ..., end_position: _Optional[int] = ..., has_more_messages: _Optional[bool] = ..., filtered_message_count: _Optional[int] = ..., oldest_message_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., newest_message_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., peeked_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

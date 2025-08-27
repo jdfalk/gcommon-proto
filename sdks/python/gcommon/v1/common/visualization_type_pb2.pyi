@@ -22,7 +22,6 @@ class VisualizationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VISUALIZATION_TYPE_WORLDMAP: _ClassVar[VisualizationType]
     VISUALIZATION_TYPE_TEXT: _ClassVar[VisualizationType]
     VISUALIZATION_TYPE_CUSTOM: _ClassVar[VisualizationType]
-
 VISUALIZATION_TYPE_UNSPECIFIED: VisualizationType
 VISUALIZATION_TYPE_LINE_CHART: VisualizationType
 VISUALIZATION_TYPE_BAR_CHART: VisualizationType

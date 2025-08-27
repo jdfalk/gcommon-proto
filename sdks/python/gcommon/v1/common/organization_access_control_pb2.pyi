@@ -10,14 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationAccessControl(_message.Message):
-    __slots__ = (
-        "ip_whitelist",
-        "auth_methods",
-        "session_timeout",
-        "max_concurrent_sessions",
-        "allowed_countries",
-        "time_restrictions",
-    )
+    __slots__ = ("ip_whitelist", "auth_methods", "session_timeout", "max_concurrent_sessions", "allowed_countries", "time_restrictions")
     IP_WHITELIST_FIELD_NUMBER: _ClassVar[int]
     AUTH_METHODS_FIELD_NUMBER: _ClassVar[int]
     SESSION_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
@@ -29,17 +22,5 @@ class OrganizationAccessControl(_message.Message):
     session_timeout: int
     max_concurrent_sessions: int
     allowed_countries: _containers.RepeatedScalarFieldContainer[str]
-    time_restrictions: _containers.RepeatedCompositeFieldContainer[
-        _time_restriction_pb2.TimeRestriction
-    ]
-    def __init__(
-        self,
-        ip_whitelist: _Optional[_Iterable[str]] = ...,
-        auth_methods: _Optional[_Iterable[str]] = ...,
-        session_timeout: _Optional[int] = ...,
-        max_concurrent_sessions: _Optional[int] = ...,
-        allowed_countries: _Optional[_Iterable[str]] = ...,
-        time_restrictions: _Optional[
-            _Iterable[_Union[_time_restriction_pb2.TimeRestriction, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    time_restrictions: _containers.RepeatedCompositeFieldContainer[_time_restriction_pb2.TimeRestriction]
+    def __init__(self, ip_whitelist: _Optional[_Iterable[str]] = ..., auth_methods: _Optional[_Iterable[str]] = ..., session_timeout: _Optional[int] = ..., max_concurrent_sessions: _Optional[int] = ..., allowed_countries: _Optional[_Iterable[str]] = ..., time_restrictions: _Optional[_Iterable[_Union[_time_restriction_pb2.TimeRestriction, _Mapping]]] = ...) -> None: ...

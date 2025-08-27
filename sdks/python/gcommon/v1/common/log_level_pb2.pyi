@@ -14,7 +14,6 @@ class LogLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOG_LEVEL_WARN: _ClassVar[LogLevel]
     LOG_LEVEL_ERROR: _ClassVar[LogLevel]
     LOG_LEVEL_FATAL: _ClassVar[LogLevel]
-
 LOG_LEVEL_UNSPECIFIED: LogLevel
 LOG_LEVEL_TRACE: LogLevel
 LOG_LEVEL_DEBUG: LogLevel

@@ -13,9 +13,4 @@ class PerformanceTrend(_message.Message):
     latency_trend: str
     throughput_trend: str
     trend_confidence: float
-    def __init__(
-        self,
-        latency_trend: _Optional[str] = ...,
-        throughput_trend: _Optional[str] = ...,
-        trend_confidence: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, latency_trend: _Optional[str] = ..., throughput_trend: _Optional[str] = ..., trend_confidence: _Optional[float] = ...) -> None: ...

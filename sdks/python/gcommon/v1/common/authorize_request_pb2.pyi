@@ -17,10 +17,7 @@ class AuthAuthorizeRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]
@@ -31,13 +28,4 @@ class AuthAuthorizeRequest(_message.Message):
     action: str
     context: _containers.ScalarMap[str, str]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        token: _Optional[str] = ...,
-        resource: _Optional[str] = ...,
-        action: _Optional[str] = ...,
-        context: _Optional[_Mapping[str, str]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, token: _Optional[str] = ..., resource: _Optional[str] = ..., action: _Optional[str] = ..., context: _Optional[_Mapping[str, str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

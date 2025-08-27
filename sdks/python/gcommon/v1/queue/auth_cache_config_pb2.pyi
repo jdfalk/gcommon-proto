@@ -16,10 +16,4 @@ class AuthCacheConfig(_message.Message):
     ttl_seconds: int
     max_size: int
     cleanup_interval_seconds: int
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        ttl_seconds: _Optional[int] = ...,
-        max_size: _Optional[int] = ...,
-        cleanup_interval_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., ttl_seconds: _Optional[int] = ..., max_size: _Optional[int] = ..., cleanup_interval_seconds: _Optional[int] = ...) -> None: ...

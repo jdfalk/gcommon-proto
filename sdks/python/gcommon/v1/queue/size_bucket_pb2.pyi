@@ -14,9 +14,4 @@ class SizeBucket(_message.Message):
     min_size_bytes: int
     max_size_bytes: int
     message_count: int
-    def __init__(
-        self,
-        min_size_bytes: _Optional[int] = ...,
-        max_size_bytes: _Optional[int] = ...,
-        message_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, min_size_bytes: _Optional[int] = ..., max_size_bytes: _Optional[int] = ..., message_count: _Optional[int] = ...) -> None: ...

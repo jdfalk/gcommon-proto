@@ -14,7 +14,6 @@ class LoadBalancingStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOAD_BALANCING_STRATEGY_RANDOM: _ClassVar[LoadBalancingStrategy]
     LOAD_BALANCING_STRATEGY_HASH: _ClassVar[LoadBalancingStrategy]
     LOAD_BALANCING_STRATEGY_PRIORITY: _ClassVar[LoadBalancingStrategy]
-
 LOAD_BALANCING_STRATEGY_UNSPECIFIED: LoadBalancingStrategy
 LOAD_BALANCING_STRATEGY_ROUND_ROBIN: LoadBalancingStrategy
 LOAD_BALANCING_STRATEGY_WEIGHTED_ROUND_ROBIN: LoadBalancingStrategy

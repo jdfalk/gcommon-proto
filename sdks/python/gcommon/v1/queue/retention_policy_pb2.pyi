@@ -18,11 +18,4 @@ class QueueRetentionPolicy(_message.Message):
     max_age: _duration_pb2.Duration
     max_size_bytes: int
     discard_old: bool
-    def __init__(
-        self,
-        max_age: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        max_size_bytes: _Optional[int] = ...,
-        discard_old: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, max_age: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_size_bytes: _Optional[int] = ..., discard_old: _Optional[bool] = ...) -> None: ...

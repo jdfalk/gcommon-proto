@@ -17,10 +17,4 @@ class MfaSetupInstruction(_message.Message):
     instruction: str
     qr_code: str
     secret_key: str
-    def __init__(
-        self,
-        method: _Optional[_Union[_mfa_method_pb2.MfaMethod, str]] = ...,
-        instruction: _Optional[str] = ...,
-        qr_code: _Optional[str] = ...,
-        secret_key: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, method: _Optional[_Union[_mfa_method_pb2.MfaMethod, str]] = ..., instruction: _Optional[str] = ..., qr_code: _Optional[str] = ..., secret_key: _Optional[str] = ...) -> None: ...

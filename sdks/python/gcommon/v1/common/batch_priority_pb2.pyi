@@ -12,7 +12,6 @@ class BatchPriority(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     BATCH_PRIORITY_NORMAL: _ClassVar[BatchPriority]
     BATCH_PRIORITY_HIGH: _ClassVar[BatchPriority]
     BATCH_PRIORITY_URGENT: _ClassVar[BatchPriority]
-
 BATCH_PRIORITY_UNSPECIFIED: BatchPriority
 BATCH_PRIORITY_LOW: BatchPriority
 BATCH_PRIORITY_NORMAL: BatchPriority

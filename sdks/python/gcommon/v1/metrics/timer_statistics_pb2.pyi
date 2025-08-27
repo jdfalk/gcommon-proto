@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TimerStatistics(_message.Message):
-    __slots__ = (
-        "min_duration",
-        "max_duration",
-        "mean_duration",
-        "standard_deviation_ms",
-        "variance_ms",
-        "sample_count",
-        "rate_per_second",
-        "last_duration",
-    )
+    __slots__ = ("min_duration", "max_duration", "mean_duration", "standard_deviation_ms", "variance_ms", "sample_count", "rate_per_second", "last_duration")
     MIN_DURATION_FIELD_NUMBER: _ClassVar[int]
     MAX_DURATION_FIELD_NUMBER: _ClassVar[int]
     MEAN_DURATION_FIELD_NUMBER: _ClassVar[int]
@@ -37,22 +28,4 @@ class TimerStatistics(_message.Message):
     sample_count: int
     rate_per_second: float
     last_duration: _duration_pb2.Duration
-    def __init__(
-        self,
-        min_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        max_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        mean_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        standard_deviation_ms: _Optional[float] = ...,
-        variance_ms: _Optional[float] = ...,
-        sample_count: _Optional[int] = ...,
-        rate_per_second: _Optional[float] = ...,
-        last_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, min_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., mean_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., standard_deviation_ms: _Optional[float] = ..., variance_ms: _Optional[float] = ..., sample_count: _Optional[int] = ..., rate_per_second: _Optional[float] = ..., last_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

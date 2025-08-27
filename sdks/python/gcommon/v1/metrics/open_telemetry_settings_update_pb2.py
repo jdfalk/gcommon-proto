@@ -4,20 +4,18 @@
 # source: gcommon/v1/metrics/open_telemetry_settings_update.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/open_telemetry_settings_update.proto",
+    '',
+    'gcommon/v1/metrics/open_telemetry_settings_update.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,64 +26,30 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n7gcommon/v1/metrics/open_telemetry_settings_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xff\x04\n\x1bOpenTelemetrySettingsUpdate\x12#\n\x08\x65ndpoint\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08\x65ndpoint\x12\x17\n\x07use_tls\x18\x02 \x01(\x08R\x06useTls\x12i\n\x0eheader_updates\x18\x03 \x03(\x0b\x32\x42.gcommon.v1.metrics.OpenTelemetrySettingsUpdate.HeaderUpdatesEntryR\rheaderUpdates\x12/\n\x0eheader_removes\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rheaderRemoves\x12\x8b\x01\n\x1aresource_attribute_updates\x18\x05 \x03(\x0b\x32M.gcommon.v1.metrics.OpenTelemetrySettingsUpdate.ResourceAttributeUpdatesEntryR\x18resourceAttributeUpdates\x12\x46\n\x1aresource_attribute_removes\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x18resourceAttributeRemoves\x12!\n\x07timeout\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07timeout\x1a@\n\x12HeaderUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1aK\n\x1dResourceAttributeUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7gcommon/v1/metrics/open_telemetry_settings_update.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xff\x04\n\x1bOpenTelemetrySettingsUpdate\x12#\n\x08\x65ndpoint\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08\x65ndpoint\x12\x17\n\x07use_tls\x18\x02 \x01(\x08R\x06useTls\x12i\n\x0eheader_updates\x18\x03 \x03(\x0b\x32\x42.gcommon.v1.metrics.OpenTelemetrySettingsUpdate.HeaderUpdatesEntryR\rheaderUpdates\x12/\n\x0eheader_removes\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rheaderRemoves\x12\x8b\x01\n\x1aresource_attribute_updates\x18\x05 \x03(\x0b\x32M.gcommon.v1.metrics.OpenTelemetrySettingsUpdate.ResourceAttributeUpdatesEntryR\x18resourceAttributeUpdates\x12\x46\n\x1aresource_attribute_removes\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x18resourceAttributeRemoves\x12!\n\x07timeout\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07timeout\x1a@\n\x12HeaderUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1aK\n\x1dResourceAttributeUpdatesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.open_telemetry_settings_update_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.open_telemetry_settings_update_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY"]._loaded_options = None
-    _globals[
-        "_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY"
-    ]._serialized_options = b"8\001"
-    _globals[
-        "_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY"
-    ]._loaded_options = None
-    _globals[
-        "_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY"
-    ]._serialized_options = b"8\001"
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "endpoint"
-    ]._loaded_options = None
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "endpoint"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "header_removes"
-    ]._loaded_options = None
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "header_removes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "resource_attribute_removes"
-    ]._loaded_options = None
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "resource_attribute_removes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "timeout"
-    ]._loaded_options = None
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"].fields_by_name[
-        "timeout"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"]._serialized_start = 144
-    _globals["_OPENTELEMETRYSETTINGSUPDATE"]._serialized_end = 783
-    _globals["_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY"]._serialized_start = 642
-    _globals["_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY"]._serialized_end = 706
-    _globals[
-        "_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY"
-    ]._serialized_start = 708
-    _globals[
-        "_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY"
-    ]._serialized_end = 783
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY']._serialized_options = b'8\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY']._serialized_options = b'8\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['endpoint']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['endpoint']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['header_removes']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['header_removes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['resource_attribute_removes']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['resource_attribute_removes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['timeout']._loaded_options = None
+  _globals['_OPENTELEMETRYSETTINGSUPDATE'].fields_by_name['timeout']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_OPENTELEMETRYSETTINGSUPDATE']._serialized_start=144
+  _globals['_OPENTELEMETRYSETTINGSUPDATE']._serialized_end=783
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY']._serialized_start=642
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_HEADERUPDATESENTRY']._serialized_end=706
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY']._serialized_start=708
+  _globals['_OPENTELEMETRYSETTINGSUPDATE_RESOURCEATTRIBUTEUPDATESENTRY']._serialized_end=783
 # @@protoc_insertion_point(module_scope)

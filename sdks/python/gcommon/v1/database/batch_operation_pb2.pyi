@@ -14,13 +14,5 @@ class DatabaseBatchOperation(_message.Message):
     STATEMENT_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     statement: str
-    parameters: _containers.RepeatedCompositeFieldContainer[
-        _query_parameter_pb2.QueryParameter
-    ]
-    def __init__(
-        self,
-        statement: _Optional[str] = ...,
-        parameters: _Optional[
-            _Iterable[_Union[_query_parameter_pb2.QueryParameter, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    parameters: _containers.RepeatedCompositeFieldContainer[_query_parameter_pb2.QueryParameter]
+    def __init__(self, statement: _Optional[str] = ..., parameters: _Optional[_Iterable[_Union[_query_parameter_pb2.QueryParameter, _Mapping]]] = ...) -> None: ...

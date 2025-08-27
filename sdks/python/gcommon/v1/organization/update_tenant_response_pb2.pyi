@@ -18,9 +18,4 @@ class UpdateTenantResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     tenant: _tenant_pb2.Tenant
-    def __init__(
-        self,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ...) -> None: ...

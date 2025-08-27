@@ -18,7 +18,6 @@ class TokenType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TOKEN_TYPE_EMAIL_VERIFICATION: _ClassVar[TokenType]
     TOKEN_TYPE_PHONE_VERIFICATION: _ClassVar[TokenType]
     TOKEN_TYPE_INVITATION: _ClassVar[TokenType]
-
 TOKEN_TYPE_UNSPECIFIED: TokenType
 TOKEN_TYPE_ACCESS: TokenType
 TOKEN_TYPE_REFRESH: TokenType

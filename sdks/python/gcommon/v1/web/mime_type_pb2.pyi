@@ -16,19 +16,11 @@ class MimeType(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TYPE_FIELD_NUMBER: _ClassVar[int]
     SUBTYPE_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     type: str
     subtype: str
     parameters: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        type: _Optional[str] = ...,
-        subtype: _Optional[str] = ...,
-        parameters: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, type: _Optional[str] = ..., subtype: _Optional[str] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...

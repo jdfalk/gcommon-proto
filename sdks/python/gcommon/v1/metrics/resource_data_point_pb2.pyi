@@ -11,13 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResourceDataPoint(_message.Message):
-    __slots__ = (
-        "timestamp",
-        "memory_usage_percent",
-        "cpu_usage_percent",
-        "disk_usage_percent",
-        "network_bytes_per_second",
-    )
+    __slots__ = ("timestamp", "memory_usage_percent", "cpu_usage_percent", "disk_usage_percent", "network_bytes_per_second")
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     MEMORY_USAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
     CPU_USAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
@@ -28,13 +22,4 @@ class ResourceDataPoint(_message.Message):
     cpu_usage_percent: float
     disk_usage_percent: float
     network_bytes_per_second: int
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        memory_usage_percent: _Optional[float] = ...,
-        cpu_usage_percent: _Optional[float] = ...,
-        disk_usage_percent: _Optional[float] = ...,
-        network_bytes_per_second: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., memory_usage_percent: _Optional[float] = ..., cpu_usage_percent: _Optional[float] = ..., disk_usage_percent: _Optional[float] = ..., network_bytes_per_second: _Optional[int] = ...) -> None: ...

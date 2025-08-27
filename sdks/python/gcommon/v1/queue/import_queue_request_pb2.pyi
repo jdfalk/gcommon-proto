@@ -8,15 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ImportQueueRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "source_path",
-        "format",
-        "overwrite",
-        "validate",
-        "max_messages",
-        "timeout_ms",
-    )
+    __slots__ = ("queue_name", "source_path", "format", "overwrite", "validate", "max_messages", "timeout_ms")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     SOURCE_PATH_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -31,15 +23,4 @@ class ImportQueueRequest(_message.Message):
     validate: bool
     max_messages: int
     timeout_ms: int
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        source_path: _Optional[str] = ...,
-        format: _Optional[
-            _Union[_queue_export_format_pb2.QueueExportFormat, str]
-        ] = ...,
-        overwrite: _Optional[bool] = ...,
-        validate: _Optional[bool] = ...,
-        max_messages: _Optional[int] = ...,
-        timeout_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., source_path: _Optional[str] = ..., format: _Optional[_Union[_queue_export_format_pb2.QueueExportFormat, str]] = ..., overwrite: _Optional[bool] = ..., validate: _Optional[bool] = ..., max_messages: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

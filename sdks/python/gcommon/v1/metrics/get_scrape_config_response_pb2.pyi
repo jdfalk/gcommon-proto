@@ -14,8 +14,4 @@ class GetScrapeConfigResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     config: _scrape_config_pb2.ScrapeConfig
     error: _error_pb2.Error
-    def __init__(
-        self,
-        config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

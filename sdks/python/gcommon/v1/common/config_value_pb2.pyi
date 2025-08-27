@@ -11,27 +11,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigValue(_message.Message):
-    __slots__ = (
-        "string_value",
-        "int_value",
-        "double_value",
-        "bool_value",
-        "bytes_value",
-        "any_value",
-        "type",
-        "encrypted",
-        "metadata",
-    )
+    __slots__ = ("string_value", "int_value", "double_value", "bool_value", "bytes_value", "any_value", "type", "encrypted", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     STRING_VALUE_FIELD_NUMBER: _ClassVar[int]
     INT_VALUE_FIELD_NUMBER: _ClassVar[int]
     DOUBLE_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -50,15 +37,4 @@ class ConfigValue(_message.Message):
     type: _value_type_pb2.ValueType
     encrypted: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        string_value: _Optional[str] = ...,
-        int_value: _Optional[int] = ...,
-        double_value: _Optional[float] = ...,
-        bool_value: _Optional[bool] = ...,
-        bytes_value: _Optional[bytes] = ...,
-        any_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        type: _Optional[_Union[_value_type_pb2.ValueType, str]] = ...,
-        encrypted: _Optional[bool] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, string_value: _Optional[str] = ..., int_value: _Optional[int] = ..., double_value: _Optional[float] = ..., bool_value: _Optional[bool] = ..., bytes_value: _Optional[bytes] = ..., any_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., type: _Optional[_Union[_value_type_pb2.ValueType, str]] = ..., encrypted: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

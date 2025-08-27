@@ -4,15 +4,18 @@
 # source: gcommon/v1/common/error_info.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/common/error_info.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/common/error_info.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -23,46 +26,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n"gcommon/v1/common/error_info.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xd3\x02\n\tErrorInfo\x12!\n\x07message\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07message\x12\x1b\n\x04type\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04type\x12(\n\x0bstack_trace\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nstackTrace\x12\x1b\n\x04\x63ode\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04\x63ode\x12\x43\n\x07\x63ontext\x18\x05 \x03(\x0b\x32).gcommon.v1.common.ErrorInfo.ContextEntryR\x07\x63ontext\x12>\n\x06\x63\x61uses\x18\x06 \x03(\x0b\x32\x1c.gcommon.v1.common.ErrorInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06\x63\x61uses\x1a:\n\x0c\x43ontextEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/common/error_info.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd3\x02\n\tErrorInfo\x12!\n\x07message\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x07message\x12\x1b\n\x04type\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04type\x12(\n\x0bstack_trace\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nstackTrace\x12\x1b\n\x04\x63ode\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04\x63ode\x12\x43\n\x07\x63ontext\x18\x05 \x03(\x0b\x32).gcommon.v1.common.ErrorInfo.ContextEntryR\x07\x63ontext\x12>\n\x06\x63\x61uses\x18\x06 \x03(\x0b\x32\x1c.gcommon.v1.common.ErrorInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x06\x63\x61uses\x1a:\n\x0c\x43ontextEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.error_info_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.error_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_ERRORINFO_CONTEXTENTRY"]._loaded_options = None
-    _globals["_ERRORINFO_CONTEXTENTRY"]._serialized_options = b"8\001"
-    _globals["_ERRORINFO"].fields_by_name["message"]._loaded_options = None
-    _globals["_ERRORINFO"].fields_by_name[
-        "message"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ERRORINFO"].fields_by_name["type"]._loaded_options = None
-    _globals["_ERRORINFO"].fields_by_name[
-        "type"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ERRORINFO"].fields_by_name["stack_trace"]._loaded_options = None
-    _globals["_ERRORINFO"].fields_by_name[
-        "stack_trace"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ERRORINFO"].fields_by_name["code"]._loaded_options = None
-    _globals["_ERRORINFO"].fields_by_name[
-        "code"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ERRORINFO"].fields_by_name["causes"]._loaded_options = None
-    _globals["_ERRORINFO"].fields_by_name[
-        "causes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_ERRORINFO"]._serialized_start = 122
-    _globals["_ERRORINFO"]._serialized_end = 461
-    _globals["_ERRORINFO_CONTEXTENTRY"]._serialized_start = 403
-    _globals["_ERRORINFO_CONTEXTENTRY"]._serialized_end = 461
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_ERRORINFO_CONTEXTENTRY']._loaded_options = None
+  _globals['_ERRORINFO_CONTEXTENTRY']._serialized_options = b'8\001'
+  _globals['_ERRORINFO'].fields_by_name['message']._loaded_options = None
+  _globals['_ERRORINFO'].fields_by_name['message']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ERRORINFO'].fields_by_name['type']._loaded_options = None
+  _globals['_ERRORINFO'].fields_by_name['type']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ERRORINFO'].fields_by_name['stack_trace']._loaded_options = None
+  _globals['_ERRORINFO'].fields_by_name['stack_trace']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ERRORINFO'].fields_by_name['code']._loaded_options = None
+  _globals['_ERRORINFO'].fields_by_name['code']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ERRORINFO'].fields_by_name['causes']._loaded_options = None
+  _globals['_ERRORINFO'].fields_by_name['causes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_ERRORINFO']._serialized_start=122
+  _globals['_ERRORINFO']._serialized_end=461
+  _globals['_ERRORINFO_CONTEXTENTRY']._serialized_start=403
+  _globals['_ERRORINFO_CONTEXTENTRY']._serialized_end=461
 # @@protoc_insertion_point(module_scope)

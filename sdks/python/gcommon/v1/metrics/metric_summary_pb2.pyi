@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricSummary(_message.Message):
-    __slots__ = (
-        "name",
-        "type",
-        "data_points",
-        "data_volume_bytes",
-        "error_rate",
-        "last_updated",
-    )
+    __slots__ = ("name", "type", "data_points", "data_volume_bytes", "error_rate", "last_updated")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     DATA_POINTS_FIELD_NUMBER: _ClassVar[int]
@@ -31,14 +24,4 @@ class MetricSummary(_message.Message):
     data_volume_bytes: int
     error_rate: float
     last_updated: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        type: _Optional[str] = ...,
-        data_points: _Optional[int] = ...,
-        data_volume_bytes: _Optional[int] = ...,
-        error_rate: _Optional[float] = ...,
-        last_updated: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., data_points: _Optional[int] = ..., data_volume_bytes: _Optional[int] = ..., error_rate: _Optional[float] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -22,13 +22,4 @@ class OwnerInfo(_message.Message):
     email: str
     organization: str
     owned_since: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        username: _Optional[str] = ...,
-        email: _Optional[str] = ...,
-        organization: _Optional[str] = ...,
-        owned_since: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., username: _Optional[str] = ..., email: _Optional[str] = ..., organization: _Optional[str] = ..., owned_since: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

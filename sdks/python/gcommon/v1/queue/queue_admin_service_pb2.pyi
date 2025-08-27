@@ -6,12 +6,8 @@ from gcommon.v1.queue import pause_queue_request_pb2 as _pause_queue_request_pb2
 from gcommon.v1.queue import pause_queue_response_pb2 as _pause_queue_response_pb2
 from gcommon.v1.queue import purge_request_pb2 as _purge_request_pb2
 from gcommon.v1.queue import purge_response_pb2 as _purge_response_pb2
-from gcommon.v1.queue import (
-    reset_queue_stats_request_pb2 as _reset_queue_stats_request_pb2,
-)
-from gcommon.v1.queue import (
-    reset_queue_stats_response_pb2 as _reset_queue_stats_response_pb2,
-)
+from gcommon.v1.queue import reset_queue_stats_request_pb2 as _reset_queue_stats_request_pb2
+from gcommon.v1.queue import reset_queue_stats_response_pb2 as _reset_queue_stats_response_pb2
 from gcommon.v1.queue import resume_queue_request_pb2 as _resume_queue_request_pb2
 from gcommon.v1.queue import resume_queue_response_pb2 as _resume_queue_response_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

@@ -18,12 +18,4 @@ class QueueListSubscriptionsRequest(_message.Message):
     parent: str
     page_size: int
     page_token: str
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        parent: _Optional[str] = ...,
-        page_size: _Optional[int] = ...,
-        page_token: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., parent: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...

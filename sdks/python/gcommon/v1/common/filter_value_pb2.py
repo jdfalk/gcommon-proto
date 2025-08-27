@@ -4,68 +4,49 @@
 # source: gcommon/v1/common/filter_value.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/common/filter_value.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/common/filter_value.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    filter_operation_pb2 as gcommon_dot_v1_dot_common_dot_filter__operation__pb2,
-)
-from gcommon.v1.common import (
-    int64_array_pb2 as gcommon_dot_v1_dot_common_dot_int64__array__pb2,
-)
-from gcommon.v1.common import (
-    string_array_pb2 as gcommon_dot_v1_dot_common_dot_string__array__pb2,
-)
+from gcommon.v1.common import filter_operation_pb2 as gcommon_dot_v1_dot_common_dot_filter__operation__pb2
+from gcommon.v1.common import int64_array_pb2 as gcommon_dot_v1_dot_common_dot_int64__array__pb2
+from gcommon.v1.common import string_array_pb2 as gcommon_dot_v1_dot_common_dot_string__array__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n$gcommon/v1/common/filter_value.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/filter_operation.proto\x1a#gcommon/v1/common/int64_array.proto\x1a$gcommon/v1/common/string_array.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x8f\x03\n\x0b\x46ilterValue\x12,\n\x0cstring_value\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01H\x00R\x0bstringValue\x12&\n\tint_value\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00H\x00R\x08intValue\x12\x33\n\x0c\x64ouble_value\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00H\x00R\x0b\x64oubleValue\x12\x1f\n\nbool_value\x18\x04 \x01(\x08H\x00R\tboolValue\x12G\n\x0cstring_array\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.StringArrayB\x02(\x01H\x00R\x0bstringArray\x12@\n\tint_array\x18\x06 \x01(\x0b\x32\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\x08intArray\x12@\n\toperation\x18\x07 \x01(\x0e\x32".gcommon.v1.common.FilterOperationR\toperationB\x07\n\x05valueB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$gcommon/v1/common/filter_value.proto\x12\x11gcommon.v1.common\x1a(gcommon/v1/common/filter_operation.proto\x1a#gcommon/v1/common/int64_array.proto\x1a$gcommon/v1/common/string_array.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x8f\x03\n\x0b\x46ilterValue\x12,\n\x0cstring_value\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01H\x00R\x0bstringValue\x12&\n\tint_value\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00H\x00R\x08intValue\x12\x33\n\x0c\x64ouble_value\x18\x03 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00H\x00R\x0b\x64oubleValue\x12\x1f\n\nbool_value\x18\x04 \x01(\x08H\x00R\tboolValue\x12G\n\x0cstring_array\x18\x05 \x01(\x0b\x32\x1e.gcommon.v1.common.StringArrayB\x02(\x01H\x00R\x0bstringArray\x12@\n\tint_array\x18\x06 \x01(\x0b\x32\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\x08intArray\x12@\n\toperation\x18\x07 \x01(\x0e\x32\".gcommon.v1.common.FilterOperationR\toperationB\x07\n\x05valueB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.filter_value_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.filter_value_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_FILTERVALUE"].fields_by_name["string_value"]._loaded_options = None
-    _globals["_FILTERVALUE"].fields_by_name[
-        "string_value"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_FILTERVALUE"].fields_by_name["int_value"]._loaded_options = None
-    _globals["_FILTERVALUE"].fields_by_name[
-        "int_value"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_FILTERVALUE"].fields_by_name["double_value"]._loaded_options = None
-    _globals["_FILTERVALUE"].fields_by_name[
-        "double_value"
-    ]._serialized_options = b"\272H\013\022\t)\000\000\000\000\000\000\000\000"
-    _globals["_FILTERVALUE"].fields_by_name["string_array"]._loaded_options = None
-    _globals["_FILTERVALUE"].fields_by_name[
-        "string_array"
-    ]._serialized_options = b"(\001"
-    _globals["_FILTERVALUE"].fields_by_name["int_array"]._loaded_options = None
-    _globals["_FILTERVALUE"].fields_by_name["int_array"]._serialized_options = b"(\001"
-    _globals["_FILTERVALUE"]._serialized_start = 241
-    _globals["_FILTERVALUE"]._serialized_end = 640
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_FILTERVALUE'].fields_by_name['string_value']._loaded_options = None
+  _globals['_FILTERVALUE'].fields_by_name['string_value']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_FILTERVALUE'].fields_by_name['int_value']._loaded_options = None
+  _globals['_FILTERVALUE'].fields_by_name['int_value']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_FILTERVALUE'].fields_by_name['double_value']._loaded_options = None
+  _globals['_FILTERVALUE'].fields_by_name['double_value']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
+  _globals['_FILTERVALUE'].fields_by_name['string_array']._loaded_options = None
+  _globals['_FILTERVALUE'].fields_by_name['string_array']._serialized_options = b'(\001'
+  _globals['_FILTERVALUE'].fields_by_name['int_array']._loaded_options = None
+  _globals['_FILTERVALUE'].fields_by_name['int_array']._serialized_options = b'(\001'
+  _globals['_FILTERVALUE']._serialized_start=241
+  _globals['_FILTERVALUE']._serialized_end=640
 # @@protoc_insertion_point(module_scope)

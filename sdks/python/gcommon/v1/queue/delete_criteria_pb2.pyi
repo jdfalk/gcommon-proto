@@ -10,24 +10,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeleteCriteria(_message.Message):
-    __slots__ = (
-        "older_than_timestamp",
-        "header_filters",
-        "priority",
-        "correlation_id",
-        "max_messages",
-        "state",
-    )
+    __slots__ = ("older_than_timestamp", "header_filters", "priority", "correlation_id", "max_messages", "state")
     class HeaderFiltersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     OLDER_THAN_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     HEADER_FILTERS_FIELD_NUMBER: _ClassVar[int]
     PRIORITY_FIELD_NUMBER: _ClassVar[int]
@@ -40,12 +30,4 @@ class DeleteCriteria(_message.Message):
     correlation_id: str
     max_messages: int
     state: _message_state_pb2.MessageState
-    def __init__(
-        self,
-        older_than_timestamp: _Optional[int] = ...,
-        header_filters: _Optional[_Mapping[str, str]] = ...,
-        priority: _Optional[int] = ...,
-        correlation_id: _Optional[str] = ...,
-        max_messages: _Optional[int] = ...,
-        state: _Optional[_Union[_message_state_pb2.MessageState, str]] = ...,
-    ) -> None: ...
+    def __init__(self, older_than_timestamp: _Optional[int] = ..., header_filters: _Optional[_Mapping[str, str]] = ..., priority: _Optional[int] = ..., correlation_id: _Optional[str] = ..., max_messages: _Optional[int] = ..., state: _Optional[_Union[_message_state_pb2.MessageState, str]] = ...) -> None: ...

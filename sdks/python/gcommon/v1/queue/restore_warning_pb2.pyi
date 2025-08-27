@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RestoreWarning(_message.Message):
-    __slots__ = (
-        "warning_code",
-        "warning_message",
-        "warning_category",
-        "affected_component",
-        "partition_id",
-        "warning_time",
-    )
+    __slots__ = ("warning_code", "warning_message", "warning_category", "affected_component", "partition_id", "warning_time")
     WARNING_CODE_FIELD_NUMBER: _ClassVar[int]
     WARNING_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     WARNING_CATEGORY_FIELD_NUMBER: _ClassVar[int]
@@ -31,14 +24,4 @@ class RestoreWarning(_message.Message):
     affected_component: str
     partition_id: int
     warning_time: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        warning_code: _Optional[str] = ...,
-        warning_message: _Optional[str] = ...,
-        warning_category: _Optional[str] = ...,
-        affected_component: _Optional[str] = ...,
-        partition_id: _Optional[int] = ...,
-        warning_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, warning_code: _Optional[str] = ..., warning_message: _Optional[str] = ..., warning_category: _Optional[str] = ..., affected_component: _Optional[str] = ..., partition_id: _Optional[int] = ..., warning_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -21,12 +21,4 @@ class ListTeamsResponse(_message.Message):
     success: bool
     teams: _containers.RepeatedCompositeFieldContainer[_team_pb2.Team]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(
-        self,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        teams: _Optional[_Iterable[_Union[_team_pb2.Team, _Mapping]]] = ...,
-        pagination: _Optional[
-            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., teams: _Optional[_Iterable[_Union[_team_pb2.Team, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...

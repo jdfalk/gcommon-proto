@@ -9,12 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ErrorNotificationConfig(_message.Message):
-    __slots__ = (
-        "enabled",
-        "notification_channels",
-        "error_threshold",
-        "notification_frequency_seconds",
-    )
+    __slots__ = ("enabled", "notification_channels", "error_threshold", "notification_frequency_seconds")
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     NOTIFICATION_CHANNELS_FIELD_NUMBER: _ClassVar[int]
     ERROR_THRESHOLD_FIELD_NUMBER: _ClassVar[int]
@@ -23,10 +18,4 @@ class ErrorNotificationConfig(_message.Message):
     notification_channels: _containers.RepeatedScalarFieldContainer[str]
     error_threshold: int
     notification_frequency_seconds: int
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        notification_channels: _Optional[_Iterable[str]] = ...,
-        error_threshold: _Optional[int] = ...,
-        notification_frequency_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., notification_channels: _Optional[_Iterable[str]] = ..., error_threshold: _Optional[int] = ..., notification_frequency_seconds: _Optional[int] = ...) -> None: ...

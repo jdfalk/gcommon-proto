@@ -9,16 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ApprovalRequirement(_message.Message):
-    __slots__ = (
-        "required",
-        "approval_count",
-        "approver_roles",
-        "approver_users",
-        "policy",
-        "workflow",
-        "auto_approval_conditions",
-        "approval_timeout_hours",
-    )
+    __slots__ = ("required", "approval_count", "approver_roles", "approver_users", "policy", "workflow", "auto_approval_conditions", "approval_timeout_hours")
     REQUIRED_FIELD_NUMBER: _ClassVar[int]
     APPROVAL_COUNT_FIELD_NUMBER: _ClassVar[int]
     APPROVER_ROLES_FIELD_NUMBER: _ClassVar[int]
@@ -35,14 +26,4 @@ class ApprovalRequirement(_message.Message):
     workflow: str
     auto_approval_conditions: _containers.RepeatedScalarFieldContainer[str]
     approval_timeout_hours: int
-    def __init__(
-        self,
-        required: _Optional[bool] = ...,
-        approval_count: _Optional[int] = ...,
-        approver_roles: _Optional[_Iterable[str]] = ...,
-        approver_users: _Optional[_Iterable[str]] = ...,
-        policy: _Optional[str] = ...,
-        workflow: _Optional[str] = ...,
-        auto_approval_conditions: _Optional[_Iterable[str]] = ...,
-        approval_timeout_hours: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, required: _Optional[bool] = ..., approval_count: _Optional[int] = ..., approver_roles: _Optional[_Iterable[str]] = ..., approver_users: _Optional[_Iterable[str]] = ..., policy: _Optional[str] = ..., workflow: _Optional[str] = ..., auto_approval_conditions: _Optional[_Iterable[str]] = ..., approval_timeout_hours: _Optional[int] = ...) -> None: ...

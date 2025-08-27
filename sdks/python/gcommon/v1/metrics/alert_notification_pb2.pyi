@@ -21,14 +21,4 @@ class AlertNotification(_message.Message):
     time: _timestamp_pb2.Timestamp
     severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
     message: str
-    def __init__(
-        self,
-        rule_id: _Optional[str] = ...,
-        time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        severity: _Optional[
-            _Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]
-        ] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, rule_id: _Optional[str] = ..., time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., message: _Optional[str] = ...) -> None: ...

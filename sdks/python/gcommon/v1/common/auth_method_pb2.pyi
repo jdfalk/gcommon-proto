@@ -16,7 +16,6 @@ class AuthAuthMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMMON_AUTH_METHOD_MFA: _ClassVar[AuthAuthMethod]
     COMMON_AUTH_METHOD_TOKEN: _ClassVar[AuthAuthMethod]
     COMMON_AUTH_METHOD_NONE: _ClassVar[AuthAuthMethod]
-
 COMMON_AUTH_METHOD_UNSPECIFIED: AuthAuthMethod
 COMMON_AUTH_METHOD_PASSWORD: AuthAuthMethod
 COMMON_AUTH_METHOD_API_KEY: AuthAuthMethod

@@ -4,82 +4,48 @@
 # source: gcommon/v1/database/database_admin_service.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/database/database_admin_service.proto",
+    '',
+    'gcommon/v1/database/database_admin_service.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.database import (
-    create_database_request_pb2 as gcommon_dot_v1_dot_database_dot_create__database__request__pb2,
-)
-from gcommon.v1.database import (
-    create_database_response_pb2 as gcommon_dot_v1_dot_database_dot_create__database__response__pb2,
-)
-from gcommon.v1.database import (
-    create_schema_request_pb2 as gcommon_dot_v1_dot_database_dot_create__schema__request__pb2,
-)
-from gcommon.v1.database import (
-    create_schema_response_pb2 as gcommon_dot_v1_dot_database_dot_create__schema__response__pb2,
-)
-from gcommon.v1.database import (
-    drop_database_request_pb2 as gcommon_dot_v1_dot_database_dot_drop__database__request__pb2,
-)
-from gcommon.v1.database import (
-    drop_schema_request_pb2 as gcommon_dot_v1_dot_database_dot_drop__schema__request__pb2,
-)
-from gcommon.v1.database import (
-    get_database_info_request_pb2 as gcommon_dot_v1_dot_database_dot_get__database__info__request__pb2,
-)
-from gcommon.v1.database import (
-    get_database_info_response_pb2 as gcommon_dot_v1_dot_database_dot_get__database__info__response__pb2,
-)
-from gcommon.v1.database import (
-    list_databases_request_pb2 as gcommon_dot_v1_dot_database_dot_list__databases__request__pb2,
-)
-from gcommon.v1.database import (
-    list_databases_response_pb2 as gcommon_dot_v1_dot_database_dot_list__databases__response__pb2,
-)
-from gcommon.v1.database import (
-    list_schemas_request_pb2 as gcommon_dot_v1_dot_database_dot_list__schemas__request__pb2,
-)
-from gcommon.v1.database import (
-    list_schemas_response_pb2 as gcommon_dot_v1_dot_database_dot_list__schemas__response__pb2,
-)
+from gcommon.v1.database import create_database_request_pb2 as gcommon_dot_v1_dot_database_dot_create__database__request__pb2
+from gcommon.v1.database import create_database_response_pb2 as gcommon_dot_v1_dot_database_dot_create__database__response__pb2
+from gcommon.v1.database import create_schema_request_pb2 as gcommon_dot_v1_dot_database_dot_create__schema__request__pb2
+from gcommon.v1.database import create_schema_response_pb2 as gcommon_dot_v1_dot_database_dot_create__schema__response__pb2
+from gcommon.v1.database import drop_database_request_pb2 as gcommon_dot_v1_dot_database_dot_drop__database__request__pb2
+from gcommon.v1.database import drop_schema_request_pb2 as gcommon_dot_v1_dot_database_dot_drop__schema__request__pb2
+from gcommon.v1.database import get_database_info_request_pb2 as gcommon_dot_v1_dot_database_dot_get__database__info__request__pb2
+from gcommon.v1.database import get_database_info_response_pb2 as gcommon_dot_v1_dot_database_dot_get__database__info__response__pb2
+from gcommon.v1.database import list_databases_request_pb2 as gcommon_dot_v1_dot_database_dot_list__databases__request__pb2
+from gcommon.v1.database import list_databases_response_pb2 as gcommon_dot_v1_dot_database_dot_list__databases__response__pb2
+from gcommon.v1.database import list_schemas_request_pb2 as gcommon_dot_v1_dot_database_dot_list__schemas__request__pb2
+from gcommon.v1.database import list_schemas_response_pb2 as gcommon_dot_v1_dot_database_dot_list__schemas__response__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n0gcommon/v1/database/database_admin_service.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/database/create_database_request.proto\x1a\x32gcommon/v1/database/create_database_response.proto\x1a/gcommon/v1/database/create_schema_request.proto\x1a\x30gcommon/v1/database/create_schema_response.proto\x1a/gcommon/v1/database/drop_database_request.proto\x1a-gcommon/v1/database/drop_schema_request.proto\x1a\x33gcommon/v1/database/get_database_info_request.proto\x1a\x34gcommon/v1/database/get_database_info_response.proto\x1a\x30gcommon/v1/database/list_databases_request.proto\x1a\x31gcommon/v1/database/list_databases_response.proto\x1a.gcommon/v1/database/list_schemas_request.proto\x1a/gcommon/v1/database/list_schemas_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xbe\x05\n\x14\x44\x61tabaseAdminService\x12i\n\x0e\x43reateDatabase\x12*.gcommon.v1.database.CreateDatabaseRequest\x1a+.gcommon.v1.database.CreateDatabaseResponse\x12P\n\x0c\x44ropDatabase\x12(.gcommon.v1.database.DropDatabaseRequest\x1a\x16.google.protobuf.Empty\x12\x66\n\rListDatabases\x12).gcommon.v1.database.ListDatabasesRequest\x1a*.gcommon.v1.database.ListDatabasesResponse\x12l\n\x0fGetDatabaseInfo\x12+.gcommon.v1.database.GetDatabaseInfoRequest\x1a,.gcommon.v1.database.GetDatabaseInfoResponse\x12\x63\n\x0c\x43reateSchema\x12(.gcommon.v1.database.CreateSchemaRequest\x1a).gcommon.v1.database.CreateSchemaResponse\x12L\n\nDropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n\x0bListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0gcommon/v1/database/database_admin_service.proto\x12\x13gcommon.v1.database\x1a\x31gcommon/v1/database/create_database_request.proto\x1a\x32gcommon/v1/database/create_database_response.proto\x1a/gcommon/v1/database/create_schema_request.proto\x1a\x30gcommon/v1/database/create_schema_response.proto\x1a/gcommon/v1/database/drop_database_request.proto\x1a-gcommon/v1/database/drop_schema_request.proto\x1a\x33gcommon/v1/database/get_database_info_request.proto\x1a\x34gcommon/v1/database/get_database_info_response.proto\x1a\x30gcommon/v1/database/list_databases_request.proto\x1a\x31gcommon/v1/database/list_databases_response.proto\x1a.gcommon/v1/database/list_schemas_request.proto\x1a/gcommon/v1/database/list_schemas_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xbe\x05\n\x14\x44\x61tabaseAdminService\x12i\n\x0e\x43reateDatabase\x12*.gcommon.v1.database.CreateDatabaseRequest\x1a+.gcommon.v1.database.CreateDatabaseResponse\x12P\n\x0c\x44ropDatabase\x12(.gcommon.v1.database.DropDatabaseRequest\x1a\x16.google.protobuf.Empty\x12\x66\n\rListDatabases\x12).gcommon.v1.database.ListDatabasesRequest\x1a*.gcommon.v1.database.ListDatabasesResponse\x12l\n\x0fGetDatabaseInfo\x12+.gcommon.v1.database.GetDatabaseInfoRequest\x1a,.gcommon.v1.database.GetDatabaseInfoResponse\x12\x63\n\x0c\x43reateSchema\x12(.gcommon.v1.database.CreateSchemaRequest\x1a).gcommon.v1.database.CreateSchemaResponse\x12L\n\nDropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n\x0bListSchemas\x12\'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.database.database_admin_service_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.database_admin_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
-    )
-    _globals["_DATABASEADMINSERVICE"]._serialized_start = 741
-    _globals["_DATABASEADMINSERVICE"]._serialized_end = 1443
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
+  _globals['_DATABASEADMINSERVICE']._serialized_start=741
+  _globals['_DATABASEADMINSERVICE']._serialized_end=1443
 # @@protoc_insertion_point(module_scope)

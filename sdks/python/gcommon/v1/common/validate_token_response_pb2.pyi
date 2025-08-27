@@ -13,15 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValidateTokenResponse(_message.Message):
-    __slots__ = (
-        "valid",
-        "expires_at",
-        "user_info",
-        "scopes",
-        "subject",
-        "issuer",
-        "expires_in",
-    )
+    __slots__ = ("valid", "expires_at", "user_info", "scopes", "subject", "issuer", "expires_in")
     VALID_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     USER_INFO_FIELD_NUMBER: _ClassVar[int]
@@ -36,15 +28,4 @@ class ValidateTokenResponse(_message.Message):
     subject: str
     issuer: str
     expires_in: int
-    def __init__(
-        self,
-        valid: _Optional[bool] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        subject: _Optional[str] = ...,
-        issuer: _Optional[str] = ...,
-        expires_in: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, valid: _Optional[bool] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., scopes: _Optional[_Iterable[str]] = ..., subject: _Optional[str] = ..., issuer: _Optional[str] = ..., expires_in: _Optional[int] = ...) -> None: ...

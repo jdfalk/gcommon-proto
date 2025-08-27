@@ -11,19 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheStats(_message.Message):
-    __slots__ = (
-        "total_items",
-        "cache_hits",
-        "cache_misses",
-        "hit_ratio",
-        "memory_usage",
-        "memory_limit",
-        "evicted_items",
-        "expired_items",
-        "avg_access_time_ms",
-        "last_reset",
-        "uptime_seconds",
-    )
+    __slots__ = ("total_items", "cache_hits", "cache_misses", "hit_ratio", "memory_usage", "memory_limit", "evicted_items", "expired_items", "avg_access_time_ms", "last_reset", "uptime_seconds")
     TOTAL_ITEMS_FIELD_NUMBER: _ClassVar[int]
     CACHE_HITS_FIELD_NUMBER: _ClassVar[int]
     CACHE_MISSES_FIELD_NUMBER: _ClassVar[int]
@@ -46,19 +34,4 @@ class CacheStats(_message.Message):
     avg_access_time_ms: float
     last_reset: _timestamp_pb2.Timestamp
     uptime_seconds: int
-    def __init__(
-        self,
-        total_items: _Optional[int] = ...,
-        cache_hits: _Optional[int] = ...,
-        cache_misses: _Optional[int] = ...,
-        hit_ratio: _Optional[float] = ...,
-        memory_usage: _Optional[int] = ...,
-        memory_limit: _Optional[int] = ...,
-        evicted_items: _Optional[int] = ...,
-        expired_items: _Optional[int] = ...,
-        avg_access_time_ms: _Optional[float] = ...,
-        last_reset: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        uptime_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, total_items: _Optional[int] = ..., cache_hits: _Optional[int] = ..., cache_misses: _Optional[int] = ..., hit_ratio: _Optional[float] = ..., memory_usage: _Optional[int] = ..., memory_limit: _Optional[int] = ..., evicted_items: _Optional[int] = ..., expired_items: _Optional[int] = ..., avg_access_time_ms: _Optional[float] = ..., last_reset: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., uptime_seconds: _Optional[int] = ...) -> None: ...

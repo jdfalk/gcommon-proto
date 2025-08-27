@@ -15,7 +15,6 @@ class RotationFrequency(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROTATION_FREQUENCY_QUARTERLY: _ClassVar[RotationFrequency]
     ROTATION_FREQUENCY_YEARLY: _ClassVar[RotationFrequency]
     ROTATION_FREQUENCY_ON_EXPIRY: _ClassVar[RotationFrequency]
-
 ROTATION_FREQUENCY_UNSPECIFIED: RotationFrequency
 ROTATION_FREQUENCY_MANUAL: RotationFrequency
 ROTATION_FREQUENCY_DAILY: RotationFrequency

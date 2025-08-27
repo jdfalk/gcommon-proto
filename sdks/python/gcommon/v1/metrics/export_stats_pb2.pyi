@@ -1,8 +1,6 @@
 import datetime
 
-from gcommon.v1.metrics import (
-    export_destination_stats_pb2 as _export_destination_stats_pb2,
-)
+from gcommon.v1.metrics import export_destination_stats_pb2 as _export_destination_stats_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -15,15 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExportStats(_message.Message):
-    __slots__ = (
-        "total_exported_metrics",
-        "total_exported_data_points",
-        "export_rate_metrics_per_second",
-        "failed_exports",
-        "export_success_rate",
-        "export_destinations",
-        "last_successful_export",
-    )
+    __slots__ = ("total_exported_metrics", "total_exported_data_points", "export_rate_metrics_per_second", "failed_exports", "export_success_rate", "export_destinations", "last_successful_export")
     TOTAL_EXPORTED_METRICS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_EXPORTED_DATA_POINTS_FIELD_NUMBER: _ClassVar[int]
     EXPORT_RATE_METRICS_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
@@ -36,23 +26,6 @@ class ExportStats(_message.Message):
     export_rate_metrics_per_second: float
     failed_exports: int
     export_success_rate: float
-    export_destinations: _containers.RepeatedCompositeFieldContainer[
-        _export_destination_stats_pb2.ExportDestinationStats
-    ]
+    export_destinations: _containers.RepeatedCompositeFieldContainer[_export_destination_stats_pb2.ExportDestinationStats]
     last_successful_export: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        total_exported_metrics: _Optional[int] = ...,
-        total_exported_data_points: _Optional[int] = ...,
-        export_rate_metrics_per_second: _Optional[float] = ...,
-        failed_exports: _Optional[int] = ...,
-        export_success_rate: _Optional[float] = ...,
-        export_destinations: _Optional[
-            _Iterable[
-                _Union[_export_destination_stats_pb2.ExportDestinationStats, _Mapping]
-            ]
-        ] = ...,
-        last_successful_export: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, total_exported_metrics: _Optional[int] = ..., total_exported_data_points: _Optional[int] = ..., export_rate_metrics_per_second: _Optional[float] = ..., failed_exports: _Optional[int] = ..., export_success_rate: _Optional[float] = ..., export_destinations: _Optional[_Iterable[_Union[_export_destination_stats_pb2.ExportDestinationStats, _Mapping]]] = ..., last_successful_export: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

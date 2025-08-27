@@ -7,18 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TopicConfiguration(_message.Message):
-    __slots__ = (
-        "partition_count",
-        "replication_factor",
-        "retention_period_seconds",
-        "max_message_size_bytes",
-        "compression_enabled",
-        "compression_algorithm",
-        "encryption_enabled",
-        "cleanup_policy",
-        "min_insync_replicas",
-        "segment_size_bytes",
-    )
+    __slots__ = ("partition_count", "replication_factor", "retention_period_seconds", "max_message_size_bytes", "compression_enabled", "compression_algorithm", "encryption_enabled", "cleanup_policy", "min_insync_replicas", "segment_size_bytes")
     PARTITION_COUNT_FIELD_NUMBER: _ClassVar[int]
     REPLICATION_FACTOR_FIELD_NUMBER: _ClassVar[int]
     RETENTION_PERIOD_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -39,16 +28,4 @@ class TopicConfiguration(_message.Message):
     cleanup_policy: str
     min_insync_replicas: int
     segment_size_bytes: int
-    def __init__(
-        self,
-        partition_count: _Optional[int] = ...,
-        replication_factor: _Optional[int] = ...,
-        retention_period_seconds: _Optional[int] = ...,
-        max_message_size_bytes: _Optional[int] = ...,
-        compression_enabled: _Optional[bool] = ...,
-        compression_algorithm: _Optional[str] = ...,
-        encryption_enabled: _Optional[bool] = ...,
-        cleanup_policy: _Optional[str] = ...,
-        min_insync_replicas: _Optional[int] = ...,
-        segment_size_bytes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, partition_count: _Optional[int] = ..., replication_factor: _Optional[int] = ..., retention_period_seconds: _Optional[int] = ..., max_message_size_bytes: _Optional[int] = ..., compression_enabled: _Optional[bool] = ..., compression_algorithm: _Optional[str] = ..., encryption_enabled: _Optional[bool] = ..., cleanup_policy: _Optional[str] = ..., min_insync_replicas: _Optional[int] = ..., segment_size_bytes: _Optional[int] = ...) -> None: ...

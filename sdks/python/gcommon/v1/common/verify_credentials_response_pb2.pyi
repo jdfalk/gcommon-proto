@@ -16,9 +16,4 @@ class VerifyCredentialsResponse(_message.Message):
     verified: bool
     user_info: _user_info_pb2.UserInfo
     error: _error_pb2.Error
-    def __init__(
-        self,
-        verified: _Optional[bool] = ...,
-        user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, verified: _Optional[bool] = ..., user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

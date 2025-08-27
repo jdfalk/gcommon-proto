@@ -1,11 +1,7 @@
 import datetime
 
-from gcommon.v1.common import (
-    value_validation_result_type_pb2 as _value_validation_result_type_pb2,
-)
-from gcommon.v1.common import (
-    value_validation_severity_pb2 as _value_validation_severity_pb2,
-)
+from gcommon.v1.common import value_validation_result_type_pb2 as _value_validation_result_type_pb2
+from gcommon.v1.common import value_validation_severity_pb2 as _value_validation_severity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
@@ -18,26 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ValueValidationResult(_message.Message):
-    __slots__ = (
-        "name",
-        "result",
-        "message",
-        "severity",
-        "timestamp",
-        "details",
-        "rule",
-        "context",
-    )
+    __slots__ = ("name", "result", "message", "severity", "timestamp", "details", "rule", "context")
     class DetailsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     NAME_FIELD_NUMBER: _ClassVar[int]
     RESULT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -54,20 +38,4 @@ class ValueValidationResult(_message.Message):
     details: _containers.ScalarMap[str, str]
     rule: str
     context: str
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        result: _Optional[
-            _Union[_value_validation_result_type_pb2.ValueValidationResultType, str]
-        ] = ...,
-        message: _Optional[str] = ...,
-        severity: _Optional[
-            _Union[_value_validation_severity_pb2.ValueValidationSeverity, str]
-        ] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        details: _Optional[_Mapping[str, str]] = ...,
-        rule: _Optional[str] = ...,
-        context: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., result: _Optional[_Union[_value_validation_result_type_pb2.ValueValidationResultType, str]] = ..., message: _Optional[str] = ..., severity: _Optional[_Union[_value_validation_severity_pb2.ValueValidationSeverity, str]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., details: _Optional[_Mapping[str, str]] = ..., rule: _Optional[str] = ..., context: _Optional[str] = ...) -> None: ...

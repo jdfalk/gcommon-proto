@@ -11,7 +11,6 @@ class ConflictStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONFLICT_STRATEGY_TIMESTAMP: _ClassVar[ConflictStrategy]
     CONFLICT_STRATEGY_VECTOR_CLOCK: _ClassVar[ConflictStrategy]
     CONFLICT_STRATEGY_CAUSAL: _ClassVar[ConflictStrategy]
-
 CONFLICT_STRATEGY_UNSPECIFIED: ConflictStrategy
 CONFLICT_STRATEGY_TIMESTAMP: ConflictStrategy
 CONFLICT_STRATEGY_VECTOR_CLOCK: ConflictStrategy

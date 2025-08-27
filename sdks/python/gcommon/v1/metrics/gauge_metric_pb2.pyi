@@ -12,27 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GaugeMetric(_message.Message):
-    __slots__ = (
-        "id",
-        "name",
-        "value",
-        "timestamp",
-        "description",
-        "labels",
-        "min_value",
-        "max_value",
-        "unit",
-    )
+    __slots__ = ("id", "name", "value", "timestamp", "description", "labels", "min_value", "max_value", "unit")
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -51,17 +38,4 @@ class GaugeMetric(_message.Message):
     min_value: float
     max_value: float
     unit: str
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        value: _Optional[float] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        description: _Optional[str] = ...,
-        labels: _Optional[_Mapping[str, str]] = ...,
-        min_value: _Optional[float] = ...,
-        max_value: _Optional[float] = ...,
-        unit: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., value: _Optional[float] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ..., labels: _Optional[_Mapping[str, str]] = ..., min_value: _Optional[float] = ..., max_value: _Optional[float] = ..., unit: _Optional[str] = ...) -> None: ...

@@ -4,57 +4,41 @@
 # source: gcommon/v1/common/auth_provider.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/auth_provider.proto",
+    '',
+    'gcommon/v1/common/auth_provider.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    provider_type_pb2 as gcommon_dot_v1_dot_common_dot_provider__type__pb2,
-)
+from gcommon.v1.common import provider_type_pb2 as gcommon_dot_v1_dot_common_dot_provider__type__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n%gcommon/v1/common/auth_provider.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/provider_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xe7\x01\n\x0c\x41uthProvider\x12g\n\x02id\x18\x01 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x02id\x12\x1d\n\x04name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12\x37\n\x04type\x18\x03 \x01(\x0e\x32#.gcommon.v1.common.AuthProviderTypeR\x04type\x12\x16\n\x06\x63onfig\x18\x04 \x01(\tR\x06\x63onfigB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%gcommon/v1/common/auth_provider.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/provider_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe7\x01\n\x0c\x41uthProvider\x12g\n\x02id\x18\x01 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x02id\x12\x1d\n\x04name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12\x37\n\x04type\x18\x03 \x01(\x0e\x32#.gcommon.v1.common.AuthProviderTypeR\x04type\x12\x16\n\x06\x63onfig\x18\x04 \x01(\tR\x06\x63onfigB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.auth_provider_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.auth_provider_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_AUTHPROVIDER"].fields_by_name["id"]._loaded_options = None
-    _globals["_AUTHPROVIDER"].fields_by_name[
-        "id"
-    ]._serialized_options = b"\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001"
-    _globals["_AUTHPROVIDER"].fields_by_name["name"]._loaded_options = None
-    _globals["_AUTHPROVIDER"].fields_by_name[
-        "name"
-    ]._serialized_options = b"\272H\006r\004\020\001\030d"
-    _globals["_AUTHPROVIDER"]._serialized_start = 164
-    _globals["_AUTHPROVIDER"]._serialized_end = 395
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_AUTHPROVIDER'].fields_by_name['id']._loaded_options = None
+  _globals['_AUTHPROVIDER'].fields_by_name['id']._serialized_options = b'\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001'
+  _globals['_AUTHPROVIDER'].fields_by_name['name']._loaded_options = None
+  _globals['_AUTHPROVIDER'].fields_by_name['name']._serialized_options = b'\272H\006r\004\020\001\030d'
+  _globals['_AUTHPROVIDER']._serialized_start=164
+  _globals['_AUTHPROVIDER']._serialized_end=395
 # @@protoc_insertion_point(module_scope)

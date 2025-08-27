@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuditAlert(_message.Message):
-    __slots__ = (
-        "name",
-        "event_patterns",
-        "severity",
-        "notification_channels",
-        "threshold",
-        "time_window_minutes",
-    )
+    __slots__ = ("name", "event_patterns", "severity", "notification_channels", "threshold", "time_window_minutes")
     NAME_FIELD_NUMBER: _ClassVar[int]
     EVENT_PATTERNS_FIELD_NUMBER: _ClassVar[int]
     SEVERITY_FIELD_NUMBER: _ClassVar[int]
@@ -29,12 +22,4 @@ class AuditAlert(_message.Message):
     notification_channels: _containers.RepeatedScalarFieldContainer[str]
     threshold: int
     time_window_minutes: int
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        event_patterns: _Optional[_Iterable[str]] = ...,
-        severity: _Optional[str] = ...,
-        notification_channels: _Optional[_Iterable[str]] = ...,
-        threshold: _Optional[int] = ...,
-        time_window_minutes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., event_patterns: _Optional[_Iterable[str]] = ..., severity: _Optional[str] = ..., notification_channels: _Optional[_Iterable[str]] = ..., threshold: _Optional[int] = ..., time_window_minutes: _Optional[int] = ...) -> None: ...

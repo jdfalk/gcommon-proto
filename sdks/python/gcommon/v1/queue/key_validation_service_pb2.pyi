@@ -16,10 +16,4 @@ class KeyValidationService(_message.Message):
     endpoint: str
     timeout_ms: int
     cache_ttl_seconds: int
-    def __init__(
-        self,
-        service_type: _Optional[str] = ...,
-        endpoint: _Optional[str] = ...,
-        timeout_ms: _Optional[int] = ...,
-        cache_ttl_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, service_type: _Optional[str] = ..., endpoint: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., cache_ttl_seconds: _Optional[int] = ...) -> None: ...

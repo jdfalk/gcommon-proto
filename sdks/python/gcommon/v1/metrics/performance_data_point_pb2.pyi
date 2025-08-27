@@ -11,12 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PerformanceDataPoint(_message.Message):
-    __slots__ = (
-        "timestamp",
-        "ops_per_second",
-        "latency_ms",
-        "throughput_bytes_per_second",
-    )
+    __slots__ = ("timestamp", "ops_per_second", "latency_ms", "throughput_bytes_per_second")
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     OPS_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
     LATENCY_MS_FIELD_NUMBER: _ClassVar[int]
@@ -25,12 +20,4 @@ class PerformanceDataPoint(_message.Message):
     ops_per_second: float
     latency_ms: float
     throughput_bytes_per_second: float
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        ops_per_second: _Optional[float] = ...,
-        latency_ms: _Optional[float] = ...,
-        throughput_bytes_per_second: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., ops_per_second: _Optional[float] = ..., latency_ms: _Optional[float] = ..., throughput_bytes_per_second: _Optional[float] = ...) -> None: ...

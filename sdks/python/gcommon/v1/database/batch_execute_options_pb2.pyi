@@ -18,11 +18,4 @@ class BatchExecuteOptions(_message.Message):
     fail_fast: bool
     timeout: _duration_pb2.Duration
     max_parallel: int
-    def __init__(
-        self,
-        fail_fast: _Optional[bool] = ...,
-        timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        max_parallel: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, fail_fast: _Optional[bool] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_parallel: _Optional[int] = ...) -> None: ...

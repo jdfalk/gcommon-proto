@@ -12,12 +12,5 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class ListNotificationsResponse(_message.Message):
     __slots__ = ("notifications",)
     NOTIFICATIONS_FIELD_NUMBER: _ClassVar[int]
-    notifications: _containers.RepeatedCompositeFieldContainer[
-        _notification_message_pb2.NotificationMessage
-    ]
-    def __init__(
-        self,
-        notifications: _Optional[
-            _Iterable[_Union[_notification_message_pb2.NotificationMessage, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    notifications: _containers.RepeatedCompositeFieldContainer[_notification_message_pb2.NotificationMessage]
+    def __init__(self, notifications: _Optional[_Iterable[_Union[_notification_message_pb2.NotificationMessage, _Mapping]]] = ...) -> None: ...

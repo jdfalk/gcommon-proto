@@ -11,7 +11,6 @@ class AcknowledgmentMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ACKNOWLEDGMENT_MODE_AUTO: _ClassVar[AcknowledgmentMode]
     ACKNOWLEDGMENT_MODE_MANUAL: _ClassVar[AcknowledgmentMode]
     ACKNOWLEDGMENT_MODE_NONE: _ClassVar[AcknowledgmentMode]
-
 ACKNOWLEDGMENT_MODE_UNSPECIFIED: AcknowledgmentMode
 ACKNOWLEDGMENT_MODE_AUTO: AcknowledgmentMode
 ACKNOWLEDGMENT_MODE_MANUAL: AcknowledgmentMode

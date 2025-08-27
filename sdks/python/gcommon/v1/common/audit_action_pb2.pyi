@@ -29,7 +29,6 @@ class AuditAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AUDIT_ACTION_CONFIG_UPDATED: _ClassVar[AuditAction]
     AUDIT_ACTION_SYSTEM_BACKUP: _ClassVar[AuditAction]
     AUDIT_ACTION_SYSTEM_RESTORE: _ClassVar[AuditAction]
-
 AUDIT_ACTION_UNSPECIFIED: AuditAction
 AUDIT_ACTION_LOGIN: AuditAction
 AUDIT_ACTION_LOGOUT: AuditAction

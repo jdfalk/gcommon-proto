@@ -7,17 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RestoreStatistics(_message.Message):
-    __slots__ = (
-        "messages_restored",
-        "bytes_restored",
-        "partitions_restored",
-        "messages_skipped",
-        "messages_failed",
-        "restore_rate",
-        "throughput_bps",
-        "backup_size_bytes",
-        "compression_ratio",
-    )
+    __slots__ = ("messages_restored", "bytes_restored", "partitions_restored", "messages_skipped", "messages_failed", "restore_rate", "throughput_bps", "backup_size_bytes", "compression_ratio")
     MESSAGES_RESTORED_FIELD_NUMBER: _ClassVar[int]
     BYTES_RESTORED_FIELD_NUMBER: _ClassVar[int]
     PARTITIONS_RESTORED_FIELD_NUMBER: _ClassVar[int]
@@ -36,15 +26,4 @@ class RestoreStatistics(_message.Message):
     throughput_bps: float
     backup_size_bytes: int
     compression_ratio: float
-    def __init__(
-        self,
-        messages_restored: _Optional[int] = ...,
-        bytes_restored: _Optional[int] = ...,
-        partitions_restored: _Optional[int] = ...,
-        messages_skipped: _Optional[int] = ...,
-        messages_failed: _Optional[int] = ...,
-        restore_rate: _Optional[float] = ...,
-        throughput_bps: _Optional[float] = ...,
-        backup_size_bytes: _Optional[int] = ...,
-        compression_ratio: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, messages_restored: _Optional[int] = ..., bytes_restored: _Optional[int] = ..., partitions_restored: _Optional[int] = ..., messages_skipped: _Optional[int] = ..., messages_failed: _Optional[int] = ..., restore_rate: _Optional[float] = ..., throughput_bps: _Optional[float] = ..., backup_size_bytes: _Optional[int] = ..., compression_ratio: _Optional[float] = ...) -> None: ...

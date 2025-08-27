@@ -10,15 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListUsersResponse(_message.Message):
-    __slots__ = (
-        "users",
-        "total_count",
-        "page",
-        "page_size",
-        "total_pages",
-        "has_next_page",
-        "has_previous_page",
-    )
+    __slots__ = ("users", "total_count", "page", "page_size", "total_pages", "has_next_page", "has_previous_page")
     USERS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_COUNT_FIELD_NUMBER: _ClassVar[int]
     PAGE_FIELD_NUMBER: _ClassVar[int]
@@ -33,13 +25,4 @@ class ListUsersResponse(_message.Message):
     total_pages: int
     has_next_page: bool
     has_previous_page: bool
-    def __init__(
-        self,
-        users: _Optional[_Iterable[_Union[_user_info_pb2.UserInfo, _Mapping]]] = ...,
-        total_count: _Optional[int] = ...,
-        page: _Optional[int] = ...,
-        page_size: _Optional[int] = ...,
-        total_pages: _Optional[int] = ...,
-        has_next_page: _Optional[bool] = ...,
-        has_previous_page: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, users: _Optional[_Iterable[_Union[_user_info_pb2.UserInfo, _Mapping]]] = ..., total_count: _Optional[int] = ..., page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_pages: _Optional[int] = ..., has_next_page: _Optional[bool] = ..., has_previous_page: _Optional[bool] = ...) -> None: ...

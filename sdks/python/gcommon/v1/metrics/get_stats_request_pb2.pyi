@@ -17,13 +17,4 @@ class MetricsGetStatsRequest(_message.Message):
     metric: str
     range: _timestamp_range_pb2.MetricsTimestampRange
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        metric: _Optional[str] = ...,
-        range: _Optional[
-            _Union[_timestamp_range_pb2.MetricsTimestampRange, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, metric: _Optional[str] = ..., range: _Optional[_Union[_timestamp_range_pb2.MetricsTimestampRange, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -20,13 +20,4 @@ class GetMessageResponse(_message.Message):
     has_more: bool
     message_offset: int
     queue_depth: int
-    def __init__(
-        self,
-        message: _Optional[
-            _Union[_message_envelope_pb2.MessageEnvelope, _Mapping]
-        ] = ...,
-        ack_token: _Optional[str] = ...,
-        has_more: _Optional[bool] = ...,
-        message_offset: _Optional[int] = ...,
-        queue_depth: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, message: _Optional[_Union[_message_envelope_pb2.MessageEnvelope, _Mapping]] = ..., ack_token: _Optional[str] = ..., has_more: _Optional[bool] = ..., message_offset: _Optional[int] = ..., queue_depth: _Optional[int] = ...) -> None: ...

@@ -14,9 +14,4 @@ class DeleteNamespaceRequest(_message.Message):
     namespace_id: str
     force: bool
     backup: bool
-    def __init__(
-        self,
-        namespace_id: _Optional[str] = ...,
-        force: _Optional[bool] = ...,
-        backup: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, namespace_id: _Optional[str] = ..., force: _Optional[bool] = ..., backup: _Optional[bool] = ...) -> None: ...

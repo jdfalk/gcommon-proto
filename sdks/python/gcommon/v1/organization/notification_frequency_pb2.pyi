@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NotificationFrequency(_message.Message):
-    __slots__ = (
-        "daily_digest",
-        "weekly_summary",
-        "instant_notifications",
-        "quiet_hours_start",
-        "quiet_hours_end",
-    )
+    __slots__ = ("daily_digest", "weekly_summary", "instant_notifications", "quiet_hours_start", "quiet_hours_end")
     DAILY_DIGEST_FIELD_NUMBER: _ClassVar[int]
     WEEKLY_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     INSTANT_NOTIFICATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class NotificationFrequency(_message.Message):
     instant_notifications: bool
     quiet_hours_start: str
     quiet_hours_end: str
-    def __init__(
-        self,
-        daily_digest: _Optional[bool] = ...,
-        weekly_summary: _Optional[bool] = ...,
-        instant_notifications: _Optional[bool] = ...,
-        quiet_hours_start: _Optional[str] = ...,
-        quiet_hours_end: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, daily_digest: _Optional[bool] = ..., weekly_summary: _Optional[bool] = ..., instant_notifications: _Optional[bool] = ..., quiet_hours_start: _Optional[str] = ..., quiet_hours_end: _Optional[str] = ...) -> None: ...

@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PermissionMetadata(_message.Message):
-    __slots__ = (
-        "permission_id",
-        "name",
-        "resource_types",
-        "actions",
-        "conditions",
-        "level",
-        "created_at",
-        "created_by",
-    )
+    __slots__ = ("permission_id", "name", "resource_types", "actions", "conditions", "level", "created_at", "created_by")
     PERMISSION_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_TYPES_FIELD_NUMBER: _ClassVar[int]
@@ -33,22 +24,8 @@ class PermissionMetadata(_message.Message):
     name: str
     resource_types: _containers.RepeatedScalarFieldContainer[str]
     actions: _containers.RepeatedScalarFieldContainer[str]
-    conditions: _containers.RepeatedCompositeFieldContainer[
-        _permission_condition_pb2.PermissionCondition
-    ]
+    conditions: _containers.RepeatedCompositeFieldContainer[_permission_condition_pb2.PermissionCondition]
     level: _permission_level_pb2.AuthPermissionLevel
     created_at: int
     created_by: str
-    def __init__(
-        self,
-        permission_id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        resource_types: _Optional[_Iterable[str]] = ...,
-        actions: _Optional[_Iterable[str]] = ...,
-        conditions: _Optional[
-            _Iterable[_Union[_permission_condition_pb2.PermissionCondition, _Mapping]]
-        ] = ...,
-        level: _Optional[_Union[_permission_level_pb2.AuthPermissionLevel, str]] = ...,
-        created_at: _Optional[int] = ...,
-        created_by: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, permission_id: _Optional[str] = ..., name: _Optional[str] = ..., resource_types: _Optional[_Iterable[str]] = ..., actions: _Optional[_Iterable[str]] = ..., conditions: _Optional[_Iterable[_Union[_permission_condition_pb2.PermissionCondition, _Mapping]]] = ..., level: _Optional[_Union[_permission_level_pb2.AuthPermissionLevel, str]] = ..., created_at: _Optional[int] = ..., created_by: _Optional[str] = ...) -> None: ...

@@ -18,11 +18,4 @@ class FlowControl(_message.Message):
     max_in_flight: int
     max_bytes_in_flight: int
     ack_deadline: _duration_pb2.Duration
-    def __init__(
-        self,
-        max_in_flight: _Optional[int] = ...,
-        max_bytes_in_flight: _Optional[int] = ...,
-        ack_deadline: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, max_in_flight: _Optional[int] = ..., max_bytes_in_flight: _Optional[int] = ..., ack_deadline: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

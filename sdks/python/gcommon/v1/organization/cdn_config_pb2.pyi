@@ -18,16 +18,6 @@ class CDNConfig(_message.Message):
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     provider: str
     distribution_id: str
-    cache_behaviors: _containers.RepeatedCompositeFieldContainer[
-        _cache_behavior_pb2.CacheBehavior
-    ]
+    cache_behaviors: _containers.RepeatedCompositeFieldContainer[_cache_behavior_pb2.CacheBehavior]
     origin: _origin_config_pb2.OriginConfig
-    def __init__(
-        self,
-        provider: _Optional[str] = ...,
-        distribution_id: _Optional[str] = ...,
-        cache_behaviors: _Optional[
-            _Iterable[_Union[_cache_behavior_pb2.CacheBehavior, _Mapping]]
-        ] = ...,
-        origin: _Optional[_Union[_origin_config_pb2.OriginConfig, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, provider: _Optional[str] = ..., distribution_id: _Optional[str] = ..., cache_behaviors: _Optional[_Iterable[_Union[_cache_behavior_pb2.CacheBehavior, _Mapping]]] = ..., origin: _Optional[_Union[_origin_config_pb2.OriginConfig, _Mapping]] = ...) -> None: ...

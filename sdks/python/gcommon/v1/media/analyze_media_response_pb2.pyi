@@ -18,10 +18,4 @@ class AnalyzeMediaResponse(_message.Message):
     status: str
     analysis: _media_analysis_pb2.MediaAnalysis
     error_message: str
-    def __init__(
-        self,
-        job_id: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-        analysis: _Optional[_Union[_media_analysis_pb2.MediaAnalysis, _Mapping]] = ...,
-        error_message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., analysis: _Optional[_Union[_media_analysis_pb2.MediaAnalysis, _Mapping]] = ..., error_message: _Optional[str] = ...) -> None: ...

@@ -16,29 +16,18 @@ class FilterSettings(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class HeaderFiltersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     CONTENT_FILTERS_FIELD_NUMBER: _ClassVar[int]
     HEADER_FILTERS_FIELD_NUMBER: _ClassVar[int]
     FILTER_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     content_filters: _containers.ScalarMap[str, str]
     header_filters: _containers.ScalarMap[str, str]
     filter_expression: str
-    def __init__(
-        self,
-        content_filters: _Optional[_Mapping[str, str]] = ...,
-        header_filters: _Optional[_Mapping[str, str]] = ...,
-        filter_expression: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, content_filters: _Optional[_Mapping[str, str]] = ..., header_filters: _Optional[_Mapping[str, str]] = ..., filter_expression: _Optional[str] = ...) -> None: ...

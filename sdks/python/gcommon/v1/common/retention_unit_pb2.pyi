@@ -16,7 +16,6 @@ class RetentionUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RETENTION_UNIT_YEARS: _ClassVar[RetentionUnit]
     RETENTION_UNIT_FOREVER: _ClassVar[RetentionUnit]
     RETENTION_UNIT_CUSTOM: _ClassVar[RetentionUnit]
-
 RETENTION_UNIT_UNSPECIFIED: RetentionUnit
 RETENTION_UNIT_MINUTES: RetentionUnit
 RETENTION_UNIT_HOURS: RetentionUnit

@@ -16,9 +16,4 @@ class GetMetricConfigResponse(_message.Message):
     success: bool
     error: _error_pb2.Error
     config: _metric_config_pb2.MetricConfig
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        config: _Optional[_Union[_metric_config_pb2.MetricConfig, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., config: _Optional[_Union[_metric_config_pb2.MetricConfig, _Mapping]] = ...) -> None: ...

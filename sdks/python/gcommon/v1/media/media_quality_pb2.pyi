@@ -9,13 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MediaQuality(_message.Message):
-    __slots__ = (
-        "resolution",
-        "video_codec",
-        "bitrate_kbps",
-        "duration_seconds",
-        "quality_score",
-    )
+    __slots__ = ("resolution", "video_codec", "bitrate_kbps", "duration_seconds", "quality_score")
     RESOLUTION_FIELD_NUMBER: _ClassVar[int]
     VIDEO_CODEC_FIELD_NUMBER: _ClassVar[int]
     BITRATE_KBPS_FIELD_NUMBER: _ClassVar[int]
@@ -26,11 +20,4 @@ class MediaQuality(_message.Message):
     bitrate_kbps: int
     duration_seconds: float
     quality_score: _quality_score_pb2.QualityScore
-    def __init__(
-        self,
-        resolution: _Optional[_Union[_resolution_pb2.Resolution, str]] = ...,
-        video_codec: _Optional[str] = ...,
-        bitrate_kbps: _Optional[int] = ...,
-        duration_seconds: _Optional[float] = ...,
-        quality_score: _Optional[_Union[_quality_score_pb2.QualityScore, str]] = ...,
-    ) -> None: ...
+    def __init__(self, resolution: _Optional[_Union[_resolution_pb2.Resolution, str]] = ..., video_codec: _Optional[str] = ..., bitrate_kbps: _Optional[int] = ..., duration_seconds: _Optional[float] = ..., quality_score: _Optional[_Union[_quality_score_pb2.QualityScore, str]] = ...) -> None: ...

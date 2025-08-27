@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BillingSettings(_message.Message):
-    __slots__ = (
-        "billing_email",
-        "billing_address",
-        "tax_id",
-        "currency",
-        "billing_cycle",
-    )
+    __slots__ = ("billing_email", "billing_address", "tax_id", "currency", "billing_cycle")
     BILLING_EMAIL_FIELD_NUMBER: _ClassVar[int]
     BILLING_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     TAX_ID_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class BillingSettings(_message.Message):
     tax_id: str
     currency: str
     billing_cycle: str
-    def __init__(
-        self,
-        billing_email: _Optional[str] = ...,
-        billing_address: _Optional[str] = ...,
-        tax_id: _Optional[str] = ...,
-        currency: _Optional[str] = ...,
-        billing_cycle: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, billing_email: _Optional[str] = ..., billing_address: _Optional[str] = ..., tax_id: _Optional[str] = ..., currency: _Optional[str] = ..., billing_cycle: _Optional[str] = ...) -> None: ...

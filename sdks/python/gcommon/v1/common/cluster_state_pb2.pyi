@@ -13,7 +13,6 @@ class ClusterState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CLUSTER_STATE_RECOVERING: _ClassVar[ClusterState]
     CLUSTER_STATE_DOWN: _ClassVar[ClusterState]
     CLUSTER_STATE_MAINTENANCE: _ClassVar[ClusterState]
-
 CLUSTER_STATE_UNSPECIFIED: ClusterState
 CLUSTER_STATE_HEALTHY: ClusterState
 CLUSTER_STATE_DEGRADED: ClusterState

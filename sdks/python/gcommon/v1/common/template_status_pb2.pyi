@@ -13,7 +13,6 @@ class TemplateStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TEMPLATE_STATUS_DEPRECATED: _ClassVar[TemplateStatus]
     TEMPLATE_STATUS_ARCHIVED: _ClassVar[TemplateStatus]
     TEMPLATE_STATUS_DELETED: _ClassVar[TemplateStatus]
-
 TEMPLATE_STATUS_UNSPECIFIED: TemplateStatus
 TEMPLATE_STATUS_DRAFT: TemplateStatus
 TEMPLATE_STATUS_ACTIVE: TemplateStatus

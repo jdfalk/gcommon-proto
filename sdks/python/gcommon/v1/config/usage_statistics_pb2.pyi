@@ -13,18 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UsageStatistics(_message.Message):
-    __slots__ = (
-        "total_access_count",
-        "access_count_24h",
-        "access_count_7d",
-        "access_count_30d",
-        "unique_users_count",
-        "unique_services_count",
-        "avg_access_frequency",
-        "peak_access_at",
-        "peak_access_count",
-        "trends",
-    )
+    __slots__ = ("total_access_count", "access_count_24h", "access_count_7d", "access_count_30d", "unique_users_count", "unique_services_count", "avg_access_frequency", "peak_access_at", "peak_access_count", "trends")
     TOTAL_ACCESS_COUNT_FIELD_NUMBER: _ClassVar[int]
     ACCESS_COUNT_24H_FIELD_NUMBER: _ClassVar[int]
     ACCESS_COUNT_7D_FIELD_NUMBER: _ClassVar[int]
@@ -45,20 +34,4 @@ class UsageStatistics(_message.Message):
     peak_access_at: _timestamp_pb2.Timestamp
     peak_access_count: int
     trends: _containers.RepeatedCompositeFieldContainer[_usage_trend_pb2.UsageTrend]
-    def __init__(
-        self,
-        total_access_count: _Optional[int] = ...,
-        access_count_24h: _Optional[int] = ...,
-        access_count_7d: _Optional[int] = ...,
-        access_count_30d: _Optional[int] = ...,
-        unique_users_count: _Optional[int] = ...,
-        unique_services_count: _Optional[int] = ...,
-        avg_access_frequency: _Optional[float] = ...,
-        peak_access_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        peak_access_count: _Optional[int] = ...,
-        trends: _Optional[
-            _Iterable[_Union[_usage_trend_pb2.UsageTrend, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, total_access_count: _Optional[int] = ..., access_count_24h: _Optional[int] = ..., access_count_7d: _Optional[int] = ..., access_count_30d: _Optional[int] = ..., unique_users_count: _Optional[int] = ..., unique_services_count: _Optional[int] = ..., avg_access_frequency: _Optional[float] = ..., peak_access_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., peak_access_count: _Optional[int] = ..., trends: _Optional[_Iterable[_Union[_usage_trend_pb2.UsageTrend, _Mapping]]] = ...) -> None: ...

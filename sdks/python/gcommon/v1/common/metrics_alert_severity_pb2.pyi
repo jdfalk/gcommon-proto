@@ -12,7 +12,6 @@ class MetricsAlertSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRICS_ALERT_SEVERITY_MEDIUM: _ClassVar[MetricsAlertSeverity]
     METRICS_ALERT_SEVERITY_HIGH: _ClassVar[MetricsAlertSeverity]
     METRICS_ALERT_SEVERITY_CRITICAL: _ClassVar[MetricsAlertSeverity]
-
 METRICS_ALERT_SEVERITY_UNSPECIFIED: MetricsAlertSeverity
 METRICS_ALERT_SEVERITY_LOW: MetricsAlertSeverity
 METRICS_ALERT_SEVERITY_MEDIUM: MetricsAlertSeverity

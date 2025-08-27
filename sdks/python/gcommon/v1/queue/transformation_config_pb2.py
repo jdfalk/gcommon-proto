@@ -4,20 +4,18 @@
 # source: gcommon/v1/queue/transformation_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/queue/transformation_config.proto",
+    '',
+    'gcommon/v1/queue/transformation_config.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,50 +26,26 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n,gcommon/v1/queue/transformation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xee\x03\n\x14TransformationConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12<\n\x15transformation_script\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x14transformationScript\x12\x30\n\x0fscript_language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0escriptLanguage\x12\x30\n\x14transform_on_ingress\x18\x04 \x01(\x08R\x12transformOnIngress\x12.\n\x13transform_on_egress\x18\x05 \x01(\x08R\x11transformOnEgress\x12&\n\ntimeout_ms\x18\x06 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\ttimeoutMs\x12+\n\rmax_memory_mb\x18\x07 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0bmaxMemoryMb\x12V\n\nparameters\x18\x08 \x03(\x0b\x32\x36.gcommon.v1.queue.TransformationConfig.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,gcommon/v1/queue/transformation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xee\x03\n\x14TransformationConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12<\n\x15transformation_script\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x14transformationScript\x12\x30\n\x0fscript_language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0escriptLanguage\x12\x30\n\x14transform_on_ingress\x18\x04 \x01(\x08R\x12transformOnIngress\x12.\n\x13transform_on_egress\x18\x05 \x01(\x08R\x11transformOnEgress\x12&\n\ntimeout_ms\x18\x06 \x01(\x04\x42\x07\xbaH\x04\x32\x02(\x00R\ttimeoutMs\x12+\n\rmax_memory_mb\x18\x07 \x01(\rB\x07\xbaH\x04*\x02(\x00R\x0bmaxMemoryMb\x12V\n\nparameters\x18\x08 \x03(\x0b\x32\x36.gcommon.v1.queue.TransformationConfig.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.queue.transformation_config_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.transformation_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
-    )
-    _globals["_TRANSFORMATIONCONFIG_PARAMETERSENTRY"]._loaded_options = None
-    _globals["_TRANSFORMATIONCONFIG_PARAMETERSENTRY"]._serialized_options = b"8\001"
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "transformation_script"
-    ]._loaded_options = None
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "transformation_script"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "script_language"
-    ]._loaded_options = None
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "script_language"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "timeout_ms"
-    ]._loaded_options = None
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "timeout_ms"
-    ]._serialized_options = b"\272H\0042\002(\000"
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "max_memory_mb"
-    ]._loaded_options = None
-    _globals["_TRANSFORMATIONCONFIG"].fields_by_name[
-        "max_memory_mb"
-    ]._serialized_options = b"\272H\004*\002(\000"
-    _globals["_TRANSFORMATIONCONFIG"]._serialized_start = 131
-    _globals["_TRANSFORMATIONCONFIG"]._serialized_end = 625
-    _globals["_TRANSFORMATIONCONFIG_PARAMETERSENTRY"]._serialized_start = 564
-    _globals["_TRANSFORMATIONCONFIG_PARAMETERSENTRY"]._serialized_end = 625
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
+  _globals['_TRANSFORMATIONCONFIG_PARAMETERSENTRY']._loaded_options = None
+  _globals['_TRANSFORMATIONCONFIG_PARAMETERSENTRY']._serialized_options = b'8\001'
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['transformation_script']._loaded_options = None
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['transformation_script']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['script_language']._loaded_options = None
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['script_language']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['timeout_ms']._loaded_options = None
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['timeout_ms']._serialized_options = b'\272H\0042\002(\000'
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['max_memory_mb']._loaded_options = None
+  _globals['_TRANSFORMATIONCONFIG'].fields_by_name['max_memory_mb']._serialized_options = b'\272H\004*\002(\000'
+  _globals['_TRANSFORMATIONCONFIG']._serialized_start=131
+  _globals['_TRANSFORMATIONCONFIG']._serialized_end=625
+  _globals['_TRANSFORMATIONCONFIG_PARAMETERSENTRY']._serialized_start=564
+  _globals['_TRANSFORMATIONCONFIG_PARAMETERSENTRY']._serialized_end=625
 # @@protoc_insertion_point(module_scope)

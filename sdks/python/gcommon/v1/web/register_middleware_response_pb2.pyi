@@ -16,11 +16,4 @@ class RegisterMiddlewareResponse(_message.Message):
     success: bool
     middleware: _middleware_info_pb2.MiddlewareInfo
     error: _error_pb2.Error
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        middleware: _Optional[
-            _Union[_middleware_info_pb2.MiddlewareInfo, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., middleware: _Optional[_Union[_middleware_info_pb2.MiddlewareInfo, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

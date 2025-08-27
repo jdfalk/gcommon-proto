@@ -11,7 +11,6 @@ class ServingStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SERVING_STATUS_SERVING: _ClassVar[ServingStatus]
     SERVING_STATUS_NOT_SERVING: _ClassVar[ServingStatus]
     SERVING_STATUS_SERVING_DEGRADED: _ClassVar[ServingStatus]
-
 SERVING_STATUS_UNSPECIFIED: ServingStatus
 SERVING_STATUS_SERVING: ServingStatus
 SERVING_STATUS_NOT_SERVING: ServingStatus

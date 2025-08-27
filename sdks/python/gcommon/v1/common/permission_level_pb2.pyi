@@ -12,7 +12,6 @@ class AuthPermissionLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_LEVEL_ORGANIZATION: _ClassVar[AuthPermissionLevel]
     PERMISSION_LEVEL_PROJECT: _ClassVar[AuthPermissionLevel]
     PERMISSION_LEVEL_RESOURCE: _ClassVar[AuthPermissionLevel]
-
 PERMISSION_LEVEL_UNSPECIFIED: AuthPermissionLevel
 PERMISSION_LEVEL_SYSTEM: AuthPermissionLevel
 PERMISSION_LEVEL_ORGANIZATION: AuthPermissionLevel

@@ -22,14 +22,4 @@ class MetricsHealthInfo(_message.Message):
     health_checks: _containers.RepeatedScalarFieldContainer[str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
     last_check: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        overall_status: _Optional[
-            _Union[_health_status_pb2.CommonHealthStatus, str]
-        ] = ...,
-        health_checks: _Optional[_Iterable[str]] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        last_check: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, overall_status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., health_checks: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ..., last_check: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

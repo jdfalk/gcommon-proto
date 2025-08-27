@@ -4,64 +4,42 @@
 # source: gcommon/v1/metrics/get_metrics_summary_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/get_metrics_summary_request.proto",
+    '',
+    'gcommon/v1/metrics/get_metrics_summary_request.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
-)
-from gcommon.v1.common import (
-    time_range_metrics_pb2 as gcommon_dot_v1_dot_common_dot_time__range__metrics__pb2,
-)
-from gcommon.v1.metrics import (
-    metric_filter_pb2 as gcommon_dot_v1_dot_metrics_dot_metric__filter__pb2,
-)
-from gcommon.v1.metrics import (
-    summary_options_pb2 as gcommon_dot_v1_dot_metrics_dot_summary__options__pb2,
-)
+from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
+from gcommon.v1.common import time_range_metrics_pb2 as gcommon_dot_v1_dot_common_dot_time__range__metrics__pb2
+from gcommon.v1.metrics import metric_filter_pb2 as gcommon_dot_v1_dot_metrics_dot_metric__filter__pb2
+from gcommon.v1.metrics import summary_options_pb2 as gcommon_dot_v1_dot_metrics_dot_summary__options__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n4gcommon/v1/metrics/get_metrics_summary_request.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/request_metadata.proto\x1a*gcommon/v1/common/time_range_metrics.proto\x1a&gcommon/v1/metrics/metric_filter.proto\x1a(gcommon/v1/metrics/summary_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xaa\x03\n\x18GetMetricsSummaryRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x38\n\x06\x66ilter\x18\x02 \x01(\x0b\x32 .gcommon.v1.metrics.MetricFilterR\x06\x66ilter\x12\x42\n\ntime_range\x18\x03 \x01(\x0b\x32#.gcommon.v1.common.TimeRangeMetricsR\ttimeRange\x12<\n\x07options\x18\x04 \x01(\x0b\x32".gcommon.v1.metrics.SummaryOptionsR\x07options\x12(\n\x0bprovider_id\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12\x34\n\x16include_provider_stats\x18\x06 \x01(\x08R\x14includeProviderStats\x12\x32\n\x15include_health_status\x18\x07 \x01(\x08R\x13includeHealthStatusB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4gcommon/v1/metrics/get_metrics_summary_request.proto\x12\x12gcommon.v1.metrics\x1a(gcommon/v1/common/request_metadata.proto\x1a*gcommon/v1/common/time_range_metrics.proto\x1a&gcommon/v1/metrics/metric_filter.proto\x1a(gcommon/v1/metrics/summary_options.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xaa\x03\n\x18GetMetricsSummaryRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x38\n\x06\x66ilter\x18\x02 \x01(\x0b\x32 .gcommon.v1.metrics.MetricFilterR\x06\x66ilter\x12\x42\n\ntime_range\x18\x03 \x01(\x0b\x32#.gcommon.v1.common.TimeRangeMetricsR\ttimeRange\x12<\n\x07options\x18\x04 \x01(\x0b\x32\".gcommon.v1.metrics.SummaryOptionsR\x07options\x12(\n\x0bprovider_id\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nproviderId\x12\x34\n\x16include_provider_stats\x18\x06 \x01(\x08R\x14includeProviderStats\x12\x32\n\x15include_health_status\x18\x07 \x01(\x08R\x13includeHealthStatusB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.get_metrics_summary_request_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.get_metrics_summary_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_GETMETRICSSUMMARYREQUEST"].fields_by_name[
-        "provider_id"
-    ]._loaded_options = None
-    _globals["_GETMETRICSSUMMARYREQUEST"].fields_by_name[
-        "provider_id"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_GETMETRICSSUMMARYREQUEST"]._serialized_start = 309
-    _globals["_GETMETRICSSUMMARYREQUEST"]._serialized_end = 735
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_GETMETRICSSUMMARYREQUEST'].fields_by_name['provider_id']._loaded_options = None
+  _globals['_GETMETRICSSUMMARYREQUEST'].fields_by_name['provider_id']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_GETMETRICSSUMMARYREQUEST']._serialized_start=309
+  _globals['_GETMETRICSSUMMARYREQUEST']._serialized_end=735
 # @@protoc_insertion_point(module_scope)

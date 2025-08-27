@@ -14,15 +14,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NodeInfo(_message.Message):
-    __slots__ = (
-        "node_id",
-        "hostname",
-        "port",
-        "state",
-        "roles",
-        "last_heartbeat",
-        "stats",
-    )
+    __slots__ = ("node_id", "hostname", "port", "state", "roles", "last_heartbeat", "stats")
     NODE_ID_FIELD_NUMBER: _ClassVar[int]
     HOSTNAME_FIELD_NUMBER: _ClassVar[int]
     PORT_FIELD_NUMBER: _ClassVar[int]
@@ -37,15 +29,4 @@ class NodeInfo(_message.Message):
     roles: _containers.RepeatedScalarFieldContainer[str]
     last_heartbeat: _timestamp_pb2.Timestamp
     stats: _node_stats_pb2.NodeStats
-    def __init__(
-        self,
-        node_id: _Optional[str] = ...,
-        hostname: _Optional[str] = ...,
-        port: _Optional[int] = ...,
-        state: _Optional[_Union[_node_state_pb2.NodeState, str]] = ...,
-        roles: _Optional[_Iterable[str]] = ...,
-        last_heartbeat: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        stats: _Optional[_Union[_node_stats_pb2.NodeStats, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, node_id: _Optional[str] = ..., hostname: _Optional[str] = ..., port: _Optional[int] = ..., state: _Optional[_Union[_node_state_pb2.NodeState, str]] = ..., roles: _Optional[_Iterable[str]] = ..., last_heartbeat: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., stats: _Optional[_Union[_node_stats_pb2.NodeStats, _Mapping]] = ...) -> None: ...

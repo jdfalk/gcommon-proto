@@ -18,12 +18,4 @@ class BackupConfigRequest(_message.Message):
     description: str
     include_secrets: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        namespace: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        include_secrets: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, namespace: _Optional[str] = ..., description: _Optional[str] = ..., include_secrets: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

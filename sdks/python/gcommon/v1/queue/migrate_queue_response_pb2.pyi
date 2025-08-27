@@ -7,15 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MigrateQueueResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "new_queue_endpoint",
-        "messages_migrated",
-        "migration_duration_ms",
-        "source_queue",
-        "destination_queue",
-        "error",
-    )
+    __slots__ = ("success", "new_queue_endpoint", "messages_migrated", "migration_duration_ms", "source_queue", "destination_queue", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     NEW_QUEUE_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_MIGRATED_FIELD_NUMBER: _ClassVar[int]
@@ -30,13 +22,4 @@ class MigrateQueueResponse(_message.Message):
     source_queue: str
     destination_queue: str
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        new_queue_endpoint: _Optional[str] = ...,
-        messages_migrated: _Optional[int] = ...,
-        migration_duration_ms: _Optional[int] = ...,
-        source_queue: _Optional[str] = ...,
-        destination_queue: _Optional[str] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., new_queue_endpoint: _Optional[str] = ..., messages_migrated: _Optional[int] = ..., migration_duration_ms: _Optional[int] = ..., source_queue: _Optional[str] = ..., destination_queue: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...

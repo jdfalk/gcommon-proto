@@ -13,7 +13,6 @@ class CacheInvalidationTrigger(int, metaclass=_enum_type_wrapper.EnumTypeWrapper
     CACHE_INVALIDATION_TRIGGER_EXPIRE: _ClassVar[CacheInvalidationTrigger]
     CACHE_INVALIDATION_TRIGGER_MANUAL: _ClassVar[CacheInvalidationTrigger]
     CACHE_INVALIDATION_TRIGGER_SCHEDULE: _ClassVar[CacheInvalidationTrigger]
-
 CACHE_INVALIDATION_TRIGGER_UNSPECIFIED: CacheInvalidationTrigger
 CACHE_INVALIDATION_TRIGGER_CHANGE: CacheInvalidationTrigger
 CACHE_INVALIDATION_TRIGGER_DELETE: CacheInvalidationTrigger

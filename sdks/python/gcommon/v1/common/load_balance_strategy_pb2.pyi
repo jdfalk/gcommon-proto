@@ -11,7 +11,6 @@ class LoadBalanceStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOAD_BALANCE_STRATEGY_ROUND_ROBIN: _ClassVar[LoadBalanceStrategy]
     LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS: _ClassVar[LoadBalanceStrategy]
     LOAD_BALANCE_STRATEGY_IP_HASH: _ClassVar[LoadBalanceStrategy]
-
 LOAD_BALANCE_STRATEGY_UNSPECIFIED: LoadBalanceStrategy
 LOAD_BALANCE_STRATEGY_ROUND_ROBIN: LoadBalanceStrategy
 LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS: LoadBalanceStrategy

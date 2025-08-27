@@ -8,19 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeletionOptions(_message.Message):
-    __slots__ = (
-        "delete_data",
-        "delete_indices",
-        "delete_backups",
-        "stop_exports",
-        "grace_period",
-        "dry_run",
-        "force",
-        "create_backup",
-        "cleanup_strategy",
-        "wait_for_completion",
-        "completion_timeout",
-    )
+    __slots__ = ("delete_data", "delete_indices", "delete_backups", "stop_exports", "grace_period", "dry_run", "force", "create_backup", "cleanup_strategy", "wait_for_completion", "completion_timeout")
     DELETE_DATA_FIELD_NUMBER: _ClassVar[int]
     DELETE_INDICES_FIELD_NUMBER: _ClassVar[int]
     DELETE_BACKUPS_FIELD_NUMBER: _ClassVar[int]
@@ -43,19 +31,4 @@ class DeletionOptions(_message.Message):
     cleanup_strategy: _cleanup_strategy_pb2.CleanupStrategy
     wait_for_completion: bool
     completion_timeout: str
-    def __init__(
-        self,
-        delete_data: _Optional[bool] = ...,
-        delete_indices: _Optional[bool] = ...,
-        delete_backups: _Optional[bool] = ...,
-        stop_exports: _Optional[bool] = ...,
-        grace_period: _Optional[str] = ...,
-        dry_run: _Optional[bool] = ...,
-        force: _Optional[bool] = ...,
-        create_backup: _Optional[bool] = ...,
-        cleanup_strategy: _Optional[
-            _Union[_cleanup_strategy_pb2.CleanupStrategy, str]
-        ] = ...,
-        wait_for_completion: _Optional[bool] = ...,
-        completion_timeout: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, delete_data: _Optional[bool] = ..., delete_indices: _Optional[bool] = ..., delete_backups: _Optional[bool] = ..., stop_exports: _Optional[bool] = ..., grace_period: _Optional[str] = ..., dry_run: _Optional[bool] = ..., force: _Optional[bool] = ..., create_backup: _Optional[bool] = ..., cleanup_strategy: _Optional[_Union[_cleanup_strategy_pb2.CleanupStrategy, str]] = ..., wait_for_completion: _Optional[bool] = ..., completion_timeout: _Optional[str] = ...) -> None: ...

@@ -13,22 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProviderSummary(_message.Message):
-    __slots__ = (
-        "provider_id",
-        "name",
-        "provider_type",
-        "status",
-        "metric_count",
-        "active_data_points",
-        "storage_size_bytes",
-        "registered_at",
-        "last_updated",
-        "enabled",
-        "performance_score",
-        "health_score",
-        "tags",
-        "description",
-    )
+    __slots__ = ("provider_id", "name", "provider_type", "status", "metric_count", "active_data_points", "storage_size_bytes", "registered_at", "last_updated", "enabled", "performance_score", "health_score", "tags", "description")
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -57,24 +42,4 @@ class ProviderSummary(_message.Message):
     health_score: float
     tags: _containers.RepeatedScalarFieldContainer[str]
     description: str
-    def __init__(
-        self,
-        provider_id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        provider_type: _Optional[str] = ...,
-        status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ...,
-        metric_count: _Optional[int] = ...,
-        active_data_points: _Optional[int] = ...,
-        storage_size_bytes: _Optional[int] = ...,
-        registered_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        last_updated: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        enabled: _Optional[bool] = ...,
-        performance_score: _Optional[float] = ...,
-        health_score: _Optional[float] = ...,
-        tags: _Optional[_Iterable[str]] = ...,
-        description: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, provider_id: _Optional[str] = ..., name: _Optional[str] = ..., provider_type: _Optional[str] = ..., status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ..., metric_count: _Optional[int] = ..., active_data_points: _Optional[int] = ..., storage_size_bytes: _Optional[int] = ..., registered_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., enabled: _Optional[bool] = ..., performance_score: _Optional[float] = ..., health_score: _Optional[float] = ..., tags: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...

@@ -12,7 +12,6 @@ class WebSocketState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     WEB_SOCKET_STATE_OPEN: _ClassVar[WebSocketState]
     WEB_SOCKET_STATE_CLOSING: _ClassVar[WebSocketState]
     WEB_SOCKET_STATE_CLOSED: _ClassVar[WebSocketState]
-
 WEB_SOCKET_STATE_UNSPECIFIED: WebSocketState
 WEB_SOCKET_STATE_CONNECTING: WebSocketState
 WEB_SOCKET_STATE_OPEN: WebSocketState

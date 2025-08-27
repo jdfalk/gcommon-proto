@@ -12,7 +12,6 @@ class SubscriptionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SUBSCRIPTION_STATUS_PAUSED: _ClassVar[SubscriptionStatus]
     SUBSCRIPTION_STATUS_CANCELLED: _ClassVar[SubscriptionStatus]
     SUBSCRIPTION_STATUS_ERROR: _ClassVar[SubscriptionStatus]
-
 SUBSCRIPTION_STATUS_UNSPECIFIED: SubscriptionStatus
 SUBSCRIPTION_STATUS_ACTIVE: SubscriptionStatus
 SUBSCRIPTION_STATUS_PAUSED: SubscriptionStatus

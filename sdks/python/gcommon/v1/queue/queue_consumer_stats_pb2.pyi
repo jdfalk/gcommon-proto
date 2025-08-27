@@ -12,15 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueConsumerStats(_message.Message):
-    __slots__ = (
-        "consumer_id",
-        "queue_name",
-        "messages_processed",
-        "processing_rate",
-        "success_rate",
-        "last_activity",
-        "average_processing_time",
-    )
+    __slots__ = ("consumer_id", "queue_name", "messages_processed", "processing_rate", "success_rate", "last_activity", "average_processing_time")
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_PROCESSED_FIELD_NUMBER: _ClassVar[int]
@@ -35,17 +27,4 @@ class QueueConsumerStats(_message.Message):
     success_rate: float
     last_activity: _timestamp_pb2.Timestamp
     average_processing_time: _duration_pb2.Duration
-    def __init__(
-        self,
-        consumer_id: _Optional[str] = ...,
-        queue_name: _Optional[str] = ...,
-        messages_processed: _Optional[int] = ...,
-        processing_rate: _Optional[float] = ...,
-        success_rate: _Optional[float] = ...,
-        last_activity: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        average_processing_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, consumer_id: _Optional[str] = ..., queue_name: _Optional[str] = ..., messages_processed: _Optional[int] = ..., processing_rate: _Optional[float] = ..., success_rate: _Optional[float] = ..., last_activity: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., average_processing_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

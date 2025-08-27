@@ -17,10 +17,7 @@ class WebSecurityConfig(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENABLE_TLS_FIELD_NUMBER: _ClassVar[int]
     TLS_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_HOSTS_FIELD_NUMBER: _ClassVar[int]
@@ -29,10 +26,4 @@ class WebSecurityConfig(_message.Message):
     tls: _tls_config_pb2.WebTLSConfig
     allowed_hosts: _containers.RepeatedScalarFieldContainer[str]
     options: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        enable_tls: _Optional[bool] = ...,
-        tls: _Optional[_Union[_tls_config_pb2.WebTLSConfig, _Mapping]] = ...,
-        allowed_hosts: _Optional[_Iterable[str]] = ...,
-        options: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, enable_tls: _Optional[bool] = ..., tls: _Optional[_Union[_tls_config_pb2.WebTLSConfig, _Mapping]] = ..., allowed_hosts: _Optional[_Iterable[str]] = ..., options: _Optional[_Mapping[str, str]] = ...) -> None: ...

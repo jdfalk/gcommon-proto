@@ -20,10 +20,7 @@ class MetricsEvent(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -34,13 +31,4 @@ class MetricsEvent(_message.Message):
     metric_type: _metric_type_pb2.MetricsMetricType
     value: float
     labels: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        queue_name: _Optional[str] = ...,
-        metric_type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ...,
-        value: _Optional[float] = ...,
-        labels: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., queue_name: _Optional[str] = ..., metric_type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...

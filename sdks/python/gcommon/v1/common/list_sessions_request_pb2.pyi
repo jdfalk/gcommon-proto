@@ -16,9 +16,4 @@ class AuthListSessionsRequest(_message.Message):
     pagination: _pagination_pb2.Pagination
     user_id: str
     status: str
-    def __init__(
-        self,
-        pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ...,
-        user_id: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, pagination: _Optional[_Union[_pagination_pb2.Pagination, _Mapping]] = ..., user_id: _Optional[str] = ..., status: _Optional[str] = ...) -> None: ...

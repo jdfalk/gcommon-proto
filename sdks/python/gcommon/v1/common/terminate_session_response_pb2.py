@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/terminate_session_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/terminate_session_response.proto",
+    '',
+    'gcommon/v1/common/terminate_session_response.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -29,28 +27,16 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n2gcommon/v1/common/terminate_session_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\x8f\x04\n\x18TerminateSessionResponse\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12p\n\x07user_id\x18\x02 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12\x1a\n\x08username\x18\x03 \x01(\tR\x08username\x12?\n\rterminated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0cterminatedAt\x12-\n\x12termination_reason\x18\x05 \x01(\tR\x11terminationReason\x12%\n\x0etokens_revoked\x18\x06 \x01(\x08R\rtokensRevoked\x12.\n\x13revoked_token_count\x18\x07 \x01(\x05R\x11revokedTokenCount\x12-\n\x12\x66orced_termination\x18\x08 \x01(\x08R\x11\x66orcedTermination\x12\x36\n\x17remaining_session_count\x18\t \x01(\x05R\x15remainingSessionCount\x12\x18\n\x07message\x18\n \x01(\tR\x07messageB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2gcommon/v1/common/terminate_session_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\x8f\x04\n\x18TerminateSessionResponse\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12p\n\x07user_id\x18\x02 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12\x1a\n\x08username\x18\x03 \x01(\tR\x08username\x12?\n\rterminated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0cterminatedAt\x12-\n\x12termination_reason\x18\x05 \x01(\tR\x11terminationReason\x12%\n\x0etokens_revoked\x18\x06 \x01(\x08R\rtokensRevoked\x12.\n\x13revoked_token_count\x18\x07 \x01(\x05R\x11revokedTokenCount\x12-\n\x12\x66orced_termination\x18\x08 \x01(\x08R\x11\x66orcedTermination\x12\x36\n\x17remaining_session_count\x18\t \x01(\x05R\x15remainingSessionCount\x12\x18\n\x07message\x18\n \x01(\tR\x07messageB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.terminate_session_response_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.terminate_session_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_TERMINATESESSIONRESPONSE"].fields_by_name[
-        "user_id"
-    ]._loaded_options = None
-    _globals["_TERMINATESESSIONRESPONSE"].fields_by_name[
-        "user_id"
-    ]._serialized_options = b"\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001"
-    _globals["_TERMINATESESSIONRESPONSE"]._serialized_start = 171
-    _globals["_TERMINATESESSIONRESPONSE"]._serialized_end = 698
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_TERMINATESESSIONRESPONSE'].fields_by_name['user_id']._loaded_options = None
+  _globals['_TERMINATESESSIONRESPONSE'].fields_by_name['user_id']._serialized_options = b'\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001'
+  _globals['_TERMINATESESSIONRESPONSE']._serialized_start=171
+  _globals['_TERMINATESESSIONRESPONSE']._serialized_end=698
 # @@protoc_insertion_point(module_scope)

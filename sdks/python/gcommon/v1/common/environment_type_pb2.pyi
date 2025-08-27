@@ -18,7 +18,6 @@ class EnvironmentType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ENVIRONMENT_TYPE_INTEGRATION: _ClassVar[EnvironmentType]
     ENVIRONMENT_TYPE_PERFORMANCE: _ClassVar[EnvironmentType]
     ENVIRONMENT_TYPE_SECURITY: _ClassVar[EnvironmentType]
-
 ENVIRONMENT_TYPE_UNSPECIFIED: EnvironmentType
 ENVIRONMENT_TYPE_DEVELOPMENT: EnvironmentType
 ENVIRONMENT_TYPE_TESTING: EnvironmentType

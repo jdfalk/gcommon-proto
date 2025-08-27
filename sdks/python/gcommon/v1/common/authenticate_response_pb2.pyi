@@ -12,16 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthAuthenticateResponse(_message.Message):
-    __slots__ = (
-        "access_token",
-        "refresh_token",
-        "token_type",
-        "expires_in",
-        "scopes",
-        "user_info",
-        "session",
-        "rate_limit",
-    )
+    __slots__ = ("access_token", "refresh_token", "token_type", "expires_in", "scopes", "user_info", "session", "rate_limit")
     ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
     REFRESH_TOKEN_FIELD_NUMBER: _ClassVar[int]
     TOKEN_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -38,14 +29,4 @@ class AuthAuthenticateResponse(_message.Message):
     user_info: _user_info_pb2.UserInfo
     session: _session_pb2.Session
     rate_limit: _rate_limit_pb2.RateLimit
-    def __init__(
-        self,
-        access_token: _Optional[str] = ...,
-        refresh_token: _Optional[str] = ...,
-        token_type: _Optional[str] = ...,
-        expires_in: _Optional[int] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ...,
-        session: _Optional[_Union[_session_pb2.Session, _Mapping]] = ...,
-        rate_limit: _Optional[_Union[_rate_limit_pb2.RateLimit, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, access_token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., token_type: _Optional[str] = ..., expires_in: _Optional[int] = ..., scopes: _Optional[_Iterable[str]] = ..., user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., session: _Optional[_Union[_session_pb2.Session, _Mapping]] = ..., rate_limit: _Optional[_Union[_rate_limit_pb2.RateLimit, _Mapping]] = ...) -> None: ...

@@ -21,17 +21,5 @@ class ExportStatus(_message.Message):
     total_exported_metrics: int
     failed_exports: int
     last_export: _timestamp_pb2.Timestamp
-    exporters: _containers.RepeatedCompositeFieldContainer[
-        _exporter_status_pb2.ExporterStatus
-    ]
-    def __init__(
-        self,
-        total_exported_metrics: _Optional[int] = ...,
-        failed_exports: _Optional[int] = ...,
-        last_export: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        exporters: _Optional[
-            _Iterable[_Union[_exporter_status_pb2.ExporterStatus, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    exporters: _containers.RepeatedCompositeFieldContainer[_exporter_status_pb2.ExporterStatus]
+    def __init__(self, total_exported_metrics: _Optional[int] = ..., failed_exports: _Optional[int] = ..., last_export: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., exporters: _Optional[_Iterable[_Union[_exporter_status_pb2.ExporterStatus, _Mapping]]] = ...) -> None: ...

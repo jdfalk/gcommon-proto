@@ -15,9 +15,4 @@ class RevokePermissionRequest(_message.Message):
     subject_id: str
     subject_type: _subject_type_pb2.AuthSubjectType
     permission_id: str
-    def __init__(
-        self,
-        subject_id: _Optional[str] = ...,
-        subject_type: _Optional[_Union[_subject_type_pb2.AuthSubjectType, str]] = ...,
-        permission_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, subject_id: _Optional[str] = ..., subject_type: _Optional[_Union[_subject_type_pb2.AuthSubjectType, str]] = ..., permission_id: _Optional[str] = ...) -> None: ...

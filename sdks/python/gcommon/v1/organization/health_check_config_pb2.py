@@ -4,20 +4,18 @@
 # source: gcommon/v1/organization/health_check_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/organization/health_check_config.proto",
+    '',
+    'gcommon/v1/organization/health_check_config.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,62 +26,28 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n1gcommon/v1/organization/health_check_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xd8\x02\n\x1dOrganizationHealthCheckConfig\x12\x1b\n\x04path\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12#\n\x08protocol\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08protocol\x12\x32\n\x10interval_seconds\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0fintervalSeconds\x12\x30\n\x0ftimeout_seconds\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12\x34\n\x11healthy_threshold\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x10healthyThreshold\x12\x38\n\x13unhealthy_threshold\x18\x07 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x12unhealthyThresholdB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1gcommon/v1/organization/health_check_config.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd8\x02\n\x1dOrganizationHealthCheckConfig\x12\x1b\n\x04path\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04path\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12#\n\x08protocol\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08protocol\x12\x32\n\x10interval_seconds\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0fintervalSeconds\x12\x30\n\x0ftimeout_seconds\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12\x34\n\x11healthy_threshold\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x10healthyThreshold\x12\x38\n\x13unhealthy_threshold\x18\x07 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x12unhealthyThresholdB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.organization.health_check_config_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.health_check_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "path"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "path"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "port"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "port"
-    ]._serialized_options = b"\272H\010\032\006\030\377\377\003(\001"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "protocol"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "protocol"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "interval_seconds"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "interval_seconds"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "timeout_seconds"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "timeout_seconds"
-    ]._serialized_options = b"\272H\004\032\002 \000"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "healthy_threshold"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "healthy_threshold"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "unhealthy_threshold"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"].fields_by_name[
-        "unhealthy_threshold"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"]._serialized_start = 143
-    _globals["_ORGANIZATIONHEALTHCHECKCONFIG"]._serialized_end = 487
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['path']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['path']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['port']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['port']._serialized_options = b'\272H\010\032\006\030\377\377\003(\001'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['protocol']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['protocol']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['interval_seconds']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['interval_seconds']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['timeout_seconds']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['timeout_seconds']._serialized_options = b'\272H\004\032\002 \000'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['healthy_threshold']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['healthy_threshold']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['unhealthy_threshold']._loaded_options = None
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG'].fields_by_name['unhealthy_threshold']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG']._serialized_start=143
+  _globals['_ORGANIZATIONHEALTHCHECKCONFIG']._serialized_end=487
 # @@protoc_insertion_point(module_scope)

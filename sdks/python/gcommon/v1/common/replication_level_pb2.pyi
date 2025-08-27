@@ -11,7 +11,6 @@ class ReplicationLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REPLICATION_LEVEL_ONE: _ClassVar[ReplicationLevel]
     REPLICATION_LEVEL_QUORUM: _ClassVar[ReplicationLevel]
     REPLICATION_LEVEL_ALL: _ClassVar[ReplicationLevel]
-
 REPLICATION_LEVEL_UNSPECIFIED: ReplicationLevel
 REPLICATION_LEVEL_ONE: ReplicationLevel
 REPLICATION_LEVEL_QUORUM: ReplicationLevel

@@ -16,11 +16,4 @@ class ExportRequest(_message.Message):
     destination: str
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        destination: _Optional[str] = ...,
-        namespace: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, destination: _Optional[str] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

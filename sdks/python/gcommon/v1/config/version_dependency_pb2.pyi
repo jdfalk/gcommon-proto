@@ -1,6 +1,4 @@
-from gcommon.v1.common import (
-    version_dependency_type_pb2 as _version_dependency_type_pb2,
-)
+from gcommon.v1.common import version_dependency_type_pb2 as _version_dependency_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
@@ -19,10 +17,7 @@ class VersionDependency(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     NAME_FIELD_NUMBER: _ClassVar[int]
     VERSION_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -35,14 +30,4 @@ class VersionDependency(_message.Message):
     scope: str
     constraints: _containers.RepeatedScalarFieldContainer[str]
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        version: _Optional[str] = ...,
-        type: _Optional[
-            _Union[_version_dependency_type_pb2.VersionDependencyType, str]
-        ] = ...,
-        scope: _Optional[str] = ...,
-        constraints: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., version: _Optional[str] = ..., type: _Optional[_Union[_version_dependency_type_pb2.VersionDependencyType, str]] = ..., scope: _Optional[str] = ..., constraints: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

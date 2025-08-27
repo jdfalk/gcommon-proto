@@ -16,9 +16,4 @@ class QueryParameter(_message.Message):
     name: str
     value: _any_pb2.Any
     type: str
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        type: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., type: _Optional[str] = ...) -> None: ...

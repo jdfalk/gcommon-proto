@@ -16,10 +16,4 @@ class BeginTransactionResponse(_message.Message):
     STARTED_AT_FIELD_NUMBER: _ClassVar[int]
     transaction_id: str
     started_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        transaction_id: _Optional[str] = ...,
-        started_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, transaction_id: _Optional[str] = ..., started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

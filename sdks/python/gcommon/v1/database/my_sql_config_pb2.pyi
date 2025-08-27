@@ -16,10 +16,4 @@ class MySQLConfig(_message.Message):
     max_open_conns: int
     max_idle_conns: int
     connect_timeout_seconds: int
-    def __init__(
-        self,
-        dsn: _Optional[str] = ...,
-        max_open_conns: _Optional[int] = ...,
-        max_idle_conns: _Optional[int] = ...,
-        connect_timeout_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, dsn: _Optional[str] = ..., max_open_conns: _Optional[int] = ..., max_idle_conns: _Optional[int] = ..., connect_timeout_seconds: _Optional[int] = ...) -> None: ...

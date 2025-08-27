@@ -12,7 +12,6 @@ class MetricStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRIC_STATUS_DISABLED: _ClassVar[MetricStatus]
     METRIC_STATUS_ERROR: _ClassVar[MetricStatus]
     METRIC_STATUS_DELETED: _ClassVar[MetricStatus]
-
 METRIC_STATUS_UNSPECIFIED: MetricStatus
 METRIC_STATUS_ACTIVE: MetricStatus
 METRIC_STATUS_DISABLED: MetricStatus

@@ -4,20 +4,18 @@
 # source: gcommon/v1/metrics/validation_summary.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/validation_summary.proto",
+    '',
+    'gcommon/v1/metrics/validation_summary.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,44 +26,22 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n+gcommon/v1/metrics/validation_summary.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xda\x01\n\x11ValidationSummary\x12(\n\x0bvalid_count\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nvalidCount\x12,\n\rinvalid_count\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0cinvalidCount\x12-\n\rcommon_errors\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x63ommonErrors\x12>\n\x0eschema_version\x18\x04 \x01(\tB\x17\xbaH\x14r\x12\x32\x10^v?\\d+\\.\\d+\\.\\d+R\rschemaVersionB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/metrics/validation_summary.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xda\x01\n\x11ValidationSummary\x12(\n\x0bvalid_count\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nvalidCount\x12,\n\rinvalid_count\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0cinvalidCount\x12-\n\rcommon_errors\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x63ommonErrors\x12>\n\x0eschema_version\x18\x04 \x01(\tB\x17\xbaH\x14r\x12\x32\x10^v?\\d+\\.\\d+\\.\\d+R\rschemaVersionB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.validation_summary_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.validation_summary_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_VALIDATIONSUMMARY"].fields_by_name["valid_count"]._loaded_options = None
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "valid_count"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "invalid_count"
-    ]._loaded_options = None
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "invalid_count"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "common_errors"
-    ]._loaded_options = None
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "common_errors"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "schema_version"
-    ]._loaded_options = None
-    _globals["_VALIDATIONSUMMARY"].fields_by_name[
-        "schema_version"
-    ]._serialized_options = b"\272H\024r\0222\020^v?\\d+\\.\\d+\\.\\d+"
-    _globals["_VALIDATIONSUMMARY"]._serialized_start = 132
-    _globals["_VALIDATIONSUMMARY"]._serialized_end = 350
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['valid_count']._loaded_options = None
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['valid_count']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['invalid_count']._loaded_options = None
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['invalid_count']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['common_errors']._loaded_options = None
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['common_errors']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['schema_version']._loaded_options = None
+  _globals['_VALIDATIONSUMMARY'].fields_by_name['schema_version']._serialized_options = b'\272H\024r\0222\020^v?\\d+\\.\\d+\\.\\d+'
+  _globals['_VALIDATIONSUMMARY']._serialized_start=132
+  _globals['_VALIDATIONSUMMARY']._serialized_end=350
 # @@protoc_insertion_point(module_scope)

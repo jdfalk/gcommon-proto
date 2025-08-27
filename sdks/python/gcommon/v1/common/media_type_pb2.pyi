@@ -18,7 +18,6 @@ class MediaType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MEDIA_TYPE_LECTURE: _ClassVar[MediaType]
     MEDIA_TYPE_INTERVIEW: _ClassVar[MediaType]
     MEDIA_TYPE_RADIO_SHOW: _ClassVar[MediaType]
-
 MEDIA_TYPE_UNSPECIFIED: MediaType
 MEDIA_TYPE_MOVIE: MediaType
 MEDIA_TYPE_TV_EPISODE: MediaType

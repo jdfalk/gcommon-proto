@@ -12,26 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigWatch(_message.Message):
-    __slots__ = (
-        "watch_id",
-        "key_pattern",
-        "namespace",
-        "watch_type",
-        "created_at",
-        "created_by",
-        "options",
-        "active",
-    )
+    __slots__ = ("watch_id", "key_pattern", "namespace", "watch_type", "created_at", "created_by", "options", "active")
     class OptionsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     WATCH_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_PATTERN_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
@@ -48,16 +36,4 @@ class ConfigWatch(_message.Message):
     created_by: str
     options: _containers.ScalarMap[str, str]
     active: bool
-    def __init__(
-        self,
-        watch_id: _Optional[str] = ...,
-        key_pattern: _Optional[str] = ...,
-        namespace: _Optional[str] = ...,
-        watch_type: _Optional[str] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        created_by: _Optional[str] = ...,
-        options: _Optional[_Mapping[str, str]] = ...,
-        active: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, watch_id: _Optional[str] = ..., key_pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., watch_type: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., options: _Optional[_Mapping[str, str]] = ..., active: _Optional[bool] = ...) -> None: ...

@@ -15,7 +15,6 @@ class TemplateFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TEMPLATE_FORMAT_PROPERTIES: _ClassVar[TemplateFormat]
     TEMPLATE_FORMAT_INI: _ClassVar[TemplateFormat]
     TEMPLATE_FORMAT_CUSTOM: _ClassVar[TemplateFormat]
-
 TEMPLATE_FORMAT_UNSPECIFIED: TemplateFormat
 TEMPLATE_FORMAT_JSON: TemplateFormat
 TEMPLATE_FORMAT_YAML: TemplateFormat

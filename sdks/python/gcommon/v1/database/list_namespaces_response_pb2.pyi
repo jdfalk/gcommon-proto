@@ -16,20 +16,9 @@ class ListNamespacesResponse(_message.Message):
     PAGE_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     TOTAL_PAGES_FIELD_NUMBER: _ClassVar[int]
-    namespaces: _containers.RepeatedCompositeFieldContainer[
-        _namespace_info_pb2.NamespaceInfo
-    ]
+    namespaces: _containers.RepeatedCompositeFieldContainer[_namespace_info_pb2.NamespaceInfo]
     total_count: int
     page: int
     page_size: int
     total_pages: int
-    def __init__(
-        self,
-        namespaces: _Optional[
-            _Iterable[_Union[_namespace_info_pb2.NamespaceInfo, _Mapping]]
-        ] = ...,
-        total_count: _Optional[int] = ...,
-        page: _Optional[int] = ...,
-        page_size: _Optional[int] = ...,
-        total_pages: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, namespaces: _Optional[_Iterable[_Union[_namespace_info_pb2.NamespaceInfo, _Mapping]]] = ..., total_count: _Optional[int] = ..., page: _Optional[int] = ..., page_size: _Optional[int] = ..., total_pages: _Optional[int] = ...) -> None: ...

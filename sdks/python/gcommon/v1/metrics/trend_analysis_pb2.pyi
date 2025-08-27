@@ -20,16 +20,4 @@ class TrendAnalysis(_message.Message):
     resource_usage: _resource_usage_trend_pb2.ResourceUsageTrend
     errors: _error_trend_pb2.ErrorTrend
     data_volume: _data_volume_trend_pb2.DataVolumeTrend
-    def __init__(
-        self,
-        performance: _Optional[
-            _Union[_performance_trend_pb2.PerformanceTrend, _Mapping]
-        ] = ...,
-        resource_usage: _Optional[
-            _Union[_resource_usage_trend_pb2.ResourceUsageTrend, _Mapping]
-        ] = ...,
-        errors: _Optional[_Union[_error_trend_pb2.ErrorTrend, _Mapping]] = ...,
-        data_volume: _Optional[
-            _Union[_data_volume_trend_pb2.DataVolumeTrend, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, performance: _Optional[_Union[_performance_trend_pb2.PerformanceTrend, _Mapping]] = ..., resource_usage: _Optional[_Union[_resource_usage_trend_pb2.ResourceUsageTrend, _Mapping]] = ..., errors: _Optional[_Union[_error_trend_pb2.ErrorTrend, _Mapping]] = ..., data_volume: _Optional[_Union[_data_volume_trend_pb2.DataVolumeTrend, _Mapping]] = ...) -> None: ...

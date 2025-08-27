@@ -10,13 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResumeQueueRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "reason",
-        "metadata",
-        "partition_ids",
-        "resume_from_last_position",
-    )
+    __slots__ = ("queue_name", "reason", "metadata", "partition_ids", "resume_from_last_position")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -27,13 +21,4 @@ class ResumeQueueRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     resume_from_last_position: bool
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        reason: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        partition_ids: _Optional[_Iterable[int]] = ...,
-        resume_from_last_position: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., reason: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., partition_ids: _Optional[_Iterable[int]] = ..., resume_from_last_position: _Optional[bool] = ...) -> None: ...

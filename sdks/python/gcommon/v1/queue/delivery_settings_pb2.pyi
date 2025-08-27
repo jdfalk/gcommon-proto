@@ -7,12 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliverySettings(_message.Message):
-    __slots__ = (
-        "delivery_mode",
-        "push_endpoint",
-        "delivery_timeout_ms",
-        "ordered_delivery",
-    )
+    __slots__ = ("delivery_mode", "push_endpoint", "delivery_timeout_ms", "ordered_delivery")
     DELIVERY_MODE_FIELD_NUMBER: _ClassVar[int]
     PUSH_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_TIMEOUT_MS_FIELD_NUMBER: _ClassVar[int]
@@ -21,10 +16,4 @@ class DeliverySettings(_message.Message):
     push_endpoint: str
     delivery_timeout_ms: int
     ordered_delivery: bool
-    def __init__(
-        self,
-        delivery_mode: _Optional[str] = ...,
-        push_endpoint: _Optional[str] = ...,
-        delivery_timeout_ms: _Optional[int] = ...,
-        ordered_delivery: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, delivery_mode: _Optional[str] = ..., push_endpoint: _Optional[str] = ..., delivery_timeout_ms: _Optional[int] = ..., ordered_delivery: _Optional[bool] = ...) -> None: ...

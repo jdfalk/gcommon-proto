@@ -19,10 +19,4 @@ class AuthAuthorizeResponse(_message.Message):
     permissions: _containers.RepeatedScalarFieldContainer[str]
     denial_reason: str
     error: _error_pb2.Error
-    def __init__(
-        self,
-        authorized: _Optional[bool] = ...,
-        permissions: _Optional[_Iterable[str]] = ...,
-        denial_reason: _Optional[str] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, authorized: _Optional[bool] = ..., permissions: _Optional[_Iterable[str]] = ..., denial_reason: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

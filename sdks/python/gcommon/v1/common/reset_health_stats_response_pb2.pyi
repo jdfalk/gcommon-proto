@@ -24,13 +24,4 @@ class ResetHealthStatsResponse(_message.Message):
     reset_at: _timestamp_pb2.Timestamp
     error: _error_pb2.Error
     reset_categories: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        cleared_entries: _Optional[int] = ...,
-        reset_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        reset_categories: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., cleared_entries: _Optional[int] = ..., reset_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., reset_categories: _Optional[_Iterable[str]] = ...) -> None: ...

@@ -18,14 +18,7 @@ class RoleBasedAccessControl(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: _role_inheritance_pb2.RoleInheritance
-        def __init__(
-            self,
-            key: _Optional[str] = ...,
-            value: _Optional[
-                _Union[_role_inheritance_pb2.RoleInheritance, _Mapping]
-            ] = ...,
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_role_inheritance_pb2.RoleInheritance, _Mapping]] = ...) -> None: ...
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_ROLES_FIELD_NUMBER: _ClassVar[int]
     ROLE_INHERITANCE_FIELD_NUMBER: _ClassVar[int]
@@ -34,14 +27,4 @@ class RoleBasedAccessControl(_message.Message):
     default_roles: _containers.RepeatedScalarFieldContainer[str]
     role_inheritance: _containers.MessageMap[str, _role_inheritance_pb2.RoleInheritance]
     external_provider: _external_role_provider_pb2.ExternalRoleProvider
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        default_roles: _Optional[_Iterable[str]] = ...,
-        role_inheritance: _Optional[
-            _Mapping[str, _role_inheritance_pb2.RoleInheritance]
-        ] = ...,
-        external_provider: _Optional[
-            _Union[_external_role_provider_pb2.ExternalRoleProvider, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., default_roles: _Optional[_Iterable[str]] = ..., role_inheritance: _Optional[_Mapping[str, _role_inheritance_pb2.RoleInheritance]] = ..., external_provider: _Optional[_Union[_external_role_provider_pb2.ExternalRoleProvider, _Mapping]] = ...) -> None: ...

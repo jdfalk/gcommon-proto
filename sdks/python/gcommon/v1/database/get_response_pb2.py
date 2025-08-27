@@ -4,50 +4,38 @@
 # source: gcommon/v1/database/get_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/database/get_response.proto",
+    '',
+    'gcommon/v1/database/get_response.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.database import (
-    cache_entry_pb2 as gcommon_dot_v1_dot_database_dot_cache__entry__pb2,
-)
+from gcommon.v1.database import cache_entry_pb2 as gcommon_dot_v1_dot_database_dot_cache__entry__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n&gcommon/v1/database/get_response.proto\x12\x13gcommon.v1.database\x1a%gcommon/v1/database/cache_entry.proto\x1a!google/protobuf/go_features.proto"{\n\x0bGetResponse\x12\x39\n\x05\x65ntry\x18\x01 \x01(\x0b\x32\x1f.gcommon.v1.database.CacheEntryB\x02(\x01R\x05\x65ntry\x12\x14\n\x05\x66ound\x18\x02 \x01(\x08R\x05\x66ound\x12\x1b\n\tcache_hit\x18\x03 \x01(\x08R\x08\x63\x61\x63heHitB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/database/get_response.proto\x12\x13gcommon.v1.database\x1a%gcommon/v1/database/cache_entry.proto\x1a!google/protobuf/go_features.proto\"{\n\x0bGetResponse\x12\x39\n\x05\x65ntry\x18\x01 \x01(\x0b\x32\x1f.gcommon.v1.database.CacheEntryB\x02(\x01R\x05\x65ntry\x12\x14\n\x05\x66ound\x18\x02 \x01(\x08R\x05\x66ound\x12\x1b\n\tcache_hit\x18\x03 \x01(\x08R\x08\x63\x61\x63heHitB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.database.get_response_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.get_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
-    )
-    _globals["_GETRESPONSE"].fields_by_name["entry"]._loaded_options = None
-    _globals["_GETRESPONSE"].fields_by_name["entry"]._serialized_options = b"(\001"
-    _globals["_GETRESPONSE"]._serialized_start = 137
-    _globals["_GETRESPONSE"]._serialized_end = 260
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
+  _globals['_GETRESPONSE'].fields_by_name['entry']._loaded_options = None
+  _globals['_GETRESPONSE'].fields_by_name['entry']._serialized_options = b'(\001'
+  _globals['_GETRESPONSE']._serialized_start=137
+  _globals['_GETRESPONSE']._serialized_end=260
 # @@protoc_insertion_point(module_scope)

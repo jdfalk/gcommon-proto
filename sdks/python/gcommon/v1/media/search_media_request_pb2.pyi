@@ -23,12 +23,4 @@ class SearchMediaRequest(_message.Message):
     language: str
     page_size: int
     page_token: str
-    def __init__(
-        self,
-        query: _Optional[str] = ...,
-        media_type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ...,
-        tags: _Optional[_Iterable[str]] = ...,
-        language: _Optional[str] = ...,
-        page_size: _Optional[int] = ...,
-        page_token: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, query: _Optional[str] = ..., media_type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., tags: _Optional[_Iterable[str]] = ..., language: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...

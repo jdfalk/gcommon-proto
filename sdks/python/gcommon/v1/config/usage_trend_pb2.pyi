@@ -18,11 +18,4 @@ class UsageTrend(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     usage_count: int
     direction: str
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        usage_count: _Optional[int] = ...,
-        direction: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., usage_count: _Optional[int] = ..., direction: _Optional[str] = ...) -> None: ...

@@ -14,8 +14,4 @@ class GetAuthConfigRequest(_message.Message):
     INCLUDE_SENSITIVE_FIELD_NUMBER: _ClassVar[int]
     keys: _containers.RepeatedScalarFieldContainer[str]
     include_sensitive: bool
-    def __init__(
-        self,
-        keys: _Optional[_Iterable[str]] = ...,
-        include_sensitive: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, keys: _Optional[_Iterable[str]] = ..., include_sensitive: _Optional[bool] = ...) -> None: ...

@@ -19,12 +19,4 @@ class PublishResponse(_message.Message):
     success: bool
     error: _error_pb2.Error
     request_metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        message_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        request_metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, message_id: _Optional[str] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

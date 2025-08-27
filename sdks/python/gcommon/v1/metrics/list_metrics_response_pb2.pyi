@@ -14,14 +14,6 @@ class ListMetricsResponse(_message.Message):
     __slots__ = ("metrics", "error")
     METRICS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
-    metrics: _containers.RepeatedCompositeFieldContainer[
-        _metric_metadata_pb2.MetricMetadata
-    ]
+    metrics: _containers.RepeatedCompositeFieldContainer[_metric_metadata_pb2.MetricMetadata]
     error: _error_pb2.Error
-    def __init__(
-        self,
-        metrics: _Optional[
-            _Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, metrics: _Optional[_Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

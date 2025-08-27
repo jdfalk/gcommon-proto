@@ -12,7 +12,6 @@ class DeliveryChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DELIVERY_CHANNEL_TYPE_SMS: _ClassVar[DeliveryChannelType]
     DELIVERY_CHANNEL_TYPE_SLACK: _ClassVar[DeliveryChannelType]
     DELIVERY_CHANNEL_TYPE_WEBHOOK: _ClassVar[DeliveryChannelType]
-
 DELIVERY_CHANNEL_TYPE_UNSPECIFIED: DeliveryChannelType
 DELIVERY_CHANNEL_TYPE_EMAIL: DeliveryChannelType
 DELIVERY_CHANNEL_TYPE_SMS: DeliveryChannelType

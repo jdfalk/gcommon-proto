@@ -15,7 +15,6 @@ class MergeStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MERGE_STRATEGY_ARRAY_REPLACE: _ClassVar[MergeStrategy]
     MERGE_STRATEGY_ARRAY_MERGE: _ClassVar[MergeStrategy]
     MERGE_STRATEGY_CUSTOM: _ClassVar[MergeStrategy]
-
 MERGE_STRATEGY_UNSPECIFIED: MergeStrategy
 MERGE_STRATEGY_REPLACE: MergeStrategy
 MERGE_STRATEGY_MERGE_DEEP: MergeStrategy

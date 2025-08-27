@@ -17,19 +17,8 @@ class MonitoringSettings(_message.Message):
     DASHBOARD_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
     enabled: bool
-    alerts: _containers.RepeatedCompositeFieldContainer[
-        _monitoring_alert_pb2.MonitoringAlert
-    ]
+    alerts: _containers.RepeatedCompositeFieldContainer[_monitoring_alert_pb2.MonitoringAlert]
     metrics: _containers.RepeatedScalarFieldContainer[str]
     dashboard: str
     retention_days: int
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        alerts: _Optional[
-            _Iterable[_Union[_monitoring_alert_pb2.MonitoringAlert, _Mapping]]
-        ] = ...,
-        metrics: _Optional[_Iterable[str]] = ...,
-        dashboard: _Optional[str] = ...,
-        retention_days: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., alerts: _Optional[_Iterable[_Union[_monitoring_alert_pb2.MonitoringAlert, _Mapping]]] = ..., metrics: _Optional[_Iterable[str]] = ..., dashboard: _Optional[str] = ..., retention_days: _Optional[int] = ...) -> None: ...

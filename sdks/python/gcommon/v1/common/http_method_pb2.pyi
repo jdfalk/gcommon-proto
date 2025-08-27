@@ -15,7 +15,6 @@ class HTTPMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HTTP_METHOD_PATCH: _ClassVar[HTTPMethod]
     HTTP_METHOD_OPTIONS: _ClassVar[HTTPMethod]
     HTTP_METHOD_HEAD: _ClassVar[HTTPMethod]
-
 HTTP_METHOD_UNSPECIFIED: HTTPMethod
 HTTP_METHOD_GET: HTTPMethod
 HTTP_METHOD_POST: HTTPMethod

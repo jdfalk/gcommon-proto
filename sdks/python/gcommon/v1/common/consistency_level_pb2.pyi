@@ -11,7 +11,6 @@ class DatabaseConsistencyLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper
     DATABASE_CONSISTENCY_LEVEL_EVENTUAL: _ClassVar[DatabaseConsistencyLevel]
     DATABASE_CONSISTENCY_LEVEL_STRONG: _ClassVar[DatabaseConsistencyLevel]
     DATABASE_CONSISTENCY_LEVEL_BOUNDED_STALENESS: _ClassVar[DatabaseConsistencyLevel]
-
 DATABASE_CONSISTENCY_LEVEL_UNSPECIFIED: DatabaseConsistencyLevel
 DATABASE_CONSISTENCY_LEVEL_EVENTUAL: DatabaseConsistencyLevel
 DATABASE_CONSISTENCY_LEVEL_STRONG: DatabaseConsistencyLevel

@@ -22,13 +22,4 @@ class ListFilesResponse(_message.Message):
     next_page_token: str
     has_more: bool
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(
-        self,
-        files: _Optional[_Iterable[_Union[_file_info_pb2.FileInfo, _Mapping]]] = ...,
-        total_count: _Optional[int] = ...,
-        next_page_token: _Optional[str] = ...,
-        has_more: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, files: _Optional[_Iterable[_Union[_file_info_pb2.FileInfo, _Mapping]]] = ..., total_count: _Optional[int] = ..., next_page_token: _Optional[str] = ..., has_more: _Optional[bool] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...

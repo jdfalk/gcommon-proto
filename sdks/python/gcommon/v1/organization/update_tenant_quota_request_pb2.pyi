@@ -17,11 +17,4 @@ class UpdateTenantQuotaRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     tenant_id: str
     quota: _tenant_quota_pb2.TenantQuota
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        tenant_id: _Optional[str] = ...,
-        quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tenant_id: _Optional[str] = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...) -> None: ...

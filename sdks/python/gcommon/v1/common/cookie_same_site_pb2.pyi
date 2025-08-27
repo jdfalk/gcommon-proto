@@ -12,7 +12,6 @@ class CookieSameSite(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COOKIE_SAME_SITE_LAX: _ClassVar[CookieSameSite]
     COOKIE_SAME_SITE_STRICT: _ClassVar[CookieSameSite]
     COOKIE_SAME_SITE_NONE: _ClassVar[CookieSameSite]
-
 COOKIE_SAME_SITE_UNSPECIFIED: CookieSameSite
 COOKIE_SAME_SITE_DEFAULT: CookieSameSite
 COOKIE_SAME_SITE_LAX: CookieSameSite

@@ -17,11 +17,4 @@ class RefreshTokenRequest(_message.Message):
     refresh_token: str
     scopes: _containers.RepeatedScalarFieldContainer[str]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        refresh_token: _Optional[str] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, refresh_token: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

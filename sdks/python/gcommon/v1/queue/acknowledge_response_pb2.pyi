@@ -15,22 +15,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AcknowledgeResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "acknowledged_count",
-        "failed_count",
-        "request_metadata",
-        "queue_name",
-        "message_results",
-        "consumer_id",
-        "operation_time_ms",
-        "batch_mode",
-        "already_acknowledged_count",
-        "expired_timeout_count",
-        "error",
-        "acknowledged_at",
-        "response_generated_at",
-    )
+    __slots__ = ("success", "acknowledged_count", "failed_count", "request_metadata", "queue_name", "message_results", "consumer_id", "operation_time_ms", "batch_mode", "already_acknowledged_count", "expired_timeout_count", "error", "acknowledged_at", "response_generated_at")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ACKNOWLEDGED_COUNT_FIELD_NUMBER: _ClassVar[int]
     FAILED_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -50,9 +35,7 @@ class AcknowledgeResponse(_message.Message):
     failed_count: int
     request_metadata: _request_metadata_pb2.RequestMetadata
     queue_name: str
-    message_results: _containers.RepeatedCompositeFieldContainer[
-        _message_ack_result_pb2.MessageAckResult
-    ]
+    message_results: _containers.RepeatedCompositeFieldContainer[_message_ack_result_pb2.MessageAckResult]
     consumer_id: str
     operation_time_ms: int
     batch_mode: bool
@@ -61,28 +44,4 @@ class AcknowledgeResponse(_message.Message):
     error: _error_pb2.Error
     acknowledged_at: _timestamp_pb2.Timestamp
     response_generated_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        acknowledged_count: _Optional[int] = ...,
-        failed_count: _Optional[int] = ...,
-        request_metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        queue_name: _Optional[str] = ...,
-        message_results: _Optional[
-            _Iterable[_Union[_message_ack_result_pb2.MessageAckResult, _Mapping]]
-        ] = ...,
-        consumer_id: _Optional[str] = ...,
-        operation_time_ms: _Optional[int] = ...,
-        batch_mode: _Optional[bool] = ...,
-        already_acknowledged_count: _Optional[int] = ...,
-        expired_timeout_count: _Optional[int] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        acknowledged_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        response_generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., queue_name: _Optional[str] = ..., message_results: _Optional[_Iterable[_Union[_message_ack_result_pb2.MessageAckResult, _Mapping]]] = ..., consumer_id: _Optional[str] = ..., operation_time_ms: _Optional[int] = ..., batch_mode: _Optional[bool] = ..., already_acknowledged_count: _Optional[int] = ..., expired_timeout_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., acknowledged_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -10,15 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HealthCheck(_message.Message):
-    __slots__ = (
-        "name",
-        "type",
-        "endpoint",
-        "interval_seconds",
-        "timeout_seconds",
-        "retries",
-        "conditions",
-    )
+    __slots__ = ("name", "type", "endpoint", "interval_seconds", "timeout_seconds", "retries", "conditions")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
@@ -33,13 +25,4 @@ class HealthCheck(_message.Message):
     timeout_seconds: int
     retries: int
     conditions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        type: _Optional[_Union[_health_check_type_pb2.HealthCheckType, str]] = ...,
-        endpoint: _Optional[str] = ...,
-        interval_seconds: _Optional[int] = ...,
-        timeout_seconds: _Optional[int] = ...,
-        retries: _Optional[int] = ...,
-        conditions: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_health_check_type_pb2.HealthCheckType, str]] = ..., endpoint: _Optional[str] = ..., interval_seconds: _Optional[int] = ..., timeout_seconds: _Optional[int] = ..., retries: _Optional[int] = ..., conditions: _Optional[_Iterable[str]] = ...) -> None: ...

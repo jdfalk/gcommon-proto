@@ -16,9 +16,4 @@ class StaticConfig(_message.Message):
     directory: str
     index_files: _containers.RepeatedScalarFieldContainer[str]
     enable_listing: bool
-    def __init__(
-        self,
-        directory: _Optional[str] = ...,
-        index_files: _Optional[_Iterable[str]] = ...,
-        enable_listing: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, directory: _Optional[str] = ..., index_files: _Optional[_Iterable[str]] = ..., enable_listing: _Optional[bool] = ...) -> None: ...

@@ -14,9 +14,4 @@ class StartWorkflowResponse(_message.Message):
     execution_id: str
     status: str
     error: str
-    def __init__(
-        self,
-        execution_id: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, execution_id: _Optional[str] = ..., status: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...

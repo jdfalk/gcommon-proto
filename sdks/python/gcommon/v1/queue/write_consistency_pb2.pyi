@@ -12,13 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WriteConsistency(_message.Message):
-    __slots__ = (
-        "level",
-        "sync_replication",
-        "conflict_detection",
-        "timeout_ms",
-        "retry_config",
-    )
+    __slots__ = ("level", "sync_replication", "conflict_detection", "timeout_ms", "retry_config")
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     SYNC_REPLICATION_FIELD_NUMBER: _ClassVar[int]
     CONFLICT_DETECTION_FIELD_NUMBER: _ClassVar[int]
@@ -29,17 +23,4 @@ class WriteConsistency(_message.Message):
     conflict_detection: _conflict_detection_pb2.ConflictDetection
     timeout_ms: int
     retry_config: _write_retry_config_pb2.WriteRetryConfig
-    def __init__(
-        self,
-        level: _Optional[_Union[_write_level_pb2.WriteLevel, str]] = ...,
-        sync_replication: _Optional[
-            _Union[_sync_replication_pb2.SyncReplication, _Mapping]
-        ] = ...,
-        conflict_detection: _Optional[
-            _Union[_conflict_detection_pb2.ConflictDetection, _Mapping]
-        ] = ...,
-        timeout_ms: _Optional[int] = ...,
-        retry_config: _Optional[
-            _Union[_write_retry_config_pb2.WriteRetryConfig, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, level: _Optional[_Union[_write_level_pb2.WriteLevel, str]] = ..., sync_replication: _Optional[_Union[_sync_replication_pb2.SyncReplication, _Mapping]] = ..., conflict_detection: _Optional[_Union[_conflict_detection_pb2.ConflictDetection, _Mapping]] = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_write_retry_config_pb2.WriteRetryConfig, _Mapping]] = ...) -> None: ...

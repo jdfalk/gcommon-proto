@@ -14,9 +14,4 @@ class Disable2FaRequest(_message.Message):
     user_id: str
     password: str
     verification_code: str
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        password: _Optional[str] = ...,
-        verification_code: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., password: _Optional[str] = ..., verification_code: _Optional[str] = ...) -> None: ...

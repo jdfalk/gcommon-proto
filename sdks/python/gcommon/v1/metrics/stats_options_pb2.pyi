@@ -7,18 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class StatsOptions(_message.Message):
-    __slots__ = (
-        "include_performance",
-        "include_resource_usage",
-        "include_errors",
-        "include_data_volume",
-        "include_exports",
-        "include_health_history",
-        "include_config",
-        "include_top_metrics",
-        "top_metrics_limit",
-        "include_trends",
-    )
+    __slots__ = ("include_performance", "include_resource_usage", "include_errors", "include_data_volume", "include_exports", "include_health_history", "include_config", "include_top_metrics", "top_metrics_limit", "include_trends")
     INCLUDE_PERFORMANCE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_RESOURCE_USAGE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_ERRORS_FIELD_NUMBER: _ClassVar[int]
@@ -39,16 +28,4 @@ class StatsOptions(_message.Message):
     include_top_metrics: bool
     top_metrics_limit: int
     include_trends: bool
-    def __init__(
-        self,
-        include_performance: _Optional[bool] = ...,
-        include_resource_usage: _Optional[bool] = ...,
-        include_errors: _Optional[bool] = ...,
-        include_data_volume: _Optional[bool] = ...,
-        include_exports: _Optional[bool] = ...,
-        include_health_history: _Optional[bool] = ...,
-        include_config: _Optional[bool] = ...,
-        include_top_metrics: _Optional[bool] = ...,
-        top_metrics_limit: _Optional[int] = ...,
-        include_trends: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, include_performance: _Optional[bool] = ..., include_resource_usage: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., include_data_volume: _Optional[bool] = ..., include_exports: _Optional[bool] = ..., include_health_history: _Optional[bool] = ..., include_config: _Optional[bool] = ..., include_top_metrics: _Optional[bool] = ..., top_metrics_limit: _Optional[int] = ..., include_trends: _Optional[bool] = ...) -> None: ...

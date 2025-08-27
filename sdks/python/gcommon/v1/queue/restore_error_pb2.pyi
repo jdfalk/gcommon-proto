@@ -12,16 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RestoreError(_message.Message):
-    __slots__ = (
-        "error_code",
-        "error_message",
-        "error_category",
-        "failed_component",
-        "partition_id",
-        "affected_range",
-        "error_time",
-        "recoverable",
-    )
+    __slots__ = ("error_code", "error_message", "error_category", "failed_component", "partition_id", "affected_range", "error_time", "recoverable")
     ERROR_CODE_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     ERROR_CATEGORY_FIELD_NUMBER: _ClassVar[int]
@@ -38,18 +29,4 @@ class RestoreError(_message.Message):
     affected_range: _offset_range_pb2.OffsetRange
     error_time: _timestamp_pb2.Timestamp
     recoverable: bool
-    def __init__(
-        self,
-        error_code: _Optional[str] = ...,
-        error_message: _Optional[str] = ...,
-        error_category: _Optional[str] = ...,
-        failed_component: _Optional[str] = ...,
-        partition_id: _Optional[int] = ...,
-        affected_range: _Optional[
-            _Union[_offset_range_pb2.OffsetRange, _Mapping]
-        ] = ...,
-        error_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        recoverable: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, error_code: _Optional[str] = ..., error_message: _Optional[str] = ..., error_category: _Optional[str] = ..., failed_component: _Optional[str] = ..., partition_id: _Optional[int] = ..., affected_range: _Optional[_Union[_offset_range_pb2.OffsetRange, _Mapping]] = ..., error_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., recoverable: _Optional[bool] = ...) -> None: ...

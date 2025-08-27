@@ -13,7 +13,6 @@ class ResourceStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESOURCE_STATUS_PENDING: _ClassVar[ResourceStatus]
     RESOURCE_STATUS_DELETED: _ClassVar[ResourceStatus]
     RESOURCE_STATUS_ERROR: _ClassVar[ResourceStatus]
-
 RESOURCE_STATUS_UNSPECIFIED: ResourceStatus
 RESOURCE_STATUS_ACTIVE: ResourceStatus
 RESOURCE_STATUS_INACTIVE: ResourceStatus

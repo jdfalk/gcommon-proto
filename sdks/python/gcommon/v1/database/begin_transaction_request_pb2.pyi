@@ -17,13 +17,4 @@ class BeginTransactionRequest(_message.Message):
     database: str
     options: _transaction_options_pb2.TransactionOptions
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        database: _Optional[str] = ...,
-        options: _Optional[
-            _Union[_transaction_options_pb2.TransactionOptions, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, database: _Optional[str] = ..., options: _Optional[_Union[_transaction_options_pb2.TransactionOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -18,10 +18,4 @@ class ExtractAudioResponse(_message.Message):
     status: str
     output_file_ids: _containers.RepeatedScalarFieldContainer[str]
     error_message: str
-    def __init__(
-        self,
-        job_id: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-        output_file_ids: _Optional[_Iterable[str]] = ...,
-        error_message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., output_file_ids: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ...) -> None: ...

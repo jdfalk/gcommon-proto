@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExportDestinationStats(_message.Message):
-    __slots__ = (
-        "destination_id",
-        "destination_type",
-        "exported_metrics",
-        "failed_exports",
-        "success_rate",
-        "last_export",
-    )
+    __slots__ = ("destination_id", "destination_type", "exported_metrics", "failed_exports", "success_rate", "last_export")
     DESTINATION_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     EXPORTED_METRICS_FIELD_NUMBER: _ClassVar[int]
@@ -31,14 +24,4 @@ class ExportDestinationStats(_message.Message):
     failed_exports: int
     success_rate: float
     last_export: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        destination_id: _Optional[str] = ...,
-        destination_type: _Optional[str] = ...,
-        exported_metrics: _Optional[int] = ...,
-        failed_exports: _Optional[int] = ...,
-        success_rate: _Optional[float] = ...,
-        last_export: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, destination_id: _Optional[str] = ..., destination_type: _Optional[str] = ..., exported_metrics: _Optional[int] = ..., failed_exports: _Optional[int] = ..., success_rate: _Optional[float] = ..., last_export: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

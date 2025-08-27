@@ -22,11 +22,4 @@ class GetClusterInfoResponse(_message.Message):
     is_healthy: bool
     warnings: _containers.RepeatedScalarFieldContainer[str]
     error_message: str
-    def __init__(
-        self,
-        cluster_info: _Optional[_Union[_cluster_info_pb2.ClusterInfo, _Mapping]] = ...,
-        nodes: _Optional[_Iterable[_Union[_node_info_pb2.NodeInfo, _Mapping]]] = ...,
-        is_healthy: _Optional[bool] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        error_message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, cluster_info: _Optional[_Union[_cluster_info_pb2.ClusterInfo, _Mapping]] = ..., nodes: _Optional[_Iterable[_Union[_node_info_pb2.NodeInfo, _Mapping]]] = ..., is_healthy: _Optional[bool] = ..., warnings: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ...) -> None: ...

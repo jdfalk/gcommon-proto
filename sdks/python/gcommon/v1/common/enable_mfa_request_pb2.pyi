@@ -17,9 +17,4 @@ class EnableMfaRequest(_message.Message):
     user_id: str
     methods: _containers.RepeatedScalarFieldContainer[_mfa_method_pb2.MfaMethod]
     primary_contact: str
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        methods: _Optional[_Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]] = ...,
-        primary_contact: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., methods: _Optional[_Iterable[_Union[_mfa_method_pb2.MfaMethod, str]]] = ..., primary_contact: _Optional[str] = ...) -> None: ...

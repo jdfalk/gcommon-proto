@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ApprovalStage(_message.Message):
-    __slots__ = (
-        "name",
-        "approvers",
-        "required_approvals",
-        "conditions",
-        "timeout_hours",
-        "order",
-    )
+    __slots__ = ("name", "approvers", "required_approvals", "conditions", "timeout_hours", "order")
     NAME_FIELD_NUMBER: _ClassVar[int]
     APPROVERS_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_APPROVALS_FIELD_NUMBER: _ClassVar[int]
@@ -29,12 +22,4 @@ class ApprovalStage(_message.Message):
     conditions: _containers.RepeatedScalarFieldContainer[str]
     timeout_hours: int
     order: int
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        approvers: _Optional[_Iterable[str]] = ...,
-        required_approvals: _Optional[int] = ...,
-        conditions: _Optional[_Iterable[str]] = ...,
-        timeout_hours: _Optional[int] = ...,
-        order: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., approvers: _Optional[_Iterable[str]] = ..., required_approvals: _Optional[int] = ..., conditions: _Optional[_Iterable[str]] = ..., timeout_hours: _Optional[int] = ..., order: _Optional[int] = ...) -> None: ...

@@ -12,27 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HealthHealthCheckResult(_message.Message):
-    __slots__ = (
-        "service",
-        "status",
-        "check_type",
-        "timestamp",
-        "duration_ms",
-        "message",
-        "error",
-        "metadata",
-        "components",
-    )
+    __slots__ = ("service", "status", "check_type", "timestamp", "duration_ms", "message", "error", "metadata", "components")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SERVICE_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     CHECK_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -50,20 +37,5 @@ class HealthHealthCheckResult(_message.Message):
     message: str
     error: str
     metadata: _containers.ScalarMap[str, str]
-    components: _containers.RepeatedCompositeFieldContainer[
-        _component_health_pb2.ComponentHealth
-    ]
-    def __init__(
-        self,
-        service: _Optional[str] = ...,
-        status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ...,
-        check_type: _Optional[_Union[_check_type_pb2.CheckType, str]] = ...,
-        timestamp: _Optional[int] = ...,
-        duration_ms: _Optional[int] = ...,
-        message: _Optional[str] = ...,
-        error: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        components: _Optional[
-            _Iterable[_Union[_component_health_pb2.ComponentHealth, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    components: _containers.RepeatedCompositeFieldContainer[_component_health_pb2.ComponentHealth]
+    def __init__(self, service: _Optional[str] = ..., status: _Optional[_Union[_serving_status_pb2.ServingStatus, str]] = ..., check_type: _Optional[_Union[_check_type_pb2.CheckType, str]] = ..., timestamp: _Optional[int] = ..., duration_ms: _Optional[int] = ..., message: _Optional[str] = ..., error: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., components: _Optional[_Iterable[_Union[_component_health_pb2.ComponentHealth, _Mapping]]] = ...) -> None: ...

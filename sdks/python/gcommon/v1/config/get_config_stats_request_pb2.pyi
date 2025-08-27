@@ -14,10 +14,4 @@ class GetConfigStatsRequest(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        namespace: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

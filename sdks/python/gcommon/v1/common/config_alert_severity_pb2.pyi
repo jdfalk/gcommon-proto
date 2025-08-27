@@ -12,7 +12,6 @@ class ConfigAlertSeverity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONFIG_ALERT_SEVERITY_MEDIUM: _ClassVar[ConfigAlertSeverity]
     CONFIG_ALERT_SEVERITY_HIGH: _ClassVar[ConfigAlertSeverity]
     CONFIG_ALERT_SEVERITY_CRITICAL: _ClassVar[ConfigAlertSeverity]
-
 CONFIG_ALERT_SEVERITY_UNSPECIFIED: ConfigAlertSeverity
 CONFIG_ALERT_SEVERITY_LOW: ConfigAlertSeverity
 CONFIG_ALERT_SEVERITY_MEDIUM: ConfigAlertSeverity

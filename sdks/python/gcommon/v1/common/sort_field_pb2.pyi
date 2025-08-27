@@ -13,7 +13,6 @@ class SortField(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SORT_FIELD_CREATED_AT: _ClassVar[SortField]
     SORT_FIELD_STATE: _ClassVar[SortField]
     SORT_FIELD_HEALTH: _ClassVar[SortField]
-
 SORT_FIELD_UNSPECIFIED: SortField
 SORT_FIELD_NAME: SortField
 SORT_FIELD_TYPE: SortField

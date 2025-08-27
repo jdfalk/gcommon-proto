@@ -23,18 +23,4 @@ class ChapterInfo(_message.Message):
     end_time: _duration_pb2.Duration
     duration: _duration_pb2.Duration
     description: str
-    def __init__(
-        self,
-        index: _Optional[int] = ...,
-        title: _Optional[str] = ...,
-        start_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        end_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        description: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, index: _Optional[int] = ..., title: _Optional[str] = ..., start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., description: _Optional[str] = ...) -> None: ...

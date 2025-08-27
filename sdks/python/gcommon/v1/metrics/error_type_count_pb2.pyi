@@ -14,9 +14,4 @@ class ErrorTypeCount(_message.Message):
     error_type: str
     count: int
     percentage: float
-    def __init__(
-        self,
-        error_type: _Optional[str] = ...,
-        count: _Optional[int] = ...,
-        percentage: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, error_type: _Optional[str] = ..., count: _Optional[int] = ..., percentage: _Optional[float] = ...) -> None: ...

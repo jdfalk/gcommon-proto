@@ -10,17 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TokenMetadata(_message.Message):
-    __slots__ = (
-        "token_id",
-        "type",
-        "subject",
-        "audience",
-        "scopes",
-        "issued_at",
-        "expires_at",
-        "not_before",
-        "issuer",
-    )
+    __slots__ = ("token_id", "type", "subject", "audience", "scopes", "issued_at", "expires_at", "not_before", "issuer")
     TOKEN_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
@@ -39,15 +29,4 @@ class TokenMetadata(_message.Message):
     expires_at: int
     not_before: int
     issuer: str
-    def __init__(
-        self,
-        token_id: _Optional[str] = ...,
-        type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ...,
-        subject: _Optional[str] = ...,
-        audience: _Optional[_Iterable[str]] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        issued_at: _Optional[int] = ...,
-        expires_at: _Optional[int] = ...,
-        not_before: _Optional[int] = ...,
-        issuer: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, token_id: _Optional[str] = ..., type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ..., subject: _Optional[str] = ..., audience: _Optional[_Iterable[str]] = ..., scopes: _Optional[_Iterable[str]] = ..., issued_at: _Optional[int] = ..., expires_at: _Optional[int] = ..., not_before: _Optional[int] = ..., issuer: _Optional[str] = ...) -> None: ...

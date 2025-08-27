@@ -9,18 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PromotionRule(_message.Message):
-    __slots__ = (
-        "name",
-        "source_environment",
-        "target_environment",
-        "conditions",
-        "approval_required",
-        "approvers",
-        "automatic",
-        "schedule",
-        "filters",
-        "transformations",
-    )
+    __slots__ = ("name", "source_environment", "target_environment", "conditions", "approval_required", "approvers", "automatic", "schedule", "filters", "transformations")
     NAME_FIELD_NUMBER: _ClassVar[int]
     SOURCE_ENVIRONMENT_FIELD_NUMBER: _ClassVar[int]
     TARGET_ENVIRONMENT_FIELD_NUMBER: _ClassVar[int]
@@ -41,16 +30,4 @@ class PromotionRule(_message.Message):
     schedule: str
     filters: _containers.RepeatedScalarFieldContainer[str]
     transformations: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        source_environment: _Optional[str] = ...,
-        target_environment: _Optional[str] = ...,
-        conditions: _Optional[_Iterable[str]] = ...,
-        approval_required: _Optional[bool] = ...,
-        approvers: _Optional[_Iterable[str]] = ...,
-        automatic: _Optional[bool] = ...,
-        schedule: _Optional[str] = ...,
-        filters: _Optional[_Iterable[str]] = ...,
-        transformations: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., source_environment: _Optional[str] = ..., target_environment: _Optional[str] = ..., conditions: _Optional[_Iterable[str]] = ..., approval_required: _Optional[bool] = ..., approvers: _Optional[_Iterable[str]] = ..., automatic: _Optional[bool] = ..., schedule: _Optional[str] = ..., filters: _Optional[_Iterable[str]] = ..., transformations: _Optional[_Iterable[str]] = ...) -> None: ...

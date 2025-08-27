@@ -14,9 +14,4 @@ class ValidationConfig(_message.Message):
     validate_schema: bool
     max_body_bytes: int
     reject_invalid: bool
-    def __init__(
-        self,
-        validate_schema: _Optional[bool] = ...,
-        max_body_bytes: _Optional[int] = ...,
-        reject_invalid: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, validate_schema: _Optional[bool] = ..., max_body_bytes: _Optional[int] = ..., reject_invalid: _Optional[bool] = ...) -> None: ...

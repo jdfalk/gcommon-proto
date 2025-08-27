@@ -16,20 +16,9 @@ class BatchPullResponse(_message.Message):
     HAS_MORE_FIELD_NUMBER: _ClassVar[int]
     NEXT_TOKEN_FIELD_NUMBER: _ClassVar[int]
     TOTAL_BYTES_FIELD_NUMBER: _ClassVar[int]
-    messages: _containers.RepeatedCompositeFieldContainer[
-        _queue_message_pb2.QueueMessage
-    ]
+    messages: _containers.RepeatedCompositeFieldContainer[_queue_message_pb2.QueueMessage]
     message_count: int
     has_more: bool
     next_token: str
     total_bytes: int
-    def __init__(
-        self,
-        messages: _Optional[
-            _Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]
-        ] = ...,
-        message_count: _Optional[int] = ...,
-        has_more: _Optional[bool] = ...,
-        next_token: _Optional[str] = ...,
-        total_bytes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., message_count: _Optional[int] = ..., has_more: _Optional[bool] = ..., next_token: _Optional[str] = ..., total_bytes: _Optional[int] = ...) -> None: ...

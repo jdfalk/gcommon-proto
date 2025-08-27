@@ -18,7 +18,6 @@ class StatisticType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STATISTIC_TYPE_MESSAGE_SIZE: _ClassVar[StatisticType]
     STATISTIC_TYPE_AGE_DISTRIBUTION: _ClassVar[StatisticType]
     STATISTIC_TYPE_SUCCESS_RATE: _ClassVar[StatisticType]
-
 STATISTIC_TYPE_UNSPECIFIED: StatisticType
 STATISTIC_TYPE_MESSAGE_COUNT: StatisticType
 STATISTIC_TYPE_THROUGHPUT: StatisticType

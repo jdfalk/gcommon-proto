@@ -17,11 +17,4 @@ class UpdateRoleRequest(_message.Message):
     role: _role_pb2.Role
     update_mask: _field_mask_pb2.FieldMask
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ...,
-        update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

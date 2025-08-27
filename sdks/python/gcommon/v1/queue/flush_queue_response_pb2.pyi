@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FlushQueueResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "messages_flushed",
-        "bytes_flushed",
-        "flush_duration_ms",
-        "error",
-    )
+    __slots__ = ("success", "messages_flushed", "bytes_flushed", "flush_duration_ms", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_FLUSHED_FIELD_NUMBER: _ClassVar[int]
     BYTES_FLUSHED_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class FlushQueueResponse(_message.Message):
     bytes_flushed: int
     flush_duration_ms: int
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        messages_flushed: _Optional[int] = ...,
-        bytes_flushed: _Optional[int] = ...,
-        flush_duration_ms: _Optional[int] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., messages_flushed: _Optional[int] = ..., bytes_flushed: _Optional[int] = ..., flush_duration_ms: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

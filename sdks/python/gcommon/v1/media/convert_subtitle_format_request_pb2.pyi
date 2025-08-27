@@ -14,9 +14,4 @@ class ConvertSubtitleFormatRequest(_message.Message):
     subtitle_file_id: str
     target_format: str
     preserve_styling: bool
-    def __init__(
-        self,
-        subtitle_file_id: _Optional[str] = ...,
-        target_format: _Optional[str] = ...,
-        preserve_styling: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, subtitle_file_id: _Optional[str] = ..., target_format: _Optional[str] = ..., preserve_styling: _Optional[bool] = ...) -> None: ...

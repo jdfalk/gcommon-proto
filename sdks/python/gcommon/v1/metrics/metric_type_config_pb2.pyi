@@ -20,12 +20,4 @@ class MetricTypeConfig(_message.Message):
     summary: _summary_config_pb2.SummaryConfig
     gauge: _gauge_config_pb2.GaugeConfig
     counter: _counter_config_pb2.CounterConfig
-    def __init__(
-        self,
-        histogram: _Optional[
-            _Union[_histogram_config_pb2.HistogramConfig, _Mapping]
-        ] = ...,
-        summary: _Optional[_Union[_summary_config_pb2.SummaryConfig, _Mapping]] = ...,
-        gauge: _Optional[_Union[_gauge_config_pb2.GaugeConfig, _Mapping]] = ...,
-        counter: _Optional[_Union[_counter_config_pb2.CounterConfig, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, histogram: _Optional[_Union[_histogram_config_pb2.HistogramConfig, _Mapping]] = ..., summary: _Optional[_Union[_summary_config_pb2.SummaryConfig, _Mapping]] = ..., gauge: _Optional[_Union[_gauge_config_pb2.GaugeConfig, _Mapping]] = ..., counter: _Optional[_Union[_counter_config_pb2.CounterConfig, _Mapping]] = ...) -> None: ...

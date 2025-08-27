@@ -16,16 +16,9 @@ class TagUpdates(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TAG_UPDATES_FIELD_NUMBER: _ClassVar[int]
     TAG_REMOVES_FIELD_NUMBER: _ClassVar[int]
     tag_updates: _containers.ScalarMap[str, str]
     tag_removes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        tag_updates: _Optional[_Mapping[str, str]] = ...,
-        tag_removes: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, tag_updates: _Optional[_Mapping[str, str]] = ..., tag_removes: _Optional[_Iterable[str]] = ...) -> None: ...

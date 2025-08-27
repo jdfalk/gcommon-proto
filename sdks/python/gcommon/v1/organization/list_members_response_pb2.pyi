@@ -19,18 +19,6 @@ class ListMembersResponse(_message.Message):
     PAGINATION_FIELD_NUMBER: _ClassVar[int]
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
-    members: _containers.RepeatedCompositeFieldContainer[
-        _organization_member_pb2.OrganizationMember
-    ]
+    members: _containers.RepeatedCompositeFieldContainer[_organization_member_pb2.OrganizationMember]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(
-        self,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        members: _Optional[
-            _Iterable[_Union[_organization_member_pb2.OrganizationMember, _Mapping]]
-        ] = ...,
-        pagination: _Optional[
-            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., members: _Optional[_Iterable[_Union[_organization_member_pb2.OrganizationMember, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...

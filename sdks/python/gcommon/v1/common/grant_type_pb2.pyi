@@ -15,7 +15,6 @@ class GrantType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GRANT_TYPE_REFRESH_TOKEN: _ClassVar[GrantType]
     GRANT_TYPE_DEVICE_CODE: _ClassVar[GrantType]
     GRANT_TYPE_SAML2_BEARER: _ClassVar[GrantType]
-
 GRANT_TYPE_UNSPECIFIED: GrantType
 GRANT_TYPE_AUTHORIZATION_CODE: GrantType
 GRANT_TYPE_IMPLICIT: GrantType

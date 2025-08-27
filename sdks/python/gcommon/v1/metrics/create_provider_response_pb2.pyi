@@ -1,9 +1,7 @@
 import datetime
 
 from gcommon.v1.common import error_pb2 as _error_pb2
-from gcommon.v1.common import (
-    metrics_validation_result_pb2 as _metrics_validation_result_pb2,
-)
+from gcommon.v1.common import metrics_validation_result_pb2 as _metrics_validation_result_pb2
 from gcommon.v1.metrics import applied_config_pb2 as _applied_config_pb2
 from gcommon.v1.metrics import provider_endpoints_pb2 as _provider_endpoints_pb2
 from gcommon.v1.metrics import provider_status_pb2 as _provider_status_pb2
@@ -19,17 +17,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateProviderResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "error",
-        "provider_id",
-        "created_at",
-        "status",
-        "validation",
-        "applied_config",
-        "warnings",
-        "endpoints",
-    )
+    __slots__ = ("success", "error", "provider_id", "created_at", "status", "validation", "applied_config", "warnings", "endpoints")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -48,23 +36,4 @@ class CreateProviderResponse(_message.Message):
     applied_config: _applied_config_pb2.AppliedConfig
     warnings: _containers.RepeatedScalarFieldContainer[str]
     endpoints: _provider_endpoints_pb2.ProviderEndpoints
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        provider_id: _Optional[str] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ...,
-        validation: _Optional[
-            _Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]
-        ] = ...,
-        applied_config: _Optional[
-            _Union[_applied_config_pb2.AppliedConfig, _Mapping]
-        ] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        endpoints: _Optional[
-            _Union[_provider_endpoints_pb2.ProviderEndpoints, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., provider_id: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ..., validation: _Optional[_Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]] = ..., applied_config: _Optional[_Union[_applied_config_pb2.AppliedConfig, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., endpoints: _Optional[_Union[_provider_endpoints_pb2.ProviderEndpoints, _Mapping]] = ...) -> None: ...

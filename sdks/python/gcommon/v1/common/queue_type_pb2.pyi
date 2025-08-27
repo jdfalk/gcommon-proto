@@ -12,7 +12,6 @@ class QueueType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_TYPE_REDIS: _ClassVar[QueueType]
     QUEUE_TYPE_NATS: _ClassVar[QueueType]
     QUEUE_TYPE_CLOUD: _ClassVar[QueueType]
-
 QUEUE_TYPE_UNSPECIFIED: QueueType
 QUEUE_TYPE_MEMORY: QueueType
 QUEUE_TYPE_REDIS: QueueType

@@ -12,15 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeprecationInfo(_message.Message):
-    __slots__ = (
-        "deprecated",
-        "reason",
-        "deprecated_at",
-        "replacement_key",
-        "removal_date",
-        "migration_guide",
-        "level",
-    )
+    __slots__ = ("deprecated", "reason", "deprecated_at", "replacement_key", "removal_date", "migration_guide", "level")
     DEPRECATED_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     DEPRECATED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -35,17 +27,4 @@ class DeprecationInfo(_message.Message):
     removal_date: _timestamp_pb2.Timestamp
     migration_guide: str
     level: _deprecation_level_pb2.DeprecationLevel
-    def __init__(
-        self,
-        deprecated: _Optional[bool] = ...,
-        reason: _Optional[str] = ...,
-        deprecated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        replacement_key: _Optional[str] = ...,
-        removal_date: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        migration_guide: _Optional[str] = ...,
-        level: _Optional[_Union[_deprecation_level_pb2.DeprecationLevel, str]] = ...,
-    ) -> None: ...
+    def __init__(self, deprecated: _Optional[bool] = ..., reason: _Optional[str] = ..., deprecated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., replacement_key: _Optional[str] = ..., removal_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., migration_guide: _Optional[str] = ..., level: _Optional[_Union[_deprecation_level_pb2.DeprecationLevel, str]] = ...) -> None: ...

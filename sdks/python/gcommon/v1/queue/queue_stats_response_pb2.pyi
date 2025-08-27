@@ -15,13 +15,5 @@ class QueueStatsResponse(_message.Message):
     STATS_FIELD_NUMBER: _ClassVar[int]
     TIME_SERIES_FIELD_NUMBER: _ClassVar[int]
     stats: _queue_stats_pb2.QueueStats
-    time_series: _containers.RepeatedCompositeFieldContainer[
-        _queue_stats_point_pb2.QueueStatsPoint
-    ]
-    def __init__(
-        self,
-        stats: _Optional[_Union[_queue_stats_pb2.QueueStats, _Mapping]] = ...,
-        time_series: _Optional[
-            _Iterable[_Union[_queue_stats_point_pb2.QueueStatsPoint, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    time_series: _containers.RepeatedCompositeFieldContainer[_queue_stats_point_pb2.QueueStatsPoint]
+    def __init__(self, stats: _Optional[_Union[_queue_stats_pb2.QueueStats, _Mapping]] = ..., time_series: _Optional[_Iterable[_Union[_queue_stats_point_pb2.QueueStatsPoint, _Mapping]]] = ...) -> None: ...

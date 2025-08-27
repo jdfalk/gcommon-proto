@@ -12,7 +12,6 @@ class VersionHealthStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VERSION_HEALTH_STATUS_DEGRADED: _ClassVar[VersionHealthStatus]
     VERSION_HEALTH_STATUS_UNHEALTHY: _ClassVar[VersionHealthStatus]
     VERSION_HEALTH_STATUS_UNKNOWN: _ClassVar[VersionHealthStatus]
-
 VERSION_HEALTH_STATUS_UNSPECIFIED: VersionHealthStatus
 VERSION_HEALTH_STATUS_HEALTHY: VersionHealthStatus
 VERSION_HEALTH_STATUS_DEGRADED: VersionHealthStatus

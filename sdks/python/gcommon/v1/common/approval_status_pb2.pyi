@@ -13,7 +13,6 @@ class ApprovalStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     APPROVAL_STATUS_REJECTED: _ClassVar[ApprovalStatus]
     APPROVAL_STATUS_CANCELLED: _ClassVar[ApprovalStatus]
     APPROVAL_STATUS_EXPIRED: _ClassVar[ApprovalStatus]
-
 APPROVAL_STATUS_UNSPECIFIED: ApprovalStatus
 APPROVAL_STATUS_PENDING: ApprovalStatus
 APPROVAL_STATUS_APPROVED: ApprovalStatus

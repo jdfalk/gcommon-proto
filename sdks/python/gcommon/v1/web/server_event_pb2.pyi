@@ -23,13 +23,4 @@ class ServerEvent(_message.Message):
     server_id: str
     metadata: str
     event_time: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        event_type: _Optional[str] = ...,
-        event_data: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        server_id: _Optional[str] = ...,
-        metadata: _Optional[str] = ...,
-        event_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, event_type: _Optional[str] = ..., event_data: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., server_id: _Optional[str] = ..., metadata: _Optional[str] = ..., event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

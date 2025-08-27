@@ -4,79 +4,49 @@
 # source: gcommon/v1/organization/security_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/organization/security_settings.proto",
+    '',
+    'gcommon/v1/organization/security_settings.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.organization import (
-    rate_limit_config_pb2 as gcommon_dot_v1_dot_organization_dot_rate__limit__config__pb2,
-)
+from gcommon.v1.organization import rate_limit_config_pb2 as gcommon_dot_v1_dot_organization_dot_rate__limit__config__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n/gcommon/v1/organization/security_settings.proto\x12\x17gcommon.v1.organization\x1a/gcommon/v1/organization/rate_limit_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf1\x04\n\x10SecuritySettings\x12\x1f\n\x0brequire_mfa\x18\x01 \x01(\x08R\nrequireMfa\x12\x37\n\x13min_password_length\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11minPasswordLength\x12>\n\x1brequire_password_complexity\x18\x03 \x01(\x08R\x19requirePasswordComplexity\x12\x39\n\x14password_expiry_days\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x12passwordExpiryDays\x12?\n\x17session_timeout_minutes\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x15sessionTimeoutMinutes\x12\x1f\n\x0bsso_enabled\x18\x06 \x01(\x08R\nssoEnabled\x12-\n\rsso_providers\x18\x07 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cssoProviders\x12+\n\x0cip_whitelist\x18\x08 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0bipWhitelist\x12,\n\x12\x61pi_access_enabled\x18\t \x01(\x08R\x10\x61piAccessEnabled\x12Z\n\x0e\x61pi_rate_limit\x18\n \x01(\x0b\x32\x34.gcommon.v1.organization.OrganizationRateLimitConfigR\x0c\x61piRateLimit\x12@\n\x18\x61udit_log_retention_days\x18\x0b \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x15\x61uditLogRetentionDaysB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/organization/security_settings.proto\x12\x17gcommon.v1.organization\x1a/gcommon/v1/organization/rate_limit_config.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf1\x04\n\x10SecuritySettings\x12\x1f\n\x0brequire_mfa\x18\x01 \x01(\x08R\nrequireMfa\x12\x37\n\x13min_password_length\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x11minPasswordLength\x12>\n\x1brequire_password_complexity\x18\x03 \x01(\x08R\x19requirePasswordComplexity\x12\x39\n\x14password_expiry_days\x18\x04 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x12passwordExpiryDays\x12?\n\x17session_timeout_minutes\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x15sessionTimeoutMinutes\x12\x1f\n\x0bsso_enabled\x18\x06 \x01(\x08R\nssoEnabled\x12-\n\rsso_providers\x18\x07 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0cssoProviders\x12+\n\x0cip_whitelist\x18\x08 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0bipWhitelist\x12,\n\x12\x61pi_access_enabled\x18\t \x01(\x08R\x10\x61piAccessEnabled\x12Z\n\x0e\x61pi_rate_limit\x18\n \x01(\x0b\x32\x34.gcommon.v1.organization.OrganizationRateLimitConfigR\x0c\x61piRateLimit\x12@\n\x18\x61udit_log_retention_days\x18\x0b \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x15\x61uditLogRetentionDaysB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.organization.security_settings_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.security_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "min_password_length"
-    ]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "min_password_length"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "password_expiry_days"
-    ]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "password_expiry_days"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "session_timeout_minutes"
-    ]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "session_timeout_minutes"
-    ]._serialized_options = b"\272H\004\032\002 \000"
-    _globals["_SECURITYSETTINGS"].fields_by_name["sso_providers"]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "sso_providers"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_SECURITYSETTINGS"].fields_by_name["ip_whitelist"]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "ip_whitelist"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "audit_log_retention_days"
-    ]._loaded_options = None
-    _globals["_SECURITYSETTINGS"].fields_by_name[
-        "audit_log_retention_days"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_SECURITYSETTINGS"]._serialized_start = 190
-    _globals["_SECURITYSETTINGS"]._serialized_end = 815
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
+  _globals['_SECURITYSETTINGS'].fields_by_name['min_password_length']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['min_password_length']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_SECURITYSETTINGS'].fields_by_name['password_expiry_days']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['password_expiry_days']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_SECURITYSETTINGS'].fields_by_name['session_timeout_minutes']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['session_timeout_minutes']._serialized_options = b'\272H\004\032\002 \000'
+  _globals['_SECURITYSETTINGS'].fields_by_name['sso_providers']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['sso_providers']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_SECURITYSETTINGS'].fields_by_name['ip_whitelist']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['ip_whitelist']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_SECURITYSETTINGS'].fields_by_name['audit_log_retention_days']._loaded_options = None
+  _globals['_SECURITYSETTINGS'].fields_by_name['audit_log_retention_days']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_SECURITYSETTINGS']._serialized_start=190
+  _globals['_SECURITYSETTINGS']._serialized_end=815
 # @@protoc_insertion_point(module_scope)

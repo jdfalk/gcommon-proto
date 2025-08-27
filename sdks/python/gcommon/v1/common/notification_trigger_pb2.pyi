@@ -15,7 +15,6 @@ class NotificationTrigger(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NOTIFICATION_TRIGGER_DEPLOYMENT: _ClassVar[NotificationTrigger]
     NOTIFICATION_TRIGGER_ROLLBACK: _ClassVar[NotificationTrigger]
     NOTIFICATION_TRIGGER_SCHEDULE: _ClassVar[NotificationTrigger]
-
 NOTIFICATION_TRIGGER_UNSPECIFIED: NotificationTrigger
 NOTIFICATION_TRIGGER_CHANGE: NotificationTrigger
 NOTIFICATION_TRIGGER_DELETE: NotificationTrigger

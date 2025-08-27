@@ -11,7 +11,6 @@ class ConfigChangeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONFIG_CHANGE_TYPE_CREATED: _ClassVar[ConfigChangeType]
     CONFIG_CHANGE_TYPE_UPDATED: _ClassVar[ConfigChangeType]
     CONFIG_CHANGE_TYPE_DELETED: _ClassVar[ConfigChangeType]
-
 CONFIG_CHANGE_TYPE_UNSPECIFIED: ConfigChangeType
 CONFIG_CHANGE_TYPE_CREATED: ConfigChangeType
 CONFIG_CHANGE_TYPE_UPDATED: ConfigChangeType

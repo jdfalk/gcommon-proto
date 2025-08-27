@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthSessionConfig(_message.Message):
-    __slots__ = (
-        "idle_timeout_seconds",
-        "absolute_lifetime_seconds",
-        "persist_across_restarts",
-        "cookie_name",
-        "secure_cookie",
-    )
+    __slots__ = ("idle_timeout_seconds", "absolute_lifetime_seconds", "persist_across_restarts", "cookie_name", "secure_cookie")
     IDLE_TIMEOUT_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ABSOLUTE_LIFETIME_SECONDS_FIELD_NUMBER: _ClassVar[int]
     PERSIST_ACROSS_RESTARTS_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class AuthSessionConfig(_message.Message):
     persist_across_restarts: bool
     cookie_name: str
     secure_cookie: bool
-    def __init__(
-        self,
-        idle_timeout_seconds: _Optional[int] = ...,
-        absolute_lifetime_seconds: _Optional[int] = ...,
-        persist_across_restarts: _Optional[bool] = ...,
-        cookie_name: _Optional[str] = ...,
-        secure_cookie: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, idle_timeout_seconds: _Optional[int] = ..., absolute_lifetime_seconds: _Optional[int] = ..., persist_across_restarts: _Optional[bool] = ..., cookie_name: _Optional[str] = ..., secure_cookie: _Optional[bool] = ...) -> None: ...

@@ -4,20 +4,18 @@
 # source: gcommon/v1/metrics/error_type_count.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/error_type_count.proto",
+    '',
+    'gcommon/v1/metrics/error_type_count.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,34 +26,20 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n)gcommon/v1/metrics/error_type_count.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x90\x01\n\x0e\x45rrorTypeCount\x12&\n\nerror_type\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\terrorType\x12\x1d\n\x05\x63ount\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x05\x63ount\x12\x37\n\npercentage\x18\x03 \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\npercentageB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/metrics/error_type_count.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x90\x01\n\x0e\x45rrorTypeCount\x12&\n\nerror_type\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\terrorType\x12\x1d\n\x05\x63ount\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x05\x63ount\x12\x37\n\npercentage\x18\x03 \x01(\x01\x42\x17\xbaH\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00Y@)\x00\x00\x00\x00\x00\x00\x00\x00R\npercentageB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.error_type_count_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.error_type_count_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_ERRORTYPECOUNT"].fields_by_name["error_type"]._loaded_options = None
-    _globals["_ERRORTYPECOUNT"].fields_by_name[
-        "error_type"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_ERRORTYPECOUNT"].fields_by_name["count"]._loaded_options = None
-    _globals["_ERRORTYPECOUNT"].fields_by_name[
-        "count"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_ERRORTYPECOUNT"].fields_by_name["percentage"]._loaded_options = None
-    _globals["_ERRORTYPECOUNT"].fields_by_name[
-        "percentage"
-    ]._serialized_options = b"\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000"
-    _globals["_ERRORTYPECOUNT"]._serialized_start = 130
-    _globals["_ERRORTYPECOUNT"]._serialized_end = 274
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_ERRORTYPECOUNT'].fields_by_name['error_type']._loaded_options = None
+  _globals['_ERRORTYPECOUNT'].fields_by_name['error_type']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_ERRORTYPECOUNT'].fields_by_name['count']._loaded_options = None
+  _globals['_ERRORTYPECOUNT'].fields_by_name['count']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_ERRORTYPECOUNT'].fields_by_name['percentage']._loaded_options = None
+  _globals['_ERRORTYPECOUNT'].fields_by_name['percentage']._serialized_options = b'\272H\024\022\022\031\000\000\000\000\000\000Y@)\000\000\000\000\000\000\000\000'
+  _globals['_ERRORTYPECOUNT']._serialized_start=130
+  _globals['_ERRORTYPECOUNT']._serialized_end=274
 # @@protoc_insertion_point(module_scope)

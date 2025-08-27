@@ -12,7 +12,6 @@ class RollbackMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROLLBACK_METHOD_VERSION_RESTORE: _ClassVar[RollbackMethod]
     ROLLBACK_METHOD_SNAPSHOT_RESTORE: _ClassVar[RollbackMethod]
     ROLLBACK_METHOD_MANUAL: _ClassVar[RollbackMethod]
-
 ROLLBACK_METHOD_UNSPECIFIED: RollbackMethod
 ROLLBACK_METHOD_VALUE_RESTORE: RollbackMethod
 ROLLBACK_METHOD_VERSION_RESTORE: RollbackMethod

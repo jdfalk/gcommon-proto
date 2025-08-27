@@ -16,33 +16,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LogEntry(_message.Message):
-    __slots__ = (
-        "level",
-        "message",
-        "timestamp",
-        "logger",
-        "thread",
-        "source",
-        "fields",
-        "tags",
-        "trace_id",
-        "span_id",
-        "user_id",
-        "request_id",
-        "error_info",
-    )
+    __slots__ = ("level", "message", "timestamp", "logger", "thread", "source", "fields", "tags", "trace_id", "span_id", "user_id", "request_id", "error_info")
     class FieldsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: _any_pb2.Any
-        def __init__(
-            self,
-            key: _Optional[str] = ...,
-            value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...) -> None: ...
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -69,21 +50,4 @@ class LogEntry(_message.Message):
     user_id: str
     request_id: str
     error_info: _error_info_pb2.ErrorInfo
-    def __init__(
-        self,
-        level: _Optional[_Union[_log_level_pb2.LogLevel, str]] = ...,
-        message: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        logger: _Optional[str] = ...,
-        thread: _Optional[str] = ...,
-        source: _Optional[_Union[_source_location_pb2.SourceLocation, _Mapping]] = ...,
-        fields: _Optional[_Mapping[str, _any_pb2.Any]] = ...,
-        tags: _Optional[_Iterable[str]] = ...,
-        trace_id: _Optional[str] = ...,
-        span_id: _Optional[str] = ...,
-        user_id: _Optional[str] = ...,
-        request_id: _Optional[str] = ...,
-        error_info: _Optional[_Union[_error_info_pb2.ErrorInfo, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, level: _Optional[_Union[_log_level_pb2.LogLevel, str]] = ..., message: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., logger: _Optional[str] = ..., thread: _Optional[str] = ..., source: _Optional[_Union[_source_location_pb2.SourceLocation, _Mapping]] = ..., fields: _Optional[_Mapping[str, _any_pb2.Any]] = ..., tags: _Optional[_Iterable[str]] = ..., trace_id: _Optional[str] = ..., span_id: _Optional[str] = ..., user_id: _Optional[str] = ..., request_id: _Optional[str] = ..., error_info: _Optional[_Union[_error_info_pb2.ErrorInfo, _Mapping]] = ...) -> None: ...

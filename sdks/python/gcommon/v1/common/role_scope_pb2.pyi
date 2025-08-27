@@ -13,7 +13,6 @@ class RoleScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROLE_SCOPE_PROJECT: _ClassVar[RoleScope]
     ROLE_SCOPE_TEAM: _ClassVar[RoleScope]
     ROLE_SCOPE_RESOURCE: _ClassVar[RoleScope]
-
 ROLE_SCOPE_UNSPECIFIED: RoleScope
 ROLE_SCOPE_GLOBAL: RoleScope
 ROLE_SCOPE_ORGANIZATION: RoleScope

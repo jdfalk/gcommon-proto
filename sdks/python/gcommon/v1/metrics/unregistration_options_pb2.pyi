@@ -7,16 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UnregistrationOptions(_message.Message):
-    __slots__ = (
-        "delete_data",
-        "delete_indices",
-        "remove_alerts",
-        "stop_exports",
-        "grace_period",
-        "dry_run",
-        "force",
-        "create_backup",
-    )
+    __slots__ = ("delete_data", "delete_indices", "remove_alerts", "stop_exports", "grace_period", "dry_run", "force", "create_backup")
     DELETE_DATA_FIELD_NUMBER: _ClassVar[int]
     DELETE_INDICES_FIELD_NUMBER: _ClassVar[int]
     REMOVE_ALERTS_FIELD_NUMBER: _ClassVar[int]
@@ -33,14 +24,4 @@ class UnregistrationOptions(_message.Message):
     dry_run: bool
     force: bool
     create_backup: bool
-    def __init__(
-        self,
-        delete_data: _Optional[bool] = ...,
-        delete_indices: _Optional[bool] = ...,
-        remove_alerts: _Optional[bool] = ...,
-        stop_exports: _Optional[bool] = ...,
-        grace_period: _Optional[str] = ...,
-        dry_run: _Optional[bool] = ...,
-        force: _Optional[bool] = ...,
-        create_backup: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, delete_data: _Optional[bool] = ..., delete_indices: _Optional[bool] = ..., remove_alerts: _Optional[bool] = ..., stop_exports: _Optional[bool] = ..., grace_period: _Optional[str] = ..., dry_run: _Optional[bool] = ..., force: _Optional[bool] = ..., create_backup: _Optional[bool] = ...) -> None: ...

@@ -16,10 +16,4 @@ class MetricsTLSConfig(_message.Message):
     key_file: str
     ca_file: str
     verify_certs: bool
-    def __init__(
-        self,
-        cert_file: _Optional[str] = ...,
-        key_file: _Optional[str] = ...,
-        ca_file: _Optional[str] = ...,
-        verify_certs: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, cert_file: _Optional[str] = ..., key_file: _Optional[str] = ..., ca_file: _Optional[str] = ..., verify_certs: _Optional[bool] = ...) -> None: ...

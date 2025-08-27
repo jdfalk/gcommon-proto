@@ -12,14 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExecuteRequest(_message.Message):
-    __slots__ = (
-        "statement",
-        "parameters",
-        "database",
-        "options",
-        "metadata",
-        "transaction_id",
-    )
+    __slots__ = ("statement", "parameters", "database", "options", "metadata", "transaction_id")
     STATEMENT_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     DATABASE_FIELD_NUMBER: _ClassVar[int]
@@ -27,23 +20,9 @@ class ExecuteRequest(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     TRANSACTION_ID_FIELD_NUMBER: _ClassVar[int]
     statement: str
-    parameters: _containers.RepeatedCompositeFieldContainer[
-        _query_parameter_pb2.QueryParameter
-    ]
+    parameters: _containers.RepeatedCompositeFieldContainer[_query_parameter_pb2.QueryParameter]
     database: str
     options: _execute_options_pb2.ExecuteOptions
     metadata: _request_metadata_pb2.RequestMetadata
     transaction_id: str
-    def __init__(
-        self,
-        statement: _Optional[str] = ...,
-        parameters: _Optional[
-            _Iterable[_Union[_query_parameter_pb2.QueryParameter, _Mapping]]
-        ] = ...,
-        database: _Optional[str] = ...,
-        options: _Optional[_Union[_execute_options_pb2.ExecuteOptions, _Mapping]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        transaction_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, statement: _Optional[str] = ..., parameters: _Optional[_Iterable[_Union[_query_parameter_pb2.QueryParameter, _Mapping]]] = ..., database: _Optional[str] = ..., options: _Optional[_Union[_execute_options_pb2.ExecuteOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., transaction_id: _Optional[str] = ...) -> None: ...

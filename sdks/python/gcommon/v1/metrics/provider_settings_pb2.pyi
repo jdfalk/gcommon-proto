@@ -1,6 +1,4 @@
-from gcommon.v1.metrics import (
-    open_telemetry_settings_pb2 as _open_telemetry_settings_pb2,
-)
+from gcommon.v1.metrics import open_telemetry_settings_pb2 as _open_telemetry_settings_pb2
 from gcommon.v1.metrics import prometheus_settings_pb2 as _prometheus_settings_pb2
 from gcommon.v1.metrics import stats_d_settings_pb2 as _stats_d_settings_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -20,10 +18,7 @@ class ProviderSettings(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     PROMETHEUS_FIELD_NUMBER: _ClassVar[int]
     OPENTELEMETRY_FIELD_NUMBER: _ClassVar[int]
     STATSD_FIELD_NUMBER: _ClassVar[int]
@@ -32,14 +27,4 @@ class ProviderSettings(_message.Message):
     opentelemetry: _open_telemetry_settings_pb2.OpenTelemetrySettings
     statsd: _stats_d_settings_pb2.StatsDSettings
     custom: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        prometheus: _Optional[
-            _Union[_prometheus_settings_pb2.PrometheusSettings, _Mapping]
-        ] = ...,
-        opentelemetry: _Optional[
-            _Union[_open_telemetry_settings_pb2.OpenTelemetrySettings, _Mapping]
-        ] = ...,
-        statsd: _Optional[_Union[_stats_d_settings_pb2.StatsDSettings, _Mapping]] = ...,
-        custom: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, prometheus: _Optional[_Union[_prometheus_settings_pb2.PrometheusSettings, _Mapping]] = ..., opentelemetry: _Optional[_Union[_open_telemetry_settings_pb2.OpenTelemetrySettings, _Mapping]] = ..., statsd: _Optional[_Union[_stats_d_settings_pb2.StatsDSettings, _Mapping]] = ..., custom: _Optional[_Mapping[str, str]] = ...) -> None: ...

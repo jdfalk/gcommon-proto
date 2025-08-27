@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NodeStats(_message.Message):
-    __slots__ = (
-        "queue_count",
-        "message_count",
-        "cpu_usage",
-        "memory_usage",
-        "disk_usage",
-        "network_throughput",
-    )
+    __slots__ = ("queue_count", "message_count", "cpu_usage", "memory_usage", "disk_usage", "network_throughput")
     QUEUE_COUNT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
     CPU_USAGE_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class NodeStats(_message.Message):
     memory_usage: int
     disk_usage: int
     network_throughput: float
-    def __init__(
-        self,
-        queue_count: _Optional[int] = ...,
-        message_count: _Optional[int] = ...,
-        cpu_usage: _Optional[float] = ...,
-        memory_usage: _Optional[int] = ...,
-        disk_usage: _Optional[int] = ...,
-        network_throughput: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, queue_count: _Optional[int] = ..., message_count: _Optional[int] = ..., cpu_usage: _Optional[float] = ..., memory_usage: _Optional[int] = ..., disk_usage: _Optional[int] = ..., network_throughput: _Optional[float] = ...) -> None: ...

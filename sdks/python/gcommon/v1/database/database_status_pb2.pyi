@@ -13,10 +13,4 @@ class DatabaseStatus(_message.Message):
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     code: _database_status_code_pb2.DatabaseStatusCode
     message: str
-    def __init__(
-        self,
-        code: _Optional[
-            _Union[_database_status_code_pb2.DatabaseStatusCode, str]
-        ] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, code: _Optional[_Union[_database_status_code_pb2.DatabaseStatusCode, str]] = ..., message: _Optional[str] = ...) -> None: ...

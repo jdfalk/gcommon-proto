@@ -4,20 +4,18 @@
 # source: gcommon/v1/web/websocket_message.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/web/websocket_message.proto",
+    '',
+    'gcommon/v1/web/websocket_message.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -29,30 +27,18 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n&gcommon/v1/web/websocket_message.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xb5\x01\n\x10WebsocketMessage\x12,\n\rconnection_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x63onnectionId\x12\x12\n\x04\x64\x61ta\x18\x02 \x01(\x0cR\x04\x64\x61ta\x12*\n\x0cmessage_type\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bmessageType\x12\x33\n\x07sent_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06sentAtB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/web/websocket_message.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xb5\x01\n\x10WebsocketMessage\x12,\n\rconnection_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0c\x63onnectionId\x12\x12\n\x04\x64\x61ta\x18\x02 \x01(\x0cR\x04\x64\x61ta\x12*\n\x0cmessage_type\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bmessageType\x12\x33\n\x07sent_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06sentAtB2Z(github.com/jdfalk/gcommon/sdks/go/v1/web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.web.websocket_message_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.web.websocket_message_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003"
-    )
-    _globals["_WEBSOCKETMESSAGE"].fields_by_name["connection_id"]._loaded_options = None
-    _globals["_WEBSOCKETMESSAGE"].fields_by_name[
-        "connection_id"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_WEBSOCKETMESSAGE"].fields_by_name["message_type"]._loaded_options = None
-    _globals["_WEBSOCKETMESSAGE"].fields_by_name[
-        "message_type"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_WEBSOCKETMESSAGE"]._serialized_start = 156
-    _globals["_WEBSOCKETMESSAGE"]._serialized_end = 337
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z(github.com/jdfalk/gcommon/sdks/go/v1/web\222\003\005\322>\002\020\003'
+  _globals['_WEBSOCKETMESSAGE'].fields_by_name['connection_id']._loaded_options = None
+  _globals['_WEBSOCKETMESSAGE'].fields_by_name['connection_id']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_WEBSOCKETMESSAGE'].fields_by_name['message_type']._loaded_options = None
+  _globals['_WEBSOCKETMESSAGE'].fields_by_name['message_type']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_WEBSOCKETMESSAGE']._serialized_start=156
+  _globals['_WEBSOCKETMESSAGE']._serialized_end=337
 # @@protoc_insertion_point(module_scope)

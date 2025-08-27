@@ -14,7 +14,6 @@ class RestorePointType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESTORE_POINT_TYPE_PRE_CHANGE: _ClassVar[RestorePointType]
     RESTORE_POINT_TYPE_MILESTONE: _ClassVar[RestorePointType]
     RESTORE_POINT_TYPE_BACKUP: _ClassVar[RestorePointType]
-
 RESTORE_POINT_TYPE_UNSPECIFIED: RestorePointType
 RESTORE_POINT_TYPE_MANUAL: RestorePointType
 RESTORE_POINT_TYPE_AUTOMATIC: RestorePointType

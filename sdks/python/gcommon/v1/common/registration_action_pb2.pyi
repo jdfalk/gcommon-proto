@@ -12,7 +12,6 @@ class RegistrationAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REGISTRATION_ACTION_UPDATED: _ClassVar[RegistrationAction]
     REGISTRATION_ACTION_REPLACED: _ClassVar[RegistrationAction]
     REGISTRATION_ACTION_NO_CHANGE: _ClassVar[RegistrationAction]
-
 REGISTRATION_ACTION_UNSPECIFIED: RegistrationAction
 REGISTRATION_ACTION_CREATED: RegistrationAction
 REGISTRATION_ACTION_UPDATED: RegistrationAction

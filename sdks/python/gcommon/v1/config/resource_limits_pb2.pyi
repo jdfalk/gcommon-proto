@@ -9,25 +9,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigResourceLimits(_message.Message):
-    __slots__ = (
-        "cpu_limit",
-        "memory_limit",
-        "storage_limit",
-        "network_limit",
-        "request_rate_limit",
-        "connection_limit",
-        "custom_limits",
-    )
+    __slots__ = ("cpu_limit", "memory_limit", "storage_limit", "network_limit", "request_rate_limit", "connection_limit", "custom_limits")
     class CustomLimitsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     CPU_LIMIT_FIELD_NUMBER: _ClassVar[int]
     MEMORY_LIMIT_FIELD_NUMBER: _ClassVar[int]
     STORAGE_LIMIT_FIELD_NUMBER: _ClassVar[int]
@@ -42,13 +31,4 @@ class ConfigResourceLimits(_message.Message):
     request_rate_limit: int
     connection_limit: int
     custom_limits: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        cpu_limit: _Optional[str] = ...,
-        memory_limit: _Optional[str] = ...,
-        storage_limit: _Optional[str] = ...,
-        network_limit: _Optional[str] = ...,
-        request_rate_limit: _Optional[int] = ...,
-        connection_limit: _Optional[int] = ...,
-        custom_limits: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, cpu_limit: _Optional[str] = ..., memory_limit: _Optional[str] = ..., storage_limit: _Optional[str] = ..., network_limit: _Optional[str] = ..., request_rate_limit: _Optional[int] = ..., connection_limit: _Optional[int] = ..., custom_limits: _Optional[_Mapping[str, str]] = ...) -> None: ...

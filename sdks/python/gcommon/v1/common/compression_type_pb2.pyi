@@ -13,7 +13,6 @@ class LogCompressionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPRESSION_TYPE_ZIP: _ClassVar[LogCompressionType]
     COMPRESSION_TYPE_BZIP2: _ClassVar[LogCompressionType]
     COMPRESSION_TYPE_TAR_GZ: _ClassVar[LogCompressionType]
-
 COMPRESSION_TYPE_UNSPECIFIED: LogCompressionType
 COMPRESSION_TYPE_NONE: LogCompressionType
 COMPRESSION_TYPE_GZIP: LogCompressionType

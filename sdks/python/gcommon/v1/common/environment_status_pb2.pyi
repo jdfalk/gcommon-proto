@@ -14,7 +14,6 @@ class EnvironmentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ENVIRONMENT_STATUS_DEPRECATED: _ClassVar[EnvironmentStatus]
     ENVIRONMENT_STATUS_ARCHIVED: _ClassVar[EnvironmentStatus]
     ENVIRONMENT_STATUS_ERROR: _ClassVar[EnvironmentStatus]
-
 ENVIRONMENT_STATUS_UNSPECIFIED: EnvironmentStatus
 ENVIRONMENT_STATUS_ACTIVE: EnvironmentStatus
 ENVIRONMENT_STATUS_INACTIVE: EnvironmentStatus

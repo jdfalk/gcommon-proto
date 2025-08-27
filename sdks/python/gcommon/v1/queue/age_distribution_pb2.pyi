@@ -17,11 +17,4 @@ class AgeDistribution(_message.Message):
     buckets: _containers.RepeatedCompositeFieldContainer[_age_bucket_pb2.AgeBucket]
     average_age_seconds: float
     oldest_message_age_seconds: float
-    def __init__(
-        self,
-        buckets: _Optional[
-            _Iterable[_Union[_age_bucket_pb2.AgeBucket, _Mapping]]
-        ] = ...,
-        average_age_seconds: _Optional[float] = ...,
-        oldest_message_age_seconds: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, buckets: _Optional[_Iterable[_Union[_age_bucket_pb2.AgeBucket, _Mapping]]] = ..., average_age_seconds: _Optional[float] = ..., oldest_message_age_seconds: _Optional[float] = ...) -> None: ...

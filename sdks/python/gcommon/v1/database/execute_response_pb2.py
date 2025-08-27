@@ -4,20 +4,18 @@
 # source: gcommon/v1/database/execute_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/database/execute_response.proto",
+    '',
+    'gcommon/v1/database/execute_response.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -25,42 +23,28 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
-from gcommon.v1.database import (
-    execute_stats_pb2 as gcommon_dot_v1_dot_database_dot_execute__stats__pb2,
-)
+from gcommon.v1.database import execute_stats_pb2 as gcommon_dot_v1_dot_database_dot_execute__stats__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n*gcommon/v1/database/execute_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a\'gcommon/v1/database/execute_stats.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf9\x01\n\x0f\x45xecuteResponse\x12,\n\raffected_rows\x18\x01 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x0c\x61\x66\x66\x65\x63tedRows\x12G\n\x0egenerated_keys\x18\x02 \x03(\x0b\x32\x14.google.protobuf.AnyB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\rgeneratedKeys\x12;\n\x05stats\x18\x03 \x01(\x0b\x32!.gcommon.v1.database.ExecuteStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*gcommon/v1/database/execute_response.proto\x12\x13gcommon.v1.database\x1a\x1dgcommon/v1/common/error.proto\x1a\'gcommon/v1/database/execute_stats.proto\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf9\x01\n\x0f\x45xecuteResponse\x12,\n\raffected_rows\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x0c\x61\x66\x66\x65\x63tedRows\x12G\n\x0egenerated_keys\x18\x02 \x03(\x0b\x32\x14.google.protobuf.AnyB\n(\x01\xbaH\x05\x92\x01\x02\x08\x01R\rgeneratedKeys\x12;\n\x05stats\x18\x03 \x01(\x0b\x32!.gcommon.v1.database.ExecuteStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB7Z-github.com/jdfalk/gcommon/sdks/go/v1/database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.database.execute_response_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.database.execute_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003"
-    )
-    _globals["_EXECUTERESPONSE"].fields_by_name["affected_rows"]._loaded_options = None
-    _globals["_EXECUTERESPONSE"].fields_by_name[
-        "affected_rows"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_EXECUTERESPONSE"].fields_by_name["generated_keys"]._loaded_options = None
-    _globals["_EXECUTERESPONSE"].fields_by_name[
-        "generated_keys"
-    ]._serialized_options = b"(\001\272H\005\222\001\002\010\001"
-    _globals["_EXECUTERESPONSE"].fields_by_name["stats"]._loaded_options = None
-    _globals["_EXECUTERESPONSE"].fields_by_name["stats"]._serialized_options = b"(\001"
-    _globals["_EXECUTERESPONSE"].fields_by_name["error"]._loaded_options = None
-    _globals["_EXECUTERESPONSE"].fields_by_name["error"]._serialized_options = b"(\001"
-    _globals["_EXECUTERESPONSE"]._serialized_start = 231
-    _globals["_EXECUTERESPONSE"]._serialized_end = 480
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z-github.com/jdfalk/gcommon/sdks/go/v1/database\222\003\005\322>\002\020\003'
+  _globals['_EXECUTERESPONSE'].fields_by_name['affected_rows']._loaded_options = None
+  _globals['_EXECUTERESPONSE'].fields_by_name['affected_rows']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_EXECUTERESPONSE'].fields_by_name['generated_keys']._loaded_options = None
+  _globals['_EXECUTERESPONSE'].fields_by_name['generated_keys']._serialized_options = b'(\001\272H\005\222\001\002\010\001'
+  _globals['_EXECUTERESPONSE'].fields_by_name['stats']._loaded_options = None
+  _globals['_EXECUTERESPONSE'].fields_by_name['stats']._serialized_options = b'(\001'
+  _globals['_EXECUTERESPONSE'].fields_by_name['error']._loaded_options = None
+  _globals['_EXECUTERESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
+  _globals['_EXECUTERESPONSE']._serialized_start=231
+  _globals['_EXECUTERESPONSE']._serialized_end=480
 # @@protoc_insertion_point(module_scope)

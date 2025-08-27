@@ -14,7 +14,6 @@ class QueueState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_STATE_DELETING: _ClassVar[QueueState]
     QUEUE_STATE_MAINTENANCE: _ClassVar[QueueState]
     QUEUE_STATE_ERROR: _ClassVar[QueueState]
-
 QUEUE_STATE_UNSPECIFIED: QueueState
 QUEUE_STATE_ACTIVE: QueueState
 QUEUE_STATE_PAUSED: QueueState

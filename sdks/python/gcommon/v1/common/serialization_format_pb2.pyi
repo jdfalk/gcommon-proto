@@ -15,7 +15,6 @@ class SerializationFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SERIALIZATION_FORMAT_BINARY: _ClassVar[SerializationFormat]
     SERIALIZATION_FORMAT_TEXT: _ClassVar[SerializationFormat]
     SERIALIZATION_FORMAT_XML: _ClassVar[SerializationFormat]
-
 SERIALIZATION_FORMAT_UNSPECIFIED: SerializationFormat
 SERIALIZATION_FORMAT_PROTOBUF: SerializationFormat
 SERIALIZATION_FORMAT_JSON: SerializationFormat

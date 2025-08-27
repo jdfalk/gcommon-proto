@@ -4,93 +4,53 @@
 # source: gcommon/v1/organization/organization_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/organization/organization_settings.proto",
+    '',
+    'gcommon/v1/organization/organization_settings.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2,
-)
-from gcommon.v1.common import (
-    organization_compliance_settings_pb2 as gcommon_dot_v1_dot_common_dot_organization__compliance__settings__pb2,
-)
-from gcommon.v1.common import (
-    organization_notification_settings_pb2 as gcommon_dot_v1_dot_common_dot_organization__notification__settings__pb2,
-)
-from gcommon.v1.organization import (
-    billing_settings_pb2 as gcommon_dot_v1_dot_organization_dot_billing__settings__pb2,
-)
-from gcommon.v1.organization import (
-    feature_flag_pb2 as gcommon_dot_v1_dot_organization_dot_feature__flag__pb2,
-)
-from gcommon.v1.organization import (
-    integration_settings_pb2 as gcommon_dot_v1_dot_organization_dot_integration__settings__pb2,
-)
-from gcommon.v1.organization import (
-    security_settings_pb2 as gcommon_dot_v1_dot_organization_dot_security__settings__pb2,
-)
-from gcommon.v1.organization import (
-    ui_settings_pb2 as gcommon_dot_v1_dot_organization_dot_ui__settings__pb2,
-)
+from gcommon.v1.common import key_value_pb2 as gcommon_dot_v1_dot_common_dot_key__value__pb2
+from gcommon.v1.common import organization_compliance_settings_pb2 as gcommon_dot_v1_dot_common_dot_organization__compliance__settings__pb2
+from gcommon.v1.common import organization_notification_settings_pb2 as gcommon_dot_v1_dot_common_dot_organization__notification__settings__pb2
+from gcommon.v1.organization import billing_settings_pb2 as gcommon_dot_v1_dot_organization_dot_billing__settings__pb2
+from gcommon.v1.organization import feature_flag_pb2 as gcommon_dot_v1_dot_organization_dot_feature__flag__pb2
+from gcommon.v1.organization import integration_settings_pb2 as gcommon_dot_v1_dot_organization_dot_integration__settings__pb2
+from gcommon.v1.organization import security_settings_pb2 as gcommon_dot_v1_dot_organization_dot_security__settings__pb2
+from gcommon.v1.organization import ui_settings_pb2 as gcommon_dot_v1_dot_organization_dot_ui__settings__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n3gcommon/v1/organization/organization_settings.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a\x38gcommon/v1/common/organization_compliance_settings.proto\x1a:gcommon/v1/common/organization_notification_settings.proto\x1a.gcommon/v1/organization/billing_settings.proto\x1a*gcommon/v1/organization/feature_flag.proto\x1a\x32gcommon/v1/organization/integration_settings.proto\x1a/gcommon/v1/organization/security_settings.proto\x1a)gcommon/v1/organization/ui_settings.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xa2\x07\n\x14OrganizationSettings\x12\x80\x01\n\x0forganization_id\x18\x01 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x0eorganizationId\x12\x45\n\x08security\x18\x02 \x01(\x0b\x32).gcommon.v1.organization.SecuritySettingsR\x08security\x12\x33\n\x02ui\x18\x03 \x01(\x0b\x32#.gcommon.v1.organization.UISettingsR\x02ui\x12P\n\x0cintegrations\x18\x04 \x01(\x0b\x32,.gcommon.v1.organization.IntegrationSettingsR\x0cintegrations\x12Y\n\rnotifications\x18\x05 \x01(\x0b\x32\x33.gcommon.v1.common.OrganizationNotificationSettingsR\rnotifications\x12\x42\n\x07\x62illing\x18\x06 \x01(\x0b\x32(.gcommon.v1.organization.BillingSettingsR\x07\x62illing\x12Q\n\ncompliance\x18\x07 \x01(\x0b\x32\x31.gcommon.v1.common.OrganizationComplianceSettingsR\ncompliance\x12I\n\rfeature_flags\x18\x08 \x03(\x0b\x32$.gcommon.v1.organization.FeatureFlagR\x0c\x66\x65\x61tureFlags\x12H\n\x0f\x63ustom_settings\x18\t \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x0e\x63ustomSettings\x12=\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12s\n\nupdated_by\x18\x0b \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tupdatedByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/organization/organization_settings.proto\x12\x17gcommon.v1.organization\x1a!gcommon/v1/common/key_value.proto\x1a\x38gcommon/v1/common/organization_compliance_settings.proto\x1a:gcommon/v1/common/organization_notification_settings.proto\x1a.gcommon/v1/organization/billing_settings.proto\x1a*gcommon/v1/organization/feature_flag.proto\x1a\x32gcommon/v1/organization/integration_settings.proto\x1a/gcommon/v1/organization/security_settings.proto\x1a)gcommon/v1/organization/ui_settings.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa2\x07\n\x14OrganizationSettings\x12\x80\x01\n\x0forganization_id\x18\x01 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x0eorganizationId\x12\x45\n\x08security\x18\x02 \x01(\x0b\x32).gcommon.v1.organization.SecuritySettingsR\x08security\x12\x33\n\x02ui\x18\x03 \x01(\x0b\x32#.gcommon.v1.organization.UISettingsR\x02ui\x12P\n\x0cintegrations\x18\x04 \x01(\x0b\x32,.gcommon.v1.organization.IntegrationSettingsR\x0cintegrations\x12Y\n\rnotifications\x18\x05 \x01(\x0b\x32\x33.gcommon.v1.common.OrganizationNotificationSettingsR\rnotifications\x12\x42\n\x07\x62illing\x18\x06 \x01(\x0b\x32(.gcommon.v1.organization.BillingSettingsR\x07\x62illing\x12Q\n\ncompliance\x18\x07 \x01(\x0b\x32\x31.gcommon.v1.common.OrganizationComplianceSettingsR\ncompliance\x12I\n\rfeature_flags\x18\x08 \x03(\x0b\x32$.gcommon.v1.organization.FeatureFlagR\x0c\x66\x65\x61tureFlags\x12H\n\x0f\x63ustom_settings\x18\t \x03(\x0b\x32\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\x0e\x63ustomSettings\x12=\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12s\n\nupdated_by\x18\x0b \x01(\tBT\xbaHQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$R\tupdatedByB;Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.organization.organization_settings_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.organization.organization_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = b"Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003"
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "organization_id"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "organization_id"
-    ]._serialized_options = b"\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001"
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "custom_settings"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "custom_settings"
-    ]._serialized_options = b"(\001"
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "updated_at"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "updated_at"
-    ]._serialized_options = b"(\001"
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "updated_by"
-    ]._loaded_options = None
-    _globals["_ORGANIZATIONSETTINGS"].fields_by_name[
-        "updated_by"
-    ]._serialized_options = b"\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    _globals["_ORGANIZATIONSETTINGS"]._serialized_start = 567
-    _globals["_ORGANIZATIONSETTINGS"]._serialized_end = 1497
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z1github.com/jdfalk/gcommon/sdks/go/v1/organization\222\003\005\322>\002\020\003'
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['organization_id']._loaded_options = None
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['organization_id']._serialized_options = b'\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001'
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['custom_settings']._loaded_options = None
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['custom_settings']._serialized_options = b'(\001'
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['updated_at']._loaded_options = None
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['updated_at']._serialized_options = b'(\001'
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['updated_by']._loaded_options = None
+  _globals['_ORGANIZATIONSETTINGS'].fields_by_name['updated_by']._serialized_options = b'\272HQrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+  _globals['_ORGANIZATIONSETTINGS']._serialized_start=567
+  _globals['_ORGANIZATIONSETTINGS']._serialized_end=1497
 # @@protoc_insertion_point(module_scope)

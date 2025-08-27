@@ -12,7 +12,6 @@ class CommonExportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EXPORT_FORMAT_JSON: _ClassVar[CommonExportFormat]
     EXPORT_FORMAT_CSV: _ClassVar[CommonExportFormat]
     EXPORT_FORMAT_OPENTELEMETRY: _ClassVar[CommonExportFormat]
-
 EXPORT_FORMAT_UNSPECIFIED: CommonExportFormat
 EXPORT_FORMAT_PROMETHEUS: CommonExportFormat
 EXPORT_FORMAT_JSON: CommonExportFormat

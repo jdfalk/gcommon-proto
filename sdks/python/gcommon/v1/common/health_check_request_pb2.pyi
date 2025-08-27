@@ -21,14 +21,4 @@ class HealthHealthCheckRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     timeout: _duration_pb2.Duration
     include_details: bool
-    def __init__(
-        self,
-        service: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        include_details: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, service: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., include_details: _Optional[bool] = ...) -> None: ...

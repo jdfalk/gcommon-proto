@@ -16,9 +16,4 @@ class ImportConfig(_message.Message):
     sources: _containers.RepeatedScalarFieldContainer[str]
     schedule: str
     enabled: bool
-    def __init__(
-        self,
-        sources: _Optional[_Iterable[str]] = ...,
-        schedule: _Optional[str] = ...,
-        enabled: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, sources: _Optional[_Iterable[str]] = ..., schedule: _Optional[str] = ..., enabled: _Optional[bool] = ...) -> None: ...

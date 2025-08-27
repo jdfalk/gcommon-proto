@@ -14,8 +14,4 @@ class UpdateMediaFileRequest(_message.Message):
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     media_file: _media_file_pb2.MediaFile
     update_mask: _field_mask_pb2.FieldMask
-    def __init__(
-        self,
-        media_file: _Optional[_Union[_media_file_pb2.MediaFile, _Mapping]] = ...,
-        update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, media_file: _Optional[_Union[_media_file_pb2.MediaFile, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...

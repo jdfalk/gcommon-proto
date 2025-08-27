@@ -11,7 +11,6 @@ class LoggerStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOGGER_STATUS_ACTIVE: _ClassVar[LoggerStatus]
     LOGGER_STATUS_INACTIVE: _ClassVar[LoggerStatus]
     LOGGER_STATUS_ERROR: _ClassVar[LoggerStatus]
-
 LOGGER_STATUS_UNSPECIFIED: LoggerStatus
 LOGGER_STATUS_ACTIVE: LoggerStatus
 LOGGER_STATUS_INACTIVE: LoggerStatus

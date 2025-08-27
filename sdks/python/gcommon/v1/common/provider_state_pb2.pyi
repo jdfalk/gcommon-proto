@@ -15,7 +15,6 @@ class ProviderState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PROVIDER_STATE_STOPPED: _ClassVar[ProviderState]
     PROVIDER_STATE_ERROR: _ClassVar[ProviderState]
     PROVIDER_STATE_UNKNOWN: _ClassVar[ProviderState]
-
 PROVIDER_STATE_UNSPECIFIED: ProviderState
 PROVIDER_STATE_CREATING: ProviderState
 PROVIDER_STATE_STARTING: ProviderState

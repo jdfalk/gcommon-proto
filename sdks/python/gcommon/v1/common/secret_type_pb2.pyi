@@ -24,7 +24,6 @@ class SecretType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SECRET_TYPE_JWT_SECRET: _ClassVar[SecretType]
     SECRET_TYPE_WEBHOOK_SECRET: _ClassVar[SecretType]
     SECRET_TYPE_CUSTOM: _ClassVar[SecretType]
-
 SECRET_TYPE_UNSPECIFIED: SecretType
 SECRET_TYPE_PASSWORD: SecretType
 SECRET_TYPE_API_KEY: SecretType

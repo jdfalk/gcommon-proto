@@ -12,7 +12,6 @@ class Resolution(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESOLUTION_720P: _ClassVar[Resolution]
     RESOLUTION_1080P: _ClassVar[Resolution]
     RESOLUTION_4K: _ClassVar[Resolution]
-
 RESOLUTION_UNSPECIFIED: Resolution
 RESOLUTION_480P: Resolution
 RESOLUTION_720P: Resolution

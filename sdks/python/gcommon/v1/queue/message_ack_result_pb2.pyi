@@ -9,13 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MessageAckResult(_message.Message):
-    __slots__ = (
-        "receipt_handle",
-        "success",
-        "error",
-        "message_id",
-        "processing_result",
-    )
+    __slots__ = ("receipt_handle", "success", "error", "message_id", "processing_result")
     RECEIPT_HANDLE_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
@@ -26,11 +20,4 @@ class MessageAckResult(_message.Message):
     error: _error_pb2.Error
     message_id: str
     processing_result: str
-    def __init__(
-        self,
-        receipt_handle: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        message_id: _Optional[str] = ...,
-        processing_result: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, receipt_handle: _Optional[str] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., message_id: _Optional[str] = ..., processing_result: _Optional[str] = ...) -> None: ...

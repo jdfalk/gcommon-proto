@@ -14,7 +14,6 @@ class RoutingStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROUTING_STRATEGY_HEADER: _ClassVar[RoutingStrategy]
     ROUTING_STRATEGY_CONTENT: _ClassVar[RoutingStrategy]
     ROUTING_STRATEGY_HASH: _ClassVar[RoutingStrategy]
-
 ROUTING_STRATEGY_UNSPECIFIED: RoutingStrategy
 ROUTING_STRATEGY_DIRECT: RoutingStrategy
 ROUTING_STRATEGY_TOPIC: RoutingStrategy

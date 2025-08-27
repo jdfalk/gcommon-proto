@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RegisterUserResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "user_id",
-        "email_verification_required",
-        "error_message",
-        "session_token",
-    )
+    __slots__ = ("success", "user_id", "email_verification_required", "error_message", "session_token")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     EMAIL_VERIFICATION_REQUIRED_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class RegisterUserResponse(_message.Message):
     email_verification_required: bool
     error_message: str
     session_token: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        user_id: _Optional[str] = ...,
-        email_verification_required: _Optional[bool] = ...,
-        error_message: _Optional[str] = ...,
-        session_token: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., user_id: _Optional[str] = ..., email_verification_required: _Optional[bool] = ..., error_message: _Optional[str] = ..., session_token: _Optional[str] = ...) -> None: ...

@@ -21,14 +21,4 @@ class ListDepartmentsResponse(_message.Message):
     success: bool
     departments: _containers.RepeatedCompositeFieldContainer[_department_pb2.Department]
     pagination: _paginated_response_pb2.PaginatedResponse
-    def __init__(
-        self,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        departments: _Optional[
-            _Iterable[_Union[_department_pb2.Department, _Mapping]]
-        ] = ...,
-        pagination: _Optional[
-            _Union[_paginated_response_pb2.PaginatedResponse, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., departments: _Optional[_Iterable[_Union[_department_pb2.Department, _Mapping]]] = ..., pagination: _Optional[_Union[_paginated_response_pb2.PaginatedResponse, _Mapping]] = ...) -> None: ...

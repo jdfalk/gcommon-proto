@@ -14,8 +14,4 @@ class CreateRoleResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     role: _role_pb2.Role
     error: _error_pb2.Error
-    def __init__(
-        self,
-        role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, role: _Optional[_Union[_role_pb2.Role, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

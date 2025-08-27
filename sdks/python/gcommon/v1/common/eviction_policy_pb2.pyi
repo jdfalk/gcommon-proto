@@ -12,7 +12,6 @@ class EvictionPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EVICTION_POLICY_LFU: _ClassVar[EvictionPolicy]
     EVICTION_POLICY_FIFO: _ClassVar[EvictionPolicy]
     EVICTION_POLICY_RANDOM: _ClassVar[EvictionPolicy]
-
 EVICTION_POLICY_UNSPECIFIED: EvictionPolicy
 EVICTION_POLICY_LRU: EvictionPolicy
 EVICTION_POLICY_LFU: EvictionPolicy

@@ -18,12 +18,4 @@ class ScanRequest(_message.Message):
     pattern: str
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        cursor: _Optional[str] = ...,
-        pattern: _Optional[str] = ...,
-        namespace: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, cursor: _Optional[str] = ..., pattern: _Optional[str] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

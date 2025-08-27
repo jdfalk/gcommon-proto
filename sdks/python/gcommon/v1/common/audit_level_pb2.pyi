@@ -13,7 +13,6 @@ class AuditLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AUDIT_LEVEL_STANDARD: _ClassVar[AuditLevel]
     AUDIT_LEVEL_DETAILED: _ClassVar[AuditLevel]
     AUDIT_LEVEL_VERBOSE: _ClassVar[AuditLevel]
-
 AUDIT_LEVEL_UNSPECIFIED: AuditLevel
 AUDIT_LEVEL_NONE: AuditLevel
 AUDIT_LEVEL_MINIMAL: AuditLevel

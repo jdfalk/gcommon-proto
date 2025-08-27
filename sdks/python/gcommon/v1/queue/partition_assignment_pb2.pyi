@@ -11,15 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PartitionAssignment(_message.Message):
-    __slots__ = (
-        "partition_id",
-        "consumer_id",
-        "current_offset",
-        "committed_offset",
-        "high_water_mark",
-        "assigned_at",
-        "last_commit",
-    )
+    __slots__ = ("partition_id", "consumer_id", "current_offset", "committed_offset", "high_water_mark", "assigned_at", "last_commit")
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     CONSUMER_ID_FIELD_NUMBER: _ClassVar[int]
     CURRENT_OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -34,17 +26,4 @@ class PartitionAssignment(_message.Message):
     high_water_mark: int
     assigned_at: _timestamp_pb2.Timestamp
     last_commit: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        partition_id: _Optional[int] = ...,
-        consumer_id: _Optional[str] = ...,
-        current_offset: _Optional[int] = ...,
-        committed_offset: _Optional[int] = ...,
-        high_water_mark: _Optional[int] = ...,
-        assigned_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        last_commit: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, partition_id: _Optional[int] = ..., consumer_id: _Optional[str] = ..., current_offset: _Optional[int] = ..., committed_offset: _Optional[int] = ..., high_water_mark: _Optional[int] = ..., assigned_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_commit: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

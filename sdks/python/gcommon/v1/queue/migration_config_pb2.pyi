@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MigrationConfig(_message.Message):
-    __slots__ = (
-        "source_queue",
-        "destination_queue",
-        "migration_strategy",
-        "batch_size",
-        "timeout",
-        "verify_integrity",
-        "keep_source",
-        "max_concurrency",
-    )
+    __slots__ = ("source_queue", "destination_queue", "migration_strategy", "batch_size", "timeout", "verify_integrity", "keep_source", "max_concurrency")
     SOURCE_QUEUE_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_QUEUE_FIELD_NUMBER: _ClassVar[int]
     MIGRATION_STRATEGY_FIELD_NUMBER: _ClassVar[int]
@@ -37,16 +28,4 @@ class MigrationConfig(_message.Message):
     verify_integrity: bool
     keep_source: bool
     max_concurrency: int
-    def __init__(
-        self,
-        source_queue: _Optional[str] = ...,
-        destination_queue: _Optional[str] = ...,
-        migration_strategy: _Optional[str] = ...,
-        batch_size: _Optional[int] = ...,
-        timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        verify_integrity: _Optional[bool] = ...,
-        keep_source: _Optional[bool] = ...,
-        max_concurrency: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, source_queue: _Optional[str] = ..., destination_queue: _Optional[str] = ..., migration_strategy: _Optional[str] = ..., batch_size: _Optional[int] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., verify_integrity: _Optional[bool] = ..., keep_source: _Optional[bool] = ..., max_concurrency: _Optional[int] = ...) -> None: ...

@@ -18,10 +18,7 @@ class ConfigValidationResult(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     RULE_NAME_FIELD_NUMBER: _ClassVar[int]
     RESULT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -34,16 +31,4 @@ class ConfigValidationResult(_message.Message):
     severity: _validation_severity_pb2.ValidationSeverity
     field: str
     context: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        rule_name: _Optional[str] = ...,
-        result: _Optional[
-            _Union[_validation_result_type_pb2.ValidationResultType, str]
-        ] = ...,
-        message: _Optional[str] = ...,
-        severity: _Optional[
-            _Union[_validation_severity_pb2.ValidationSeverity, str]
-        ] = ...,
-        field: _Optional[str] = ...,
-        context: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, rule_name: _Optional[str] = ..., result: _Optional[_Union[_validation_result_type_pb2.ValidationResultType, str]] = ..., message: _Optional[str] = ..., severity: _Optional[_Union[_validation_severity_pb2.ValidationSeverity, str]] = ..., field: _Optional[str] = ..., context: _Optional[_Mapping[str, str]] = ...) -> None: ...

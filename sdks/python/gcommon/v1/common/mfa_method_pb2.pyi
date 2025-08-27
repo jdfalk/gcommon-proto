@@ -12,7 +12,6 @@ class MfaMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MFA_METHOD_EMAIL: _ClassVar[MfaMethod]
     MFA_METHOD_TOTP: _ClassVar[MfaMethod]
     MFA_METHOD_HARDWARE_KEY: _ClassVar[MfaMethod]
-
 MFA_METHOD_UNSPECIFIED: MfaMethod
 MFA_METHOD_SMS: MfaMethod
 MFA_METHOD_EMAIL: MfaMethod

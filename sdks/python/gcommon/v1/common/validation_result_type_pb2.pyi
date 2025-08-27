@@ -12,7 +12,6 @@ class ValidationResultType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_RESULT_TYPE_FAIL: _ClassVar[ValidationResultType]
     VALIDATION_RESULT_TYPE_WARNING: _ClassVar[ValidationResultType]
     VALIDATION_RESULT_TYPE_SKIP: _ClassVar[ValidationResultType]
-
 VALIDATION_RESULT_TYPE_UNSPECIFIED: ValidationResultType
 VALIDATION_RESULT_TYPE_PASS: ValidationResultType
 VALIDATION_RESULT_TYPE_FAIL: ValidationResultType

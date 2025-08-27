@@ -10,14 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuditConfig(_message.Message):
-    __slots__ = (
-        "audit_enabled",
-        "retention_days",
-        "storage_location",
-        "audited_events",
-        "real_time_monitoring",
-        "alerts",
-    )
+    __slots__ = ("audit_enabled", "retention_days", "storage_location", "audited_events", "real_time_monitoring", "alerts")
     AUDIT_ENABLED_FIELD_NUMBER: _ClassVar[int]
     RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
     STORAGE_LOCATION_FIELD_NUMBER: _ClassVar[int]
@@ -30,14 +23,4 @@ class AuditConfig(_message.Message):
     audited_events: _containers.RepeatedScalarFieldContainer[str]
     real_time_monitoring: bool
     alerts: _containers.RepeatedCompositeFieldContainer[_audit_alert_pb2.AuditAlert]
-    def __init__(
-        self,
-        audit_enabled: _Optional[bool] = ...,
-        retention_days: _Optional[int] = ...,
-        storage_location: _Optional[str] = ...,
-        audited_events: _Optional[_Iterable[str]] = ...,
-        real_time_monitoring: _Optional[bool] = ...,
-        alerts: _Optional[
-            _Iterable[_Union[_audit_alert_pb2.AuditAlert, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, audit_enabled: _Optional[bool] = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., audited_events: _Optional[_Iterable[str]] = ..., real_time_monitoring: _Optional[bool] = ..., alerts: _Optional[_Iterable[_Union[_audit_alert_pb2.AuditAlert, _Mapping]]] = ...) -> None: ...

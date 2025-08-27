@@ -14,7 +14,6 @@ class MetadataStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METADATA_STATUS_DEPRECATED: _ClassVar[MetadataStatus]
     METADATA_STATUS_DELETED: _ClassVar[MetadataStatus]
     METADATA_STATUS_ERROR: _ClassVar[MetadataStatus]
-
 METADATA_STATUS_UNSPECIFIED: MetadataStatus
 METADATA_STATUS_ACTIVE: MetadataStatus
 METADATA_STATUS_INACTIVE: MetadataStatus

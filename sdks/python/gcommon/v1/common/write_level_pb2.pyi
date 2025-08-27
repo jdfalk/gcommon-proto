@@ -12,7 +12,6 @@ class WriteLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     WRITE_LEVEL_SYNC_ONE: _ClassVar[WriteLevel]
     WRITE_LEVEL_SYNC_QUORUM: _ClassVar[WriteLevel]
     WRITE_LEVEL_SYNC_ALL: _ClassVar[WriteLevel]
-
 WRITE_LEVEL_UNSPECIFIED: WriteLevel
 WRITE_LEVEL_ASYNC: WriteLevel
 WRITE_LEVEL_SYNC_ONE: WriteLevel

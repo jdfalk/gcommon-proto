@@ -16,10 +16,4 @@ class OAuth2Credentials(_message.Message):
     redirect_uri: str
     client_id: str
     client_secret: str
-    def __init__(
-        self,
-        code: _Optional[str] = ...,
-        redirect_uri: _Optional[str] = ...,
-        client_id: _Optional[str] = ...,
-        client_secret: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, code: _Optional[str] = ..., redirect_uri: _Optional[str] = ..., client_id: _Optional[str] = ..., client_secret: _Optional[str] = ...) -> None: ...

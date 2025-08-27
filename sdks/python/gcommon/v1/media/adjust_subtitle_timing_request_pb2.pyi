@@ -14,9 +14,4 @@ class AdjustSubtitleTimingRequest(_message.Message):
     subtitle_file_id: str
     time_offset_ms: int
     preserve_duration: bool
-    def __init__(
-        self,
-        subtitle_file_id: _Optional[str] = ...,
-        time_offset_ms: _Optional[int] = ...,
-        preserve_duration: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, subtitle_file_id: _Optional[str] = ..., time_offset_ms: _Optional[int] = ..., preserve_duration: _Optional[bool] = ...) -> None: ...

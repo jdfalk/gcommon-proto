@@ -16,10 +16,7 @@ class SynchronizationTarget(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
@@ -30,11 +27,4 @@ class SynchronizationTarget(_message.Message):
     config: _containers.ScalarMap[str, str]
     enabled: bool
     priority: int
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        type: _Optional[str] = ...,
-        config: _Optional[_Mapping[str, str]] = ...,
-        enabled: _Optional[bool] = ...,
-        priority: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., config: _Optional[_Mapping[str, str]] = ..., enabled: _Optional[bool] = ..., priority: _Optional[int] = ...) -> None: ...

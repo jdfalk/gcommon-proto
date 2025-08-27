@@ -18,12 +18,4 @@ class DeleteProviderRequest(_message.Message):
     provider_id: str
     force: bool
     dry_run: bool
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        provider_id: _Optional[str] = ...,
-        force: _Optional[bool] = ...,
-        dry_run: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., force: _Optional[bool] = ..., dry_run: _Optional[bool] = ...) -> None: ...

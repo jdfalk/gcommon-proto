@@ -17,9 +17,4 @@ class RecordSummaryResponse(_message.Message):
     metric: _summary_metric_pb2.SummaryMetric
     stats: _recording_stats_pb2.RecordingStats
     error: _error_pb2.Error
-    def __init__(
-        self,
-        metric: _Optional[_Union[_summary_metric_pb2.SummaryMetric, _Mapping]] = ...,
-        stats: _Optional[_Union[_recording_stats_pb2.RecordingStats, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, metric: _Optional[_Union[_summary_metric_pb2.SummaryMetric, _Mapping]] = ..., stats: _Optional[_Union[_recording_stats_pb2.RecordingStats, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

@@ -20,11 +20,4 @@ class PermissionRule(_message.Message):
     required_roles: _containers.RepeatedScalarFieldContainer[str]
     allow: bool
     priority: int
-    def __init__(
-        self,
-        resource_pattern: _Optional[str] = ...,
-        operation: _Optional[str] = ...,
-        required_roles: _Optional[_Iterable[str]] = ...,
-        allow: _Optional[bool] = ...,
-        priority: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, resource_pattern: _Optional[str] = ..., operation: _Optional[str] = ..., required_roles: _Optional[_Iterable[str]] = ..., allow: _Optional[bool] = ..., priority: _Optional[int] = ...) -> None: ...

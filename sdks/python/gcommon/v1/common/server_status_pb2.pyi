@@ -14,7 +14,6 @@ class ServerStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SERVER_STATUS_STOPPING: _ClassVar[ServerStatus]
     SERVER_STATUS_STOPPED: _ClassVar[ServerStatus]
     SERVER_STATUS_ERROR: _ClassVar[ServerStatus]
-
 SERVER_STATUS_UNSPECIFIED: ServerStatus
 SERVER_STATUS_CREATED: ServerStatus
 SERVER_STATUS_STARTING: ServerStatus

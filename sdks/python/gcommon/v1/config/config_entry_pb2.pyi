@@ -14,27 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigEntry(_message.Message):
-    __slots__ = (
-        "key",
-        "value",
-        "namespace",
-        "metadata",
-        "tags",
-        "created_at",
-        "updated_at",
-        "version",
-        "status",
-    )
+    __slots__ = ("key", "value", "namespace", "metadata", "tags", "created_at", "updated_at", "version", "status")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
@@ -53,19 +40,4 @@ class ConfigEntry(_message.Message):
     updated_at: _timestamp_pb2.Timestamp
     version: int
     status: _resource_status_pb2.ResourceStatus
-    def __init__(
-        self,
-        key: _Optional[str] = ...,
-        value: _Optional[_Union[_config_value_pb2.ConfigValue, _Mapping]] = ...,
-        namespace: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        tags: _Optional[_Iterable[str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        updated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        version: _Optional[int] = ...,
-        status: _Optional[_Union[_resource_status_pb2.ResourceStatus, str]] = ...,
-    ) -> None: ...
+    def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_config_value_pb2.ConfigValue, _Mapping]] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., tags: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ..., status: _Optional[_Union[_resource_status_pb2.ResourceStatus, str]] = ...) -> None: ...

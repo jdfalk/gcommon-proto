@@ -20,12 +20,4 @@ class WebsocketInfo(_message.Message):
     client_ip: str
     user_agent: str
     connected_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        connection_id: _Optional[str] = ...,
-        client_ip: _Optional[str] = ...,
-        user_agent: _Optional[str] = ...,
-        connected_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, connection_id: _Optional[str] = ..., client_ip: _Optional[str] = ..., user_agent: _Optional[str] = ..., connected_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -4,15 +4,18 @@
 # source: gcommon/v1/common/error_code.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/common/error_code.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/common/error_code.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -22,22 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n"gcommon/v1/common/error_code.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc4\x03\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x45RROR_CODE_INVALID_ARGUMENT\x10\x01\x12\x18\n\x14\x45RROR_CODE_NOT_FOUND\x10\x02\x12\x1d\n\x19\x45RROR_CODE_ALREADY_EXISTS\x10\x03\x12 \n\x1c\x45RROR_CODE_PERMISSION_DENIED\x10\x04\x12\x1e\n\x1a\x45RROR_CODE_UNAUTHENTICATED\x10\x05\x12\x17\n\x13\x45RROR_CODE_INTERNAL\x10\x06\x12\x1a\n\x16\x45RROR_CODE_UNAVAILABLE\x10\x07\x12\x16\n\x12\x45RROR_CODE_TIMEOUT\x10\x08\x12!\n\x1d\x45RROR_CODE_RESOURCE_EXHAUSTED\x10\t\x12"\n\x1e\x45RROR_CODE_FAILED_PRECONDITION\x10\n\x12\x16\n\x12\x45RROR_CODE_ABORTED\x10\x0b\x12\x1b\n\x17\x45RROR_CODE_OUT_OF_RANGE\x10\x0c\x12\x1c\n\x18\x45RROR_CODE_UNIMPLEMENTED\x10\r\x12\x18\n\x14\x45RROR_CODE_DATA_LOSS\x10\x0e\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"gcommon/v1/common/error_code.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xc4\x03\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x45RROR_CODE_INVALID_ARGUMENT\x10\x01\x12\x18\n\x14\x45RROR_CODE_NOT_FOUND\x10\x02\x12\x1d\n\x19\x45RROR_CODE_ALREADY_EXISTS\x10\x03\x12 \n\x1c\x45RROR_CODE_PERMISSION_DENIED\x10\x04\x12\x1e\n\x1a\x45RROR_CODE_UNAUTHENTICATED\x10\x05\x12\x17\n\x13\x45RROR_CODE_INTERNAL\x10\x06\x12\x1a\n\x16\x45RROR_CODE_UNAVAILABLE\x10\x07\x12\x16\n\x12\x45RROR_CODE_TIMEOUT\x10\x08\x12!\n\x1d\x45RROR_CODE_RESOURCE_EXHAUSTED\x10\t\x12\"\n\x1e\x45RROR_CODE_FAILED_PRECONDITION\x10\n\x12\x16\n\x12\x45RROR_CODE_ABORTED\x10\x0b\x12\x1b\n\x17\x45RROR_CODE_OUT_OF_RANGE\x10\x0c\x12\x1c\n\x18\x45RROR_CODE_UNIMPLEMENTED\x10\r\x12\x18\n\x14\x45RROR_CODE_DATA_LOSS\x10\x0e\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.error_code_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.error_code_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_ERRORCODE"]._serialized_start = 93
-    _globals["_ERRORCODE"]._serialized_end = 545
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_ERRORCODE']._serialized_start=93
+  _globals['_ERRORCODE']._serialized_end=545
 # @@protoc_insertion_point(module_scope)

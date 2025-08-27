@@ -16,10 +16,4 @@ class MemoryUsage(_message.Message):
     limit_bytes: int
     usage_percent: float
     peak_bytes: int
-    def __init__(
-        self,
-        used_bytes: _Optional[int] = ...,
-        limit_bytes: _Optional[int] = ...,
-        usage_percent: _Optional[float] = ...,
-        peak_bytes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, used_bytes: _Optional[int] = ..., limit_bytes: _Optional[int] = ..., usage_percent: _Optional[float] = ..., peak_bytes: _Optional[int] = ...) -> None: ...

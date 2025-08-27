@@ -10,18 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeletionResult(_message.Message):
-    __slots__ = (
-        "provider_deleted",
-        "data_deleted_bytes",
-        "metrics_deleted",
-        "data_points_deleted",
-        "deleted_indices",
-        "stopped_exports",
-        "deleted_backups",
-        "cleanup_strategy_used",
-        "deletion_duration",
-        "dry_run_result",
-    )
+    __slots__ = ("provider_deleted", "data_deleted_bytes", "metrics_deleted", "data_points_deleted", "deleted_indices", "stopped_exports", "deleted_backups", "cleanup_strategy_used", "deletion_duration", "dry_run_result")
     PROVIDER_DELETED_FIELD_NUMBER: _ClassVar[int]
     DATA_DELETED_BYTES_FIELD_NUMBER: _ClassVar[int]
     METRICS_DELETED_FIELD_NUMBER: _ClassVar[int]
@@ -42,18 +31,4 @@ class DeletionResult(_message.Message):
     cleanup_strategy_used: str
     deletion_duration: str
     dry_run_result: _dry_run_result_pb2.DryRunResult
-    def __init__(
-        self,
-        provider_deleted: _Optional[bool] = ...,
-        data_deleted_bytes: _Optional[int] = ...,
-        metrics_deleted: _Optional[int] = ...,
-        data_points_deleted: _Optional[int] = ...,
-        deleted_indices: _Optional[_Iterable[str]] = ...,
-        stopped_exports: _Optional[_Iterable[str]] = ...,
-        deleted_backups: _Optional[_Iterable[str]] = ...,
-        cleanup_strategy_used: _Optional[str] = ...,
-        deletion_duration: _Optional[str] = ...,
-        dry_run_result: _Optional[
-            _Union[_dry_run_result_pb2.DryRunResult, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, provider_deleted: _Optional[bool] = ..., data_deleted_bytes: _Optional[int] = ..., metrics_deleted: _Optional[int] = ..., data_points_deleted: _Optional[int] = ..., deleted_indices: _Optional[_Iterable[str]] = ..., stopped_exports: _Optional[_Iterable[str]] = ..., deleted_backups: _Optional[_Iterable[str]] = ..., cleanup_strategy_used: _Optional[str] = ..., deletion_duration: _Optional[str] = ..., dry_run_result: _Optional[_Union[_dry_run_result_pb2.DryRunResult, _Mapping]] = ...) -> None: ...

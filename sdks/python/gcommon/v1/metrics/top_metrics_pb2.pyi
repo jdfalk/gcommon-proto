@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TopMetrics(_message.Message):
-    __slots__ = (
-        "most_active",
-        "largest_by_volume",
-        "highest_errors",
-        "most_queried",
-        "slowest_performing",
-        "most_resource_intensive",
-    )
+    __slots__ = ("most_active", "largest_by_volume", "highest_errors", "most_queried", "slowest_performing", "most_resource_intensive")
     MOST_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     LARGEST_BY_VOLUME_FIELD_NUMBER: _ClassVar[int]
     HIGHEST_ERRORS_FIELD_NUMBER: _ClassVar[int]
@@ -29,12 +22,4 @@ class TopMetrics(_message.Message):
     most_queried: _containers.RepeatedScalarFieldContainer[str]
     slowest_performing: _containers.RepeatedScalarFieldContainer[str]
     most_resource_intensive: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        most_active: _Optional[_Iterable[str]] = ...,
-        largest_by_volume: _Optional[_Iterable[str]] = ...,
-        highest_errors: _Optional[_Iterable[str]] = ...,
-        most_queried: _Optional[_Iterable[str]] = ...,
-        slowest_performing: _Optional[_Iterable[str]] = ...,
-        most_resource_intensive: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, most_active: _Optional[_Iterable[str]] = ..., largest_by_volume: _Optional[_Iterable[str]] = ..., highest_errors: _Optional[_Iterable[str]] = ..., most_queried: _Optional[_Iterable[str]] = ..., slowest_performing: _Optional[_Iterable[str]] = ..., most_resource_intensive: _Optional[_Iterable[str]] = ...) -> None: ...

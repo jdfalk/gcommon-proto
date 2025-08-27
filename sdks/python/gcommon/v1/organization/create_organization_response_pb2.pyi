@@ -12,14 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateOrganizationResponse(_message.Message):
-    __slots__ = (
-        "organization",
-        "default_tenant",
-        "owner_member_id",
-        "errors",
-        "success",
-        "message",
-    )
+    __slots__ = ("organization", "default_tenant", "owner_member_id", "errors", "success", "message")
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_TENANT_FIELD_NUMBER: _ClassVar[int]
     OWNER_MEMBER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -32,12 +25,4 @@ class CreateOrganizationResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     message: str
-    def __init__(
-        self,
-        organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...,
-        default_tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ...,
-        owner_member_id: _Optional[str] = ...,
-        errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ...,
-        success: _Optional[bool] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ..., default_tenant: _Optional[_Union[_tenant_pb2.Tenant, _Mapping]] = ..., owner_member_id: _Optional[str] = ..., errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., message: _Optional[str] = ...) -> None: ...

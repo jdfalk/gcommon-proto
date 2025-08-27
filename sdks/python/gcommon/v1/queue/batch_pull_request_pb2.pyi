@@ -11,15 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchPullRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "max_messages",
-        "wait_timeout",
-        "auto_acknowledge",
-        "consumer_group",
-        "subscription",
-        "max_payload_size",
-    )
+    __slots__ = ("queue_name", "max_messages", "wait_timeout", "auto_acknowledge", "consumer_group", "subscription", "max_payload_size")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     MAX_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     WAIT_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
@@ -34,15 +26,4 @@ class BatchPullRequest(_message.Message):
     consumer_group: str
     subscription: str
     max_payload_size: int
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        max_messages: _Optional[int] = ...,
-        wait_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        auto_acknowledge: _Optional[bool] = ...,
-        consumer_group: _Optional[str] = ...,
-        subscription: _Optional[str] = ...,
-        max_payload_size: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., max_messages: _Optional[int] = ..., wait_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., auto_acknowledge: _Optional[bool] = ..., consumer_group: _Optional[str] = ..., subscription: _Optional[str] = ..., max_payload_size: _Optional[int] = ...) -> None: ...

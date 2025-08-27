@@ -15,9 +15,4 @@ class SendNotificationResponse(_message.Message):
     notification_id: str
     accepted: bool
     status: _delivery_status_pb2.DeliveryStatus
-    def __init__(
-        self,
-        notification_id: _Optional[str] = ...,
-        accepted: _Optional[bool] = ...,
-        status: _Optional[_Union[_delivery_status_pb2.DeliveryStatus, str]] = ...,
-    ) -> None: ...
+    def __init__(self, notification_id: _Optional[str] = ..., accepted: _Optional[bool] = ..., status: _Optional[_Union[_delivery_status_pb2.DeliveryStatus, str]] = ...) -> None: ...

@@ -16,7 +16,6 @@ class TenantStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TENANT_STATUS_TRIAL: _ClassVar[TenantStatus]
     TENANT_STATUS_ARCHIVED: _ClassVar[TenantStatus]
     TENANT_STATUS_DELETED: _ClassVar[TenantStatus]
-
 TENANT_STATUS_UNSPECIFIED: TenantStatus
 TENANT_STATUS_ACTIVE: TenantStatus
 TENANT_STATUS_INACTIVE: TenantStatus

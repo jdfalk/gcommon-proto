@@ -13,7 +13,6 @@ class RoutingPattern(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROUTING_PATTERN_TOPIC: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_PREFIX: _ClassVar[RoutingPattern]
     ROUTING_PATTERN_SUFFIX: _ClassVar[RoutingPattern]
-
 ROUTING_PATTERN_UNSPECIFIED: RoutingPattern
 ROUTING_PATTERN_WILDCARD: RoutingPattern
 ROUTING_PATTERN_REGEX: RoutingPattern

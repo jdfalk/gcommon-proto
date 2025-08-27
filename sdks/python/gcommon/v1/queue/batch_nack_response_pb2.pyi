@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchNackResponse(_message.Message):
-    __slots__ = (
-        "successful_count",
-        "failed_count",
-        "successful_message_ids",
-        "failed_message_ids",
-        "error_messages",
-        "error",
-    )
+    __slots__ = ("successful_count", "failed_count", "successful_message_ids", "failed_message_ids", "error_messages", "error")
     SUCCESSFUL_COUNT_FIELD_NUMBER: _ClassVar[int]
     FAILED_COUNT_FIELD_NUMBER: _ClassVar[int]
     SUCCESSFUL_MESSAGE_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -29,12 +22,4 @@ class BatchNackResponse(_message.Message):
     failed_message_ids: _containers.RepeatedScalarFieldContainer[str]
     error_messages: _containers.RepeatedScalarFieldContainer[str]
     error: str
-    def __init__(
-        self,
-        successful_count: _Optional[int] = ...,
-        failed_count: _Optional[int] = ...,
-        successful_message_ids: _Optional[_Iterable[str]] = ...,
-        failed_message_ids: _Optional[_Iterable[str]] = ...,
-        error_messages: _Optional[_Iterable[str]] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, successful_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., successful_message_ids: _Optional[_Iterable[str]] = ..., failed_message_ids: _Optional[_Iterable[str]] = ..., error_messages: _Optional[_Iterable[str]] = ..., error: _Optional[str] = ...) -> None: ...

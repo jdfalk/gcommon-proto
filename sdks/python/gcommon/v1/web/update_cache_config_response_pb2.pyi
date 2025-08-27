@@ -13,10 +13,4 @@ class UpdateCacheConfigResponse(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     success: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

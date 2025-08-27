@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryOptions(_message.Message):
-    __slots__ = (
-        "delay",
-        "max_retries",
-        "retry_delay",
-        "backoff_multiplier",
-        "max_retry_delay",
-        "dead_letter_queue",
-        "require_ack",
-        "ack_timeout",
-    )
+    __slots__ = ("delay", "max_retries", "retry_delay", "backoff_multiplier", "max_retry_delay", "dead_letter_queue", "require_ack", "ack_timeout")
     DELAY_FIELD_NUMBER: _ClassVar[int]
     MAX_RETRIES_FIELD_NUMBER: _ClassVar[int]
     RETRY_DELAY_FIELD_NUMBER: _ClassVar[int]
@@ -37,22 +28,4 @@ class DeliveryOptions(_message.Message):
     dead_letter_queue: str
     require_ack: bool
     ack_timeout: _duration_pb2.Duration
-    def __init__(
-        self,
-        delay: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        max_retries: _Optional[int] = ...,
-        retry_delay: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        backoff_multiplier: _Optional[float] = ...,
-        max_retry_delay: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        dead_letter_queue: _Optional[str] = ...,
-        require_ack: _Optional[bool] = ...,
-        ack_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_retries: _Optional[int] = ..., retry_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., backoff_multiplier: _Optional[float] = ..., max_retry_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., dead_letter_queue: _Optional[str] = ..., require_ack: _Optional[bool] = ..., ack_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

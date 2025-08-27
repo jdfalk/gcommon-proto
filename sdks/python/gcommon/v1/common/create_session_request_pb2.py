@@ -4,82 +4,50 @@
 # source: gcommon/v1/common/create_session_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/create_session_request.proto",
+    '',
+    'gcommon/v1/common/create_session_request.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    client_info_pb2 as gcommon_dot_v1_dot_common_dot_client__info__pb2,
-)
-from gcommon.v1.common import (
-    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
-)
+from gcommon.v1.common import client_info_pb2 as gcommon_dot_v1_dot_common_dot_client__info__pb2
+from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n.gcommon/v1/common/create_session_request.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/client_info.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf4\x03\n\x18\x41uthCreateSessionRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12p\n\x07user_id\x18\x02 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12\x42\n\x0b\x63lient_info\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\nclientInfo\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x05R\x0f\x64urationSeconds\x12o\n\x10session_metadata\x18\x05 \x03(\x0b\x32@.gcommon.v1.common.AuthCreateSessionRequest.SessionMetadataEntryB\x02(\x01R\x0fsessionMetadata\x1a\x42\n\x14SessionMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/common/create_session_request.proto\x12\x11gcommon.v1.common\x1a#gcommon/v1/common/client_info.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf4\x03\n\x18\x41uthCreateSessionRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12p\n\x07user_id\x18\x02 \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12\x42\n\x0b\x63lient_info\x18\x03 \x01(\x0b\x32\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\nclientInfo\x12)\n\x10\x64uration_seconds\x18\x04 \x01(\x05R\x0f\x64urationSeconds\x12o\n\x10session_metadata\x18\x05 \x03(\x0b\x32@.gcommon.v1.common.AuthCreateSessionRequest.SessionMetadataEntryB\x02(\x01R\x0fsessionMetadata\x1a\x42\n\x14SessionMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.create_session_request_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.create_session_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY"]._loaded_options = None
-    _globals[
-        "_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY"
-    ]._serialized_options = b"8\001"
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "metadata"
-    ]._loaded_options = None
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "metadata"
-    ]._serialized_options = b"(\001"
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "user_id"
-    ]._loaded_options = None
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "user_id"
-    ]._serialized_options = b"\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001"
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "client_info"
-    ]._loaded_options = None
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "client_info"
-    ]._serialized_options = b"(\001"
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "session_metadata"
-    ]._loaded_options = None
-    _globals["_AUTHCREATESESSIONREQUEST"].fields_by_name[
-        "session_metadata"
-    ]._serialized_options = b"(\001"
-    _globals["_AUTHCREATESESSIONREQUEST"]._serialized_start = 213
-    _globals["_AUTHCREATESESSIONREQUEST"]._serialized_end = 713
-    _globals["_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY"]._serialized_start = 647
-    _globals["_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY"]._serialized_end = 713
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY']._loaded_options = None
+  _globals['_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY']._serialized_options = b'8\001'
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['metadata']._loaded_options = None
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['user_id']._loaded_options = None
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['user_id']._serialized_options = b'\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001'
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['client_info']._loaded_options = None
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['client_info']._serialized_options = b'(\001'
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['session_metadata']._loaded_options = None
+  _globals['_AUTHCREATESESSIONREQUEST'].fields_by_name['session_metadata']._serialized_options = b'(\001'
+  _globals['_AUTHCREATESESSIONREQUEST']._serialized_start=213
+  _globals['_AUTHCREATESESSIONREQUEST']._serialized_end=713
+  _globals['_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY']._serialized_start=647
+  _globals['_AUTHCREATESESSIONREQUEST_SESSIONMETADATAENTRY']._serialized_end=713
 # @@protoc_insertion_point(module_scope)

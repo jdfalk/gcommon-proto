@@ -16,19 +16,11 @@ class SendVerificationEmailRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     CONTEXT_FIELD_NUMBER: _ClassVar[int]
     identifier: str
     template: str
     context: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        identifier: _Optional[str] = ...,
-        template: _Optional[str] = ...,
-        context: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, identifier: _Optional[str] = ..., template: _Optional[str] = ..., context: _Optional[_Mapping[str, str]] = ...) -> None: ...

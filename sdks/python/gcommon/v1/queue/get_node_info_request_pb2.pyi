@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetNodeInfoRequest(_message.Message):
-    __slots__ = (
-        "node_id",
-        "include_metrics",
-        "include_health",
-        "include_resources",
-        "include_topology",
-        "timeout_ms",
-    )
+    __slots__ = ("node_id", "include_metrics", "include_health", "include_resources", "include_topology", "timeout_ms")
     NODE_ID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_METRICS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_HEALTH_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class GetNodeInfoRequest(_message.Message):
     include_resources: bool
     include_topology: bool
     timeout_ms: int
-    def __init__(
-        self,
-        node_id: _Optional[str] = ...,
-        include_metrics: _Optional[bool] = ...,
-        include_health: _Optional[bool] = ...,
-        include_resources: _Optional[bool] = ...,
-        include_topology: _Optional[bool] = ...,
-        timeout_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, node_id: _Optional[str] = ..., include_metrics: _Optional[bool] = ..., include_health: _Optional[bool] = ..., include_resources: _Optional[bool] = ..., include_topology: _Optional[bool] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

@@ -23,13 +23,4 @@ class ExportMetricsResponse(_message.Message):
     exported_records: int
     exported_at: _timestamp_pb2.Timestamp
     file_url: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        exported_records: _Optional[int] = ...,
-        exported_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        file_url: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., exported_records: _Optional[int] = ..., exported_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., file_url: _Optional[str] = ...) -> None: ...

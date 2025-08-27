@@ -1,6 +1,4 @@
-from gcommon.v1.common import (
-    organization_resource_limits_pb2 as _organization_resource_limits_pb2,
-)
+from gcommon.v1.common import organization_resource_limits_pb2 as _organization_resource_limits_pb2
 from gcommon.v1.organization import auto_scaling_config_pb2 as _auto_scaling_config_pb2
 from gcommon.v1.organization import cpu_allocation_pb2 as _cpu_allocation_pb2
 from gcommon.v1.organization import memory_allocation_pb2 as _memory_allocation_pb2
@@ -14,15 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ComputeIsolation(_message.Message):
-    __slots__ = (
-        "compute_instance",
-        "namespace",
-        "cpu",
-        "memory",
-        "dedicated_compute",
-        "limits",
-        "auto_scaling",
-    )
+    __slots__ = ("compute_instance", "namespace", "cpu", "memory", "dedicated_compute", "limits", "auto_scaling")
     COMPUTE_INSTANCE_FIELD_NUMBER: _ClassVar[int]
     NAMESPACE_FIELD_NUMBER: _ClassVar[int]
     CPU_FIELD_NUMBER: _ClassVar[int]
@@ -37,21 +27,4 @@ class ComputeIsolation(_message.Message):
     dedicated_compute: bool
     limits: _organization_resource_limits_pb2.OrganizationResourceLimits
     auto_scaling: _auto_scaling_config_pb2.AutoScalingConfig
-    def __init__(
-        self,
-        compute_instance: _Optional[str] = ...,
-        namespace: _Optional[str] = ...,
-        cpu: _Optional[_Union[_cpu_allocation_pb2.CPUAllocation, _Mapping]] = ...,
-        memory: _Optional[
-            _Union[_memory_allocation_pb2.MemoryAllocation, _Mapping]
-        ] = ...,
-        dedicated_compute: _Optional[bool] = ...,
-        limits: _Optional[
-            _Union[
-                _organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping
-            ]
-        ] = ...,
-        auto_scaling: _Optional[
-            _Union[_auto_scaling_config_pb2.AutoScalingConfig, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, compute_instance: _Optional[str] = ..., namespace: _Optional[str] = ..., cpu: _Optional[_Union[_cpu_allocation_pb2.CPUAllocation, _Mapping]] = ..., memory: _Optional[_Union[_memory_allocation_pb2.MemoryAllocation, _Mapping]] = ..., dedicated_compute: _Optional[bool] = ..., limits: _Optional[_Union[_organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., auto_scaling: _Optional[_Union[_auto_scaling_config_pb2.AutoScalingConfig, _Mapping]] = ...) -> None: ...

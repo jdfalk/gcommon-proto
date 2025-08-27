@@ -13,27 +13,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheOperationResult(_message.Message):
-    __slots__ = (
-        "success",
-        "operation_type",
-        "key",
-        "namespace",
-        "duration_microseconds",
-        "timestamp",
-        "items_affected",
-        "error",
-        "metadata",
-    )
+    __slots__ = ("success", "operation_type", "key", "namespace", "duration_microseconds", "timestamp", "items_affected", "error", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     OPERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
@@ -52,17 +39,4 @@ class CacheOperationResult(_message.Message):
     items_affected: int
     error: _error_pb2.Error
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        operation_type: _Optional[str] = ...,
-        key: _Optional[str] = ...,
-        namespace: _Optional[str] = ...,
-        duration_microseconds: _Optional[int] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        items_affected: _Optional[int] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., operation_type: _Optional[str] = ..., key: _Optional[str] = ..., namespace: _Optional[str] = ..., duration_microseconds: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., items_affected: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

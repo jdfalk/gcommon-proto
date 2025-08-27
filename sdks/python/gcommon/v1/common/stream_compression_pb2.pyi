@@ -12,7 +12,6 @@ class StreamCompression(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STREAM_COMPRESSION_GZIP: _ClassVar[StreamCompression]
     STREAM_COMPRESSION_SNAPPY: _ClassVar[StreamCompression]
     STREAM_COMPRESSION_LZ4: _ClassVar[StreamCompression]
-
 STREAM_COMPRESSION_UNSPECIFIED: StreamCompression
 STREAM_COMPRESSION_NONE: StreamCompression
 STREAM_COMPRESSION_GZIP: StreamCompression

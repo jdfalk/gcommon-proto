@@ -22,7 +22,6 @@ class ErrorCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ERROR_CODE_OUT_OF_RANGE: _ClassVar[ErrorCode]
     ERROR_CODE_UNIMPLEMENTED: _ClassVar[ErrorCode]
     ERROR_CODE_DATA_LOSS: _ClassVar[ErrorCode]
-
 ERROR_CODE_UNSPECIFIED: ErrorCode
 ERROR_CODE_INVALID_ARGUMENT: ErrorCode
 ERROR_CODE_NOT_FOUND: ErrorCode

@@ -16,11 +16,4 @@ class MergeSubtitlesRequest(_message.Message):
     subtitle_file_ids: _containers.RepeatedScalarFieldContainer[str]
     output_file_id: str
     merge_options: _merge_options_pb2.MergeOptions
-    def __init__(
-        self,
-        subtitle_file_ids: _Optional[_Iterable[str]] = ...,
-        output_file_id: _Optional[str] = ...,
-        merge_options: _Optional[
-            _Union[_merge_options_pb2.MergeOptions, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, subtitle_file_ids: _Optional[_Iterable[str]] = ..., output_file_id: _Optional[str] = ..., merge_options: _Optional[_Union[_merge_options_pb2.MergeOptions, _Mapping]] = ...) -> None: ...

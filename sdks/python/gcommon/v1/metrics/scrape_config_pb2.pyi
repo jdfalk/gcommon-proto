@@ -15,15 +15,6 @@ class ScrapeConfig(_message.Message):
     TARGETS_FIELD_NUMBER: _ClassVar[int]
     SCRAPE_INTERVAL_SECONDS_FIELD_NUMBER: _ClassVar[int]
     job_name: str
-    targets: _containers.RepeatedCompositeFieldContainer[
-        _scrape_target_pb2.ScrapeTarget
-    ]
+    targets: _containers.RepeatedCompositeFieldContainer[_scrape_target_pb2.ScrapeTarget]
     scrape_interval_seconds: int
-    def __init__(
-        self,
-        job_name: _Optional[str] = ...,
-        targets: _Optional[
-            _Iterable[_Union[_scrape_target_pb2.ScrapeTarget, _Mapping]]
-        ] = ...,
-        scrape_interval_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, job_name: _Optional[str] = ..., targets: _Optional[_Iterable[_Union[_scrape_target_pb2.ScrapeTarget, _Mapping]]] = ..., scrape_interval_seconds: _Optional[int] = ...) -> None: ...

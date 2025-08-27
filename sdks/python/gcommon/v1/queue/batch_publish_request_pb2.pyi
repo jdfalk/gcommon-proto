@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchPublishRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "messages",
-        "use_transaction",
-        "timeout_ms",
-        "wait_for_all",
-        "metadata",
-        "max_retries",
-        "batch_id",
-    )
+    __slots__ = ("queue_name", "messages", "use_transaction", "timeout_ms", "wait_for_all", "metadata", "max_retries", "batch_id")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_FIELD_NUMBER: _ClassVar[int]
     USE_TRANSACTION_FIELD_NUMBER: _ClassVar[int]
@@ -30,27 +21,11 @@ class BatchPublishRequest(_message.Message):
     MAX_RETRIES_FIELD_NUMBER: _ClassVar[int]
     BATCH_ID_FIELD_NUMBER: _ClassVar[int]
     queue_name: str
-    messages: _containers.RepeatedCompositeFieldContainer[
-        _queue_message_pb2.QueueMessage
-    ]
+    messages: _containers.RepeatedCompositeFieldContainer[_queue_message_pb2.QueueMessage]
     use_transaction: bool
     timeout_ms: int
     wait_for_all: bool
     metadata: _request_metadata_pb2.RequestMetadata
     max_retries: int
     batch_id: str
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        messages: _Optional[
-            _Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]
-        ] = ...,
-        use_transaction: _Optional[bool] = ...,
-        timeout_ms: _Optional[int] = ...,
-        wait_for_all: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        max_retries: _Optional[int] = ...,
-        batch_id: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., messages: _Optional[_Iterable[_Union[_queue_message_pb2.QueueMessage, _Mapping]]] = ..., use_transaction: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., wait_for_all: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., max_retries: _Optional[int] = ..., batch_id: _Optional[str] = ...) -> None: ...

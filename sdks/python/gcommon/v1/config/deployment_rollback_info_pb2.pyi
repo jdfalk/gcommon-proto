@@ -11,13 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeploymentRollbackInfo(_message.Message):
-    __slots__ = (
-        "available",
-        "previous_version",
-        "rollback_timestamp",
-        "reason",
-        "method",
-    )
+    __slots__ = ("available", "previous_version", "rollback_timestamp", "reason", "method")
     AVAILABLE_FIELD_NUMBER: _ClassVar[int]
     PREVIOUS_VERSION_FIELD_NUMBER: _ClassVar[int]
     ROLLBACK_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -28,13 +22,4 @@ class DeploymentRollbackInfo(_message.Message):
     rollback_timestamp: _timestamp_pb2.Timestamp
     reason: str
     method: str
-    def __init__(
-        self,
-        available: _Optional[bool] = ...,
-        previous_version: _Optional[str] = ...,
-        rollback_timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        reason: _Optional[str] = ...,
-        method: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, available: _Optional[bool] = ..., previous_version: _Optional[str] = ..., rollback_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., reason: _Optional[str] = ..., method: _Optional[str] = ...) -> None: ...

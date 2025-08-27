@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BatchSettings(_message.Message):
-    __slots__ = (
-        "enabled",
-        "max_batch_size",
-        "max_batch_bytes",
-        "batch_timeout_ms",
-        "flush_on_complete",
-    )
+    __slots__ = ("enabled", "max_batch_size", "max_batch_bytes", "batch_timeout_ms", "flush_on_complete")
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     MAX_BATCH_SIZE_FIELD_NUMBER: _ClassVar[int]
     MAX_BATCH_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class BatchSettings(_message.Message):
     max_batch_bytes: int
     batch_timeout_ms: int
     flush_on_complete: bool
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        max_batch_size: _Optional[int] = ...,
-        max_batch_bytes: _Optional[int] = ...,
-        batch_timeout_ms: _Optional[int] = ...,
-        flush_on_complete: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., max_batch_size: _Optional[int] = ..., max_batch_bytes: _Optional[int] = ..., batch_timeout_ms: _Optional[int] = ..., flush_on_complete: _Optional[bool] = ...) -> None: ...

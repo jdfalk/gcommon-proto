@@ -14,27 +14,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AlertRule(_message.Message):
-    __slots__ = (
-        "name",
-        "description",
-        "metric_name",
-        "condition",
-        "threshold",
-        "duration",
-        "severity",
-        "enabled",
-        "labels",
-    )
+    __slots__ = ("name", "description", "metric_name", "condition", "threshold", "duration", "severity", "enabled", "labels")
     class LabelsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     METRIC_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -53,19 +40,4 @@ class AlertRule(_message.Message):
     severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
     enabled: bool
     labels: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        metric_name: _Optional[str] = ...,
-        condition: _Optional[_Union[_alert_condition_pb2.AlertCondition, str]] = ...,
-        threshold: _Optional[float] = ...,
-        duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        severity: _Optional[
-            _Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]
-        ] = ...,
-        enabled: _Optional[bool] = ...,
-        labels: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., metric_name: _Optional[str] = ..., condition: _Optional[_Union[_alert_condition_pb2.AlertCondition, str]] = ..., threshold: _Optional[float] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., enabled: _Optional[bool] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...

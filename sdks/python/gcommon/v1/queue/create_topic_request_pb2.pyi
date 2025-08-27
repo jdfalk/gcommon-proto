@@ -17,10 +17,7 @@ class CreateTopicRequest(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TOPIC_NAME_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     DURABLE_FIELD_NUMBER: _ClassVar[int]
@@ -31,11 +28,4 @@ class CreateTopicRequest(_message.Message):
     durable: bool
     auto_delete: bool
     arguments: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        topic_name: _Optional[str] = ...,
-        config: _Optional[_Union[_topic_config_pb2.TopicConfig, _Mapping]] = ...,
-        durable: _Optional[bool] = ...,
-        auto_delete: _Optional[bool] = ...,
-        arguments: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, topic_name: _Optional[str] = ..., config: _Optional[_Union[_topic_config_pb2.TopicConfig, _Mapping]] = ..., durable: _Optional[bool] = ..., auto_delete: _Optional[bool] = ..., arguments: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeleteTopicResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "deleted_subscriptions",
-        "purged_messages",
-        "message",
-        "error",
-    )
+    __slots__ = ("success", "deleted_subscriptions", "purged_messages", "message", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     DELETED_SUBSCRIPTIONS_FIELD_NUMBER: _ClassVar[int]
     PURGED_MESSAGES_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class DeleteTopicResponse(_message.Message):
     purged_messages: int
     message: str
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        deleted_subscriptions: _Optional[int] = ...,
-        purged_messages: _Optional[int] = ...,
-        message: _Optional[str] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., deleted_subscriptions: _Optional[int] = ..., purged_messages: _Optional[int] = ..., message: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...

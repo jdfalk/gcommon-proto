@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetSubscriptionInfoRequest(_message.Message):
-    __slots__ = (
-        "subscription_id",
-        "include_metrics",
-        "include_consumer_details",
-        "include_partitions",
-        "timeout_ms",
-    )
+    __slots__ = ("subscription_id", "include_metrics", "include_consumer_details", "include_partitions", "timeout_ms")
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_METRICS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_CONSUMER_DETAILS_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class GetSubscriptionInfoRequest(_message.Message):
     include_consumer_details: bool
     include_partitions: bool
     timeout_ms: int
-    def __init__(
-        self,
-        subscription_id: _Optional[str] = ...,
-        include_metrics: _Optional[bool] = ...,
-        include_consumer_details: _Optional[bool] = ...,
-        include_partitions: _Optional[bool] = ...,
-        timeout_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, subscription_id: _Optional[str] = ..., include_metrics: _Optional[bool] = ..., include_consumer_details: _Optional[bool] = ..., include_partitions: _Optional[bool] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

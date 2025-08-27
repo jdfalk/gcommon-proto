@@ -4,15 +4,18 @@
 # source: gcommon/v1/common/ldap_config.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/common/ldap_config.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/common/ldap_config.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -23,60 +26,36 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n#gcommon/v1/common/ldap_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xef\x03\n\nLdapConfig\x12\x1b\n\x04host\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04host\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x17\n\x07use_tls\x18\x03 \x01(\x08R\x06useTls\x12 \n\x07\x62ind_dn\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x62indDn\x12,\n\rbind_password\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x08R\x0c\x62indPassword\x12 \n\x07\x62\x61se_dn\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x62\x61seDn\x12(\n\x0buser_filter\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nuserFilter\x12*\n\x0cgroup_filter\x18\x08 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bgroupFilter\x12\x30\n\x0ftimeout_seconds\x18\t \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12Q\n\nattributes\x18\n \x03(\x0b\x32-.gcommon.v1.common.LdapConfig.AttributesEntryB\x02(\x01R\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#gcommon/v1/common/ldap_config.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xef\x03\n\nLdapConfig\x12\x1b\n\x04host\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x04host\x12\x1f\n\x04port\x18\x02 \x01(\x05\x42\x0b\xbaH\x08\x1a\x06\x18\xff\xff\x03(\x01R\x04port\x12\x17\n\x07use_tls\x18\x03 \x01(\x08R\x06useTls\x12 \n\x07\x62ind_dn\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x62indDn\x12,\n\rbind_password\x18\x05 \x01(\tB\x07\xbaH\x04r\x02\x10\x08R\x0c\x62indPassword\x12 \n\x07\x62\x61se_dn\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x62\x61seDn\x12(\n\x0buser_filter\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\nuserFilter\x12*\n\x0cgroup_filter\x18\x08 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bgroupFilter\x12\x30\n\x0ftimeout_seconds\x18\t \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12Q\n\nattributes\x18\n \x03(\x0b\x32-.gcommon.v1.common.LdapConfig.AttributesEntryB\x02(\x01R\nattributes\x1a=\n\x0f\x41ttributesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x35Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.ldap_config_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.ldap_config_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_LDAPCONFIG_ATTRIBUTESENTRY"]._loaded_options = None
-    _globals["_LDAPCONFIG_ATTRIBUTESENTRY"]._serialized_options = b"8\001"
-    _globals["_LDAPCONFIG"].fields_by_name["host"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "host"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_LDAPCONFIG"].fields_by_name["port"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "port"
-    ]._serialized_options = b"\272H\010\032\006\030\377\377\003(\001"
-    _globals["_LDAPCONFIG"].fields_by_name["bind_dn"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "bind_dn"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_LDAPCONFIG"].fields_by_name["bind_password"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "bind_password"
-    ]._serialized_options = b"\272H\004r\002\020\010"
-    _globals["_LDAPCONFIG"].fields_by_name["base_dn"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "base_dn"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_LDAPCONFIG"].fields_by_name["user_filter"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "user_filter"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_LDAPCONFIG"].fields_by_name["group_filter"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "group_filter"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_LDAPCONFIG"].fields_by_name["timeout_seconds"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name[
-        "timeout_seconds"
-    ]._serialized_options = b"\272H\004\032\002 \000"
-    _globals["_LDAPCONFIG"].fields_by_name["attributes"]._loaded_options = None
-    _globals["_LDAPCONFIG"].fields_by_name["attributes"]._serialized_options = b"(\001"
-    _globals["_LDAPCONFIG"]._serialized_start = 123
-    _globals["_LDAPCONFIG"]._serialized_end = 618
-    _globals["_LDAPCONFIG_ATTRIBUTESENTRY"]._serialized_start = 557
-    _globals["_LDAPCONFIG_ATTRIBUTESENTRY"]._serialized_end = 618
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._loaded_options = None
+  _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._serialized_options = b'8\001'
+  _globals['_LDAPCONFIG'].fields_by_name['host']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['host']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_LDAPCONFIG'].fields_by_name['port']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['port']._serialized_options = b'\272H\010\032\006\030\377\377\003(\001'
+  _globals['_LDAPCONFIG'].fields_by_name['bind_dn']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['bind_dn']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_LDAPCONFIG'].fields_by_name['bind_password']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['bind_password']._serialized_options = b'\272H\004r\002\020\010'
+  _globals['_LDAPCONFIG'].fields_by_name['base_dn']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['base_dn']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_LDAPCONFIG'].fields_by_name['user_filter']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['user_filter']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_LDAPCONFIG'].fields_by_name['group_filter']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['group_filter']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_LDAPCONFIG'].fields_by_name['timeout_seconds']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['timeout_seconds']._serialized_options = b'\272H\004\032\002 \000'
+  _globals['_LDAPCONFIG'].fields_by_name['attributes']._loaded_options = None
+  _globals['_LDAPCONFIG'].fields_by_name['attributes']._serialized_options = b'(\001'
+  _globals['_LDAPCONFIG']._serialized_start=123
+  _globals['_LDAPCONFIG']._serialized_end=618
+  _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._serialized_start=557
+  _globals['_LDAPCONFIG_ATTRIBUTESENTRY']._serialized_end=618
 # @@protoc_insertion_point(module_scope)

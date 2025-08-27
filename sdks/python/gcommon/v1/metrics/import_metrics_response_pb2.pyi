@@ -14,8 +14,4 @@ class ImportMetricsResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     imported_count: int
     error: _error_pb2.Error
-    def __init__(
-        self,
-        imported_count: _Optional[int] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, imported_count: _Optional[int] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

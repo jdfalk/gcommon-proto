@@ -11,7 +11,6 @@ class RouteType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROUTE_TYPE_STATIC_FILE: _ClassVar[RouteType]
     ROUTE_TYPE_API: _ClassVar[RouteType]
     ROUTE_TYPE_REDIRECT: _ClassVar[RouteType]
-
 ROUTE_TYPE_UNSPECIFIED: RouteType
 ROUTE_TYPE_STATIC_FILE: RouteType
 ROUTE_TYPE_API: RouteType

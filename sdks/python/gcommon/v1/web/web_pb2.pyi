@@ -22,13 +22,4 @@ class WebInfo(_message.Message):
     started_at: _timestamp_pb2.Timestamp
     accepting_requests: bool
     port: int
-    def __init__(
-        self,
-        server_name: _Optional[str] = ...,
-        version: _Optional[str] = ...,
-        started_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        accepting_requests: _Optional[bool] = ...,
-        port: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, server_name: _Optional[str] = ..., version: _Optional[str] = ..., started_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., accepting_requests: _Optional[bool] = ..., port: _Optional[int] = ...) -> None: ...

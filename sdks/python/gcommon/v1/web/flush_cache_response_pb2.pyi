@@ -16,11 +16,4 @@ class FlushCacheResponse(_message.Message):
     success: bool
     entries_flushed: int
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        entries_flushed: _Optional[int] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., entries_flushed: _Optional[int] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

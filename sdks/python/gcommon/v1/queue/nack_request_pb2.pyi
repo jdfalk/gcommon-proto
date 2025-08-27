@@ -10,15 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NackRequest(_message.Message):
-    __slots__ = (
-        "ack_token",
-        "requeue",
-        "reason",
-        "error",
-        "requeue_delay_seconds",
-        "max_retries",
-        "metadata",
-    )
+    __slots__ = ("ack_token", "requeue", "reason", "error", "requeue_delay_seconds", "max_retries", "metadata")
     ACK_TOKEN_FIELD_NUMBER: _ClassVar[int]
     REQUEUE_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
@@ -33,15 +25,4 @@ class NackRequest(_message.Message):
     requeue_delay_seconds: int
     max_retries: int
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        ack_token: _Optional[str] = ...,
-        requeue: _Optional[bool] = ...,
-        reason: _Optional[str] = ...,
-        error: _Optional[_Union[_nack_error_pb2.NackError, _Mapping]] = ...,
-        requeue_delay_seconds: _Optional[int] = ...,
-        max_retries: _Optional[int] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, ack_token: _Optional[str] = ..., requeue: _Optional[bool] = ..., reason: _Optional[str] = ..., error: _Optional[_Union[_nack_error_pb2.NackError, _Mapping]] = ..., requeue_delay_seconds: _Optional[int] = ..., max_retries: _Optional[int] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/list_user_sessions_response.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/list_user_sessions_response.proto",
+    '',
+    'gcommon/v1/common/list_user_sessions_response.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -25,42 +23,24 @@ _sym_db = _symbol_database.Default()
 
 
 from gcommon.v1.common import error_pb2 as gcommon_dot_v1_dot_common_dot_error__pb2
-from gcommon.v1.common import (
-    paginated_response_pb2 as gcommon_dot_v1_dot_common_dot_paginated__response__pb2,
-)
-from gcommon.v1.common import (
-    request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2,
-)
-from gcommon.v1.common import (
-    session_info_pb2 as gcommon_dot_v1_dot_common_dot_session__info__pb2,
-)
+from gcommon.v1.common import paginated_response_pb2 as gcommon_dot_v1_dot_common_dot_paginated__response__pb2
+from gcommon.v1.common import request_metadata_pb2 as gcommon_dot_v1_dot_common_dot_request__metadata__pb2
+from gcommon.v1.common import session_info_pb2 as gcommon_dot_v1_dot_common_dot_session__info__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n3gcommon/v1/common/list_user_sessions_response.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/common/session_info.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xa1\x05\n\x18ListUserSessionsResponse\x12:\n\x08sessions\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.common.SessionInfoR\x08sessions\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x44\n\npagination\x18\x0b \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npagination\x12M\n\x10request_metadata\x18\x0c \x01(\x0b\x32".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12\x38\n\x18includes_current_session\x18\r \x01(\x08R\x16includesCurrentSession\x12\x30\n\x14\x61\x63tive_session_count\x18\x0e \x01(\x05R\x12\x61\x63tiveSessionCount\x12p\n\x07user_id\x18\x0f \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12.\n\x05\x65rror\x18= \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12=\n\x0cgenerated_at\x18\x33 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bgeneratedAt\x12\x46\n\x11\x64\x61ta_refreshed_at\x18\x34 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x64\x61taRefreshedAtB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/common/list_user_sessions_response.proto\x12\x11gcommon.v1.common\x1a\x1dgcommon/v1/common/error.proto\x1a*gcommon/v1/common/paginated_response.proto\x1a(gcommon/v1/common/request_metadata.proto\x1a$gcommon/v1/common/session_info.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa1\x05\n\x18ListUserSessionsResponse\x12:\n\x08sessions\x18\x01 \x03(\x0b\x32\x1e.gcommon.v1.common.SessionInfoR\x08sessions\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x44\n\npagination\x18\x0b \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npagination\x12M\n\x10request_metadata\x18\x0c \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12\x38\n\x18includes_current_session\x18\r \x01(\x08R\x16includesCurrentSession\x12\x30\n\x14\x61\x63tive_session_count\x18\x0e \x01(\x05R\x12\x61\x63tiveSessionCount\x12p\n\x07user_id\x18\x0f \x01(\tBW\xbaHTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\xc8\x01\x01R\x06userId\x12.\n\x05\x65rror\x18= \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12=\n\x0cgenerated_at\x18\x33 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bgeneratedAt\x12\x46\n\x11\x64\x61ta_refreshed_at\x18\x34 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x64\x61taRefreshedAtB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.list_user_sessions_response_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.list_user_sessions_response_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_LISTUSERSESSIONSRESPONSE"].fields_by_name[
-        "user_id"
-    ]._loaded_options = None
-    _globals["_LISTUSERSESSIONSRESPONSE"].fields_by_name[
-        "user_id"
-    ]._serialized_options = b"\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001"
-    _globals["_LISTUSERSESSIONSRESPONSE"]._serialized_start = 327
-    _globals["_LISTUSERSESSIONSRESPONSE"]._serialized_end = 1000
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_LISTUSERSESSIONSRESPONSE'].fields_by_name['user_id']._loaded_options = None
+  _globals['_LISTUSERSESSIONSRESPONSE'].fields_by_name['user_id']._serialized_options = b'\272HTrO2M^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$\310\001\001'
+  _globals['_LISTUSERSESSIONSRESPONSE']._serialized_start=327
+  _globals['_LISTUSERSESSIONSRESPONSE']._serialized_end=1000
 # @@protoc_insertion_point(module_scope)

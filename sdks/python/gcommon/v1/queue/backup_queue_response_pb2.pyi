@@ -7,16 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BackupQueueResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "backup_location",
-        "messages_backed_up",
-        "backup_size_bytes",
-        "backup_duration_ms",
-        "checksum",
-        "backup_timestamp",
-        "error",
-    )
+    __slots__ = ("success", "backup_location", "messages_backed_up", "backup_size_bytes", "backup_duration_ms", "checksum", "backup_timestamp", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     BACKUP_LOCATION_FIELD_NUMBER: _ClassVar[int]
     MESSAGES_BACKED_UP_FIELD_NUMBER: _ClassVar[int]
@@ -33,14 +24,4 @@ class BackupQueueResponse(_message.Message):
     checksum: str
     backup_timestamp: int
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        backup_location: _Optional[str] = ...,
-        messages_backed_up: _Optional[int] = ...,
-        backup_size_bytes: _Optional[int] = ...,
-        backup_duration_ms: _Optional[int] = ...,
-        checksum: _Optional[str] = ...,
-        backup_timestamp: _Optional[int] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., backup_location: _Optional[str] = ..., messages_backed_up: _Optional[int] = ..., backup_size_bytes: _Optional[int] = ..., backup_duration_ms: _Optional[int] = ..., checksum: _Optional[str] = ..., backup_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

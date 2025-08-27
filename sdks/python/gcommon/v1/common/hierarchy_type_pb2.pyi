@@ -15,7 +15,6 @@ class HierarchyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HIERARCHY_TYPE_FUNCTIONAL: _ClassVar[HierarchyType]
     HIERARCHY_TYPE_MATRIX: _ClassVar[HierarchyType]
     HIERARCHY_TYPE_FLAT: _ClassVar[HierarchyType]
-
 HIERARCHY_TYPE_UNSPECIFIED: HierarchyType
 HIERARCHY_TYPE_DEPARTMENT: HierarchyType
 HIERARCHY_TYPE_TEAM: HierarchyType

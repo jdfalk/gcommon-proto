@@ -12,7 +12,6 @@ class DatabaseIsolationLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATABASE_ISOLATION_LEVEL_READ_COMMITTED: _ClassVar[DatabaseIsolationLevel]
     DATABASE_ISOLATION_LEVEL_REPEATABLE_READ: _ClassVar[DatabaseIsolationLevel]
     DATABASE_ISOLATION_LEVEL_SERIALIZABLE: _ClassVar[DatabaseIsolationLevel]
-
 DATABASE_ISOLATION_LEVEL_UNSPECIFIED: DatabaseIsolationLevel
 DATABASE_ISOLATION_LEVEL_READ_UNCOMMITTED: DatabaseIsolationLevel
 DATABASE_ISOLATION_LEVEL_READ_COMMITTED: DatabaseIsolationLevel

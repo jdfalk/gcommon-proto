@@ -12,7 +12,6 @@ class ExpirationPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EXPIRATION_POLICY_IDLE: _ClassVar[ExpirationPolicy]
     EXPIRATION_POLICY_WRITE: _ClassVar[ExpirationPolicy]
     EXPIRATION_POLICY_NEVER: _ClassVar[ExpirationPolicy]
-
 EXPIRATION_POLICY_UNSPECIFIED: ExpirationPolicy
 EXPIRATION_POLICY_TTL: ExpirationPolicy
 EXPIRATION_POLICY_IDLE: ExpirationPolicy

@@ -12,7 +12,6 @@ class CacheRefreshStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CACHE_REFRESH_STRATEGY_LAZY: _ClassVar[CacheRefreshStrategy]
     CACHE_REFRESH_STRATEGY_PROACTIVE: _ClassVar[CacheRefreshStrategy]
     CACHE_REFRESH_STRATEGY_BACKGROUND: _ClassVar[CacheRefreshStrategy]
-
 CACHE_REFRESH_STRATEGY_UNSPECIFIED: CacheRefreshStrategy
 CACHE_REFRESH_STRATEGY_TTL: CacheRefreshStrategy
 CACHE_REFRESH_STRATEGY_LAZY: CacheRefreshStrategy

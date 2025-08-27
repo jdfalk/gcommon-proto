@@ -16,10 +16,4 @@ class BatchingSettings(_message.Message):
     batch_size: int
     timeout_minutes: int
     grouping_key: str
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        batch_size: _Optional[int] = ...,
-        timeout_minutes: _Optional[int] = ...,
-        grouping_key: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., batch_size: _Optional[int] = ..., timeout_minutes: _Optional[int] = ..., grouping_key: _Optional[str] = ...) -> None: ...

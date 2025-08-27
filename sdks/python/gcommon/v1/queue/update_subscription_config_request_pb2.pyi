@@ -1,6 +1,4 @@
-from gcommon.v1.queue import (
-    subscription_config_update_pb2 as _subscription_config_update_pb2,
-)
+from gcommon.v1.queue import subscription_config_update_pb2 as _subscription_config_update_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
@@ -12,26 +10,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateSubscriptionConfigRequest(_message.Message):
-    __slots__ = (
-        "subscription_id",
-        "config_update",
-        "update_fields",
-        "validate_only",
-        "force_update",
-        "immediate_apply",
-        "change_reason",
-        "metadata",
-    )
+    __slots__ = ("subscription_id", "config_update", "update_fields", "validate_only", "force_update", "immediate_apply", "change_reason", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     CONFIG_UPDATE_FIELD_NUMBER: _ClassVar[int]
     UPDATE_FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -48,16 +34,4 @@ class UpdateSubscriptionConfigRequest(_message.Message):
     immediate_apply: bool
     change_reason: str
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        subscription_id: _Optional[str] = ...,
-        config_update: _Optional[
-            _Union[_subscription_config_update_pb2.SubscriptionConfigUpdate, _Mapping]
-        ] = ...,
-        update_fields: _Optional[_Iterable[str]] = ...,
-        validate_only: _Optional[bool] = ...,
-        force_update: _Optional[bool] = ...,
-        immediate_apply: _Optional[bool] = ...,
-        change_reason: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, subscription_id: _Optional[str] = ..., config_update: _Optional[_Union[_subscription_config_update_pb2.SubscriptionConfigUpdate, _Mapping]] = ..., update_fields: _Optional[_Iterable[str]] = ..., validate_only: _Optional[bool] = ..., force_update: _Optional[bool] = ..., immediate_apply: _Optional[bool] = ..., change_reason: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -12,27 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateUserRequest(_message.Message):
-    __slots__ = (
-        "username",
-        "email",
-        "password",
-        "full_name",
-        "enabled",
-        "roles",
-        "metadata",
-        "require_email_verification",
-        "expires_at",
-    )
+    __slots__ = ("username", "email", "password", "full_name", "enabled", "roles", "metadata", "require_email_verification", "expires_at")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
@@ -51,17 +38,4 @@ class CreateUserRequest(_message.Message):
     metadata: _containers.ScalarMap[str, str]
     require_email_verification: bool
     expires_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        username: _Optional[str] = ...,
-        email: _Optional[str] = ...,
-        password: _Optional[str] = ...,
-        full_name: _Optional[str] = ...,
-        enabled: _Optional[bool] = ...,
-        roles: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        require_email_verification: _Optional[bool] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, username: _Optional[str] = ..., email: _Optional[str] = ..., password: _Optional[str] = ..., full_name: _Optional[str] = ..., enabled: _Optional[bool] = ..., roles: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., require_email_verification: _Optional[bool] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

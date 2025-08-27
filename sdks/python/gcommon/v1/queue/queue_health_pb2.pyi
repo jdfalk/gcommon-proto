@@ -24,13 +24,4 @@ class QueueHealth(_message.Message):
     health_score: int
     issues: _containers.RepeatedScalarFieldContainer[str]
     last_check: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
-        health_score: _Optional[int] = ...,
-        issues: _Optional[_Iterable[str]] = ...,
-        last_check: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., health_score: _Optional[int] = ..., issues: _Optional[_Iterable[str]] = ..., last_check: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

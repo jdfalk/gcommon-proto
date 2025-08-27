@@ -12,7 +12,6 @@ class AntiAffinityScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ANTI_AFFINITY_SCOPE_RACK: _ClassVar[AntiAffinityScope]
     ANTI_AFFINITY_SCOPE_DATACENTER: _ClassVar[AntiAffinityScope]
     ANTI_AFFINITY_SCOPE_REGION: _ClassVar[AntiAffinityScope]
-
 ANTI_AFFINITY_SCOPE_UNSPECIFIED: AntiAffinityScope
 ANTI_AFFINITY_SCOPE_NODE: AntiAffinityScope
 ANTI_AFFINITY_SCOPE_RACK: AntiAffinityScope

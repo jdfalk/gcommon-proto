@@ -13,13 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueryStep(_message.Message):
-    __slots__ = (
-        "step_id",
-        "operation",
-        "description",
-        "estimated_duration",
-        "input_step_ids",
-    )
+    __slots__ = ("step_id", "operation", "description", "estimated_duration", "input_step_ids")
     STEP_ID_FIELD_NUMBER: _ClassVar[int]
     OPERATION_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -30,13 +24,4 @@ class QueryStep(_message.Message):
     description: str
     estimated_duration: _duration_pb2.Duration
     input_step_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        step_id: _Optional[str] = ...,
-        operation: _Optional[_Union[_query_operation_pb2.QueryOperation, str]] = ...,
-        description: _Optional[str] = ...,
-        estimated_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        input_step_ids: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, step_id: _Optional[str] = ..., operation: _Optional[_Union[_query_operation_pb2.QueryOperation, str]] = ..., description: _Optional[str] = ..., estimated_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., input_step_ids: _Optional[_Iterable[str]] = ...) -> None: ...

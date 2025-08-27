@@ -17,9 +17,4 @@ class ListApiKeysResponse(_message.Message):
     api_keys: _containers.RepeatedCompositeFieldContainer[_api_key_pb2.APIKey]
     next_page_token: str
     total_count: int
-    def __init__(
-        self,
-        api_keys: _Optional[_Iterable[_Union[_api_key_pb2.APIKey, _Mapping]]] = ...,
-        next_page_token: _Optional[str] = ...,
-        total_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, api_keys: _Optional[_Iterable[_Union[_api_key_pb2.APIKey, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total_count: _Optional[int] = ...) -> None: ...

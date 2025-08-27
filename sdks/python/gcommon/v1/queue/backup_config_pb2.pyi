@@ -20,14 +20,4 @@ class QueueBackupConfig(_message.Message):
     retention: _duration_pb2.Duration
     location: str
     enabled: bool
-    def __init__(
-        self,
-        interval: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        retention: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        location: _Optional[str] = ...,
-        enabled: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, interval: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., retention: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., location: _Optional[str] = ..., enabled: _Optional[bool] = ...) -> None: ...

@@ -20,12 +20,4 @@ class CommonBatchOptions(_message.Message):
     fail_fast: bool
     timeout: _duration_pb2.Duration
     return_partial: bool
-    def __init__(
-        self,
-        max_parallel: _Optional[int] = ...,
-        fail_fast: _Optional[bool] = ...,
-        timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        return_partial: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, max_parallel: _Optional[int] = ..., fail_fast: _Optional[bool] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., return_partial: _Optional[bool] = ...) -> None: ...

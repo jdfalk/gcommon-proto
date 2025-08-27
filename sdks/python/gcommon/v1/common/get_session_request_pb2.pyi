@@ -16,11 +16,4 @@ class AuthGetSessionRequest(_message.Message):
     session_id: str
     include_activity: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        session_id: _Optional[str] = ...,
-        include_activity: _Optional[bool] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, session_id: _Optional[str] = ..., include_activity: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

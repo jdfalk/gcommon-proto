@@ -21,12 +21,4 @@ class SubscriptionOptions(_message.Message):
     max_batch_size: int
     ack_mode: _ack_mode_pb2.AckMode
     keep_alive: _duration_pb2.Duration
-    def __init__(
-        self,
-        include_history: _Optional[bool] = ...,
-        max_batch_size: _Optional[int] = ...,
-        ack_mode: _Optional[_Union[_ack_mode_pb2.AckMode, str]] = ...,
-        keep_alive: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, include_history: _Optional[bool] = ..., max_batch_size: _Optional[int] = ..., ack_mode: _Optional[_Union[_ack_mode_pb2.AckMode, str]] = ..., keep_alive: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

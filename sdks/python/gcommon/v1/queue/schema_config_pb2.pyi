@@ -16,10 +16,4 @@ class SchemaConfig(_message.Message):
     definition: str
     type: str
     validate: bool
-    def __init__(
-        self,
-        version: _Optional[int] = ...,
-        definition: _Optional[str] = ...,
-        type: _Optional[str] = ...,
-        validate: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, version: _Optional[int] = ..., definition: _Optional[str] = ..., type: _Optional[str] = ..., validate: _Optional[bool] = ...) -> None: ...

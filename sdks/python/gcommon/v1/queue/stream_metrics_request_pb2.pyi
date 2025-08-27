@@ -15,15 +15,6 @@ class QueueStreamMetricsRequest(_message.Message):
     METRIC_TYPES_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_SECONDS_FIELD_NUMBER: _ClassVar[int]
     queue_names: _containers.RepeatedScalarFieldContainer[str]
-    metric_types: _containers.RepeatedScalarFieldContainer[
-        _metric_type_pb2.MetricsMetricType
-    ]
+    metric_types: _containers.RepeatedScalarFieldContainer[_metric_type_pb2.MetricsMetricType]
     interval_seconds: int
-    def __init__(
-        self,
-        queue_names: _Optional[_Iterable[str]] = ...,
-        metric_types: _Optional[
-            _Iterable[_Union[_metric_type_pb2.MetricsMetricType, str]]
-        ] = ...,
-        interval_seconds: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, queue_names: _Optional[_Iterable[str]] = ..., metric_types: _Optional[_Iterable[_Union[_metric_type_pb2.MetricsMetricType, str]]] = ..., interval_seconds: _Optional[int] = ...) -> None: ...

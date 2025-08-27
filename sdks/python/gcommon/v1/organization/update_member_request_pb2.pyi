@@ -20,14 +20,4 @@ class UpdateMemberRequest(_message.Message):
     member_id: str
     member: _organization_member_pb2.OrganizationMember
     update_mask: _field_mask_pb2.FieldMask
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        member_id: _Optional[str] = ...,
-        member: _Optional[
-            _Union[_organization_member_pb2.OrganizationMember, _Mapping]
-        ] = ...,
-        update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., member_id: _Optional[str] = ..., member: _Optional[_Union[_organization_member_pb2.OrganizationMember, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...

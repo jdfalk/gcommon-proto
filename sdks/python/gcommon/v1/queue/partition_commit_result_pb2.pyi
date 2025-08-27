@@ -12,26 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PartitionCommitResult(_message.Message):
-    __slots__ = (
-        "partition_id",
-        "success",
-        "committed_offset",
-        "previous_offset",
-        "error_message",
-        "error_code",
-        "commit_timestamp",
-        "partition_metadata",
-    )
+    __slots__ = ("partition_id", "success", "committed_offset", "previous_offset", "error_message", "error_code", "commit_timestamp", "partition_metadata")
     class PartitionMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     COMMITTED_OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -48,16 +36,4 @@ class PartitionCommitResult(_message.Message):
     error_code: str
     commit_timestamp: _timestamp_pb2.Timestamp
     partition_metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        partition_id: _Optional[int] = ...,
-        success: _Optional[bool] = ...,
-        committed_offset: _Optional[int] = ...,
-        previous_offset: _Optional[int] = ...,
-        error_message: _Optional[str] = ...,
-        error_code: _Optional[str] = ...,
-        commit_timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        partition_metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, partition_id: _Optional[int] = ..., success: _Optional[bool] = ..., committed_offset: _Optional[int] = ..., previous_offset: _Optional[int] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., commit_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., partition_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

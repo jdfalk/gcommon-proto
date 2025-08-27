@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/read_logs_request.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/read_logs_request.proto",
+    '',
+    'gcommon/v1/common/read_logs_request.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,42 +26,24 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n)gcommon/v1/common/read_logs_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xbc\x01\n\x0fReadLogsRequest\x12\x1d\n\x05level\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05level\x12\x1f\n\x06source\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06source\x12&\n\nstart_time\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\tstartTime\x12"\n\x08\x65nd_time\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x07\x65ndTime\x12\x1d\n\x05limit\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05limitB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/read_logs_request.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xbc\x01\n\x0fReadLogsRequest\x12\x1d\n\x05level\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05level\x12\x1f\n\x06source\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06source\x12&\n\nstart_time\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\tstartTime\x12\"\n\x08\x65nd_time\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x65ndTime\x12\x1d\n\x05limit\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05limitB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.read_logs_request_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.read_logs_request_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_READLOGSREQUEST"].fields_by_name["level"]._loaded_options = None
-    _globals["_READLOGSREQUEST"].fields_by_name[
-        "level"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_READLOGSREQUEST"].fields_by_name["source"]._loaded_options = None
-    _globals["_READLOGSREQUEST"].fields_by_name[
-        "source"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_READLOGSREQUEST"].fields_by_name["start_time"]._loaded_options = None
-    _globals["_READLOGSREQUEST"].fields_by_name[
-        "start_time"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_READLOGSREQUEST"].fields_by_name["end_time"]._loaded_options = None
-    _globals["_READLOGSREQUEST"].fields_by_name[
-        "end_time"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_READLOGSREQUEST"].fields_by_name["limit"]._loaded_options = None
-    _globals["_READLOGSREQUEST"].fields_by_name[
-        "limit"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_READLOGSREQUEST"]._serialized_start = 129
-    _globals["_READLOGSREQUEST"]._serialized_end = 317
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_READLOGSREQUEST'].fields_by_name['level']._loaded_options = None
+  _globals['_READLOGSREQUEST'].fields_by_name['level']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_READLOGSREQUEST'].fields_by_name['source']._loaded_options = None
+  _globals['_READLOGSREQUEST'].fields_by_name['source']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_READLOGSREQUEST'].fields_by_name['start_time']._loaded_options = None
+  _globals['_READLOGSREQUEST'].fields_by_name['start_time']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_READLOGSREQUEST'].fields_by_name['end_time']._loaded_options = None
+  _globals['_READLOGSREQUEST'].fields_by_name['end_time']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_READLOGSREQUEST'].fields_by_name['limit']._loaded_options = None
+  _globals['_READLOGSREQUEST'].fields_by_name['limit']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_READLOGSREQUEST']._serialized_start=129
+  _globals['_READLOGSREQUEST']._serialized_end=317
 # @@protoc_insertion_point(module_scope)

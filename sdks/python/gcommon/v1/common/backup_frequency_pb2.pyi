@@ -14,7 +14,6 @@ class BackupFrequency(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     BACKUP_FREQUENCY_WEEKLY: _ClassVar[BackupFrequency]
     BACKUP_FREQUENCY_MONTHLY: _ClassVar[BackupFrequency]
     BACKUP_FREQUENCY_ON_CHANGE: _ClassVar[BackupFrequency]
-
 BACKUP_FREQUENCY_UNSPECIFIED: BackupFrequency
 BACKUP_FREQUENCY_MANUAL: BackupFrequency
 BACKUP_FREQUENCY_HOURLY: BackupFrequency

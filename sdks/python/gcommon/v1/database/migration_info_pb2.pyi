@@ -18,11 +18,4 @@ class MigrationInfo(_message.Message):
     version: str
     description: str
     applied_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        version: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        applied_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, version: _Optional[str] = ..., description: _Optional[str] = ..., applied_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

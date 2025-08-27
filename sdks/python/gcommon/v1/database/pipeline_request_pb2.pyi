@@ -16,11 +16,4 @@ class PipelineRequest(_message.Message):
     operations: bytes
     namespace: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        operations: _Optional[bytes] = ...,
-        namespace: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, operations: _Optional[bytes] = ..., namespace: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

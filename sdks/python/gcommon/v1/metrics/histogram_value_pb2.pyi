@@ -14,16 +14,7 @@ class HistogramValue(_message.Message):
     BUCKETS_FIELD_NUMBER: _ClassVar[int]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     SUM_FIELD_NUMBER: _ClassVar[int]
-    buckets: _containers.RepeatedCompositeFieldContainer[
-        _histogram_bucket_pb2.HistogramBucket
-    ]
+    buckets: _containers.RepeatedCompositeFieldContainer[_histogram_bucket_pb2.HistogramBucket]
     count: int
     sum: float
-    def __init__(
-        self,
-        buckets: _Optional[
-            _Iterable[_Union[_histogram_bucket_pb2.HistogramBucket, _Mapping]]
-        ] = ...,
-        count: _Optional[int] = ...,
-        sum: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, buckets: _Optional[_Iterable[_Union[_histogram_bucket_pb2.HistogramBucket, _Mapping]]] = ..., count: _Optional[int] = ..., sum: _Optional[float] = ...) -> None: ...

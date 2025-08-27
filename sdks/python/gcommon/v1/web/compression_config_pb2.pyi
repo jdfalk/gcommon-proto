@@ -15,11 +15,4 @@ class WebCompressionConfig(_message.Message):
     compression_type: _compression_type_pb2.LogCompressionType
     min_length: int
     level: int
-    def __init__(
-        self,
-        compression_type: _Optional[
-            _Union[_compression_type_pb2.LogCompressionType, str]
-        ] = ...,
-        min_length: _Optional[int] = ...,
-        level: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, compression_type: _Optional[_Union[_compression_type_pb2.LogCompressionType, str]] = ..., min_length: _Optional[int] = ..., level: _Optional[int] = ...) -> None: ...

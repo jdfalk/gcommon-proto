@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueRetentionInfo(_message.Message):
-    __slots__ = (
-        "retention_policy",
-        "retention_seconds",
-        "retention_bytes",
-        "retained_messages",
-        "oldest_message_time",
-        "next_cleanup_time",
-    )
+    __slots__ = ("retention_policy", "retention_seconds", "retention_bytes", "retained_messages", "oldest_message_time", "next_cleanup_time")
     RETENTION_POLICY_FIELD_NUMBER: _ClassVar[int]
     RETENTION_SECONDS_FIELD_NUMBER: _ClassVar[int]
     RETENTION_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -31,16 +24,4 @@ class QueueRetentionInfo(_message.Message):
     retained_messages: int
     oldest_message_time: _timestamp_pb2.Timestamp
     next_cleanup_time: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        retention_policy: _Optional[str] = ...,
-        retention_seconds: _Optional[int] = ...,
-        retention_bytes: _Optional[int] = ...,
-        retained_messages: _Optional[int] = ...,
-        oldest_message_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        next_cleanup_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, retention_policy: _Optional[str] = ..., retention_seconds: _Optional[int] = ..., retention_bytes: _Optional[int] = ..., retained_messages: _Optional[int] = ..., oldest_message_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., next_cleanup_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

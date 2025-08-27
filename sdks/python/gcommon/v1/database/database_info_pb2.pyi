@@ -20,11 +20,4 @@ class DatabaseInfo(_message.Message):
     type: str
     connection_string: str
     features: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        version: _Optional[str] = ...,
-        type: _Optional[str] = ...,
-        connection_string: _Optional[str] = ...,
-        features: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., version: _Optional[str] = ..., type: _Optional[str] = ..., connection_string: _Optional[str] = ..., features: _Optional[_Iterable[str]] = ...) -> None: ...

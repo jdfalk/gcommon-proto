@@ -11,15 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OffsetInfo(_message.Message):
-    __slots__ = (
-        "offset",
-        "partition_id",
-        "timestamp",
-        "message_size",
-        "is_valid",
-        "consumer_group",
-        "committed_offset",
-    )
+    __slots__ = ("offset", "partition_id", "timestamp", "message_size", "is_valid", "consumer_group", "committed_offset")
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     PARTITION_ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -34,15 +26,4 @@ class OffsetInfo(_message.Message):
     is_valid: bool
     consumer_group: str
     committed_offset: int
-    def __init__(
-        self,
-        offset: _Optional[int] = ...,
-        partition_id: _Optional[int] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        message_size: _Optional[int] = ...,
-        is_valid: _Optional[bool] = ...,
-        consumer_group: _Optional[str] = ...,
-        committed_offset: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, offset: _Optional[int] = ..., partition_id: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., message_size: _Optional[int] = ..., is_valid: _Optional[bool] = ..., consumer_group: _Optional[str] = ..., committed_offset: _Optional[int] = ...) -> None: ...

@@ -14,9 +14,4 @@ class AdjustSubtitleTimingResponse(_message.Message):
     adjusted_subtitle_file_id: str
     success: bool
     error_message: str
-    def __init__(
-        self,
-        adjusted_subtitle_file_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        error_message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, adjusted_subtitle_file_id: _Optional[str] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ...) -> None: ...

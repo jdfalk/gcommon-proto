@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExportMetricsRequest(_message.Message):
-    __slots__ = (
-        "metadata",
-        "provider_id",
-        "format",
-        "destination",
-        "metric_names",
-        "include_metadata",
-    )
+    __slots__ = ("metadata", "provider_id", "format", "destination", "metric_names", "include_metadata")
     METADATA_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -31,16 +24,4 @@ class ExportMetricsRequest(_message.Message):
     destination: str
     metric_names: _containers.RepeatedScalarFieldContainer[str]
     include_metadata: bool
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        provider_id: _Optional[str] = ...,
-        format: _Optional[
-            _Union[_metrics_export_format_pb2.MetricsExportFormat, str]
-        ] = ...,
-        destination: _Optional[str] = ...,
-        metric_names: _Optional[_Iterable[str]] = ...,
-        include_metadata: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., format: _Optional[_Union[_metrics_export_format_pb2.MetricsExportFormat, str]] = ..., destination: _Optional[str] = ..., metric_names: _Optional[_Iterable[str]] = ..., include_metadata: _Optional[bool] = ...) -> None: ...

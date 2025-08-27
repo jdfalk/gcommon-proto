@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MessageStateCounts(_message.Message):
-    __slots__ = (
-        "pending",
-        "processing",
-        "completed",
-        "failed",
-        "retrying",
-        "dead_letter",
-    )
+    __slots__ = ("pending", "processing", "completed", "failed", "retrying", "dead_letter")
     PENDING_FIELD_NUMBER: _ClassVar[int]
     PROCESSING_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class MessageStateCounts(_message.Message):
     failed: int
     retrying: int
     dead_letter: int
-    def __init__(
-        self,
-        pending: _Optional[int] = ...,
-        processing: _Optional[int] = ...,
-        completed: _Optional[int] = ...,
-        failed: _Optional[int] = ...,
-        retrying: _Optional[int] = ...,
-        dead_letter: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, pending: _Optional[int] = ..., processing: _Optional[int] = ..., completed: _Optional[int] = ..., failed: _Optional[int] = ..., retrying: _Optional[int] = ..., dead_letter: _Optional[int] = ...) -> None: ...

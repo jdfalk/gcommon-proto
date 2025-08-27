@@ -12,7 +12,6 @@ class AckLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ACK_LEVEL_LEADER: _ClassVar[AckLevel]
     ACK_LEVEL_ALL: _ClassVar[AckLevel]
     ACK_LEVEL_MAJORITY: _ClassVar[AckLevel]
-
 ACK_LEVEL_UNSPECIFIED: AckLevel
 ACK_LEVEL_NONE: AckLevel
 ACK_LEVEL_LEADER: AckLevel

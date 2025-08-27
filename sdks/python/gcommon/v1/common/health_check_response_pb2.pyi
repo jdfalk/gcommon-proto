@@ -17,16 +17,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HealthHealthCheckResponse(_message.Message):
-    __slots__ = (
-        "status",
-        "service",
-        "timestamp",
-        "response_time",
-        "check_results",
-        "message",
-        "error",
-        "metrics",
-    )
+    __slots__ = ("status", "service", "timestamp", "response_time", "check_results", "message", "error", "metrics")
     STATUS_FIELD_NUMBER: _ClassVar[int]
     SERVICE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
@@ -39,26 +30,8 @@ class HealthHealthCheckResponse(_message.Message):
     service: str
     timestamp: _timestamp_pb2.Timestamp
     response_time: _duration_pb2.Duration
-    check_results: _containers.RepeatedCompositeFieldContainer[
-        _check_result_pb2.CheckResult
-    ]
+    check_results: _containers.RepeatedCompositeFieldContainer[_check_result_pb2.CheckResult]
     message: str
     error: _error_pb2.Error
     metrics: _health_metrics_pb2.HealthMetrics
-    def __init__(
-        self,
-        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
-        service: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        response_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        check_results: _Optional[
-            _Iterable[_Union[_check_result_pb2.CheckResult, _Mapping]]
-        ] = ...,
-        message: _Optional[str] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        metrics: _Optional[_Union[_health_metrics_pb2.HealthMetrics, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., service: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., check_results: _Optional[_Iterable[_Union[_check_result_pb2.CheckResult, _Mapping]]] = ..., message: _Optional[str] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metrics: _Optional[_Union[_health_metrics_pb2.HealthMetrics, _Mapping]] = ...) -> None: ...

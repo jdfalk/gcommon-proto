@@ -7,12 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SyncSubtitlesResponse(_message.Message):
-    __slots__ = (
-        "synchronized_subtitle_file_id",
-        "success",
-        "error_message",
-        "adjustments_made",
-    )
+    __slots__ = ("synchronized_subtitle_file_id", "success", "error_message", "adjustments_made")
     SYNCHRONIZED_SUBTITLE_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -21,10 +16,4 @@ class SyncSubtitlesResponse(_message.Message):
     success: bool
     error_message: str
     adjustments_made: int
-    def __init__(
-        self,
-        synchronized_subtitle_file_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-        error_message: _Optional[str] = ...,
-        adjustments_made: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, synchronized_subtitle_file_id: _Optional[str] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ..., adjustments_made: _Optional[int] = ...) -> None: ...

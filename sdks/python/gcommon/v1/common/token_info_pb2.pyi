@@ -13,17 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TokenInfo(_message.Message):
-    __slots__ = (
-        "token_id",
-        "type",
-        "user_id",
-        "client_id",
-        "scopes",
-        "created_at",
-        "expires_at",
-        "active",
-        "expires_in",
-    )
+    __slots__ = ("token_id", "type", "user_id", "client_id", "scopes", "created_at", "expires_at", "active", "expires_in")
     TOKEN_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -42,19 +32,4 @@ class TokenInfo(_message.Message):
     expires_at: _timestamp_pb2.Timestamp
     active: bool
     expires_in: int
-    def __init__(
-        self,
-        token_id: _Optional[str] = ...,
-        type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ...,
-        user_id: _Optional[str] = ...,
-        client_id: _Optional[str] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        expires_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        active: _Optional[bool] = ...,
-        expires_in: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, token_id: _Optional[str] = ..., type: _Optional[_Union[_token_type_pb2.TokenType, str]] = ..., user_id: _Optional[str] = ..., client_id: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active: _Optional[bool] = ..., expires_in: _Optional[int] = ...) -> None: ...

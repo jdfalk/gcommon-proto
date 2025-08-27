@@ -7,15 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SubtitleTrack(_message.Message):
-    __slots__ = (
-        "index",
-        "language",
-        "codec",
-        "title",
-        "forced",
-        "hearing_impaired",
-        "default_track",
-    )
+    __slots__ = ("index", "language", "codec", "title", "forced", "hearing_impaired", "default_track")
     INDEX_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
     CODEC_FIELD_NUMBER: _ClassVar[int]
@@ -30,13 +22,4 @@ class SubtitleTrack(_message.Message):
     forced: bool
     hearing_impaired: bool
     default_track: bool
-    def __init__(
-        self,
-        index: _Optional[int] = ...,
-        language: _Optional[str] = ...,
-        codec: _Optional[str] = ...,
-        title: _Optional[str] = ...,
-        forced: _Optional[bool] = ...,
-        hearing_impaired: _Optional[bool] = ...,
-        default_track: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, index: _Optional[int] = ..., language: _Optional[str] = ..., codec: _Optional[str] = ..., title: _Optional[str] = ..., forced: _Optional[bool] = ..., hearing_impaired: _Optional[bool] = ..., default_track: _Optional[bool] = ...) -> None: ...

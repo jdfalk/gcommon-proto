@@ -14,9 +14,4 @@ class OrganizationRateLimitConfig(_message.Message):
     requests_per_minute: int
     requests_per_hour: int
     requests_per_day: int
-    def __init__(
-        self,
-        requests_per_minute: _Optional[int] = ...,
-        requests_per_hour: _Optional[int] = ...,
-        requests_per_day: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, requests_per_minute: _Optional[int] = ..., requests_per_hour: _Optional[int] = ..., requests_per_day: _Optional[int] = ...) -> None: ...

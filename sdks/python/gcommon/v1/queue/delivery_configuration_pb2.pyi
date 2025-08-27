@@ -12,25 +12,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryConfiguration(_message.Message):
-    __slots__ = (
-        "push_endpoint",
-        "delivery_timeout_ms",
-        "retry_config",
-        "batch_config",
-        "flow_control",
-        "enable_compression",
-        "auth_headers",
-    )
+    __slots__ = ("push_endpoint", "delivery_timeout_ms", "retry_config", "batch_config", "flow_control", "enable_compression", "auth_headers")
     class AuthHeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     PUSH_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_TIMEOUT_MS_FIELD_NUMBER: _ClassVar[int]
     RETRY_CONFIG_FIELD_NUMBER: _ClassVar[int]
@@ -45,19 +34,4 @@ class DeliveryConfiguration(_message.Message):
     flow_control: _flow_control_settings_pb2.FlowControlSettings
     enable_compression: bool
     auth_headers: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        push_endpoint: _Optional[str] = ...,
-        delivery_timeout_ms: _Optional[int] = ...,
-        retry_config: _Optional[
-            _Union[_delivery_retry_config_pb2.DeliveryRetryConfig, _Mapping]
-        ] = ...,
-        batch_config: _Optional[
-            _Union[_batch_delivery_config_pb2.BatchDeliveryConfig, _Mapping]
-        ] = ...,
-        flow_control: _Optional[
-            _Union[_flow_control_settings_pb2.FlowControlSettings, _Mapping]
-        ] = ...,
-        enable_compression: _Optional[bool] = ...,
-        auth_headers: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, push_endpoint: _Optional[str] = ..., delivery_timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_delivery_retry_config_pb2.DeliveryRetryConfig, _Mapping]] = ..., batch_config: _Optional[_Union[_batch_delivery_config_pb2.BatchDeliveryConfig, _Mapping]] = ..., flow_control: _Optional[_Union[_flow_control_settings_pb2.FlowControlSettings, _Mapping]] = ..., enable_compression: _Optional[bool] = ..., auth_headers: _Optional[_Mapping[str, str]] = ...) -> None: ...

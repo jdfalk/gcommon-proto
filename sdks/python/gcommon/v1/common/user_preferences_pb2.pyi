@@ -7,15 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UserPreferences(_message.Message):
-    __slots__ = (
-        "email_notifications",
-        "sms_notifications",
-        "push_notifications",
-        "marketing_emails",
-        "two_factor_enabled",
-        "session_timeout_minutes",
-        "theme",
-    )
+    __slots__ = ("email_notifications", "sms_notifications", "push_notifications", "marketing_emails", "two_factor_enabled", "session_timeout_minutes", "theme")
     EMAIL_NOTIFICATIONS_FIELD_NUMBER: _ClassVar[int]
     SMS_NOTIFICATIONS_FIELD_NUMBER: _ClassVar[int]
     PUSH_NOTIFICATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -30,13 +22,4 @@ class UserPreferences(_message.Message):
     two_factor_enabled: bool
     session_timeout_minutes: int
     theme: str
-    def __init__(
-        self,
-        email_notifications: _Optional[bool] = ...,
-        sms_notifications: _Optional[bool] = ...,
-        push_notifications: _Optional[bool] = ...,
-        marketing_emails: _Optional[bool] = ...,
-        two_factor_enabled: _Optional[bool] = ...,
-        session_timeout_minutes: _Optional[int] = ...,
-        theme: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, email_notifications: _Optional[bool] = ..., sms_notifications: _Optional[bool] = ..., push_notifications: _Optional[bool] = ..., marketing_emails: _Optional[bool] = ..., two_factor_enabled: _Optional[bool] = ..., session_timeout_minutes: _Optional[int] = ..., theme: _Optional[str] = ...) -> None: ...

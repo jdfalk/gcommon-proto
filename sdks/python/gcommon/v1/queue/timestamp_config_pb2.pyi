@@ -14,9 +14,4 @@ class TimestampConfig(_message.Message):
     source: str
     sync_interval_seconds: int
     max_skew_ms: int
-    def __init__(
-        self,
-        source: _Optional[str] = ...,
-        sync_interval_seconds: _Optional[int] = ...,
-        max_skew_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, source: _Optional[str] = ..., sync_interval_seconds: _Optional[int] = ..., max_skew_ms: _Optional[int] = ...) -> None: ...

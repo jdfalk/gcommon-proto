@@ -14,8 +14,4 @@ class GetSchemaResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     schema: _config_schema_pb2.ConfigSchema
     error: _error_pb2.Error
-    def __init__(
-        self,
-        schema: _Optional[_Union[_config_schema_pb2.ConfigSchema, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, schema: _Optional[_Union[_config_schema_pb2.ConfigSchema, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

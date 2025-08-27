@@ -7,16 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResetDetails(_message.Message):
-    __slots__ = (
-        "metrics_reset_count",
-        "counters_reset_count",
-        "histograms_reset_count",
-        "partitions_affected",
-        "reset_duration_ms",
-        "partial_reset",
-        "reset_reason",
-        "initiated_by",
-    )
+    __slots__ = ("metrics_reset_count", "counters_reset_count", "histograms_reset_count", "partitions_affected", "reset_duration_ms", "partial_reset", "reset_reason", "initiated_by")
     METRICS_RESET_COUNT_FIELD_NUMBER: _ClassVar[int]
     COUNTERS_RESET_COUNT_FIELD_NUMBER: _ClassVar[int]
     HISTOGRAMS_RESET_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -33,14 +24,4 @@ class ResetDetails(_message.Message):
     partial_reset: bool
     reset_reason: str
     initiated_by: str
-    def __init__(
-        self,
-        metrics_reset_count: _Optional[int] = ...,
-        counters_reset_count: _Optional[int] = ...,
-        histograms_reset_count: _Optional[int] = ...,
-        partitions_affected: _Optional[int] = ...,
-        reset_duration_ms: _Optional[int] = ...,
-        partial_reset: _Optional[bool] = ...,
-        reset_reason: _Optional[str] = ...,
-        initiated_by: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, metrics_reset_count: _Optional[int] = ..., counters_reset_count: _Optional[int] = ..., histograms_reset_count: _Optional[int] = ..., partitions_affected: _Optional[int] = ..., reset_duration_ms: _Optional[int] = ..., partial_reset: _Optional[bool] = ..., reset_reason: _Optional[str] = ..., initiated_by: _Optional[str] = ...) -> None: ...

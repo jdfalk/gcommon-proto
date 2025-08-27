@@ -11,14 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetProviderStatsRequest(_message.Message):
-    __slots__ = (
-        "metadata",
-        "provider_id",
-        "time_range",
-        "options",
-        "granularity",
-        "include_realtime",
-    )
+    __slots__ = ("metadata", "provider_id", "time_range", "options", "granularity", "include_realtime")
     METADATA_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_RANGE_FIELD_NUMBER: _ClassVar[int]
@@ -31,16 +24,4 @@ class GetProviderStatsRequest(_message.Message):
     options: _stats_options_pb2.StatsOptions
     granularity: str
     include_realtime: bool
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        provider_id: _Optional[str] = ...,
-        time_range: _Optional[
-            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
-        ] = ...,
-        options: _Optional[_Union[_stats_options_pb2.StatsOptions, _Mapping]] = ...,
-        granularity: _Optional[str] = ...,
-        include_realtime: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., provider_id: _Optional[str] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., options: _Optional[_Union[_stats_options_pb2.StatsOptions, _Mapping]] = ..., granularity: _Optional[str] = ..., include_realtime: _Optional[bool] = ...) -> None: ...

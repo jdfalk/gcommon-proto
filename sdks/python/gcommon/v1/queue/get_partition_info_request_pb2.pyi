@@ -10,18 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetPartitionInfoRequest(_message.Message):
-    __slots__ = (
-        "topic_id",
-        "partition_ids",
-        "include_stats",
-        "include_consumers",
-        "include_offsets",
-        "include_health_status",
-        "include_leader_info",
-        "include_config",
-        "time_range",
-        "access_token",
-    )
+    __slots__ = ("topic_id", "partition_ids", "include_stats", "include_consumers", "include_offsets", "include_health_status", "include_leader_info", "include_config", "time_range", "access_token")
     TOPIC_ID_FIELD_NUMBER: _ClassVar[int]
     PARTITION_IDS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_STATS_FIELD_NUMBER: _ClassVar[int]
@@ -42,18 +31,4 @@ class GetPartitionInfoRequest(_message.Message):
     include_config: bool
     time_range: _time_range_filter_pb2.TimeRangeFilter
     access_token: str
-    def __init__(
-        self,
-        topic_id: _Optional[str] = ...,
-        partition_ids: _Optional[_Iterable[int]] = ...,
-        include_stats: _Optional[bool] = ...,
-        include_consumers: _Optional[bool] = ...,
-        include_offsets: _Optional[bool] = ...,
-        include_health_status: _Optional[bool] = ...,
-        include_leader_info: _Optional[bool] = ...,
-        include_config: _Optional[bool] = ...,
-        time_range: _Optional[
-            _Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]
-        ] = ...,
-        access_token: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, topic_id: _Optional[str] = ..., partition_ids: _Optional[_Iterable[int]] = ..., include_stats: _Optional[bool] = ..., include_consumers: _Optional[bool] = ..., include_offsets: _Optional[bool] = ..., include_health_status: _Optional[bool] = ..., include_leader_info: _Optional[bool] = ..., include_config: _Optional[bool] = ..., time_range: _Optional[_Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]] = ..., access_token: _Optional[str] = ...) -> None: ...

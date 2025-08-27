@@ -6,15 +6,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TranscodeOptions(_message.Message):
-    __slots__ = (
-        "resolution",
-        "bitrate",
-        "framerate",
-        "audio_codec",
-        "audio_bitrate",
-        "preserve_subtitles",
-        "preserve_chapters",
-    )
+    __slots__ = ("resolution", "bitrate", "framerate", "audio_codec", "audio_bitrate", "preserve_subtitles", "preserve_chapters")
     RESOLUTION_FIELD_NUMBER: _ClassVar[int]
     BITRATE_FIELD_NUMBER: _ClassVar[int]
     FRAMERATE_FIELD_NUMBER: _ClassVar[int]
@@ -29,13 +21,4 @@ class TranscodeOptions(_message.Message):
     audio_bitrate: int
     preserve_subtitles: bool
     preserve_chapters: bool
-    def __init__(
-        self,
-        resolution: _Optional[str] = ...,
-        bitrate: _Optional[int] = ...,
-        framerate: _Optional[int] = ...,
-        audio_codec: _Optional[str] = ...,
-        audio_bitrate: _Optional[int] = ...,
-        preserve_subtitles: _Optional[bool] = ...,
-        preserve_chapters: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, resolution: _Optional[str] = ..., bitrate: _Optional[int] = ..., framerate: _Optional[int] = ..., audio_codec: _Optional[str] = ..., audio_bitrate: _Optional[int] = ..., preserve_subtitles: _Optional[bool] = ..., preserve_chapters: _Optional[bool] = ...) -> None: ...

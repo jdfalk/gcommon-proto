@@ -14,8 +14,4 @@ class GetQueueHealthRequest(_message.Message):
     INCLUDE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     queue_names: _containers.RepeatedScalarFieldContainer[str]
     include_details: bool
-    def __init__(
-        self,
-        queue_names: _Optional[_Iterable[str]] = ...,
-        include_details: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, queue_names: _Optional[_Iterable[str]] = ..., include_details: _Optional[bool] = ...) -> None: ...

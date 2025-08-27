@@ -18,11 +18,4 @@ class ReadLogsRequest(_message.Message):
     start_time: int
     end_time: int
     limit: int
-    def __init__(
-        self,
-        level: _Optional[str] = ...,
-        source: _Optional[str] = ...,
-        start_time: _Optional[int] = ...,
-        end_time: _Optional[int] = ...,
-        limit: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, level: _Optional[str] = ..., source: _Optional[str] = ..., start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., limit: _Optional[int] = ...) -> None: ...

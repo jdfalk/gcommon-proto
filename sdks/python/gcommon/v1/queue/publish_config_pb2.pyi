@@ -9,15 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PublishConfig(_message.Message):
-    __slots__ = (
-        "wait_for_ack",
-        "ack_timeout_ms",
-        "duplicate_detection",
-        "enable_compression",
-        "enable_ordering",
-        "retry_config",
-        "persistence_level",
-    )
+    __slots__ = ("wait_for_ack", "ack_timeout_ms", "duplicate_detection", "enable_compression", "enable_ordering", "retry_config", "persistence_level")
     WAIT_FOR_ACK_FIELD_NUMBER: _ClassVar[int]
     ACK_TIMEOUT_MS_FIELD_NUMBER: _ClassVar[int]
     DUPLICATE_DETECTION_FIELD_NUMBER: _ClassVar[int]
@@ -32,15 +24,4 @@ class PublishConfig(_message.Message):
     enable_ordering: bool
     retry_config: _retry_policy_pb2.CommonRetryPolicy
     persistence_level: str
-    def __init__(
-        self,
-        wait_for_ack: _Optional[bool] = ...,
-        ack_timeout_ms: _Optional[int] = ...,
-        duplicate_detection: _Optional[bool] = ...,
-        enable_compression: _Optional[bool] = ...,
-        enable_ordering: _Optional[bool] = ...,
-        retry_config: _Optional[
-            _Union[_retry_policy_pb2.CommonRetryPolicy, _Mapping]
-        ] = ...,
-        persistence_level: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, wait_for_ack: _Optional[bool] = ..., ack_timeout_ms: _Optional[int] = ..., duplicate_detection: _Optional[bool] = ..., enable_compression: _Optional[bool] = ..., enable_ordering: _Optional[bool] = ..., retry_config: _Optional[_Union[_retry_policy_pb2.CommonRetryPolicy, _Mapping]] = ..., persistence_level: _Optional[str] = ...) -> None: ...

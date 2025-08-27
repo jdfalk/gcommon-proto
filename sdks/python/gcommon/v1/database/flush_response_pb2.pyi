@@ -16,9 +16,4 @@ class FlushResponse(_message.Message):
     flushed_count: int
     success: bool
     error: _error_pb2.Error
-    def __init__(
-        self,
-        flushed_count: _Optional[int] = ...,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, flushed_count: _Optional[int] = ..., success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

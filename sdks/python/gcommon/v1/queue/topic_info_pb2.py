@@ -4,15 +4,18 @@
 # source: gcommon/v1/queue/topic_info.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
-    _runtime_version.Domain.PUBLIC, 6, 32, 0, "", "gcommon/v1/queue/topic_info.proto"
+    _runtime_version.Domain.PUBLIC,
+    6,
+    32,
+    0,
+    '',
+    'gcommon/v1/queue/topic_info.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -24,42 +27,28 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n!gcommon/v1/queue/topic_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\x96\x04\n\tTopicInfo\x12\x1d\n\x04name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12*\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x43\n\ncreated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12=\n\nupdated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12'\n\x0fpartition_count\x18\x05 \x01(\x05R\x0epartitionCount\x12-\n\x12replication_factor\x18\x06 \x01(\x05R\x11replicationFactor\x12#\n\rmessage_count\x18\x07 \x01(\x03R\x0cmessageCount\x12\x1d\n\nsize_bytes\x18\x08 \x01(\x03R\tsizeBytes\x12\x16\n\x06status\x18\t \x01(\tR\x06status\x12I\n\x08metadata\x18\n \x03(\x0b\x32).gcommon.v1.queue.TopicInfo.MetadataEntryB\x02(\x01R\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!gcommon/v1/queue/topic_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\x96\x04\n\tTopicInfo\x12\x1d\n\x04name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18\x64R\x04name\x12*\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x08\xbaH\x05r\x03\x18\xe8\x07R\x0b\x64\x65scription\x12\x43\n\ncreated_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08(\x01\xbaH\x03\xc8\x01\x01R\tcreatedAt\x12=\n\nupdated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\'\n\x0fpartition_count\x18\x05 \x01(\x05R\x0epartitionCount\x12-\n\x12replication_factor\x18\x06 \x01(\x05R\x11replicationFactor\x12#\n\rmessage_count\x18\x07 \x01(\x03R\x0cmessageCount\x12\x1d\n\nsize_bytes\x18\x08 \x01(\x03R\tsizeBytes\x12\x16\n\x06status\x18\t \x01(\tR\x06status\x12I\n\x08metadata\x18\n \x03(\x0b\x32).gcommon.v1.queue.TopicInfo.MetadataEntryB\x02(\x01R\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x34Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.queue.topic_info_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.topic_info_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
-    )
-    _globals["_TOPICINFO_METADATAENTRY"]._loaded_options = None
-    _globals["_TOPICINFO_METADATAENTRY"]._serialized_options = b"8\001"
-    _globals["_TOPICINFO"].fields_by_name["name"]._loaded_options = None
-    _globals["_TOPICINFO"].fields_by_name[
-        "name"
-    ]._serialized_options = b"\272H\006r\004\020\001\030d"
-    _globals["_TOPICINFO"].fields_by_name["description"]._loaded_options = None
-    _globals["_TOPICINFO"].fields_by_name[
-        "description"
-    ]._serialized_options = b"\272H\005r\003\030\350\007"
-    _globals["_TOPICINFO"].fields_by_name["created_at"]._loaded_options = None
-    _globals["_TOPICINFO"].fields_by_name[
-        "created_at"
-    ]._serialized_options = b"(\001\272H\003\310\001\001"
-    _globals["_TOPICINFO"].fields_by_name["updated_at"]._loaded_options = None
-    _globals["_TOPICINFO"].fields_by_name["updated_at"]._serialized_options = b"(\001"
-    _globals["_TOPICINFO"].fields_by_name["metadata"]._loaded_options = None
-    _globals["_TOPICINFO"].fields_by_name["metadata"]._serialized_options = b"(\001"
-    _globals["_TOPICINFO"]._serialized_start = 153
-    _globals["_TOPICINFO"]._serialized_end = 687
-    _globals["_TOPICINFO_METADATAENTRY"]._serialized_start = 628
-    _globals["_TOPICINFO_METADATAENTRY"]._serialized_end = 687
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
+  _globals['_TOPICINFO_METADATAENTRY']._loaded_options = None
+  _globals['_TOPICINFO_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_TOPICINFO'].fields_by_name['name']._loaded_options = None
+  _globals['_TOPICINFO'].fields_by_name['name']._serialized_options = b'\272H\006r\004\020\001\030d'
+  _globals['_TOPICINFO'].fields_by_name['description']._loaded_options = None
+  _globals['_TOPICINFO'].fields_by_name['description']._serialized_options = b'\272H\005r\003\030\350\007'
+  _globals['_TOPICINFO'].fields_by_name['created_at']._loaded_options = None
+  _globals['_TOPICINFO'].fields_by_name['created_at']._serialized_options = b'(\001\272H\003\310\001\001'
+  _globals['_TOPICINFO'].fields_by_name['updated_at']._loaded_options = None
+  _globals['_TOPICINFO'].fields_by_name['updated_at']._serialized_options = b'(\001'
+  _globals['_TOPICINFO'].fields_by_name['metadata']._loaded_options = None
+  _globals['_TOPICINFO'].fields_by_name['metadata']._serialized_options = b'(\001'
+  _globals['_TOPICINFO']._serialized_start=153
+  _globals['_TOPICINFO']._serialized_end=687
+  _globals['_TOPICINFO_METADATAENTRY']._serialized_start=628
+  _globals['_TOPICINFO_METADATAENTRY']._serialized_end=687
 # @@protoc_insertion_point(module_scope)

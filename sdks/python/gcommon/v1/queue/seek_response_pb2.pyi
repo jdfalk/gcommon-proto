@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SeekResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "position",
-        "offset",
-        "partition_id",
-        "error_message",
-        "metadata",
-    )
+    __slots__ = ("success", "position", "offset", "partition_id", "error_message", "metadata")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     POSITION_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
@@ -29,14 +22,4 @@ class SeekResponse(_message.Message):
     partition_id: int
     error_message: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        position: _Optional[int] = ...,
-        offset: _Optional[int] = ...,
-        partition_id: _Optional[int] = ...,
-        error_message: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., position: _Optional[int] = ..., offset: _Optional[int] = ..., partition_id: _Optional[int] = ..., error_message: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...

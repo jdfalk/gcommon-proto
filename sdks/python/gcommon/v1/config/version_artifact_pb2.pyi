@@ -19,10 +19,7 @@ class VersionArtifact(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
@@ -37,15 +34,4 @@ class VersionArtifact(_message.Message):
     checksum: str
     metadata: _containers.ScalarMap[str, str]
     timestamp: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        type: _Optional[str] = ...,
-        path: _Optional[str] = ...,
-        size: _Optional[int] = ...,
-        checksum: _Optional[str] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., path: _Optional[str] = ..., size: _Optional[int] = ..., checksum: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

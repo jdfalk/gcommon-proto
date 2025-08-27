@@ -16,10 +16,4 @@ class GetAlertingRulesResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     rules: _containers.RepeatedCompositeFieldContainer[_alerting_rule_pb2.AlertingRule]
     error: _error_pb2.Error
-    def __init__(
-        self,
-        rules: _Optional[
-            _Iterable[_Union[_alerting_rule_pb2.AlertingRule, _Mapping]]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, rules: _Optional[_Iterable[_Union[_alerting_rule_pb2.AlertingRule, _Mapping]]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

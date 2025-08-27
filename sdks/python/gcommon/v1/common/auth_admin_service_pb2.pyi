@@ -5,17 +5,11 @@ from gcommon.v1.common import create_user_request_pb2 as _create_user_request_pb
 from gcommon.v1.common import create_user_response_pb2 as _create_user_response_pb2
 from gcommon.v1.common import delete_role_request_pb2 as _delete_role_request_pb2
 from gcommon.v1.common import delete_user_request_pb2 as _delete_user_request_pb2
-from gcommon.v1.common import (
-    get_system_stats_request_pb2 as _get_system_stats_request_pb2,
-)
-from gcommon.v1.common import (
-    get_system_stats_response_pb2 as _get_system_stats_response_pb2,
-)
+from gcommon.v1.common import get_system_stats_request_pb2 as _get_system_stats_request_pb2
+from gcommon.v1.common import get_system_stats_response_pb2 as _get_system_stats_response_pb2
 from gcommon.v1.common import get_user_request_pb2 as _get_user_request_pb2
 from gcommon.v1.common import get_user_response_pb2 as _get_user_response_pb2
-from gcommon.v1.common import (
-    invalidate_user_sessions_request_pb2 as _invalidate_user_sessions_request_pb2,
-)
+from gcommon.v1.common import invalidate_user_sessions_request_pb2 as _invalidate_user_sessions_request_pb2
 from gcommon.v1.common import list_roles_request_pb2 as _list_roles_request_pb2
 from gcommon.v1.common import list_roles_response_pb2 as _list_roles_response_pb2
 from gcommon.v1.common import list_users_request_pb2 as _list_users_request_pb2

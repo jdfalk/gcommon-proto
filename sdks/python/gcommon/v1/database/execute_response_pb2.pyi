@@ -21,10 +21,4 @@ class ExecuteResponse(_message.Message):
     generated_keys: _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]
     stats: _execute_stats_pb2.ExecuteStats
     error: _error_pb2.Error
-    def __init__(
-        self,
-        affected_rows: _Optional[int] = ...,
-        generated_keys: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ...,
-        stats: _Optional[_Union[_execute_stats_pb2.ExecuteStats, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, affected_rows: _Optional[int] = ..., generated_keys: _Optional[_Iterable[_Union[_any_pb2.Any, _Mapping]]] = ..., stats: _Optional[_Union[_execute_stats_pb2.ExecuteStats, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

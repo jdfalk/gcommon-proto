@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PaginatedResponse(_message.Message):
-    __slots__ = (
-        "next_page_token",
-        "prev_page_token",
-        "total_count",
-        "current_page",
-        "total_pages",
-        "page_size",
-    )
+    __slots__ = ("next_page_token", "prev_page_token", "total_count", "current_page", "total_pages", "page_size")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     PREV_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     TOTAL_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class PaginatedResponse(_message.Message):
     current_page: int
     total_pages: int
     page_size: int
-    def __init__(
-        self,
-        next_page_token: _Optional[str] = ...,
-        prev_page_token: _Optional[str] = ...,
-        total_count: _Optional[int] = ...,
-        current_page: _Optional[int] = ...,
-        total_pages: _Optional[int] = ...,
-        page_size: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, next_page_token: _Optional[str] = ..., prev_page_token: _Optional[str] = ..., total_count: _Optional[int] = ..., current_page: _Optional[int] = ..., total_pages: _Optional[int] = ..., page_size: _Optional[int] = ...) -> None: ...

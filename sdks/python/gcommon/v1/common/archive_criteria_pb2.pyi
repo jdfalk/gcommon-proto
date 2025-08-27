@@ -16,10 +16,4 @@ class ArchiveCriteria(_message.Message):
     SIZE_THRESHOLD_BYTES_FIELD_NUMBER: _ClassVar[int]
     older_than: _duration_pb2.Duration
     size_threshold_bytes: int
-    def __init__(
-        self,
-        older_than: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        size_threshold_bytes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, older_than: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., size_threshold_bytes: _Optional[int] = ...) -> None: ...

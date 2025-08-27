@@ -7,12 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ClusterConfig(_message.Message):
-    __slots__ = (
-        "quorum_size",
-        "replication_factor",
-        "heartbeat_interval",
-        "election_timeout",
-    )
+    __slots__ = ("quorum_size", "replication_factor", "heartbeat_interval", "election_timeout")
     QUORUM_SIZE_FIELD_NUMBER: _ClassVar[int]
     REPLICATION_FACTOR_FIELD_NUMBER: _ClassVar[int]
     HEARTBEAT_INTERVAL_FIELD_NUMBER: _ClassVar[int]
@@ -21,10 +16,4 @@ class ClusterConfig(_message.Message):
     replication_factor: int
     heartbeat_interval: int
     election_timeout: int
-    def __init__(
-        self,
-        quorum_size: _Optional[int] = ...,
-        replication_factor: _Optional[int] = ...,
-        heartbeat_interval: _Optional[int] = ...,
-        election_timeout: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, quorum_size: _Optional[int] = ..., replication_factor: _Optional[int] = ..., heartbeat_interval: _Optional[int] = ..., election_timeout: _Optional[int] = ...) -> None: ...

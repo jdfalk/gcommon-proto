@@ -4,80 +4,48 @@
 # source: gcommon/v1/metrics/unregistration_result.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/unregistration_result.proto",
+    '',
+    'gcommon/v1/metrics/unregistration_result.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import (
-    dry_run_result_pb2 as gcommon_dot_v1_dot_metrics_dot_dry__run__result__pb2,
-)
+from gcommon.v1.metrics import dry_run_result_pb2 as gcommon_dot_v1_dot_metrics_dot_dry__run__result__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n.gcommon/v1/metrics/unregistration_result.proto\x12\x12gcommon.v1.metrics\x1a\'gcommon/v1/metrics/dry_run_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto"\xdf\x03\n\x14UnregistrationResult\x12-\n\x12\x64\x65\x66inition_deleted\x18\x01 \x01(\x08R\x11\x64\x65\x66initionDeleted\x12\x35\n\x12\x64\x61ta_deleted_bytes\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x10\x64\x61taDeletedBytes\x12\x37\n\x13\x64\x61ta_points_deleted\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x11\x64\x61taPointsDeleted\x12\x31\n\x0f\x64\x65leted_indices\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0e\x64\x65letedIndices\x12/\n\x0eremoved_alerts\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rremovedAlerts\x12\x31\n\x0fstopped_exports\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0estoppedExports\x12I\n\x12scheduled_deletion\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x11scheduledDeletion\x12\x46\n\x0e\x64ry_run_result\x18\x08 \x01(\x0b\x32 .gcommon.v1.metrics.DryRunResultR\x0c\x64ryRunResultB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/metrics/unregistration_result.proto\x12\x12gcommon.v1.metrics\x1a\'gcommon/v1/metrics/dry_run_result.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x62uf/validate/validate.proto\"\xdf\x03\n\x14UnregistrationResult\x12-\n\x12\x64\x65\x66inition_deleted\x18\x01 \x01(\x08R\x11\x64\x65\x66initionDeleted\x12\x35\n\x12\x64\x61ta_deleted_bytes\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x10\x64\x61taDeletedBytes\x12\x37\n\x13\x64\x61ta_points_deleted\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x11\x64\x61taPointsDeleted\x12\x31\n\x0f\x64\x65leted_indices\x18\x04 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0e\x64\x65letedIndices\x12/\n\x0eremoved_alerts\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rremovedAlerts\x12\x31\n\x0fstopped_exports\x18\x06 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0estoppedExports\x12I\n\x12scheduled_deletion\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x11scheduledDeletion\x12\x46\n\x0e\x64ry_run_result\x18\x08 \x01(\x0b\x32 .gcommon.v1.metrics.DryRunResultR\x0c\x64ryRunResultB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.unregistration_result_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.unregistration_result_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "data_deleted_bytes"
-    ]._loaded_options = None
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "data_deleted_bytes"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "data_points_deleted"
-    ]._loaded_options = None
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "data_points_deleted"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "deleted_indices"
-    ]._loaded_options = None
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "deleted_indices"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "removed_alerts"
-    ]._loaded_options = None
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "removed_alerts"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "stopped_exports"
-    ]._loaded_options = None
-    _globals["_UNREGISTRATIONRESULT"].fields_by_name[
-        "stopped_exports"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_UNREGISTRATIONRESULT"]._serialized_start = 209
-    _globals["_UNREGISTRATIONRESULT"]._serialized_end = 688
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['data_deleted_bytes']._loaded_options = None
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['data_deleted_bytes']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['data_points_deleted']._loaded_options = None
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['data_points_deleted']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['deleted_indices']._loaded_options = None
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['deleted_indices']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['removed_alerts']._loaded_options = None
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['removed_alerts']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['stopped_exports']._loaded_options = None
+  _globals['_UNREGISTRATIONRESULT'].fields_by_name['stopped_exports']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_UNREGISTRATIONRESULT']._serialized_start=209
+  _globals['_UNREGISTRATIONRESULT']._serialized_end=688
 # @@protoc_insertion_point(module_scope)

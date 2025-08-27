@@ -16,11 +16,4 @@ class CreateDepartmentRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     department: _department_pb2.Department
     validate_only: bool
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        department: _Optional[_Union[_department_pb2.Department, _Mapping]] = ...,
-        validate_only: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., department: _Optional[_Union[_department_pb2.Department, _Mapping]] = ..., validate_only: _Optional[bool] = ...) -> None: ...

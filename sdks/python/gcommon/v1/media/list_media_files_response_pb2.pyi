@@ -17,11 +17,4 @@ class ListMediaFilesResponse(_message.Message):
     media_files: _containers.RepeatedCompositeFieldContainer[_media_file_pb2.MediaFile]
     next_page_token: str
     total_count: int
-    def __init__(
-        self,
-        media_files: _Optional[
-            _Iterable[_Union[_media_file_pb2.MediaFile, _Mapping]]
-        ] = ...,
-        next_page_token: _Optional[str] = ...,
-        total_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, media_files: _Optional[_Iterable[_Union[_media_file_pb2.MediaFile, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total_count: _Optional[int] = ...) -> None: ...

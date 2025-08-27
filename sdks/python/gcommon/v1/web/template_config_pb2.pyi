@@ -18,10 +18,4 @@ class TemplateConfig(_message.Message):
     extension: str
     reload: bool
     functions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        directory: _Optional[str] = ...,
-        extension: _Optional[str] = ...,
-        reload: _Optional[bool] = ...,
-        functions: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, directory: _Optional[str] = ..., extension: _Optional[str] = ..., reload: _Optional[bool] = ..., functions: _Optional[_Iterable[str]] = ...) -> None: ...

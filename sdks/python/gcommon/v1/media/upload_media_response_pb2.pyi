@@ -16,9 +16,4 @@ class UploadMediaResponse(_message.Message):
     media_file: _media_file_pb2.MediaFile
     upload_id: str
     success: bool
-    def __init__(
-        self,
-        media_file: _Optional[_Union[_media_file_pb2.MediaFile, _Mapping]] = ...,
-        upload_id: _Optional[str] = ...,
-        success: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, media_file: _Optional[_Union[_media_file_pb2.MediaFile, _Mapping]] = ..., upload_id: _Optional[str] = ..., success: _Optional[bool] = ...) -> None: ...

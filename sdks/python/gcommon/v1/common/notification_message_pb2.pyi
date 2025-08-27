@@ -15,16 +15,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class NotificationMessage(_message.Message):
-    __slots__ = (
-        "id",
-        "subject",
-        "body",
-        "data",
-        "channels",
-        "send_at",
-        "status",
-        "created_at",
-    )
+    __slots__ = ("id", "subject", "body", "data", "channels", "send_at", "status", "created_at")
     ID_FIELD_NUMBER: _ClassVar[int]
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
     BODY_FIELD_NUMBER: _ClassVar[int]
@@ -37,26 +28,8 @@ class NotificationMessage(_message.Message):
     subject: str
     body: str
     data: _any_pb2.Any
-    channels: _containers.RepeatedCompositeFieldContainer[
-        _delivery_channel_pb2.DeliveryChannel
-    ]
+    channels: _containers.RepeatedCompositeFieldContainer[_delivery_channel_pb2.DeliveryChannel]
     send_at: _timestamp_pb2.Timestamp
     status: _delivery_status_pb2.DeliveryStatus
     created_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        subject: _Optional[str] = ...,
-        body: _Optional[str] = ...,
-        data: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        channels: _Optional[
-            _Iterable[_Union[_delivery_channel_pb2.DeliveryChannel, _Mapping]]
-        ] = ...,
-        send_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        status: _Optional[_Union[_delivery_status_pb2.DeliveryStatus, str]] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., subject: _Optional[str] = ..., body: _Optional[str] = ..., data: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., channels: _Optional[_Iterable[_Union[_delivery_channel_pb2.DeliveryChannel, _Mapping]]] = ..., send_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_delivery_status_pb2.DeliveryStatus, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

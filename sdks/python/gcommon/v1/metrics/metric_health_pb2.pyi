@@ -21,12 +21,4 @@ class MetricHealth(_message.Message):
     status: _health_status_pb2.CommonHealthStatus
     checked_at: _timestamp_pb2.Timestamp
     message: str
-    def __init__(
-        self,
-        target_id: _Optional[str] = ...,
-        status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ...,
-        checked_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        message: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, target_id: _Optional[str] = ..., status: _Optional[_Union[_health_status_pb2.CommonHealthStatus, str]] = ..., checked_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., message: _Optional[str] = ...) -> None: ...

@@ -17,15 +17,4 @@ class VerifyCredentialsRequest(_message.Message):
     metadata: _request_metadata_pb2.RequestMetadata
     password: _password_credentials_pb2.PasswordCredentials
     api_key: _api_key_credentials_pb2.APIKeyCredentials
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        password: _Optional[
-            _Union[_password_credentials_pb2.PasswordCredentials, _Mapping]
-        ] = ...,
-        api_key: _Optional[
-            _Union[_api_key_credentials_pb2.APIKeyCredentials, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., password: _Optional[_Union[_password_credentials_pb2.PasswordCredentials, _Mapping]] = ..., api_key: _Optional[_Union[_api_key_credentials_pb2.APIKeyCredentials, _Mapping]] = ...) -> None: ...

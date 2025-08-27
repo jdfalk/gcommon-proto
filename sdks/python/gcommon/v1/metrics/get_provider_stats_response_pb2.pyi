@@ -15,15 +15,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetProviderStatsResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "error",
-        "provider_id",
-        "statistics",
-        "generated_at",
-        "time_range",
-        "warnings",
-    )
+    __slots__ = ("success", "error", "provider_id", "statistics", "generated_at", "time_range", "warnings")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -38,19 +30,4 @@ class GetProviderStatsResponse(_message.Message):
     generated_at: _timestamp_pb2.Timestamp
     time_range: _time_range_metrics_pb2.TimeRangeMetrics
     warnings: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        provider_id: _Optional[str] = ...,
-        statistics: _Optional[
-            _Union[_provider_statistics_pb2.ProviderStatistics, _Mapping]
-        ] = ...,
-        generated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        time_range: _Optional[
-            _Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]
-        ] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., provider_id: _Optional[str] = ..., statistics: _Optional[_Union[_provider_statistics_pb2.ProviderStatistics, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...

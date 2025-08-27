@@ -4,20 +4,18 @@
 # source: gcommon/v1/queue/message_state_counts.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/queue/message_state_counts.proto",
+    '',
+    'gcommon/v1/queue/message_state_counts.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,46 +26,26 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n+gcommon/v1/queue/message_state_counts.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xf7\x01\n\x12MessageStateCounts\x12!\n\x07pending\x18\x01 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x07pending\x12\'\n\nprocessing\x18\x02 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\nprocessing\x12%\n\tcompleted\x18\x03 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\tcompleted\x12\x1f\n\x06\x66\x61iled\x18\x04 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x06\x66\x61iled\x12#\n\x08retrying\x18\x05 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\x08retrying\x12(\n\x0b\x64\x65\x61\x64_letter\x18\x06 \x01(\x03\x42\x07\xbaH\x04"\x02(\x00R\ndeadLetterB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/queue/message_state_counts.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xf7\x01\n\x12MessageStateCounts\x12!\n\x07pending\x18\x01 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07pending\x12\'\n\nprocessing\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\nprocessing\x12%\n\tcompleted\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\tcompleted\x12\x1f\n\x06\x66\x61iled\x18\x04 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x06\x66\x61iled\x12#\n\x08retrying\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x08retrying\x12(\n\x0b\x64\x65\x61\x64_letter\x18\x06 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\ndeadLetterB4Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.queue.message_state_counts_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.queue.message_state_counts_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003"
-    )
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["pending"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "pending"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["processing"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "processing"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["completed"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "completed"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["failed"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "failed"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["retrying"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "retrying"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name["dead_letter"]._loaded_options = None
-    _globals["_MESSAGESTATECOUNTS"].fields_by_name[
-        "dead_letter"
-    ]._serialized_options = b'\272H\004"\002(\000'
-    _globals["_MESSAGESTATECOUNTS"]._serialized_start = 130
-    _globals["_MESSAGESTATECOUNTS"]._serialized_end = 377
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/queue\222\003\005\322>\002\020\003'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['pending']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['pending']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['processing']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['processing']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['completed']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['completed']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['failed']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['failed']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['retrying']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['retrying']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['dead_letter']._loaded_options = None
+  _globals['_MESSAGESTATECOUNTS'].fields_by_name['dead_letter']._serialized_options = b'\272H\004\"\002(\000'
+  _globals['_MESSAGESTATECOUNTS']._serialized_start=130
+  _globals['_MESSAGESTATECOUNTS']._serialized_end=377
 # @@protoc_insertion_point(module_scope)

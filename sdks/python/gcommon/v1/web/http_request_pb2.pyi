@@ -14,75 +14,35 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class HttpRequest(_message.Message):
-    __slots__ = (
-        "method",
-        "url",
-        "protocol_version",
-        "metadata",
-        "headers",
-        "body",
-        "query_params",
-        "path_params",
-        "cookies",
-        "client_ip",
-        "user_agent",
-        "referrer",
-        "content_length",
-        "content_type",
-        "accept",
-        "accept_language",
-        "accept_encoding",
-        "authorization",
-        "request_id",
-        "session_id",
-        "target_service",
-        "target_version",
-        "timeout_ms",
-        "streaming",
-        "keep_alive",
-        "received_at",
-        "created_at",
-    )
+    __slots__ = ("method", "url", "protocol_version", "metadata", "headers", "body", "query_params", "path_params", "cookies", "client_ip", "user_agent", "referrer", "content_length", "content_type", "accept", "accept_language", "accept_encoding", "authorization", "request_id", "session_id", "target_service", "target_version", "timeout_ms", "streaming", "keep_alive", "received_at", "created_at")
     class HeadersEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class QueryParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class PathParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class CookiesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     METHOD_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     PROTOCOL_VERSION_FIELD_NUMBER: _ClassVar[int]
@@ -137,39 +97,4 @@ class HttpRequest(_message.Message):
     keep_alive: bool
     received_at: _timestamp_pb2.Timestamp
     created_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        method: _Optional[str] = ...,
-        url: _Optional[str] = ...,
-        protocol_version: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        headers: _Optional[_Mapping[str, str]] = ...,
-        body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ...,
-        query_params: _Optional[_Mapping[str, str]] = ...,
-        path_params: _Optional[_Mapping[str, str]] = ...,
-        cookies: _Optional[_Mapping[str, str]] = ...,
-        client_ip: _Optional[str] = ...,
-        user_agent: _Optional[str] = ...,
-        referrer: _Optional[str] = ...,
-        content_length: _Optional[int] = ...,
-        content_type: _Optional[str] = ...,
-        accept: _Optional[str] = ...,
-        accept_language: _Optional[str] = ...,
-        accept_encoding: _Optional[str] = ...,
-        authorization: _Optional[str] = ...,
-        request_id: _Optional[str] = ...,
-        session_id: _Optional[str] = ...,
-        target_service: _Optional[str] = ...,
-        target_version: _Optional[str] = ...,
-        timeout_ms: _Optional[int] = ...,
-        streaming: _Optional[bool] = ...,
-        keep_alive: _Optional[bool] = ...,
-        received_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, method: _Optional[str] = ..., url: _Optional[str] = ..., protocol_version: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., query_params: _Optional[_Mapping[str, str]] = ..., path_params: _Optional[_Mapping[str, str]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., client_ip: _Optional[str] = ..., user_agent: _Optional[str] = ..., referrer: _Optional[str] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., accept: _Optional[str] = ..., accept_language: _Optional[str] = ..., accept_encoding: _Optional[str] = ..., authorization: _Optional[str] = ..., request_id: _Optional[str] = ..., session_id: _Optional[str] = ..., target_service: _Optional[str] = ..., target_version: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., streaming: _Optional[bool] = ..., keep_alive: _Optional[bool] = ..., received_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

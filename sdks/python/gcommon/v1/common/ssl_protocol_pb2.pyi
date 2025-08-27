@@ -12,7 +12,6 @@ class SSLProtocol(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SSL_PROTOCOL_TLS1_1: _ClassVar[SSLProtocol]
     SSL_PROTOCOL_TLS1_2: _ClassVar[SSLProtocol]
     SSL_PROTOCOL_TLS1_3: _ClassVar[SSLProtocol]
-
 SSL_PROTOCOL_UNSPECIFIED: SSLProtocol
 SSL_PROTOCOL_TLS1_0: SSLProtocol
 SSL_PROTOCOL_TLS1_1: SSLProtocol

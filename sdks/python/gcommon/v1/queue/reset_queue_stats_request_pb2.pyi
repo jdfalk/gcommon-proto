@@ -9,13 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ResetQueueStatsRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "stat_types",
-        "partition_ids",
-        "preserve_before_timestamp",
-        "timeout_ms",
-    )
+    __slots__ = ("queue_name", "stat_types", "partition_ids", "preserve_before_timestamp", "timeout_ms")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     STAT_TYPES_FIELD_NUMBER: _ClassVar[int]
     PARTITION_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -26,11 +20,4 @@ class ResetQueueStatsRequest(_message.Message):
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     preserve_before_timestamp: int
     timeout_ms: int
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        stat_types: _Optional[_Iterable[str]] = ...,
-        partition_ids: _Optional[_Iterable[int]] = ...,
-        preserve_before_timestamp: _Optional[int] = ...,
-        timeout_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., stat_types: _Optional[_Iterable[str]] = ..., partition_ids: _Optional[_Iterable[int]] = ..., preserve_before_timestamp: _Optional[int] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

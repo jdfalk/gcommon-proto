@@ -19,12 +19,4 @@ class SetOptions(_message.Message):
     only_if_present: bool
     ttl: _duration_pb2.Duration
     return_previous: bool
-    def __init__(
-        self,
-        only_if_absent: _Optional[bool] = ...,
-        only_if_present: _Optional[bool] = ...,
-        ttl: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        return_previous: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, only_if_absent: _Optional[bool] = ..., only_if_present: _Optional[bool] = ..., ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., return_previous: _Optional[bool] = ...) -> None: ...

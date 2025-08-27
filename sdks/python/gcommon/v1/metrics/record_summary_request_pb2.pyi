@@ -19,13 +19,4 @@ class RecordSummaryRequest(_message.Message):
     metric: _summary_metric_pb2.SummaryMetric
     observed_at: _timestamp_pb2.Timestamp
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        metric: _Optional[_Union[_summary_metric_pb2.SummaryMetric, _Mapping]] = ...,
-        observed_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, metric: _Optional[_Union[_summary_metric_pb2.SummaryMetric, _Mapping]] = ..., observed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

@@ -13,7 +13,6 @@ class ResolutionStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESOLUTION_STRATEGY_MERGE: _ClassVar[ResolutionStrategy]
     RESOLUTION_STRATEGY_CUSTOM: _ClassVar[ResolutionStrategy]
     RESOLUTION_STRATEGY_MULTI_VALUE: _ClassVar[ResolutionStrategy]
-
 RESOLUTION_STRATEGY_UNSPECIFIED: ResolutionStrategy
 RESOLUTION_STRATEGY_LAST_WRITER_WINS: ResolutionStrategy
 RESOLUTION_STRATEGY_FIRST_WRITER_WINS: ResolutionStrategy

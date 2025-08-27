@@ -12,15 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ApprovalInfo(_message.Message):
-    __slots__ = (
-        "required",
-        "status",
-        "approved_by",
-        "approved_at",
-        "comments",
-        "workflow_id",
-        "policy_name",
-    )
+    __slots__ = ("required", "status", "approved_by", "approved_at", "comments", "workflow_id", "policy_name")
     REQUIRED_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     APPROVED_BY_FIELD_NUMBER: _ClassVar[int]
@@ -35,15 +27,4 @@ class ApprovalInfo(_message.Message):
     comments: str
     workflow_id: str
     policy_name: str
-    def __init__(
-        self,
-        required: _Optional[bool] = ...,
-        status: _Optional[_Union[_approval_status_pb2.ApprovalStatus, str]] = ...,
-        approved_by: _Optional[str] = ...,
-        approved_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        comments: _Optional[str] = ...,
-        workflow_id: _Optional[str] = ...,
-        policy_name: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, required: _Optional[bool] = ..., status: _Optional[_Union[_approval_status_pb2.ApprovalStatus, str]] = ..., approved_by: _Optional[str] = ..., approved_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., comments: _Optional[str] = ..., workflow_id: _Optional[str] = ..., policy_name: _Optional[str] = ...) -> None: ...

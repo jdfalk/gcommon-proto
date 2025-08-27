@@ -14,7 +14,6 @@ class HookType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HOOK_TYPE_POST_APPLY: _ClassVar[HookType]
     HOOK_TYPE_PRE_VALIDATE: _ClassVar[HookType]
     HOOK_TYPE_POST_VALIDATE: _ClassVar[HookType]
-
 HOOK_TYPE_UNSPECIFIED: HookType
 HOOK_TYPE_PRE_RENDER: HookType
 HOOK_TYPE_POST_RENDER: HookType

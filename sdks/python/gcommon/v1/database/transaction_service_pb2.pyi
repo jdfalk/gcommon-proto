@@ -1,21 +1,9 @@
-from gcommon.v1.database import (
-    begin_transaction_request_pb2 as _begin_transaction_request_pb2,
-)
-from gcommon.v1.database import (
-    begin_transaction_response_pb2 as _begin_transaction_response_pb2,
-)
-from gcommon.v1.database import (
-    commit_transaction_request_pb2 as _commit_transaction_request_pb2,
-)
-from gcommon.v1.database import (
-    rollback_transaction_request_pb2 as _rollback_transaction_request_pb2,
-)
-from gcommon.v1.database import (
-    transaction_status_request_pb2 as _transaction_status_request_pb2,
-)
-from gcommon.v1.database import (
-    transaction_status_response_pb2 as _transaction_status_response_pb2,
-)
+from gcommon.v1.database import begin_transaction_request_pb2 as _begin_transaction_request_pb2
+from gcommon.v1.database import begin_transaction_response_pb2 as _begin_transaction_response_pb2
+from gcommon.v1.database import commit_transaction_request_pb2 as _commit_transaction_request_pb2
+from gcommon.v1.database import rollback_transaction_request_pb2 as _rollback_transaction_request_pb2
+from gcommon.v1.database import transaction_status_request_pb2 as _transaction_status_request_pb2
+from gcommon.v1.database import transaction_status_response_pb2 as _transaction_status_response_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor

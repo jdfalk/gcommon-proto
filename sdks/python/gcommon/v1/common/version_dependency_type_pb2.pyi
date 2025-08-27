@@ -14,7 +14,6 @@ class VersionDependencyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VERSION_DEPENDENCY_TYPE_DEV: _ClassVar[VersionDependencyType]
     VERSION_DEPENDENCY_TYPE_PEER: _ClassVar[VersionDependencyType]
     VERSION_DEPENDENCY_TYPE_OPTIONAL: _ClassVar[VersionDependencyType]
-
 VERSION_DEPENDENCY_TYPE_UNSPECIFIED: VersionDependencyType
 VERSION_DEPENDENCY_TYPE_RUNTIME: VersionDependencyType
 VERSION_DEPENDENCY_TYPE_BUILD: VersionDependencyType

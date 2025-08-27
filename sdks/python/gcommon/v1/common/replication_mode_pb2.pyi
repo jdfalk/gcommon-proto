@@ -14,7 +14,6 @@ class ReplicationMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REPLICATION_MODE_QUORUM: _ClassVar[ReplicationMode]
     REPLICATION_MODE_LEADER_FOLLOWER: _ClassVar[ReplicationMode]
     REPLICATION_MODE_MASTER_SLAVE: _ClassVar[ReplicationMode]
-
 REPLICATION_MODE_UNSPECIFIED: ReplicationMode
 REPLICATION_MODE_NONE: ReplicationMode
 REPLICATION_MODE_SYNC: ReplicationMode

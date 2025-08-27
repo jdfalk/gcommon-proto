@@ -19,10 +19,4 @@ class DeleteMultipleResponse(_message.Message):
     failed_count: int
     failed_keys: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
-    def __init__(
-        self,
-        deleted_count: _Optional[int] = ...,
-        failed_count: _Optional[int] = ...,
-        failed_keys: _Optional[_Iterable[str]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, deleted_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., failed_keys: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

@@ -12,7 +12,6 @@ class NumericFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NUMERIC_FORMAT_SCIENTIFIC: _ClassVar[NumericFormat]
     NUMERIC_FORMAT_ENGINEERING: _ClassVar[NumericFormat]
     NUMERIC_FORMAT_PERCENTAGE: _ClassVar[NumericFormat]
-
 NUMERIC_FORMAT_UNSPECIFIED: NumericFormat
 NUMERIC_FORMAT_DEFAULT: NumericFormat
 NUMERIC_FORMAT_SCIENTIFIC: NumericFormat

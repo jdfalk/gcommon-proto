@@ -16,10 +16,4 @@ class QueueCompressionConfig(_message.Message):
     algorithm: str
     level: int
     min_size_bytes: int
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        algorithm: _Optional[str] = ...,
-        level: _Optional[int] = ...,
-        min_size_bytes: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., algorithm: _Optional[str] = ..., level: _Optional[int] = ..., min_size_bytes: _Optional[int] = ...) -> None: ...

@@ -11,7 +11,6 @@ class RebalanceStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REBALANCE_STRATEGY_EAGER: _ClassVar[RebalanceStrategy]
     REBALANCE_STRATEGY_COOPERATIVE: _ClassVar[RebalanceStrategy]
     REBALANCE_STRATEGY_STATIC: _ClassVar[RebalanceStrategy]
-
 REBALANCE_STRATEGY_UNSPECIFIED: RebalanceStrategy
 REBALANCE_STRATEGY_EAGER: RebalanceStrategy
 REBALANCE_STRATEGY_COOPERATIVE: RebalanceStrategy

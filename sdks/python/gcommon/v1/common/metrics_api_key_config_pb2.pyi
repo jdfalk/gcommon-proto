@@ -16,9 +16,4 @@ class MetricsAPIKeyConfig(_message.Message):
     header_name: str
     required: bool
     allowed_keys: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        header_name: _Optional[str] = ...,
-        required: _Optional[bool] = ...,
-        allowed_keys: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, header_name: _Optional[str] = ..., required: _Optional[bool] = ..., allowed_keys: _Optional[_Iterable[str]] = ...) -> None: ...

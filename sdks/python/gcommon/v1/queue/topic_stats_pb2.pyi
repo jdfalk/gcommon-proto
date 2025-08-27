@@ -7,17 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TopicStats(_message.Message):
-    __slots__ = (
-        "topic_name",
-        "total_messages",
-        "total_size_bytes",
-        "subscription_count",
-        "producer_count",
-        "messages_per_second",
-        "bytes_per_second",
-        "last_message_time",
-        "average_message_size",
-    )
+    __slots__ = ("topic_name", "total_messages", "total_size_bytes", "subscription_count", "producer_count", "messages_per_second", "bytes_per_second", "last_message_time", "average_message_size")
     TOPIC_NAME_FIELD_NUMBER: _ClassVar[int]
     TOTAL_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     TOTAL_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -36,15 +26,4 @@ class TopicStats(_message.Message):
     bytes_per_second: float
     last_message_time: int
     average_message_size: float
-    def __init__(
-        self,
-        topic_name: _Optional[str] = ...,
-        total_messages: _Optional[int] = ...,
-        total_size_bytes: _Optional[int] = ...,
-        subscription_count: _Optional[int] = ...,
-        producer_count: _Optional[int] = ...,
-        messages_per_second: _Optional[float] = ...,
-        bytes_per_second: _Optional[float] = ...,
-        last_message_time: _Optional[int] = ...,
-        average_message_size: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, topic_name: _Optional[str] = ..., total_messages: _Optional[int] = ..., total_size_bytes: _Optional[int] = ..., subscription_count: _Optional[int] = ..., producer_count: _Optional[int] = ..., messages_per_second: _Optional[float] = ..., bytes_per_second: _Optional[float] = ..., last_message_time: _Optional[int] = ..., average_message_size: _Optional[float] = ...) -> None: ...

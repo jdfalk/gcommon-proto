@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PauseQueueResponse(_message.Message):
-    __slots__ = (
-        "success",
-        "queue_name",
-        "pause_status",
-        "affected_consumers",
-        "pause_timestamp",
-        "error",
-    )
+    __slots__ = ("success", "queue_name", "pause_status", "affected_consumers", "pause_timestamp", "error")
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     PAUSE_STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class PauseQueueResponse(_message.Message):
     affected_consumers: int
     pause_timestamp: int
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        queue_name: _Optional[str] = ...,
-        pause_status: _Optional[str] = ...,
-        affected_consumers: _Optional[int] = ...,
-        pause_timestamp: _Optional[int] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., queue_name: _Optional[str] = ..., pause_status: _Optional[str] = ..., affected_consumers: _Optional[int] = ..., pause_timestamp: _Optional[int] = ..., error: _Optional[str] = ...) -> None: ...

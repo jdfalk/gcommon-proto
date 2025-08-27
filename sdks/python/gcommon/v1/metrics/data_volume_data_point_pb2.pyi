@@ -11,13 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DataVolumeDataPoint(_message.Message):
-    __slots__ = (
-        "timestamp",
-        "total_bytes",
-        "total_metrics",
-        "total_data_points",
-        "ingestion_rate",
-    )
+    __slots__ = ("timestamp", "total_bytes", "total_metrics", "total_data_points", "ingestion_rate")
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TOTAL_BYTES_FIELD_NUMBER: _ClassVar[int]
     TOTAL_METRICS_FIELD_NUMBER: _ClassVar[int]
@@ -28,13 +22,4 @@ class DataVolumeDataPoint(_message.Message):
     total_metrics: int
     total_data_points: int
     ingestion_rate: float
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        total_bytes: _Optional[int] = ...,
-        total_metrics: _Optional[int] = ...,
-        total_data_points: _Optional[int] = ...,
-        ingestion_rate: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., total_bytes: _Optional[int] = ..., total_metrics: _Optional[int] = ..., total_data_points: _Optional[int] = ..., ingestion_rate: _Optional[float] = ...) -> None: ...

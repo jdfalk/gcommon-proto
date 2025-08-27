@@ -13,7 +13,6 @@ class ContentType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONTENT_TYPE_XML: _ClassVar[ContentType]
     CONTENT_TYPE_TEXT: _ClassVar[ContentType]
     CONTENT_TYPE_BINARY: _ClassVar[ContentType]
-
 CONTENT_TYPE_UNSPECIFIED: ContentType
 CONTENT_TYPE_HTML: ContentType
 CONTENT_TYPE_JSON: ContentType

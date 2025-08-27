@@ -4,75 +4,45 @@
 # source: gcommon/v1/metrics/metrics_management_service.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/metrics_management_service.proto",
+    '',
+    'gcommon/v1/metrics/metrics_management_service.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import (
-    create_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_create__provider__request__pb2,
-)
-from gcommon.v1.metrics import (
-    create_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_create__provider__response__pb2,
-)
-from gcommon.v1.metrics import (
-    delete_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_delete__provider__request__pb2,
-)
-from gcommon.v1.metrics import (
-    delete_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_delete__provider__response__pb2,
-)
-from gcommon.v1.metrics import (
-    get_provider_stats_request_pb2 as gcommon_dot_v1_dot_metrics_dot_get__provider__stats__request__pb2,
-)
-from gcommon.v1.metrics import (
-    get_provider_stats_response_pb2 as gcommon_dot_v1_dot_metrics_dot_get__provider__stats__response__pb2,
-)
-from gcommon.v1.metrics import (
-    list_providers_request_pb2 as gcommon_dot_v1_dot_metrics_dot_list__providers__request__pb2,
-)
-from gcommon.v1.metrics import (
-    list_providers_response_pb2 as gcommon_dot_v1_dot_metrics_dot_list__providers__response__pb2,
-)
-from gcommon.v1.metrics import (
-    update_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_update__provider__request__pb2,
-)
-from gcommon.v1.metrics import (
-    update_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_update__provider__response__pb2,
-)
+from gcommon.v1.metrics import create_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_create__provider__request__pb2
+from gcommon.v1.metrics import create_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_create__provider__response__pb2
+from gcommon.v1.metrics import delete_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_delete__provider__request__pb2
+from gcommon.v1.metrics import delete_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_delete__provider__response__pb2
+from gcommon.v1.metrics import get_provider_stats_request_pb2 as gcommon_dot_v1_dot_metrics_dot_get__provider__stats__request__pb2
+from gcommon.v1.metrics import get_provider_stats_response_pb2 as gcommon_dot_v1_dot_metrics_dot_get__provider__stats__response__pb2
+from gcommon.v1.metrics import list_providers_request_pb2 as gcommon_dot_v1_dot_metrics_dot_list__providers__request__pb2
+from gcommon.v1.metrics import list_providers_response_pb2 as gcommon_dot_v1_dot_metrics_dot_list__providers__response__pb2
+from gcommon.v1.metrics import update_provider_request_pb2 as gcommon_dot_v1_dot_metrics_dot_update__provider__request__pb2
+from gcommon.v1.metrics import update_provider_response_pb2 as gcommon_dot_v1_dot_metrics_dot_update__provider__response__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n3gcommon/v1/metrics/metrics_management_service.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/create_provider_request.proto\x1a\x31gcommon/v1/metrics/create_provider_response.proto\x1a\x30gcommon/v1/metrics/delete_provider_request.proto\x1a\x31gcommon/v1/metrics/delete_provider_response.proto\x1a\x33gcommon/v1/metrics/get_provider_stats_request.proto\x1a\x34gcommon/v1/metrics/get_provider_stats_response.proto\x1a/gcommon/v1/metrics/list_providers_request.proto\x1a\x30gcommon/v1/metrics/list_providers_response.proto\x1a\x30gcommon/v1/metrics/update_provider_request.proto\x1a\x31gcommon/v1/metrics/update_provider_response.proto\x1a!google/protobuf/go_features.proto2\xc6\x04\n\x18MetricsManagementService\x12n\n\x15\x43reateMetricsProvider\x12).gcommon.v1.metrics.CreateProviderRequest\x1a*.gcommon.v1.metrics.CreateProviderResponse\x12n\n\x15UpdateMetricsProvider\x12).gcommon.v1.metrics.UpdateProviderRequest\x1a*.gcommon.v1.metrics.UpdateProviderResponse\x12n\n\x15\x44\x65leteMetricsProvider\x12).gcommon.v1.metrics.DeleteProviderRequest\x1a*.gcommon.v1.metrics.DeleteProviderResponse\x12k\n\x14ListMetricsProviders\x12(.gcommon.v1.metrics.ListProvidersRequest\x1a).gcommon.v1.metrics.ListProvidersResponse\x12m\n\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3gcommon/v1/metrics/metrics_management_service.proto\x12\x12gcommon.v1.metrics\x1a\x30gcommon/v1/metrics/create_provider_request.proto\x1a\x31gcommon/v1/metrics/create_provider_response.proto\x1a\x30gcommon/v1/metrics/delete_provider_request.proto\x1a\x31gcommon/v1/metrics/delete_provider_response.proto\x1a\x33gcommon/v1/metrics/get_provider_stats_request.proto\x1a\x34gcommon/v1/metrics/get_provider_stats_response.proto\x1a/gcommon/v1/metrics/list_providers_request.proto\x1a\x30gcommon/v1/metrics/list_providers_response.proto\x1a\x30gcommon/v1/metrics/update_provider_request.proto\x1a\x31gcommon/v1/metrics/update_provider_response.proto\x1a!google/protobuf/go_features.proto2\xc6\x04\n\x18MetricsManagementService\x12n\n\x15\x43reateMetricsProvider\x12).gcommon.v1.metrics.CreateProviderRequest\x1a*.gcommon.v1.metrics.CreateProviderResponse\x12n\n\x15UpdateMetricsProvider\x12).gcommon.v1.metrics.UpdateProviderRequest\x1a*.gcommon.v1.metrics.UpdateProviderResponse\x12n\n\x15\x44\x65leteMetricsProvider\x12).gcommon.v1.metrics.DeleteProviderRequest\x1a*.gcommon.v1.metrics.DeleteProviderResponse\x12k\n\x14ListMetricsProviders\x12(.gcommon.v1.metrics.ListProvidersRequest\x1a).gcommon.v1.metrics.ListProvidersResponse\x12m\n\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.metrics_management_service_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.metrics_management_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_METRICSMANAGEMENTSERVICE"]._serialized_start = 620
-    _globals["_METRICSMANAGEMENTSERVICE"]._serialized_end = 1202
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_METRICSMANAGEMENTSERVICE']._serialized_start=620
+  _globals['_METRICSMANAGEMENTSERVICE']._serialized_end=1202
 # @@protoc_insertion_point(module_scope)

@@ -16,10 +16,7 @@ class UpdateSubscriptionConfigResponse(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     APPLIED_CHANGES_FIELD_NUMBER: _ClassVar[int]
@@ -30,11 +27,4 @@ class UpdateSubscriptionConfigResponse(_message.Message):
     applied_changes: _containers.ScalarMap[str, str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
     error: str
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        subscription_id: _Optional[str] = ...,
-        applied_changes: _Optional[_Mapping[str, str]] = ...,
-        warnings: _Optional[_Iterable[str]] = ...,
-        error: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., subscription_id: _Optional[str] = ..., applied_changes: _Optional[_Mapping[str, str]] = ..., warnings: _Optional[_Iterable[str]] = ..., error: _Optional[str] = ...) -> None: ...

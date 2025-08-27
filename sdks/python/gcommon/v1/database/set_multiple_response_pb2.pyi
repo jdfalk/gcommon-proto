@@ -19,10 +19,4 @@ class SetMultipleResponse(_message.Message):
     failed_keys: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
     set_count: int
-    def __init__(
-        self,
-        success: _Optional[bool] = ...,
-        failed_keys: _Optional[_Iterable[str]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-        set_count: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., failed_keys: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., set_count: _Optional[int] = ...) -> None: ...

@@ -1,19 +1,11 @@
-from gcommon.v1.media import (
-    analyze_audio_quality_request_pb2 as _analyze_audio_quality_request_pb2,
-)
-from gcommon.v1.media import (
-    analyze_audio_quality_response_pb2 as _analyze_audio_quality_response_pb2,
-)
+from gcommon.v1.media import analyze_audio_quality_request_pb2 as _analyze_audio_quality_request_pb2
+from gcommon.v1.media import analyze_audio_quality_response_pb2 as _analyze_audio_quality_response_pb2
 from gcommon.v1.media import detect_chapters_request_pb2 as _detect_chapters_request_pb2
-from gcommon.v1.media import (
-    detect_chapters_response_pb2 as _detect_chapters_response_pb2,
-)
+from gcommon.v1.media import detect_chapters_response_pb2 as _detect_chapters_response_pb2
 from gcommon.v1.media import merge_audio_request_pb2 as _merge_audio_request_pb2
 from gcommon.v1.media import merge_audio_response_pb2 as _merge_audio_response_pb2
 from gcommon.v1.media import normalize_audio_request_pb2 as _normalize_audio_request_pb2
-from gcommon.v1.media import (
-    normalize_audio_response_pb2 as _normalize_audio_response_pb2,
-)
+from gcommon.v1.media import normalize_audio_response_pb2 as _normalize_audio_response_pb2
 from gcommon.v1.media import split_audio_request_pb2 as _split_audio_request_pb2
 from gcommon.v1.media import split_audio_response_pb2 as _split_audio_response_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2

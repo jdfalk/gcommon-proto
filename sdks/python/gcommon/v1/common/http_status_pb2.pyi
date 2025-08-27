@@ -14,7 +14,6 @@ class HTTPStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HTTP_STATUS_FORBIDDEN: _ClassVar[HTTPStatus]
     HTTP_STATUS_NOT_FOUND: _ClassVar[HTTPStatus]
     HTTP_STATUS_INTERNAL_ERROR: _ClassVar[HTTPStatus]
-
 HTTP_STATUS_UNSPECIFIED: HTTPStatus
 HTTP_STATUS_OK: HTTPStatus
 HTTP_STATUS_BAD_REQUEST: HTTPStatus

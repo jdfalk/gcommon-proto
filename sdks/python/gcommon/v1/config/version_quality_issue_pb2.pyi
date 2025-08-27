@@ -7,14 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VersionQualityIssue(_message.Message):
-    __slots__ = (
-        "type",
-        "severity",
-        "description",
-        "location",
-        "rule",
-        "fix_suggestion",
-    )
+    __slots__ = ("type", "severity", "description", "location", "rule", "fix_suggestion")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     SEVERITY_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -27,12 +20,4 @@ class VersionQualityIssue(_message.Message):
     location: str
     rule: str
     fix_suggestion: str
-    def __init__(
-        self,
-        type: _Optional[str] = ...,
-        severity: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        location: _Optional[str] = ...,
-        rule: _Optional[str] = ...,
-        fix_suggestion: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, type: _Optional[str] = ..., severity: _Optional[str] = ..., description: _Optional[str] = ..., location: _Optional[str] = ..., rule: _Optional[str] = ..., fix_suggestion: _Optional[str] = ...) -> None: ...

@@ -16,10 +16,4 @@ class QueueStatsPoint(_message.Message):
     STATS_FIELD_NUMBER: _ClassVar[int]
     timestamp: _timestamp_pb2.Timestamp
     stats: _queue_stats_pb2.QueueStats
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        stats: _Optional[_Union[_queue_stats_pb2.QueueStats, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., stats: _Optional[_Union[_queue_stats_pb2.QueueStats, _Mapping]] = ...) -> None: ...

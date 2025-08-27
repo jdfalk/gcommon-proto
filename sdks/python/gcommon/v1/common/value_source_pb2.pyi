@@ -28,7 +28,6 @@ class ValueSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALUE_SOURCE_INHERITED: _ClassVar[ValueSource]
     VALUE_SOURCE_OVERRIDE: _ClassVar[ValueSource]
     VALUE_SOURCE_CUSTOM: _ClassVar[ValueSource]
-
 VALUE_SOURCE_UNSPECIFIED: ValueSource
 VALUE_SOURCE_DEFAULT: ValueSource
 VALUE_SOURCE_ENVIRONMENT: ValueSource

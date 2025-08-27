@@ -18,11 +18,4 @@ class StatsDSettings(_message.Message):
     prefix: str
     sample_rate: float
     buffer_size: int
-    def __init__(
-        self,
-        address: _Optional[str] = ...,
-        protocol: _Optional[str] = ...,
-        prefix: _Optional[str] = ...,
-        sample_rate: _Optional[float] = ...,
-        buffer_size: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, address: _Optional[str] = ..., protocol: _Optional[str] = ..., prefix: _Optional[str] = ..., sample_rate: _Optional[float] = ..., buffer_size: _Optional[int] = ...) -> None: ...

@@ -16,10 +16,7 @@ class EncryptionSettings(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_FIELD_NUMBER: _ClassVar[int]
     KEY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -32,12 +29,4 @@ class EncryptionSettings(_message.Message):
     algorithm: str
     mode: str
     config: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        enabled: _Optional[bool] = ...,
-        provider: _Optional[str] = ...,
-        key_id: _Optional[str] = ...,
-        algorithm: _Optional[str] = ...,
-        mode: _Optional[str] = ...,
-        config: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., provider: _Optional[str] = ..., key_id: _Optional[str] = ..., algorithm: _Optional[str] = ..., mode: _Optional[str] = ..., config: _Optional[_Mapping[str, str]] = ...) -> None: ...

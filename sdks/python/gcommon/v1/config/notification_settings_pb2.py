@@ -4,85 +4,49 @@
 # source: gcommon/v1/config/notification_settings.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/config/notification_settings.proto",
+    '',
+    'gcommon/v1/config/notification_settings.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.common import (
-    notification_trigger_pb2 as gcommon_dot_v1_dot_common_dot_notification__trigger__pb2,
-)
-from gcommon.v1.config import (
-    batching_settings_pb2 as gcommon_dot_v1_dot_config_dot_batching__settings__pb2,
-)
-from gcommon.v1.config import (
-    notification_channel_pb2 as gcommon_dot_v1_dot_config_dot_notification__channel__pb2,
-)
+from gcommon.v1.common import notification_trigger_pb2 as gcommon_dot_v1_dot_common_dot_notification__trigger__pb2
+from gcommon.v1.config import batching_settings_pb2 as gcommon_dot_v1_dot_config_dot_batching__settings__pb2
+from gcommon.v1.config import notification_channel_pb2 as gcommon_dot_v1_dot_config_dot_notification__channel__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/common/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x96\x03\n\x1a\x43onfigNotificationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12R\n\x08\x63hannels\x18\x02 \x03(\x0b\x32,.gcommon.v1.config.ConfigNotificationChannelB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08\x63hannels\x12L\n\x08triggers\x18\x03 \x03(\x0e\x32&.gcommon.v1.common.NotificationTriggerB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08triggers\x12#\n\x08template\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08template\x12(\n\nrecipients\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\nrecipients\x12,\n\rdelay_minutes\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0c\x64\x65layMinutes\x12?\n\x08\x62\x61tching\x18\x07 \x01(\x0b\x32#.gcommon.v1.config.BatchingSettingsR\x08\x62\x61tchingB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/config/notification_settings.proto\x12\x11gcommon.v1.config\x1a,gcommon/v1/common/notification_trigger.proto\x1a)gcommon/v1/config/batching_settings.proto\x1a,gcommon/v1/config/notification_channel.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x96\x03\n\x1a\x43onfigNotificationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12R\n\x08\x63hannels\x18\x02 \x03(\x0b\x32,.gcommon.v1.config.ConfigNotificationChannelB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08\x63hannels\x12L\n\x08triggers\x18\x03 \x03(\x0e\x32&.gcommon.v1.common.NotificationTriggerB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x08triggers\x12#\n\x08template\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08template\x12(\n\nrecipients\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\nrecipients\x12,\n\rdelay_minutes\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0c\x64\x65layMinutes\x12?\n\x08\x62\x61tching\x18\x07 \x01(\x0b\x32#.gcommon.v1.config.BatchingSettingsR\x08\x62\x61tchingB5Z+github.com/jdfalk/gcommon/sdks/go/v1/config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.config.notification_settings_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.config.notification_settings_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003"
-    )
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "channels"
-    ]._loaded_options = None
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "channels"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "triggers"
-    ]._loaded_options = None
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "triggers"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "template"
-    ]._loaded_options = None
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "template"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "recipients"
-    ]._loaded_options = None
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "recipients"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "delay_minutes"
-    ]._loaded_options = None
-    _globals["_CONFIGNOTIFICATIONSETTINGS"].fields_by_name[
-        "delay_minutes"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_CONFIGNOTIFICATIONSETTINGS"]._serialized_start = 268
-    _globals["_CONFIGNOTIFICATIONSETTINGS"]._serialized_end = 674
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/config\222\003\005\322>\002\020\003'
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['channels']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['channels']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['triggers']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['triggers']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['template']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['template']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['recipients']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['recipients']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['delay_minutes']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONSETTINGS'].fields_by_name['delay_minutes']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_CONFIGNOTIFICATIONSETTINGS']._serialized_start=268
+  _globals['_CONFIGNOTIFICATIONSETTINGS']._serialized_end=674
 # @@protoc_insertion_point(module_scope)

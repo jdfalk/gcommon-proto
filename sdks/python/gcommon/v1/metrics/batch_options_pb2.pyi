@@ -8,15 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsBatchOptions(_message.Message):
-    __slots__ = (
-        "parallel_processing",
-        "max_concurrency",
-        "deduplicate",
-        "return_detailed_results",
-        "timeout_seconds",
-        "transactional",
-        "priority",
-    )
+    __slots__ = ("parallel_processing", "max_concurrency", "deduplicate", "return_detailed_results", "timeout_seconds", "transactional", "priority")
     PARALLEL_PROCESSING_FIELD_NUMBER: _ClassVar[int]
     MAX_CONCURRENCY_FIELD_NUMBER: _ClassVar[int]
     DEDUPLICATE_FIELD_NUMBER: _ClassVar[int]
@@ -31,13 +23,4 @@ class MetricsBatchOptions(_message.Message):
     timeout_seconds: int
     transactional: bool
     priority: _batch_priority_pb2.BatchPriority
-    def __init__(
-        self,
-        parallel_processing: _Optional[bool] = ...,
-        max_concurrency: _Optional[int] = ...,
-        deduplicate: _Optional[bool] = ...,
-        return_detailed_results: _Optional[bool] = ...,
-        timeout_seconds: _Optional[int] = ...,
-        transactional: _Optional[bool] = ...,
-        priority: _Optional[_Union[_batch_priority_pb2.BatchPriority, str]] = ...,
-    ) -> None: ...
+    def __init__(self, parallel_processing: _Optional[bool] = ..., max_concurrency: _Optional[int] = ..., deduplicate: _Optional[bool] = ..., return_detailed_results: _Optional[bool] = ..., timeout_seconds: _Optional[int] = ..., transactional: _Optional[bool] = ..., priority: _Optional[_Union[_batch_priority_pb2.BatchPriority, str]] = ...) -> None: ...

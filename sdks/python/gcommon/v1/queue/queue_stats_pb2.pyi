@@ -11,16 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueStats(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "message_count",
-        "total_bytes",
-        "avg_message_size",
-        "throughput",
-        "current_depth",
-        "peak_depth",
-        "last_activity",
-    )
+    __slots__ = ("queue_name", "message_count", "total_bytes", "avg_message_size", "throughput", "current_depth", "peak_depth", "last_activity")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
     TOTAL_BYTES_FIELD_NUMBER: _ClassVar[int]
@@ -37,16 +28,4 @@ class QueueStats(_message.Message):
     current_depth: int
     peak_depth: int
     last_activity: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        message_count: _Optional[int] = ...,
-        total_bytes: _Optional[int] = ...,
-        avg_message_size: _Optional[float] = ...,
-        throughput: _Optional[float] = ...,
-        current_depth: _Optional[int] = ...,
-        peak_depth: _Optional[int] = ...,
-        last_activity: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., message_count: _Optional[int] = ..., total_bytes: _Optional[int] = ..., avg_message_size: _Optional[float] = ..., throughput: _Optional[float] = ..., current_depth: _Optional[int] = ..., peak_depth: _Optional[int] = ..., last_activity: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

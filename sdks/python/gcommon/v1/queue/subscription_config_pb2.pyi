@@ -12,14 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SubscriptionConfig(_message.Message):
-    __slots__ = (
-        "name",
-        "state",
-        "routing_strategy",
-        "default_priority",
-        "delivery_options",
-        "max_inflight",
-    )
+    __slots__ = ("name", "state", "routing_strategy", "default_priority", "delivery_options", "max_inflight")
     NAME_FIELD_NUMBER: _ClassVar[int]
     STATE_FIELD_NUMBER: _ClassVar[int]
     ROUTING_STRATEGY_FIELD_NUMBER: _ClassVar[int]
@@ -32,18 +25,4 @@ class SubscriptionConfig(_message.Message):
     default_priority: _priority_level_pb2.PriorityLevel
     delivery_options: _delivery_options_pb2.DeliveryOptions
     max_inflight: int
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        state: _Optional[_Union[_subscription_state_pb2.SubscriptionState, str]] = ...,
-        routing_strategy: _Optional[
-            _Union[_routing_strategy_pb2.RoutingStrategy, str]
-        ] = ...,
-        default_priority: _Optional[
-            _Union[_priority_level_pb2.PriorityLevel, str]
-        ] = ...,
-        delivery_options: _Optional[
-            _Union[_delivery_options_pb2.DeliveryOptions, _Mapping]
-        ] = ...,
-        max_inflight: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., state: _Optional[_Union[_subscription_state_pb2.SubscriptionState, str]] = ..., routing_strategy: _Optional[_Union[_routing_strategy_pb2.RoutingStrategy, str]] = ..., default_priority: _Optional[_Union[_priority_level_pb2.PriorityLevel, str]] = ..., delivery_options: _Optional[_Union[_delivery_options_pb2.DeliveryOptions, _Mapping]] = ..., max_inflight: _Optional[int] = ...) -> None: ...

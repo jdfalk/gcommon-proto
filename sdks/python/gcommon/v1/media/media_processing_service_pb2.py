@@ -4,75 +4,45 @@
 # source: gcommon/v1/media/media_processing_service.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/media/media_processing_service.proto",
+    '',
+    'gcommon/v1/media/media_processing_service.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import (
-    analyze_media_request_pb2 as gcommon_dot_v1_dot_media_dot_analyze__media__request__pb2,
-)
-from gcommon.v1.media import (
-    analyze_media_response_pb2 as gcommon_dot_v1_dot_media_dot_analyze__media__response__pb2,
-)
-from gcommon.v1.media import (
-    extract_audio_request_pb2 as gcommon_dot_v1_dot_media_dot_extract__audio__request__pb2,
-)
-from gcommon.v1.media import (
-    extract_audio_response_pb2 as gcommon_dot_v1_dot_media_dot_extract__audio__response__pb2,
-)
-from gcommon.v1.media import (
-    extract_subtitles_request_pb2 as gcommon_dot_v1_dot_media_dot_extract__subtitles__request__pb2,
-)
-from gcommon.v1.media import (
-    extract_subtitles_response_pb2 as gcommon_dot_v1_dot_media_dot_extract__subtitles__response__pb2,
-)
-from gcommon.v1.media import (
-    get_processing_status_request_pb2 as gcommon_dot_v1_dot_media_dot_get__processing__status__request__pb2,
-)
-from gcommon.v1.media import (
-    get_processing_status_response_pb2 as gcommon_dot_v1_dot_media_dot_get__processing__status__response__pb2,
-)
-from gcommon.v1.media import (
-    transcode_media_request_pb2 as gcommon_dot_v1_dot_media_dot_transcode__media__request__pb2,
-)
-from gcommon.v1.media import (
-    transcode_media_response_pb2 as gcommon_dot_v1_dot_media_dot_transcode__media__response__pb2,
-)
+from gcommon.v1.media import analyze_media_request_pb2 as gcommon_dot_v1_dot_media_dot_analyze__media__request__pb2
+from gcommon.v1.media import analyze_media_response_pb2 as gcommon_dot_v1_dot_media_dot_analyze__media__response__pb2
+from gcommon.v1.media import extract_audio_request_pb2 as gcommon_dot_v1_dot_media_dot_extract__audio__request__pb2
+from gcommon.v1.media import extract_audio_response_pb2 as gcommon_dot_v1_dot_media_dot_extract__audio__response__pb2
+from gcommon.v1.media import extract_subtitles_request_pb2 as gcommon_dot_v1_dot_media_dot_extract__subtitles__request__pb2
+from gcommon.v1.media import extract_subtitles_response_pb2 as gcommon_dot_v1_dot_media_dot_extract__subtitles__response__pb2
+from gcommon.v1.media import get_processing_status_request_pb2 as gcommon_dot_v1_dot_media_dot_get__processing__status__request__pb2
+from gcommon.v1.media import get_processing_status_response_pb2 as gcommon_dot_v1_dot_media_dot_get__processing__status__response__pb2
+from gcommon.v1.media import transcode_media_request_pb2 as gcommon_dot_v1_dot_media_dot_transcode__media__request__pb2
+from gcommon.v1.media import transcode_media_response_pb2 as gcommon_dot_v1_dot_media_dot_transcode__media__response__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n/gcommon/v1/media/media_processing_service.proto\x12\x10gcommon.v1.media\x1a,gcommon/v1/media/analyze_media_request.proto\x1a-gcommon/v1/media/analyze_media_response.proto\x1a,gcommon/v1/media/extract_audio_request.proto\x1a-gcommon/v1/media/extract_audio_response.proto\x1a\x30gcommon/v1/media/extract_subtitles_request.proto\x1a\x31gcommon/v1/media/extract_subtitles_response.proto\x1a\x34gcommon/v1/media/get_processing_status_request.proto\x1a\x35gcommon/v1/media/get_processing_status_response.proto\x1a.gcommon/v1/media/transcode_media_request.proto\x1a/gcommon/v1/media/transcode_media_response.proto\x1a!google/protobuf/go_features.proto2\x9a\x04\n\x16MediaProcessingService\x12\x63\n\x0eTranscodeMedia\x12'.gcommon.v1.media.TranscodeMediaRequest\x1a(.gcommon.v1.media.TranscodeMediaResponse\x12]\n\x0c\x41nalyzeMedia\x12%.gcommon.v1.media.AnalyzeMediaRequest\x1a&.gcommon.v1.media.AnalyzeMediaResponse\x12]\n\x0c\x45xtractAudio\x12%.gcommon.v1.media.ExtractAudioRequest\x1a&.gcommon.v1.media.ExtractAudioResponse\x12i\n\x10\x45xtractSubtitles\x12).gcommon.v1.media.ExtractSubtitlesRequest\x1a*.gcommon.v1.media.ExtractSubtitlesResponse\x12r\n\x13GetProcessingStatus\x12,.gcommon.v1.media.GetProcessingStatusRequest\x1a-.gcommon.v1.media.GetProcessingStatusResponseB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/media/media_processing_service.proto\x12\x10gcommon.v1.media\x1a,gcommon/v1/media/analyze_media_request.proto\x1a-gcommon/v1/media/analyze_media_response.proto\x1a,gcommon/v1/media/extract_audio_request.proto\x1a-gcommon/v1/media/extract_audio_response.proto\x1a\x30gcommon/v1/media/extract_subtitles_request.proto\x1a\x31gcommon/v1/media/extract_subtitles_response.proto\x1a\x34gcommon/v1/media/get_processing_status_request.proto\x1a\x35gcommon/v1/media/get_processing_status_response.proto\x1a.gcommon/v1/media/transcode_media_request.proto\x1a/gcommon/v1/media/transcode_media_response.proto\x1a!google/protobuf/go_features.proto2\x9a\x04\n\x16MediaProcessingService\x12\x63\n\x0eTranscodeMedia\x12\'.gcommon.v1.media.TranscodeMediaRequest\x1a(.gcommon.v1.media.TranscodeMediaResponse\x12]\n\x0c\x41nalyzeMedia\x12%.gcommon.v1.media.AnalyzeMediaRequest\x1a&.gcommon.v1.media.AnalyzeMediaResponse\x12]\n\x0c\x45xtractAudio\x12%.gcommon.v1.media.ExtractAudioRequest\x1a&.gcommon.v1.media.ExtractAudioResponse\x12i\n\x10\x45xtractSubtitles\x12).gcommon.v1.media.ExtractSubtitlesRequest\x1a*.gcommon.v1.media.ExtractSubtitlesResponse\x12r\n\x13GetProcessingStatus\x12,.gcommon.v1.media.GetProcessingStatusRequest\x1a-.gcommon.v1.media.GetProcessingStatusResponseB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.media.media_processing_service_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.media_processing_service_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003"
-    )
-    _globals["_MEDIAPROCESSINGSERVICE"]._serialized_start = 598
-    _globals["_MEDIAPROCESSINGSERVICE"]._serialized_end = 1136
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
+  _globals['_MEDIAPROCESSINGSERVICE']._serialized_start=598
+  _globals['_MEDIAPROCESSINGSERVICE']._serialized_end=1136
 # @@protoc_insertion_point(module_scope)

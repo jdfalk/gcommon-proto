@@ -13,17 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VersionQualityMetrics(_message.Message):
-    __slots__ = (
-        "quality_score",
-        "test_coverage",
-        "security_score",
-        "performance_score",
-        "complexity_score",
-        "technical_debt_score",
-        "quality_gate_passed",
-        "issues",
-        "timestamp",
-    )
+    __slots__ = ("quality_score", "test_coverage", "security_score", "performance_score", "complexity_score", "technical_debt_score", "quality_gate_passed", "issues", "timestamp")
     QUALITY_SCORE_FIELD_NUMBER: _ClassVar[int]
     TEST_COVERAGE_FIELD_NUMBER: _ClassVar[int]
     SECURITY_SCORE_FIELD_NUMBER: _ClassVar[int]
@@ -40,23 +30,6 @@ class VersionQualityMetrics(_message.Message):
     complexity_score: float
     technical_debt_score: float
     quality_gate_passed: bool
-    issues: _containers.RepeatedCompositeFieldContainer[
-        _version_quality_issue_pb2.VersionQualityIssue
-    ]
+    issues: _containers.RepeatedCompositeFieldContainer[_version_quality_issue_pb2.VersionQualityIssue]
     timestamp: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        quality_score: _Optional[float] = ...,
-        test_coverage: _Optional[float] = ...,
-        security_score: _Optional[float] = ...,
-        performance_score: _Optional[float] = ...,
-        complexity_score: _Optional[float] = ...,
-        technical_debt_score: _Optional[float] = ...,
-        quality_gate_passed: _Optional[bool] = ...,
-        issues: _Optional[
-            _Iterable[_Union[_version_quality_issue_pb2.VersionQualityIssue, _Mapping]]
-        ] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, quality_score: _Optional[float] = ..., test_coverage: _Optional[float] = ..., security_score: _Optional[float] = ..., performance_score: _Optional[float] = ..., complexity_score: _Optional[float] = ..., technical_debt_score: _Optional[float] = ..., quality_gate_passed: _Optional[bool] = ..., issues: _Optional[_Iterable[_Union[_version_quality_issue_pb2.VersionQualityIssue, _Mapping]]] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

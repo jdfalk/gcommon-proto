@@ -11,7 +11,6 @@ class ProxyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PROXY_TYPE_FORWARD: _ClassVar[ProxyType]
     PROXY_TYPE_REVERSE: _ClassVar[ProxyType]
     PROXY_TYPE_TRANSPARENT: _ClassVar[ProxyType]
-
 PROXY_TYPE_UNSPECIFIED: ProxyType
 PROXY_TYPE_FORWARD: ProxyType
 PROXY_TYPE_REVERSE: ProxyType

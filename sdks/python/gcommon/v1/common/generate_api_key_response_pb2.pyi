@@ -16,11 +16,4 @@ class GenerateAPIKeyResponse(_message.Message):
     key: str
     key_id: str
     metadata: _response_metadata_pb2.ResponseMetadata
-    def __init__(
-        self,
-        key: _Optional[str] = ...,
-        key_id: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_response_metadata_pb2.ResponseMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, key: _Optional[str] = ..., key_id: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ...) -> None: ...

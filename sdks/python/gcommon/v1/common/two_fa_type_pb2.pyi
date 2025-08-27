@@ -11,7 +11,6 @@ class AuthTwoFaType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TWO_FA_TYPE_TOTP: _ClassVar[AuthTwoFaType]
     TWO_FA_TYPE_SMS: _ClassVar[AuthTwoFaType]
     TWO_FA_TYPE_BACKUP: _ClassVar[AuthTwoFaType]
-
 TWO_FA_TYPE_UNSPECIFIED: AuthTwoFaType
 TWO_FA_TYPE_TOTP: AuthTwoFaType
 TWO_FA_TYPE_SMS: AuthTwoFaType

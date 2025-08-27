@@ -10,19 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetQueueInfoRequest(_message.Message):
-    __slots__ = (
-        "queue_id",
-        "include_stats",
-        "include_config",
-        "include_partitions",
-        "include_consumer_groups",
-        "include_subscriptions",
-        "include_bindings",
-        "include_errors",
-        "time_range",
-        "info_sections",
-        "access_token",
-    )
+    __slots__ = ("queue_id", "include_stats", "include_config", "include_partitions", "include_consumer_groups", "include_subscriptions", "include_bindings", "include_errors", "time_range", "info_sections", "access_token")
     QUEUE_ID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_STATS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_CONFIG_FIELD_NUMBER: _ClassVar[int]
@@ -45,19 +33,4 @@ class GetQueueInfoRequest(_message.Message):
     time_range: _time_range_filter_pb2.TimeRangeFilter
     info_sections: _containers.RepeatedScalarFieldContainer[str]
     access_token: str
-    def __init__(
-        self,
-        queue_id: _Optional[str] = ...,
-        include_stats: _Optional[bool] = ...,
-        include_config: _Optional[bool] = ...,
-        include_partitions: _Optional[bool] = ...,
-        include_consumer_groups: _Optional[bool] = ...,
-        include_subscriptions: _Optional[bool] = ...,
-        include_bindings: _Optional[bool] = ...,
-        include_errors: _Optional[bool] = ...,
-        time_range: _Optional[
-            _Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]
-        ] = ...,
-        info_sections: _Optional[_Iterable[str]] = ...,
-        access_token: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, queue_id: _Optional[str] = ..., include_stats: _Optional[bool] = ..., include_config: _Optional[bool] = ..., include_partitions: _Optional[bool] = ..., include_consumer_groups: _Optional[bool] = ..., include_subscriptions: _Optional[bool] = ..., include_bindings: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., time_range: _Optional[_Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]] = ..., info_sections: _Optional[_Iterable[str]] = ..., access_token: _Optional[str] = ...) -> None: ...

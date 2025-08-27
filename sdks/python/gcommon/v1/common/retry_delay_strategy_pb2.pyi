@@ -12,7 +12,6 @@ class RetryDelayStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RETRY_DELAY_STRATEGY_LINEAR: _ClassVar[RetryDelayStrategy]
     RETRY_DELAY_STRATEGY_EXPONENTIAL: _ClassVar[RetryDelayStrategy]
     RETRY_DELAY_STRATEGY_CUSTOM: _ClassVar[RetryDelayStrategy]
-
 RETRY_DELAY_STRATEGY_UNSPECIFIED: RetryDelayStrategy
 RETRY_DELAY_STRATEGY_FIXED: RetryDelayStrategy
 RETRY_DELAY_STRATEGY_LINEAR: RetryDelayStrategy

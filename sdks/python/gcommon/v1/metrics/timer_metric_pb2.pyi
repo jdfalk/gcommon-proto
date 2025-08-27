@@ -15,30 +15,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TimerMetric(_message.Message):
-    __slots__ = (
-        "timer_id",
-        "name",
-        "start_time",
-        "end_time",
-        "duration",
-        "tags",
-        "statistics",
-        "is_running",
-        "count",
-        "total_duration",
-        "percentiles",
-        "recorded_at",
-    )
+    __slots__ = ("timer_id", "name", "start_time", "end_time", "duration", "tags", "statistics", "is_running", "count", "total_duration", "percentiles", "recorded_at")
     class TagsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TIMER_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -61,38 +45,6 @@ class TimerMetric(_message.Message):
     is_running: bool
     count: int
     total_duration: _duration_pb2.Duration
-    percentiles: _containers.RepeatedCompositeFieldContainer[
-        _percentile_measurement_pb2.PercentileMeasurement
-    ]
+    percentiles: _containers.RepeatedCompositeFieldContainer[_percentile_measurement_pb2.PercentileMeasurement]
     recorded_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        timer_id: _Optional[str] = ...,
-        name: _Optional[str] = ...,
-        start_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        end_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        tags: _Optional[_Mapping[str, str]] = ...,
-        statistics: _Optional[
-            _Union[_timer_statistics_pb2.TimerStatistics, _Mapping]
-        ] = ...,
-        is_running: _Optional[bool] = ...,
-        count: _Optional[int] = ...,
-        total_duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        percentiles: _Optional[
-            _Iterable[
-                _Union[_percentile_measurement_pb2.PercentileMeasurement, _Mapping]
-            ]
-        ] = ...,
-        recorded_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, timer_id: _Optional[str] = ..., name: _Optional[str] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., tags: _Optional[_Mapping[str, str]] = ..., statistics: _Optional[_Union[_timer_statistics_pb2.TimerStatistics, _Mapping]] = ..., is_running: _Optional[bool] = ..., count: _Optional[int] = ..., total_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., percentiles: _Optional[_Iterable[_Union[_percentile_measurement_pb2.PercentileMeasurement, _Mapping]]] = ..., recorded_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

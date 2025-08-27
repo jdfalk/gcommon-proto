@@ -12,21 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CacheMetrics(_message.Message):
-    __slots__ = (
-        "ops_per_second",
-        "reads_per_second",
-        "writes_per_second",
-        "avg_response_time",
-        "p95_response_time",
-        "p99_response_time",
-        "total_connections",
-        "active_connections",
-        "network_bytes_in",
-        "network_bytes_out",
-        "cpu_usage_percent",
-        "memory_usage_percent",
-        "collected_at",
-    )
+    __slots__ = ("ops_per_second", "reads_per_second", "writes_per_second", "avg_response_time", "p95_response_time", "p99_response_time", "total_connections", "active_connections", "network_bytes_in", "network_bytes_out", "cpu_usage_percent", "memory_usage_percent", "collected_at")
     OPS_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
     READS_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
     WRITES_PER_SECOND_FIELD_NUMBER: _ClassVar[int]
@@ -53,27 +39,4 @@ class CacheMetrics(_message.Message):
     cpu_usage_percent: float
     memory_usage_percent: float
     collected_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        ops_per_second: _Optional[float] = ...,
-        reads_per_second: _Optional[float] = ...,
-        writes_per_second: _Optional[float] = ...,
-        avg_response_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        p95_response_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        p99_response_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        total_connections: _Optional[int] = ...,
-        active_connections: _Optional[int] = ...,
-        network_bytes_in: _Optional[int] = ...,
-        network_bytes_out: _Optional[int] = ...,
-        cpu_usage_percent: _Optional[float] = ...,
-        memory_usage_percent: _Optional[float] = ...,
-        collected_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, ops_per_second: _Optional[float] = ..., reads_per_second: _Optional[float] = ..., writes_per_second: _Optional[float] = ..., avg_response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., p95_response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., p99_response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., total_connections: _Optional[int] = ..., active_connections: _Optional[int] = ..., network_bytes_in: _Optional[int] = ..., network_bytes_out: _Optional[int] = ..., cpu_usage_percent: _Optional[float] = ..., memory_usage_percent: _Optional[float] = ..., collected_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

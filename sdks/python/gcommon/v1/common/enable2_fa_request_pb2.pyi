@@ -7,12 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Enable2FaRequest(_message.Message):
-    __slots__ = (
-        "user_id",
-        "phone_number",
-        "use_authenticator",
-        "generate_backup_codes",
-    )
+    __slots__ = ("user_id", "phone_number", "use_authenticator", "generate_backup_codes")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     USE_AUTHENTICATOR_FIELD_NUMBER: _ClassVar[int]
@@ -21,10 +16,4 @@ class Enable2FaRequest(_message.Message):
     phone_number: str
     use_authenticator: bool
     generate_backup_codes: bool
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        phone_number: _Optional[str] = ...,
-        use_authenticator: _Optional[bool] = ...,
-        generate_backup_codes: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., use_authenticator: _Optional[bool] = ..., generate_backup_codes: _Optional[bool] = ...) -> None: ...

@@ -19,13 +19,4 @@ class NackError(_message.Message):
     category: _nack_error_category_pb2.NackErrorCategory
     retryable: bool
     details: str
-    def __init__(
-        self,
-        code: _Optional[str] = ...,
-        message: _Optional[str] = ...,
-        category: _Optional[
-            _Union[_nack_error_category_pb2.NackErrorCategory, str]
-        ] = ...,
-        retryable: _Optional[bool] = ...,
-        details: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, code: _Optional[str] = ..., message: _Optional[str] = ..., category: _Optional[_Union[_nack_error_category_pb2.NackErrorCategory, str]] = ..., retryable: _Optional[bool] = ..., details: _Optional[str] = ...) -> None: ...

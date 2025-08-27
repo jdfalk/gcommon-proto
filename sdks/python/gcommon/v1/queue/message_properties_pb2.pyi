@@ -13,18 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MessageProperties(_message.Message):
-    __slots__ = (
-        "priority",
-        "delivery_mode",
-        "expiration_time",
-        "correlation_id",
-        "reply_to",
-        "content_type",
-        "content_encoding",
-        "compression",
-        "deduplication_id",
-        "delivery_delay_ms",
-    )
+    __slots__ = ("priority", "delivery_mode", "expiration_time", "correlation_id", "reply_to", "content_type", "content_encoding", "compression", "deduplication_id", "delivery_delay_ms")
     PRIORITY_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_MODE_FIELD_NUMBER: _ClassVar[int]
     EXPIRATION_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -45,18 +34,4 @@ class MessageProperties(_message.Message):
     compression: str
     deduplication_id: str
     delivery_delay_ms: int
-    def __init__(
-        self,
-        priority: _Optional[_Union[_priority_level_pb2.PriorityLevel, str]] = ...,
-        delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ...,
-        expiration_time: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        correlation_id: _Optional[str] = ...,
-        reply_to: _Optional[str] = ...,
-        content_type: _Optional[str] = ...,
-        content_encoding: _Optional[str] = ...,
-        compression: _Optional[str] = ...,
-        deduplication_id: _Optional[str] = ...,
-        delivery_delay_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, priority: _Optional[_Union[_priority_level_pb2.PriorityLevel, str]] = ..., delivery_mode: _Optional[_Union[_delivery_mode_pb2.DeliveryMode, str]] = ..., expiration_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., correlation_id: _Optional[str] = ..., reply_to: _Optional[str] = ..., content_type: _Optional[str] = ..., content_encoding: _Optional[str] = ..., compression: _Optional[str] = ..., deduplication_id: _Optional[str] = ..., delivery_delay_ms: _Optional[int] = ...) -> None: ...

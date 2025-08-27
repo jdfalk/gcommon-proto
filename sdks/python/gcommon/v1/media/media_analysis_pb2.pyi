@@ -13,13 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MediaAnalysis(_message.Message):
-    __slots__ = (
-        "technical",
-        "quality_analysis",
-        "scenes",
-        "thumbnails",
-        "audio_analysis",
-    )
+    __slots__ = ("technical", "quality_analysis", "scenes", "thumbnails", "audio_analysis")
     TECHNICAL_FIELD_NUMBER: _ClassVar[int]
     QUALITY_ANALYSIS_FIELD_NUMBER: _ClassVar[int]
     SCENES_FIELD_NUMBER: _ClassVar[int]
@@ -30,27 +24,10 @@ class MediaAnalysis(_message.Message):
     scenes: _containers.RepeatedCompositeFieldContainer[SceneDetection]
     thumbnails: _containers.RepeatedCompositeFieldContainer[ThumbnailInfo]
     audio_analysis: AudioAnalysis
-    def __init__(
-        self,
-        technical: _Optional[_Union[TechnicalMetadata, _Mapping]] = ...,
-        quality_analysis: _Optional[
-            _Union[_media_quality_pb2.MediaQuality, _Mapping]
-        ] = ...,
-        scenes: _Optional[_Iterable[_Union[SceneDetection, _Mapping]]] = ...,
-        thumbnails: _Optional[_Iterable[_Union[ThumbnailInfo, _Mapping]]] = ...,
-        audio_analysis: _Optional[_Union[AudioAnalysis, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, technical: _Optional[_Union[TechnicalMetadata, _Mapping]] = ..., quality_analysis: _Optional[_Union[_media_quality_pb2.MediaQuality, _Mapping]] = ..., scenes: _Optional[_Iterable[_Union[SceneDetection, _Mapping]]] = ..., thumbnails: _Optional[_Iterable[_Union[ThumbnailInfo, _Mapping]]] = ..., audio_analysis: _Optional[_Union[AudioAnalysis, _Mapping]] = ...) -> None: ...
 
 class TechnicalMetadata(_message.Message):
-    __slots__ = (
-        "duration",
-        "file_size",
-        "bitrate",
-        "container_format",
-        "video",
-        "audio_streams",
-        "subtitle_streams",
-    )
+    __slots__ = ("duration", "file_size", "bitrate", "container_format", "video", "audio_streams", "subtitle_streams")
     DURATION_FIELD_NUMBER: _ClassVar[int]
     FILE_SIZE_FIELD_NUMBER: _ClassVar[int]
     BITRATE_FIELD_NUMBER: _ClassVar[int]
@@ -65,31 +42,10 @@ class TechnicalMetadata(_message.Message):
     video: VideoStreamInfo
     audio_streams: _containers.RepeatedCompositeFieldContainer[AudioStreamInfo]
     subtitle_streams: _containers.RepeatedCompositeFieldContainer[SubtitleStreamInfo]
-    def __init__(
-        self,
-        duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        file_size: _Optional[int] = ...,
-        bitrate: _Optional[int] = ...,
-        container_format: _Optional[str] = ...,
-        video: _Optional[_Union[VideoStreamInfo, _Mapping]] = ...,
-        audio_streams: _Optional[_Iterable[_Union[AudioStreamInfo, _Mapping]]] = ...,
-        subtitle_streams: _Optional[
-            _Iterable[_Union[SubtitleStreamInfo, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., file_size: _Optional[int] = ..., bitrate: _Optional[int] = ..., container_format: _Optional[str] = ..., video: _Optional[_Union[VideoStreamInfo, _Mapping]] = ..., audio_streams: _Optional[_Iterable[_Union[AudioStreamInfo, _Mapping]]] = ..., subtitle_streams: _Optional[_Iterable[_Union[SubtitleStreamInfo, _Mapping]]] = ...) -> None: ...
 
 class VideoStreamInfo(_message.Message):
-    __slots__ = (
-        "codec",
-        "width",
-        "height",
-        "frame_rate",
-        "bitrate",
-        "pixel_format",
-        "color_space",
-    )
+    __slots__ = ("codec", "width", "height", "frame_rate", "bitrate", "pixel_format", "color_space")
     CODEC_FIELD_NUMBER: _ClassVar[int]
     WIDTH_FIELD_NUMBER: _ClassVar[int]
     HEIGHT_FIELD_NUMBER: _ClassVar[int]
@@ -104,27 +60,10 @@ class VideoStreamInfo(_message.Message):
     bitrate: int
     pixel_format: str
     color_space: str
-    def __init__(
-        self,
-        codec: _Optional[str] = ...,
-        width: _Optional[int] = ...,
-        height: _Optional[int] = ...,
-        frame_rate: _Optional[float] = ...,
-        bitrate: _Optional[int] = ...,
-        pixel_format: _Optional[str] = ...,
-        color_space: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, codec: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ..., frame_rate: _Optional[float] = ..., bitrate: _Optional[int] = ..., pixel_format: _Optional[str] = ..., color_space: _Optional[str] = ...) -> None: ...
 
 class AudioStreamInfo(_message.Message):
-    __slots__ = (
-        "stream_index",
-        "codec",
-        "sample_rate",
-        "channels",
-        "bitrate",
-        "language",
-        "title",
-    )
+    __slots__ = ("stream_index", "codec", "sample_rate", "channels", "bitrate", "language", "title")
     STREAM_INDEX_FIELD_NUMBER: _ClassVar[int]
     CODEC_FIELD_NUMBER: _ClassVar[int]
     SAMPLE_RATE_FIELD_NUMBER: _ClassVar[int]
@@ -139,26 +78,10 @@ class AudioStreamInfo(_message.Message):
     bitrate: int
     language: str
     title: str
-    def __init__(
-        self,
-        stream_index: _Optional[int] = ...,
-        codec: _Optional[str] = ...,
-        sample_rate: _Optional[int] = ...,
-        channels: _Optional[int] = ...,
-        bitrate: _Optional[int] = ...,
-        language: _Optional[str] = ...,
-        title: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, stream_index: _Optional[int] = ..., codec: _Optional[str] = ..., sample_rate: _Optional[int] = ..., channels: _Optional[int] = ..., bitrate: _Optional[int] = ..., language: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
 
 class SubtitleStreamInfo(_message.Message):
-    __slots__ = (
-        "stream_index",
-        "codec",
-        "language",
-        "title",
-        "forced",
-        "hearing_impaired",
-    )
+    __slots__ = ("stream_index", "codec", "language", "title", "forced", "hearing_impaired")
     STREAM_INDEX_FIELD_NUMBER: _ClassVar[int]
     CODEC_FIELD_NUMBER: _ClassVar[int]
     LANGUAGE_FIELD_NUMBER: _ClassVar[int]
@@ -171,15 +94,7 @@ class SubtitleStreamInfo(_message.Message):
     title: str
     forced: bool
     hearing_impaired: bool
-    def __init__(
-        self,
-        stream_index: _Optional[int] = ...,
-        codec: _Optional[str] = ...,
-        language: _Optional[str] = ...,
-        title: _Optional[str] = ...,
-        forced: _Optional[bool] = ...,
-        hearing_impaired: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, stream_index: _Optional[int] = ..., codec: _Optional[str] = ..., language: _Optional[str] = ..., title: _Optional[str] = ..., forced: _Optional[bool] = ..., hearing_impaired: _Optional[bool] = ...) -> None: ...
 
 class SceneDetection(_message.Message):
     __slots__ = ("start_time", "end_time", "confidence", "scene_type")
@@ -191,17 +106,7 @@ class SceneDetection(_message.Message):
     end_time: _duration_pb2.Duration
     confidence: float
     scene_type: str
-    def __init__(
-        self,
-        start_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        end_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        confidence: _Optional[float] = ...,
-        scene_type: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., confidence: _Optional[float] = ..., scene_type: _Optional[str] = ...) -> None: ...
 
 class ThumbnailInfo(_message.Message):
     __slots__ = ("timestamp", "file_path", "width", "height")
@@ -213,15 +118,7 @@ class ThumbnailInfo(_message.Message):
     file_path: str
     width: int
     height: int
-    def __init__(
-        self,
-        timestamp: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        file_path: _Optional[str] = ...,
-        width: _Optional[int] = ...,
-        height: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., file_path: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class AudioAnalysis(_message.Message):
     __slots__ = ("peak_level", "rms_level", "silent_segments", "dynamic_range")
@@ -233,13 +130,7 @@ class AudioAnalysis(_message.Message):
     rms_level: float
     silent_segments: _containers.RepeatedCompositeFieldContainer[SilentSegment]
     dynamic_range: float
-    def __init__(
-        self,
-        peak_level: _Optional[float] = ...,
-        rms_level: _Optional[float] = ...,
-        silent_segments: _Optional[_Iterable[_Union[SilentSegment, _Mapping]]] = ...,
-        dynamic_range: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, peak_level: _Optional[float] = ..., rms_level: _Optional[float] = ..., silent_segments: _Optional[_Iterable[_Union[SilentSegment, _Mapping]]] = ..., dynamic_range: _Optional[float] = ...) -> None: ...
 
 class SilentSegment(_message.Message):
     __slots__ = ("start_time", "end_time", "threshold_db")
@@ -249,13 +140,4 @@ class SilentSegment(_message.Message):
     start_time: _duration_pb2.Duration
     end_time: _duration_pb2.Duration
     threshold_db: float
-    def __init__(
-        self,
-        start_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        end_time: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        threshold_db: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., threshold_db: _Optional[float] = ...) -> None: ...

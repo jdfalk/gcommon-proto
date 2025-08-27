@@ -17,11 +17,4 @@ class PurgeRequest(_message.Message):
     queue_name: str
     options: _purge_options_pb2.PurgeOptions
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        options: _Optional[_Union[_purge_options_pb2.PurgeOptions, _Mapping]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., options: _Optional[_Union[_purge_options_pb2.PurgeOptions, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

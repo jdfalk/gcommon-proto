@@ -16,10 +16,7 @@ class OAuth2Auth(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     TOKEN_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
@@ -30,11 +27,4 @@ class OAuth2Auth(_message.Message):
     client_secret: str
     scopes: _containers.RepeatedScalarFieldContainer[str]
     parameters: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        token_endpoint: _Optional[str] = ...,
-        client_id: _Optional[str] = ...,
-        client_secret: _Optional[str] = ...,
-        scopes: _Optional[_Iterable[str]] = ...,
-        parameters: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, token_endpoint: _Optional[str] = ..., client_id: _Optional[str] = ..., client_secret: _Optional[str] = ..., scopes: _Optional[_Iterable[str]] = ..., parameters: _Optional[_Mapping[str, str]] = ...) -> None: ...

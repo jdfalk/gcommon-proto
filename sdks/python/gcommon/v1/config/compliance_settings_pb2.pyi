@@ -11,24 +11,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConfigComplianceSettings(_message.Message):
-    __slots__ = (
-        "frameworks",
-        "policies",
-        "audits",
-        "reporting",
-        "validation_enabled",
-        "metadata",
-    )
+    __slots__ = ("frameworks", "policies", "audits", "reporting", "validation_enabled", "metadata")
     class MetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     FRAMEWORKS_FIELD_NUMBER: _ClassVar[int]
     POLICIES_FIELD_NUMBER: _ClassVar[int]
     AUDITS_FIELD_NUMBER: _ClassVar[int]
@@ -37,22 +27,8 @@ class ConfigComplianceSettings(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     frameworks: _containers.RepeatedScalarFieldContainer[str]
     policies: _containers.RepeatedScalarFieldContainer[str]
-    audits: _containers.RepeatedCompositeFieldContainer[
-        _compliance_audit_pb2.ComplianceAudit
-    ]
+    audits: _containers.RepeatedCompositeFieldContainer[_compliance_audit_pb2.ComplianceAudit]
     reporting: _compliance_reporting_pb2.ComplianceReporting
     validation_enabled: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(
-        self,
-        frameworks: _Optional[_Iterable[str]] = ...,
-        policies: _Optional[_Iterable[str]] = ...,
-        audits: _Optional[
-            _Iterable[_Union[_compliance_audit_pb2.ComplianceAudit, _Mapping]]
-        ] = ...,
-        reporting: _Optional[
-            _Union[_compliance_reporting_pb2.ComplianceReporting, _Mapping]
-        ] = ...,
-        validation_enabled: _Optional[bool] = ...,
-        metadata: _Optional[_Mapping[str, str]] = ...,
-    ) -> None: ...
+    def __init__(self, frameworks: _Optional[_Iterable[str]] = ..., policies: _Optional[_Iterable[str]] = ..., audits: _Optional[_Iterable[_Union[_compliance_audit_pb2.ComplianceAudit, _Mapping]]] = ..., reporting: _Optional[_Union[_compliance_reporting_pb2.ComplianceReporting, _Mapping]] = ..., validation_enabled: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

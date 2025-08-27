@@ -17,16 +17,6 @@ class MetricsErrorStats(_message.Message):
     ERROR_TREND_FIELD_NUMBER: _ClassVar[int]
     total_errors: int
     error_rate: float
-    error_types: _containers.RepeatedCompositeFieldContainer[
-        _error_type_count_pb2.ErrorTypeCount
-    ]
+    error_types: _containers.RepeatedCompositeFieldContainer[_error_type_count_pb2.ErrorTypeCount]
     error_trend: str
-    def __init__(
-        self,
-        total_errors: _Optional[int] = ...,
-        error_rate: _Optional[float] = ...,
-        error_types: _Optional[
-            _Iterable[_Union[_error_type_count_pb2.ErrorTypeCount, _Mapping]]
-        ] = ...,
-        error_trend: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, total_errors: _Optional[int] = ..., error_rate: _Optional[float] = ..., error_types: _Optional[_Iterable[_Union[_error_type_count_pb2.ErrorTypeCount, _Mapping]]] = ..., error_trend: _Optional[str] = ...) -> None: ...

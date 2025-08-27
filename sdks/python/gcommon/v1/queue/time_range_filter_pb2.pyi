@@ -16,10 +16,4 @@ class TimeRangeFilter(_message.Message):
     end_time: str
     granularity: str
     max_data_points: int
-    def __init__(
-        self,
-        start_time: _Optional[str] = ...,
-        end_time: _Optional[str] = ...,
-        granularity: _Optional[str] = ...,
-        max_data_points: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, start_time: _Optional[str] = ..., end_time: _Optional[str] = ..., granularity: _Optional[str] = ..., max_data_points: _Optional[int] = ...) -> None: ...

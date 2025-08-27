@@ -19,12 +19,4 @@ class OrganizationLoadBalancerConfig(_message.Message):
     algorithm: str
     health_check: _health_check_config_pb2.OrganizationHealthCheckConfig
     ssl: _ssl_config_pb2.SSLConfig
-    def __init__(
-        self,
-        type: _Optional[str] = ...,
-        algorithm: _Optional[str] = ...,
-        health_check: _Optional[
-            _Union[_health_check_config_pb2.OrganizationHealthCheckConfig, _Mapping]
-        ] = ...,
-        ssl: _Optional[_Union[_ssl_config_pb2.SSLConfig, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, type: _Optional[str] = ..., algorithm: _Optional[str] = ..., health_check: _Optional[_Union[_health_check_config_pb2.OrganizationHealthCheckConfig, _Mapping]] = ..., ssl: _Optional[_Union[_ssl_config_pb2.SSLConfig, _Mapping]] = ...) -> None: ...

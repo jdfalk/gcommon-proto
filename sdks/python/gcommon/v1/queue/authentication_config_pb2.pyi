@@ -25,14 +25,4 @@ class AuthenticationConfig(_message.Message):
     tls: _tls_auth_pb2.TLSAuth
     sasl: _sasl_auth_pb2.SASLAuth
     oauth2: _o_auth2_auth_pb2.OAuth2Auth
-    def __init__(
-        self,
-        none: _Optional[bool] = ...,
-        username_password: _Optional[
-            _Union[_username_password_auth_pb2.UsernamePasswordAuth, _Mapping]
-        ] = ...,
-        api_key: _Optional[_Union[_api_key_auth_pb2.APIKeyAuth, _Mapping]] = ...,
-        tls: _Optional[_Union[_tls_auth_pb2.TLSAuth, _Mapping]] = ...,
-        sasl: _Optional[_Union[_sasl_auth_pb2.SASLAuth, _Mapping]] = ...,
-        oauth2: _Optional[_Union[_o_auth2_auth_pb2.OAuth2Auth, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, none: _Optional[bool] = ..., username_password: _Optional[_Union[_username_password_auth_pb2.UsernamePasswordAuth, _Mapping]] = ..., api_key: _Optional[_Union[_api_key_auth_pb2.APIKeyAuth, _Mapping]] = ..., tls: _Optional[_Union[_tls_auth_pb2.TLSAuth, _Mapping]] = ..., sasl: _Optional[_Union[_sasl_auth_pb2.SASLAuth, _Mapping]] = ..., oauth2: _Optional[_Union[_o_auth2_auth_pb2.OAuth2Auth, _Mapping]] = ...) -> None: ...

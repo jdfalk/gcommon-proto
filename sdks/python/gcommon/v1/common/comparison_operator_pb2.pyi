@@ -14,7 +14,6 @@ class ComparisonOperator(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPARISON_OPERATOR_GREATER_THAN_OR_EQUAL: _ClassVar[ComparisonOperator]
     COMPARISON_OPERATOR_LESS_THAN: _ClassVar[ComparisonOperator]
     COMPARISON_OPERATOR_LESS_THAN_OR_EQUAL: _ClassVar[ComparisonOperator]
-
 COMPARISON_OPERATOR_UNSPECIFIED: ComparisonOperator
 COMPARISON_OPERATOR_EQUAL: ComparisonOperator
 COMPARISON_OPERATOR_NOT_EQUAL: ComparisonOperator

@@ -7,12 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MetricsQueryStats(_message.Message):
-    __slots__ = (
-        "total_queries",
-        "avg_execution_time_ms",
-        "failed_queries",
-        "cache_hit_rate",
-    )
+    __slots__ = ("total_queries", "avg_execution_time_ms", "failed_queries", "cache_hit_rate")
     TOTAL_QUERIES_FIELD_NUMBER: _ClassVar[int]
     AVG_EXECUTION_TIME_MS_FIELD_NUMBER: _ClassVar[int]
     FAILED_QUERIES_FIELD_NUMBER: _ClassVar[int]
@@ -21,10 +16,4 @@ class MetricsQueryStats(_message.Message):
     avg_execution_time_ms: float
     failed_queries: int
     cache_hit_rate: float
-    def __init__(
-        self,
-        total_queries: _Optional[int] = ...,
-        avg_execution_time_ms: _Optional[float] = ...,
-        failed_queries: _Optional[int] = ...,
-        cache_hit_rate: _Optional[float] = ...,
-    ) -> None: ...
+    def __init__(self, total_queries: _Optional[int] = ..., avg_execution_time_ms: _Optional[float] = ..., failed_queries: _Optional[int] = ..., cache_hit_rate: _Optional[float] = ...) -> None: ...

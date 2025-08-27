@@ -4,81 +4,49 @@
 # source: gcommon/v1/metrics/export_config_update.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/metrics/export_config_update.proto",
+    '',
+    'gcommon/v1/metrics/export_config_update.proto'
 )
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.metrics import (
-    export_destination_update_pb2 as gcommon_dot_v1_dot_metrics_dot_export__destination__update__pb2,
-)
+from gcommon.v1.metrics import export_destination_update_pb2 as gcommon_dot_v1_dot_metrics_dot_export__destination__update__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n-gcommon/v1/metrics/export_config_update.proto\x12\x12gcommon.v1.metrics\x1a\x32gcommon/v1/metrics/export_destination_update.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\x82\x03\n\x12\x45xportConfigUpdate\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12/\n\x0e\x66ormat_updates\x18\x02 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rformatUpdates\x12/\n\x0e\x66ormat_removes\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rformatRemoves\x12\x66\n\x13\x64\x65stination_updates\x18\x04 \x03(\x0b\x32+.gcommon.v1.metrics.ExportDestinationUpdateB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x64\x65stinationUpdates\x12\x39\n\x13\x64\x65stination_removes\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x64\x65stinationRemoves\x12%\n\tfrequency\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tfrequency\x12&\n\nbatch_size\x18\x07 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tbatchSizeB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-gcommon/v1/metrics/export_config_update.proto\x12\x12gcommon.v1.metrics\x1a\x32gcommon/v1/metrics/export_destination_update.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x82\x03\n\x12\x45xportConfigUpdate\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12/\n\x0e\x66ormat_updates\x18\x02 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rformatUpdates\x12/\n\x0e\x66ormat_removes\x18\x03 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\rformatRemoves\x12\x66\n\x13\x64\x65stination_updates\x18\x04 \x03(\x0b\x32+.gcommon.v1.metrics.ExportDestinationUpdateB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x64\x65stinationUpdates\x12\x39\n\x13\x64\x65stination_removes\x18\x05 \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x12\x64\x65stinationRemoves\x12%\n\tfrequency\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\tfrequency\x12&\n\nbatch_size\x18\x07 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tbatchSizeB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.metrics.export_config_update_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.metrics.export_config_update_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003"
-    )
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "format_updates"
-    ]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "format_updates"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "format_removes"
-    ]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "format_removes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "destination_updates"
-    ]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "destination_updates"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "destination_removes"
-    ]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "destination_removes"
-    ]._serialized_options = b"\272H\005\222\001\002\010\001"
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name["frequency"]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "frequency"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name["batch_size"]._loaded_options = None
-    _globals["_EXPORTCONFIGUPDATE"].fields_by_name[
-        "batch_size"
-    ]._serialized_options = b"\272H\004\032\002(\000"
-    _globals["_EXPORTCONFIGUPDATE"]._serialized_start = 186
-    _globals["_EXPORTCONFIGUPDATE"]._serialized_end = 572
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\222\003\005\322>\002\020\003'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['format_updates']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['format_updates']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['format_removes']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['format_removes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['destination_updates']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['destination_updates']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['destination_removes']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['destination_removes']._serialized_options = b'\272H\005\222\001\002\010\001'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['frequency']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['frequency']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['batch_size']._loaded_options = None
+  _globals['_EXPORTCONFIGUPDATE'].fields_by_name['batch_size']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_EXPORTCONFIGUPDATE']._serialized_start=186
+  _globals['_EXPORTCONFIGUPDATE']._serialized_end=572
 # @@protoc_insertion_point(module_scope)

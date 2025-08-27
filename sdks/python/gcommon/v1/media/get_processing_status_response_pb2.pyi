@@ -12,17 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetProcessingStatusResponse(_message.Message):
-    __slots__ = (
-        "job_id",
-        "status",
-        "job_type",
-        "progress_percent",
-        "created_at",
-        "updated_at",
-        "completed_at",
-        "error_message",
-        "output_file_ids",
-    )
+    __slots__ = ("job_id", "status", "job_type", "progress_percent", "created_at", "updated_at", "completed_at", "error_message", "output_file_ids")
     JOB_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     JOB_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -41,21 +31,4 @@ class GetProcessingStatusResponse(_message.Message):
     completed_at: _timestamp_pb2.Timestamp
     error_message: str
     output_file_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        job_id: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-        job_type: _Optional[str] = ...,
-        progress_percent: _Optional[int] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        updated_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        completed_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        error_message: _Optional[str] = ...,
-        output_file_ids: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., job_type: _Optional[str] = ..., progress_percent: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., completed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., error_message: _Optional[str] = ..., output_file_ids: _Optional[_Iterable[str]] = ...) -> None: ...

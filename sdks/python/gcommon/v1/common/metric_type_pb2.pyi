@@ -14,7 +14,6 @@ class MetricsMetricType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     METRIC_TYPE_SUMMARY: _ClassVar[MetricsMetricType]
     METRIC_TYPE_TIMER: _ClassVar[MetricsMetricType]
     METRIC_TYPE_SET: _ClassVar[MetricsMetricType]
-
 METRIC_TYPE_UNSPECIFIED: MetricsMetricType
 METRIC_TYPE_COUNTER: MetricsMetricType
 METRIC_TYPE_GAUGE: MetricsMetricType

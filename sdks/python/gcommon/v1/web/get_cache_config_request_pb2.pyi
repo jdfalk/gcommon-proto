@@ -11,9 +11,4 @@ class GetCacheConfigRequest(_message.Message):
     __slots__ = ("metadata",)
     METADATA_FIELD_NUMBER: _ClassVar[int]
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

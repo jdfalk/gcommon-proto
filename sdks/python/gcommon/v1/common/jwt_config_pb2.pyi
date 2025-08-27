@@ -18,13 +18,4 @@ class JWTConfig(_message.Message):
     signing_algorithm: str
     access_token_ttl: _duration_pb2.Duration
     refresh_token_ttl: _duration_pb2.Duration
-    def __init__(
-        self,
-        signing_algorithm: _Optional[str] = ...,
-        access_token_ttl: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        refresh_token_ttl: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, signing_algorithm: _Optional[str] = ..., access_token_ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., refresh_token_ttl: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

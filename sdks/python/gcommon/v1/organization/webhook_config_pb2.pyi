@@ -18,10 +18,4 @@ class WebhookConfig(_message.Message):
     events: _containers.RepeatedScalarFieldContainer[str]
     active: bool
     secret: str
-    def __init__(
-        self,
-        url: _Optional[str] = ...,
-        events: _Optional[_Iterable[str]] = ...,
-        active: _Optional[bool] = ...,
-        secret: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, url: _Optional[str] = ..., events: _Optional[_Iterable[str]] = ..., active: _Optional[bool] = ..., secret: _Optional[str] = ...) -> None: ...

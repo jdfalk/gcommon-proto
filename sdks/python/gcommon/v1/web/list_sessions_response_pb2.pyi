@@ -13,9 +13,4 @@ class WebListSessionsResponse(_message.Message):
     __slots__ = ("sessions",)
     SESSIONS_FIELD_NUMBER: _ClassVar[int]
     sessions: _containers.RepeatedCompositeFieldContainer[_session_data_pb2.SessionData]
-    def __init__(
-        self,
-        sessions: _Optional[
-            _Iterable[_Union[_session_data_pb2.SessionData, _Mapping]]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_data_pb2.SessionData, _Mapping]]] = ...) -> None: ...

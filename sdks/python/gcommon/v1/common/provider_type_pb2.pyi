@@ -13,7 +13,6 @@ class AuthProviderType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY: _ClassVar[AuthProviderType]
     AUTH_PROVIDER_TYPE_OAUTH2: _ClassVar[AuthProviderType]
     AUTH_PROVIDER_TYPE_SAML: _ClassVar[AuthProviderType]
-
 AUTH_PROVIDER_TYPE_UNSPECIFIED: AuthProviderType
 AUTH_PROVIDER_TYPE_LOCAL: AuthProviderType
 AUTH_PROVIDER_TYPE_LDAP: AuthProviderType

@@ -14,7 +14,6 @@ class MiddlewareType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MIDDLEWARE_TYPE_COMPRESSION: _ClassVar[MiddlewareType]
     MIDDLEWARE_TYPE_CORS: _ClassVar[MiddlewareType]
     MIDDLEWARE_TYPE_RATE_LIMIT: _ClassVar[MiddlewareType]
-
 MIDDLEWARE_TYPE_UNSPECIFIED: MiddlewareType
 MIDDLEWARE_TYPE_LOGGING: MiddlewareType
 MIDDLEWARE_TYPE_AUTHENTICATION: MiddlewareType

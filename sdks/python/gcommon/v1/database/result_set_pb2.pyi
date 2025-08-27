@@ -16,18 +16,8 @@ class ResultSet(_message.Message):
     ROWS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_COUNT_FIELD_NUMBER: _ClassVar[int]
     HAS_MORE_FIELD_NUMBER: _ClassVar[int]
-    columns: _containers.RepeatedCompositeFieldContainer[
-        _column_metadata_pb2.ColumnMetadata
-    ]
+    columns: _containers.RepeatedCompositeFieldContainer[_column_metadata_pb2.ColumnMetadata]
     rows: _containers.RepeatedCompositeFieldContainer[_row_pb2.Row]
     total_count: int
     has_more: bool
-    def __init__(
-        self,
-        columns: _Optional[
-            _Iterable[_Union[_column_metadata_pb2.ColumnMetadata, _Mapping]]
-        ] = ...,
-        rows: _Optional[_Iterable[_Union[_row_pb2.Row, _Mapping]]] = ...,
-        total_count: _Optional[int] = ...,
-        has_more: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, columns: _Optional[_Iterable[_Union[_column_metadata_pb2.ColumnMetadata, _Mapping]]] = ..., rows: _Optional[_Iterable[_Union[_row_pb2.Row, _Mapping]]] = ..., total_count: _Optional[int] = ..., has_more: _Optional[bool] = ...) -> None: ...

@@ -16,19 +16,11 @@ class CustomResolution(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
-        def __init__(
-            self, key: _Optional[str] = ..., value: _Optional[str] = ...
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     FUNCTION_NAME_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     TIMEOUT_MS_FIELD_NUMBER: _ClassVar[int]
     function_name: str
     parameters: _containers.ScalarMap[str, str]
     timeout_ms: int
-    def __init__(
-        self,
-        function_name: _Optional[str] = ...,
-        parameters: _Optional[_Mapping[str, str]] = ...,
-        timeout_ms: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, function_name: _Optional[str] = ..., parameters: _Optional[_Mapping[str, str]] = ..., timeout_ms: _Optional[int] = ...) -> None: ...

@@ -18,21 +18,11 @@ class GetMultipleConfigResponse(_message.Message):
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: _config_entry_pb2.ConfigEntry
-        def __init__(
-            self,
-            key: _Optional[str] = ...,
-            value: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ...,
-        ) -> None: ...
-
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_config_entry_pb2.ConfigEntry, _Mapping]] = ...) -> None: ...
     ENTRIES_FIELD_NUMBER: _ClassVar[int]
     NOT_FOUND_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     entries: _containers.MessageMap[str, _config_entry_pb2.ConfigEntry]
     not_found: _containers.RepeatedScalarFieldContainer[str]
     error: _error_pb2.Error
-    def __init__(
-        self,
-        entries: _Optional[_Mapping[str, _config_entry_pb2.ConfigEntry]] = ...,
-        not_found: _Optional[_Iterable[str]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, entries: _Optional[_Mapping[str, _config_entry_pb2.ConfigEntry]] = ..., not_found: _Optional[_Iterable[str]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

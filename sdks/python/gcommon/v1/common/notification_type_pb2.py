@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/notification_type.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/notification_type.proto",
+    '',
+    'gcommon/v1/common/notification_type.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -27,22 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b"\n)gcommon/v1/common/notification_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xb7\x03\n\x10NotificationType\x12!\n\x1dNOTIFICATION_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17NOTIFICATION_TYPE_EMAIL\x10\x01\x12\x19\n\x15NOTIFICATION_TYPE_SMS\x10\x02\x12\x1a\n\x16NOTIFICATION_TYPE_PUSH\x10\x03\x12\x1b\n\x17NOTIFICATION_TYPE_SLACK\x10\x04\x12\x1b\n\x17NOTIFICATION_TYPE_TEAMS\x10\x05\x12\x1d\n\x19NOTIFICATION_TYPE_DISCORD\x10\x06\x12\x1f\n\x1bNOTIFICATION_TYPE_PAGERDUTY\x10\x07\x12\x1d\n\x19NOTIFICATION_TYPE_WEBHOOK\x10\x08\x12\x1c\n\x18NOTIFICATION_TYPE_IN_APP\x10\t\x12\x1a\n\x16NOTIFICATION_TYPE_SNMP\x10\n\x12\x1e\n\x1aNOTIFICATION_TYPE_TELEGRAM\x10\x0b\x12\x1c\n\x18NOTIFICATION_TYPE_MATRIX\x10\x0c\x12\x1b\n\x17NOTIFICATION_TYPE_VOICE\x10\rB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07"
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/common/notification_type.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xb7\x03\n\x10NotificationType\x12!\n\x1dNOTIFICATION_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17NOTIFICATION_TYPE_EMAIL\x10\x01\x12\x19\n\x15NOTIFICATION_TYPE_SMS\x10\x02\x12\x1a\n\x16NOTIFICATION_TYPE_PUSH\x10\x03\x12\x1b\n\x17NOTIFICATION_TYPE_SLACK\x10\x04\x12\x1b\n\x17NOTIFICATION_TYPE_TEAMS\x10\x05\x12\x1d\n\x19NOTIFICATION_TYPE_DISCORD\x10\x06\x12\x1f\n\x1bNOTIFICATION_TYPE_PAGERDUTY\x10\x07\x12\x1d\n\x19NOTIFICATION_TYPE_WEBHOOK\x10\x08\x12\x1c\n\x18NOTIFICATION_TYPE_IN_APP\x10\t\x12\x1a\n\x16NOTIFICATION_TYPE_SNMP\x10\n\x12\x1e\n\x1aNOTIFICATION_TYPE_TELEGRAM\x10\x0b\x12\x1c\n\x18NOTIFICATION_TYPE_MATRIX\x10\x0c\x12\x1b\n\x17NOTIFICATION_TYPE_VOICE\x10\rB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.notification_type_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.notification_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_NOTIFICATIONTYPE"]._serialized_start = 100
-    _globals["_NOTIFICATIONTYPE"]._serialized_end = 539
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_NOTIFICATIONTYPE']._serialized_start=100
+  _globals['_NOTIFICATIONTYPE']._serialized_end=539
 # @@protoc_insertion_point(module_scope)

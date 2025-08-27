@@ -7,13 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DryRunResult(_message.Message):
-    __slots__ = (
-        "would_delete_bytes",
-        "would_delete_points",
-        "would_delete_indices",
-        "would_stop_exports",
-        "estimated_deletion_time",
-    )
+    __slots__ = ("would_delete_bytes", "would_delete_points", "would_delete_indices", "would_stop_exports", "estimated_deletion_time")
     WOULD_DELETE_BYTES_FIELD_NUMBER: _ClassVar[int]
     WOULD_DELETE_POINTS_FIELD_NUMBER: _ClassVar[int]
     WOULD_DELETE_INDICES_FIELD_NUMBER: _ClassVar[int]
@@ -24,11 +18,4 @@ class DryRunResult(_message.Message):
     would_delete_indices: int
     would_stop_exports: int
     estimated_deletion_time: str
-    def __init__(
-        self,
-        would_delete_bytes: _Optional[int] = ...,
-        would_delete_points: _Optional[int] = ...,
-        would_delete_indices: _Optional[int] = ...,
-        would_stop_exports: _Optional[int] = ...,
-        estimated_deletion_time: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, would_delete_bytes: _Optional[int] = ..., would_delete_points: _Optional[int] = ..., would_delete_indices: _Optional[int] = ..., would_stop_exports: _Optional[int] = ..., estimated_deletion_time: _Optional[str] = ...) -> None: ...

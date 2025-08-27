@@ -10,15 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueDeleteRequest(_message.Message):
-    __slots__ = (
-        "queue_name",
-        "message_id",
-        "ack_token",
-        "force",
-        "reason",
-        "criteria",
-        "metadata",
-    )
+    __slots__ = ("queue_name", "message_id", "ack_token", "force", "reason", "criteria", "metadata")
     QUEUE_NAME_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     ACK_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -33,17 +25,4 @@ class QueueDeleteRequest(_message.Message):
     reason: str
     criteria: _delete_criteria_pb2.DeleteCriteria
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        queue_name: _Optional[str] = ...,
-        message_id: _Optional[str] = ...,
-        ack_token: _Optional[str] = ...,
-        force: _Optional[bool] = ...,
-        reason: _Optional[str] = ...,
-        criteria: _Optional[
-            _Union[_delete_criteria_pb2.DeleteCriteria, _Mapping]
-        ] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, queue_name: _Optional[str] = ..., message_id: _Optional[str] = ..., ack_token: _Optional[str] = ..., force: _Optional[bool] = ..., reason: _Optional[str] = ..., criteria: _Optional[_Union[_delete_criteria_pb2.DeleteCriteria, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

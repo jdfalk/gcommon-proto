@@ -18,10 +18,4 @@ class GetUserRequest(_message.Message):
     include_details: bool
     include_deleted: bool
     fields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        include_details: _Optional[bool] = ...,
-        include_deleted: _Optional[bool] = ...,
-        fields: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., include_details: _Optional[bool] = ..., include_deleted: _Optional[bool] = ..., fields: _Optional[_Iterable[str]] = ...) -> None: ...

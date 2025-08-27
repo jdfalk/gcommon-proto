@@ -11,13 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ExporterStatus(_message.Message):
-    __slots__ = (
-        "exporter_id",
-        "exporter_type",
-        "status",
-        "exported_count",
-        "last_export",
-    )
+    __slots__ = ("exporter_id", "exporter_type", "status", "exported_count", "last_export")
     EXPORTER_ID_FIELD_NUMBER: _ClassVar[int]
     EXPORTER_TYPE_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -28,13 +22,4 @@ class ExporterStatus(_message.Message):
     status: str
     exported_count: int
     last_export: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        exporter_id: _Optional[str] = ...,
-        exporter_type: _Optional[str] = ...,
-        status: _Optional[str] = ...,
-        exported_count: _Optional[int] = ...,
-        last_export: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, exporter_id: _Optional[str] = ..., exporter_type: _Optional[str] = ..., status: _Optional[str] = ..., exported_count: _Optional[int] = ..., last_export: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

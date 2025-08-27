@@ -9,14 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LabelDefinition(_message.Message):
-    __slots__ = (
-        "name",
-        "description",
-        "required",
-        "allowed_values",
-        "validation_pattern",
-        "default_value",
-    )
+    __slots__ = ("name", "description", "required", "allowed_values", "validation_pattern", "default_value")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     REQUIRED_FIELD_NUMBER: _ClassVar[int]
@@ -29,12 +22,4 @@ class LabelDefinition(_message.Message):
     allowed_values: _containers.RepeatedScalarFieldContainer[str]
     validation_pattern: str
     default_value: str
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-        required: _Optional[bool] = ...,
-        allowed_values: _Optional[_Iterable[str]] = ...,
-        validation_pattern: _Optional[str] = ...,
-        default_value: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., required: _Optional[bool] = ..., allowed_values: _Optional[_Iterable[str]] = ..., validation_pattern: _Optional[str] = ..., default_value: _Optional[str] = ...) -> None: ...

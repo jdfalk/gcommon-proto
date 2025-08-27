@@ -19,7 +19,6 @@ class StorageBackend(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STORAGE_BACKEND_GCP_MONITORING: _ClassVar[StorageBackend]
     STORAGE_BACKEND_AZURE_MONITOR: _ClassVar[StorageBackend]
     STORAGE_BACKEND_VICTORIAMETRICS: _ClassVar[StorageBackend]
-
 STORAGE_BACKEND_UNSPECIFIED: StorageBackend
 STORAGE_BACKEND_MEMORY: StorageBackend
 STORAGE_BACKEND_PROMETHEUS: StorageBackend

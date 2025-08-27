@@ -14,7 +14,6 @@ class TemplateChangeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TEMPLATE_CHANGE_TYPE_DEPRECATED: _ClassVar[TemplateChangeType]
     TEMPLATE_CHANGE_TYPE_SECURITY: _ClassVar[TemplateChangeType]
     CHANGE_TYPE_BREAKING: _ClassVar[TemplateChangeType]
-
 TEMPLATE_CHANGE_TYPE_UNSPECIFIED: TemplateChangeType
 TEMPLATE_CHANGE_TYPE_FEATURE: TemplateChangeType
 TEMPLATE_CHANGE_TYPE_BUGFIX: TemplateChangeType

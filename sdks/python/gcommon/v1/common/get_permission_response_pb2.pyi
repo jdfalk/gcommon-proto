@@ -14,8 +14,4 @@ class GetPermissionResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     permission: _permission_pb2.Permission
     error: _error_pb2.Error
-    def __init__(
-        self,
-        permission: _Optional[_Union[_permission_pb2.Permission, _Mapping]] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, permission: _Optional[_Union[_permission_pb2.Permission, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

@@ -17,19 +17,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MediaFile(_message.Message):
-    __slots__ = (
-        "id",
-        "path",
-        "filename",
-        "type",
-        "size_bytes",
-        "created_at",
-        "modified_at",
-        "metadata",
-        "subtitle_tracks",
-        "audio_tracks",
-        "quality",
-    )
+    __slots__ = ("id", "path", "filename", "type", "size_bytes", "created_at", "modified_at", "metadata", "subtitle_tracks", "audio_tracks", "quality")
     ID_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
@@ -49,32 +37,7 @@ class MediaFile(_message.Message):
     created_at: _timestamp_pb2.Timestamp
     modified_at: _timestamp_pb2.Timestamp
     metadata: _media_metadata_pb2.MediaMetadata
-    subtitle_tracks: _containers.RepeatedCompositeFieldContainer[
-        _subtitle_track_pb2.SubtitleTrack
-    ]
-    audio_tracks: _containers.RepeatedCompositeFieldContainer[
-        _audio_track_pb2.AudioTrack
-    ]
+    subtitle_tracks: _containers.RepeatedCompositeFieldContainer[_subtitle_track_pb2.SubtitleTrack]
+    audio_tracks: _containers.RepeatedCompositeFieldContainer[_audio_track_pb2.AudioTrack]
     quality: _media_quality_pb2.MediaQuality
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        path: _Optional[str] = ...,
-        filename: _Optional[str] = ...,
-        type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ...,
-        size_bytes: _Optional[int] = ...,
-        created_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        modified_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        metadata: _Optional[_Union[_media_metadata_pb2.MediaMetadata, _Mapping]] = ...,
-        subtitle_tracks: _Optional[
-            _Iterable[_Union[_subtitle_track_pb2.SubtitleTrack, _Mapping]]
-        ] = ...,
-        audio_tracks: _Optional[
-            _Iterable[_Union[_audio_track_pb2.AudioTrack, _Mapping]]
-        ] = ...,
-        quality: _Optional[_Union[_media_quality_pb2.MediaQuality, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., path: _Optional[str] = ..., filename: _Optional[str] = ..., type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., size_bytes: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., modified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_media_metadata_pb2.MediaMetadata, _Mapping]] = ..., subtitle_tracks: _Optional[_Iterable[_Union[_subtitle_track_pb2.SubtitleTrack, _Mapping]]] = ..., audio_tracks: _Optional[_Iterable[_Union[_audio_track_pb2.AudioTrack, _Mapping]]] = ..., quality: _Optional[_Union[_media_quality_pb2.MediaQuality, _Mapping]] = ...) -> None: ...

@@ -11,7 +11,6 @@ class CircuitBreakerState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CIRCUIT_BREAKER_STATE_CLOSED: _ClassVar[CircuitBreakerState]
     CIRCUIT_BREAKER_STATE_OPEN: _ClassVar[CircuitBreakerState]
     CIRCUIT_BREAKER_STATE_HALF_OPEN: _ClassVar[CircuitBreakerState]
-
 CIRCUIT_BREAKER_STATE_UNSPECIFIED: CircuitBreakerState
 CIRCUIT_BREAKER_STATE_CLOSED: CircuitBreakerState
 CIRCUIT_BREAKER_STATE_OPEN: CircuitBreakerState

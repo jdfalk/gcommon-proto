@@ -22,13 +22,4 @@ class RotationEvent(_message.Message):
     previous_value: str
     new_value: str
     reason: str
-    def __init__(
-        self,
-        id: _Optional[str] = ...,
-        timestamp: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        previous_value: _Optional[str] = ...,
-        new_value: _Optional[str] = ...,
-        reason: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., previous_value: _Optional[str] = ..., new_value: _Optional[str] = ..., reason: _Optional[str] = ...) -> None: ...

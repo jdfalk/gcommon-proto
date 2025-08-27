@@ -14,10 +14,4 @@ class CreateMetricResponse(_message.Message):
     ERROR_FIELD_NUMBER: _ClassVar[int]
     metadata: _metric_metadata_pb2.MetricMetadata
     error: _error_pb2.Error
-    def __init__(
-        self,
-        metadata: _Optional[
-            _Union[_metric_metadata_pb2.MetricMetadata, _Mapping]
-        ] = ...,
-        error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...,
-    ) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ...) -> None: ...

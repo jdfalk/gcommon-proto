@@ -10,16 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class QueueTimeoutConfig(_message.Message):
-    __slots__ = (
-        "publish_timeout",
-        "consume_timeout",
-        "ack_timeout",
-        "connect_timeout",
-        "processing_timeout",
-        "management_timeout",
-        "health_check_timeout",
-        "subscription_timeout",
-    )
+    __slots__ = ("publish_timeout", "consume_timeout", "ack_timeout", "connect_timeout", "processing_timeout", "management_timeout", "health_check_timeout", "subscription_timeout")
     PUBLISH_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     CONSUME_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     ACK_TIMEOUT_FIELD_NUMBER: _ClassVar[int]
@@ -36,30 +27,4 @@ class QueueTimeoutConfig(_message.Message):
     management_timeout: _duration_pb2.Duration
     health_check_timeout: _duration_pb2.Duration
     subscription_timeout: _duration_pb2.Duration
-    def __init__(
-        self,
-        publish_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        consume_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        ack_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        connect_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        processing_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        management_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        health_check_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        subscription_timeout: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, publish_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., consume_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., ack_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., connect_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., processing_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., management_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., health_check_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., subscription_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

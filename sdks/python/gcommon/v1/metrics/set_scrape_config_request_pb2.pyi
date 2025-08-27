@@ -17,11 +17,4 @@ class SetScrapeConfigRequest(_message.Message):
     provider_id: str
     config: _scrape_config_pb2.ScrapeConfig
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        provider_id: _Optional[str] = ...,
-        config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, provider_id: _Optional[str] = ..., config: _Optional[_Union[_scrape_config_pb2.ScrapeConfig, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

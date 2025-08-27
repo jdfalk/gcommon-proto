@@ -18,11 +18,4 @@ class MetricsRetentionPolicyConfig(_message.Message):
     duration: _duration_pb2.Duration
     storage_tier: str
     compression: str
-    def __init__(
-        self,
-        duration: _Optional[
-            _Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]
-        ] = ...,
-        storage_tier: _Optional[str] = ...,
-        compression: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., storage_tier: _Optional[str] = ..., compression: _Optional[str] = ...) -> None: ...

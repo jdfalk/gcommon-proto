@@ -14,7 +14,6 @@ class DeploymentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DEPLOYMENT_STATUS_FAILED: _ClassVar[DeploymentStatus]
     DEPLOYMENT_STATUS_ROLLED_BACK: _ClassVar[DeploymentStatus]
     DEPLOYMENT_STATUS_CANCELLED: _ClassVar[DeploymentStatus]
-
 DEPLOYMENT_STATUS_UNSPECIFIED: DeploymentStatus
 DEPLOYMENT_STATUS_PENDING: DeploymentStatus
 DEPLOYMENT_STATUS_IN_PROGRESS: DeploymentStatus

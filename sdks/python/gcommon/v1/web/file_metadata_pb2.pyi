@@ -23,13 +23,4 @@ class FileMetadata(_message.Message):
     mime_type: _mime_type_pb2.MimeType
     checksum: str
     modified_at: _timestamp_pb2.Timestamp
-    def __init__(
-        self,
-        name: _Optional[str] = ...,
-        size_bytes: _Optional[int] = ...,
-        mime_type: _Optional[_Union[_mime_type_pb2.MimeType, _Mapping]] = ...,
-        checksum: _Optional[str] = ...,
-        modified_at: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., size_bytes: _Optional[int] = ..., mime_type: _Optional[_Union[_mime_type_pb2.MimeType, _Mapping]] = ..., checksum: _Optional[str] = ..., modified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

@@ -13,19 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TerminateSessionRequest(_message.Message):
-    __slots__ = (
-        "user_id",
-        "session_ids",
-        "metadata",
-        "terminate_all",
-        "device_type_filter",
-        "created_before",
-        "last_activity_before",
-        "exclude_current_session",
-        "termination_reason",
-        "send_notification",
-        "force_immediate",
-    )
+    __slots__ = ("user_id", "session_ids", "metadata", "terminate_all", "device_type_filter", "created_before", "last_activity_before", "exclude_current_session", "termination_reason", "send_notification", "force_immediate")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     SESSION_IDS_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
@@ -48,23 +36,4 @@ class TerminateSessionRequest(_message.Message):
     termination_reason: str
     send_notification: bool
     force_immediate: bool
-    def __init__(
-        self,
-        user_id: _Optional[str] = ...,
-        session_ids: _Optional[_Iterable[str]] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-        terminate_all: _Optional[bool] = ...,
-        device_type_filter: _Optional[str] = ...,
-        created_before: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        last_activity_before: _Optional[
-            _Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]
-        ] = ...,
-        exclude_current_session: _Optional[bool] = ...,
-        termination_reason: _Optional[str] = ...,
-        send_notification: _Optional[bool] = ...,
-        force_immediate: _Optional[bool] = ...,
-    ) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., session_ids: _Optional[_Iterable[str]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., terminate_all: _Optional[bool] = ..., device_type_filter: _Optional[str] = ..., created_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_activity_before: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., exclude_current_session: _Optional[bool] = ..., termination_reason: _Optional[str] = ..., send_notification: _Optional[bool] = ..., force_immediate: _Optional[bool] = ...) -> None: ...

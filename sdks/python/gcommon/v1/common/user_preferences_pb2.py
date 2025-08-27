@@ -4,20 +4,18 @@
 # source: gcommon/v1/common/user_preferences.proto
 # Protobuf Python Version: 6.32.0
 """Generated protocol buffer code."""
-
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import runtime_version as _runtime_version
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 _runtime_version.ValidateProtobufRuntimeVersion(
     _runtime_version.Domain.PUBLIC,
     6,
     32,
     0,
-    "",
-    "gcommon/v1/common/user_preferences.proto",
+    '',
+    'gcommon/v1/common/user_preferences.proto'
 )
 # @@protoc_insertion_point(imports)
 
@@ -28,32 +26,18 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n(gcommon/v1/common/user_preferences.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto"\xd7\x02\n\x0fUserPreferences\x12/\n\x13\x65mail_notifications\x18\x01 \x01(\x08R\x12\x65mailNotifications\x12+\n\x11sms_notifications\x18\x02 \x01(\x08R\x10smsNotifications\x12-\n\x12push_notifications\x18\x03 \x01(\x08R\x11pushNotifications\x12)\n\x10marketing_emails\x18\x04 \x01(\x08R\x0fmarketingEmails\x12,\n\x12two_factor_enabled\x18\x05 \x01(\x08R\x10twoFactorEnabled\x12?\n\x17session_timeout_minutes\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x15sessionTimeoutMinutes\x12\x1d\n\x05theme\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05themeB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07'
-)
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/common/user_preferences.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd7\x02\n\x0fUserPreferences\x12/\n\x13\x65mail_notifications\x18\x01 \x01(\x08R\x12\x65mailNotifications\x12+\n\x11sms_notifications\x18\x02 \x01(\x08R\x10smsNotifications\x12-\n\x12push_notifications\x18\x03 \x01(\x08R\x11pushNotifications\x12)\n\x10marketing_emails\x18\x04 \x01(\x08R\x0fmarketingEmails\x12,\n\x12two_factor_enabled\x18\x05 \x01(\x08R\x10twoFactorEnabled\x12?\n\x17session_timeout_minutes\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x15sessionTimeoutMinutes\x12\x1d\n\x05theme\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05themeB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(
-    DESCRIPTOR, "gcommon.v1.common.user_preferences_pb2", _globals
-)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.common.user_preferences_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
-    _globals["DESCRIPTOR"]._loaded_options = None
-    _globals[
-        "DESCRIPTOR"
-    ]._serialized_options = (
-        b"Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003"
-    )
-    _globals["_USERPREFERENCES"].fields_by_name[
-        "session_timeout_minutes"
-    ]._loaded_options = None
-    _globals["_USERPREFERENCES"].fields_by_name[
-        "session_timeout_minutes"
-    ]._serialized_options = b"\272H\004\032\002 \000"
-    _globals["_USERPREFERENCES"].fields_by_name["theme"]._loaded_options = None
-    _globals["_USERPREFERENCES"].fields_by_name[
-        "theme"
-    ]._serialized_options = b"\272H\004r\002\020\001"
-    _globals["_USERPREFERENCES"]._serialized_start = 128
-    _globals["_USERPREFERENCES"]._serialized_end = 471
+  _globals['DESCRIPTOR']._loaded_options = None
+  _globals['DESCRIPTOR']._serialized_options = b'Z+github.com/jdfalk/gcommon/sdks/go/v1/common\222\003\005\322>\002\020\003'
+  _globals['_USERPREFERENCES'].fields_by_name['session_timeout_minutes']._loaded_options = None
+  _globals['_USERPREFERENCES'].fields_by_name['session_timeout_minutes']._serialized_options = b'\272H\004\032\002 \000'
+  _globals['_USERPREFERENCES'].fields_by_name['theme']._loaded_options = None
+  _globals['_USERPREFERENCES'].fields_by_name['theme']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_USERPREFERENCES']._serialized_start=128
+  _globals['_USERPREFERENCES']._serialized_end=471
 # @@protoc_insertion_point(module_scope)

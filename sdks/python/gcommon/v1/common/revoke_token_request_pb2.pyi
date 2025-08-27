@@ -16,11 +16,4 @@ class RevokeTokenRequest(_message.Message):
     token: str
     token_type_hint: str
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(
-        self,
-        token: _Optional[str] = ...,
-        token_type_hint: _Optional[str] = ...,
-        metadata: _Optional[
-            _Union[_request_metadata_pb2.RequestMetadata, _Mapping]
-        ] = ...,
-    ) -> None: ...
+    def __init__(self, token: _Optional[str] = ..., token_type_hint: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...

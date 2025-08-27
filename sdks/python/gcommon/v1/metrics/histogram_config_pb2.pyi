@@ -16,9 +16,4 @@ class HistogramConfig(_message.Message):
     buckets: _containers.RepeatedScalarFieldContainer[float]
     auto_buckets: bool
     max_buckets: int
-    def __init__(
-        self,
-        buckets: _Optional[_Iterable[float]] = ...,
-        auto_buckets: _Optional[bool] = ...,
-        max_buckets: _Optional[int] = ...,
-    ) -> None: ...
+    def __init__(self, buckets: _Optional[_Iterable[float]] = ..., auto_buckets: _Optional[bool] = ..., max_buckets: _Optional[int] = ...) -> None: ...

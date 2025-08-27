@@ -19,11 +19,4 @@ class MetricsConfigChange(_message.Message):
     old_value: str
     new_value: str
     description: str
-    def __init__(
-        self,
-        change_type: _Optional[_Union[_change_type_pb2.MetricsChangeType, str]] = ...,
-        setting_path: _Optional[str] = ...,
-        old_value: _Optional[str] = ...,
-        new_value: _Optional[str] = ...,
-        description: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, change_type: _Optional[_Union[_change_type_pb2.MetricsChangeType, str]] = ..., setting_path: _Optional[str] = ..., old_value: _Optional[str] = ..., new_value: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...

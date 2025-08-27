@@ -13,7 +13,6 @@ class SchemaFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCHEMA_FORMAT_PROTOBUF: _ClassVar[SchemaFormat]
     SCHEMA_FORMAT_XML_SCHEMA: _ClassVar[SchemaFormat]
     SCHEMA_FORMAT_CUSTOM: _ClassVar[SchemaFormat]
-
 SCHEMA_FORMAT_UNSPECIFIED: SchemaFormat
 SCHEMA_FORMAT_JSON_SCHEMA: SchemaFormat
 SCHEMA_FORMAT_AVRO: SchemaFormat

@@ -16,10 +16,4 @@ class TimeRestriction(_message.Message):
     start_time: str
     end_time: str
     timezone: str
-    def __init__(
-        self,
-        day_of_week: _Optional[int] = ...,
-        start_time: _Optional[str] = ...,
-        end_time: _Optional[str] = ...,
-        timezone: _Optional[str] = ...,
-    ) -> None: ...
+    def __init__(self, day_of_week: _Optional[int] = ..., start_time: _Optional[str] = ..., end_time: _Optional[str] = ..., timezone: _Optional[str] = ...) -> None: ...

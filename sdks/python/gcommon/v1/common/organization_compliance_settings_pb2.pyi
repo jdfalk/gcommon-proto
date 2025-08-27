@@ -9,13 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationComplianceSettings(_message.Message):
-    __slots__ = (
-        "gdpr_enabled",
-        "data_retention_days",
-        "data_export_enabled",
-        "data_deletion_enabled",
-        "certifications",
-    )
+    __slots__ = ("gdpr_enabled", "data_retention_days", "data_export_enabled", "data_deletion_enabled", "certifications")
     GDPR_ENABLED_FIELD_NUMBER: _ClassVar[int]
     DATA_RETENTION_DAYS_FIELD_NUMBER: _ClassVar[int]
     DATA_EXPORT_ENABLED_FIELD_NUMBER: _ClassVar[int]
@@ -26,11 +20,4 @@ class OrganizationComplianceSettings(_message.Message):
     data_export_enabled: bool
     data_deletion_enabled: bool
     certifications: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(
-        self,
-        gdpr_enabled: _Optional[bool] = ...,
-        data_retention_days: _Optional[int] = ...,
-        data_export_enabled: _Optional[bool] = ...,
-        data_deletion_enabled: _Optional[bool] = ...,
-        certifications: _Optional[_Iterable[str]] = ...,
-    ) -> None: ...
+    def __init__(self, gdpr_enabled: _Optional[bool] = ..., data_retention_days: _Optional[int] = ..., data_export_enabled: _Optional[bool] = ..., data_deletion_enabled: _Optional[bool] = ..., certifications: _Optional[_Iterable[str]] = ...) -> None: ...
