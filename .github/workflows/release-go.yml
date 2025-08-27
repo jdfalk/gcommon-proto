@@ -193,7 +193,7 @@ jobs:
           sha256sum go-build-all.tar.gz > go-build-all.tar.gz.sha256
           sha256sum go-build-all.zip > go-build-all.zip.sha256
           if [ -d per-os ]; then
-            (cd per-os && for f in *.tar.gz *.zip 2>/dev/null; do [ -f "$f" ] && sha256sum "$f" > "$f.sha256"; done)
+            (cd per-os && for f in *.tar.gz *.zip; do [ -f "$f" ] && sha256sum "$f" > "$f.sha256" 2>/dev/null || true; done)
           fi
           echo "Generated checksums:" >&2
           cat go-build-all.tar.gz.sha256
