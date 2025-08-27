@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/health/requests/watch_health_request.proto
+// version: 1.0.0
+// guid: 7f809192-bec4-9012-6789-345678901234
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * WatchHealthRequest requests a stream of health status updates.
+ * Allows real-time monitoring of health check results.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message WatchHealthRequest {
+  // Service name to watch (empty for all services)
+  string service_name = 1;
+
+  // Specific check ID to watch (optional)
+  string check_id = 2;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 3;
+
+  // Only send updates for status changes
+  bool status_changes_only = 4;
+
+  // Filter by tags
+  repeated string tags = 5;
+}

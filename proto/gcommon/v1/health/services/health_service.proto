@@ -8,8 +8,10 @@ package gcommon.v1.health;
 
 import "gcommon/v1/health/requests/health_check_request.proto";
 import "gcommon/v1/health/requests/readiness_check_request.proto";
+import "gcommon/v1/health/requests/watch_health_request.proto";
 import "gcommon/v1/health/responses/health_check_response.proto";
 import "gcommon/v1/health/responses/readiness_check_response.proto";
+import "gcommon/v1/health/responses/watch_health_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -27,6 +29,6 @@ service HealthService {
   // CheckReadiness verifies if a service is ready to handle requests
   rpc CheckReadiness(ReadinessCheckRequest) returns (ReadinessCheckResponse);
 
-  // StreamHealth returns a stream of health check results
-  rpc StreamHealth(HealthCheckRequest) returns (stream HealthCheckResponse);
+  // WatchHealth returns a stream of health check results
+  rpc WatchHealth(WatchHealthRequest) returns (stream WatchHealthResponse);
 }
