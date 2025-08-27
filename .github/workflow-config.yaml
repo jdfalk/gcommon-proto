@@ -17,10 +17,10 @@ build:
     - "3.12"
     - "3.13"
 
-  node_versions:
-    - "20"
-    - "22"
-    - "24"
+  # node_versions:
+  #   - "20"
+  #   - "22"
+  #   - "24"
 
   # Platform support
   platforms:
