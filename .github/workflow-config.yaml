@@ -44,7 +44,6 @@ repositories:
     sync_enabled: true
     custom_build_config:
       go_versions: ["1.23", "1.24"]
-      python_versions: ["3.12", "3.13"]
       enable_protobuf: true
       enable_docker: true
 
