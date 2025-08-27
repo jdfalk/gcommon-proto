@@ -1,0 +1,57 @@
+// file: proto/gcommon/v1/health/messages/component_health.proto
+// version: 1.0.0
+// guid: 3c4d5e6f-7081-9012-cdef-345678901234
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/enums/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ComponentHealth represents the health status of a system component.
+ * Used for aggregating health information across multiple checks.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ComponentHealth {
+  // Component name or identifier
+  string component_name = 1;
+
+  // Overall health status of the component
+  HealthStatus status = 2;
+
+  // Human-readable status description
+  string description = 3;
+
+  // When this component's health was last updated
+  google.protobuf.Timestamp last_updated = 4;
+
+  // List of individual check IDs that contribute to this component's health
+  repeated string check_ids = 5;
+
+  // Number of healthy checks
+  int32 healthy_checks = 6;
+
+  // Number of unhealthy checks
+  int32 unhealthy_checks = 7;
+
+  // Total number of checks for this component
+  int32 total_checks = 8;
+
+  // Component-specific metadata
+  map<string, string> metadata = 9;
+
+  // Version of the component
+  string version = 10;
+
+  // Component dependencies
+  repeated string dependencies = 11;
+
+  // When this component was last restarted
+  google.protobuf.Timestamp last_restart = 12;
+}

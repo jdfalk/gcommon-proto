@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/health/requests/readiness_check_request.proto
+// version: 1.0.0
+// guid: 5e6f7081-9203-1234-ef01-567890123456
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ReadinessCheckRequest requests a readiness check for a service.
+ * Readiness checks verify that a service is ready to handle requests.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ReadinessCheckRequest {
+  // Service name to check readiness for
+  string service_name = 1;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Maximum time to wait for the readiness check
+  google.protobuf.Duration timeout = 3;
+
+  // Include dependency readiness checks
+  bool include_dependencies = 4;
+
+  // Minimum required health score (0-100) to consider ready
+  int32 min_health_score = 5;
+}
