@@ -17,7 +17,7 @@ from __future__ import annotations
 import json
 import os
 import re
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 CONFIG_PATH = ".github/workflow-config.yaml"
 
@@ -51,7 +51,11 @@ def load_build_config() -> Dict[str, Any]:
                 continue
 
             # Detect leaving build section (new top-level key)
-            if in_build and not line.startswith(" ") and not stripped.startswith("build:"):
+            if (
+                in_build
+                and not line.startswith(" ")
+                and not stripped.startswith("build:")
+            ):
                 # Reached a new top-level key; stop parsing build
                 break
 
@@ -127,7 +131,10 @@ elif has_frontend:
 else:
     primary = "unknown"
 
-def build_matrix(kind: str, versions: List[str], os_list: List[str], version_key: str) -> Dict[str, Any]:
+
+def build_matrix(
+    kind: str, versions: List[str], os_list: List[str], version_key: str
+) -> Dict[str, Any]:
     include: List[Dict[str, Any]] = []
     if not versions or not os_list:
         return {"include": include}
@@ -148,15 +155,29 @@ node_versions = build_cfg.get("node_versions") or ["20"]
 operating_systems = build_cfg.get("operating_systems") or ["ubuntu-latest"]
 platforms = build_cfg.get("platforms") or ["linux/amd64", "linux/arm64"]
 
-go_matrix = build_matrix("go", go_versions, operating_systems, "go-version") if has_go else {"include": []}
-python_matrix = build_matrix("python", python_versions, operating_systems, "python-version") if has_python else {"include": []}
-frontend_matrix = build_matrix("frontend", node_versions, operating_systems, "node-version") if has_frontend else {"include": []}
+go_matrix = (
+    build_matrix("go", go_versions, operating_systems, "go-version")
+    if has_go
+    else {"include": []}
+)
+python_matrix = (
+    build_matrix("python", python_versions, operating_systems, "python-version")
+    if has_python
+    else {"include": []}
+)
+frontend_matrix = (
+    build_matrix("frontend", node_versions, operating_systems, "node-version")
+    if has_frontend
+    else {"include": []}
+)
 
 docker_matrix = (
-    {"include": [
-        {"platform": p, "os": operating_systems[0], "primary": i == 0}
-        for i, p in enumerate(platforms)
-    ]}
+    {
+        "include": [
+            {"platform": p, "os": operating_systems[0], "primary": i == 0}
+            for i, p in enumerate(platforms)
+        ]
+    }
     if has_docker
     else {"include": []}
 )
