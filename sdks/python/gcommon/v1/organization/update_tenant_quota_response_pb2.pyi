@@ -5,7 +5,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -17,4 +18,4 @@ class UpdateTenantQuotaResponse(_message.Message):
     errors: _containers.RepeatedCompositeFieldContainer[_error_pb2.Error]
     success: bool
     quota: _tenant_quota_pb2.TenantQuota
-    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: bool = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...) -> None: ...
+    def __init__(self, errors: _Optional[_Iterable[_Union[_error_pb2.Error, _Mapping]]] = ..., success: _Optional[bool] = ..., quota: _Optional[_Union[_tenant_quota_pb2.TenantQuota, _Mapping]] = ...) -> None: ...

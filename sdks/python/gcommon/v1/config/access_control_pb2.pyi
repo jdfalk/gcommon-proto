@@ -5,7 +5,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -31,4 +32,4 @@ class ConfigAccessControl(_message.Message):
     rate_limits: _rate_limits_pb2.RateLimits
     approval_required: bool
     audit_enabled: bool
-    def __init__(self, policy: _Optional[str] = ..., allowed_users: _Optional[_Iterable[str]] = ..., allowed_roles: _Optional[_Iterable[str]] = ..., allowed_services: _Optional[_Iterable[str]] = ..., allowed_environments: _Optional[_Iterable[str]] = ..., restrictions: _Optional[_Iterable[_Union[_access_restriction_pb2.AccessRestriction, _Mapping]]] = ..., max_access_count: _Optional[int] = ..., rate_limits: _Optional[_Union[_rate_limits_pb2.RateLimits, _Mapping]] = ..., approval_required: bool = ..., audit_enabled: bool = ...) -> None: ...
+    def __init__(self, policy: _Optional[str] = ..., allowed_users: _Optional[_Iterable[str]] = ..., allowed_roles: _Optional[_Iterable[str]] = ..., allowed_services: _Optional[_Iterable[str]] = ..., allowed_environments: _Optional[_Iterable[str]] = ..., restrictions: _Optional[_Iterable[_Union[_access_restriction_pb2.AccessRestriction, _Mapping]]] = ..., max_access_count: _Optional[int] = ..., rate_limits: _Optional[_Union[_rate_limits_pb2.RateLimits, _Mapping]] = ..., approval_required: _Optional[bool] = ..., audit_enabled: _Optional[bool] = ...) -> None: ...

@@ -4,7 +4,8 @@ from gcommon.v1.queue import vector_clock_config_pb2 as _vector_clock_config_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,4 +19,4 @@ class ConflictDetection(_message.Message):
     strategy: _conflict_strategy_pb2.ConflictStrategy
     vector_clock: _vector_clock_config_pb2.VectorClockConfig
     timestamp_config: _timestamp_config_pb2.TimestampConfig
-    def __init__(self, enabled: bool = ..., strategy: _Optional[_Union[_conflict_strategy_pb2.ConflictStrategy, str]] = ..., vector_clock: _Optional[_Union[_vector_clock_config_pb2.VectorClockConfig, _Mapping]] = ..., timestamp_config: _Optional[_Union[_timestamp_config_pb2.TimestampConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., strategy: _Optional[_Union[_conflict_strategy_pb2.ConflictStrategy, str]] = ..., vector_clock: _Optional[_Union[_vector_clock_config_pb2.VectorClockConfig, _Mapping]] = ..., timestamp_config: _Optional[_Union[_timestamp_config_pb2.TimestampConfig, _Mapping]] = ...) -> None: ...

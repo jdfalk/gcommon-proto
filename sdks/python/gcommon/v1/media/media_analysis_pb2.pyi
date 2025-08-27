@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.media import media_quality_pb2 as _media_quality_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -5,7 +7,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -39,7 +42,7 @@ class TechnicalMetadata(_message.Message):
     video: VideoStreamInfo
     audio_streams: _containers.RepeatedCompositeFieldContainer[AudioStreamInfo]
     subtitle_streams: _containers.RepeatedCompositeFieldContainer[SubtitleStreamInfo]
-    def __init__(self, duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., file_size: _Optional[int] = ..., bitrate: _Optional[int] = ..., container_format: _Optional[str] = ..., video: _Optional[_Union[VideoStreamInfo, _Mapping]] = ..., audio_streams: _Optional[_Iterable[_Union[AudioStreamInfo, _Mapping]]] = ..., subtitle_streams: _Optional[_Iterable[_Union[SubtitleStreamInfo, _Mapping]]] = ...) -> None: ...
+    def __init__(self, duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., file_size: _Optional[int] = ..., bitrate: _Optional[int] = ..., container_format: _Optional[str] = ..., video: _Optional[_Union[VideoStreamInfo, _Mapping]] = ..., audio_streams: _Optional[_Iterable[_Union[AudioStreamInfo, _Mapping]]] = ..., subtitle_streams: _Optional[_Iterable[_Union[SubtitleStreamInfo, _Mapping]]] = ...) -> None: ...
 
 class VideoStreamInfo(_message.Message):
     __slots__ = ("codec", "width", "height", "frame_rate", "bitrate", "pixel_format", "color_space")
@@ -91,7 +94,7 @@ class SubtitleStreamInfo(_message.Message):
     title: str
     forced: bool
     hearing_impaired: bool
-    def __init__(self, stream_index: _Optional[int] = ..., codec: _Optional[str] = ..., language: _Optional[str] = ..., title: _Optional[str] = ..., forced: bool = ..., hearing_impaired: bool = ...) -> None: ...
+    def __init__(self, stream_index: _Optional[int] = ..., codec: _Optional[str] = ..., language: _Optional[str] = ..., title: _Optional[str] = ..., forced: _Optional[bool] = ..., hearing_impaired: _Optional[bool] = ...) -> None: ...
 
 class SceneDetection(_message.Message):
     __slots__ = ("start_time", "end_time", "confidence", "scene_type")
@@ -103,7 +106,7 @@ class SceneDetection(_message.Message):
     end_time: _duration_pb2.Duration
     confidence: float
     scene_type: str
-    def __init__(self, start_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., confidence: _Optional[float] = ..., scene_type: _Optional[str] = ...) -> None: ...
+    def __init__(self, start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., confidence: _Optional[float] = ..., scene_type: _Optional[str] = ...) -> None: ...
 
 class ThumbnailInfo(_message.Message):
     __slots__ = ("timestamp", "file_path", "width", "height")
@@ -115,7 +118,7 @@ class ThumbnailInfo(_message.Message):
     file_path: str
     width: int
     height: int
-    def __init__(self, timestamp: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., file_path: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., file_path: _Optional[str] = ..., width: _Optional[int] = ..., height: _Optional[int] = ...) -> None: ...
 
 class AudioAnalysis(_message.Message):
     __slots__ = ("peak_level", "rms_level", "silent_segments", "dynamic_range")
@@ -137,4 +140,4 @@ class SilentSegment(_message.Message):
     start_time: _duration_pb2.Duration
     end_time: _duration_pb2.Duration
     threshold_db: float
-    def __init__(self, start_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., threshold_db: _Optional[float] = ...) -> None: ...
+    def __init__(self, start_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., end_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., threshold_db: _Optional[float] = ...) -> None: ...

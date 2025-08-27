@@ -7,7 +7,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +34,4 @@ class ConsumerGroupConfig(_message.Message):
     max_consumers: int
     exactly_once_enabled: bool
     dlq_config: _dead_letter_queue_config_pb2.DeadLetterQueueConfig
-    def __init__(self, load_balancing_strategy: _Optional[_Union[_load_balancing_strategy_pb2.LoadBalancingStrategy, str]] = ..., rebalance_strategy: _Optional[_Union[_rebalance_strategy_pb2.RebalanceStrategy, str]] = ..., session_timeout_ms: _Optional[int] = ..., heartbeat_interval_ms: _Optional[int] = ..., max_poll_interval_ms: _Optional[int] = ..., auto_commit: _Optional[_Union[_auto_commit_config_pb2.AutoCommitConfig, _Mapping]] = ..., offset_reset_strategy: _Optional[_Union[_offset_reset_strategy_pb2.OffsetResetStrategy, str]] = ..., max_consumers: _Optional[int] = ..., exactly_once_enabled: bool = ..., dlq_config: _Optional[_Union[_dead_letter_queue_config_pb2.DeadLetterQueueConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, load_balancing_strategy: _Optional[_Union[_load_balancing_strategy_pb2.LoadBalancingStrategy, str]] = ..., rebalance_strategy: _Optional[_Union[_rebalance_strategy_pb2.RebalanceStrategy, str]] = ..., session_timeout_ms: _Optional[int] = ..., heartbeat_interval_ms: _Optional[int] = ..., max_poll_interval_ms: _Optional[int] = ..., auto_commit: _Optional[_Union[_auto_commit_config_pb2.AutoCommitConfig, _Mapping]] = ..., offset_reset_strategy: _Optional[_Union[_offset_reset_strategy_pb2.OffsetResetStrategy, str]] = ..., max_consumers: _Optional[int] = ..., exactly_once_enabled: _Optional[bool] = ..., dlq_config: _Optional[_Union[_dead_letter_queue_config_pb2.DeadLetterQueueConfig, _Mapping]] = ...) -> None: ...

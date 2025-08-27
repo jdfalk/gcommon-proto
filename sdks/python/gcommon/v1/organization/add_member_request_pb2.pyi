@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,4 +19,4 @@ class AddMemberRequest(_message.Message):
     organization_id: str
     member: _organization_member_pb2.OrganizationMember
     send_invite: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., member: _Optional[_Union[_organization_member_pb2.OrganizationMember, _Mapping]] = ..., send_invite: bool = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., organization_id: _Optional[str] = ..., member: _Optional[_Union[_organization_member_pb2.OrganizationMember, _Mapping]] = ..., send_invite: _Optional[bool] = ...) -> None: ...

@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import media_type_pb2 as _media_type_pb2
 from gcommon.v1.media import audio_track_pb2 as _audio_track_pb2
 from gcommon.v1.media import media_metadata_pb2 as _media_metadata_pb2
@@ -9,7 +11,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +40,4 @@ class MediaFile(_message.Message):
     subtitle_tracks: _containers.RepeatedCompositeFieldContainer[_subtitle_track_pb2.SubtitleTrack]
     audio_tracks: _containers.RepeatedCompositeFieldContainer[_audio_track_pb2.AudioTrack]
     quality: _media_quality_pb2.MediaQuality
-    def __init__(self, id: _Optional[str] = ..., path: _Optional[str] = ..., filename: _Optional[str] = ..., type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., size_bytes: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., modified_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_media_metadata_pb2.MediaMetadata, _Mapping]] = ..., subtitle_tracks: _Optional[_Iterable[_Union[_subtitle_track_pb2.SubtitleTrack, _Mapping]]] = ..., audio_tracks: _Optional[_Iterable[_Union[_audio_track_pb2.AudioTrack, _Mapping]]] = ..., quality: _Optional[_Union[_media_quality_pb2.MediaQuality, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., path: _Optional[str] = ..., filename: _Optional[str] = ..., type: _Optional[_Union[_media_type_pb2.MediaType, str]] = ..., size_bytes: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., modified_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_media_metadata_pb2.MediaMetadata, _Mapping]] = ..., subtitle_tracks: _Optional[_Iterable[_Union[_subtitle_track_pb2.SubtitleTrack, _Mapping]]] = ..., audio_tracks: _Optional[_Iterable[_Union[_audio_track_pb2.AudioTrack, _Mapping]]] = ..., quality: _Optional[_Union[_media_quality_pb2.MediaQuality, _Mapping]] = ...) -> None: ...

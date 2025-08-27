@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -21,4 +22,4 @@ class LabelDefinition(_message.Message):
     allowed_values: _containers.RepeatedScalarFieldContainer[str]
     validation_pattern: str
     default_value: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., required: bool = ..., allowed_values: _Optional[_Iterable[str]] = ..., validation_pattern: _Optional[str] = ..., default_value: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., required: _Optional[bool] = ..., allowed_values: _Optional[_Iterable[str]] = ..., validation_pattern: _Optional[str] = ..., default_value: _Optional[str] = ...) -> None: ...

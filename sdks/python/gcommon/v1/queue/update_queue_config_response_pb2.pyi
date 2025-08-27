@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,4 +20,4 @@ class UpdateQueueConfigResponse(_message.Message):
     config_version: int
     updated_at: int
     updated_fields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: bool = ..., error_message: _Optional[str] = ..., config_version: _Optional[int] = ..., updated_at: _Optional[int] = ..., updated_fields: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error_message: _Optional[str] = ..., config_version: _Optional[int] = ..., updated_at: _Optional[int] = ..., updated_fields: _Optional[_Iterable[str]] = ...) -> None: ...

@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +23,4 @@ class ReadConsistency(_message.Message):
     monotonic_reads: bool
     timeout_ms: int
     retry_config: _read_retry_config_pb2.ReadRetryConfig
-    def __init__(self, level: _Optional[_Union[_read_level_pb2.ReadLevel, str]] = ..., max_staleness_ms: _Optional[int] = ..., read_your_writes: bool = ..., monotonic_reads: bool = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_read_retry_config_pb2.ReadRetryConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, level: _Optional[_Union[_read_level_pb2.ReadLevel, str]] = ..., max_staleness_ms: _Optional[int] = ..., read_your_writes: _Optional[bool] = ..., monotonic_reads: _Optional[bool] = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_read_retry_config_pb2.ReadRetryConfig, _Mapping]] = ...) -> None: ...

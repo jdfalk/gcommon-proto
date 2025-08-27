@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +38,4 @@ class MessageNack(_message.Message):
     retry_message: bool
     retry_delay_ms: int
     message_metadata: _containers.ScalarMap[str, str]
-    def __init__(self, message_id: _Optional[str] = ..., delivery_tag: _Optional[str] = ..., partition_id: _Optional[int] = ..., message_offset: _Optional[int] = ..., nack_reason: _Optional[str] = ..., error_category: _Optional[_Union[_nack_error_category_pb2.NackErrorCategory, str]] = ..., error_code: _Optional[str] = ..., retry_message: bool = ..., retry_delay_ms: _Optional[int] = ..., message_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, message_id: _Optional[str] = ..., delivery_tag: _Optional[str] = ..., partition_id: _Optional[int] = ..., message_offset: _Optional[int] = ..., nack_reason: _Optional[str] = ..., error_category: _Optional[_Union[_nack_error_category_pb2.NackErrorCategory, str]] = ..., error_code: _Optional[str] = ..., retry_message: _Optional[bool] = ..., retry_delay_ms: _Optional[int] = ..., message_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

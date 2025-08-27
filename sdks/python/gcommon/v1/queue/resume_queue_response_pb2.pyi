@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import queue_state_pb2 as _queue_state_pb2
 from gcommon.v1.queue import resume_stats_pb2 as _resume_stats_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -6,7 +8,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -45,4 +48,4 @@ class ResumeQueueResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     resume_stats: _resume_stats_pb2.ResumeStats
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: bool = ..., queue_id: _Optional[str] = ..., previous_state: _Optional[_Union[_queue_state_pb2.QueueState, str]] = ..., current_state: _Optional[_Union[_queue_state_pb2.QueueState, str]] = ..., resumed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., pause_duration_ms: _Optional[int] = ..., messages_queued_during_pause: _Optional[int] = ..., affected_consumer_groups: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., resume_stats: _Optional[_Union[_resume_stats_pb2.ResumeStats, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., queue_id: _Optional[str] = ..., previous_state: _Optional[_Union[_queue_state_pb2.QueueState, str]] = ..., current_state: _Optional[_Union[_queue_state_pb2.QueueState, str]] = ..., resumed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., pause_duration_ms: _Optional[int] = ..., messages_queued_during_pause: _Optional[int] = ..., affected_consumer_groups: _Optional[_Iterable[str]] = ..., error_message: _Optional[str] = ..., error_code: _Optional[str] = ..., warnings: _Optional[_Iterable[str]] = ..., resume_stats: _Optional[_Union[_resume_stats_pb2.ResumeStats, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

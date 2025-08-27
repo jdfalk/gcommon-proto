@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +30,4 @@ class PromotionRule(_message.Message):
     schedule: str
     filters: _containers.RepeatedScalarFieldContainer[str]
     transformations: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, name: _Optional[str] = ..., source_environment: _Optional[str] = ..., target_environment: _Optional[str] = ..., conditions: _Optional[_Iterable[str]] = ..., approval_required: bool = ..., approvers: _Optional[_Iterable[str]] = ..., automatic: bool = ..., schedule: _Optional[str] = ..., filters: _Optional[_Iterable[str]] = ..., transformations: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., source_environment: _Optional[str] = ..., target_environment: _Optional[str] = ..., conditions: _Optional[_Iterable[str]] = ..., approval_required: _Optional[bool] = ..., approvers: _Optional[_Iterable[str]] = ..., automatic: _Optional[bool] = ..., schedule: _Optional[str] = ..., filters: _Optional[_Iterable[str]] = ..., transformations: _Optional[_Iterable[str]] = ...) -> None: ...

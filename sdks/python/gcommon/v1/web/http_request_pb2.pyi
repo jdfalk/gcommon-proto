@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -6,7 +8,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -94,4 +97,4 @@ class HttpRequest(_message.Message):
     keep_alive: bool
     received_at: _timestamp_pb2.Timestamp
     created_at: _timestamp_pb2.Timestamp
-    def __init__(self, method: _Optional[str] = ..., url: _Optional[str] = ..., protocol_version: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., query_params: _Optional[_Mapping[str, str]] = ..., path_params: _Optional[_Mapping[str, str]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., client_ip: _Optional[str] = ..., user_agent: _Optional[str] = ..., referrer: _Optional[str] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., accept: _Optional[str] = ..., accept_language: _Optional[str] = ..., accept_encoding: _Optional[str] = ..., authorization: _Optional[str] = ..., request_id: _Optional[str] = ..., session_id: _Optional[str] = ..., target_service: _Optional[str] = ..., target_version: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., streaming: bool = ..., keep_alive: bool = ..., received_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, method: _Optional[str] = ..., url: _Optional[str] = ..., protocol_version: _Optional[str] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., headers: _Optional[_Mapping[str, str]] = ..., body: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., query_params: _Optional[_Mapping[str, str]] = ..., path_params: _Optional[_Mapping[str, str]] = ..., cookies: _Optional[_Mapping[str, str]] = ..., client_ip: _Optional[str] = ..., user_agent: _Optional[str] = ..., referrer: _Optional[str] = ..., content_length: _Optional[int] = ..., content_type: _Optional[str] = ..., accept: _Optional[str] = ..., accept_language: _Optional[str] = ..., accept_encoding: _Optional[str] = ..., authorization: _Optional[str] = ..., request_id: _Optional[str] = ..., session_id: _Optional[str] = ..., target_service: _Optional[str] = ..., target_version: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., streaming: _Optional[bool] = ..., keep_alive: _Optional[bool] = ..., received_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

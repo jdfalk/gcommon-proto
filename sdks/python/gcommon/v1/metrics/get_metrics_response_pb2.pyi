@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import time_range_metrics_pb2 as _time_range_metrics_pb2
 from gcommon.v1.metrics import metric_data_pb2 as _metric_data_pb2
@@ -10,7 +12,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -36,4 +39,4 @@ class MetricsGetMetricsResponse(_message.Message):
     time_range: _time_range_metrics_pb2.TimeRangeMetrics
     warnings: _containers.RepeatedScalarFieldContainer[str]
     provider_id: str
-    def __init__(self, success: bool = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metrics: _Optional[_Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]] = ..., metadata: _Optional[_Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]] = ..., stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ..., generated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., provider_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., metrics: _Optional[_Iterable[_Union[_metric_data_pb2.MetricData, _Mapping]]] = ..., metadata: _Optional[_Iterable[_Union[_metric_metadata_pb2.MetricMetadata, _Mapping]]] = ..., pagination: _Optional[_Union[_pagination_info_pb2.MetricsPaginationInfo, _Mapping]] = ..., stats: _Optional[_Union[_query_stats_pb2.MetricsQueryStats, _Mapping]] = ..., generated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., provider_id: _Optional[str] = ...) -> None: ...

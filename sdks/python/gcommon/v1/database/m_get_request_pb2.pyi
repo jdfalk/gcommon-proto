@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -20,4 +21,4 @@ class MGetRequest(_message.Message):
     include_expired: bool
     update_access_time: bool
     metadata: _request_metadata_pb2.RequestMetadata
-    def __init__(self, keys: _Optional[_Iterable[str]] = ..., namespace: _Optional[str] = ..., include_expired: bool = ..., update_access_time: bool = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
+    def __init__(self, keys: _Optional[_Iterable[str]] = ..., namespace: _Optional[str] = ..., include_expired: _Optional[bool] = ..., update_access_time: _Optional[bool] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ...) -> None: ...
