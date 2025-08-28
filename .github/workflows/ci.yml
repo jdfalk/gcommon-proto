@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.18.0
+# version: 1.19.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -272,6 +272,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug Linter Files
+        run: |
+          echo "🔍 Debugging linter configuration files:"
+          echo "Current working directory: $(pwd)"
+          echo ""
+          echo "Contents of .github/linters directory:"
+          if [ -d .github/linters ]; then
+            ls -la .github/linters/
+            echo ""
+            echo "Checking for .eslintrc.yml specifically:"
+            if [ -f .github/linters/.eslintrc.yml ]; then
+              echo "✅ .eslintrc.yml exists"
+              echo "File size: $(stat -c%s .github/linters/.eslintrc.yml 2>/dev/null || stat -f%z .github/linters/.eslintrc.yml) bytes"
+              echo "File permissions: $(ls -l .github/linters/.eslintrc.yml)"
+              echo ""
+              echo "First few lines of .eslintrc.yml:"
+              head -10 .github/linters/.eslintrc.yml
+            else
+              echo "❌ .eslintrc.yml does not exist"
+            fi
+          else
+            echo "❌ .github/linters directory does not exist"
+          fi
+          echo ""
+          echo "Environment variables that will be set:"
+          if [ -f .github/linters/super-linter-ci.env ]; then
+            grep -E "JAVASCRIPT_ES_CONFIG_FILE|TYPESCRIPT_ES_CONFIG_FILE" .github/linters/super-linter-ci.env || echo "No JS/TS config found in env file"
+          fi
+
       - name: Load CI Super Linter Configuration
         id: super-linter-config
         run: |
@@ -287,6 +316,10 @@ jobs:
                 value=$(echo "$value" | xargs)
                 # Export to GitHub environment for use in subsequent steps
                 echo "$key=$value" >> $GITHUB_ENV
+                # Also echo for debugging
+                if [[ "$key" == *"JAVASCRIPT"* || "$key" == *"TYPESCRIPT"* ]]; then
+                  echo "Set $key=$value"
+                fi
               fi
             done < .github/linters/super-linter-ci.env
           elif [ -f .github/linters/super-linter.env ]; then
@@ -311,6 +344,23 @@ jobs:
         env:
           DEFAULT_BRANCH: ${{ env.GITHUB_REPOSITORY_DEFAULT_BRANCH }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Debug Super Linter Results
+        if: always()
+        run: |
+          echo "🔍 Super Linter debugging info:"
+          echo "Environment variables related to JavaScript/TypeScript:"
+          env | grep -E "(JAVASCRIPT|TYPESCRIPT)" || echo "No JS/TS env vars found"
+          echo ""
+          echo "Super Linter logs (if available):"
+          if [ -d "/tmp/lint" ]; then
+            echo "Lint directory contents:"
+            ls -la /tmp/lint/ || true
+          fi
+          if [ -f "/tmp/lint/super-linter.log" ]; then
+            echo "Last 50 lines of super-linter.log:"
+            tail -50 /tmp/lint/super-linter.log || true
+          fi
 
       - name: Validation Summary
         if: always()
