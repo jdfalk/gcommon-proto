@@ -1,0 +1,41 @@
+name: Proto Docs
+
+on:
+  push:
+    paths:
+      - 'proto/**/*.proto'
+      - 'scripts/generate_proto_docs.py'
+      - '.github/workflows/proto-docs.yml'
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: 'Split threshold per module'
+        required: false
+        default: '50'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.11'
+
+      - name: Generate Proto Docs
+        run: |
+          python3 scripts/generate_proto_docs.py --proto-dir proto/gcommon/v1 --out proto-docs --threshold "${{ github.event.inputs.threshold || '50' }}"
+      
+      - name: Commit Changes
+        run: |
+          if [[ -n "$(git status --porcelain proto-docs)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add proto-docs
+            git commit -m "docs(proto): regenerate proto markdown documentation"
+            git push
+          else
+            echo "No proto doc changes to commit."

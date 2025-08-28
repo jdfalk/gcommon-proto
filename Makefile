@@ -1,5 +1,5 @@
 # file: Makefile
-# version: 1.0.0
+# version: 1.1.0
 # guid: 6ba7b810-9dad-11d1-80b4-00c04fd430c8
 
 # Variables
@@ -26,7 +26,16 @@ generate:
 	$(PYTHON) $(SCRIPTS_DIR)/setup-go-modules.py
 	@echo "🔄 Setting up Python SDK..."
 	$(PYTHON) $(SCRIPTS_DIR)/setup-python-sdk.py
+	@echo "📚 Generating proto docs..."
+	$(PYTHON) $(SCRIPTS_DIR)/generate_proto_docs.py --proto-dir proto/gcommon/v1 --out proto-docs --threshold 50
 	@echo "✅ Generation complete!"
+
+# Generate proto docs only
+.PHONY: proto-docs
+proto-docs:
+	@echo "📚 Generating proto docs (standalone)..."
+	$(PYTHON) $(SCRIPTS_DIR)/generate_proto_docs.py --proto-dir proto/gcommon/v1 --out proto-docs --threshold 50 --verbose
+	@echo "✅ Proto docs generated"
 
 # Clean generated files
 clean:
