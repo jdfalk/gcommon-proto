@@ -7,8 +7,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +29,4 @@ class QueryMetricsResponse(_message.Message):
     warnings: _containers.RepeatedScalarFieldContainer[str]
     next_page_token: str
     total_results: int
-    def __init__(self, success: _Optional[bool] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., series: _Optional[_Iterable[_Union[_metric_series_pb2.MetricSeries, _Mapping]]] = ..., statistics: _Optional[_Union[_query_statistics_pb2.QueryStatistics, _Mapping]] = ..., query_plan: _Optional[_Union[_query_plan_pb2.QueryPlan, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., next_page_token: _Optional[str] = ..., total_results: _Optional[int] = ...) -> None: ...
+    def __init__(self, success: bool = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., series: _Optional[_Iterable[_Union[_metric_series_pb2.MetricSeries, _Mapping]]] = ..., statistics: _Optional[_Union[_query_statistics_pb2.QueryStatistics, _Mapping]] = ..., query_plan: _Optional[_Union[_query_plan_pb2.QueryPlan, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ..., next_page_token: _Optional[str] = ..., total_results: _Optional[int] = ...) -> None: ...

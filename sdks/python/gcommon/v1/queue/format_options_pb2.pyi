@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +28,4 @@ class FormatOptions(_message.Message):
     enable_compression: bool
     compression_algorithm: _compression_algorithm_pb2.CompressionAlgorithm
     max_message_size: int
-    def __init__(self, format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., options: _Optional[_Mapping[str, str]] = ..., enable_compression: _Optional[bool] = ..., compression_algorithm: _Optional[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]] = ..., max_message_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., options: _Optional[_Mapping[str, str]] = ..., enable_compression: bool = ..., compression_algorithm: _Optional[_Union[_compression_algorithm_pb2.CompressionAlgorithm, str]] = ..., max_message_size: _Optional[int] = ...) -> None: ...

@@ -4,8 +4,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +32,4 @@ class GetQueueInfoRequest(_message.Message):
     time_range: _time_range_filter_pb2.TimeRangeFilter
     info_sections: _containers.RepeatedScalarFieldContainer[str]
     access_token: str
-    def __init__(self, queue_id: _Optional[str] = ..., include_stats: _Optional[bool] = ..., include_config: _Optional[bool] = ..., include_partitions: _Optional[bool] = ..., include_consumer_groups: _Optional[bool] = ..., include_subscriptions: _Optional[bool] = ..., include_bindings: _Optional[bool] = ..., include_errors: _Optional[bool] = ..., time_range: _Optional[_Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]] = ..., info_sections: _Optional[_Iterable[str]] = ..., access_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, queue_id: _Optional[str] = ..., include_stats: bool = ..., include_config: bool = ..., include_partitions: bool = ..., include_consumer_groups: bool = ..., include_subscriptions: bool = ..., include_bindings: bool = ..., include_errors: bool = ..., time_range: _Optional[_Union[_time_range_filter_pb2.TimeRangeFilter, _Mapping]] = ..., info_sections: _Optional[_Iterable[str]] = ..., access_token: _Optional[str] = ...) -> None: ...

@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import metrics_validation_result_pb2 as _metrics_validation_result_pb2
 from gcommon.v1.queue import partition_restore_result_pb2 as _partition_restore_result_pb2
 from gcommon.v1.queue import restore_error_pb2 as _restore_error_pb2
@@ -13,8 +11,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -53,4 +50,4 @@ class RestoreQueueResponse(_message.Message):
     partition_results: _containers.RepeatedCompositeFieldContainer[_partition_restore_result_pb2.PartitionRestoreResult]
     validation_result: _metrics_validation_result_pb2.MetricsValidationResult
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, success: _Optional[bool] = ..., operation_id: _Optional[str] = ..., restored_queue_id: _Optional[str] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., completion_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., statistics: _Optional[_Union[_restore_statistics_pb2.RestoreStatistics, _Mapping]] = ..., status: _Optional[_Union[_restore_status_pb2.RestoreStatus, _Mapping]] = ..., errors: _Optional[_Iterable[_Union[_restore_error_pb2.RestoreError, _Mapping]]] = ..., warnings: _Optional[_Iterable[_Union[_restore_warning_pb2.RestoreWarning, _Mapping]]] = ..., partition_results: _Optional[_Iterable[_Union[_partition_restore_result_pb2.PartitionRestoreResult, _Mapping]]] = ..., validation_result: _Optional[_Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, success: bool = ..., operation_id: _Optional[str] = ..., restored_queue_id: _Optional[str] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., completion_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., statistics: _Optional[_Union[_restore_statistics_pb2.RestoreStatistics, _Mapping]] = ..., status: _Optional[_Union[_restore_status_pb2.RestoreStatus, _Mapping]] = ..., errors: _Optional[_Iterable[_Union[_restore_error_pb2.RestoreError, _Mapping]]] = ..., warnings: _Optional[_Iterable[_Union[_restore_warning_pb2.RestoreWarning, _Mapping]]] = ..., partition_results: _Optional[_Iterable[_Union[_partition_restore_result_pb2.PartitionRestoreResult, _Mapping]]] = ..., validation_result: _Optional[_Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -4,8 +4,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -25,4 +24,4 @@ class ExportConfigUpdate(_message.Message):
     destination_removes: _containers.RepeatedScalarFieldContainer[str]
     frequency: str
     batch_size: int
-    def __init__(self, enabled: _Optional[bool] = ..., format_updates: _Optional[_Iterable[str]] = ..., format_removes: _Optional[_Iterable[str]] = ..., destination_updates: _Optional[_Iterable[_Union[_export_destination_update_pb2.ExportDestinationUpdate, _Mapping]]] = ..., destination_removes: _Optional[_Iterable[str]] = ..., frequency: _Optional[str] = ..., batch_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., format_updates: _Optional[_Iterable[str]] = ..., format_removes: _Optional[_Iterable[str]] = ..., destination_updates: _Optional[_Iterable[_Union[_export_destination_update_pb2.ExportDestinationUpdate, _Mapping]]] = ..., destination_removes: _Optional[_Iterable[str]] = ..., frequency: _Optional[str] = ..., batch_size: _Optional[int] = ...) -> None: ...

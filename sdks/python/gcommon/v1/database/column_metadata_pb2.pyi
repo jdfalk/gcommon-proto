@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +28,4 @@ class ColumnMetadata(_message.Message):
     size: int
     scale: int
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., nullable: _Optional[bool] = ..., size: _Optional[int] = ..., scale: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[str] = ..., nullable: bool = ..., size: _Optional[int] = ..., scale: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

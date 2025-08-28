@@ -6,8 +6,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -23,4 +22,4 @@ class ErrorHandlingConfig(_message.Message):
     error_actions: _containers.RepeatedCompositeFieldContainer[_error_action_config_pb2.ErrorActionConfig]
     enable_error_logging: bool
     notification_config: _error_notification_config_pb2.ErrorNotificationConfig
-    def __init__(self, dlq_config: _Optional[_Union[_dead_letter_queue_config_pb2.DeadLetterQueueConfig, _Mapping]] = ..., max_delivery_attempts: _Optional[int] = ..., error_actions: _Optional[_Iterable[_Union[_error_action_config_pb2.ErrorActionConfig, _Mapping]]] = ..., enable_error_logging: _Optional[bool] = ..., notification_config: _Optional[_Union[_error_notification_config_pb2.ErrorNotificationConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, dlq_config: _Optional[_Union[_dead_letter_queue_config_pb2.DeadLetterQueueConfig, _Mapping]] = ..., max_delivery_attempts: _Optional[int] = ..., error_actions: _Optional[_Iterable[_Union[_error_action_config_pb2.ErrorActionConfig, _Mapping]]] = ..., enable_error_logging: bool = ..., notification_config: _Optional[_Union[_error_notification_config_pb2.ErrorNotificationConfig, _Mapping]] = ...) -> None: ...

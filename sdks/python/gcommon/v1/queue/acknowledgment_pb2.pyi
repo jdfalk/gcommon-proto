@@ -1,13 +1,10 @@
-import datetime
-
 from gcommon.v1.common import ack_type_pb2 as _ack_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +30,4 @@ class Acknowledgment(_message.Message):
     processing_duration_ms: int
     error_message: str
     retry_count: int
-    def __init__(self, message_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., queue_name: _Optional[str] = ..., partition_id: _Optional[int] = ..., offset: _Optional[int] = ..., ack_type: _Optional[_Union[_ack_type_pb2.AckType, str]] = ..., ack_timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., processing_duration_ms: _Optional[int] = ..., error_message: _Optional[str] = ..., retry_count: _Optional[int] = ...) -> None: ...
+    def __init__(self, message_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., queue_name: _Optional[str] = ..., partition_id: _Optional[int] = ..., offset: _Optional[int] = ..., ack_type: _Optional[_Union[_ack_type_pb2.AckType, str]] = ..., ack_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., processing_duration_ms: _Optional[int] = ..., error_message: _Optional[str] = ..., retry_count: _Optional[int] = ...) -> None: ...

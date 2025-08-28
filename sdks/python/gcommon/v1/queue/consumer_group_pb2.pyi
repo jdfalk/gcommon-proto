@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import consumer_group_state_pb2 as _consumer_group_state_pb2
 from gcommon.v1.queue import consumer_pb2 as _consumer_pb2
 from gcommon.v1.queue import consumer_group_config_pb2 as _consumer_group_config_pb2
@@ -12,8 +10,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -50,4 +47,4 @@ class ConsumerGroup(_message.Message):
     metadata: _containers.ScalarMap[str, str]
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
-    def __init__(self, group_id: _Optional[str] = ..., group_name: _Optional[str] = ..., topic: _Optional[str] = ..., config: _Optional[_Union[_consumer_group_config_pb2.ConsumerGroupConfig, _Mapping]] = ..., state: _Optional[_Union[_consumer_group_state_pb2.ConsumerGroupState, str]] = ..., consumers: _Optional[_Iterable[_Union[_consumer_pb2.Consumer, _Mapping]]] = ..., partition_assignments: _Optional[_Iterable[_Union[_partition_assignment_pb2.PartitionAssignment, _Mapping]]] = ..., coordinator: _Optional[_Union[_group_coordinator_pb2.GroupCoordinator, _Mapping]] = ..., stats: _Optional[_Union[_consumer_group_stats_pb2.ConsumerGroupStats, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, group_id: _Optional[str] = ..., group_name: _Optional[str] = ..., topic: _Optional[str] = ..., config: _Optional[_Union[_consumer_group_config_pb2.ConsumerGroupConfig, _Mapping]] = ..., state: _Optional[_Union[_consumer_group_state_pb2.ConsumerGroupState, str]] = ..., consumers: _Optional[_Iterable[_Union[_consumer_pb2.Consumer, _Mapping]]] = ..., partition_assignments: _Optional[_Iterable[_Union[_partition_assignment_pb2.PartitionAssignment, _Mapping]]] = ..., coordinator: _Optional[_Union[_group_coordinator_pb2.GroupCoordinator, _Mapping]] = ..., stats: _Optional[_Union[_consumer_group_stats_pb2.ConsumerGroupStats, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

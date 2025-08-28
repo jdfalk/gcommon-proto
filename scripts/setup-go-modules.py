@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 # file: scripts/setup-go-modules.py
-# version: 2.6.0
+# version: 2.7.0
 # guid: f1e2d3c4-b5a6-789c-def0-123456789abc
 
 """
-Post-generation script to ensure Go modules exist for gcommon SDK.
+Post-generation script to enforce a single Go module for the gcommon SDK.
 
-This script:
-1. Ensures the Go SDK directory has a proper go.mod file
-2. Creates go.mod files in each package directory (common, web, database, etc.)
-3. Updates the root go.mod file with correct replace directive
-4. Validates that generated protobuf code is in the correct location
-5. Ensures all paths match the actual generated structure
+Changes in v2.7.0:
+ - Removed per-package module generation logic
+ - Removed per-package go mod tidy / fmt invocations
+ - Added cleanup of legacy per-package go.mod files
+ - Retain only main SDK module (sdks/go) management
+ - Run a single go mod tidy
 """
 
 import subprocess
@@ -33,28 +33,20 @@ def get_latest_version_tag():
         return "v1.0.0"  # Default if no tags exist
 
 
-def ensure_go_mod_exists(
-    module_path, module_name, file_path_comment="sdks/go/go.mod", dependencies=None
-):
-    """Ensure go.mod file exists and has correct content."""
+def ensure_go_mod_exists(module_path, module_name, file_path_comment="sdks/go/go.mod"):
+    """Ensure single SDK go.mod file exists with core dependencies only."""
     go_mod_path = module_path / "go.mod"
 
-    # Base dependencies - using latest versions
-    requires = [
-        "\tgoogle.golang.org/protobuf v1.36.8",
-        "\tgoogle.golang.org/grpc v1.75.0",
-        "\tbuf.build/go/protovalidate v0.14.0",
-    ]
-
-    # Add module dependencies if provided
-    if dependencies:
-        for dep_module, dep_version in dependencies.items():
-            requires.append(f"\t{dep_module} {dep_version}")
-
-    requires_section = "\n".join(requires)
+    requires_section = "\n".join(
+        [
+            "\tgoogle.golang.org/protobuf v1.36.8",
+            "\tgoogle.golang.org/grpc v1.75.0",
+            "\tbuf.build/go/protovalidate v0.14.0",
+        ]
+    )
 
     go_mod_content = f"""// file: {file_path_comment}
-// version: 1.3.0
+// version: 1.3.1
 // guid: abcdef01-2345-6789-abcd-ef0123456789
 
 module {module_name}
@@ -65,60 +57,12 @@ require (
 {requires_section}
 )
 
-require (
-\tbuf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.6-20250717165733-d22d418d82d8.1 // indirect
-\tcel.dev/expr v0.24.0 // indirect
-\tgithub.com/antlr4-go/antlr/v4 v4.13.0 // indirect
-\tgithub.com/google/cel-go v0.25.0 // indirect
-\tgithub.com/google/go-cmp v0.7.0 // indirect
-\tgithub.com/stoewer/go-strcase v1.3.0 // indirect
-\tgolang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8 // indirect
-\tgolang.org/x/net v0.43.0 // indirect
-\tgolang.org/x/sys v0.35.0 // indirect
-\tgolang.org/x/text v0.26.0 // indirect
-\tgoogle.golang.org/genproto/googleapis/api v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
-\tgoogle.golang.org/genproto/googleapis/rpc v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
-)
+// Indirect dependencies intentionally omitted; maintained via `go mod tidy`.
 """
 
     with open(go_mod_path, "w") as f:
         f.write(go_mod_content)
     print(f"Created/updated go.mod: {go_mod_path}")
-
-
-def add_replace_directives(module_path, dependencies=None):
-    """Add replace directives to go.mod for local development."""
-    if not dependencies:
-        return
-
-    go_mod_path = module_path / "go.mod"
-    if not go_mod_path.exists():
-        return
-
-    # Read current content
-    with open(go_mod_path, "r") as f:
-        content = f.read()
-
-    # Check if replace directives already exist
-    has_replace_section = "replace (" in content or any(
-        line.strip().startswith("replace ") for line in content.split("\n")
-    )
-
-    if not has_replace_section:
-        # Add replace directives
-        replace_lines = []
-        for dep_module in dependencies.keys():
-            if "github.com/jdfalk/gcommon/sdks/go/v1/" in dep_module:
-                package_name = dep_module.split("/")[-1]
-                replace_lines.append(f"\t{dep_module} => ../{package_name}")
-
-        if replace_lines:
-            replace_section = "\nreplace (\n" + "\n".join(replace_lines) + "\n)\n"
-            content = content.rstrip() + replace_section
-
-            with open(go_mod_path, "w") as f:
-                f.write(content)
-            print(f"Added replace directives to: {go_mod_path}")
 
 
 def run_go_mod_tidy(module_path):
@@ -163,68 +107,6 @@ def run_go_fmt(module_path):
         return False
 
 
-def create_package_go_mods(generated_path):
-    """Create go.mod files in each package directory."""
-    if not generated_path.exists():
-        print(f"⚠️  Generated code path not found: {generated_path}")
-        return []
-
-    # Define dependencies between modules
-    module_dependencies = {
-        "config": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "database": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "media": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "metrics": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "organization": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "queue": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-        "web": {"github.com/jdfalk/gcommon/sdks/go/v1/common": "v1.3.0"},
-    }
-
-    # Process modules in order: common first, then dependent modules
-    processing_order = ["common"]  # Process common first
-    dependent_modules = list(module_dependencies.keys())
-    processing_order.extend(sorted(dependent_modules))  # Then the rest in sorted order
-
-    packages_created = []
-    packages_tidy_success = []
-    packages_tidy_failed = []
-
-    for package_name in processing_order:
-        package_dir = generated_path / package_name
-        if not package_dir.is_dir():
-            print(f"⚠️  Package directory not found: {package_dir}")
-            continue
-
-        module_name = f"github.com/jdfalk/gcommon/sdks/go/v1/{package_name}"
-        file_path_comment = f"sdks/go/v1/{package_name}/go.mod"
-
-        # Get dependencies for this package
-        dependencies = module_dependencies.get(package_name, None)
-
-        ensure_go_mod_exists(package_dir, module_name, file_path_comment, dependencies)
-        add_replace_directives(package_dir, dependencies)
-
-        # Run go mod tidy and go fmt
-        if run_go_mod_tidy(package_dir):
-            packages_tidy_success.append(package_name)
-            # Run go fmt after successful tidy
-            run_go_fmt(package_dir)
-        else:
-            packages_tidy_failed.append(package_name)
-
-        packages_created.append(package_name)
-
-    print("\n📊 Package Summary:")
-    print(f"   Packages processed: {len(packages_created)}")
-    print(f"   go mod tidy successful: {len(packages_tidy_success)}")
-    print(f"   go mod tidy failed: {len(packages_tidy_failed)}")
-
-    if packages_tidy_failed:
-        print(f"   Failed packages: {', '.join(packages_tidy_failed)}")
-
-    return packages_created
-
-
 def update_root_go_mod(project_root):
     """Update the root go.mod file with correct replace directive."""
     root_go_mod = project_root / "go.mod"
@@ -258,7 +140,7 @@ def main():
     project_root = script_dir.parent
     go_sdk_dir = project_root / "sdks" / "go"
 
-    print("Setting up Go SDK modules")
+    print("Setting up single Go SDK module")
     print(f"Working in: {go_sdk_dir}")
 
     # Ensure the go sdk directory exists
@@ -271,42 +153,43 @@ def main():
     # Update root go.mod with correct replace directive
     update_root_go_mod(project_root)
 
-    # Create go.mod files in each package directory (with dependencies and go mod tidy)
+    # Remove any legacy per-package go.mod files
     generated_path = go_sdk_dir / "v1"
-    packages_created = create_package_go_mods(generated_path)
+    removed = []
+    if generated_path.exists():
+        for path in generated_path.rglob("go.mod"):
+            try:
+                path.unlink()
+                removed.append(path)
+            except OSError as e:
+                print(f"⚠️  Could not remove {path}: {e}")
+    if removed:
+        print(f"🧹 Removed {len(removed)} legacy per-package go.mod files")
+    else:
+        print("✅ No legacy per-package go.mod files present")
 
     # Run go mod tidy and go fmt on the main SDK module
-    print("\n🔧 Running go mod tidy and go fmt on main SDK module...")
+    print("\n🔧 Running go mod tidy and go fmt on single SDK module...")
     if run_go_mod_tidy(go_sdk_dir):
         print("✅ Main SDK module go mod tidy successful")
         run_go_fmt(go_sdk_dir)
     else:
         print("❌ Main SDK module go mod tidy failed")
 
-    if packages_created:
-        print(f"\n✅ Created go.mod files for {len(packages_created)} packages:")
-        for package in sorted(packages_created):
-            print(f"   - {package}: github.com/jdfalk/gcommon/sdks/go/v1/{package}")
-    else:
-        print("⚠️  No package directories found for go.mod creation")
-
-    # Check if generated code exists
+    # Inform about generated protobuf packages (for visibility only)
     if generated_path.exists():
-        all_packages = [d.name for d in generated_path.iterdir() if d.is_dir()]
-        print(
-            f"✅ Generated code found: {len(all_packages)} packages in {generated_path}"
-        )
-        print(f"   Packages: {', '.join(sorted(all_packages))}")
+        pkgs = [d.name for d in generated_path.iterdir() if d.is_dir()]
+        if pkgs:
+            print(f"✅ Generated protobuf packages detected: {', '.join(sorted(pkgs))}")
+        else:
+            print("ℹ️ No generated protobuf packages detected (run buf generate?)")
     else:
-        print(f"⚠️  Generated code not found: {generated_path}")
-        print("   This is normal if buf generate hasn't run yet.")
+        print("ℹ️ Generated path missing (run buf generate before usage)")
 
-    print("\n✅ Go module setup complete!")
-    print(f"   - Main SDK Module: {module_name}")
-    print("   - Package modules: github.com/jdfalk/gcommon/sdks/go/v1/<package>")
-    print("   - Replace directive: ./sdks/go/v1")
-    print("   - Dependencies: Added common module dependencies where needed")
-    print("   - go mod tidy: Run on all modules")
+    print("\n✅ Go SDK single-module setup complete!")
+    print(f"   - SDK Module: {module_name}")
+    print("   - Legacy per-package modules: removed if present")
+    print("   - go mod tidy: executed once")
 
     return 0
 

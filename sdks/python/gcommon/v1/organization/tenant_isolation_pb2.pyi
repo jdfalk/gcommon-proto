@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import isolation_level_pb2 as _isolation_level_pb2
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
 from gcommon.v1.common import organization_access_control_pb2 as _organization_access_control_pb2
@@ -15,8 +13,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -48,4 +45,4 @@ class TenantIsolation(_message.Message):
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
     configured_by: str
-    def __init__(self, tenant_id: _Optional[str] = ..., level: _Optional[_Union[_isolation_level_pb2.OrganizationIsolationLevel, str]] = ..., database: _Optional[_Union[_database_isolation_pb2.DatabaseIsolation, _Mapping]] = ..., network: _Optional[_Union[_network_isolation_pb2.NetworkIsolation, _Mapping]] = ..., storage: _Optional[_Union[_storage_isolation_pb2.StorageIsolation, _Mapping]] = ..., compute: _Optional[_Union[_compute_isolation_pb2.ComputeIsolation, _Mapping]] = ..., encryption: _Optional[_Union[_encryption_config_pb2.OrganizationEncryptionConfig, _Mapping]] = ..., access_control: _Optional[_Union[_organization_access_control_pb2.OrganizationAccessControl, _Mapping]] = ..., audit: _Optional[_Union[_audit_config_pb2.AuditConfig, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., configured_by: _Optional[str] = ...) -> None: ...
+    def __init__(self, tenant_id: _Optional[str] = ..., level: _Optional[_Union[_isolation_level_pb2.OrganizationIsolationLevel, str]] = ..., database: _Optional[_Union[_database_isolation_pb2.DatabaseIsolation, _Mapping]] = ..., network: _Optional[_Union[_network_isolation_pb2.NetworkIsolation, _Mapping]] = ..., storage: _Optional[_Union[_storage_isolation_pb2.StorageIsolation, _Mapping]] = ..., compute: _Optional[_Union[_compute_isolation_pb2.ComputeIsolation, _Mapping]] = ..., encryption: _Optional[_Union[_encryption_config_pb2.OrganizationEncryptionConfig, _Mapping]] = ..., access_control: _Optional[_Union[_organization_access_control_pb2.OrganizationAccessControl, _Mapping]] = ..., audit: _Optional[_Union[_audit_config_pb2.AuditConfig, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., configured_by: _Optional[str] = ...) -> None: ...

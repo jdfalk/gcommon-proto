@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import ack_level_pb2 as _ack_level_pb2
 from gcommon.v1.common import flush_policy_pb2 as _flush_policy_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
@@ -7,8 +5,7 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +27,4 @@ class DurabilityConfig(_message.Message):
     write_ahead_log: bool
     sync_interval: _duration_pb2.Duration
     verify_checksums: bool
-    def __init__(self, persistent: _Optional[bool] = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., replication_factor: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., durability_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., write_ahead_log: _Optional[bool] = ..., sync_interval: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., verify_checksums: _Optional[bool] = ...) -> None: ...
+    def __init__(self, persistent: bool = ..., flush_policy: _Optional[_Union[_flush_policy_pb2.FlushPolicy, str]] = ..., replication_factor: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., durability_timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., write_ahead_log: bool = ..., sync_interval: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., verify_checksums: bool = ...) -> None: ...

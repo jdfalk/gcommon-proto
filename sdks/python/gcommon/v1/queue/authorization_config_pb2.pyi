@@ -8,8 +8,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +28,4 @@ class AuthorizationConfig(_message.Message):
     api_key_auth: _api_key_auth_pb2.APIKeyAuth
     jwt_auth: _jwt_auth_pb2.JwtAuth
     external_auth: _external_auth_service_pb2.ExternalAuthService
-    def __init__(self, enabled: _Optional[bool] = ..., default_policy: _Optional[str] = ..., rules: _Optional[_Iterable[_Union[_permission_rule_pb2.PermissionRule, _Mapping]]] = ..., rbac: _Optional[_Union[_role_based_access_control_pb2.RoleBasedAccessControl, _Mapping]] = ..., api_key_auth: _Optional[_Union[_api_key_auth_pb2.APIKeyAuth, _Mapping]] = ..., jwt_auth: _Optional[_Union[_jwt_auth_pb2.JwtAuth, _Mapping]] = ..., external_auth: _Optional[_Union[_external_auth_service_pb2.ExternalAuthService, _Mapping]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., default_policy: _Optional[str] = ..., rules: _Optional[_Iterable[_Union[_permission_rule_pb2.PermissionRule, _Mapping]]] = ..., rbac: _Optional[_Union[_role_based_access_control_pb2.RoleBasedAccessControl, _Mapping]] = ..., api_key_auth: _Optional[_Union[_api_key_auth_pb2.APIKeyAuth, _Mapping]] = ..., jwt_auth: _Optional[_Union[_jwt_auth_pb2.JwtAuth, _Mapping]] = ..., external_auth: _Optional[_Union[_external_auth_service_pb2.ExternalAuthService, _Mapping]] = ...) -> None: ...

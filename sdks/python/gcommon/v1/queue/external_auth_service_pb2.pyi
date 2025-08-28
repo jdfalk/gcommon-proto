@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -31,4 +30,4 @@ class ExternalAuthService(_message.Message):
     retry_config: _retry_config_pb2.QueueRetryConfig
     cache_config: _auth_cache_config_pb2.AuthCacheConfig
     request_headers: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., endpoint: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_retry_config_pb2.QueueRetryConfig, _Mapping]] = ..., cache_config: _Optional[_Union[_auth_cache_config_pb2.AuthCacheConfig, _Mapping]] = ..., request_headers: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., endpoint: _Optional[str] = ..., timeout_ms: _Optional[int] = ..., retry_config: _Optional[_Union[_retry_config_pb2.QueueRetryConfig, _Mapping]] = ..., cache_config: _Optional[_Union[_auth_cache_config_pb2.AuthCacheConfig, _Mapping]] = ..., request_headers: _Optional[_Mapping[str, str]] = ...) -> None: ...

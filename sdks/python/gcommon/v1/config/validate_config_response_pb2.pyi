@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,4 +17,4 @@ class ValidateConfigResponse(_message.Message):
     valid: bool
     errors: _containers.RepeatedCompositeFieldContainer[_config_validation_error_pb2.ConfigValidationError]
     warnings: _containers.RepeatedCompositeFieldContainer[_config_validation_warning_pb2.ConfigValidationWarning]
-    def __init__(self, valid: _Optional[bool] = ..., errors: _Optional[_Iterable[_Union[_config_validation_error_pb2.ConfigValidationError, _Mapping]]] = ..., warnings: _Optional[_Iterable[_Union[_config_validation_warning_pb2.ConfigValidationWarning, _Mapping]]] = ...) -> None: ...
+    def __init__(self, valid: bool = ..., errors: _Optional[_Iterable[_Union[_config_validation_error_pb2.ConfigValidationError, _Mapping]]] = ..., warnings: _Optional[_Iterable[_Union[_config_validation_warning_pb2.ConfigValidationWarning, _Mapping]]] = ...) -> None: ...

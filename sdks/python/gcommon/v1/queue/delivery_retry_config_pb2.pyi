@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +21,4 @@ class DeliveryRetryConfig(_message.Message):
     max_delay_ms: int
     backoff_multiplier: float
     retry_error_codes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, enabled: _Optional[bool] = ..., max_retries: _Optional[int] = ..., initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., retry_error_codes: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., max_retries: _Optional[int] = ..., initial_delay_ms: _Optional[int] = ..., max_delay_ms: _Optional[int] = ..., backoff_multiplier: _Optional[float] = ..., retry_error_codes: _Optional[_Iterable[str]] = ...) -> None: ...

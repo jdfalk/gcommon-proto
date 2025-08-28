@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +21,4 @@ class CacheKeyPolicy(_message.Message):
     header_whitelist: _containers.RepeatedScalarFieldContainer[str]
     include_cookies: bool
     cookie_whitelist: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, include_query_strings: _Optional[bool] = ..., query_string_whitelist: _Optional[_Iterable[str]] = ..., include_headers: _Optional[bool] = ..., header_whitelist: _Optional[_Iterable[str]] = ..., include_cookies: _Optional[bool] = ..., cookie_whitelist: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, include_query_strings: bool = ..., query_string_whitelist: _Optional[_Iterable[str]] = ..., include_headers: bool = ..., header_whitelist: _Optional[_Iterable[str]] = ..., include_cookies: bool = ..., cookie_whitelist: _Optional[_Iterable[str]] = ...) -> None: ...

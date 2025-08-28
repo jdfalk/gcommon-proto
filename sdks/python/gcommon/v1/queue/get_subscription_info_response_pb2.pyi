@@ -1,12 +1,9 @@
-import datetime
-
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +35,4 @@ class GetSubscriptionInfoResponse(_message.Message):
     active_consumers: int
     total_consumed: int
     consumption_rate: float
-    def __init__(self, subscription_id: _Optional[str] = ..., subscription_name: _Optional[str] = ..., topic_name: _Optional[str] = ..., state: _Optional[str] = ..., consumer_group: _Optional[str] = ..., current_offset: _Optional[int] = ..., latest_offset: _Optional[int] = ..., unacked_count: _Optional[int] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_activity: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active_consumers: _Optional[int] = ..., total_consumed: _Optional[int] = ..., consumption_rate: _Optional[float] = ...) -> None: ...
+    def __init__(self, subscription_id: _Optional[str] = ..., subscription_name: _Optional[str] = ..., topic_name: _Optional[str] = ..., state: _Optional[str] = ..., consumer_group: _Optional[str] = ..., current_offset: _Optional[int] = ..., latest_offset: _Optional[int] = ..., unacked_count: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_activity: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., active_consumers: _Optional[int] = ..., total_consumed: _Optional[int] = ..., consumption_rate: _Optional[float] = ...) -> None: ...

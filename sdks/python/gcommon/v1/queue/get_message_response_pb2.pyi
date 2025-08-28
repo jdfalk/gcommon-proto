@@ -3,8 +3,7 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -20,4 +19,4 @@ class GetMessageResponse(_message.Message):
     has_more: bool
     message_offset: int
     queue_depth: int
-    def __init__(self, message: _Optional[_Union[_message_envelope_pb2.MessageEnvelope, _Mapping]] = ..., ack_token: _Optional[str] = ..., has_more: _Optional[bool] = ..., message_offset: _Optional[int] = ..., queue_depth: _Optional[int] = ...) -> None: ...
+    def __init__(self, message: _Optional[_Union[_message_envelope_pb2.MessageEnvelope, _Mapping]] = ..., ack_token: _Optional[str] = ..., has_more: bool = ..., message_offset: _Optional[int] = ..., queue_depth: _Optional[int] = ...) -> None: ...

@@ -6,8 +6,7 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +26,4 @@ class ComputeIsolation(_message.Message):
     dedicated_compute: bool
     limits: _organization_resource_limits_pb2.OrganizationResourceLimits
     auto_scaling: _auto_scaling_config_pb2.AutoScalingConfig
-    def __init__(self, compute_instance: _Optional[str] = ..., namespace: _Optional[str] = ..., cpu: _Optional[_Union[_cpu_allocation_pb2.CPUAllocation, _Mapping]] = ..., memory: _Optional[_Union[_memory_allocation_pb2.MemoryAllocation, _Mapping]] = ..., dedicated_compute: _Optional[bool] = ..., limits: _Optional[_Union[_organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., auto_scaling: _Optional[_Union[_auto_scaling_config_pb2.AutoScalingConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, compute_instance: _Optional[str] = ..., namespace: _Optional[str] = ..., cpu: _Optional[_Union[_cpu_allocation_pb2.CPUAllocation, _Mapping]] = ..., memory: _Optional[_Union[_memory_allocation_pb2.MemoryAllocation, _Mapping]] = ..., dedicated_compute: bool = ..., limits: _Optional[_Union[_organization_resource_limits_pb2.OrganizationResourceLimits, _Mapping]] = ..., auto_scaling: _Optional[_Union[_auto_scaling_config_pb2.AutoScalingConfig, _Mapping]] = ...) -> None: ...

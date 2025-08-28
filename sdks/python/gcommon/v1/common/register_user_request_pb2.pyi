@@ -4,8 +4,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -44,4 +43,4 @@ class RegisterUserRequest(_message.Message):
     request_metadata: _request_metadata_pb2.RequestMetadata
     tos_accepted_at: int
     privacy_accepted_at: int
-    def __init__(self, username: _Optional[str] = ..., email: _Optional[str] = ..., password: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., phone_number: _Optional[str] = ..., organization_id: _Optional[str] = ..., require_email_verification: _Optional[bool] = ..., invitation_token: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tos_accepted_at: _Optional[int] = ..., privacy_accepted_at: _Optional[int] = ...) -> None: ...
+    def __init__(self, username: _Optional[str] = ..., email: _Optional[str] = ..., password: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., phone_number: _Optional[str] = ..., organization_id: _Optional[str] = ..., require_email_verification: bool = ..., invitation_token: _Optional[str] = ..., metadata: _Optional[_Mapping[str, str]] = ..., request_metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., tos_accepted_at: _Optional[int] = ..., privacy_accepted_at: _Optional[int] = ...) -> None: ...

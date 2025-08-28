@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -31,4 +30,4 @@ class ConfigComplianceSettings(_message.Message):
     reporting: _compliance_reporting_pb2.ComplianceReporting
     validation_enabled: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, frameworks: _Optional[_Iterable[str]] = ..., policies: _Optional[_Iterable[str]] = ..., audits: _Optional[_Iterable[_Union[_compliance_audit_pb2.ComplianceAudit, _Mapping]]] = ..., reporting: _Optional[_Union[_compliance_reporting_pb2.ComplianceReporting, _Mapping]] = ..., validation_enabled: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, frameworks: _Optional[_Iterable[str]] = ..., policies: _Optional[_Iterable[str]] = ..., audits: _Optional[_Iterable[_Union[_compliance_audit_pb2.ComplianceAudit, _Mapping]]] = ..., reporting: _Optional[_Union[_compliance_reporting_pb2.ComplianceReporting, _Mapping]] = ..., validation_enabled: bool = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

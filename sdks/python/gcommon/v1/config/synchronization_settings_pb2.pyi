@@ -6,8 +6,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +29,4 @@ class SynchronizationSettings(_message.Message):
     frequency: _synchronization_frequency_pb2.SynchronizationFrequency
     conflict_resolution: _conflict_resolution_pb2.ConflictResolution
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, enabled: _Optional[bool] = ..., targets: _Optional[_Iterable[_Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]]] = ..., frequency: _Optional[_Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., targets: _Optional[_Iterable[_Union[_synchronization_target_pb2.SynchronizationTarget, _Mapping]]] = ..., frequency: _Optional[_Union[_synchronization_frequency_pb2.SynchronizationFrequency, str]] = ..., conflict_resolution: _Optional[_Union[_conflict_resolution_pb2.ConflictResolution, str]] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

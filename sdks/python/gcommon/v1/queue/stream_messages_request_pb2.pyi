@@ -7,8 +7,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -42,4 +41,4 @@ class StreamMessagesRequest(_message.Message):
     include_metadata: bool
     partition_ids: _containers.RepeatedScalarFieldContainer[int]
     stream_config: _stream_config_pb2.StreamConfig
-    def __init__(self, topic: _Optional[str] = ..., consumer_group_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., offset_config: _Optional[_Union[_offset_config_pb2.OffsetConfig, _Mapping]] = ..., max_messages: _Optional[int] = ..., stream_timeout_ms: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., batch_size: _Optional[int] = ..., filter: _Optional[_Union[_message_filter_pb2.MessageFilter, _Mapping]] = ..., auto_acknowledge: _Optional[bool] = ..., pause_on_error: _Optional[bool] = ..., include_metadata: _Optional[bool] = ..., partition_ids: _Optional[_Iterable[int]] = ..., stream_config: _Optional[_Union[_stream_config_pb2.StreamConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, topic: _Optional[str] = ..., consumer_group_id: _Optional[str] = ..., consumer_id: _Optional[str] = ..., offset_config: _Optional[_Union[_offset_config_pb2.OffsetConfig, _Mapping]] = ..., max_messages: _Optional[int] = ..., stream_timeout_ms: _Optional[int] = ..., ack_level: _Optional[_Union[_ack_level_pb2.AckLevel, str]] = ..., batch_size: _Optional[int] = ..., filter: _Optional[_Union[_message_filter_pb2.MessageFilter, _Mapping]] = ..., auto_acknowledge: bool = ..., pause_on_error: bool = ..., include_metadata: bool = ..., partition_ids: _Optional[_Iterable[int]] = ..., stream_config: _Optional[_Union[_stream_config_pb2.StreamConfig, _Mapping]] = ...) -> None: ...

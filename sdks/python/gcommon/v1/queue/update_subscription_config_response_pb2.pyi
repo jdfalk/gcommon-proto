@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +26,4 @@ class UpdateSubscriptionConfigResponse(_message.Message):
     applied_changes: _containers.ScalarMap[str, str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
     error: str
-    def __init__(self, success: _Optional[bool] = ..., subscription_id: _Optional[str] = ..., applied_changes: _Optional[_Mapping[str, str]] = ..., warnings: _Optional[_Iterable[str]] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: bool = ..., subscription_id: _Optional[str] = ..., applied_changes: _Optional[_Mapping[str, str]] = ..., warnings: _Optional[_Iterable[str]] = ..., error: _Optional[str] = ...) -> None: ...

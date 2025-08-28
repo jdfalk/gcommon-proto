@@ -4,8 +4,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -23,4 +22,4 @@ class DeserializationConfig(_message.Message):
     allow_unknown_fields: bool
     custom_deserializer: str
     max_message_size: int
-    def __init__(self, supported_formats: _Optional[_Iterable[_Union[_serialization_format_pb2.SerializationFormat, str]]] = ..., default_format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., validate_schema: _Optional[bool] = ..., allow_unknown_fields: _Optional[bool] = ..., custom_deserializer: _Optional[str] = ..., max_message_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, supported_formats: _Optional[_Iterable[_Union[_serialization_format_pb2.SerializationFormat, str]]] = ..., default_format: _Optional[_Union[_serialization_format_pb2.SerializationFormat, str]] = ..., validate_schema: bool = ..., allow_unknown_fields: bool = ..., custom_deserializer: _Optional[str] = ..., max_message_size: _Optional[int] = ...) -> None: ...

@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +32,4 @@ class ExchangeConfig(_message.Message):
     arguments: _containers.ScalarMap[str, str]
     routing_key: str
     alternate_exchange: str
-    def __init__(self, name: _Optional[str] = ..., exchange_type: _Optional[str] = ..., durable: _Optional[bool] = ..., auto_delete: _Optional[bool] = ..., internal: _Optional[bool] = ..., arguments: _Optional[_Mapping[str, str]] = ..., routing_key: _Optional[str] = ..., alternate_exchange: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., exchange_type: _Optional[str] = ..., durable: bool = ..., auto_delete: bool = ..., internal: bool = ..., arguments: _Optional[_Mapping[str, str]] = ..., routing_key: _Optional[str] = ..., alternate_exchange: _Optional[str] = ...) -> None: ...

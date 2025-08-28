@@ -4,8 +4,7 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +26,4 @@ class TopicConfig(_message.Message):
     replicated: bool
     replication_factor: int
     enable_compaction: bool
-    def __init__(self, max_messages: _Optional[int] = ..., max_size_bytes: _Optional[int] = ..., retention_policy: _Optional[_Union[_retention_policy_pb2.QueueRetentionPolicy, _Mapping]] = ..., partition_config: _Optional[_Union[_partition_config_pb2.PartitionConfig, _Mapping]] = ..., persistent: _Optional[bool] = ..., replicated: _Optional[bool] = ..., replication_factor: _Optional[int] = ..., enable_compaction: _Optional[bool] = ...) -> None: ...
+    def __init__(self, max_messages: _Optional[int] = ..., max_size_bytes: _Optional[int] = ..., retention_policy: _Optional[_Union[_retention_policy_pb2.QueueRetentionPolicy, _Mapping]] = ..., partition_config: _Optional[_Union[_partition_config_pb2.PartitionConfig, _Mapping]] = ..., persistent: bool = ..., replicated: bool = ..., replication_factor: _Optional[int] = ..., enable_compaction: bool = ...) -> None: ...

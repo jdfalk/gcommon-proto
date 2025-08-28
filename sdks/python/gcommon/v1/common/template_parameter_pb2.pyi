@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -42,4 +41,4 @@ class TemplateParameter(_message.Message):
     documentation: str
     display_name: str
     placeholder: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_parameter_type_pb2.ParameterType, str]] = ..., required: _Optional[bool] = ..., default_value: _Optional[str] = ..., allowed_values: _Optional[_Iterable[str]] = ..., constraints: _Optional[_Union[_parameter_constraints_pb2.ParameterConstraints, _Mapping]] = ..., group: _Optional[str] = ..., order: _Optional[int] = ..., sensitive: _Optional[bool] = ..., validation_pattern: _Optional[str] = ..., examples: _Optional[_Iterable[str]] = ..., documentation: _Optional[str] = ..., display_name: _Optional[str] = ..., placeholder: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_parameter_type_pb2.ParameterType, str]] = ..., required: bool = ..., default_value: _Optional[str] = ..., allowed_values: _Optional[_Iterable[str]] = ..., constraints: _Optional[_Union[_parameter_constraints_pb2.ParameterConstraints, _Mapping]] = ..., group: _Optional[str] = ..., order: _Optional[int] = ..., sensitive: bool = ..., validation_pattern: _Optional[str] = ..., examples: _Optional[_Iterable[str]] = ..., documentation: _Optional[str] = ..., display_name: _Optional[str] = ..., placeholder: _Optional[str] = ...) -> None: ...

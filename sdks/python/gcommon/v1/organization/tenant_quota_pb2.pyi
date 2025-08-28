@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -33,4 +32,4 @@ class TenantQuota(_message.Message):
     max_bandwidth_bytes_per_month: int
     can_create_sub_tenants: bool
     custom_quotas: _containers.ScalarMap[str, str]
-    def __init__(self, tenant_id: _Optional[str] = ..., max_users: _Optional[int] = ..., max_storage_bytes: _Optional[int] = ..., max_api_requests_per_hour: _Optional[int] = ..., max_projects: _Optional[int] = ..., max_bandwidth_bytes_per_month: _Optional[int] = ..., can_create_sub_tenants: _Optional[bool] = ..., custom_quotas: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, tenant_id: _Optional[str] = ..., max_users: _Optional[int] = ..., max_storage_bytes: _Optional[int] = ..., max_api_requests_per_hour: _Optional[int] = ..., max_projects: _Optional[int] = ..., max_bandwidth_bytes_per_month: _Optional[int] = ..., can_create_sub_tenants: bool = ..., custom_quotas: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import user_info_pb2 as _user_info_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -7,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable, Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +25,4 @@ class ValidateTokenResponse(_message.Message):
     subject: str
     issuer: str
     expires_in: int
-    def __init__(self, valid: _Optional[bool] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., scopes: _Optional[_Iterable[str]] = ..., subject: _Optional[str] = ..., issuer: _Optional[str] = ..., expires_in: _Optional[int] = ...) -> None: ...
+    def __init__(self, valid: bool = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., user_info: _Optional[_Union[_user_info_pb2.UserInfo, _Mapping]] = ..., scopes: _Optional[_Iterable[str]] = ..., subject: _Optional[str] = ..., issuer: _Optional[str] = ..., expires_in: _Optional[int] = ...) -> None: ...

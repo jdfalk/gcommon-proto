@@ -5,8 +5,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Iterable as _Iterable
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -24,4 +23,4 @@ class RouteConfig(_message.Message):
     handler_type: _handler_type_pb2.HandlerType
     middleware_ids: _containers.RepeatedScalarFieldContainer[str]
     auth_required: bool
-    def __init__(self, path: _Optional[str] = ..., methods: _Optional[_Iterable[_Union[_http_method_pb2.HTTPMethod, str]]] = ..., handler: _Optional[str] = ..., handler_type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ..., middleware_ids: _Optional[_Iterable[str]] = ..., auth_required: _Optional[bool] = ...) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., methods: _Optional[_Iterable[_Union[_http_method_pb2.HTTPMethod, str]]] = ..., handler: _Optional[str] = ..., handler_type: _Optional[_Union[_handler_type_pb2.HandlerType, str]] = ..., middleware_ids: _Optional[_Iterable[str]] = ..., auth_required: bool = ...) -> None: ...

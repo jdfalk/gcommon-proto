@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import gauge_operation_pb2 as _gauge_operation_pb2
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
@@ -8,8 +6,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +35,4 @@ class RecordGaugeRequest(_message.Message):
     timestamp: _timestamp_pb2.Timestamp
     metadata: _request_metadata_pb2.RequestMetadata
     operation: _gauge_operation_pb2.GaugeOperation
-    def __init__(self, name: _Optional[str] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ..., help: _Optional[str] = ..., unit: _Optional[str] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., operation: _Optional[_Union[_gauge_operation_pb2.GaugeOperation, str]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ..., help: _Optional[str] = ..., unit: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., operation: _Optional[_Union[_gauge_operation_pb2.GaugeOperation, str]] = ...) -> None: ...

@@ -1,13 +1,10 @@
-import datetime
-
 from gcommon.v1.common import metrics_alert_severity_pb2 as _metrics_alert_severity_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -21,4 +18,4 @@ class AlertNotification(_message.Message):
     time: _timestamp_pb2.Timestamp
     severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
     message: str
-    def __init__(self, rule_id: _Optional[str] = ..., time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., message: _Optional[str] = ...) -> None: ...
+    def __init__(self, rule_id: _Optional[str] = ..., time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., message: _Optional[str] = ...) -> None: ...

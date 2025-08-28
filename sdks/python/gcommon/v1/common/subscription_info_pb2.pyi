@@ -1,5 +1,3 @@
-import datetime
-
 from gcommon.v1.common import client_info_pb2 as _client_info_pb2
 from gcommon.v1.common import filter_options_pb2 as _filter_options_pb2
 from gcommon.v1.common import subscription_options_pb2 as _subscription_options_pb2
@@ -9,8 +7,7 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -30,4 +27,4 @@ class CommonSubscriptionInfo(_message.Message):
     subscriber: _client_info_pb2.ClientInfo
     options: _subscription_options_pb2.SubscriptionOptions
     status: _subscription_status_pb2.SubscriptionStatus
-    def __init__(self, subscription_id: _Optional[str] = ..., filter: _Optional[_Union[_filter_options_pb2.FilterOptions, _Mapping]] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., subscriber: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ..., options: _Optional[_Union[_subscription_options_pb2.SubscriptionOptions, _Mapping]] = ..., status: _Optional[_Union[_subscription_status_pb2.SubscriptionStatus, str]] = ...) -> None: ...
+    def __init__(self, subscription_id: _Optional[str] = ..., filter: _Optional[_Union[_filter_options_pb2.FilterOptions, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., subscriber: _Optional[_Union[_client_info_pb2.ClientInfo, _Mapping]] = ..., options: _Optional[_Union[_subscription_options_pb2.SubscriptionOptions, _Mapping]] = ..., status: _Optional[_Union[_subscription_status_pb2.SubscriptionStatus, str]] = ...) -> None: ...

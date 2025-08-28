@@ -3,8 +3,7 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +36,4 @@ class LdapConfig(_message.Message):
     group_filter: str
     timeout_seconds: int
     attributes: _containers.ScalarMap[str, str]
-    def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., use_tls: _Optional[bool] = ..., bind_dn: _Optional[str] = ..., bind_password: _Optional[str] = ..., base_dn: _Optional[str] = ..., user_filter: _Optional[str] = ..., group_filter: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., attributes: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., use_tls: bool = ..., bind_dn: _Optional[str] = ..., bind_password: _Optional[str] = ..., base_dn: _Optional[str] = ..., user_filter: _Optional[str] = ..., group_filter: _Optional[str] = ..., timeout_seconds: _Optional[int] = ..., attributes: _Optional[_Mapping[str, str]] = ...) -> None: ...

@@ -2,8 +2,7 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from collections.abc import Mapping as _Mapping
-from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +26,4 @@ class AnalysisOptions(_message.Message):
     detect_scenes: bool
     extract_thumbnails: bool
     analyze_audio: bool
-    def __init__(self, extract_metadata: _Optional[bool] = ..., analyze_quality: _Optional[bool] = ..., detect_scenes: _Optional[bool] = ..., extract_thumbnails: _Optional[bool] = ..., analyze_audio: _Optional[bool] = ...) -> None: ...
+    def __init__(self, extract_metadata: bool = ..., analyze_quality: bool = ..., detect_scenes: bool = ..., extract_thumbnails: bool = ..., analyze_audio: bool = ...) -> None: ...
