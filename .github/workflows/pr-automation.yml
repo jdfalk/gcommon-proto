@@ -1,5 +1,5 @@
 # file: .github/workflows/pr-automation.yml
-# version: 4.3.1
+# version: 4.3.2
 # guid: a7b8c9d0-e1f2-3456-a789-0123456789bc
 # NOTE: This file should be updated in ghcommon repository first, then copied to other repositories.
 # To update: Edit in https://github.com/jdfalk/ghcommon/.github/workflows/pr-automation.yml then copy to other repos
@@ -50,55 +50,29 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Setup Super Linter environment
+      - name: Load Super Linter PR configuration
         run: |
-          echo "Setting up Super Linter environment..."
-          echo "VALIDATE_ALL_CODEBASE=false" >> $GITHUB_ENV
-          echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> $GITHUB_ENV
-          echo "FILTER_REGEX_EXCLUDE=${{ env.FILTER_REGEX_EXCLUDE }}" >> $GITHUB_ENV
+          CONFIG_FILE=".github/linters/super-linter-pr.env"
+          echo "Loading Super Linter configuration from $CONFIG_FILE"
+          if [ -f "$CONFIG_FILE" ]; then
+            # Append non-comment, non-empty lines to GITHUB_ENV
+            grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' >> "$GITHUB_ENV"
+            echo "Configuration loaded:" 
+            grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' | sed 's/^/- /'
+          else
+            echo "Config file not found at $CONFIG_FILE; using minimal defaults" >&2
+            echo "VALIDATE_ALL_CODEBASE=false" >> $GITHUB_ENV
+            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> $GITHUB_ENV
+          fi
 
       - name: Run Super Linter
         id: run-super-linter
-        uses: github/super-linter/slim@v7
+        uses: super-linter/super-linter@v8.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: ${{ env.VALIDATE_ALL_CODEBASE }}
-          DEFAULT_BRANCH: ${{ env.DEFAULT_BRANCH }}
-          FILTER_REGEX_EXCLUDE: ${{ env.FILTER_REGEX_EXCLUDE }}
+          # Environment variables are now injected from super-linter-pr.env
+          # (They are already in $GITHUB_ENV so no need to duplicate unless overrides are required.)
 
-          # Only validate these (no FIX_ option available)
-          VALIDATE_YAML: true
-          VALIDATE_HTML: true
-          VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_GITLEAKS: true
-          VALIDATE_DOCKERFILE_HADOLINT: true
-
-          # Auto-fix settings - use FIX_ as default behavior
-          FIX_CLANG_FORMAT: true
-          FIX_CSHARP: true
-          FIX_CSS_PRETTIER: true # Prettier for CSS formatting
-          FIX_ENV: true
-          FIX_GO: true
-          FIX_GO_MODULES: true
-          FIX_GROOVY: true
-          FIX_JAVASCRIPT_ES: true # ESLint for JavaScript validation
-          FIX_JAVASCRIPT_PRETTIER: true # Prettier for JavaScript formatting
-          FIX_JSON_PRETTIER: true # Prettier for JSON formatting
-          FIX_MARKDOWN: true
-          FIX_POWERSHELL: true
-          FIX_PROTOBUF: true
-          FIX_PYTHON_BLACK: true
-          FIX_PYTHON_ISORT: true
-          FIX_PYTHON_RUFF: true
-          FIX_RUST_2015: true
-          FIX_RUST_2018: true
-          FIX_RUST_2021: true
-          FIX_RUST_CLIPPY: true
-          FIX_SHELL_SHFMT: true
-          FIX_SNAKEMAKE_SNAKEFMT: true
-          FIX_TERRAFORM_FMT: true
-          FIX_TYPESCRIPT_ES: true # ESLint for TypeScript validation
-          FIX_TYPESCRIPT_PRETTIER: true # Prettier for TypeScript formatting
 
       - name: Check for auto-fixes
         id: check-fixes
