@@ -1,5 +1,5 @@
 # file: .github/workflows/pr-automation.yml
-# version: 4.3.2
+# version: 4.3.3
 # guid: a7b8c9d0-e1f2-3456-a789-0123456789bc
 # NOTE: This file should be updated in ghcommon repository first, then copied to other repositories.
 # To update: Edit in https://github.com/jdfalk/ghcommon/.github/workflows/pr-automation.yml then copy to other repos
@@ -29,9 +29,9 @@ permissions:
   repository-projects: write
 
 env:
-  VALIDATE_ALL_CODEBASE: false
-  DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-  FILTER_REGEX_EXCLUDE: ".*\\.git/.*|.*\\.github/copilot/.*|.*\\.vscode/.*|.*node_modules/.*|.*\\.cache/.*|.*vendor/.*|.*dist/.*"
+  # Placeholder global variable (retain at least one key to satisfy workflow schema)
+  WORKFLOW_CONTEXT: pr-automation
+  # Super-Linter variables are sourced from .github/linters/super-linter-pr.env
 
 jobs:
   # Primary code quality check - runs on all PRs
@@ -51,19 +51,51 @@ jobs:
           python-version: "3.12"
 
       - name: Load Super Linter PR configuration
+        shell: bash
         run: |
+          set -euo pipefail
           CONFIG_FILE=".github/linters/super-linter-pr.env"
           echo "Loading Super Linter configuration from $CONFIG_FILE"
-          if [ -f "$CONFIG_FILE" ]; then
-            # Append non-comment, non-empty lines to GITHUB_ENV
-            grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' >> "$GITHUB_ENV"
-            echo "Configuration loaded:"
-            grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' | sed 's/^/- /'
+          if [ ! -f "$CONFIG_FILE" ]; then
+            echo "::warning::Config file not found; falling back to minimal defaults"
+            echo "VALIDATE_ALL_CODEBASE=false" >> "$GITHUB_ENV"
+            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> "$GITHUB_ENV"
           else
-            echo "Config file not found at $CONFIG_FILE; using minimal defaults" >&2
-            echo "VALIDATE_ALL_CODEBASE=false" >> $GITHUB_ENV
-            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> $GITHUB_ENV
+            # Robust parse: only KEY=VALUE lines; trim leading/trailing spaces; skip comments & empties
+            while IFS= read -r raw_line; do
+              # Remove leading/trailing whitespace and comments
+              line="$(echo "$raw_line" | sed -e 's/[[:space:]]*$//' -e 's/^[[:space:]]*//' )"
+              [[ -z "$line" || "$line" =~ ^# ]] && continue
+              # Strip inline comments (space # or tab #)
+              line_no_comment="${line%%#*}"
+              line_no_comment="$(echo "$line_no_comment" | sed -e 's/[[:space:]]*$//')"
+              [[ -z "$line_no_comment" ]] && continue
+              if [[ "$line_no_comment" == *=* ]]; then
+                key="${line_no_comment%%=*}"; value="${line_no_comment#*=}"
+                # Guard against empty key
+                [[ -z "$key" ]] && continue
+                # Skip if already present
+                if grep -qE "^${key}=" "$GITHUB_ENV" 2>/dev/null; then
+                  continue
+                fi
+                echo "$key=$value" >> "$GITHUB_ENV"
+              fi
+            done < "$CONFIG_FILE"
           fi
+
+          # Ensure DEFAULT_BRANCH reflects repository default (override if different)
+          if [ "${{ github.event.repository.default_branch }}" != "${DEFAULT_BRANCH:-}" ]; then
+            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> "$GITHUB_ENV"
+          fi
+
+          echo "Loaded Super Linter environment variables:" && grep -E '^(FIX_|VALIDATE_|DEFAULT_BRANCH|FILTER_REGEX_EXCLUDE)=|^LOG_LEVEL=' "$GITHUB_ENV" | head -40 | sed 's/^/- /'
+
+          # Minimal sanity check: confirm a few expected vars exist so we know parsing worked
+          for req in VALIDATE_ALL_CODEBASE FIX_PYTHON_BLACK FIX_RUST_2021 FILTER_REGEX_EXCLUDE; do
+            if ! grep -q "^$req=" "$GITHUB_ENV"; then
+              echo "::error::Required variable $req not loaded correctly"; exit 1;
+            fi
+          done
 
       - name: Run Super Linter
         id: run-super-linter
