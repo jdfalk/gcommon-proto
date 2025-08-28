@@ -57,7 +57,7 @@ jobs:
           if [ -f "$CONFIG_FILE" ]; then
             # Append non-comment, non-empty lines to GITHUB_ENV
             grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' >> "$GITHUB_ENV"
-            echo "Configuration loaded:" 
+            echo "Configuration loaded:"
             grep -v '^#' "$CONFIG_FILE" | sed '/^$/d' | sed 's/^/- /'
           else
             echo "Config file not found at $CONFIG_FILE; using minimal defaults" >&2
