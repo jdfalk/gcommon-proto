@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.19.0
+# version: 1.20.3
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -301,6 +301,30 @@ jobs:
             grep -E "JAVASCRIPT_ES_CONFIG_FILE|TYPESCRIPT_ES_CONFIG_FILE" .github/linters/super-linter-ci.env || echo "No JS/TS config found in env file"
           fi
 
+      - name: Debug Container Path Expectations
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "🔎 Determining expected container paths for Super Linter"
+          echo "Workspace (host) should mount to /github/workspace inside container."
+          echo "Top-level (host) listing:"; ls -la | head -50
+          echo "Absolute ESLint path (host): $(python - <<'PY'\nimport os\nprint(os.path.abspath('.github/linters/.eslintrc.yml'))\nPY\n)"
+          if [ ! -f .github/linters/.eslintrc.yml ]; then
+            echo "FATAL: ESLint config missing prior to container run" >&2; exit 1; fi
+          echo "Pre-run hash:"; (shasum .github/linters/.eslintrc.yml 2>/dev/null || shasum -a 256 .github/linters/.eslintrc.yml || true)
+
+      - name: Prepare ESLint Config Fallback
+        run: |
+          # Some super-linter paths incorrectly resolve relative configs inside action codebase.
+          # Provide fallback copies at repository root to maximize discovery chances.
+          if [ -f .github/linters/.eslintrc.yml ]; then
+            cp .github/linters/.eslintrc.yml .eslintrc.yml
+            echo "Created root-level .eslintrc.yml fallback copy"
+            ls -l .eslintrc.yml
+          else
+            echo "WARNING: Source ESLint config missing when attempting fallback copy"
+          fi
+
       - name: Load CI Super Linter Configuration
         id: super-linter-config
         run: |
@@ -344,6 +368,11 @@ jobs:
         env:
           DEFAULT_BRANCH: ${{ env.GITHUB_REPOSITORY_DEFAULT_BRANCH }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Absolute paths (container) to avoid mis-resolution
+          JAVASCRIPT_ES_CONFIG_FILE: /github/workspace/.github/linters/.eslintrc.yml
+          TYPESCRIPT_ES_CONFIG_FILE: /github/workspace/.github/linters/.eslintrc.yml
+          JAVASCRIPT_ES_LINTER_RULES: /github/workspace/.github/linters/.eslintrc.yml
+          TYPESCRIPT_ES_LINTER_RULES: /github/workspace/.github/linters/.eslintrc.yml
 
       - name: Debug Super Linter Results
         if: always()
