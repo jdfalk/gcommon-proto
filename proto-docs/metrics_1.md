@@ -5,265 +5,137 @@
 ## Module Overview
 
 - **Proto Files**: 50
-- **Messages**: 39
+- **Messages**: 50
 - **Services**: 0
-- **Enums**: 21
-- ⚠️ **Issues**: 8
+- **Enums**: 0
 
 ## Files in this Module
 
-- [aggregation_type.proto](#aggregation_type)
-- [alert_channel_type.proto](#alert_channel_type)
+- [aggregation_spec.proto](#aggregation_spec)
 - [alert_notification.proto](#alert_notification)
-- [alert_severity.proto](#alert_severity)
-- [alert_state.proto](#alert_state)
 - [alerting_condition.proto](#alerting_condition)
 - [alerting_rule.proto](#alerting_rule)
-- [backup_info.proto](#backup_info)
-- [batch_options.proto](#batch_options)
-- [batch_priority.proto](#batch_priority)
-- [buffer_overflow_strategy.proto](#buffer_overflow_strategy)
-- [change_type.proto](#change_type)
-- [cleanup_strategy.proto](#cleanup_strategy)
-- [comparison_operator.proto](#comparison_operator)
-- [compression_type.proto](#compression_type)
+- [bucket_info.proto](#bucket_info)
 - [counter_metric.proto](#counter_metric)
-- [dashboard_type.proto](#dashboard_type)
+- [cpu_usage.proto](#cpu_usage)
+- [data_volume_data_point.proto](#data_volume_data_point)
+- [data_volume_stats.proto](#data_volume_stats)
+- [data_volume_trend.proto](#data_volume_trend)
 - [deletion_options.proto](#deletion_options)
+- [deletion_result.proto](#deletion_result)
+- [disk_usage.proto](#disk_usage)
 - [dry_run_result.proto](#dry_run_result)
-- [error_stats.proto](#error_stats)
+- [error_data_point.proto](#error_data_point)
+- [error_entry.proto](#error_entry)
+- [error_trend.proto](#error_trend)
+- [error_type_count.proto](#error_type_count)
+- [error_type_stats.proto](#error_type_stats)
+- [export_destination.proto](#export_destination)
+- [export_destination_stats.proto](#export_destination_stats)
 - [export_destination_update.proto](#export_destination_update)
-- [export_format.proto](#export_format)
+- [export_stats.proto](#export_stats)
+- [export_status.proto](#export_status)
+- [exporter_status.proto](#exporter_status)
 - [gauge_metric.proto](#gauge_metric)
-- [gauge_operation.proto](#gauge_operation)
-- [health_status.proto](#health_status)
+- [group_by_spec.proto](#group_by_spec)
+- [health_status_entry.proto](#health_status_entry)
 - [histogram_bucket.proto](#histogram_bucket)
 - [histogram_metric.proto](#histogram_metric)
+- [histogram_stats.proto](#histogram_stats)
+- [histogram_value.proto](#histogram_value)
+- [label_definition.proto](#label_definition)
+- [memory_usage.proto](#memory_usage)
 - [metric_aggregation.proto](#metric_aggregation)
-- [metric_aggregation_result.proto](#metric_aggregation_result) ⚠️ 3 issues
 - [metric_bucket.proto](#metric_bucket)
 - [metric_data.proto](#metric_data)
-- [metric_family.proto](#metric_family) ⚠️ 5 issues
+- [metric_definition.proto](#metric_definition)
 - [metric_filter.proto](#metric_filter)
 - [metric_health.proto](#metric_health)
+- [metric_info.proto](#metric_info)
 - [metric_label.proto](#metric_label)
 - [metric_metadata.proto](#metric_metadata)
 - [metric_quantile.proto](#metric_quantile)
 - [metric_query.proto](#metric_query)
+- [metric_result.proto](#metric_result)
 - [metric_sample.proto](#metric_sample)
-- [metric_source.proto](#metric_source)
+- [metric_series.proto](#metric_series)
 - [metric_stats.proto](#metric_stats)
-- [metric_status.proto](#metric_status)
-- [metric_type.proto](#metric_type)
-- [metric_value.proto](#metric_value)
-- [notification_type.proto](#notification_type)
-- [numeric_format.proto](#numeric_format)
-- [pagination_info.proto](#pagination_info)
-- [performance_stats.proto](#performance_stats)
-- [provider_info.proto](#provider_info)
-- [provider_sort_field.proto](#provider_sort_field)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [common](./common.md)
-- [config_1](./config_1.md)
-- [config_2](./config_2.md)
-- [metrics_2](./metrics_2.md)
-- [queue_1](./queue_1.md)
-- [queue_2](./queue_2.md)
-- [web](./web.md)
-
-**Modules that depend on this one**:
-
-- [auth_api_2](./auth_api_2.md)
-- [cache](./cache.md)
-- [common](./common.md)
-- [config_2](./config_2.md)
-- [config_api](./config_api.md)
-- [database_api](./database_api.md)
-- [health](./health.md)
-- [metrics_2](./metrics_2.md)
-- [metrics_api_1](./metrics_api_1.md)
-- [metrics_api_2](./metrics_api_2.md)
-- [metrics_config](./metrics_config.md)
-- [metrics_services](./metrics_services.md)
-- [queue_1](./queue_1.md)
-- [queue_api_1](./queue_api_1.md)
-- [queue_api_2](./queue_api_2.md)
-- [queue_config](./queue_config.md)
-- [queue_services](./queue_services.md)
-- [web_api_2](./web_api_2.md)
-- [web_config_1](./web_config_1.md)
-
+- [metric_summary.proto](#metric_summary)
 ---
+
 
 ## Detailed Documentation
 
-### aggregation_type.proto {#aggregation_type}
+### aggregation_spec.proto {#aggregation_spec}
 
-**Path**: `pkg/metrics/proto/aggregation_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 58
+**Path**: `gcommon/v1/metrics/aggregation_spec.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Enums** (1): `AggregationType`
+**Messages** (1): `AggregationSpec`
 
-**Imports** (1):
+**Imports** (4):
 
+- `gcommon/v1/common/aggregation_type.proto`
+- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/enums/aggregation_type.proto
-// file: metrics/proto/enums/aggregation_type.proto
-//
-// Aggregation type enum definitions for metrics module
-//
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * AggregationType defines how metrics should be aggregated over time.
- */
-enum AggregationType {
-  // Unspecified aggregation type
-  AGGREGATION_TYPE_UNSPECIFIED = 0;
-
-  // Sum all values
-  AGGREGATION_TYPE_SUM = 1;
-
-  // Average all values
-  AGGREGATION_TYPE_AVERAGE = 2;
-
-  // Take minimum value
-  AGGREGATION_TYPE_MIN = 3;
-
-  // Take maximum value
-  AGGREGATION_TYPE_MAX = 4;
-
-  // Count number of values
-  AGGREGATION_TYPE_COUNT = 5;
-
-  // Standard deviation
-  AGGREGATION_TYPE_STDDEV = 6;
-
-  // Variance
-  AGGREGATION_TYPE_VARIANCE = 7;
-
-  // Median (50th percentile)
-  AGGREGATION_TYPE_MEDIAN = 8;
-
-  // 95th percentile
-  AGGREGATION_TYPE_P95 = 9;
-
-  // 99th percentile
-  AGGREGATION_TYPE_P99 = 10;
-
-  // Rate of change
-  AGGREGATION_TYPE_RATE = 11;
-
-  // Increase over time
-  AGGREGATION_TYPE_INCREASE = 12;
-}
-
-```
-
----
-
-### alert_channel_type.proto {#alert_channel_type}
-
-**Path**: `pkg/metrics/proto/alert_channel_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
-
-**Enums** (1): `AlertChannelType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/alert_channel_type.proto
+// file: proto/gcommon/v1/metrics/v1/aggregation_spec.proto
 // version: 1.0.0
-// guid: 6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f
+// guid: 169a9fb5-9a9e-4ba6-beaa-63915a9a9839
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/aggregation_type.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-// AlertChannelType represents different types of alert channels
-enum AlertChannelType {
-  // Unspecified alert channel type
-  ALERT_CHANNEL_TYPE_UNSPECIFIED = 0;
+message AggregationSpec {
+  // Type of aggregation to perform
+  gcommon.v1.common.AggregationType aggregation_type = 1;
 
-  // Email notification
-  ALERT_CHANNEL_TYPE_EMAIL = 1;
+  // Field to aggregate on (if applicable)
+  string field = 2 [(buf.validate.field).string.min_len = 1];
 
-  // Slack notification
-  ALERT_CHANNEL_TYPE_SLACK = 2;
+  // Time window for aggregation
+  google.protobuf.Duration window = 3;
 
-  // PagerDuty notification
-  ALERT_CHANNEL_TYPE_PAGERDUTY = 3;
+  // Step/resolution for time-based aggregation
+  google.protobuf.Duration step = 4;
 
-  // Webhook notification
-  ALERT_CHANNEL_TYPE_WEBHOOK = 4;
-
-  // SMS notification
-  ALERT_CHANNEL_TYPE_SMS = 5;
-
-  // Microsoft Teams notification
-  ALERT_CHANNEL_TYPE_TEAMS = 6;
-
-  // Discord notification
-  ALERT_CHANNEL_TYPE_DISCORD = 7;
-
-  // Telegram notification
-  ALERT_CHANNEL_TYPE_TELEGRAM = 8;
-
-  // Push notification
-  ALERT_CHANNEL_TYPE_PUSH = 9;
-
-  // JIRA ticket creation
-  ALERT_CHANNEL_TYPE_JIRA = 10;
-
-  // ServiceNow incident creation
-  ALERT_CHANNEL_TYPE_SERVICENOW = 11;
-
-  // Custom alert channel
-  ALERT_CHANNEL_TYPE_CUSTOM = 12;
+  // Additional parameters for complex aggregations
+  map<string, string> parameters = 5;
 }
-
 ```
 
 ---
 
 ### alert_notification.proto {#alert_notification}
 
-**Path**: `pkg/metrics/proto/alert_notification.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/alert_notification.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `AlertNotification`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/metrics_alert_severity.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/alert_severity.proto` → [config_1](./config_1.md#alert_severity) → [queue_1](./queue_1.md#alert_severity)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/alert_notification.proto
+// file: proto/gcommon/v1/metrics/v1/alert_notification.proto
 // version: 1.0.0
 // guid: 91304a90-5966-4b20-af06-2668e7d2a958
 
@@ -271,12 +143,14 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metrics_alert_severity.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/alert_severity.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * AlertNotification represents a notification event generated when an
@@ -284,134 +158,37 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message AlertNotification {
   // Identifier of the alerting rule that triggered.
-  string rule_id = 1;
+  string rule_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when the notification was generated.
   google.protobuf.Timestamp time = 2;
 
   // Severity level of the alert.
-  AlertSeverity severity = 3;
+  gcommon.v1.common.MetricsAlertSeverity severity = 3;
 
   // Human readable message describing the alert.
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 }
-
-```
-
----
-
-### alert_severity.proto {#alert_severity}
-
-**Path**: `pkg/metrics/proto/alert_severity.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
-
-**Enums** (1): `AlertSeverity`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/alert_severity.proto
-// version: 1.0.0
-// guid: f1a2b3c4-5678-901c-5678-123456789012
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-enum AlertSeverity {
-  ALERT_SEVERITY_UNSPECIFIED = 0;
-  ALERT_SEVERITY_LOW = 1;
-  ALERT_SEVERITY_MEDIUM = 2;
-  ALERT_SEVERITY_HIGH = 3;
-  ALERT_SEVERITY_CRITICAL = 4;
-}
-
-```
-
----
-
-### alert_state.proto {#alert_state}
-
-**Path**: `pkg/metrics/proto/alert_state.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
-
-**Enums** (1): `AlertState`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/alert_state.proto
-// file: metrics/proto/enums/alert_state.proto
-//
-// Enum definitions for metrics module
-
-//
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * AlertState defines the current state of a metric alert.
- * Represents the lifecycle states of alerts from creation to resolution.
- */
-enum AlertState {
-  // Unspecified state (default)
-  ALERT_STATE_UNSPECIFIED = 0;
-
-  // Alert condition is being evaluated but hasn't triggered
-  ALERT_STATE_PENDING = 1;
-
-  // Alert condition has been met and is actively firing
-  ALERT_STATE_FIRING = 2;
-
-  // Alert was firing but condition is no longer met
-  ALERT_STATE_RESOLVED = 3;
-
-  // Alert has been acknowledged by an operator
-  ALERT_STATE_ACKNOWLEDGED = 4;
-
-  // Alert has been manually silenced/suppressed
-  ALERT_STATE_SILENCED = 5;
-
-  // Alert is in an error state (evaluation failed)
-  ALERT_STATE_ERROR = 6;
-}
-
 ```
 
 ---
 
 ### alerting_condition.proto {#alerting_condition}
 
-**Path**: `pkg/metrics/proto/alerting_condition.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
+**Path**: `gcommon/v1/metrics/alerting_condition.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `AlertingCondition`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/comparison_operator.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/comparison_operator.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/alerting_condition.proto
+// file: proto/gcommon/v1/metrics/v1/alerting_condition.proto
 // version: 1.0.0
 // guid: c1e0ab41-b93c-4d9f-91a4-035998d0488d
 
@@ -419,11 +196,13 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/comparison_operator.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/comparison_operator.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * AlertingCondition specifies a single metric threshold comparison
@@ -431,36 +210,36 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message AlertingCondition {
   // Operator to use when comparing the metric value to the threshold.
-  ComparisonOperator operator = 1;
+  gcommon.v1.common.ComparisonOperator operator = 1;
 
   // Metric name or query expression being evaluated.
-  string metric = 2;
+  string metric = 2 [(buf.validate.field).string.min_len = 1];
 
   // Threshold value to compare against.
-  double threshold = 3;
+  double threshold = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Duration in seconds the condition must hold true before firing.
-  int32 duration_seconds = 4;
+  int32 duration_seconds = 4 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### alerting_rule.proto {#alerting_rule}
 
-**Path**: `pkg/metrics/proto/alerting_rule.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/alerting_rule.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `AlertingRule`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/alerting_rule.proto
+// file: proto/gcommon/v1/metrics/v1/alerting_rule.proto
 // version: 1.0.0
 // guid: c5d6e7f8-901c-356b-0123-678901234567
 
@@ -469,16 +248,23 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message AlertingRule {
   // Rule ID
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Rule name
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Query expression
   string query = 3;
@@ -492,420 +278,81 @@ message AlertingRule {
   // Rule enabled status
   bool enabled = 6;
 }
-
 ```
 
 ---
 
-### backup_info.proto {#backup_info}
+### bucket_info.proto {#bucket_info}
 
-**Path**: `pkg/metrics/proto/backup_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
+**Path**: `gcommon/v1/metrics/bucket_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `BackupInfo`
+**Messages** (1): `BucketInfo`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/types/backup_info.proto
+// file: proto/gcommon/v1/metrics/v1/bucket_info.proto
 // version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174026
+// guid: 1e2d379b-a3a4-4bc6-9bc8-121a62e7c85b
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * BackupInfo contains information about backup operations.
- */
-message BackupInfo {
-  // Unique backup identifier
-  string backup_id = 1;
+message BucketInfo {
+  // Upper bound of the bucket
+  double upper_bound = 1 [(buf.validate.field).double.gte = 0.0];
 
-  // Location where backup is stored
-  string backup_location = 2;
+  // Count in this bucket after the observation
+  uint64 count = 2 [(buf.validate.field).uint64.gte = 0];
 
-  // Size of backup in bytes
-  int64 backup_size_bytes = 3;
-
-  // When backup was created
-  google.protobuf.Timestamp backup_created_at = 4;
-
-  // Backup retention period
-  string backup_retention = 5;
+  // Bucket index
+  int32 bucket_index = 3 [(buf.validate.field).int32.gte = 0];
 }
-
-```
-
----
-
-### batch_options.proto {#batch_options}
-
-**Path**: `pkg/metrics/proto/batch_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 41
-
-**Messages** (1): `BatchOptions`
-
-**Imports** (3):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/batch_priority.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/batch_options.proto
-// version: 1.0.0
-// guid: cb61183a-3b53-41cd-a131-685b4fd8be75
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/batch_priority.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * BatchOptions configures how batch operations should be processed.
- */
-message BatchOptions {
-  // Whether to process metrics in parallel
-  bool parallel_processing = 1;
-
-  // Maximum concurrent operations (if parallel processing is enabled)
-  int32 max_concurrency = 2;
-
-  // Whether to deduplicate metrics within the batch
-  bool deduplicate = 3;
-
-  // Whether to return detailed results for each metric
-  bool return_detailed_results = 4;
-
-  // Timeout for the entire batch operation (seconds)
-  int32 timeout_seconds = 5;
-
-  // Whether to enable transactional semantics (all or nothing)
-  bool transactional = 6;
-
-  // Priority level for the batch operation
-  BatchPriority priority = 7;
-}
-
-```
-
----
-
-### batch_priority.proto {#batch_priority}
-
-**Path**: `pkg/metrics/proto/batch_priority.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
-
-**Enums** (1): `BatchPriority`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/batch_priority.proto
-// version: 1.0.0
-// guid: f9429991-ff0a-4c70-a6e5-7d639281f030
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * BatchPriority defines the processing priority for batch operations.
- */
-enum BatchPriority {
-  BATCH_PRIORITY_UNSPECIFIED = 0;
-  BATCH_PRIORITY_LOW = 1;
-  BATCH_PRIORITY_NORMAL = 2;
-  BATCH_PRIORITY_HIGH = 3;
-  BATCH_PRIORITY_URGENT = 4;
-}
-
-```
-
----
-
-### buffer_overflow_strategy.proto {#buffer_overflow_strategy}
-
-**Path**: `pkg/metrics/proto/buffer_overflow_strategy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
-
-**Enums** (1): `BufferOverflowStrategy`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/buffer_overflow_strategy.proto
-// version: 1.0.0
-// guid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * BufferOverflowStrategy defines how to handle buffer overflow.
- * Specifies behavior when metric streaming buffers are full.
- */
-enum BufferOverflowStrategy {
-  // Unspecified strategy
-  BUFFER_OVERFLOW_STRATEGY_UNSPECIFIED = 0;
-
-  // Drop oldest entries when buffer is full
-  BUFFER_OVERFLOW_STRATEGY_DROP_OLDEST = 1;
-
-  // Drop newest entries when buffer is full
-  BUFFER_OVERFLOW_STRATEGY_DROP_NEWEST = 2;
-
-  // Block when buffer is full
-  BUFFER_OVERFLOW_STRATEGY_BLOCK = 3;
-
-  // Return error when buffer is full
-  BUFFER_OVERFLOW_STRATEGY_ERROR = 4;
-}
-
-```
-
----
-
-### change_type.proto {#change_type}
-
-**Path**: `pkg/metrics/proto/change_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
-
-**Enums** (1): `ChangeType`
-
-**Imports** (3):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/change_type.proto
-// version: 1.0.0
-// guid: 43b77608-77cc-40ad-97ae-4055d556fe1f
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/validation_result.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * ChangeType defines the type of configuration change.
- */
-enum ChangeType {
-  CHANGE_TYPE_UNSPECIFIED = 0;
-  CHANGE_TYPE_ADDED = 1;
-  CHANGE_TYPE_UPDATED = 2;
-  CHANGE_TYPE_REMOVED = 3;
-  CHANGE_TYPE_REPLACED = 4;
-}
-
-```
-
----
-
-### cleanup_strategy.proto {#cleanup_strategy}
-
-**Path**: `pkg/metrics/proto/cleanup_strategy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
-
-**Enums** (1): `CleanupStrategy`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/cleanup_strategy.proto
-// version: 1.0.0
-// guid: 98464e8e-3ad4-475d-8e19-cac3b3d813ca
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * CleanupStrategy defines how cleanup should be performed.
- */
-enum CleanupStrategy {
-  CLEANUP_STRATEGY_UNSPECIFIED = 0;
-  CLEANUP_STRATEGY_IMMEDIATE = 1;
-  CLEANUP_STRATEGY_GRACEFUL = 2;
-  CLEANUP_STRATEGY_BACKGROUND = 3;
-  CLEANUP_STRATEGY_SCHEDULED = 4;
-}
-
-```
-
----
-
-### comparison_operator.proto {#comparison_operator}
-
-**Path**: `pkg/metrics/proto/comparison_operator.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
-
-**Enums** (1): `ComparisonOperator`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/comparison_operator.proto
-// version: 1.0.0
-// guid: a2b3c4d5-6789-012d-6789-234567890123
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-enum ComparisonOperator {
-  COMPARISON_OPERATOR_UNSPECIFIED = 0;
-  COMPARISON_OPERATOR_EQUAL = 1;
-  COMPARISON_OPERATOR_NOT_EQUAL = 2;
-  COMPARISON_OPERATOR_GREATER_THAN = 3;
-  COMPARISON_OPERATOR_GREATER_THAN_OR_EQUAL = 4;
-  COMPARISON_OPERATOR_LESS_THAN = 5;
-  COMPARISON_OPERATOR_LESS_THAN_OR_EQUAL = 6;
-}
-
-```
-
----
-
-### compression_type.proto {#compression_type}
-
-**Path**: `pkg/metrics/proto/compression_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
-
-**Enums** (1): `CompressionType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/compression_type.proto
-// version: 1.0.0
-// guid: 4bf1569f-264e-4bc9-9839-ff05b968d1ac
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * CompressionType defines supported compression algorithms for stored metrics.
- */
-enum CompressionType {
-  // Unspecified compression type.
-  COMPRESSION_TYPE_UNSPECIFIED = 0;
-
-  // No compression.
-  COMPRESSION_TYPE_NONE = 1;
-
-  // GZIP compression.
-  COMPRESSION_TYPE_GZIP = 2;
-
-  // Snappy compression.
-  COMPRESSION_TYPE_SNAPPY = 3;
-
-  // Zstandard compression.
-  COMPRESSION_TYPE_ZSTD = 4;
-
-  // LZ4 compression.
-  COMPRESSION_TYPE_LZ4 = 5;
-}
-
 ```
 
 ---
 
 ### counter_metric.proto {#counter_metric}
 
-**Path**: `pkg/metrics/proto/counter_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
+**Path**: `gcommon/v1/metrics/counter_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 47
 
 **Messages** (1): `CounterMetric`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/counter_metric.proto
+// file: proto/gcommon/v1/metrics/v1/counter_metric.proto
+// version: 1.0.0
+// guid: 22048541-e8e6-4cf5-b476-cf12764abfb4
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * CounterMetric represents a monotonically increasing counter.
@@ -914,10 +361,16 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message CounterMetric {
   // Unique identifier for this counter
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Counter name/label
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Current counter value (must be monotonically increasing)
   double value = 3;
@@ -926,7 +379,7 @@ message CounterMetric {
   google.protobuf.Timestamp timestamp = 4;
 
   // Counter description/help text
-  string description = 5;
+  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Key-value labels for this counter
   map<string, string> labels = 6;
@@ -934,98 +387,206 @@ message CounterMetric {
   // Sample count (for internal tracking)
   uint64 sample_count = 7;
 }
-
 ```
 
 ---
 
-### dashboard_type.proto {#dashboard_type}
+### cpu_usage.proto {#cpu_usage}
 
-**Path**: `pkg/metrics/proto/dashboard_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
+**Path**: `gcommon/v1/metrics/cpu_usage.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Enums** (1): `DashboardType`
+**Messages** (1): `CPUUsage`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/enums/dashboard_type.proto
+// file: proto/gcommon/v1/metrics/v1/cpu_usage.proto
 // version: 1.0.0
-// guid: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
+// guid: cda5276c-5b68-4519-b1f6-c245a74b2d66
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-// DashboardType represents different types of dashboards
-enum DashboardType {
-  // Unspecified dashboard type
-  DASHBOARD_TYPE_UNSPECIFIED = 0;
+message CPUUsage {
+  // Current CPU usage (percentage)
+  double current_percent = 1 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
-  // System overview dashboard
-  DASHBOARD_TYPE_SYSTEM_OVERVIEW = 1;
+  // Average CPU usage (percentage)
+  double avg_percent = 2 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 
-  // Application performance dashboard
-  DASHBOARD_TYPE_APPLICATION_PERFORMANCE = 2;
-
-  // Infrastructure monitoring dashboard
-  DASHBOARD_TYPE_INFRASTRUCTURE = 3;
-
-  // Business metrics dashboard
-  DASHBOARD_TYPE_BUSINESS_METRICS = 4;
-
-  // Security monitoring dashboard
-  DASHBOARD_TYPE_SECURITY = 5;
-
-  // Custom dashboard
-  DASHBOARD_TYPE_CUSTOM = 6;
-
-  // Real-time monitoring dashboard
-  DASHBOARD_TYPE_REAL_TIME = 7;
-
-  // Historical analysis dashboard
-  DASHBOARD_TYPE_HISTORICAL = 8;
-
-  // Alert summary dashboard
-  DASHBOARD_TYPE_ALERT_SUMMARY = 9;
-
-  // Service health dashboard
-  DASHBOARD_TYPE_SERVICE_HEALTH = 10;
-
-  // Capacity planning dashboard
-  DASHBOARD_TYPE_CAPACITY_PLANNING = 11;
-
-  // SLA/SLO tracking dashboard
-  DASHBOARD_TYPE_SLA_SLO = 12;
+  // Peak CPU usage (percentage)
+  double peak_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 }
+```
 
+---
+
+### data_volume_data_point.proto {#data_volume_data_point}
+
+**Path**: `gcommon/v1/metrics/data_volume_data_point.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
+
+**Messages** (1): `DataVolumeDataPoint`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/data_volume_data_point.proto
+// version: 1.0.0
+// guid: c039b372-c314-4b88-82b6-3838745f0299
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message DataVolumeDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 total_bytes = 2 [(buf.validate.field).int64.gte = 0];
+  int64 total_metrics = 3 [(buf.validate.field).int64.gte = 0];
+  int64 total_data_points = 4 [(buf.validate.field).int64.gte = 0];
+  double ingestion_rate = 5 [(buf.validate.field).double.gte = 0.0];
+}
+```
+
+---
+
+### data_volume_stats.proto {#data_volume_stats}
+
+**Path**: `gcommon/v1/metrics/data_volume_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 38
+
+**Messages** (1): `DataVolumeStats`
+
+**Imports** (3):
+
+- `gcommon/v1/metrics/data_volume_data_point.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/data_volume_stats.proto
+// version: 1.0.0
+// guid: 85a18add-5de2-4de6-9e3a-05e4959520e4
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/data_volume_data_point.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message DataVolumeStats {
+  // Total data stored (bytes)
+  int64 total_bytes = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of metrics
+  int64 total_metrics = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of data points
+  int64 total_data_points = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Data ingestion rate (bytes per second)
+  double ingestion_rate_bytes_per_second = 4 [(buf.validate.field).double.gte = 0.0];
+
+  // Data points ingestion rate (points per second)
+  double ingestion_rate_points_per_second = 5 [(buf.validate.field).double.gte = 0.0];
+
+  // Compression ratio
+  double compression_ratio = 6 [(buf.validate.field).double.gte = 0.0];
+
+  // Time-series data volume
+  repeated DataVolumeDataPoint volume_timeseries = 7 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### data_volume_trend.proto {#data_volume_trend}
+
+**Path**: `gcommon/v1/metrics/data_volume_trend.proto` **Package**: `gcommon.v1.metrics` **Lines**: 20
+
+**Messages** (1): `DataVolumeTrend`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/data_volume_trend.proto
+// version: 1.0.0
+// guid: 069bcf6d-438e-4623-85fa-d0c875cc7370
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message DataVolumeTrend {
+  string volume_trend = 1; // "increasing", "decreasing", "stable"
+  string ingestion_trend = 2; // "increasing", "decreasing", "stable"
+  double trend_confidence = 3 [(buf.validate.field).double.gte = 0.0];
+}
 ```
 
 ---
 
 ### deletion_options.proto {#deletion_options}
 
-**Path**: `pkg/metrics/proto/deletion_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 52
+**Path**: `gcommon/v1/metrics/deletion_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 53
 
 **Messages** (1): `DeletionOptions`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/cleanup_strategy.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/cleanup_strategy.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/deletion_options.proto
+// file: proto/gcommon/v1/metrics/v1/deletion_options.proto
 // version: 1.0.0
 // guid: 6e247c69-d9f2-452e-bb15-e81da5c53d42
 
@@ -1033,11 +594,13 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/cleanup_strategy.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/cleanup_strategy.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * DeletionOptions configure the deletion process.
@@ -1056,7 +619,7 @@ message DeletionOptions {
   bool stop_exports = 4;
 
   // Grace period before actual deletion
-  string grace_period = 5;
+  string grace_period = 5 [(buf.validate.field).string.min_len = 1];
 
   // Whether to perform a dry run
   bool dry_run = 6;
@@ -1068,33 +631,145 @@ message DeletionOptions {
   bool create_backup = 8;
 
   // Cleanup strategy to use
-  CleanupStrategy cleanup_strategy = 9;
+  gcommon.v1.common.CleanupStrategy cleanup_strategy = 9;
 
   // Whether to wait for ongoing operations to complete
   bool wait_for_completion = 10;
 
   // Maximum time to wait for operations to complete
-  string completion_timeout = 11;
+  string completion_timeout = 11 [(buf.validate.field).string.min_len = 1];
 }
+```
 
+---
+
+### deletion_result.proto {#deletion_result}
+
+**Path**: `gcommon/v1/metrics/deletion_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 47
+
+**Messages** (1): `DeletionResult`
+
+**Imports** (3):
+
+- `gcommon/v1/metrics/dry_run_result.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/deletion_result.proto
+// version: 1.0.0
+// guid: a612d279-a201-40da-99b2-e6f962d0335f
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/dry_run_result.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message DeletionResult {
+  // Whether the provider was actually deleted
+  bool provider_deleted = 1;
+
+  // Amount of data that was deleted
+  int64 data_deleted_bytes = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Number of metrics that were deleted
+  int64 metrics_deleted = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Number of data points that were deleted
+  int64 data_points_deleted = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Indices that were deleted
+  repeated string deleted_indices = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Exports that were stopped
+  repeated string stopped_exports = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Backups that were deleted
+  repeated string deleted_backups = 7 [(buf.validate.field).repeated.min_items = 1];
+
+  // Cleanup strategy that was used
+  string cleanup_strategy_used = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Time taken for the deletion
+  string deletion_duration = 9 [(buf.validate.field).string.min_len = 1];
+
+  // What would be deleted (for dry run operations)
+  DryRunResult dry_run_result = 10;
+}
+```
+
+---
+
+### disk_usage.proto {#disk_usage}
+
+**Path**: `gcommon/v1/metrics/disk_usage.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+
+**Messages** (1): `DiskUsage`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/disk_usage.proto
+// version: 1.0.0
+// guid: 1c6c18b3-8797-41ff-ba40-b31de4bb0e6d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message DiskUsage {
+  // Currently used disk space (bytes)
+  int64 used_bytes = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Disk space limit (bytes)
+  int64 limit_bytes = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Usage percentage
+  double usage_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+
+  // I/O operations per second
+  double iops = 4 [(buf.validate.field).double.gte = 0.0];
+}
 ```
 
 ---
 
 ### dry_run_result.proto {#dry_run_result}
 
-**Path**: `pkg/metrics/proto/dry_run_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/dry_run_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `DryRunResult`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/types/dry_run_result.proto
+// file: proto/gcommon/v1/metrics/v1/dry_run_result.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174027
 
@@ -1103,104 +778,332 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * DryRunResult contains information about what would happen in a dry run.
  */
 message DryRunResult {
   // Number of bytes that would be deleted
-  int64 would_delete_bytes = 1;
+  int64 would_delete_bytes = 1 [(buf.validate.field).int64.gte = 0];
 
   // Number of data points that would be deleted
-  int64 would_delete_points = 2;
+  int64 would_delete_points = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of indices that would be deleted
-  int64 would_delete_indices = 3;
+  int64 would_delete_indices = 3 [(buf.validate.field).int64.gte = 0];
 
   // Number of exports that would be stopped
-  int64 would_stop_exports = 4;
+  int64 would_stop_exports = 4 [(buf.validate.field).int64.gte = 0];
 
   // Estimated time for deletion to complete
-  string estimated_deletion_time = 5;
+  string estimated_deletion_time = 5 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
-### error_stats.proto {#error_stats}
+### error_data_point.proto {#error_data_point}
 
-**Path**: `pkg/metrics/proto/error_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
+**Path**: `gcommon/v1/metrics/error_data_point.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
 
-**Messages** (2): `ErrorStats`, `ErrorTypeCount`
+**Messages** (1): `ErrorDataPoint`
 
-**Imports** (1):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/types/error_stats.proto
+// file: proto/gcommon/v1/metrics/v1/error_data_point.proto
 // version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174029
+// guid: fc39a17b-849c-4ff7-ba0d-2d1afb9ff84c
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * ErrorStats contains error-related statistics.
- */
-message ErrorStats {
-  // Total number of errors
-  int64 total_errors = 1;
-
-  // Error rate (errors per total operations)
-  double error_rate = 2;
-
-  // Most common error types
-  repeated ErrorTypeCount error_types = 3;
-
-  // Recent error trend (increasing/decreasing/stable)
-  string error_trend = 4;
+message ErrorDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 error_count = 2 [(buf.validate.field).int64.gte = 0];
+  double error_rate = 3 [(buf.validate.field).double.gte = 0.0];
 }
+```
 
-/**
- * ErrorTypeCount represents the count for a specific error type.
- */
+---
+
+### error_entry.proto {#error_entry}
+
+**Path**: `gcommon/v1/metrics/error_entry.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
+
+**Messages** (1): `ErrorEntry`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/error_entry.proto
+// version: 1.0.0
+// guid: bbfe0393-e730-465d-a5fb-b1b75d58a866
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ErrorEntry {
+  google.protobuf.Timestamp timestamp = 1;
+  string error_type = 2 [(buf.validate.field).string.min_len = 1];
+  string error_message = 3 [(buf.validate.field).string.min_len = 1];
+  int32 count = 4 [(buf.validate.field).int32.gte = 0];
+}
+```
+
+---
+
+### error_trend.proto {#error_trend}
+
+**Path**: `gcommon/v1/metrics/error_trend.proto` **Package**: `gcommon.v1.metrics` **Lines**: 20
+
+**Messages** (1): `ErrorTrend`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/error_trend.proto
+// version: 1.0.0
+// guid: 8dd5518b-cd7a-4978-b7c5-24368e5b51aa
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ErrorTrend {
+  string error_rate_trend = 1; // "improving", "worsening", "stable"
+  double trend_confidence = 2 [(buf.validate.field).double.gte = 0.0];
+  repeated string emerging_error_types = 3 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### error_type_count.proto {#error_type_count}
+
+**Path**: `gcommon/v1/metrics/error_type_count.proto` **Package**: `gcommon.v1.metrics` **Lines**: 20
+
+**Messages** (1): `ErrorTypeCount`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/error_type_count.proto
+// version: 1.0.0
+// guid: 8116a2bc-950e-407c-9db8-2f3985e9394d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
 message ErrorTypeCount {
-  string error_type = 1;
-  int64 count = 2;
-  double percentage = 3;
+  string error_type = 1 [(buf.validate.field).string.min_len = 1];
+  int64 count = 2 [(buf.validate.field).int64.gte = 0];
+  double percentage = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
 }
+```
 
+---
+
+### error_type_stats.proto {#error_type_stats}
+
+**Path**: `gcommon/v1/metrics/error_type_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
+
+**Messages** (1): `ErrorTypeStats`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/error_type_stats.proto
+// version: 1.0.0
+// guid: 93946dec-5ff0-40d4-8fd3-ff3d9c0b3dc4
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ErrorTypeStats {
+  string error_type = 1 [(buf.validate.field).string.min_len = 1];
+  int64 count = 2 [(buf.validate.field).int64.gte = 0];
+  double rate = 3 [(buf.validate.field).double.gte = 0.0];
+  double percentage = 4 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+}
+```
+
+---
+
+### export_destination.proto {#export_destination}
+
+**Path**: `gcommon/v1/metrics/export_destination.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+
+**Messages** (1): `ExportDestination`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/export_destination.proto
+// version: 1.0.0
+// guid: c917e7d5-f72f-494a-b1f4-7e72c44daa5c
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ExportDestination {
+  // Destination type (file, http, s3, etc.)
+  string type = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Destination configuration
+  map<string, string> config = 2;
+
+  // Whether this destination is enabled
+  bool enabled = 3;
+}
+```
+
+---
+
+### export_destination_stats.proto {#export_destination_stats}
+
+**Path**: `gcommon/v1/metrics/export_destination_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
+
+**Messages** (1): `ExportDestinationStats`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/export_destination_stats.proto
+// version: 1.0.0
+// guid: 11866630-71dc-417d-b08e-c9e3802eb0fa
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ExportDestinationStats {
+  string destination_id = 1 [(buf.validate.field).string.min_len = 1];
+  string destination_type = 2 [(buf.validate.field).string.min_len = 1];
+  int64 exported_metrics = 3 [(buf.validate.field).int64.gte = 0];
+  int64 failed_exports = 4 [(buf.validate.field).int64.gte = 0];
+  double success_rate = 5 [(buf.validate.field).double.gte = 0.0];
+  google.protobuf.Timestamp last_export = 6;
+}
 ```
 
 ---
 
 ### export_destination_update.proto {#export_destination_update}
 
-**Path**: `pkg/metrics/proto/export_destination_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/export_destination_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `ExportDestinationUpdate`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/export_destination_update.proto
+// file: proto/gcommon/v1/metrics/v1/export_destination_update.proto
 // version: 1.0.0
 // guid: a3b4c5d6-789a-134f-8901-456789012345
 
@@ -1209,90 +1112,201 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message ExportDestinationUpdate {
   // Destination ID
-  string destination_id = 1;
+  string destination_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Destination URL
-  string url = 2;
+  string url = 2 [(buf.validate.field).string.uri = true];
 
   // Authentication token
-  string auth_token = 3;
+  string auth_token = 3 [(buf.validate.field).string.min_len = 1];
 
   // Enabled status
   bool enabled = 4;
 }
-
 ```
 
 ---
 
-### export_format.proto {#export_format}
+### export_stats.proto {#export_stats}
 
-**Path**: `pkg/metrics/proto/export_format.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
+**Path**: `gcommon/v1/metrics/export_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Enums** (1): `ExportFormat`
+**Messages** (1): `ExportStats`
 
-**Imports** (1):
+**Imports** (4):
 
+- `gcommon/v1/metrics/export_destination_stats.proto`
 - `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/export_format.proto
+// file: proto/gcommon/v1/metrics/v1/export_stats.proto
 // version: 1.0.0
-// guid: b4c5d6e7-890b-245a-9012-567890123456
+// guid: 30936733-3e37-4587-a41e-e036c6532c58
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/export_destination_stats.proto";
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-enum ExportFormat {
-  EXPORT_FORMAT_UNSPECIFIED = 0;
-  EXPORT_FORMAT_PROMETHEUS = 1;
-  EXPORT_FORMAT_JSON = 2;
-  EXPORT_FORMAT_CSV = 3;
-  EXPORT_FORMAT_OPENTELEMETRY = 4;
+message ExportStats {
+  // Total exported metrics
+  int64 total_exported_metrics = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Total exported data points
+  int64 total_exported_data_points = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Export rate (metrics per second)
+  double export_rate_metrics_per_second = 3 [(buf.validate.field).double.gte = 0.0];
+
+  // Failed exports
+  int64 failed_exports = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Export success rate
+  double export_success_rate = 5 [(buf.validate.field).double.gte = 0.0];
+
+  // Exports by destination
+  repeated ExportDestinationStats export_destinations = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Last successful export
+  google.protobuf.Timestamp last_successful_export = 7;
 }
-
 ```
 
 ---
 
-### gauge_metric.proto {#gauge_metric}
+### export_status.proto {#export_status}
 
-**Path**: `pkg/metrics/proto/gauge_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 45
+**Path**: `gcommon/v1/metrics/export_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
 
-**Messages** (1): `GaugeMetric`
+**Messages** (1): `ExportStatus`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/metrics/exporter_status.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/gauge_metric.proto
+// file: proto/gcommon/v1/metrics/export_status.proto
+// version: 1.0.0
+// guid: 5893a5fc-3748-4c46-a896-6058cdc22a34
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/exporter_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ExportStatus {
+  int64 total_exported_metrics = 1 [(buf.validate.field).int64.gte = 0];
+  int64 failed_exports = 2 [(buf.validate.field).int64.gte = 0];
+  google.protobuf.Timestamp last_export = 3;
+  repeated ExporterStatus exporters = 4 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### exporter_status.proto {#exporter_status}
+
+**Path**: `gcommon/v1/metrics/exporter_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
+
+**Messages** (1): `ExporterStatus`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/exporter_status.proto
+// version: 1.0.0
+// guid: 852f34ef-6a24-4d4c-a324-3cd1192428e9
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ExporterStatus {
+  string exporter_id = 1 [(buf.validate.field).string.min_len = 1];
+  string exporter_type = 2 [(buf.validate.field).string.min_len = 1];
+  string status = 3 [(buf.validate.field).string.min_len = 1];
+  int64 exported_count = 4 [(buf.validate.field).int64.gte = 0];
+  google.protobuf.Timestamp last_export = 5;
+}
+```
+
+---
+
+### gauge_metric.proto {#gauge_metric}
+
+**Path**: `gcommon/v1/metrics/gauge_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 53
+
+**Messages** (1): `GaugeMetric`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/gauge_metric.proto
+// version: 1.0.0
+// guid: 027d4584-4656-45f0-9b73-2493b0ce219b
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * GaugeMetric represents a value that can go up and down.
@@ -1301,10 +1315,16 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message GaugeMetric {
   // Unique identifier for this gauge
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Gauge name/label
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Current gauge value (can increase or decrease)
   double value = 3;
@@ -1313,7 +1333,7 @@ message GaugeMetric {
   google.protobuf.Timestamp timestamp = 4;
 
   // Gauge description/help text
-  string description = 5;
+  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Key-value labels for this gauge
   map<string, string> labels = 6;
@@ -1327,117 +1347,110 @@ message GaugeMetric {
   // Unit of measurement (e.g., "bytes", "percent", "connections")
   string unit = 9;
 }
-
 ```
 
 ---
 
-### gauge_operation.proto {#gauge_operation}
+### group_by_spec.proto {#group_by_spec}
 
-**Path**: `pkg/metrics/proto/gauge_operation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
+**Path**: `gcommon/v1/metrics/group_by_spec.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Enums** (1): `GaugeOperation`
+**Messages** (1): `GroupBySpec`
 
-**Imports** (1):
+**Imports** (3):
 
+- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/gauge_operation.proto
+// file: proto/gcommon/v1/metrics/v1/group_by_spec.proto
 // version: 1.0.0
-// guid: c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f
+// guid: 26a4cef4-118d-40a4-b4dc-daaed23b54a4
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message GroupBySpec {
+  // Label keys to group by
+  repeated string label_keys = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Time-based grouping (e.g., by hour, day)
+  google.protobuf.Duration time_group = 2;
+
+  // Maximum number of groups to return
+  int32 max_groups = 3 [(buf.validate.field).int32.gte = 0];
+}
+```
+
+---
+
+### health_status_entry.proto {#health_status_entry}
+
+**Path**: `gcommon/v1/metrics/health_status_entry.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
+
+**Messages** (1): `HealthStatusEntry`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/health_status_entry.proto
+// version: 1.0.0
+// guid: 9f50a418-6ad2-49ca-a7bc-f065f79e9a43
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * GaugeOperation defines how to update the gauge value.
- * Specifies the operation to perform on a gauge metric.
- */
-enum GaugeOperation {
-  // Unspecified operation (defaults to SET)
-  GAUGE_OPERATION_UNSPECIFIED = 0;
-
-  // Set the gauge to the specified value
-  GAUGE_OPERATION_SET = 1;
-
-  // Add the value to the current gauge value
-  GAUGE_OPERATION_ADD = 2;
-
-  // Subtract the value from the current gauge value
-  GAUGE_OPERATION_SUBTRACT = 3;
-
-  // Increment the gauge by 1
-  GAUGE_OPERATION_INCREMENT = 4;
-
-  // Decrement the gauge by 1
-  GAUGE_OPERATION_DECREMENT = 5;
+message HealthStatusEntry {
+  google.protobuf.Timestamp timestamp = 1;
+  string health_status = 2 [(buf.validate.field).string.min_len = 1];
+  string status_message = 3 [(buf.validate.field).string.min_len = 1];
 }
-
-```
-
----
-
-### health_status.proto {#health_status}
-
-**Path**: `pkg/metrics/proto/health_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
-
-**Enums** (1): `HealthStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/health_status.proto
-// version: 1.0.0
-// guid: c1d2e3f4-567c-912b-6789-234567890123
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-enum HealthStatus {
-  HEALTH_STATUS_UNSPECIFIED = 0;
-  HEALTH_STATUS_HEALTHY = 1;
-  HEALTH_STATUS_DEGRADED = 2;
-  HEALTH_STATUS_UNHEALTHY = 3;
-  HEALTH_STATUS_UNKNOWN = 4;
-}
-
 ```
 
 ---
 
 ### histogram_bucket.proto {#histogram_bucket}
 
-**Path**: `pkg/metrics/proto/histogram_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
+**Path**: `gcommon/v1/metrics/histogram_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `HistogramBucket`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/histogram_bucket.proto
+// file: proto/gcommon/v1/metrics/v1/histogram_bucket.proto
 // version: 1.0.0
 // guid: a9b0c1d2-345a-790f-4567-012345678901
 
@@ -1446,41 +1459,43 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message HistogramBucket {
   // Upper bound for the bucket
-  double upper_bound = 1;
+  double upper_bound = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Count of observations in this bucket
-  int64 count = 2;
+  int64 count = 2 [(buf.validate.field).int64.gte = 0];
 
   // Cumulative count
-  int64 cumulative_count = 3;
+  int64 cumulative_count = 3 [(buf.validate.field).int64.gte = 0];
 }
-
 ```
 
 ---
 
 ### histogram_metric.proto {#histogram_metric}
 
-**Path**: `pkg/metrics/proto/histogram_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
+**Path**: `gcommon/v1/metrics/histogram_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
 
 **Messages** (1): `HistogramMetric`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/metrics/histogram_bucket.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/histogram_bucket.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/histogram_metric.proto
+// file: proto/gcommon/v1/metrics/v1/histogram_metric.proto
 // version: 1.0.0
 // guid: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
 
@@ -1488,17 +1503,21 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/histogram_bucket.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/histogram_bucket.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 // HistogramMetric represents a histogram metric with buckets
 message HistogramMetric {
   // Metric name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Metric labels
   map<string, string> labels = 2;
@@ -1518,141 +1537,280 @@ message HistogramMetric {
   // Help text for the metric
   string help = 7;
 }
+```
 
+---
+
+### histogram_stats.proto {#histogram_stats}
+
+**Path**: `gcommon/v1/metrics/histogram_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
+
+**Messages** (1): `HistogramStats`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/histogram_stats.proto
+// version: 1.0.0
+// guid: 7cf98dfc-ae0d-4d1b-95c2-cc76b9e021e1
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message HistogramStats {
+  // Total number of observations
+  uint64 total_count = 1 [(buf.validate.field).uint64.gte = 0];
+
+  // Sum of all observed values
+  double total_sum = 2 [(buf.validate.field).double.gte = 0.0];
+
+  // Mean value
+  double mean = 3 [(buf.validate.field).double.gte = 0.0];
+
+  // Minimum observed value
+  double min_value = 4 [(buf.validate.field).double.gte = 0.0];
+
+  // Maximum observed value
+  double max_value = 5 [(buf.validate.field).double.gte = 0.0];
+
+  // Standard deviation (if calculated)
+  double std_deviation = 6 [(buf.validate.field).double.gte = 0.0];
+}
+```
+
+---
+
+### histogram_value.proto {#histogram_value}
+
+**Path**: `gcommon/v1/metrics/histogram_value.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
+
+**Messages** (1): `HistogramValue`
+
+**Imports** (3):
+
+- `gcommon/v1/metrics/histogram_bucket.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/histogram_value.proto
+// version: 1.0.0
+// guid: eb817cca-e34f-456c-8769-cb7f42cb931c
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/histogram_bucket.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message HistogramValue {
+  // Histogram buckets with their counts
+  repeated HistogramBucket buckets = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Total count of all samples
+  uint64 count = 2 [(buf.validate.field).uint64.gte = 0];
+
+  // Sum of all sample values
+  double sum = 3 [(buf.validate.field).double.gte = 0.0];
+}
+```
+
+---
+
+### label_definition.proto {#label_definition}
+
+**Path**: `gcommon/v1/metrics/label_definition.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
+
+**Messages** (1): `LabelDefinition`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/label_definition.proto
+// version: 1.0.0
+// guid: 56dd3a22-ceda-4620-bfb2-c279efc6fab3
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message LabelDefinition {
+  // Name of the label
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Description of what this label represents
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Whether this label is required
+  bool required = 3;
+
+  // Allowed values for this label (empty = any value allowed)
+  repeated string allowed_values = 4;
+
+  // Pattern for validating label values (regex)
+  string validation_pattern = 5;
+
+  // Default value if not specified
+  string default_value = 6;
+}
+```
+
+---
+
+### memory_usage.proto {#memory_usage}
+
+**Path**: `gcommon/v1/metrics/memory_usage.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+
+**Messages** (1): `MemoryUsage`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/memory_usage.proto
+// version: 1.0.0
+// guid: 7ae5e6f3-835f-4ab4-aa43-31e84d7fc642
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MemoryUsage {
+  // Currently used memory (bytes)
+  int64 used_bytes = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Memory limit (bytes)
+  int64 limit_bytes = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Usage percentage
+  double usage_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+
+  // Peak memory usage (bytes)
+  int64 peak_bytes = 4 [(buf.validate.field).int64.gte = 0];
+}
 ```
 
 ---
 
 ### metric_aggregation.proto {#metric_aggregation}
 
-**Path**: `pkg/metrics/proto/metric_aggregation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
-
-**Enums** (1): `MetricAggregation`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/metric_aggregation.proto
-// version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174011
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * Aggregation methods for metric values.
- */
-enum MetricAggregation {
-  // Default aggregation method
-  METRIC_AGGREGATION_UNSPECIFIED = 0;
-
-  // Sum of all values
-  METRIC_AGGREGATION_SUM = 1;
-
-  // Average of all values
-  METRIC_AGGREGATION_AVERAGE = 2;
-
-  // Minimum value
-  METRIC_AGGREGATION_MIN = 3;
-
-  // Maximum value
-  METRIC_AGGREGATION_MAX = 4;
-
-  // Count of values
-  METRIC_AGGREGATION_COUNT = 5;
-
-  // Median value
-  METRIC_AGGREGATION_MEDIAN = 6;
-
-  // 95th percentile
-  METRIC_AGGREGATION_P95 = 7;
-
-  // 99th percentile
-  METRIC_AGGREGATION_P99 = 8;
-
-  // Standard deviation
-  METRIC_AGGREGATION_STDDEV = 9;
-}
-
-```
-
----
-
-### metric_aggregation_result.proto {#metric_aggregation_result}
-
-**Path**: `pkg/metrics/proto/metric_aggregation_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/metric_aggregation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `MetricAggregation`
 
-**Imports** (1):
+**Imports** (3):
 
+- `gcommon/v1/common/aggregation_type.proto`
 - `google/protobuf/go_features.proto`
-
-#### ⚠️ Issues Found (3)
-
-- Line 20: Commented field - // CONFLICT_DISABLED: AggregationType type = 1;
-- Line 23: Commented field - // CONFLICT_DISABLED: double value = 2;
-- Line 26: Commented field - // CONFLICT_DISABLED: int64 sample_count = 3;
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_aggregation_result.proto
-// file: metrics/proto/messages/metric_aggregation_result.proto
-//
-// Definition of aggregation results for metrics queries.
-//
+// file: proto/gcommon/v1/metrics/v1/metric_aggregation.proto
+// version: 1.0.0
+// guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/aggregation_type.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * MetricAggregation represents aggregated metric value.
- */
-// CONFLICT_DISABLED: message MetricAggregation {
-// CONFLICT_DISABLED:   // Aggregation type performed
-// CONFLICT_DISABLED:   AggregationType type = 1;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Value produced by aggregation
-// CONFLICT_DISABLED:   double value = 2;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Number of samples aggregated
-// CONFLICT_DISABLED:   int64 sample_count = 3;
-// CONFLICT_DISABLED: }
+// Configuration for metric aggregation operations
+message MetricAggregation {
+  // Type of aggregation
+  gcommon.v1.common.AggregationType type = 1;
 
+  // Time window for aggregation
+  int32 window_seconds = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Group by fields
+  repeated string group_by = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Percentiles to calculate (for percentile aggregation)
+  repeated double percentiles = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Custom aggregation function (for custom type)
+  string custom_function = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to include null values in aggregation
+  bool include_nulls = 6;
+
+  // Minimum number of samples required
+  int32 min_samples = 7 [(buf.validate.field).int32.gte = 0];
+}
 ```
 
 ---
 
 ### metric_bucket.proto {#metric_bucket}
 
-**Path**: `pkg/metrics/proto/metric_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/metric_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `MetricBucket`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_bucket.proto
+// file: proto/gcommon/v1/metrics/v1/metric_bucket.proto
 // version: 1.0.0
 // guid: 97e038af-19d9-4d0a-8f3c-0030fd6f2b89
 
@@ -1661,78 +1819,78 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricBucket represents a histogram bucket with bounds and count.
  */
 message MetricBucket {
   // Lower bound inclusive.
-  double lower_bound = 1;
+  double lower_bound = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Upper bound exclusive.
-  double upper_bound = 2;
+  double upper_bound = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Number of samples in the bucket.
-  int64 count = 3;
+  int64 count = 3 [(buf.validate.field).int64.gte = 0];
 }
-
 ```
 
 ---
 
 ### metric_data.proto {#metric_data}
 
-**Path**: `pkg/metrics/proto/metric_data.proto` **Package**: `gcommon.v1.metrics` **Lines**: 95
+**Path**: `gcommon/v1/metrics/metric_data.proto` **Package**: `gcommon.v1.metrics` **Lines**: 54
 
-**Messages** (3): `MetricData`, `MetricSeries`, `MetricFamily`
+**Messages** (1): `MetricData`
 
-**Imports** (4):
+**Imports** (5):
 
+- `gcommon/v1/common/metric_type.proto`
+- `gcommon/v1/metrics/metric_value.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/metric_type.proto` → [queue_1](./queue_1.md#metric_type)
-- `pkg/metrics/proto/metric_value.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_data.proto
-// file: metrics/proto/messages/metric_data.proto
-//
-// Message definitions for metrics module
+// file: proto/gcommon/v1/metrics/v1/metric_data.proto
+// version: 1.0.0
+// guid: f9fcef53-3bbb-4860-9b50-b0a96ba93bd0
 
-//
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metric_type.proto";
+import "gcommon/v1/metrics/metric_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/metric_type.proto";
-import "pkg/metrics/proto/metric_value.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * MetricData represents a complete metric with metadata and values.
- * This is the primary data structure for transmitting metric information.
- */
 message MetricData {
   // Unique identifier for this metric
   string metric_id = 1;
 
   // Metric name (e.g., "http_requests_total", "cpu_usage_percent")
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Type of metric (counter, gauge, histogram, etc.)
-  MetricType type = 3;
+  gcommon.v1.common.MetricsMetricType type = 3;
 
   // Human-readable description of the metric
-  string description = 4;
+  string description = 4 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Unit of measurement (e.g., "bytes", "seconds", "requests")
   string unit = 5;
@@ -1744,7 +1902,7 @@ message MetricData {
   repeated MetricValue values = 7;
 
   // When this metric data was collected/created
-  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp created_at = 8 [ (buf.validate.field).required = true ];
 
   // Source system or component that generated this metric
   string source = 9;
@@ -1755,125 +1913,105 @@ message MetricData {
   // Version of the metric schema/definition
   string schema_version = 11;
 }
-
-/**
- * MetricSeries represents a time series of metric values.
- * Used for queries that return multiple data points over time.
- */
-message MetricSeries {
-  // Metric metadata
-  string name = 1;
-  MetricType type = 2;
-  map<string, string> labels = 3;
-
-  // Time-ordered series of values
-  repeated MetricValue values = 4;
-
-  // Resolution/step between data points
-  int64 step_seconds = 5;
-}
-
-/**
- * MetricFamily groups related metrics together.
- * Similar to Prometheus metric families.
- */
-message MetricFamily {
-  // Family name (e.g., "http_requests")
-  string name = 1;
-
-  // Family description
-  string description = 2;
-
-  // Type of metrics in this family
-  MetricType type = 3;
-
-  // Unit of measurement for all metrics in this family
-  string unit = 4;
-
-  // All metrics in this family
-  repeated MetricData metrics = 5;
-}
-
 ```
 
 ---
 
-### metric_family.proto {#metric_family}
+### metric_definition.proto {#metric_definition}
 
-**Path**: `pkg/metrics/proto/metric_family.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
+**Path**: `gcommon/v1/metrics/metric_definition.proto` **Package**: `gcommon.v1.metrics` **Lines**: 54
 
-**Messages** (1): `MetricFamily`
+**Messages** (1): `MetricDefinition`
 
-**Imports** (2):
+**Imports** (8):
 
+- `gcommon/v1/common/metric_type.proto`
+- `gcommon/v1/common/metrics_retention_policy_config.proto`
+- `gcommon/v1/metrics/export_config.proto`
+- `gcommon/v1/metrics/label_definition.proto`
+- `gcommon/v1/metrics/metric_type_config.proto`
+- `gcommon/v1/metrics/validation_rules.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/metric_data.proto`
-
-#### ⚠️ Issues Found (5)
-
-- Line 21: Commented field - // CONFLICT_DISABLED: string name = 1;
-- Line 24: Commented field - // CONFLICT_DISABLED: string description = 2;
-- Line 27: Commented field - // CONFLICT_DISABLED: MetricType type = 3;
-- Line 30: Commented field - // CONFLICT_DISABLED: string unit = 4;
-- Line 33: Commented field - // CONFLICT_DISABLED: repeated MetricData metrics = 5;
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_family.proto
-// file: metrics/proto/messages/metric_family.proto
-//
-// MetricFamily groups related metrics together.
-//
+// file: proto/gcommon/v1/metrics/v1/metric_definition.proto
+// version: 1.0.0
+// guid: 4368bdba-c3ff-4d80-bfa1-886b807d497b
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metric_type.proto";
+import "gcommon/v1/common/metrics_retention_policy_config.proto";
+import "gcommon/v1/metrics/export_config.proto";
+import "gcommon/v1/metrics/label_definition.proto";
+import "gcommon/v1/metrics/metric_type_config.proto";
+import "gcommon/v1/metrics/validation_rules.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/metric_data.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * MetricFamily groups metrics of the same name and type.
- */
-// CONFLICT_DISABLED: message MetricFamily {
-// CONFLICT_DISABLED:   // Family name (e.g., http_requests)
-// CONFLICT_DISABLED:   string name = 1;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Family description
-// CONFLICT_DISABLED:   string description = 2;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Metric type for this family
-// CONFLICT_DISABLED:   MetricType type = 3;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Unit of measurement
-// CONFLICT_DISABLED:   string unit = 4;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Metrics in this family
-// CONFLICT_DISABLED:   repeated MetricData metrics = 5;
-// CONFLICT_DISABLED: }
+message MetricDefinition {
+  // Unique name for the metric
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
+  // Type of metric (counter, gauge, histogram, etc.)
+  gcommon.v1.common.MetricsMetricType type = 2;
+
+  // Human-readable description
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Unit of measurement (e.g., "bytes", "requests", "seconds")
+  string unit = 4;
+
+  // Labels that this metric supports
+  repeated LabelDefinition labels = 5;
+
+  // Metric-specific configuration
+  MetricTypeConfig config = 6;
+
+  // Retention policy for this metric
+  gcommon.v1.common.MetricsRetentionPolicyConfig retention = 7;
+
+  // Export configuration for this metric
+  ExportConfig export_config = 8;
+
+  // Validation rules for metric values
+  ValidationRules validation = 9;
+
+  // Tags for metric organization and discovery
+  map<string, string> tags = 10;
+}
 ```
 
 ---
 
 ### metric_filter.proto {#metric_filter}
 
-**Path**: `pkg/metrics/proto/metric_filter.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
+**Path**: `gcommon/v1/metrics/metric_filter.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `MetricFilter`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/metric_filter.proto
+// file: proto/gcommon/v1/metrics/v1/metric_filter.proto
 // version: 1.0.0
+// guid: 0608db8b-1fd3-4b4b-96f4-0635b55980e8
 // Filter for metrics queries
 
 edition = "2023";
@@ -1881,54 +2019,56 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 // Filter for metrics queries
 message MetricFilter {
   // Metric name patterns to include
-  repeated string metric_names = 1;
+  repeated string metric_names = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Label filters
   map<string, string> labels = 2;
 
   // Namespace filter
-  string namespace = 3;
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
 
   // Time range filter
   int64 start_timestamp = 4;
   int64 end_timestamp = 5;
 
   // Value threshold filters
-  double min_value = 6;
-  double max_value = 7;
+  double min_value = 6 [(buf.validate.field).double.gte = 0.0];
+  double max_value = 7 [(buf.validate.field).double.gte = 0.0];
 
   // Include/exclude patterns
-  repeated string include_patterns = 8;
-  repeated string exclude_patterns = 9;
+  repeated string include_patterns = 8 [(buf.validate.field).repeated.min_items = 1];
+  repeated string exclude_patterns = 9 [(buf.validate.field).repeated.min_items = 1];
 }
-
 ```
 
 ---
 
 ### metric_health.proto {#metric_health}
 
-**Path**: `pkg/metrics/proto/metric_health.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
+**Path**: `gcommon/v1/metrics/metric_health.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `MetricHealth`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/health_status.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/health_status.proto` → [common](./common.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_health.proto
+// file: proto/gcommon/v1/metrics/v1/metric_health.proto
 // version: 1.0.0
 // guid: c0c75431-e37e-4748-8a0d-44a7b15c5e3b
 
@@ -1936,48 +2076,95 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/health_status.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricHealth captures the health status of a metric source or scrape job.
  */
 message MetricHealth {
   // Metric identifier or scrape job id
-  string target_id = 1;
+  string target_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Health status
-  HealthStatus status = 2;
+  gcommon.v1.common.CommonHealthStatus status = 2;
 
   // When this health status was checked
   google.protobuf.Timestamp checked_at = 3;
 
   // Additional message or context
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 }
+```
 
+---
+
+### metric_info.proto {#metric_info}
+
+**Path**: `gcommon/v1/metrics/metric_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
+
+**Messages** (1): `MetricInfo`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/metric_info.proto
+// version: 1.0.0
+// guid: 6e676b06-ec6f-40bb-bc0b-e2ce4484763e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricInfo {
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  string metric_type = 2;
+  int64 data_points = 3;
+  int64 data_volume_bytes = 4;
+  double error_rate = 5;
+  google.protobuf.Timestamp last_updated = 6;
+}
 ```
 
 ---
 
 ### metric_label.proto {#metric_label}
 
-**Path**: `pkg/metrics/proto/metric_label.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+**Path**: `gcommon/v1/metrics/metric_label.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `MetricLabel`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_label.proto
+// file: proto/gcommon/v1/metrics/v1/metric_label.proto
 // version: 1.0.0
 // guid: 8a39fa3e-a2eb-4df9-9dcf-0c9482a16722
 
@@ -1986,9 +2173,11 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricLabel represents a single key/value label used for
@@ -1996,32 +2185,34 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message MetricLabel {
   // Label key
-  string key = 1;
+  string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Label value
-  string value = 2;
+  string value = 2 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### metric_metadata.proto {#metric_metadata}
 
-**Path**: `pkg/metrics/proto/metric_metadata.proto` **Package**: `gcommon.v1.metrics` **Lines**: 57
+**Path**: `gcommon/v1/metrics/metric_metadata.proto` **Package**: `gcommon.v1.metrics` **Lines**: 62
 
 **Messages** (1): `MetricMetadata`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_metadata.proto
-// file: metrics/proto/messages/metric_metadata.proto
+// file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
+// version: 1.0.0
+// guid: 2f161084-caee-424c-a121-9b4907586446
+// file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
 //
 // Message definitions for metrics module
 
@@ -2032,9 +2223,10 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricMetadata contains metadata information about a metric.
@@ -2044,10 +2236,13 @@ message MetricMetadata {
   string metric_id = 1;
 
   // Human-readable name of the metric
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Description of what this metric measures
-  string description = 3;
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Metric type (counter, gauge, histogram, etc.)
   string type = 4;
@@ -2059,7 +2254,7 @@ message MetricMetadata {
   map<string, string> labels = 6;
 
   // When this metric was first created
-  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp created_at = 7 [ (buf.validate.field).required = true ];
 
   // When this metric was last updated
   google.protobuf.Timestamp updated_at = 8;
@@ -2076,25 +2271,25 @@ message MetricMetadata {
   // Namespace this metric belongs to
   string namespace = 12;
 }
-
 ```
 
 ---
 
 ### metric_quantile.proto {#metric_quantile}
 
-**Path**: `pkg/metrics/proto/metric_quantile.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+**Path**: `gcommon/v1/metrics/metric_quantile.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `MetricQuantile`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_quantile.proto
+// file: proto/gcommon/v1/metrics/v1/metric_quantile.proto
 // version: 1.0.0
 // guid: 9ab5b0e2-0228-47d2-9a48-d714ee6f3d6f
 
@@ -2103,9 +2298,11 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricQuantile represents a quantile value calculated from a
@@ -2113,68 +2310,62 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message MetricQuantile {
   // Quantile (0-1, e.g., 0.95 for 95th percentile).
-  double quantile = 1;
+  double quantile = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Value observed at this quantile.
-  double value = 2;
+  double value = 2 [(buf.validate.field).double.gte = 0.0];
 }
-
 ```
 
 ---
 
 ### metric_query.proto {#metric_query}
 
-**Path**: `pkg/metrics/proto/metric_query.proto` **Package**: `gcommon.v1.metrics` **Lines**: 133
+**Path**: `gcommon/v1/metrics/metric_query.proto` **Package**: `gcommon.v1.metrics` **Lines**: 53
 
-**Messages** (5): `MetricQuery`, `AggregationSpec`, `GroupBySpec`, `QueryPlan`, `QueryStep`
+**Messages** (1): `MetricQuery`
 
-**Imports** (8):
+**Imports** (7):
 
-- `google/protobuf/duration.proto`
+- `gcommon/v1/common/sort_options.proto`
+- `gcommon/v1/common/time_range_metrics.proto`
+- `gcommon/v1/metrics/aggregation_spec.proto`
+- `gcommon/v1/metrics/group_by_spec.proto`
+- `gcommon/v1/metrics/metric_filter.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/sort.proto` → [common](./common.md#sort)
-- `pkg/metrics/proto/aggregation_type.proto`
-- `pkg/metrics/proto/metric_filter.proto`
-- `pkg/metrics/proto/query_operation.proto` → [metrics_2](./metrics_2.md#query_operation)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/timestamp_range.proto` → [metrics_2](./metrics_2.md#timestamp_range) → [queue_2](./queue_2.md#timestamp_range)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_query.proto
-// file: metrics/proto/messages/metric_query.proto
-//
-// Message definitions for metrics module
+// file: proto/gcommon/v1/metrics/v1/metric_query.proto
+// version: 1.0.0
+// guid: b48baa90-492c-496f-bcef-674b2fa2d6d4
 
-//
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
+import "gcommon/v1/common/sort_options.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
+import "gcommon/v1/metrics/aggregation_spec.proto";
+import "gcommon/v1/metrics/group_by_spec.proto";
+import "gcommon/v1/metrics/metric_filter.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/sort.proto";
-import "pkg/metrics/proto/aggregation_type.proto";
-import "pkg/metrics/proto/metric_filter.proto";
-import "pkg/metrics/proto/query_operation.proto";
-import "pkg/metrics/proto/time_range.proto";
-import "pkg/metrics/proto/timestamp_range.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * MetricQuery represents a query for retrieving and processing metric data.
- * Supports filtering, aggregation, and transformation operations.
- */
 message MetricQuery {
   // Unique identifier for this query
   string query_id = 1;
 
   // Human-readable query name or description
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Query string (PromQL, SQL, or custom query language)
   string query_string = 3;
@@ -2183,7 +2374,7 @@ message MetricQuery {
   MetricFilter filter = 4;
 
   // Time range for the query
-  TimeRange time_filter = 5;
+  gcommon.v1.common.TimeRangeMetrics time_filter = 5;
 
   // Aggregation operations to apply
   repeated AggregationSpec aggregations = 6;
@@ -2200,101 +2391,85 @@ message MetricQuery {
   // Offset for pagination
   int32 offset = 10;
 }
+```
 
-/**
- * AggregationSpec defines how to aggregate metric data.
- */
-message AggregationSpec {
-  // Type of aggregation to perform
-  AggregationType aggregation_type = 1;
+---
 
-  // Field to aggregate on (if applicable)
-  string field = 2;
+### metric_result.proto {#metric_result}
 
-  // Time window for aggregation
-  google.protobuf.Duration window = 3;
+**Path**: `gcommon/v1/metrics/metric_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-  // Step/resolution for time-based aggregation
-  google.protobuf.Duration step = 4;
+**Messages** (1): `MetricResult`
 
-  // Additional parameters for complex aggregations
-  map<string, string> parameters = 5;
+**Imports** (4):
+
+- `gcommon/v1/common/error.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/metric_result.proto
+// version: 1.0.0
+// guid: ad1215aa-2323-42d2-aeeb-b89ff72ab926
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/error.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricResult {
+  // Index of the metric in the original batch (0-based)
+  int32 index = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Success status for this specific metric
+  bool success = 2;
+
+  // Error information if this metric failed
+  gcommon.v1.common.Error error = 3;
+
+  // Unique ID assigned to the metric (if successful)
+  string metric_id = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Timestamp when this metric was recorded
+  google.protobuf.Timestamp recorded_at = 5;
+
+  // Warnings specific to this metric
+  repeated string warnings = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether this metric was deduplicated
+  bool deduplicated = 7;
 }
-
-/**
- * GroupBySpec defines how to group metric results.
- */
-message GroupBySpec {
-  // Label keys to group by
-  repeated string label_keys = 1;
-
-  // Time-based grouping (e.g., by hour, day)
-  google.protobuf.Duration time_group = 2;
-
-  // Maximum number of groups to return
-  int32 max_groups = 3;
-}
-
-/**
- * QueryPlan represents an execution plan for a metric query.
- * Used for query optimization and debugging.
- */
-message QueryPlan {
-  // Query that this plan is for
-  string query_id = 1;
-
-  // Estimated execution time
-  google.protobuf.Duration estimated_duration = 2;
-
-  // Estimated number of data points to process
-  int64 estimated_data_points = 3;
-
-  // Execution steps
-  repeated QueryStep steps = 4;
-
-  // Storage backends that will be queried
-  repeated string storage_backends = 5;
-}
-
-/**
- * QueryStep represents a single step in query execution.
- */
-message QueryStep {
-  // Step identifier
-  string step_id = 1;
-
-  // Operation to perform in this step
-  QueryOperation operation = 2;
-
-  // Description of the operation
-  string description = 3;
-
-  // Estimated cost/time for this step
-  google.protobuf.Duration estimated_duration = 4;
-
-  // Input from previous steps
-  repeated string input_step_ids = 5;
-}
-
 ```
 
 ---
 
 ### metric_sample.proto {#metric_sample}
 
-**Path**: `pkg/metrics/proto/metric_sample.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/metric_sample.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
 **Messages** (1): `MetricSample`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_sample.proto
+// file: proto/gcommon/v1/metrics/v1/metric_sample.proto
 // version: 1.0.0
 // guid: 7f2e5cc8-7e1b-49d8-b994-556a6d3aa642
 
@@ -2304,16 +2479,18 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricSample represents a single value for a metric at a point in time.
  */
 message MetricSample {
   // Recorded value
-  double value = 1;
+  double value = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Timestamp of the sample
   google.protobuf.Timestamp timestamp = 2;
@@ -2321,103 +2498,76 @@ message MetricSample {
   // Optional labels associated with this sample
   map<string, string> labels = 3;
 }
-
 ```
 
 ---
 
-### metric_source.proto {#metric_source}
+### metric_series.proto {#metric_series}
 
-**Path**: `pkg/metrics/proto/metric_source.proto` **Package**: `gcommon.v1.metrics` **Lines**: 61
+**Path**: `gcommon/v1/metrics/metric_series.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
-**Enums** (1): `MetricSource`
+**Messages** (1): `MetricSeries`
 
-**Imports** (1):
+**Imports** (4):
 
+- `gcommon/v1/common/metric_type.proto`
+- `gcommon/v1/metrics/metric_value.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/enums/metric_source.proto
+// file: proto/gcommon/v1/metrics/v1/metric_series.proto
 // version: 1.0.0
-// guid: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+// guid: 642e0c7a-6461-4167-b3e3-746ed9f6e413
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metric_type.proto";
+import "gcommon/v1/metrics/metric_value.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-// MetricSource represents different sources of metrics data
-enum MetricSource {
-  // Unspecified metric source
-  METRIC_SOURCE_UNSPECIFIED = 0;
+message MetricSeries {
+  // Metric metadata
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  gcommon.v1.common.MetricsMetricType type = 2;
+  map<string, string> labels = 3;
 
-  // Application metrics
-  METRIC_SOURCE_APPLICATION = 1;
+  // Time-ordered series of values
+  repeated MetricValue values = 4;
 
-  // System metrics
-  METRIC_SOURCE_SYSTEM = 2;
-
-  // Infrastructure metrics
-  METRIC_SOURCE_INFRASTRUCTURE = 3;
-
-  // Container metrics
-  METRIC_SOURCE_CONTAINER = 4;
-
-  // Kubernetes metrics
-  METRIC_SOURCE_KUBERNETES = 5;
-
-  // Database metrics
-  METRIC_SOURCE_DATABASE = 6;
-
-  // Network metrics
-  METRIC_SOURCE_NETWORK = 7;
-
-  // Storage metrics
-  METRIC_SOURCE_STORAGE = 8;
-
-  // Security metrics
-  METRIC_SOURCE_SECURITY = 9;
-
-  // Business metrics
-  METRIC_SOURCE_BUSINESS = 10;
-
-  // Custom metrics
-  METRIC_SOURCE_CUSTOM = 11;
-
-  // Third-party metrics
-  METRIC_SOURCE_THIRD_PARTY = 12;
-
-  // Synthetic metrics
-  METRIC_SOURCE_SYNTHETIC = 13;
-
-  // Log-derived metrics
-  METRIC_SOURCE_LOG_DERIVED = 14;
+  // Resolution/step between data points
+  int64 step_seconds = 5;
 }
-
 ```
 
 ---
 
 ### metric_stats.proto {#metric_stats}
 
-**Path**: `pkg/metrics/proto/metric_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/metric_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `MetricStats`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_stats.proto
+// file: proto/gcommon/v1/metrics/v1/metric_stats.proto
 // version: 1.0.0
 // guid: 73f03142-2df5-4e09-a4cd-b067ec1a9fbb
 
@@ -2426,534 +2576,53 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricStats provides summary statistics for a set of metric values.
  */
 message MetricStats {
   // Minimum value observed.
-  double min = 1;
+  double min = 1 [(buf.validate.field).double.gte = 0.0];
 
   // Maximum value observed.
-  double max = 2;
+  double max = 2 [(buf.validate.field).double.gte = 0.0];
 
   // Average of all values.
-  double average = 3;
+  double average = 3 [(buf.validate.field).double.gte = 0.0];
 
   // Sum of all values.
-  double sum = 4;
+  double sum = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Number of samples.
-  int64 count = 5;
+  int64 count = 5 [(buf.validate.field).int64.gte = 0];
 }
-
 ```
 
 ---
 
-### metric_status.proto {#metric_status}
+### metric_summary.proto {#metric_summary}
 
-**Path**: `pkg/metrics/proto/metric_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/metric_summary.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Enums** (1): `MetricStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/metric_status.proto
-// version: 1.0.0
-// guid: 0f4752cc-8120-45bb-a7c9-1fb475c11998
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * MetricStatus indicates the lifecycle state of a metric definition.
- */
-enum MetricStatus {
-  // Unspecified status.
-  METRIC_STATUS_UNSPECIFIED = 0;
-
-  // Metric is active and being collected.
-  METRIC_STATUS_ACTIVE = 1;
-
-  // Metric is temporarily disabled.
-  METRIC_STATUS_DISABLED = 2;
-
-  // Metric is in error state and not reliable.
-  METRIC_STATUS_ERROR = 3;
-
-  // Metric has been removed and should no longer be used.
-  METRIC_STATUS_DELETED = 4;
-}
-
-```
-
----
-
-### metric_type.proto {#metric_type}
-
-**Path**: `pkg/metrics/proto/metric_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
-
-**Enums** (1): `MetricType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/metric_type.proto
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * MetricType defines the different types of metrics that can be collected.
- * Each type has specific semantics for how values are interpreted and aggregated.
- */
-enum MetricType {
-  // Unspecified metric type
-  METRIC_TYPE_UNSPECIFIED = 0;
-
-  // Counter: A monotonically increasing value (can only go up)
-  METRIC_TYPE_COUNTER = 1;
-
-  // Gauge: A value that can go up and down
-  METRIC_TYPE_GAUGE = 2;
-
-  // Histogram: Distribution of observed values in buckets
-  METRIC_TYPE_HISTOGRAM = 3;
-
-  // Summary: Similar to histogram but with configurable quantiles
-  METRIC_TYPE_SUMMARY = 4;
-
-  // Timer: Specialized counter for measuring durations
-  METRIC_TYPE_TIMER = 5;
-
-  // Set: Track unique values (cardinality metric)
-  METRIC_TYPE_SET = 6;
-}
-
-```
-
----
-
-### metric_value.proto {#metric_value}
-
-**Path**: `pkg/metrics/proto/metric_value.proto` **Package**: `gcommon.v1.metrics` **Lines**: 92
-
-**Messages** (4): `MetricValue`, `HistogramValue`, `SummaryValue`, `Quantile`
+**Messages** (1): `MetricSummary`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/histogram_bucket.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/types/metric_value.proto
-// file: metrics/proto/types/metric_value.proto
-//
-// Type definitions for metrics module
-
-//
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/histogram_bucket.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * MetricValue represents a single metric data point with timestamp and value.
- * This is the fundamental unit of metric data in the system.
- */
-message MetricValue {
-  // Timestamp when this metric value was recorded
-  google.protobuf.Timestamp timestamp = 1;
-
-  // The metric value - using oneof to support different value types
-  oneof value {
-    // Double precision floating point value
-    double double_value = 2;
-
-    // Integer value (64-bit signed)
-    int64 int_value = 3;
-
-    // String value (for label/text metrics)
-    string string_value = 4;
-
-    // Boolean value
-    bool bool_value = 5;
-
-    // Histogram bucket values (for histogram metrics)
-    HistogramValue histogram_value = 6;
-
-    // Summary quantile values (for summary metrics)
-    SummaryValue summary_value = 7;
-  }
-
-  // Optional labels/tags associated with this specific value
-  map<string, string> labels = 8;
-
-  // Optional sample count (for aggregated values)
-  uint64 sample_count = 9;
-}
-
-/**
- * HistogramValue represents histogram bucket data.
- */
-message HistogramValue {
-  // Histogram buckets with their counts
-  repeated HistogramBucket buckets = 1;
-
-  // Total count of all samples
-  uint64 count = 2;
-
-  // Sum of all sample values
-  double sum = 3;
-}
-
-/**
- * SummaryValue represents summary quantile data.
- */
-message SummaryValue {
-  // Quantile values
-  repeated Quantile quantiles = 1;
-
-  // Total count of all samples
-  uint64 count = 2;
-
-  // Sum of all sample values
-  double sum = 3;
-}
-
-/**
- * Quantile represents a single quantile value.
- */
-message Quantile {
-  // Quantile value (0.0 to 1.0, e.g., 0.95 for 95th percentile)
-  double quantile = 1;
-
-  // Value at this quantile
-  double value = 2;
-}
-
-```
-
----
-
-### notification_type.proto {#notification_type}
-
-**Path**: `pkg/metrics/proto/notification_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 63
-
-**Enums** (1): `NotificationType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/enums/notification_type.proto
-// file: metrics/proto/enums/notification_type.proto
-//
-// Enum definitions for metrics module
-
-//
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * NotificationType defines the types of notifications for metric alerts.
- * Used to specify how alerts should be delivered to users.
- */
-enum NotificationType {
-  // Unspecified notification type (default)
-  NOTIFICATION_TYPE_UNSPECIFIED = 0;
-
-  // Email notification
-  NOTIFICATION_TYPE_EMAIL = 1;
-
-  // SMS text message
-  NOTIFICATION_TYPE_SMS = 2;
-
-  // Push notification (mobile app)
-  NOTIFICATION_TYPE_PUSH = 3;
-
-  // Slack message
-  NOTIFICATION_TYPE_SLACK = 4;
-
-  // Microsoft Teams message
-  NOTIFICATION_TYPE_TEAMS = 5;
-
-  // Discord message
-  NOTIFICATION_TYPE_DISCORD = 6;
-
-  // PagerDuty incident
-  NOTIFICATION_TYPE_PAGERDUTY = 7;
-
-  // Webhook/HTTP POST
-  NOTIFICATION_TYPE_WEBHOOK = 8;
-
-  // In-app notification
-  NOTIFICATION_TYPE_IN_APP = 9;
-
-  // SNMP trap
-  NOTIFICATION_TYPE_SNMP = 10;
-
-  // Telegram message
-  NOTIFICATION_TYPE_TELEGRAM = 11;
-
-  // Matrix message
-  NOTIFICATION_TYPE_MATRIX = 12;
-
-  // Voice call
-  NOTIFICATION_TYPE_VOICE = 13;
-}
-
-```
-
----
-
-### numeric_format.proto {#numeric_format}
-
-**Path**: `pkg/metrics/proto/numeric_format.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
-
-**Enums** (1): `NumericFormat`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/numeric_format.proto
+// file: proto/gcommon/v1/metrics/v1/metric_summary.proto
 // version: 1.0.0
-// guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * NumericFormat defines how numeric values should be formatted.
- * Specifies the display format for numeric metric values.
- */
-enum NumericFormat {
-  // Unspecified format
-  NUMERIC_FORMAT_UNSPECIFIED = 0;
-
-  // Default formatting
-  NUMERIC_FORMAT_DEFAULT = 1;
-
-  // Scientific notation
-  NUMERIC_FORMAT_SCIENTIFIC = 2;
-
-  // Engineering notation
-  NUMERIC_FORMAT_ENGINEERING = 3;
-
-  // Percentage format
-  NUMERIC_FORMAT_PERCENTAGE = 4;
-}
-
-```
-
----
-
-### pagination_info.proto {#pagination_info}
-
-**Path**: `pkg/metrics/proto/pagination_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
-
-**Messages** (1): `PaginationInfo`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/types/pagination_info.proto
-// version: 1.0.0
-// guid: f1e2d3c4-b5a6-9c8d-7e1f-2a3b4c5d6e7f
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * PaginationInfo contains information about paginated results.
- */
-message PaginationInfo {
-  // Current page number (1-based)
-  uint32 page = 1;
-
-  // Number of items per page
-  uint32 page_size = 2;
-
-  // Total number of items across all pages
-  uint64 total_items = 3;
-
-  // Total number of pages
-  uint32 total_pages = 4;
-
-  // Whether there is a next page
-  bool has_next = 5;
-
-  // Whether there is a previous page
-  bool has_previous = 6;
-
-  // Cursor for cursor-based pagination (optional)
-  string next_cursor = 7;
-
-  // Cursor for previous page (optional)
-  string previous_cursor = 8;
-}
-
-```
-
----
-
-### performance_stats.proto {#performance_stats}
-
-**Path**: `pkg/metrics/proto/performance_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 60
-
-**Messages** (1): `PerformanceStats`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/types/performance_stats.proto
-// version: 1.0.0
-// guid: b3c4d5e6-f7a8-9b0c-1d2e-3f4a5b6c7d8e
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * PerformanceStats contains performance metrics for provider operations.
- */
-message PerformanceStats {
-  // Average response time in milliseconds
-  double avg_response_time_ms = 1;
-
-  // Maximum response time in milliseconds
-  double max_response_time_ms = 2;
-
-  // Minimum response time in milliseconds
-  double min_response_time_ms = 3;
-
-  // 95th percentile response time in milliseconds
-  double p95_response_time_ms = 4;
-
-  // 99th percentile response time in milliseconds
-  double p99_response_time_ms = 5;
-
-  // Requests per second
-  double requests_per_second = 6;
-
-  // Total number of requests processed
-  uint64 total_requests = 7;
-
-  // Number of successful requests
-  uint64 successful_requests = 8;
-
-  // Number of failed requests
-  uint64 failed_requests = 9;
-
-  // Success rate (0.0 to 1.0)
-  double success_rate = 10;
-
-  // CPU utilization percentage (0.0 to 100.0)
-  double cpu_utilization = 11;
-
-  // Memory utilization percentage (0.0 to 100.0)
-  double memory_utilization = 12;
-
-  // Network I/O in bytes per second
-  double network_io_bytes_per_sec = 13;
-
-  // Disk I/O in bytes per second
-  double disk_io_bytes_per_sec = 14;
-}
-
-```
-
----
-
-### provider_info.proto {#provider_info}
-
-**Path**: `pkg/metrics/proto/provider_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 56
-
-**Messages** (1): `ProviderInfo`
-
-**Imports** (3):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/provider_status.proto` → [metrics_2](./metrics_2.md#provider_status)
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/types/provider_info.proto
-// version: 1.0.0
-// guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
+// guid: 3bf744e5-01f0-4074-b7b9-5235934749bf
 
 edition = "2023";
 
@@ -2961,106 +2630,23 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/provider_status.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * ProviderInfo contains information about a metrics provider.
- */
-message ProviderInfo {
-  // Unique identifier for the provider
-  string provider_id = 1;
-
-  // Human-readable name of the provider
-  string name = 2;
-
-  // Provider type (e.g., "prometheus", "datadog", "custom")
-  string type = 3;
-
-  // Current status of the provider
-  string status = 4;
-
-  // Detailed status information
-  ProviderStatus detailed_status = 5;
-
-  // Configuration settings
-  map<string, string> config = 6;
-
-  // Version of the provider
-  string version = 7;
-
-  // When this provider was created
-  google.protobuf.Timestamp created_at = 8;
-
-  // When this provider was last updated
-  google.protobuf.Timestamp last_updated = 9;
-
-  // Whether this provider is enabled
-  bool enabled = 10;
-
-  // Tags associated with this provider
-  repeated string tags = 11;
-
-  // Description of the provider
-  string description = 12;
+message MetricSummary {
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  string type = 2;
+  int64 data_points = 3;
+  int64 data_volume_bytes = 4;
+  double error_rate = 5;
+  google.protobuf.Timestamp last_updated = 6;
 }
-
 ```
 
 ---
 
-### provider_sort_field.proto {#provider_sort_field}
-
-**Path**: `pkg/metrics/proto/provider_sort_field.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
-
-**Enums** (1): `SortField`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/provider_sort_field.proto
-// version: 1.0.0
-// guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * SortField defines fields that can be used for sorting providers.
- * Specifies available fields for provider list sorting.
- */
-enum SortField {
-  // Unspecified sort field
-  SORT_FIELD_UNSPECIFIED = 0;
-
-  // Sort by provider name
-  SORT_FIELD_NAME = 1;
-
-  // Sort by provider type
-  SORT_FIELD_TYPE = 2;
-
-  // Sort by creation timestamp
-  SORT_FIELD_CREATED_AT = 3;
-
-  // Sort by provider state
-  SORT_FIELD_STATE = 4;
-
-  // Sort by health status
-  SORT_FIELD_HEALTH = 5;
-}
-
-```
-
----

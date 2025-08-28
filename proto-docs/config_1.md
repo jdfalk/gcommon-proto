@@ -5,104 +5,84 @@
 ## Module Overview
 
 - **Proto Files**: 50
-- **Messages**: 14
+- **Messages**: 50
 - **Services**: 0
-- **Enums**: 36
+- **Enums**: 0
 
 ## Files in this Module
 
 - [access_control.proto](#access_control)
 - [access_restriction.proto](#access_restriction)
-- [alert_severity.proto](#alert_severity)
-- [alert_type.proto](#alert_type)
 - [approval_info.proto](#approval_info)
 - [approval_requirement.proto](#approval_requirement)
-- [approval_status.proto](#approval_status)
-- [backoff_strategy.proto](#backoff_strategy)
-- [backup_frequency.proto](#backup_frequency)
-- [cache_invalidation_trigger.proto](#cache_invalidation_trigger)
-- [cache_refresh_strategy.proto](#cache_refresh_strategy)
-- [change_type.proto](#change_type)
-- [channel_type.proto](#channel_type)
+- [approval_stage.proto](#approval_stage)
+- [approval_workflow.proto](#approval_workflow)
+- [audit_settings.proto](#audit_settings)
+- [batching_settings.proto](#batching_settings)
+- [caching_settings.proto](#caching_settings)
+- [compliance_audit.proto](#compliance_audit)
 - [compliance_reporting.proto](#compliance_reporting)
-- [compression_type.proto](#compression_type)
-- [conflict_resolution.proto](#conflict_resolution)
-- [dependency_type.proto](#dependency_type)
-- [deployment_status.proto](#deployment_status)
+- [compliance_settings.proto](#compliance_settings)
+- [deployment_info.proto](#deployment_info)
+- [deployment_rollback_info.proto](#deployment_rollback_info)
 - [deprecation_info.proto](#deprecation_info)
-- [deprecation_level.proto](#deprecation_level)
-- [environment_status.proto](#environment_status)
-- [environment_type.proto](#environment_type)
-- [filter_action.proto](#filter_action)
-- [filter_type.proto](#filter_type)
-- [health_check_type.proto](#health_check_type)
-- [health_state.proto](#health_state)
-- [hook_error_handling.proto](#hook_error_handling)
-- [hook_type.proto](#hook_type)
+- [encryption_settings.proto](#encryption_settings)
+- [health_check.proto](#health_check)
+- [health_check_result.proto](#health_check_result)
+- [health_status.proto](#health_status)
 - [inheritance_filter.proto](#inheritance_filter)
-- [inheritance_strategy.proto](#inheritance_strategy)
+- [inheritance_settings.proto](#inheritance_settings)
 - [inheritance_transformation.proto](#inheritance_transformation)
-- [merge_strategy.proto](#merge_strategy)
-- [metadata_status.proto](#metadata_status)
 - [monitoring_alert.proto](#monitoring_alert)
+- [monitoring_settings.proto](#monitoring_settings)
 - [notification_channel.proto](#notification_channel)
-- [notification_trigger.proto](#notification_trigger)
-- [parameter_constraints.proto](#parameter_constraints)
-- [parameter_type.proto](#parameter_type)
+- [notification_settings.proto](#notification_settings)
+- [promotion_rule.proto](#promotion_rule)
 - [rate_limits.proto](#rate_limits)
-- [reference_type.proto](#reference_type)
-- [restore_point_status.proto](#restore_point_status)
-- [restore_point_type.proto](#restore_point_type)
-- [restriction_type.proto](#restriction_type)
-- [rollback_info.proto](#rollback_info)
-- [rollback_method.proto](#rollback_method)
-- [rotation_frequency.proto](#rotation_frequency)
-- [secret_backup_frequency.proto](#secret_backup_frequency)
-- [secret_status.proto](#secret_status)
-- [secret_type.proto](#secret_type)
+- [resource_limits.proto](#resource_limits)
+- [retention_policy.proto](#retention_policy)
+- [rotation_settings.proto](#rotation_settings)
+- [secret_audit_settings.proto](#secret_audit_settings)
+- [secret_backup_settings.proto](#secret_backup_settings)
 - [secret_validation_result.proto](#secret_validation_result)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [config_2](./config_2.md)
-- [config_config_1](./config_config_1.md)
-- [config_events](./config_events.md)
-- [log](./log.md)
-
-**Modules that depend on this one**:
-
-- [config_2](./config_2.md)
-- [config_config_1](./config_config_1.md)
-- [config_config_2](./config_config_2.md)
-- [metrics_1](./metrics_1.md)
-- [metrics_config](./metrics_config.md)
-- [queue_1](./queue_1.md)
-- [queue_config](./queue_config.md)
-- [web_config_1](./web_config_1.md)
-
+- [sync_settings.proto](#sync_settings)
+- [synchronization_settings.proto](#synchronization_settings)
+- [synchronization_target.proto](#synchronization_target)
+- [template_change.proto](#template_change)
+- [template_hook.proto](#template_hook)
+- [template_output.proto](#template_output)
+- [transformation_settings.proto](#transformation_settings)
+- [transformation_step.proto](#transformation_step)
+- [usage_statistics.proto](#usage_statistics)
+- [usage_trend.proto](#usage_trend)
+- [validation_result.proto](#validation_result)
+- [validation_rule.proto](#validation_rule)
+- [validation_settings.proto](#validation_settings)
+- [value_dependency.proto](#value_dependency)
+- [value_history_entry.proto](#value_history_entry)
+- [value_reference.proto](#value_reference)
 ---
+
 
 ## Detailed Documentation
 
 ### access_control.proto {#access_control}
 
-**Path**: `pkg/config/proto/access_control.proto` **Package**: `gcommon.v1.config` **Lines**: 48
+**Path**: `gcommon/v1/config/access_control.proto` **Package**: `gcommon.v1.config` **Lines**: 48
 
-**Messages** (1): `AccessControl`
+**Messages** (1): `ConfigAccessControl`
 
 **Imports** (4):
 
+- `gcommon/v1/config/access_restriction.proto`
+- `gcommon/v1/config/rate_limits.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/access_restriction.proto`
-- `pkg/config/proto/rate_limits.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/access_control.proto
+// file: proto/gcommon/v1/config/access_control.proto
 // version: 1.0.0
 // guid: 5707e31a-b72e-4cc1-b3ba-87269e99e05b
 
@@ -110,35 +90,36 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/config/access_restriction.proto";
+import "gcommon/v1/config/rate_limits.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/access_restriction.proto";
-import "pkg/config/proto/rate_limits.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-message AccessControl {
+message ConfigAccessControl {
   // Access policy
-  string policy = 1;
+  string policy = 1 [(buf.validate.field).string.min_len = 1];
 
   // Allowed users
-  repeated string allowed_users = 2;
+  repeated string allowed_users = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed roles
-  repeated string allowed_roles = 3;
+  repeated string allowed_roles = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed services
-  repeated string allowed_services = 4;
+  repeated string allowed_services = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Allowed environments
-  repeated string allowed_environments = 5;
+  repeated string allowed_environments = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Access restrictions
-  repeated AccessRestriction restrictions = 6;
+  repeated AccessRestriction restrictions = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Maximum access count
-  int32 max_access_count = 7;
+  int32 max_access_count = 7 [(buf.validate.field).int32.gte = 0];
 
   // Access rate limits
   RateLimits rate_limits = 8;
@@ -149,27 +130,26 @@ message AccessControl {
   // Access audit enabled
   bool audit_enabled = 10;
 }
-
 ```
 
 ---
 
 ### access_restriction.proto {#access_restriction}
 
-**Path**: `pkg/config/proto/access_restriction.proto` **Package**: `gcommon.v1.config` **Lines**: 29
+**Path**: `gcommon/v1/config/access_restriction.proto` **Package**: `gcommon.v1.config` **Lines**: 29
 
 **Messages** (1): `AccessRestriction`
 
 **Imports** (3):
 
+- `gcommon/v1/common/restriction_type.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/restriction_type.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/access_restriction.proto
+// file: proto/gcommon/v1/config/access_restriction.proto
 // version: 1.0.0
 // guid: cfdd7cdc-6bb3-4b8f-b3a9-fa8a84cc84ad
 
@@ -177,132 +157,48 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/restriction_type.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/restriction_type.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message AccessRestriction {
   // Restriction type
-  RestrictionType type = 1;
+  gcommon.v1.common.RestrictionType type = 1;
 
   // Restriction value
-  string value = 2;
+  string value = 2 [(buf.validate.field).string.min_len = 1];
 
   // Restriction operator
-  string operator = 3;
+  string operator = 3 [(buf.validate.field).string.min_len = 1];
 
   // Restriction reason
-  string reason = 4;
+  string reason = 4 [(buf.validate.field).string.min_len = 1];
 }
-
-```
-
----
-
-### alert_severity.proto {#alert_severity}
-
-**Path**: `pkg/config/proto/alert_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 21
-
-**Enums** (1): `AlertSeverity`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/alert_severity.proto
-// version: 1.0.0
-// guid: e4538794-5759-4c3f-a3ed-b3794a014e86
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum AlertSeverity {
-  ALERT_SEVERITY_UNSPECIFIED = 0;
-  ALERT_SEVERITY_LOW = 1;
-  ALERT_SEVERITY_MEDIUM = 2;
-  ALERT_SEVERITY_HIGH = 3;
-  ALERT_SEVERITY_CRITICAL = 4;
-}
-
-```
-
----
-
-### alert_type.proto {#alert_type}
-
-**Path**: `pkg/config/proto/alert_type.proto` **Package**: `gcommon.v1.config` **Lines**: 25
-
-**Enums** (1): `AlertType`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/alert_type.proto
-// version: 1.0.0
-// guid: 54407766-3304-4e90-90d6-973ac6ff0fc3
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum AlertType {
-  ALERT_TYPE_UNSPECIFIED = 0;
-  ALERT_TYPE_EXPIRATION = 1;
-  ALERT_TYPE_ACCESS_ANOMALY = 2;
-  ALERT_TYPE_FAILED_ACCESS = 3;
-  ALERT_TYPE_ROTATION_FAILURE = 4;
-  ALERT_TYPE_BACKUP_FAILURE = 5;
-  ALERT_TYPE_COMPLIANCE_VIOLATION = 6;
-  ALERT_TYPE_SECURITY_INCIDENT = 7;
-}
-
 ```
 
 ---
 
 ### approval_info.proto {#approval_info}
 
-**Path**: `pkg/config/proto/approval_info.proto` **Package**: `gcommon.v1.config` **Lines**: 42
+**Path**: `gcommon/v1/config/approval_info.proto` **Package**: `gcommon.v1.config` **Lines**: 41
 
 **Messages** (1): `ApprovalInfo`
 
-**Imports** (7):
+**Imports** (4):
 
+- `gcommon/v1/common/approval_status.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/approval_status.proto`
-- `pkg/config/proto/audit_operation_type.proto` → [config_events](./config_events.md#audit_operation_type)
-- `pkg/config/proto/rollback_method.proto`
-- `pkg/config/proto/validation_result_type.proto` → [config_2](./config_2.md#validation_result_type)
-- `pkg/config/proto/validation_severity.proto` → [config_2](./config_2.md#validation_severity)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/approval_info.proto
+// file: proto/gcommon/v1/config/approval_info.proto
 // version: 1.0.0
 // guid: 28dbf45a-ffed-40b5-8bad-30879b48ddcd
 
@@ -310,23 +206,20 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/approval_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/approval_status.proto";
-import "pkg/config/proto/audit_operation_type.proto";
-import "pkg/config/proto/rollback_method.proto";
-import "pkg/config/proto/validation_result_type.proto";
-import "pkg/config/proto/validation_severity.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ApprovalInfo {
   // Whether approval was required
   bool required = 1;
 
   // Approval status
-  ApprovalStatus status = 2;
+  gcommon.v1.common.ApprovalStatus status = 2;
 
   // User who approved
   string approved_by = 3;
@@ -341,35 +234,30 @@ message ApprovalInfo {
   string workflow_id = 6;
 
   // Approval policy applied
-  string policy_name = 7;
+  string policy_name = 7 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 }
-
 ```
 
 ---
 
 ### approval_requirement.proto {#approval_requirement}
 
-**Path**: `pkg/config/proto/approval_requirement.proto` **Package**: `gcommon.v1.config` **Lines**: 47
+**Path**: `gcommon/v1/config/approval_requirement.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
 **Messages** (1): `ApprovalRequirement`
 
-**Imports** (9):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto`
-- `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
-- `pkg/config/proto/deprecation_level.proto`
-- `pkg/config/proto/metadata_status.proto`
-- `pkg/config/proto/notification_trigger.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/approval_requirement.proto
+// file: proto/gcommon/v1/config/approval_requirement.proto
 // version: 1.0.0
 // guid: 54ae6b55-a574-4ad5-89ea-9cadf541517a
 
@@ -378,367 +266,371 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/audit_level.proto";
-import "pkg/config/proto/backup_frequency.proto";
-import "pkg/config/proto/channel_type.proto";
-import "pkg/config/proto/config_data_type.proto";
-import "pkg/config/proto/deprecation_level.proto";
-import "pkg/config/proto/metadata_status.proto";
-import "pkg/config/proto/notification_trigger.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ApprovalRequirement {
   // Whether approval is required
   bool required = 1;
 
   // Number of approvals required
-  int32 approval_count = 2;
+  int32 approval_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // Required approver roles
-  repeated string approver_roles = 3;
+  repeated string approver_roles = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Required approver users
-  repeated string approver_users = 4;
+  repeated string approver_users = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Approval policy
-  string policy = 5;
+  string policy = 5 [(buf.validate.field).string.min_len = 1];
 
   // Approval workflow
-  string workflow = 6;
+  string workflow = 6 [(buf.validate.field).string.min_len = 1];
 
   // Auto-approval conditions
-  repeated string auto_approval_conditions = 7;
+  repeated string auto_approval_conditions = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Approval timeout
-  int32 approval_timeout_hours = 8;
+  int32 approval_timeout_hours = 8 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
-### approval_status.proto {#approval_status}
+### approval_stage.proto {#approval_stage}
 
-**Path**: `pkg/config/proto/approval_status.proto` **Package**: `gcommon.v1.config` **Lines**: 37
+**Path**: `gcommon/v1/config/approval_stage.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Enums** (1): `ApprovalStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/approval_status.proto
-// version: 1.0.0
-// guid: a9b0c1d2-e3f4-5a6b-7c8d-9e0f1a2b3c4d
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * ApprovalStatus represents the approval status.
- * Specifies the current state of configuration change approval.
- */
-enum ApprovalStatus {
-  // Unspecified approval status
-  APPROVAL_STATUS_UNSPECIFIED = 0;
-
-  // Approval is pending
-  APPROVAL_STATUS_PENDING = 1;
-
-  // Change has been approved
-  APPROVAL_STATUS_APPROVED = 2;
-
-  // Change has been rejected
-  APPROVAL_STATUS_REJECTED = 3;
-
-  // Approval was cancelled
-  APPROVAL_STATUS_CANCELLED = 4;
-
-  // Approval request expired
-  APPROVAL_STATUS_EXPIRED = 5;
-}
-
-```
-
----
-
-### backoff_strategy.proto {#backoff_strategy}
-
-**Path**: `pkg/config/proto/backoff_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `BackoffStrategy`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/backoff_strategy.proto
-// version: 1.0.0
-// guid: 5aec3abd-38af-4436-a59a-c4140f44a461
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum BackoffStrategy {
-  BACKOFF_STRATEGY_UNSPECIFIED = 0;
-  BACKOFF_STRATEGY_FIXED = 1;
-  BACKOFF_STRATEGY_LINEAR = 2;
-  BACKOFF_STRATEGY_EXPONENTIAL = 3;
-  BACKOFF_STRATEGY_CUSTOM = 4;
-}
-
-```
-
----
-
-### backup_frequency.proto {#backup_frequency}
-
-**Path**: `pkg/config/proto/backup_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `BackupFrequency`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/backup_frequency.proto
-// version: 1.0.0
-// guid: 4efc5d0f-be87-47e1-8f01-f42fa2926368
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum BackupFrequency {
-  BACKUP_FREQUENCY_UNSPECIFIED = 0;
-  BACKUP_FREQUENCY_MANUAL = 1;
-  BACKUP_FREQUENCY_HOURLY = 2;
-  BACKUP_FREQUENCY_DAILY = 3;
-  BACKUP_FREQUENCY_WEEKLY = 4;
-  BACKUP_FREQUENCY_MONTHLY = 5;
-  BACKUP_FREQUENCY_ON_CHANGE = 6;
-}
-
-```
-
----
-
-### cache_invalidation_trigger.proto {#cache_invalidation_trigger}
-
-**Path**: `pkg/config/proto/cache_invalidation_trigger.proto` **Package**: `gcommon.v1.config` **Lines**: 24
-
-**Enums** (1): `CacheInvalidationTrigger`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/cache_invalidation_trigger.proto
-// version: 1.0.0
-// guid: b09e744e-1475-4fcb-a8cc-0d121530e6b7
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum CacheInvalidationTrigger {
-  CACHE_INVALIDATION_TRIGGER_UNSPECIFIED = 0;
-  CACHE_INVALIDATION_TRIGGER_CHANGE = 1;
-  CACHE_INVALIDATION_TRIGGER_DELETE = 2;
-  CACHE_INVALIDATION_TRIGGER_EXPIRE = 3;
-  CACHE_INVALIDATION_TRIGGER_MANUAL = 4;
-  CACHE_INVALIDATION_TRIGGER_SCHEDULE = 5;
-}
-
-```
-
----
-
-### cache_refresh_strategy.proto {#cache_refresh_strategy}
-
-**Path**: `pkg/config/proto/cache_refresh_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `CacheRefreshStrategy`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/cache_refresh_strategy.proto
-// version: 1.0.0
-// guid: c38dfb62-6d18-4f59-a901-6c4b5e659952
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum CacheRefreshStrategy {
-  CACHE_REFRESH_STRATEGY_UNSPECIFIED = 0;
-  CACHE_REFRESH_STRATEGY_TTL = 1;
-  CACHE_REFRESH_STRATEGY_LAZY = 2;
-  CACHE_REFRESH_STRATEGY_PROACTIVE = 3;
-  CACHE_REFRESH_STRATEGY_BACKGROUND = 4;
-}
-
-```
-
----
-
-### change_type.proto {#change_type}
-
-**Path**: `pkg/config/proto/change_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
-
-**Enums** (1): `ChangeType`
+**Messages** (1): `ApprovalStage`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/change_type.proto
+// file: proto/gcommon/v1/config/approval_stage.proto
 // version: 1.0.0
-// guid: 0e330584-b155-45f0-8c79-0aa19e9aa30e
+// guid: 40bf0e9f-ef92-44c7-94fe-0b5f3ac6e653
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum ChangeType {
-  CHANGE_TYPE_UNSPECIFIED = 0;
-  CHANGE_TYPE_FEATURE = 1;
-  CHANGE_TYPE_BUGFIX = 2;
-  CHANGE_TYPE_ENHANCEMENT = 3;
-  CHANGE_TYPE_DEPRECATED = 4;
-  CHANGE_TYPE_SECURITY = 5;
-  CHANGE_TYPE_BREAKING = 6;
+message ApprovalStage {
+  // Stage name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Required approvers
+  repeated string approvers = 2;
+
+  // Required approvals
+  int32 required_approvals = 3;
+
+  // Stage conditions
+  repeated string conditions = 4;
+
+  // Stage timeout
+  int32 timeout_hours = 5;
+
+  // Stage order
+  int32 order = 6;
 }
-
 ```
 
 ---
 
-### channel_type.proto {#channel_type}
+### approval_workflow.proto {#approval_workflow}
 
-**Path**: `pkg/config/proto/channel_type.proto` **Package**: `gcommon.v1.config` **Lines**: 25
+**Path**: `gcommon/v1/config/approval_workflow.proto` **Package**: `gcommon.v1.config` **Lines**: 35
 
-**Enums** (1): `ChannelType`
+**Messages** (1): `ApprovalWorkflow`
 
-**Imports** (1):
+**Imports** (3):
 
+- `gcommon/v1/config/approval_stage.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/channel_type.proto
+// file: proto/gcommon/v1/config/approval_workflow.proto
 // version: 1.0.0
-// guid: 6f6a3985-1560-40b0-b6d5-b2985349b649
+// guid: b19bfc28-1770-4f3d-a1d5-cb8f6e45ad88
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/config/approval_stage.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ApprovalWorkflow {
+  // Workflow enabled
+  bool enabled = 1;
+
+  // Workflow type
+  string type = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Approval stages
+  repeated gcommon.v1.config.ApprovalStage stages = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Workflow timeout
+  int32 timeout_hours = 4 [(buf.validate.field).int32.gt = 0];
+
+  // Workflow conditions
+  repeated string conditions = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Workflow notifications
+  repeated string notifications = 6 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### audit_settings.proto {#audit_settings}
+
+**Path**: `gcommon/v1/config/audit_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 38
+
+**Messages** (1): `AuditSettings`
+
+**Imports** (3):
+
+- `gcommon/v1/common/audit_level.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/audit_settings.proto
+// version: 1.0.0
+// guid: be3f66f2-0951-46ae-b393-e44f8132948b
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/audit_level.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message AuditSettings {
+  // Whether audit logging is enabled
+  bool enabled = 1;
+
+  // Audit log level
+  gcommon.v1.common.AuditLevel level = 2;
+
+  // Audit log retention period in days
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Whether to include sensitive data in audit logs
+  bool include_sensitive_data = 4;
+
+  // External audit destinations
+  repeated string destinations = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Audit log format
+  string format = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Additional audit metadata
+  map<string, string> metadata = 7;
+}
+```
+
+---
+
+### batching_settings.proto {#batching_settings}
+
+**Path**: `gcommon/v1/config/batching_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 28
+
+**Messages** (1): `BatchingSettings`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/batching_settings.proto
+// version: 1.0.0
+// guid: 2814da2b-956d-4e34-b87c-7bf8c1bceb5e
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum ChannelType {
-  CHANNEL_TYPE_UNSPECIFIED = 0;
-  CHANNEL_TYPE_EMAIL = 1;
-  CHANNEL_TYPE_SLACK = 2;
-  CHANNEL_TYPE_WEBHOOK = 3;
-  CHANNEL_TYPE_SMS = 4;
-  CHANNEL_TYPE_PAGERDUTY = 5;
-  CHANNEL_TYPE_TEAMS = 6;
-  CHANNEL_TYPE_DISCORD = 7;
-  CHANNEL_TYPE_JIRA = 8;
+message BatchingSettings {
+  // Whether batching is enabled
+  bool enabled = 1;
+
+  // Batch size
+  int32 batch_size = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Batch timeout in minutes
+  int32 timeout_minutes = 3 [(buf.validate.field).int32.gt = 0];
+
+  // Batch grouping key
+  string grouping_key = 4 [(buf.validate.field).string.min_len = 1];
 }
+```
 
+---
+
+### caching_settings.proto {#caching_settings}
+
+**Path**: `gcommon/v1/config/caching_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 33
+
+**Messages** (1): `CachingSettings`
+
+**Imports** (4):
+
+- `gcommon/v1/common/cache_invalidation_trigger.proto`
+- `gcommon/v1/common/cache_refresh_strategy.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/caching_settings.proto
+// version: 1.0.0
+// guid: 2c6f8039-2855-4a31-884a-4d66d71cf897
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/cache_invalidation_trigger.proto";
+import "gcommon/v1/common/cache_refresh_strategy.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message CachingSettings {
+  // Whether caching is enabled
+  bool enabled = 1;
+
+  // Cache TTL in seconds
+  int32 ttl_seconds = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Cache refresh strategy
+  gcommon.v1.common.CacheRefreshStrategy refresh_strategy = 3;
+
+  // Cache invalidation triggers
+  repeated gcommon.v1.common.CacheInvalidationTrigger triggers = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Cache metadata
+  map<string, string> metadata = 5;
+}
+```
+
+---
+
+### compliance_audit.proto {#compliance_audit}
+
+**Path**: `gcommon/v1/config/compliance_audit.proto` **Package**: `gcommon.v1.config` **Lines**: 33
+
+**Messages** (1): `ComplianceAudit`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/compliance_audit.proto
+// version: 1.0.0
+// guid: d3e4f5a6-7b8c-9012-def0-345678901234
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ComplianceAudit {
+  // Audit ID
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Audit name
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Audit type
+  string type = 3;
+
+  // Audit enabled status
+  bool enabled = 4;
+}
 ```
 
 ---
 
 ### compliance_reporting.proto {#compliance_reporting}
 
-**Path**: `pkg/config/proto/compliance_reporting.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/compliance_reporting.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `ComplianceReporting`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/compliance_reporting.proto
+// file: proto/gcommon/v1/config/compliance_reporting.proto
 // version: 1.0.0
 // guid: e4f5a6b7-8c9d-0123-ef01-456789012345
 
@@ -747,230 +639,216 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message ComplianceReporting {
   // Reporting enabled status
   bool enabled = 1;
 
   // Report frequency in hours
-  int32 frequency_hours = 2;
+  int32 frequency_hours = 2 [(buf.validate.field).int32.gte = 0];
 
   // Report recipients
-  repeated string recipients = 3;
+  repeated string recipients = 3 [(buf.validate.field).repeated.min_items = 1];
 }
-
 ```
 
 ---
 
-### compression_type.proto {#compression_type}
+### compliance_settings.proto {#compliance_settings}
 
-**Path**: `pkg/config/proto/compression_type.proto` **Package**: `gcommon.v1.config` **Lines**: 22
+**Path**: `gcommon/v1/config/compliance_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Enums** (1): `CompressionType`
+**Messages** (1): `ConfigComplianceSettings`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/config/compliance_audit.proto`
+- `gcommon/v1/config/compliance_reporting.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/compression_type.proto
+// file: proto/gcommon/v1/config/v1/compliance_settings.proto
 // version: 1.0.0
-// guid: 78a4e05d-1bca-4728-ae76-18aba9fd52d8
+// guid: 55ae9eb4-4811-4e34-89e6-b2c7f128297e
 
 edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/config/compliance_audit.proto";
+import "gcommon/v1/config/compliance_reporting.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum CompressionType {
-  COMPRESSION_TYPE_UNSPECIFIED = 0;
-  COMPRESSION_TYPE_NONE = 1;
-  COMPRESSION_TYPE_GZIP = 2;
-  COMPRESSION_TYPE_LZ4 = 3;
-  COMPRESSION_TYPE_ZSTD = 4;
+message ConfigComplianceSettings {
+  // Compliance frameworks
+  repeated string frameworks = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance policies
+  repeated string policies = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance audits
+  repeated gcommon.v1.config.ComplianceAudit audits = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance reporting
+  gcommon.v1.config.ComplianceReporting reporting = 4;
+
+  // Compliance validation
+  bool validation_enabled = 5;
+
+  // Compliance metadata
+  map<string, string> metadata = 6;
 }
-
 ```
 
 ---
 
-### conflict_resolution.proto {#conflict_resolution}
+### deployment_info.proto {#deployment_info}
 
-**Path**: `pkg/config/proto/conflict_resolution.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/deployment_info.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Enums** (1): `ConflictResolution`
+**Messages** (1): `DeploymentInfo`
+
+**Imports** (6):
+
+- `gcommon/v1/common/deployment_status.proto`
+- `gcommon/v1/config/deployment_rollback_info.proto`
+- `gcommon/v1/config/health_check.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/deployment_info.proto
+// version: 1.0.0
+// guid: 07fcdb63-0b96-42e8-ab5e-6656870d6f03
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/deployment_status.proto";
+import "gcommon/v1/config/deployment_rollback_info.proto";
+import "gcommon/v1/config/health_check.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message DeploymentInfo {
+  // Deployment status
+  gcommon.v1.common.DeploymentStatus status = 1;
+
+  // Last deployment timestamp
+  google.protobuf.Timestamp last_deployed_at = 2;
+
+  // Deployment version
+  string version = 3 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+
+  // Deployment method
+  string method = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Deployment target
+  string target = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Deployment configuration
+  map<string, string> config = 6;
+
+  // Deployment health checks
+  repeated HealthCheck health_checks = 7 [(buf.validate.field).repeated.min_items = 1];
+
+  // Deployment rollback info
+  DeploymentRollbackInfo rollback_info = 8;
+}
+```
+
+---
+
+### deployment_rollback_info.proto {#deployment_rollback_info}
+
+**Path**: `gcommon/v1/config/deployment_rollback_info.proto` **Package**: `gcommon.v1.config` **Lines**: 32
+
+**Messages** (1): `DeploymentRollbackInfo`
 
 **Imports** (3):
 
-- `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/conflict_resolution.proto
+// file: proto/gcommon/v1/config/deployment_rollback_info.proto
 // version: 1.0.0
-// guid: 8535d30e-d232-4d73-9362-10e717955b66
+// guid: a7d7152b-5b23-4a12-aa77-0914b3db2822
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum ConflictResolution {
-  CONFLICT_RESOLUTION_UNSPECIFIED = 0;
-  CONFLICT_RESOLUTION_SOURCE_WINS = 1;
-  CONFLICT_RESOLUTION_TARGET_WINS = 2;
-  CONFLICT_RESOLUTION_MERGE = 3;
-  CONFLICT_RESOLUTION_MANUAL = 4;
-  CONFLICT_RESOLUTION_TIMESTAMP = 5;
+message DeploymentRollbackInfo {
+  // Rollback available
+  bool available = 1;
+
+  // Previous version
+  string previous_version = 2 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+
+  // Rollback timestamp
+  google.protobuf.Timestamp rollback_timestamp = 3;
+
+  // Rollback reason
+  string reason = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Rollback method
+  string method = 5 [(buf.validate.field).string.min_len = 1];
 }
-
-```
-
----
-
-### dependency_type.proto {#dependency_type}
-
-**Path**: `pkg/config/proto/dependency_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
-
-**Enums** (1): `DependencyType`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/dependency_type.proto
-// version: 1.0.0
-// guid: 0dbbaf99-12ad-49af-8747-0eb055671d35
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum DependencyType {
-  DEPENDENCY_TYPE_UNSPECIFIED = 0;
-  DEPENDENCY_TYPE_REQUIRED = 1;
-  DEPENDENCY_TYPE_OPTIONAL = 2;
-  DEPENDENCY_TYPE_CONDITIONAL = 3;
-  DEPENDENCY_TYPE_DERIVED = 4;
-  DEPENDENCY_TYPE_CONFLICT = 5;
-}
-
-```
-
----
-
-### deployment_status.proto {#deployment_status}
-
-**Path**: `pkg/config/proto/deployment_status.proto` **Package**: `gcommon.v1.config` **Lines**: 40
-
-**Enums** (1): `DeploymentStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/deployment_status.proto
-// version: 1.0.0
-// guid: e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * DeploymentStatus represents the status of a deployment.
- * Specifies the current state of configuration deployment operations.
- */
-enum DeploymentStatus {
-  // Unspecified deployment status
-  DEPLOYMENT_STATUS_UNSPECIFIED = 0;
-
-  // Deployment is pending
-  DEPLOYMENT_STATUS_PENDING = 1;
-
-  // Deployment is in progress
-  DEPLOYMENT_STATUS_IN_PROGRESS = 2;
-
-  // Deployment completed successfully
-  DEPLOYMENT_STATUS_SUCCESS = 3;
-
-  // Deployment failed
-  DEPLOYMENT_STATUS_FAILED = 4;
-
-  // Deployment was rolled back
-  DEPLOYMENT_STATUS_ROLLED_BACK = 5;
-
-  // Deployment was cancelled
-  DEPLOYMENT_STATUS_CANCELLED = 6;
-}
-
 ```
 
 ---
 
 ### deprecation_info.proto {#deprecation_info}
 
-**Path**: `pkg/config/proto/deprecation_info.proto` **Package**: `gcommon.v1.config` **Lines**: 44
+**Path**: `gcommon/v1/config/deprecation_info.proto` **Package**: `gcommon.v1.config` **Lines**: 39
 
 **Messages** (1): `DeprecationInfo`
 
-**Imports** (9):
+**Imports** (4):
 
+- `gcommon/v1/common/deprecation_level.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto`
-- `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
-- `pkg/config/proto/deprecation_level.proto`
-- `pkg/config/proto/metadata_status.proto`
-- `pkg/config/proto/notification_trigger.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/deprecation_info.proto
+// file: proto/gcommon/v1/config/deprecation_info.proto
 // version: 1.0.0
 // guid: 8431c848-ce8a-41cf-9848-ee052647463a
 
@@ -978,506 +856,282 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/deprecation_level.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/audit_level.proto";
-import "pkg/config/proto/backup_frequency.proto";
-import "pkg/config/proto/channel_type.proto";
-import "pkg/config/proto/config_data_type.proto";
-import "pkg/config/proto/deprecation_level.proto";
-import "pkg/config/proto/metadata_status.proto";
-import "pkg/config/proto/notification_trigger.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message DeprecationInfo {
   // Whether the configuration is deprecated
   bool deprecated = 1;
 
   // Deprecation reason
-  string reason = 2;
+  string reason = 2 [(buf.validate.field).string.min_len = 1];
 
   // Deprecation date
   google.protobuf.Timestamp deprecated_at = 3;
 
   // Replacement configuration key
-  string replacement_key = 4;
+  string replacement_key = 4 [(buf.validate.field).string.min_len = 1];
 
   // Removal date
   google.protobuf.Timestamp removal_date = 5;
 
   // Migration guide
-  string migration_guide = 6;
+  string migration_guide = 6 [(buf.validate.field).string.min_len = 1];
 
   // Deprecation level
-  DeprecationLevel level = 7;
+  gcommon.v1.common.DeprecationLevel level = 7;
 }
-
 ```
 
 ---
 
-### deprecation_level.proto {#deprecation_level}
+### encryption_settings.proto {#encryption_settings}
 
-**Path**: `pkg/config/proto/deprecation_level.proto` **Package**: `gcommon.v1.config` **Lines**: 20
+**Path**: `gcommon/v1/config/encryption_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Enums** (1): `DeprecationLevel`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/deprecation_level.proto
-// version: 1.0.0
-// guid: 0a330fa1-9f33-458b-a37e-aeed96ad7530
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum DeprecationLevel {
-  DEPRECATION_LEVEL_UNSPECIFIED = 0;
-  DEPRECATION_LEVEL_SOFT = 1; // Soft deprecation (warning)
-  DEPRECATION_LEVEL_HARD = 2; // Hard deprecation (error)
-  DEPRECATION_LEVEL_REMOVAL = 3; // Scheduled for removal
-}
-
-```
-
----
-
-### environment_status.proto {#environment_status}
-
-**Path**: `pkg/config/proto/environment_status.proto` **Package**: `gcommon.v1.config` **Lines**: 40
-
-**Enums** (1): `EnvironmentStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/environment_status.proto
-// version: 1.0.0
-// guid: d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * EnvironmentStatus represents the status of an environment.
- * Specifies the current operational state of a configuration environment.
- */
-enum EnvironmentStatus {
-  // Unspecified environment status
-  ENVIRONMENT_STATUS_UNSPECIFIED = 0;
-
-  // Environment is active and operational
-  ENVIRONMENT_STATUS_ACTIVE = 1;
-
-  // Environment is inactive
-  ENVIRONMENT_STATUS_INACTIVE = 2;
-
-  // Environment is under maintenance
-  ENVIRONMENT_STATUS_MAINTENANCE = 3;
-
-  // Environment is deprecated
-  ENVIRONMENT_STATUS_DEPRECATED = 4;
-
-  // Environment is archived
-  ENVIRONMENT_STATUS_ARCHIVED = 5;
-
-  // Environment is in error state
-  ENVIRONMENT_STATUS_ERROR = 6;
-}
-
-```
-
----
-
-### environment_type.proto {#environment_type}
-
-**Path**: `pkg/config/proto/environment_type.proto` **Package**: `gcommon.v1.config` **Lines**: 52
-
-**Enums** (1): `EnvironmentType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/environment_type.proto
-// version: 1.0.0
-// guid: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * EnvironmentType represents the type of environment.
- * Specifies the purpose and classification of configuration environments.
- */
-enum EnvironmentType {
-  // Unspecified environment type
-  ENVIRONMENT_TYPE_UNSPECIFIED = 0;
-
-  // Development environment
-  ENVIRONMENT_TYPE_DEVELOPMENT = 1;
-
-  // Testing environment
-  ENVIRONMENT_TYPE_TESTING = 2;
-
-  // Staging environment
-  ENVIRONMENT_TYPE_STAGING = 3;
-
-  // Production environment
-  ENVIRONMENT_TYPE_PRODUCTION = 4;
-
-  // Sandbox environment for experimentation
-  ENVIRONMENT_TYPE_SANDBOX = 5;
-
-  // Canary deployment environment
-  ENVIRONMENT_TYPE_CANARY = 6;
-
-  // Disaster recovery environment
-  ENVIRONMENT_TYPE_DISASTER_RECOVERY = 7;
-
-  // Integration testing environment
-  ENVIRONMENT_TYPE_INTEGRATION = 8;
-
-  // Performance testing environment
-  ENVIRONMENT_TYPE_PERFORMANCE = 9;
-
-  // Security testing environment
-  ENVIRONMENT_TYPE_SECURITY = 10;
-}
-
-```
-
----
-
-### filter_action.proto {#filter_action}
-
-**Path**: `pkg/config/proto/filter_action.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `FilterAction`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/filter_action.proto
-// version: 1.0.0
-// guid: 733209f2-fa3d-471a-b3c3-260adaecd3a2
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum FilterAction {
-  FILTER_ACTION_UNSPECIFIED = 0;
-  FILTER_ACTION_INCLUDE = 1;
-  FILTER_ACTION_EXCLUDE = 2;
-  FILTER_ACTION_TRANSFORM = 3;
-  FILTER_ACTION_VALIDATE = 4;
-}
-
-```
-
----
-
-### filter_type.proto {#filter_type}
-
-**Path**: `pkg/config/proto/filter_type.proto` **Package**: `gcommon.v1.config` **Lines**: 26
-
-**Enums** (1): `FilterType`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/filter_type.proto
-// version: 1.0.0
-// guid: b6d065a7-715d-45d0-baa4-b09e53b470b5
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum FilterType {
-  FILTER_TYPE_UNSPECIFIED = 0;
-  FILTER_TYPE_KEY_PATTERN = 1;
-  FILTER_TYPE_VALUE_PATTERN = 2;
-  FILTER_TYPE_ENVIRONMENT = 3;
-  FILTER_TYPE_SERVICE = 4;
-  FILTER_TYPE_COMPONENT = 5;
-  FILTER_TYPE_TAG = 6;
-  FILTER_TYPE_CUSTOM = 7;
-}
-
-```
-
----
-
-### health_check_type.proto {#health_check_type}
-
-**Path**: `pkg/config/proto/health_check_type.proto` **Package**: `gcommon.v1.config` **Lines**: 43
-
-**Enums** (1): `HealthCheckType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/health_check_type.proto
-// version: 1.0.0
-// guid: f4a5b6c7-d8e9-0f1a-2b3c-4d5e6f7a8b9c
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * HealthCheckType represents the type of health check.
- * Specifies the protocol and method used for environment health checks.
- */
-enum HealthCheckType {
-  // Unspecified health check type
-  HEALTH_CHECK_TYPE_UNSPECIFIED = 0;
-
-  // HTTP health check
-  HEALTH_CHECK_TYPE_HTTP = 1;
-
-  // HTTPS health check
-  HEALTH_CHECK_TYPE_HTTPS = 2;
-
-  // TCP connection health check
-  HEALTH_CHECK_TYPE_TCP = 3;
-
-  // UDP connection health check
-  HEALTH_CHECK_TYPE_UDP = 4;
-
-  // gRPC health check
-  HEALTH_CHECK_TYPE_GRPC = 5;
-
-  // Database health check
-  HEALTH_CHECK_TYPE_DATABASE = 6;
-
-  // Custom health check
-  HEALTH_CHECK_TYPE_CUSTOM = 7;
-}
-
-```
-
----
-
-### health_state.proto {#health_state}
-
-**Path**: `pkg/config/proto/health_state.proto` **Package**: `gcommon.v1.config` **Lines**: 34
-
-**Enums** (1): `HealthState`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/health_state.proto
-// version: 1.0.0
-// guid: a5b6c7d8-e9f0-1a2b-3c4d-5e6f7a8b9c0d
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * HealthState represents the state of health.
- * Specifies the current health condition of environment components.
- */
-enum HealthState {
-  // Unspecified health state
-  HEALTH_STATE_UNSPECIFIED = 0;
-
-  // Component is healthy
-  HEALTH_STATE_HEALTHY = 1;
-
-  // Component is degraded but functional
-  HEALTH_STATE_DEGRADED = 2;
-
-  // Component is unhealthy
-  HEALTH_STATE_UNHEALTHY = 3;
-
-  // Health state is unknown
-  HEALTH_STATE_UNKNOWN = 4;
-}
-
-```
-
----
-
-### hook_error_handling.proto {#hook_error_handling}
-
-**Path**: `pkg/config/proto/hook_error_handling.proto` **Package**: `gcommon.v1.config` **Lines**: 21
-
-**Enums** (1): `HookErrorHandling`
+**Messages** (1): `EncryptionSettings`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/hook_error_handling.proto
+// file: proto/gcommon/v1/config/v1/encryption_settings.proto
 // version: 1.0.0
-// guid: f5c075fd-6a9f-4072-bea8-ee82bb35c1b5
+// guid: 60653f55-24f4-4171-936f-a6c0643044de
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum HookErrorHandling {
-  HOOK_ERROR_HANDLING_UNSPECIFIED = 0;
-  HOOK_ERROR_HANDLING_IGNORE = 1;
-  HOOK_ERROR_HANDLING_WARN = 2;
-  HOOK_ERROR_HANDLING_FAIL = 3;
+message EncryptionSettings {
+  // Encryption enabled
+  bool enabled = 1;
+
+  // Encryption provider
+  string provider = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Encryption key
+  string key_id = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Encryption algorithm
+  string algorithm = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Encryption mode
+  string mode = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Encryption configuration
+  map<string, string> config = 6;
 }
-
 ```
 
 ---
 
-### hook_type.proto {#hook_type}
+### health_check.proto {#health_check}
 
-**Path**: `pkg/config/proto/hook_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/health_check.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Enums** (1): `HookType`
+**Messages** (1): `HealthCheck`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/health_check_type.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/hook_type.proto
+// file: proto/gcommon/v1/config/health_check.proto
 // version: 1.0.0
-// guid: a9982046-4cf7-4320-91ff-66f4b56b6258
+// guid: a4cee3ca-9b9b-4b61-bc58-0a9b8d4fa96f
 
 edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/health_check_type.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum HookType {
-  HOOK_TYPE_UNSPECIFIED = 0;
-  HOOK_TYPE_PRE_RENDER = 1;
-  HOOK_TYPE_POST_RENDER = 2;
-  HOOK_TYPE_PRE_APPLY = 3;
-  HOOK_TYPE_POST_APPLY = 4;
-  HOOK_TYPE_PRE_VALIDATE = 5;
-  HOOK_TYPE_POST_VALIDATE = 6;
+message HealthCheck {
+  // Health check name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Health check type
+  gcommon.v1.common.HealthCheckType type = 2;
+
+  // Health check endpoint
+  string endpoint = 3;
+
+  // Health check interval
+  int32 interval_seconds = 4;
+
+  // Health check timeout
+  int32 timeout_seconds = 5;
+
+  // Health check retries
+  int32 retries = 6;
+
+  // Health check conditions
+  repeated string conditions = 7;
 }
+```
 
+---
+
+### health_check_result.proto {#health_check_result}
+
+**Path**: `gcommon/v1/config/health_check_result.proto` **Package**: `gcommon.v1.config` **Lines**: 38
+
+**Messages** (1): `ConfigHealthCheckResult`
+
+**Imports** (4):
+
+- `gcommon/v1/common/health_state.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/health_check_result.proto
+// version: 1.0.0
+// guid: 5a4b2cbd-08cd-42f3-9fbb-b55de4ffd527
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/health_state.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ConfigHealthCheckResult {
+  // Health check name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Health check status
+  gcommon.v1.common.HealthState status = 2;
+
+  // Health check message
+  string message = 3;
+
+  // Health check timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Health check duration
+  int32 duration_ms = 5;
+
+  // Health check details
+  map<string, string> details = 6;
+}
+```
+
+---
+
+### health_status.proto {#health_status}
+
+**Path**: `gcommon/v1/config/health_status.proto` **Package**: `gcommon.v1.config` **Lines**: 34
+
+**Messages** (1): `ConfigHealthStatus`
+
+**Imports** (5):
+
+- `gcommon/v1/common/health_state.proto`
+- `gcommon/v1/config/health_check_result.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/health_status.proto
+// version: 1.0.0
+// guid: 0be35195-6cee-4fad-b426-eddc99a61e0c
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/health_state.proto";
+import "gcommon/v1/config/health_check_result.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ConfigHealthStatus {
+  // Overall health
+  gcommon.v1.common.HealthState overall = 1;
+
+  // Component health
+  map<string, gcommon.v1.common.HealthState> components = 2;
+
+  // Health checks
+  repeated ConfigHealthCheckResult health_checks = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Last health check
+  google.protobuf.Timestamp last_check = 4;
+
+  // Health metrics
+  map<string, double> metrics = 5;
+}
 ```
 
 ---
 
 ### inheritance_filter.proto {#inheritance_filter}
 
-**Path**: `pkg/config/proto/inheritance_filter.proto` **Package**: `gcommon.v1.config` **Lines**: 31
+**Path**: `gcommon/v1/config/inheritance_filter.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `InheritanceFilter`
 
-**Imports** (5):
+**Imports** (4):
 
-- `google/protobuf/any.proto`
+- `gcommon/v1/common/filter_action.proto`
+- `gcommon/v1/common/filter_type.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/filter_action.proto`
-- `pkg/config/proto/filter_type.proto` → [log](./log.md#filter_type)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/inheritance_filter.proto
+// file: proto/gcommon/v1/config/inheritance_filter.proto
 // version: 1.0.0
 // guid: 0cda004b-8fb1-47de-a58b-fb17ec38d92f
 
@@ -1485,93 +1139,114 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/any.proto";
+import "gcommon/v1/common/filter_action.proto";
+import "gcommon/v1/common/filter_type.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/filter_action.proto";
-import "pkg/config/proto/filter_type.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message InheritanceFilter {
   // Filter type
-  FilterType type = 1;
+  gcommon.v1.common.LogFilterType type = 1;
 
   // Filter expression
-  string expression = 2;
+  string expression = 2 [(buf.validate.field).string.min_len = 1];
 
   // Filter action
-  FilterAction action = 3;
+  gcommon.v1.common.FilterAction action = 3;
 
   // Filter metadata
   map<string, string> metadata = 4;
 }
-
 ```
 
 ---
 
-### inheritance_strategy.proto {#inheritance_strategy}
+### inheritance_settings.proto {#inheritance_settings}
 
-**Path**: `pkg/config/proto/inheritance_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/inheritance_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Enums** (1): `InheritanceStrategy`
+**Messages** (1): `InheritanceSettings`
 
-**Imports** (3):
+**Imports** (6):
 
-- `google/protobuf/any.proto`
+- `gcommon/v1/common/inheritance_strategy.proto`
+- `gcommon/v1/common/merge_strategy.proto`
+- `gcommon/v1/config/inheritance_filter.proto`
+- `gcommon/v1/config/inheritance_transformation.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/inheritance_strategy.proto
+// file: proto/gcommon/v1/config/v1/inheritance_settings.proto
 // version: 1.0.0
-// guid: 8dc7386b-afe2-4d9d-804d-2286b8ae6cf7
+// guid: f7c6c365-e83d-4ae8-8166-fb86d2e3b6f0
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/any.proto";
+import "gcommon/v1/common/inheritance_strategy.proto";
+import "gcommon/v1/common/merge_strategy.proto";
+import "gcommon/v1/config/inheritance_filter.proto";
+import "gcommon/v1/config/inheritance_transformation.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum InheritanceStrategy {
-  INHERITANCE_STRATEGY_UNSPECIFIED = 0;
-  INHERITANCE_STRATEGY_OVERRIDE = 1;
-  INHERITANCE_STRATEGY_MERGE = 2;
-  INHERITANCE_STRATEGY_FALLBACK = 3;
-  INHERITANCE_STRATEGY_PRIORITY = 4;
-  INHERITANCE_STRATEGY_WEIGHTED = 5;
+message InheritanceSettings {
+  // Whether inheritance is enabled
+  bool enabled = 1;
+
+  // Inheritance strategy
+  gcommon.v1.common.InheritanceStrategy strategy = 2;
+
+  // Inheritance sources in order of priority
+  repeated string sources = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Inheritance filters
+  repeated InheritanceFilter filters = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Inheritance transformations
+  repeated InheritanceTransformation transformations = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether to merge inherited values
+  bool merge_values = 6;
+
+  // Merge strategy for complex values
+  gcommon.v1.common.MergeStrategy merge_strategy = 7;
+
+  // Inheritance metadata
+  map<string, string> metadata = 8;
 }
-
 ```
 
 ---
 
 ### inheritance_transformation.proto {#inheritance_transformation}
 
-**Path**: `pkg/config/proto/inheritance_transformation.proto` **Package**: `gcommon.v1.config` **Lines**: 30
+**Path**: `gcommon/v1/config/inheritance_transformation.proto` **Package**: `gcommon.v1.config` **Lines**: 29
 
 **Messages** (1): `InheritanceTransformation`
 
-**Imports** (4):
+**Imports** (3):
 
-- `google/protobuf/any.proto`
+- `gcommon/v1/common/transformation_type.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/transformation_type.proto` → [config_2](./config_2.md#transformation_type)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/inheritance_transformation.proto
+// file: proto/gcommon/v1/config/inheritance_transformation.proto
 // version: 1.0.0
 // guid: 9983db27-ce0c-4ed1-9433-20495b86b257
 
@@ -1579,20 +1254,20 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/any.proto";
+import "gcommon/v1/common/transformation_type.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/transformation_type.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message InheritanceTransformation {
   // Transformation type
-  TransformationType type = 1;
+  gcommon.v1.common.TransformationType type = 1;
 
   // Transformation expression
-  string expression = 2;
+  string expression = 2 [(buf.validate.field).string.min_len = 1];
 
   // Transformation parameters
   map<string, string> parameters = 3;
@@ -1600,110 +1275,25 @@ message InheritanceTransformation {
   // Transformation metadata
   map<string, string> metadata = 4;
 }
-
-```
-
----
-
-### merge_strategy.proto {#merge_strategy}
-
-**Path**: `pkg/config/proto/merge_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 26
-
-**Enums** (1): `MergeStrategy`
-
-**Imports** (3):
-
-- `google/protobuf/any.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/merge_strategy.proto
-// version: 1.0.0
-// guid: 559ca0d7-17d4-49ab-861d-febdc5862a47
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum MergeStrategy {
-  MERGE_STRATEGY_UNSPECIFIED = 0;
-  MERGE_STRATEGY_REPLACE = 1;
-  MERGE_STRATEGY_MERGE_DEEP = 2;
-  MERGE_STRATEGY_MERGE_SHALLOW = 3;
-  MERGE_STRATEGY_ARRAY_CONCAT = 4;
-  MERGE_STRATEGY_ARRAY_REPLACE = 5;
-  MERGE_STRATEGY_ARRAY_MERGE = 6;
-  MERGE_STRATEGY_CUSTOM = 7;
-}
-
-```
-
----
-
-### metadata_status.proto {#metadata_status}
-
-**Path**: `pkg/config/proto/metadata_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `MetadataStatus`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/metadata_status.proto
-// version: 1.0.0
-// guid: b82301c8-c50d-454c-a434-ae44d4199677
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum MetadataStatus {
-  METADATA_STATUS_UNSPECIFIED = 0;
-  METADATA_STATUS_ACTIVE = 1;
-  METADATA_STATUS_INACTIVE = 2;
-  METADATA_STATUS_DRAFT = 3;
-  METADATA_STATUS_DEPRECATED = 4;
-  METADATA_STATUS_DELETED = 5;
-  METADATA_STATUS_ERROR = 6;
-}
-
 ```
 
 ---
 
 ### monitoring_alert.proto {#monitoring_alert}
 
-**Path**: `pkg/config/proto/monitoring_alert.proto` **Package**: `gcommon.v1.config` **Lines**: 30
+**Path**: `gcommon/v1/config/monitoring_alert.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
 **Messages** (1): `MonitoringAlert`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/monitoring_alert.proto
+// file: proto/gcommon/v1/config/monitoring_alert.proto
 // version: 1.0.0
 // guid: a6b7c8d9-0e1f-2345-0123-678901234567
 
@@ -1712,16 +1302,23 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message MonitoringAlert {
   // Alert ID
-  string id = 1;
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
 
   // Alert name
-  string name = 2;
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Alert condition
   string condition = 3;
@@ -1732,33 +1329,77 @@ message MonitoringAlert {
   // Alert enabled status
   bool enabled = 5;
 }
+```
 
+---
+
+### monitoring_settings.proto {#monitoring_settings}
+
+**Path**: `gcommon/v1/config/monitoring_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 32
+
+**Messages** (1): `MonitoringSettings`
+
+**Imports** (3):
+
+- `gcommon/v1/config/monitoring_alert.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/monitoring_settings.proto
+// version: 1.0.0
+// guid: 1df1c6fa-7f81-4982-9c0e-040b1f0ad10f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/config/monitoring_alert.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message MonitoringSettings {
+  // Whether monitoring is enabled
+  bool enabled = 1;
+
+  // Monitoring alerts
+  repeated gcommon.v1.config.MonitoringAlert alerts = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Monitoring metrics
+  repeated string metrics = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Monitoring dashboard
+  string dashboard = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Monitoring retention period in days
+  int32 retention_days = 5 [(buf.validate.field).int32.gte = 0];
+}
 ```
 
 ---
 
 ### notification_channel.proto {#notification_channel}
 
-**Path**: `pkg/config/proto/notification_channel.proto` **Package**: `gcommon.v1.config` **Lines**: 35
+**Path**: `gcommon/v1/config/notification_channel.proto` **Package**: `gcommon.v1.config` **Lines**: 29
 
-**Messages** (1): `NotificationChannel`
+**Messages** (1): `ConfigNotificationChannel`
 
-**Imports** (9):
+**Imports** (3):
 
+- `gcommon/v1/common/channel_type.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto`
-- `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
-- `pkg/config/proto/deprecation_level.proto`
-- `pkg/config/proto/metadata_status.proto`
-- `pkg/config/proto/notification_trigger.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/notification_channel.proto
+// file: proto/gcommon/v1/config/notification_channel.proto
 // version: 1.0.0
 // guid: 81ed59c5-4e0f-499a-97c8-57a2a375fd75
 
@@ -1766,22 +1407,17 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/channel_type.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/audit_level.proto";
-import "pkg/config/proto/backup_frequency.proto";
-import "pkg/config/proto/channel_type.proto";
-import "pkg/config/proto/config_data_type.proto";
-import "pkg/config/proto/deprecation_level.proto";
-import "pkg/config/proto/metadata_status.proto";
-import "pkg/config/proto/notification_trigger.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-message NotificationChannel {
+message ConfigNotificationChannel {
   // Channel type
-  ChannelType type = 1;
+  gcommon.v1.common.ChannelType type = 1;
 
   // Channel configuration
   map<string, string> config = 2;
@@ -1790,165 +1426,154 @@ message NotificationChannel {
   bool enabled = 3;
 
   // Channel priority
-  int32 priority = 4;
+  int32 priority = 4 [(buf.validate.field).int32.gte = 0];
 }
-
 ```
 
 ---
 
-### notification_trigger.proto {#notification_trigger}
+### notification_settings.proto {#notification_settings}
 
-**Path**: `pkg/config/proto/notification_trigger.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/notification_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Enums** (1): `NotificationTrigger`
+**Messages** (1): `ConfigNotificationSettings`
 
-**Imports** (1):
+**Imports** (5):
 
+- `gcommon/v1/common/notification_trigger.proto`
+- `gcommon/v1/config/batching_settings.proto`
+- `gcommon/v1/config/notification_channel.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/notification_trigger.proto
+// file: proto/gcommon/v1/config/v1/notification_settings.proto
 // version: 1.0.0
-// guid: e23c0d82-9395-4a27-840c-5765e4aaffbb
+// guid: 4694674c-55fc-4ee7-8874-efe3ad5f1250
 
 edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/notification_trigger.proto";
+import "gcommon/v1/config/batching_settings.proto";
+import "gcommon/v1/config/notification_channel.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum NotificationTrigger {
-  NOTIFICATION_TRIGGER_UNSPECIFIED = 0;
-  NOTIFICATION_TRIGGER_CHANGE = 1;
-  NOTIFICATION_TRIGGER_DELETE = 2;
-  NOTIFICATION_TRIGGER_ERROR = 3;
-  NOTIFICATION_TRIGGER_APPROVAL = 4;
-  NOTIFICATION_TRIGGER_DEPLOYMENT = 5;
-  NOTIFICATION_TRIGGER_ROLLBACK = 6;
-  NOTIFICATION_TRIGGER_SCHEDULE = 7;
+message ConfigNotificationSettings {
+  // Whether notifications are enabled
+  bool enabled = 1;
+
+  // Notification channels
+  repeated ConfigNotificationChannel channels = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Notification triggers
+  repeated gcommon.v1.common.NotificationTrigger triggers = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Notification template
+  string template = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Notification recipients
+  repeated string recipients = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Notification delay in minutes
+  int32 delay_minutes = 6 [(buf.validate.field).int32.gte = 0];
+
+  // Notification batching settings
+  BatchingSettings batching = 7;
 }
-
 ```
 
 ---
 
-### parameter_constraints.proto {#parameter_constraints}
+### promotion_rule.proto {#promotion_rule}
 
-**Path**: `pkg/config/proto/parameter_constraints.proto` **Package**: `gcommon.v1.config` **Lines**: 30
+**Path**: `gcommon/v1/config/promotion_rule.proto` **Package**: `gcommon.v1.config` **Lines**: 48
 
-**Messages** (1): `ParameterConstraints`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/parameter_constraints.proto
-// version: 1.0.0
-// guid: c8d9e0f1-2345-6789-2345-890123456789
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-message ParameterConstraints {
-  // Minimum value
-  string min_value = 1;
-
-  // Maximum value
-  string max_value = 2;
-
-  // Pattern validation
-  string pattern = 3;
-
-  // Required flag
-  bool required = 4;
-
-  // Default value
-  string default_value = 5;
-}
-
-```
-
----
-
-### parameter_type.proto {#parameter_type}
-
-**Path**: `pkg/config/proto/parameter_type.proto` **Package**: `gcommon.v1.config` **Lines**: 32
-
-**Enums** (1): `ParameterType`
+**Messages** (1): `PromotionRule`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/parameter_type.proto
+// file: proto/gcommon/v1/config/promotion_rule.proto
 // version: 1.0.0
-// guid: ef891bab-fd5b-433d-9db4-42ff7a05b986
+// guid: 6333713c-4522-4225-aa2f-46423912d1ec
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum ParameterType {
-  PARAMETER_TYPE_UNSPECIFIED = 0;
-  PARAMETER_TYPE_STRING = 1;
-  PARAMETER_TYPE_INTEGER = 2;
-  PARAMETER_TYPE_FLOAT = 3;
-  PARAMETER_TYPE_BOOLEAN = 4;
-  PARAMETER_TYPE_ENUM = 5;
-  PARAMETER_TYPE_ARRAY = 6;
-  PARAMETER_TYPE_OBJECT = 7;
-  PARAMETER_TYPE_FILE = 8;
-  PARAMETER_TYPE_URL = 9;
-  PARAMETER_TYPE_EMAIL = 10;
-  PARAMETER_TYPE_PASSWORD = 11;
-  PARAMETER_TYPE_DATE = 12;
-  PARAMETER_TYPE_TIME = 13;
-  PARAMETER_TYPE_DATETIME = 14;
+message PromotionRule {
+  // Rule name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Source environment
+  string source_environment = 2;
+
+  // Target environment
+  string target_environment = 3;
+
+  // Promotion conditions
+  repeated string conditions = 4;
+
+  // Approval required
+  bool approval_required = 5;
+
+  // Approvers
+  repeated string approvers = 6;
+
+  // Automatic promotion
+  bool automatic = 7;
+
+  // Promotion schedule
+  string schedule = 8;
+
+  // Promotion filters
+  repeated string filters = 9;
+
+  // Promotion transformations
+  repeated string transformations = 10;
 }
-
 ```
 
 ---
 
 ### rate_limits.proto {#rate_limits}
 
-**Path**: `pkg/config/proto/rate_limits.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/rate_limits.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `RateLimits`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/rate_limits.proto
+// file: proto/gcommon/v1/config/rate_limits.proto
 // version: 1.0.0
 // guid: c2d3e4f5-6a7b-8901-cdef-234567890123
 
@@ -1957,499 +1582,346 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message RateLimits {
   // Maximum requests per second
-  int32 requests_per_second = 1;
+  int32 requests_per_second = 1 [(buf.validate.field).int32.gte = 0];
 
   // Maximum burst size
-  int32 burst_size = 2;
+  int32 burst_size = 2 [(buf.validate.field).int32.gte = 0];
 
   // Rate limit window in seconds
-  int32 window_seconds = 3;
+  int32 window_seconds = 3 [(buf.validate.field).int32.gte = 0];
 }
-
 ```
 
 ---
 
-### reference_type.proto {#reference_type}
+### resource_limits.proto {#resource_limits}
 
-**Path**: `pkg/config/proto/reference_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
+**Path**: `gcommon/v1/config/resource_limits.proto` **Package**: `gcommon.v1.config` **Lines**: 37
 
-**Enums** (1): `ReferenceType`
+**Messages** (1): `ConfigResourceLimits`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/resource_limits.proto
+// version: 1.0.0
+// guid: 8b09091e-5119-4f60-b274-2cdfe2ce451d
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ConfigResourceLimits {
+  // CPU limit
+  string cpu_limit = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Memory limit
+  string memory_limit = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Storage limit
+  string storage_limit = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Network limit
+  string network_limit = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Request rate limit
+  int32 request_rate_limit = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Concurrent connections limit
+  int32 connection_limit = 6 [(buf.validate.field).int32.gte = 0];
+
+  // Custom limits
+  map<string, string> custom_limits = 7;
+}
+```
+
+---
+
+### retention_policy.proto {#retention_policy}
+
+**Path**: `gcommon/v1/config/retention_policy.proto` **Package**: `gcommon.v1.config` **Lines**: 34
+
+**Messages** (1): `ConfigRetentionPolicy`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/retention_policy.proto
+// version: 1.0.0
+// guid: 6144fe44-891b-4c63-818e-572c219e36a7
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ConfigRetentionPolicy {
+  // Retention enabled
+  bool enabled = 1;
+
+  // Configuration retention
+  int32 config_retention_days = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Audit log retention
+  int32 audit_retention_days = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Backup retention
+  int32 backup_retention_days = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Metrics retention
+  int32 metrics_retention_days = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Custom retention policies
+  map<string, int32> custom_retention = 6;
+}
+```
+
+---
+
+### rotation_settings.proto {#rotation_settings}
+
+**Path**: `gcommon/v1/config/rotation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 49
+
+**Messages** (1): `RotationSettings`
+
+**Imports** (5):
+
+- `gcommon/v1/common/rotation_frequency.proto`
+- `gcommon/v1/config/rotation_event.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/rotation_settings.proto
+// version: 1.0.0
+// guid: f9ec4d9b-b31b-410a-a6d5-f53e24671b44
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/rotation_frequency.proto";
+import "gcommon/v1/config/rotation_event.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message RotationSettings {
+  // Whether rotation is enabled
+  bool enabled = 1;
+
+  // Rotation frequency
+  gcommon.v1.common.RotationFrequency frequency = 2;
+
+  // Rotation schedule (cron expression)
+  string schedule = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Grace period before old secret expires
+  int32 grace_period_days = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Whether to automatically rotate
+  bool auto_rotate = 5;
+
+  // Rotation notification settings
+  repeated string notification_recipients = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Rotation workflow
+  string workflow = 7 [(buf.validate.field).string.min_len = 1];
+
+  // Last rotation timestamp
+  google.protobuf.Timestamp last_rotated_at = 8;
+
+  // Next rotation timestamp
+  google.protobuf.Timestamp next_rotation_at = 9;
+
+  // Rotation history
+  repeated gcommon.v1.config.RotationEvent rotation_history = 10 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### secret_audit_settings.proto {#secret_audit_settings}
+
+**Path**: `gcommon/v1/config/secret_audit_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 44
+
+**Messages** (1): `SecretAuditSettings`
 
 **Imports** (3):
 
-- `google/protobuf/any.proto`
+- `gcommon/v1/common/secret_audit_level.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/reference_type.proto
+// file: proto/gcommon/v1/config/v1/secret_audit_settings.proto
 // version: 1.0.0
-// guid: f7734726-4137-4441-b14d-c0c5479a50bd
+// guid: 1da3c9ca-367b-4399-ba06-b6eb865ad744
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/any.proto";
+import "gcommon/v1/common/secret_audit_level.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum ReferenceType {
-  REFERENCE_TYPE_UNSPECIFIED = 0;
-  REFERENCE_TYPE_TEMPLATE = 1;
-  REFERENCE_TYPE_POINTER = 2;
-  REFERENCE_TYPE_ALIAS = 3;
-  REFERENCE_TYPE_COMPUTED = 4;
-  REFERENCE_TYPE_DERIVED = 5;
+message SecretAuditSettings {
+  // Whether audit logging is enabled
+  bool enabled = 1;
+
+  // Audit log level
+  gcommon.v1.common.SecretAuditLevel level = 2;
+
+  // Audit log retention period in days
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Whether to log access events
+  bool log_access = 4;
+
+  // Whether to log rotation events
+  bool log_rotation = 5;
+
+  // Whether to log modification events
+  bool log_modification = 6;
+
+  // External audit destinations
+  repeated string destinations = 7 [(buf.validate.field).repeated.min_items = 1];
+
+  // Audit log format
+  string format = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Additional audit metadata
+  map<string, string> metadata = 9;
 }
-
 ```
 
 ---
 
-### restore_point_status.proto {#restore_point_status}
+### secret_backup_settings.proto {#secret_backup_settings}
 
-**Path**: `pkg/config/proto/restore_point_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
+**Path**: `gcommon/v1/config/secret_backup_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 42
 
-**Enums** (1): `RestorePointStatus`
+**Messages** (1): `SecretBackupSettings`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/common/secret_backup_frequency.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/restore_point_status.proto
+// file: proto/gcommon/v1/config/v1/secret_backup_settings.proto
 // version: 1.0.0
-// guid: 83838713-4e8f-494e-93ec-7bdf0b406982
+// guid: d6d87fc0-471b-4087-857b-33284c8b1765
 
 edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/secret_backup_frequency.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
-enum RestorePointStatus {
-  RESTORE_POINT_STATUS_UNSPECIFIED = 0;
-  RESTORE_POINT_STATUS_CREATING = 1;
-  RESTORE_POINT_STATUS_ACTIVE = 2;
-  RESTORE_POINT_STATUS_EXPIRED = 3;
-  RESTORE_POINT_STATUS_DELETED = 4;
-  RESTORE_POINT_STATUS_ERROR = 5;
+message SecretBackupSettings {
+  // Whether backup is enabled
+  bool enabled = 1;
+
+  // Backup frequency
+  gcommon.v1.common.SecretBackupFrequency frequency = 2;
+
+  // Backup retention period in days
+  int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Backup storage location
+  string storage_location = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Backup encryption
+  bool encrypted = 5;
+
+  // Backup compression
+  bool compressed = 6;
+
+  // Backup metadata
+  map<string, string> metadata = 7;
+
+  // Last backup timestamp
+  google.protobuf.Timestamp last_backup_at = 8;
 }
-
-```
-
----
-
-### restore_point_type.proto {#restore_point_type}
-
-**Path**: `pkg/config/proto/restore_point_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
-
-**Enums** (1): `RestorePointType`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/restore_point_type.proto
-// version: 1.0.0
-// guid: 2f531175-07c6-46a3-a5ab-01b240355ab8
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum RestorePointType {
-  RESTORE_POINT_TYPE_UNSPECIFIED = 0;
-  RESTORE_POINT_TYPE_MANUAL = 1; // Manually created restore point
-  RESTORE_POINT_TYPE_AUTOMATIC = 2; // Automatically created restore point
-  RESTORE_POINT_TYPE_SCHEDULED = 3; // Scheduled restore point
-  RESTORE_POINT_TYPE_PRE_CHANGE = 4; // Created before configuration change
-  RESTORE_POINT_TYPE_MILESTONE = 5; // Milestone restore point
-  RESTORE_POINT_TYPE_BACKUP = 6; // Backup restore point
-}
-
-```
-
----
-
-### restriction_type.proto {#restriction_type}
-
-**Path**: `pkg/config/proto/restriction_type.proto` **Package**: `gcommon.v1.config` **Lines**: 23
-
-**Enums** (1): `RestrictionType`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/restriction_type.proto
-// version: 1.0.0
-// guid: 7444b7aa-6693-418e-ae6b-aa854f8c5400
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum RestrictionType {
-  RESTRICTION_TYPE_UNSPECIFIED = 0;
-  RESTRICTION_TYPE_IP_ADDRESS = 1;
-  RESTRICTION_TYPE_TIME_RANGE = 2;
-  RESTRICTION_TYPE_LOCATION = 3;
-  RESTRICTION_TYPE_USER_AGENT = 4;
-  RESTRICTION_TYPE_CUSTOM = 5;
-}
-
-```
-
----
-
-### rollback_info.proto {#rollback_info}
-
-**Path**: `pkg/config/proto/rollback_info.proto` **Package**: `gcommon.v1.config` **Lines**: 36
-
-**Messages** (1): `RollbackInfo`
-
-**Imports** (7):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/config/proto/approval_status.proto`
-- `pkg/config/proto/audit_operation_type.proto` → [config_events](./config_events.md#audit_operation_type)
-- `pkg/config/proto/rollback_method.proto`
-- `pkg/config/proto/validation_result_type.proto` → [config_2](./config_2.md#validation_result_type)
-- `pkg/config/proto/validation_severity.proto` → [config_2](./config_2.md#validation_severity)
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/rollback_info.proto
-// version: 1.0.0
-// guid: 20b0233a-770b-4484-a066-948c77afc78e
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/approval_status.proto";
-import "pkg/config/proto/audit_operation_type.proto";
-import "pkg/config/proto/rollback_method.proto";
-import "pkg/config/proto/validation_result_type.proto";
-import "pkg/config/proto/validation_severity.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-message RollbackInfo {
-  // Original audit entry being rolled back
-  string original_audit_id = 1;
-
-  // Rollback reason
-  string reason = 2;
-
-  // Rollback method
-  RollbackMethod method = 3;
-
-  // Target version for rollback
-  string target_version = 4;
-
-  // Whether rollback was automatic
-  bool automatic = 5;
-}
-
-```
-
----
-
-### rollback_method.proto {#rollback_method}
-
-**Path**: `pkg/config/proto/rollback_method.proto` **Package**: `gcommon.v1.config` **Lines**: 34
-
-**Enums** (1): `RollbackMethod`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/rollback_method.proto
-// version: 1.0.0
-// guid: b0c1d2e3-f4a5-6b7c-8d9e-0f1a2b3c4d5e
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-/**
- * RollbackMethod represents how the rollback was performed.
- * Specifies the technique used to revert configuration changes.
- */
-enum RollbackMethod {
-  // Unspecified rollback method
-  ROLLBACK_METHOD_UNSPECIFIED = 0;
-
-  // Restore individual values
-  ROLLBACK_METHOD_VALUE_RESTORE = 1;
-
-  // Restore from version history
-  ROLLBACK_METHOD_VERSION_RESTORE = 2;
-
-  // Restore from snapshot
-  ROLLBACK_METHOD_SNAPSHOT_RESTORE = 3;
-
-  // Manual rollback process
-  ROLLBACK_METHOD_MANUAL = 4;
-}
-
-```
-
----
-
-### rotation_frequency.proto {#rotation_frequency}
-
-**Path**: `pkg/config/proto/rotation_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 25
-
-**Enums** (1): `RotationFrequency`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/rotation_frequency.proto
-// version: 1.0.0
-// guid: 4bb020d8-2763-4ac1-96fc-6210bade7050
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum RotationFrequency {
-  ROTATION_FREQUENCY_UNSPECIFIED = 0;
-  ROTATION_FREQUENCY_MANUAL = 1;
-  ROTATION_FREQUENCY_DAILY = 2;
-  ROTATION_FREQUENCY_WEEKLY = 3;
-  ROTATION_FREQUENCY_MONTHLY = 4;
-  ROTATION_FREQUENCY_QUARTERLY = 5;
-  ROTATION_FREQUENCY_YEARLY = 6;
-  ROTATION_FREQUENCY_ON_EXPIRY = 7;
-}
-
-```
-
----
-
-### secret_backup_frequency.proto {#secret_backup_frequency}
-
-**Path**: `pkg/config/proto/secret_backup_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 24
-
-**Enums** (1): `SecretBackupFrequency`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/secret_backup_frequency.proto
-// version: 1.0.0
-// guid: d2ec4ba6-932e-4349-89f4-aa4af899c73f
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum SecretBackupFrequency {
-  SECRET_BACKUP_FREQUENCY_UNSPECIFIED = 0;
-  SECRET_BACKUP_FREQUENCY_MANUAL = 1;
-  SECRET_BACKUP_FREQUENCY_HOURLY = 2;
-  SECRET_BACKUP_FREQUENCY_DAILY = 3;
-  SECRET_BACKUP_FREQUENCY_WEEKLY = 4;
-  SECRET_BACKUP_FREQUENCY_MONTHLY = 5;
-  SECRET_BACKUP_FREQUENCY_ON_CHANGE = 6;
-}
-
-```
-
----
-
-### secret_status.proto {#secret_status}
-
-**Path**: `pkg/config/proto/secret_status.proto` **Package**: `gcommon.v1.config` **Lines**: 25
-
-**Enums** (1): `SecretStatus`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/secret_status.proto
-// version: 1.0.0
-// guid: 7fb6a7a0-ecc1-4dc0-b2a0-49c3e3fe88b9
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum SecretStatus {
-  SECRET_STATUS_UNSPECIFIED = 0;
-  SECRET_STATUS_ACTIVE = 1;
-  SECRET_STATUS_INACTIVE = 2;
-  SECRET_STATUS_EXPIRED = 3;
-  SECRET_STATUS_ROTATED = 4;
-  SECRET_STATUS_COMPROMISED = 5;
-  SECRET_STATUS_DELETED = 6;
-  SECRET_STATUS_ERROR = 7;
-}
-
-```
-
----
-
-### secret_type.proto {#secret_type}
-
-**Path**: `pkg/config/proto/secret_type.proto` **Package**: `gcommon.v1.config` **Lines**: 34
-
-**Enums** (1): `SecretType`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/config/proto/secret_type.proto
-// version: 1.0.0
-// guid: efadf8e9-2dc3-4ccc-8c9a-3a7f0a1c0895
-
-edition = "2023";
-
-package gcommon.v1.config;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-enum SecretType {
-  SECRET_TYPE_UNSPECIFIED = 0;
-  SECRET_TYPE_PASSWORD = 1;
-  SECRET_TYPE_API_KEY = 2;
-  SECRET_TYPE_TOKEN = 3;
-  SECRET_TYPE_CERTIFICATE = 4;
-  SECRET_TYPE_PRIVATE_KEY = 5;
-  SECRET_TYPE_PUBLIC_KEY = 6;
-  SECRET_TYPE_OAUTH_CLIENT_SECRET = 7;
-  SECRET_TYPE_DATABASE_PASSWORD = 8;
-  SECRET_TYPE_CONNECTION_STRING = 9;
-  SECRET_TYPE_ENCRYPTION_KEY = 10;
-  SECRET_TYPE_SIGNING_KEY = 11;
-  SECRET_TYPE_SSH_KEY = 12;
-  SECRET_TYPE_TLS_CERTIFICATE = 13;
-  SECRET_TYPE_JWT_SECRET = 14;
-  SECRET_TYPE_WEBHOOK_SECRET = 15;
-  SECRET_TYPE_CUSTOM = 16;
-}
-
 ```
 
 ---
 
 ### secret_validation_result.proto {#secret_validation_result}
 
-**Path**: `pkg/config/proto/secret_validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 36
+**Path**: `gcommon/v1/config/secret_validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 39
 
 **Messages** (1): `SecretValidationResult`
 
-**Imports** (4):
+**Imports** (5):
 
+- `gcommon/v1/common/secret_validation_result_type.proto`
+- `gcommon/v1/common/secret_validation_severity.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/secret_validation_result_type.proto` → [config_2](./config_2.md#secret_validation_result_type)
-- `pkg/config/proto/secret_validation_severity.proto` → [config_2](./config_2.md#secret_validation_severity)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/config/proto/secret_validation_result.proto
+// file: proto/gcommon/v1/config/secret_validation_result.proto
 // version: 1.0.0
 // guid: 59941566-6573-4333-bf99-4652471115b0
 
@@ -2457,26 +1929,30 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "gcommon/v1/common/secret_validation_result_type.proto";
+import "gcommon/v1/common/secret_validation_severity.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/secret_validation_result_type.proto";
-import "pkg/config/proto/secret_validation_severity.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
 
 message SecretValidationResult {
   // Validation name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Validation result
-  SecretValidationResultType result = 2;
+  gcommon.v1.common.SecretValidationResultType result = 2;
 
   // Validation message
   string message = 3;
 
   // Validation severity
-  SecretValidationSeverity severity = 4;
+  gcommon.v1.common.SecretValidationSeverity severity = 4;
 
   // Validation timestamp
   google.protobuf.Timestamp timestamp = 5;
@@ -2484,7 +1960,910 @@ message SecretValidationResult {
   // Validation details
   map<string, string> details = 6;
 }
-
 ```
 
 ---
+
+### sync_settings.proto {#sync_settings}
+
+**Path**: `gcommon/v1/config/sync_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 37
+
+**Messages** (1): `SyncSettings`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/sync_settings.proto
+// version: 1.0.0
+// guid: 4e62c57b-c2aa-4462-b51c-4077876bfb37
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message SyncSettings {
+  // Sync enabled
+  bool enabled = 1;
+
+  // Sync source
+  string source = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Sync target
+  string target = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Sync schedule
+  string schedule = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Sync filters
+  repeated string filters = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Sync transformations
+  repeated string transformations = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Sync configuration
+  map<string, string> config = 7;
+}
+```
+
+---
+
+### synchronization_settings.proto {#synchronization_settings}
+
+**Path**: `gcommon/v1/config/synchronization_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 34
+
+**Messages** (1): `SynchronizationSettings`
+
+**Imports** (5):
+
+- `gcommon/v1/common/conflict_resolution.proto`
+- `gcommon/v1/common/synchronization_frequency.proto`
+- `gcommon/v1/config/synchronization_target.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/synchronization_settings.proto
+// version: 1.0.0
+// guid: e3f41f73-ecdc-4499-9a1a-8adc64cb1ed1
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/conflict_resolution.proto";
+import "gcommon/v1/common/synchronization_frequency.proto";
+import "gcommon/v1/config/synchronization_target.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message SynchronizationSettings {
+  // Whether synchronization is enabled
+  bool enabled = 1;
+
+  // Synchronization targets
+  repeated gcommon.v1.config.SynchronizationTarget targets = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Synchronization frequency
+  gcommon.v1.common.SynchronizationFrequency frequency = 3;
+
+  // Synchronization conflict resolution
+  gcommon.v1.common.ConflictResolution conflict_resolution = 4;
+
+  // Synchronization metadata
+  map<string, string> metadata = 5;
+}
+```
+
+---
+
+### synchronization_target.proto {#synchronization_target}
+
+**Path**: `gcommon/v1/config/synchronization_target.proto` **Package**: `gcommon.v1.config` **Lines**: 33
+
+**Messages** (1): `SynchronizationTarget`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/synchronization_target.proto
+// version: 1.0.0
+// guid: cefe82ce-a5cb-44d8-a069-e773d0b9658d
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message SynchronizationTarget {
+  // Target name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Target type
+  string type = 2;
+
+  // Target configuration
+  map<string, string> config = 3;
+
+  // Target enabled
+  bool enabled = 4;
+
+  // Target priority
+  int32 priority = 5;
+}
+```
+
+---
+
+### template_change.proto {#template_change}
+
+**Path**: `gcommon/v1/config/template_change.proto` **Package**: `gcommon.v1.config` **Lines**: 41
+
+**Messages** (1): `TemplateChange`
+
+**Imports** (4):
+
+- `gcommon/v1/common/config_change_type.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/template_change.proto
+// version: 1.0.0
+// guid: 801fc1c2-3a27-4a37-a1e2-0d540b0f4dd8
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/config_change_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message TemplateChange {
+  // Change version
+  string version = 1;
+
+  // Change description
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Change author
+  string author = 3;
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Change type
+  gcommon.v1.common.TemplateChangeType type = 5;
+
+  // Breaking change flag
+  bool breaking = 6;
+
+  // Change details
+  repeated string details = 7;
+
+  // Migration notes
+  string migration_notes = 8;
+}
+```
+
+---
+
+### template_hook.proto {#template_hook}
+
+**Path**: `gcommon/v1/config/template_hook.proto` **Package**: `gcommon.v1.config` **Lines**: 44
+
+**Messages** (1): `TemplateHook`
+
+**Imports** (4):
+
+- `gcommon/v1/common/hook_error_handling.proto`
+- `gcommon/v1/common/hook_type.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/template_hook.proto
+// version: 1.0.0
+// guid: 48a58147-b1e9-4c28-ad50-58952adc0ffe
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/hook_error_handling.proto";
+import "gcommon/v1/common/hook_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message TemplateHook {
+  // Hook name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Hook type
+  gcommon.v1.common.HookType type = 2;
+
+  // Hook command or script
+  string command = 3;
+
+  // Hook timeout
+  int32 timeout_seconds = 4;
+
+  // Hook working directory
+  string working_directory = 5;
+
+  // Hook environment variables
+  map<string, string> environment = 6;
+
+  // Hook conditions
+  map<string, string> conditions = 7;
+
+  // Hook error handling
+  gcommon.v1.common.HookErrorHandling error_handling = 8;
+}
+```
+
+---
+
+### template_output.proto {#template_output}
+
+**Path**: `gcommon/v1/config/template_output.proto` **Package**: `gcommon.v1.config` **Lines**: 42
+
+**Messages** (1): `TemplateOutput`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/template_output.proto
+// version: 1.0.0
+// guid: 579f8ac6-c06e-4a4f-9e96-232802698bc1
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message TemplateOutput {
+  // Output name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Output description
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Output type
+  string type = 3;
+
+  // Output value expression
+  string value = 4;
+
+  // Whether output is sensitive
+  bool sensitive = 5;
+
+  // Output group
+  string group = 6;
+
+  // Output format
+  string format = 7;
+
+  // Output examples
+  repeated string examples = 8;
+}
+```
+
+---
+
+### transformation_settings.proto {#transformation_settings}
+
+**Path**: `gcommon/v1/config/transformation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 32
+
+**Messages** (1): `TransformationSettings`
+
+**Imports** (3):
+
+- `gcommon/v1/config/transformation_step.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/transformation_settings.proto
+// version: 1.0.0
+// guid: aadcd103-6f7c-4b6c-a58a-5c4ee2500cbf
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/config/transformation_step.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message TransformationSettings {
+  // Whether transformation is enabled
+  bool enabled = 1;
+
+  // Transformation pipeline
+  repeated TransformationStep pipeline = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Transformation on read
+  bool transform_on_read = 3;
+
+  // Transformation on write
+  bool transform_on_write = 4;
+
+  // Transformation metadata
+  map<string, string> metadata = 5;
+}
+```
+
+---
+
+### transformation_step.proto {#transformation_step}
+
+**Path**: `gcommon/v1/config/transformation_step.proto` **Package**: `gcommon.v1.config` **Lines**: 37
+
+**Messages** (1): `TransformationStep`
+
+**Imports** (3):
+
+- `gcommon/v1/common/transformation_type.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/transformation_step.proto
+// version: 1.0.0
+// guid: 4b3c1c96-82eb-4c1d-84ac-362e461d5793
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/transformation_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message TransformationStep {
+  // Step name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Step type
+  gcommon.v1.common.TransformationType type = 2;
+
+  // Step expression
+  string expression = 3;
+
+  // Step parameters
+  map<string, string> parameters = 4;
+
+  // Step enabled
+  bool enabled = 5;
+
+  // Step order
+  int32 order = 6;
+}
+```
+
+---
+
+### usage_statistics.proto {#usage_statistics}
+
+**Path**: `gcommon/v1/config/usage_statistics.proto` **Package**: `gcommon.v1.config` **Lines**: 48
+
+**Messages** (1): `UsageStatistics`
+
+**Imports** (4):
+
+- `gcommon/v1/config/usage_trend.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/usage_statistics.proto
+// version: 1.0.0
+// guid: cc21dcd3-5d5b-42a8-9602-b3b08c2ff649
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/config/usage_trend.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message UsageStatistics {
+  // Total access count
+  int64 total_access_count = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Access count in last 24 hours
+  int64 access_count_24h = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Access count in last 7 days
+  int64 access_count_7d = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Access count in last 30 days
+  int64 access_count_30d = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Unique users count
+  int64 unique_users_count = 5 [(buf.validate.field).int64.gte = 0];
+
+  // Unique services count
+  int64 unique_services_count = 6 [(buf.validate.field).int64.gte = 0];
+
+  // Average access frequency per day
+  double avg_access_frequency = 7 [(buf.validate.field).double.gte = 0.0];
+
+  // Peak access timestamp
+  google.protobuf.Timestamp peak_access_at = 8;
+
+  // Peak access count
+  int64 peak_access_count = 9 [(buf.validate.field).int64.gte = 0];
+
+  // Usage trends
+  repeated gcommon.v1.config.UsageTrend trends = 10 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### usage_trend.proto {#usage_trend}
+
+**Path**: `gcommon/v1/config/usage_trend.proto` **Package**: `gcommon.v1.config` **Lines**: 26
+
+**Messages** (1): `UsageTrend`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/usage_trend.proto
+// version: 1.0.0
+// guid: d9e0f1a2-3456-789a-3456-901234567890
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message UsageTrend {
+  // Timestamp
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Usage count
+  int64 usage_count = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Trend direction
+  string direction = 3 [(buf.validate.field).string.min_len = 1];
+}
+```
+
+---
+
+### validation_result.proto {#validation_result}
+
+**Path**: `gcommon/v1/config/validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 38
+
+**Messages** (1): `ConfigValidationResult`
+
+**Imports** (4):
+
+- `gcommon/v1/common/validation_result_type.proto`
+- `gcommon/v1/common/validation_severity.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/validation_result.proto
+// version: 1.0.0
+// guid: 24d2ce27-6b21-4f7b-82f6-2a7b060fe004
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/validation_result_type.proto";
+import "gcommon/v1/common/validation_severity.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ConfigValidationResult {
+  // Validation rule name
+  string rule_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Validation result
+  gcommon.v1.common.ValidationResultType result = 2;
+
+  // Validation message
+  string message = 3;
+
+  // Severity level
+  gcommon.v1.common.ValidationSeverity severity = 4;
+
+  // Field that was validated
+  string field = 5;
+
+  // Additional context
+  map<string, string> context = 6;
+}
+```
+
+---
+
+### validation_rule.proto {#validation_rule}
+
+**Path**: `gcommon/v1/config/validation_rule.proto` **Package**: `gcommon.v1.config` **Lines**: 40
+
+**Messages** (1): `ValidationRule`
+
+**Imports** (3):
+
+- `gcommon/v1/common/validation_severity.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/validation_rule.proto
+// version: 1.0.0
+// guid: 6cc709c2-996e-4e1c-aa4d-0c7741fadb21
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/validation_severity.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ValidationRule {
+  // Rule name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Rule description
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Rule expression
+  string expression = 3;
+
+  // Error message if validation fails
+  string error_message = 4;
+
+  // Rule severity
+  gcommon.v1.common.ValidationSeverity severity = 5;
+
+  // Parameters this rule applies to
+  repeated string parameters = 6;
+
+  // Rule conditions
+  map<string, string> conditions = 7;
+}
+```
+
+---
+
+### validation_settings.proto {#validation_settings}
+
+**Path**: `gcommon/v1/config/validation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 39
+
+**Messages** (1): `ValidationSettings`
+
+**Imports** (4):
+
+- `gcommon/v1/common/config_retry_settings.proto`
+- `gcommon/v1/config/validation_rule.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/validation_settings.proto
+// version: 1.0.0
+// guid: b6a8294f-3f5c-4bcc-95ad-9369bd1addd5
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/config_retry_settings.proto";
+import "gcommon/v1/config/validation_rule.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ValidationSettings {
+  // Whether validation is enabled
+  bool enabled = 1;
+
+  // Validation rules (using ValidationRule from config_template.proto)
+  repeated ValidationRule rules = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Validation on change
+  bool validate_on_change = 3;
+
+  // Validation on access
+  bool validate_on_access = 4;
+
+  // Validation timeout in seconds
+  int32 timeout_seconds = 5 [(buf.validate.field).int32.gt = 0];
+
+  // Validation retry settings
+  gcommon.v1.common.ConfigRetrySettings retry = 6;
+
+  // Validation metadata
+  map<string, string> metadata = 7;
+}
+```
+
+---
+
+### value_dependency.proto {#value_dependency}
+
+**Path**: `gcommon/v1/config/value_dependency.proto` **Package**: `gcommon.v1.config` **Lines**: 32
+
+**Messages** (1): `ValueDependency`
+
+**Imports** (3):
+
+- `gcommon/v1/common/dependency_type.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/value_dependency.proto
+// version: 1.0.0
+// guid: ceefe5a4-8fbf-4555-9535-c57437357bef
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/dependency_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ValueDependency {
+  // Dependency type
+  gcommon.v1.common.DependencyType type = 1;
+
+  // Dependent value key
+  string dependent_key = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Dependency key
+  string dependency_key = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Dependency condition
+  string condition = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Dependency metadata
+  map<string, string> metadata = 5;
+}
+```
+
+---
+
+### value_history_entry.proto {#value_history_entry}
+
+**Path**: `gcommon/v1/config/value_history_entry.proto` **Package**: `gcommon.v1.config` **Lines**: 42
+
+**Messages** (1): `ValueHistoryEntry`
+
+**Imports** (4):
+
+- `gcommon/v1/common/config_change_type.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/value_history_entry.proto
+// version: 1.0.0
+// guid: 842c89c0-e045-4b46-8c03-f19d4383edb0
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/config_change_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ValueHistoryEntry {
+  // Entry ID
+  string entry_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Previous value
+  string previous_value = 2 [(buf.validate.field).string.min_len = 1];
+
+  // New value
+  string new_value = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // User who made the change
+  string changed_by = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Change reason
+  string reason = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Change type (using ChangeType from config_template.proto)
+  gcommon.v1.common.TemplateChangeType change_type = 7;
+
+  // Change metadata
+  map<string, string> metadata = 8;
+}
+```
+
+---
+
+### value_reference.proto {#value_reference}
+
+**Path**: `gcommon/v1/config/value_reference.proto` **Package**: `gcommon.v1.config` **Lines**: 29
+
+**Messages** (1): `ValueReference`
+
+**Imports** (3):
+
+- `gcommon/v1/common/reference_type.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/value_reference.proto
+// version: 1.0.0
+// guid: b56910e9-5a31-46b6-b2ac-3c854f87e332
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "gcommon/v1/common/reference_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/config";
+
+message ValueReference {
+  // Reference type
+  gcommon.v1.common.ReferenceType type = 1;
+
+  // Referenced value key
+  string referenced_key = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Reference path
+  string path = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Reference metadata
+  map<string, string> metadata = 4;
+}
+```
+
+---
+

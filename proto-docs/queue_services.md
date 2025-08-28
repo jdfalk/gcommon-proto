@@ -4,87 +4,176 @@
 
 ## Module Overview
 
-- **Proto Files**: 3
-- **Messages**: 9
-- **Services**: 3
+- **Proto Files**: 6
+- **Messages**: 2
+- **Services**: 4
 - **Enums**: 0
 
 ## Files in this Module
 
+- [external_auth_service.proto](#external_auth_service)
+- [key_validation_service.proto](#key_validation_service)
 - [queue_admin_service.proto](#queue_admin_service)
 - [queue_monitoring_service.proto](#queue_monitoring_service)
 - [queue_service.proto](#queue_service)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [common](./common.md)
-- [metrics_1](./metrics_1.md)
-- [metrics_2](./metrics_2.md)
-- [queue_1](./queue_1.md)
-- [queue_2](./queue_2.md)
-- [queue_api_1](./queue_api_1.md)
-- [queue_api_2](./queue_api_2.md)
-- [web](./web.md)
-
+- [workflow_service.proto](#workflow_service)
 ---
+
 
 ## Detailed Documentation
 
-### queue_admin_service.proto {#queue_admin_service}
+### external_auth_service.proto {#external_auth_service}
 
-**Path**: `pkg/queue/proto/queue_admin_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
+**Path**: `gcommon/v1/queue/external_auth_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Services** (1): `QueueAdminService`
+**Messages** (1): `ExternalAuthService`
 
-**Imports** (15):
+**Imports** (4):
 
+- `gcommon/v1/queue/auth_cache_config.proto`
+- `gcommon/v1/queue/retry_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/create_queue_request.proto` → [queue_api_1](./queue_api_1.md#create_queue_request)
-- `pkg/queue/proto/create_queue_response.proto` → [queue_api_1](./queue_api_1.md#create_queue_response)
-- `pkg/queue/proto/delete_topic_request.proto` → [queue_api_1](./queue_api_1.md#delete_topic_request)
-- `pkg/queue/proto/delete_topic_response.proto` → [queue_api_1](./queue_api_1.md#delete_topic_response)
-- `pkg/queue/proto/get_queue_info_request.proto` → [queue_api_1](./queue_api_1.md#get_queue_info_request)
-- `pkg/queue/proto/get_queue_info_response.proto` → [queue_api_1](./queue_api_1.md#get_queue_info_response)
-- `pkg/queue/proto/pause_queue_request.proto` → [queue_api_2](./queue_api_2.md#pause_queue_request)
-- `pkg/queue/proto/pause_queue_response.proto` → [queue_api_2](./queue_api_2.md#pause_queue_response)
-- `pkg/queue/proto/purge_request.proto` → [queue_api_2](./queue_api_2.md#purge_request)
-- `pkg/queue/proto/purge_response.proto` → [queue_api_2](./queue_api_2.md#purge_response)
-- `pkg/queue/proto/reset_queue_stats_request.proto` → [queue_api_2](./queue_api_2.md#reset_queue_stats_request)
-- `pkg/queue/proto/reset_queue_stats_response.proto` → [queue_api_2](./queue_api_2.md#reset_queue_stats_response)
-- `pkg/queue/proto/resume_queue_request.proto` → [queue_api_2](./queue_api_2.md#resume_queue_request)
-- `pkg/queue/proto/resume_queue_response.proto` → [queue_api_2](./queue_api_2.md#resume_queue_response)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/queue_admin_service.proto
+// file: proto/gcommon/v1/queue/external_auth_service.proto
 // version: 1.0.0
-// Administrative service for queue management
+// guid: 888d52ef-a351-4fe1-a31e-6d7085e83b26
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/auth_cache_config.proto";
+import "gcommon/v1/queue/retry_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message ExternalAuthService {
+  // Enable external authorization
+  bool enabled = 1;
+
+  // Authorization service endpoint
+  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Request timeout (milliseconds)
+  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
+
+  // Retry configuration - references existing RetryConfig
+  QueueRetryConfig retry_config = 4;
+
+  // Cache configuration
+  AuthCacheConfig cache_config = 5;
+
+  // Headers to include in authorization requests
+  map<string, string> request_headers = 6;
+}
+```
+
+---
+
+### key_validation_service.proto {#key_validation_service}
+
+**Path**: `gcommon/v1/queue/key_validation_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
+
+**Messages** (1): `KeyValidationService`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/key_validation_service.proto
+// version: 1.0.0
+// guid: 796890cb-3593-41dc-bd46-52b840d476a4
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/create_queue_request.proto";
-import "pkg/queue/proto/create_queue_response.proto";
-import "pkg/queue/proto/delete_topic_request.proto";
-import "pkg/queue/proto/delete_topic_response.proto";
-import "pkg/queue/proto/get_queue_info_request.proto";
-import "pkg/queue/proto/get_queue_info_response.proto";
-import "pkg/queue/proto/pause_queue_request.proto";
-import "pkg/queue/proto/pause_queue_response.proto";
-import "pkg/queue/proto/purge_request.proto";
-import "pkg/queue/proto/purge_response.proto";
-import "pkg/queue/proto/reset_queue_stats_request.proto";
-import "pkg/queue/proto/reset_queue_stats_response.proto";
-import "pkg/queue/proto/resume_queue_request.proto";
-import "pkg/queue/proto/resume_queue_response.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message KeyValidationService {
+  // Service type (local, external, etc.)
+  string service_type = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Service endpoint (for external validation)
+  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Timeout for validation requests (milliseconds)
+  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
+
+  // Cache TTL for validation results (seconds)
+  int32 cache_ttl_seconds = 4 [(buf.validate.field).int32.gte = 0];
+}
+```
+
+---
+
+### queue_admin_service.proto {#queue_admin_service}
+
+**Path**: `gcommon/v1/queue/queue_admin_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
+
+**Services** (1): `QueueAdminService`
+
+**Imports** (13):
+
+- `gcommon/v1/queue/create_queue_request.proto`
+- `gcommon/v1/queue/create_queue_response.proto`
+- `gcommon/v1/queue/delete_topic_request.proto`
+- `gcommon/v1/queue/delete_topic_response.proto`
+- `gcommon/v1/queue/pause_queue_request.proto`
+- `gcommon/v1/queue/pause_queue_response.proto`
+- `gcommon/v1/queue/purge_request.proto`
+- `gcommon/v1/queue/purge_response.proto`
+- `gcommon/v1/queue/reset_queue_stats_request.proto`
+- `gcommon/v1/queue/reset_queue_stats_response.proto`
+- `gcommon/v1/queue/resume_queue_request.proto`
+- `gcommon/v1/queue/resume_queue_response.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/queue_admin_service.proto
+// version: 1.0.1
+// guid: b54b440b-f4c1-40fc-a40f-8b4c0626fc32
+// Administrative service for queue management
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/create_queue_request.proto";
+import "gcommon/v1/queue/create_queue_response.proto";
+import "gcommon/v1/queue/delete_topic_request.proto";
+import "gcommon/v1/queue/delete_topic_response.proto";
+import "gcommon/v1/queue/pause_queue_request.proto";
+import "gcommon/v1/queue/pause_queue_response.proto";
+import "gcommon/v1/queue/purge_request.proto";
+import "gcommon/v1/queue/purge_response.proto";
+import "gcommon/v1/queue/reset_queue_stats_request.proto";
+import "gcommon/v1/queue/reset_queue_stats_response.proto";
+import "gcommon/v1/queue/resume_queue_request.proto";
+import "gcommon/v1/queue/resume_queue_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Administrative service for queue management operations
 service QueueAdminService {
@@ -93,9 +182,6 @@ service QueueAdminService {
 
   // Delete a queue/topic
   rpc DeleteTopic(DeleteTopicRequest) returns (DeleteTopicResponse);
-
-  // Get queue information
-  rpc GetQueueInfo(GetQueueInfoRequest) returns (GetQueueInfoResponse);
 
   // Pause queue operations
   rpc PauseQueue(PauseQueueRequest) returns (PauseQueueResponse);
@@ -109,71 +195,55 @@ service QueueAdminService {
   // Reset queue statistics
   rpc ResetQueueStats(ResetQueueStatsRequest) returns (ResetQueueStatsResponse);
 }
-
 ```
 
 ---
 
 ### queue_monitoring_service.proto {#queue_monitoring_service}
 
-**Path**: `pkg/queue/proto/queue_monitoring_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 174
-
-**Messages** (9): `GetQueueHealthRequest`, `GetQueueHealthResponse`, `QueueHealth`, `ClusterHealth`, `GetQueueStatsRequest`, `QueueStatsResponse`, `QueueStatsPoint`, `StreamMetricsRequest`, `MetricsEvent`
+**Path**: `gcommon/v1/queue/queue_monitoring_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Services** (1): `QueueMonitoringService`
 
-**Imports** (12):
+**Imports** (9):
 
+- `gcommon/v1/queue/get_cluster_info_request.proto`
+- `gcommon/v1/queue/get_cluster_info_response.proto`
+- `gcommon/v1/queue/get_queue_health_request.proto`
+- `gcommon/v1/queue/get_queue_health_response.proto`
+- `gcommon/v1/queue/get_queue_stats_request.proto`
+- `gcommon/v1/queue/metrics_event.proto`
+- `gcommon/v1/queue/queue_stats_response.proto`
+- `gcommon/v1/queue/stream_metrics_request.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/queue/proto/cluster_info.proto` → [queue_1](./queue_1.md#cluster_info)
-- `pkg/queue/proto/get_cluster_info_request.proto` → [queue_api_1](./queue_api_1.md#get_cluster_info_request)
-- `pkg/queue/proto/get_cluster_info_response.proto` → [queue_api_1](./queue_api_1.md#get_cluster_info_response)
-- `pkg/queue/proto/get_queue_stats_response.proto` → [queue_api_2](./queue_api_2.md#get_queue_stats_response)
-- `pkg/queue/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
-- `pkg/queue/proto/metric_type.proto` → [metrics_1](./metrics_1.md#metric_type) → [queue_1](./queue_1.md#metric_type)
-- `pkg/queue/proto/stats_granularity.proto` → [queue_2](./queue_2.md#stats_granularity)
-- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/queue/proto/topic_info.proto` → [queue_2](./queue_2.md#topic_info)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/services/queue_monitoring_service.proto
-// file: queue/proto/services/queue_monitoring_service.proto
-// version: 1.0.0
-// guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
-//
-// Service definitions for queue module
-//
+// file: proto/gcommon/v1/queue/queue_monitoring_service.proto
+// version: 1.0.1
+// guid: 63f72754-e7c0-40b6-a40d-29f3645d55fc
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/get_cluster_info_request.proto";
+import "gcommon/v1/queue/get_cluster_info_response.proto";
+import "gcommon/v1/queue/get_queue_health_request.proto";
+import "gcommon/v1/queue/get_queue_health_response.proto";
+import "gcommon/v1/queue/get_queue_stats_request.proto";
+import "gcommon/v1/queue/metrics_event.proto";
+import "gcommon/v1/queue/queue_stats_response.proto";
+import "gcommon/v1/queue/stream_metrics_request.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/time_range.proto";
-import "pkg/queue/proto/cluster_info.proto";
-import "pkg/queue/proto/get_cluster_info_request.proto";
-import "pkg/queue/proto/get_cluster_info_response.proto";
-import "pkg/queue/proto/get_queue_stats_response.proto";
-import "pkg/queue/proto/health_status.proto";
-import "pkg/queue/proto/metric_type.proto";
-import "pkg/queue/proto/stats_granularity.proto";
-import "pkg/queue/proto/time_range.proto";
-import "pkg/queue/proto/topic_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-/**
- * Service for monitoring queue health, performance, and statistics.
- * Provides read-only access to queue metrics and operational data.
- */
 service QueueMonitoringService {
   // Get information about the queue cluster
-  rpc GetClusterInfo(GetClusterInfoRequest) returns (gcommon.v1.queue.GetClusterInfoResponse);
+  rpc GetClusterInfo(GetClusterInfoRequest) returns (GetClusterInfoResponse);
 
   // Get health status of all queues
   rpc GetQueueHealth(GetQueueHealthRequest) returns (GetQueueHealthResponse);
@@ -182,187 +252,135 @@ service QueueMonitoringService {
   rpc GetQueueStats(GetQueueStatsRequest) returns (QueueStatsResponse);
 
   // Get real-time metrics stream
-  rpc StreamMetrics(StreamMetricsRequest) returns (stream MetricsEvent);
+  rpc StreamMetrics(QueueStreamMetricsRequest) returns (stream MetricsEvent);
 }
-
-/**
- * Request to get queue health information.
- */
-message GetQueueHealthRequest {
-  // Specific queue names to check (empty = all queues)
-  repeated string queue_names = 1;
-
-  // Whether to include detailed health metrics
-  bool include_details = 2;
-}
-
-/**
- * Response containing queue health information.
- */
-message GetQueueHealthResponse {
-  // Health status for each queue
-  repeated QueueHealth queue_health = 1;
-
-  // Overall cluster health
-  ClusterHealth cluster_health = 2;
-}
-
-/**
- * Health status for a single queue.
- */
-message QueueHealth {
-  // Name of the queue
-  string queue_name = 1;
-
-  // Health status
-  gcommon.v1.queue.HealthStatus status = 2;
-
-  // Health score (0-100)
-  int32 health_score = 3;
-
-  // List of health issues
-  repeated string issues = 4;
-
-  // Last health check timestamp
-  google.protobuf.Timestamp last_check = 5;
-}
-
-/**
- * Overall cluster health information.
- */
-message ClusterHealth {
-  // Overall health status
-  gcommon.v1.queue.HealthStatus status = 1;
-
-  // Number of healthy nodes
-  int32 healthy_nodes = 2;
-
-  // Total number of nodes
-  int32 total_nodes = 3;
-
-  // Health issues affecting the cluster
-  repeated string issues = 4;
-}
-
-/**
- * Request to get queue statistics.
- */
-message GetQueueStatsRequest {
-  // Name of the queue
-  string queue_name = 1;
-
-  // Time range for statistics
-  TimeRange time_range = 2;
-
-  // Granularity of statistics (hourly, daily, etc.)
-  StatsGranularity granularity = 3;
-}
-
-/**
- * Response containing queue statistics from monitoring service.
- */
-message QueueStatsResponse {
-  // Queue statistics
-  QueueStats stats = 1;
-
-  // Time series data
-  repeated QueueStatsPoint time_series = 2;
-}
-
-/**
- * Point-in-time queue statistics.
- */
-message QueueStatsPoint {
-  // Timestamp for this data point
-  google.protobuf.Timestamp timestamp = 1;
-
-  // Statistics at this point in time
-  QueueStats stats = 2;
-}
-
-/**
- * Request to stream real-time metrics.
- */
-message StreamMetricsRequest {
-  // Queue names to monitor (empty = all queues)
-  repeated string queue_names = 1;
-
-  // Types of metrics to include
-  repeated MetricType metric_types = 2;
-
-  // Streaming interval in seconds
-  int32 interval_seconds = 3;
-}
-
-/**
- * Real-time metrics event.
- */
-message MetricsEvent {
-  // Timestamp of the event
-  google.protobuf.Timestamp timestamp = 1;
-
-  // Queue name
-  string queue_name = 2;
-
-  // Type of metric
-  MetricType metric_type = 3;
-
-  // Metric value
-  double value = 4;
-
-  // Additional metadata
-  map<string, string> labels = 5;
-}
-
 ```
 
 ---
 
 ### queue_service.proto {#queue_service}
 
-**Path**: `pkg/queue/proto/queue_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
+**Path**: `gcommon/v1/queue/queue_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Services** (1): `QueueManagementService`
+**Services** (1): `QueueService`
 
-**Imports** (1):
+**Imports** (13):
 
+- `gcommon/v1/queue/dequeue_request.proto`
+- `gcommon/v1/queue/dequeue_response.proto`
+- `gcommon/v1/queue/enqueue_request.proto`
+- `gcommon/v1/queue/enqueue_response.proto`
+- `gcommon/v1/queue/get_queue_info_request.proto`
+- `gcommon/v1/queue/get_queue_info_response.proto`
+- `gcommon/v1/queue/peek_request.proto`
+- `gcommon/v1/queue/peek_response.proto`
+- `gcommon/v1/queue/publish_request.proto`
+- `gcommon/v1/queue/publish_response.proto`
+- `gcommon/v1/queue/subscribe_request.proto`
+- `gcommon/v1/queue/subscribe_response.proto`
 - `google/protobuf/go_features.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/services/queue_service.proto
-// version: 1.0.0
-// guid: 6b8d9e0f-5c7a-4e3d-9f8e-7d6c5b4a3e2d
-
-// QueueService definition
-//
-// This file implements the 1-1-1 pattern for service definitions.
-// NOTE: The main QueueService is defined in pkg/queue/proto/queue.proto
-// This file is reserved for future additional queue services or service extensions.
+// file: proto/gcommon/v1/queue/queue_service.proto
+// version: 1.0.1
+// guid: 1f2e3d4c-5b6a-7980-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/dequeue_request.proto";
+import "gcommon/v1/queue/dequeue_response.proto";
+import "gcommon/v1/queue/enqueue_request.proto";
+import "gcommon/v1/queue/enqueue_response.proto";
+import "gcommon/v1/queue/get_queue_info_request.proto";
+import "gcommon/v1/queue/get_queue_info_response.proto";
+import "gcommon/v1/queue/peek_request.proto";
+import "gcommon/v1/queue/peek_response.proto";
+import "gcommon/v1/queue/publish_request.proto";
+import "gcommon/v1/queue/publish_response.proto";
+import "gcommon/v1/queue/subscribe_request.proto";
+import "gcommon/v1/queue/subscribe_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-// Future queue service extensions can be defined here
-// The main QueueService is defined in queue.proto to avoid duplication
+/**
+ * QueueService provides core queue operations for message handling,
+ * task distribution, and asynchronous processing.
+ */
+service QueueService {
+  // Enqueue a message or task
+  rpc Enqueue(EnqueueRequest) returns (EnqueueResponse);
 
-// Example additional service for queue management:
-/*
-   service QueueManagementService {
-     // Administrative operations
-     rpc CreateQueue(CreateQueueRequest) returns (CreateQueueResponse);
-     rpc DeleteQueue(DeleteQueueRequest) returns (DeleteQueueResponse);
-     rpc ListQueues(ListQueuesRequest) returns (ListQueuesResponse);
-   }
-*/
+  // Dequeue a message or task
+  rpc Dequeue(DequeueRequest) returns (DequeueResponse);
 
+  // Peek at the next message without removing it
+  rpc Peek(PeekRequest) returns (PeekResponse);
+
+  // Get information about a queue
+  rpc GetQueueInfo(GetQueueInfoRequest) returns (GetQueueInfoResponse);
+
+  // Subscribe to queue messages (streaming)
+  rpc Subscribe(QueueSubscribeRequest) returns (stream SubscribeResponse);
+
+  // Publish message to queue topic
+  rpc Publish(QueuePublishRequest) returns (PublishResponse);
+}
 ```
 
 ---
+
+### workflow_service.proto {#workflow_service}
+
+**Path**: `gcommon/v1/queue/workflow_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
+
+**Services** (1): `WorkflowService`
+
+**Imports** (5):
+
+- `gcommon/v1/queue/start_workflow_request.proto`
+- `gcommon/v1/queue/start_workflow_response.proto`
+- `gcommon/v1/queue/stop_workflow_request.proto`
+- `gcommon/v1/queue/stop_workflow_response.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/workflow_service.proto
+// version: 1.0.1
+// guid: 6f7e8d9c-0b1a-2534-6e7f-8a9b0c1d2e3f
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/start_workflow_request.proto";
+import "gcommon/v1/queue/start_workflow_response.proto";
+import "gcommon/v1/queue/stop_workflow_request.proto";
+import "gcommon/v1/queue/stop_workflow_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+/**
+ * WorkflowService provides workflow management operations for
+ * orchestrating complex, multi-step processes.
+ */
+service WorkflowService {
+  // Start a new workflow execution
+  rpc StartWorkflow(StartWorkflowRequest) returns (StartWorkflowResponse);
+
+  // Stop a running workflow execution
+  rpc StopWorkflow(StopWorkflowRequest) returns (StopWorkflowResponse);
+}
+```
+
+---
+

@@ -4,14 +4,17 @@
 
 ## Module Overview
 
-- **Proto Files**: 16
-- **Messages**: 20
+- **Proto Files**: 21
+- **Messages**: 21
 - **Services**: 0
-- **Enums**: 1
+- **Enums**: 0
 
 ## Files in this Module
 
-- [response_compression.proto](#response_compression)
+- [register_metric_request.proto](#register_metric_request)
+- [register_metric_response.proto](#register_metric_response)
+- [reset_metrics_request.proto](#reset_metrics_request)
+- [reset_metrics_response.proto](#reset_metrics_response)
 - [set_alerting_rules_request.proto](#set_alerting_rules_request)
 - [set_alerting_rules_response.proto](#set_alerting_rules_response)
 - [set_metric_metadata_request.proto](#set_metric_metadata_request)
@@ -25,93 +28,255 @@
 - [unregister_metric_response.proto](#unregister_metric_response)
 - [update_metric_request.proto](#update_metric_request)
 - [update_metric_response.proto](#update_metric_response)
+- [update_options.proto](#update_options)
 - [update_provider_request.proto](#update_provider_request)
 - [update_provider_response.proto](#update_provider_response)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [common](./common.md)
-- [config_2](./config_2.md)
-- [metrics_1](./metrics_1.md)
-- [metrics_2](./metrics_2.md)
-- [metrics_config](./metrics_config.md)
-
-**Modules that depend on this one**:
-
-- [metrics_api_1](./metrics_api_1.md)
-- [metrics_services](./metrics_services.md)
-
+- [update_result.proto](#update_result)
 ---
+
 
 ## Detailed Documentation
 
-### response_compression.proto {#response_compression}
+### register_metric_request.proto {#register_metric_request}
 
-**Path**: `pkg/metrics/proto/response_compression.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
+**Path**: `gcommon/v1/metrics/register_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Enums** (1): `ResponseCompression`
+**Messages** (1): `RegisterMetricRequest`
 
-**Imports** (1):
+**Imports** (5):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/metric_definition.proto`
+- `gcommon/v1/metrics/registration_options.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/response_compression.proto
+// file: proto/gcommon/v1/metrics/v1/register_metric_request.proto
 // version: 1.0.0
-// guid: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+// guid: bcf2d82b-2ffe-4608-acf1-e58abf98e4d2
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/metric_definition.proto";
+import "gcommon/v1/metrics/registration_options.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message RegisterMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Metric definition to register
+  MetricDefinition definition = 2;
+
+  // Optional provider ID to register with
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to replace an existing metric with the same name
+  bool replace_existing = 4;
+
+  // Validation options for the registration
+  RegistrationOptions options = 5;
+}
+```
+
+---
+
+### register_metric_response.proto {#register_metric_response}
+
+**Path**: `gcommon/v1/metrics/register_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 52
+
+**Messages** (1): `RegisterMetricResponse`
+
+**Imports** (6):
+
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/registration_result.proto`
+- `gcommon/v1/metrics/registration_validation.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/register_metric_response.proto
+// version: 1.0.0
+// guid: 9cd957ab-069a-4d91-bd48-c466a7a29eb0
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/registration_result.proto";
+import "gcommon/v1/metrics/registration_validation.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message RegisterMetricResponse {
+  // Success status of the registration
+  bool success = 1;
+
+  // Error information if registration failed
+  gcommon.v1.common.Error error = 2;
+
+  // Unique ID assigned to the registered metric
+  string metric_id = 3;
+
+  // Name of the registered metric
+  string metric_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // When the metric was registered
+  google.protobuf.Timestamp registered_at = 5;
+
+  // Provider that handled the registration
+  string provider_id = 6;
+
+  // Validation results from the registration process
+  RegistrationValidation validation = 7;
+
+  // Information about what was created/updated
+  RegistrationResult result = 8;
+
+  // Warnings or informational messages
+  repeated string warnings = 9;
+
+  // Whether this replaced an existing metric
+  bool replaced_existing = 10;
+}
+```
+
+---
+
+### reset_metrics_request.proto {#reset_metrics_request}
+
+**Path**: `gcommon/v1/metrics/reset_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+
+**Messages** (1): `ResetMetricsRequest`
+
+**Imports** (3):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_request.proto
+// version: 1.0.0
+// guid: 16c1ba58-926f-4a1a-adbe-fe25ec131ea9
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_request.proto
+//
+// Request message for resetting stored metric data.
+//
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ResetMetricsRequest {
+  // Metric name or ID to reset
+  string metric = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}
+```
+
+---
+
+### reset_metrics_response.proto {#reset_metrics_response}
+
+**Path**: `gcommon/v1/metrics/reset_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+
+**Messages** (1): `ResetMetricsResponse`
+
+**Imports** (2):
+
+- `gcommon/v1/common/error.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+// version: 1.0.1
+// guid: 00510bc8-5a91-49a9-b6ef-49d624b3d846
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+//
+// Response after resetting metric data.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
- * ResponseCompression defines compression options for responses.
- * Specifies compression algorithms for metric response data.
+ * ResetMetricsResponse reports reset status.
  */
-enum ResponseCompression {
-  // Unspecified compression
-  RESPONSE_COMPRESSION_UNSPECIFIED = 0;
+message ResetMetricsResponse {
+  // Whether the reset succeeded
+  bool success = 1;
 
-  // No compression
-  RESPONSE_COMPRESSION_NONE = 1;
-
-  // GZIP compression
-  RESPONSE_COMPRESSION_GZIP = 2;
-
-  // Snappy compression
-  RESPONSE_COMPRESSION_SNAPPY = 3;
+  // Error information if reset failed
+  gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
 ### set_alerting_rules_request.proto {#set_alerting_rules_request}
 
-**Path**: `pkg/metrics/proto/set_alerting_rules_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/set_alerting_rules_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Messages** (1): `SetAlertingRulesRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/alerting_rule.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/alerting_rule.proto` → [metrics_1](./metrics_1.md#alerting_rule)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/set_alerting_rules_request.proto
-// file: metrics/proto/requests/set_alerting_rules_request.proto
+// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_request.proto
+// version: 1.0.0
+// guid: 797328c8-f7f2-498b-9224-8ef45c3dcba8
+// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_request.proto
 //
 // Request message for configuring alerting rules for a metric.
 //
@@ -120,44 +285,47 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/alerting_rule.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/alerting_rule.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message SetAlertingRulesRequest {
   // Metric identifier
-  string metric_id = 1;
+  string metric_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Rules to set
-  repeated AlertingRule rules = 2;
+  repeated AlertingRule rules = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
 }
-
 ```
 
 ---
 
 ### set_alerting_rules_response.proto {#set_alerting_rules_response}
 
-**Path**: `pkg/metrics/proto/set_alerting_rules_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
+**Path**: `gcommon/v1/metrics/set_alerting_rules_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `SetAlertingRulesResponse`
 
 **Imports** (2):
 
+- `gcommon/v1/common/error.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/set_alerting_rules_response.proto
-// file: metrics/proto/responses/set_alerting_rules_response.proto
+// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_response.proto
+// version: 1.0.1
+// guid: 976aa24f-b19c-4700-b14c-3eaec3f9fab4
+// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_response.proto
 //
 // Response after setting alerting rules.
 //
@@ -165,11 +333,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SetAlertingRulesResponse confirms alert rule configuration.
@@ -181,28 +349,29 @@ message SetAlertingRulesResponse {
   // Error information
   gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
 ### set_metric_metadata_request.proto {#set_metric_metadata_request}
 
-**Path**: `pkg/metrics/proto/set_metric_metadata_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+**Path**: `gcommon/v1/metrics/set_metric_metadata_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `SetMetricMetadataRequest`
 
 **Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/metric_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/set_metric_metadata_request.proto
-// file: metrics/proto/requests/set_metric_metadata_request.proto
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_request.proto
+// version: 1.0.1
+// guid: d5a7a998-dd17-44a3-97d5-89144b904ee3
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_request.proto
 //
 // Request message for updating metric metadata.
 //
@@ -211,12 +380,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/metric_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message SetMetricMetadataRequest {
   // Metric metadata to apply
@@ -225,28 +394,29 @@ message SetMetricMetadataRequest {
   // Request metadata
   gcommon.v1.common.RequestMetadata request_meta = 2 [lazy = true];
 }
-
 ```
 
 ---
 
 ### set_metric_metadata_response.proto {#set_metric_metadata_response}
 
-**Path**: `pkg/metrics/proto/set_metric_metadata_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/set_metric_metadata_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `SetMetricMetadataResponse`
 
 **Imports** (3):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/metric_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/set_metric_metadata_response.proto
-// file: metrics/proto/responses/set_metric_metadata_response.proto
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_response.proto
+// version: 1.0.1
+// guid: 2594ce5a-5795-4689-b2f9-433919c5cc67
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_response.proto
 //
 // Response after updating metric metadata.
 //
@@ -254,12 +424,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/metric_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SetMetricMetadataResponse returns updated metadata.
@@ -271,27 +441,27 @@ message SetMetricMetadataResponse {
   // Error information
   gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
 ### start_scraping_request.proto {#start_scraping_request}
 
-**Path**: `pkg/metrics/proto/start_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
+**Path**: `gcommon/v1/metrics/start_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `StartScrapingRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/scrape_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/scrape_config.proto` → [metrics_config](./metrics_config.md#scrape_config)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/start_scraping_request.proto
+// file: proto/gcommon/v1/metrics/v1/start_scraping_request.proto
 // version: 1.1.0
 // guid: 3bf09215-7dbf-4f23-97b5-911aeb40f125
 
@@ -299,59 +469,60 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/scrape_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/scrape_config.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message StartScrapingRequest {
   // Standard request metadata
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Metrics provider identifier
-  string provider_id = 2;
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Scrape configuration to use
   ScrapeConfig config = 3;
 }
-
 ```
 
 ---
 
 ### start_scraping_response.proto {#start_scraping_response}
 
-**Path**: `pkg/metrics/proto/start_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/start_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
 
 **Messages** (1): `StartScrapingResponse`
 
 **Imports** (4):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/scrape_job.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/scrape_job.proto` → [metrics_2](./metrics_2.md#scrape_job)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/start_scraping_response.proto
-// version: 1.1.0
+// file: proto/gcommon/v1/metrics/v1/start_scraping_response.proto
+// version: 1.1.1
 // guid: 83543cf4-50e7-4161-9c5f-5ddca3a0655f
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/scrape_job.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/scrape_job.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * StartScrapingResponse returns the result of starting a scrape job.
@@ -369,26 +540,26 @@ message StartScrapingResponse {
   // Timestamp when the job started
   google.protobuf.Timestamp started_at = 4;
 }
-
 ```
 
 ---
 
 ### stop_scraping_request.proto {#stop_scraping_request}
 
-**Path**: `pkg/metrics/proto/stop_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
+**Path**: `gcommon/v1/metrics/stop_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
 
 **Messages** (1): `StopScrapingRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/stop_scraping_request.proto
+// file: proto/gcommon/v1/metrics/v1/stop_scraping_request.proto
 // version: 1.1.0
 // guid: 4fac5447-f3bb-4627-94d7-4d6115c265f1
 
@@ -396,55 +567,56 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message StopScrapingRequest {
   // Standard request metadata
   gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Identifier of the job to stop
-  string job_id = 2;
+  string job_id = 2 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### stop_scraping_response.proto {#stop_scraping_response}
 
-**Path**: `pkg/metrics/proto/stop_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/stop_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
 
 **Messages** (1): `StopScrapingResponse`
 
 **Imports** (4):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/scrape_job.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/scrape_job.proto` → [metrics_2](./metrics_2.md#scrape_job)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/stop_scraping_response.proto
-// version: 1.1.0
+// file: proto/gcommon/v1/metrics/v1/stop_scraping_response.proto
+// version: 1.1.1
 // guid: 7d2eb263-b398-4b98-af07-c9950ab73d05
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/scrape_job.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/scrape_job.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * StopScrapingResponse returns the result of stopping a scrape job.
@@ -462,54 +634,50 @@ message StopScrapingResponse {
   // Timestamp when the job stopped
   google.protobuf.Timestamp stopped_at = 4;
 }
-
 ```
 
 ---
 
 ### stream_metrics_request.proto {#stream_metrics_request}
 
-**Path**: `pkg/metrics/proto/stream_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 109
+**Path**: `gcommon/v1/metrics/stream_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Messages** (4): `StreamMetricsRequest`, `StreamOptions`, `StreamStart`, `BufferConfig`
+**Messages** (1): `MetricsStreamMetricsRequest`
 
 **Imports** (7):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/buffer_config.proto`
+- `gcommon/v1/metrics/metric_filter.proto`
+- `gcommon/v1/metrics/stream_options.proto`
+- `gcommon/v1/metrics/stream_start.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/buffer_overflow_strategy.proto` → [metrics_1](./metrics_1.md#buffer_overflow_strategy)
-- `pkg/metrics/proto/metric_filter.proto` → [metrics_1](./metrics_1.md#metric_filter)
-- `pkg/metrics/proto/stream_compression.proto` → [metrics_2](./metrics_2.md#stream_compression)
-- `pkg/metrics/proto/stream_qos.proto` → [metrics_2](./metrics_2.md#stream_qos)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/stream_metrics_request.proto
-// version: 1.1.0
-// guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+// file: proto/gcommon/v1/metrics/v1/stream_metrics_request.proto
+// version: 1.0.0
+// guid: e3a862c4-9279-4574-baf6-5eb6c9317d19
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/buffer_config.proto";
+import "gcommon/v1/metrics/metric_filter.proto";
+import "gcommon/v1/metrics/stream_options.proto";
+import "gcommon/v1/metrics/stream_start.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/buffer_overflow_strategy.proto";
-import "pkg/metrics/proto/metric_filter.proto";
-import "pkg/metrics/proto/stream_compression.proto";
-import "pkg/metrics/proto/stream_qos.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * StreamMetricsRequest represents a request to stream metrics data in real-time.
- * This enables continuous monitoring and real-time metric consumption.
- */
-message StreamMetricsRequest {
+message MetricsStreamMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)
   gcommon.v1.common.RequestMetadata metadata = 1;
 
@@ -520,7 +688,7 @@ message StreamMetricsRequest {
   StreamOptions options = 3;
 
   // Optional provider ID to stream from
-  string provider_id = 4;
+  string provider_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Starting point for the stream
   StreamStart start = 5;
@@ -528,106 +696,41 @@ message StreamMetricsRequest {
   // Buffer configuration for the stream
   BufferConfig buffer_config = 6;
 }
-
-/**
- * StreamOptions configures how metrics streaming should behave.
- */
-message StreamOptions {
-  // Whether to include historical data or only new metrics
-  bool include_historical = 1;
-
-  // Maximum number of metrics to send per message
-  int32 batch_size = 2;
-
-  // Maximum time to wait before sending a batch (milliseconds)
-  int32 batch_timeout_ms = 3;
-
-  // Whether to include metadata with each metric
-  bool include_metadata = 4;
-
-  // Compression to use for the stream
-  StreamCompression compression = 5;
-
-  // Whether to send heartbeat messages during idle periods
-  bool send_heartbeats = 6;
-
-  // Heartbeat interval (seconds)
-  int32 heartbeat_interval_seconds = 7;
-
-  // Whether to automatically retry on errors
-  bool auto_retry = 8;
-
-  // Quality of service level
-  StreamQOS qos = 9;
-}
-
-/**
- * StreamStart defines where to start the stream.
- */
-message StreamStart {
-  // Start from a specific timestamp
-  google.protobuf.Timestamp from_timestamp = 1;
-
-  // Start from the beginning of available data
-  bool from_beginning = 2;
-
-  // Start from the current time (live streaming only)
-  bool from_now = 3;
-
-  // Start from a specific offset or position
-  string from_offset = 4;
-}
-
-/**
- * BufferConfig configures buffering behavior for the stream.
- */
-message BufferConfig {
-  // Maximum number of metrics to buffer
-  int32 max_buffer_size = 1;
-
-  // Buffer overflow strategy
-  BufferOverflowStrategy overflow_strategy = 2;
-
-  // Whether to persist buffer to disk during streaming
-  bool persist_buffer = 3;
-
-  // Maximum memory usage for buffering (bytes)
-  int64 max_memory_bytes = 4;
-}
-
 ```
 
 ---
 
 ### unregister_metric_request.proto {#unregister_metric_request}
 
-**Path**: `pkg/metrics/proto/unregister_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 65
+**Path**: `gcommon/v1/metrics/unregister_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 38
 
-**Messages** (2): `UnregisterMetricRequest`, `UnregistrationOptions`
+**Messages** (1): `UnregisterMetricRequest`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/unregistration_options.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/unregister_metric_request.proto
-// file: metrics/proto/requests/unregister_metric_request.proto
-//
-// Unregister metric request definitions for metrics module
-//
+// file: proto/gcommon/v1/metrics/v1/unregister_metric_request.proto
+// version: 1.0.0
+// guid: 4beff2f2-e6cd-44fc-9d0e-58e5dbd3afff
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/unregistration_options.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message UnregisterMetricRequest {
   // Standard request metadata (tracing, auth, etc.)
@@ -636,7 +739,10 @@ message UnregisterMetricRequest {
   // Metric identifier (either name or ID)
   oneof metric_identifier {
     // Metric name to unregister
-    string metric_name = 2;
+    string metric_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
     // Metric ID to unregister
     string metric_id = 3;
@@ -648,78 +754,46 @@ message UnregisterMetricRequest {
   // Options for the unregistration process
   UnregistrationOptions options = 5;
 }
-
-/**
- * UnregistrationOptions configure the unregistration process.
- */
-message UnregistrationOptions {
-  // Whether to delete all associated data
-  bool delete_data = 1;
-
-  // Whether to delete associated indices
-  bool delete_indices = 2;
-
-  // Whether to remove alert rules
-  bool remove_alerts = 3;
-
-  // Whether to stop export configurations
-  bool stop_exports = 4;
-
-  // Grace period before actual deletion (duration string like "24h")
-  string grace_period = 5;
-
-  // Whether to perform a dry run (show what would be deleted)
-  bool dry_run = 6;
-
-  // Whether to force deletion even if metric is in use
-  bool force = 7;
-
-  // Whether to create a backup before deletion
-  bool create_backup = 8;
-}
-
 ```
 
 ---
 
 ### unregister_metric_response.proto {#unregister_metric_response}
 
-**Path**: `pkg/metrics/proto/unregister_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 79
+**Path**: `gcommon/v1/metrics/unregister_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 49
 
-**Messages** (2): `UnregisterMetricResponse`, `UnregistrationResult`
+**Messages** (1): `UnregisterMetricResponse`
 
-**Imports** (5):
+**Imports** (6):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/backup_info.proto`
+- `gcommon/v1/metrics/unregistration_result.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/backup_info.proto` → [metrics_1](./metrics_1.md#backup_info)
-- `pkg/metrics/proto/dry_run_result.proto` → [metrics_1](./metrics_1.md#dry_run_result)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/unregister_metric_response.proto
-// file: metrics/proto/responses/unregister_metric_response.proto
-//
-// Unregister metric response definitions for metrics module
-//
+// file: proto/gcommon/v1/metrics/v1/unregister_metric_response.proto
+// version: 1.0.0
+// guid: 28148796-f454-44f3-bb31-6352cfaf3755
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/backup_info.proto";
+import "gcommon/v1/metrics/unregistration_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/backup_info.proto";
-import "pkg/metrics/proto/dry_run_result.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * UnregisterMetricResponse contains the result of unregistering a metric.
- */
 message UnregisterMetricResponse {
   // Success status of the unregistration
   bool success = 1;
@@ -731,7 +805,10 @@ message UnregisterMetricResponse {
   string metric_id = 3;
 
   // Name of the metric that was unregistered
-  string metric_name = 4;
+  string metric_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // When the metric was unregistered
   google.protobuf.Timestamp unregistered_at = 5;
@@ -746,59 +823,31 @@ message UnregisterMetricResponse {
   repeated string warnings = 8;
 
   // Backup information (if backup was created)
-  BackupInfo backup_info = 9;
+  MetricsBackupInfo backup_info = 9;
 }
-
-/**
- * UnregistrationResult contains information about what was deleted/cleaned up.
- */
-message UnregistrationResult {
-  // Whether the metric definition was deleted
-  bool definition_deleted = 1;
-
-  // Amount of data that was deleted (bytes)
-  int64 data_deleted_bytes = 2;
-
-  // Number of data points deleted
-  int64 data_points_deleted = 3;
-
-  // Indices that were deleted
-  repeated string deleted_indices = 4;
-
-  // Alert rules that were removed
-  repeated string removed_alerts = 5;
-
-  // Export configurations that were stopped
-  repeated string stopped_exports = 6;
-
-  // Time when actual deletion will occur (if grace period is set)
-  google.protobuf.Timestamp scheduled_deletion = 7;
-
-  // What would be deleted (for dry run operations)
-  DryRunResult dry_run_result = 8;
-}
-
 ```
 
 ---
 
 ### update_metric_request.proto {#update_metric_request}
 
-**Path**: `pkg/metrics/proto/update_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+**Path**: `gcommon/v1/metrics/update_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `UpdateMetricRequest`
 
 **Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/metric_data.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/update_metric_request.proto
-// file: metrics/proto/requests/update_metric_request.proto
+// file: proto/gcommon/v1/metrics/v1/update_metric_request.proto
+// version: 1.0.1
+// guid: 552e73bb-8b74-4132-a524-46d64cf01d78
+// file: proto/gcommon/v1/metrics/v1/update_metric_request.proto
 //
 // Request message to update an existing metric definition.
 //
@@ -807,12 +856,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/metric_data.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message UpdateMetricRequest {
   // Updated metric data
@@ -821,28 +870,29 @@ message UpdateMetricRequest {
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
 }
-
 ```
 
 ---
 
 ### update_metric_response.proto {#update_metric_response}
 
-**Path**: `pkg/metrics/proto/update_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/update_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `UpdateMetricResponse`
 
 **Imports** (3):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/metric_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/update_metric_response.proto
-// file: metrics/proto/responses/update_metric_response.proto
+// file: proto/gcommon/v1/metrics/v1/update_metric_response.proto
+// version: 1.0.1
+// guid: 018b666e-d5e2-4c95-ab4f-f525d01cc6b1
+// file: proto/gcommon/v1/metrics/v1/update_metric_response.proto
 //
 // Response returned after updating a metric definition.
 //
@@ -850,12 +900,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/metric_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * UpdateMetricResponse returns updated metadata.
@@ -867,26 +917,77 @@ message UpdateMetricResponse {
   // Error information
   gcommon.v1.common.Error error = 2;
 }
+```
 
+---
+
+### update_options.proto {#update_options}
+
+**Path**: `gcommon/v1/metrics/update_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+
+**Messages** (1): `UpdateOptions`
+
+**Imports** (2):
+
+- `gcommon/v1/common/update_strategy.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/update_options.proto
+// version: 1.0.1
+// guid: 5725505d-38a1-4c4b-861e-d159e74202ce
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/update_strategy.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * UpdateOptions configure the update process.
+ */
+message UpdateOptions {
+  // Whether to validate the configuration before updating
+  bool validate_config = 1;
+
+  // Whether to perform a dry run
+  bool dry_run = 2;
+
+  // Whether to restart the provider after update (if needed)
+  bool restart_if_needed = 3;
+
+  // Whether to backup current configuration before update
+  bool backup_config = 4;
+
+  // Update strategy
+  gcommon.v1.common.UpdateStrategy strategy = 5;
+}
 ```
 
 ---
 
 ### update_provider_request.proto {#update_provider_request}
 
-**Path**: `pkg/metrics/proto/update_provider_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
+**Path**: `gcommon/v1/metrics/update_provider_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
 
 **Messages** (1): `UpdateProviderRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/update_provider_request.proto
+// file: proto/gcommon/v1/metrics/v1/update_provider_request.proto
 // version: 1.0.0
 // guid: b2c3d4e5-f6a7-8901-2345-6789abcdef01
 
@@ -894,11 +995,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message UpdateProviderRequest {
   // Standard request metadata (tracing, auth, etc.)
@@ -908,35 +1010,38 @@ message UpdateProviderRequest {
   string provider_id = 2;
 
   // Updated configuration
-  string name = 3;
+  string name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
   string type = 4;
   map<string, string> config = 5;
-  string description = 6;
+  string description = 6 [ (buf.validate.field).string.max_len = 1000 ];
   bool enabled = 7;
 }
-
 ```
 
 ---
 
 ### update_provider_response.proto {#update_provider_response}
 
-**Path**: `pkg/metrics/proto/update_provider_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
+**Path**: `gcommon/v1/metrics/update_provider_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 49
 
 **Messages** (1): `UpdateProviderResponse`
 
-**Imports** (5):
+**Imports** (6):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/common/metrics_validation_result.proto`
+- `gcommon/v1/metrics/provider_status.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/provider_status.proto` → [metrics_2](./metrics_2.md#provider_status)
-- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/update_provider_response.proto
+// file: proto/gcommon/v1/metrics/v1/update_provider_response.proto
 // version: 1.0.0
 // guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
 
@@ -946,14 +1051,16 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/metrics_validation_result.proto";
+import "gcommon/v1/metrics/provider_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/provider_status.proto";
-import "pkg/metrics/proto/validation_result.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * UpdateProviderResponse contains the result of updating a metrics provider.
@@ -963,13 +1070,13 @@ message UpdateProviderResponse {
   bool success = 1;
 
   // Provider ID that was updated
-  string provider_id = 2;
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated provider status
   ProviderStatus status = 3;
 
   // Validation results from the update operation
-  repeated ValidationResult validation_results = 4;
+  repeated gcommon.v1.common.MetricsValidationResult validation_results = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error information if update failed
   gcommon.v1.common.Error error = 5;
@@ -978,12 +1085,74 @@ message UpdateProviderResponse {
   google.protobuf.Timestamp updated_at = 6;
 
   // Configuration changes that were applied
-  repeated string applied_changes = 7;
+  repeated string applied_changes = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Warning messages about the update
-  repeated string warnings = 8;
+  repeated string warnings = 8 [(buf.validate.field).repeated.min_items = 1];
 }
-
 ```
 
 ---
+
+### update_result.proto {#update_result}
+
+**Path**: `gcommon/v1/metrics/update_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
+
+**Messages** (1): `UpdateResult`
+
+**Imports** (4):
+
+- `gcommon/v1/common/metrics_config_change.proto`
+- `gcommon/v1/common/update_action.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/update_result.proto
+// version: 1.1.0
+// guid: cd6fac61-b122-455b-a74b-34935efa71b0
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/metrics_config_change.proto";
+import "gcommon/v1/common/update_action.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+/**
+ * UpdateResult contains information about what was changed.
+ */
+message UpdateResult {
+  // What update action was taken
+  gcommon.v1.common.UpdateAction action = 1;
+
+  // Configuration changes that were applied
+  repeated gcommon.v1.common.MetricsConfigChange config_changes = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Settings that were updated
+  repeated string updated_settings = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Settings that were removed
+  repeated string removed_settings = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether a restart occurred
+  bool restarted = 5;
+
+  // Update strategy that was used
+  string strategy_used = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Time taken for the update
+  string update_duration = 7 [(buf.validate.field).string.min_len = 1];
+}
+```
+
+---
+

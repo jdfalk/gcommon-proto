@@ -110,10 +110,11 @@ ACTION_VERBS = {
     "watch",
 }
 
-MSG_RE = re.compile(r"^\s*message\s+([A-Za-z0-9_]+)")
-ENUM_RE = re.compile(r"^\s*enum\s+([A-Za-z0-9_]+)")
-SERVICE_RE = re.compile(r"^\s*service\s+([A-Za-z0-9_]+)")
-IMPORT_RE = re.compile(r"^\s*import\s+\"([^\"]+)\";")
+MSG_RE = re.compile(r"^\s*message\s+([A-Za-z0-9_]+)", re.MULTILINE)
+ENUM_RE = re.compile(r"^\s*enum\s+([A-Za-z0-9_]+)", re.MULTILINE)
+SERVICE_RE = re.compile(r"^\s*service\s+([A-Za-z0-9_]+)", re.MULTILINE)
+IMPORT_RE = re.compile(r'^\s*import\s+"([^"]+)";', re.MULTILINE)
+PACKAGE_RE = re.compile(r"^\s*package\s+([A-Za-z0-9_.]+);", re.MULTILINE)
 
 
 @dataclass
@@ -122,10 +123,12 @@ class ProtoFileInfo:
     rel_path: str
     domain: str
     classification: str
+    package: str = ""
     messages: List[str] = field(default_factory=list)
     enums: List[str] = field(default_factory=list)
     services: List[str] = field(default_factory=list)
     imports: List[str] = field(default_factory=list)
+    line_count: int = 0
     issues: int = 0
 
 
@@ -169,8 +172,23 @@ def classify_file(filename: str) -> str:
 
 
 def scan_proto_file(path: Path, rel_root: Path) -> ProtoFileInfo:
-    text = path.read_text(encoding="utf-8", errors="ignore")
-    rel_path = str(path.relative_to(rel_root.parent.parent)) if "gcommon" in path.parts else str(path)
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        # If we can't read the file, return minimal info
+        return ProtoFileInfo(
+            path=path,
+            rel_path=str(path),
+            domain="unknown",
+            classification="base",
+            line_count=0,
+        )
+    
+    rel_path = (
+        str(path.relative_to(rel_root.parent.parent))
+        if "gcommon" in path.parts
+        else str(path)
+    )
     # domain = part after v1
     try:
         idx = path.parts.index("v1")
@@ -178,20 +196,31 @@ def scan_proto_file(path: Path, rel_root: Path) -> ProtoFileInfo:
     except ValueError:
         domain = "unknown"
     classification = classify_file(path.name)
+    
+    # Parse package name
+    package_match = PACKAGE_RE.search(text)
+    package = package_match.group(1) if package_match else ""
+    
+    # Parse messages, enums, services
     messages = [m.group(1) for m in MSG_RE.finditer(text)]
     enums = [e.group(1) for e in ENUM_RE.finditer(text)]
     services = [s.group(1) for s in SERVICE_RE.finditer(text)]
     imports = [i.group(1) for i in IMPORT_RE.finditer(text)]
+    
+    line_count = len(text.splitlines())
     issues = detect_issues_for_file(text)
+    
     return ProtoFileInfo(
         path=path,
         rel_path=rel_path,
         domain=domain,
         classification=classification,
+        package=package,
         messages=messages,
         enums=enums,
         services=services,
         imports=imports,
+        line_count=line_count,
         issues=issues,
     )
 
@@ -206,13 +235,19 @@ def build_modules(files: List[ProtoFileInfo], threshold: int) -> Dict[str, Modul
 
     for (domain, classification), flist in buckets.items():
         flist.sort(key=lambda x: x.rel_path)
-        base_module_name = domain if classification == "base" else f"{domain}_{classification}"
+        base_module_name = (
+            domain if classification == "base" else f"{domain}_{classification}"
+        )
         # Determine if splitting needed
         if len(flist) > threshold:
             for idx in range(0, len(flist), threshold):
                 chunk = flist[idx : idx + threshold]
                 suffix_index = idx // threshold + 1
-                mod_name = f"{base_module_name}_{suffix_index}" if classification != "base" else f"{base_module_name}_{suffix_index}"
+                mod_name = (
+                    f"{base_module_name}_{suffix_index}"
+                    if classification != "base"
+                    else f"{base_module_name}_{suffix_index}"
+                )
                 modules[mod_name] = ModuleDoc(name=mod_name, files=chunk)
         else:
             modules[base_module_name] = ModuleDoc(name=base_module_name, files=flist)
@@ -282,12 +317,19 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
     for f in module.files:
         anchor = f.path.stem
         lines.append(f"### {f.path.name} {{#{anchor}}}\n")
-        lines.append(f"**Path**: `{f.rel_path}` **Package**: *(inferred)* **Lines**: {sum(1 for _ in f.path.open())}\n")
+        package_info = f"**Package**: `{f.package}`" if f.package else "**Package**: *(not found)*"
+        lines.append(
+            f"**Path**: `{f.rel_path}` {package_info} **Lines**: {f.line_count}\n"
+        )
         # Summaries
         if f.messages:
-            lines.append(f"**Messages** ({len(f.messages)}): `" + "`, `".join(f.messages) + "`")
+            lines.append(
+                f"**Messages** ({len(f.messages)}): `" + "`, `".join(f.messages) + "`"
+            )
         if f.services:
-            lines.append(f"**Services** ({len(f.services)}): `" + "`, `".join(f.services) + "`")
+            lines.append(
+                f"**Services** ({len(f.services)}): `" + "`, `".join(f.services) + "`"
+            )
         if f.enums:
             lines.append(f"**Enums** ({len(f.enums)}): `" + "`, `".join(f.enums) + "`")
         if f.imports:
@@ -314,9 +356,13 @@ def write_index(modules: Dict[str, ModuleDoc], out_dir: Path):
     total_issues = sum(sum(f.issues for f in m.files) for m in modules.values())
     lines: List[str] = []
     lines.append("# Protocol Buffer Documentation\n")
-    lines.append(f"Generated on: {dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}\n")
+    lines.append(
+        f"Generated on: {dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}\n"
+    )
     lines.append("## Overview\n")
-    lines.append(f"This documentation covers {total_files} protocol buffer files organized into {len(modules)} modules, containing:\n")
+    lines.append(
+        f"This documentation covers {total_files} protocol buffer files organized into {len(modules)} modules, containing:\n"
+    )
     lines.append(f"- **{total_msgs}** message definitions")
     lines.append(f"- **{total_svcs}** service definitions")
     lines.append(f"- **{total_enums}** enum definitions")
@@ -353,12 +399,20 @@ def remove_existing(out_dir: Path, verbose: bool):
 
 
 def parse_args(argv: List[str]) -> argparse.Namespace:
-    ap = argparse.ArgumentParser(description="Generate markdown docs for protobuf definitions")
-    ap.add_argument("--proto-dir", default="proto/gcommon/v1", help="Root proto directory")
+    ap = argparse.ArgumentParser(
+        description="Generate markdown docs for protobuf definitions"
+    )
+    ap.add_argument(
+        "--proto-dir", default="proto/gcommon/v1", help="Root proto directory"
+    )
     ap.add_argument("--out", default="proto-docs", help="Output directory")
-    ap.add_argument("--threshold", type=int, default=50, help="Split threshold per module")
+    ap.add_argument(
+        "--threshold", type=int, default=50, help="Split threshold per module"
+    )
     ap.add_argument("--dry-run", action="store_true", help="Do not write files")
-    ap.add_argument("--no-clean", action="store_true", help="Do not remove existing docs")
+    ap.add_argument(
+        "--no-clean", action="store_true", help="Do not remove existing docs"
+    )
     ap.add_argument("--verbose", action="store_true", help="Verbose logging")
     return ap.parse_args(argv)
 
@@ -383,7 +437,9 @@ def main(argv: List[str]) -> int:
         for name in sorted(modules):
             m = modules[name]
             pf, msgs, svcs, ens, issues = m.counts
-            print(f"  {name}: files={pf} msgs={msgs} svcs={svcs} enums={ens} issues={issues}")
+            print(
+                f"  {name}: files={pf} msgs={msgs} svcs={svcs} enums={ens} issues={issues}"
+            )
         return 0
     out_dir.mkdir(parents=True, exist_ok=True)
     if not args.no_clean:

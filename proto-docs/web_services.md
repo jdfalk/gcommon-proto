@@ -13,39 +13,34 @@
 
 - [web_admin_service.proto](#web_admin_service)
 - [web_service.proto](#web_service)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [web_api_1](./web_api_1.md)
-- [web_config_1](./web_config_1.md)
-
 ---
+
 
 ## Detailed Documentation
 
 ### web_admin_service.proto {#web_admin_service}
 
-**Path**: `pkg/web/proto/web_admin_service.proto` **Package**: `gcommon.v1.web` **Lines**: 35
+**Path**: `gcommon/v1/web/web_admin_service.proto` **Package**: `gcommon.v1.web` **Lines**: 36
 
 **Services** (1): `WebAdminService`
 
 **Imports** (7):
 
+- `gcommon/v1/web/flush_cache_request.proto`
+- `gcommon/v1/web/flush_cache_response.proto`
+- `gcommon/v1/web/get_cache_config_request.proto`
+- `gcommon/v1/web/get_cache_config_response.proto`
+- `gcommon/v1/web/update_cache_config_request.proto`
+- `gcommon/v1/web/update_cache_config_response.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/web/proto/flush_cache_request.proto` → [web_api_1](./web_api_1.md#flush_cache_request)
-- `pkg/web/proto/flush_cache_response.proto` → [web_api_1](./web_api_1.md#flush_cache_response)
-- `pkg/web/proto/get_cache_config_request.proto` → [web_config_1](./web_config_1.md#get_cache_config_request)
-- `pkg/web/proto/get_cache_config_response.proto` → [web_config_1](./web_config_1.md#get_cache_config_response)
-- `pkg/web/proto/update_cache_config_request.proto` → [web_config_1](./web_config_1.md#update_cache_config_request)
-- `pkg/web/proto/update_cache_config_response.proto` → [web_config_1](./web_config_1.md#update_cache_config_response)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/web/proto/services/web_admin_service.proto
-// file: pkg/web/proto/services/web_admin_service.proto
+// file: proto/gcommon/v1/web/web_admin_service.proto
+// version: 1.0.1
+// guid: 1419b30a-cf4d-4cd5-80ab-8bdd18381d02
+// file: proto/gcommon/v1/web/web_admin_service.proto
 //
 // Administrative service for managing web server cache settings.
 //
@@ -53,16 +48,16 @@ edition = "2023";
 
 package gcommon.v1.web;
 
+import "gcommon/v1/web/flush_cache_request.proto";
+import "gcommon/v1/web/flush_cache_response.proto";
+import "gcommon/v1/web/get_cache_config_request.proto";
+import "gcommon/v1/web/get_cache_config_response.proto";
+import "gcommon/v1/web/update_cache_config_request.proto";
+import "gcommon/v1/web/update_cache_config_response.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/web/proto/flush_cache_request.proto";
-import "pkg/web/proto/flush_cache_response.proto";
-import "pkg/web/proto/get_cache_config_request.proto";
-import "pkg/web/proto/get_cache_config_response.proto";
-import "pkg/web/proto/update_cache_config_request.proto";
-import "pkg/web/proto/update_cache_config_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 
 /**
  * WebAdminService provides cache administration endpoints
@@ -78,57 +73,56 @@ service WebAdminService {
   // Flush all cached entries
   rpc FlushCache(FlushCacheRequest) returns (FlushCacheResponse);
 }
-
 ```
 
 ---
 
 ### web_service.proto {#web_service}
 
-**Path**: `pkg/web/proto/web_service.proto` **Package**: `gcommon.v1.web` **Lines**: 33
+**Path**: `gcommon/v1/web/web_service.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
-**Services** (1): `HTTPGatewayService`
+**Services** (1): `WebService`
 
-**Imports** (1):
+**Imports** (5):
 
+- `gcommon/v1/web/handle_request_request.proto`
+- `gcommon/v1/web/handle_request_response.proto`
+- `gcommon/v1/web/health_check_request.proto`
+- `gcommon/v1/web/health_check_response.proto`
 - `google/protobuf/go_features.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/web/proto/services/web_service.proto
-// version: 1.0.0
-// guid: 7c9e0f1a-6d8b-5f4e-0a9f-8e7d6c5b4a3f
-
-// WebService definition
-//
-// This file implements the 1-1-1 pattern for service definitions.
-// NOTE: The main WebService is defined in pkg/web/proto/web.proto
-// This file is reserved for future additional web services or service extensions.
+// file: proto/gcommon/v1/web/web_service.proto
+// version: 1.0.1
+// guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
 
 package gcommon.v1.web;
 
+import "gcommon/v1/web/handle_request_request.proto";
+import "gcommon/v1/web/handle_request_response.proto";
+import "gcommon/v1/web/health_check_request.proto";
+import "gcommon/v1/web/health_check_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/web";
 
-// Future web service extensions can be defined here
-// The main WebService is defined in web.proto to avoid duplication
+/**
+ * WebService provides core web server operations for
+ * handling HTTP requests and managing web services.
+ */
+service WebService {
+  // Handle an incoming web request
+  rpc HandleRequest(HandleRequestRequest) returns (HandleRequestResponse);
 
-// Example additional service for HTTP handling:
-/*
-   service HTTPGatewayService {
-     // Handle HTTP request
-     rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
-
-     // Process REST API calls
-     rpc ProcessRESTCall(RESTRequest) returns (RESTResponse);
-   }
-*/
-
+  // Check health of web service
+  rpc HealthCheck(WebHealthCheckRequest) returns (WebHealthCheckResponse);
+}
 ```
 
 ---
+

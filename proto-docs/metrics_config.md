@@ -4,74 +4,62 @@
 
 ## Module Overview
 
-- **Proto Files**: 24
-- **Messages**: 24
+- **Proto Files**: 29
+- **Messages**: 30
 - **Services**: 0
 - **Enums**: 0
-- ⚠️ **Issues**: 3
 
 ## Files in this Module
 
-- [apikey_config_update.proto](#apikey_config_update)
-- [config_change.proto](#config_change)
+- [api_key_config_update.proto](#api_key_config_update)
+- [applied_config.proto](#applied_config)
+- [buffer_config.proto](#buffer_config)
+- [configuration_summary.proto](#configuration_summary)
+- [counter_config.proto](#counter_config)
 - [export_config.proto](#export_config)
-- [export_config_options.proto](#export_config_options) ⚠️ 3 issues
 - [export_config_update.proto](#export_config_update)
+- [gauge_config.proto](#gauge_config)
 - [get_metric_config_request.proto](#get_metric_config_request)
 - [get_metric_config_response.proto](#get_metric_config_response)
 - [get_scrape_config_request.proto](#get_scrape_config_request)
 - [get_scrape_config_response.proto](#get_scrape_config_response)
+- [histogram_config.proto](#histogram_config)
 - [import_config.proto](#import_config)
 - [metric_config.proto](#metric_config)
-- [open_telemetry_settings_update.proto](#open_telemetry_settings_update)
-- [prometheus_settings_update.proto](#prometheus_settings_update)
+- [metric_type_config.proto](#metric_type_config)
+- [provider_config.proto](#provider_config)
+- [provider_config_summary.proto](#provider_config_summary)
 - [provider_config_update.proto](#provider_config_update)
-- [provider_settings_update.proto](#provider_settings_update)
-- [retention_policy_retentionpolicyconfig.proto](#retention_policy_retentionpolicyconfig)
 - [scrape_config.proto](#scrape_config)
+- [security_config.proto](#security_config)
 - [security_config_update.proto](#security_config_update)
 - [set_metric_config_request.proto](#set_metric_config_request)
 - [set_metric_config_response.proto](#set_metric_config_response)
 - [set_scrape_config_request.proto](#set_scrape_config_request)
 - [set_scrape_config_response.proto](#set_scrape_config_response)
-- [stats_dsettings_update.proto](#stats_dsettings_update)
-- [tlsconfig_update.proto](#tlsconfig_update)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [common](./common.md)
-- [config_1](./config_1.md)
-- [config_2](./config_2.md)
-- [metrics_1](./metrics_1.md)
-- [metrics_2](./metrics_2.md)
-
-**Modules that depend on this one**:
-
-- [config_config_1](./config_config_1.md)
-- [metrics_2](./metrics_2.md)
-- [metrics_api_1](./metrics_api_1.md)
-- [metrics_api_2](./metrics_api_2.md)
-
+- [summary_config.proto](#summary_config)
+- [tls_config.proto](#tls_config)
+- [tls_config_update.proto](#tls_config_update)
 ---
+
 
 ## Detailed Documentation
 
-### apikey_config_update.proto {#apikey_config_update}
+### api_key_config_update.proto {#api_key_config_update}
 
-**Path**: `pkg/metrics/proto/apikey_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
+**Path**: `gcommon/v1/metrics/api_key_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `APIKeyConfigUpdate`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/apikey_config_update.proto
+// file: proto/gcommon/v1/metrics/v1/api_key_config_update.proto
 // version: 1.0.0
 // guid: f04936d2-7273-4746-bc4b-9a2c0794658f
 
@@ -80,16 +68,20 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * APIKeyConfigUpdate contains updates to API key configuration.
  */
 message APIKeyConfigUpdate {
   // Updated header name
-  string header_name = 1;
+  string header_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Updated required setting
   bool required = 2;
@@ -100,177 +92,296 @@ message APIKeyConfigUpdate {
   // API keys to remove
   repeated string allowed_key_removes = 4;
 }
-
 ```
 
 ---
 
-### config_change.proto {#config_change}
+### applied_config.proto {#applied_config}
 
-**Path**: `pkg/metrics/proto/config_change.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
+**Path**: `gcommon/v1/metrics/applied_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
-**Messages** (1): `ConfigChange`
+**Messages** (1): `AppliedConfig`
 
-**Imports** (4):
+**Imports** (3):
 
+- `gcommon/v1/metrics/resource_allocations.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/change_type.proto` → [config_1](./config_1.md#change_type) → [metrics_1](./metrics_1.md#change_type)
-- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/config_change.proto
-// version: 1.1.0
-// guid: 29bbb593-9903-43ef-a25e-1c3c7c0a4e64
+// file: proto/gcommon/v1/metrics/v1/applied_config.proto
+// version: 1.0.0
+// guid: d569fe55-1ee6-4cbb-94c5-f4bd79df578d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/resource_allocations.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message AppliedConfig {
+  // Configuration that was actually applied (may differ from requested)
+  string config_summary = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Default values that were applied
+  map<string, string> applied_defaults = 2;
+
+  // Configuration overrides that were applied
+  map<string, string> applied_overrides = 3;
+
+  // Resource allocations that were made
+  ResourceAllocations resource_allocations = 4;
+}
+```
+
+---
+
+### buffer_config.proto {#buffer_config}
+
+**Path**: `gcommon/v1/metrics/buffer_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
+
+**Messages** (1): `BufferConfig`
+
+**Imports** (3):
+
+- `gcommon/v1/common/buffer_overflow_strategy.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/buffer_config.proto
+// version: 1.0.0
+// guid: 3cbd27e2-8ac4-4dad-8b12-6ae61bca9e6c
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/buffer_overflow_strategy.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message BufferConfig {
+  // Maximum number of metrics to buffer
+  int32 max_buffer_size = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Buffer overflow strategy
+  gcommon.v1.common.BufferOverflowStrategy overflow_strategy = 2;
+
+  // Whether to persist buffer to disk during streaming
+  bool persist_buffer = 3;
+
+  // Maximum memory usage for buffering (bytes)
+  int64 max_memory_bytes = 4 [(buf.validate.field).int64.gte = 0];
+}
+```
+
+---
+
+### configuration_summary.proto {#configuration_summary}
+
+**Path**: `gcommon/v1/metrics/configuration_summary.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
+
+**Messages** (1): `ConfigurationSummary`
+
+**Imports** (4):
+
+- `gcommon/v1/metrics/resource_limits_summary.proto`
+- `gcommon/v1/metrics/security_summary.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/configuration_summary.proto
+// version: 1.0.0
+// guid: 9af1b63b-741f-454d-a992-90c457764c2d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/resource_limits_summary.proto";
+import "gcommon/v1/metrics/security_summary.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ConfigurationSummary {
+  // Number of configured exporters
+  int32 exporter_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Security settings summary
+  SecuritySummary security = 2;
+
+  // Resource limits summary
+  ResourceLimitsSummary resource_limits = 3;
+
+  // Configuration version
+  string config_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+}
+```
+
+---
+
+### counter_config.proto {#counter_config}
+
+**Path**: `gcommon/v1/metrics/counter_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+
+**Messages** (1): `CounterConfig`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/counter_config.proto
+// version: 1.0.0
+// guid: 574d7f46-80ea-4a48-9dad-c55f07c5f558
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/change_type.proto";
-import "pkg/metrics/proto/validation_result.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * ConfigChange describes a configuration change that was made.
- */
-message ConfigChange {
-  // Type of change
-  ChangeType change_type = 1;
+message CounterConfig {
+  // Starting value for the counter
+  double initial_value = 1 [(buf.validate.field).double.gte = 0.0];
 
-  // Setting that was changed
-  string setting_path = 2;
+  // Whether the counter can be reset
+  bool allow_reset = 2;
 
-  // Old value (if applicable)
-  string old_value = 3;
-
-  // New value
-  string new_value = 4;
-
-  // Description of the change
-  string description = 5;
+  // Maximum value before rolling over
+  double max_value = 3 [(buf.validate.field).double.gte = 0.0];
 }
-
 ```
 
 ---
 
 ### export_config.proto {#export_config}
 
-**Path**: `pkg/metrics/proto/export_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/export_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 63
 
-**Messages** (1): `ExportConfig`
+**Messages** (2): `ExportConfig`, `MetricsRetryConfig`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/export_config.proto
+// file: proto/gcommon/v1/metrics/v1/export_config.proto
 // version: 1.0.0
-// guid: b0c1d2e3-456b-801a-5678-123456789012
+// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
+// Configuration for exporting metrics data
 message ExportConfig {
-  // Export enabled status
-  bool enabled = 1;
+  // Export destination URL or endpoint
+  string destination = 1 [(buf.validate.field).string.min_len = 1];
 
-  // Export interval in seconds
-  int32 interval_seconds = 2;
+  // Export format (json, csv, prometheus, etc.)
+  string format = 2 [(buf.validate.field).string.min_len = 1];
 
-  // Export destinations
-  repeated string destinations = 3;
+  // Export frequency in seconds
+  int32 frequency_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
-  // Export format
-  string format = 4;
+  // Whether to compress exported data
+  bool compress = 4;
+
+  // Batch size for exports
+  int32 batch_size = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Timeout for export operations in seconds
+  int32 timeout_seconds = 6 [(buf.validate.field).int32.gt = 0];
+
+  // Custom headers for HTTP exports
+  map<string, string> headers = 7;
+
+  // Authentication configuration
+  map<string, string> auth_config = 8;
+
+  // Retry configuration
+  MetricsRetryConfig retry_config = 9;
+
+  // Filtering rules for what to export
+  repeated string include_patterns = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated string exclude_patterns = 11 [(buf.validate.field).repeated.min_items = 1];
 }
 
-```
+// Retry configuration for exports
+message MetricsRetryConfig {
+  // Maximum number of retries
+  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
 
----
+  // Initial retry delay in seconds
+  int32 initial_delay_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
-### export_config_options.proto {#export_config_options}
+  // Maximum retry delay in seconds
+  int32 max_delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
-**Path**: `pkg/metrics/proto/export_config_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
-
-**Messages** (1): `ExportConfig`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### ⚠️ Issues Found (3)
-
-- Line 20: Commented field - // CONFLICT_DISABLED: ExportFormat format = 1;
-- Line 23: Commented field - // CONFLICT_DISABLED: CompressionType compression = 2;
-- Line 26: Commented field - // CONFLICT_DISABLED: string destination = 3;
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/messages/export_config_options.proto
-// file: metrics/proto/messages/export_config_options.proto
-//
-// Configuration options for exporting metrics to external systems.
-//
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * ExportConfig defines how metrics are exported.
- */
-// CONFLICT_DISABLED: message ExportConfig {
-// CONFLICT_DISABLED:   // Output format (e.g., prometheus, json)
-// CONFLICT_DISABLED:   ExportFormat format = 1;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Compression algorithm to use
-// CONFLICT_DISABLED:   CompressionType compression = 2;
-// CONFLICT_DISABLED:
-// CONFLICT_DISABLED:   // Destination URL or path
-// CONFLICT_DISABLED:   string destination = 3;
-// CONFLICT_DISABLED: }
-
+  // Backoff multiplier
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
+}
 ```
 
 ---
 
 ### export_config_update.proto {#export_config_update}
 
-**Path**: `pkg/metrics/proto/export_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 40
+**Path**: `gcommon/v1/metrics/export_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 41
 
 **Messages** (1): `ExportConfigUpdate`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/metrics/export_destination_update.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/export_destination_update.proto` → [metrics_1](./metrics_1.md#export_destination_update)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/export_config_update.proto
+// file: proto/gcommon/v1/metrics/v1/export_config_update.proto
 // version: 1.0.0
 // guid: fd6ebe54-a1db-4c08-84b4-a91b690e9af6
 
@@ -278,11 +389,13 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/export_destination_update.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/export_destination_update.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * ExportConfigUpdate contains updates to export configuration.
@@ -292,44 +405,89 @@ message ExportConfigUpdate {
   bool enabled = 1;
 
   // Format updates
-  repeated string format_updates = 2;
+  repeated string format_updates = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Formats to remove
-  repeated string format_removes = 3;
+  repeated string format_removes = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Destination updates
-  repeated ExportDestinationUpdate destination_updates = 4;
+  repeated ExportDestinationUpdate destination_updates = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Destinations to remove
-  repeated string destination_removes = 5;
+  repeated string destination_removes = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Updated export frequency
-  string frequency = 6;
+  string frequency = 6 [(buf.validate.field).string.min_len = 1];
 
   // Updated batch size
-  int32 batch_size = 7;
+  int32 batch_size = 7 [(buf.validate.field).int32.gte = 0];
 }
+```
 
+---
+
+### gauge_config.proto {#gauge_config}
+
+**Path**: `gcommon/v1/metrics/gauge_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+
+**Messages** (1): `GaugeConfig`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/gauge_config.proto
+// version: 1.0.0
+// guid: 9f7c124b-e567-4c31-ad6b-19c05836a84b
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message GaugeConfig {
+  // Minimum allowed value
+  double min_value = 1 [(buf.validate.field).double.gte = 0.0];
+
+  // Maximum allowed value
+  double max_value = 2 [(buf.validate.field).double.gte = 0.0];
+
+  // Whether the gauge can go negative
+  bool allow_negative = 3;
+}
 ```
 
 ---
 
 ### get_metric_config_request.proto {#get_metric_config_request}
 
-**Path**: `pkg/metrics/proto/get_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
+**Path**: `gcommon/v1/metrics/get_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetMetricConfigRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/get_metric_config_request.proto
-// file: metrics/proto/requests/get_metric_config_request.proto
+// file: proto/gcommon/v1/metrics/v1/get_metric_config_request.proto
+// version: 1.0.0
+// guid: 82add51b-b9ac-4042-be4d-4acada2ae127
+// file: proto/gcommon/v1/metrics/v1/get_metric_config_request.proto
 //
 // Request message to retrieve metric configuration.
 //
@@ -338,53 +496,54 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message GetMetricConfigRequest {
   // Metric identifier
-  string metric_id = 1;
+  string metric_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
 }
-
 ```
 
 ---
 
 ### get_metric_config_response.proto {#get_metric_config_response}
 
-**Path**: `pkg/metrics/proto/get_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
+**Path**: `gcommon/v1/metrics/get_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `GetMetricConfigResponse`
 
 **Imports** (3):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/metric_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_config.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/get_metric_config_response.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/metrics/v1/get_metric_config_response.proto
+// version: 1.0.1
 // guid: 1d1401a7-7986-407f-9b51-d77ceae3b42b
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/metric_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * GetMetricConfigResponse contains metric configuration information.
@@ -399,27 +558,29 @@ message GetMetricConfigResponse {
   // Retrieved configuration
   MetricConfig config = 3;
 }
-
 ```
 
 ---
 
 ### get_scrape_config_request.proto {#get_scrape_config_request}
 
-**Path**: `pkg/metrics/proto/get_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
+**Path**: `gcommon/v1/metrics/get_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetScrapeConfigRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/get_scrape_config_request.proto
-// file: metrics/proto/requests/get_scrape_config_request.proto
+// file: proto/gcommon/v1/metrics/v1/get_scrape_config_request.proto
+// version: 1.0.0
+// guid: 9ddccca8-f23d-4cc8-b483-9aea96bae473
+// file: proto/gcommon/v1/metrics/v1/get_scrape_config_request.proto
 //
 // Request message for retrieving scrape configuration.
 //
@@ -428,41 +589,44 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message GetScrapeConfigRequest {
   // Provider identifier
-  string provider_id = 1;
+  string provider_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
 }
-
 ```
 
 ---
 
 ### get_scrape_config_response.proto {#get_scrape_config_response}
 
-**Path**: `pkg/metrics/proto/get_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+**Path**: `gcommon/v1/metrics/get_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `GetScrapeConfigResponse`
 
 **Imports** (3):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/metrics/scrape_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/scrape_config.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/get_scrape_config_response.proto
-// file: metrics/proto/responses/get_scrape_config_response.proto
+// file: proto/gcommon/v1/metrics/v1/get_scrape_config_response.proto
+// version: 1.0.1
+// guid: fa33c699-3eb3-4466-82b0-f7983815994e
+// file: proto/gcommon/v1/metrics/v1/get_scrape_config_response.proto
 //
 // Response containing scraping configuration for a provider.
 //
@@ -470,12 +634,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/metrics/scrape_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/scrape_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * GetScrapeConfigResponse returns provider scrape configuration.
@@ -487,25 +651,68 @@ message GetScrapeConfigResponse {
   // Error information if retrieval failed
   gcommon.v1.common.Error error = 2;
 }
+```
 
+---
+
+### histogram_config.proto {#histogram_config}
+
+**Path**: `gcommon/v1/metrics/histogram_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+
+**Messages** (1): `HistogramConfig`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/histogram_config.proto
+// version: 1.0.0
+// guid: d859806f-1fdc-4c74-a05d-c8872810e652
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message HistogramConfig {
+  // Predefined buckets for the histogram
+  repeated double buckets = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether to automatically adjust buckets based on data
+  bool auto_buckets = 2;
+
+  // Maximum number of buckets to maintain
+  int32 max_buckets = 3 [(buf.validate.field).int32.gte = 0];
+}
 ```
 
 ---
 
 ### import_config.proto {#import_config}
 
-**Path**: `pkg/metrics/proto/import_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/import_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
 **Messages** (1): `ImportConfig`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/import_config.proto
+// file: proto/gcommon/v1/metrics/v1/import_config.proto
 // version: 1.0.0
 // guid: f2e3c94f-e0d7-4e2d-9799-1a4005b10c64
 
@@ -514,9 +721,11 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * ImportConfig defines how external metrics should be imported
@@ -524,35 +733,35 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message ImportConfig {
   // List of source identifiers or URLs
-  repeated string sources = 1;
+  repeated string sources = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Cron-style schedule for imports
-  string schedule = 2;
+  string schedule = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether importing is enabled
   bool enabled = 3;
 }
-
 ```
 
 ---
 
 ### metric_config.proto {#metric_config}
 
-**Path**: `pkg/metrics/proto/metric_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 50
+**Path**: `gcommon/v1/metrics/metric_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 53
 
 **Messages** (1): `MetricConfig`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/metrics/export_config.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/export_config.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/metric_config.proto
+// file: proto/gcommon/v1/metrics/v1/metric_config.proto
 // version: 1.0.0
 // guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
 
@@ -560,19 +769,23 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/export_config.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/export_config.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * MetricConfig contains configuration settings for a specific metric.
  */
 message MetricConfig {
   // Metric name
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Metric type (counter, gauge, histogram, summary, etc.)
   string metric_type = 2;
@@ -590,7 +803,7 @@ message MetricConfig {
   map<string, string> default_labels = 6;
 
   // Description of the metric
-  string description = 7;
+  string description = 7 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Unit of measurement
   string unit = 8;
@@ -601,136 +814,202 @@ message MetricConfig {
   // Export configuration
   ExportConfig export_config = 10;
 }
-
 ```
 
 ---
 
-### open_telemetry_settings_update.proto {#open_telemetry_settings_update}
+### metric_type_config.proto {#metric_type_config}
 
-**Path**: `pkg/metrics/proto/open_telemetry_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
+**Path**: `gcommon/v1/metrics/metric_type_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
 
-**Messages** (1): `OpenTelemetrySettingsUpdate`
+**Messages** (1): `MetricTypeConfig`
 
-**Imports** (1):
+**Imports** (5):
 
+- `gcommon/v1/metrics/counter_config.proto`
+- `gcommon/v1/metrics/gauge_config.proto`
+- `gcommon/v1/metrics/histogram_config.proto`
+- `gcommon/v1/metrics/summary_config.proto`
 - `google/protobuf/go_features.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/open_telemetry_settings_update.proto
-// version: 1.0.0
-// guid: 191fb873-a4f2-418a-803f-6033ebcd28f4
+// file: proto/gcommon/v1/metrics/v1/metric_type_config.proto
+// version: 1.0.1
+// guid: 440003e9-c836-4e1c-8e6f-754798a23832
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/counter_config.proto";
+import "gcommon/v1/metrics/gauge_config.proto";
+import "gcommon/v1/metrics/histogram_config.proto";
+import "gcommon/v1/metrics/summary_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * OpenTelemetrySettingsUpdate contains updates to OpenTelemetry settings.
- */
-message OpenTelemetrySettingsUpdate {
-  // Updated endpoint
-  string endpoint = 1;
+message MetricTypeConfig {
+  // Configuration for histogram metrics
+  HistogramConfig histogram = 1;
 
-  // Updated TLS setting
-  bool use_tls = 2;
+  // Configuration for summary metrics
+  SummaryConfig summary = 2;
 
-  // Header updates
-  map<string, string> header_updates = 3;
+  // Configuration for gauge metrics
+  GaugeConfig gauge = 3;
 
-  // Headers to remove
-  repeated string header_removes = 4;
-
-  // Resource attribute updates
-  map<string, string> resource_attribute_updates = 5;
-
-  // Resource attributes to remove
-  repeated string resource_attribute_removes = 6;
-
-  // Updated timeout
-  string timeout = 7;
+  // Configuration for counter metrics
+  CounterConfig counter = 4;
 }
-
 ```
 
 ---
 
-### prometheus_settings_update.proto {#prometheus_settings_update}
+### provider_config.proto {#provider_config}
 
-**Path**: `pkg/metrics/proto/prometheus_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/provider_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 50
 
-**Messages** (1): `PrometheusSettingsUpdate`
+**Messages** (1): `ProviderConfig`
 
-**Imports** (1):
+**Imports** (7):
 
+- `gcommon/v1/common/metrics_provider_type.proto`
+- `gcommon/v1/common/organization_resource_limits.proto`
+- `gcommon/v1/metrics/export_config.proto`
+- `gcommon/v1/metrics/provider_settings.proto`
+- `gcommon/v1/metrics/security_config.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/prometheus_settings_update.proto
+// file: proto/gcommon/v1/metrics/v1/provider_config.proto
 // version: 1.0.0
-// guid: 438c00d1-b391-4ced-b9d0-4ddbd6202b8d
+// guid: 3539da64-8631-416f-8d05-17a4810ed876
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/metrics_provider_type.proto";
+import "gcommon/v1/common/organization_resource_limits.proto";
+import "gcommon/v1/metrics/export_config.proto";
+import "gcommon/v1/metrics/provider_settings.proto";
+import "gcommon/v1/metrics/security_config.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * PrometheusSettingsUpdate contains updates to Prometheus-specific settings.
- */
-message PrometheusSettingsUpdate {
-  // Updated push gateway URL
-  string push_gateway_url = 1;
+message ProviderConfig {
+  // Unique identifier for the provider
+  string provider_id = 1;
 
-  // Updated job name
-  string job_name = 2;
+  // Human-readable name for the provider
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
-  // Updated instance name
-  string instance = 3;
+  // Type of provider (prometheus, opentelemetry, custom, etc.)
+  gcommon.v1.common.MetricsProviderType type = 3;
 
-  // Label updates
-  map<string, string> label_updates = 4;
+  // Provider-specific configuration
+  ProviderSettings settings = 4;
 
-  // Labels to remove
-  repeated string label_removes = 5;
+  // Export configuration for this provider
+  ExportConfig export_config = 5;
+
+  // Resource limits imposed by the organization
+  gcommon.v1.common.OrganizationResourceLimits resource_limits = 6;
+
+  // Security configuration
+  MetricsSecurityConfig security_config = 7;
+
+  // Tags for provider organization
+  map<string, string> tags = 8;
+
+  // Description of the provider
+  string description = 9 [ (buf.validate.field).string.max_len = 1000 ];
 }
+```
 
+---
+
+### provider_config_summary.proto {#provider_config_summary}
+
+**Path**: `gcommon/v1/metrics/provider_config_summary.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
+
+**Messages** (1): `ProviderConfigSummary`
+
+**Imports** (3):
+
+- `gcommon/v1/metrics/resource_limits_summary.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/provider_config_summary.proto
+// version: 1.0.0
+// guid: 394dfc33-7acb-4583-bd49-44bdcb86e5ba
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/metrics/resource_limits_summary.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message ProviderConfigSummary {
+  // Number of configured exporters
+  int32 exporter_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Whether security is enabled
+  bool security_enabled = 2;
+
+  // Resource limits summary
+  ResourceLimitsSummary resource_limits = 3;
+
+  // Export destinations
+  repeated string export_destinations = 4 [(buf.validate.field).repeated.min_items = 1];
+}
 ```
 
 ---
 
 ### provider_config_update.proto {#provider_config_update}
 
-**Path**: `pkg/metrics/proto/provider_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 44
+**Path**: `gcommon/v1/metrics/provider_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 47
 
 **Messages** (1): `ProviderConfigUpdate`
 
-**Imports** (6):
+**Imports** (7):
 
+- `gcommon/v1/metrics/export_config_update.proto`
+- `gcommon/v1/metrics/provider_settings_update.proto`
+- `gcommon/v1/metrics/resource_limits_update.proto`
+- `gcommon/v1/metrics/security_config_update.proto`
+- `gcommon/v1/metrics/tag_updates.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/export_config_update.proto`
-- `pkg/metrics/proto/provider_settings_update.proto`
-- `pkg/metrics/proto/resource_limits_update.proto` → [metrics_2](./metrics_2.md#resource_limits_update)
-- `pkg/metrics/proto/security_config_update.proto`
-- `pkg/metrics/proto/tag_updates.proto` → [metrics_2](./metrics_2.md#tag_updates)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/provider_config_update.proto
+// file: proto/gcommon/v1/metrics/v1/provider_config_update.proto
 // version: 1.0.0
 // guid: 175e030e-5a4a-4d94-9f2a-6d8bb006602a
 
@@ -738,25 +1017,29 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/export_config_update.proto";
+import "gcommon/v1/metrics/provider_settings_update.proto";
+import "gcommon/v1/metrics/resource_limits_update.proto";
+import "gcommon/v1/metrics/security_config_update.proto";
+import "gcommon/v1/metrics/tag_updates.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/export_config_update.proto";
-import "pkg/metrics/proto/provider_settings_update.proto";
-import "pkg/metrics/proto/resource_limits_update.proto";
-import "pkg/metrics/proto/security_config_update.proto";
-import "pkg/metrics/proto/tag_updates.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * ProviderConfigUpdate contains the configuration updates to apply.
  */
 message ProviderConfigUpdate {
   // Updated name (if changing)
-  string name = 1;
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Updated description (if changing)
-  string description = 2;
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Provider settings updates
   ProviderSettingsUpdate settings_update = 3;
@@ -773,119 +1056,26 @@ message ProviderConfigUpdate {
   // Tag updates
   TagUpdates tag_updates = 7;
 }
-
-```
-
----
-
-### provider_settings_update.proto {#provider_settings_update}
-
-**Path**: `pkg/metrics/proto/provider_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
-
-**Messages** (1): `ProviderSettingsUpdate`
-
-**Imports** (4):
-
-- `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/open_telemetry_settings_update.proto`
-- `pkg/metrics/proto/prometheus_settings_update.proto`
-- `pkg/metrics/proto/stats_dsettings_update.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/provider_settings_update.proto
-// version: 1.0.0
-// guid: d2e3f4a5-678d-023c-7890-345678901234
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/open_telemetry_settings_update.proto";
-import "pkg/metrics/proto/prometheus_settings_update.proto";
-import "pkg/metrics/proto/stats_dsettings_update.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-message ProviderSettingsUpdate {
-  // Prometheus settings update
-  PrometheusSettingsUpdate prometheus = 1;
-
-  // OpenTelemetry settings update
-  OpenTelemetrySettingsUpdate opentelemetry = 2;
-
-  // StatsD settings update
-  StatsDSettingsUpdate statsd = 3;
-}
-
-```
-
----
-
-### retention_policy_retentionpolicyconfig.proto {#retention_policy_retentionpolicyconfig}
-
-**Path**: `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
-
-**Messages** (1): `RetentionPolicyConfig`
-
-**Imports** (2):
-
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto
-// version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174024
-
-edition = "2023";
-
-package gcommon.v1.metrics;
-
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-/**
- * Retention policy configuration for metric data.
- */
-message RetentionPolicyConfig {
-  // How long to retain data
-  google.protobuf.Duration duration = 1;
-
-  // Storage tier configuration
-  string storage_tier = 2;
-
-  // Compression settings
-  string compression = 3;
-}
-
 ```
 
 ---
 
 ### scrape_config.proto {#scrape_config}
 
-**Path**: `pkg/metrics/proto/scrape_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/scrape_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Messages** (1): `ScrapeConfig`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/metrics/scrape_target.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/scrape_target.proto` → [metrics_2](./metrics_2.md#scrape_target)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/messages/scrape_config.proto
+// file: proto/gcommon/v1/metrics/v1/scrape_config.proto
 // version: 1.0.0
 // guid: a754fb7e-a819-4731-82fd-6a587b928a9e
 
@@ -893,18 +1083,22 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/scrape_target.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/scrape_target.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * ScrapeConfig defines how metrics should be scraped from targets.
  */
 message ScrapeConfig {
   // Job name for the scrape configuration
-  string job_name = 1;
+  string job_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Targets to scrape
   repeated ScrapeTarget targets = 2;
@@ -912,27 +1106,80 @@ message ScrapeConfig {
   // Interval between scrapes in seconds
   int32 scrape_interval_seconds = 3;
 }
+```
 
+---
+
+### security_config.proto {#security_config}
+
+**Path**: `gcommon/v1/metrics/security_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+
+**Messages** (1): `MetricsSecurityConfig`
+
+**Imports** (4):
+
+- `gcommon/v1/common/metrics_api_key_config.proto`
+- `gcommon/v1/metrics/tls_config.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/security_config.proto
+// version: 1.0.0
+// guid: 61377102-cbd1-4223-8342-a2f11b1c4d47
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "gcommon/v1/common/metrics_api_key_config.proto";
+import "gcommon/v1/metrics/tls_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsSecurityConfig {
+  // Whether authentication is required
+  bool require_auth = 1;
+
+  // Allowed authentication methods
+  repeated string auth_methods = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether TLS is required
+  bool require_tls = 3;
+
+  // TLS configuration
+  MetricsTLSConfig tls_config = 4;
+
+  // API key configuration
+  gcommon.v1.common.MetricsAPIKeyConfig api_key_config = 5;
+}
 ```
 
 ---
 
 ### security_config_update.proto {#security_config_update}
 
-**Path**: `pkg/metrics/proto/security_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
+**Path**: `gcommon/v1/metrics/security_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
 
 **Messages** (1): `SecurityConfigUpdate`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/metrics/api_key_config_update.proto`
+- `gcommon/v1/metrics/tls_config_update.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/apikey_config_update.proto`
-- `pkg/metrics/proto/tlsconfig_update.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/security_config_update.proto
+// file: proto/gcommon/v1/metrics/v1/security_config_update.proto
 // version: 1.0.0
 // guid: 94abaf44-d603-4b65-8bd3-d98ca462c20e
 
@@ -940,12 +1187,14 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/api_key_config_update.proto";
+import "gcommon/v1/metrics/tls_config_update.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/apikey_config_update.proto";
-import "pkg/metrics/proto/tlsconfig_update.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SecurityConfigUpdate contains updates to security configuration.
@@ -955,7 +1204,7 @@ message SecurityConfigUpdate {
   bool require_auth = 1;
 
   // Updated authentication methods
-  repeated string auth_methods = 2;
+  repeated string auth_methods = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Updated TLS requirement
   bool require_tls = 3;
@@ -966,38 +1215,37 @@ message SecurityConfigUpdate {
   // API key configuration updates
   APIKeyConfigUpdate api_key_config_update = 5;
 }
-
 ```
 
 ---
 
 ### set_metric_config_request.proto {#set_metric_config_request}
 
-**Path**: `pkg/metrics/proto/set_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
+**Path**: `gcommon/v1/metrics/set_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
 
 **Messages** (1): `SetMetricConfigRequest`
 
 **Imports** (2):
 
+- `gcommon/v1/metrics/metric_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/metric_config.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/set_metric_config_request.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/metrics/v1/set_metric_config_request.proto
+// version: 1.0.1
 // guid: d1b98b0c-98f7-47fc-9bb5-f18ebfbbe1d3
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/metrics/metric_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SetMetricConfigRequest updates configuration for a metric.
@@ -1006,38 +1254,37 @@ message SetMetricConfigRequest {
   // Updated configuration
   MetricConfig config = 1;
 }
-
 ```
 
 ---
 
 ### set_metric_config_response.proto {#set_metric_config_response}
 
-**Path**: `pkg/metrics/proto/set_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
+**Path**: `gcommon/v1/metrics/set_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `SetMetricConfigResponse`
 
 **Imports** (2):
 
+- `gcommon/v1/common/error.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/set_metric_config_response.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/metrics/v1/set_metric_config_response.proto
+// version: 1.0.1
 // guid: 5faba194-b6ab-42ba-99c3-62eb07df9265
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SetMetricConfigResponse is returned after updating metric config.
@@ -1049,28 +1296,30 @@ message SetMetricConfigResponse {
   // Error details if any
   gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
 ### set_scrape_config_request.proto {#set_scrape_config_request}
 
-**Path**: `pkg/metrics/proto/set_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `gcommon/v1/metrics/set_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Messages** (1): `SetScrapeConfigRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/metrics/scrape_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/metrics/proto/scrape_config.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/requests/set_scrape_config_request.proto
-// file: metrics/proto/requests/set_scrape_config_request.proto
+// file: proto/gcommon/v1/metrics/v1/set_scrape_config_request.proto
+// version: 1.0.0
+// guid: 239855c3-0df1-42c3-a9dd-c6d7709f048f
+// file: proto/gcommon/v1/metrics/v1/set_scrape_config_request.proto
 //
 // Request message to set scraping configuration for a provider.
 //
@@ -1079,16 +1328,18 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/metrics/scrape_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/metrics/proto/scrape_config.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 message SetScrapeConfigRequest {
   // Provider identifier
-  string provider_id = 1;
+  string provider_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // New scrape configuration
   ScrapeConfig config = 2;
@@ -1096,27 +1347,28 @@ message SetScrapeConfigRequest {
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
 }
-
 ```
 
 ---
 
 ### set_scrape_config_response.proto {#set_scrape_config_response}
 
-**Path**: `pkg/metrics/proto/set_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
+**Path**: `gcommon/v1/metrics/set_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `SetScrapeConfigResponse`
 
 **Imports** (2):
 
+- `gcommon/v1/common/error.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/responses/set_scrape_config_response.proto
-// file: metrics/proto/responses/set_scrape_config_response.proto
+// file: proto/gcommon/v1/metrics/v1/set_scrape_config_response.proto
+// version: 1.0.1
+// guid: e328641f-32d3-4439-b78e-d7fbd14ede9d
+// file: proto/gcommon/v1/metrics/v1/set_scrape_config_response.proto
 //
 // Response after updating scrape configuration.
 //
@@ -1124,11 +1376,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * SetScrapeConfigResponse confirms new configuration.
@@ -1140,75 +1392,114 @@ message SetScrapeConfigResponse {
   // Error information
   gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
-### stats_dsettings_update.proto {#stats_dsettings_update}
+### summary_config.proto {#summary_config}
 
-**Path**: `pkg/metrics/proto/stats_dsettings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
+**Path**: `gcommon/v1/metrics/summary_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `StatsDSettingsUpdate`
+**Messages** (1): `SummaryConfig`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/stats_dsettings_update.proto
+// file: proto/gcommon/v1/metrics/v1/summary_config.proto
 // version: 1.0.0
-// guid: d12fd84f-4de1-43f7-ad5d-5079bfa8b126
+// guid: f54bfb16-e799-4222-881b-a86425813aa6
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-/**
- * StatsDSettingsUpdate contains updates to StatsD settings.
- */
-message StatsDSettingsUpdate {
-  // Updated server address
-  string address = 1;
+message SummaryConfig {
+  // Quantiles to calculate (e.g., 0.5, 0.95, 0.99)
+  repeated double quantiles = 1 [(buf.validate.field).repeated.min_items = 1];
 
-  // Updated protocol
-  string protocol = 2;
+  // Time window for calculating quantiles
+  string time_window = 2 [(buf.validate.field).string.min_len = 1];
 
-  // Updated prefix
-  string prefix = 3;
-
-  // Updated sample rate
-  double sample_rate = 4;
-
-  // Updated buffer size
-  int32 buffer_size = 5;
+  // Maximum age of observations to include
+  string max_age = 3 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
-### tlsconfig_update.proto {#tlsconfig_update}
+### tls_config.proto {#tls_config}
 
-**Path**: `pkg/metrics/proto/tlsconfig_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
+**Path**: `gcommon/v1/metrics/tls_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `TLSConfigUpdate`
+**Messages** (1): `MetricsTLSConfig`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/metrics/proto/tlsconfig_update.proto
+// file: proto/gcommon/v1/metrics/v1/tls_config.proto
+// version: 1.0.0
+// guid: 7da056fd-4d1f-48fa-8ee0-fbad667fa085
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsTLSConfig {
+  // Certificate file path
+  string cert_file = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Private key file path
+  string key_file = 2 [(buf.validate.field).string.min_len = 1];
+
+  // CA certificate file path
+  string ca_file = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to verify certificates
+  bool verify_certs = 4;
+}
+```
+
+---
+
+### tls_config_update.proto {#tls_config_update}
+
+**Path**: `gcommon/v1/metrics/tls_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
+
+**Messages** (1): `TLSConfigUpdate`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/v1/tls_config_update.proto
 // version: 1.0.0
 // guid: d61cb51c-f2b6-403b-bf24-6b5fe08c3e61
 
@@ -1217,27 +1508,29 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
 /**
  * TLSConfigUpdate contains updates to TLS configuration.
  */
 message TLSConfigUpdate {
   // Updated certificate file path
-  string cert_file = 1;
+  string cert_file = 1 [(buf.validate.field).string.min_len = 1];
 
   // Updated private key file path
-  string key_file = 2;
+  string key_file = 2 [(buf.validate.field).string.min_len = 1];
 
   // Updated CA certificate file path
-  string ca_file = 3;
+  string ca_file = 3 [(buf.validate.field).string.min_len = 1];
 
   // Updated certificate verification setting
   bool verify_certs = 4;
 }
-
 ```
 
 ---
+

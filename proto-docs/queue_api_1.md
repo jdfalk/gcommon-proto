@@ -5,19 +5,20 @@
 ## Module Overview
 
 - **Proto Files**: 50
-- **Messages**: 58
+- **Messages**: 50
 - **Services**: 0
 - **Enums**: 0
-- ⚠️ **Issues**: 2
 
 ## Files in this Module
 
-- [ack_request.proto](#ack_request) ⚠️ 1 issues
-- [ack_response.proto](#ack_response) ⚠️ 1 issues
+- [ack_request.proto](#ack_request)
+- [ack_response.proto](#ack_response)
 - [acknowledge_request.proto](#acknowledge_request)
 - [acknowledge_response.proto](#acknowledge_response)
+- [backup_info.proto](#backup_info)
 - [backup_queue_request.proto](#backup_queue_request)
 - [backup_queue_response.proto](#backup_queue_response)
+- [backup_source.proto](#backup_source)
 - [batch_ack_request.proto](#batch_ack_request)
 - [batch_ack_response.proto](#batch_ack_response)
 - [batch_nack_request.proto](#batch_nack_request)
@@ -26,6 +27,7 @@
 - [batch_publish_response.proto](#batch_publish_response)
 - [batch_pull_request.proto](#batch_pull_request)
 - [batch_pull_response.proto](#batch_pull_response)
+- [batch_settings.proto](#batch_settings)
 - [commit_offset_request.proto](#commit_offset_request)
 - [commit_offset_response.proto](#commit_offset_response)
 - [create_queue_request.proto](#create_queue_request)
@@ -34,6 +36,7 @@
 - [create_subscription_response.proto](#create_subscription_response)
 - [create_topic_request.proto](#create_topic_request)
 - [create_topic_response.proto](#create_topic_response)
+- [delete_criteria.proto](#delete_criteria)
 - [delete_queue_request.proto](#delete_queue_request)
 - [delete_queue_response.proto](#delete_queue_response)
 - [delete_request.proto](#delete_request)
@@ -58,50 +61,27 @@
 - [get_node_info_response.proto](#get_node_info_response)
 - [get_offset_request.proto](#get_offset_request)
 - [get_offset_response.proto](#get_offset_response)
-- [get_partition_info_request.proto](#get_partition_info_request)
-- [get_partition_info_response.proto](#get_partition_info_response)
-- [get_queue_info_request.proto](#get_queue_info_request)
-- [get_queue_info_response.proto](#get_queue_info_response)
-
-## Module Dependencies
-
-**This module depends on**:
-
-- [common](./common.md)
-- [metrics_1](./metrics_1.md)
-- [metrics_2](./metrics_2.md)
-- [queue_1](./queue_1.md)
-- [queue_2](./queue_2.md)
-- [queue_config](./queue_config.md)
-
-**Modules that depend on this one**:
-
-- [cache_services](./cache_services.md)
-- [queue_services](./queue_services.md)
-
 ---
+
 
 ## Detailed Documentation
 
 ### ack_request.proto {#ack_request}
 
-**Path**: `pkg/queue/proto/ack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
+**Path**: `gcommon/v1/queue/ack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `AckRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-
-#### ⚠️ Issues Found (1)
-
-- Line 5: Implementation needed - // removes it from the queue. This file was previously a placeholder
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/ack_request.proto
+// file: proto/gcommon/v1/queue/ack_request.proto
 // version: 1.0.0
 // guid: 3a91b3b5-86fd-443c-876b-5b7b4da2fa73
 // AckRequest acknowledges successful processing of a message and
@@ -116,15 +96,19 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message AckRequest {
   // Name of the queue containing the message.
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Receipt handle identifying the message instance.
   string receipt_handle = 2;
@@ -132,31 +116,26 @@ message AckRequest {
   // Standard request metadata including authentication and tracing.
   gcommon.v1.common.RequestMetadata metadata = 3;
 }
-
 ```
 
 ---
 
 ### ack_response.proto {#ack_response}
 
-**Path**: `pkg/queue/proto/ack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
+**Path**: `gcommon/v1/queue/ack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `AckResponse`
 
 **Imports** (2):
 
+- `gcommon/v1/common/error.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-
-#### ⚠️ Issues Found (1)
-
-- Line 6: Implementation needed - // successfully processed. This replaces the previous placeholder
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/ack_response.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/queue/ack_response.proto
+// version: 1.0.1
 // guid: e0629319-177a-44c0-9ec6-f97c73c03cbc
 
 // AckResponse indicates whether a message acknowledgment was
@@ -166,11 +145,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/error.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // AckResponse is returned after successfully acknowledging a message.
 // If `success` is false, the `error` field contains additional
@@ -182,26 +161,26 @@ message AckResponse {
   // Optional error information when success is false.
   gcommon.v1.common.Error error = 2;
 }
-
 ```
 
 ---
 
 ### acknowledge_request.proto {#acknowledge_request}
 
-**Path**: `pkg/queue/proto/acknowledge_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 83
+**Path**: `gcommon/v1/queue/acknowledge_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 86
 
 **Messages** (1): `AcknowledgeRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/acknowledge_request.proto
+// file: proto/gcommon/v1/queue/acknowledge_request.proto
 // version: 1.0.0
 // guid: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
 
@@ -209,12 +188,13 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 // Common types
-import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * AcknowledgeRequest confirms successful processing of one or more messages.
@@ -230,7 +210,10 @@ message AcknowledgeRequest {
    * The name/identifier of the queue containing the messages.
    * Must match the queue from which messages were dequeued.
    */
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Receipt handles of messages to acknowledge.
@@ -283,84 +266,46 @@ message AcknowledgeRequest {
    */
   bool batch_mode = 17;
 }
-
 ```
 
 ---
 
 ### acknowledge_response.proto {#acknowledge_response}
 
-**Path**: `pkg/queue/proto/acknowledge_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 146
+**Path**: `gcommon/v1/queue/acknowledge_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 109
 
-**Messages** (2): `MessageAckResult`, `AcknowledgeResponse`
+**Messages** (1): `AcknowledgeResponse`
 
-**Imports** (4):
+**Imports** (6):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/queue/message_ack_result.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/acknowledge_response.proto
+// file: proto/gcommon/v1/queue/acknowledge_response.proto
 // version: 1.0.0
-// guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
+// guid: 69fb5b85-226c-407d-9aaf-dd8810a3b662
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/message_ack_result.proto";
 import "google/protobuf/go_features.proto";
-// Standard imports
 import "google/protobuf/timestamp.proto";
-// Common types
-import "pkg/common/proto/error.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-/**
- * MessageAckResult represents the acknowledgment result for a single message.
- * Contains success status and any error information for individual messages
- * within a batch acknowledgment request.
- */
-message MessageAckResult {
-  /**
-   * Receipt handle of the message this result applies to.
-   */
-  string receipt_handle = 1;
-
-  /**
-   * Whether this specific message was successfully acknowledged.
-   */
-  bool success = 2;
-
-  /**
-   * Error information if acknowledgment failed for this message.
-   */
-  gcommon.v1.common.Error error = 3;
-
-  /**
-   * Message ID for correlation (if available).
-   */
-  string message_id = 4;
-
-  /**
-   * Processing result that was recorded (echoed from request).
-   */
-  string processing_result = 5;
-}
-
-/**
- * AcknowledgeResponse confirms the acknowledgment of processed messages.
- * Returns success status for each message and overall operation metrics
- * for monitoring and debugging.
- *
- * Follows 1-1-1 pattern: one message per file.
- */
 message AcknowledgeResponse {
   // Required fields (1-10)
 
@@ -392,7 +337,10 @@ message AcknowledgeResponse {
    * Name of the queue where messages were acknowledged.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Detailed results for each message acknowledgment.
@@ -449,26 +397,78 @@ message AcknowledgeResponse {
    */
   google.protobuf.Timestamp response_generated_at = 52;
 }
+```
 
+---
+
+### backup_info.proto {#backup_info}
+
+**Path**: `gcommon/v1/queue/backup_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
+
+**Messages** (1): `QueueBackupInfo`
+
+**Imports** (3):
+
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/backup_info.proto
+// version: 1.0.0
+// guid: 7e0f3e6b-8c36-4f63-9aa6-06ee60e83a15
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message QueueBackupInfo {
+  // Backup identifier
+  string backup_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Backup location
+  string backup_location = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Backup size (bytes)
+  int64 backup_size_bytes = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Backup timestamp
+  google.protobuf.Timestamp backup_created_at = 4;
+
+  // Backup expiration time
+  google.protobuf.Timestamp backup_expires_at = 5;
+}
 ```
 
 ---
 
 ### backup_queue_request.proto {#backup_queue_request}
 
-**Path**: `pkg/queue/proto/backup_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
+**Path**: `gcommon/v1/queue/backup_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 47
 
 **Messages** (1): `BackupQueueRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/backup_queue_request.proto
+// file: proto/gcommon/v1/queue/backup_queue_request.proto
 // version: 1.0.0
+// guid: 0f505896-49b9-4ca3-8a27-d0f9a79ad1ac
 // Request to backup a queue
 
 edition = "2023";
@@ -476,14 +476,18 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to backup a queue
 message BackupQueueRequest {
   // Queue name to backup
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Backup destination path
   string backup_path = 2;
@@ -509,26 +513,27 @@ message BackupQueueRequest {
   // Timeout for the operation (milliseconds)
   int32 timeout_ms = 9;
 }
-
 ```
 
 ---
 
 ### backup_queue_response.proto {#backup_queue_response}
 
-**Path**: `pkg/queue/proto/backup_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
+**Path**: `gcommon/v1/queue/backup_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `BackupQueueResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/backup_queue_response.proto
+// file: proto/gcommon/v1/queue/backup_queue_response.proto
 // version: 1.0.0
+// guid: f0001260-db1f-4a6a-8b58-21f91e69dc4d
 // Response for queue backup operations
 
 edition = "2023";
@@ -536,9 +541,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for queue backup operations
 message BackupQueueResponse {
@@ -546,46 +553,114 @@ message BackupQueueResponse {
   bool success = 1;
 
   // Backup file path or identifier
-  string backup_location = 2;
+  string backup_location = 2 [(buf.validate.field).string.min_len = 1];
 
   // Number of messages backed up
-  int64 messages_backed_up = 3;
+  int64 messages_backed_up = 3 [(buf.validate.field).int64.gte = 0];
 
   // Size of backup in bytes
-  int64 backup_size_bytes = 4;
+  int64 backup_size_bytes = 4 [(buf.validate.field).int64.gte = 0];
 
   // Backup duration (milliseconds)
-  int32 backup_duration_ms = 5;
+  int32 backup_duration_ms = 5 [(buf.validate.field).int32.gt = 0];
 
   // Backup checksum for integrity verification
-  string checksum = 6;
+  string checksum = 6 [(buf.validate.field).string.min_len = 1];
 
   // Backup timestamp
   int64 backup_timestamp = 7;
 
   // Error message if backup failed
-  string error = 8;
+  string error = 8 [(buf.validate.field).string.min_len = 1];
 }
+```
 
+---
+
+### backup_source.proto {#backup_source}
+
+**Path**: `gcommon/v1/queue/backup_source.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
+
+**Messages** (1): `BackupSource`
+
+**Imports** (5):
+
+- `gcommon/v1/queue/encryption_info.proto`
+- `gcommon/v1/queue/original_queue_info.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/backup_source.proto
+// version: 1.0.0
+// guid: 07747072-2f4d-414e-a232-b282cd58bd5e
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/queue/encryption_info.proto";
+import "gcommon/v1/queue/original_queue_info.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message BackupSource {
+  // Backup identifier
+  string backup_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Backup location/path
+  string backup_path = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Backup storage type (s3, gcs, local, etc.)
+  string storage_type = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Storage credentials
+  map<string, string> credentials = 4;
+
+  // Backup creation timestamp
+  google.protobuf.Timestamp backup_timestamp = 5;
+
+  // Original queue information
+  OriginalQueueInfo original_queue = 6;
+
+  // Backup format version
+  string backup_version = 7 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+
+  // Backup compression format
+  string compression_format = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Backup encryption details
+  EncryptionInfo encryption = 9;
+}
 ```
 
 ---
 
 ### batch_ack_request.proto {#batch_ack_request}
 
-**Path**: `pkg/queue/proto/batch_ack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
+**Path**: `gcommon/v1/queue/batch_ack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Messages** (1): `BatchAckRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_ack_request.proto
+// file: proto/gcommon/v1/queue/batch_ack_request.proto
 // version: 1.0.0
+// guid: 73ed83fb-3706-45cc-895d-fec71d0a2184
 // Request for batch acknowledgment operations
 
 edition = "2023";
@@ -593,212 +668,169 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request for batch acknowledgment operations
 message BatchAckRequest {
   // List of message IDs to acknowledge
-  repeated string message_ids = 1;
+  repeated string message_ids = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Consumer group ID
-  string consumer_group_id = 2;
+  string consumer_group_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Subscription ID
-  string subscription_id = 3;
+  string subscription_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Acknowledgment level
-  string ack_level = 4;
+  string ack_level = 4 [(buf.validate.field).string.min_len = 1];
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 5;
+  int32 timeout_ms = 5 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### batch_ack_response.proto {#batch_ack_response}
 
-**Path**: `pkg/queue/proto/batch_ack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 52
+**Path**: `gcommon/v1/queue/batch_ack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Messages** (2): `BatchAckResponse`, `FailedAck`
+**Messages** (1): `BatchAckResponse`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/common/response_metadata.proto`
+- `gcommon/v1/queue/failed_ack.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_ack_response.proto
+// file: proto/gcommon/v1/queue/batch_ack_response.proto
 // version: 1.0.0
-// guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
+// guid: f9db0dcc-9ce1-4f92-87fd-2ed15dd3fefb
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/response_metadata.proto";
+import "gcommon/v1/queue/failed_ack.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/response_metadata.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-/**
- * Response for batch acknowledgment operations.
- * Contains results of acknowledging multiple messages.
- */
 message BatchAckResponse {
   // Overall success status
   bool success = 1;
 
   // Number of messages successfully acknowledged
-  int32 acknowledged_count = 2;
+  int32 acknowledged_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of messages that failed to acknowledge
-  int32 failed_count = 3;
+  int32 failed_count = 3 [(buf.validate.field).int32.gte = 0];
 
   // Failed message IDs and their error reasons
-  repeated FailedAck failed_acks = 4;
+  repeated FailedAck failed_acks = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Response metadata
   gcommon.v1.common.ResponseMetadata metadata = 5;
 
   // Batch ID for tracking
-  string batch_id = 6;
+  string batch_id = 6 [(buf.validate.field).string.min_len = 1];
 }
-
-/**
- * Information about a failed acknowledgment.
- */
-message FailedAck {
-  // Message ID that failed to acknowledge
-  string message_id = 1;
-
-  // Reason for acknowledgment failure
-  string error_reason = 2;
-
-  // Error code
-  string error_code = 3;
-}
-
 ```
 
 ---
 
 ### batch_nack_request.proto {#batch_nack_request}
 
-**Path**: `pkg/queue/proto/batch_nack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 77
+**Path**: `gcommon/v1/queue/batch_nack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 44
 
-**Messages** (2): `BatchNackRequest`, `MessageNack`
+**Messages** (1): `BatchNackRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/message_nack.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/nack_error_category.proto` → [queue_1](./queue_1.md#nack_error_category)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_nack_request.proto
-// version: 1.1.0
-// Request to negative acknowledge multiple messages in batch
+// file: proto/gcommon/v1/queue/batch_nack_request.proto
+// version: 1.0.0
+// guid: a97a83e4-7bab-4c6e-9770-d11334535e11
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/message_nack.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/nack_error_category.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-// BatchNackRequest negatively acknowledges multiple messages at once
 message BatchNackRequest {
   // Consumer group ID performing the nack
-  string consumer_group_id = 1;
+  string consumer_group_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Consumer ID within the group
-  string consumer_id = 2;
+  string consumer_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Messages to negative acknowledge
-  repeated MessageNack message_nacks = 3;
+  repeated MessageNack message_nacks = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Requeue messages after nack
   bool requeue_messages = 4;
 
   // Delay before requeuing (milliseconds)
-  int64 requeue_delay_ms = 5;
+  int64 requeue_delay_ms = 5 [(buf.validate.field).int64.gte = 0];
 
   // Maximum number of requeue attempts
-  int32 max_requeue_attempts = 6;
+  int32 max_requeue_attempts = 6 [(buf.validate.field).int32.gte = 0];
 
   // Send failed messages to dead letter queue
   bool send_to_dlq = 7;
 
   // Reason for batch nack operation
-  string nack_reason = 8;
+  string nack_reason = 8 [(buf.validate.field).string.min_len = 1];
 
   // Additional metadata for the nack operation
   map<string, string> metadata = 9;
 }
-
-// Individual message negative acknowledgment
-message MessageNack {
-  // Message identifier
-  string message_id = 1;
-
-  // Message delivery tag
-  string delivery_tag = 2;
-
-  // Partition ID containing the message
-  int32 partition_id = 3;
-
-  // Message offset
-  int64 message_offset = 4;
-
-  // Reason for negative acknowledgment
-  string nack_reason = 5;
-
-  // Error category for the nack
-  NackErrorCategory error_category = 6;
-
-  // Specific error code
-  string error_code = 7;
-
-  // Retry this specific message
-  bool retry_message = 8;
-
-  // Custom retry delay for this message (milliseconds)
-  int64 retry_delay_ms = 9;
-
-  // Message-specific metadata
-  map<string, string> message_metadata = 10;
-}
-
 ```
 
 ---
 
 ### batch_nack_response.proto {#batch_nack_response}
 
-**Path**: `pkg/queue/proto/batch_nack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/batch_nack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `BatchNackResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_nack_response.proto
+// file: proto/gcommon/v1/queue/batch_nack_response.proto
 // version: 1.0.0
+// guid: c89cb423-a81c-4024-b081-c61406804442
 // Response for batch negative acknowledgment operations
 
 edition = "2023";
@@ -806,51 +838,53 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for batch negative acknowledgment operations
 message BatchNackResponse {
   // Number of messages successfully nacked
-  int32 successful_count = 1;
+  int32 successful_count = 1 [(buf.validate.field).int32.gte = 0];
 
   // Number of messages that failed to nack
-  int32 failed_count = 2;
+  int32 failed_count = 2 [(buf.validate.field).int32.gte = 0];
 
   // List of message IDs that were successfully nacked
-  repeated string successful_message_ids = 3;
+  repeated string successful_message_ids = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // List of message IDs that failed to nack
-  repeated string failed_message_ids = 4;
+  repeated string failed_message_ids = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error messages for failed nacks (indexed by failed_message_ids)
-  repeated string error_messages = 5;
+  repeated string error_messages = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Overall operation error if any
-  string error = 6;
+  string error = 6 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### batch_publish_request.proto {#batch_publish_request}
 
-**Path**: `pkg/queue/proto/batch_publish_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
+**Path**: `gcommon/v1/queue/batch_publish_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `BatchPublishRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/queue/queue_message.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_publish_request.proto
+// file: proto/gcommon/v1/queue/batch_publish_request.proto
 // version: 1.0.0
 // guid: e8f9a0b1-c2d3-4e5f-6a7b-8c9d0e1f2a3b
 
@@ -858,12 +892,13 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/queue/proto/queue_message.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to publish multiple messages to a queue in a single operation.
@@ -871,10 +906,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
  */
 message BatchPublishRequest {
   // Queue name to publish messages to
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Messages to publish
-  repeated gcommon.v1.queue.QueueMessage messages = 2;
+  repeated QueueMessage messages = 2;
 
   // Whether to use a transaction for the batch
   bool use_transaction = 3;
@@ -894,77 +932,80 @@ message BatchPublishRequest {
   // Batch ID for tracking (optional)
   string batch_id = 8;
 }
-
 ```
 
 ---
 
 ### batch_publish_response.proto {#batch_publish_response}
 
-**Path**: `pkg/queue/proto/batch_publish_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
+**Path**: `gcommon/v1/queue/batch_publish_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `BatchPublishResponse`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/publish_result.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/publish_result.proto` → [queue_1](./queue_1.md#publish_result)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/batch_publish_response.proto
+// file: proto/gcommon/v1/queue/batch_publish_response.proto
 // version: 1.0.0
+// guid: c8485218-1d5d-459f-89f3-5389ae0c4aab
 // Response for batch publish operations
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/publish_result.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/publish_result.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for batch publish operations
 message BatchPublishResponse {
   // Results for each published message
-  repeated PublishResult results = 1;
+  repeated PublishResult results = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Total number of messages attempted
-  int32 total_attempted = 2;
+  int32 total_attempted = 2 [(buf.validate.field).int32.gte = 0];
 
   // Number of successful publishes
-  int32 successful_count = 3;
+  int32 successful_count = 3 [(buf.validate.field).int32.gte = 0];
 
   // Number of failed publishes
-  int32 failed_count = 4;
+  int32 failed_count = 4 [(buf.validate.field).int32.gte = 0];
 
   // Overall error message if any
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### batch_pull_request.proto {#batch_pull_request}
 
-**Path**: `pkg/queue/proto/batch_pull_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
+**Path**: `gcommon/v1/queue/batch_pull_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
 
 **Messages** (1): `BatchPullRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/batch_pull_request.proto
-// file: queue/proto/requests/batch_pull_request.proto
+// file: proto/gcommon/v1/queue/api/batch_pull_request.proto
+// file: proto/gcommon/v1/queue/batch_pull_request.proto
 // version: 1.0.0
 // guid: 7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c
 //
@@ -976,16 +1017,20 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to pull multiple messages from a queue in a single operation.
  */
 message BatchPullRequest {
   // Name of the queue to pull from
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Maximum number of messages to pull
   uint32 max_messages = 2;
@@ -1005,27 +1050,27 @@ message BatchPullRequest {
   // Maximum payload size in bytes
   uint64 max_payload_size = 7;
 }
-
 ```
 
 ---
 
 ### batch_pull_response.proto {#batch_pull_response}
 
-**Path**: `pkg/queue/proto/batch_pull_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
+**Path**: `gcommon/v1/queue/batch_pull_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `BatchPullResponse`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/queue_message.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/batch_pull_response.proto
-// file: queue/proto/responses/batch_pull_response.proto
+// file: proto/gcommon/v1/queue/api/batch_pull_response.proto
+// file: proto/gcommon/v1/queue/batch_pull_response.proto
 // version: 1.0.0
 // guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
 //
@@ -1035,51 +1080,102 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/queue_message.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response for batch pull operations containing multiple messages.
  */
 message BatchPullResponse {
   // List of messages pulled from the queue
-  repeated gcommon.v1.queue.QueueMessage messages = 1;
+  repeated QueueMessage messages = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Total number of messages retrieved
-  uint32 message_count = 2;
+  uint32 message_count = 2 [(buf.validate.field).uint32.gte = 0];
 
   // Whether more messages are available
   bool has_more = 3;
 
   // Next token for pagination
-  string next_token = 4;
+  string next_token = 4 [(buf.validate.field).string.min_len = 1];
 
   // Total bytes of message payloads
-  uint64 total_bytes = 5;
+  uint64 total_bytes = 5 [(buf.validate.field).uint64.gte = 0];
 }
+```
 
+---
+
+### batch_settings.proto {#batch_settings}
+
+**Path**: `gcommon/v1/queue/batch_settings.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
+
+**Messages** (1): `BatchSettings`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/batch_settings.proto
+// version: 1.0.0
+// guid: 2fbffbe6-e92a-4e99-a5f4-b325fcd2e05b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message BatchSettings {
+  // Enable batch publishing
+  bool enabled = 1;
+
+  // Maximum messages per batch
+  int32 max_batch_size = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum batch size in bytes
+  int64 max_batch_bytes = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Maximum time to wait for batch completion (milliseconds)
+  int32 batch_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
+
+  // Flush batch on publish request completion
+  bool flush_on_complete = 5;
+}
 ```
 
 ---
 
 ### commit_offset_request.proto {#commit_offset_request}
 
-**Path**: `pkg/queue/proto/commit_offset_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
+**Path**: `gcommon/v1/queue/commit_offset_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `CommitOffsetRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/commit_offset_request.proto
+// file: proto/gcommon/v1/queue/commit_offset_request.proto
 // version: 1.0.0
 // guid: dd17ade2-5399-4fe8-83ba-ffe1227da728
 // CommitOffsetRequest records the latest processed offset for a
@@ -1092,15 +1188,19 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message CommitOffsetRequest {
   // Name of the queue or topic.
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Identifier for the consumer group.
   string consumer_group = 2;
@@ -1111,173 +1211,160 @@ message CommitOffsetRequest {
   // Optional request metadata for tracing and auth.
   gcommon.v1.common.RequestMetadata metadata = 4;
 }
-
 ```
 
 ---
 
 ### commit_offset_response.proto {#commit_offset_response}
 
-**Path**: `pkg/queue/proto/commit_offset_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 71
+**Path**: `gcommon/v1/queue/commit_offset_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (2): `CommitOffsetResponse`, `PartitionCommitResult`
+**Messages** (1): `CommitOffsetResponse`
 
-**Imports** (2):
+**Imports** (4):
 
+- `gcommon/v1/queue/partition_commit_result.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/commit_offset_response.proto
-// version: 1.1.0
-// Response to offset commit operations
+// file: proto/gcommon/v1/queue/commit_offset_response.proto
+// version: 1.0.0
+// guid: 748d3d88-f8aa-4f39-9a7a-5feb16d005d9
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/partition_commit_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-// CommitOffsetResponse returns the result of committing consumer offsets
 message CommitOffsetResponse {
   // Overall success status
   bool success = 1;
 
   // Error message if commit failed
-  string error_message = 2;
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
 
   // Error code for programmatic handling
-  string error_code = 3;
+  string error_code = 3 [(buf.validate.field).string.min_len = 1];
 
   // Results for each partition commit
-  repeated PartitionCommitResult partition_results = 4;
+  repeated PartitionCommitResult partition_results = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Total number of offsets committed
-  int32 committed_count = 5;
+  int32 committed_count = 5 [(buf.validate.field).int32.gte = 0];
 
   // Total number of failed commits
-  int32 failed_count = 6;
+  int32 failed_count = 6 [(buf.validate.field).int32.gte = 0];
 
   // Commit timestamp
   google.protobuf.Timestamp commit_timestamp = 7;
 
   // Consumer group generation at time of commit
-  int64 consumer_generation = 8;
+  int64 consumer_generation = 8 [(buf.validate.field).int64.gte = 0];
 
   // Additional metadata about the commit operation
   map<string, string> metadata = 9;
 }
-
-// Result of committing offset for a specific partition
-message PartitionCommitResult {
-  // Partition ID
-  int32 partition_id = 1;
-
-  // Success status for this partition
-  bool success = 2;
-
-  // Committed offset value
-  int64 committed_offset = 3;
-
-  // Previous offset before commit
-  int64 previous_offset = 4;
-
-  // Error message if commit failed for this partition
-  string error_message = 5;
-
-  // Error code for this partition
-  string error_code = 6;
-
-  // Timestamp when this offset was committed
-  google.protobuf.Timestamp commit_timestamp = 7;
-
-  // Metadata for this partition commit
-  map<string, string> partition_metadata = 8;
-}
-
 ```
 
 ---
 
 ### create_queue_request.proto {#create_queue_request}
 
-**Path**: `pkg/queue/proto/create_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
+**Path**: `gcommon/v1/queue/create_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `CreateQueueRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `buf/validate/validate.proto`
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/queue/queue_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/queue/proto/queue_config.proto` → [queue_config](./queue_config.md#queue_config)
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/create_queue_request.proto
-// version: 1.0.0
+// file: proto/gcommon/v1/queue/create_queue_request.proto
+// version: 1.1.0
 // guid: c6d7e8f9-a0b1-2c3d-4e5f-6a7b8c9d0e1f
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "buf/validate/validate.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/queue_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/queue/proto/queue_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to create a new queue.
  * Defines the queue name and configuration parameters.
  */
 message CreateQueueRequest {
-  // Name of the queue to create (required)
-  string queue_name = 1;
+  // Name of the queue to create (required) - alphanumeric with hyphens/underscores, 3-63 chars
+  string queue_name = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.pattern = "^[a-zA-Z0-9]([a-zA-Z0-9._-]*[a-zA-Z0-9])?$",
+    (buf.validate.field).string.min_len = 3,
+    (buf.validate.field).string.max_len = 63
+  ];
 
-  // Configuration for the new queue
-  gcommon.v1.queue.QueueConfig config = 2;
+  // Configuration for the new queue - required
+  QueueConfig config = 2 [(buf.validate.field).required = true];
 
   // Whether to create the queue even if it already exists
   bool if_not_exists = 3;
 
-  // Request metadata for tracing and correlation
-  gcommon.v1.common.RequestMetadata metadata = 4;
+  // Request metadata for tracing and correlation - required
+  gcommon.v1.common.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
 
-  // Tags to associate with the queue
-  map<string, string> tags = 5;
+  // Tags to associate with the queue - max 20 tags, each key/value max 100 chars
+  map<string, string> tags = 5 [
+    (buf.validate.field).map.max_pairs = 20,
+    (buf.validate.field).map.keys.string.max_len = 100,
+    (buf.validate.field).map.values.string.max_len = 100
+  ];
 
-  // Description of the queue
-  string description = 6;
+  // Description of the queue - max 500 characters
+  string description = 6 [(buf.validate.field).string.max_len = 500];
 }
-
 ```
 
 ---
 
 ### create_queue_response.proto {#create_queue_response}
 
-**Path**: `pkg/queue/proto/create_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/create_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `CreateQueueResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/create_queue_response.proto
+// file: proto/gcommon/v1/queue/create_queue_response.proto
 // version: 1.0.0
+// guid: 20edcd60-9765-404c-9193-f8b419e9af03
 // Response for queue creation operations
 
 edition = "2023";
@@ -1285,9 +1372,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for queue creation operations
 message CreateQueueResponse {
@@ -1295,7 +1383,10 @@ message CreateQueueResponse {
   bool success = 1;
 
   // Name of the created queue
-  string queue_name = 2;
+  string queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Queue endpoint URL
   string queue_endpoint = 3;
@@ -1309,43 +1400,48 @@ message CreateQueueResponse {
   // Error message if creation failed
   string error = 6;
 }
-
 ```
 
 ---
 
 ### create_subscription_request.proto {#create_subscription_request}
 
-**Path**: `pkg/queue/proto/create_subscription_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
+**Path**: `gcommon/v1/queue/create_subscription_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `CreateSubscriptionRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/subscription_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/subscription_config.proto` → [queue_config](./queue_config.md#subscription_config)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/create_subscription_request.proto
+// file: proto/gcommon/v1/queue/create_subscription_request.proto
 // version: 1.0.0
+// guid: 5b7ce7f0-2023-49f1-9801-b105699049ac
 // Request to create a new subscription
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/subscription_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/subscription_config.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to create a new subscription
 message CreateSubscriptionRequest {
   // Subscription name
-  string subscription_name = 1;
+  string subscription_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Topic to subscribe to
   string topic = 2;
@@ -1365,26 +1461,26 @@ message CreateSubscriptionRequest {
   // Timeout for the operation (milliseconds)
   int32 timeout_ms = 7;
 }
-
 ```
 
 ---
 
 ### create_subscription_response.proto {#create_subscription_response}
 
-**Path**: `pkg/queue/proto/create_subscription_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
+**Path**: `gcommon/v1/queue/create_subscription_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `CreateSubscriptionResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/create_subscription_response.proto
-// file: queue/proto/responses/create_subscription_response.proto
+// file: proto/gcommon/v1/queue/api/create_subscription_response.proto
+// file: proto/gcommon/v1/queue/create_subscription_response.proto
 // version: 1.0.0
 // guid: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
 //
@@ -1395,9 +1491,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response for creating a subscription.
@@ -1413,7 +1510,10 @@ message CreateSubscriptionResponse {
   string subscription_id = 3;
 
   // Name of the created subscription
-  string subscription_name = 4;
+  string subscription_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Timestamp when subscription was created
   uint64 created_at = 5;
@@ -1421,27 +1521,27 @@ message CreateSubscriptionResponse {
   // Initial position in the queue
   uint64 initial_position = 6;
 }
-
 ```
 
 ---
 
 ### create_topic_request.proto {#create_topic_request}
 
-**Path**: `pkg/queue/proto/create_topic_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
+**Path**: `gcommon/v1/queue/create_topic_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `CreateTopicRequest`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/topic_config.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/topic_config.proto` → [queue_config](./queue_config.md#topic_config)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/create_topic_request.proto
-// file: queue/proto/requests/create_topic_request.proto
+// file: proto/gcommon/v1/queue/api/create_topic_request.proto
+// file: proto/gcommon/v1/queue/create_topic_request.proto
 // version: 1.0.0
 // guid: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
 //
@@ -1451,21 +1551,25 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/topic_config.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/topic_config.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to create a new topic.
  */
 message CreateTopicRequest {
   // Name of the topic to create
-  string topic_name = 1;
+  string topic_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Configuration for the topic
-  gcommon.v1.queue.TopicConfig config = 2;
+  TopicConfig config = 2;
 
   // Whether the topic should be durable
   bool durable = 3;
@@ -1476,29 +1580,29 @@ message CreateTopicRequest {
   // Optional arguments for topic creation
   map<string, string> arguments = 5;
 }
-
 ```
 
 ---
 
 ### create_topic_response.proto {#create_topic_response}
 
-**Path**: `pkg/queue/proto/create_topic_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
+**Path**: `gcommon/v1/queue/create_topic_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `CreateTopicResponse`
 
-**Imports** (4):
+**Imports** (5):
 
+- `gcommon/v1/queue/topic_config.proto`
+- `gcommon/v1/queue/topic_info.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/queue/proto/topic_config.proto` → [queue_config](./queue_config.md#topic_config)
-- `pkg/queue/proto/topic_info.proto` → [queue_2](./queue_2.md#topic_info)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/create_topic_response.proto
-// file: queue/proto/responses/create_topic_response.proto
+// file: proto/gcommon/v1/queue/api/create_topic_response.proto
+// file: proto/gcommon/v1/queue/create_topic_response.proto
 // version: 1.0.0
 // guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 //
@@ -1508,55 +1612,109 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/topic_config.proto";
+import "gcommon/v1/queue/topic_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/queue/proto/topic_config.proto";
-import "pkg/queue/proto/topic_info.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response for topic creation operations.
  */
 message CreateTopicResponse {
   // Information about the created topic
-  gcommon.v1.queue.TopicInfo topic_info = 1;
+  TopicInfo topic_info = 1;
 
   // Whether the topic was actually created (false if it already existed)
   bool created = 2;
 
   // Timestamp when the topic was created
-  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp created_at = 3 [ (buf.validate.field).required = true ];
 
   // Any warnings during topic creation
   repeated string warnings = 4;
 
   // Topic configuration that was applied
-  gcommon.v1.queue.TopicConfig applied_config = 5;
+  TopicConfig applied_config = 5;
 }
 // This file needs proper implementation
+```
 
+---
+
+### delete_criteria.proto {#delete_criteria}
+
+**Path**: `gcommon/v1/queue/delete_criteria.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
+
+**Messages** (1): `DeleteCriteria`
+
+**Imports** (3):
+
+- `gcommon/v1/common/message_state.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/queue/delete_criteria.proto
+// version: 1.0.0
+// guid: 351be276-91ef-4408-9e3d-1931faddc070
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "gcommon/v1/common/message_state.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
+
+message DeleteCriteria {
+  // Delete messages older than this timestamp
+  int64 older_than_timestamp = 1;
+
+  // Delete messages with specific headers
+  map<string, string> header_filters = 2;
+
+  // Delete messages with specific priority
+  int32 priority = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Delete messages with specific correlation ID
+  string correlation_id = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum number of messages to delete
+  int32 max_messages = 5 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+
+  // Delete messages in specific state
+  gcommon.v1.common.MessageState state = 6;
+}
 ```
 
 ---
 
 ### delete_queue_request.proto {#delete_queue_request}
 
-**Path**: `pkg/queue/proto/delete_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/delete_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `DeleteQueueRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/delete_queue_request.proto
-// file: queue/proto/requests/delete_queue_request.proto
+// file: proto/gcommon/v1/queue/api/delete_queue_request.proto
+// file: proto/gcommon/v1/queue/delete_queue_request.proto
 // version: 1.0.0
 // guid: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
 //
@@ -1567,14 +1725,15 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message DeleteQueueRequest {
   // Queue ID or name to delete
-  string queue = 1;
+  string queue = 1 [(buf.validate.field).string.min_len = 1];
 
   // Force deletion even if not empty
   bool force = 2;
@@ -1588,33 +1747,37 @@ message DeleteQueueRequest {
  * This is a destructive operation that cannot be undone.
  */
 // This file needs proper implementation
-
 ```
 
 ---
 
 ### delete_queue_response.proto {#delete_queue_response}
 
-**Path**: `pkg/queue/proto/delete_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 25
+**Path**: `gcommon/v1/queue/delete_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `DeleteQueueResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/delete_queue_response.proto
+// file: proto/gcommon/v1/queue/delete_queue_response.proto
+// version: 1.0.0
+// guid: 0c0494d6-bfac-476c-a900-f79b5c260fd0
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response for deleting a queue.
@@ -1625,55 +1788,53 @@ message DeleteQueueResponse {
   bool success = 1;
 
   // Number of messages that were purged during deletion
-  int64 purged_messages = 2;
+  int64 purged_messages = 2 [(buf.validate.field).int64.gte = 0];
 
   // Human-readable message describing the deletion result
-  string message = 3;
+  string message = 3 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### delete_request.proto {#delete_request}
 
-**Path**: `pkg/queue/proto/delete_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 68
+**Path**: `gcommon/v1/queue/delete_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 41
 
-**Messages** (2): `DeleteRequest`, `DeleteCriteria`
+**Messages** (1): `QueueDeleteRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/queue/delete_criteria.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/queue/proto/message_state.proto` → [queue_1](./queue_1.md#message_state)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/delete_request.proto
-// file: queue/proto/requests/delete_request.proto
+// file: proto/gcommon/v1/queue/delete_request.proto
 // version: 1.0.0
-// guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
-//
-// Request definitions for queue module
-//
+// guid: 6b38ff92-a226-4afc-9a2e-4f1f47ab36a2
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/delete_criteria.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/queue/proto/message_state.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-/**
- * Request to delete a specific message from a queue.
- */
-message DeleteRequest {
+message QueueDeleteRequest {
   // Name of the queue containing the message
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Unique identifier of the message to delete
   string message_id = 2;
@@ -1693,152 +1854,97 @@ message DeleteRequest {
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 100;
 }
-
-/**
- * Criteria for deleting messages based on conditions.
- */
-message DeleteCriteria {
-  // Delete messages older than this timestamp
-  int64 older_than_timestamp = 1;
-
-  // Delete messages with specific headers
-  map<string, string> header_filters = 2;
-
-  // Delete messages with specific priority
-  int32 priority = 3;
-
-  // Delete messages with specific correlation ID
-  string correlation_id = 4;
-
-  // Maximum number of messages to delete
-  int32 max_messages = 5;
-
-  // Delete messages in specific state
-  gcommon.v1.queue.MessageState state = 6;
-}
-// This file needs proper implementation
-
 ```
 
 ---
 
 ### delete_response.proto {#delete_response}
 
-**Path**: `pkg/queue/proto/delete_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 84
+**Path**: `gcommon/v1/queue/delete_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 49
 
-**Messages** (3): `DeleteResponse`, `DeletionStats`, `BackupInfo`
+**Messages** (1): `QueueDeleteResponse`
 
-**Imports** (2):
+**Imports** (5):
 
+- `gcommon/v1/queue/backup_info.proto`
+- `gcommon/v1/queue/deletion_stats.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/delete_response.proto
-// version: 1.1.0
-// Response to delete operations
+// file: proto/gcommon/v1/queue/delete_response.proto
+// version: 1.0.0
+// guid: 9de9c1b0-9bc8-44a6-af2b-133a1f578373
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/backup_info.proto";
+import "gcommon/v1/queue/deletion_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
-// DeleteResponse returns the result of a delete operation
-message DeleteResponse {
+message QueueDeleteResponse {
   // Success status of the delete operation
   bool success = 1;
 
   // Identifier of the deleted resource
-  string deleted_resource_id = 2;
+  string deleted_resource_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Type of resource that was deleted
-  string resource_type = 3;
+  string resource_type = 3 [(buf.validate.field).string.min_len = 1];
 
   // Timestamp when deletion completed
   google.protobuf.Timestamp deleted_at = 4;
 
   // Error message if deletion failed
-  string error_message = 5;
+  string error_message = 5 [(buf.validate.field).string.min_len = 1];
 
   // Error code for programmatic handling
-  string error_code = 6;
+  string error_code = 6 [(buf.validate.field).string.min_len = 1];
 
   // Statistics about the deletion
   DeletionStats deletion_stats = 7;
 
   // Backup information (if backup was created)
-  BackupInfo backup_info = 8;
+  QueueBackupInfo backup_info = 8;
 
   // Warning messages
-  repeated string warnings = 9;
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
 
   // Operation metadata
   map<string, string> metadata = 10;
 }
-
-// Statistics about what was deleted
-message DeletionStats {
-  // Number of messages deleted
-  int64 messages_deleted = 1;
-
-  // Amount of data deleted (bytes)
-  int64 data_deleted_bytes = 2;
-
-  // Number of subscriptions deleted
-  int32 subscriptions_deleted = 3;
-
-  // Number of partitions deleted
-  int32 partitions_deleted = 4;
-
-  // Time taken for deletion (milliseconds)
-  int64 deletion_duration_ms = 5;
-}
-
-// Backup information (if backup was created)
-message BackupInfo {
-  // Backup identifier
-  string backup_id = 1;
-
-  // Backup location
-  string backup_location = 2;
-
-  // Backup size (bytes)
-  int64 backup_size_bytes = 3;
-
-  // Backup timestamp
-  google.protobuf.Timestamp backup_created_at = 4;
-
-  // Backup expiration time
-  google.protobuf.Timestamp backup_expires_at = 5;
-}
-// This file needs proper implementation
-
 ```
 
 ---
 
 ### delete_subscription_request.proto {#delete_subscription_request}
 
-**Path**: `pkg/queue/proto/delete_subscription_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 25
+**Path**: `gcommon/v1/queue/delete_subscription_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `DeleteSubscriptionRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/delete_subscription_request.proto
+// file: proto/gcommon/v1/queue/delete_subscription_request.proto
 // version: 1.0.0
+// guid: 6b8bf50f-c08d-4ad7-abec-06504c697d42
 // Request to delete a subscription
 
 edition = "2023";
@@ -1846,41 +1952,44 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to delete a subscription
 message DeleteSubscriptionRequest {
   // Subscription ID to delete
-  string subscription_id = 1;
+  string subscription_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Force deletion even if active
   bool force = 2;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 3;
+  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### delete_subscription_response.proto {#delete_subscription_response}
 
-**Path**: `pkg/queue/proto/delete_subscription_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
+**Path**: `gcommon/v1/queue/delete_subscription_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 30
 
 **Messages** (1): `DeleteSubscriptionResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/delete_subscription_response.proto
+// file: proto/gcommon/v1/queue/delete_subscription_response.proto
 // version: 1.0.0
+// guid: f0abf288-da03-42ac-8fb3-9640ebce6528
 // Response for delete subscription operations
 
 edition = "2023";
@@ -1888,9 +1997,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for deleting a subscription
 message DeleteSubscriptionResponse {
@@ -1898,34 +2009,35 @@ message DeleteSubscriptionResponse {
   bool success = 1;
 
   // Number of undelivered messages that were purged
-  int64 purged_messages = 2;
+  int64 purged_messages = 2 [(buf.validate.field).int64.gte = 0];
 
   // Human-readable message describing the deletion result
-  string message = 3;
+  string message = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error message if deletion failed
-  string error = 4;
+  string error = 4 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### delete_topic_request.proto {#delete_topic_request}
 
-**Path**: `pkg/queue/proto/delete_topic_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 24
+**Path**: `gcommon/v1/queue/delete_topic_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 26
 
 **Messages** (1): `DeleteTopicRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/delete_topic_request.proto
+// file: proto/gcommon/v1/queue/delete_topic_request.proto
 // version: 1.1.0
+// guid: 2f1d966a-514b-46ca-b291-17db26ec7f72
 // Request to delete a topic
 
 edition = "2023";
@@ -1933,13 +2045,15 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message DeleteTopicRequest {
   // Topic ID or name to delete
-  string topic = 1;
+  string topic = 1 [(buf.validate.field).string.min_len = 1];
 
   // Force deletion even if not empty
   bool force = 2;
@@ -1947,26 +2061,27 @@ message DeleteTopicRequest {
 
 // DeleteTopicRequest removes a topic and its associated resources
 // This file needs proper implementation
-
 ```
 
 ---
 
 ### delete_topic_response.proto {#delete_topic_response}
 
-**Path**: `pkg/queue/proto/delete_topic_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
+**Path**: `gcommon/v1/queue/delete_topic_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Messages** (1): `DeleteTopicResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/delete_topic_response.proto
+// file: proto/gcommon/v1/queue/delete_topic_response.proto
 // version: 1.0.0
+// guid: 321c289e-7bff-430d-b737-60c42c418beb
 // Response for topic deletion operations
 
 edition = "2023";
@@ -1974,9 +2089,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for deleting a topic
 message DeleteTopicResponse {
@@ -1984,38 +2101,38 @@ message DeleteTopicResponse {
   bool success = 1;
 
   // Number of active subscriptions that were also deleted
-  int64 deleted_subscriptions = 2;
+  int64 deleted_subscriptions = 2 [(buf.validate.field).int64.gte = 0];
 
   // Number of messages that were purged during deletion
-  int64 purged_messages = 3;
+  int64 purged_messages = 3 [(buf.validate.field).int64.gte = 0];
 
   // Human-readable message describing the deletion result
-  string message = 4;
+  string message = 4 [(buf.validate.field).string.min_len = 1];
 
   // Error message if deletion failed
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### dequeue_request.proto {#dequeue_request}
 
-**Path**: `pkg/queue/proto/dequeue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 110
+**Path**: `gcommon/v1/queue/dequeue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 113
 
 **Messages** (1): `DequeueRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/dequeue_request.proto
+// file: proto/gcommon/v1/queue/dequeue_request.proto
 // version: 1.0.0
 // guid: ce6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 
@@ -2023,14 +2140,15 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-// Standard imports
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+// Standard imports
 // Common types
-import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * DequeueRequest retrieves one or more messages from a queue.
@@ -2046,7 +2164,10 @@ message DequeueRequest {
    * The name/identifier of the queue to receive messages from.
    * Must be a valid existing queue.
    */
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Optional fields (11-50)
 
@@ -2124,29 +2245,29 @@ message DequeueRequest {
    */
   int32 min_priority = 22;
 }
-
 ```
 
 ---
 
 ### dequeue_response.proto {#dequeue_response}
 
-**Path**: `pkg/queue/proto/dequeue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 111
+**Path**: `gcommon/v1/queue/dequeue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 115
 
 **Messages** (1): `DequeueResponse`
 
-**Imports** (5):
+**Imports** (6):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/common/request_metadata.proto`
+- `gcommon/v1/queue/queue_message.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/dequeue_response.proto
+// file: proto/gcommon/v1/queue/dequeue_response.proto
 // version: 1.0.0
 // guid: ea8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 
@@ -2154,17 +2275,19 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "gcommon/v1/queue/queue_message.proto";
 import "google/protobuf/go_features.proto";
-// Standard imports
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Standard imports
 // Common types
-import "pkg/common/proto/error.proto";
-import "pkg/common/proto/request_metadata.proto";
+
 // Queue message types
-import "pkg/queue/proto/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * DequeueResponse returns messages retrieved from a queue.
@@ -2180,7 +2303,7 @@ message DequeueResponse {
    * Messages retrieved from the queue.
    * Empty if no messages were available.
    */
-  repeated gcommon.v1.queue.QueueMessage messages = 1;
+  repeated QueueMessage messages = 1;
 
   /**
    * Indicates whether the dequeue operation was successful.
@@ -2199,7 +2322,10 @@ message DequeueResponse {
    * Name of the queue messages were retrieved from.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * Number of messages that were available but not returned
@@ -2256,29 +2382,29 @@ message DequeueResponse {
    */
   google.protobuf.Timestamp response_generated_at = 52;
 }
-
 ```
 
 ---
 
 ### enqueue_request.proto {#enqueue_request}
 
-**Path**: `pkg/queue/proto/enqueue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 123
+**Path**: `gcommon/v1/queue/enqueue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 126
 
 **Messages** (1): `EnqueueRequest`
 
-**Imports** (5):
+**Imports** (6):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/any.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/enqueue_request.proto
+// file: proto/gcommon/v1/queue/enqueue_request.proto
 // version: 1.0.0
 // guid: bd5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
 
@@ -2286,16 +2412,17 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-// Standard imports
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Standard imports
 // Common types
-import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * EnqueueRequest adds a message to a queue.
@@ -2311,7 +2438,10 @@ message EnqueueRequest {
    * The name/identifier of the queue to send the message to.
    * Must be a valid queue that exists or will be created.
    */
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * The message payload. Can contain any data type.
@@ -2400,28 +2530,28 @@ message EnqueueRequest {
    */
   string reply_to = 23;
 }
-
 ```
 
 ---
 
 ### enqueue_response.proto {#enqueue_response}
 
-**Path**: `pkg/queue/proto/enqueue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 125
+**Path**: `gcommon/v1/queue/enqueue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 128
 
 **Messages** (1): `EnqueueResponse`
 
-**Imports** (4):
+**Imports** (5):
 
+- `gcommon/v1/common/error.proto`
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/enqueue_response.proto
+// file: proto/gcommon/v1/queue/enqueue_response.proto
 // version: 1.0.0
 // guid: df7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
@@ -2429,15 +2559,16 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/error.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-// Standard imports
 import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Standard imports
 // Common types
-import "pkg/common/proto/error.proto";
-import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * EnqueueResponse confirms successful message enqueuing.
@@ -2473,7 +2604,10 @@ message EnqueueResponse {
    * Name of the queue where the message was enqueued.
    * Echoed from the request for verification.
    */
-  string queue_name = 12;
+  string queue_name = 12 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   /**
    * MD5 hash of the message payload for integrity verification.
@@ -2545,28 +2679,28 @@ message EnqueueResponse {
    */
   google.protobuf.Timestamp response_generated_at = 52;
 }
-
 ```
 
 ---
 
 ### export_queue_request.proto {#export_queue_request}
 
-**Path**: `pkg/queue/proto/export_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
+**Path**: `gcommon/v1/queue/export_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 52
 
 **Messages** (1): `ExportQueueRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/queue_export_format.proto`
+- `gcommon/v1/common/time_range_metrics.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/export_format.proto` → [metrics_1](./metrics_1.md#export_format) → [queue_1](./queue_1.md#export_format)
-- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/requests/export_queue_request.proto
-// file: queue/proto/requests/export_queue_request.proto
+// file: proto/gcommon/v1/queue/api/export_queue_request.proto
+// file: proto/gcommon/v1/queue/export_queue_request.proto
 // version: 1.0.0
 // guid: 4a3b2c1d-0e9f-8a7b-6c5d-4e3f2a1b0c9d
 //
@@ -2576,31 +2710,36 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/queue_export_format.proto";
+import "gcommon/v1/common/time_range_metrics.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/export_format.proto";
-import "pkg/queue/proto/time_range.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to export queue data for backup or migration purposes.
  */
 message ExportQueueRequest {
   // Name of the queue to export
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Export destination (file path, cloud storage URI, etc.)
   string destination = 2;
 
   // Export format
-  gcommon.v1.queue.ExportFormat format = 3;
+  gcommon.v1.common.QueueExportFormat format = 3;
 
   // Whether to include message data or just metadata
   bool include_message_data = 4;
 
-  // Time range for export (optional)
-  gcommon.v1.queue.TimeRange time_range = 5;
+  // Time range for filtering exported data
+  // If not specified, exports all available data
+  gcommon.v1.common.TimeRangeMetrics time_range = 5;
 
   // Whether to compress the export
   bool compress = 6;
@@ -2612,26 +2751,27 @@ message ExportQueueRequest {
   map<string, string> options = 8;
 }
 // This file needs proper implementation
-
 ```
 
 ---
 
 ### export_queue_response.proto {#export_queue_response}
 
-**Path**: `pkg/queue/proto/export_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
+**Path**: `gcommon/v1/queue/export_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Messages** (1): `ExportQueueResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/export_queue_response.proto
+// file: proto/gcommon/v1/queue/export_queue_response.proto
 // version: 1.0.0
+// guid: 16445ad6-52b3-4890-bf35-31e17a689135
 // Response for queue export operations
 
 edition = "2023";
@@ -2639,29 +2779,31 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for queue export operations
 message ExportQueueResponse {
   // Export job ID
-  string export_id = 1;
+  string export_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Export status
-  string status = 2;
+  string status = 2 [(buf.validate.field).string.min_len = 1];
 
   // File path or URL where export is stored
-  string export_path = 3;
+  string export_path = 3 [(buf.validate.field).string.min_len = 1];
 
   // Number of messages exported
-  int64 message_count = 4;
+  int64 message_count = 4 [(buf.validate.field).int64.gte = 0];
 
   // Size of exported data in bytes
-  int64 data_size_bytes = 5;
+  int64 data_size_bytes = 5 [(buf.validate.field).int64.gte = 0];
 
   // Export format (JSON, CSV, etc.)
-  string format = 6;
+  string format = 6 [(buf.validate.field).string.min_len = 1];
 
   // Start timestamp of exported data
   int64 start_timestamp = 7;
@@ -2670,62 +2812,65 @@ message ExportQueueResponse {
   int64 end_timestamp = 8;
 
   // Error message if export failed
-  string error = 9;
+  string error = 9 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### flush_queue_request.proto {#flush_queue_request}
 
-**Path**: `pkg/queue/proto/flush_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
+**Path**: `gcommon/v1/queue/flush_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 44
 
 **Messages** (1): `FlushQueueRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/flush_policy.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/queue/proto/flush_policy.proto` → [queue_1](./queue_1.md#flush_policy)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/flush_queue_request.proto
+// file: proto/gcommon/v1/queue/flush_queue_request.proto
 // version: 1.1.0
+// guid: 7ddb0fbd-7f80-45ed-9a91-db95b2111a42
 // Request to flush queue messages to persistent storage
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/flush_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/queue/proto/flush_policy.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // FlushQueueRequest forces queue messages to be flushed to persistent storage
 message FlushQueueRequest {
   // Queue identifier to flush
-  string queue_id = 1;
+  string queue_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Flush policy to apply
-  FlushPolicy flush_policy = 2;
+  gcommon.v1.common.FlushPolicy flush_policy = 2;
 
   // Wait for flush completion before returning
   bool wait_for_completion = 3;
 
   // Maximum time to wait for flush completion (milliseconds)
-  int32 timeout_ms = 4;
+  int32 timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // Flush only messages up to this timestamp
   google.protobuf.Timestamp flush_until = 5;
 
   // Include specific partitions only (empty = all partitions)
-  repeated int32 partition_ids = 6;
+  repeated int32 partition_ids = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Force flush even if not needed
   bool force_flush = 7;
@@ -2733,26 +2878,27 @@ message FlushQueueRequest {
   // Optional metadata for the flush operation
   map<string, string> metadata = 8;
 }
-
 ```
 
 ---
 
 ### flush_queue_response.proto {#flush_queue_response}
 
-**Path**: `pkg/queue/proto/flush_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
+**Path**: `gcommon/v1/queue/flush_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Messages** (1): `FlushQueueResponse`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/flush_queue_response.proto
+// file: proto/gcommon/v1/queue/flush_queue_response.proto
 // version: 1.0.0
+// guid: b7bddce0-67bc-4158-a9b7-c3e15f1606fe
 // Response for queue flush operations
 
 edition = "2023";
@@ -2760,9 +2906,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response for queue flush operations
 message FlushQueueResponse {
@@ -2770,37 +2918,38 @@ message FlushQueueResponse {
   bool success = 1;
 
   // Number of messages flushed
-  int64 messages_flushed = 2;
+  int64 messages_flushed = 2 [(buf.validate.field).int64.gte = 0];
 
   // Bytes flushed from queue
-  int64 bytes_flushed = 3;
+  int64 bytes_flushed = 3 [(buf.validate.field).int64.gte = 0];
 
   // Time taken for flush operation (milliseconds)
-  int32 flush_duration_ms = 4;
+  int32 flush_duration_ms = 4 [(buf.validate.field).int32.gt = 0];
 
   // Error message if flush failed
-  string error = 5;
+  string error = 5 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### get_cluster_info_request.proto {#get_cluster_info_request}
 
-**Path**: `pkg/queue/proto/get_cluster_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/get_cluster_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `GetClusterInfoRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/get_cluster_info_request.proto
+// file: proto/gcommon/v1/queue/get_cluster_info_request.proto
 // version: 1.0.0
+// guid: 796bd8f4-f731-447d-9cf7-e1b29047192f
 // Request to get cluster information
 
 edition = "2023";
@@ -2808,9 +2957,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to get cluster information
 message GetClusterInfoRequest {
@@ -2830,30 +2981,30 @@ message GetClusterInfoRequest {
   bool include_topology = 5;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 6;
+  int32 timeout_ms = 6 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### get_cluster_info_response.proto {#get_cluster_info_response}
 
-**Path**: `pkg/queue/proto/get_cluster_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
+**Path**: `gcommon/v1/queue/get_cluster_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `GetClusterInfoResponse`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/queue/cluster_info.proto`
+- `gcommon/v1/queue/node_info.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/cluster_info.proto` → [queue_1](./queue_1.md#cluster_info)
-- `pkg/queue/proto/node_info.proto` → [queue_1](./queue_1.md#node_info)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/get_cluster_info_response.proto
-// file: queue/proto/responses/get_cluster_info_response.proto
+// file: proto/gcommon/v1/queue/api/get_cluster_info_response.proto
+// file: proto/gcommon/v1/queue/get_cluster_info_response.proto
 // version: 1.0.0
 // guid: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
 //
@@ -2863,53 +3014,56 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/cluster_info.proto";
+import "gcommon/v1/queue/node_info.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/cluster_info.proto";
-import "pkg/queue/proto/node_info.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response containing cluster information.
  */
 message GetClusterInfoResponse {
   // Detailed cluster information
-  gcommon.v1.queue.ClusterInfo cluster_info = 1;
+  ClusterInfo cluster_info = 1;
 
   // Node information
-  repeated gcommon.v1.queue.NodeInfo nodes = 2;
+  repeated NodeInfo nodes = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether the cluster is currently healthy
   bool is_healthy = 3;
 
   // Any warnings or issues with the cluster
-  repeated string warnings = 4;
+  repeated string warnings = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if failed to get info
-  string error_message = 5;
+  string error_message = 5 [(buf.validate.field).string.min_len = 1];
 }
 // This file needs proper implementation
-
 ```
 
 ---
 
 ### get_message_request.proto {#get_message_request}
 
-**Path**: `pkg/queue/proto/get_message_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/get_message_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `GetMessageRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/get_message_request.proto
+// file: proto/gcommon/v1/queue/get_message_request.proto
 // version: 1.0.0
+// guid: eac57fd6-c5de-4130-9724-13f89a0f623f
 // Request to get a specific message
 
 edition = "2023";
@@ -2917,51 +3071,53 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to get a specific message
 message GetMessageRequest {
   // Topic name
-  string topic = 1;
+  string topic = 1 [(buf.validate.field).string.min_len = 1];
 
   // Message ID to retrieve
-  string message_id = 2;
+  string message_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Partition ID (optional)
-  int32 partition_id = 3;
+  int32 partition_id = 3 [(buf.validate.field).int32.gte = 0];
 
   // Offset within partition (optional)
-  int64 offset = 4;
+  int64 offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // Include message metadata
   bool include_metadata = 5;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 6;
+  int32 timeout_ms = 6 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### get_message_response.proto {#get_message_response}
 
-**Path**: `pkg/queue/proto/get_message_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
+**Path**: `gcommon/v1/queue/get_message_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `GetMessageResponse`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/message_envelope.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/message_envelope.proto` → [queue_1](./queue_1.md#message_envelope)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/get_message_response.proto
-// file: queue/proto/responses/get_message_response.proto
+// file: proto/gcommon/v1/queue/api/get_message_response.proto
+// file: proto/gcommon/v1/queue/get_message_response.proto
 // version: 1.0.0
 // guid: 8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d
 //
@@ -2971,51 +3127,54 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/message_envelope.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/message_envelope.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Response containing a message retrieved from a queue.
  */
 message GetMessageResponse {
   // The retrieved message (null if no message available)
-  gcommon.v1.queue.MessageEnvelope message = 1;
+  MessageEnvelope message = 1;
 
   // Acknowledgment token for this message (used to ack/nack)
-  string ack_token = 2;
+  string ack_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Whether more messages are available in the queue
   bool has_more = 3;
 
   // Position/offset of this message in the queue
-  int64 message_offset = 4;
+  int64 message_offset = 4 [(buf.validate.field).int64.gte = 0];
 
   // Queue depth at the time of retrieval
-  int64 queue_depth = 5;
+  int64 queue_depth = 5 [(buf.validate.field).int64.gte = 0];
 }
-
 ```
 
 ---
 
 ### get_node_info_request.proto {#get_node_info_request}
 
-**Path**: `pkg/queue/proto/get_node_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
+**Path**: `gcommon/v1/queue/get_node_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `GetNodeInfoRequest`
 
-**Imports** (1):
+**Imports** (2):
 
 - `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/get_node_info_request.proto
+// file: proto/gcommon/v1/queue/get_node_info_request.proto
 // version: 1.0.0
+// guid: 929d869b-d6be-4182-8711-293847f5ba56
 // Request to get node information
 
 edition = "2023";
@@ -3023,14 +3182,16 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Request to get node information
 message GetNodeInfoRequest {
   // Node ID to get info for (optional, defaults to current node)
-  string node_id = 1;
+  string node_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Include performance metrics
   bool include_metrics = 2;
@@ -3045,40 +3206,43 @@ message GetNodeInfoRequest {
   bool include_topology = 5;
 
   // Timeout for the operation (milliseconds)
-  int32 timeout_ms = 6;
+  int32 timeout_ms = 6 [(buf.validate.field).int32.gt = 0];
 }
-
 ```
 
 ---
 
 ### get_node_info_response.proto {#get_node_info_response}
 
-**Path**: `pkg/queue/proto/get_node_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 26
+**Path**: `gcommon/v1/queue/get_node_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `GetNodeInfoResponse`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/queue/node_info.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/node_info.proto` → [queue_1](./queue_1.md#node_info)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/get_node_info_response.proto
+// file: proto/gcommon/v1/queue/get_node_info_response.proto
 // version: 1.0.0
+// guid: fb3ad530-511f-4fec-9508-7ae00be0ee92
 // Response with node information
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/queue/node_info.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/node_info.proto";
+import "buf/validate/validate.proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 // Response with node information
 message GetNodeInfoResponse {
@@ -3089,29 +3253,29 @@ message GetNodeInfoResponse {
   bool success = 2;
 
   // Error message if request failed
-  string error = 3;
+  string error = 3 [(buf.validate.field).string.min_len = 1];
 }
-
 ```
 
 ---
 
 ### get_offset_request.proto {#get_offset_request}
 
-**Path**: `pkg/queue/proto/get_offset_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
+**Path**: `gcommon/v1/queue/get_offset_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `GetOffsetRequest`
 
-**Imports** (3):
+**Imports** (4):
 
+- `gcommon/v1/common/offset_type.proto`
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
-- `pkg/queue/proto/offset_type.proto` → [queue_1](./queue_1.md#offset_type)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/get_offset_request.proto
+// file: proto/gcommon/v1/queue/get_offset_request.proto
 // version: 1.1.0
 // guid: d7e8f9a0-b1c2-3d4e-5f6a-7b8c9d0e1f2a
 
@@ -3119,12 +3283,13 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/offset_type.proto";
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/queue/proto/offset_type.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 /**
  * Request to get the current offset for a consumer or partition.
@@ -3132,7 +3297,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
  */
 message GetOffsetRequest {
   // Queue or topic name
-  string queue_name = 1;
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Partition ID (for partitioned queues)
   int32 partition_id = 2;
@@ -3144,31 +3312,31 @@ message GetOffsetRequest {
   string consumer_id = 4;
 
   // Type of offset to retrieve
-  OffsetType offset_type = 5;
+  gcommon.v1.common.OffsetType offset_type = 5;
 
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 6;
 }
-
 ```
 
 ---
 
 ### get_offset_response.proto {#get_offset_response}
 
-**Path**: `pkg/queue/proto/get_offset_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
+**Path**: `gcommon/v1/queue/get_offset_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `GetOffsetResponse`
 
-**Imports** (2):
+**Imports** (3):
 
+- `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
-// file: pkg/queue/proto/responses/get_offset_response.proto
+// file: proto/gcommon/v1/queue/get_offset_response.proto
 // version: 1.0.0
 // guid: 28ce7fa9-da40-4119-8167-285e4ff6179a
 // GetOffsetResponse returns the current committed offset for a
@@ -3179,258 +3347,27 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
 
 message GetOffsetResponse {
   // The currently committed offset.
   int64 offset = 1;
 
   // Name of the queue or topic.
-  string queue_name = 2;
+  string queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 
   // Optional request metadata.
   gcommon.v1.common.RequestMetadata metadata = 3;
 }
-
 ```
 
 ---
 
-### get_partition_info_request.proto {#get_partition_info_request}
-
-**Path**: `pkg/queue/proto/get_partition_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
-
-**Messages** (1): `GetPartitionInfoRequest`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `pkg/queue/proto/get_queue_info_request.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/queue/proto/get_partition_info_request.proto
-// version: 1.1.0
-// Request to get partition information
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/get_queue_info_request.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-// GetPartitionInfoRequest retrieves information about topic partitions
-message GetPartitionInfoRequest {
-  // Topic identifier
-  string topic_id = 1;
-
-  // Specific partition IDs (empty = all partitions)
-  repeated int32 partition_ids = 2;
-
-  // Include partition statistics
-  bool include_stats = 3;
-
-  // Include consumer information
-  bool include_consumers = 4;
-
-  // Include offset information
-  bool include_offsets = 5;
-
-  // Include partition health status
-  bool include_health_status = 6;
-
-  // Include leader/replica information
-  bool include_leader_info = 7;
-
-  // Include partition configuration
-  bool include_config = 8;
-
-  // Time range for historical statistics - references existing TimeRangeFilter from get_queue_info_request.proto
-  TimeRangeFilter time_range = 9;
-
-  // Access control context
-  string access_token = 10;
-}
-// This file needs proper implementation
-
-```
-
----
-
-### get_partition_info_response.proto {#get_partition_info_response}
-
-**Path**: `pkg/queue/proto/get_partition_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 26
-
-**Messages** (1): `GetPartitionInfoResponse`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `pkg/queue/proto/partition_info.proto` → [queue_1](./queue_1.md#partition_info)
-
-#### Source Code
-
-```protobuf
-// file: pkg/queue/proto/get_partition_info_response.proto
-// version: 1.0.0
-// Response with partition information
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/partition_info.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-// Response with partition information
-message GetPartitionInfoResponse {
-  // Partition information
-  PartitionInfo partition_info = 1;
-
-  // Whether request was successful
-  bool success = 2;
-
-  // Error message if request failed
-  string error = 3;
-}
-
-```
-
----
-
-### get_queue_info_request.proto {#get_queue_info_request}
-
-**Path**: `pkg/queue/proto/get_queue_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 64
-
-**Messages** (2): `GetQueueInfoRequest`, `TimeRangeFilter`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: pkg/queue/proto/get_queue_info_request.proto
-// version: 1.1.0
-// Request to get detailed information about a queue
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-// GetQueueInfoRequest retrieves detailed information about a specific queue
-message GetQueueInfoRequest {
-  // Queue identifier
-  string queue_id = 1;
-
-  // Include queue statistics in response
-  bool include_stats = 2;
-
-  // Include queue configuration in response
-  bool include_config = 3;
-
-  // Include partition information
-  bool include_partitions = 4;
-
-  // Include consumer group information
-  bool include_consumer_groups = 5;
-
-  // Include current subscriptions
-  bool include_subscriptions = 6;
-
-  // Include topic binding information
-  bool include_bindings = 7;
-
-  // Include recent error information
-  bool include_errors = 8;
-
-  // Time range for statistics (if not specified, returns current state)
-  TimeRangeFilter time_range = 9;
-
-  // Specific information sections to retrieve
-  repeated string info_sections = 10;
-
-  // Access control context
-  string access_token = 11;
-}
-
-// Time range filter for historical data
-message TimeRangeFilter {
-  // Start time for the range (ISO 8601)
-  string start_time = 1;
-
-  // End time for the range (ISO 8601)
-  string end_time = 2;
-
-  // Granularity for aggregated data (minute, hour, day)
-  string granularity = 3;
-
-  // Maximum number of data points to return
-  int32 max_data_points = 4;
-}
-
-```
-
----
-
-### get_queue_info_response.proto {#get_queue_info_response}
-
-**Path**: `pkg/queue/proto/get_queue_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 26
-
-**Messages** (1): `GetQueueInfoResponse`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `pkg/queue/proto/queue_info.proto` → [queue_2](./queue_2.md#queue_info)
-
-#### Source Code
-
-```protobuf
-// file: pkg/queue/proto/get_queue_info_response.proto
-// version: 1.0.0
-// Response with queue information
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "google/protobuf/go_features.proto";
-import "pkg/queue/proto/queue_info.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-// Response with queue information
-message GetQueueInfoResponse {
-  // Queue information
-  QueueInfo queue_info = 1;
-
-  // Whether request was successful
-  bool success = 2;
-
-  // Error message if request failed
-  string error = 3;
-}
-
-```
-
----

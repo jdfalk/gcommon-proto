@@ -3,15 +3,15 @@ name: Proto Docs
 on:
   push:
     paths:
-      - 'proto/**/*.proto'
-      - 'scripts/generate_proto_docs.py'
-      - '.github/workflows/proto-docs.yml'
+      - "proto/**/*.proto"
+      - "scripts/generate_proto_docs.py"
+      - ".github/workflows/proto-docs.yml"
   workflow_dispatch:
     inputs:
       threshold:
-        description: 'Split threshold per module'
+        description: "Split threshold per module"
         required: false
-        default: '50'
+        default: "50"
 
 jobs:
   generate:
@@ -23,12 +23,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-            python-version: '3.11'
+          python-version: "3.11"
 
       - name: Generate Proto Docs
         run: |
           python3 scripts/generate_proto_docs.py --proto-dir proto/gcommon/v1 --out proto-docs --threshold "${{ github.event.inputs.threshold || '50' }}"
-      
+
       - name: Commit Changes
         run: |
           if [[ -n "$(git status --porcelain proto-docs)" ]]; then
