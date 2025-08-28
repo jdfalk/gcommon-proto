@@ -1,72 +1,35 @@
 #!/usr/bin/env python3
 # file: scripts/setup-go-modules.py
-# version: 2.7.0
+# version: 2.8.0
 # guid: f1e2d3c4-b5a6-789c-def0-123456789abc
 
 """
-Post-generation script to enforce a single Go module for the gcommon SDK.
+Post-generation script (minimal) – performs ONLY:
 
-Changes in v2.7.0:
- - Removed per-package module generation logic
- - Removed per-package go mod tidy / fmt invocations
- - Added cleanup of legacy per-package go.mod files
- - Retain only main SDK module (sdks/go) management
- - Run a single go mod tidy
+1. Single root-level `go mod tidy` (no per-package or SDK module management)
+2. Cleanup of any legacy per-package go.mod files under `sdks/go/v1/**`
+3. Creation of Python package `__init__.py` files for the SDK
+
+Removed in v2.8.0:
+ - Automatic creation / overwriting of `sdks/go/go.mod`
+ - Formatting (go fmt) steps
+ - Replace‑directive mutation
+ - Any per-package or secondary module logic
+
+Rationale: simplify build; only root module is authoritative. Python SDK
+needs consistent package markers so we (re)create missing `__init__.py` files.
 """
 
 import subprocess
 import sys
+import uuid
 from pathlib import Path
 
-
-def get_latest_version_tag():
-    """Get the latest version tag from git."""
-    try:
-        result = subprocess.run(
-            ["git", "describe", "--tags", "--abbrev=0", "--match=v*"],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        return result.stdout.strip()
-    except subprocess.CalledProcessError:
-        return "v1.0.0"  # Default if no tags exist
+# -------------------------- Go Helpers (minimal) --------------------------- #
 
 
-def ensure_go_mod_exists(module_path, module_name, file_path_comment="sdks/go/go.mod"):
-    """Ensure single SDK go.mod file exists with core dependencies only."""
-    go_mod_path = module_path / "go.mod"
-
-    requires_section = "\n".join(
-        [
-            "\tgoogle.golang.org/protobuf v1.36.8",
-            "\tgoogle.golang.org/grpc v1.75.0",
-            "\tbuf.build/go/protovalidate v0.14.0",
-        ]
-    )
-
-    go_mod_content = f"""// file: {file_path_comment}
-// version: 1.3.1
-// guid: abcdef01-2345-6789-abcd-ef0123456789
-
-module {module_name}
-
-go 1.23
-
-require (
-{requires_section}
-)
-
-// Indirect dependencies intentionally omitted; maintained via `go mod tidy`.
-"""
-
-    with open(go_mod_path, "w") as f:
-        f.write(go_mod_content)
-    print(f"Created/updated go.mod: {go_mod_path}")
-
-
-def run_go_mod_tidy(module_path):
-    """Run go mod tidy in the module directory."""
+def run_go_mod_tidy(module_path: Path):
+    """Run `go mod tidy` in provided directory (root only)."""
     try:
         subprocess.run(
             ["go", "mod", "tidy"],
@@ -75,122 +38,87 @@ def run_go_mod_tidy(module_path):
             text=True,
             check=True,
         )
-        print(f"✅ go mod tidy successful: {module_path}")
+        print(f"✅ go mod tidy successful (root): {module_path}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"❌ go mod tidy failed in {module_path}:")
+        print(f"❌ go mod tidy failed at root:")
         print(f"   stdout: {e.stdout}")
         print(f"   stderr: {e.stderr}")
         return False
 
 
-def run_go_fmt(module_path):
-    """Run go fmt in the module directory."""
-    try:
-        result = subprocess.run(
-            ["go", "fmt", "./..."],
-            cwd=module_path,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        if result.stdout.strip():
-            print(f"✅ go fmt formatted files: {module_path}")
-            print(f"   formatted: {result.stdout.strip()}")
-        else:
-            print(f"✅ go fmt: no formatting needed: {module_path}")
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"❌ go fmt failed in {module_path}:")
-        print(f"   stdout: {e.stdout}")
-        print(f"   stderr: {e.stderr}")
-        return False
+# -------------------------- Python Helpers --------------------------------- #
 
 
-def update_root_go_mod(project_root):
-    """Update the root go.mod file with correct replace directive."""
-    root_go_mod = project_root / "go.mod"
+def ensure_python_init_files(python_sdk_root: Path):
+    """Create missing __init__.py files (with headers) under python SDK.
 
-    if not root_go_mod.exists():
-        print(f"⚠️  Root go.mod not found: {root_go_mod}")
-        return
+    We add a lightweight header to satisfy repository identification rules.
+    Existing files are left untouched.
+    """
+    if not python_sdk_root.exists():
+        print(f"ℹ️ Python SDK path not found: {python_sdk_root}")
+        return 0
 
-    # Read the current content
-    with open(root_go_mod, "r") as f:
-        content = f.read()
-
-    # Check if it has the old incorrect replace directive
-    old_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/gcommon/v1"
-    new_replace = "replace github.com/jdfalk/gcommon/proto => ./sdks/go/v1"
-
-    if old_replace in content:
-        content = content.replace(old_replace, new_replace)
-        with open(root_go_mod, "w") as f:
-            f.write(content)
-        print(f"✅ Updated root go.mod replace directive: {new_replace}")
-    elif new_replace in content:
-        print("✅ Root go.mod already has correct replace directive")
-    else:
-        print("⚠️  Root go.mod needs manual update for replace directive")
+    created = 0
+    for path in python_sdk_root.rglob("*"):
+        if path.is_dir():
+            init_file = path / "__init__.py"
+            if not init_file.exists():
+                rel = init_file.relative_to(
+                    python_sdk_root.parent.parent
+                )  # relative under sdks/python
+                guid = uuid.uuid4()
+                content = (
+                    f"# file: {rel}\n"
+                    f"# version: 1.0.0\n"
+                    f"# guid: {guid}\n\n"
+                    "# Package marker generated by setup-go-modules.py v2.8.0\n"
+                )
+                try:
+                    init_file.write_text(content)
+                    created += 1
+                except OSError as e:
+                    print(f"⚠️  Could not create {init_file}: {e}")
+    print(f"✅ Python package __init__ verification complete (created {created})")
+    return created
 
 
 def main():
-    # Get script directory and project root
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
-    go_sdk_dir = project_root / "sdks" / "go"
 
-    print("Setting up single Go SDK module")
-    print(f"Working in: {go_sdk_dir}")
+    print("Minimal setup starting (v2.8.0)")
 
-    # Ensure the go sdk directory exists
-    go_sdk_dir.mkdir(parents=True, exist_ok=True)
+    # 1. Root go mod tidy only
+    if (project_root / "go.mod").exists():
+        run_go_mod_tidy(project_root)
+    else:
+        print("⚠️ Root go.mod missing – skipping go mod tidy")
 
-    # Ensure main SDK go.mod exists with correct module name
-    module_name = "github.com/jdfalk/gcommon/sdks/go"
-    ensure_go_mod_exists(go_sdk_dir, module_name)
-
-    # Update root go.mod with correct replace directive
-    update_root_go_mod(project_root)
-
-    # Remove any legacy per-package go.mod files
-    generated_path = go_sdk_dir / "v1"
+    # 2. Remove any lingering per-package go.mod files (defensive)
+    go_sdk_dir = project_root / "sdks" / "go" / "v1"
     removed = []
-    if generated_path.exists():
-        for path in generated_path.rglob("go.mod"):
+    if go_sdk_dir.exists():
+        for path in go_sdk_dir.rglob("go.mod"):
             try:
                 path.unlink()
                 removed.append(path)
             except OSError as e:
                 print(f"⚠️  Could not remove {path}: {e}")
-    if removed:
-        print(f"🧹 Removed {len(removed)} legacy per-package go.mod files")
-    else:
-        print("✅ No legacy per-package go.mod files present")
+    print(
+        f"🧹 Removed {len(removed)} legacy per-package go.mod files"
+        if removed
+        else "✅ No legacy go.mod files found under sdks/go/v1"
+    )
 
-    # Run go mod tidy and go fmt on the main SDK module
-    print("\n🔧 Running go mod tidy and go fmt on single SDK module...")
-    if run_go_mod_tidy(go_sdk_dir):
-        print("✅ Main SDK module go mod tidy successful")
-        run_go_fmt(go_sdk_dir)
-    else:
-        print("❌ Main SDK module go mod tidy failed")
+    # 3. Ensure Python __init__.py files
+    python_sdk_root = project_root / "sdks" / "python" / "gcommon" / "v1"
+    ensure_python_init_files(
+        python_sdk_root.parent.parent
+    )  # pass sdks/python/gcommon root for full traversal
 
-    # Inform about generated protobuf packages (for visibility only)
-    if generated_path.exists():
-        pkgs = [d.name for d in generated_path.iterdir() if d.is_dir()]
-        if pkgs:
-            print(f"✅ Generated protobuf packages detected: {', '.join(sorted(pkgs))}")
-        else:
-            print("ℹ️ No generated protobuf packages detected (run buf generate?)")
-    else:
-        print("ℹ️ Generated path missing (run buf generate before usage)")
-
-    print("\n✅ Go SDK single-module setup complete!")
-    print(f"   - SDK Module: {module_name}")
-    print("   - Legacy per-package modules: removed if present")
-    print("   - go mod tidy: executed once")
-
+    print("\n✅ Minimal setup complete (go tidy + python package markers)")
     return 0
 
 
