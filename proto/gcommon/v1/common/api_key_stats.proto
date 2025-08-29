@@ -1,25 +1,35 @@
 // file: proto/gcommon/v1/common/api_key_stats.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 118f177f-69fa-465e-9cc9-88c6aa87643f
 
 edition = "2023";
 
 package gcommon.v1.common;
 
+import "gcommon/v1/common/daily_usage.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
-// TODO FIX THIS
-//
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
 
+/**
+ * ApiKeyStats provides usage statistics for API keys.
+ * Tracks request counts, success rates, and usage patterns.
+ */
 message ApiKeyStats {
+  // Total number of requests made with this API key
   int32 total_requests = 1 [(buf.validate.field).int32.gte = 0];
+  
+  // Number of successful requests (2xx responses)
   int32 successful_requests = 2 [(buf.validate.field).int32.gte = 0];
+  
+  // Number of failed requests (4xx, 5xx responses)
   int32 failed_requests = 3 [(buf.validate.field).int32.gte = 0];
+  
+  // Unix timestamp of when the API key was last used
   int64 last_used_at = 4 [(buf.validate.field).int64.gte = 0];
-  // TODO FIX THIS
-  // repeated DailyUsage daily_usage = 5;
+  
+  // Daily usage breakdown for historical analysis
+  repeated DailyUsage daily_usage = 5;
 }
