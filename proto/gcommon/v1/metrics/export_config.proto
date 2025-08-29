@@ -1,19 +1,13 @@
-// file: proto/gcommon/v1/metrics/v1/export_config.proto
-// version: 1.0.0
-// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-
-edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
-
+edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-// Configuration for exporting metrics data
 message ExportConfig {
   // Export destination URL or endpoint
   string destination = 1 [(buf.validate.field).string.min_len = 1];
@@ -45,19 +39,4 @@ message ExportConfig {
   // Filtering rules for what to export
   repeated string include_patterns = 10 [(buf.validate.field).repeated.min_items = 1];
   repeated string exclude_patterns = 11 [(buf.validate.field).repeated.min_items = 1];
-}
-
-// Retry configuration for exports
-message MetricsRetryConfig {
-  // Maximum number of retries
-  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
-
-  // Initial retry delay in seconds
-  int32 initial_delay_seconds = 2 [(buf.validate.field).int32.gte = 0];
-
-  // Maximum retry delay in seconds
-  int32 max_delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
-
-  // Backoff multiplier
-  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 }

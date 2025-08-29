@@ -1,28 +1,14 @@
-// file: proto/gcommon/v1/media/detect_chapters_request.proto
-// version: 1.0.0
-// guid: 1234567-89ab-cdef-f8a9-b0c1d2e3f4a5
-
-edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
-
+edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to detect chapters in audio content.
 message DetectChaptersRequest {
   string audio_file_id = 1 [(buf.validate.field).string.min_len = 1];
   ChapterDetectionOptions options = 2;
-}
-
-// Options for chapter detection.
-message ChapterDetectionOptions {
-  double silence_threshold_db = 1; // Silence threshold in dB
-  double min_chapter_length_seconds = 2; // Minimum chapter length
-  bool use_metadata = 3; // Use existing metadata for hints
-  bool use_ai_detection = 4; // Use AI-based scene detection
 }

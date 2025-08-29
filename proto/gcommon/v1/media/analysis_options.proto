@@ -1,0 +1,17 @@
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+edition = "2023";
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AnalysisOptions {
+  bool extract_metadata = 1; // Extract technical metadata
+  bool analyze_quality = 2; // Perform quality analysis
+  bool detect_scenes = 3; // Scene detection
+  bool extract_thumbnails = 4; // Generate thumbnail images
+  bool analyze_audio = 5; // Audio analysis (levels, silence, etc.)
+}

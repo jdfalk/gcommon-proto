@@ -1,7 +1,7 @@
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_metadata.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
@@ -9,9 +9,10 @@ edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-message UploadMediaRequest {
-  oneof data {
-    UploadMetadata metadata = 1;
-    bytes chunk = 2;
-  }
+message SplitPoint {
+  google.protobuf.Duration timestamp = 1;
+  string segment_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
 }

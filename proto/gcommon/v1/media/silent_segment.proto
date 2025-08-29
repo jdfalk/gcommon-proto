@@ -10,10 +10,8 @@ edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-message MediaAnalysis {
-  TechnicalMetadata technical = 1;
-  MediaQuality quality_analysis = 2;
-  repeated SceneDetection scenes = 3 [(buf.validate.field).repeated.min_items = 1];
-  repeated ThumbnailInfo thumbnails = 4 [(buf.validate.field).repeated.min_items = 1];
-  AudioAnalysis audio_analysis = 5;
+message SilentSegment {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double threshold_db = 3; // Silence threshold used
 }

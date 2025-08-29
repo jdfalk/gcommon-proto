@@ -1,29 +1,15 @@
-// file: proto/gcommon/v1/media/extract_audio_request.proto
-// version: 1.0.0
-// guid: def0123-4567-89ab-d8e9-f0a1b2c3d4e5
-
-edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
-
+edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to extract audio tracks from media.
 message ExtractAudioRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];
   repeated int32 track_indices = 2; // Specific tracks to extract (empty = all)
   AudioExtractionOptions options = 3;
-}
-
-// Audio extraction options.
-message AudioExtractionOptions {
-  string output_format = 1; // Output format (mp3, aac, flac, etc.)
-  int32 bitrate = 2; // Target bitrate in kbps
-  int32 sample_rate = 3; // Target sample rate
-  bool normalize_audio = 4; // Normalize audio levels
 }

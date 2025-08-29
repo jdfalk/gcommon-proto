@@ -1,8 +1,3 @@
-// file: proto/gcommon/v1/media/split_audio_request.proto
-// version: 1.0.0
-// guid: 6789abc-def0-1234-e3f4-a5b6c7d8e9f0
-
-edition = "2023";
 
 package gcommon.v1.media;
 
@@ -10,18 +5,11 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
+edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 message SplitAudioRequest {
   string audio_file_id = 1;
   repeated SplitPoint split_points = 2;
-}
-
-message SplitPoint {
-  google.protobuf.Duration timestamp = 1;
-  string segment_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
 }

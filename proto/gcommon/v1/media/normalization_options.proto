@@ -1,7 +1,6 @@
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
@@ -9,9 +8,8 @@ edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-message UploadMediaRequest {
-  oneof data {
-    UploadMetadata metadata = 1;
-    bytes chunk = 2;
-  }
+message NormalizationOptions {
+  double target_lufs = 1; // Target loudness in LUFS (-23.0 is broadcast standard)
+  double max_peak_db = 2; // Maximum peak level in dB
+  bool enable_limiter = 3; // Enable limiting to prevent clipping
 }

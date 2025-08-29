@@ -1,0 +1,21 @@
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+edition = "2023";
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message VideoStreamInfo {
+  string codec = 1 [(buf.validate.field).string.min_len = 1];
+  int32 width = 2 [(buf.validate.field).int32.gte = 0];
+  int32 height = 3 [(buf.validate.field).int32.gte = 0];
+  double frame_rate = 4 [(buf.validate.field).double.gte = 0.0];
+  int64 bitrate = 5 [(buf.validate.field).int64.gte = 0];
+  string pixel_format = 6 [(buf.validate.field).string.min_len = 1];
+  string color_space = 7 [(buf.validate.field).string.min_len = 1];
+}
