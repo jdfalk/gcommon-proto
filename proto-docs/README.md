@@ -1,10 +1,10 @@
 # Protocol Buffer Documentation
 
-Generated on: 2025-08-29 00:11:09 UTC
+Generated on: 2025-08-29 00:25:51 UTC
 
 ## Overview
 
-This documentation covers 1680 protocol buffer files organized into 17 modules, containing:
+This documentation covers 1697 protocol buffer files organized into 17 modules, containing:
 
 - **1449** message definitions
 - **32** service definitions
@@ -65,7 +65,7 @@ This documentation covers 1680 protocol buffer files organized into 17 modules, 
 
 #### [media_messages](./media_messages.md)
 
-- **Files**: 55
+- **Files**: 71
 - **Messages**: 71
 
 
@@ -78,7 +78,7 @@ This documentation covers 1680 protocol buffer files organized into 17 modules, 
 
 #### [metrics_messages](./metrics_messages.md)
 
-- **Files**: 217
+- **Files**: 218
 - **Messages**: 218
 
 

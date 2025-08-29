@@ -6046,16 +6046,18 @@ message VerificationStatus {
 
 ### appender_config.proto {#appender_config}
 
-**Path**: `gcommon/v1/common/appender_config.proto` **Package**: `gcommon.v1.common` **Lines**: 53
+**Path**: `gcommon/v1/common/appender_config.proto` **Package**: `gcommon.v1.common` **Lines**: 55
 
 **Messages** (3): `AppenderConfig`, `OutputConfig`, `LogFormatterConfig`
 
-**Imports** (4):
+**Imports** (6):
 
 - `gcommon/v1/common/appender_type.proto`
 - `gcommon/v1/common/formatter_type.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/common/formatter_config.proto`
+- `gcommon/v1/common/output_config.proto`
 
 #### Source Code
 
@@ -6072,6 +6074,8 @@ import "gcommon/v1/common/appender_type.proto";
 import "gcommon/v1/common/formatter_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/common/formatter_config.proto";
+import "gcommon/v1/common/output_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";

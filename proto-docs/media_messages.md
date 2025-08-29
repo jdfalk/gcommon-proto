@@ -4,7 +4,7 @@
 
 ## Module Overview
 
-- **Proto Files**: 55
+- **Proto Files**: 71
 - **Messages**: 71
 
 ## Table of Contents
@@ -13,16 +13,16 @@
 
 - [`AdjustSubtitleTimingRequest`](#adjust_subtitle_timing_request) - from adjust_subtitle_timing_request.proto
 - [`AdjustSubtitleTimingResponse`](#adjust_subtitle_timing_response) - from adjust_subtitle_timing_response.proto
-- [`AnalysisOptions`](#analyze_media_request) - from analyze_media_request.proto
+- [`AnalysisOptions`](#analysis_options) - from analysis_options.proto
 - [`AnalyzeAudioQualityRequest`](#analyze_audio_quality_request) - from analyze_audio_quality_request.proto
 - [`AnalyzeAudioQualityResponse`](#analyze_audio_quality_response) - from analyze_audio_quality_response.proto
 - [`AnalyzeMediaRequest`](#analyze_media_request) - from analyze_media_request.proto
 - [`AnalyzeMediaResponse`](#analyze_media_response) - from analyze_media_response.proto
-- [`AudioAnalysis`](#media_analysis) - from media_analysis.proto
-- [`AudioExtractionOptions`](#extract_audio_request) - from extract_audio_request.proto
-- [`AudioStreamInfo`](#media_analysis) - from media_analysis.proto
+- [`AudioAnalysis`](#audio_analysis) - from audio_analysis.proto
+- [`AudioExtractionOptions`](#audio_extraction_options) - from audio_extraction_options.proto
+- [`AudioStreamInfo`](#audio_stream_info) - from audio_stream_info.proto
 - [`AudioTrack`](#audio_track) - from audio_track.proto
-- [`ChapterDetectionOptions`](#detect_chapters_request) - from detect_chapters_request.proto
+- [`ChapterDetectionOptions`](#chapter_detection_options) - from chapter_detection_options.proto
 - [`ChapterInfo`](#chapter_info) - from chapter_info.proto
 - [`ConvertSubtitleFormatRequest`](#convert_subtitle_format_request) - from convert_subtitle_format_request.proto
 - [`ConvertSubtitleFormatResponse`](#convert_subtitle_format_response) - from convert_subtitle_format_response.proto
@@ -36,7 +36,7 @@
 - [`ExtractAudioResponse`](#extract_audio_response) - from extract_audio_response.proto
 - [`ExtractSubtitlesRequest`](#extract_subtitles_request) - from extract_subtitles_request.proto
 - [`ExtractSubtitlesResponse`](#extract_subtitles_response) - from extract_subtitles_response.proto
-- [`ExtractedSubtitle`](#extract_subtitles_response) - from extract_subtitles_response.proto
+- [`ExtractedSubtitle`](#extracted_subtitle) - from extracted_subtitle.proto
 - [`GetMediaFileRequest`](#get_media_file_request) - from get_media_file_request.proto
 - [`GetMediaFileResponse`](#get_media_file_response) - from get_media_file_response.proto
 - [`GetProcessingStatusRequest`](#get_processing_status_request) - from get_processing_status_request.proto
@@ -53,24 +53,24 @@
 - [`MergeSubtitlesRequest`](#merge_subtitles_request) - from merge_subtitles_request.proto
 - [`MergeSubtitlesResponse`](#merge_subtitles_response) - from merge_subtitles_response.proto
 - [`MovieInfo`](#movie_info) - from movie_info.proto
-- [`NormalizationOptions`](#normalize_audio_request) - from normalize_audio_request.proto
+- [`NormalizationOptions`](#normalization_options) - from normalization_options.proto
 - [`NormalizeAudioRequest`](#normalize_audio_request) - from normalize_audio_request.proto
 - [`NormalizeAudioResponse`](#normalize_audio_response) - from normalize_audio_response.proto
-- [`SceneDetection`](#media_analysis) - from media_analysis.proto
+- [`SceneDetection`](#scene_detection) - from scene_detection.proto
 - [`SearchMediaRequest`](#search_media_request) - from search_media_request.proto
 - [`SearchMediaResponse`](#search_media_response) - from search_media_response.proto
 - [`SeriesInfo`](#series_info) - from series_info.proto
-- [`SilentSegment`](#media_analysis) - from media_analysis.proto
+- [`SilentSegment`](#silent_segment) - from silent_segment.proto
 - [`SplitAudioRequest`](#split_audio_request) - from split_audio_request.proto
 - [`SplitAudioResponse`](#split_audio_response) - from split_audio_response.proto
-- [`SplitPoint`](#split_audio_request) - from split_audio_request.proto
-- [`SubtitleExtractionOptions`](#extract_subtitles_request) - from extract_subtitles_request.proto
-- [`SubtitleStreamInfo`](#media_analysis) - from media_analysis.proto
+- [`SplitPoint`](#split_point) - from split_point.proto
+- [`SubtitleExtractionOptions`](#subtitle_extraction_options) - from subtitle_extraction_options.proto
+- [`SubtitleStreamInfo`](#subtitle_stream_info) - from subtitle_stream_info.proto
 - [`SubtitleTrack`](#subtitle_track) - from subtitle_track.proto
 - [`SyncSubtitlesRequest`](#sync_subtitles_request) - from sync_subtitles_request.proto
 - [`SyncSubtitlesResponse`](#sync_subtitles_response) - from sync_subtitles_response.proto
-- [`TechnicalMetadata`](#media_analysis) - from media_analysis.proto
-- [`ThumbnailInfo`](#media_analysis) - from media_analysis.proto
+- [`TechnicalMetadata`](#technical_metadata) - from technical_metadata.proto
+- [`ThumbnailInfo`](#thumbnail_info) - from thumbnail_info.proto
 - [`TranscodeMediaRequest`](#transcode_media_request) - from transcode_media_request.proto
 - [`TranscodeMediaResponse`](#transcode_media_response) - from transcode_media_response.proto
 - [`TranscodeOptions`](#transcode_options) - from transcode_options.proto
@@ -78,10 +78,10 @@
 - [`UpdateMediaFileResponse`](#update_media_file_response) - from update_media_file_response.proto
 - [`UploadMediaRequest`](#upload_media_request) - from upload_media_request.proto
 - [`UploadMediaResponse`](#upload_media_response) - from upload_media_response.proto
-- [`UploadMetadata`](#upload_media_request) - from upload_media_request.proto
+- [`UploadMetadata`](#upload_metadata) - from upload_metadata.proto
 - [`ValidateSubtitlesRequest`](#validate_subtitles_request) - from validate_subtitles_request.proto
 - [`ValidateSubtitlesResponse`](#validate_subtitles_response) - from validate_subtitles_response.proto
-- [`VideoStreamInfo`](#media_analysis) - from media_analysis.proto
+- [`VideoStreamInfo`](#video_stream_info) - from video_stream_info.proto
 
 ### Files in this Module
 
@@ -129,17 +129,33 @@
 - [upload_media_response.proto](#upload_media_response)
 - [validate_subtitles_request.proto](#validate_subtitles_request)
 - [validate_subtitles_response.proto](#validate_subtitles_response)
+- [analysis_options.proto](#analysis_options)
+- [audio_analysis.proto](#audio_analysis)
+- [audio_extraction_options.proto](#audio_extraction_options)
+- [audio_stream_info.proto](#audio_stream_info)
 - [audio_track.proto](#audio_track)
+- [chapter_detection_options.proto](#chapter_detection_options)
 - [chapter_info.proto](#chapter_info)
+- [extracted_subtitle.proto](#extracted_subtitle)
 - [media_analysis.proto](#media_analysis)
 - [media_file.proto](#media_file)
 - [media_metadata.proto](#media_metadata)
 - [media_quality.proto](#media_quality)
 - [merge_options.proto](#merge_options)
 - [movie_info.proto](#movie_info)
+- [normalization_options.proto](#normalization_options)
+- [scene_detection.proto](#scene_detection)
 - [series_info.proto](#series_info)
+- [silent_segment.proto](#silent_segment)
+- [split_point.proto](#split_point)
+- [subtitle_extraction_options.proto](#subtitle_extraction_options)
+- [subtitle_stream_info.proto](#subtitle_stream_info)
 - [subtitle_track.proto](#subtitle_track)
+- [technical_metadata.proto](#technical_metadata)
+- [thumbnail_info.proto](#thumbnail_info)
 - [transcode_options.proto](#transcode_options)
+- [upload_metadata.proto](#upload_metadata)
+- [video_stream_info.proto](#video_stream_info)
 
 ---
 
@@ -302,21 +318,22 @@ message AnalyzeAudioQualityResponse {
 
 ### analyze_media_request.proto {#analyze_media_request}
 
-**Path**: `gcommon/v1/media/analyze_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 29
+**Path**: `gcommon/v1/media/analyze_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
-**Messages** (2): `AnalyzeMediaRequest`, `AnalysisOptions`
+**Messages** (1): `AnalyzeMediaRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/analysis_options.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/analyze_media_request.proto
 // version: 1.0.0
-// guid: abcdef0-1234-5678-a5b6-c7d8e9f0a1b2
+// guid: 63d1eda6-1984-4efe-9c5d-f4e8def1d16d
 
 edition = "2023";
 
@@ -324,24 +341,14 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/analysis_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to analyze media content.
 message AnalyzeMediaRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];
   AnalysisOptions options = 2;
-}
-
-// Analysis options.
-message AnalysisOptions {
-  bool extract_metadata = 1; // Extract technical metadata
-  bool analyze_quality = 2; // Perform quality analysis
-  bool detect_scenes = 3; // Scene detection
-  bool extract_thumbnails = 4; // Generate thumbnail images
-  bool analyze_audio = 5; // Audio analysis (levels, silence, etc.)
 }
 ```
 
@@ -616,21 +623,22 @@ message DeleteMediaFileResponse {
 
 ### detect_chapters_request.proto {#detect_chapters_request}
 
-**Path**: `gcommon/v1/media/detect_chapters_request.proto` **Package**: `gcommon.v1.media` **Lines**: 28
+**Path**: `gcommon/v1/media/detect_chapters_request.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
-**Messages** (2): `DetectChaptersRequest`, `ChapterDetectionOptions`
+**Messages** (1): `DetectChaptersRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/chapter_detection_options.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/detect_chapters_request.proto
 // version: 1.0.0
-// guid: 1234567-89ab-cdef-f8a9-b0c1d2e3f4a5
+// guid: 8c470dda-3a51-47d4-8370-48c7e4347ee4
 
 edition = "2023";
 
@@ -638,23 +646,14 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/chapter_detection_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to detect chapters in audio content.
 message DetectChaptersRequest {
   string audio_file_id = 1 [(buf.validate.field).string.min_len = 1];
   ChapterDetectionOptions options = 2;
-}
-
-// Options for chapter detection.
-message ChapterDetectionOptions {
-  double silence_threshold_db = 1; // Silence threshold in dB
-  double min_chapter_length_seconds = 2; // Minimum chapter length
-  bool use_metadata = 3; // Use existing metadata for hints
-  bool use_ai_detection = 4; // Use AI-based scene detection
 }
 ```
 
@@ -703,21 +702,22 @@ message DetectChaptersResponse {
 
 ### extract_audio_request.proto {#extract_audio_request}
 
-**Path**: `gcommon/v1/media/extract_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 29
+**Path**: `gcommon/v1/media/extract_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 20
 
-**Messages** (2): `ExtractAudioRequest`, `AudioExtractionOptions`
+**Messages** (1): `ExtractAudioRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/audio_extraction_options.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/extract_audio_request.proto
 // version: 1.0.0
-// guid: def0123-4567-89ab-d8e9-f0a1b2c3d4e5
+// guid: 40d96202-ce0d-4703-9d14-5078dbefdbe2
 
 edition = "2023";
 
@@ -725,24 +725,15 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/audio_extraction_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to extract audio tracks from media.
 message ExtractAudioRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];
   repeated int32 track_indices = 2; // Specific tracks to extract (empty = all)
   AudioExtractionOptions options = 3;
-}
-
-// Audio extraction options.
-message AudioExtractionOptions {
-  string output_format = 1; // Output format (mp3, aac, flac, etc.)
-  int32 bitrate = 2; // Target bitrate in kbps
-  int32 sample_rate = 3; // Target sample rate
-  bool normalize_audio = 4; // Normalize audio levels
 }
 ```
 
@@ -790,21 +781,22 @@ message ExtractAudioResponse {
 
 ### extract_subtitles_request.proto {#extract_subtitles_request}
 
-**Path**: `gcommon/v1/media/extract_subtitles_request.proto` **Package**: `gcommon.v1.media` **Lines**: 29
+**Path**: `gcommon/v1/media/extract_subtitles_request.proto` **Package**: `gcommon.v1.media` **Lines**: 20
 
-**Messages** (2): `ExtractSubtitlesRequest`, `SubtitleExtractionOptions`
+**Messages** (1): `ExtractSubtitlesRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/subtitle_extraction_options.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/extract_subtitles_request.proto
 // version: 1.0.0
-// guid: f012345-6789-abcd-f0a1-b2c3d4e5f6a7
+// guid: 178d8f93-4baf-416d-9a87-4ddb45bcd2ab
 
 edition = "2023";
 
@@ -812,24 +804,15 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/subtitle_extraction_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to extract subtitle tracks from media.
 message ExtractSubtitlesRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];
   repeated int32 track_indices = 2; // Specific tracks to extract (empty = all)
   SubtitleExtractionOptions options = 3;
-}
-
-// Subtitle extraction options.
-message SubtitleExtractionOptions {
-  string output_format = 1; // Output format (srt, vtt, ass, etc.)
-  bool include_hearing_impaired = 2; // Include hearing impaired tracks
-  bool include_forced = 3; // Include forced tracks
-  repeated string languages = 4; // Filter by languages
 }
 ```
 
@@ -837,21 +820,22 @@ message SubtitleExtractionOptions {
 
 ### extract_subtitles_response.proto {#extract_subtitles_response}
 
-**Path**: `gcommon/v1/media/extract_subtitles_response.proto` **Package**: `gcommon.v1.media` **Lines**: 33
+**Path**: `gcommon/v1/media/extract_subtitles_response.proto` **Package**: `gcommon.v1.media` **Lines**: 21
 
-**Messages** (2): `ExtractSubtitlesResponse`, `ExtractedSubtitle`
+**Messages** (1): `ExtractSubtitlesResponse`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/extracted_subtitle.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/extract_subtitles_response.proto
 // version: 1.0.0
-// guid: 0123456-789a-bcde-a1b2-c3d4e5f6a7b8
+// guid: 39ad085c-4b1c-488f-8e45-63b581367fe1
 
 edition = "2023";
 
@@ -859,28 +843,16 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/extracted_subtitle.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Response from subtitle extraction.
 message ExtractSubtitlesResponse {
   string job_id = 1 [(buf.validate.field).string.min_len = 1];
   string status = 2; // pending, processing, completed, failed
   repeated ExtractedSubtitle extracted_subtitles = 3 [(buf.validate.field).repeated.min_items = 1];
   string error_message = 4; // Error details if failed
-}
-
-// Information about an extracted subtitle file.
-message ExtractedSubtitle {
-  string file_id = 1 [(buf.validate.field).string.min_len = 1];
-  int32 track_index = 2 [(buf.validate.field).int32.gte = 0];
-  string language = 3 [(buf.validate.field).string.min_len = 1];
-  string title = 4 [(buf.validate.field).string.min_len = 1];
-  bool forced = 5;
-  bool hearing_impaired = 6;
-  string format = 7 [(buf.validate.field).string.min_len = 1];
 }
 ```
 
@@ -1280,21 +1252,22 @@ message MergeSubtitlesResponse {
 
 ### normalize_audio_request.proto {#normalize_audio_request}
 
-**Path**: `gcommon/v1/media/normalize_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 27
+**Path**: `gcommon/v1/media/normalize_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
-**Messages** (2): `NormalizeAudioRequest`, `NormalizationOptions`
+**Messages** (1): `NormalizeAudioRequest`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/normalization_options.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/normalize_audio_request.proto
 // version: 1.0.0
-// guid: 456789a-bcde-f012-c1d2-e3f4a5b6c7d8
+// guid: 7bd66eb5-f406-4510-b647-46ea1f87de69
 
 edition = "2023";
 
@@ -1302,22 +1275,14 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/normalization_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to normalize audio levels.
 message NormalizeAudioRequest {
   string audio_file_id = 1 [(buf.validate.field).string.min_len = 1];
   NormalizationOptions options = 2;
-}
-
-// Audio normalization options.
-message NormalizationOptions {
-  double target_lufs = 1; // Target loudness in LUFS (-23.0 is broadcast standard)
-  double max_peak_db = 2; // Maximum peak level in dB
-  bool enable_limiter = 3; // Enable limiting to prevent clipping
 }
 ```
 
@@ -1452,22 +1417,23 @@ message SearchMediaResponse {
 
 ### split_audio_request.proto {#split_audio_request}
 
-**Path**: `gcommon/v1/media/split_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 27
+**Path**: `gcommon/v1/media/split_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 20
 
-**Messages** (2): `SplitAudioRequest`, `SplitPoint`
+**Messages** (1): `SplitAudioRequest`
 
-**Imports** (3):
+**Imports** (4):
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/split_point.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/split_audio_request.proto
 // version: 1.0.0
-// guid: 6789abc-def0-1234-e3f4-a5b6c7d8e9f0
+// guid: fad170b1-9288-4653-be62-3873b46f87b1
 
 edition = "2023";
 
@@ -1476,6 +1442,7 @@ package gcommon.v1.media;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/split_point.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -1483,14 +1450,6 @@ option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 message SplitAudioRequest {
   string audio_file_id = 1;
   repeated SplitPoint split_points = 2;
-}
-
-message SplitPoint {
-  google.protobuf.Duration timestamp = 1;
-  string segment_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
 }
 ```
 
@@ -1772,22 +1731,23 @@ message UpdateMediaFileResponse {
 
 ### upload_media_request.proto {#upload_media_request}
 
-**Path**: `gcommon/v1/media/upload_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 31
+**Path**: `gcommon/v1/media/upload_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
-**Messages** (2): `UploadMediaRequest`, `UploadMetadata`
+**Messages** (1): `UploadMediaRequest`
 
-**Imports** (3):
+**Imports** (4):
 
 - `gcommon/v1/media/media_metadata.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/media/upload_metadata.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/media/upload_media_request.proto
 // version: 1.0.0
-// guid: 56789ab-cdef-0123-b0c1-d2e3f4a5b6c7
+// guid: 3e00e2a2-2259-4bf5-9f22-d3c546e2db99
 
 edition = "2023";
 
@@ -1796,25 +1756,16 @@ package gcommon.v1.media;
 import "gcommon/v1/media/media_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/upload_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Request to upload media content (streaming).
 message UploadMediaRequest {
   oneof data {
     UploadMetadata metadata = 1;
     bytes chunk = 2;
   }
-}
-
-// Metadata for media upload.
-message UploadMetadata {
-  string filename = 1 [(buf.validate.field).string.min_len = 1];
-  string content_type = 2 [(buf.validate.field).string.min_len = 1];
-  int64 total_size = 3 [(buf.validate.field).int64.gte = 0];
-  MediaMetadata media_metadata = 4;
 }
 ```
 
@@ -1938,6 +1889,172 @@ message ValidateSubtitlesResponse {
 
 ---
 
+### analysis_options.proto {#analysis_options}
+
+**Path**: `gcommon/v1/media/analysis_options.proto` **Package**: `gcommon.v1.media` **Lines**: 21
+
+**Messages** (1): `AnalysisOptions`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/analysis_options.proto
+// version: 1.0.0
+// guid: 31c491f2-15e1-4433-97ae-89ffb465dd07
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AnalysisOptions {
+  bool extract_metadata = 1; // Extract technical metadata
+  bool analyze_quality = 2; // Perform quality analysis
+  bool detect_scenes = 3; // Scene detection
+  bool extract_thumbnails = 4; // Generate thumbnail images
+  bool analyze_audio = 5; // Audio analysis (levels, silence, etc.)
+}
+```
+
+---
+
+### audio_analysis.proto {#audio_analysis}
+
+**Path**: `gcommon/v1/media/audio_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 23
+
+**Messages** (1): `AudioAnalysis`
+
+**Imports** (5):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+- `gcommon/v1/media/silent_segment.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/audio_analysis.proto
+// version: 1.0.0
+// guid: 8f3a4990-a647-4e5b-8ff8-c0eafe246567
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "gcommon/v1/media/silent_segment.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AudioAnalysis {
+  double peak_level = 1; // Peak audio level in dB
+  double rms_level = 2; // RMS audio level in dB
+  repeated SilentSegment silent_segments = 3 [(buf.validate.field).repeated.min_items = 1];
+  double dynamic_range = 4; // Dynamic range in dB
+}
+```
+
+---
+
+### audio_extraction_options.proto {#audio_extraction_options}
+
+**Path**: `gcommon/v1/media/audio_extraction_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+
+**Messages** (1): `AudioExtractionOptions`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/audio_extraction_options.proto
+// version: 1.0.0
+// guid: 8ffe013f-f2d7-499d-a661-008adba5ee33
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AudioExtractionOptions {
+  string output_format = 1; // Output format (mp3, aac, flac, etc.)
+  int32 bitrate = 2; // Target bitrate in kbps
+  int32 sample_rate = 3; // Target sample rate
+  bool normalize_audio = 4; // Normalize audio levels
+}
+```
+
+---
+
+### audio_stream_info.proto {#audio_stream_info}
+
+**Path**: `gcommon/v1/media/audio_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 25
+
+**Messages** (1): `AudioStreamInfo`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/audio_stream_info.proto
+// version: 1.0.0
+// guid: e02d9f85-4f30-46c2-a59c-e54162c9502c
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message AudioStreamInfo {
+  int32 stream_index = 1 [(buf.validate.field).int32.gte = 0];
+  string codec = 2 [(buf.validate.field).string.min_len = 1];
+  int32 sample_rate = 3 [(buf.validate.field).int32.gte = 0];
+  int32 channels = 4 [(buf.validate.field).int32.gte = 0];
+  int64 bitrate = 5 [(buf.validate.field).int64.gte = 0];
+  string language = 6 [(buf.validate.field).string.min_len = 1];
+  string title = 7 [(buf.validate.field).string.min_len = 1];
+}
+```
+
+---
+
 ### audio_track.proto {#audio_track}
 
 **Path**: `gcommon/v1/media/audio_track.proto` **Package**: `gcommon.v1.media` **Lines**: 25
@@ -1976,6 +2093,44 @@ message AudioTrack {
   int32 channels = 5 [(buf.validate.field).int32.gte = 0];
   int32 sample_rate = 6 [(buf.validate.field).int32.gte = 0];
   bool default_track = 7;
+}
+```
+
+---
+
+### chapter_detection_options.proto {#chapter_detection_options}
+
+**Path**: `gcommon/v1/media/chapter_detection_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+
+**Messages** (1): `ChapterDetectionOptions`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/chapter_detection_options.proto
+// version: 1.0.0
+// guid: da8fa016-3210-46c7-8ede-35170ccbd9b3
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message ChapterDetectionOptions {
+  double silence_threshold_db = 1; // Silence threshold in dB
+  double min_chapter_length_seconds = 2; // Minimum chapter length
+  bool use_metadata = 3; // Use existing metadata for hints
+  bool use_ai_detection = 4; // Use AI-based scene detection
 }
 ```
 
@@ -2022,25 +2177,70 @@ message ChapterInfo {
 
 ---
 
-### media_analysis.proto {#media_analysis}
+### extracted_subtitle.proto {#extracted_subtitle}
 
-**Path**: `gcommon/v1/media/media_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 99
+**Path**: `gcommon/v1/media/extracted_subtitle.proto` **Package**: `gcommon.v1.media` **Lines**: 23
 
-**Messages** (9): `MediaAnalysis`, `TechnicalMetadata`, `VideoStreamInfo`, `AudioStreamInfo`, `SubtitleStreamInfo`, `SceneDetection`, `ThumbnailInfo`, `AudioAnalysis`, `SilentSegment`
+**Messages** (1): `ExtractedSubtitle`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
+// file: proto/gcommon/v1/media/extracted_subtitle.proto
+// version: 1.0.0
+// guid: 3561baa5-64a1-4881-abbd-8e58a58b6b62
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message ExtractedSubtitle {
+  string file_id = 1 [(buf.validate.field).string.min_len = 1];
+  int32 track_index = 2 [(buf.validate.field).int32.gte = 0];
+  string language = 3 [(buf.validate.field).string.min_len = 1];
+  string title = 4 [(buf.validate.field).string.min_len = 1];
+  bool forced = 5;
+  bool hearing_impaired = 6;
+  string format = 7 [(buf.validate.field).string.min_len = 1];
+}
+```
+
+---
+
+### media_analysis.proto {#media_analysis}
+
+**Path**: `gcommon/v1/media/media_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 27
+
+**Messages** (1): `MediaAnalysis`
+
+**Imports** (8):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+- `gcommon/v1/media/audio_analysis.proto`
+- `gcommon/v1/media/scene_detection.proto`
+- `gcommon/v1/media/technical_metadata.proto`
+- `gcommon/v1/media/thumbnail_info.proto`
+
+#### Source Code
+
+```protobuf
 // file: proto/gcommon/v1/media/media_analysis.proto
 // version: 1.0.0
-// guid: cdef012-3456-789a-c7d8-e9f0a1b2c3d4
+// guid: d5a4c173-7c34-41ce-b327-68d299979ed4
 
 edition = "2023";
 
@@ -2050,92 +2250,20 @@ import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/media/audio_analysis.proto";
+import "gcommon/v1/media/scene_detection.proto";
+import "gcommon/v1/media/technical_metadata.proto";
+import "gcommon/v1/media/thumbnail_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
-// Comprehensive media analysis results.
 message MediaAnalysis {
   TechnicalMetadata technical = 1;
   MediaQuality quality_analysis = 2;
   repeated SceneDetection scenes = 3 [(buf.validate.field).repeated.min_items = 1];
   repeated ThumbnailInfo thumbnails = 4 [(buf.validate.field).repeated.min_items = 1];
   AudioAnalysis audio_analysis = 5;
-}
-
-// Technical metadata extracted from media.
-message TechnicalMetadata {
-  google.protobuf.Duration duration = 1;
-  int64 file_size = 2 [(buf.validate.field).int64.gte = 0];
-  int64 bitrate = 3 [(buf.validate.field).int64.gte = 0];
-  string container_format = 4 [(buf.validate.field).string.min_len = 1];
-  VideoStreamInfo video = 5;
-  repeated AudioStreamInfo audio_streams = 6 [(buf.validate.field).repeated.min_items = 1];
-  repeated SubtitleStreamInfo subtitle_streams = 7 [(buf.validate.field).repeated.min_items = 1];
-}
-
-// Video stream information.
-message VideoStreamInfo {
-  string codec = 1 [(buf.validate.field).string.min_len = 1];
-  int32 width = 2 [(buf.validate.field).int32.gte = 0];
-  int32 height = 3 [(buf.validate.field).int32.gte = 0];
-  double frame_rate = 4 [(buf.validate.field).double.gte = 0.0];
-  int64 bitrate = 5 [(buf.validate.field).int64.gte = 0];
-  string pixel_format = 6 [(buf.validate.field).string.min_len = 1];
-  string color_space = 7 [(buf.validate.field).string.min_len = 1];
-}
-
-// Audio stream information.
-message AudioStreamInfo {
-  int32 stream_index = 1 [(buf.validate.field).int32.gte = 0];
-  string codec = 2 [(buf.validate.field).string.min_len = 1];
-  int32 sample_rate = 3 [(buf.validate.field).int32.gte = 0];
-  int32 channels = 4 [(buf.validate.field).int32.gte = 0];
-  int64 bitrate = 5 [(buf.validate.field).int64.gte = 0];
-  string language = 6 [(buf.validate.field).string.min_len = 1];
-  string title = 7 [(buf.validate.field).string.min_len = 1];
-}
-
-// Subtitle stream information.
-message SubtitleStreamInfo {
-  int32 stream_index = 1 [(buf.validate.field).int32.gte = 0];
-  string codec = 2 [(buf.validate.field).string.min_len = 1];
-  string language = 3 [(buf.validate.field).string.min_len = 1];
-  string title = 4 [(buf.validate.field).string.min_len = 1];
-  bool forced = 5;
-  bool hearing_impaired = 6;
-}
-
-// Scene detection results.
-message SceneDetection {
-  google.protobuf.Duration start_time = 1;
-  google.protobuf.Duration end_time = 2;
-  double confidence = 3 [(buf.validate.field).double.gte = 0.0];
-  string scene_type = 4; // dialog, action, credits, etc.
-}
-
-// Thumbnail information.
-message ThumbnailInfo {
-  google.protobuf.Duration timestamp = 1;
-  string file_path = 2 [(buf.validate.field).string.min_len = 1];
-  int32 width = 3 [(buf.validate.field).int32.gte = 0];
-  int32 height = 4 [(buf.validate.field).int32.gte = 0];
-}
-
-// Audio analysis results.
-message AudioAnalysis {
-  double peak_level = 1; // Peak audio level in dB
-  double rms_level = 2; // RMS audio level in dB
-  repeated SilentSegment silent_segments = 3 [(buf.validate.field).repeated.min_items = 1];
-  double dynamic_range = 4; // Dynamic range in dB
-}
-
-// Silent audio segments.
-message SilentSegment {
-  google.protobuf.Duration start_time = 1;
-  google.protobuf.Duration end_time = 2;
-  double threshold_db = 3; // Silence threshold used
 }
 ```
 
@@ -2381,6 +2509,85 @@ message MovieInfo {
 
 ---
 
+### normalization_options.proto {#normalization_options}
+
+**Path**: `gcommon/v1/media/normalization_options.proto` **Package**: `gcommon.v1.media` **Lines**: 19
+
+**Messages** (1): `NormalizationOptions`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/normalization_options.proto
+// version: 1.0.0
+// guid: 1744e330-4411-49b8-8f30-284985bd747f
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message NormalizationOptions {
+  double target_lufs = 1; // Target loudness in LUFS (-23.0 is broadcast standard)
+  double max_peak_db = 2; // Maximum peak level in dB
+  bool enable_limiter = 3; // Enable limiting to prevent clipping
+}
+```
+
+---
+
+### scene_detection.proto {#scene_detection}
+
+**Path**: `gcommon/v1/media/scene_detection.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+
+**Messages** (1): `SceneDetection`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/scene_detection.proto
+// version: 1.0.0
+// guid: 616e4f97-9cac-4ab8-933a-d6268596a01a
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message SceneDetection {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double confidence = 3 [(buf.validate.field).double.gte = 0.0];
+  string scene_type = 4; // dialog, action, credits, etc.
+}
+```
+
+---
+
 ### series_info.proto {#series_info}
 
 **Path**: `gcommon/v1/media/series_info.proto` **Package**: `gcommon.v1.media` **Lines**: 26
@@ -2421,6 +2628,170 @@ message SeriesInfo {
     ];
   string episode_title = 4;
   google.protobuf.Timestamp air_date = 5;
+}
+```
+
+---
+
+### silent_segment.proto {#silent_segment}
+
+**Path**: `gcommon/v1/media/silent_segment.proto` **Package**: `gcommon.v1.media` **Lines**: 21
+
+**Messages** (1): `SilentSegment`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/silent_segment.proto
+// version: 1.0.0
+// guid: e7e77f68-bd83-4543-869b-b990df41ed1d
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message SilentSegment {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double threshold_db = 3; // Silence threshold used
+}
+```
+
+---
+
+### split_point.proto {#split_point}
+
+**Path**: `gcommon/v1/media/split_point.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+
+**Messages** (1): `SplitPoint`
+
+**Imports** (3):
+
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/split_point.proto
+// version: 1.0.0
+// guid: 5fa2ee55-db74-4d91-9eba-481bda251207
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message SplitPoint {
+  google.protobuf.Duration timestamp = 1;
+  string segment_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+}
+```
+
+---
+
+### subtitle_extraction_options.proto {#subtitle_extraction_options}
+
+**Path**: `gcommon/v1/media/subtitle_extraction_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+
+**Messages** (1): `SubtitleExtractionOptions`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/subtitle_extraction_options.proto
+// version: 1.0.0
+// guid: 87163577-1e6b-474b-a532-c9e0978036b7
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message SubtitleExtractionOptions {
+  string output_format = 1; // Output format (srt, vtt, ass, etc.)
+  bool include_hearing_impaired = 2; // Include hearing impaired tracks
+  bool include_forced = 3; // Include forced tracks
+  repeated string languages = 4; // Filter by languages
+}
+```
+
+---
+
+### subtitle_stream_info.proto {#subtitle_stream_info}
+
+**Path**: `gcommon/v1/media/subtitle_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 24
+
+**Messages** (1): `SubtitleStreamInfo`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/subtitle_stream_info.proto
+// version: 1.0.0
+// guid: e678bbb5-cd1a-4da5-bc81-dd6a9c063ab7
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message SubtitleStreamInfo {
+  int32 stream_index = 1 [(buf.validate.field).int32.gte = 0];
+  string codec = 2 [(buf.validate.field).string.min_len = 1];
+  string language = 3 [(buf.validate.field).string.min_len = 1];
+  string title = 4 [(buf.validate.field).string.min_len = 1];
+  bool forced = 5;
+  bool hearing_impaired = 6;
 }
 ```
 
@@ -2469,6 +2840,99 @@ message SubtitleTrack {
 
 ---
 
+### technical_metadata.proto {#technical_metadata}
+
+**Path**: `gcommon/v1/media/technical_metadata.proto` **Package**: `gcommon.v1.media` **Lines**: 28
+
+**Messages** (1): `TechnicalMetadata`
+
+**Imports** (7):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+- `gcommon/v1/media/audio_stream_info.proto`
+- `gcommon/v1/media/subtitle_stream_info.proto`
+- `gcommon/v1/media/video_stream_info.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/technical_metadata.proto
+// version: 1.0.0
+// guid: d2ddadf6-d85f-42a0-9ed1-cfdaad0b07d3
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "gcommon/v1/media/audio_stream_info.proto";
+import "gcommon/v1/media/subtitle_stream_info.proto";
+import "gcommon/v1/media/video_stream_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message TechnicalMetadata {
+  google.protobuf.Duration duration = 1;
+  int64 file_size = 2 [(buf.validate.field).int64.gte = 0];
+  int64 bitrate = 3 [(buf.validate.field).int64.gte = 0];
+  string container_format = 4 [(buf.validate.field).string.min_len = 1];
+  VideoStreamInfo video = 5;
+  repeated AudioStreamInfo audio_streams = 6 [(buf.validate.field).repeated.min_items = 1];
+  repeated SubtitleStreamInfo subtitle_streams = 7 [(buf.validate.field).repeated.min_items = 1];
+}
+```
+
+---
+
+### thumbnail_info.proto {#thumbnail_info}
+
+**Path**: `gcommon/v1/media/thumbnail_info.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+
+**Messages** (1): `ThumbnailInfo`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/thumbnail_info.proto
+// version: 1.0.0
+// guid: ca1ea094-130d-467b-a559-246d9a60646f
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message ThumbnailInfo {
+  google.protobuf.Duration timestamp = 1;
+  string file_path = 2 [(buf.validate.field).string.min_len = 1];
+  int32 width = 3 [(buf.validate.field).int32.gte = 0];
+  int32 height = 4 [(buf.validate.field).int32.gte = 0];
+}
+```
+
+---
+
 ### transcode_options.proto {#transcode_options}
 
 **Path**: `gcommon/v1/media/transcode_options.proto` **Package**: `gcommon.v1.media` **Lines**: 23
@@ -2504,6 +2968,91 @@ message TranscodeOptions {
   int32 audio_bitrate = 5; // Audio bitrate in kbps
   bool preserve_subtitles = 6; // Keep subtitle tracks
   bool preserve_chapters = 7; // Keep chapter markers
+}
+```
+
+---
+
+### upload_metadata.proto {#upload_metadata}
+
+**Path**: `gcommon/v1/media/upload_metadata.proto` **Package**: `gcommon.v1.media` **Lines**: 21
+
+**Messages** (1): `UploadMetadata`
+
+**Imports** (3):
+
+- `gcommon/v1/media/media_metadata.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/upload_metadata.proto
+// version: 1.0.0
+// guid: 84083090-74a0-4ca6-8174-bc3ffd94e159
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message UploadMetadata {
+  string filename = 1 [(buf.validate.field).string.min_len = 1];
+  string content_type = 2 [(buf.validate.field).string.min_len = 1];
+  int64 total_size = 3 [(buf.validate.field).int64.gte = 0];
+  MediaMetadata media_metadata = 4;
+}
+```
+
+---
+
+### video_stream_info.proto {#video_stream_info}
+
+**Path**: `gcommon/v1/media/video_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 25
+
+**Messages** (1): `VideoStreamInfo`
+
+**Imports** (4):
+
+- `gcommon/v1/media/media_quality.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/media/video_stream_info.proto
+// version: 1.0.0
+// guid: d4a8a128-4c0f-4e3c-9beb-0efba4f6d83f
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "gcommon/v1/media/media_quality.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
+
+message VideoStreamInfo {
+  string codec = 1 [(buf.validate.field).string.min_len = 1];
+  int32 width = 2 [(buf.validate.field).int32.gte = 0];
+  int32 height = 3 [(buf.validate.field).int32.gte = 0];
+  double frame_rate = 4 [(buf.validate.field).double.gte = 0.0];
+  int64 bitrate = 5 [(buf.validate.field).int64.gte = 0];
+  string pixel_format = 6 [(buf.validate.field).string.min_len = 1];
+  string color_space = 7 [(buf.validate.field).string.min_len = 1];
 }
 ```
 

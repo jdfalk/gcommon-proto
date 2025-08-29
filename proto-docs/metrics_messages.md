@@ -4,7 +4,7 @@
 
 ## Module Overview
 
-- **Proto Files**: 217
+- **Proto Files**: 218
 - **Messages**: 218
 
 ## Table of Contents
@@ -120,7 +120,7 @@
 - [`MetricsPerformanceStats`](#performance_stats) - from performance_stats.proto
 - [`MetricsQueryStats`](#query_stats) - from query_stats.proto
 - [`MetricsResourceLimits`](#resource_limits) - from resource_limits.proto
-- [`MetricsRetryConfig`](#export_config) - from export_config.proto
+- [`MetricsRetryConfig`](#metrics_retry_config) - from metrics_retry_config.proto
 - [`MetricsSecurityConfig`](#security_config) - from security_config.proto
 - [`MetricsStreamMetricsRequest`](#stream_metrics_request) - from stream_metrics_request.proto
 - [`MetricsSummary`](#metrics_summary) - from metrics_summary.proto
@@ -436,6 +436,7 @@
 - [import_config.proto](#import_config)
 - [metric_config.proto](#metric_config)
 - [metric_type_config.proto](#metric_type_config)
+- [metrics_retry_config.proto](#metrics_retry_config)
 - [provider_config.proto](#provider_config)
 - [provider_config_summary.proto](#provider_config_summary)
 - [provider_config_update.proto](#provider_config_update)
@@ -10856,21 +10857,22 @@ message CounterConfig {
 
 ### export_config.proto {#export_config}
 
-**Path**: `gcommon/v1/metrics/export_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 63
+**Path**: `gcommon/v1/metrics/export_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 47
 
-**Messages** (2): `ExportConfig`, `MetricsRetryConfig`
+**Messages** (1): `ExportConfig`
 
-**Imports** (2):
+**Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
+- `gcommon/v1/metrics/metrics_retry_config.proto`
 
 #### Source Code
 
 ```protobuf
-// file: proto/gcommon/v1/metrics/v1/export_config.proto
+// file: proto/gcommon/v1/metrics/export_config.proto
 // version: 1.0.0
-// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+// guid: 498c1fb6-967a-4e05-b62a-fbeaa2214616
 
 edition = "2023";
 
@@ -10878,12 +10880,11 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "gcommon/v1/metrics/metrics_retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
 
-// Configuration for exporting metrics data
 message ExportConfig {
   // Export destination URL or endpoint
   string destination = 1 [(buf.validate.field).string.min_len = 1];
@@ -10915,21 +10916,6 @@ message ExportConfig {
   // Filtering rules for what to export
   repeated string include_patterns = 10 [(buf.validate.field).repeated.min_items = 1];
   repeated string exclude_patterns = 11 [(buf.validate.field).repeated.min_items = 1];
-}
-
-// Retry configuration for exports
-message MetricsRetryConfig {
-  // Maximum number of retries
-  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
-
-  // Initial retry delay in seconds
-  int32 initial_delay_seconds = 2 [(buf.validate.field).int32.gte = 0];
-
-  // Maximum retry delay in seconds
-  int32 max_delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
-
-  // Backoff multiplier
-  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 }
 ```
 
@@ -11433,6 +11419,51 @@ message MetricTypeConfig {
 
   // Configuration for counter metrics
   CounterConfig counter = 4;
+}
+```
+
+---
+
+### metrics_retry_config.proto {#metrics_retry_config}
+
+**Path**: `gcommon/v1/metrics/metrics_retry_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
+
+**Messages** (1): `MetricsRetryConfig`
+
+**Imports** (2):
+
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/metrics/metrics_retry_config.proto
+// version: 1.0.0
+// guid: f77fa8d6-728f-4bd9-9dab-8965dfb38ff8
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/metrics";
+
+message MetricsRetryConfig {
+  // Maximum number of retries
+  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Initial retry delay in seconds
+  int32 initial_delay_seconds = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum retry delay in seconds
+  int32 max_delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Backoff multiplier
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 }
 ```
 
