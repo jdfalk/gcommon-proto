@@ -74,6 +74,9 @@ This directory contains auto-generated documentation for this project.
 - [Config Services Documentation](proto-docs/config_services.md)
 - [Database Messages Documentation](proto-docs/database_messages.md)
 - [Database Services Documentation](proto-docs/database_services.md)
+- [Health Enums Documentation](proto-docs/health_enums.md)
+- [Health Messages Documentation](proto-docs/health_messages.md)
+- [Health Services Documentation](proto-docs/health_services.md)
 - [Media Messages Documentation](proto-docs/media_messages.md)
 - [Media Services Documentation](proto-docs/media_services.md)
 - [Metrics Messages Documentation](proto-docs/metrics_messages.md)
@@ -88,4 +91,4 @@ This directory contains auto-generated documentation for this project.
 - [file: scripts/README.md](scripts/README.md)
 - [file: sdks/README.md](sdks/README.md)
 
-_Generated on Fri Aug 29 01:37:16 UTC 2025_
+_Generated on Fri Aug 29 01:53:56 UTC 2025_
