@@ -503,6 +503,17 @@
 				"-m",
 				"feat(tools): add copilot-agent-util binary for enhanced automation\n\nAdded the copilot-agent-util binary to enable prettier formatting and other automation tools in the gcommon repository. This will support automated formatting of generated documentation.\n\nFiles changed:\n- copilot-agent-util - Rust-based utility binary for enhanced CI/CD automation and formatting"
 			]
+		},
+		{
+			"label": "Git Commit Prettier Feature",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"feat(docs): add automatic prettier formatting to proto docs generation\n\nEnhanced the generate_proto_docs.py script to automatically run prettier on generated markdown files, eliminating the need for manual formatting fixes and ensuring consistent output.\n\nChanges:\n- Added automatic prettier formatting after doc generation\n- Uses copilot-agent-util if available, falls back to direct prettier\n- Enhanced error handling with graceful fallbacks\n- Updated script version to 1.1.0\n- Added comprehensive documentation for new formatting features\n\nFiles changed:\n- scripts/generate_proto_docs.py - Enhanced with prettier integration and better error handling\n\nBenefits:\n- No more manual formatting commits needed\n- Consistent markdown formatting across all generated docs\n- Robust fallback system ensures docs are always generated"
+			]
 		}
 	],
 	"inputs": [
