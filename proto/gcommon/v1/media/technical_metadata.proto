@@ -1,3 +1,8 @@
+// file: proto/gcommon/v1/media/technical_metadata.proto
+// version: 1.0.0
+// guid: d2ddadf6-d85f-42a0-9ed1-cfdaad0b07d3
+
+edition = "2023";
 
 package gcommon.v1.media;
 
@@ -5,8 +10,10 @@ import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/audio_stream_info.proto";
+import "gcommon/v1/media/subtitle_stream_info.proto";
+import "gcommon/v1/media/video_stream_info.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

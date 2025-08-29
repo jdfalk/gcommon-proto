@@ -1,10 +1,15 @@
+// file: proto/gcommon/v1/media/normalize_audio_request.proto
+// version: 1.0.0
+// guid: 7bd66eb5-f406-4510-b647-46ea1f87de69
+
+edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/normalization_options.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

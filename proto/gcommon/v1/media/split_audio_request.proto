@@ -1,11 +1,16 @@
+// file: proto/gcommon/v1/media/split_audio_request.proto
+// version: 1.0.0
+// guid: fad170b1-9288-4653-be62-3873b46f87b1
+
+edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/split_point.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

@@ -1,10 +1,15 @@
+// file: proto/gcommon/v1/media/detect_chapters_request.proto
+// version: 1.0.0
+// guid: 8c470dda-3a51-47d4-8370-48c7e4347ee4
+
+edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/chapter_detection_options.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

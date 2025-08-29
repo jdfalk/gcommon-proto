@@ -1,3 +1,8 @@
+// file: proto/gcommon/v1/media/split_point.proto
+// version: 1.0.0
+// guid: 5fa2ee55-db74-4d91-9eba-481bda251207
+
+edition = "2023";
 
 package gcommon.v1.media;
 
@@ -5,7 +10,6 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

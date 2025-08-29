@@ -1,11 +1,16 @@
+// file: proto/gcommon/v1/media/upload_media_request.proto
+// version: 1.0.0
+// guid: 3e00e2a2-2259-4bf5-9f22-d3c546e2db99
+
+edition = "2023";
 
 package gcommon.v1.media;
 
 import "gcommon/v1/media/media_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/media/upload_metadata.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

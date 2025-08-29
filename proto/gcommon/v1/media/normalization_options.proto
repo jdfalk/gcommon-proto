@@ -1,10 +1,14 @@
+// file: proto/gcommon/v1/media/normalization_options.proto
+// version: 1.0.0
+// guid: 1744e330-4411-49b8-8f30-284985bd747f
+
+edition = "2023";
 
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
-edition = "2023";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 

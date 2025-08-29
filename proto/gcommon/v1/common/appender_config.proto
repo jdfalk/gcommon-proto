@@ -7,9 +7,10 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/appender_type.proto";
-import "gcommon/v1/common/formatter_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "gcommon/v1/common/output_config.proto";
+import "gcommon/v1/common/formatter_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -32,22 +33,4 @@ message AppenderConfig {
 
   // Arbitrary appender properties
   map<string, string> properties = 5;
-
-  // OutputConfig defines the destination for log entries
-  message OutputConfig {
-    // Output target (file path, network address, etc.)
-    string target = 1;
-
-    // Additional output options
-    map<string, string> options = 2;
-  }
-
-  // FormatterConfig defines how log entries are formatted
-  message LogFormatterConfig {
-    // Formatting strategy
-    FormatterType type = 1;
-
-    // Optional format pattern
-    string pattern = 2;
-  }
 }
