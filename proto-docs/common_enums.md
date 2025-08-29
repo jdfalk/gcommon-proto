@@ -429,10 +429,6 @@
 - [web_session_state.proto](#web_session_state)
 - [web_socket_state.proto](#web_socket_state)
 - [write_level.proto](#write_level)
-- [config_alert_severity.proto](#config_alert_severity)
-- [config_change_type.proto](#config_change_type)
-- [config_config_change_type.proto](#config_config_change_type)
-- [config_data_type.proto](#config_data_type)
 - [ack_level.proto](#ack_level)
 - [ack_mode.proto](#ack_mode)
 - [ack_type.proto](#ack_type)
@@ -450,6 +446,10 @@
 - [rollback_method.proto](#rollback_method)
 - [update_action.proto](#update_action)
 - [update_strategy.proto](#update_strategy)
+- [config_alert_severity.proto](#config_alert_severity)
+- [config_change_type.proto](#config_change_type)
+- [config_config_change_type.proto](#config_config_change_type)
+- [config_data_type.proto](#config_data_type)
 
 ---
 
@@ -9823,178 +9823,6 @@ enum WriteLevel {
 
 ---
 
-### config_alert_severity.proto {#config_alert_severity}
-
-**Path**: `gcommon/v1/common/config_alert_severity.proto` **Package**: `gcommon.v1.common` **Lines**: 20
-
-**Enums** (1): `ConfigAlertSeverity`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/config/alert_severity.proto
-// version: 1.0.1
-// guid: e4538794-5759-4c3f-a3ed-b3794a014e86
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-enum ConfigAlertSeverity {
-  CONFIG_ALERT_SEVERITY_UNSPECIFIED = 0;
-  CONFIG_ALERT_SEVERITY_LOW = 1;
-  CONFIG_ALERT_SEVERITY_MEDIUM = 2;
-  CONFIG_ALERT_SEVERITY_HIGH = 3;
-  CONFIG_ALERT_SEVERITY_CRITICAL = 4;
-}
-```
-
----
-
-### config_change_type.proto {#config_change_type}
-
-**Path**: `gcommon/v1/common/config_change_type.proto` **Package**: `gcommon.v1.common` **Lines**: 22
-
-**Enums** (1): `TemplateChangeType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/config/change_type.proto
-// version: 1.0.1
-// guid: 0e330584-b155-45f0-8c79-0aa19e9aa30e
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-enum TemplateChangeType {
-  TEMPLATE_CHANGE_TYPE_UNSPECIFIED = 0;
-  TEMPLATE_CHANGE_TYPE_FEATURE = 1;
-  TEMPLATE_CHANGE_TYPE_BUGFIX = 2;
-  TEMPLATE_CHANGE_TYPE_ENHANCEMENT = 3;
-  TEMPLATE_CHANGE_TYPE_DEPRECATED = 4;
-  TEMPLATE_CHANGE_TYPE_SECURITY = 5;
-  CHANGE_TYPE_BREAKING = 6;
-}
-```
-
----
-
-### config_config_change_type.proto {#config_config_change_type}
-
-**Path**: `gcommon/v1/common/config_config_change_type.proto` **Package**: `gcommon.v1.common` **Lines**: 21
-
-**Enums** (1): `ConfigChangeType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/config/v1/config_change_type.proto
-// version: 1.0.1
-// guid: 0d47edd3-705c-42cb-a851-afe79bc2973d
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-/**
- * ConfigChangeType enumerates configuration change events.
- */
-enum ConfigChangeType {
-  CONFIG_CHANGE_TYPE_UNSPECIFIED = 0;
-  CONFIG_CHANGE_TYPE_CREATED = 1;
-  CONFIG_CHANGE_TYPE_UPDATED = 2;
-  CONFIG_CHANGE_TYPE_DELETED = 3;
-}
-```
-
----
-
-### config_data_type.proto {#config_data_type}
-
-**Path**: `gcommon/v1/common/config_data_type.proto` **Package**: `gcommon.v1.common` **Lines**: 41
-
-**Enums** (1): `ConfigDataType`
-
-**Imports** (1):
-
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/config/v1/config_data_type.proto
-// version: 1.0.1
-// guid: f619e4df-f067-46db-a813-30458f7fd517
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-enum ConfigDataType {
-  CONFIG_DATA_TYPE_UNSPECIFIED = 0;
-  CONFIG_DATA_TYPE_STRING = 1;
-  CONFIG_DATA_TYPE_INTEGER = 2;
-  CONFIG_DATA_TYPE_FLOAT = 3;
-  CONFIG_DATA_TYPE_BOOLEAN = 4;
-  CONFIG_DATA_TYPE_ENUM = 5;
-  CONFIG_DATA_TYPE_LIST = 6;
-  CONFIG_DATA_TYPE_MAP = 7;
-  CONFIG_DATA_TYPE_JSON = 8;
-  CONFIG_DATA_TYPE_YAML = 9;
-  CONFIG_DATA_TYPE_URL = 10;
-  CONFIG_DATA_TYPE_EMAIL = 11;
-  CONFIG_DATA_TYPE_PASSWORD = 12;
-  CONFIG_DATA_TYPE_CERTIFICATE = 13;
-  CONFIG_DATA_TYPE_PRIVATE_KEY = 14;
-  CONFIG_DATA_TYPE_PUBLIC_KEY = 15;
-  CONFIG_DATA_TYPE_DURATION = 16;
-  CONFIG_DATA_TYPE_TIMESTAMP = 17;
-  CONFIG_DATA_TYPE_REGEX = 18;
-  CONFIG_DATA_TYPE_IPV4 = 19;
-  CONFIG_DATA_TYPE_IPV6 = 20;
-  CONFIG_DATA_TYPE_CIDR = 21;
-  CONFIG_DATA_TYPE_PORT = 22;
-  CONFIG_DATA_TYPE_UUID = 23;
-  CONFIG_DATA_TYPE_BASE64 = 24;
-  CONFIG_DATA_TYPE_HEX = 25;
-}
-```
-
----
-
 ### ack_level.proto {#ack_level}
 
 **Path**: `gcommon/v1/common/ack_level.proto` **Package**: `gcommon.v1.common` **Lines**: 36
@@ -10780,6 +10608,178 @@ enum UpdateStrategy {
   UPDATE_STRATEGY_BLUE_GREEN = 2;
   UPDATE_STRATEGY_IMMEDIATE = 3;
   UPDATE_STRATEGY_SCHEDULED = 4;
+}
+```
+
+---
+
+### config_alert_severity.proto {#config_alert_severity}
+
+**Path**: `gcommon/v1/common/config_alert_severity.proto` **Package**: `gcommon.v1.common` **Lines**: 20
+
+**Enums** (1): `ConfigAlertSeverity`
+
+**Imports** (1):
+
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/alert_severity.proto
+// version: 1.0.1
+// guid: e4538794-5759-4c3f-a3ed-b3794a014e86
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+
+enum ConfigAlertSeverity {
+  CONFIG_ALERT_SEVERITY_UNSPECIFIED = 0;
+  CONFIG_ALERT_SEVERITY_LOW = 1;
+  CONFIG_ALERT_SEVERITY_MEDIUM = 2;
+  CONFIG_ALERT_SEVERITY_HIGH = 3;
+  CONFIG_ALERT_SEVERITY_CRITICAL = 4;
+}
+```
+
+---
+
+### config_change_type.proto {#config_change_type}
+
+**Path**: `gcommon/v1/common/config_change_type.proto` **Package**: `gcommon.v1.common` **Lines**: 22
+
+**Enums** (1): `TemplateChangeType`
+
+**Imports** (1):
+
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/change_type.proto
+// version: 1.0.1
+// guid: 0e330584-b155-45f0-8c79-0aa19e9aa30e
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+
+enum TemplateChangeType {
+  TEMPLATE_CHANGE_TYPE_UNSPECIFIED = 0;
+  TEMPLATE_CHANGE_TYPE_FEATURE = 1;
+  TEMPLATE_CHANGE_TYPE_BUGFIX = 2;
+  TEMPLATE_CHANGE_TYPE_ENHANCEMENT = 3;
+  TEMPLATE_CHANGE_TYPE_DEPRECATED = 4;
+  TEMPLATE_CHANGE_TYPE_SECURITY = 5;
+  CHANGE_TYPE_BREAKING = 6;
+}
+```
+
+---
+
+### config_config_change_type.proto {#config_config_change_type}
+
+**Path**: `gcommon/v1/common/config_config_change_type.proto` **Package**: `gcommon.v1.common` **Lines**: 21
+
+**Enums** (1): `ConfigChangeType`
+
+**Imports** (1):
+
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/config_change_type.proto
+// version: 1.0.1
+// guid: 0d47edd3-705c-42cb-a851-afe79bc2973d
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+
+/**
+ * ConfigChangeType enumerates configuration change events.
+ */
+enum ConfigChangeType {
+  CONFIG_CHANGE_TYPE_UNSPECIFIED = 0;
+  CONFIG_CHANGE_TYPE_CREATED = 1;
+  CONFIG_CHANGE_TYPE_UPDATED = 2;
+  CONFIG_CHANGE_TYPE_DELETED = 3;
+}
+```
+
+---
+
+### config_data_type.proto {#config_data_type}
+
+**Path**: `gcommon/v1/common/config_data_type.proto` **Package**: `gcommon.v1.common` **Lines**: 41
+
+**Enums** (1): `ConfigDataType`
+
+**Imports** (1):
+
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/config/v1/config_data_type.proto
+// version: 1.0.1
+// guid: f619e4df-f067-46db-a813-30458f7fd517
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
+
+enum ConfigDataType {
+  CONFIG_DATA_TYPE_UNSPECIFIED = 0;
+  CONFIG_DATA_TYPE_STRING = 1;
+  CONFIG_DATA_TYPE_INTEGER = 2;
+  CONFIG_DATA_TYPE_FLOAT = 3;
+  CONFIG_DATA_TYPE_BOOLEAN = 4;
+  CONFIG_DATA_TYPE_ENUM = 5;
+  CONFIG_DATA_TYPE_LIST = 6;
+  CONFIG_DATA_TYPE_MAP = 7;
+  CONFIG_DATA_TYPE_JSON = 8;
+  CONFIG_DATA_TYPE_YAML = 9;
+  CONFIG_DATA_TYPE_URL = 10;
+  CONFIG_DATA_TYPE_EMAIL = 11;
+  CONFIG_DATA_TYPE_PASSWORD = 12;
+  CONFIG_DATA_TYPE_CERTIFICATE = 13;
+  CONFIG_DATA_TYPE_PRIVATE_KEY = 14;
+  CONFIG_DATA_TYPE_PUBLIC_KEY = 15;
+  CONFIG_DATA_TYPE_DURATION = 16;
+  CONFIG_DATA_TYPE_TIMESTAMP = 17;
+  CONFIG_DATA_TYPE_REGEX = 18;
+  CONFIG_DATA_TYPE_IPV4 = 19;
+  CONFIG_DATA_TYPE_IPV6 = 20;
+  CONFIG_DATA_TYPE_CIDR = 21;
+  CONFIG_DATA_TYPE_PORT = 22;
+  CONFIG_DATA_TYPE_UUID = 23;
+  CONFIG_DATA_TYPE_BASE64 = 24;
+  CONFIG_DATA_TYPE_HEX = 25;
 }
 ```
 
