@@ -24,20 +24,21 @@ Rationale: simplify build; only root module is authoritative. Python SDK
 needs consistent package markers so we (re)create missing `__init__.py` files.
 """
 
+import hashlib
 import subprocess
 import sys
-import hashlib
 from pathlib import Path
 
 
 def generate_deterministic_guid(file_path: str) -> str:
     """Generate a deterministic GUID based on file path to avoid churn."""
     # Use SHA256 hash of the file path to generate consistent GUID
-    hash_obj = hashlib.sha256(file_path.encode('utf-8'))
+    hash_obj = hashlib.sha256(file_path.encode("utf-8"))
     hash_hex = hash_obj.hexdigest()
-    
+
     # Format as standard GUID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     return f"{hash_hex[:8]}-{hash_hex[8:12]}-{hash_hex[12:16]}-{hash_hex[16:20]}-{hash_hex[20:32]}"
+
 
 # -------------------------- Go Helpers (minimal) --------------------------- #
 
