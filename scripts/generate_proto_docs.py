@@ -238,7 +238,7 @@ def build_modules(files: List[ProtoFileInfo], threshold: int) -> Dict[str, Modul
         base_module_name = (
             domain if classification == "base" else f"{domain}_{classification}"
         )
-        
+
         # Create type-specific modules for each classification
         # Collect all files for this domain+classification
         modules[base_module_name] = ModuleDoc(name=base_module_name, files=flist)
@@ -248,42 +248,39 @@ def build_modules(files: List[ProtoFileInfo], threshold: int) -> Dict[str, Modul
 def build_type_modules(base_modules: Dict[str, ModuleDoc]) -> Dict[str, ModuleDoc]:
     """Split each base module into type-specific modules (enums, services, messages)."""
     type_modules: Dict[str, ModuleDoc] = {}
-    
+
     # Collect files by domain only (not domain_classification)
     domain_files: Dict[str, List[ProtoFileInfo]] = {}
-    
+
     for base_name, base_module in base_modules.items():
         for file_info in base_module.files:
             domain = file_info.domain
             domain_files.setdefault(domain, []).extend([file_info])
-    
+
     # Remove duplicates and create type-specific modules per domain
     for domain, all_files in domain_files.items():
         # Remove duplicates
         unique_files = list({f.path: f for f in all_files}.values())
-        
+
         # Separate by content type
         enums_files = [f for f in unique_files if f.enums]
-        services_files = [f for f in unique_files if f.services]  
+        services_files = [f for f in unique_files if f.services]
         messages_files = [f for f in unique_files if f.messages]
-        
+
         # Create type-specific modules only if they have content
         if enums_files:
             type_modules[f"{domain}_enums"] = ModuleDoc(
-                name=f"{domain}_enums", 
-                files=enums_files
+                name=f"{domain}_enums", files=enums_files
             )
         if services_files:
             type_modules[f"{domain}_services"] = ModuleDoc(
-                name=f"{domain}_services", 
-                files=services_files
+                name=f"{domain}_services", files=services_files
             )
         if messages_files:
             type_modules[f"{domain}_messages"] = ModuleDoc(
-                name=f"{domain}_messages", 
-                files=messages_files
+                name=f"{domain}_messages", files=messages_files
             )
-    
+
     return type_modules
 
 
@@ -317,13 +314,13 @@ def infer_dependencies(modules: Dict[str, ModuleDoc], rel_root: Path):
 
 def write_module_doc(module: ModuleDoc, out_dir: Path):
     pf, msgs, svcs, ens, issues = module.counts
-    
+
     # Determine the type focus based on module name
     if module.name.endswith("_enums"):
         type_focus = "enums"
         type_title = "Enums"
     elif module.name.endswith("_services"):
-        type_focus = "services" 
+        type_focus = "services"
         type_title = "Services"
     elif module.name.endswith("_messages"):
         type_focus = "messages"
@@ -331,11 +328,11 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
     else:
         type_focus = "all"
         type_title = "All Types"
-    
+
     lines: List[str] = []
     lines.append(f"# {module.name.replace('_', ' ').title()} Documentation\n")
     lines.append("[← Back to Index](./README.md)\n")
-    
+
     lines.append("## Module Overview\n")
     lines.append(f"- **Proto Files**: {pf}")
     if type_focus == "enums" or type_focus == "all":
@@ -347,10 +344,10 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
     if issues:
         lines.append(f"- ⚠️ **Issues**: {issues}")
     lines.append("")
-    
+
     # Create table of contents for the specific type
     lines.append("## Table of Contents\n")
-    
+
     if type_focus == "enums" or type_focus == "all":
         all_enums = []
         for f in module.files:
@@ -361,7 +358,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
             for enum_name, file_name, anchor in sorted(all_enums):
                 lines.append(f"- [`{enum_name}`](#{anchor}) - from {file_name}")
             lines.append("")
-    
+
     if type_focus == "services" or type_focus == "all":
         all_services = []
         for f in module.files:
@@ -372,7 +369,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
             for service_name, file_name, anchor in sorted(all_services):
                 lines.append(f"- [`{service_name}`](#{anchor}) - from {file_name}")
             lines.append("")
-    
+
     if type_focus == "messages" or type_focus == "all":
         all_messages = []
         for f in module.files:
@@ -383,7 +380,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
             for message_name, file_name, anchor in sorted(all_messages):
                 lines.append(f"- [`{message_name}`](#{anchor}) - from {file_name}")
             lines.append("")
-    
+
     # Files section
     lines.append("### Files in this Module\n")
     for f in module.files:
@@ -391,7 +388,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
         issue_suffix = f" ⚠️ {f.issues} issues" if f.issues else ""
         lines.append(f"- [{f.path.name}](#{anchor}){issue_suffix}")
     lines.append("")
-    
+
     if module.dependencies:
         lines.append("## Module Dependencies\n")
         if module.dependencies:
@@ -404,10 +401,10 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
             for dep in sorted(module.dependents):
                 lines.append(f"- [{dep}](./{dep}.md)")
             lines.append("")
-    
+
     lines.append("---\n")
     lines.append(f"\n## {type_title} Documentation\n")
-    
+
     for f in module.files:
         anchor = f.path.stem
         lines.append(f"### {f.path.name} {{#{anchor}}}\n")
@@ -417,7 +414,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
         lines.append(
             f"**Path**: `{f.rel_path}` {package_info} **Lines**: {f.line_count}\n"
         )
-        
+
         # Only show relevant types based on focus
         if type_focus == "enums" or type_focus == "all":
             if f.enums:
@@ -427,14 +424,18 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
         if type_focus == "services" or type_focus == "all":
             if f.services:
                 lines.append(
-                    f"**Services** ({len(f.services)}): `" + "`, `".join(f.services) + "`"
+                    f"**Services** ({len(f.services)}): `"
+                    + "`, `".join(f.services)
+                    + "`"
                 )
         if type_focus == "messages" or type_focus == "all":
             if f.messages:
                 lines.append(
-                    f"**Messages** ({len(f.messages)}): `" + "`, `".join(f.messages) + "`"
+                    f"**Messages** ({len(f.messages)}): `"
+                    + "`, `".join(f.messages)
+                    + "`"
                 )
-        
+
         if f.imports:
             lines.append("\n**Imports** ({}):\n".format(len(f.imports)))
             for imp in f.imports:
@@ -447,7 +448,7 @@ def write_module_doc(module: ModuleDoc, out_dir: Path):
             lines.append(f"// Error reading file: {e}")
         lines.append("``" + "`")
         lines.append("\n---\n")
-    
+
     out_path = out_dir / f"{module.name}.md"
     out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -473,21 +474,45 @@ def write_index(modules: Dict[str, ModuleDoc], out_dir: Path):
     if total_issues:
         lines.append(f"- ⚠️ **{total_issues}** issues requiring attention")
     lines.append("\n## Modules\n")
+
+    # Group modules by domain
+    domains: Dict[str, List[str]] = {}
     for name in sorted(modules.keys()):
-        m = modules[name]
-        pf, msgs, svcs, ens, issues = m.counts
-        lines.append(f"### [{name}](./{name}.md)\n")
-        lines.append(f"- **Files**: {pf}")
-        lines.append(f"- **Messages**: {msgs}")
-        lines.append(f"- **Services**: {svcs}")
-        lines.append(f"- **Enums**: {ens}")
-        if issues:
-            lines.append(f"- ⚠️ **Issues**: {issues}")
-        lines.append("")
-        lines.append("**Proto Files**:\n")
-        for f in m.files:
-            lines.append(f"- [{f.path.name}](./{name}.md#{f.path.stem})")
-        lines.append("")
+        # Extract domain from module name (e.g., "common_enums" -> "common")
+        domain = name.split("_")[0]
+        domains.setdefault(domain, []).append(name)
+
+    # Write grouped sections
+    for domain in sorted(domains.keys()):
+        lines.append(f"### {domain}\n")
+
+        # Group by type within domain
+        domain_modules = domains[domain]
+        enums_modules = [n for n in domain_modules if n.endswith("_enums")]
+        services_modules = [n for n in domain_modules if n.endswith("_services")]
+        messages_modules = [n for n in domain_modules if n.endswith("_messages")]
+
+        # Write each type
+        for module_name in enums_modules + services_modules + messages_modules:
+            m = modules[module_name]
+            pf, msgs, svcs, ens, issues = m.counts
+
+            # Extract type from module name
+            module_type = module_name.split("_")[-1]
+            lines.append(f"#### [{domain}_{module_type}](./{module_name}.md)\n")
+
+            lines.append(f"- **Files**: {pf}")
+            if msgs > 0:
+                lines.append(f"- **Messages**: {msgs}")
+            if svcs > 0:
+                lines.append(f"- **Services**: {svcs}")
+            if ens > 0:
+                lines.append(f"- **Enums**: {ens}")
+            if issues:
+                lines.append(f"- ⚠️ **Issues**: {issues}")
+            lines.append("")
+
+        lines.append("")  # Extra spacing between domains
     (out_dir / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -534,13 +559,13 @@ def main(argv: List[str]) -> int:
         proto_files.append(scan_proto_file(path, proto_root))
     if args.verbose:
         print(f"Discovered {len(proto_files)} .proto files under {proto_root}")
-    
+
     # First build base modules by domain+classification
     base_modules = build_modules(proto_files, args.threshold)
-    
+
     # Then split into type-specific modules
     modules = build_type_modules(base_modules)
-    
+
     infer_dependencies(modules, proto_root)
     if args.dry_run:
         print("DRY RUN: Planned modules:")
