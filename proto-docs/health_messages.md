@@ -51,22 +51,6 @@
 
 ### Files in this Module
 
-- [check_registry.proto](#check_registry)
-- [component_health.proto](#component_health)
-- [dependency_check.proto](#dependency_check)
-- [dependency_result.proto](#dependency_result)
-- [health_check.proto](#health_check)
-- [health_metrics.proto](#health_metrics)
-- [health_result.proto](#health_result)
-- [liveness_check.proto](#liveness_check)
-- [liveness_result.proto](#liveness_result)
-- [readiness_check.proto](#readiness_check)
-- [readiness_result.proto](#readiness_result)
-- [resource_usage.proto](#resource_usage)
-- [system_metrics.proto](#system_metrics)
-- [service_info.proto](#service_info)
-- [health_event.proto](#health_event)
-- [check_config.proto](#check_config)
 - [dependency_check_request.proto](#dependency_check_request)
 - [health_check_request.proto](#health_check_request)
 - [list_checks_request.proto](#list_checks_request)
@@ -83,10 +67,909 @@
 - [register_check_response.proto](#register_check_response)
 - [unregister_check_response.proto](#unregister_check_response)
 - [watch_health_response.proto](#watch_health_response)
+- [check_registry.proto](#check_registry)
+- [component_health.proto](#component_health)
+- [dependency_check.proto](#dependency_check)
+- [dependency_result.proto](#dependency_result)
+- [health_check.proto](#health_check)
+- [health_metrics.proto](#health_metrics)
+- [health_result.proto](#health_result)
+- [liveness_check.proto](#liveness_check)
+- [liveness_result.proto](#liveness_result)
+- [readiness_check.proto](#readiness_check)
+- [readiness_result.proto](#readiness_result)
+- [resource_usage.proto](#resource_usage)
+- [system_metrics.proto](#system_metrics)
+- [service_info.proto](#service_info)
+- [health_event.proto](#health_event)
+- [check_config.proto](#check_config)
 
 ---
 
+
 ## Messages Documentation
+
+### dependency_check_request.proto {#dependency_check_request}
+
+**Path**: `gcommon/v1/health/requests/dependency_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 39
+
+**Messages** (1): `DependencyCheckRequest`
+
+**Imports** (3):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/dependency_check_request.proto
+// version: 1.0.0
+// guid: b4c5d6e7-f209-7890-4567-123456789012
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * DependencyCheckRequest requests a check of external dependencies.
+ * Verifies connectivity and health of services this component depends on.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message DependencyCheckRequest {
+  // Service name to check dependencies for
+  string service_name = 1;
+
+  // Specific dependency to check (optional, checks all if empty)
+  string dependency_name = 2;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 3;
+
+  // Maximum time to wait for dependency checks
+  google.protobuf.Duration timeout = 4;
+
+  // Include only critical dependencies
+  bool critical_only = 5;
+
+  // Minimum criticality level to include (1-10)
+  int32 min_criticality = 6;
+}
+```
+
+---
+
+### health_check_request.proto {#health_check_request}
+
+**Path**: `gcommon/v1/health/requests/health_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 46
+
+**Messages** (1): `HealthCheckRequest`
+
+**Imports** (4):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+- `buf/validate/validate.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/health_check_request.proto
+// version: 1.0.0
+// guid: 4d5e6f70-8192-0123-def0-456789012345
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthCheckRequest requests a health check for a specific service or component.
+ * Can be used for on-demand health verification.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthCheckRequest {
+  // Service name to check (empty for overall system health)
+  string service_name = 1;
+
+  // Component name within the service (optional)
+  string component_name = 2;
+
+  // Specific check ID to execute (optional, defaults to all checks for service)
+  string check_id = 3;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 4;
+
+  // Maximum time to wait for the check to complete
+  google.protobuf.Duration timeout = 5;
+
+  // Whether to include detailed diagnostic information in the response
+  bool include_details = 6;
+
+  // Whether to force a fresh check (bypass cache)
+  bool force_refresh = 7;
+
+  // Tags to filter which checks to run
+  repeated string tags = 8;
+}
+```
+
+---
+
+### list_checks_request.proto {#list_checks_request}
+
+**Path**: `gcommon/v1/health/requests/list_checks_request.proto` **Package**: `gcommon.v1.health` **Lines**: 41
+
+**Messages** (1): `ListChecksRequest`
+
+**Imports** (2):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/list_checks_request.proto
+// version: 1.0.0
+// guid: f809192a-364c-1234-8901-567890123456
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ListChecksRequest requests a list of registered health checks.
+ * Supports filtering and pagination.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ListChecksRequest {
+  // Filter by service name (optional)
+  string service_name = 1;
+
+  // Filter by check type (optional)
+  string check_type = 2;
+
+  // Filter by tags (optional)
+  repeated string tags = 3;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 4;
+
+  // Include only enabled checks
+  bool enabled_only = 5;
+
+  // Maximum number of results to return
+  int32 limit = 6;
+
+  // Pagination offset
+  int32 offset = 7;
+}
+```
+
+---
+
+### liveness_check_request.proto {#liveness_check_request}
+
+**Path**: `gcommon/v1/health/requests/liveness_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 33
+
+**Messages** (1): `LivenessCheckRequest`
+
+**Imports** (3):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/liveness_check_request.proto
+// version: 1.0.0
+// guid: 920a1b2c-3647-5678-2345-901234567890
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * LivenessCheckRequest requests a liveness check for a service.
+ * Liveness checks verify that a service is alive and responsive.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message LivenessCheckRequest {
+  // Service name to check liveness for
+  string service_name = 1;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Maximum time to wait for the liveness check
+  google.protobuf.Duration timeout = 3;
+
+  // Specific probe endpoint to check (optional)
+  string probe_endpoint = 4;
+}
+```
+
+---
+
+### readiness_check_request.proto {#readiness_check_request}
+
+**Path**: `gcommon/v1/health/requests/readiness_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 36
+
+**Messages** (1): `ReadinessCheckRequest`
+
+**Imports** (3):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/duration.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/readiness_check_request.proto
+// version: 1.0.0
+// guid: 5e6f7081-9203-1234-ef01-567890123456
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ReadinessCheckRequest requests a readiness check for a service.
+ * Readiness checks verify that a service is ready to handle requests.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ReadinessCheckRequest {
+  // Service name to check readiness for
+  string service_name = 1;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Maximum time to wait for the readiness check
+  google.protobuf.Duration timeout = 3;
+
+  // Include dependency readiness checks
+  bool include_dependencies = 4;
+
+  // Minimum required health score (0-100) to consider ready
+  int32 min_health_score = 5;
+}
+```
+
+---
+
+### register_check_request.proto {#register_check_request}
+
+**Path**: `gcommon/v1/health/requests/register_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 30
+
+**Messages** (1): `RegisterCheckRequest`
+
+**Imports** (3):
+
+- `gcommon/v1/health/messages/health_check.proto`
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/register_check_request.proto
+// version: 1.0.0
+// guid: 2c3d4e5f-6970-8901-5678-234567890123
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/health_check.proto";
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * RegisterCheckRequest registers a new health check with the system.
+ * Allows dynamic addition of health checks at runtime.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message RegisterCheckRequest {
+  // Health check configuration to register
+  HealthCheck health_check = 1;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Whether to replace existing check with same ID
+  bool replace_existing = 3;
+}
+```
+
+---
+
+### unregister_check_request.proto {#unregister_check_request}
+
+**Path**: `gcommon/v1/health/requests/unregister_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 29
+
+**Messages** (1): `UnregisterCheckRequest`
+
+**Imports** (2):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/unregister_check_request.proto
+// version: 1.0.0
+// guid: d6e7f809-142a-9012-6789-345678901234
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * UnregisterCheckRequest removes a health check from the system.
+ * Allows dynamic removal of health checks at runtime.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message UnregisterCheckRequest {
+  // ID of the health check to unregister
+  string check_id = 1;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Whether to force removal even if check is running
+  bool force = 3;
+}
+```
+
+---
+
+### watch_health_request.proto {#watch_health_request}
+
+**Path**: `gcommon/v1/health/requests/watch_health_request.proto` **Package**: `gcommon.v1.health` **Lines**: 35
+
+**Messages** (1): `WatchHealthRequest`
+
+**Imports** (2):
+
+- `gcommon/v1/common/request_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/requests/watch_health_request.proto
+// version: 1.0.0
+// guid: 7f809192-bec4-9012-6789-345678901234
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * WatchHealthRequest requests a stream of health status updates.
+ * Allows real-time monitoring of health check results.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message WatchHealthRequest {
+  // Service name to watch (empty for all services)
+  string service_name = 1;
+
+  // Specific check ID to watch (optional)
+  string check_id = 2;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 3;
+
+  // Only send updates for status changes
+  bool status_changes_only = 4;
+
+  // Filter by tags
+  repeated string tags = 5;
+}
+```
+
+---
+
+### dependency_check_response.proto {#dependency_check_response}
+
+**Path**: `gcommon/v1/health/responses/dependency_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 39
+
+**Messages** (1): `DependencyCheckResponse`
+
+**Imports** (3):
+
+- `gcommon/v1/health/messages/dependency_check.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/dependency_check_response.proto
+// version: 1.0.0
+// guid: c5d6e7f8-0319-8901-5678-234567890123
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/dependency_check.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * DependencyCheckResponse returns the results of dependency health checks.
+ * Contains status and details for all checked dependencies.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message DependencyCheckResponse {
+  // Results for each dependency checked
+  repeated DependencyCheck dependencies = 1;
+
+  // Overall dependency health status
+  bool all_dependencies_healthy = 2;
+
+  // Number of healthy dependencies
+  int32 healthy_count = 3;
+
+  // Number of unhealthy dependencies
+  int32 unhealthy_count = 4;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 5;
+
+  // Any issues encountered during checks
+  repeated string issues = 6;
+}
+```
+
+---
+
+### health_check_response.proto {#health_check_response}
+
+**Path**: `gcommon/v1/health/responses/health_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 45
+
+**Messages** (1): `HealthCheckResponse`
+
+**Imports** (3):
+
+- `gcommon/v1/health/messages/health_result.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/health_check_response.proto
+// version: 1.0.0
+// guid: 6f708192-0314-2345-f012-678901234567
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/health_result.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * HealthCheckResponse returns the result of a health check request.
+ * Contains health status and diagnostic information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthCheckResponse {
+  // Results of the health checks performed
+  repeated HealthResult results = 1;
+
+  // Overall health summary
+  string summary = 2;
+
+  // Total number of checks performed
+  int32 total_checks = 3;
+
+  // Number of healthy checks
+  int32 healthy_checks = 4;
+
+  // Number of unhealthy checks
+  int32 unhealthy_checks = 5;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 6;
+
+  // Whether all requested checks completed successfully
+  bool all_checks_completed = 7;
+
+  // Any warnings or notices about the health check process
+  repeated string warnings = 8;
+}
+```
+
+---
+
+### list_checks_response.proto {#list_checks_response}
+
+**Path**: `gcommon/v1/health/responses/list_checks_response.proto` **Package**: `gcommon.v1.health` **Lines**: 30
+
+**Messages** (1): `ListChecksResponse`
+
+**Imports** (3):
+
+- `gcommon/v1/health/messages/health_check.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/list_checks_response.proto
+// version: 1.0.0
+// guid: 09192a3b-475d-2345-9012-678901234567
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/health_check.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ListChecksResponse returns a list of registered health checks.
+ * Contains health check configurations and metadata.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ListChecksResponse {
+  // List of health checks
+  repeated HealthCheck checks = 1;
+
+  // Total number of checks available (for pagination)
+  int32 total_count = 2;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 3;
+}
+```
+
+---
+
+### liveness_check_response.proto {#liveness_check_response}
+
+**Path**: `gcommon/v1/health/responses/liveness_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 37
+
+**Messages** (1): `LivenessCheckResponse`
+
+**Imports** (4):
+
+- `gcommon/v1/health/enums/health_status.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/liveness_check_response.proto
+// version: 1.0.0
+// guid: 0a1b2c3d-4758-6789-3456-012345678901
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/enums/health_status.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * LivenessCheckResponse returns the result of a liveness check.
+ * Indicates whether a service is alive and responsive.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message LivenessCheckResponse {
+  // Overall liveness status
+  HealthStatus status = 1;
+
+  // Whether the service is alive
+  bool alive = 2;
+
+  // Uptime since last restart
+  google.protobuf.Timestamp started_at = 3;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 4;
+
+  // Additional liveness details
+  string details = 5;
+}
+```
+
+---
+
+### readiness_check_response.proto {#readiness_check_response}
+
+**Path**: `gcommon/v1/health/responses/readiness_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 42
+
+**Messages** (1): `ReadinessCheckResponse`
+
+**Imports** (3):
+
+- `gcommon/v1/health/enums/health_status.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/readiness_check_response.proto
+// version: 1.0.0
+// guid: 7081920a-1425-3456-0123-789012345678
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/enums/health_status.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ReadinessCheckResponse returns the result of a readiness check.
+ * Indicates whether a service is ready to handle requests.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ReadinessCheckResponse {
+  // Overall readiness status
+  HealthStatus status = 1;
+
+  // Whether the service is ready to handle requests
+  bool ready = 2;
+
+  // Reason if not ready
+  string reason = 3;
+
+  // Health score (0-100)
+  int32 health_score = 4;
+
+  // Dependency readiness status
+  map<string, HealthStatus> dependency_status = 5;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 6;
+
+  // Additional readiness details
+  map<string, string> details = 7;
+}
+```
+
+---
+
+### register_check_response.proto {#register_check_response}
+
+**Path**: `gcommon/v1/health/responses/register_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 35
+
+**Messages** (1): `RegisterCheckResponse`
+
+**Imports** (2):
+
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/register_check_response.proto
+// version: 1.0.0
+// guid: 3d4e5f60-7a81-9012-6789-345678901234
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * RegisterCheckResponse confirms registration of a health check.
+ * Returns success status and any relevant information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message RegisterCheckResponse {
+  // Whether the registration was successful
+  bool success = 1;
+
+  // The ID assigned to the registered check
+  string check_id = 2;
+
+  // Human-readable message about the registration
+  string message = 3;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 4;
+
+  // Any warnings about the registration
+  repeated string warnings = 5;
+}
+```
+
+---
+
+### unregister_check_response.proto {#unregister_check_response}
+
+**Path**: `gcommon/v1/health/responses/unregister_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
+
+**Messages** (1): `UnregisterCheckResponse`
+
+**Imports** (2):
+
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/unregister_check_response.proto
+// version: 1.0.0
+// guid: e7f8091a-253b-0123-7890-456789012345
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * UnregisterCheckResponse confirms removal of a health check.
+ * Returns success status and any relevant information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message UnregisterCheckResponse {
+  // Whether the unregistration was successful
+  bool success = 1;
+
+  // Human-readable message about the unregistration
+  string message = 2;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 3;
+}
+```
+
+---
+
+### watch_health_response.proto {#watch_health_response}
+
+**Path**: `gcommon/v1/health/responses/watch_health_response.proto` **Package**: `gcommon.v1.health` **Lines**: 34
+
+**Messages** (1): `WatchHealthResponse`
+
+**Imports** (4):
+
+- `gcommon/v1/health/messages/health_result.proto`
+- `gcommon/v1/health/messages/health_event.proto`
+- `gcommon/v1/common/response_metadata.proto`
+- `google/protobuf/go_features.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/responses/watch_health_response.proto
+// version: 1.0.0
+// guid: 80919203-cfd5-0123-7890-456789012345
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/messages/health_result.proto";
+import "gcommon/v1/health/messages/health_event.proto";
+import "gcommon/v1/common/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * WatchHealthResponse streams health status updates.
+ * Provides real-time health monitoring data.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message WatchHealthResponse {
+  // Type of update (result, event, heartbeat)
+  string update_type = 1;
+
+  // Health check result (for result updates)
+  HealthResult result = 2;
+
+  // Health event (for event updates)
+  HealthEvent event = 3;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 4;
+}
+```
+
+---
 
 ### check_registry.proto {#check_registry}
 
@@ -1298,884 +2181,3 @@ message CheckConfig {
 
 ---
 
-### dependency_check_request.proto {#dependency_check_request}
-
-**Path**: `gcommon/v1/health/requests/dependency_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 39
-
-**Messages** (1): `DependencyCheckRequest`
-
-**Imports** (3):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/dependency_check_request.proto
-// version: 1.0.0
-// guid: b4c5d6e7-f209-7890-4567-123456789012
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * DependencyCheckRequest requests a check of external dependencies.
- * Verifies connectivity and health of services this component depends on.
- * Follows 1-1-1 pattern: one message per file.
- */
-message DependencyCheckRequest {
-  // Service name to check dependencies for
-  string service_name = 1;
-
-  // Specific dependency to check (optional, checks all if empty)
-  string dependency_name = 2;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 3;
-
-  // Maximum time to wait for dependency checks
-  google.protobuf.Duration timeout = 4;
-
-  // Include only critical dependencies
-  bool critical_only = 5;
-
-  // Minimum criticality level to include (1-10)
-  int32 min_criticality = 6;
-}
-```
-
----
-
-### health_check_request.proto {#health_check_request}
-
-**Path**: `gcommon/v1/health/requests/health_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 46
-
-**Messages** (1): `HealthCheckRequest`
-
-**Imports** (4):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/health_check_request.proto
-// version: 1.0.0
-// guid: 4d5e6f70-8192-0123-def0-456789012345
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * HealthCheckRequest requests a health check for a specific service or component.
- * Can be used for on-demand health verification.
- * Follows 1-1-1 pattern: one message per file.
- */
-message HealthCheckRequest {
-  // Service name to check (empty for overall system health)
-  string service_name = 1;
-
-  // Component name within the service (optional)
-  string component_name = 2;
-
-  // Specific check ID to execute (optional, defaults to all checks for service)
-  string check_id = 3;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 4;
-
-  // Maximum time to wait for the check to complete
-  google.protobuf.Duration timeout = 5;
-
-  // Whether to include detailed diagnostic information in the response
-  bool include_details = 6;
-
-  // Whether to force a fresh check (bypass cache)
-  bool force_refresh = 7;
-
-  // Tags to filter which checks to run
-  repeated string tags = 8;
-}
-```
-
----
-
-### list_checks_request.proto {#list_checks_request}
-
-**Path**: `gcommon/v1/health/requests/list_checks_request.proto` **Package**: `gcommon.v1.health` **Lines**: 41
-
-**Messages** (1): `ListChecksRequest`
-
-**Imports** (2):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/list_checks_request.proto
-// version: 1.0.0
-// guid: f809192a-364c-1234-8901-567890123456
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * ListChecksRequest requests a list of registered health checks.
- * Supports filtering and pagination.
- * Follows 1-1-1 pattern: one message per file.
- */
-message ListChecksRequest {
-  // Filter by service name (optional)
-  string service_name = 1;
-
-  // Filter by check type (optional)
-  string check_type = 2;
-
-  // Filter by tags (optional)
-  repeated string tags = 3;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 4;
-
-  // Include only enabled checks
-  bool enabled_only = 5;
-
-  // Maximum number of results to return
-  int32 limit = 6;
-
-  // Pagination offset
-  int32 offset = 7;
-}
-```
-
----
-
-### liveness_check_request.proto {#liveness_check_request}
-
-**Path**: `gcommon/v1/health/requests/liveness_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 33
-
-**Messages** (1): `LivenessCheckRequest`
-
-**Imports** (3):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/liveness_check_request.proto
-// version: 1.0.0
-// guid: 920a1b2c-3647-5678-2345-901234567890
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * LivenessCheckRequest requests a liveness check for a service.
- * Liveness checks verify that a service is alive and responsive.
- * Follows 1-1-1 pattern: one message per file.
- */
-message LivenessCheckRequest {
-  // Service name to check liveness for
-  string service_name = 1;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 2;
-
-  // Maximum time to wait for the liveness check
-  google.protobuf.Duration timeout = 3;
-
-  // Specific probe endpoint to check (optional)
-  string probe_endpoint = 4;
-}
-```
-
----
-
-### readiness_check_request.proto {#readiness_check_request}
-
-**Path**: `gcommon/v1/health/requests/readiness_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 36
-
-**Messages** (1): `ReadinessCheckRequest`
-
-**Imports** (3):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/readiness_check_request.proto
-// version: 1.0.0
-// guid: 5e6f7081-9203-1234-ef01-567890123456
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * ReadinessCheckRequest requests a readiness check for a service.
- * Readiness checks verify that a service is ready to handle requests.
- * Follows 1-1-1 pattern: one message per file.
- */
-message ReadinessCheckRequest {
-  // Service name to check readiness for
-  string service_name = 1;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 2;
-
-  // Maximum time to wait for the readiness check
-  google.protobuf.Duration timeout = 3;
-
-  // Include dependency readiness checks
-  bool include_dependencies = 4;
-
-  // Minimum required health score (0-100) to consider ready
-  int32 min_health_score = 5;
-}
-```
-
----
-
-### register_check_request.proto {#register_check_request}
-
-**Path**: `gcommon/v1/health/requests/register_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 30
-
-**Messages** (1): `RegisterCheckRequest`
-
-**Imports** (3):
-
-- `gcommon/v1/health/messages/health_check.proto`
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/register_check_request.proto
-// version: 1.0.0
-// guid: 2c3d4e5f-6970-8901-5678-234567890123
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/messages/health_check.proto";
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * RegisterCheckRequest registers a new health check with the system.
- * Allows dynamic addition of health checks at runtime.
- * Follows 1-1-1 pattern: one message per file.
- */
-message RegisterCheckRequest {
-  // Health check configuration to register
-  HealthCheck health_check = 1;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 2;
-
-  // Whether to replace existing check with same ID
-  bool replace_existing = 3;
-}
-```
-
----
-
-### unregister_check_request.proto {#unregister_check_request}
-
-**Path**: `gcommon/v1/health/requests/unregister_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 29
-
-**Messages** (1): `UnregisterCheckRequest`
-
-**Imports** (2):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/unregister_check_request.proto
-// version: 1.0.0
-// guid: d6e7f809-142a-9012-6789-345678901234
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * UnregisterCheckRequest removes a health check from the system.
- * Allows dynamic removal of health checks at runtime.
- * Follows 1-1-1 pattern: one message per file.
- */
-message UnregisterCheckRequest {
-  // ID of the health check to unregister
-  string check_id = 1;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 2;
-
-  // Whether to force removal even if check is running
-  bool force = 3;
-}
-```
-
----
-
-### watch_health_request.proto {#watch_health_request}
-
-**Path**: `gcommon/v1/health/requests/watch_health_request.proto` **Package**: `gcommon.v1.health` **Lines**: 35
-
-**Messages** (1): `WatchHealthRequest`
-
-**Imports** (2):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/requests/watch_health_request.proto
-// version: 1.0.0
-// guid: 7f809192-bec4-9012-6789-345678901234
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * WatchHealthRequest requests a stream of health status updates.
- * Allows real-time monitoring of health check results.
- * Follows 1-1-1 pattern: one message per file.
- */
-message WatchHealthRequest {
-  // Service name to watch (empty for all services)
-  string service_name = 1;
-
-  // Specific check ID to watch (optional)
-  string check_id = 2;
-
-  // Request metadata for authentication and tracing
-  gcommon.v1.common.RequestMetadata metadata = 3;
-
-  // Only send updates for status changes
-  bool status_changes_only = 4;
-
-  // Filter by tags
-  repeated string tags = 5;
-}
-```
-
----
-
-### dependency_check_response.proto {#dependency_check_response}
-
-**Path**: `gcommon/v1/health/responses/dependency_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 39
-
-**Messages** (1): `DependencyCheckResponse`
-
-**Imports** (3):
-
-- `gcommon/v1/health/messages/dependency_check.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/dependency_check_response.proto
-// version: 1.0.0
-// guid: c5d6e7f8-0319-8901-5678-234567890123
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/messages/dependency_check.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * DependencyCheckResponse returns the results of dependency health checks.
- * Contains status and details for all checked dependencies.
- * Follows 1-1-1 pattern: one message per file.
- */
-message DependencyCheckResponse {
-  // Results for each dependency checked
-  repeated DependencyCheck dependencies = 1;
-
-  // Overall dependency health status
-  bool all_dependencies_healthy = 2;
-
-  // Number of healthy dependencies
-  int32 healthy_count = 3;
-
-  // Number of unhealthy dependencies
-  int32 unhealthy_count = 4;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 5;
-
-  // Any issues encountered during checks
-  repeated string issues = 6;
-}
-```
-
----
-
-### health_check_response.proto {#health_check_response}
-
-**Path**: `gcommon/v1/health/responses/health_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 45
-
-**Messages** (1): `HealthCheckResponse`
-
-**Imports** (3):
-
-- `gcommon/v1/health/messages/health_result.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/health_check_response.proto
-// version: 1.0.0
-// guid: 6f708192-0314-2345-f012-678901234567
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/messages/health_result.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * HealthCheckResponse returns the result of a health check request.
- * Contains health status and diagnostic information.
- * Follows 1-1-1 pattern: one message per file.
- */
-message HealthCheckResponse {
-  // Results of the health checks performed
-  repeated HealthResult results = 1;
-
-  // Overall health summary
-  string summary = 2;
-
-  // Total number of checks performed
-  int32 total_checks = 3;
-
-  // Number of healthy checks
-  int32 healthy_checks = 4;
-
-  // Number of unhealthy checks
-  int32 unhealthy_checks = 5;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 6;
-
-  // Whether all requested checks completed successfully
-  bool all_checks_completed = 7;
-
-  // Any warnings or notices about the health check process
-  repeated string warnings = 8;
-}
-```
-
----
-
-### list_checks_response.proto {#list_checks_response}
-
-**Path**: `gcommon/v1/health/responses/list_checks_response.proto` **Package**: `gcommon.v1.health` **Lines**: 30
-
-**Messages** (1): `ListChecksResponse`
-
-**Imports** (3):
-
-- `gcommon/v1/health/messages/health_check.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/list_checks_response.proto
-// version: 1.0.0
-// guid: 09192a3b-475d-2345-9012-678901234567
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/messages/health_check.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * ListChecksResponse returns a list of registered health checks.
- * Contains health check configurations and metadata.
- * Follows 1-1-1 pattern: one message per file.
- */
-message ListChecksResponse {
-  // List of health checks
-  repeated HealthCheck checks = 1;
-
-  // Total number of checks available (for pagination)
-  int32 total_count = 2;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 3;
-}
-```
-
----
-
-### liveness_check_response.proto {#liveness_check_response}
-
-**Path**: `gcommon/v1/health/responses/liveness_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 37
-
-**Messages** (1): `LivenessCheckResponse`
-
-**Imports** (4):
-
-- `gcommon/v1/health/enums/health_status.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/liveness_check_response.proto
-// version: 1.0.0
-// guid: 0a1b2c3d-4758-6789-3456-012345678901
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/enums/health_status.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * LivenessCheckResponse returns the result of a liveness check.
- * Indicates whether a service is alive and responsive.
- * Follows 1-1-1 pattern: one message per file.
- */
-message LivenessCheckResponse {
-  // Overall liveness status
-  HealthStatus status = 1;
-
-  // Whether the service is alive
-  bool alive = 2;
-
-  // Uptime since last restart
-  google.protobuf.Timestamp started_at = 3;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 4;
-
-  // Additional liveness details
-  string details = 5;
-}
-```
-
----
-
-### readiness_check_response.proto {#readiness_check_response}
-
-**Path**: `gcommon/v1/health/responses/readiness_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 42
-
-**Messages** (1): `ReadinessCheckResponse`
-
-**Imports** (3):
-
-- `gcommon/v1/health/enums/health_status.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/readiness_check_response.proto
-// version: 1.0.0
-// guid: 7081920a-1425-3456-0123-789012345678
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/enums/health_status.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * ReadinessCheckResponse returns the result of a readiness check.
- * Indicates whether a service is ready to handle requests.
- * Follows 1-1-1 pattern: one message per file.
- */
-message ReadinessCheckResponse {
-  // Overall readiness status
-  HealthStatus status = 1;
-
-  // Whether the service is ready to handle requests
-  bool ready = 2;
-
-  // Reason if not ready
-  string reason = 3;
-
-  // Health score (0-100)
-  int32 health_score = 4;
-
-  // Dependency readiness status
-  map<string, HealthStatus> dependency_status = 5;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 6;
-
-  // Additional readiness details
-  map<string, string> details = 7;
-}
-```
-
----
-
-### register_check_response.proto {#register_check_response}
-
-**Path**: `gcommon/v1/health/responses/register_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 35
-
-**Messages** (1): `RegisterCheckResponse`
-
-**Imports** (2):
-
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/register_check_response.proto
-// version: 1.0.0
-// guid: 3d4e5f60-7a81-9012-6789-345678901234
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * RegisterCheckResponse confirms registration of a health check.
- * Returns success status and any relevant information.
- * Follows 1-1-1 pattern: one message per file.
- */
-message RegisterCheckResponse {
-  // Whether the registration was successful
-  bool success = 1;
-
-  // The ID assigned to the registered check
-  string check_id = 2;
-
-  // Human-readable message about the registration
-  string message = 3;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 4;
-
-  // Any warnings about the registration
-  repeated string warnings = 5;
-}
-```
-
----
-
-### unregister_check_response.proto {#unregister_check_response}
-
-**Path**: `gcommon/v1/health/responses/unregister_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
-
-**Messages** (1): `UnregisterCheckResponse`
-
-**Imports** (2):
-
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/unregister_check_response.proto
-// version: 1.0.0
-// guid: e7f8091a-253b-0123-7890-456789012345
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * UnregisterCheckResponse confirms removal of a health check.
- * Returns success status and any relevant information.
- * Follows 1-1-1 pattern: one message per file.
- */
-message UnregisterCheckResponse {
-  // Whether the unregistration was successful
-  bool success = 1;
-
-  // Human-readable message about the unregistration
-  string message = 2;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 3;
-}
-```
-
----
-
-### watch_health_response.proto {#watch_health_response}
-
-**Path**: `gcommon/v1/health/responses/watch_health_response.proto` **Package**: `gcommon.v1.health` **Lines**: 34
-
-**Messages** (1): `WatchHealthResponse`
-
-**Imports** (4):
-
-- `gcommon/v1/health/messages/health_result.proto`
-- `gcommon/v1/health/messages/health_event.proto`
-- `gcommon/v1/common/response_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/responses/watch_health_response.proto
-// version: 1.0.0
-// guid: 80919203-cfd5-0123-7890-456789012345
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "gcommon/v1/health/messages/health_result.proto";
-import "gcommon/v1/health/messages/health_event.proto";
-import "gcommon/v1/common/response_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * WatchHealthResponse streams health status updates.
- * Provides real-time health monitoring data.
- * Follows 1-1-1 pattern: one message per file.
- */
-message WatchHealthResponse {
-  // Type of update (result, event, heartbeat)
-  string update_type = 1;
-
-  // Health check result (for result updates)
-  HealthResult result = 2;
-
-  // Health event (for event updates)
-  HealthEvent event = 3;
-
-  // Response metadata
-  gcommon.v1.common.ResponseMetadata metadata = 4;
-}
-```
-
----
