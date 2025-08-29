@@ -1,0 +1,13 @@
+from gcommon.v1.health.requests import dependency_check_request_pb2 as _dependency_check_request_pb2
+from gcommon.v1.health.requests import list_checks_request_pb2 as _list_checks_request_pb2
+from gcommon.v1.health.requests import register_check_request_pb2 as _register_check_request_pb2
+from gcommon.v1.health.requests import unregister_check_request_pb2 as _unregister_check_request_pb2
+from gcommon.v1.health.responses import dependency_check_response_pb2 as _dependency_check_response_pb2
+from gcommon.v1.health.responses import list_checks_response_pb2 as _list_checks_response_pb2
+from gcommon.v1.health.responses import register_check_response_pb2 as _register_check_response_pb2
+from gcommon.v1.health.responses import unregister_check_response_pb2 as _unregister_check_response_pb2
+from google.protobuf import go_features_pb2 as _go_features_pb2
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+
+DESCRIPTOR: _descriptor.FileDescriptor
