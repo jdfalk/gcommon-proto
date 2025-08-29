@@ -18,7 +18,7 @@ on:
         default: "false"
 
 permissions:
-  contents: write   # needed for release asset upload
+  contents: write # needed for release asset upload
   packages: write
 
 jobs:
@@ -218,7 +218,7 @@ jobs:
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v2.4.1'
+          cosign-release: "v2.4.1"
 
       - name: Sign artifacts with Cosign
         env:
@@ -307,14 +307,14 @@ jobs:
       - name: Upload combined artifact (tar.gz)
         uses: actions/upload-artifact@v4
         with:
-            name: go-build-all-tar
-            path: go-build-all.tar.gz
+          name: go-build-all-tar
+          path: go-build-all.tar.gz
 
       - name: Upload combined artifact (zip)
         uses: actions/upload-artifact@v4
         with:
-            name: go-build-all-zip
-            path: go-build-all.zip
+          name: go-build-all-zip
+          path: go-build-all.zip
 
       - name: Upload per-OS archives
         if: hashFiles('per-os/*') != ''

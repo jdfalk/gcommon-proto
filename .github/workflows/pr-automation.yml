@@ -105,7 +105,6 @@ jobs:
           # Environment variables are now injected from super-linter-pr.env
           # (They are already in $GITHUB_ENV so no need to duplicate unless overrides are required.)
 
-
       - name: Check for auto-fixes
         id: check-fixes
         run: |
