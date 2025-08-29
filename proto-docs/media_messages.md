@@ -159,7 +159,6 @@
 
 ---
 
-
 ## Messages Documentation
 
 ### adjust_subtitle_timing_request.proto {#adjust_subtitle_timing_request}
@@ -3013,4 +3012,3 @@ message VideoStreamInfo {
 ```
 
 ---
-

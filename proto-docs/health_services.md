@@ -21,7 +21,6 @@
 
 ---
 
-
 ## Services Documentation
 
 ### health_check_service.proto {#health_check_service}
@@ -144,4 +143,3 @@ service HealthService {
 ```
 
 ---
-

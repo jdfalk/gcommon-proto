@@ -86,7 +86,6 @@
 
 ---
 
-
 ## Messages Documentation
 
 ### check_registry.proto {#check_registry}
@@ -2180,4 +2179,3 @@ message WatchHealthResponse {
 ```
 
 ---
-

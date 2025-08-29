@@ -21,7 +21,6 @@
 
 ---
 
-
 ## Services Documentation
 
 ### metrics_management_service.proto {#metrics_management_service}
@@ -195,4 +194,3 @@ service MetricsService {
 ```
 
 ---
-
