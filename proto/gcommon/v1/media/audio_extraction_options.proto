@@ -13,8 +13,8 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 message AudioExtractionOptions {
-  string output_format = 1; // Output format (mp3, aac, flac, etc.)
-  int32 bitrate = 2; // Target bitrate in kbps
-  int32 sample_rate = 3; // Target sample rate
+  string output_format = 1 [(buf.validate.field).string.min_len = 1]; // Output format (mp3, aac, flac, etc.)
+  int32 bitrate = 2 [(buf.validate.field).int32.gte = 0]; // Target bitrate in kbps
+  int32 sample_rate = 3 [(buf.validate.field).int32.gte = 0]; // Target sample rate
   bool normalize_audio = 4; // Normalize audio levels
 }

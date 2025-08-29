@@ -11,7 +11,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -178,7 +177,7 @@ var File_gcommon_v1_media_audio_analysis_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_audio_analysis_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/media/audio_analysis.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a%gcommon/v1/media/silent_segment.proto\"\xc4\x01\n" +
+	"%gcommon/v1/media/audio_analysis.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a%gcommon/v1/media/silent_segment.proto\"\xc4\x01\n" +
 	"\rAudioAnalysis\x12\x1d\n" +
 	"\n" +
 	"peak_level\x18\x01 \x01(\x01R\tpeakLevel\x12\x1b\n" +
@@ -205,7 +204,6 @@ func file_gcommon_v1_media_audio_analysis_proto_init() {
 	if File_gcommon_v1_media_audio_analysis_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	file_gcommon_v1_media_silent_segment_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

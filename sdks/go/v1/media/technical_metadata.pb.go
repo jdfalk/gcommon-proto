@@ -247,7 +247,7 @@ var File_gcommon_v1_media_technical_metadata_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_technical_metadata_proto_rawDesc = "" +
 	"\n" +
-	")gcommon/v1/media/technical_metadata.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a(gcommon/v1/media/audio_stream_info.proto\x1a+gcommon/v1/media/subtitle_stream_info.proto\x1a(gcommon/v1/media/video_stream_info.proto\"\xad\x03\n" +
+	")gcommon/v1/media/technical_metadata.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a(gcommon/v1/media/audio_stream_info.proto\x1a+gcommon/v1/media/subtitle_stream_info.proto\x1a(gcommon/v1/media/video_stream_info.proto\"\xad\x03\n" +
 	"\x11TechnicalMetadata\x125\n" +
 	"\bduration\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12$\n" +
 	"\tfile_size\x18\x02 \x01(\x03B\a\xbaH\x04\"\x02(\x00R\bfileSize\x12!\n" +
@@ -282,7 +282,6 @@ func file_gcommon_v1_media_technical_metadata_proto_init() {
 	if File_gcommon_v1_media_technical_metadata_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	file_gcommon_v1_media_audio_stream_info_proto_init()
 	file_gcommon_v1_media_subtitle_stream_info_proto_init()
 	file_gcommon_v1_media_video_stream_info_proto_init()

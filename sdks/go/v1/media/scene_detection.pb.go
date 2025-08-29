@@ -185,7 +185,7 @@ var File_gcommon_v1_media_scene_detection_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_scene_detection_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/media/scene_detection.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xcf\x01\n" +
+	"&gcommon/v1/media/scene_detection.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xcf\x01\n" +
 	"\x0eSceneDetection\x128\n" +
 	"\n" +
 	"start_time\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\tstartTime\x124\n" +
@@ -216,7 +216,6 @@ func file_gcommon_v1_media_scene_detection_proto_init() {
 	if File_gcommon_v1_media_scene_detection_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -22,13 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import media_quality_pb2 as gcommon_dot_v1_dot_media_dot_media__quality__pb2
-from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/media/video_stream_info.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x98\x02\n\x0fVideoStreamInfo\x12\x1d\n\x05\x63odec\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12\x1d\n\x05width\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height\x12-\n\nframe_rate\x18\x04 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\tframeRate\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12*\n\x0cpixel_format\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bpixelFormat\x12(\n\x0b\x63olor_space\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ncolorSpaceB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(gcommon/v1/media/video_stream_info.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x98\x02\n\x0fVideoStreamInfo\x12\x1d\n\x05\x63odec\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12\x1d\n\x05width\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x05width\x12\x1f\n\x06height\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x06height\x12-\n\nframe_rate\x18\x04 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\tframeRate\x12!\n\x07\x62itrate\x18\x05 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12*\n\x0cpixel_format\x18\x06 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0bpixelFormat\x12(\n\x0b\x63olor_space\x18\x07 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\ncolorSpaceB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -50,6 +48,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_VIDEOSTREAMINFO'].fields_by_name['pixel_format']._serialized_options = b'\272H\004r\002\020\001'
   _globals['_VIDEOSTREAMINFO'].fields_by_name['color_space']._loaded_options = None
   _globals['_VIDEOSTREAMINFO'].fields_by_name['color_space']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_VIDEOSTREAMINFO']._serialized_start=197
-  _globals['_VIDEOSTREAMINFO']._serialized_end=477
+  _globals['_VIDEOSTREAMINFO']._serialized_start=127
+  _globals['_VIDEOSTREAMINFO']._serialized_end=407
 # @@protoc_insertion_point(module_scope)

@@ -190,7 +190,7 @@ var File_gcommon_v1_media_thumbnail_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_thumbnail_info_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/media/thumbnail_info.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xae\x01\n" +
+	"%gcommon/v1/media/thumbnail_info.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xae\x01\n" +
 	"\rThumbnailInfo\x127\n" +
 	"\ttimestamp\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\ttimestamp\x12$\n" +
 	"\tfile_path\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\bfilePath\x12\x1d\n" +
@@ -216,7 +216,6 @@ func file_gcommon_v1_media_thumbnail_info_proto_init() {
 	if File_gcommon_v1_media_thumbnail_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

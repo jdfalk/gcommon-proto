@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -161,7 +160,7 @@ var File_gcommon_v1_media_normalization_options_proto protoreflect.FileDescripto
 
 const file_gcommon_v1_media_normalization_options_proto_rawDesc = "" +
 	"\n" +
-	",gcommon/v1/media/normalization_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"~\n" +
+	",gcommon/v1/media/normalization_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"~\n" +
 	"\x14NormalizationOptions\x12\x1f\n" +
 	"\vtarget_lufs\x18\x01 \x01(\x01R\n" +
 	"targetLufs\x12\x1e\n" +

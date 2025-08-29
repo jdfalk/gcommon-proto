@@ -11,7 +11,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -291,7 +290,7 @@ var File_gcommon_v1_media_audio_stream_info_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_audio_stream_info_proto_rawDesc = "" +
 	"\n" +
-	"(gcommon/v1/media/audio_stream_info.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\x92\x02\n" +
+	"(gcommon/v1/media/audio_stream_info.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\x92\x02\n" +
 	"\x0fAudioStreamInfo\x12*\n" +
 	"\fstream_index\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x00R\vstreamIndex\x12\x1d\n" +
 	"\x05codec\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x05codec\x12(\n" +
@@ -319,7 +318,6 @@ func file_gcommon_v1_media_audio_stream_info_proto_init() {
 	if File_gcommon_v1_media_audio_stream_info_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

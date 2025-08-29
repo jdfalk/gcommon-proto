@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -191,7 +190,7 @@ var File_gcommon_v1_media_chapter_detection_options_proto protoreflect.FileDescr
 
 const file_gcommon_v1_media_chapter_detection_options_proto_rawDesc = "" +
 	"\n" +
-	"0gcommon/v1/media/chapter_detection_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xd5\x01\n" +
+	"0gcommon/v1/media/chapter_detection_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xd5\x01\n" +
 	"\x17ChapterDetectionOptions\x120\n" +
 	"\x14silence_threshold_db\x18\x01 \x01(\x01R\x12silenceThresholdDb\x12;\n" +
 	"\x1amin_chapter_length_seconds\x18\x02 \x01(\x01R\x17minChapterLengthSeconds\x12!\n" +

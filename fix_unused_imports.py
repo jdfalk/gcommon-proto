@@ -13,54 +13,45 @@ This script:
 """
 
 import os
-import re
 from pathlib import Path
 
 # Files with unused buf/validate imports that should get validation rules
 FILES_TO_ADD_VALIDATION = {
     'analysis_options.proto': [
-        ('bool extract_metadata', 'required = true'),
-        ('bool analyze_quality', 'required = true'),
+        # Boolean fields don't need validation for basic usage
     ],
     'audio_extraction_options.proto': [
-        ('string output_format', 'string.min_len = 1'),
-        ('int32 quality', 'int32.gte = 1, int32.lte = 10'),
+        ('string output_format = 1', 'string output_format = 1 [(buf.validate.field).string.min_len = 1]'),
+        ('int32 bitrate = 2', 'int32 bitrate = 2 [(buf.validate.field).int32.gte = 0]'),
+        ('int32 sample_rate = 3', 'int32 sample_rate = 3 [(buf.validate.field).int32.gte = 0]'),
     ],
     'chapter_detection_options.proto': [
-        ('double sensitivity', 'double.gte = 0.0, double.lte = 1.0'),
-        ('int32 min_chapter_length', 'int32.gte = 1'),
+        # Will check the actual content
     ],
     'normalization_options.proto': [
-        ('double target_level', 'double.gte = -50.0, double.lte = 0.0'),
-        ('string algorithm', 'string.min_len = 1'),
+        # Will check the actual content
     ],
     'subtitle_extraction_options.proto': [
-        ('string output_format', 'string.min_len = 1'),
-        ('string language', 'string.min_len = 1'),
+        # Will check the actual content
     ],
     'upload_media_request.proto': [
-        ('string filename', 'string.min_len = 1'),
-        ('bytes content', 'bytes.min_len = 1'),
+        # Will check the actual content
     ],
 }
 
 # Files with unused imports that should be removed
 FILES_TO_REMOVE_IMPORTS = {
-    'analysis_options.proto': [],
     'audio_analysis.proto': [
         'import "gcommon/v1/media/media_quality.proto";',
         'import "google/protobuf/duration.proto";'
     ],
-    'audio_extraction_options.proto': [],
     'audio_stream_info.proto': [
         'import "gcommon/v1/media/media_quality.proto";',
         'import "google/protobuf/duration.proto";'
     ],
-    'chapter_detection_options.proto': [],
     'media_analysis.proto': [
         'import "google/protobuf/duration.proto";'
     ],
-    'normalization_options.proto': [],
     'scene_detection.proto': [
         'import "gcommon/v1/media/media_quality.proto";'
     ],
@@ -70,7 +61,6 @@ FILES_TO_REMOVE_IMPORTS = {
     'split_audio_request.proto': [
         'import "google/protobuf/duration.proto";'
     ],
-    'subtitle_extraction_options.proto': [],
     'subtitle_stream_info.proto': [
         'import "gcommon/v1/media/media_quality.proto";',
         'import "google/protobuf/duration.proto";'
@@ -92,8 +82,13 @@ FILES_TO_REMOVE_IMPORTS = {
 
 # Files that should have unused buf/validate import removed (no validation needed)
 FILES_TO_REMOVE_VALIDATION_IMPORT = [
+    'analysis_options.proto',  # Boolean fields don't need validation
+    'chapter_detection_options.proto', 
+    'normalization_options.proto',
     'silent_segment.proto',
     'split_audio_request.proto',
+    'subtitle_extraction_options.proto',
+    'upload_media_request.proto',
 ]
 
 def read_file(filepath):
@@ -115,18 +110,18 @@ def add_validation_rules(content, filename):
     modified_lines = []
     
     for line in lines:
-        modified_lines.append(line)
+        line_modified = False
         
-        # Look for field definitions that need validation
-        for field_pattern, validation_rule in FILES_TO_ADD_VALIDATION[filename]:
-            if field_pattern in line and '=' in line and ';' in line:
-                # Extract the field definition
-                field_match = re.match(r'(\s*)(.*?)(\s*=\s*\d+);(.*)', line)
-                if field_match:
-                    indent, field_def, assignment, comment = field_match.groups()
-                    new_line = f"{indent}{field_def}{assignment} [({validation_rule})];{comment}"
-                    modified_lines[-1] = new_line
-                    print(f"Added validation to {filename}: {field_pattern}")
+        # Apply specific field replacements
+        for old_pattern, new_pattern in FILES_TO_ADD_VALIDATION[filename]:
+            if old_pattern in line:
+                modified_lines.append(line.replace(old_pattern, new_pattern))
+                print(f"Added validation to {filename}: {old_pattern}")
+                line_modified = True
+                break
+        
+        if not line_modified:
+            modified_lines.append(line)
     
     return '\n'.join(modified_lines)
 

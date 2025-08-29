@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -152,7 +151,7 @@ var File_gcommon_v1_media_silent_segment_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_silent_segment_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/media/silent_segment.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xa2\x01\n" +
+	"%gcommon/v1/media/silent_segment.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xa2\x01\n" +
 	"\rSilentSegment\x128\n" +
 	"\n" +
 	"start_time\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\tstartTime\x124\n" +
@@ -179,7 +178,6 @@ func file_gcommon_v1_media_silent_segment_proto_init() {
 	if File_gcommon_v1_media_silent_segment_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_quality_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

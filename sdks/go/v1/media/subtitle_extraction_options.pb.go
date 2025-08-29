@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -178,7 +177,7 @@ var File_gcommon_v1_media_subtitle_extraction_options_proto protoreflect.FileDes
 
 const file_gcommon_v1_media_subtitle_extraction_options_proto_rawDesc = "" +
 	"\n" +
-	"2gcommon/v1/media/subtitle_extraction_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xbf\x01\n" +
+	"2gcommon/v1/media/subtitle_extraction_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xbf\x01\n" +
 	"\x19SubtitleExtractionOptions\x12#\n" +
 	"\routput_format\x18\x01 \x01(\tR\foutputFormat\x128\n" +
 	"\x18include_hearing_impaired\x18\x02 \x01(\bR\x16includeHearingImpaired\x12%\n" +

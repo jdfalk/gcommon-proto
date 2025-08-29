@@ -1417,15 +1417,13 @@ message SearchMediaResponse {
 
 ### split_audio_request.proto {#split_audio_request}
 
-**Path**: `gcommon/v1/media/split_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+**Path**: `gcommon/v1/media/split_audio_request.proto` **Package**: `gcommon.v1.media` **Lines**: 18
 
 **Messages** (1): `SplitAudioRequest`
 
-**Imports** (4):
+**Imports** (2):
 
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 - `gcommon/v1/media/split_point.proto`
 
 #### Source Code
@@ -1439,9 +1437,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 import "gcommon/v1/media/split_point.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -1731,15 +1727,13 @@ message UpdateMediaFileResponse {
 
 ### upload_media_request.proto {#upload_media_request}
 
-**Path**: `gcommon/v1/media/upload_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+**Path**: `gcommon/v1/media/upload_media_request.proto` **Package**: `gcommon.v1.media` **Lines**: 20
 
 **Messages** (1): `UploadMediaRequest`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_metadata.proto`
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 - `gcommon/v1/media/upload_metadata.proto`
 
 #### Source Code
@@ -1753,9 +1747,7 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 import "gcommon/v1/media/upload_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -1891,14 +1883,13 @@ message ValidateSubtitlesResponse {
 
 ### analysis_options.proto {#analysis_options}
 
-**Path**: `gcommon/v1/media/analysis_options.proto` **Package**: `gcommon.v1.media` **Lines**: 21
+**Path**: `gcommon/v1/media/analysis_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
 
 **Messages** (1): `AnalysisOptions`
 
-**Imports** (2):
+**Imports** (1):
 
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
@@ -1912,7 +1903,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -1930,14 +1920,12 @@ message AnalysisOptions {
 
 ### audio_analysis.proto {#audio_analysis}
 
-**Path**: `gcommon/v1/media/audio_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 23
+**Path**: `gcommon/v1/media/audio_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 21
 
 **Messages** (1): `AudioAnalysis`
 
-**Imports** (5):
+**Imports** (3):
 
-- `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 - `gcommon/v1/media/silent_segment.proto`
@@ -1953,8 +1941,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 import "gcommon/v1/media/silent_segment.proto";
@@ -2001,9 +1987,9 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
 
 message AudioExtractionOptions {
-  string output_format = 1; // Output format (mp3, aac, flac, etc.)
-  int32 bitrate = 2; // Target bitrate in kbps
-  int32 sample_rate = 3; // Target sample rate
+  string output_format = 1 [(buf.validate.field).string.min_len = 1]; // Output format (mp3, aac, flac, etc.)
+  int32 bitrate = 2 [(buf.validate.field).int32.gte = 0]; // Target bitrate in kbps
+  int32 sample_rate = 3 [(buf.validate.field).int32.gte = 0]; // Target sample rate
   bool normalize_audio = 4; // Normalize audio levels
 }
 ```
@@ -2012,14 +1998,12 @@ message AudioExtractionOptions {
 
 ### audio_stream_info.proto {#audio_stream_info}
 
-**Path**: `gcommon/v1/media/audio_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 25
+**Path**: `gcommon/v1/media/audio_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 23
 
 **Messages** (1): `AudioStreamInfo`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 
@@ -2034,8 +2018,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
@@ -2100,14 +2082,13 @@ message AudioTrack {
 
 ### chapter_detection_options.proto {#chapter_detection_options}
 
-**Path**: `gcommon/v1/media/chapter_detection_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+**Path**: `gcommon/v1/media/chapter_detection_options.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
 **Messages** (1): `ChapterDetectionOptions`
 
-**Imports** (2):
+**Imports** (1):
 
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
@@ -2121,7 +2102,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -2220,14 +2200,13 @@ message ExtractedSubtitle {
 
 ### media_analysis.proto {#media_analysis}
 
-**Path**: `gcommon/v1/media/media_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 27
+**Path**: `gcommon/v1/media/media_analysis.proto` **Package**: `gcommon.v1.media` **Lines**: 26
 
 **Messages** (1): `MediaAnalysis`
 
-**Imports** (8):
+**Imports** (7):
 
 - `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 - `gcommon/v1/media/audio_analysis.proto`
@@ -2247,7 +2226,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 import "gcommon/v1/media/audio_analysis.proto";
@@ -2511,14 +2489,13 @@ message MovieInfo {
 
 ### normalization_options.proto {#normalization_options}
 
-**Path**: `gcommon/v1/media/normalization_options.proto` **Package**: `gcommon.v1.media` **Lines**: 19
+**Path**: `gcommon/v1/media/normalization_options.proto` **Package**: `gcommon.v1.media` **Lines**: 18
 
 **Messages** (1): `NormalizationOptions`
 
-**Imports** (2):
+**Imports** (1):
 
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
@@ -2532,7 +2509,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -2548,13 +2524,12 @@ message NormalizationOptions {
 
 ### scene_detection.proto {#scene_detection}
 
-**Path**: `gcommon/v1/media/scene_detection.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+**Path**: `gcommon/v1/media/scene_detection.proto` **Package**: `gcommon.v1.media` **Lines**: 21
 
 **Messages** (1): `SceneDetection`
 
-**Imports** (4):
+**Imports** (3):
 
-- `gcommon/v1/media/media_quality.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
@@ -2570,7 +2545,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
@@ -2635,16 +2609,14 @@ message SeriesInfo {
 
 ### silent_segment.proto {#silent_segment}
 
-**Path**: `gcommon/v1/media/silent_segment.proto` **Package**: `gcommon.v1.media` **Lines**: 21
+**Path**: `gcommon/v1/media/silent_segment.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
 **Messages** (1): `SilentSegment`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_quality.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
@@ -2657,10 +2629,8 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -2717,14 +2687,13 @@ message SplitPoint {
 
 ### subtitle_extraction_options.proto {#subtitle_extraction_options}
 
-**Path**: `gcommon/v1/media/subtitle_extraction_options.proto` **Package**: `gcommon.v1.media` **Lines**: 20
+**Path**: `gcommon/v1/media/subtitle_extraction_options.proto` **Package**: `gcommon.v1.media` **Lines**: 19
 
 **Messages** (1): `SubtitleExtractionOptions`
 
-**Imports** (2):
+**Imports** (1):
 
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
@@ -2738,7 +2707,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/media";
@@ -2755,14 +2723,12 @@ message SubtitleExtractionOptions {
 
 ### subtitle_stream_info.proto {#subtitle_stream_info}
 
-**Path**: `gcommon/v1/media/subtitle_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 24
+**Path**: `gcommon/v1/media/subtitle_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
 **Messages** (1): `SubtitleStreamInfo`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 
@@ -2777,8 +2743,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
@@ -2842,13 +2806,12 @@ message SubtitleTrack {
 
 ### technical_metadata.proto {#technical_metadata}
 
-**Path**: `gcommon/v1/media/technical_metadata.proto` **Package**: `gcommon.v1.media` **Lines**: 28
+**Path**: `gcommon/v1/media/technical_metadata.proto` **Package**: `gcommon.v1.media` **Lines**: 27
 
 **Messages** (1): `TechnicalMetadata`
 
-**Imports** (7):
+**Imports** (6):
 
-- `gcommon/v1/media/media_quality.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
@@ -2867,7 +2830,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
@@ -2893,13 +2855,12 @@ message TechnicalMetadata {
 
 ### thumbnail_info.proto {#thumbnail_info}
 
-**Path**: `gcommon/v1/media/thumbnail_info.proto` **Package**: `gcommon.v1.media` **Lines**: 22
+**Path**: `gcommon/v1/media/thumbnail_info.proto` **Package**: `gcommon.v1.media` **Lines**: 21
 
 **Messages** (1): `ThumbnailInfo`
 
-**Imports** (4):
+**Imports** (3):
 
-- `gcommon/v1/media/media_quality.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
@@ -2915,7 +2876,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
@@ -3015,14 +2975,12 @@ message UploadMetadata {
 
 ### video_stream_info.proto {#video_stream_info}
 
-**Path**: `gcommon/v1/media/video_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 25
+**Path**: `gcommon/v1/media/video_stream_info.proto` **Package**: `gcommon.v1.media` **Lines**: 23
 
 **Messages** (1): `VideoStreamInfo`
 
-**Imports** (4):
+**Imports** (2):
 
-- `gcommon/v1/media/media_quality.proto`
-- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
 
@@ -3037,8 +2995,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

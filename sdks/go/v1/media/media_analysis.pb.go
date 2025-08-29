@@ -11,7 +11,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -177,7 +176,7 @@ var File_gcommon_v1_media_media_analysis_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_media_analysis_proto_rawDesc = "" +
 	"\n" +
-	"%gcommon/v1/media/media_analysis.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a%gcommon/v1/media/audio_analysis.proto\x1a&gcommon/v1/media/scene_detection.proto\x1a)gcommon/v1/media/technical_metadata.proto\x1a%gcommon/v1/media/thumbnail_info.proto\"\xf4\x02\n" +
+	"%gcommon/v1/media/media_analysis.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a%gcommon/v1/media/audio_analysis.proto\x1a&gcommon/v1/media/scene_detection.proto\x1a)gcommon/v1/media/technical_metadata.proto\x1a%gcommon/v1/media/thumbnail_info.proto\"\xf4\x02\n" +
 	"\rMediaAnalysis\x12A\n" +
 	"\ttechnical\x18\x01 \x01(\v2#.gcommon.v1.media.TechnicalMetadataR\ttechnical\x12I\n" +
 	"\x10quality_analysis\x18\x02 \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\x0fqualityAnalysis\x12B\n" +

@@ -1,6 +1,4 @@
-from gcommon.v1.media import media_metadata_pb2 as _media_metadata_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
-from buf.validate import validate_pb2 as _validate_pb2
 from gcommon.v1.media import upload_metadata_pb2 as _upload_metadata_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

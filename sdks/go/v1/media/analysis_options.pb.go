@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -221,7 +220,7 @@ var File_gcommon_v1_media_analysis_options_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_analysis_options_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/media/analysis_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xde\x01\n" +
+	"'gcommon/v1/media/analysis_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xde\x01\n" +
 	"\x0fAnalysisOptions\x12)\n" +
 	"\x10extract_metadata\x18\x01 \x01(\bR\x0fextractMetadata\x12'\n" +
 	"\x0fanalyze_quality\x18\x02 \x01(\bR\x0eanalyzeQuality\x12#\n" +

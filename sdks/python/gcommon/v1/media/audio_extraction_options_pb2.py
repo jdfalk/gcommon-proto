@@ -26,7 +26,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/media/audio_extraction_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xa1\x01\n\x16\x41udioExtractionOptions\x12#\n\routput_format\x18\x01 \x01(\tR\x0coutputFormat\x12\x18\n\x07\x62itrate\x18\x02 \x01(\x05R\x07\x62itrate\x12\x1f\n\x0bsample_rate\x18\x03 \x01(\x05R\nsampleRate\x12\'\n\x0fnormalize_audio\x18\x04 \x01(\x08R\x0enormalizeAudioB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/gcommon/v1/media/audio_extraction_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xbc\x01\n\x16\x41udioExtractionOptions\x12,\n\routput_format\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0coutputFormat\x12!\n\x07\x62itrate\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x07\x62itrate\x12(\n\x0bsample_rate\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nsampleRate\x12\'\n\x0fnormalize_audio\x18\x04 \x01(\x08R\x0enormalizeAudioB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.audio_extr
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['output_format']._loaded_options = None
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['output_format']._serialized_options = b'\272H\004r\002\020\001'
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['bitrate']._loaded_options = None
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['bitrate']._serialized_options = b'\272H\004\032\002(\000'
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['sample_rate']._loaded_options = None
+  _globals['_AUDIOEXTRACTIONOPTIONS'].fields_by_name['sample_rate']._serialized_options = b'\272H\004\032\002(\000'
   _globals['_AUDIOEXTRACTIONOPTIONS']._serialized_start=134
-  _globals['_AUDIOEXTRACTIONOPTIONS']._serialized_end=295
+  _globals['_AUDIOEXTRACTIONOPTIONS']._serialized_end=322
 # @@protoc_insertion_point(module_scope)

@@ -7,7 +7,6 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -196,7 +195,7 @@ var File_gcommon_v1_media_upload_media_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_upload_media_request_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/media/media_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a&gcommon/v1/media/upload_metadata.proto\"t\n" +
+	"+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a&gcommon/v1/media/upload_metadata.proto\"t\n" +
 	"\x12UploadMediaRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2 .gcommon.v1.media.UploadMetadataH\x00R\bmetadata\x12\x16\n" +
 	"\x05chunk\x18\x02 \x01(\fH\x00R\x05chunkB\x06\n" +
@@ -221,7 +220,6 @@ func file_gcommon_v1_media_upload_media_request_proto_init() {
 	if File_gcommon_v1_media_upload_media_request_proto != nil {
 		return
 	}
-	file_gcommon_v1_media_media_metadata_proto_init()
 	file_gcommon_v1_media_upload_metadata_proto_init()
 	file_gcommon_v1_media_upload_media_request_proto_msgTypes[0].OneofWrappers = []any{
 		(*uploadMediaRequest_Metadata)(nil),

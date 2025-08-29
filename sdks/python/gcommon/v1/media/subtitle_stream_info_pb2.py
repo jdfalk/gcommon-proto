@@ -22,13 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import media_quality_pb2 as gcommon_dot_v1_dot_media_dot_media__quality__pb2
-from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/media/subtitle_stream_info.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe6\x01\n\x12SubtitleStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpairedB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/media/subtitle_stream_info.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xe6\x01\n\x12SubtitleStreamInfo\x12*\n\x0cstream_index\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0bstreamIndex\x12\x1d\n\x05\x63odec\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05\x63odec\x12#\n\x08language\x18\x03 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08language\x12\x1d\n\x05title\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x05title\x12\x16\n\x06\x66orced\x18\x05 \x01(\x08R\x06\x66orced\x12)\n\x10hearing_impaired\x18\x06 \x01(\x08R\x0fhearingImpairedB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -44,6 +42,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SUBTITLESTREAMINFO'].fields_by_name['language']._serialized_options = b'\272H\004r\002\020\001'
   _globals['_SUBTITLESTREAMINFO'].fields_by_name['title']._loaded_options = None
   _globals['_SUBTITLESTREAMINFO'].fields_by_name['title']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_SUBTITLESTREAMINFO']._serialized_start=200
-  _globals['_SUBTITLESTREAMINFO']._serialized_end=430
+  _globals['_SUBTITLESTREAMINFO']._serialized_start=130
+  _globals['_SUBTITLESTREAMINFO']._serialized_end=360
 # @@protoc_insertion_point(module_scope)

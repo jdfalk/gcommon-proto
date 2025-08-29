@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "gcommon/v1/media/media_quality.proto";
-import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 import "gcommon/v1/media/audio_analysis.proto";

@@ -22,7 +22,6 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from gcommon.v1.media import media_quality_pb2 as gcommon_dot_v1_dot_media_dot_media__quality__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
@@ -31,7 +30,7 @@ from gcommon.v1.media import subtitle_stream_info_pb2 as gcommon_dot_v1_dot_medi
 from gcommon.v1.media import video_stream_info_pb2 as gcommon_dot_v1_dot_media_dot_video__stream__info__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/media/technical_metadata.proto\x12\x10gcommon.v1.media\x1a$gcommon/v1/media/media_quality.proto\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a(gcommon/v1/media/audio_stream_info.proto\x1a+gcommon/v1/media/subtitle_stream_info.proto\x1a(gcommon/v1/media/video_stream_info.proto\"\xad\x03\n\x11TechnicalMetadata\x12\x35\n\x08\x64uration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08\x64uration\x12$\n\tfile_size\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x08\x66ileSize\x12!\n\x07\x62itrate\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12\x32\n\x10\x63ontainer_format\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0f\x63ontainerFormat\x12\x37\n\x05video\x18\x05 \x01(\x0b\x32!.gcommon.v1.media.VideoStreamInfoR\x05video\x12P\n\raudio_streams\x18\x06 \x03(\x0b\x32!.gcommon.v1.media.AudioStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x61udioStreams\x12Y\n\x10subtitle_streams\x18\x07 \x03(\x0b\x32$.gcommon.v1.media.SubtitleStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fsubtitleStreamsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)gcommon/v1/media/technical_metadata.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a(gcommon/v1/media/audio_stream_info.proto\x1a+gcommon/v1/media/subtitle_stream_info.proto\x1a(gcommon/v1/media/video_stream_info.proto\"\xad\x03\n\x11TechnicalMetadata\x12\x35\n\x08\x64uration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationR\x08\x64uration\x12$\n\tfile_size\x18\x02 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x08\x66ileSize\x12!\n\x07\x62itrate\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\x07\x62itrate\x12\x32\n\x10\x63ontainer_format\x18\x04 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0f\x63ontainerFormat\x12\x37\n\x05video\x18\x05 \x01(\x0b\x32!.gcommon.v1.media.VideoStreamInfoR\x05video\x12P\n\raudio_streams\x18\x06 \x03(\x0b\x32!.gcommon.v1.media.AudioStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0c\x61udioStreams\x12Y\n\x10subtitle_streams\x18\x07 \x03(\x0b\x32$.gcommon.v1.media.SubtitleStreamInfoB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fsubtitleStreamsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -49,6 +48,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_TECHNICALMETADATA'].fields_by_name['audio_streams']._serialized_options = b'\272H\005\222\001\002\010\001'
   _globals['_TECHNICALMETADATA'].fields_by_name['subtitle_streams']._loaded_options = None
   _globals['_TECHNICALMETADATA'].fields_by_name['subtitle_streams']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_TECHNICALMETADATA']._serialized_start=327
-  _globals['_TECHNICALMETADATA']._serialized_end=756
+  _globals['_TECHNICALMETADATA']._serialized_start=289
+  _globals['_TECHNICALMETADATA']._serialized_end=718
 # @@protoc_insertion_point(module_scope)

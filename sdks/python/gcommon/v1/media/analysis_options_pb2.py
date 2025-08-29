@@ -23,10 +23,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/media/analysis_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xde\x01\n\x0f\x41nalysisOptions\x12)\n\x10\x65xtract_metadata\x18\x01 \x01(\x08R\x0f\x65xtractMetadata\x12\'\n\x0f\x61nalyze_quality\x18\x02 \x01(\x08R\x0e\x61nalyzeQuality\x12#\n\rdetect_scenes\x18\x03 \x01(\x08R\x0c\x64\x65tectScenes\x12-\n\x12\x65xtract_thumbnails\x18\x04 \x01(\x08R\x11\x65xtractThumbnails\x12#\n\ranalyze_audio\x18\x05 \x01(\x08R\x0c\x61nalyzeAudioB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'gcommon/v1/media/analysis_options.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\"\xde\x01\n\x0f\x41nalysisOptions\x12)\n\x10\x65xtract_metadata\x18\x01 \x01(\x08R\x0f\x65xtractMetadata\x12\'\n\x0f\x61nalyze_quality\x18\x02 \x01(\x08R\x0e\x61nalyzeQuality\x12#\n\rdetect_scenes\x18\x03 \x01(\x08R\x0c\x64\x65tectScenes\x12-\n\x12\x65xtract_thumbnails\x18\x04 \x01(\x08R\x11\x65xtractThumbnails\x12#\n\ranalyze_audio\x18\x05 \x01(\x08R\x0c\x61nalyzeAudioB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.analysis_o
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_ANALYSISOPTIONS']._serialized_start=126
-  _globals['_ANALYSISOPTIONS']._serialized_end=348
+  _globals['_ANALYSISOPTIONS']._serialized_start=97
+  _globals['_ANALYSISOPTIONS']._serialized_end=319
 # @@protoc_insertion_point(module_scope)

@@ -7,11 +7,9 @@
 package media
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -121,7 +119,7 @@ var File_gcommon_v1_media_split_audio_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_split_audio_request_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a\"gcommon/v1/media/split_point.proto\"x\n" +
+	"*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\"gcommon/v1/media/split_point.proto\"x\n" +
 	"\x11SplitAudioRequest\x12\"\n" +
 	"\raudio_file_id\x18\x01 \x01(\tR\vaudioFileId\x12?\n" +
 	"\fsplit_points\x18\x02 \x03(\v2\x1c.gcommon.v1.media.SplitPointR\vsplitPointsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
