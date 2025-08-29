@@ -29,7 +29,6 @@
 
 ---
 
-
 ## Services Documentation
 
 ### cache_admin_service.proto {#cache_admin_service}
@@ -513,4 +512,3 @@ service TransactionService {
 ```
 
 ---
-

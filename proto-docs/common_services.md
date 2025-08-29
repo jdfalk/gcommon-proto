@@ -35,7 +35,6 @@
 
 ---
 
-
 ## Services Documentation
 
 ### auth_admin_service.proto {#auth_admin_service}
@@ -736,4 +735,3 @@ service SessionService {
 ```
 
 ---
-

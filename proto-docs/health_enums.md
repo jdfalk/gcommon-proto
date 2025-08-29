@@ -21,7 +21,6 @@
 
 ---
 
-
 ## Enums Documentation
 
 ### check_type.proto {#check_type}
@@ -144,4 +143,3 @@ enum HealthStatus {
 ```
 
 ---
-

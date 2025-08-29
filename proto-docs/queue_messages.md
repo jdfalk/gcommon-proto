@@ -651,7 +651,6 @@
 
 ---
 
-
 ## Messages Documentation
 
 ### alerting_config.proto {#alerting_config}
@@ -18821,4 +18820,3 @@ message MetricsEvent {
 ```
 
 ---
-

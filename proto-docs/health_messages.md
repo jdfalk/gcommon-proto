@@ -86,7 +86,6 @@
 
 ---
 
-
 ## Messages Documentation
 
 ### dependency_check_request.proto {#dependency_check_request}
@@ -2180,4 +2179,3 @@ message CheckConfig {
 ```
 
 ---
-
