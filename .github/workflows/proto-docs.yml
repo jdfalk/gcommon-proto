@@ -39,3 +39,4 @@ jobs:
             git push
           else
             echo "No proto doc changes to commit."
+          fi
