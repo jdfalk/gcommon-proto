@@ -13,6 +13,9 @@ on:
         required: false
         default: "50"
 
+permissions:
+  contents: write  # Required to push changes back to the repository
+
 jobs:
   generate:
     runs-on: ubuntu-latest
