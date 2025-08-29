@@ -22,7 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Request to extract subtitle tracks from media.
 type ExtractSubtitlesRequest struct {
 	state                   protoimpl.MessageState     `protogen:"opaque.v1"`
 	xxx_hidden_MediaFileId  *string                    `protobuf:"bytes,1,opt,name=media_file_id,json=mediaFileId"`
@@ -140,175 +139,17 @@ func (b0 ExtractSubtitlesRequest_builder) Build() *ExtractSubtitlesRequest {
 	return m0
 }
 
-// Subtitle extraction options.
-type SubtitleExtractionOptions struct {
-	state                             protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_OutputFormat           *string                `protobuf:"bytes,1,opt,name=output_format,json=outputFormat"`
-	xxx_hidden_IncludeHearingImpaired bool                   `protobuf:"varint,2,opt,name=include_hearing_impaired,json=includeHearingImpaired"`
-	xxx_hidden_IncludeForced          bool                   `protobuf:"varint,3,opt,name=include_forced,json=includeForced"`
-	xxx_hidden_Languages              []string               `protobuf:"bytes,4,rep,name=languages"`
-	XXX_raceDetectHookData            protoimpl.RaceDetectHookData
-	XXX_presence                      [1]uint32
-	unknownFields                     protoimpl.UnknownFields
-	sizeCache                         protoimpl.SizeCache
-}
-
-func (x *SubtitleExtractionOptions) Reset() {
-	*x = SubtitleExtractionOptions{}
-	mi := &file_gcommon_v1_media_extract_subtitles_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SubtitleExtractionOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SubtitleExtractionOptions) ProtoMessage() {}
-
-func (x *SubtitleExtractionOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_extract_subtitles_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *SubtitleExtractionOptions) GetOutputFormat() string {
-	if x != nil {
-		if x.xxx_hidden_OutputFormat != nil {
-			return *x.xxx_hidden_OutputFormat
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *SubtitleExtractionOptions) GetIncludeHearingImpaired() bool {
-	if x != nil {
-		return x.xxx_hidden_IncludeHearingImpaired
-	}
-	return false
-}
-
-func (x *SubtitleExtractionOptions) GetIncludeForced() bool {
-	if x != nil {
-		return x.xxx_hidden_IncludeForced
-	}
-	return false
-}
-
-func (x *SubtitleExtractionOptions) GetLanguages() []string {
-	if x != nil {
-		return x.xxx_hidden_Languages
-	}
-	return nil
-}
-
-func (x *SubtitleExtractionOptions) SetOutputFormat(v string) {
-	x.xxx_hidden_OutputFormat = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *SubtitleExtractionOptions) SetIncludeHearingImpaired(v bool) {
-	x.xxx_hidden_IncludeHearingImpaired = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *SubtitleExtractionOptions) SetIncludeForced(v bool) {
-	x.xxx_hidden_IncludeForced = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *SubtitleExtractionOptions) SetLanguages(v []string) {
-	x.xxx_hidden_Languages = v
-}
-
-func (x *SubtitleExtractionOptions) HasOutputFormat() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *SubtitleExtractionOptions) HasIncludeHearingImpaired() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *SubtitleExtractionOptions) HasIncludeForced() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *SubtitleExtractionOptions) ClearOutputFormat() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_OutputFormat = nil
-}
-
-func (x *SubtitleExtractionOptions) ClearIncludeHearingImpaired() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_IncludeHearingImpaired = false
-}
-
-func (x *SubtitleExtractionOptions) ClearIncludeForced() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_IncludeForced = false
-}
-
-type SubtitleExtractionOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	OutputFormat           *string
-	IncludeHearingImpaired *bool
-	IncludeForced          *bool
-	Languages              []string
-}
-
-func (b0 SubtitleExtractionOptions_builder) Build() *SubtitleExtractionOptions {
-	m0 := &SubtitleExtractionOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.OutputFormat != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_OutputFormat = b.OutputFormat
-	}
-	if b.IncludeHearingImpaired != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_IncludeHearingImpaired = *b.IncludeHearingImpaired
-	}
-	if b.IncludeForced != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_IncludeForced = *b.IncludeForced
-	}
-	x.xxx_hidden_Languages = b.Languages
-	return m0
-}
-
 var File_gcommon_v1_media_extract_subtitles_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_extract_subtitles_request_proto_rawDesc = "" +
 	"\n" +
-	"0gcommon/v1/media/extract_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xb2\x01\n" +
+	"0gcommon/v1/media/extract_subtitles_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a2gcommon/v1/media/subtitle_extraction_options.proto\"\xb2\x01\n" +
 	"\x17ExtractSubtitlesRequest\x12+\n" +
 	"\rmedia_file_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\vmediaFileId\x12#\n" +
 	"\rtrack_indices\x18\x02 \x03(\x05R\ftrackIndices\x12E\n" +
-	"\aoptions\x18\x03 \x01(\v2+.gcommon.v1.media.SubtitleExtractionOptionsR\aoptions\"\xbf\x01\n" +
-	"\x19SubtitleExtractionOptions\x12#\n" +
-	"\routput_format\x18\x01 \x01(\tR\foutputFormat\x128\n" +
-	"\x18include_hearing_impaired\x18\x02 \x01(\bR\x16includeHearingImpaired\x12%\n" +
-	"\x0einclude_forced\x18\x03 \x01(\bR\rincludeForced\x12\x1c\n" +
-	"\tlanguages\x18\x04 \x03(\tR\tlanguagesB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aoptions\x18\x03 \x01(\v2+.gcommon.v1.media.SubtitleExtractionOptionsR\aoptionsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_extract_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_extract_subtitles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_extract_subtitles_request_proto_goTypes = []any{
 	(*ExtractSubtitlesRequest)(nil),   // 0: gcommon.v1.media.ExtractSubtitlesRequest
 	(*SubtitleExtractionOptions)(nil), // 1: gcommon.v1.media.SubtitleExtractionOptions
@@ -327,13 +168,14 @@ func file_gcommon_v1_media_extract_subtitles_request_proto_init() {
 	if File_gcommon_v1_media_extract_subtitles_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_subtitle_extraction_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_extract_subtitles_request_proto_rawDesc), len(file_gcommon_v1_media_extract_subtitles_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

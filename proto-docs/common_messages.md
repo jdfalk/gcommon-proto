@@ -5,7 +5,7 @@
 ## Module Overview
 
 - **Proto Files**: 282
-- **Messages**: 284
+- **Messages**: 282
 
 ## Table of Contents
 
@@ -164,7 +164,6 @@
 - [`ListUsersResponse`](#list_users_response) - from list_users_response.proto
 - [`LocationInfo`](#location_info) - from location_info.proto
 - [`LogEntry`](#log_entry) - from log_entry.proto
-- [`LogFormatterConfig`](#appender_config) - from appender_config.proto
 - [`LogFormatterConfig`](#formatter_config) - from formatter_config.proto
 - [`LogStatistics`](#log_statistics) - from log_statistics.proto
 - [`LoggerConfig`](#logger_config) - from logger_config.proto
@@ -190,7 +189,6 @@
 - [`OrganizationComplianceSettings`](#organization_compliance_settings) - from organization_compliance_settings.proto
 - [`OrganizationNotificationSettings`](#organization_notification_settings) - from organization_notification_settings.proto
 - [`OrganizationResourceLimits`](#organization_resource_limits) - from organization_resource_limits.proto
-- [`OutputConfig`](#appender_config) - from appender_config.proto
 - [`OutputConfig`](#output_config) - from output_config.proto
 - [`PaginatedResponse`](#paginated_response) - from paginated_response.proto
 - [`Pagination`](#pagination) - from pagination.proto
@@ -6046,18 +6044,17 @@ message VerificationStatus {
 
 ### appender_config.proto {#appender_config}
 
-**Path**: `gcommon/v1/common/appender_config.proto` **Package**: `gcommon.v1.common` **Lines**: 55
+**Path**: `gcommon/v1/common/appender_config.proto` **Package**: `gcommon.v1.common` **Lines**: 36
 
-**Messages** (3): `AppenderConfig`, `OutputConfig`, `LogFormatterConfig`
+**Messages** (1): `AppenderConfig`
 
-**Imports** (6):
+**Imports** (5):
 
 - `gcommon/v1/common/appender_type.proto`
-- `gcommon/v1/common/formatter_type.proto`
 - `google/protobuf/go_features.proto`
 - `buf/validate/validate.proto`
-- `gcommon/v1/common/formatter_config.proto`
 - `gcommon/v1/common/output_config.proto`
+- `gcommon/v1/common/formatter_config.proto`
 
 #### Source Code
 
@@ -6071,11 +6068,10 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "gcommon/v1/common/appender_type.proto";
-import "gcommon/v1/common/formatter_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "gcommon/v1/common/formatter_config.proto";
 import "gcommon/v1/common/output_config.proto";
+import "gcommon/v1/common/formatter_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
@@ -6098,24 +6094,6 @@ message AppenderConfig {
 
   // Arbitrary appender properties
   map<string, string> properties = 5;
-
-  // OutputConfig defines the destination for log entries
-  message OutputConfig {
-    // Output target (file path, network address, etc.)
-    string target = 1;
-
-    // Additional output options
-    map<string, string> options = 2;
-  }
-
-  // FormatterConfig defines how log entries are formatted
-  message LogFormatterConfig {
-    // Formatting strategy
-    FormatterType type = 1;
-
-    // Optional format pattern
-    string pattern = 2;
-  }
 }
 ```
 

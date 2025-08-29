@@ -23,12 +23,12 @@ const (
 )
 
 type AppenderConfig struct {
-	state                  protoimpl.MessageState             `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                            `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Type        AppenderType                       `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AppenderType"`
-	xxx_hidden_Output      *AppenderConfig_OutputConfig       `protobuf:"bytes,3,opt,name=output"`
-	xxx_hidden_Formatter   *AppenderConfig_LogFormatterConfig `protobuf:"bytes,4,opt,name=formatter"`
-	xxx_hidden_Properties  map[string]string                  `protobuf:"bytes,5,rep,name=properties" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Type        AppenderType           `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.common.AppenderType"`
+	xxx_hidden_Output      *OutputConfig          `protobuf:"bytes,3,opt,name=output"`
+	xxx_hidden_Formatter   *LogFormatterConfig    `protobuf:"bytes,4,opt,name=formatter"`
+	xxx_hidden_Properties  map[string]string      `protobuf:"bytes,5,rep,name=properties" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,14 +79,14 @@ func (x *AppenderConfig) GetType() AppenderType {
 	return AppenderType_APPENDER_TYPE_UNSPECIFIED
 }
 
-func (x *AppenderConfig) GetOutput() *AppenderConfig_OutputConfig {
+func (x *AppenderConfig) GetOutput() *OutputConfig {
 	if x != nil {
 		return x.xxx_hidden_Output
 	}
 	return nil
 }
 
-func (x *AppenderConfig) GetFormatter() *AppenderConfig_LogFormatterConfig {
+func (x *AppenderConfig) GetFormatter() *LogFormatterConfig {
 	if x != nil {
 		return x.xxx_hidden_Formatter
 	}
@@ -110,11 +110,11 @@ func (x *AppenderConfig) SetType(v AppenderType) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *AppenderConfig) SetOutput(v *AppenderConfig_OutputConfig) {
+func (x *AppenderConfig) SetOutput(v *OutputConfig) {
 	x.xxx_hidden_Output = v
 }
 
-func (x *AppenderConfig) SetFormatter(v *AppenderConfig_LogFormatterConfig) {
+func (x *AppenderConfig) SetFormatter(v *LogFormatterConfig) {
 	x.xxx_hidden_Formatter = v
 }
 
@@ -176,9 +176,9 @@ type AppenderConfig_builder struct {
 	// Appender backend type
 	Type *AppenderType
 	// Output destination details
-	Output *AppenderConfig_OutputConfig
+	Output *OutputConfig
 	// Formatting configuration
-	Formatter *AppenderConfig_LogFormatterConfig
+	Formatter *LogFormatterConfig
 	// Arbitrary appender properties
 	Properties map[string]string
 }
@@ -201,262 +201,41 @@ func (b0 AppenderConfig_builder) Build() *AppenderConfig {
 	return m0
 }
 
-// OutputConfig defines the destination for log entries
-type AppenderConfig_OutputConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Target      *string                `protobuf:"bytes,1,opt,name=target"`
-	xxx_hidden_Options     map[string]string      `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *AppenderConfig_OutputConfig) Reset() {
-	*x = AppenderConfig_OutputConfig{}
-	mi := &file_gcommon_v1_common_appender_config_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AppenderConfig_OutputConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AppenderConfig_OutputConfig) ProtoMessage() {}
-
-func (x *AppenderConfig_OutputConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_common_appender_config_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *AppenderConfig_OutputConfig) GetTarget() string {
-	if x != nil {
-		if x.xxx_hidden_Target != nil {
-			return *x.xxx_hidden_Target
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *AppenderConfig_OutputConfig) GetOptions() map[string]string {
-	if x != nil {
-		return x.xxx_hidden_Options
-	}
-	return nil
-}
-
-func (x *AppenderConfig_OutputConfig) SetTarget(v string) {
-	x.xxx_hidden_Target = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *AppenderConfig_OutputConfig) SetOptions(v map[string]string) {
-	x.xxx_hidden_Options = v
-}
-
-func (x *AppenderConfig_OutputConfig) HasTarget() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AppenderConfig_OutputConfig) ClearTarget() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Target = nil
-}
-
-type AppenderConfig_OutputConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Output target (file path, network address, etc.)
-	Target *string
-	// Additional output options
-	Options map[string]string
-}
-
-func (b0 AppenderConfig_OutputConfig_builder) Build() *AppenderConfig_OutputConfig {
-	m0 := &AppenderConfig_OutputConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Target != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Target = b.Target
-	}
-	x.xxx_hidden_Options = b.Options
-	return m0
-}
-
-// FormatterConfig defines how log entries are formatted
-type AppenderConfig_LogFormatterConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        FormatterType          `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.common.FormatterType"`
-	xxx_hidden_Pattern     *string                `protobuf:"bytes,2,opt,name=pattern"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *AppenderConfig_LogFormatterConfig) Reset() {
-	*x = AppenderConfig_LogFormatterConfig{}
-	mi := &file_gcommon_v1_common_appender_config_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AppenderConfig_LogFormatterConfig) ProtoMessage() {}
-
-func (x *AppenderConfig_LogFormatterConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_common_appender_config_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) GetType() FormatterType {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			return x.xxx_hidden_Type
-		}
-	}
-	return FormatterType_FORMATTER_TYPE_UNSPECIFIED
-}
-
-func (x *AppenderConfig_LogFormatterConfig) GetPattern() string {
-	if x != nil {
-		if x.xxx_hidden_Pattern != nil {
-			return *x.xxx_hidden_Pattern
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *AppenderConfig_LogFormatterConfig) SetType(v FormatterType) {
-	x.xxx_hidden_Type = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) SetPattern(v string) {
-	x.xxx_hidden_Pattern = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) HasPattern() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AppenderConfig_LogFormatterConfig) ClearType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = FormatterType_FORMATTER_TYPE_UNSPECIFIED
-}
-
-func (x *AppenderConfig_LogFormatterConfig) ClearPattern() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Pattern = nil
-}
-
-type AppenderConfig_LogFormatterConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Formatting strategy
-	Type *FormatterType
-	// Optional format pattern
-	Pattern *string
-}
-
-func (b0 AppenderConfig_LogFormatterConfig_builder) Build() *AppenderConfig_LogFormatterConfig {
-	m0 := &AppenderConfig_LogFormatterConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Type = *b.Type
-	}
-	if b.Pattern != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Pattern = b.Pattern
-	}
-	return m0
-}
-
 var File_gcommon_v1_common_appender_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_common_appender_config_proto_rawDesc = "" +
 	"\n" +
-	"'gcommon/v1/common/appender_config.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/appender_type.proto\x1a&gcommon/v1/common/formatter_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xb4\x05\n" +
+	"'gcommon/v1/common/appender_config.proto\x12\x11gcommon.v1.common\x1a%gcommon/v1/common/appender_type.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a%gcommon/v1/common/output_config.proto\x1a(gcommon/v1/common/formatter_config.proto\"\xf4\x02\n" +
 	"\x0eAppenderConfig\x12\x1d\n" +
 	"\x04name\x18\x01 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18dR\x04name\x123\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.AppenderTypeR\x04type\x12F\n" +
-	"\x06output\x18\x03 \x01(\v2..gcommon.v1.common.AppenderConfig.OutputConfigR\x06output\x12R\n" +
-	"\tformatter\x18\x04 \x01(\v24.gcommon.v1.common.AppenderConfig.LogFormatterConfigR\tformatter\x12Q\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.AppenderTypeR\x04type\x127\n" +
+	"\x06output\x18\x03 \x01(\v2\x1f.gcommon.v1.common.OutputConfigR\x06output\x12C\n" +
+	"\tformatter\x18\x04 \x01(\v2%.gcommon.v1.common.LogFormatterConfigR\tformatter\x12Q\n" +
 	"\n" +
 	"properties\x18\x05 \x03(\v21.gcommon.v1.common.AppenderConfig.PropertiesEntryR\n" +
 	"properties\x1a=\n" +
 	"\x0fPropertiesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a\xb9\x01\n" +
-	"\fOutputConfig\x12\x16\n" +
-	"\x06target\x18\x01 \x01(\tR\x06target\x12U\n" +
-	"\aoptions\x18\x02 \x03(\v2;.gcommon.v1.common.AppenderConfig.OutputConfig.OptionsEntryR\aoptions\x1a:\n" +
-	"\fOptionsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1ad\n" +
-	"\x12LogFormatterConfig\x124\n" +
-	"\x04type\x18\x01 \x01(\x0e2 .gcommon.v1.common.FormatterTypeR\x04type\x12\x18\n" +
-	"\apattern\x18\x02 \x01(\tR\apatternB5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B5Z+github.com/jdfalk/gcommon/sdks/go/v1/common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_common_appender_config_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_gcommon_v1_common_appender_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gcommon_v1_common_appender_config_proto_goTypes = []any{
-	(*AppenderConfig)(nil),              // 0: gcommon.v1.common.AppenderConfig
-	nil,                                 // 1: gcommon.v1.common.AppenderConfig.PropertiesEntry
-	(*AppenderConfig_OutputConfig)(nil), // 2: gcommon.v1.common.AppenderConfig.OutputConfig
-	(*AppenderConfig_LogFormatterConfig)(nil), // 3: gcommon.v1.common.AppenderConfig.LogFormatterConfig
-	nil,                // 4: gcommon.v1.common.AppenderConfig.OutputConfig.OptionsEntry
-	(AppenderType)(0),  // 5: gcommon.v1.common.AppenderType
-	(FormatterType)(0), // 6: gcommon.v1.common.FormatterType
+	(*AppenderConfig)(nil),     // 0: gcommon.v1.common.AppenderConfig
+	nil,                        // 1: gcommon.v1.common.AppenderConfig.PropertiesEntry
+	(AppenderType)(0),          // 2: gcommon.v1.common.AppenderType
+	(*OutputConfig)(nil),       // 3: gcommon.v1.common.OutputConfig
+	(*LogFormatterConfig)(nil), // 4: gcommon.v1.common.LogFormatterConfig
 }
 var file_gcommon_v1_common_appender_config_proto_depIdxs = []int32{
-	5, // 0: gcommon.v1.common.AppenderConfig.type:type_name -> gcommon.v1.common.AppenderType
-	2, // 1: gcommon.v1.common.AppenderConfig.output:type_name -> gcommon.v1.common.AppenderConfig.OutputConfig
-	3, // 2: gcommon.v1.common.AppenderConfig.formatter:type_name -> gcommon.v1.common.AppenderConfig.LogFormatterConfig
+	2, // 0: gcommon.v1.common.AppenderConfig.type:type_name -> gcommon.v1.common.AppenderType
+	3, // 1: gcommon.v1.common.AppenderConfig.output:type_name -> gcommon.v1.common.OutputConfig
+	4, // 2: gcommon.v1.common.AppenderConfig.formatter:type_name -> gcommon.v1.common.LogFormatterConfig
 	1, // 3: gcommon.v1.common.AppenderConfig.properties:type_name -> gcommon.v1.common.AppenderConfig.PropertiesEntry
-	4, // 4: gcommon.v1.common.AppenderConfig.OutputConfig.options:type_name -> gcommon.v1.common.AppenderConfig.OutputConfig.OptionsEntry
-	6, // 5: gcommon.v1.common.AppenderConfig.LogFormatterConfig.type:type_name -> gcommon.v1.common.FormatterType
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_common_appender_config_proto_init() }
@@ -465,14 +244,15 @@ func file_gcommon_v1_common_appender_config_proto_init() {
 		return
 	}
 	file_gcommon_v1_common_appender_type_proto_init()
-	file_gcommon_v1_common_formatter_type_proto_init()
+	file_gcommon_v1_common_output_config_proto_init()
+	file_gcommon_v1_common_formatter_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_common_appender_config_proto_rawDesc), len(file_gcommon_v1_common_appender_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

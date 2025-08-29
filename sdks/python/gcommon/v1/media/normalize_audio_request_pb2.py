@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
+from gcommon.v1.media import normalization_options_pb2 as gcommon_dot_v1_dot_media_dot_normalization__options__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/normalize_audio_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x86\x01\n\x15NormalizeAudioRequest\x12+\n\raudio_file_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61udioFileId\x12@\n\x07options\x18\x02 \x01(\x0b\x32&.gcommon.v1.media.NormalizationOptionsR\x07options\"~\n\x14NormalizationOptions\x12\x1f\n\x0btarget_lufs\x18\x01 \x01(\x01R\ntargetLufs\x12\x1e\n\x0bmax_peak_db\x18\x02 \x01(\x01R\tmaxPeakDb\x12%\n\x0e\x65nable_limiter\x18\x03 \x01(\x08R\renableLimiterB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/normalize_audio_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a,gcommon/v1/media/normalization_options.proto\"\x86\x01\n\x15NormalizeAudioRequest\x12+\n\raudio_file_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61udioFileId\x12@\n\x07options\x18\x02 \x01(\x0b\x32&.gcommon.v1.media.NormalizationOptionsR\x07optionsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,8 +37,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
   _globals['_NORMALIZEAUDIOREQUEST'].fields_by_name['audio_file_id']._loaded_options = None
   _globals['_NORMALIZEAUDIOREQUEST'].fields_by_name['audio_file_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_NORMALIZEAUDIOREQUEST']._serialized_start=133
-  _globals['_NORMALIZEAUDIOREQUEST']._serialized_end=267
-  _globals['_NORMALIZATIONOPTIONS']._serialized_start=269
-  _globals['_NORMALIZATIONOPTIONS']._serialized_end=395
+  _globals['_NORMALIZEAUDIOREQUEST']._serialized_start=179
+  _globals['_NORMALIZEAUDIOREQUEST']._serialized_end=313
 # @@protoc_insertion_point(module_scope)

@@ -22,7 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Configuration for exporting metrics data
 type ExportConfig struct {
 	state                       protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Destination      *string                `protobuf:"bytes,1,opt,name=destination"`
@@ -345,181 +344,11 @@ func (b0 ExportConfig_builder) Build() *ExportConfig {
 	return m0
 }
 
-// Retry configuration for exports
-type MetricsRetryConfig struct {
-	state                          protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxRetries          int32                  `protobuf:"varint,1,opt,name=max_retries,json=maxRetries"`
-	xxx_hidden_InitialDelaySeconds int32                  `protobuf:"varint,2,opt,name=initial_delay_seconds,json=initialDelaySeconds"`
-	xxx_hidden_MaxDelaySeconds     int32                  `protobuf:"varint,3,opt,name=max_delay_seconds,json=maxDelaySeconds"`
-	xxx_hidden_BackoffMultiplier   float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
-	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
-	XXX_presence                   [1]uint32
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
-}
-
-func (x *MetricsRetryConfig) Reset() {
-	*x = MetricsRetryConfig{}
-	mi := &file_gcommon_v1_metrics_export_config_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MetricsRetryConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MetricsRetryConfig) ProtoMessage() {}
-
-func (x *MetricsRetryConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_metrics_export_config_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *MetricsRetryConfig) GetMaxRetries() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxRetries
-	}
-	return 0
-}
-
-func (x *MetricsRetryConfig) GetInitialDelaySeconds() int32 {
-	if x != nil {
-		return x.xxx_hidden_InitialDelaySeconds
-	}
-	return 0
-}
-
-func (x *MetricsRetryConfig) GetMaxDelaySeconds() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxDelaySeconds
-	}
-	return 0
-}
-
-func (x *MetricsRetryConfig) GetBackoffMultiplier() float64 {
-	if x != nil {
-		return x.xxx_hidden_BackoffMultiplier
-	}
-	return 0
-}
-
-func (x *MetricsRetryConfig) SetMaxRetries(v int32) {
-	x.xxx_hidden_MaxRetries = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *MetricsRetryConfig) SetInitialDelaySeconds(v int32) {
-	x.xxx_hidden_InitialDelaySeconds = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *MetricsRetryConfig) SetMaxDelaySeconds(v int32) {
-	x.xxx_hidden_MaxDelaySeconds = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *MetricsRetryConfig) SetBackoffMultiplier(v float64) {
-	x.xxx_hidden_BackoffMultiplier = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *MetricsRetryConfig) HasMaxRetries() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *MetricsRetryConfig) HasInitialDelaySeconds() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *MetricsRetryConfig) HasMaxDelaySeconds() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *MetricsRetryConfig) HasBackoffMultiplier() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *MetricsRetryConfig) ClearMaxRetries() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_MaxRetries = 0
-}
-
-func (x *MetricsRetryConfig) ClearInitialDelaySeconds() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_InitialDelaySeconds = 0
-}
-
-func (x *MetricsRetryConfig) ClearMaxDelaySeconds() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_MaxDelaySeconds = 0
-}
-
-func (x *MetricsRetryConfig) ClearBackoffMultiplier() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_BackoffMultiplier = 0
-}
-
-type MetricsRetryConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of retries
-	MaxRetries *int32
-	// Initial retry delay in seconds
-	InitialDelaySeconds *int32
-	// Maximum retry delay in seconds
-	MaxDelaySeconds *int32
-	// Backoff multiplier
-	BackoffMultiplier *float64
-}
-
-func (b0 MetricsRetryConfig_builder) Build() *MetricsRetryConfig {
-	m0 := &MetricsRetryConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.MaxRetries != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_MaxRetries = *b.MaxRetries
-	}
-	if b.InitialDelaySeconds != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_InitialDelaySeconds = *b.InitialDelaySeconds
-	}
-	if b.MaxDelaySeconds != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_MaxDelaySeconds = *b.MaxDelaySeconds
-	}
-	if b.BackoffMultiplier != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_BackoffMultiplier = *b.BackoffMultiplier
-	}
-	return m0
-}
-
 var File_gcommon_v1_metrics_export_config_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_metrics_export_config_proto_rawDesc = "" +
 	"\n" +
-	"&gcommon/v1/metrics/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\xd2\x05\n" +
+	"&gcommon/v1/metrics/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a-gcommon/v1/metrics/metrics_retry_config.proto\"\xd2\x05\n" +
 	"\fExportConfig\x12)\n" +
 	"\vdestination\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\vdestination\x12\x1f\n" +
 	"\x06format\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\x06format\x124\n" +
@@ -540,25 +369,19 @@ const file_gcommon_v1_metrics_export_config_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a=\n" +
 	"\x0fAuthConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xef\x01\n" +
-	"\x12MetricsRetryConfig\x12(\n" +
-	"\vmax_retries\x18\x01 \x01(\x05B\a\xbaH\x04\x1a\x02(\x00R\n" +
-	"maxRetries\x12;\n" +
-	"\x15initial_delay_seconds\x18\x02 \x01(\x05B\a\xbaH\x04\x1a\x02(\x00R\x13initialDelaySeconds\x123\n" +
-	"\x11max_delay_seconds\x18\x03 \x01(\x05B\a\xbaH\x04\x1a\x02(\x00R\x0fmaxDelaySeconds\x12=\n" +
-	"\x12backoff_multiplier\x18\x04 \x01(\x01B\x0e\xbaH\v\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x11backoffMultiplierB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_metrics_export_config_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_gcommon_v1_metrics_export_config_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_gcommon_v1_metrics_export_config_proto_goTypes = []any{
 	(*ExportConfig)(nil),       // 0: gcommon.v1.metrics.ExportConfig
-	(*MetricsRetryConfig)(nil), // 1: gcommon.v1.metrics.MetricsRetryConfig
-	nil,                        // 2: gcommon.v1.metrics.ExportConfig.HeadersEntry
-	nil,                        // 3: gcommon.v1.metrics.ExportConfig.AuthConfigEntry
+	nil,                        // 1: gcommon.v1.metrics.ExportConfig.HeadersEntry
+	nil,                        // 2: gcommon.v1.metrics.ExportConfig.AuthConfigEntry
+	(*MetricsRetryConfig)(nil), // 3: gcommon.v1.metrics.MetricsRetryConfig
 }
 var file_gcommon_v1_metrics_export_config_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.metrics.ExportConfig.headers:type_name -> gcommon.v1.metrics.ExportConfig.HeadersEntry
-	3, // 1: gcommon.v1.metrics.ExportConfig.auth_config:type_name -> gcommon.v1.metrics.ExportConfig.AuthConfigEntry
-	1, // 2: gcommon.v1.metrics.ExportConfig.retry_config:type_name -> gcommon.v1.metrics.MetricsRetryConfig
+	1, // 0: gcommon.v1.metrics.ExportConfig.headers:type_name -> gcommon.v1.metrics.ExportConfig.HeadersEntry
+	2, // 1: gcommon.v1.metrics.ExportConfig.auth_config:type_name -> gcommon.v1.metrics.ExportConfig.AuthConfigEntry
+	3, // 2: gcommon.v1.metrics.ExportConfig.retry_config:type_name -> gcommon.v1.metrics.MetricsRetryConfig
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -571,13 +394,14 @@ func file_gcommon_v1_metrics_export_config_proto_init() {
 	if File_gcommon_v1_metrics_export_config_proto != nil {
 		return
 	}
+	file_gcommon_v1_metrics_metrics_retry_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_metrics_export_config_proto_rawDesc), len(file_gcommon_v1_metrics_export_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

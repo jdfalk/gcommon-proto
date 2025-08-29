@@ -1,5 +1,6 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from gcommon.v1.media import analysis_options_pb2 as _analysis_options_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
@@ -11,19 +12,5 @@ class AnalyzeMediaRequest(_message.Message):
     MEDIA_FILE_ID_FIELD_NUMBER: _ClassVar[int]
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
     media_file_id: str
-    options: AnalysisOptions
-    def __init__(self, media_file_id: _Optional[str] = ..., options: _Optional[_Union[AnalysisOptions, _Mapping]] = ...) -> None: ...
-
-class AnalysisOptions(_message.Message):
-    __slots__ = ("extract_metadata", "analyze_quality", "detect_scenes", "extract_thumbnails", "analyze_audio")
-    EXTRACT_METADATA_FIELD_NUMBER: _ClassVar[int]
-    ANALYZE_QUALITY_FIELD_NUMBER: _ClassVar[int]
-    DETECT_SCENES_FIELD_NUMBER: _ClassVar[int]
-    EXTRACT_THUMBNAILS_FIELD_NUMBER: _ClassVar[int]
-    ANALYZE_AUDIO_FIELD_NUMBER: _ClassVar[int]
-    extract_metadata: bool
-    analyze_quality: bool
-    detect_scenes: bool
-    extract_thumbnails: bool
-    analyze_audio: bool
-    def __init__(self, extract_metadata: bool = ..., analyze_quality: bool = ..., detect_scenes: bool = ..., extract_thumbnails: bool = ..., analyze_audio: bool = ...) -> None: ...
+    options: _analysis_options_pb2.AnalysisOptions
+    def __init__(self, media_file_id: _Optional[str] = ..., options: _Optional[_Union[_analysis_options_pb2.AnalysisOptions, _Mapping]] = ...) -> None: ...

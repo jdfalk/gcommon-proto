@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
+from gcommon.v1.media import chapter_detection_options_pb2 as gcommon_dot_v1_dot_media_dot_chapter__detection__options__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/detect_chapters_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\x89\x01\n\x15\x44\x65tectChaptersRequest\x12+\n\raudio_file_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61udioFileId\x12\x43\n\x07options\x18\x02 \x01(\x0b\x32).gcommon.v1.media.ChapterDetectionOptionsR\x07options\"\xd5\x01\n\x17\x43hapterDetectionOptions\x12\x30\n\x14silence_threshold_db\x18\x01 \x01(\x01R\x12silenceThresholdDb\x12;\n\x1amin_chapter_length_seconds\x18\x02 \x01(\x01R\x17minChapterLengthSeconds\x12!\n\x0cuse_metadata\x18\x03 \x01(\x08R\x0buseMetadata\x12(\n\x10use_ai_detection\x18\x04 \x01(\x08R\x0euseAiDetectionB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.gcommon/v1/media/detect_chapters_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a\x30gcommon/v1/media/chapter_detection_options.proto\"\x89\x01\n\x15\x44\x65tectChaptersRequest\x12+\n\raudio_file_id\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x61udioFileId\x12\x43\n\x07options\x18\x02 \x01(\x0b\x32).gcommon.v1.media.ChapterDetectionOptionsR\x07optionsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,8 +37,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
   _globals['_DETECTCHAPTERSREQUEST'].fields_by_name['audio_file_id']._loaded_options = None
   _globals['_DETECTCHAPTERSREQUEST'].fields_by_name['audio_file_id']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_DETECTCHAPTERSREQUEST']._serialized_start=133
-  _globals['_DETECTCHAPTERSREQUEST']._serialized_end=270
-  _globals['_CHAPTERDETECTIONOPTIONS']._serialized_start=273
-  _globals['_CHAPTERDETECTIONOPTIONS']._serialized_end=486
+  _globals['_DETECTCHAPTERSREQUEST']._serialized_start=183
+  _globals['_DETECTCHAPTERSREQUEST']._serialized_end=320
 # @@protoc_insertion_point(module_scope)

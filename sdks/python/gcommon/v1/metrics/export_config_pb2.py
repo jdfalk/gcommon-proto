@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
+from gcommon.v1.metrics import metrics_retry_config_pb2 as gcommon_dot_v1_dot_metrics_dot_metrics__retry__config__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/metrics/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"\xd2\x05\n\x0c\x45xportConfig\x12)\n\x0b\x64\x65stination\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x64\x65stination\x12\x1f\n\x06\x66ormat\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ormat\x12\x34\n\x11\x66requency_seconds\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x10\x66requencySeconds\x12\x1a\n\x08\x63ompress\x18\x04 \x01(\x08R\x08\x63ompress\x12&\n\nbatch_size\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tbatchSize\x12\x30\n\x0ftimeout_seconds\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12G\n\x07headers\x18\x07 \x03(\x0b\x32-.gcommon.v1.metrics.ExportConfig.HeadersEntryR\x07headers\x12Q\n\x0b\x61uth_config\x18\x08 \x03(\x0b\x32\x30.gcommon.v1.metrics.ExportConfig.AuthConfigEntryR\nauthConfig\x12I\n\x0cretry_config\x18\t \x01(\x0b\x32&.gcommon.v1.metrics.MetricsRetryConfigR\x0bretryConfig\x12\x33\n\x10include_patterns\x18\n \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fincludePatterns\x12\x33\n\x10\x65xclude_patterns\x18\x0b \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0f\x65xcludePatterns\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a=\n\x0f\x41uthConfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xef\x01\n\x12MetricsRetryConfig\x12(\n\x0bmax_retries\x18\x01 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\nmaxRetries\x12;\n\x15initial_delay_seconds\x18\x02 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x13initialDelaySeconds\x12\x33\n\x11max_delay_seconds\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x0fmaxDelaySeconds\x12=\n\x12\x62\x61\x63koff_multiplier\x18\x04 \x01(\x01\x42\x0e\xbaH\x0b\x12\t)\x00\x00\x00\x00\x00\x00\x00\x00R\x11\x62\x61\x63koffMultiplierB6Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&gcommon/v1/metrics/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a-gcommon/v1/metrics/metrics_retry_config.proto\"\xd2\x05\n\x0c\x45xportConfig\x12)\n\x0b\x64\x65stination\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x64\x65stination\x12\x1f\n\x06\x66ormat\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x06\x66ormat\x12\x34\n\x11\x66requency_seconds\x18\x03 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\x10\x66requencySeconds\x12\x1a\n\x08\x63ompress\x18\x04 \x01(\x08R\x08\x63ompress\x12&\n\nbatch_size\x18\x05 \x01(\x05\x42\x07\xbaH\x04\x1a\x02(\x00R\tbatchSize\x12\x30\n\x0ftimeout_seconds\x18\x06 \x01(\x05\x42\x07\xbaH\x04\x1a\x02 \x00R\x0etimeoutSeconds\x12G\n\x07headers\x18\x07 \x03(\x0b\x32-.gcommon.v1.metrics.ExportConfig.HeadersEntryR\x07headers\x12Q\n\x0b\x61uth_config\x18\x08 \x03(\x0b\x32\x30.gcommon.v1.metrics.ExportConfig.AuthConfigEntryR\nauthConfig\x12I\n\x0cretry_config\x18\t \x01(\x0b\x32&.gcommon.v1.metrics.MetricsRetryConfigR\x0bretryConfig\x12\x33\n\x10include_patterns\x18\n \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0fincludePatterns\x12\x33\n\x10\x65xclude_patterns\x18\x0b \x03(\tB\x08\xbaH\x05\x92\x01\x02\x08\x01R\x0f\x65xcludePatterns\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a=\n\x0f\x41uthConfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x36Z,github.com/jdfalk/gcommon/sdks/go/v1/metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -52,20 +53,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EXPORTCONFIG'].fields_by_name['include_patterns']._serialized_options = b'\272H\005\222\001\002\010\001'
   _globals['_EXPORTCONFIG'].fields_by_name['exclude_patterns']._loaded_options = None
   _globals['_EXPORTCONFIG'].fields_by_name['exclude_patterns']._serialized_options = b'\272H\005\222\001\002\010\001'
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['max_retries']._loaded_options = None
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['max_retries']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['initial_delay_seconds']._loaded_options = None
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['initial_delay_seconds']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['max_delay_seconds']._loaded_options = None
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['max_delay_seconds']._serialized_options = b'\272H\004\032\002(\000'
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['backoff_multiplier']._loaded_options = None
-  _globals['_METRICSRETRYCONFIG'].fields_by_name['backoff_multiplier']._serialized_options = b'\272H\013\022\t)\000\000\000\000\000\000\000\000'
-  _globals['_EXPORTCONFIG']._serialized_start=127
-  _globals['_EXPORTCONFIG']._serialized_end=849
-  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_start=728
-  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_end=786
-  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_start=788
-  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_end=849
-  _globals['_METRICSRETRYCONFIG']._serialized_start=852
-  _globals['_METRICSRETRYCONFIG']._serialized_end=1091
+  _globals['_EXPORTCONFIG']._serialized_start=174
+  _globals['_EXPORTCONFIG']._serialized_end=896
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_start=775
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_end=833
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_start=835
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_end=896
 # @@protoc_insertion_point(module_scope)

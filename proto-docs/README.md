@@ -1,12 +1,12 @@
 # Protocol Buffer Documentation
 
-Generated on: 2025-08-29 00:25:51 UTC
+Generated on: 2025-08-29 00:36:50 UTC
 
 ## Overview
 
 This documentation covers 1697 protocol buffer files organized into 17 modules, containing:
 
-- **1449** message definitions
+- **1447** message definitions
 - **32** service definitions
 - **218** enum definitions
 
@@ -27,7 +27,7 @@ This documentation covers 1697 protocol buffer files organized into 17 modules, 
 #### [common_messages](./common_messages.md)
 
 - **Files**: 282
-- **Messages**: 284
+- **Messages**: 282
 
 
 ### config

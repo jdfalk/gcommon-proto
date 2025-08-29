@@ -11,7 +11,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
+	_ "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -117,136 +117,27 @@ func (b0 SplitAudioRequest_builder) Build() *SplitAudioRequest {
 	return m0
 }
 
-type SplitPoint struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Timestamp   *durationpb.Duration   `protobuf:"bytes,1,opt,name=timestamp"`
-	xxx_hidden_SegmentName *string                `protobuf:"bytes,2,opt,name=segment_name,json=segmentName"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *SplitPoint) Reset() {
-	*x = SplitPoint{}
-	mi := &file_gcommon_v1_media_split_audio_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SplitPoint) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SplitPoint) ProtoMessage() {}
-
-func (x *SplitPoint) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_split_audio_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *SplitPoint) GetTimestamp() *durationpb.Duration {
-	if x != nil {
-		return x.xxx_hidden_Timestamp
-	}
-	return nil
-}
-
-func (x *SplitPoint) GetSegmentName() string {
-	if x != nil {
-		if x.xxx_hidden_SegmentName != nil {
-			return *x.xxx_hidden_SegmentName
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *SplitPoint) SetTimestamp(v *durationpb.Duration) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *SplitPoint) SetSegmentName(v string) {
-	x.xxx_hidden_SegmentName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *SplitPoint) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *SplitPoint) HasSegmentName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *SplitPoint) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-func (x *SplitPoint) ClearSegmentName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SegmentName = nil
-}
-
-type SplitPoint_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Timestamp   *durationpb.Duration
-	SegmentName *string
-}
-
-func (b0 SplitPoint_builder) Build() *SplitPoint {
-	m0 := &SplitPoint{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Timestamp = b.Timestamp
-	if b.SegmentName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_SegmentName = b.SegmentName
-	}
-	return m0
-}
-
 var File_gcommon_v1_media_split_audio_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_split_audio_request_proto_rawDesc = "" +
 	"\n" +
-	"*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"x\n" +
+	"*gcommon/v1/media/split_audio_request.proto\x12\x10gcommon.v1.media\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a\"gcommon/v1/media/split_point.proto\"x\n" +
 	"\x11SplitAudioRequest\x12\"\n" +
 	"\raudio_file_id\x18\x01 \x01(\tR\vaudioFileId\x12?\n" +
-	"\fsplit_points\x18\x02 \x03(\v2\x1c.gcommon.v1.media.SplitPointR\vsplitPoints\"s\n" +
-	"\n" +
-	"SplitPoint\x127\n" +
-	"\ttimestamp\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\ttimestamp\x12,\n" +
-	"\fsegment_name\x18\x02 \x01(\tB\t\xbaH\x06r\x04\x10\x01\x18dR\vsegmentNameB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fsplit_points\x18\x02 \x03(\v2\x1c.gcommon.v1.media.SplitPointR\vsplitPointsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_split_audio_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_split_audio_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_split_audio_request_proto_goTypes = []any{
-	(*SplitAudioRequest)(nil),   // 0: gcommon.v1.media.SplitAudioRequest
-	(*SplitPoint)(nil),          // 1: gcommon.v1.media.SplitPoint
-	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
+	(*SplitAudioRequest)(nil), // 0: gcommon.v1.media.SplitAudioRequest
+	(*SplitPoint)(nil),        // 1: gcommon.v1.media.SplitPoint
 }
 var file_gcommon_v1_media_split_audio_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.media.SplitAudioRequest.split_points:type_name -> gcommon.v1.media.SplitPoint
-	2, // 1: gcommon.v1.media.SplitPoint.timestamp:type_name -> google.protobuf.Duration
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_split_audio_request_proto_init() }
@@ -254,13 +145,14 @@ func file_gcommon_v1_media_split_audio_request_proto_init() {
 	if File_gcommon_v1_media_split_audio_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_split_point_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_split_audio_request_proto_rawDesc), len(file_gcommon_v1_media_split_audio_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

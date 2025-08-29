@@ -1,5 +1,6 @@
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
+from gcommon.v1.media import extracted_subtitle_pb2 as _extracted_subtitle_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -15,24 +16,6 @@ class ExtractSubtitlesResponse(_message.Message):
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     job_id: str
     status: str
-    extracted_subtitles: _containers.RepeatedCompositeFieldContainer[ExtractedSubtitle]
+    extracted_subtitles: _containers.RepeatedCompositeFieldContainer[_extracted_subtitle_pb2.ExtractedSubtitle]
     error_message: str
-    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., extracted_subtitles: _Optional[_Iterable[_Union[ExtractedSubtitle, _Mapping]]] = ..., error_message: _Optional[str] = ...) -> None: ...
-
-class ExtractedSubtitle(_message.Message):
-    __slots__ = ("file_id", "track_index", "language", "title", "forced", "hearing_impaired", "format")
-    FILE_ID_FIELD_NUMBER: _ClassVar[int]
-    TRACK_INDEX_FIELD_NUMBER: _ClassVar[int]
-    LANGUAGE_FIELD_NUMBER: _ClassVar[int]
-    TITLE_FIELD_NUMBER: _ClassVar[int]
-    FORCED_FIELD_NUMBER: _ClassVar[int]
-    HEARING_IMPAIRED_FIELD_NUMBER: _ClassVar[int]
-    FORMAT_FIELD_NUMBER: _ClassVar[int]
-    file_id: str
-    track_index: int
-    language: str
-    title: str
-    forced: bool
-    hearing_impaired: bool
-    format: str
-    def __init__(self, file_id: _Optional[str] = ..., track_index: _Optional[int] = ..., language: _Optional[str] = ..., title: _Optional[str] = ..., forced: bool = ..., hearing_impaired: bool = ..., format: _Optional[str] = ...) -> None: ...
+    def __init__(self, job_id: _Optional[str] = ..., status: _Optional[str] = ..., extracted_subtitles: _Optional[_Iterable[_Union[_extracted_subtitle_pb2.ExtractedSubtitle, _Mapping]]] = ..., error_message: _Optional[str] = ...) -> None: ...

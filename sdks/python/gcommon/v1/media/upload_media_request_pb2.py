@@ -25,9 +25,10 @@ _sym_db = _symbol_database.Default()
 from gcommon.v1.media import media_metadata_pb2 as gcommon_dot_v1_dot_media_dot_media__metadata__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from buf.validate import validate_pb2 as buf_dot_validate_dot_validate__pb2
+from gcommon.v1.media import upload_metadata_pb2 as gcommon_dot_v1_dot_media_dot_upload__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/media/media_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\"t\n\x12UploadMediaRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32 .gcommon.v1.media.UploadMetadataH\x00R\x08metadata\x12\x16\n\x05\x63hunk\x18\x02 \x01(\x0cH\x00R\x05\x63hunkB\x06\n\x04\x64\x61ta\"\xd1\x01\n\x0eUploadMetadata\x12#\n\x08\x66ilename\x18\x01 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x08\x66ilename\x12*\n\x0c\x63ontent_type\x18\x02 \x01(\tB\x07\xbaH\x04r\x02\x10\x01R\x0b\x63ontentType\x12&\n\ntotal_size\x18\x03 \x01(\x03\x42\x07\xbaH\x04\"\x02(\x00R\ttotalSize\x12\x46\n\x0emedia_metadata\x18\x04 \x01(\x0b\x32\x1f.gcommon.v1.media.MediaMetadataR\rmediaMetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/media/media_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1b\x62uf/validate/validate.proto\x1a&gcommon/v1/media/upload_metadata.proto\"t\n\x12UploadMediaRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32 .gcommon.v1.media.UploadMetadataH\x00R\x08metadata\x12\x16\n\x05\x63hunk\x18\x02 \x01(\x0cH\x00R\x05\x63hunkB\x06\n\x04\x64\x61taB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,14 +36,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gcommon.v1.media.upload_med
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/jdfalk/gcommon/sdks/go/v1/media\222\003\005\322>\002\020\003'
-  _globals['_UPLOADMETADATA'].fields_by_name['filename']._loaded_options = None
-  _globals['_UPLOADMETADATA'].fields_by_name['filename']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_UPLOADMETADATA'].fields_by_name['content_type']._loaded_options = None
-  _globals['_UPLOADMETADATA'].fields_by_name['content_type']._serialized_options = b'\272H\004r\002\020\001'
-  _globals['_UPLOADMETADATA'].fields_by_name['total_size']._loaded_options = None
-  _globals['_UPLOADMETADATA'].fields_by_name['total_size']._serialized_options = b'\272H\004\"\002(\000'
-  _globals['_UPLOADMEDIAREQUEST']._serialized_start=168
-  _globals['_UPLOADMEDIAREQUEST']._serialized_end=284
-  _globals['_UPLOADMETADATA']._serialized_start=287
-  _globals['_UPLOADMETADATA']._serialized_end=496
+  _globals['_UPLOADMEDIAREQUEST']._serialized_start=208
+  _globals['_UPLOADMEDIAREQUEST']._serialized_end=324
 # @@protoc_insertion_point(module_scope)

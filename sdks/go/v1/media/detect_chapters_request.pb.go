@@ -22,7 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Request to detect chapters in audio content.
 type DetectChaptersRequest struct {
 	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_AudioFileId *string                  `protobuf:"bytes,1,opt,name=audio_file_id,json=audioFileId"`
@@ -126,187 +125,16 @@ func (b0 DetectChaptersRequest_builder) Build() *DetectChaptersRequest {
 	return m0
 }
 
-// Options for chapter detection.
-type ChapterDetectionOptions struct {
-	state                              protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SilenceThresholdDb      float64                `protobuf:"fixed64,1,opt,name=silence_threshold_db,json=silenceThresholdDb"`
-	xxx_hidden_MinChapterLengthSeconds float64                `protobuf:"fixed64,2,opt,name=min_chapter_length_seconds,json=minChapterLengthSeconds"`
-	xxx_hidden_UseMetadata             bool                   `protobuf:"varint,3,opt,name=use_metadata,json=useMetadata"`
-	xxx_hidden_UseAiDetection          bool                   `protobuf:"varint,4,opt,name=use_ai_detection,json=useAiDetection"`
-	XXX_raceDetectHookData             protoimpl.RaceDetectHookData
-	XXX_presence                       [1]uint32
-	unknownFields                      protoimpl.UnknownFields
-	sizeCache                          protoimpl.SizeCache
-}
-
-func (x *ChapterDetectionOptions) Reset() {
-	*x = ChapterDetectionOptions{}
-	mi := &file_gcommon_v1_media_detect_chapters_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ChapterDetectionOptions) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ChapterDetectionOptions) ProtoMessage() {}
-
-func (x *ChapterDetectionOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_detect_chapters_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ChapterDetectionOptions) GetSilenceThresholdDb() float64 {
-	if x != nil {
-		return x.xxx_hidden_SilenceThresholdDb
-	}
-	return 0
-}
-
-func (x *ChapterDetectionOptions) GetMinChapterLengthSeconds() float64 {
-	if x != nil {
-		return x.xxx_hidden_MinChapterLengthSeconds
-	}
-	return 0
-}
-
-func (x *ChapterDetectionOptions) GetUseMetadata() bool {
-	if x != nil {
-		return x.xxx_hidden_UseMetadata
-	}
-	return false
-}
-
-func (x *ChapterDetectionOptions) GetUseAiDetection() bool {
-	if x != nil {
-		return x.xxx_hidden_UseAiDetection
-	}
-	return false
-}
-
-func (x *ChapterDetectionOptions) SetSilenceThresholdDb(v float64) {
-	x.xxx_hidden_SilenceThresholdDb = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *ChapterDetectionOptions) SetMinChapterLengthSeconds(v float64) {
-	x.xxx_hidden_MinChapterLengthSeconds = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *ChapterDetectionOptions) SetUseMetadata(v bool) {
-	x.xxx_hidden_UseMetadata = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *ChapterDetectionOptions) SetUseAiDetection(v bool) {
-	x.xxx_hidden_UseAiDetection = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *ChapterDetectionOptions) HasSilenceThresholdDb() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ChapterDetectionOptions) HasMinChapterLengthSeconds() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ChapterDetectionOptions) HasUseMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ChapterDetectionOptions) HasUseAiDetection() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ChapterDetectionOptions) ClearSilenceThresholdDb() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SilenceThresholdDb = 0
-}
-
-func (x *ChapterDetectionOptions) ClearMinChapterLengthSeconds() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_MinChapterLengthSeconds = 0
-}
-
-func (x *ChapterDetectionOptions) ClearUseMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_UseMetadata = false
-}
-
-func (x *ChapterDetectionOptions) ClearUseAiDetection() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_UseAiDetection = false
-}
-
-type ChapterDetectionOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	SilenceThresholdDb      *float64
-	MinChapterLengthSeconds *float64
-	UseMetadata             *bool
-	UseAiDetection          *bool
-}
-
-func (b0 ChapterDetectionOptions_builder) Build() *ChapterDetectionOptions {
-	m0 := &ChapterDetectionOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SilenceThresholdDb != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_SilenceThresholdDb = *b.SilenceThresholdDb
-	}
-	if b.MinChapterLengthSeconds != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_MinChapterLengthSeconds = *b.MinChapterLengthSeconds
-	}
-	if b.UseMetadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_UseMetadata = *b.UseMetadata
-	}
-	if b.UseAiDetection != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_UseAiDetection = *b.UseAiDetection
-	}
-	return m0
-}
-
 var File_gcommon_v1_media_detect_chapters_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_detect_chapters_request_proto_rawDesc = "" +
 	"\n" +
-	".gcommon/v1/media/detect_chapters_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"\x89\x01\n" +
+	".gcommon/v1/media/detect_chapters_request.proto\x12\x10gcommon.v1.media\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a0gcommon/v1/media/chapter_detection_options.proto\"\x89\x01\n" +
 	"\x15DetectChaptersRequest\x12+\n" +
 	"\raudio_file_id\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\vaudioFileId\x12C\n" +
-	"\aoptions\x18\x02 \x01(\v2).gcommon.v1.media.ChapterDetectionOptionsR\aoptions\"\xd5\x01\n" +
-	"\x17ChapterDetectionOptions\x120\n" +
-	"\x14silence_threshold_db\x18\x01 \x01(\x01R\x12silenceThresholdDb\x12;\n" +
-	"\x1amin_chapter_length_seconds\x18\x02 \x01(\x01R\x17minChapterLengthSeconds\x12!\n" +
-	"\fuse_metadata\x18\x03 \x01(\bR\vuseMetadata\x12(\n" +
-	"\x10use_ai_detection\x18\x04 \x01(\bR\x0euseAiDetectionB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\aoptions\x18\x02 \x01(\v2).gcommon.v1.media.ChapterDetectionOptionsR\aoptionsB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_detect_chapters_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_detect_chapters_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_detect_chapters_request_proto_goTypes = []any{
 	(*DetectChaptersRequest)(nil),   // 0: gcommon.v1.media.DetectChaptersRequest
 	(*ChapterDetectionOptions)(nil), // 1: gcommon.v1.media.ChapterDetectionOptions
@@ -325,13 +153,14 @@ func file_gcommon_v1_media_detect_chapters_request_proto_init() {
 	if File_gcommon_v1_media_detect_chapters_request_proto != nil {
 		return
 	}
+	file_gcommon_v1_media_chapter_detection_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_detect_chapters_request_proto_rawDesc), len(file_gcommon_v1_media_detect_chapters_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

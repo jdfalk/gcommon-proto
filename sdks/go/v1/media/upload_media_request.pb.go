@@ -22,7 +22,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Request to upload media content (streaming).
 type UploadMediaRequest struct {
 	state           protoimpl.MessageState    `protogen:"opaque.v1"`
 	xxx_hidden_Data isUploadMediaRequest_Data `protobuf_oneof:"data"`
@@ -193,203 +192,28 @@ func (*uploadMediaRequest_Metadata) isUploadMediaRequest_Data() {}
 
 func (*uploadMediaRequest_Chunk) isUploadMediaRequest_Data() {}
 
-// Metadata for media upload.
-type UploadMetadata struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Filename      *string                `protobuf:"bytes,1,opt,name=filename"`
-	xxx_hidden_ContentType   *string                `protobuf:"bytes,2,opt,name=content_type,json=contentType"`
-	xxx_hidden_TotalSize     int64                  `protobuf:"varint,3,opt,name=total_size,json=totalSize"`
-	xxx_hidden_MediaMetadata *MediaMetadata         `protobuf:"bytes,4,opt,name=media_metadata,json=mediaMetadata"`
-	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
-	XXX_presence             [1]uint32
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
-}
-
-func (x *UploadMetadata) Reset() {
-	*x = UploadMetadata{}
-	mi := &file_gcommon_v1_media_upload_media_request_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UploadMetadata) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadMetadata) ProtoMessage() {}
-
-func (x *UploadMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_gcommon_v1_media_upload_media_request_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *UploadMetadata) GetFilename() string {
-	if x != nil {
-		if x.xxx_hidden_Filename != nil {
-			return *x.xxx_hidden_Filename
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *UploadMetadata) GetContentType() string {
-	if x != nil {
-		if x.xxx_hidden_ContentType != nil {
-			return *x.xxx_hidden_ContentType
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *UploadMetadata) GetTotalSize() int64 {
-	if x != nil {
-		return x.xxx_hidden_TotalSize
-	}
-	return 0
-}
-
-func (x *UploadMetadata) GetMediaMetadata() *MediaMetadata {
-	if x != nil {
-		return x.xxx_hidden_MediaMetadata
-	}
-	return nil
-}
-
-func (x *UploadMetadata) SetFilename(v string) {
-	x.xxx_hidden_Filename = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *UploadMetadata) SetContentType(v string) {
-	x.xxx_hidden_ContentType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *UploadMetadata) SetTotalSize(v int64) {
-	x.xxx_hidden_TotalSize = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *UploadMetadata) SetMediaMetadata(v *MediaMetadata) {
-	x.xxx_hidden_MediaMetadata = v
-}
-
-func (x *UploadMetadata) HasFilename() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UploadMetadata) HasContentType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *UploadMetadata) HasTotalSize() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UploadMetadata) HasMediaMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_MediaMetadata != nil
-}
-
-func (x *UploadMetadata) ClearFilename() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Filename = nil
-}
-
-func (x *UploadMetadata) ClearContentType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_ContentType = nil
-}
-
-func (x *UploadMetadata) ClearTotalSize() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TotalSize = 0
-}
-
-func (x *UploadMetadata) ClearMediaMetadata() {
-	x.xxx_hidden_MediaMetadata = nil
-}
-
-type UploadMetadata_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	Filename      *string
-	ContentType   *string
-	TotalSize     *int64
-	MediaMetadata *MediaMetadata
-}
-
-func (b0 UploadMetadata_builder) Build() *UploadMetadata {
-	m0 := &UploadMetadata{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Filename != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Filename = b.Filename
-	}
-	if b.ContentType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_ContentType = b.ContentType
-	}
-	if b.TotalSize != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_TotalSize = *b.TotalSize
-	}
-	x.xxx_hidden_MediaMetadata = b.MediaMetadata
-	return m0
-}
-
 var File_gcommon_v1_media_upload_media_request_proto protoreflect.FileDescriptor
 
 const file_gcommon_v1_media_upload_media_request_proto_rawDesc = "" +
 	"\n" +
-	"+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/media/media_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\"t\n" +
+	"+gcommon/v1/media/upload_media_request.proto\x12\x10gcommon.v1.media\x1a%gcommon/v1/media/media_metadata.proto\x1a!google/protobuf/go_features.proto\x1a\x1bbuf/validate/validate.proto\x1a&gcommon/v1/media/upload_metadata.proto\"t\n" +
 	"\x12UploadMediaRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2 .gcommon.v1.media.UploadMetadataH\x00R\bmetadata\x12\x16\n" +
 	"\x05chunk\x18\x02 \x01(\fH\x00R\x05chunkB\x06\n" +
-	"\x04data\"\xd1\x01\n" +
-	"\x0eUploadMetadata\x12#\n" +
-	"\bfilename\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\bfilename\x12*\n" +
-	"\fcontent_type\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\vcontentType\x12&\n" +
-	"\n" +
-	"total_size\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02(\x00R\ttotalSize\x12F\n" +
-	"\x0emedia_metadata\x18\x04 \x01(\v2\x1f.gcommon.v1.media.MediaMetadataR\rmediaMetadataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x04dataB4Z*github.com/jdfalk/gcommon/sdks/go/v1/media\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_gcommon_v1_media_upload_media_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_gcommon_v1_media_upload_media_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_gcommon_v1_media_upload_media_request_proto_goTypes = []any{
 	(*UploadMediaRequest)(nil), // 0: gcommon.v1.media.UploadMediaRequest
 	(*UploadMetadata)(nil),     // 1: gcommon.v1.media.UploadMetadata
-	(*MediaMetadata)(nil),      // 2: gcommon.v1.media.MediaMetadata
 }
 var file_gcommon_v1_media_upload_media_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.media.UploadMediaRequest.metadata:type_name -> gcommon.v1.media.UploadMetadata
-	2, // 1: gcommon.v1.media.UploadMetadata.media_metadata:type_name -> gcommon.v1.media.MediaMetadata
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_gcommon_v1_media_upload_media_request_proto_init() }
@@ -398,6 +222,7 @@ func file_gcommon_v1_media_upload_media_request_proto_init() {
 		return
 	}
 	file_gcommon_v1_media_media_metadata_proto_init()
+	file_gcommon_v1_media_upload_metadata_proto_init()
 	file_gcommon_v1_media_upload_media_request_proto_msgTypes[0].OneofWrappers = []any{
 		(*uploadMediaRequest_Metadata)(nil),
 		(*uploadMediaRequest_Chunk)(nil),
@@ -408,7 +233,7 @@ func file_gcommon_v1_media_upload_media_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcommon_v1_media_upload_media_request_proto_rawDesc), len(file_gcommon_v1_media_upload_media_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
