@@ -1,22 +1,28 @@
-# web_services Module
+# Web Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 2
-- **Messages**: 0
 - **Services**: 2
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`WebAdminService`](#web_admin_service) - from web_admin_service.proto
+- [`WebService`](#web_service) - from web_service.proto
+
+### Files in this Module
 
 - [web_admin_service.proto](#web_admin_service)
 - [web_service.proto](#web_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### web_admin_service.proto {#web_admin_service}
 

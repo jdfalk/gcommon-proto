@@ -1,15 +1,24 @@
-# database_services Module
+# Database Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 6
-- **Messages**: 0
 - **Services**: 6
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`CacheAdminService`](#cache_admin_service) - from cache_admin_service.proto
+- [`CacheService`](#cache_service) - from cache_service.proto
+- [`DatabaseAdminService`](#database_admin_service) - from database_admin_service.proto
+- [`DatabaseService`](#database_service) - from database_service.proto
+- [`MigrationService`](#migration_service) - from migration_service.proto
+- [`TransactionService`](#transaction_service) - from transaction_service.proto
+
+### Files in this Module
 
 - [cache_admin_service.proto](#cache_admin_service)
 - [cache_service.proto](#cache_service)
@@ -17,10 +26,11 @@
 - [database_service.proto](#database_service)
 - [migration_service.proto](#migration_service)
 - [transaction_service.proto](#transaction_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### cache_admin_service.proto {#cache_admin_service}
 

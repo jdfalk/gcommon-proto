@@ -1,128 +1,32 @@
-# queue_services Module
+# Queue Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
-- **Proto Files**: 6
-- **Messages**: 2
+- **Proto Files**: 4
 - **Services**: 4
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
 
-- [external_auth_service.proto](#external_auth_service)
-- [key_validation_service.proto](#key_validation_service)
+### Services
+
+- [`QueueAdminService`](#queue_admin_service) - from queue_admin_service.proto
+- [`QueueMonitoringService`](#queue_monitoring_service) - from queue_monitoring_service.proto
+- [`QueueService`](#queue_service) - from queue_service.proto
+- [`WorkflowService`](#workflow_service) - from workflow_service.proto
+
+### Files in this Module
+
 - [queue_admin_service.proto](#queue_admin_service)
 - [queue_monitoring_service.proto](#queue_monitoring_service)
 - [queue_service.proto](#queue_service)
 - [workflow_service.proto](#workflow_service)
----
-
-
-## Detailed Documentation
-
-### external_auth_service.proto {#external_auth_service}
-
-**Path**: `gcommon/v1/queue/external_auth_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
-
-**Messages** (1): `ExternalAuthService`
-
-**Imports** (4):
-
-- `gcommon/v1/queue/auth_cache_config.proto`
-- `gcommon/v1/queue/retry_config.proto`
-- `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/queue/external_auth_service.proto
-// version: 1.0.0
-// guid: 888d52ef-a351-4fe1-a31e-6d7085e83b26
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "gcommon/v1/queue/auth_cache_config.proto";
-import "gcommon/v1/queue/retry_config.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
-
-message ExternalAuthService {
-  // Enable external authorization
-  bool enabled = 1;
-
-  // Authorization service endpoint
-  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
-
-  // Request timeout (milliseconds)
-  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
-
-  // Retry configuration - references existing RetryConfig
-  QueueRetryConfig retry_config = 4;
-
-  // Cache configuration
-  AuthCacheConfig cache_config = 5;
-
-  // Headers to include in authorization requests
-  map<string, string> request_headers = 6;
-}
-```
 
 ---
 
-### key_validation_service.proto {#key_validation_service}
 
-**Path**: `gcommon/v1/queue/key_validation_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
-
-**Messages** (1): `KeyValidationService`
-
-**Imports** (2):
-
-- `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/queue/key_validation_service.proto
-// version: 1.0.0
-// guid: 796890cb-3593-41dc-bd46-52b840d476a4
-
-edition = "2023";
-
-package gcommon.v1.queue;
-
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/queue";
-
-message KeyValidationService {
-  // Service type (local, external, etc.)
-  string service_type = 1 [(buf.validate.field).string.min_len = 1];
-
-  // Service endpoint (for external validation)
-  string endpoint = 2 [(buf.validate.field).string.min_len = 1];
-
-  // Timeout for validation requests (milliseconds)
-  int32 timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
-
-  // Cache TTL for validation results (seconds)
-  int32 cache_ttl_seconds = 4 [(buf.validate.field).int32.gte = 0];
-}
-```
-
----
+## Services Documentation
 
 ### queue_admin_service.proto {#queue_admin_service}
 

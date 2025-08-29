@@ -1,22 +1,28 @@
-# config_services Module
+# Config Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 2
-- **Messages**: 0
 - **Services**: 2
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`ConfigAdminService`](#config_admin_service) - from config_admin_service.proto
+- [`ConfigService`](#config_service) - from config_service.proto
+
+### Files in this Module
 
 - [config_admin_service.proto](#config_admin_service)
 - [config_service.proto](#config_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### config_admin_service.proto {#config_admin_service}
 

@@ -1,22 +1,28 @@
-# metrics_services Module
+# Metrics Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 2
-- **Messages**: 0
 - **Services**: 2
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`MetricsManagementService`](#metrics_management_service) - from metrics_management_service.proto
+- [`MetricsService`](#metrics_service) - from metrics_service.proto
+
+### Files in this Module
 
 - [metrics_management_service.proto](#metrics_management_service)
 - [metrics_service.proto](#metrics_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### metrics_management_service.proto {#metrics_management_service}
 

@@ -1,24 +1,32 @@
-# media_services Module
+# Media Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 4
-- **Messages**: 0
 - **Services**: 4
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`AudioService`](#audio_service) - from audio_service.proto
+- [`MediaProcessingService`](#media_processing_service) - from media_processing_service.proto
+- [`MediaService`](#media_service) - from media_service.proto
+- [`SubtitleService`](#subtitle_service) - from subtitle_service.proto
+
+### Files in this Module
 
 - [audio_service.proto](#audio_service)
 - [media_processing_service.proto](#media_processing_service)
 - [media_service.proto](#media_service)
 - [subtitle_service.proto](#subtitle_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### audio_service.proto {#audio_service}
 

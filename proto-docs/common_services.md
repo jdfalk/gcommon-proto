@@ -1,34 +1,42 @@
-# common_services Module
+# Common Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
-- **Proto Files**: 14
-- **Messages**: 5
+- **Proto Files**: 9
 - **Services**: 9
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`AuthAdminService`](#auth_admin_service) - from auth_admin_service.proto
+- [`AuthService`](#auth_service) - from auth_service.proto
+- [`AuthorizationService`](#authorization_service) - from authorization_service.proto
+- [`HealthAdminService`](#health_admin_service) - from health_admin_service.proto
+- [`HealthService`](#health_service) - from health_service.proto
+- [`LogAdminService`](#log_admin_service) - from log_admin_service.proto
+- [`LogService`](#log_service) - from log_service.proto
+- [`NotificationService`](#notification_service) - from notification_service.proto
+- [`SessionService`](#session_service) - from session_service.proto
+
+### Files in this Module
 
 - [auth_admin_service.proto](#auth_admin_service)
 - [auth_service.proto](#auth_service)
 - [authorization_service.proto](#authorization_service)
-- [get_service_health_request.proto](#get_service_health_request)
-- [get_service_health_response.proto](#get_service_health_response)
 - [health_admin_service.proto](#health_admin_service)
 - [health_service.proto](#health_service)
-- [list_services_request.proto](#list_services_request)
-- [list_services_response.proto](#list_services_response)
 - [log_admin_service.proto](#log_admin_service)
 - [log_service.proto](#log_service)
 - [notification_service.proto](#notification_service)
-- [service_version.proto](#service_version)
 - [session_service.proto](#session_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### auth_admin_service.proto {#auth_admin_service}
 
@@ -301,100 +309,6 @@ service AuthorizationService {
 
 ---
 
-### get_service_health_request.proto {#get_service_health_request}
-
-**Path**: `gcommon/v1/common/get_service_health_request.proto` **Package**: `gcommon.v1.common` **Lines**: 26
-
-**Messages** (1): `GetServiceHealthRequest`
-
-**Imports** (3):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/common/get_service_health_request.proto
-// version: 1.0.0
-// guid: 46ca267d-39dc-40ba-a77d-238f56c0f282
-//
-// Get service health request message definition
-//
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-message GetServiceHealthRequest {
-  // Service name
-  string service = 1 [(buf.validate.field).string.min_len = 1];
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-```
-
----
-
-### get_service_health_response.proto {#get_service_health_response}
-
-**Path**: `gcommon/v1/common/get_service_health_response.proto` **Package**: `gcommon.v1.common` **Lines**: 29
-
-**Messages** (1): `GetServiceHealthResponse`
-
-**Imports** (4):
-
-- `gcommon/v1/common/error.proto`
-- `gcommon/v1/common/health_status.proto`
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/common/get_service_health_response.proto
-// version: 1.0.1
-// guid: eb2e3f53-909e-4bd0-a9e8-3162f317a1ae
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "gcommon/v1/common/error.proto";
-import "gcommon/v1/common/health_status.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-/**
- * Response message for service health status requests.
- * Provides health status for a specific service.
- */
-message GetServiceHealthResponse {
-  // Health status
-  gcommon.v1.common.CommonHealthStatus status = 1;
-
-  // Last check timestamp
-  google.protobuf.Timestamp last_check = 2;
-
-  // Error information if unhealthy
-  gcommon.v1.common.Error error = 3;
-}
-```
-
----
-
 ### health_admin_service.proto {#health_admin_service}
 
 **Path**: `gcommon/v1/common/health_admin_service.proto` **Package**: `gcommon.v1.common` **Lines**: 51
@@ -565,87 +479,6 @@ service HealthService {
 
 ---
 
-### list_services_request.proto {#list_services_request}
-
-**Path**: `gcommon/v1/common/list_services_request.proto` **Package**: `gcommon.v1.common` **Lines**: 21
-
-**Messages** (1): `ListServicesRequest`
-
-**Imports** (2):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/common/list_services_request.proto
-// version: 1.0.1
-// guid: ef4885eb-ad77-4dff-a074-83ad474e25a2
-//
-// List services request message definition
-//
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-message ListServicesRequest {
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 1;
-}
-```
-
----
-
-### list_services_response.proto {#list_services_response}
-
-**Path**: `gcommon/v1/common/list_services_response.proto` **Package**: `gcommon.v1.common` **Lines**: 23
-
-**Messages** (1): `ListServicesResponse`
-
-**Imports** (3):
-
-- `gcommon/v1/common/request_metadata.proto`
-- `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/common/list_services_response.proto
-// version: 1.0.0
-// guid: 09285493-9262-4105-aec3-9a02d03db370
-
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "gcommon/v1/common/request_metadata.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-message ListServicesResponse {
-  // List of service names
-  repeated string services = 1 [(buf.validate.field).repeated.min_items = 1];
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-```
-
----
-
 ### log_admin_service.proto {#log_admin_service}
 
 **Path**: `gcommon/v1/common/log_admin_service.proto` **Package**: `gcommon.v1.common` **Lines**: 23
@@ -808,63 +641,6 @@ service NotificationService {
 
   // Delete a notification
   rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
-}
-```
-
----
-
-### service_version.proto {#service_version}
-
-**Path**: `gcommon/v1/common/service_version.proto` **Package**: `gcommon.v1.common` **Lines**: 38
-
-**Messages** (1): `ServiceVersion`
-
-**Imports** (3):
-
-- `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
-- `buf/validate/validate.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/common/service_version.proto
-// version: 1.0.0
-// guid: c43e033c-3b21-4e79-b0e3-b4eee94d8cf1
-edition = "2023";
-
-package gcommon.v1.common;
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/common";
-
-/**
- * Service version information for deployment tracking and compatibility.
- * Provides comprehensive build and version metadata for service
- * identification, debugging, and compatibility checking.
- */
-message ServiceVersion {
-  // Service name identifier
-  string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
-
-  // Semantic version string (e.g., "1.2.3")
-  string version = 2;
-
-  // Git commit hash used for the build
-  string commit = 3;
-
-  // Timestamp when the service was built
-  google.protobuf.Timestamp build_time = 4;
-
-  // Go version used for compilation
-  string go_version = 5;
 }
 ```
 

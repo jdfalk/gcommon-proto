@@ -1,23 +1,30 @@
-# organization_services Module
+# Organization Services Documentation
 
-[← Back to Index](./index.md)
+[← Back to Index](./README.md)
 
 ## Module Overview
 
 - **Proto Files**: 3
-- **Messages**: 0
 - **Services**: 3
-- **Enums**: 0
 
-## Files in this Module
+## Table of Contents
+
+### Services
+
+- [`HierarchyService`](#hierarchy_service) - from hierarchy_service.proto
+- [`OrganizationService`](#organization_service) - from organization_service.proto
+- [`TenantService`](#tenant_service) - from tenant_service.proto
+
+### Files in this Module
 
 - [hierarchy_service.proto](#hierarchy_service)
 - [organization_service.proto](#organization_service)
 - [tenant_service.proto](#tenant_service)
+
 ---
 
 
-## Detailed Documentation
+## Services Documentation
 
 ### hierarchy_service.proto {#hierarchy_service}
 
