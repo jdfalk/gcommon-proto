@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/generate_proto_docs.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 9f4c4d9e-2d2b-4c53-9457-3a5bb0d6f8aa
 """
 Automated Protocol Buffer Markdown documentation generator.
@@ -11,6 +11,7 @@ Design Goals:
   * Reasonable module splitting so very large domains are broken into numbered chunks.
   * Heuristic grouping to mirror existing structure (base, api_N, config(_N), services, events).
   * Lightweight dependency graph between modules inferred from import paths.
+  * Automatic prettier formatting for consistent markdown output.
 
 Grouping Heuristics:
   Domain = immediate directory under proto/gcommon/v1 (e.g. auth, queue, web).
@@ -35,6 +36,12 @@ Output Structure:
     README.md               Master index & summary
     <module>.md             One file per generated module
 
+Prettier Formatting:
+  After generating all markdown files, the script automatically runs prettier to ensure
+  consistent formatting. It first tries to use the local copilot-agent-util binary
+  (if available), then falls back to direct prettier command. This eliminates the need
+  for manual formatting fixes and ensures consistent output across all generated docs.
+
 Idempotency:
   Existing generated files (matching current module naming patterns) are removed
   before regeneration unless --no-clean is supplied.
@@ -56,6 +63,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -527,6 +535,61 @@ def remove_existing(out_dir: Path, verbose: bool):
             print(f"Removed {p}")
 
 
+def run_prettier(out_dir: Path, verbose: bool):
+    """Run prettier on the generated markdown files to ensure consistent formatting."""
+    # Check if copilot-agent-util is available first
+    copilot_util_path = Path("./copilot-agent-util")
+    if copilot_util_path.exists():
+        if verbose:
+            print("Running prettier via copilot-agent-util...")
+        try:
+            result = subprocess.run(
+                [str(copilot_util_path), "prettier", "prettier", "--write", str(out_dir)],
+                capture_output=True,
+                text=True,
+                check=False
+            )
+            if result.returncode == 0:
+                if verbose:
+                    print("✅ Prettier formatting completed successfully")
+            else:
+                if verbose:
+                    print(f"⚠️ Prettier via copilot-agent-util failed: {result.stderr}")
+                # Fall back to direct prettier
+                _run_direct_prettier(out_dir, verbose)
+        except Exception as e:
+            if verbose:
+                print(f"⚠️ Error running copilot-agent-util prettier: {e}")
+            # Fall back to direct prettier
+            _run_direct_prettier(out_dir, verbose)
+    else:
+        # Try direct prettier
+        _run_direct_prettier(out_dir, verbose)
+
+
+def _run_direct_prettier(out_dir: Path, verbose: bool):
+    """Fall back to running prettier directly."""
+    try:
+        result = subprocess.run(
+            ["prettier", "--write", f"{out_dir}/*.md"],
+            capture_output=True,
+            text=True,
+            check=False,
+            shell=True
+        )
+        if result.returncode == 0:
+            if verbose:
+                print("✅ Direct prettier formatting completed successfully")
+        else:
+            if verbose:
+                print(f"⚠️ Direct prettier failed: {result.stderr}")
+                print("📝 Generated docs without prettier formatting")
+    except Exception as e:
+        if verbose:
+            print(f"⚠️ Error running direct prettier: {e}")
+            print("📝 Generated docs without prettier formatting")
+
+
 def parse_args(argv: List[str]) -> argparse.Namespace:
     ap = argparse.ArgumentParser(
         description="Generate markdown docs for protobuf definitions"
@@ -582,6 +645,10 @@ def main(argv: List[str]) -> int:
     for m in modules.values():
         write_module_doc(m, out_dir)
     write_index(modules, out_dir)
+    
+    # Run prettier to format the generated markdown files
+    run_prettier(out_dir, args.verbose)
+    
     if args.verbose:
         print(f"Wrote {len(modules)} module docs to {out_dir}")
     return 0
