@@ -544,10 +544,16 @@ def run_prettier(out_dir: Path, verbose: bool):
             print("Running prettier via copilot-agent-util...")
         try:
             result = subprocess.run(
-                [str(copilot_util_path), "prettier", "prettier", "--write", str(out_dir)],
+                [
+                    str(copilot_util_path),
+                    "prettier",
+                    "prettier",
+                    "--write",
+                    str(out_dir),
+                ],
                 capture_output=True,
                 text=True,
-                check=False
+                check=False,
             )
             if result.returncode == 0:
                 if verbose:
@@ -575,7 +581,7 @@ def _run_direct_prettier(out_dir: Path, verbose: bool):
             capture_output=True,
             text=True,
             check=False,
-            shell=True
+            shell=True,
         )
         if result.returncode == 0:
             if verbose:
@@ -645,10 +651,10 @@ def main(argv: List[str]) -> int:
     for m in modules.values():
         write_module_doc(m, out_dir)
     write_index(modules, out_dir)
-    
+
     # Run prettier to format the generated markdown files
     run_prettier(out_dir, args.verbose)
-    
+
     if args.verbose:
         print(f"Wrote {len(modules)} module docs to {out_dir}")
     return 0
