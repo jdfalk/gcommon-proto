@@ -1,0 +1,30 @@
+name: Sync Project Board Status
+'on':
+  issues:
+    types:
+    - closed
+    - reopened
+  pull_request:
+    types:
+    - closed
+    - reopened
+jobs:
+  sync-project-status:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Move closed issues to Done
+      if: github.event.action == 'closed'
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: All Projects
+        column: Done
+        action: move
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Move reopened issues to In Progress
+      if: github.event.action == 'reopened'
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: All Projects
+        column: In Progress
+        action: move
+        repo-token: ${{ secrets.GITHUB_TOKEN }}

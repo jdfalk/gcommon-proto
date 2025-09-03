@@ -1,0 +1,62 @@
+name: Auto-assign Issues to Projects
+'on':
+  issues:
+    types:
+    - opened
+    - labeled
+    - unlabeled
+  pull_request:
+    types:
+    - opened
+    - labeled
+    - unlabeled
+jobs:
+  assign-to-projects:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Auto-assign to Protobuf Project
+      if: contains(github.event.issue.labels.*.name, 'type:protobuf') || contains(github.event.issue.labels.*.name,
+        'epic:protobuf')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: Protobuf Implementation Epic
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Auto-assign to Auth Module Project
+      if: contains(github.event.issue.labels.*.name, 'module:auth')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: Authentication Module
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Auto-assign to Web Module Project
+      if: contains(github.event.issue.labels.*.name, 'module:web')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: Web Services Module
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Auto-assign to Queue Module Project
+      if: contains(github.event.issue.labels.*.name, 'module:queue')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: Message Queue Module
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Auto-assign to Config Module Project
+      if: contains(github.event.issue.labels.*.name, 'module:config')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: Configuration Module
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Auto-assign to High Priority Project
+      if: contains(github.event.issue.labels.*.name, 'priority:high') || contains(github.event.issue.labels.*.name,
+        'priority:critical')
+      uses: alex-page/github-project-automation-plus@v0.9.0
+      with:
+        project: High Priority Issues
+        column: To Do
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
