@@ -87,8 +87,7 @@ This directory contains auto-generated documentation for this project.
 - [Queue Services Documentation](proto-docs/queue_services.md)
 - [Web Messages Documentation](proto-docs/web_messages.md)
 - [Web Services Documentation](proto-docs/web_services.md)
-- [Protobuf Dependency Analysis Report](proto_dependency_analysis.md)
 - [file: scripts/README.md](scripts/README.md)
 - [file: sdks/README.md](sdks/README.md)
 
-_Generated on Fri Aug 29 03:36:43 UTC 2025_
+_Generated on Wed Sep  3 15:53:03 UTC 2025_
