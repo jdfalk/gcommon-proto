@@ -1,72 +1,55 @@
+<!-- file: CONTRIBUTING.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: d3f1a2b4-6c78-4e9a-9b1c-2d3e4f5a6b7c -->
+
 # Contributing to GCommon
 
 ## Table of Contents
 
 - [Contributing to GCommon](#contributing-to-gcommon)
   - [Table of Contents](#table-of-contents)
-  - [🚀 Quick Start for New Contributors](#-quick-start-for-new-contributors)
+  - [Quick Start for New Contributors](#quick-start-for-new-contributors)
     - [Prerequisites](#prerequisites)
     - [Setting Up Your Development Environment](#setting-up-your-development-environment)
-  - [📋 Issue Workflow](#-issue-workflow)
+  - [Issue Workflow](#issue-workflow)
     - [Starting Work on an Issue](#starting-work-on-an-issue)
     - [During Development](#during-development)
     - [Completing Work](#completing-work)
-- [Close issue and mark completed](#close-issue-and-mark-completed)
-- [Or manually](#or-manually)
-    - [Using scripts/create-issue-update.sh](#using-scripts-create-issue-update-sh)
-- [Create a new issue](#create-a-new-issue)
-- [Update an existing issue](#update-an-existing-issue)
-- [Add a comment to an issue](#add-a-comment-to-an-issue)
-- [Close an issue](#close-an-issue)
-  - [💻 Code Style Guidelines](#-code-style-guidelines)
+  - [Code Style Guidelines](#code-style-guidelines)
     - [Go](#go)
     - [Protocol Buffers](#protocol-buffers)
     - [Markdown](#markdown)
-  - [📝 Commit Message Standards](#-commit-message-standards)
+  - [Commit Message Standards](#commit-message-standards)
     - [Format](#format)
     - [Types](#types)
     - [Required Elements](#required-elements)
     - [Examples](#examples)
     - [Guidelines](#guidelines)
-  - [🔄 Pull Request Process](#-pull-request-process)
+  - [Pull Request Process](#pull-request-process)
     - [Before Creating a PR](#before-creating-a-pr)
     - [PR Description Template](#pr-description-template)
-  - [Description](#description)
-  - [Motivation](#motivation)
-  - [Changes](#changes)
+    - [Guidelines](#guidelines-1)
   - [Testing](#testing)
-  - [Screenshots](#screenshots)
-  - [Related Issues](#related-issues)
-    - [Guidelines](#guidelines)
-  - [🧪 Testing](#-testing)
     - [Running Tests](#running-tests)
-- [Run all tests](#run-all-tests)
-- [Run tests for specific module](#run-tests-for-specific-module)
-- [Run tests with coverage](#run-tests-with-coverage)
     - [Writing Tests](#writing-tests)
     - [Test Guidelines](#test-guidelines)
-  - [🏗️ Development Workflow](#-development-workflow)
+  - [Development Workflow](#development-workflow)
     - [Project Structure](#project-structure)
     - [Priority Areas for Contribution](#priority-areas-for-contribution)
     - [High-Impact Quick Wins](#high-impact-quick-wins)
-- [Get current status](#get-current-status)
-- [Check specific modules](#check-specific-modules)
-  - [🔧 Development Tools](#-development-tools)
+  - [Development Tools](#development-tools)
     - [Makefile Targets](#makefile-targets)
     - [Protobuf Development](#protobuf-development)
-- [Validate protobuf files](#validate-protobuf-files)
-- [Compile protobuf files](#compile-protobuf-files)
-- [Check coverage](#check-coverage)
-  - [🚨 Security & Best Practices](#-security-best-practices)
+  - [Security & Best Practices](#security--best-practices)
     - [Security Guidelines](#security-guidelines)
     - [Code Quality](#code-quality)
-  - [📚 Additional Resources](#-additional-resources)
+  - [Additional Resources](#additional-resources)
     - [Documentation](#documentation)
     - [Module-Specific Guides](#module-specific-guides)
     - [Getting Help](#getting-help)
-  - [📄 License](#-license)
+  - [License](#license)
 
-## 🚀 Quick Start for New Contributors
+## Quick Start for New Contributors
 
 ### Prerequisites
 
@@ -76,92 +59,48 @@
 
 ### Setting Up Your Development Environment
 
-1. **Fork and clone the repository:**
+1. Fork and clone the repository:
 
    ```bash
    git clone https://github.com/YOUR_USERNAME/gcommon.git
    cd gcommon
    ```
 
-2. **Set up the development environment:**
+2. Set up the development environment:
 
    ```bash
    make setup-dev
    go mod tidy
    ```
 
-3. **Verify your setup:**
+3. Verify your setup:
+
    ```bash
    make status
    make validate
    ```
 
-## 📋 Issue Workflow
+## Issue Workflow
 
-**CRITICAL:** All development work must include proper GitHub issue tracking using our automated workflow.
+Use standard GitHub issues and PRs to track work.
 
 ### Starting Work on an Issue
 
-1. **Assign yourself and mark the issue as in progress:**
-
-   ```bash
-   ./scripts/create-issue-update.sh update ISSUE_NUMBER "" "in-progress"
-   # Or manually:
-   echo '[{"action": "update", "number": ISSUE_NUMBER, "assignees": ["your-github-username"], "labels": ["in-progress"]}]' > issue_updates.json
-   git add issue_updates.json && git commit -m "Start work on issue #ISSUE_NUMBER: [Brief Description]" && git push
-   ```
-
-2. **Clean up the update file after each push:**
-   ```bash
-   rm issue_updates.json
-   ```
+- Assign yourself and add the "in-progress" label in the GitHub UI.
+- Create a feature branch from `main` and reference the issue in commits (e.g., `Fixes #123`).
 
 ### During Development
 
-- **Reference Issues:** Always include issue numbers in commit messages (`#ISSUE_NUMBER`)
-- **Progress Updates:** Add comments to issues for significant progress using:
-  ```bash
-  ./scripts/create-issue-update.sh comment ISSUE_NUMBER "Progress update text"
-  ```
-- **Label Changes:** Update labels if priority or scope changes
+- Reference the issue number in each relevant commit.
+- Add comments to the issue for significant progress or decisions.
+- Update labels if priority or scope changes.
 
 ### Completing Work
 
-```bash
-# Close issue and mark completed
-./scripts/create-issue-update.sh close ISSUE_NUMBER "completed"
-# Or manually:
-echo '[{"action": "update", "number": ISSUE_NUMBER, "state": "closed", "labels": ["completed"]}]' > issue_updates.json
-git add issue_updates.json && git commit -m "Complete issue #ISSUE_NUMBER: [What was accomplished]" && git push
-```
+- Open a PR that references the issue (e.g., `Closes #123`).
+- After merge, the issue will close automatically if properly referenced.
 
-### Using scripts/create-issue-update.sh
-
-The `scripts/create-issue-update.sh` script is the **required** way to manage GitHub issues programmatically:
-
-```bash
-# Create a new issue
-./scripts/create-issue-update.sh create "Issue Title" "Issue body" "label1,label2"
-
-# Update an existing issue
-./scripts/create-issue-update.sh update 123 "Updated body" "label1,label2"
-
-# Add a comment to an issue
-./scripts/create-issue-update.sh comment 123 "Comment text"
-
-# Close an issue
-./scripts/create-issue-update.sh close 123 "completed"
-```
-
-**Best practices:**
-
-- Use clear, concise titles and bodies
-- Use comma-separated labels (no spaces)
-- Always check the script output for success and file path
-- Do not manually edit or move generated files
-- Let the workflow process and archive files as needed
-
-## 💻 Code Style Guidelines
+## Code Style Guidelines
 
 ### Go
 
@@ -184,7 +123,7 @@ The `scripts/create-issue-update.sh` script is the **required** way to manage Gi
 
 ### Protocol Buffers
 
-- Follow [Google's Protocol Buffer Style Guide](https://developers.google.com/protocol-buffers/docs/style)
+- Follow Google's Protocol Buffer Style Guide
 - Use snake_case for field names
 - Use PascalCase for message and service names
 - Include comprehensive documentation for all messages and services
@@ -199,13 +138,13 @@ The `scripts/create-issue-update.sh` script is the **required** way to manage Gi
 - Use `-` for bullet points
 - Blank lines around code blocks and headers
 
-## 📝 Commit Message Standards
+## Commit Message Standards
 
-We use [Conventional Commits](https://www.conventionalcommits.org/) format:
+We use Conventional Commits format.
 
 ### Format
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -215,21 +154,21 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) format:
 
 ### Types
 
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, etc.)
-- `refactor`: Code changes that neither fix bugs nor add features
-- `perf`: Performance improvements
-- `test`: Adding or updating tests
-- `build`: Changes to build system or dependencies
-- `ci`: Changes to CI configuration
-- `chore`: Other changes that don't modify src or test files
-- `revert`: Reverting a previous commit
+- feat: New feature
+- fix: Bug fix
+- docs: Documentation changes
+- style: Code style changes (formatting, etc.)
+- refactor: Code changes that neither fix bugs nor add features
+- perf: Performance improvements
+- test: Adding or updating tests
+- build: Changes to build system or dependencies
+- ci: Changes to CI configuration
+- chore: Other changes that don't modify src or test files
+- revert: Reverting a previous commit
 
 ### Required Elements
 
-**REQUIRED:** Always include a "Files changed:" section in the commit body:
+REQUIRED: Always include a "Files changed:" section in the commit body:
 
 ```markdown
 Files changed:
@@ -262,11 +201,11 @@ Fixes #68
 - Reference real issues only: `Fixes #123` or `Closes #456`
 - No commit should be submitted without file change documentation
 
-## 🔄 Pull Request Process
+## Pull Request Process
 
 ### Before Creating a PR
 
-1. **Ensure your branch is up to date:**
+1. Ensure your branch is up to date:
 
    ```bash
    git checkout main
@@ -275,14 +214,15 @@ Fixes #68
    git rebase main
    ```
 
-2. **Run tests and validation:**
+2. Run tests and validation:
 
    ```bash
    make validate
    make test
    ```
 
-3. **Check code formatting:**
+3. Check code formatting:
+
    ```bash
    go fmt ./...
    ```
@@ -325,7 +265,7 @@ Use this template for your pull request description:
 - Link to all relevant issues/tickets
 - For breaking changes, include a "Breaking Changes" section
 
-## 🧪 Testing
+## Testing
 
 ### Running Tests
 
@@ -384,11 +324,11 @@ func TestFeatureName(t *testing.T) {
 }
 ```
 
-## 🏗️ Development Workflow
+## Development Workflow
 
 ### Project Structure
 
-```
+```text
 gcommon/
 ├── pkg/                    # Core library packages
 │   ├── metrics/           # Metrics collection
@@ -405,12 +345,12 @@ gcommon/
 
 Current development priorities:
 
-1. **Completing Metrics Module** (75% → 100%)
-2. **Finishing Logging Module** (50% → 100%)
-3. **Documentation improvements**
-4. **Example applications**
+1. Completing Metrics Module (75% → 100%)
+2. Finishing Logging Module (50% → 100%)
+3. Documentation improvements
+4. Example applications
 
-See [TODO.md](TODO.md) for detailed implementation status and [CHANGELOG.md](CHANGELOG.md) for technical architecture details.
+See TODO.md for detailed implementation status and CHANGELOG.md for technical architecture details.
 
 ### High-Impact Quick Wins
 
@@ -424,17 +364,17 @@ make config-status
 make metrics-status
 ```
 
-## 🔧 Development Tools
+## Development Tools
 
 ### Makefile Targets
 
-- `make help` - Show all available commands
-- `make status` - Get current implementation status
-- `make validate` - Validate protobuf compilation
-- `make compile` - Compile all protobuf files
-- `make test` - Run all tests
-- `make clean` - Clean generated files
-- `make setup-dev` - Set up development environment
+- make help - Show all available commands
+- make status - Get current implementation status
+- make validate - Validate protobuf compilation
+- make compile - Compile all protobuf files
+- make test - Run all tests
+- make clean - Clean generated files
+- make setup-dev - Set up development environment
 
 ### Protobuf Development
 
@@ -449,7 +389,7 @@ make compile
 ./validate_protobuf_coverage.py
 ```
 
-## 🚨 Security & Best Practices
+## Security & Best Practices
 
 ### Security Guidelines
 
@@ -467,35 +407,35 @@ make compile
 - Add comprehensive documentation for public APIs
 - Follow established patterns in the codebase
 
-## 📚 Additional Resources
+## Additional Resources
 
 ### Documentation
 
-- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and first steps
-- **[Project Roadmap](TODO.md)** - Implementation status and plans
-- **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
-- **[Issue Management Workflow](ISSUE_MANAGEMENT.md)** - Detailed issue management process
+- Getting Started Guide - docs/user/getting-started.md
+- Project Roadmap - TODO.md
+- Technical Architecture - CHANGELOG.md
+- Issue Management Workflow - ISSUE_MANAGEMENT.md
 
 ### Module-Specific Guides
 
-- [Metrics Collection](docs/user/metrics.md)
-- [Logging](docs/user/logging.md)
-- [Database Operations](docs/user/database.md)
-- [Health Monitoring](docs/user/health-kubernetes.md)
+- Metrics Collection - docs/user/metrics.md
+- Logging - docs/user/logging.md
+- Database Operations - docs/user/database.md
+- Health Monitoring - docs/user/health-kubernetes.md
 
 ### Getting Help
 
-- **📖 Documentation**: [docs/](docs/) directory
-- **💡 Examples**: [examples/](examples/) directory
-- **🐛 Issues**: [GitHub Issues](https://github.com/jdfalk/gcommon/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
+- Documentation: docs/
+- Examples: examples/
+- Issues: [https://github.com/jdfalk/gcommon/issues](https://github.com/jdfalk/gcommon/issues)
+- Discussions: [https://github.com/jdfalk/gcommon/discussions](https://github.com/jdfalk/gcommon/discussions)
 
-## 📄 License
+## License
 
-By contributing to GCommon, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to GCommon, you agree that your contributions will be licensed under the MIT License (LICENSE).
 
 ---
 
-**Thank you for contributing to GCommon!** 🎉
+Thank you for contributing to GCommon!
 
-For detailed agent and development guidelines, see [AGENTS.md](AGENTS.md).
+For detailed agent and development guidelines, see AGENTS.md.
