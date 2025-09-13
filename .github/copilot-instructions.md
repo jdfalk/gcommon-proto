@@ -1,5 +1,5 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.1.0 -->
+<!-- version: 2.1.1 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
 # Copilot/AI Agent Instructions (gcommon)
@@ -7,7 +7,7 @@
 This repo uses a centralized instruction system. Keep this short, actionable, and repo-specific.
 
 ## Required workflow
-- Do NOT edit markdown directly. Update docs via .github/doc-updates JSON and run scripts/doc_update_manager.py.
+- Edit docs directly in their files. Always keep the file header (file path, version, guid) and bump the version on any change.
 - Prefer VS Code Tasks over manual commands. Available tasks include: `Buf Lint with Output`, `Buf Generate with Output`, `Git Add All`, `Git Commit Auto`, `Git Push`, plus module-scoped Buf tasks.
 - Use Conventional Commits. All source/docs must include the required header (file path, version, guid) and bump version on change.
 
