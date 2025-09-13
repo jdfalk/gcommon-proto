@@ -1,73 +1,47 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.0.0 -->
+<!-- version: 2.1.0 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
-# Copilot/AI Agent Coding Instructions System
+# Copilot/AI Agent Instructions (gcommon)
 
-This repository uses a centralized, modular system for Copilot/AI agent coding,
-documentation, and workflow instructions, following the latest VS Code Copilot
-customization best practices.
+This repo uses a centralized instruction system. Keep this short, actionable, and repo-specific.
 
-## 🚨 CRITICAL: Documentation Update Protocol
+## Required workflow
+- Do NOT edit markdown directly. Update docs via .github/doc-updates JSON and run scripts/doc_update_manager.py.
+- Prefer VS Code Tasks over manual commands. Available tasks include: `Buf Lint with Output`, `Buf Generate with Output`, `Git Add All`, `Git Commit Auto`, `Git Push`, plus module-scoped Buf tasks.
+- Use Conventional Commits. All source/docs must include the required header (file path, version, guid) and bump version on change.
 
-**NEVER edit markdown files directly. ALWAYS use the documentation update
-system:**
+## Project shape (what matters)
+- Protobuf-first repo. Source protos live under `proto/gcommon/v1/<module>/<area>/<name>.proto` using a strict 1-1-1 pattern (one type/service per file).
+- Generated SDKs: Go in `sdks/go/gcommon/v1/...` and Python in `sdks/python/gcommon/v1/...`. Never hand-edit generated code.
+- Core config: `buf.yaml` (module + lint/breaking rules) and `buf.gen.yaml` (plugins/output).
+- Utility scripts in `scripts/` power generation and post-processing; Makefile provides a developer-friendly wrapper.
 
-1. **Create GitHub Issue First** (if none exists):
+## Build/generation flow
+- Lint protos: run the VS Code task “Buf Lint with Output” (or `make lint`). The repo’s buf rules allow: service suffix `Service`, enum zero value suffix `_UNSPECIFIED`, and google.empty messages.
+- Generate SDKs: run the task “Buf Generate with Output” (or `make generate`). This executes:
+  - buf generate → Go via `protoc-gen-go` and `protoc-gen-go-grpc` to `sdks/go` (module=github.com/jdfalk/gcommon/sdks/go) and Python via built-in `python` and `pyi` to `sdks/python`.
+  - scripts/setup-go-modules.py v2.9.0 (minimal): root `go mod tidy`, remove legacy per-package `go.mod`, ensure Python package markers.
+  - scripts/setup-python-sdk.py: ensures Python package layout and creates `sdks/python/setup.py` if missing.
+  - scripts/generate_proto_docs.py: emits docs to `proto-docs/` (threshold=50).
 
-   ```bash
-   ./scripts/create-issue-update.sh "Update [filename] - [description]" "Detailed description of what needs to be updated"
-   ```
+## Conventions and patterns
+- File headers: every source, script, and doc begins with repo-absolute path + semantic version + GUID. Update the version (patch/minor/major) whenever you change content.
+- Protos: do not add disable blocks to `buf.gen.yaml`; plugins are listed explicitly. Keep imports consistent with the 1-1-1 layout; fix by moving shared types to `common` if you see cycles.
+- Go usage: consumers import from `github.com/jdfalk/gcommon/sdks/go/gcommon/v1/<package>`; run `go mod tidy` in the consumer after updates.
+- Python usage: `pip install -e sdks/python` and import from `gcommon.v1.<package>`.
 
-2. **Create Documentation Update**:
+## What to touch vs. generate
+- Make changes in `proto/gcommon/v1/**` and rerun generation. Don’t hand-edit anything in `sdks/**`.
+- If you add a new proto: follow the 1-1-1 rule, pick the correct module (common, config, queue, metrics, database, web, organization, health, media, etc.), and include clear comments—docs are auto-generated.
 
-   ```bash
-   ./scripts/create-doc-update.sh [filename] "[content]" [mode] --issue [issue-number]
-   ```
+## Tasks and examples
+- Quick path: use VS Code tasks → “Buf Lint with Output” → “Buf Generate with Output” → “Git Add All” → “Git Commit Auto” → “Git Push”.
+- Makefile equivalents: `make dev` (lint+format+generate), `make generate`, `make proto-docs`, `make clean`.
 
-3. **Link to Issue**: Every documentation change MUST reference a GitHub issue
-   for tracking and context.
+## Canonical instruction sources
+- General rules: `.github/instructions/general-coding.instructions.md`
+- Language/task-specific: `.github/instructions/*.instructions.md`
+- Agent docs/pointers: `.github/README.md`, `AGENTS.md`, `.github/CLAUDE.md`
 
-**Failure to follow this protocol will result in workflow conflicts and lost
-changes.**
-
-## System Overview
-
-- **General rules**: `.github/instructions/general-coding.instructions.md`
-  (applies to all files)
-- **Language/task-specific rules**: `.github/instructions/*.instructions.md`
-  (with `applyTo` frontmatter)
-- **Prompt files**: `.github/prompts/` (for Copilot/AI prompt customization)
-- **Agent-specific docs**: `.github/AGENTS.md`, `.github/CLAUDE.md`, etc.
-  (pointers to this system)
-- **VS Code integration**: `.vscode/copilot/` contains symlinks to canonical
-  `.github/instructions/` files for VS Code Copilot features
-
-## How It Works
-
-- **General instructions** are always included for all files and languages.
-- **Language/task-specific instructions** extend the general rules and use the
-  `applyTo` field to target file globs (e.g., `**/*.go`).
-- **All code style, documentation, and workflow rules are now found exclusively
-  in `.github/instructions/*.instructions.md` files.**
-- **Prompt files** are stored in `.github/prompts/` and can reference
-  instructions as needed.
-- **Agent docs** (e.g., AGENTS.md) point to `.github/` as the canonical source
-  for all rules.
-- **VS Code** uses symlinks in `.vscode/copilot/` to include these instructions
-  for Copilot customization.
-
-## For Contributors
-
-- **Edit or add rules** in `.github/instructions/` only. Do not use or reference
-  any `code-style-*.md` files; these are obsolete.
-- **Add new prompts** in `.github/prompts/`.
-- **Update agent docs** to reference this system.
-- **Do not duplicate rules**; always reference the general instructions from
-  specific ones.
-- **See `.github/README.md`** for a human-friendly summary and contributor
-  guide.
-
-For full details, see the
-[general coding instructions](instructions/general-coding.instructions.md) and
-language-specific files in `.github/instructions/`.
+Tip: When in doubt, start from `make generate` or the Buf tasks and inspect `proto-docs/` for expected changes.
