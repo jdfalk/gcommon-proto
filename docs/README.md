@@ -8,7 +8,7 @@ This directory contains auto-generated documentation for this project.
 - [](.github/PULL_REQUEST_TEMPLATE.md)
 - [Copilot/AI Agent Coding Instructions System](.github/README.md)
 - [file: .github/WORKFLOW_CONFIG_GUIDE.md](.github/WORKFLOW_CONFIG_GUIDE.md)
-- [Copilot/AI Agent Coding Instructions System](.github/copilot-instructions.md)
+- [Copilot/AI Agent Instructions (gcommon)](.github/copilot-instructions.md)
 - [Dependabot Configuration & GitHub Projects Analysis](.github/dependabot-and-projects-analysis.md)
 - [GitHub Projects Configuration Guide](.github/github-projects-configuration.md)
 - [Conventional Commit Message Instructions](.github/instructions/commit-messages.instructions.md)
@@ -88,4 +88,4 @@ This directory contains auto-generated documentation for this project.
 - [file: scripts/README.md](scripts/README.md)
 - [file: sdks/README.md](sdks/README.md)
 
-_Generated on Sat Sep 13 00:12:39 UTC 2025_
+_Generated on Sat Sep 13 00:16:06 UTC 2025_
