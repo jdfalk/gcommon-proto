@@ -1,13 +1,15 @@
-name: Sync Project Board Status
+name: Sync Project Board Status (DISABLED)
 'on':
-  issues:
-    types:
-    - closed
-    - reopened
-  pull_request:
-    types:
-    - closed
-    - reopened
+  # DISABLED: Manual file management approach adopted
+  # issues:
+  #   types:
+  #   - closed
+  #   - reopened
+  # pull_request:
+  #   types:
+  #   - closed
+  #   - reopened
+  workflow_dispatch:
 jobs:
   sync-project-status:
     runs-on: ubuntu-latest
