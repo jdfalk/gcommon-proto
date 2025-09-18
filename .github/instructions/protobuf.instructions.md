@@ -1,8 +1,7 @@
 <!-- file: .github/instructions/protobuf.instructions.md -->
-<!-- version: 3.0.1 -->
+<!-- version: 3.1.0 -->
 <!-- guid: 7d6c5b4a-3c2d-1e0f-9a8b-7c6d5e4f3a2b -->
-<!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
-<!-- To update: Create an issue/PR in jdfalk/ghcommon -->
+<!-- NOTE: This repository requires using `make generate` (or the VS Code task "Buf Generate with Output") after any `.proto` changes to run post-processing scripts. -->
 
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -629,6 +628,15 @@ plugins:
       - paths=source_relative
       - require_unimplemented_servers=false
 ```
+
+### Required generation workflow (repo policy)
+
+- After modifying any `.proto` files, run `make generate` (preferred) or the VS Code task "Buf Generate with Output".
+- `make generate` performs essential post-processing:
+  - Configures the Go SDK modules (`scripts/setup-go-modules.py`)
+  - Ensures Python SDK packaging structure (`scripts/setup-python-sdk.py`)
+  - Regenerates and formats proto docs (`scripts/generate_proto_docs.py`)
+- Do not hand-edit generated code in `sdks/**` or docs in `proto-docs/**`.
 
 ## Validation Commands
 

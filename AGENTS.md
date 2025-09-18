@@ -1,5 +1,5 @@
 <!-- file: AGENTS.md -->
-<!-- version: 2.1.0 -->
+<!-- version: 2.2.0 -->
 <!-- guid: 2e7c1a4b-5d3f-4b8c-9e1f-7a6b2c3d4e5f -->
 
 # AGENTS.md
@@ -26,3 +26,12 @@ number:**
 
 **This applies to ALL files with version headers including documentation,
 templates, and configuration files.**
+
+## Protobuf updates (repo policy)
+
+- When you change any `.proto` files, always run `make generate` (or the VS Code task "Buf Generate with Output").
+- Prefer `make generate` because it runs required post-processing scripts:
+  - `scripts/setup-go-modules.py`
+  - `scripts/setup-python-sdk.py`
+  - `scripts/generate_proto_docs.py`
+- Never hand-edit anything under `sdks/**` — those are generated artifacts.
