@@ -23,7 +23,6 @@
 
 ---
 
-
 ## Services Documentation
 
 ### hierarchy_service.proto {#hierarchy_service}
@@ -354,4 +353,3 @@ service TenantService {
 ```
 
 ---
-
