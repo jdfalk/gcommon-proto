@@ -99,7 +99,7 @@ jobs:
 
       - name: Run Super Linter
         id: run-super-linter
-        uses: super-linter/super-linter@v8.1.0
+        uses: super-linter/super-linter@v8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Environment variables are now injected from super-linter-pr.env
