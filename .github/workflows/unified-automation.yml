@@ -1,5 +1,5 @@
 # file: .github/workflows/unified-automation.yml
-# version: 1.0.0
+# version: 1.1.0
 # guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 name: Unified Automation
@@ -74,10 +74,6 @@ jobs:
           echo "Executing: $CMD"
           $CMD
 
-          echo ""
-          echo "Note: Document updates are handled by separate workflows in .github/workflows/docs-automation.yml"
-          echo "Note: Migration tasks are handled by scripts/migrate_to_python.py and workflow_manager.py"
-
       - name: Check for changes
         id: changes
         run: |
@@ -113,5 +109,4 @@ jobs:
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Scope:** This workflow focuses on issue management and core automation." >> $GITHUB_STEP_SUMMARY
-          echo "**Document Updates:** Handled by docs-automation.yml workflow" >> $GITHUB_STEP_SUMMARY
-          echo "**Migration Tasks:** Handled by workflow_manager.py and migrate_to_python.py scripts" >> $GITHUB_STEP_SUMMARY
+          echo "**Documentation policy:** Direct edits in PRs; legacy docs-automation is retired" >> $GITHUB_STEP_SUMMARY

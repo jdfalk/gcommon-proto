@@ -1,5 +1,5 @@
 # file: .github/labeler.yml
-# version: 2.0.0
+# version: 2.0.1
 # guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 #
 # Standardized Pull Request Labeler Configuration for gcommon repository
@@ -68,7 +68,7 @@ tech:python:
       - any-glob-to-any-file:
           - "**/*.py"
           - "validate_protobuf_coverage.py"
-          - "doc_update_manager.py"
+          # removed deprecated docs-automation script
 
 tech:shell:
   - changed-files:

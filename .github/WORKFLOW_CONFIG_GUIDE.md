@@ -1,6 +1,6 @@
 # file: .github/WORKFLOW_CONFIG_GUIDE.md
 
-# version: 1.0.0
+# version: 1.1.0
 
 # guid: 8b9c0d1e-2f34-5678-9abc-def012345678
 
@@ -125,7 +125,7 @@ sync:
   exclude_files:
     - '.github/workflow-config.yaml' # Each repo has its own!
     - '.github/super-linter.env'
-    - '.github/unified-automation-config.json'
+  # unified-automation-config.json was retired; keep repo-specific configs local
 
   # Prevent infinite loops
   exclude_repos:
