@@ -1,5 +1,5 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.1.1 -->
+<!-- version: 2.1.2 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
 # Copilot/AI Agent Instructions (gcommon)
@@ -45,3 +45,9 @@ This repo uses a centralized instruction system. Keep this short, actionable, an
 - Agent docs/pointers: `.github/README.md`, `AGENTS.md`, `.github/CLAUDE.md`
 
 Tip: When in doubt, start from `make generate` or the Buf tasks and inspect `proto-docs/` for expected changes.
+
+## Documentation updates (no scripts)
+
+- Do not use any doc-update scripts in this repository.
+- Make edits directly in the target files and bump the version header accordingly.
+- Follow the guidance in `.github/instructions/general-coding.instructions.md` for formatting and workflow.

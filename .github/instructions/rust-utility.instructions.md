@@ -6,7 +6,7 @@
 <!-- markdownlint-disable -->
 ---
 
-applyTo: "\*\*"
+applyTo: "**"
 description: |
 Instructions for using the copilot-agent-util Rust utility as the primary tool for development operations. This utility provides superior performance, memory safety, and comprehensive command coverage compared to manual terminal commands.
 
