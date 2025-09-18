@@ -149,22 +149,21 @@ message DependencyCheckRequest {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `gcommon/v1/health/requests/health_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 46
+**Path**: `gcommon/v1/health/requests/health_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 45
 
 **Messages** (1): `HealthCheckRequest`
 
-**Imports** (4):
+**Imports** (3):
 
 - `gcommon/v1/common/request_metadata.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `buf/validate/validate.proto`
 
 #### Source Code
 
 ```protobuf
 // file: proto/gcommon/v1/health/requests/health_check_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4d5e6f70-8192-0123-def0-456789012345
 
 edition = "2023";
@@ -174,7 +173,6 @@ package gcommon.v1.health;
 import "gcommon/v1/common/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
@@ -1639,13 +1637,12 @@ message LivenessResult {
 
 ### readiness_check.proto {#readiness_check}
 
-**Path**: `gcommon/v1/health/messages/readiness_check.proto` **Package**: `gcommon.v1.health` **Lines**: 46
+**Path**: `gcommon/v1/health/messages/readiness_check.proto` **Package**: `gcommon.v1.health` **Lines**: 45
 
 **Messages** (1): `ReadinessCheck`
 
-**Imports** (4):
+**Imports** (3):
 
-- `gcommon/v1/health/enums/check_type.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
@@ -1654,14 +1651,13 @@ message LivenessResult {
 
 ```protobuf
 // file: proto/gcommon/v1/health/messages/readiness_check.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4e5f6071-8b92-0123-7890-456789012345
 
 edition = "2023";
 
 package gcommon.v1.health;
 
-import "gcommon/v1/health/enums/check_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
