@@ -1,9 +1,12 @@
+import datetime
+
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,7 +41,7 @@ class HealthMetrics(_message.Message):
     last_failure: _timestamp_pb2.Timestamp
     uptime_percent: float
     service_metrics: _containers.MessageMap[str, ServiceHealthMetrics]
-    def __init__(self, collected_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., total_checks: _Optional[int] = ..., healthy_checks: _Optional[int] = ..., unhealthy_checks: _Optional[int] = ..., unknown_checks: _Optional[int] = ..., avg_check_duration_ms: _Optional[float] = ..., success_rate_percent: _Optional[float] = ..., status_changes_last_hour: _Optional[int] = ..., last_failure: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., uptime_percent: _Optional[float] = ..., service_metrics: _Optional[_Mapping[str, ServiceHealthMetrics]] = ...) -> None: ...
+    def __init__(self, collected_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., total_checks: _Optional[int] = ..., healthy_checks: _Optional[int] = ..., unhealthy_checks: _Optional[int] = ..., unknown_checks: _Optional[int] = ..., avg_check_duration_ms: _Optional[float] = ..., success_rate_percent: _Optional[float] = ..., status_changes_last_hour: _Optional[int] = ..., last_failure: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., uptime_percent: _Optional[float] = ..., service_metrics: _Optional[_Mapping[str, ServiceHealthMetrics]] = ...) -> None: ...
 
 class ServiceHealthMetrics(_message.Message):
     __slots__ = ("service_name", "check_count", "health_score", "uptime_percent", "avg_response_time_ms")

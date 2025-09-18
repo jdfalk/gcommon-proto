@@ -4,7 +4,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -38,4 +39,4 @@ class ReadinessCheckResponse(_message.Message):
     dependency_status: _containers.ScalarMap[str, _health_status_pb2.HealthStatus]
     metadata: _response_metadata_pb2.ResponseMetadata
     details: _containers.ScalarMap[str, str]
-    def __init__(self, status: _Optional[_Union[_health_status_pb2.HealthStatus, str]] = ..., ready: bool = ..., reason: _Optional[str] = ..., health_score: _Optional[int] = ..., dependency_status: _Optional[_Mapping[str, _health_status_pb2.HealthStatus]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., details: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, status: _Optional[_Union[_health_status_pb2.HealthStatus, str]] = ..., ready: _Optional[bool] = ..., reason: _Optional[str] = ..., health_score: _Optional[int] = ..., dependency_status: _Optional[_Mapping[str, _health_status_pb2.HealthStatus]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., details: _Optional[_Mapping[str, str]] = ...) -> None: ...

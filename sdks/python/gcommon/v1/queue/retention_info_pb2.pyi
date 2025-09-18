@@ -1,9 +1,12 @@
+import datetime
+
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -21,4 +24,4 @@ class QueueRetentionInfo(_message.Message):
     retained_messages: int
     oldest_message_time: _timestamp_pb2.Timestamp
     next_cleanup_time: _timestamp_pb2.Timestamp
-    def __init__(self, retention_policy: _Optional[str] = ..., retention_seconds: _Optional[int] = ..., retention_bytes: _Optional[int] = ..., retained_messages: _Optional[int] = ..., oldest_message_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., next_cleanup_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, retention_policy: _Optional[str] = ..., retention_seconds: _Optional[int] = ..., retention_bytes: _Optional[int] = ..., retained_messages: _Optional[int] = ..., oldest_message_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., next_cleanup_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

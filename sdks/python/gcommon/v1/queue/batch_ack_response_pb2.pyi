@@ -5,7 +5,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -23,4 +24,4 @@ class BatchAckResponse(_message.Message):
     failed_acks: _containers.RepeatedCompositeFieldContainer[_failed_ack_pb2.FailedAck]
     metadata: _response_metadata_pb2.ResponseMetadata
     batch_id: str
-    def __init__(self, success: bool = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., failed_acks: _Optional[_Iterable[_Union[_failed_ack_pb2.FailedAck, _Mapping]]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., batch_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., acknowledged_count: _Optional[int] = ..., failed_count: _Optional[int] = ..., failed_acks: _Optional[_Iterable[_Union[_failed_ack_pb2.FailedAck, _Mapping]]] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., batch_id: _Optional[str] = ...) -> None: ...

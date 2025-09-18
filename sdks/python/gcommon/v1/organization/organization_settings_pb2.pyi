@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import key_value_pb2 as _key_value_pb2
 from gcommon.v1.common import organization_compliance_settings_pb2 as _organization_compliance_settings_pb2
 from gcommon.v1.common import organization_notification_settings_pb2 as _organization_notification_settings_pb2
@@ -12,7 +14,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -40,4 +43,4 @@ class OrganizationSettings(_message.Message):
     custom_settings: _containers.RepeatedCompositeFieldContainer[_key_value_pb2.KeyValue]
     updated_at: _timestamp_pb2.Timestamp
     updated_by: str
-    def __init__(self, organization_id: _Optional[str] = ..., security: _Optional[_Union[_security_settings_pb2.SecuritySettings, _Mapping]] = ..., ui: _Optional[_Union[_ui_settings_pb2.UISettings, _Mapping]] = ..., integrations: _Optional[_Union[_integration_settings_pb2.IntegrationSettings, _Mapping]] = ..., notifications: _Optional[_Union[_organization_notification_settings_pb2.OrganizationNotificationSettings, _Mapping]] = ..., billing: _Optional[_Union[_billing_settings_pb2.BillingSettings, _Mapping]] = ..., compliance: _Optional[_Union[_organization_compliance_settings_pb2.OrganizationComplianceSettings, _Mapping]] = ..., feature_flags: _Optional[_Iterable[_Union[_feature_flag_pb2.FeatureFlag, _Mapping]]] = ..., custom_settings: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_by: _Optional[str] = ...) -> None: ...
+    def __init__(self, organization_id: _Optional[str] = ..., security: _Optional[_Union[_security_settings_pb2.SecuritySettings, _Mapping]] = ..., ui: _Optional[_Union[_ui_settings_pb2.UISettings, _Mapping]] = ..., integrations: _Optional[_Union[_integration_settings_pb2.IntegrationSettings, _Mapping]] = ..., notifications: _Optional[_Union[_organization_notification_settings_pb2.OrganizationNotificationSettings, _Mapping]] = ..., billing: _Optional[_Union[_billing_settings_pb2.BillingSettings, _Mapping]] = ..., compliance: _Optional[_Union[_organization_compliance_settings_pb2.OrganizationComplianceSettings, _Mapping]] = ..., feature_flags: _Optional[_Iterable[_Union[_feature_flag_pb2.FeatureFlag, _Mapping]]] = ..., custom_settings: _Optional[_Iterable[_Union[_key_value_pb2.KeyValue, _Mapping]]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_by: _Optional[str] = ...) -> None: ...

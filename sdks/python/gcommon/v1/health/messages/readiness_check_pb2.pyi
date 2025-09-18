@@ -1,11 +1,13 @@
-from gcommon.v1.health.enums import check_type_pb2 as _check_type_pb2
+import datetime
+
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +29,4 @@ class ReadinessCheck(_message.Message):
     startup_grace_period: _duration_pb2.Duration
     updated_at: _timestamp_pb2.Timestamp
     enabled: bool
-    def __init__(self, id: _Optional[str] = ..., service_name: _Optional[str] = ..., dependencies: _Optional[_Iterable[str]] = ..., min_health_score: _Optional[int] = ..., max_response_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., startup_grace_period: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., enabled: bool = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., service_name: _Optional[str] = ..., dependencies: _Optional[_Iterable[str]] = ..., min_health_score: _Optional[int] = ..., max_response_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., startup_grace_period: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., enabled: _Optional[bool] = ...) -> None: ...

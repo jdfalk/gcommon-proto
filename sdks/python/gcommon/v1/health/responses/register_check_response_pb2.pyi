@@ -3,7 +3,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,4 +20,4 @@ class RegisterCheckResponse(_message.Message):
     message: str
     metadata: _response_metadata_pb2.ResponseMetadata
     warnings: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: bool = ..., check_id: _Optional[str] = ..., message: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., check_id: _Optional[str] = ..., message: _Optional[str] = ..., metadata: _Optional[_Union[_response_metadata_pb2.ResponseMetadata, _Mapping]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...

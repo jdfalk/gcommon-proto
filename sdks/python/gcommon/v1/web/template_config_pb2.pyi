@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -17,4 +18,4 @@ class TemplateConfig(_message.Message):
     extension: str
     reload: bool
     functions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, directory: _Optional[str] = ..., extension: _Optional[str] = ..., reload: bool = ..., functions: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, directory: _Optional[str] = ..., extension: _Optional[str] = ..., reload: _Optional[bool] = ..., functions: _Optional[_Iterable[str]] = ...) -> None: ...

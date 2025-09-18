@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import error_pb2 as _error_pb2
 from gcommon.v1.common import metrics_validation_result_pb2 as _metrics_validation_result_pb2
 from gcommon.v1.metrics import provider_status_pb2 as _provider_status_pb2
@@ -7,7 +9,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +32,4 @@ class UpdateProviderResponse(_message.Message):
     updated_at: _timestamp_pb2.Timestamp
     applied_changes: _containers.RepeatedScalarFieldContainer[str]
     warnings: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, success: bool = ..., provider_id: _Optional[str] = ..., status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ..., validation_results: _Optional[_Iterable[_Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., applied_changes: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., provider_id: _Optional[str] = ..., status: _Optional[_Union[_provider_status_pb2.ProviderStatus, _Mapping]] = ..., validation_results: _Optional[_Iterable[_Union[_metrics_validation_result_pb2.MetricsValidationResult, _Mapping]]] = ..., error: _Optional[_Union[_error_pb2.Error, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., applied_changes: _Optional[_Iterable[str]] = ..., warnings: _Optional[_Iterable[str]] = ...) -> None: ...

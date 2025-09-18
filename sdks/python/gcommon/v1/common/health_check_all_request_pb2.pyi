@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -16,4 +17,4 @@ class HealthCheckAllRequest(_message.Message):
     types: _containers.RepeatedScalarFieldContainer[_check_type_pb2.CheckType]
     include_details: bool
     timeout_seconds: int
-    def __init__(self, types: _Optional[_Iterable[_Union[_check_type_pb2.CheckType, str]]] = ..., include_details: bool = ..., timeout_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, types: _Optional[_Iterable[_Union[_check_type_pb2.CheckType, str]]] = ..., include_details: _Optional[bool] = ..., timeout_seconds: _Optional[int] = ...) -> None: ...

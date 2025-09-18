@@ -1,8 +1,11 @@
+import datetime
+
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -36,4 +39,4 @@ class SystemMetrics(_message.Message):
     load_average_15m: float
     process_count: int
     uptime_seconds: int
-    def __init__(self, collected_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., cpu_usage_percent: _Optional[float] = ..., memory_used_bytes: _Optional[int] = ..., memory_total_bytes: _Optional[int] = ..., disk_used_bytes: _Optional[int] = ..., disk_total_bytes: _Optional[int] = ..., network_bytes_received: _Optional[int] = ..., network_bytes_sent: _Optional[int] = ..., active_connections: _Optional[int] = ..., load_average_1m: _Optional[float] = ..., load_average_5m: _Optional[float] = ..., load_average_15m: _Optional[float] = ..., process_count: _Optional[int] = ..., uptime_seconds: _Optional[int] = ...) -> None: ...
+    def __init__(self, collected_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., cpu_usage_percent: _Optional[float] = ..., memory_used_bytes: _Optional[int] = ..., memory_total_bytes: _Optional[int] = ..., disk_used_bytes: _Optional[int] = ..., disk_total_bytes: _Optional[int] = ..., network_bytes_received: _Optional[int] = ..., network_bytes_sent: _Optional[int] = ..., active_connections: _Optional[int] = ..., load_average_1m: _Optional[float] = ..., load_average_5m: _Optional[float] = ..., load_average_15m: _Optional[float] = ..., process_count: _Optional[int] = ..., uptime_seconds: _Optional[int] = ...) -> None: ...

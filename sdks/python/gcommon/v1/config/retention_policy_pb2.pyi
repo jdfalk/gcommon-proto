@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +29,4 @@ class ConfigRetentionPolicy(_message.Message):
     backup_retention_days: int
     metrics_retention_days: int
     custom_retention: _containers.ScalarMap[str, int]
-    def __init__(self, enabled: bool = ..., config_retention_days: _Optional[int] = ..., audit_retention_days: _Optional[int] = ..., backup_retention_days: _Optional[int] = ..., metrics_retention_days: _Optional[int] = ..., custom_retention: _Optional[_Mapping[str, int]] = ...) -> None: ...
+    def __init__(self, enabled: _Optional[bool] = ..., config_retention_days: _Optional[int] = ..., audit_retention_days: _Optional[int] = ..., backup_retention_days: _Optional[int] = ..., metrics_retention_days: _Optional[int] = ..., custom_retention: _Optional[_Mapping[str, int]] = ...) -> None: ...

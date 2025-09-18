@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import request_metadata_pb2 as _request_metadata_pb2
 from gcommon.v1.metrics import batch_context_pb2 as _batch_context_pb2
 from gcommon.v1.metrics import metric_data_pb2 as _metric_data_pb2
@@ -6,7 +8,8 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -24,4 +27,4 @@ class RecordMetricRequest(_message.Message):
     validate: bool
     timestamp: _timestamp_pb2.Timestamp
     batch_context: _batch_context_pb2.BatchContext
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., metric: _Optional[_Union[_metric_data_pb2.MetricData, _Mapping]] = ..., provider_id: _Optional[str] = ..., validate: bool = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., batch_context: _Optional[_Union[_batch_context_pb2.BatchContext, _Mapping]] = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., metric: _Optional[_Union[_metric_data_pb2.MetricData, _Mapping]] = ..., provider_id: _Optional[str] = ..., validate: _Optional[bool] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., batch_context: _Optional[_Union[_batch_context_pb2.BatchContext, _Mapping]] = ...) -> None: ...

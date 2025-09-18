@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +29,4 @@ class CreateQueueResponse(_message.Message):
     partition_count: int
     applied_config: _containers.ScalarMap[str, str]
     error: str
-    def __init__(self, success: bool = ..., queue_name: _Optional[str] = ..., queue_endpoint: _Optional[str] = ..., partition_count: _Optional[int] = ..., applied_config: _Optional[_Mapping[str, str]] = ..., error: _Optional[str] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., queue_name: _Optional[str] = ..., queue_endpoint: _Optional[str] = ..., partition_count: _Optional[int] = ..., applied_config: _Optional[_Mapping[str, str]] = ..., error: _Optional[str] = ...) -> None: ...

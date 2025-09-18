@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -15,4 +16,4 @@ class HistogramConfig(_message.Message):
     buckets: _containers.RepeatedScalarFieldContainer[float]
     auto_buckets: bool
     max_buckets: int
-    def __init__(self, buckets: _Optional[_Iterable[float]] = ..., auto_buckets: bool = ..., max_buckets: _Optional[int] = ...) -> None: ...
+    def __init__(self, buckets: _Optional[_Iterable[float]] = ..., auto_buckets: _Optional[bool] = ..., max_buckets: _Optional[int] = ...) -> None: ...

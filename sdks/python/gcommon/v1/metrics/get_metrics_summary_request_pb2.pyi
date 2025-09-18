@@ -6,7 +6,8 @@ from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -26,4 +27,4 @@ class GetMetricsSummaryRequest(_message.Message):
     provider_id: str
     include_provider_stats: bool
     include_health_status: bool
-    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., options: _Optional[_Union[_summary_options_pb2.SummaryOptions, _Mapping]] = ..., provider_id: _Optional[str] = ..., include_provider_stats: bool = ..., include_health_status: bool = ...) -> None: ...
+    def __init__(self, metadata: _Optional[_Union[_request_metadata_pb2.RequestMetadata, _Mapping]] = ..., filter: _Optional[_Union[_metric_filter_pb2.MetricFilter, _Mapping]] = ..., time_range: _Optional[_Union[_time_range_metrics_pb2.TimeRangeMetrics, _Mapping]] = ..., options: _Optional[_Union[_summary_options_pb2.SummaryOptions, _Mapping]] = ..., provider_id: _Optional[str] = ..., include_provider_stats: _Optional[bool] = ..., include_health_status: _Optional[bool] = ...) -> None: ...

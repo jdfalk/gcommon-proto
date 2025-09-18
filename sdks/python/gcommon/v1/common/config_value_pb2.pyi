@@ -5,7 +5,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -36,4 +37,4 @@ class ConfigValue(_message.Message):
     type: _value_type_pb2.ValueType
     encrypted: bool
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, string_value: _Optional[str] = ..., int_value: _Optional[int] = ..., double_value: _Optional[float] = ..., bool_value: bool = ..., bytes_value: _Optional[bytes] = ..., any_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., type: _Optional[_Union[_value_type_pb2.ValueType, str]] = ..., encrypted: bool = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, string_value: _Optional[str] = ..., int_value: _Optional[int] = ..., double_value: _Optional[float] = ..., bool_value: _Optional[bool] = ..., bytes_value: _Optional[bytes] = ..., any_value: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., type: _Optional[_Union[_value_type_pb2.ValueType, str]] = ..., encrypted: _Optional[bool] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

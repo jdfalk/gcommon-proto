@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import alert_condition_pb2 as _alert_condition_pb2
 from gcommon.v1.common import metrics_alert_severity_pb2 as _metrics_alert_severity_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
@@ -6,7 +8,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +40,4 @@ class AlertRule(_message.Message):
     severity: _metrics_alert_severity_pb2.MetricsAlertSeverity
     enabled: bool
     labels: _containers.ScalarMap[str, str]
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., metric_name: _Optional[str] = ..., condition: _Optional[_Union[_alert_condition_pb2.AlertCondition, str]] = ..., threshold: _Optional[float] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., enabled: bool = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., metric_name: _Optional[str] = ..., condition: _Optional[_Union[_alert_condition_pb2.AlertCondition, str]] = ..., threshold: _Optional[float] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., severity: _Optional[_Union[_metrics_alert_severity_pb2.MetricsAlertSeverity, str]] = ..., enabled: _Optional[bool] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...

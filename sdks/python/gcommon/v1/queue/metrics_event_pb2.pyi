@@ -1,3 +1,5 @@
+import datetime
+
 from gcommon.v1.common import metric_type_pb2 as _metric_type_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -5,7 +7,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -28,4 +31,4 @@ class MetricsEvent(_message.Message):
     metric_type: _metric_type_pb2.MetricsMetricType
     value: float
     labels: _containers.ScalarMap[str, str]
-    def __init__(self, timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., queue_name: _Optional[str] = ..., metric_type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., queue_name: _Optional[str] = ..., metric_type: _Optional[_Union[_metric_type_pb2.MetricsMetricType, str]] = ..., value: _Optional[float] = ..., labels: _Optional[_Mapping[str, str]] = ...) -> None: ...

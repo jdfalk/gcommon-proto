@@ -1,9 +1,12 @@
+import datetime
+
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -27,4 +30,4 @@ class LivenessCheck(_message.Message):
     initial_delay: _duration_pb2.Duration
     created_at: _timestamp_pb2.Timestamp
     active: bool
-    def __init__(self, id: _Optional[str] = ..., service_name: _Optional[str] = ..., probe_endpoint: _Optional[str] = ..., interval: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., failure_threshold: _Optional[int] = ..., initial_delay: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., active: bool = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., service_name: _Optional[str] = ..., probe_endpoint: _Optional[str] = ..., interval: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., failure_threshold: _Optional[int] = ..., initial_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., active: _Optional[bool] = ...) -> None: ...

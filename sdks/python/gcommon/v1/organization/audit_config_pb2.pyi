@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -22,4 +23,4 @@ class AuditConfig(_message.Message):
     audited_events: _containers.RepeatedScalarFieldContainer[str]
     real_time_monitoring: bool
     alerts: _containers.RepeatedCompositeFieldContainer[_audit_alert_pb2.AuditAlert]
-    def __init__(self, audit_enabled: bool = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., audited_events: _Optional[_Iterable[str]] = ..., real_time_monitoring: bool = ..., alerts: _Optional[_Iterable[_Union[_audit_alert_pb2.AuditAlert, _Mapping]]] = ...) -> None: ...
+    def __init__(self, audit_enabled: _Optional[bool] = ..., retention_days: _Optional[int] = ..., storage_location: _Optional[str] = ..., audited_events: _Optional[_Iterable[str]] = ..., real_time_monitoring: _Optional[bool] = ..., alerts: _Optional[_Iterable[_Union[_audit_alert_pb2.AuditAlert, _Mapping]]] = ...) -> None: ...

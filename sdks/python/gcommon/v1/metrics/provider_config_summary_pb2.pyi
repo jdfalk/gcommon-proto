@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -18,4 +19,4 @@ class ProviderConfigSummary(_message.Message):
     security_enabled: bool
     resource_limits: _resource_limits_summary_pb2.ResourceLimitsSummary
     export_destinations: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, exporter_count: _Optional[int] = ..., security_enabled: bool = ..., resource_limits: _Optional[_Union[_resource_limits_summary_pb2.ResourceLimitsSummary, _Mapping]] = ..., export_destinations: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, exporter_count: _Optional[int] = ..., security_enabled: _Optional[bool] = ..., resource_limits: _Optional[_Union[_resource_limits_summary_pb2.ResourceLimitsSummary, _Mapping]] = ..., export_destinations: _Optional[_Iterable[str]] = ...) -> None: ...

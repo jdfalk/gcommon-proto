@@ -1,9 +1,12 @@
+import datetime
+
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -25,4 +28,4 @@ class DeliveryOptions(_message.Message):
     dead_letter_queue: str
     require_ack: bool
     ack_timeout: _duration_pb2.Duration
-    def __init__(self, delay: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., max_retries: _Optional[int] = ..., retry_delay: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., backoff_multiplier: _Optional[float] = ..., max_retry_delay: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., dead_letter_queue: _Optional[str] = ..., require_ack: bool = ..., ack_timeout: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    def __init__(self, delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., max_retries: _Optional[int] = ..., retry_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., backoff_multiplier: _Optional[float] = ..., max_retry_delay: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., dead_letter_queue: _Optional[str] = ..., require_ack: _Optional[bool] = ..., ack_timeout: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ...) -> None: ...

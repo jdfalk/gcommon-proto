@@ -1,10 +1,13 @@
+import datetime
+
 from gcommon.v1.health.messages import health_check_pb2 as _health_check_pb2
 from google.protobuf import go_features_pb2 as _go_features_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -29,4 +32,4 @@ class CheckRegistry(_message.Message):
     last_updated: _timestamp_pb2.Timestamp
     version: int
     monitored_services: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, checks: _Optional[_Mapping[str, _health_check_pb2.HealthCheck]] = ..., total_checks: _Optional[int] = ..., enabled_checks: _Optional[int] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ..., monitored_services: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, checks: _Optional[_Mapping[str, _health_check_pb2.HealthCheck]] = ..., total_checks: _Optional[int] = ..., enabled_checks: _Optional[int] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., version: _Optional[int] = ..., monitored_services: _Optional[_Iterable[str]] = ...) -> None: ...

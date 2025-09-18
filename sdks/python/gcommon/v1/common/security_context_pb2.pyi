@@ -4,7 +4,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -37,4 +38,4 @@ class SecurityContext(_message.Message):
     user_agent: str
     auth_timestamp: int
     metadata: _containers.ScalarMap[str, str]
-    def __init__(self, user_id: _Optional[str] = ..., session_id: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., auth_method: _Optional[_Union[_auth_method_pb2.AuthAuthMethod, str]] = ..., mfa_verified: bool = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., auth_timestamp: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., session_id: _Optional[str] = ..., roles: _Optional[_Iterable[str]] = ..., permissions: _Optional[_Iterable[str]] = ..., auth_method: _Optional[_Union[_auth_method_pb2.AuthAuthMethod, str]] = ..., mfa_verified: _Optional[bool] = ..., ip_address: _Optional[str] = ..., user_agent: _Optional[str] = ..., auth_timestamp: _Optional[int] = ..., metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...

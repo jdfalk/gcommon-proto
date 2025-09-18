@@ -3,7 +3,8 @@ from buf.validate import validate_pb2 as _validate_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from collections.abc import Iterable as _Iterable
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -19,4 +20,4 @@ class WebsocketConfig(_message.Message):
     enable_compression: bool
     read_buffer_size: int
     write_buffer_size: int
-    def __init__(self, endpoint: _Optional[str] = ..., allowed_origins: _Optional[_Iterable[str]] = ..., enable_compression: bool = ..., read_buffer_size: _Optional[int] = ..., write_buffer_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, endpoint: _Optional[str] = ..., allowed_origins: _Optional[_Iterable[str]] = ..., enable_compression: _Optional[bool] = ..., read_buffer_size: _Optional[int] = ..., write_buffer_size: _Optional[int] = ...) -> None: ...
