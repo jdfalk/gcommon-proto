@@ -1,12 +1,11 @@
 // file: proto/gcommon/v1/health/messages/readiness_check.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4e5f6071-8b92-0123-7890-456789012345
 
 edition = "2023";
 
 package gcommon.v1.health;
 
-import "gcommon/v1/health/enums/check_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
