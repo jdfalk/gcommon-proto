@@ -1,5 +1,5 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.1.2 -->
+<!-- version: 2.1.3 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
 # Copilot/AI Agent Instructions (gcommon)
@@ -19,7 +19,7 @@ This repo uses a centralized instruction system. Keep this short, actionable, an
 
 ## Build/generation flow
 - Lint protos: run the VS Code task “Buf Lint with Output” (or `make lint`). The repo’s buf rules allow: service suffix `Service`, enum zero value suffix `_UNSPECIFIED`, and google.empty messages.
-- Generate SDKs: run the task “Buf Generate with Output” (or `make generate`). This executes:
+- Generate SDKs: run the task “Buf Generate with Output” (or `make generate`). Always prefer `make generate` when updating protobufs because it runs required post-processing scripts. This executes:
   - buf generate → Go via `protoc-gen-go` and `protoc-gen-go-grpc` to `sdks/go` (module=github.com/jdfalk/gcommon/sdks/go) and Python via built-in `python` and `pyi` to `sdks/python`.
   - scripts/setup-go-modules.py v2.9.0 (minimal): root `go mod tidy`, remove legacy per-package `go.mod`, ensure Python package markers.
   - scripts/setup-python-sdk.py: ensures Python package layout and creates `sdks/python/setup.py` if missing.
