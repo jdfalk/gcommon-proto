@@ -1,5 +1,5 @@
 // file: go.mod
-// version: 1.2.0
+// version: 1.2.1
 // guid: f1e2d3c4-b5a6-9798-8c7b-6a5958473629
 
 module github.com/jdfalk/gcommon
@@ -7,8 +7,6 @@ module github.com/jdfalk/gcommon
 go 1.24.0
 
 toolchain go1.24.6
-
-replace github.com/jdfalk/gcommon/proto => ./sdks/go/v1
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.9-20250912141014-52f32327d4b0.1
