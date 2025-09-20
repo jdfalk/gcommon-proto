@@ -1,5 +1,5 @@
 # file: .github/workflows/protobuf-generation.yml
-# version: 1.2.2
+# version: 1.2.3
 # guid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
 
 name: Protocol Buffer Generation & Versioning
@@ -11,16 +11,16 @@ on:
       - "proto/**/*.proto"
       - "buf.yaml"
       - "buf.gen.yaml"
-      - "post-buf-generate.py"
-      - "setup-go-modules.py"
+      - "scripts/post-buf-generate.py"
+      - "scripts/setup-go-modules.py"
   pull_request:
     branches: [main, develop]
     paths:
       - "proto/**/*.proto"
       - "buf.yaml"
       - "buf.gen.yaml"
-      - "post-buf-generate.py"
-      - "setup-go-modules.py"
+      - "scripts/post-buf-generate.py"
+      - "scripts/setup-go-modules.py"
   workflow_dispatch:
     inputs:
       version_type:
