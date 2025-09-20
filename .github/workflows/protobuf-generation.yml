@@ -1,5 +1,5 @@
 # file: .github/workflows/protobuf-generation.yml
-# version: 1.2.1
+# version: 1.2.2
 # guid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
 
 name: Protocol Buffer Generation & Versioning
@@ -117,6 +117,14 @@ jobs:
         uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Pull latest changes
+        run: |
+          # Ensure we have the latest commits to avoid non-fast-forward errors later
+          git config --local pull.rebase true
+          git fetch origin --prune
+          git pull --rebase origin ${{ github.ref_name }}
 
       - name: Set up Go
         uses: actions/setup-go@v6
@@ -276,6 +284,9 @@ jobs:
       - name: Push changes
         if: steps.check-changes.outputs.has_changes == 'true'
         run: |
+          # Re-sync with origin to avoid non-fast-forward push failures
+          git fetch origin --prune
+          git pull --rebase origin ${{ github.ref_name }}
           git push origin ${{ github.ref_name }}
 
   # Create version tag for releases
