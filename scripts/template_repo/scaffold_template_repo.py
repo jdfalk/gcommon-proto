@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/template_repo/scaffold_template_repo.py
-# version: 1.0.0
+# version: 1.2.0
 # guid: 7f2d3a2e-4b5c-8d9e-0f1a-2b3c4d5e6f70
 
 """
@@ -13,8 +13,11 @@ Design goals:
 - Idempotent: safe to re-run; won’t overwrite existing files unless --force is used.
 
 What it creates:
-- Core docs: README.md, LICENSE, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md
-- .github/ files: workflows (ci), issue templates, PR template, CODEOWNERS
+- Core docs: README.md, LICENSE, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md, AGENTS.md
+- .github/ files: workflows (ci), issue templates, PR template, CODEOWNERS, copilot-instructions.md,
+  instructions/general-coding.instructions.md
+- Root linters/config: .editorconfig, .prettierrc.yaml, .eslintrc.yml, .markdownlint.yaml, .yamllint.yml,
+  .golangci.yml, .flake8
 - Basic .gitignore
 
 By default, it does NOT run any git commands. See push_with_gh.py for optional publishing.
@@ -129,20 +132,27 @@ coverage*
 WORKFLOW_CI = """name: CI
 
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    push:
+        branches: [ main, master ]
+    pull_request:
+        branches: [ main, master ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Show repo info
-        run: |
-          echo "Repository: ${{ github.repository }}"
-          echo "Ref: ${{ github.ref }}"
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Run Super Linter
+                uses: super-linter/super-linter@v7.1.0
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    DEFAULT_BRANCH: master
+                    VALIDATE_ALL_CODEBASE: true
+                    JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yml
+                    MARKDOWN_CONFIG_FILE: .markdownlint.yaml
+                    YAML_CONFIG_FILE: .yamllint.yml
+                    GOLANGCI_LINT_CONFIG_FILE: .golangci.yml
+                    PYTHON_FLAKE8_CONFIG_FILE: .flake8
 """
 
 ISSUE_TEMPLATE_BUG = """---
@@ -183,6 +193,246 @@ Link to issues if applicable.
 CODEOWNERS = """* @OWNER_USERNAME
 """
 
+# -------------------------
+# Root-level linter configs
+# -------------------------
+
+EDITORCONFIG = """# file: .editorconfig
+# version: 1.0.0
+# guid: 11111111-1111-4111-8111-111111111111
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.go]
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+"""
+
+PRETTIERRC_YAML = """# file: .prettierrc.yaml
+# version: 1.0.0
+# guid: 22222222-2222-4222-8222-222222222222
+
+printWidth: 100
+tabWidth: 2
+useTabs: false
+semi: true
+singleQuote: false
+trailingComma: es5
+bracketSpacing: true
+arrowParens: avoid
+proseWrap: always
+"""
+
+ESLINTRC_YML = """# file: .eslintrc.yml
+# version: 1.0.0
+# guid: 33333333-3333-4333-8333-333333333333
+
+env:
+    browser: true
+    es2021: true
+    node: true
+extends:
+    - eslint:recommended
+parserOptions:
+    ecmaVersion: latest
+    sourceType: module
+rules:
+    no-console: off
+    no-unused-vars:
+        - warn
+        - argsIgnorePattern: ^_
+"""
+
+MARKDOWNLINT_YAML = """# file: .markdownlint.yaml
+# version: 1.0.0
+# guid: 44444444-4444-4444-8444-444444444444
+
+default: true
+MD013: false # line length
+MD029: style
+MD025: false # multiple H1 allowed in some docs
+"""
+
+YAMLLINT_YAML = """# file: .yamllint.yml
+# version: 1.0.0
+# guid: 55555555-5555-4555-8555-555555555555
+
+extends: default
+rules:
+    line-length:
+        max: 120
+        level: warning
+    trailing-spaces: enable
+    truthy:
+        check-keys: false
+"""
+
+GOLANGCI_YML = """# file: .golangci.yml
+# version: 1.0.0
+# guid: 66666666-6666-4666-8666-666666666666
+
+run:
+    timeout: 3m
+
+linters:
+    enable:
+        - govet
+        - staticcheck
+        - gosimple
+        - ineffassign
+        - errcheck
+        - typecheck
+    disable:
+        - depguard
+
+issues:
+    exclude-use-default: false
+"""
+
+FLAKE8 = """# file: .flake8
+# version: 1.0.0
+# guid: 77777777-7777-4777-8777-777777777777
+
+[flake8]
+max-line-length = 100
+extend-ignore = E203,W503
+"""
+
+# -------------------------
+# AI/Copilot instruction files
+# -------------------------
+
+COPILOT_INSTRUCTIONS_MD = """<!-- file: .github/copilot-instructions.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
+
+# Copilot/AI Agent Coding Instructions System
+
+This repository uses a centralized, modular system for Copilot/AI agent coding,
+documentation, and workflow instructions.
+
+## System Overview
+
+- General rules: `.github/instructions/general-coding.instructions.md`
+- Language/task-specific: place additional files in `.github/instructions/`
+- Prompts: `.github/prompts/` (optional)
+
+## For Contributors
+
+- Edit or add rules in `.github/instructions/`.
+- Prefer VS Code tasks when available.
+- Keep required headers (file path, version, guid) in all instruction files.
+"""
+
+GENERAL_CODING_INSTRUCTIONS_MD = """<!-- file: .github/instructions/general-coding.instructions.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d -->
+
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+---
+applyTo: "**"
+description: |
+    General coding, documentation, and workflow rules for all Copilot/AI agents and VS Code Copilot customization. These rules apply to all files and languages unless overridden by a more specific instructions file.
+---
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+
+# General Coding Instructions
+
+- Follow conventional commit message standards and pull request guidelines.
+- Document code, classes, functions, and tests extensively.
+- Use Arrange-Act-Assert pattern for tests.
+- Do not duplicate rules; reference this file from specific instructions.
+
+## Required File Header (File Identification)
+
+All source, script, and documentation files MUST begin with a standard header
+containing file path, version, and GUID as comments.
+
+## Version Update Requirements
+
+- Patch: bug fixes/typos
+- Minor: new features/significant content
+- Major: breaking changes/overhauls
+"""
+
+AGENTS_POINTER = """<!-- file: AGENTS.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 2e7c1a4b-5d3f-4b8c-9e1f-7a6b2c3d4e5f -->
+
+# AGENTS.md
+
+> NOTE: This is a pointer. All detailed Copilot, agent, and workflow instructions are in the `.github/` directory.
+
+## Canonical Source for Agent Instructions
+
+- General rules: `.github/instructions/`
+- System documentation: `.github/copilot-instructions.md`
+"""
+
+# -------------------------
+# Repo policy / docs
+# -------------------------
+
+COMMIT_MESSAGES_MD = """<!-- file: .github/commit-messages.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 88888888-8888-4888-8888-888888888888 -->
+
+# Conventional Commit Message Guidelines
+
+- Use `type(scope): description` format
+- Keep header under 72 characters, present tense
+- Group file changes in the body with brief descriptions
+- Include issue numbers only when working on specific issues
+
+Common types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert
+"""
+
+PULL_REQUEST_DESCRIPTIONS_MD = """<!-- file: .github/pull-request-descriptions.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 99999999-9999-4999-8999-999999999999 -->
+
+# Pull Request Description Guidelines
+
+## Template
+
+## Summary
+
+## Issues Addressed
+
+## Testing
+
+## Breaking Changes
+
+## Additional Notes
+
+See examples and best practices in this file.
+"""
+
+TEST_GENERATION_MD = """<!-- file: .github/test-generation.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa -->
+
+# Test Generation Guidelines
+
+- Use Arrange-Act-Assert
+- Clear naming: test[UnitOfWork_StateUnderTest_ExpectedBehavior]
+- Focus on behavior, not implementation
+- Cover happy path and edge cases
+- Keep tests deterministic and independent
+"""
+
 
 @dataclasses.dataclass
 class Options:
@@ -217,6 +467,8 @@ def plan_files(opts: Options) -> List[Tuple[Path, str]]:
             ),
         )
     )
+    # Agent pointer at repo root
+    files.append((root / "AGENTS.md", AGENTS_POINTER))
     files.append(
         (root / "LICENSE", render_license(opts.license, opts.owner, opts.year))
     )
@@ -224,6 +476,15 @@ def plan_files(opts: Options) -> List[Tuple[Path, str]]:
     files.append((root / "CONTRIBUTING.md", CONTRIBUTING))
     files.append((root / "SECURITY.md", SECURITY))
     files.append((root / ".gitignore", GITIGNORE))
+
+    # Root linters/configs
+    files.append((root / ".editorconfig", EDITORCONFIG))
+    files.append((root / ".prettierrc.yaml", PRETTIERRC_YAML))
+    files.append((root / ".eslintrc.yml", ESLINTRC_YML))
+    files.append((root / ".markdownlint.yaml", MARKDOWNLINT_YAML))
+    files.append((root / ".yamllint.yml", YAMLLINT_YAML))
+    files.append((root / ".golangci.yml", GOLANGCI_YML))
+    files.append((root / ".flake8", FLAKE8))
 
     # .github structure
     files.append(
@@ -243,6 +504,25 @@ def plan_files(opts: Options) -> List[Tuple[Path, str]]:
         )
     )
     files.append((root / ".github" / "workflows" / "ci.yml", WORKFLOW_CI))
+    files.append((root / ".github" / "commit-messages.md", COMMIT_MESSAGES_MD))
+    files.append(
+        (
+            root / ".github" / "pull-request-descriptions.md",
+            PULL_REQUEST_DESCRIPTIONS_MD,
+        )
+    )
+    files.append((root / ".github" / "test-generation.md", TEST_GENERATION_MD))
+
+    # AI instructions scaffolding
+    files.append(
+        (root / ".github" / "copilot-instructions.md", COPILOT_INSTRUCTIONS_MD)
+    )
+    files.append(
+        (
+            root / ".github" / "instructions" / "general-coding.instructions.md",
+            GENERAL_CODING_INSTRUCTIONS_MD,
+        )
+    )
 
     return files
 
