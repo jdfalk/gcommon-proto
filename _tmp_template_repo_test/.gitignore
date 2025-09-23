@@ -1,0 +1,13 @@
+# General
+.DS_Store
+*.log
+logs/
+dist/
+build/
+venv/
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+coverage*
+*.out
