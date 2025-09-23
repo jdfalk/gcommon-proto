@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/template_repo/scaffold_template_repo.py
-# version: 1.2.0
+# version: 1.3.0
 # guid: 7f2d3a2e-4b5c-8d9e-0f1a-2b3c4d5e6f70
 
 """
@@ -129,7 +129,18 @@ coverage*
 *.out
 """
 
-WORKFLOW_CI = """name: CI
+
+def render_ci_yaml(include_go: bool, include_python: bool) -> str:
+    """
+    Build CI workflow content dynamically based on selected overlays.
+    Always includes Super Linter job; conditionally adds Go/Python test jobs.
+    """
+    header = """# file: .github/workflows/ci.yml
+# version: 1.1.0
+# guid: bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
+"""
+
+    base = """name: CI
 
 on:
     push:
@@ -154,6 +165,48 @@ jobs:
                     GOLANGCI_LINT_CONFIG_FILE: .golangci.yml
                     PYTHON_FLAKE8_CONFIG_FILE: .flake8
 """
+
+    blocks: List[str] = [base]
+
+    if include_go:
+        go_block = """
+    go:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Go
+                uses: actions/setup-go@v5
+                with:
+                    go-version: stable
+            - name: Build
+                run: |
+                    go version
+                    go build ./...
+            - name: Test
+                run: go test ./... -v
+"""
+        blocks.append(go_block)
+
+    if include_python:
+        py_block = """
+    python:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup Python
+                uses: actions/setup-python@v5
+                with:
+                    python-version: '3.x'
+            - name: Install test deps
+                run: |
+                    if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; else pip install pytest; fi
+            - name: Run tests
+                run: pytest -q || python -m pytest -q
+"""
+        blocks.append(py_block)
+
+    return header + "\n".join(blocks)
+
 
 ISSUE_TEMPLATE_BUG = """---
 name: Bug report
@@ -444,6 +497,10 @@ class Options:
     target_dir: Path
     dry_run: bool
     force: bool
+    with_go: bool
+    with_python: bool
+    with_dependabot: bool
+    with_releases: bool
 
 
 def render_license(license_id: str, owner: str, year: str) -> str:
@@ -503,7 +560,12 @@ def plan_files(opts: Options) -> List[Tuple[Path, str]]:
             ISSUE_TEMPLATE_FEATURE,
         )
     )
-    files.append((root / ".github" / "workflows" / "ci.yml", WORKFLOW_CI))
+    files.append(
+        (
+            root / ".github" / "workflows" / "ci.yml",
+            render_ci_yaml(include_go=opts.with_go, include_python=opts.with_python),
+        )
+    )
     files.append((root / ".github" / "commit-messages.md", COMMIT_MESSAGES_MD))
     files.append(
         (
@@ -524,7 +586,243 @@ def plan_files(opts: Options) -> List[Tuple[Path, str]]:
         )
     )
 
+    # Language overlays
+    if opts.with_go:
+        files.extend(plan_go_overlay(opts))
+
+    if opts.with_python:
+        files.extend(plan_python_overlay(opts))
+
+    # Optional Dependabot
+    if opts.with_dependabot:
+        files.append(
+            (root / ".github" / "dependabot.yml", render_dependabot_yaml(opts))
+        )
+
+    # Optional release workflows
+    if opts.with_releases:
+        files.extend(plan_release_workflows(opts))
+
     return files
+
+
+def module_path(opts: Options) -> str:
+    # Best-effort module path for templates
+    return f"github.com/{opts.owner}/{opts.name}"
+
+
+def plan_go_overlay(opts: Options) -> List[Tuple[Path, str]]:
+    root = opts.target_dir
+    mod = f"// file: go.mod\n// version: 1.0.0\n// guid: c1e1c1e1-1111-4111-8111-c1e1c1e1c1e1\n\nmodule {module_path(opts)}\n\ngo 1.22\n"
+
+    hello_go = """// file: internal/hello/hello.go
+// version: 1.0.0
+// guid: d2e2d2e2-2222-4222-8222-d2e2d2e2d2e2
+
+package hello
+
+// Greet returns a friendly greeting.
+func Greet(name string) string {
+    if name == "" {
+        return "Hello, world!"
+    }
+    return "Hello, " + name + "!"
+}
+"""
+
+    hello_test = """// file: internal/hello/hello_test.go
+// version: 1.0.0
+// guid: e3e3e3e3-3333-4333-8333-e3e3e3e3e3e3
+
+package hello
+
+import "testing"
+
+func TestGreet(t *testing.T) {
+    if got := Greet("Go"); got != "Hello, Go!" {
+        t.Fatalf("unexpected greeting: %s", got)
+    }
+    if got := Greet(""); got != "Hello, world!" {
+        t.Fatalf("unexpected default greeting: %s", got)
+    }
+}
+"""
+
+    return [
+        (root / "go.mod", mod),
+        (root / "internal" / "hello" / "hello.go", hello_go),
+        (root / "internal" / "hello" / "hello_test.go", hello_test),
+    ]
+
+
+def plan_python_overlay(opts: Options) -> List[Tuple[Path, str]]:
+    root = opts.target_dir
+    req = """# file: requirements-dev.txt
+# version: 1.0.0
+# guid: f4f4f4f4-4444-4444-8444-f4f4f4f4f4f4
+
+pytest>=7,<9
+"""
+
+    sample_py = """#!/usr/bin/env python3
+# file: pkg/sample.py
+# version: 1.0.0
+# guid: a5a5a5a5-5555-4555-8555-a5a5a5a5a5a5
+
+def add(a: int, b: int) -> int:
+    '''Add two integers and return the result.'''
+    return a + b
+"""
+
+    test_py = """# file: tests/test_sample.py
+# version: 1.0.0
+# guid: b6b6b6b6-6666-4666-8666-b6b6b6b6b6b6
+
+import os
+import sys
+
+# Ensure the repository root is on the path for simple imports
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+from pkg.sample import add  # type: ignore
+
+
+def test_add():
+    assert add(2, 3) == 5
+"""
+
+    return [
+        (root / "requirements-dev.txt", req),
+        (root / "pkg" / "sample.py", sample_py),
+        (root / "tests" / "test_sample.py", test_py),
+    ]
+
+
+def render_dependabot_yaml(opts: Options) -> str:
+    header = """# file: .github/dependabot.yml
+# version: 1.0.0
+# guid: abcdabcd-abcd-4abc-8abc-abcdabcdabcd
+"""
+    lines = [
+        "version: 2",
+        "updates:",
+        '  - package-ecosystem: "github-actions"',
+        '    directory: "/"',
+        "    schedule:",
+        '      interval: "weekly"',
+    ]
+    if opts.with_go:
+        lines += [
+            '  - package-ecosystem: "gomod"',
+            '    directory: "/"',
+            "    schedule:",
+            '      interval: "weekly"',
+        ]
+    if opts.with_python:
+        lines += [
+            '  - package-ecosystem: "pip"',
+            '    directory: "/"',
+            "    schedule:",
+            '      interval: "weekly"',
+        ]
+    return header + "\n".join(lines) + "\n"
+
+
+def plan_release_workflows(opts: Options) -> List[Tuple[Path, str]]:
+    root = opts.target_dir
+    out: List[Tuple[Path, str]] = []
+
+    if opts.with_go:
+        go_rel = """# file: .github/workflows/release-go.yml
+# version: 1.0.0
+# guid: c7c7c7c7-7777-4777-8777-c7c7c7c7c7c7
+
+name: Release (Go)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build binaries
+        run: |
+          mkdir -p dist
+          GOOS=linux GOARCH=amd64   go build -o dist/app-linux-amd64 ./...
+          GOOS=linux GOARCH=arm64   go build -o dist/app-linux-arm64 ./...
+          GOOS=darwin GOARCH=amd64  go build -o dist/app-darwin-amd64 ./...
+          GOOS=darwin GOARCH=arm64  go build -o dist/app-darwin-arm64 ./...
+          GOOS=windows GOARCH=amd64 go build -o dist/app-windows-amd64.exe ./...
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+"""
+        out.append((root / ".github" / "workflows" / "release-go.yml", go_rel))
+
+    if opts.with_python:
+        py_rel = """# file: .github/workflows/release-python.yml
+# version: 1.0.0
+# guid: d8d8d8d8-8888-4888-8888-d8d8d8d8d8d8
+
+name: Release (Python)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Build wheel
+        run: |
+          python -m pip install --upgrade pip build twine
+          python -m build
+      - name: Publish to PyPI (if token present)
+        if: ${{ secrets.PYPI_TOKEN != '' }}
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          python -m twine upload dist/*
+"""
+        out.append((root / ".github" / "workflows" / "release-python.yml", py_rel))
+
+    readme = """# file: .github/workflows/README.md
+# version: 1.0.0
+# guid: e9e9e9e9-9999-4999-8999-e9e9e9e9e9e9
+
+# Release Workflows
+
+This template includes optional release workflows that build artifacts for Go
+and/or Python when you push a tag like `v1.2.3`.
+
+- Go release uses GitHub Releases with built binaries (no secrets required)
+- Python release publishes to PyPI only if `PYPI_TOKEN` repository secret exists
+
+Disable or delete workflows you don't need.
+"""
+    out.append((root / ".github" / "workflows" / "README.md", readme))
+
+    return out
 
 
 def ensure_parents(path: Path) -> None:
@@ -575,6 +873,22 @@ def parse_args(argv: List[str]) -> Options:
     parser.add_argument(
         "--force", action="store_true", help="Overwrite existing files when present"
     )
+    parser.add_argument(
+        "--with-go", action="store_true", help="Include minimal Go overlay and tests"
+    )
+    parser.add_argument(
+        "--with-python",
+        action="store_true",
+        help="Include minimal Python overlay and tests",
+    )
+    parser.add_argument(
+        "--with-dependabot", action="store_true", help="Include .github/dependabot.yml"
+    )
+    parser.add_argument(
+        "--with-releases",
+        action="store_true",
+        help="Include optional release workflows for selected languages",
+    )
 
     args = parser.parse_args(argv)
     target_dir = normalize_path(args.target)
@@ -588,6 +902,10 @@ def parse_args(argv: List[str]) -> Options:
         target_dir=target_dir,
         dry_run=args.dry_run,
         force=args.force,
+        with_go=args.with_go,
+        with_python=args.with_python,
+        with_dependabot=args.with_dependabot,
+        with_releases=args.with_releases,
     )
 
 
