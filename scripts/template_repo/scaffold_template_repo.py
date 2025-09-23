@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/template_repo/scaffold_template_repo.py
-# version: 1.3.0
+# version: 1.3.2
 # guid: 7f2d3a2e-4b5c-8d9e-0f1a-2b3c4d5e6f70
 
 """
@@ -78,7 +78,11 @@ limitations under the License.
 }
 
 
-README_TEMPLATE = """# {name}
+README_TEMPLATE = """<!-- file: README.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 0f0e0d0c-0b0a-0908-0706-050403020100 -->
+
+# {name}
 
 {description}
 
@@ -92,13 +96,21 @@ contains no secrets, tokens, or passwords. See `.github/` for CI and templates.
 This project is licensed under the {license} license. See [LICENSE](LICENSE).
 """
 
-CODE_OF_CONDUCT = """# Code of Conduct
+CODE_OF_CONDUCT = """<!-- file: CODE_OF_CONDUCT.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 11112222-3333-4444-5555-666677778888 -->
+
+# Code of Conduct
 
 This project follows the Contributor Covenant Code of Conduct. Be respectful and
 supportive. For issues, contact the maintainers via GitHub issues.
 """
 
-CONTRIBUTING = """# Contributing
+CONTRIBUTING = """<!-- file: CONTRIBUTING.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 9999aaaa-bbbb-4ccc-8ddd-eeeeffff0000 -->
+
+# Contributing
 
 We welcome contributions! Please:
 
@@ -108,13 +120,21 @@ We welcome contributions! Please:
 - Avoid committing secrets or credentials
 """
 
-SECURITY = """# Security Policy
+SECURITY = """<!-- file: SECURITY.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 12345678-90ab-cdef-1234-567890abcdef -->
+
+# Security Policy
 
 Please report security issues privately via the repository's security advisory
 workflow on GitHub. Do not open public issues for vulnerabilities.
 """
 
-GITIGNORE = """# General
+GITIGNORE = """# file: .gitignore
+# version: 1.0.0
+# guid: 0a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9
+
+# General
 .DS_Store
 *.log
 logs/
@@ -136,76 +156,74 @@ def render_ci_yaml(include_go: bool, include_python: bool) -> str:
     Always includes Super Linter job; conditionally adds Go/Python test jobs.
     """
     header = """# file: .github/workflows/ci.yml
-# version: 1.1.0
+# version: 1.1.1
 # guid: bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
 """
 
     base = """name: CI
 
 on:
-    push:
-        branches: [ main, master ]
-    pull_request:
-        branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
-    lint:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Run Super Linter
-                uses: super-linter/super-linter@v7.1.0
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    DEFAULT_BRANCH: master
-                    VALIDATE_ALL_CODEBASE: true
-                    JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yml
-                    MARKDOWN_CONFIG_FILE: .markdownlint.yaml
-                    YAML_CONFIG_FILE: .yamllint.yml
-                    GOLANGCI_LINT_CONFIG_FILE: .golangci.yml
-                    PYTHON_FLAKE8_CONFIG_FILE: .flake8
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Super Linter
+        uses: super-linter/super-linter@v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          VALIDATE_ALL_CODEBASE: true
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yml
+          MARKDOWN_CONFIG_FILE: .markdownlint.yaml
+          YAML_CONFIG_FILE: .yamllint.yml
+          GOLANGCI_LINT_CONFIG_FILE: .golangci.yml
+          PYTHON_FLAKE8_CONFIG_FILE: .flake8
 """
 
     blocks: List[str] = [base]
 
     if include_go:
-        go_block = """
-    go:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Setup Go
-                uses: actions/setup-go@v5
-                with:
-                    go-version: stable
-            - name: Build
-                run: |
-                    go version
-                    go build ./...
-            - name: Test
-                run: go test ./... -v
+        go_block = """  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build
+        run: |
+          go version
+          go build ./...
+      - name: Test
+        run: go test ./... -v
 """
         blocks.append(go_block)
 
     if include_python:
-        py_block = """
-    python:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Setup Python
-                uses: actions/setup-python@v5
-                with:
-                    python-version: '3.x'
-            - name: Install test deps
-                run: |
-                    if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; else pip install pytest; fi
-            - name: Run tests
-                run: pytest -q || python -m pytest -q
+        py_block = """  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install test deps
+        run: |
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; else pip install pytest; fi
+      - name: Run tests
+        run: pytest -q || python -m pytest -q
 """
         blocks.append(py_block)
 
-    return header + "\n".join(blocks)
+    return header + "".join(blocks)
 
 
 ISSUE_TEMPLATE_BUG = """---
