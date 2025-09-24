@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.20.3
+# version: 1.21.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -332,31 +332,49 @@ jobs:
           if [ -f .github/linters/super-linter-ci.env ]; then
             echo "Loading CI Super Linter configuration from .github/linters/super-linter-ci.env"
             # Export all variables from the env file to GitHub environment
-            while IFS='=' read -r key value; do
-              # Skip comments and empty lines
-              if [[ ! "$key" =~ ^[[:space:]]*# && -n "$key" ]]; then
-                # Remove any quotes and whitespace
-                key=$(echo "$key" | xargs)
-                value=$(echo "$value" | xargs)
-                # Export to GitHub environment for use in subsequent steps
-                echo "$key=$value" >> $GITHUB_ENV
-                # Also echo for debugging
-                if [[ "$key" == *"JAVASCRIPT"* || "$key" == *"TYPESCRIPT"* ]]; then
-                  echo "Set $key=$value"
+            while IFS= read -r line; do
+              # Skip empty lines
+              if [ -n "$line" ]; then
+                # Check if line starts with # (comment)
+                if [[ "$line" =~ ^[[:space:]]*# ]]; then
+                  continue  # Skip comment lines
+                fi
+                # Check if line contains =
+                if [[ "$line" =~ = ]]; then
+                  key=$(echo "$line" | cut -d'=' -f1 | xargs)
+                  value=$(echo "$line" | cut -d'=' -f2- | xargs)
+                  # Skip if key is empty
+                  if [ -n "$key" ]; then
+                    # Export to GitHub environment for use in subsequent steps
+                    echo "$key=$value" >> $GITHUB_ENV
+                    # Also echo for debugging
+                    if [[ "$key" == *"JAVASCRIPT"* || "$key" == *"TYPESCRIPT"* ]]; then
+                      echo "Set $key=$value"
+                    fi
+                  fi
                 fi
               fi
             done < .github/linters/super-linter-ci.env
           elif [ -f .github/linters/super-linter.env ]; then
             echo "CI config not found, falling back to .github/linters/super-linter.env"
             # Export all variables from the env file to GitHub environment
-            while IFS='=' read -r key value; do
-              # Skip comments and empty lines
-              if [[ ! "$key" =~ ^[[:space:]]*# && -n "$key" ]]; then
-                # Remove any quotes and whitespace
-                key=$(echo "$key" | xargs)
-                value=$(echo "$value" | xargs)
-                # Export to GitHub environment for use in subsequent steps
-                echo "$key=$value" >> $GITHUB_ENV
+            while IFS= read -r line; do
+              # Skip empty lines
+              if [ -n "$line" ]; then
+                # Check if line starts with # (comment)
+                if [[ "$line" =~ ^[[:space:]]*# ]]; then
+                  continue  # Skip comment lines
+                fi
+                # Check if line contains =
+                if [[ "$line" =~ = ]]; then
+                  key=$(echo "$line" | cut -d'=' -f1 | xargs)
+                  value=$(echo "$line" | cut -d'=' -f2- | xargs)
+                  # Skip if key is empty
+                  if [ -n "$key" ]; then
+                    # Export to GitHub environment for use in subsequent steps
+                    echo "$key=$value" >> $GITHUB_ENV
+                  fi
+                fi
               fi
             done < .github/linters/super-linter.env
           else
