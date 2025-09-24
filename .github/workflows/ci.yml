@@ -20,7 +20,7 @@ concurrency:
 env:
   GO_VERSION: "1.24"
   NODE_VERSION: "22"
-  PYTHON_VERSION: "3.12"
+  PYTHON_VERSION: "3.13"
   RUST_VERSION: "1.76"
   COVERAGE_THRESHOLD: "80"
   CACHE_VERSION: "v1"
@@ -511,7 +511,7 @@ jobs:
     if: needs.detect-changes.outputs.pythonfiles == 'true' && needs.check-overrides.outputs.skip-tests != 'true'
     strategy:
       matrix:
-        python-version: ["3.12", "3.13"]
+        python-version: ["3.13"]
 
     steps:
       - name: Checkout repository
