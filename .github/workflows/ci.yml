@@ -1,0 +1,24 @@
+# file: .github/workflows/ci.yml
+# version: 1.0.0
+# guid: ci-workflow-gcommon
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  ci:
+    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@main
+    with:
+      skip-protobuf: false
+      skip-tests: true  # No language-specific tests in gcommon
+      skip-linting: false

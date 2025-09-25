@@ -1,0 +1,51 @@
+# file: .github/workflows/notify-sdk-repos.yml
+# version: 1.0.0
+# guid: notify-sdk-repos-workflow
+
+name: Notify SDK Repositories
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'proto/**'
+      - 'buf.yaml'
+      - 'buf.gen.yaml'
+  
+  # Manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify-sdk-repos:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'proto') || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Notify gcommon-go repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: jdfalk/gcommon-go
+          event-type: sync-protos
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+      
+      - name: Notify gcommon-py repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: jdfalk/gcommon-py
+          event-type: sync-protos
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+      
+      - name: Summary
+        run: |
+          echo "## SDK Repository Notification" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Notified SDK repositories to sync protocol buffer definitions:" >> $GITHUB_STEP_SUMMARY
+          echo "- jdfalk/gcommon-go" >> $GITHUB_STEP_SUMMARY
+          echo "- jdfalk/gcommon-py" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 Source commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
