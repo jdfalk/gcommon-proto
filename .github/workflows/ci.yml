@@ -6,9 +6,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -20,5 +20,5 @@ jobs:
     uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@main
     with:
       skip-protobuf: false
-      skip-tests: true  # No language-specific tests in gcommon
+      skip-tests: true # No language-specific tests in gcommon
       skip-linting: false

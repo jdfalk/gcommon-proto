@@ -6,12 +6,12 @@ name: Notify SDK Repositories
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'proto/**'
-      - 'buf.yaml'
-      - 'buf.gen.yaml'
-  
+      - "proto/**"
+      - "buf.yaml"
+      - "buf.gen.yaml"
+
   # Manual trigger
   workflow_dispatch:
 
@@ -22,7 +22,7 @@ jobs:
   notify-sdk-repos:
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, 'proto') || github.event_name == 'workflow_dispatch'
-    
+
     steps:
       - name: Notify gcommon-go repository
         uses: peter-evans/repository-dispatch@v3
@@ -31,7 +31,7 @@ jobs:
           repository: jdfalk/gcommon-go
           event-type: sync-protos
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-      
+
       - name: Notify gcommon-py repository
         uses: peter-evans/repository-dispatch@v3
         with:
@@ -39,7 +39,7 @@ jobs:
           repository: jdfalk/gcommon-py
           event-type: sync-protos
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-      
+
       - name: Summary
         run: |
           echo "## SDK Repository Notification" >> $GITHUB_STEP_SUMMARY
