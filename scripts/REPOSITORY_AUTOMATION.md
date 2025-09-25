@@ -41,7 +41,7 @@ python3 scripts/create_gcommon_repos.py --create-all
 # Create only Go repository
 python3 scripts/create_gcommon_repos.py --create-go
 
-# Create only Python repository  
+# Create only Python repository
 python3 scripts/create_gcommon_repos.py --create-py
 
 # Dry run to see what would be created
@@ -128,7 +128,7 @@ python3 scripts/version_sync_manager.py matrix
 #### Version Strategy:
 - **Source of Truth:** `gcommon` repository versions drive all synchronization
 - **Semantic Versioning:** Strict major.minor.patch versioning
-- **Compatibility Rules:** 
+- **Compatibility Rules:**
   - Major version must match across repositories
   - Minor versions should not differ by more than 1
   - Patch versions can vary independently
@@ -147,7 +147,7 @@ python3 scripts/version_sync_manager.py matrix
 
 Each target repository includes a `sync-protos.yml` workflow that:
 
-1. **Triggers:** 
+1. **Triggers:**
    - Repository dispatch from gcommon version sync
    - Manual workflow dispatch
    - Scheduled sync (daily at 02:00 UTC)
@@ -190,7 +190,7 @@ Both target repositories include automated release workflows:
    ```bash
    # Authenticate with GitHub CLI (recommended)
    gh auth login
-   
+
    # Create both repositories
    python3 scripts/create_gcommon_repos.py --create-all
    ```
