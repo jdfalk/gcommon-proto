@@ -67,6 +67,7 @@
 - [register_check_response.proto](#register_check_response)
 - [unregister_check_response.proto](#unregister_check_response)
 - [watch_health_response.proto](#watch_health_response)
+- [service_info.proto](#service_info)
 - [check_registry.proto](#check_registry)
 - [component_health.proto](#component_health)
 - [dependency_check.proto](#dependency_check)
@@ -80,9 +81,8 @@
 - [readiness_result.proto](#readiness_result)
 - [resource_usage.proto](#resource_usage)
 - [system_metrics.proto](#system_metrics)
-- [service_info.proto](#service_info)
-- [health_event.proto](#health_event)
 - [check_config.proto](#check_config)
+- [health_event.proto](#health_event)
 
 ---
 
@@ -964,6 +964,82 @@ message WatchHealthResponse {
 
   // Response metadata
   gcommon.v1.common.ResponseMetadata metadata = 4;
+}
+```
+
+---
+
+### service_info.proto {#service_info}
+
+**Path**: `gcommon/v1/health/messages/service_info.proto` **Package**: `gcommon.v1.health` **Lines**: 57
+
+**Messages** (1): `ServiceInfo`
+
+**Imports** (3):
+
+- `gcommon/v1/health/enums/health_status.proto`
+- `google/protobuf/go_features.proto`
+- `google/protobuf/timestamp.proto`
+
+#### Source Code
+
+```protobuf
+// file: proto/gcommon/v1/health/messages/service_info.proto
+// version: 1.0.0
+// guid: a3b4c5d6-e1f8-6789-3456-012345678901
+
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "gcommon/v1/health/enums/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
+
+/**
+ * ServiceInfo represents information about a monitored service.
+ * Contains metadata and current status for health monitoring.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ServiceInfo {
+  // Service name
+  string name = 1;
+
+  // Service version
+  string version = 2;
+
+  // Current overall health status
+  HealthStatus status = 3;
+
+  // Service description
+  string description = 4;
+
+  // When this service was registered for monitoring
+  google.protobuf.Timestamp registered_at = 5;
+
+  // When the service was last updated
+  google.protobuf.Timestamp last_updated = 6;
+
+  // Service endpoints
+  repeated string endpoints = 7;
+
+  // Service tags for categorization
+  repeated string tags = 8;
+
+  // Service metadata
+  map<string, string> metadata = 9;
+
+  // Health check IDs associated with this service
+  repeated string check_ids = 10;
+
+  // Whether this service is currently being monitored
+  bool monitoring_enabled = 11;
+
+  // Service owner or team
+  string owner = 12;
 }
 ```
 
@@ -1960,77 +2036,69 @@ message SystemMetrics {
 
 ---
 
-### service_info.proto {#service_info}
+### check_config.proto {#check_config}
 
-**Path**: `gcommon/v1/health/messages/service_info.proto` **Package**: `gcommon.v1.health` **Lines**: 57
+**Path**: `gcommon/v1/health/messages/check_config.proto` **Package**: `gcommon.v1.health` **Lines**: 50
 
-**Messages** (1): `ServiceInfo`
+**Messages** (1): `CheckConfig`
 
-**Imports** (3):
+**Imports** (2):
 
-- `gcommon/v1/health/enums/health_status.proto`
+- `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `google/protobuf/timestamp.proto`
 
 #### Source Code
 
 ```protobuf
-// file: proto/gcommon/v1/health/messages/service_info.proto
+// file: proto/gcommon/v1/health/messages/check_config.proto
 // version: 1.0.0
-// guid: a3b4c5d6-e1f8-6789-3456-012345678901
+// guid: 7182a3b4-bec5-3456-0123-789012345678
 
 edition = "2023";
 
 package gcommon.v1.health;
 
-import "gcommon/v1/health/enums/health_status.proto";
+import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
 
 /**
- * ServiceInfo represents information about a monitored service.
- * Contains metadata and current status for health monitoring.
+ * CheckConfig represents global configuration for health checks.
+ * Defines default behaviors and system-wide health check settings.
  * Follows 1-1-1 pattern: one message per file.
  */
-message ServiceInfo {
-  // Service name
-  string name = 1;
+message CheckConfig {
+  // Default check interval for new health checks
+  google.protobuf.Duration default_interval = 1;
 
-  // Service version
-  string version = 2;
+  // Default timeout for health checks
+  google.protobuf.Duration default_timeout = 2;
 
-  // Current overall health status
-  HealthStatus status = 3;
+  // Default failure threshold before marking unhealthy
+  int32 default_failure_threshold = 3;
 
-  // Service description
-  string description = 4;
+  // Default success threshold before marking healthy
+  int32 default_success_threshold = 4;
 
-  // When this service was registered for monitoring
-  google.protobuf.Timestamp registered_at = 5;
+  // Whether to enable health check metrics collection
+  bool enable_metrics = 5;
 
-  // When the service was last updated
-  google.protobuf.Timestamp last_updated = 6;
+  // Whether to enable health check logging
+  bool enable_logging = 6;
 
-  // Service endpoints
-  repeated string endpoints = 7;
+  // Maximum number of concurrent health checks
+  int32 max_concurrent_checks = 7;
 
-  // Service tags for categorization
-  repeated string tags = 8;
+  // Global tags to apply to all health checks
+  repeated string global_tags = 8;
 
-  // Service metadata
-  map<string, string> metadata = 9;
+  // Health check result retention period
+  google.protobuf.Duration retention_period = 9;
 
-  // Health check IDs associated with this service
-  repeated string check_ids = 10;
-
-  // Whether this service is currently being monitored
-  bool monitoring_enabled = 11;
-
-  // Service owner or team
-  string owner = 12;
+  // Whether to automatically retry failed checks
+  bool auto_retry = 10;
 }
 ```
 
@@ -2104,74 +2172,6 @@ message HealthEvent {
 
   // Source that generated this event
   string source = 11;
-}
-```
-
----
-
-### check_config.proto {#check_config}
-
-**Path**: `gcommon/v1/health/messages/check_config.proto` **Package**: `gcommon.v1.health` **Lines**: 50
-
-**Messages** (1): `CheckConfig`
-
-**Imports** (2):
-
-- `google/protobuf/duration.proto`
-- `google/protobuf/go_features.proto`
-
-#### Source Code
-
-```protobuf
-// file: proto/gcommon/v1/health/messages/check_config.proto
-// version: 1.0.0
-// guid: 7182a3b4-bec5-3456-0123-789012345678
-
-edition = "2023";
-
-package gcommon.v1.health;
-
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/sdks/go/v1/health";
-
-/**
- * CheckConfig represents global configuration for health checks.
- * Defines default behaviors and system-wide health check settings.
- * Follows 1-1-1 pattern: one message per file.
- */
-message CheckConfig {
-  // Default check interval for new health checks
-  google.protobuf.Duration default_interval = 1;
-
-  // Default timeout for health checks
-  google.protobuf.Duration default_timeout = 2;
-
-  // Default failure threshold before marking unhealthy
-  int32 default_failure_threshold = 3;
-
-  // Default success threshold before marking healthy
-  int32 default_success_threshold = 4;
-
-  // Whether to enable health check metrics collection
-  bool enable_metrics = 5;
-
-  // Whether to enable health check logging
-  bool enable_logging = 6;
-
-  // Maximum number of concurrent health checks
-  int32 max_concurrent_checks = 7;
-
-  // Global tags to apply to all health checks
-  repeated string global_tags = 8;
-
-  // Health check result retention period
-  google.protobuf.Duration retention_period = 9;
-
-  // Whether to automatically retry failed checks
-  bool auto_retry = 10;
 }
 ```
 
