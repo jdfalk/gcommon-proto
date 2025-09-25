@@ -1,37 +1,18 @@
+# file: buf.gen.yaml
+# version: 2.0.2  
+# guid: 3f8e9d2a-1b4c-5e7f-8a9b-0c1d2e3f4a5b
+
 version: v2
-clean: true # we should be regenerating all these files with teh script copilot so this is a TODO if we are not.
-plugins:
-  # Go: use local protoc-gen-go with managed mode
-  - local: protoc-gen-go
-    out: sdks/go
-    strategy: directory
-    opt:
-      - paths=import
-      - module=github.com/jdfalk/gcommon/sdks/go
-  # Go gRPC services
-  - local: protoc-gen-go-grpc
-    out: sdks/go
-    strategy: directory
-    opt:
-      - paths=import
-      - module=github.com/jdfalk/gcommon/sdks/go
-  # # Protovalidate Go support
-  # - remote: buf.build/go/protovalidate@v0.14.0
-  #   out: sdks/go
-  #   opt:
-  #     - paths=import
-  #     - module=github.com/jdfalk/gcommon/sdks/go
-  # Python messages via protoc built-in generator
-  - protoc_builtin: python
-    out: sdks/python
-    strategy: directory
-  # Python type stubs for better IDE/mypy support (requires protoc >= 3.20)
-  - protoc_builtin: pyi
-    out: sdks/python
-    strategy: directory
-  # - protoc_builtin: rust
-  #   out: sdks/rust
-  #   strategy: directory
-# Post-generation commands (Note: buf doesn't support this directly)
-# Use: buf generate && python3 scripts/post-buf-generate.py
-# Or use the Makefile: make generate
+clean: true
+
+# No language-specific generation in gcommon - that's handled by:
+# - gcommon-go: Go protocol buffer generation  
+# - gcommon-py: Python protocol buffer generation
+#
+# This repository now focuses only on protocol buffer definitions.
+# Language-specific repositories automatically sync protocol buffers
+# and generate language-specific code via their own workflows.
+#
+# To manually trigger protocol buffer sync in SDK repositories:
+# gh workflow run sync-protos.yml --repo jdfalk/gcommon-go
+# gh workflow run sync-protos.yml --repo jdfalk/gcommon-py
