@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/get_preferences_response.proto
+// version: 1.0.1
+// guid: 3c2f540d-f827-4df1-9afe-6f31f6d73dd9
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/response_metadata.proto";
+import "common/v1/subscription_preferences.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * GetPreferencesResponse returns a user's subscription preferences.
+ */
+message GetPreferencesResponse {
+  // Current subscription preferences.
+  SubscriptionPreferences preferences = 1;
+
+  // Response metadata for rate limiting and tracing.
+  common.v1.ResponseMetadata metadata = 2;
+}

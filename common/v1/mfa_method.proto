@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/mfa_method.proto
+// version: 1.0.1
+// guid: 123e4567-e89b-12d3-a456-426614174123
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Multi-factor authentication methods supported by the system.
+ */
+enum MfaMethod {
+  // Unspecified MFA method
+  MFA_METHOD_UNSPECIFIED = 0;
+
+  // SMS-based verification
+  MFA_METHOD_SMS = 1;
+
+  // Email-based verification
+  MFA_METHOD_EMAIL = 2;
+
+  // Time-based one-time password (TOTP)
+  MFA_METHOD_TOTP = 3;
+
+  // Hardware security key
+  MFA_METHOD_HARDWARE_KEY = 4;
+}

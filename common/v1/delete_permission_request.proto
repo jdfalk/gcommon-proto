@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/common/types/delete_permission_request.proto
+// version: 1.0.0
+// guid: e40a5914-c7d8-41e0-bb7d-07495308e638
+// file: proto/gcommon/v1/common/delete_permission_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message DeletePermissionRequest {
+  // Permission ID to delete
+  string permission_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Force deletion even if assigned
+  bool force = 2;
+}

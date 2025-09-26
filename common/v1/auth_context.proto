@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/common/auth_context.proto
+// version: 1.0.0
+// guid: 70848c6a-eeb6-46ee-b108-9159435b2475
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * AuthContext carries user identity and authorization details
+ * generated during authentication.
+ */
+message AuthContext {
+  // ID of the authenticated user
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Roles assigned to the user
+  repeated string roles = 2;
+
+  // Permissions granted to the user
+  repeated string permissions = 3;
+
+  // When this context was generated
+  google.protobuf.Timestamp issued_at = 4 [lazy = true];
+
+  // Arbitrary metadata passed between services
+  map<string, string> metadata = 5;
+}

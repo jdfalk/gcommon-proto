@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/common/types/list_api_keys_request.proto
+// version: 1.0.0
+// guid: 978a16cb-4ec7-45ce-b762-c2a2b40a4e6f
+// file: proto/gcommon/v1/common/list_api_keys_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ListApiKeysRequest {
+  // User ID to list API keys for
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Include expired keys
+  bool include_expired = 2;
+
+  // Pagination
+  int32 page_size = 3;
+  string page_token = 4;
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

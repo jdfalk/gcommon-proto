@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/list_roles_request.proto
+// version: 1.0.1
+// guid: 10d4a32a-06da-4751-965f-97c0d522d456
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/filter_options.proto";
+import "common/v1/pagination.proto";
+import "common/v1/request_metadata.proto";
+import "common/v1/sort_options.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to list roles with filtering and pagination.
+ * Used for role management interfaces and administration.
+ * Supports filtering, sorting, and pagination.
+ */
+message ListRolesRequest {
+  // Pagination parameters
+  common.v1.Pagination pagination = 1;
+
+  // Filter options for role selection
+  common.v1.FilterOptions filter = 2;
+
+  // Sort options for result ordering
+  common.v1.SortOptions sort = 3;
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 4;
+}
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the auth module requirements

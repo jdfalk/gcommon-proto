@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/media/resolution.proto
+// version: 1.0.1
+// guid: 2901b257-89ea-43db-8650-a3b6b48acfdb
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+// Media resolution enumeration.
+enum Resolution {
+  RESOLUTION_UNSPECIFIED = 0;
+  RESOLUTION_480P = 1;
+  RESOLUTION_720P = 2;
+  RESOLUTION_1080P = 3;
+  RESOLUTION_4K = 4;
+}

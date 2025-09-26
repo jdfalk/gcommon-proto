@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/get_check_status_request.proto
+// version: 1.0.0
+// guid: b22eabcb-b556-4dd9-bd5b-4016956b8e69
+// file: proto/gcommon/v1/common/get_check_status_request.proto
+//
+// Request definitions for health module
+//
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message GetCheckStatusRequest {
+  // Name or ID of the check
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

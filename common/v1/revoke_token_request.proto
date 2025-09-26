@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/common/revoke_token_request.proto
+// version: 1.0.0
+// guid: 0fc4421f-09e3-4cf7-8e64-d11797c80088
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to revoke a token (access or refresh).
+ * Invalidates the specified token and prevents further use.
+ * Used for logout operations and security revocation.
+ */
+message RevokeTokenRequest {
+  // Token to revoke (access or refresh token)
+  string token = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Token type hint ("access_token" or "refresh_token")
+  string token_type_hint = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 3;
+}

@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/config/metadata_status.proto
+// version: 1.0.1
+// guid: b82301c8-c50d-454c-a434-ae44d4199677
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum MetadataStatus {
+  METADATA_STATUS_UNSPECIFIED = 0;
+  METADATA_STATUS_ACTIVE = 1;
+  METADATA_STATUS_INACTIVE = 2;
+  METADATA_STATUS_DRAFT = 3;
+  METADATA_STATUS_DEPRECATED = 4;
+  METADATA_STATUS_DELETED = 5;
+  METADATA_STATUS_ERROR = 6;
+}

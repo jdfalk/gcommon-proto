@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/common/role.proto
+// version: 1.0.1
+// guid: 456e789a-b1c2-3d4e-5f6a-7b8c9d0e1f2a
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/resource_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Role definition for role-based access control (RBAC).
+ * Represents a collection of permissions that can be assigned to users.
+ * Supports hierarchical roles and metadata for extensibility.
+ */
+message Role {
+  // Unique role identifier (immutable)
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Human-readable role name
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Role description explaining its purpose
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Permissions granted by this role
+  repeated string permissions = 4;
+
+  // Role metadata for extensibility
+  map<string, string> metadata = 5 [lazy = true];
+
+  // Role creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 6 [lazy = true, (buf.validate.field).required = true];
+
+  // Role status (active, inactive, etc.)
+  ResourceStatus status = 7;
+}

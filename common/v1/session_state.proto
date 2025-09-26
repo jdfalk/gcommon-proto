@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/common/session_state.proto
+// version: 1.0.1
+// guid: 1a1dfd90-4426-4329-a9ab-e7c705fb4f74
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum SessionState {
+  COMMON_SESSION_STATE_UNSPECIFIED = 0;
+  COMMON_SESSION_STATE_ACTIVE = 1;
+  COMMON_SESSION_STATE_EXPIRED = 2;
+}

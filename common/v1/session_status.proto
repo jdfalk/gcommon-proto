@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/session_status.proto
+// version: 1.0.1
+// guid: df65ccac-c72e-48cf-ba09-e50b76276d9e
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Session status enumeration defining the current state of a user session.
+ * Used for session lifecycle management and security validation.
+ */
+enum SessionStatus {
+  // Default value indicating no status was specified
+  SESSION_STATUS_UNSPECIFIED = 0;
+
+  // Session is active and valid for authentication
+  SESSION_STATUS_ACTIVE = 1;
+
+  // Session has expired based on time-based expiration
+  SESSION_STATUS_EXPIRED = 2;
+
+  // Session was explicitly terminated (logout)
+  SESSION_STATUS_TERMINATED = 3;
+
+  // Session is invalid due to security concerns or corruption
+  SESSION_STATUS_INVALID = 4;
+}

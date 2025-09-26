@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/mfa_type.proto
+// version: 1.0.1
+// guid: a5e413ea-00e3-4585-9e9d-30348138c407
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * MFAType enumerates supported multi-factor authentication methods.
+ */
+enum MFAType {
+  // Unknown or unspecified MFA method
+  MFA_TYPE_UNSPECIFIED = 0;
+
+  // Time-based one-time password via authenticator apps
+  MFA_TYPE_TOTP = 1;
+
+  // One-time code delivered via SMS
+  MFA_TYPE_SMS = 2;
+
+  // One-time code delivered via email
+  MFA_TYPE_EMAIL = 3;
+
+  // Push notification to a trusted device
+  MFA_TYPE_PUSH = 4;
+}

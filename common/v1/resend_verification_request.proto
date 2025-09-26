@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/common/resend_verification_request.proto
+// version: 1.0.0
+// guid: 59477f5d-a132-4166-97a0-58e8a4534c3e
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/verification_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ResendVerificationRequest {
+  // User ID or email address
+  string identifier = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Verification type
+
+  AuthVerificationType type = 2;
+}

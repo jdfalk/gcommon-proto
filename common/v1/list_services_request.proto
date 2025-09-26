@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/list_services_request.proto
+// version: 1.0.1
+// guid: ef4885eb-ad77-4dff-a074-83ad474e25a2
+//
+// List services request message definition
+//
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ListServicesRequest {
+  // Request metadata
+  common.v1.RequestMetadata metadata = 1;
+}

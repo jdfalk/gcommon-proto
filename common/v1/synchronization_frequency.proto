@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/config/synchronization_frequency.proto
+// version: 1.0.1
+// guid: 939438cc-2704-4ba7-ab8a-8ed45e882d94
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum SynchronizationFrequency {
+  SYNCHRONIZATION_FREQUENCY_UNSPECIFIED = 0;
+  SYNCHRONIZATION_FREQUENCY_REAL_TIME = 1;
+  SYNCHRONIZATION_FREQUENCY_HOURLY = 2;
+  SYNCHRONIZATION_FREQUENCY_DAILY = 3;
+  SYNCHRONIZATION_FREQUENCY_WEEKLY = 4;
+  SYNCHRONIZATION_FREQUENCY_ON_CHANGE = 5;
+}

@@ -1,0 +1,60 @@
+// file: proto/gcommon/v1/metrics/visualization_type.proto
+// version: 1.0.1
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+// VisualizationType represents different types of data visualizations
+enum VisualizationType {
+  // Unspecified visualization type
+  VISUALIZATION_TYPE_UNSPECIFIED = 0;
+
+  // Line chart
+  VISUALIZATION_TYPE_LINE_CHART = 1;
+
+  // Bar chart
+  VISUALIZATION_TYPE_BAR_CHART = 2;
+
+  // Pie chart
+  VISUALIZATION_TYPE_PIE_CHART = 3;
+
+  // Area chart
+  VISUALIZATION_TYPE_AREA_CHART = 4;
+
+  // Scatter plot
+  VISUALIZATION_TYPE_SCATTER_PLOT = 5;
+
+  // Heatmap
+  VISUALIZATION_TYPE_HEATMAP = 6;
+
+  // Histogram
+  VISUALIZATION_TYPE_HISTOGRAM = 7;
+
+  // Gauge
+  VISUALIZATION_TYPE_GAUGE = 8;
+
+  // Table
+  VISUALIZATION_TYPE_TABLE = 9;
+
+  // Single stat
+  VISUALIZATION_TYPE_SINGLE_STAT = 10;
+
+  // Graph
+  VISUALIZATION_TYPE_GRAPH = 11;
+
+  // Worldmap
+  VISUALIZATION_TYPE_WORLDMAP = 12;
+
+  // Text panel
+  VISUALIZATION_TYPE_TEXT = 13;
+
+  // Custom visualization
+  VISUALIZATION_TYPE_CUSTOM = 14;
+}

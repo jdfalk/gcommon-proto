@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/common/role_scope.proto
+// version: 1.0.1
+// guid: d731d279-8c61-4854-ae41-17da08e62494
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Role scope enumeration defining the level at which roles apply.
+ * Used for hierarchical role-based access control.
+ */
+enum RoleScope {
+  // Unspecified role scope
+  ROLE_SCOPE_UNSPECIFIED = 0;
+
+  // Global system-wide role
+  ROLE_SCOPE_GLOBAL = 1;
+
+  // Organization-level role
+  ROLE_SCOPE_ORGANIZATION = 2;
+
+  // Project-level role
+  ROLE_SCOPE_PROJECT = 3;
+
+  // Team-level role
+  ROLE_SCOPE_TEAM = 4;
+
+  // Resource-level role
+  ROLE_SCOPE_RESOURCE = 5;
+}

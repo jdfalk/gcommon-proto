@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/get_auth_config_request.proto
+// version: 1.0.0
+// guid: 8931da09-15df-4c40-a4c1-6be6ad1806f5
+// file: proto/gcommon/v1/common/get_auth_config_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message GetAuthConfigRequest {
+  // Optional specific config keys to retrieve
+  repeated string keys = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Include sensitive configuration
+  bool include_sensitive = 2;
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

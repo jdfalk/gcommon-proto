@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/appender_config.proto
+// version: 1.0.0
+// guid: 1423b6a1-54da-4a63-8427-4225cd81621a
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/appender_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "common/v1/output_config.proto";
+import "common/v1/formatter_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message AppenderConfig {
+  // Unique appender name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Appender backend type
+  AppenderType type = 2;
+
+  // Output destination details
+  OutputConfig output = 3;
+
+  // Formatting configuration
+  LogFormatterConfig formatter = 4;
+
+  // Arbitrary appender properties
+  map<string, string> properties = 5;
+}

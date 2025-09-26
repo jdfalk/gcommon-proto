@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/common/types/enable2_fa_request.proto
+// version: 1.0.0
+// guid: 2f270251-6e96-4864-9c75-1e9a381549d6
+// file: proto/gcommon/v1/common/enable2_fa_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message Enable2FaRequest {
+  // User ID requesting 2FA enablement
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Phone number for SMS-based 2FA
+  string phone_number = 2;
+
+  // Whether to use authenticator app
+  bool use_authenticator = 3;
+
+  // Backup codes preference
+  bool generate_backup_codes = 4;
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

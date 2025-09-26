@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/common/create_session_request.proto
+// version: 1.0.0
+// guid: 4e2786c7-f3d0-442e-bb3b-c88772e7aece
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/client_info.proto";
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to create a new user session.
+ * Used after successful authentication to establish a session
+ * with specific duration and metadata tracking.
+ */
+message AuthCreateSessionRequest {
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 1 [lazy = true];
+
+  // User ID for which to create the session
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Client information for session tracking
+  common.v1.ClientInfo client_info = 3 [lazy = true];
+
+  // Session duration in seconds (0 for system default)
+  int32 duration_seconds = 4;
+
+  // Additional session metadata
+  map<string, string> session_metadata = 5 [lazy = true];
+}

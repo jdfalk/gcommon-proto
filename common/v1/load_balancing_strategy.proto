@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/load_balancing_strategy.proto
+// version: 1.0.1
+// guid: 0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Load balancing strategies.
+ */
+enum LoadBalancingStrategy {
+  // Default unspecified strategy
+  LOAD_BALANCING_STRATEGY_UNSPECIFIED = 0;
+
+  // Round-robin distribution
+  LOAD_BALANCING_STRATEGY_ROUND_ROBIN = 1;
+
+  // Weighted round-robin
+  LOAD_BALANCING_STRATEGY_WEIGHTED_ROUND_ROBIN = 2;
+
+  // Least connections
+  LOAD_BALANCING_STRATEGY_LEAST_CONNECTIONS = 3;
+
+  // Random distribution
+  LOAD_BALANCING_STRATEGY_RANDOM = 4;
+
+  // Hash-based distribution
+  LOAD_BALANCING_STRATEGY_HASH = 5;
+
+  // Priority-based distribution
+  LOAD_BALANCING_STRATEGY_PRIORITY = 6;
+}

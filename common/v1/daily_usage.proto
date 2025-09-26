@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/common/daily_usage.proto
+// version: 1.0.0
+// guid: d5da361d-f967-4f15-9afa-951271665ecb
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message DailyUsage {
+  string date = 1; // YYYY-MM-DD format
+  int32 request_count = 2 [(buf.validate.field).int32.gte = 0];
+}

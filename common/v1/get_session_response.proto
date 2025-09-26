@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/get_session_response.proto
+// version: 1.0.1
+// guid: e2dfbf3c-a64b-4e03-8728-bb79288e0998
+// file: proto/gcommon/v1/common/get_session_response.proto
+//
+// Response definitions for auth module
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "common/v1/session.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response for getting session information.
+ * Contains session details if found, or error information if not found.
+ */
+message AuthGetSessionResponse {
+  // Session information if found
+  Session session = 1;
+
+  // Error information if session not found or access denied
+  common.v1.Error error = 2;
+}

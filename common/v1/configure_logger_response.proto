@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/configure_logger_response.proto
+// version: 1.0.0
+// guid: 3f4e5d6c-7b8a-9201-3e4f-5a6b7c8d9e0f
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * ConfigureLoggerResponse defines the response from configuring logger settings.
+ */
+message ConfigureLoggerResponse {
+  // Status of the configuration
+  string status = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Error message if any
+  string error = 2 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/config/hook_type.proto
+// version: 1.0.1
+// guid: a9982046-4cf7-4320-91ff-66f4b56b6258
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum HookType {
+  HOOK_TYPE_UNSPECIFIED = 0;
+  HOOK_TYPE_PRE_RENDER = 1;
+  HOOK_TYPE_POST_RENDER = 2;
+  HOOK_TYPE_PRE_APPLY = 3;
+  HOOK_TYPE_POST_APPLY = 4;
+  HOOK_TYPE_PRE_VALIDATE = 5;
+  HOOK_TYPE_POST_VALIDATE = 6;
+}

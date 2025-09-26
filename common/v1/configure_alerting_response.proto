@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/configure_alerting_response.proto
+// version: 1.0.0
+// guid: f996c2ec-cfc9-45c8-8d78-97eef22d2df4
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response message for configuring alerting settings.
+ * Contains the result of alerting configuration changes.
+ */
+message ConfigureAlertingResponse {
+  // Success status
+  bool success = 1;
+
+  // Configuration ID
+  string config_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Error information if configuration failed
+  common.v1.Error error = 3;
+
+  // Applied alerting rules
+  repeated string applied_rules = 4 [(buf.validate.field).repeated.min_items = 1];
+}

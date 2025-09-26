@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/common/health_check_all_response.proto
+// version: 1.0.0
+// guid: 64089a6a-9c0e-43db-a038-6e271809004e
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/health_check_result.proto";
+import "common/v1/serving_status.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * HealthCheckAllResponse contains comprehensive health information for all services
+ */
+message HealthCheckAllResponse {
+  // Overall system status
+  ServingStatus overall_status = 1;
+  // Individual service health results
+  repeated HealthHealthCheckResult results = 2 [(buf.validate.field).repeated.min_items = 1];
+  // Total number of services checked
+  int32 total_services = 3 [(buf.validate.field).int32.gte = 0];
+  // Number of healthy services
+  int32 healthy_services = 4 [(buf.validate.field).int32.gte = 0];
+  // Number of unhealthy services
+  int32 unhealthy_services = 5 [(buf.validate.field).int32.gte = 0];
+  // Total check duration in milliseconds
+  int64 total_duration_ms = 6 [(buf.validate.field).int64.gt = 0];
+  // Timestamp when the check was completed
+  int64 timestamp = 7;
+}

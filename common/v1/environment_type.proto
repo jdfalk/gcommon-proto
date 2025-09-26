@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/config/v1/environment_type.proto
+// version: 1.0.1
+// guid: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * EnvironmentType represents the type of environment.
+ * Specifies the purpose and classification of configuration environments.
+ */
+enum EnvironmentType {
+  // Unspecified environment type
+  ENVIRONMENT_TYPE_UNSPECIFIED = 0;
+
+  // Development environment
+  ENVIRONMENT_TYPE_DEVELOPMENT = 1;
+
+  // Testing environment
+  ENVIRONMENT_TYPE_TESTING = 2;
+
+  // Staging environment
+  ENVIRONMENT_TYPE_STAGING = 3;
+
+  // Production environment
+  ENVIRONMENT_TYPE_PRODUCTION = 4;
+
+  // Sandbox environment for experimentation
+  ENVIRONMENT_TYPE_SANDBOX = 5;
+
+  // Canary deployment environment
+  ENVIRONMENT_TYPE_CANARY = 6;
+
+  // Disaster recovery environment
+  ENVIRONMENT_TYPE_DISASTER_RECOVERY = 7;
+
+  // Integration testing environment
+  ENVIRONMENT_TYPE_INTEGRATION = 8;
+
+  // Performance testing environment
+  ENVIRONMENT_TYPE_PERFORMANCE = 9;
+
+  // Security testing environment
+  ENVIRONMENT_TYPE_SECURITY = 10;
+}

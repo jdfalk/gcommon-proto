@@ -1,0 +1,103 @@
+// file: proto/gcommon/v1/common/list_user_sessions_response.proto
+// version: 1.0.0
+// guid: ac4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "common/v1/paginated_response.proto";
+import "common/v1/request_metadata.proto";
+import "common/v1/session_info.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Standard imports
+
+// Common types
+
+// Auth module types
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * ListUserSessionsResponse returns a list of user sessions.
+ * Contains session details, pagination information, and metadata
+ * for administrative session management and user self-service.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ListUserSessionsResponse {
+  // Required fields (1-10)
+
+  /**
+   * List of session information for the requested user.
+   * Empty if no sessions match the filters.
+   */
+  repeated SessionInfo sessions = 1;
+
+  /**
+   * Total number of sessions that match the query filters,
+   * regardless of pagination. Useful for calculating page counts.
+   */
+  int32 total_count = 2;
+
+  // Optional fields (11-50)
+
+  /**
+   * Pagination information for navigating through large result sets.
+   * Contains next_page_token for retrieving additional results.
+   */
+  common.v1.PaginatedResponse pagination = 11;
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  common.v1.RequestMetadata request_metadata = 12;
+
+  /**
+   * Indicates if the current request's session is included
+   * in the results. Useful for UI highlighting.
+   */
+  bool includes_current_session = 13;
+
+  /**
+   * Number of active sessions (not expired/terminated).
+   * Subset of total_count for quick status information.
+   */
+  int32 active_session_count = 14;
+
+  /**
+   * User ID for which sessions were retrieved.
+   * Echoed from the request for verification.
+   */
+  string user_id = 15 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the request failed partially
+   * or if there were issues retrieving some session data.
+   */
+  common.v1.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when this response was generated.
+   * Useful for caching and staleness detection.
+   */
+  google.protobuf.Timestamp generated_at = 51;
+
+  /**
+   * Timestamp when the session data was last refreshed
+   * from the authoritative source.
+   */
+  google.protobuf.Timestamp data_refreshed_at = 52;
+}

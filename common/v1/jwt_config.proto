@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/jwt_config.proto
+// version: 1.0.0
+// guid: c3d4e5f6-a7b8-90c1-d2e3-f4a5b6c7d8e9
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * JWTConfig defines parameters for JWT token generation and validation.
+ */
+message JWTConfig {
+  // Signing algorithm used for tokens (e.g., HS256, RS256)
+  string signing_algorithm = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Duration access tokens remain valid
+  google.protobuf.Duration access_token_ttl = 2;
+
+  // Duration refresh tokens remain valid
+  google.protobuf.Duration refresh_token_ttl = 3;
+}

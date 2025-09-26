@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/permission_level.proto
+// version: 1.0.1
+// guid: 776ae326-7f13-4a07-9c1d-255140b0f83b
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum AuthPermissionLevel {
+  PERMISSION_LEVEL_UNSPECIFIED = 0;
+  PERMISSION_LEVEL_SYSTEM = 1;
+  PERMISSION_LEVEL_ORGANIZATION = 2;
+  PERMISSION_LEVEL_PROJECT = 3;
+  PERMISSION_LEVEL_RESOURCE = 4;
+}

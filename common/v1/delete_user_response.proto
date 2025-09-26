@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/delete_user_response.proto
+// version: 1.0.0
+// guid: 1c98d374-f744-4078-bb80-826832a42620
+// file: proto/gcommon/v1/common/delete_user_response.proto
+//
+// Response definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message DeleteUserResponse {
+  // Deletion success
+  bool success = 1;
+
+  // Error message if deletion failed
+  string error_message = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Data retention information
+  string data_retention_info = 3 [(buf.validate.field).string.min_len = 1];
+}
