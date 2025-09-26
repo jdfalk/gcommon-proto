@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/priority_level.proto";
-import "common/v2/queue_type.proto";
-import "common/v2/retention_policy.proto";
+import "commonpb/v2/priority_level.proto";
+import "commonpb/v2/queue_type.proto";
+import "commonpb/v2/retention_policy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

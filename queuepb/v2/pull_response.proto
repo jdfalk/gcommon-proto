@@ -8,8 +8,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/response_metadata.proto";
-import "queue/v2/received_message.proto";
+import "commonpb/v2/response_metadata.proto";
+import "queuepb/v2/received_message.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

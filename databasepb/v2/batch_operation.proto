@@ -5,7 +5,7 @@ edition = "2023";
 
 package database.v2;
 
-import "database/v2/query_parameter.proto";
+import "databasepb/v2/query_parameter.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

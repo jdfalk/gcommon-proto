@@ -9,12 +9,12 @@ edition = "2023";
 
 package web.v2;
 
-import "web/v2/flush_cache_request.proto";
-import "web/v2/flush_cache_response.proto";
-import "web/v2/get_cache_config_request.proto";
-import "web/v2/get_cache_config_response.proto";
-import "web/v2/update_cache_config_request.proto";
-import "web/v2/update_cache_config_response.proto";
+import "webpb/v2/flush_cache_request.proto";
+import "webpb/v2/flush_cache_response.proto";
+import "webpb/v2/get_cache_config_request.proto";
+import "webpb/v2/get_cache_config_response.proto";
+import "webpb/v2/update_cache_config_request.proto";
+import "webpb/v2/update_cache_config_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

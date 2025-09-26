@@ -6,7 +6,7 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/rollback_method.proto";
+import "commonpb/v1/rollback_method.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

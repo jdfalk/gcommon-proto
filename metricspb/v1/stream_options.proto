@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/stream_compression.proto";
-import "common/v1/stream_qos.proto";
+import "commonpb/v1/stream_compression.proto";
+import "commonpb/v1/stream_qos.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,20 +6,20 @@ edition = "2023";
 
 package media.v2;
 
-import "media/v2/create_media_file_request.proto";
-import "media/v2/create_media_file_response.proto";
-import "media/v2/delete_media_file_request.proto";
-import "media/v2/delete_media_file_response.proto";
-import "media/v2/get_media_file_request.proto";
-import "media/v2/get_media_file_response.proto";
-import "media/v2/list_media_files_request.proto";
-import "media/v2/list_media_files_response.proto";
-import "media/v2/search_media_request.proto";
-import "media/v2/search_media_response.proto";
-import "media/v2/update_media_file_request.proto";
-import "media/v2/update_media_file_response.proto";
-import "media/v2/upload_media_request.proto";
-import "media/v2/upload_media_response.proto";
+import "mediapb/v2/create_media_file_request.proto";
+import "mediapb/v2/create_media_file_response.proto";
+import "mediapb/v2/delete_media_file_request.proto";
+import "mediapb/v2/delete_media_file_response.proto";
+import "mediapb/v2/get_media_file_request.proto";
+import "mediapb/v2/get_media_file_response.proto";
+import "mediapb/v2/list_media_files_request.proto";
+import "mediapb/v2/list_media_files_response.proto";
+import "mediapb/v2/search_media_request.proto";
+import "mediapb/v2/search_media_response.proto";
+import "mediapb/v2/update_media_file_request.proto";
+import "mediapb/v2/update_media_file_response.proto";
+import "mediapb/v2/upload_media_request.proto";
+import "mediapb/v2/upload_media_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

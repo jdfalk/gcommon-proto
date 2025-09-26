@@ -9,18 +9,18 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/configure_alerting_request.proto";
-import "common/v2/configure_alerting_response.proto";
-import "common/v2/disable_check_request.proto";
-import "common/v2/disable_check_response.proto";
-import "common/v2/enable_check_request.proto";
-import "common/v2/enable_check_response.proto";
-import "common/v2/reset_health_stats_request.proto";
-import "common/v2/reset_health_stats_response.proto";
-import "common/v2/run_check_request.proto";
-import "common/v2/run_check_response.proto";
-import "common/v2/set_health_request.proto";
-import "common/v2/set_health_response.proto";
+import "commonpb/v2/configure_alerting_request.proto";
+import "commonpb/v2/configure_alerting_response.proto";
+import "commonpb/v2/disable_check_request.proto";
+import "commonpb/v2/disable_check_response.proto";
+import "commonpb/v2/enable_check_request.proto";
+import "commonpb/v2/enable_check_response.proto";
+import "commonpb/v2/reset_health_stats_request.proto";
+import "commonpb/v2/reset_health_stats_response.proto";
+import "commonpb/v2/run_check_request.proto";
+import "commonpb/v2/run_check_response.proto";
+import "commonpb/v2/set_health_request.proto";
+import "commonpb/v2/set_health_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

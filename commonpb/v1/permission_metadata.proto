@@ -6,8 +6,8 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/permission_condition.proto";
-import "common/v1/permission_level.proto";
+import "commonpb/v1/permission_condition.proto";
+import "commonpb/v1/permission_level.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

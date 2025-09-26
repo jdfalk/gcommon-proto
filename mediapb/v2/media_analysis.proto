@@ -6,13 +6,13 @@ edition = "2023";
 
 package media.v2;
 
-import "media/v2/media_quality.proto";
+import "mediapb/v2/media_quality.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "media/v2/audio_analysis.proto";
-import "media/v2/scene_detection.proto";
-import "media/v2/technical_metadata.proto";
-import "media/v2/thumbnail_info.proto";
+import "mediapb/v2/audio_analysis.proto";
+import "mediapb/v2/scene_detection.proto";
+import "mediapb/v2/technical_metadata.proto";
+import "mediapb/v2/thumbnail_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";

@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/provider_config.proto";
+import "commonpb/v1/request_metadata.proto";
+import "metricspb/v1/provider_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

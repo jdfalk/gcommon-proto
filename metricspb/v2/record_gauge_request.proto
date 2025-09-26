@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/gauge_operation.proto";
-import "common/v2/request_metadata.proto";
+import "commonpb/v2/gauge_operation.proto";
+import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

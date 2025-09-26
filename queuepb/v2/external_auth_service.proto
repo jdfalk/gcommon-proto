@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/auth_cache_config.proto";
-import "queue/v2/retry_config.proto";
+import "queuepb/v2/auth_cache_config.proto";
+import "queuepb/v2/retry_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

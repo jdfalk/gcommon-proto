@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/response_metadata.proto";
-import "web/v2/file_info.proto";
+import "commonpb/v2/response_metadata.proto";
+import "webpb/v2/file_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

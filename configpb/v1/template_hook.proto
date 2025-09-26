@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/hook_error_handling.proto";
-import "common/v1/hook_type.proto";
+import "commonpb/v1/hook_error_handling.proto";
+import "commonpb/v1/hook_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

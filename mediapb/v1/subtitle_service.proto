@@ -6,16 +6,16 @@ edition = "2023";
 
 package media.v1;
 
-import "media/v1/adjust_subtitle_timing_request.proto";
-import "media/v1/adjust_subtitle_timing_response.proto";
-import "media/v1/convert_subtitle_format_request.proto";
-import "media/v1/convert_subtitle_format_response.proto";
-import "media/v1/merge_subtitles_request.proto";
-import "media/v1/merge_subtitles_response.proto";
-import "media/v1/sync_subtitles_request.proto";
-import "media/v1/sync_subtitles_response.proto";
-import "media/v1/validate_subtitles_request.proto";
-import "media/v1/validate_subtitles_response.proto";
+import "mediapb/v1/adjust_subtitle_timing_request.proto";
+import "mediapb/v1/adjust_subtitle_timing_response.proto";
+import "mediapb/v1/convert_subtitle_format_request.proto";
+import "mediapb/v1/convert_subtitle_format_response.proto";
+import "mediapb/v1/merge_subtitles_request.proto";
+import "mediapb/v1/merge_subtitles_response.proto";
+import "mediapb/v1/sync_subtitles_request.proto";
+import "mediapb/v1/sync_subtitles_response.proto";
+import "mediapb/v1/validate_subtitles_request.proto";
+import "mediapb/v1/validate_subtitles_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

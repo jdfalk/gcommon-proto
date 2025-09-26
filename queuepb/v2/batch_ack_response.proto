@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/response_metadata.proto";
-import "queue/v2/failed_ack.proto";
+import "commonpb/v2/response_metadata.proto";
+import "queuepb/v2/failed_ack.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

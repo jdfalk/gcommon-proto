@@ -6,7 +6,7 @@ edition = "2023";
 
 package database.v1;
 
-import "common/v1/database_status_code.proto";
+import "commonpb/v1/database_status_code.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

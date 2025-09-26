@@ -6,9 +6,9 @@ edition = "2023";
 
 package organization.v2;
 
-import "common/v2/hierarchy_type.proto";
-import "common/v2/key_value.proto";
-import "organization/v2/hierarchy_node.proto";
+import "commonpb/v2/hierarchy_type.proto";
+import "commonpb/v2/key_value.proto";
+import "organizationpb/v2/hierarchy_node.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

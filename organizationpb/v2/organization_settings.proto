@@ -6,14 +6,14 @@ edition = "2023";
 
 package organization.v2;
 
-import "common/v2/key_value.proto";
-import "common/v2/organization_compliance_settings.proto";
-import "common/v2/organization_notification_settings.proto";
-import "organization/v2/billing_settings.proto";
-import "organization/v2/feature_flag.proto";
-import "organization/v2/integration_settings.proto";
-import "organization/v2/security_settings.proto";
-import "organization/v2/ui_settings.proto";
+import "commonpb/v2/key_value.proto";
+import "commonpb/v2/organization_compliance_settings.proto";
+import "commonpb/v2/organization_notification_settings.proto";
+import "organizationpb/v2/billing_settings.proto";
+import "organizationpb/v2/feature_flag.proto";
+import "organizationpb/v2/integration_settings.proto";
+import "organizationpb/v2/security_settings.proto";
+import "organizationpb/v2/ui_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

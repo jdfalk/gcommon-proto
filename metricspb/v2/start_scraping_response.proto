@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/error.proto";
-import "metrics/v2/scrape_job.proto";
+import "commonpb/v2/error.proto";
+import "metricspb/v2/scrape_job.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

@@ -6,8 +6,8 @@ edition = "2023";
 
 package organization.v1;
 
-import "organization/v1/cache_behavior.proto";
-import "organization/v1/origin_config.proto";
+import "organizationpb/v1/cache_behavior.proto";
+import "organizationpb/v1/origin_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

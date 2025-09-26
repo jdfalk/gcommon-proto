@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/registration_action.proto";
-import "metrics/v2/schema_change.proto";
+import "commonpb/v2/registration_action.proto";
+import "metricspb/v2/schema_change.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

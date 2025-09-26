@@ -6,9 +6,9 @@ edition = "2023";
 
 package metrics.v2;
 
-import "metrics/v2/open_telemetry_settings_update.proto";
-import "metrics/v2/prometheus_settings_update.proto";
-import "metrics/v2/stats_d_settings_update.proto";
+import "metricspb/v2/open_telemetry_settings_update.proto";
+import "metricspb/v2/prometheus_settings_update.proto";
+import "metricspb/v2/stats_d_settings_update.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

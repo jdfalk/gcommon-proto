@@ -6,9 +6,9 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/deployment_status.proto";
-import "config/v1/deployment_rollback_info.proto";
-import "config/v1/health_check.proto";
+import "commonpb/v1/deployment_status.proto";
+import "configpb/v1/deployment_rollback_info.proto";
+import "configpb/v1/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

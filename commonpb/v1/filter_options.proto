@@ -5,8 +5,8 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/filter_value.proto";
-import "common/v1/metrics_time_range.proto";
+import "commonpb/v1/filter_value.proto";
+import "commonpb/v1/metrics_time_range.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

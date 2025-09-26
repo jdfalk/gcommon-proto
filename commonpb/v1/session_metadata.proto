@@ -6,9 +6,9 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/device_info.proto";
-import "common/v1/location_info.proto";
-import "common/v1/session_state.proto";
+import "commonpb/v1/device_info.proto";
+import "commonpb/v1/location_info.proto";
+import "commonpb/v1/session_state.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

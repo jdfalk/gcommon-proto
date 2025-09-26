@@ -5,10 +5,10 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/check_result.proto";
-import "common/v1/error.proto";
-import "common/v1/health_metrics.proto";
-import "common/v1/health_status.proto";
+import "commonpb/v1/check_result.proto";
+import "commonpb/v1/error.proto";
+import "commonpb/v1/health_metrics.proto";
+import "commonpb/v1/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

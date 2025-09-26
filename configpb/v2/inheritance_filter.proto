@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v2;
 
-import "common/v2/filter_action.proto";
-import "common/v2/filter_type.proto";
+import "commonpb/v2/filter_action.proto";
+import "commonpb/v2/filter_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

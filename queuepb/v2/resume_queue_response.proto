@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/queue_state.proto";
-import "queue/v2/resume_stats.proto";
+import "commonpb/v2/queue_state.proto";
+import "queuepb/v2/resume_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

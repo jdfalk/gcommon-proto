@@ -6,7 +6,7 @@ edition = "2023";
 
 package database.v2;
 
-import "database/v2/namespace_stats.proto";
+import "databasepb/v2/namespace_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

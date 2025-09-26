@@ -6,7 +6,7 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/offset_range.proto";
+import "queuepb/v2/offset_range.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

@@ -6,11 +6,11 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/load_balancing_strategy.proto";
-import "common/v2/offset_reset_strategy.proto";
-import "common/v2/rebalance_strategy.proto";
-import "queue/v2/auto_commit_config.proto";
-import "queue/v2/dead_letter_queue_config.proto";
+import "commonpb/v2/load_balancing_strategy.proto";
+import "commonpb/v2/offset_reset_strategy.proto";
+import "commonpb/v2/rebalance_strategy.proto";
+import "queuepb/v2/auto_commit_config.proto";
+import "queuepb/v2/dead_letter_queue_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

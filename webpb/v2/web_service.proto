@@ -6,10 +6,10 @@ edition = "2023";
 
 package web.v2;
 
-import "web/v2/handle_request_request.proto";
-import "web/v2/handle_request_response.proto";
-import "web/v2/health_check_request.proto";
-import "web/v2/health_check_response.proto";
+import "webpb/v2/handle_request_request.proto";
+import "webpb/v2/handle_request_response.proto";
+import "webpb/v2/health_check_request.proto";
+import "webpb/v2/health_check_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

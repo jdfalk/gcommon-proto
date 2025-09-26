@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/rotation_frequency.proto";
-import "config/v1/rotation_event.proto";
+import "commonpb/v1/rotation_frequency.proto";
+import "configpb/v1/rotation_event.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

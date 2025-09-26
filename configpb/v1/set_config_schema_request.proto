@@ -11,8 +11,8 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/request_metadata.proto";
-import "config/v1/config_schema.proto";
+import "commonpb/v1/request_metadata.proto";
+import "configpb/v1/config_schema.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

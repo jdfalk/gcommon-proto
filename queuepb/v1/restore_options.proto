@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/time_range_metrics.proto";
-import "queue/v1/filter_criteria.proto";
-import "queue/v1/offset_range.proto";
-import "queue/v1/performance_options.proto";
+import "commonpb/v1/time_range_metrics.proto";
+import "queuepb/v1/filter_criteria.proto";
+import "queuepb/v1/offset_range.proto";
+import "queuepb/v1/performance_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

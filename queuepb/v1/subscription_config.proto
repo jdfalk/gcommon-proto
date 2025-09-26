@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/priority_level.proto";
-import "common/v1/routing_strategy.proto";
-import "common/v1/subscription_state.proto";
-import "queue/v1/delivery_options.proto";
+import "commonpb/v1/priority_level.proto";
+import "commonpb/v1/routing_strategy.proto";
+import "commonpb/v1/subscription_state.proto";
+import "queuepb/v1/delivery_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

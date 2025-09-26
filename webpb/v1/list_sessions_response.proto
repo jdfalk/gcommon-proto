@@ -6,7 +6,7 @@ edition = "2023";
 
 package web.v1;
 
-import "web/v1/session_data.proto";
+import "webpb/v1/session_data.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

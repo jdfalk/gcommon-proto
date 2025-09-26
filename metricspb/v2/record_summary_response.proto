@@ -9,9 +9,9 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/error.proto";
-import "metrics/v2/recording_stats.proto";
-import "metrics/v2/summary_metric.proto";
+import "commonpb/v2/error.proto";
+import "metricspb/v2/recording_stats.proto";
+import "metricspb/v2/summary_metric.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -7,9 +7,9 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/connection_details.proto";
-import "queue/v2/partition_offset.proto";
-import "queue/v2/queue_message.proto";
+import "queuepb/v2/connection_details.proto";
+import "queuepb/v2/partition_offset.proto";
+import "queuepb/v2/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

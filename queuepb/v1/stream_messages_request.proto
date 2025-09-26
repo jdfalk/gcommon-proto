@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/ack_level.proto";
-import "queue/v1/message_filter.proto";
-import "queue/v1/offset_config.proto";
-import "queue/v1/stream_config.proto";
+import "commonpb/v1/ack_level.proto";
+import "queuepb/v1/message_filter.proto";
+import "queuepb/v1/offset_config.proto";
+import "queuepb/v1/stream_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

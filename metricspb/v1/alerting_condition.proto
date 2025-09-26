@@ -6,7 +6,7 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/comparison_operator.proto";
+import "commonpb/v1/comparison_operator.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

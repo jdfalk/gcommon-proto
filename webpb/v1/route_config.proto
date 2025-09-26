@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v1;
 
-import "common/v1/handler_type.proto";
-import "common/v1/http_method.proto";
+import "commonpb/v1/handler_type.proto";
+import "commonpb/v1/http_method.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

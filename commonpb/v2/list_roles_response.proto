@@ -5,8 +5,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/paginated_response.proto";
-import "common/v2/role.proto";
+import "commonpb/v2/paginated_response.proto";
+import "commonpb/v2/role.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

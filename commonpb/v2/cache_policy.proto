@@ -5,8 +5,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/eviction_policy.proto";
-import "common/v2/expiration_policy.proto";
+import "commonpb/v2/eviction_policy.proto";
+import "commonpb/v2/expiration_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

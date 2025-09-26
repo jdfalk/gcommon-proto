@@ -6,10 +6,10 @@ edition = "2023";
 
 package organization.v1;
 
-import "common/v1/organization_resource_limits.proto";
-import "organization/v1/auto_scaling_config.proto";
-import "organization/v1/cpu_allocation.proto";
-import "organization/v1/memory_allocation.proto";
+import "commonpb/v1/organization_resource_limits.proto";
+import "organizationpb/v1/auto_scaling_config.proto";
+import "organizationpb/v1/cpu_allocation.proto";
+import "organizationpb/v1/memory_allocation.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,18 +6,18 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/delete_notification_request.proto";
-import "common/v1/delete_notification_response.proto";
-import "common/v1/get_template_request.proto";
-import "common/v1/get_template_response.proto";
-import "common/v1/list_notifications_request.proto";
-import "common/v1/list_notifications_response.proto";
-import "common/v1/mark_as_read_request.proto";
-import "common/v1/mark_as_read_response.proto";
-import "common/v1/send_notification_request.proto";
-import "common/v1/send_notification_response.proto";
-import "common/v1/update_preferences_request.proto";
-import "common/v1/update_preferences_response.proto";
+import "commonpb/v1/delete_notification_request.proto";
+import "commonpb/v1/delete_notification_response.proto";
+import "commonpb/v1/get_template_request.proto";
+import "commonpb/v1/get_template_response.proto";
+import "commonpb/v1/list_notifications_request.proto";
+import "commonpb/v1/list_notifications_response.proto";
+import "commonpb/v1/mark_as_read_request.proto";
+import "commonpb/v1/mark_as_read_response.proto";
+import "commonpb/v1/send_notification_request.proto";
+import "commonpb/v1/send_notification_response.proto";
+import "commonpb/v1/update_preferences_request.proto";
+import "commonpb/v1/update_preferences_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/numeric_format.proto";
-import "common/v2/response_compression.proto";
+import "commonpb/v2/numeric_format.proto";
+import "commonpb/v2/response_compression.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

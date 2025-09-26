@@ -6,11 +6,11 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/error.proto";
-import "common/v2/time_range_metrics.proto";
-import "metrics/v2/metrics_health_info.proto";
-import "metrics/v2/metrics_summary.proto";
-import "metrics/v2/provider_summary.proto";
+import "commonpb/v2/error.proto";
+import "commonpb/v2/time_range_metrics.proto";
+import "metricspb/v2/metrics_health_info.proto";
+import "metricspb/v2/metrics_summary.proto";
+import "metricspb/v2/provider_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

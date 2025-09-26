@@ -6,12 +6,12 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/metrics_retention_info.proto";
-import "queue/v2/owner_info.proto";
-import "queue/v2/partition_info.proto";
-import "queue/v2/topic_configuration.proto";
-import "queue/v2/topic_permissions.proto";
-import "queue/v2/topic_stats.proto";
+import "commonpb/v2/metrics_retention_info.proto";
+import "queuepb/v2/owner_info.proto";
+import "queuepb/v2/partition_info.proto";
+import "queuepb/v2/topic_configuration.proto";
+import "queuepb/v2/topic_permissions.proto";
+import "queuepb/v2/topic_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

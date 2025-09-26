@@ -6,8 +6,8 @@ edition = "2023";
 
 package organization.v1;
 
-import "common/v1/request_metadata.proto";
-import "organization/v1/organization_member.proto";
+import "commonpb/v1/request_metadata.proto";
+import "organizationpb/v1/organization_member.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

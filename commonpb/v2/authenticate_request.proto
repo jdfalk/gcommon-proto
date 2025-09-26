@@ -5,12 +5,12 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/api_key_credentials.proto";
-import "common/v2/client_info.proto";
-import "common/v2/jwt_credentials.proto";
-import "common/v2/o_auth2_credentials.proto";
-import "common/v2/password_credentials.proto";
-import "common/v2/request_metadata.proto";
+import "commonpb/v2/api_key_credentials.proto";
+import "commonpb/v2/client_info.proto";
+import "commonpb/v2/jwt_credentials.proto";
+import "commonpb/v2/o_auth2_credentials.proto";
+import "commonpb/v2/password_credentials.proto";
+import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

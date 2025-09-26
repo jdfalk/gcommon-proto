@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/conflict_strategy.proto";
-import "queue/v1/timestamp_config.proto";
-import "queue/v1/vector_clock_config.proto";
+import "commonpb/v1/conflict_strategy.proto";
+import "queuepb/v1/timestamp_config.proto";
+import "queuepb/v1/vector_clock_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

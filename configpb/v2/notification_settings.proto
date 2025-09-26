@@ -6,9 +6,9 @@ edition = "2023";
 
 package config.v2;
 
-import "common/v2/notification_trigger.proto";
-import "config/v2/batching_settings.proto";
-import "config/v2/notification_channel.proto";
+import "commonpb/v2/notification_trigger.proto";
+import "configpb/v2/batching_settings.proto";
+import "configpb/v2/notification_channel.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -5,10 +5,10 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/client_info.proto";
-import "common/v1/filter_options.proto";
-import "common/v1/subscription_options.proto";
-import "common/v1/subscription_status.proto";
+import "commonpb/v1/client_info.proto";
+import "commonpb/v1/filter_options.proto";
+import "commonpb/v1/subscription_options.proto";
+import "commonpb/v1/subscription_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

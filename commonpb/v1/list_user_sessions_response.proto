@@ -6,10 +6,10 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/error.proto";
-import "common/v1/paginated_response.proto";
-import "common/v1/request_metadata.proto";
-import "common/v1/session_info.proto";
+import "commonpb/v1/error.proto";
+import "commonpb/v1/paginated_response.proto";
+import "commonpb/v1/request_metadata.proto";
+import "commonpb/v1/session_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

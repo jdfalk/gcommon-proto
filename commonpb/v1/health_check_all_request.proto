@@ -5,7 +5,7 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/check_type.proto";
+import "commonpb/v1/check_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

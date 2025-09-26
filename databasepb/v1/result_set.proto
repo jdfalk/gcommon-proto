@@ -5,8 +5,8 @@ edition = "2023";
 
 package database.v1;
 
-import "database/v1/column_metadata.proto";
-import "database/v1/row.proto";
+import "databasepb/v1/column_metadata.proto";
+import "databasepb/v1/row.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

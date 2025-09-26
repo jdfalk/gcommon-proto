@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/cache_policy.proto";
-import "common/v2/cache_strategy.proto";
+import "commonpb/v2/cache_policy.proto";
+import "commonpb/v2/cache_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

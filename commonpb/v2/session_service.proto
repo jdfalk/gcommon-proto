@@ -5,22 +5,22 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/create_session_request.proto";
-import "common/v2/create_session_response.proto";
-import "common/v2/delete_session_request.proto";
-import "common/v2/delete_session_response.proto";
-import "common/v2/get_session_request.proto";
-import "common/v2/get_session_response.proto";
-import "common/v2/list_sessions_request.proto";
-import "common/v2/list_sessions_response.proto";
-import "common/v2/list_user_sessions_request.proto";
-import "common/v2/list_user_sessions_response.proto";
-import "common/v2/terminate_session_request.proto";
-import "common/v2/terminate_session_response.proto";
-import "common/v2/update_session_request.proto";
-import "common/v2/update_session_response.proto";
-import "common/v2/validate_session_request.proto";
-import "common/v2/validate_session_response.proto";
+import "commonpb/v2/create_session_request.proto";
+import "commonpb/v2/create_session_response.proto";
+import "commonpb/v2/delete_session_request.proto";
+import "commonpb/v2/delete_session_response.proto";
+import "commonpb/v2/get_session_request.proto";
+import "commonpb/v2/get_session_response.proto";
+import "commonpb/v2/list_sessions_request.proto";
+import "commonpb/v2/list_sessions_response.proto";
+import "commonpb/v2/list_user_sessions_request.proto";
+import "commonpb/v2/list_user_sessions_response.proto";
+import "commonpb/v2/terminate_session_request.proto";
+import "commonpb/v2/terminate_session_response.proto";
+import "commonpb/v2/update_session_request.proto";
+import "commonpb/v2/update_session_response.proto";
+import "commonpb/v2/validate_session_request.proto";
+import "commonpb/v2/validate_session_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

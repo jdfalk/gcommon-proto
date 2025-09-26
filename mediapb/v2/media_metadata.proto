@@ -6,8 +6,8 @@ edition = "2023";
 
 package media.v2;
 
-import "media/v2/movie_info.proto";
-import "media/v2/series_info.proto";
+import "mediapb/v2/movie_info.proto";
+import "mediapb/v2/series_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

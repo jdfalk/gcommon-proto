@@ -6,12 +6,12 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/pagination_options.proto";
-import "common/v2/request_metadata.proto";
-import "common/v2/time_range_metrics.proto";
-import "metrics/v2/metric_aggregation.proto";
-import "metrics/v2/metric_filter.proto";
-import "metrics/v2/output_options.proto";
+import "commonpb/v2/pagination_options.proto";
+import "commonpb/v2/request_metadata.proto";
+import "commonpb/v2/time_range_metrics.proto";
+import "metricspb/v2/metric_aggregation.proto";
+import "metricspb/v2/metric_filter.proto";
+import "metricspb/v2/output_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -10,8 +10,8 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/summary_metric.proto";
+import "commonpb/v1/request_metadata.proto";
+import "metricspb/v1/summary_metric.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

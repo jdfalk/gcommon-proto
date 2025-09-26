@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/config_retry_settings.proto";
-import "config/v1/validation_rule.proto";
+import "commonpb/v1/config_retry_settings.proto";
+import "configpb/v1/validation_rule.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

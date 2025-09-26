@@ -6,22 +6,22 @@ edition = "2023";
 
 package config.v1;
 
-import "config/v1/backup_config_request.proto";
-import "config/v1/config_backup.proto";
-import "config/v1/config_snapshot.proto";
-import "config/v1/export_config_request.proto";
-import "config/v1/get_config_history_request.proto";
-import "config/v1/get_config_history_response.proto";
-import "config/v1/get_config_stats_request.proto";
-import "config/v1/get_config_stats_response.proto";
-import "config/v1/health_check_request.proto";
-import "config/v1/health_check_response.proto";
-import "config/v1/import_config_request.proto";
-import "config/v1/reload_config_request.proto";
-import "config/v1/restore_config_request.proto";
-import "config/v1/rollback_config_request.proto";
-import "config/v1/set_config_schema_request.proto";
-import "config/v1/unwatch_config_request.proto";
+import "configpb/v1/backup_config_request.proto";
+import "configpb/v1/config_backup.proto";
+import "configpb/v1/config_snapshot.proto";
+import "configpb/v1/export_config_request.proto";
+import "configpb/v1/get_config_history_request.proto";
+import "configpb/v1/get_config_history_response.proto";
+import "configpb/v1/get_config_stats_request.proto";
+import "configpb/v1/get_config_stats_response.proto";
+import "configpb/v1/health_check_request.proto";
+import "configpb/v1/health_check_response.proto";
+import "configpb/v1/import_config_request.proto";
+import "configpb/v1/reload_config_request.proto";
+import "configpb/v1/restore_config_request.proto";
+import "configpb/v1/rollback_config_request.proto";
+import "configpb/v1/set_config_schema_request.proto";
+import "configpb/v1/unwatch_config_request.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 

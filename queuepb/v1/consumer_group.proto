@@ -6,12 +6,12 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/consumer_group_state.proto";
-import "queue/v1/consumer.proto";
-import "queue/v1/consumer_group_config.proto";
-import "queue/v1/consumer_group_stats.proto";
-import "queue/v1/group_coordinator.proto";
-import "queue/v1/partition_assignment.proto";
+import "commonpb/v1/consumer_group_state.proto";
+import "queuepb/v1/consumer.proto";
+import "queuepb/v1/consumer_group_config.proto";
+import "queuepb/v1/consumer_group_stats.proto";
+import "queuepb/v1/group_coordinator.proto";
+import "queuepb/v1/partition_assignment.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

@@ -6,14 +6,14 @@ edition = "2023";
 
 package health.v2;
 
-import "health/v2/dependency_check_request.proto";
-import "health/v2/list_checks_request.proto";
-import "health/v2/register_check_request.proto";
-import "health/v2/unregister_check_request.proto";
-import "health/v2/dependency_check_response.proto";
-import "health/v2/list_checks_response.proto";
-import "health/v2/register_check_response.proto";
-import "health/v2/unregister_check_response.proto";
+import "healthpb/v2/dependency_check_request.proto";
+import "healthpb/v2/list_checks_request.proto";
+import "healthpb/v2/register_check_request.proto";
+import "healthpb/v2/unregister_check_request.proto";
+import "healthpb/v2/dependency_check_response.proto";
+import "healthpb/v2/list_checks_response.proto";
+import "healthpb/v2/register_check_response.proto";
+import "healthpb/v2/unregister_check_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

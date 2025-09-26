@@ -6,7 +6,7 @@ edition = "2023";
 
 package config.v2;
 
-import "config/v2/approval_stage.proto";
+import "configpb/v2/approval_stage.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

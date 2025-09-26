@@ -7,18 +7,18 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/create_queue_request.proto";
-import "queue/v2/create_queue_response.proto";
-import "queue/v2/delete_topic_request.proto";
-import "queue/v2/delete_topic_response.proto";
-import "queue/v2/pause_queue_request.proto";
-import "queue/v2/pause_queue_response.proto";
-import "queue/v2/purge_request.proto";
-import "queue/v2/purge_response.proto";
-import "queue/v2/reset_queue_stats_request.proto";
-import "queue/v2/reset_queue_stats_response.proto";
-import "queue/v2/resume_queue_request.proto";
-import "queue/v2/resume_queue_response.proto";
+import "queuepb/v2/create_queue_request.proto";
+import "queuepb/v2/create_queue_response.proto";
+import "queuepb/v2/delete_topic_request.proto";
+import "queuepb/v2/delete_topic_response.proto";
+import "queuepb/v2/pause_queue_request.proto";
+import "queuepb/v2/pause_queue_response.proto";
+import "queuepb/v2/purge_request.proto";
+import "queuepb/v2/purge_response.proto";
+import "queuepb/v2/reset_queue_stats_request.proto";
+import "queuepb/v2/reset_queue_stats_response.proto";
+import "queuepb/v2/resume_queue_request.proto";
+import "queuepb/v2/resume_queue_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

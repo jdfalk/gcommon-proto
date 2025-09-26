@@ -6,8 +6,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/email_template.proto";
-import "common/v2/notification_frequency.proto";
+import "commonpb/v2/email_template.proto";
+import "commonpb/v2/notification_frequency.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

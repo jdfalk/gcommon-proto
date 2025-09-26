@@ -5,8 +5,8 @@ edition = "2023";
 
 package organization.v2;
 
-import "common/v2/error.proto";
-import "organization/v2/tenant_isolation.proto";
+import "commonpb/v2/error.proto";
+import "organizationpb/v2/tenant_isolation.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

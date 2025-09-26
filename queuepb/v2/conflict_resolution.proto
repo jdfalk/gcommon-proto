@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/resolution_strategy.proto";
-import "queue/v2/custom_resolution.proto";
-import "queue/v2/last_writer_wins.proto";
-import "queue/v2/multi_value_config.proto";
+import "commonpb/v2/resolution_strategy.proto";
+import "queuepb/v2/custom_resolution.proto";
+import "queuepb/v2/last_writer_wins.proto";
+import "queuepb/v2/multi_value_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

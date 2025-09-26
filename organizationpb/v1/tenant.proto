@@ -5,10 +5,10 @@ edition = "2023";
 
 package organization.v1;
 
-import "common/v1/isolation_level.proto";
-import "common/v1/key_value.proto";
-import "common/v1/tenant_status.proto";
-import "organization/v1/tenant_quota.proto";
+import "commonpb/v1/isolation_level.proto";
+import "commonpb/v1/key_value.proto";
+import "commonpb/v1/tenant_status.proto";
+import "organizationpb/v1/tenant_quota.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

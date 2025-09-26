@@ -6,9 +6,9 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/request_metadata.proto";
-import "common/v1/time_range_metrics.proto";
-import "metrics/v1/stats_options.proto";
+import "commonpb/v1/request_metadata.proto";
+import "commonpb/v1/time_range_metrics.proto";
+import "metricspb/v1/stats_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

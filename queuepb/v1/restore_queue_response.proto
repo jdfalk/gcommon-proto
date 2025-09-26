@@ -6,12 +6,12 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/metrics_validation_result.proto";
-import "queue/v1/partition_restore_result.proto";
-import "queue/v1/restore_error.proto";
-import "queue/v1/restore_statistics.proto";
-import "queue/v1/restore_status.proto";
-import "queue/v1/restore_warning.proto";
+import "commonpb/v1/metrics_validation_result.proto";
+import "queuepb/v1/partition_restore_result.proto";
+import "queuepb/v1/restore_error.proto";
+import "queuepb/v1/restore_statistics.proto";
+import "queuepb/v1/restore_status.proto";
+import "queuepb/v1/restore_warning.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

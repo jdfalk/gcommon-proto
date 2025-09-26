@@ -9,9 +9,9 @@ package media.v1;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "media/v1/audio_stream_info.proto";
-import "media/v1/subtitle_stream_info.proto";
-import "media/v1/video_stream_info.proto";
+import "mediapb/v1/audio_stream_info.proto";
+import "mediapb/v1/subtitle_stream_info.proto";
+import "mediapb/v1/video_stream_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/mediapb";

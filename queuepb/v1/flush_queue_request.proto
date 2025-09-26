@@ -7,7 +7,7 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/flush_policy.proto";
+import "commonpb/v1/flush_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

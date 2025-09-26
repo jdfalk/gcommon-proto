@@ -6,8 +6,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/user_preferences.proto";
-import "common/v2/verification_status.proto";
+import "commonpb/v2/user_preferences.proto";
+import "commonpb/v2/verification_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

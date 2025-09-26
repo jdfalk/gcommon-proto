@@ -6,7 +6,7 @@ edition = "2023";
 
 package database.v2;
 
-import "common/v2/request_metadata.proto";
+import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 

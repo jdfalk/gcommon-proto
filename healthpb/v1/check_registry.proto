@@ -6,7 +6,7 @@ edition = "2023";
 
 package health.v1;
 
-import "health/v1/health_check.proto";
+import "healthpb/v1/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 

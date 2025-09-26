@@ -9,8 +9,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/partition_config.proto";
-import "queue/v2/retention_policy.proto";
+import "queuepb/v2/partition_config.proto";
+import "queuepb/v2/retention_policy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -5,7 +5,7 @@ edition = "2023";
 
 package organization.v1;
 
-import "common/v1/key_value.proto";
+import "commonpb/v1/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

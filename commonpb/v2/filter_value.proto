@@ -5,9 +5,9 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/filter_operation.proto";
-import "common/v2/int64_array.proto";
-import "common/v2/string_array.proto";
+import "commonpb/v2/filter_operation.proto";
+import "commonpb/v2/int64_array.proto";
+import "commonpb/v2/string_array.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

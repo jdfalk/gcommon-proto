@@ -5,9 +5,9 @@ edition = "2023";
 
 package database.v1;
 
-import "common/v1/error.proto";
-import "database/v1/batch_operation_result.proto";
-import "database/v1/batch_stats.proto";
+import "commonpb/v1/error.proto";
+import "databasepb/v1/batch_operation_result.proto";
+import "databasepb/v1/batch_stats.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

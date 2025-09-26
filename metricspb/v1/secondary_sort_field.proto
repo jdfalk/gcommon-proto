@@ -6,7 +6,7 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/sort_direction.proto";
+import "commonpb/v1/sort_direction.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

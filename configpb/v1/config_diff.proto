@@ -6,7 +6,7 @@ edition = "2023";
 
 package config.v1;
 
-import "config/v1/config_diff_entry.proto";
+import "configpb/v1/config_diff_entry.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

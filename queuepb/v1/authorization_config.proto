@@ -6,11 +6,11 @@ edition = "2023";
 
 package queue.v1;
 
-import "queue/v1/api_key_auth.proto";
-import "queue/v1/external_auth_service.proto";
-import "queue/v1/jwt_auth.proto";
-import "queue/v1/permission_rule.proto";
-import "queue/v1/role_based_access_control.proto";
+import "queuepb/v1/api_key_auth.proto";
+import "queuepb/v1/external_auth_service.proto";
+import "queuepb/v1/jwt_auth.proto";
+import "queuepb/v1/permission_rule.proto";
+import "queuepb/v1/role_based_access_control.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,12 +6,12 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/content_update.proto";
-import "queue/v2/message_update_properties.proto";
-import "queue/v2/metadata_update.proto";
-import "queue/v2/priority_update.proto";
-import "queue/v2/update_condition.proto";
-import "queue/v2/visibility_update.proto";
+import "queuepb/v2/content_update.proto";
+import "queuepb/v2/message_update_properties.proto";
+import "queuepb/v2/metadata_update.proto";
+import "queuepb/v2/priority_update.proto";
+import "queuepb/v2/update_condition.proto";
+import "queuepb/v2/visibility_update.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

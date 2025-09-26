@@ -6,12 +6,12 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/metrics_error_stats.proto";
-import "common/v2/metrics_retention_info.proto";
-import "metrics/v2/export_status.proto";
-import "metrics/v2/metric_type_counts.proto";
-import "metrics/v2/performance_stats.proto";
-import "metrics/v2/top_metrics.proto";
+import "commonpb/v2/metrics_error_stats.proto";
+import "commonpb/v2/metrics_retention_info.proto";
+import "metricspb/v2/export_status.proto";
+import "metricspb/v2/metric_type_counts.proto";
+import "metricspb/v2/performance_stats.proto";
+import "metricspb/v2/top_metrics.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

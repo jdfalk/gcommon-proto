@@ -6,8 +6,8 @@ edition = "2023";
 
 package media.v2;
 
-import "common/v2/quality_score.proto";
-import "common/v2/resolution.proto";
+import "commonpb/v2/quality_score.proto";
+import "commonpb/v2/resolution.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,24 +6,24 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/get_metric_metadata_request.proto";
-import "metrics/v1/get_metric_metadata_response.proto";
-import "metrics/v1/get_metrics_request.proto";
-import "metrics/v1/get_metrics_response.proto";
-import "metrics/v1/get_metrics_summary_request.proto";
-import "metrics/v1/get_metrics_summary_response.proto";
-import "metrics/v1/metric_data.proto";
-import "metrics/v1/query_metrics_request.proto";
-import "metrics/v1/query_metrics_response.proto";
-import "metrics/v1/record_metric_request.proto";
-import "metrics/v1/record_metric_response.proto";
-import "metrics/v1/record_metrics_request.proto";
-import "metrics/v1/record_metrics_response.proto";
-import "metrics/v1/register_metric_request.proto";
-import "metrics/v1/register_metric_response.proto";
-import "metrics/v1/stream_metrics_request.proto";
-import "metrics/v1/unregister_metric_request.proto";
-import "metrics/v1/unregister_metric_response.proto";
+import "metricspb/v1/get_metric_metadata_request.proto";
+import "metricspb/v1/get_metric_metadata_response.proto";
+import "metricspb/v1/get_metrics_request.proto";
+import "metricspb/v1/get_metrics_response.proto";
+import "metricspb/v1/get_metrics_summary_request.proto";
+import "metricspb/v1/get_metrics_summary_response.proto";
+import "metricspb/v1/metric_data.proto";
+import "metricspb/v1/query_metrics_request.proto";
+import "metricspb/v1/query_metrics_response.proto";
+import "metricspb/v1/record_metric_request.proto";
+import "metricspb/v1/record_metric_response.proto";
+import "metricspb/v1/record_metrics_request.proto";
+import "metricspb/v1/record_metrics_response.proto";
+import "metricspb/v1/register_metric_request.proto";
+import "metricspb/v1/register_metric_response.proto";
+import "metricspb/v1/stream_metrics_request.proto";
+import "metricspb/v1/unregister_metric_request.proto";
+import "metricspb/v1/unregister_metric_response.proto";
 import "google/protobuf/go_features.proto";
 
 // Import response messages

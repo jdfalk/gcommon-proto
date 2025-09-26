@@ -6,7 +6,7 @@ edition = "2023";
 
 package config.v1;
 
-import "config/v1/config_stats.proto";
+import "configpb/v1/config_stats.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -5,22 +5,22 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/get_health_metrics_request.proto";
-import "common/v1/get_health_metrics_response.proto";
-import "common/v1/get_service_health_request.proto";
-import "common/v1/get_service_health_response.proto";
-import "common/v1/health_check_all_request.proto";
-import "common/v1/health_check_all_response.proto";
-import "common/v1/health_check_request.proto";
-import "common/v1/health_check_response.proto";
-import "common/v1/list_services_request.proto";
-import "common/v1/list_services_response.proto";
-import "common/v1/register_check_request.proto";
-import "common/v1/register_check_response.proto";
-import "common/v1/unregister_check_request.proto";
-import "common/v1/unregister_check_response.proto";
-import "common/v1/watch_request.proto";
-import "common/v1/watch_response.proto";
+import "commonpb/v1/get_health_metrics_request.proto";
+import "commonpb/v1/get_health_metrics_response.proto";
+import "commonpb/v1/get_service_health_request.proto";
+import "commonpb/v1/get_service_health_response.proto";
+import "commonpb/v1/health_check_all_request.proto";
+import "commonpb/v1/health_check_all_response.proto";
+import "commonpb/v1/health_check_request.proto";
+import "commonpb/v1/health_check_response.proto";
+import "commonpb/v1/list_services_request.proto";
+import "commonpb/v1/list_services_response.proto";
+import "commonpb/v1/register_check_request.proto";
+import "commonpb/v1/register_check_response.proto";
+import "commonpb/v1/unregister_check_request.proto";
+import "commonpb/v1/unregister_check_response.proto";
+import "commonpb/v1/watch_request.proto";
+import "commonpb/v1/watch_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

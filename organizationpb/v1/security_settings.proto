@@ -6,7 +6,7 @@ edition = "2023";
 
 package organization.v1;
 
-import "organization/v1/rate_limit_config.proto";
+import "organizationpb/v1/rate_limit_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v2;
 
-import "metrics/v2/resource_limits_summary.proto";
-import "metrics/v2/security_summary.proto";
+import "metricspb/v2/resource_limits_summary.proto";
+import "metricspb/v2/security_summary.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

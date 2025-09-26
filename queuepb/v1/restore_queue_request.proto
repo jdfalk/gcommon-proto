@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v1;
 
-import "queue/v1/backup_source.proto";
-import "queue/v1/restore_config.proto";
-import "queue/v1/restore_options.proto";
+import "queuepb/v1/backup_source.proto";
+import "queuepb/v1/restore_config.proto";
+import "queuepb/v1/restore_options.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

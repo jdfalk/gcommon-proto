@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/api_key_config_update.proto";
-import "metrics/v1/tls_config_update.proto";
+import "metricspb/v1/api_key_config_update.proto";
+import "metricspb/v1/tls_config_update.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/alert_severity.proto";
-import "queue/v2/alert_rule.proto";
-import "queue/v2/notification_channel.proto";
+import "commonpb/v2/alert_severity.proto";
+import "queuepb/v2/alert_rule.proto";
+import "queuepb/v2/notification_channel.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

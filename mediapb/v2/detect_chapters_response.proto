@@ -6,7 +6,7 @@ edition = "2023";
 
 package media.v2;
 
-import "media/v2/chapter_info.proto";
+import "mediapb/v2/chapter_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

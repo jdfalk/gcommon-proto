@@ -5,10 +5,10 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/filter_options.proto";
-import "common/v1/pagination.proto";
-import "common/v1/request_metadata.proto";
-import "common/v1/sort_options.proto";
+import "commonpb/v1/filter_options.proto";
+import "commonpb/v1/pagination.proto";
+import "commonpb/v1/request_metadata.proto";
+import "commonpb/v1/sort_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

@@ -6,7 +6,7 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/scrape_target.proto";
+import "metricspb/v1/scrape_target.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

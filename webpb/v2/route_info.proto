@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/route_type.proto";
-import "web/v2/route_config.proto";
+import "commonpb/v2/route_type.proto";
+import "webpb/v2/route_config.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

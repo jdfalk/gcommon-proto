@@ -6,16 +6,16 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/create_provider_request.proto";
-import "metrics/v1/create_provider_response.proto";
-import "metrics/v1/delete_provider_request.proto";
-import "metrics/v1/delete_provider_response.proto";
-import "metrics/v1/get_provider_stats_request.proto";
-import "metrics/v1/get_provider_stats_response.proto";
-import "metrics/v1/list_providers_request.proto";
-import "metrics/v1/list_providers_response.proto";
-import "metrics/v1/update_provider_request.proto";
-import "metrics/v1/update_provider_response.proto";
+import "metricspb/v1/create_provider_request.proto";
+import "metricspb/v1/create_provider_response.proto";
+import "metricspb/v1/delete_provider_request.proto";
+import "metricspb/v1/delete_provider_response.proto";
+import "metricspb/v1/get_provider_stats_request.proto";
+import "metricspb/v1/get_provider_stats_response.proto";
+import "metricspb/v1/list_providers_request.proto";
+import "metricspb/v1/list_providers_response.proto";
+import "metricspb/v1/update_provider_request.proto";
+import "metricspb/v1/update_provider_response.proto";
 import "google/protobuf/go_features.proto";
 
 // Import all required request and response messages

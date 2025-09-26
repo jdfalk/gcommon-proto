@@ -5,8 +5,8 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/health_check_result.proto";
-import "common/v1/serving_status.proto";
+import "commonpb/v1/health_check_result.proto";
+import "commonpb/v1/serving_status.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

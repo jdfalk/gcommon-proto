@@ -6,8 +6,8 @@ edition = "2023";
 
 package database.v2;
 
-import "common/v2/request_metadata.proto";
-import "database/v2/migration_script.proto";
+import "commonpb/v2/request_metadata.proto";
+import "databasepb/v2/migration_script.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

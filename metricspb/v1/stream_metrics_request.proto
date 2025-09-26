@@ -6,11 +6,11 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/buffer_config.proto";
-import "metrics/v1/metric_filter.proto";
-import "metrics/v1/stream_options.proto";
-import "metrics/v1/stream_start.proto";
+import "commonpb/v1/request_metadata.proto";
+import "metricspb/v1/buffer_config.proto";
+import "metricspb/v1/metric_filter.proto";
+import "metricspb/v1/stream_options.proto";
+import "metricspb/v1/stream_start.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,8 +6,8 @@ edition = "2023";
 
 package organization.v2;
 
-import "common/v2/key_value.proto";
-import "organization/v2/backup_config.proto";
+import "commonpb/v2/key_value.proto";
+import "organizationpb/v2/backup_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

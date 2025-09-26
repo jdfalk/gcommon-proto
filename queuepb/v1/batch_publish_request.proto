@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/request_metadata.proto";
-import "queue/v1/queue_message.proto";
+import "commonpb/v1/request_metadata.proto";
+import "queuepb/v1/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

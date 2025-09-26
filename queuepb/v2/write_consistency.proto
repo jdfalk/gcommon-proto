@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/write_level.proto";
-import "queue/v2/conflict_detection.proto";
-import "queue/v2/sync_replication.proto";
-import "queue/v2/write_retry_config.proto";
+import "commonpb/v2/write_level.proto";
+import "queuepb/v2/conflict_detection.proto";
+import "queuepb/v2/sync_replication.proto";
+import "queuepb/v2/write_retry_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

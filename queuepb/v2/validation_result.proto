@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/checksum_validation.proto";
-import "queue/v2/integrity_validation.proto";
-import "queue/v2/schema_validation.proto";
-import "queue/v2/validation_error.proto";
+import "queuepb/v2/checksum_validation.proto";
+import "queuepb/v2/integrity_validation.proto";
+import "queuepb/v2/schema_validation.proto";
+import "queuepb/v2/validation_error.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

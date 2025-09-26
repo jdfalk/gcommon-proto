@@ -6,11 +6,11 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/sort_options.proto";
-import "common/v2/time_range_metrics.proto";
-import "metrics/v2/aggregation_spec.proto";
-import "metrics/v2/group_by_spec.proto";
-import "metrics/v2/metric_filter.proto";
+import "commonpb/v2/sort_options.proto";
+import "commonpb/v2/time_range_metrics.proto";
+import "metricspb/v2/aggregation_spec.proto";
+import "metricspb/v2/group_by_spec.proto";
+import "metricspb/v2/metric_filter.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

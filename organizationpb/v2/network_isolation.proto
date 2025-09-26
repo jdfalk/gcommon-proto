@@ -6,10 +6,10 @@ edition = "2023";
 
 package organization.v2;
 
-import "organization/v2/cdn_config.proto";
-import "organization/v2/domain_config.proto";
-import "organization/v2/load_balancer_config.proto";
-import "organization/v2/network_acl_rule.proto";
+import "organizationpb/v2/cdn_config.proto";
+import "organizationpb/v2/domain_config.proto";
+import "organizationpb/v2/load_balancer_config.proto";
+import "organizationpb/v2/network_acl_rule.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

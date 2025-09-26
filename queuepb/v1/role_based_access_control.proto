@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v1;
 
-import "queue/v1/external_role_provider.proto";
-import "queue/v1/role_inheritance.proto";
+import "queuepb/v1/external_role_provider.proto";
+import "queuepb/v1/role_inheritance.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

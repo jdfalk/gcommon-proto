@@ -5,9 +5,9 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/error.proto";
-import "common/v1/paginated_response.proto";
-import "config/v1/config_entry.proto";
+import "commonpb/v1/error.proto";
+import "commonpb/v1/paginated_response.proto";
+import "configpb/v1/config_entry.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

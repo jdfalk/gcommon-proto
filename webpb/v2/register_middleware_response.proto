@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/error.proto";
-import "web/v2/middleware_info.proto";
+import "commonpb/v2/error.proto";
+import "webpb/v2/middleware_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

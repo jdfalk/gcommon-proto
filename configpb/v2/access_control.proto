@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v2;
 
-import "config/v2/access_restriction.proto";
-import "config/v2/rate_limits.proto";
+import "configpb/v2/access_restriction.proto";
+import "configpb/v2/rate_limits.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

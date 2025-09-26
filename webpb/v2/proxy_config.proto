@@ -6,8 +6,8 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/proxy_type.proto";
-import "web/v2/http_header.proto";
+import "commonpb/v2/proxy_type.proto";
+import "webpb/v2/http_header.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

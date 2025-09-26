@@ -9,8 +9,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/response_metadata.proto";
-import "common/v2/subscription_info.proto";
+import "commonpb/v2/response_metadata.proto";
+import "commonpb/v2/subscription_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

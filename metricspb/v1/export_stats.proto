@@ -6,7 +6,7 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/export_destination_stats.proto";
+import "metricspb/v1/export_destination_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

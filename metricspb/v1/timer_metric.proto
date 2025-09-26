@@ -6,8 +6,8 @@ edition = "2023";
 
 package metrics.v1;
 
-import "metrics/v1/percentile_measurement.proto";
-import "metrics/v1/timer_statistics.proto";
+import "metricspb/v1/percentile_measurement.proto";
+import "metricspb/v1/timer_statistics.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

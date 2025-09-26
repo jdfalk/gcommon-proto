@@ -6,10 +6,10 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/config_retry_settings.proto";
-import "queue/v1/delivery_settings.proto";
-import "queue/v1/filter_settings.proto";
-import "queue/v1/routing_settings.proto";
+import "commonpb/v1/config_retry_settings.proto";
+import "queuepb/v1/delivery_settings.proto";
+import "queuepb/v1/filter_settings.proto";
+import "queuepb/v1/routing_settings.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

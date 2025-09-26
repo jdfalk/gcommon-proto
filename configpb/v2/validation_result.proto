@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v2;
 
-import "common/v2/validation_result_type.proto";
-import "common/v2/validation_severity.proto";
+import "commonpb/v2/validation_result_type.proto";
+import "commonpb/v2/validation_severity.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

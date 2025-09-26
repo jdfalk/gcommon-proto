@@ -6,8 +6,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/health_metric_data.proto";
-import "common/v2/request_metadata.proto";
+import "commonpb/v2/health_metric_data.proto";
+import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

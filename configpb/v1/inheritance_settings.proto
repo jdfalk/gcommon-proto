@@ -6,10 +6,10 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/inheritance_strategy.proto";
-import "common/v1/merge_strategy.proto";
-import "config/v1/inheritance_filter.proto";
-import "config/v1/inheritance_transformation.proto";
+import "commonpb/v1/inheritance_strategy.proto";
+import "commonpb/v1/merge_strategy.proto";
+import "configpb/v1/inheritance_filter.proto";
+import "configpb/v1/inheritance_transformation.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

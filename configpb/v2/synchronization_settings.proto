@@ -6,9 +6,9 @@ edition = "2023";
 
 package config.v2;
 
-import "common/v2/conflict_resolution.proto";
-import "common/v2/synchronization_frequency.proto";
-import "config/v2/synchronization_target.proto";
+import "commonpb/v2/conflict_resolution.proto";
+import "commonpb/v2/synchronization_frequency.proto";
+import "configpb/v2/synchronization_target.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

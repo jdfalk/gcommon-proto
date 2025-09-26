@@ -5,7 +5,7 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/permission_scope.proto";
+import "commonpb/v2/permission_scope.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

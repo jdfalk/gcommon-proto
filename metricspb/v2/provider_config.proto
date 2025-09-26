@@ -6,11 +6,11 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/metrics_provider_type.proto";
-import "common/v2/organization_resource_limits.proto";
-import "metrics/v2/export_config.proto";
-import "metrics/v2/provider_settings.proto";
-import "metrics/v2/security_config.proto";
+import "commonpb/v2/metrics_provider_type.proto";
+import "commonpb/v2/organization_resource_limits.proto";
+import "metricspb/v2/export_config.proto";
+import "metricspb/v2/provider_settings.proto";
+import "metricspb/v2/security_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,9 +6,9 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/error.proto";
-import "common/v1/pagination_info.proto";
-import "common/v1/rate_limit_info.proto";
+import "commonpb/v1/error.proto";
+import "commonpb/v1/pagination_info.proto";
+import "commonpb/v1/rate_limit_info.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

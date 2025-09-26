@@ -6,7 +6,7 @@ edition = "2023";
 
 package media.v1;
 
-import "common/v1/conflict_resolution.proto";
+import "commonpb/v1/conflict_resolution.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

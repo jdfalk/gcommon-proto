@@ -6,10 +6,10 @@ edition = "2023";
 
 package metrics.v2;
 
-import "common/v2/error.proto";
-import "metrics/v2/metric_series.proto";
-import "metrics/v2/query_plan.proto";
-import "metrics/v2/query_statistics.proto";
+import "commonpb/v2/error.proto";
+import "metricspb/v2/metric_series.proto";
+import "metricspb/v2/query_plan.proto";
+import "metricspb/v2/query_statistics.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

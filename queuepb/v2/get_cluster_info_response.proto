@@ -9,8 +9,8 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/cluster_info.proto";
-import "queue/v2/node_info.proto";
+import "queuepb/v2/cluster_info.proto";
+import "queuepb/v2/node_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

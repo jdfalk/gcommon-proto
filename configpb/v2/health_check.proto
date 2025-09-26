@@ -6,7 +6,7 @@ edition = "2023";
 
 package config.v2;
 
-import "common/v2/health_check_type.proto";
+import "commonpb/v2/health_check_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

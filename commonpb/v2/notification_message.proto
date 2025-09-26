@@ -8,8 +8,8 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/delivery_channel.proto";
-import "common/v2/delivery_status.proto";
+import "commonpb/v2/delivery_channel.proto";
+import "commonpb/v2/delivery_status.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

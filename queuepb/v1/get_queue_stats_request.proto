@@ -6,8 +6,8 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/stats_granularity.proto";
-import "common/v1/time_range_metrics.proto";
+import "commonpb/v1/stats_granularity.proto";
+import "commonpb/v1/time_range_metrics.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

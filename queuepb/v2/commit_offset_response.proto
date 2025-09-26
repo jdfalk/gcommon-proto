@@ -6,7 +6,7 @@ edition = "2023";
 
 package queue.v2;
 
-import "queue/v2/partition_commit_result.proto";
+import "queuepb/v2/partition_commit_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

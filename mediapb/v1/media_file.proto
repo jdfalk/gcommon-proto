@@ -6,11 +6,11 @@ edition = "2023";
 
 package media.v1;
 
-import "common/v1/media_type.proto";
-import "media/v1/audio_track.proto";
-import "media/v1/media_metadata.proto";
-import "media/v1/media_quality.proto";
-import "media/v1/subtitle_track.proto";
+import "commonpb/v1/media_type.proto";
+import "mediapb/v1/audio_track.proto";
+import "mediapb/v1/media_metadata.proto";
+import "mediapb/v1/media_quality.proto";
+import "mediapb/v1/subtitle_track.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

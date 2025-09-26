@@ -5,18 +5,18 @@ edition = "2023";
 
 package database.v1;
 
-import "database/v1/execute_batch_request.proto";
-import "database/v1/execute_batch_response.proto";
-import "database/v1/execute_request.proto";
-import "database/v1/execute_response.proto";
-import "database/v1/get_connection_info_request.proto";
-import "database/v1/get_connection_info_response.proto";
-import "database/v1/health_check_request.proto";
-import "database/v1/health_check_response.proto";
-import "database/v1/query_request.proto";
-import "database/v1/query_response.proto";
-import "database/v1/query_row_request.proto";
-import "database/v1/query_row_response.proto";
+import "databasepb/v1/execute_batch_request.proto";
+import "databasepb/v1/execute_batch_response.proto";
+import "databasepb/v1/execute_request.proto";
+import "databasepb/v1/execute_response.proto";
+import "databasepb/v1/get_connection_info_request.proto";
+import "databasepb/v1/get_connection_info_response.proto";
+import "databasepb/v1/health_check_request.proto";
+import "databasepb/v1/health_check_response.proto";
+import "databasepb/v1/query_request.proto";
+import "databasepb/v1/query_response.proto";
+import "databasepb/v1/query_row_request.proto";
+import "databasepb/v1/query_row_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

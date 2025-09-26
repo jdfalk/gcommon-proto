@@ -6,7 +6,7 @@ edition = "2023";
 
 package queue.v2;
 
-import "common/v2/routing_pattern.proto";
+import "commonpb/v2/routing_pattern.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

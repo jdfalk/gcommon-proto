@@ -9,7 +9,7 @@ edition = "2023";
 
 package queue.v1;
 
-import "queue/v1/message_envelope.proto";
+import "queuepb/v1/message_envelope.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

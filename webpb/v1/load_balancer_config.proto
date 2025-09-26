@@ -6,7 +6,7 @@ edition = "2023";
 
 package web.v1;
 
-import "common/v1/load_balance_strategy.proto";
+import "commonpb/v1/load_balance_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";

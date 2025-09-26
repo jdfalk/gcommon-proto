@@ -6,8 +6,8 @@ edition = "2023";
 
 package config.v1;
 
-import "common/v1/cache_invalidation_trigger.proto";
-import "common/v1/cache_refresh_strategy.proto";
+import "commonpb/v1/cache_invalidation_trigger.proto";
+import "commonpb/v1/cache_refresh_strategy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,16 +6,16 @@ edition = "2023";
 
 package media.v1;
 
-import "media/v1/analyze_media_request.proto";
-import "media/v1/analyze_media_response.proto";
-import "media/v1/extract_audio_request.proto";
-import "media/v1/extract_audio_response.proto";
-import "media/v1/extract_subtitles_request.proto";
-import "media/v1/extract_subtitles_response.proto";
-import "media/v1/get_processing_status_request.proto";
-import "media/v1/get_processing_status_response.proto";
-import "media/v1/transcode_media_request.proto";
-import "media/v1/transcode_media_response.proto";
+import "mediapb/v1/analyze_media_request.proto";
+import "mediapb/v1/analyze_media_response.proto";
+import "mediapb/v1/extract_audio_request.proto";
+import "mediapb/v1/extract_audio_response.proto";
+import "mediapb/v1/extract_subtitles_request.proto";
+import "mediapb/v1/extract_subtitles_response.proto";
+import "mediapb/v1/get_processing_status_request.proto";
+import "mediapb/v1/get_processing_status_response.proto";
+import "mediapb/v1/transcode_media_request.proto";
+import "mediapb/v1/transcode_media_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

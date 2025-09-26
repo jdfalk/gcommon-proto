@@ -6,10 +6,10 @@ edition = "2023";
 
 package organization.v2;
 
-import "common/v2/metrics_api_key_config.proto";
-import "organization/v2/integration.proto";
-import "organization/v2/o_auth_app_config.proto";
-import "organization/v2/webhook_config.proto";
+import "commonpb/v2/metrics_api_key_config.proto";
+import "organizationpb/v2/integration.proto";
+import "organizationpb/v2/o_auth_app_config.proto";
+import "organizationpb/v2/webhook_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

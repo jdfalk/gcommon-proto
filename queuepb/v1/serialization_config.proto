@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v1;
 
-import "common/v1/compression_algorithm.proto";
-import "common/v1/serialization_format.proto";
-import "queue/v1/format_options.proto";
+import "commonpb/v1/compression_algorithm.proto";
+import "commonpb/v1/serialization_format.proto";
+import "queuepb/v1/format_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

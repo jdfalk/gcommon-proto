@@ -6,15 +6,15 @@ edition = "2023";
 
 package organization.v1;
 
-import "common/v1/isolation_level.proto";
-import "common/v1/key_value.proto";
-import "common/v1/organization_access_control.proto";
-import "organization/v1/audit_config.proto";
-import "organization/v1/compute_isolation.proto";
-import "organization/v1/database_isolation.proto";
-import "organization/v1/encryption_config.proto";
-import "organization/v1/network_isolation.proto";
-import "organization/v1/storage_isolation.proto";
+import "commonpb/v1/isolation_level.proto";
+import "commonpb/v1/key_value.proto";
+import "commonpb/v1/organization_access_control.proto";
+import "organizationpb/v1/audit_config.proto";
+import "organizationpb/v1/compute_isolation.proto";
+import "organizationpb/v1/database_isolation.proto";
+import "organizationpb/v1/encryption_config.proto";
+import "organizationpb/v1/network_isolation.proto";
+import "organizationpb/v1/storage_isolation.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

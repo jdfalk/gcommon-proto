@@ -6,7 +6,7 @@ edition = "2023";
 
 package metrics.v1;
 
-import "common/v1/provider_state.proto";
+import "commonpb/v1/provider_state.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";

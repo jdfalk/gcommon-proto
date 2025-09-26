@@ -6,8 +6,8 @@ edition = "2023";
 
 package organization.v1;
 
-import "organization/v1/health_check_config.proto";
-import "organization/v1/ssl_config.proto";
+import "organizationpb/v1/health_check_config.proto";
+import "organizationpb/v1/ssl_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

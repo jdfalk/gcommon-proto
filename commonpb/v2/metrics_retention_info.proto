@@ -6,7 +6,7 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/metrics_retention_policy_config.proto";
+import "commonpb/v2/metrics_retention_policy_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,9 +6,9 @@ edition = "2023";
 
 package common.v2;
 
-import "common/v2/check_type.proto";
-import "common/v2/component_health.proto";
-import "common/v2/serving_status.proto";
+import "commonpb/v2/check_type.proto";
+import "commonpb/v2/component_health.proto";
+import "commonpb/v2/serving_status.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

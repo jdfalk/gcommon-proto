@@ -5,9 +5,9 @@ edition = "2023";
 
 package common.v1;
 
-import "common/v1/rate_limit.proto";
-import "common/v1/session.proto";
-import "common/v1/user_info.proto";
+import "commonpb/v1/rate_limit.proto";
+import "commonpb/v1/session.proto";
+import "commonpb/v1/user_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

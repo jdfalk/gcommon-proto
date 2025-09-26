@@ -6,9 +6,9 @@ edition = "2023";
 
 package queue.v1;
 
-import "queue/v1/dead_letter_queue_config.proto";
-import "queue/v1/error_action_config.proto";
-import "queue/v1/error_notification_config.proto";
+import "queuepb/v1/dead_letter_queue_config.proto";
+import "queuepb/v1/error_action_config.proto";
+import "queuepb/v1/error_notification_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

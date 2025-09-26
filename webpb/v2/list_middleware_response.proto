@@ -6,9 +6,9 @@ edition = "2023";
 
 package web.v2;
 
-import "common/v2/error.proto";
-import "common/v2/pagination.proto";
-import "web/v2/middleware_info.proto";
+import "commonpb/v2/error.proto";
+import "commonpb/v2/pagination.proto";
+import "webpb/v2/middleware_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 

@@ -6,9 +6,9 @@ edition = "2023";
 
 package health.v1;
 
-import "health/v1/health_result.proto";
-import "health/v1/health_event.proto";
-import "common/v1/response_metadata.proto";
+import "healthpb/v1/health_result.proto";
+import "healthpb/v1/health_event.proto";
+import "commonpb/v1/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

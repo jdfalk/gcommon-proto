@@ -6,12 +6,12 @@ edition = "2023";
 
 package database.v2;
 
-import "database/v2/begin_transaction_request.proto";
-import "database/v2/begin_transaction_response.proto";
-import "database/v2/commit_transaction_request.proto";
-import "database/v2/rollback_transaction_request.proto";
-import "database/v2/transaction_status_request.proto";
-import "database/v2/transaction_status_response.proto";
+import "databasepb/v2/begin_transaction_request.proto";
+import "databasepb/v2/begin_transaction_response.proto";
+import "databasepb/v2/commit_transaction_request.proto";
+import "databasepb/v2/rollback_transaction_request.proto";
+import "databasepb/v2/transaction_status_request.proto";
+import "databasepb/v2/transaction_status_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
