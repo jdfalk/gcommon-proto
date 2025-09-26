@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/database/my_sql_config.proto
+// version: 1.0.0
+// guid: 7950ed79-355d-451e-a539-59a2306f882a
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * MySQLConfig defines connection parameters for MySQL databases.
+ */
+message MySQLConfig {
+  // MySQL connection DSN string
+  string dsn = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum number of open connections
+  int32 max_open_conns = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum number of idle connections
+  int32 max_idle_conns = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Connection timeout in seconds
+  int32 connect_timeout_seconds = 4 [(buf.validate.field).int32.gt = 0];
+}

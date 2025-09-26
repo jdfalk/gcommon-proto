@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/reset_health_stats_response.proto
+// version: 1.0.0
+// guid: 6b989b99-80f9-42fe-8a61-817a735351b1
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response message for resetting health statistics.
+ * Contains the result of clearing stored health metrics and statistics.
+ */
+message ResetHealthStatsResponse {
+  // Success status
+  bool success = 1;
+
+  // Number of statistics entries cleared
+  int32 cleared_entries = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Reset timestamp
+  google.protobuf.Timestamp reset_at = 3;
+
+  // Error information if reset failed
+  common.v1.Error error = 4;
+
+  // Statistics categories that were reset
+  repeated string reset_categories = 5 [(buf.validate.field).repeated.min_items = 1];
+}

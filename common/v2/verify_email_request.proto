@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/verify_email_request.proto
+// version: 1.0.0
+// guid: 8f68392c-3cc1-408c-a8ac-4c48d08a70a0
+// file: proto/gcommon/v1/common/verify_email_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message VerifyEmailRequest {
+  // User ID or email to verify
+  string identifier = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Verification token from email
+  string verification_token = 2 [(buf.validate.field).string.min_len = 1];
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

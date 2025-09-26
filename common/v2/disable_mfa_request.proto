@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/common/types/disable_mfa_request.proto
+// version: 1.0.0
+// guid: 69fe90b5-14de-44b2-a3dc-8768c27f6617
+// file: proto/gcommon/v1/common/disable_mfa_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/mfa_method.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message DisableMfaRequest {
+  // User ID requesting MFA disable
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Current password for verification
+  string password = 2;
+
+  // MFA verification code
+  string verification_code = 3;
+
+  // Specific methods to disable (empty = all)
+  repeated common.v1.MfaMethod methods = 4;
+}

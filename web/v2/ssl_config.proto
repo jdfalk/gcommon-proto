@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/web/ssl_config.proto
+// version: 1.1.0
+// guid: 4d5ec783-ec4b-4ffc-a7e6-28df5382a594
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/ssl_protocol.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// SslConfig message definition.
+message SslConfig {
+  // TLS protocol version
+  common.v1.SSLProtocol protocol = 1;
+
+  // Path to certificate file
+  string cert_file = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Path to key file
+  string key_file = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Optional CA bundle path
+  string ca_file = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Require client certificates
+  bool require_client_auth = 5;
+}

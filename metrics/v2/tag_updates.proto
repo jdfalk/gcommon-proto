@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/tag_updates.proto
+// version: 1.0.0
+// guid: 3f881144-83c6-471b-9db4-227cb066b468
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * TagUpdates contains tag update operations.
+ */
+message TagUpdates {
+  // Tags to add or update
+  map<string, string> tag_updates = 1;
+
+  // Tag keys to remove
+  repeated string tag_removes = 2 [(buf.validate.field).repeated.min_items = 1];
+}

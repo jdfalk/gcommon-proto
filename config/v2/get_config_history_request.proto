@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/config/api/get_config_history_request.proto
+// version: 1.0.0
+// guid: 3e7b6154-2e0b-4f37-b278-51bc35fd7fe1
+// file: proto/gcommon/v1/config/get_config_history_request.proto
+//
+// Request definitions for config module
+// Generated as part of protobuf implementation
+//
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * GetConfigHistoryRequest retrieves change history for a configuration key.
+ */
+message GetConfigHistoryRequest {
+  // Configuration key to query
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Namespace/environment of the key
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Only return changes after this time
+  google.protobuf.Timestamp since = 3;
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 4;
+}

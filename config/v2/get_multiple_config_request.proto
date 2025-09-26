@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/config/get_multiple_config_request.proto
+// version: 1.0.0
+// guid: 40dcbc9d-69ee-4f5e-896b-c9d8bca277b7
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message GetMultipleConfigRequest {
+  // Configuration keys to retrieve
+  repeated string keys = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Optional namespace/environment
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to decrypt encrypted values
+  bool decrypt = 3;
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 4;
+}

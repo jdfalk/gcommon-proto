@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/health/enums/health_status.proto
+// version: 1.0.0
+// guid: 8a1b2c3d-4e5f-6789-abc1-234567890def
+
+edition = "2023";
+
+package health.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * Health status enumeration for the health module.
+ * Provides detailed health states for services and components.
+ */
+enum HealthStatus {
+  // Default unspecified state
+  HEALTH_STATUS_UNSPECIFIED = 0;
+
+  // Service/component is operating normally
+  HEALTH_STATUS_HEALTHY = 1;
+
+  // Service/component is not functioning properly
+  HEALTH_STATUS_UNHEALTHY = 2;
+
+  // Service/component is partially functioning with degraded performance
+  HEALTH_STATUS_DEGRADED = 3;
+
+  // Service/component is in the process of starting up
+  HEALTH_STATUS_STARTING = 4;
+
+  // Service/component is in the process of shutting down
+  HEALTH_STATUS_STOPPING = 5;
+
+  // Service/component status is unknown or cannot be determined
+  HEALTH_STATUS_UNKNOWN = 6;
+
+  // Service/component is in maintenance mode
+  HEALTH_STATUS_MAINTENANCE = 7;
+}

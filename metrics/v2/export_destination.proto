@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/export_destination.proto
+// version: 1.0.0
+// guid: c917e7d5-f72f-494a-b1f4-7e72c44daa5c
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ExportDestination {
+  // Destination type (file, http, s3, etc.)
+  string type = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Destination configuration
+  map<string, string> config = 2;
+
+  // Whether this destination is enabled
+  bool enabled = 3;
+}

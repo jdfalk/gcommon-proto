@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/get_metric_request.proto
+// version: 1.0.0
+// guid: 48d74623-574e-4253-b0dd-784417ffe50d
+// file: proto/gcommon/v1/metrics/v1/get_metric_request.proto
+//
+// Request message for retrieving a metric by ID.
+//
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message GetMetricRequest {
+  // Unique metric identifier
+  string metric_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

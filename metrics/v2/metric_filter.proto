@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/metrics/v1/metric_filter.proto
+// version: 1.0.0
+// guid: 0608db8b-1fd3-4b4b-96f4-0635b55980e8
+// Filter for metrics queries
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+// Filter for metrics queries
+message MetricFilter {
+  // Metric name patterns to include
+  repeated string metric_names = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Label filters
+  map<string, string> labels = 2;
+
+  // Namespace filter
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Time range filter
+  int64 start_timestamp = 4;
+  int64 end_timestamp = 5;
+
+  // Value threshold filters
+  double min_value = 6 [(buf.validate.field).double.gte = 0.0];
+  double max_value = 7 [(buf.validate.field).double.gte = 0.0];
+
+  // Include/exclude patterns
+  repeated string include_patterns = 8 [(buf.validate.field).repeated.min_items = 1];
+  repeated string exclude_patterns = 9 [(buf.validate.field).repeated.min_items = 1];
+}

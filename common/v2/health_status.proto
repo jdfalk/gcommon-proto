@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/health_status.proto
+// version: 1.0.1
+// guid: f5b71864-058c-43b1-8500-dd1845802068
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Common health status enumeration used across all GCommon modules.
+ * Provides consistent health reporting for services, components, and resources.
+ */
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum CommonHealthStatus {
+  // Default value indicating health status was not specified
+  HEALTH_STATUS_UNSPECIFIED = 0;
+
+  // Service/component is operating normally
+  HEALTH_STATUS_HEALTHY = 1;
+
+  // Service/component is not functioning properly
+  HEALTH_STATUS_UNHEALTHY = 2;
+
+  // Service/component is partially functioning with degraded performance
+  HEALTH_STATUS_DEGRADED = 3;
+
+  // Service/component is in the process of starting up
+  HEALTH_STATUS_STARTING = 4;
+
+  // Service/component is in the process of shutting down
+  HEALTH_STATUS_STOPPING = 5;
+}

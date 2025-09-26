@@ -1,0 +1,55 @@
+// file: proto/gcommon/v1/common/create_user_response.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174002
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response for creating a new user account.
+ */
+message CreateUserResponse {
+  // Unique identifier for the created user
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Username of the created account
+  string username = 2;
+
+  // Email address of the created account
+  string email = 3 [ (buf.validate.field).string.email = true ];
+
+  // Full name of the user
+  string full_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Whether the account is enabled
+  bool enabled = 5;
+
+  // Assigned roles
+  repeated string roles = 6;
+
+  // When the account was created
+  google.protobuf.Timestamp created_at = 7 [ (buf.validate.field).required = true ];
+
+  // Whether email verification is required
+  bool email_verification_required = 8;
+
+  // Email verification token (if required)
+  string verification_token = 9;
+
+  // Account expiration time (if set)
+  google.protobuf.Timestamp expires_at = 10;
+}

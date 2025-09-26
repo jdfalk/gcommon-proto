@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/common/list_roles_response.proto
+// version: 1.0.0
+// guid: b0d2291f-7911-45f0-94d1-6dee153b5841
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/paginated_response.proto";
+import "common/v1/role.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response containing a list of roles.
+ * Includes pagination information for large result sets.
+ * Used for role management interfaces and administration.
+ */
+message ListRolesResponse {
+  // List of roles matching the request criteria
+  repeated Role roles = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Pagination information for the response
+  common.v1.PaginatedResponse pagination = 2;
+}
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the auth module requirements

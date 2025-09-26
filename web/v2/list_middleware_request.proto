@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/web/list_middleware_request.proto
+// version: 1.1.0
+// guid: 0717a6fd-6194-47c2-a17e-4cb18eac5bba
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/middleware_type.proto";
+import "common/v1/pagination.proto";
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// ListMiddlewareRequest request definition.
+message ListMiddlewareRequest {
+  // Server identifier
+  string server_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Filter by middleware type
+  common.v1.MiddlewareType type = 2;
+
+  // Filter by enabled state
+  bool enabled = 3;
+
+  // Pagination options
+  common.v1.Pagination pagination = 4;
+
+  // Standard request metadata
+  common.v1.RequestMetadata metadata = 5;
+}

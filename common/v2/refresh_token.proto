@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/common/refresh_token.proto
+// version: 1.0.0
+// guid: 19426e54-07ed-40a6-bb1a-739ec97c225f
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Refresh token details for token renewal workflows.
+ */
+message RefreshToken {
+  // Refresh token string
+  string value = 1;
+
+  // Associated user ID
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // When the refresh token expires
+  google.protobuf.Timestamp expires_at = 3 [lazy = true];
+}

@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/authorize_response.proto
+// version: 1.0.0
+// guid: df7cdfcb-6b3a-4991-a9e2-1b08a908570b
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// AuthorizeResponse response definition.
+message WebAuthorizeResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

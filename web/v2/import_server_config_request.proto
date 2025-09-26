@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/web/import_server_config_request.proto
+// version: 1.0.1
+// guid: 60a97ec8-a4f9-4606-844c-774a208ca62a
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+// Standard imports
+// Common types
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+/**
+ * ImportServerConfigRequest message for web service operations.
+ * Auto-generated placeholder - implement specific fields as needed.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ImportServerConfigRequest {
+  // Required fields (1-10)
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  common.v1.RequestMetadata request_metadata = 11;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when this request was created.
+   */
+  google.protobuf.Timestamp requested_at = 51;
+}

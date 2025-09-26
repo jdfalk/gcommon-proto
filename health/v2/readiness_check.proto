@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/health/messages/readiness_check.proto
+// version: 1.0.1
+// guid: 4e5f6071-8b92-0123-7890-456789012345
+
+edition = "2023";
+
+package health.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * ReadinessCheck represents a readiness check configuration.
+ * Defines criteria for determining if a service is ready to handle requests.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ReadinessCheck {
+  // Unique identifier for this readiness check
+  string id = 1;
+
+  // Service name this check applies to
+  string service_name = 2;
+
+  // Dependencies that must be ready
+  repeated string dependencies = 3;
+
+  // Minimum required health score (0-100)
+  int32 min_health_score = 4;
+
+  // Maximum acceptable response time
+  google.protobuf.Duration max_response_time = 5;
+
+  // Grace period after startup before checks begin
+  google.protobuf.Duration startup_grace_period = 6;
+
+  // When this check was last modified
+  google.protobuf.Timestamp updated_at = 7;
+
+  // Whether this check is currently enabled
+  bool enabled = 8;
+}

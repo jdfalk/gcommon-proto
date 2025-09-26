@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/eviction_policy.proto
+// version: 1.0.1
+// guid: 53ad7b97-17b7-45fc-b834-31d09296f358
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Cache eviction policy enumeration for cache management.
+ * Defines which cached items should be removed when cache capacity
+ * is reached across all GCommon modules.
+ */
+enum EvictionPolicy {
+  // Default value indicating no eviction policy was specified
+  EVICTION_POLICY_UNSPECIFIED = 0;
+
+  // Least Recently Used - evict items that haven't been accessed recently
+  EVICTION_POLICY_LRU = 1;
+
+  // Least Frequently Used - evict items that are accessed least often
+  EVICTION_POLICY_LFU = 2;
+
+  // First In, First Out - evict items in order they were added
+  EVICTION_POLICY_FIFO = 3;
+
+  // Random eviction - evict randomly selected items
+  EVICTION_POLICY_RANDOM = 4;
+}

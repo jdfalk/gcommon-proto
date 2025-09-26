@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/config/template_change.proto
+// version: 1.0.0
+// guid: 801fc1c2-3a27-4a37-a1e2-0d540b0f4dd8
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/config_change_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message TemplateChange {
+  // Change version
+  string version = 1;
+
+  // Change description
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Change author
+  string author = 3;
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Change type
+  common.v1.TemplateChangeType type = 5;
+
+  // Breaking change flag
+  bool breaking = 6;
+
+  // Change details
+  repeated string details = 7;
+
+  // Migration notes
+  string migration_notes = 8;
+}

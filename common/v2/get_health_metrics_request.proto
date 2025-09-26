@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/types/get_health_metrics_request.proto
+// version: 1.0.0
+// guid: 85ebb0e8-dd6f-4a2d-9e83-386b9d84d776
+// file: proto/gcommon/v1/common/get_health_metrics_request.proto
+//
+// Request definitions for health module
+//
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message GetHealthMetricsRequest {
+  // Service name (optional)
+  string service = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata used for tracing
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

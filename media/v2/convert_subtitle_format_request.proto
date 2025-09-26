@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/media/convert_subtitle_format_request.proto
+// version: 1.0.0
+// guid: 890123de-f012-3456-c9d0-e1f234567890
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+// Request to convert subtitle format.
+message ConvertSubtitleFormatRequest {
+  string subtitle_file_id = 1 [(buf.validate.field).string.min_len = 1];
+  string target_format = 2; // Target format (srt, vtt, ass, etc.)
+  bool preserve_styling = 3; // Whether to preserve styling information
+}

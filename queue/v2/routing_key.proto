@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/routing_key.proto
+// version: 1.1.0
+// guid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/routing_pattern.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Routing key for message delivery.
+ * Determines how messages are routed to queues and consumers.
+ */
+message RoutingKey {
+  // The routing key string
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Pattern type for key matching
+  common.v1.RoutingPattern pattern_type = 2;
+
+  // Whether the pattern is case sensitive
+  bool case_sensitive = 3;
+
+  // Priority for routing (higher numbers = higher priority)
+  int32 priority = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Additional routing attributes
+  map<string, string> attributes = 5;
+}

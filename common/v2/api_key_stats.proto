@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/api_key_stats.proto
+// version: 1.0.0
+// guid: 118f177f-69fa-465e-9cc9-88c6aa87643f
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+// TODO FIX THIS
+//
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ApiKeyStats {
+  int32 total_requests = 1 [(buf.validate.field).int32.gte = 0];
+  int32 successful_requests = 2 [(buf.validate.field).int32.gte = 0];
+  int32 failed_requests = 3 [(buf.validate.field).int32.gte = 0];
+  int64 last_used_at = 4 [(buf.validate.field).int64.gte = 0];
+  // TODO FIX THIS
+  // repeated DailyUsage daily_usage = 5;
+}

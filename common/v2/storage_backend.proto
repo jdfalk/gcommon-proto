@@ -1,0 +1,58 @@
+// file: proto/gcommon/v1/metrics/v1/storage_backend.proto
+// version: 1.0.1
+// guid: 5ee72796-5fec-4f25-8894-b75050c9f18e
+// file: proto/gcommon/v1/metrics/v1/storage_backend.proto
+//
+// Enum definitions for metrics module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * StorageBackend defines the types of storage systems available for metrics.
+ * Used to specify where metrics should be stored and retrieved from.
+ */
+enum StorageBackend {
+  // Unspecified storage backend (default)
+  STORAGE_BACKEND_UNSPECIFIED = 0;
+
+  // In-memory storage (non-persistent, for testing/development)
+  STORAGE_BACKEND_MEMORY = 1;
+
+  // Prometheus time-series database
+  STORAGE_BACKEND_PROMETHEUS = 2;
+
+  // InfluxDB time-series database
+  STORAGE_BACKEND_INFLUXDB = 3;
+
+  // TimescaleDB (PostgreSQL extension for time-series)
+  STORAGE_BACKEND_TIMESCALEDB = 4;
+
+  // OpenTelemetry backend (various implementations)
+  STORAGE_BACKEND_OPENTELEMETRY = 5;
+
+  // Graphite time-series database
+  STORAGE_BACKEND_GRAPHITE = 6;
+
+  // ElasticSearch for metrics storage
+  STORAGE_BACKEND_ELASTICSEARCH = 7;
+
+  // CloudWatch (AWS managed metrics)
+  STORAGE_BACKEND_CLOUDWATCH = 8;
+
+  // Google Cloud Monitoring
+  STORAGE_BACKEND_GCP_MONITORING = 9;
+
+  // Azure Monitor
+  STORAGE_BACKEND_AZURE_MONITOR = 10;
+
+  // VictoriaMetrics time-series database
+  STORAGE_BACKEND_VICTORIAMETRICS = 11;
+}

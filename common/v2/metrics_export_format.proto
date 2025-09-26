@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/metrics/v1/export_format.proto
+// version: 1.0.1
+// guid: b4c5d6e7-890b-245a-9012-567890123456
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum MetricsExportFormat {
+  METRICS_EXPORT_FORMAT_UNSPECIFIED = 0;
+  METRICS_EXPORT_FORMAT_PROMETHEUS = 1;
+  METRICS_EXPORT_FORMAT_JSON = 2;
+  METRICS_EXPORT_FORMAT_CSV = 3;
+  METRICS_EXPORT_FORMAT_OPENTELEMETRY = 4;
+}

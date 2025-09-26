@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/config/version_deployment_info.proto
+// version: 1.0.0
+// guid: 194328f1-30ba-459e-b106-f6b99ece3ee3
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/version_deployment_status.proto";
+import "common/v1/version_health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message VersionDeploymentInfo {
+  // Deployment status
+  common.v1.VersionDeploymentStatus status = 1;
+
+  // Deployment timestamp
+  google.protobuf.Timestamp deployed_at = 2;
+
+  // Deployment environment
+  string environment = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Deployment method
+  string method = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Deployment user
+  string deployed_by = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Deployment configuration
+  map<string, string> config = 6;
+
+  // Deployment artifacts
+  repeated string artifacts = 7 [(buf.validate.field).repeated.min_items = 1];
+
+  // Deployment health
+  common.v1.VersionHealthStatus health = 8;
+
+  // Deployment metrics
+  map<string, double> metrics = 9;
+}

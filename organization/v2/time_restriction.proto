@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/organization/time_restriction.proto
+// version: 1.0.0
+// guid: e1c0e36e-397a-42c1-a74a-e7aeca18ade2
+
+edition = "2023";
+
+package organization.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message TimeRestriction {
+  // Day of week (0-6, 0=Sunday)
+  int32 day_of_week = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Start time (24-hour format, e.g., "09:00")
+  string start_time = 2 [(buf.validate.field).string.min_len = 1];
+
+  // End time (24-hour format, e.g., "17:00")
+  string end_time = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Timezone for this restriction
+  string timezone = 4 [(buf.validate.field).string.min_len = 1];
+}

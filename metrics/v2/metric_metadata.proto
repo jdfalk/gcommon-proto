@@ -1,0 +1,62 @@
+// file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
+// version: 1.0.0
+// guid: 2f161084-caee-424c-a121-9b4907586446
+// file: proto/gcommon/v1/metrics/v1/metric_metadata.proto
+//
+// Message definitions for metrics module
+
+//
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * MetricMetadata contains metadata information about a metric.
+ */
+message MetricMetadata {
+  // Unique identifier for the metric
+  string metric_id = 1;
+
+  // Human-readable name of the metric
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Description of what this metric measures
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Metric type (counter, gauge, histogram, etc.)
+  string type = 4;
+
+  // Units of measurement (e.g., "bytes", "seconds", "requests")
+  string unit = 5;
+
+  // Labels associated with this metric
+  map<string, string> labels = 6;
+
+  // When this metric was first created
+  google.protobuf.Timestamp created_at = 7 [ (buf.validate.field).required = true ];
+
+  // When this metric was last updated
+  google.protobuf.Timestamp updated_at = 8;
+
+  // Whether this metric is currently active
+  bool active = 9;
+
+  // Data retention policy for this metric
+  string retention_policy = 10;
+
+  // Provider that owns this metric
+  string provider_id = 11;
+
+  // Namespace this metric belongs to
+  string namespace = 12;
+}

@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/common/int64_array.proto
+// version: 1.0.0
+// guid: 319f8be8-1a6c-4543-b1fe-14beb5e83c0c
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Int64 array wrapper for oneof usage in filter values and other contexts.
+ * Required because oneof fields cannot directly contain repeated types,
+ * so arrays must be wrapped in a message.
+ */
+message Int64Array {
+  // Array of 64-bit signed integer values
+  repeated int64 values = 1 [(buf.validate.field).repeated.min_items = 1];
+}

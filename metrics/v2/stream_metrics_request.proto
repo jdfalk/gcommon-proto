@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/metrics/v1/stream_metrics_request.proto
+// version: 1.0.0
+// guid: e3a862c4-9279-4574-baf6-5eb6c9317d19
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/buffer_config.proto";
+import "metrics/v1/metric_filter.proto";
+import "metrics/v1/stream_options.proto";
+import "metrics/v1/stream_start.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricsStreamMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Filter to determine which metrics to stream
+  MetricFilter filter = 2;
+
+  // Streaming configuration options
+  StreamOptions options = 3;
+
+  // Optional provider ID to stream from
+  string provider_id = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Starting point for the stream
+  StreamStart start = 5;
+
+  // Buffer configuration for the stream
+  BufferConfig buffer_config = 6;
+}

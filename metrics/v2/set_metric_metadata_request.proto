@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_request.proto
+// version: 1.0.1
+// guid: d5a7a998-dd17-44a3-97d5-89144b904ee3
+// file: proto/gcommon/v1/metrics/v1/set_metric_metadata_request.proto
+//
+// Request message for updating metric metadata.
+//
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/metric_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message SetMetricMetadataRequest {
+  // Metric metadata to apply
+  MetricMetadata metadata = 1;
+
+  // Request metadata
+  common.v1.RequestMetadata request_meta = 2 [lazy = true];
+}

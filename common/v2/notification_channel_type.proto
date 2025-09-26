@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/notification_channel_type.proto
+// version: 1.0.1
+// guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Types of notification channels.
+ */
+enum NotificationChannelType {
+  // Default unspecified type
+  NOTIFICATION_CHANNEL_TYPE_UNSPECIFIED = 0;
+
+  // Email notifications
+  NOTIFICATION_CHANNEL_TYPE_EMAIL = 1;
+
+  // Slack notifications
+  NOTIFICATION_CHANNEL_TYPE_SLACK = 2;
+
+  // SMS notifications
+  NOTIFICATION_CHANNEL_TYPE_SMS = 3;
+
+  // Webhook notifications
+  NOTIFICATION_CHANNEL_TYPE_WEBHOOK = 4;
+
+  // PagerDuty integration
+  NOTIFICATION_CHANNEL_TYPE_PAGERDUTY = 5;
+}

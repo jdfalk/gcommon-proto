@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/media/technical_metadata.proto
+// version: 1.0.0
+// guid: d2ddadf6-d85f-42a0-9ed1-cfdaad0b07d3
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "media/v1/audio_stream_info.proto";
+import "media/v1/subtitle_stream_info.proto";
+import "media/v1/video_stream_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message TechnicalMetadata {
+  google.protobuf.Duration duration = 1;
+  int64 file_size = 2 [(buf.validate.field).int64.gte = 0];
+  int64 bitrate = 3 [(buf.validate.field).int64.gte = 0];
+  string container_format = 4 [(buf.validate.field).string.min_len = 1];
+  VideoStreamInfo video = 5;
+  repeated AudioStreamInfo audio_streams = 6 [(buf.validate.field).repeated.min_items = 1];
+  repeated SubtitleStreamInfo subtitle_streams = 7 [(buf.validate.field).repeated.min_items = 1];
+}

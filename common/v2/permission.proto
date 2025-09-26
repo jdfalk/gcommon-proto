@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/common/permission.proto
+// version: 1.0.0
+// guid: 38e2195b-8510-48b4-9c7c-2f87ab8e9a1a
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/scope_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Permission represents a specific action that can be granted
+ * to a user or role within the authentication system.
+ */
+message Permission {
+  // Unique identifier for the permission
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Short machine friendly permission name
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Human readable description of what the permission allows
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Scope at which this permission applies
+  common.v1.ScopeType scope = 4;
+
+  // Timestamp when the permission was created
+  google.protobuf.Timestamp created_at = 5 [lazy = true, (buf.validate.field).required = true];
+}

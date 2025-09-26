@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/config/set_config_response.proto
+// version: 1.0.1
+// guid: 7da90b1f-9e44-4c7f-aa9d-1ad6d42ad675
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/error.proto";
+import "config/v1/config_entry.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * SetConfigResponse indicates the result of a configuration set operation.
+ */
+message SetConfigResponse {
+  // Whether the operation succeeded
+  bool success = 1;
+
+  // Previous value if it existed
+  ConfigEntry previous_entry = 2;
+
+  // Error information
+  common.v1.Error error = 3;
+}

@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/common/user_preferences.proto
+// version: 1.0.0
+// guid: 484a49f6-ee77-4683-b2f7-3bb3f64107f9
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message UserPreferences {
+  // Email notification preferences
+  bool email_notifications = 1;
+
+  // SMS notification preferences
+  bool sms_notifications = 2;
+
+  // Push notification preferences
+  bool push_notifications = 3;
+
+  // Marketing email preferences
+  bool marketing_emails = 4;
+
+  // Two-factor authentication enabled
+  bool two_factor_enabled = 5;
+
+  // Session timeout preference (minutes)
+  int32 session_timeout_minutes = 6 [(buf.validate.field).int32.gt = 0];
+
+  // Theme preference (light, dark, auto)
+  string theme = 7 [(buf.validate.field).string.min_len = 1];
+}

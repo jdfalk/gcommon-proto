@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/media/delete_media_file_request.proto
+// version: 1.0.0
+// guid: 9012345-6789-0123-b4c5-d6e7f8a9b0c1
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+// Request to delete a media file.
+message DeleteMediaFileRequest {
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+  bool delete_from_storage = 2; // Also delete the physical file
+}

@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/record_summary_request.proto
+// version: 1.0.1
+// guid: 5c052e01-88e7-4d02-b154-a1824090213b
+// file: proto/gcommon/v1/metrics/v1/record_summary_request.proto
+//
+// Request message for recording a summary metric observation.
+//
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/summary_metric.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message RecordSummaryRequest {
+  // Summary metric data
+  SummaryMetric metric = 1;
+
+  // Optional timestamp for the observation
+  google.protobuf.Timestamp observed_at = 2;
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 3 [lazy = true];
+}

@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/queue/types/topic_stats.proto
+// file: proto/gcommon/v1/queue/topic_stats.proto
+// version: 1.0.0
+// guid: 9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Statistics information for a topic.
+ */
+message TopicStats {
+  // Name of the topic
+  string topic_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Total number of messages in the topic
+  uint64 total_messages = 2;
+
+  // Total size of all messages in bytes
+  uint64 total_size_bytes = 3;
+
+  // Number of active subscriptions
+  uint32 subscription_count = 4;
+
+  // Number of producers
+  uint32 producer_count = 5;
+
+  // Messages produced per second
+  double messages_per_second = 6;
+
+  // Bytes produced per second
+  double bytes_per_second = 7;
+
+  // Last message timestamp
+  uint64 last_message_time = 8;
+
+  // Average message size in bytes
+  double average_message_size = 9;
+}

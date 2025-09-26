@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/common/health_check_all_request.proto
+// version: 1.0.0
+// guid: 6e150288-20ca-4892-9582-6ca93070073b
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/check_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * HealthCheckAllRequest requests health status for all services or filtered by type
+ */
+message HealthCheckAllRequest {
+  // Optional filter by check types
+  repeated common.v1.CheckType types = 1 [(buf.validate.field).repeated.min_items = 1];
+  // Whether to include detailed component information
+  bool include_details = 2;
+  // Timeout for the overall check in seconds
+  int32 timeout_seconds = 3 [(buf.validate.field).int32.gt = 0];
+}

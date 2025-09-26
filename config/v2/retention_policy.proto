@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/config/retention_policy.proto
+// version: 1.0.0
+// guid: 6144fe44-891b-4c63-818e-572c219e36a7
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigRetentionPolicy {
+  // Retention enabled
+  bool enabled = 1;
+
+  // Configuration retention
+  int32 config_retention_days = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Audit log retention
+  int32 audit_retention_days = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Backup retention
+  int32 backup_retention_days = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Metrics retention
+  int32 metrics_retention_days = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Custom retention policies
+  map<string, int32> custom_retention = 6;
+}

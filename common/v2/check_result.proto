@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/common/check_result.proto
+// version: 1.0.0
+// guid: 0e8f3ad4-be75-42b2-b880-fda7ebd7de1c
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "common/v1/health_status.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Individual health check result for a specific component or subsystem.
+ * Provides detailed information about the health status of a single check.
+ */
+message CheckResult {
+  // Check name or identifier
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Health status of this specific check
+  // Overall status of the health check
+  common.v1.CommonHealthStatus status = 2;
+
+  // Check execution timestamp
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Time taken to execute this check
+  google.protobuf.Duration execution_time = 4;
+
+  // Human-readable message about the check result
+  string message = 5;
+
+  // Error details if the check failed
+  common.v1.Error error = 6;
+
+  // Additional metadata for this check
+  map<string, string> metadata = 7;
+}

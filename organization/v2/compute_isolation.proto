@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/organization/compute_isolation.proto
+// version: 1.0.0
+// guid: 4d8711b4-c65d-43b7-a0ae-8453f4ffa71f
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/organization_resource_limits.proto";
+import "organization/v1/auto_scaling_config.proto";
+import "organization/v1/cpu_allocation.proto";
+import "organization/v1/memory_allocation.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message ComputeIsolation {
+  // Dedicated compute instance identifier
+  string compute_instance = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Container or namespace identifier
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // CPU allocation for this tenant
+  CPUAllocation cpu = 3;
+
+  // Memory allocation for this tenant
+  MemoryAllocation memory = 4;
+
+  // Whether tenant has dedicated compute resources
+  bool dedicated_compute = 5;
+
+  // Resource limits and quotas
+  common.v1.OrganizationResourceLimits limits = 6;
+
+  // Auto-scaling configuration
+  AutoScalingConfig auto_scaling = 7;
+}

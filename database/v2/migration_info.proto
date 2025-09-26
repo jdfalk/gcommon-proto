@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/schema/migration_info.proto
+// version: 1.0.0
+// guid: 4b59457d-20d4-4134-af01-340fe289787e
+
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * MigrationInfo provides metadata about an applied or pending migration.
+ */
+message MigrationInfo {
+  // Version identifier of the migration
+  string version = 1;
+
+  // Descriptive name of the migration
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Timestamp when the migration was applied
+  google.protobuf.Timestamp applied_at = 3;
+}

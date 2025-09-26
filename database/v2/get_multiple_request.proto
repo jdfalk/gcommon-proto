@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/database/get_multiple_request.proto
+// version: 1.0.0
+// guid: bc2def34-45a6-7b8c-9d0e-1f2a3b4c5d6e
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to get multiple cache values by keys.
+ * Supports batch retrieval for performance optimization.
+ */
+message GetMultipleRequest {
+  // List of keys to retrieve
+  repeated string keys = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

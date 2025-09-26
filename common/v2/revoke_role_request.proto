@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/common/revoke_role_request.proto
+// version: 1.0.0
+// guid: a6b7c8d9-e0f1-2a3b-4c5d-6e7f8a9b0c1d
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to revoke a role from a user.
+ * Used for role-based access control management.
+ * Removes the specified role permissions from the user.
+ */
+message RevokeRoleRequest {
+  // User ID to revoke role from (required)
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Role ID to revoke (required)
+  string role_id = 2;
+
+  // Optional organization context for scoped role revocation
+  string organization_id = 3 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 4;
+
+  // Audit information for tracking who made the revocation
+  string revoked_by = 5;
+
+  // Reason for role revocation (optional)
+  string reason = 6;
+
+  // Whether to force revocation even if user has dependencies
+  bool force = 7;
+}

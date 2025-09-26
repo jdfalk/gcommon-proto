@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/get_system_stats_request.proto
+// version: 1.0.1
+// guid: 789eabcd-e1f2-3a4b-5c6d-7e8f9a0b1c2d
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to get authentication system statistics.
+ */
+message GetSystemStatsRequest {
+  // Request metadata
+  common.v1.RequestMetadata metadata = 1 [lazy = true];
+}

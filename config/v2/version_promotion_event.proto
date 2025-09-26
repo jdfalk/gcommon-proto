@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/config/version_promotion_event.proto
+// version: 1.0.0
+// guid: d231a04f-95ab-4854-a15d-7992ab883362
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message VersionPromotionEvent {
+  // Source environment
+  string source_environment = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Target environment
+  string target_environment = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Promotion timestamp
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Promotion user
+  string promoted_by = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Promotion reason
+  string reason = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Promotion method
+  string method = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Promotion success
+  bool success = 7;
+
+  // Promotion error
+  string error = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Promotion metadata
+  map<string, string> metadata = 9;
+}

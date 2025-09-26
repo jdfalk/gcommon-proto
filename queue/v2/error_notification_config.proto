@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/error_notification_config.proto
+// version: 1.0.0
+// guid: 0fffcb32-c66a-4876-acb0-c7d756601f4d
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ErrorNotificationConfig {
+  // Enable error notifications
+  bool enabled = 1;
+
+  // Notification channels
+  repeated string notification_channels = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error threshold for notifications
+  int32 error_threshold = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Notification frequency (seconds)
+  int32 notification_frequency_seconds = 4 [(buf.validate.field).int32.gte = 0];
+}

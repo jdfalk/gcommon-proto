@@ -1,0 +1,57 @@
+// file: proto/gcommon/v1/health/messages/service_info.proto
+// version: 1.0.0
+// guid: a3b4c5d6-e1f8-6789-3456-012345678901
+
+edition = "2023";
+
+package health.v1;
+
+import "health/v1/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * ServiceInfo represents information about a monitored service.
+ * Contains metadata and current status for health monitoring.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ServiceInfo {
+  // Service name
+  string name = 1;
+
+  // Service version
+  string version = 2;
+
+  // Current overall health status
+  HealthStatus status = 3;
+
+  // Service description
+  string description = 4;
+
+  // When this service was registered for monitoring
+  google.protobuf.Timestamp registered_at = 5;
+
+  // When the service was last updated
+  google.protobuf.Timestamp last_updated = 6;
+
+  // Service endpoints
+  repeated string endpoints = 7;
+
+  // Service tags for categorization
+  repeated string tags = 8;
+
+  // Service metadata
+  map<string, string> metadata = 9;
+
+  // Health check IDs associated with this service
+  repeated string check_ids = 10;
+
+  // Whether this service is currently being monitored
+  bool monitoring_enabled = 11;
+
+  // Service owner or team
+  string owner = 12;
+}

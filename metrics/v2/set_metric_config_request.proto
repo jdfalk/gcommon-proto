@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/metrics/v1/set_metric_config_request.proto
+// version: 1.0.1
+// guid: d1b98b0c-98f7-47fc-9bb5-f18ebfbbe1d3
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/metric_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * SetMetricConfigRequest updates configuration for a metric.
+ */
+message SetMetricConfigRequest {
+  // Updated configuration
+  MetricConfig config = 1;
+}

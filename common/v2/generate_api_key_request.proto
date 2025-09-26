@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/common/generate_api_key_request.proto
+// version: 1.0.0
+// guid: 5590365e-02f0-4a3d-96eb-15bc615c14ef
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * GenerateAPIKeyRequest requests creation of a new API key for a user.
+ */
+message GenerateAPIKeyRequest {
+  // User ID for whom to generate the key
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Optional name/description for the key
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Optional expiration in seconds
+  int32 expires_in = 3;
+
+  // Metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 4;
+}

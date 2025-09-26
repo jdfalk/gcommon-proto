@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/metrics/v1/register_metric_request.proto
+// version: 1.0.0
+// guid: bcf2d82b-2ffe-4608-acf1-e58abf98e4d2
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/metric_definition.proto";
+import "metrics/v1/registration_options.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message RegisterMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Metric definition to register
+  MetricDefinition definition = 2;
+
+  // Optional provider ID to register with
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to replace an existing metric with the same name
+  bool replace_existing = 4;
+
+  // Validation options for the registration
+  RegistrationOptions options = 5;
+}

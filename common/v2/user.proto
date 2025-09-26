@@ -1,0 +1,87 @@
+// file: proto/gcommon/v1/common/user.proto
+// version: 1.0.0
+// guid: 00ae1e1a-a2c9-4e7a-bd91-dda7967d8647
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/user_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * User entity representing a complete user account.
+ * Contains comprehensive user data for account management.
+ * Includes profile, security, and administrative information.
+ */
+message User {
+  // Unique user identifier (immutable)
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Username (may be mutable depending on system policy)
+  string username = 2;
+
+  // Primary email address
+  string email = 3 [ (buf.validate.field).string.email = true ];
+
+  // Display name
+  string display_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // First name
+  string first_name = 5 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Last name
+  string last_name = 6 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // User account status
+  common.v1.UserStatus status = 7;
+
+  // Account creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];
+
+  // Last account update timestamp
+  google.protobuf.Timestamp updated_at = 9 [lazy = true];
+
+  // Last successful login timestamp
+  google.protobuf.Timestamp last_login_at = 10 [lazy = true];
+
+  // Email verification status
+  bool email_verified = 11;
+
+  // Phone number (optional)
+  string phone_number = 12;
+
+  // Phone verification status
+  bool phone_verified = 13;
+
+  // User preferences and settings
+  map<string, string> preferences = 14 [lazy = true];
+
+  // User metadata for extensibility
+  map<string, string> metadata = 15 [lazy = true];
+
+  // Avatar/profile image URL
+  string avatar_url = 16 [ (buf.validate.field).string.uri = true ];
+
+  // User timezone
+  string timezone = 17;
+
+  // User locale/language preference
+  string locale = 18;
+}

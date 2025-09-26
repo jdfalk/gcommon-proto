@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/database/query_response.proto
+// version: 1.0.1
+// guid: 2dfa79e3-f38e-4708-b131-0f941eb755f8
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/error.proto";
+import "database/v1/query_stats.proto";
+import "database/v1/result_set.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * QueryResponse contains the results of a database query operation.
+ * Includes result data, execution statistics, and error information.
+ */
+message QueryResponse {
+  // Query result set with data and metadata
+  ResultSet result_set = 1 [lazy = true];
+
+  // Query execution statistics and performance metrics
+  DatabaseQueryStats stats = 2 [lazy = true];
+
+  // Error information if the query failed
+  common.v1.Error error = 3 [lazy = true];
+}

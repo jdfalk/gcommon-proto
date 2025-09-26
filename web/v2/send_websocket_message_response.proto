@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/send_websocket_message_response.proto
+// version: 1.0.0
+// guid: 844cd4f0-f98b-4548-8b5a-fd4b1cc457ff
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// SendWebsocketMessageResponse response definition.
+message SendWebsocketMessageResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/queue/node_info.proto
+// version: 1.0.0
+// guid: d73ea780-8ed0-4b73-8aae-ab5c4fc1a48f
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/node_state.proto";
+import "queue/v1/node_stats.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Information about a single node in the cluster.
+ */
+message NodeInfo {
+  // Unique identifier for the node
+  string node_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Hostname or address of the node
+  string hostname = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Port number for the node
+  int32 port = 3 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Current state of the node
+  common.v1.NodeState state = 4;
+
+  // Node roles (leader, follower, etc.)
+  repeated string roles = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Timestamp when node was last seen
+  google.protobuf.Timestamp last_heartbeat = 6;
+
+  // Node-specific statistics
+  NodeStats stats = 7;
+}

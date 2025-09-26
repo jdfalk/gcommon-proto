@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/touch_expiration_response.proto
+// version: 1.0.1
+// guid: kl1mnopq-23r4-5s6t-7u8v-9w0x1y2z3a4b
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Response for cache touch expiration operations.
+ * Indicates success/failure of TTL update.
+ */
+message TouchExpirationResponse {
+  // Whether the key's TTL was successfully updated
+  bool success = 1;
+
+  // Whether the key existed before the touch operation
+  bool key_existed = 2;
+
+  // Error details if touch failed
+  common.v1.Error error = 3;
+}

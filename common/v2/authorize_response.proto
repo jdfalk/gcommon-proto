@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/authorize_response.proto
+// version: 1.0.0
+// guid: 698cde09-444b-45ef-abbd-239e622ddc4f
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response to authorization request.
+ * Contains authorization decision and relevant permission information.
+ * Includes denial reason if authorization fails.
+ */
+message AuthAuthorizeResponse {
+  // Whether the user is authorized for the requested action
+  bool authorized = 1;
+
+  // Permissions that granted this authorization (if any)
+  repeated string permissions = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Reason for denial if authorization failed
+  string denial_reason = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Error information if authorization check failed
+  common.v1.Error error = 4 [lazy = true];
+}

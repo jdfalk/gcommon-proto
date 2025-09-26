@@ -1,0 +1,70 @@
+// file: proto/gcommon/v1/common/user_details.proto
+// version: 1.0.0
+// guid: 3dfa4bc7-c4c7-4c1c-89e9-e3e3d3219d52
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message UserDetails {
+  // Unique identifier for the user
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Username
+  string username = 2;
+
+  // Email address
+  string email = 3 [ (buf.validate.field).string.email = true ];
+
+  // Full name
+  string full_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Whether the account is enabled
+  bool enabled = 5;
+
+  // Assigned roles
+  repeated string roles = 6;
+
+  // User permissions
+  repeated string permissions = 7;
+
+  // Additional metadata
+  map<string, string> metadata = 8;
+
+  // When the account was created
+  google.protobuf.Timestamp created_at = 9 [ (buf.validate.field).required = true ];
+
+  // When the account was last updated
+  google.protobuf.Timestamp updated_at = 10;
+
+  // Last login time
+  google.protobuf.Timestamp last_login_at = 11;
+
+  // Account expiration time (if set)
+  google.protobuf.Timestamp expires_at = 12;
+
+  // Whether the account is deleted
+  bool deleted = 13;
+
+  // Email verification status
+  bool email_verified = 14;
+
+  // Multi-factor authentication enabled
+  bool mfa_enabled = 15;
+
+  // Number of active sessions
+  int32 active_sessions = 16;
+}

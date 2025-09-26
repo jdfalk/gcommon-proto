@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/organization/delete_organization_request.proto
+// version: 1.0.0
+// guid: 60f56333-7919-43ba-aef1-0d0b46757352
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message DeleteOrganizationRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Organization identifier to delete
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+}

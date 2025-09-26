@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/organization/audit_config.proto
+// version: 1.0.0
+// guid: 404c83b0-6f95-4a24-8f22-55baffc8e465
+
+edition = "2023";
+
+package organization.v1;
+
+import "organization/v1/audit_alert.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message AuditConfig {
+  // Whether audit logging is enabled
+  bool audit_enabled = 1;
+
+  // Audit log retention period in days
+  int32 retention_days = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Audit log storage location
+  string storage_location = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Events to audit
+  repeated string audited_events = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether real-time monitoring is enabled
+  bool real_time_monitoring = 5;
+
+  // Alert configuration for audit events
+  repeated AuditAlert alerts = 6 [(buf.validate.field).repeated.min_items = 1];
+}

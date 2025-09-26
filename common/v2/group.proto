@@ -1,0 +1,57 @@
+// file: proto/gcommon/v1/common/group.proto
+// version: 1.0.0
+// guid: 3d1addaa-66d2-4768-9214-6f57d3dea222
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/resource_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Group entity for organizing users into collections.
+ * Used for bulk permission management and organizational structure.
+ * Supports hierarchical group relationships.
+ */
+message Group {
+  // Unique group identifier
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Group name
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Group description
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Parent group ID (for hierarchical groups)
+  string parent_group_id = 4;
+
+  // Group permissions
+  repeated string permissions = 5;
+
+  // Group metadata for extensibility
+  map<string, string> metadata = 6 [lazy = true];
+
+  // Group creation timestamp
+  google.protobuf.Timestamp created_at = 7 [lazy = true, (buf.validate.field).required = true];
+
+  // Group status
+  common.v1.ResourceStatus status = 8;
+
+  // Group member count
+  int32 member_count = 9;
+
+  // Group administrator user IDs
+  repeated string admin_user_ids = 10;
+}

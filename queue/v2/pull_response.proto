@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/queue/pull_response.proto
+// version: 1.0.1
+// guid: 5c55b3fd-beda-4758-90c9-2084f2d6ea8f
+
+// PullResponse returns a message pulled from the queue. This file
+// now contains the actual response definition instead of a placeholder.
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/response_metadata.proto";
+import "queue/v1/received_message.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message PullResponse {
+  // The received message. May be null if no message was available.
+  ReceivedMessage message = 1;
+
+  // Response metadata including error details
+  common.v1.ResponseMetadata metadata = 2;
+}

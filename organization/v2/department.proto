@@ -1,0 +1,96 @@
+// file: proto/gcommon/v1/organization/department.proto
+// version: 1.0.0
+// guid: 11b263a9-b479-44a3-89ad-5cc707425f8d
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/key_value.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+/**
+ * Department message representing an organizational department.
+ * Departments provide hierarchical organization structure and
+ * can contain teams and individual members.
+ */
+message Department {
+  // Unique department identifier
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Organization identifier
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Department name
+  string name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // URL-friendly slug for the department
+  string slug = 4;
+
+  // Department description or purpose
+  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Parent department ID (for nested departments)
+  string parent_department_id = 6;
+
+  // Department head/manager user ID
+  string manager_id = 7;
+
+  // Department cost center or budget code
+  string cost_center = 8;
+
+  // Physical location or office for this department
+  string location = 9;
+
+  // Department metadata and custom attributes
+  repeated common.v1.KeyValue metadata = 10 [lazy = true];
+
+  // Department creation timestamp
+  google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 12 [lazy = true];
+
+  // User ID who created this department
+  string created_by = 13 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+
+  // User ID who last updated this department
+  string updated_by = 14 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+
+  // Whether this department is currently active
+  bool active = 15;
+
+  // Department's email address for external communications
+  string contact_email = 16 [ (buf.validate.field).string.email = true ];
+
+  // Department's phone number
+  string phone = 17;
+
+  // Maximum number of members in this department
+  int32 max_members = 18;
+
+  // Department's annual budget (in organization's currency)
+  double annual_budget = 19;
+
+  // Department's timezone (inherits from organization if not set)
+  string timezone = 20;
+
+  // List of child department IDs
+  repeated string child_department_ids = 21;
+
+  // List of team IDs that belong to this department
+  repeated string team_ids = 22;
+}

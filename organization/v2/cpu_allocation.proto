@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/organization/cpu_allocation.proto
+// version: 1.0.0
+// guid: 6794d9c6-3233-4479-b8be-39a3fa3dbe66
+
+edition = "2023";
+
+package organization.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message CPUAllocation {
+  // Number of CPU cores
+  int32 cores = 1 [(buf.validate.field).int32.gte = 0];
+
+  // CPU frequency in MHz
+  int32 frequency_mhz = 2 [(buf.validate.field).int32.gte = 0];
+
+  // CPU usage limit percentage
+  int32 usage_limit_percent = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+
+  // CPU priority
+  int32 priority = 4 [(buf.validate.field).int32.gte = 0];
+}

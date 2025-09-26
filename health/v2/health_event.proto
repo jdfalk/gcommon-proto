@@ -1,0 +1,54 @@
+// file: proto/gcommon/v1/health/messages/health_event.proto
+// version: 1.0.0
+// guid: 82a3b4c5-cfd6-4567-1234-890123456789
+
+edition = "2023";
+
+package health.v1;
+
+import "health/v1/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * HealthEvent represents a significant health-related event.
+ * Used for notifications, alerts, and audit trails.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthEvent {
+  // Unique identifier for this event
+  string event_id = 1;
+
+  // Type of event (status_change, check_failure, recovery, etc.)
+  string event_type = 2;
+
+  // Service or component this event relates to
+  string service_name = 3;
+
+  // Check ID that generated this event (if applicable)
+  string check_id = 4;
+
+  // Event timestamp
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Previous status (for status change events)
+  HealthStatus previous_status = 6;
+
+  // Current status
+  HealthStatus current_status = 7;
+
+  // Human-readable event message
+  string message = 8;
+
+  // Event severity level (info, warning, error, critical)
+  string severity = 9;
+
+  // Additional event metadata
+  map<string, string> metadata = 10;
+
+  // Source that generated this event
+  string source = 11;
+}

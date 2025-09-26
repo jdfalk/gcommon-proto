@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/web/register_middleware_response.proto
+// version: 1.1.1
+// guid: 759e7f49-492f-4cf6-ae71-bfcc4f96aa83
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/error.proto";
+import "web/v1/middleware_info.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// RegisterMiddlewareResponse response definition.
+message RegisterMiddlewareResponse {
+  // Operation success flag
+  bool success = 1;
+
+  // Details about the registered middleware
+  MiddlewareInfo middleware = 2;
+
+  // Error information if the operation failed
+  common.v1.Error error = 3;
+}

@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/database/flush_response.proto
+// version: 1.0.0
+// guid: ij9klmno-01p2-3q4r-5s6t-7u8v9w0x1y2z
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Response for cache flush operations.
+ * Indicates success/failure of cache flushing.
+ */
+message FlushResponse {
+  // Number of items that were flushed
+  int64 flushed_count = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Whether the operation was successful
+  bool success = 2;
+
+  // Error details if flush failed
+  common.v1.Error error = 3;
+}

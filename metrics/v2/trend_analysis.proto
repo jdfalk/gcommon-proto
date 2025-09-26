@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/trend_analysis.proto
+// version: 1.0.1
+// guid: cb796e78-7aa6-47b8-8545-402a70e2c9e0
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/data_volume_trend.proto";
+import "metrics/v1/error_trend.proto";
+import "metrics/v1/performance_trend.proto";
+import "metrics/v1/resource_usage_trend.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message TrendAnalysis {
+  // Performance trends
+  PerformanceTrend performance = 1;
+
+  // Resource usage trends
+  ResourceUsageTrend resource_usage = 2;
+
+  // Error trends
+  ErrorTrend errors = 3;
+
+  // Data volume trends
+  DataVolumeTrend data_volume = 4;
+}

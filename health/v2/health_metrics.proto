@@ -1,0 +1,73 @@
+// file: proto/gcommon/v1/health/messages/health_metrics.proto
+// version: 1.0.0
+// guid: 9a3b4c5d-d0e7-5678-2345-901234567890
+
+edition = "2023";
+
+package health.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * HealthMetrics represents aggregated health metrics and statistics.
+ * Provides insight into system health trends and performance.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HealthMetrics {
+  // When these metrics were collected
+  google.protobuf.Timestamp collected_at = 1;
+
+  // Total number of registered health checks
+  int32 total_checks = 2;
+
+  // Number of currently healthy checks
+  int32 healthy_checks = 3;
+
+  // Number of currently unhealthy checks
+  int32 unhealthy_checks = 4;
+
+  // Number of checks in unknown state
+  int32 unknown_checks = 5;
+
+  // Average check execution time in milliseconds
+  double avg_check_duration_ms = 6;
+
+  // Check success rate percentage (0-100)
+  double success_rate_percent = 7;
+
+  // Number of status changes in the last hour
+  int32 status_changes_last_hour = 8;
+
+  // Most recent check failure timestamp
+  google.protobuf.Timestamp last_failure = 9;
+
+  // System uptime percentage (0-100)
+  double uptime_percent = 10;
+
+  // Service-specific metrics
+  map<string, ServiceHealthMetrics> service_metrics = 11;
+}
+
+/**
+ * ServiceHealthMetrics represents health metrics for a specific service.
+ */
+message ServiceHealthMetrics {
+  // Service name
+  string service_name = 1;
+
+  // Number of checks for this service
+  int32 check_count = 2;
+
+  // Service health score (0-100)
+  int32 health_score = 3;
+
+  // Service uptime percentage
+  double uptime_percent = 4;
+
+  // Average response time in milliseconds
+  double avg_response_time_ms = 5;
+}

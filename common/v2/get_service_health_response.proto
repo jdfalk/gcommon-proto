@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/get_service_health_response.proto
+// version: 1.0.1
+// guid: eb2e3f53-909e-4bd0-a9e8-3162f317a1ae
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/error.proto";
+import "common/v1/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response message for service health status requests.
+ * Provides health status for a specific service.
+ */
+message GetServiceHealthResponse {
+  // Health status
+  common.v1.CommonHealthStatus status = 1;
+
+  // Last check timestamp
+  google.protobuf.Timestamp last_check = 2;
+
+  // Error information if unhealthy
+  common.v1.Error error = 3;
+}

@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/config/v1/config_watch.proto
+// version: 1.0.0
+// guid: f0257edb-14c0-4d70-9a2a-82b1784ca863
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigWatch {
+  // Watch session identifier
+  string watch_id = 1;
+
+  // Configuration key pattern being watched
+  string key_pattern = 2;
+
+  // Configuration namespace or section
+  string namespace = 3;
+
+  // Type of watch (KEY_CHANGE, NAMESPACE_CHANGE, ALL_CHANGES)
+  string watch_type = 4;
+
+  // Timestamp when watch was created
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
+
+  // User or service that created the watch
+  string created_by = 6 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+
+  // Watch configuration options
+  map<string, string> options = 7;
+
+  // Whether the watch is currently active
+  bool active = 8;
+}

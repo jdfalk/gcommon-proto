@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/metric_summary.proto
+// version: 1.0.0
+// guid: 3bf744e5-01f0-4074-b7b9-5235934749bf
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricSummary {
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  string type = 2;
+  int64 data_points = 3;
+  int64 data_volume_bytes = 4;
+  double error_rate = 5;
+  google.protobuf.Timestamp last_updated = 6;
+}

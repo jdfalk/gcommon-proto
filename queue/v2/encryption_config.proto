@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/queue/config/encryption_config.proto
+// file: proto/gcommon/v1/queue/encryption_config.proto
+// version: 1.0.0
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration for message encryption in queues.
+ */
+message QueueEncryptionConfig {
+  // Whether encryption is enabled
+  bool enabled = 1;
+
+  // Encryption algorithm (AES256, ChaCha20, etc.)
+  string algorithm = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Key derivation function (PBKDF2, scrypt, argon2)
+  string key_derivation = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Encryption key identifier
+  string key_id = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to encrypt message headers
+  bool encrypt_headers = 5;
+
+  // Whether to encrypt routing keys
+  bool encrypt_routing_keys = 6;
+
+  // Key rotation interval in hours
+  uint32 rotation_interval_hours = 7 [(buf.validate.field).uint32.gte = 0];
+}

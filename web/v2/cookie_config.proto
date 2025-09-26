@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/web/cookie_config.proto
+// version: 1.1.0
+// guid: 57c9187b-fa13-46bb-9840-d7a2515e7ff1
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/cookie_same_site.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// CookieConfig message definition.
+message CookieConfig {
+  // Cookie name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Cookie domain
+  string domain = 2;
+
+  // Cookie path
+  string path = 3;
+
+  // Set Secure flag
+  bool secure = 4;
+
+  // Set HttpOnly flag
+  bool http_only = 5;
+
+  // SameSite policy
+  common.v1.CookieSameSite same_site = 6;
+
+  // Max age of the cookie
+  google.protobuf.Duration max_age = 7;
+}

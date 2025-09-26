@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/load_balancing_config.proto
+// version: 1.1.0
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/load_balancing_strategy.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration for load balancing across queue consumers.
+ */
+message LoadBalancingConfig {
+  // Load balancing strategy
+  common.v1.LoadBalancingStrategy strategy = 1;
+
+  // Weight for this consumer (for weighted strategies)
+  int32 weight = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum concurrent messages per consumer
+  int32 max_concurrent_messages = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+
+  // Prefetch count for batch consumption
+  int32 prefetch_count = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Consumer priority (higher numbers = higher priority)
+  int32 priority = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Whether to enable sticky sessions
+  bool sticky_sessions = 6;
+
+  // Session affinity key
+  string affinity_key = 7 [(buf.validate.field).string.min_len = 1];
+}

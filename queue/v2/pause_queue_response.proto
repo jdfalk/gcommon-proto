@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/pause_queue_response.proto
+// version: 1.0.0
+// guid: 8d32dd33-5b24-4d1f-b32c-fc9e172e7b9a
+// Response for queue pause operations
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// Response for queue pause operations
+message PauseQueueResponse {
+  // Whether the pause was successful
+  bool success = 1;
+
+  // Queue name that was paused
+  string queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Current pause status
+  string pause_status = 3;
+
+  // Number of active consumers affected
+  int32 affected_consumers = 4;
+
+  // Timestamp when pause took effect
+  int64 pause_timestamp = 5;
+
+  // Error message if pause failed
+  string error = 6;
+}

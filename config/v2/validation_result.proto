@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/config/validation_result.proto
+// version: 1.0.0
+// guid: 24d2ce27-6b21-4f7b-82f6-2a7b060fe004
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/validation_result_type.proto";
+import "common/v1/validation_severity.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigValidationResult {
+  // Validation rule name
+  string rule_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Validation result
+  common.v1.ValidationResultType result = 2;
+
+  // Validation message
+  string message = 3;
+
+  // Severity level
+  common.v1.ValidationSeverity severity = 4;
+
+  // Field that was validated
+  string field = 5;
+
+  // Additional context
+  map<string, string> context = 6;
+}

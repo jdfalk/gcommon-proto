@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/authorization_service.proto
+// version: 1.0.1
+// guid: b686e721-a0f4-4ad1-8bfb-b6c773d0d9eb
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/authorize_request.proto";
+import "common/v1/authorize_response.proto";
+import "common/v1/get_user_permissions_request.proto";
+import "common/v1/get_user_permissions_response.proto";
+import "common/v1/get_user_roles_request.proto";
+import "common/v1/get_user_roles_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * AuthorizationService provides authorization and permission management.
+ * Handles role-based access control (RBAC), permission checking,
+ * and role lifecycle management for fine-grained access control.
+ */
+service AuthorizationService {
+  // Check if a user is authorized for a specific action on a resource
+  rpc Authorize(AuthAuthorizeRequest) returns (AuthAuthorizeResponse);
+
+  // Get all permissions granted to a user (direct and via roles)
+  rpc GetUserPermissions(GetUserPermissionsRequest) returns (GetUserPermissionsResponse);
+
+  // Get all roles assigned to a user
+  rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse);
+}

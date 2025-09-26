@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/metrics/v1/data_volume_stats.proto
+// version: 1.0.0
+// guid: 85a18add-5de2-4de6-9e3a-05e4959520e4
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/data_volume_data_point.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message DataVolumeStats {
+  // Total data stored (bytes)
+  int64 total_bytes = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of metrics
+  int64 total_metrics = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of data points
+  int64 total_data_points = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Data ingestion rate (bytes per second)
+  double ingestion_rate_bytes_per_second = 4 [(buf.validate.field).double.gte = 0.0];
+
+  // Data points ingestion rate (points per second)
+  double ingestion_rate_points_per_second = 5 [(buf.validate.field).double.gte = 0.0];
+
+  // Compression ratio
+  double compression_ratio = 6 [(buf.validate.field).double.gte = 0.0];
+
+  // Time-series data volume
+  repeated DataVolumeDataPoint volume_timeseries = 7 [(buf.validate.field).repeated.min_items = 1];
+}

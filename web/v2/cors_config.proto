@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/web/cors_config.proto
+// version: 1.0.1
+// guid: a30ac136-585a-4ceb-becf-9ca8beef5e86
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// CorsConfig message definition.
+message CORSConfig {
+  // Enable CORS
+  bool enabled = 1;
+
+  // Allowed origins
+  repeated string allowed_origins = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Allowed methods
+  repeated string allowed_methods = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Allowed headers
+  repeated string allowed_headers = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Exposed headers
+  repeated string exposed_headers = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Allow credentials
+  bool allow_credentials = 6;
+
+  // Max age
+  google.protobuf.Duration max_age = 7;
+}

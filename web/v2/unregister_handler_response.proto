@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/unregister_handler_response.proto
+// version: 1.0.0
+// guid: 60c00ce0-2fa0-4af1-a7ab-48b4351a72cf
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// UnregisterHandlerResponse response definition.
+message UnregisterHandlerResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

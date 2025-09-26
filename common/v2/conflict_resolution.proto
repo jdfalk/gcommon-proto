@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/config/conflict_resolution.proto
+// version: 1.0.1
+// guid: 8535d30e-d232-4d73-9362-10e717955b66
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum ConflictResolution {
+  COMMON_CONFLICT_RESOLUTION_UNSPECIFIED = 0;
+  COMMON_CONFLICT_RESOLUTION_MERGE = 1;
+  COMMON_CONFLICT_RESOLUTION_OVERWRITE = 2;
+  COMMON_CONFLICT_RESOLUTION_FAIL = 3;
+}

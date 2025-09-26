@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/component_health.proto
+// version: 1.0.0
+// guid: 1eb070ba-060f-44c9-97ad-8a3d68800129
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/serving_status.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ComponentHealth {
+  // Component name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  // Component status
+  common.v1.ServingStatus status = 2;
+  // Component-specific message
+  string message = 3;
+  // Component check duration in milliseconds
+  int64 duration_ms = 4;
+}

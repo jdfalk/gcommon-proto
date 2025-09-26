@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/database/schema/list_schemas_response.proto
+// version: 1.0.0
+// guid: c25c875d-b542-4abd-8778-17d88c9d22cc
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * ListSchemasResponse contains the list of schemas within a database.
+ * Provides schema names available in the specified database.
+ */
+message ListSchemasResponse {
+  // List of schema names in the database
+  repeated string schemas = 1 [(buf.validate.field).repeated.min_items = 1];
+}

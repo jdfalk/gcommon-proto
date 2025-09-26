@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/metrics/v1/create_provider_request.proto
+// version: 1.0.1
+// guid: 1bbe7bf6-5552-43f2-a429-d72f7fb4385f
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/provider_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message CreateProviderRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Provider configuration
+  ProviderConfig config = 2;
+
+  // Whether to validate the configuration before creating
+  bool validate_config = 3;
+
+  // Whether to perform a dry run (validation only)
+  bool dry_run = 4;
+
+  // Whether to start the provider immediately after creation
+  bool auto_start = 5;
+}

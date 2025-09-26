@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/organization/update_organization_request.proto
+// version: 1.0.0
+// guid: eb0d52f9-280c-4cd7-99f9-cc5e2bf6f4e9
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "organization/v1/organization.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message UpdateOrganizationRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Organization ID to update
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Updated organization information
+  Organization organization = 3;
+
+  // Fields to update (field mask)
+  repeated string update_fields = 4;
+}

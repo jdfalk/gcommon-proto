@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/config/api/get_config_stats_request.proto
+// version: 1.0.0
+// guid: 844f249a-a794-44ba-a9b1-5a6bf3d82ca5
+// file: proto/gcommon/v1/config/get_config_stats_request.proto
+//
+// Request definitions for config module
+// Generated as part of protobuf implementation
+//
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message GetConfigStatsRequest {
+  // Namespace or environment to query
+  string namespace = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 2;
+}

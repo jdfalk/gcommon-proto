@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/priority_range.proto
+// version: 1.0.0
+// guid: 1efceade-7805-4b90-bdd0-2484a86cb6c9
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Priority range for filtering.
+ */
+message PriorityRange {
+  // Minimum priority (inclusive)
+  int32 min_priority = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum priority (inclusive)
+  int32 max_priority = 2 [(buf.validate.field).int32.gte = 0];
+}

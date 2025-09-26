@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/common/health_check_result.proto
+// version: 1.0.0
+// guid: f29a3085-ffb9-4d33-8e60-ee52f8ff4570
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/check_type.proto";
+import "common/v1/component_health.proto";
+import "common/v1/serving_status.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message HealthHealthCheckResult {
+  // Service name being checked
+  string service = 1 [(buf.validate.field).string.min_len = 1];
+  // Overall status of the health check
+  ServingStatus status = 2;
+  // Type of health check performed
+  CheckType check_type = 3;
+  // Timestamp when the check was performed
+  int64 timestamp = 4;
+  // Duration of the check in milliseconds
+  int64 duration_ms = 5 [(buf.validate.field).int64.gt = 0];
+  // Human-readable message about the check result
+  string message = 6 [(buf.validate.field).string.min_len = 1];
+  // Error details if the check failed
+  string error = 7 [(buf.validate.field).string.min_len = 1];
+  // Additional metadata about the check
+  map<string, string> metadata = 8;
+  // Component-specific health details
+  repeated ComponentHealth components = 9 [(buf.validate.field).repeated.min_items = 1];
+}

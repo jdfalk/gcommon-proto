@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/common/auth_method.proto
+// version: 1.0.1
+// guid: 815bb886-5864-44fd-ae07-c6102c110fd7
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * AuthMethod enumerates the supported authentication mechanisms.
+ */
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum AuthAuthMethod {
+  // Default unknown method
+  COMMON_AUTH_METHOD_UNSPECIFIED = 0;
+
+  // Traditional username and password authentication
+  COMMON_AUTH_METHOD_PASSWORD = 1;
+
+  // API key based authentication
+  COMMON_AUTH_METHOD_API_KEY = 2;
+
+  // OAuth2 or OpenID Connect authentication
+  COMMON_AUTH_METHOD_OAUTH2 = 3;
+
+  // SAML identity provider authentication
+  COMMON_AUTH_METHOD_SAML = 4;
+
+  // LDAP directory authentication
+  COMMON_AUTH_METHOD_LDAP = 5;
+
+  // Multi-factor authentication method
+  COMMON_AUTH_METHOD_MFA = 6;
+
+  // Token-based authentication (e.g., JWT, bearer tokens)
+  COMMON_AUTH_METHOD_TOKEN = 7;
+
+  // No authentication required
+  COMMON_AUTH_METHOD_NONE = 8;
+}

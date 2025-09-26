@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/scrape_target.proto
+// version: 1.0.0
+// guid: bc47b323-f2ec-45a1-9eb1-a02cee44f29d
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * ScrapeTarget describes a target endpoint to scrape metrics from.
+ */
+message ScrapeTarget {
+  // Target URL
+  string url = 1 [(buf.validate.field).string.uri = true];
+
+  // Optional labels to associate with this target
+  map<string, string> labels = 2;
+}

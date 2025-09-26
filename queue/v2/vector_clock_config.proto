@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/vector_clock_config.proto
+// version: 1.0.0
+// guid: 3374bcbe-3bf2-4e5f-b46a-03e4131fcd98
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message VectorClockConfig {
+  // Enable vector clocks
+  bool enabled = 1;
+
+  // Clock precision (nanoseconds, microseconds, milliseconds)
+  string precision = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum clock drift tolerance (milliseconds)
+  int64 max_drift_ms = 3 [(buf.validate.field).int64.gte = 0];
+}

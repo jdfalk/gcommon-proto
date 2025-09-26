@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/organization/get_tenant_usage_response.proto
+// version: 1.0.1
+// guid: c93fcd4c-7090-4c96-9c04-1e2b77a10337
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/error.proto";
+import "common/v1/key_value.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message GetTenantUsageResponse {
+  // Any errors encountered
+  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Success status
+  bool success = 2;
+
+  // Usage statistics for the tenant
+  repeated common.v1.KeyValue usage_stats = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+}

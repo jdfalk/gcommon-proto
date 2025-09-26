@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/api_key_config.proto
+// version: 1.0.0
+// guid: af9b891a-1959-43c2-a287-891b402b4cdf
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message MetricsAPIKeyConfig {
+  // Header name for API key
+  string header_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Whether API key is required
+  bool required = 2;
+
+  // Allowed API keys (for validation)
+  repeated string allowed_keys = 3;
+}

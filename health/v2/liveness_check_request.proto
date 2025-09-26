@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/health/requests/liveness_check_request.proto
+// version: 1.0.0
+// guid: 920a1b2c-3647-5678-2345-901234567890
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * LivenessCheckRequest requests a liveness check for a service.
+ * Liveness checks verify that a service is alive and responsive.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message LivenessCheckRequest {
+  // Service name to check liveness for
+  string service_name = 1;
+
+  // Request metadata for authentication and tracing
+  common.v1.RequestMetadata metadata = 2;
+
+  // Maximum time to wait for the liveness check
+  google.protobuf.Duration timeout = 3;
+
+  // Specific probe endpoint to check (optional)
+  string probe_endpoint = 4;
+}

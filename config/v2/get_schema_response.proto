@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/config/get_schema_response.proto
+// version: 1.0.1
+// guid: 814082ea-43bd-4fe6-9f69-3e587af7e038
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/error.proto";
+import "config/v1/config_schema.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * GetSchemaResponse returns a configuration schema.
+ */
+message GetSchemaResponse {
+  // Configuration schema
+  ConfigSchema schema = 1;
+
+  // Error information
+  common.v1.Error error = 2;
+}

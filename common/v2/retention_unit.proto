@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/metrics/v1/retention_unit.proto
+// version: 1.0.1
+// guid: a5ffd419-c490-4f14-8c87-dd43c36de9ec
+// file: proto/gcommon/v1/metrics/v1/retention_unit.proto
+//
+// Enum definitions for metrics module
+
+//
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * RetentionUnit defines the units for data retention policies.
+ * Used to specify how long metric data should be kept in storage.
+ */
+enum RetentionUnit {
+  // Unspecified retention unit (default)
+  RETENTION_UNIT_UNSPECIFIED = 0;
+
+  // Minutes
+  RETENTION_UNIT_MINUTES = 1;
+
+  // Hours
+  RETENTION_UNIT_HOURS = 2;
+
+  // Days
+  RETENTION_UNIT_DAYS = 3;
+
+  // Weeks
+  RETENTION_UNIT_WEEKS = 4;
+
+  // Months
+  RETENTION_UNIT_MONTHS = 5;
+
+  // Years
+  RETENTION_UNIT_YEARS = 6;
+
+  // Forever (no expiration)
+  RETENTION_UNIT_FOREVER = 7;
+
+  // Custom duration (specify in seconds)
+  RETENTION_UNIT_CUSTOM = 8;
+}

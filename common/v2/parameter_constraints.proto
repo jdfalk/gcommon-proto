@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/common/parameter_constraints.proto
+// version: 1.0.0
+// guid: c8d9e0f1-2345-6789-2345-890123456789
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ParameterConstraints {
+  // Minimum value
+  string min_value = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum value
+  string max_value = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Pattern validation
+  string pattern = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Required flag
+  bool required = 4;
+
+  // Default value
+  string default_value = 5 [(buf.validate.field).string.min_len = 1];
+}

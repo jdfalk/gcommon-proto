@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/common/session_metadata.proto
+// version: 1.0.0
+// guid: 01cd27dc-f07e-4fe5-805f-ff4fc49ef91b
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/device_info.proto";
+import "common/v1/location_info.proto";
+import "common/v1/session_state.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message SessionMetadata {
+  // Session ID
+  string session_id = 1;
+
+  // User ID
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Session start time
+  int64 started_at = 3;
+
+  // Last activity time
+  int64 last_activity = 4;
+
+  // Session expiry time
+  int64 expires_at = 5;
+
+  // IP address
+  string ip_address = 6;
+
+  // User agent
+  string user_agent = 7;
+
+  // Device information
+  common.v1.DeviceInfo device_info = 8;
+
+  // Location information
+  common.v1.LocationInfo location_info = 9;
+
+  // Session state
+
+  common.v1.SessionState state = 10;
+}

@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/queue/api/dead_letter_policy.proto
+// file: proto/gcommon/v1/queue/dead_letter_policy.proto
+// version: 1.0.0
+// guid: 5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Dead letter policy configuration for handling failed messages.
+ * Messages that exceed retry limits or cannot be processed will be
+ * sent to a dead letter queue for manual inspection.
+ */
+message DeadLetterPolicy {
+  // Name of the dead letter queue where failed messages will be sent
+  string dead_letter_queue = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum number of delivery attempts before sending to dead letter queue
+  int32 max_delivery_attempts = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum age of a message before it's considered expired and sent to DLQ
+  google.protobuf.Duration max_message_age = 3;
+
+  // Whether to include the original failure reason in the dead letter message
+  bool include_failure_reason = 4;
+
+  // Additional metadata to attach to dead letter messages
+  map<string, string> dead_letter_metadata = 5;
+
+  // Whether dead letter policy is enabled
+  bool enabled = 6;
+}

@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/config/v1/compliance_settings.proto
+// version: 1.0.0
+// guid: 55ae9eb4-4811-4e34-89e6-b2c7f128297e
+
+edition = "2023";
+
+package config.v1;
+
+import "config/v1/compliance_audit.proto";
+import "config/v1/compliance_reporting.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigComplianceSettings {
+  // Compliance frameworks
+  repeated string frameworks = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance policies
+  repeated string policies = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance audits
+  repeated config.v1.ComplianceAudit audits = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Compliance reporting
+  config.v1.ComplianceReporting reporting = 4;
+
+  // Compliance validation
+  bool validation_enabled = 5;
+
+  // Compliance metadata
+  map<string, string> metadata = 6;
+}

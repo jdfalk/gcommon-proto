@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/flow_control.proto
+// version: 1.0.0
+// guid: 40b0fde3-4f0f-4bef-b893-248588fbf4a6
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// FlowControl settings influence how the queue handles
+// bursts of incoming messages.
+message FlowControl {
+  // Maximum number of unacknowledged messages allowed.
+  int32 max_in_flight = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum amount of data in flight (bytes).
+  int64 max_bytes_in_flight = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Deadline before a message is redelivered if not acknowledged.
+  google.protobuf.Duration ack_deadline = 3;
+}

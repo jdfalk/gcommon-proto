@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/common/ldap_config.proto
+// version: 1.0.0
+// guid: de3eeaac-ad85-4f66-a525-670864c5815d
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Configuration options for LDAP authentication providers.
+ */
+message LdapConfig {
+  // Hostname or IP address of the LDAP server.
+  string host = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Port number for the LDAP server.
+  int32 port = 2 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Whether to use TLS for connections.
+  bool use_tls = 3;
+
+  // Distinguished name used to bind to the server.
+  string bind_dn = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Password for the bind DN.
+  string bind_password = 5 [(buf.validate.field).string.min_len = 8];
+
+  // Base DN for searches.
+  string base_dn = 6 [(buf.validate.field).string.min_len = 1];
+
+  // LDAP filter used to locate user records.
+  string user_filter = 7 [(buf.validate.field).string.min_len = 1];
+
+  // LDAP filter used to locate group records.
+  string group_filter = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Connection timeout in seconds.
+  int32 timeout_seconds = 9 [(buf.validate.field).int32.gt = 0];
+
+  // Additional provider-specific attributes.
+  map<string, string> attributes = 10 [lazy = true];
+}

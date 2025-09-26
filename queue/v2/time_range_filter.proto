@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/time_range_filter.proto
+// version: 1.0.0
+// guid: a130528f-ed39-48b7-8dbf-b82f4db21916
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message TimeRangeFilter {
+  // Start time for the range (ISO 8601)
+  string start_time = 1 [(buf.validate.field).string.min_len = 1];
+
+  // End time for the range (ISO 8601)
+  string end_time = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Granularity for aggregated data (minute, hour, day)
+  string granularity = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum number of data points to return
+  int32 max_data_points = 4 [(buf.validate.field).int32.gte = 0];
+}

@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/common/mfa_config.proto
+// version: 1.0.0
+// guid: ae560b06-340b-4dca-9a42-dc0eb623fbb1
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Multi-factor authentication configuration settings.
+ */
+message MfaConfig {
+  // Whether MFA is enabled.
+  bool enabled = 1;
+
+  // Supported MFA methods (e.g., "totp", "sms", "email").
+  repeated string methods = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Time-based one-time password period in seconds.
+  int32 totp_period = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Number of digits for TOTP codes.
+  int32 totp_digits = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Whether SMS delivery is enabled.
+  bool sms_enabled = 5;
+
+  // Whether email delivery is enabled.
+  bool email_enabled = 6;
+}

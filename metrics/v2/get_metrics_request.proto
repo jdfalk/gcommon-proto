@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/metrics/v1/get_metrics_request.proto
+// version: 1.0.0
+// guid: ec242bb6-5817-45b8-88de-7245b2536b35
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/pagination_options.proto";
+import "common/v1/request_metadata.proto";
+import "common/v1/time_range_metrics.proto";
+import "metrics/v1/metric_aggregation.proto";
+import "metrics/v1/metric_filter.proto";
+import "metrics/v1/output_options.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricsGetMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Filter to determine which metrics to retrieve
+  MetricFilter filter = 2;
+
+  // Time range for the request
+  common.v1.TimeRangeMetrics time_range = 3;
+
+  // Aggregation options for the metrics
+  MetricAggregation aggregation = 4;
+
+  // Pagination options
+  common.v1.PaginationOptions pagination = 5;
+
+  // Optional provider ID to query
+  string provider_id = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Output format options
+  OutputOptions output_options = 7;
+
+  // Whether to include metadata with results
+  bool include_metadata = 8;
+
+  // Maximum number of metrics to return
+  int32 limit = 9 [(buf.validate.field).int32.gte = 0];
+}

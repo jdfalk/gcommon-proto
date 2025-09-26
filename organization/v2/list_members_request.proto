@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/organization/list_members_request.proto
+// version: 1.0.0
+// guid: 406d6cd1-34df-4a3a-9fd9-f479ec2dbfdb
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message ListMembersRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Organization identifier
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Optional team identifier to filter
+  string team_id = 3;
+
+  // Optional department identifier
+  string department_id = 4;
+
+  // Pagination size
+  int32 page_size = 5;
+
+  // Pagination token from previous response
+  string page_token = 6;
+
+  // Optional filter expression
+  string filter = 7;
+}

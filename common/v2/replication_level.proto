@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/queue/replication_level.proto
+// version: 1.0.1
+// guid: 3cf5a48e-2f5f-48ed-a2a9-6322f6010c4c
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum ReplicationLevel {
+  REPLICATION_LEVEL_UNSPECIFIED = 0;
+  REPLICATION_LEVEL_ONE = 1; // At least one replica
+  REPLICATION_LEVEL_QUORUM = 2; // Majority of replicas
+  REPLICATION_LEVEL_ALL = 3; // All replicas
+}

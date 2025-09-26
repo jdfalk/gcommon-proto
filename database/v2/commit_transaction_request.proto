@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/database/commit_transaction_request.proto
+// version: 1.0.0
+// guid: 398b751d-7d5a-4624-b844-e7ea289486e6
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+message CommitTransactionRequest {
+  // Transaction ID to commit
+  string transaction_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata for tracing and authentication
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

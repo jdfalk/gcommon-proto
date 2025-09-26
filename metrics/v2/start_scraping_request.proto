@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/start_scraping_request.proto
+// version: 1.1.0
+// guid: 3bf09215-7dbf-4f23-97b5-911aeb40f125
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/scrape_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message StartScrapingRequest {
+  // Standard request metadata
+  common.v1.RequestMetadata metadata = 1;
+
+  // Metrics provider identifier
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Scrape configuration to use
+  ScrapeConfig config = 3;
+}

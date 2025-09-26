@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/cpu_usage.proto
+// version: 1.0.0
+// guid: cda5276c-5b68-4519-b1f6-c245a74b2d66
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message CPUUsage {
+  // Current CPU usage (percentage)
+  double current_percent = 1 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+
+  // Average CPU usage (percentage)
+  double avg_percent = 2 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+
+  // Peak CPU usage (percentage)
+  double peak_percent = 3 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+}

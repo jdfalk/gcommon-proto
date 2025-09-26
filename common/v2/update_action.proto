@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/update_action.proto
+// version: 1.0.1
+// guid: cb7f4802-67a0-4c44-a5b3-b98fc2aab61a
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * UpdateAction indicates what action was taken during the update.
+ */
+enum UpdateAction {
+  UPDATE_ACTION_UNSPECIFIED = 0;
+  UPDATE_ACTION_UPDATED = 1;
+  UPDATE_ACTION_NO_CHANGE = 2;
+  UPDATE_ACTION_RESTARTED = 3;
+  UPDATE_ACTION_RECREATED = 4;
+}

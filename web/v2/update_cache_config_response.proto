@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/web/update_cache_config_response.proto
+// version: 1.0.1
+// guid: jkl45678-90ab-cdef-1234-567890abcdef
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+message UpdateCacheConfigResponse {
+  // Whether the update was successful
+  bool success = 1;
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 2;
+}

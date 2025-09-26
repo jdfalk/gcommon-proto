@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/auth_cache_config.proto
+// version: 1.0.0
+// guid: 4282b3d6-375a-4b30-aaad-1763d882936a
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message AuthCacheConfig {
+  // Enable caching
+  bool enabled = 1;
+
+  // Cache TTL (seconds)
+  int32 ttl_seconds = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum cache size
+  int32 max_size = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Cache cleanup interval (seconds)
+  int32 cleanup_interval_seconds = 4 [(buf.validate.field).int32.gte = 0];
+}

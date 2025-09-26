@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/media/extract_subtitles_request.proto
+// version: 1.0.0
+// guid: 178d8f93-4baf-416d-9a87-4ddb45bcd2ab
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "media/v1/subtitle_extraction_options.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message ExtractSubtitlesRequest {
+  string media_file_id = 1 [(buf.validate.field).string.min_len = 1];
+  repeated int32 track_indices = 2; // Specific tracks to extract (empty = all)
+  SubtitleExtractionOptions options = 3;
+}

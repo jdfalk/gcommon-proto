@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/config/get_multiple_config_response.proto
+// version: 1.0.0
+// guid: 91678eea-cc13-4a84-b125-e494149256fd
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/error.proto";
+import "config/v1/config_entry.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * GetMultipleConfigResponse returns multiple configuration entries.
+ */
+message GetMultipleConfigResponse {
+  // Retrieved entries mapped by key
+  map<string, ConfigEntry> entries = 1;
+
+  // Keys that were not found
+  repeated string not_found = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error information
+  common.v1.Error error = 3;
+}

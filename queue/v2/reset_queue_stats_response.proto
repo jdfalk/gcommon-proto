@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/queue/reset_queue_stats_response.proto
+// version: 1.0.0
+// guid: 11f82fe8-4d3f-4188-b0c9-4fb2a7d24591
+
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/preserved_stats.proto";
+import "queue/v1/reset_details.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ResetQueueStatsResponse {
+  // Success status of the reset operation
+  bool success = 1;
+
+  // Queue identifier whose stats were reset
+  string queue_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Timestamp when reset operation completed
+  google.protobuf.Timestamp reset_at = 3;
+
+  // Statistics that were preserved before reset
+  PreservedStats preserved_stats = 4;
+
+  // Types of statistics that were reset
+  repeated string reset_stat_types = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Types of statistics that were preserved
+  repeated string preserved_stat_types = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error message if reset failed
+  string error_message = 7 [(buf.validate.field).string.min_len = 1];
+
+  // Error code for programmatic handling
+  string error_code = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Warning messages about the reset operation
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
+
+  // Reset operation details
+  ResetDetails reset_details = 10;
+
+  // Operation metadata
+  map<string, string> metadata = 11;
+}

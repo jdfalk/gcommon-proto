@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/config/v1/config_schema.proto
+// version: 1.0.0
+// guid: 9e149f8a-076f-4c2b-8e8c-ddaf1b41707a
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * ConfigSchema defines a configuration schema.
+ */
+message ConfigSchema {
+  // Schema name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Schema version
+  string version = 2;
+
+  // Schema definition (JSON Schema)
+  string definition = 3;
+
+  // Schema metadata
+  map<string, string> metadata = 4;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
+}

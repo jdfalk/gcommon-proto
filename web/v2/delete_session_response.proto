@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/web/delete_session_response.proto
+// version: 1.1.1
+// guid: 4115c974-f373-4e67-aeb0-fff852ec685a
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// DeleteSessionResponse response definition.
+message WebDeleteSessionResponse {
+  // Indicates if the session was deleted
+  bool success = 1;
+}

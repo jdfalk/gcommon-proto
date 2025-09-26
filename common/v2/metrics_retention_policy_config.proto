@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/retention_policy_config.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174024
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Retention policy configuration for metric data.
+ */
+message MetricsRetentionPolicyConfig {
+  // How long to retain data
+  google.protobuf.Duration duration = 1;
+
+  // Storage tier configuration
+  string storage_tier = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Compression settings
+  string compression = 3 [(buf.validate.field).string.min_len = 1];
+}

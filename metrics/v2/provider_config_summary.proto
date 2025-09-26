@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/provider_config_summary.proto
+// version: 1.0.0
+// guid: 394dfc33-7acb-4583-bd49-44bdcb86e5ba
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/resource_limits_summary.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ProviderConfigSummary {
+  // Number of configured exporters
+  int32 exporter_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Whether security is enabled
+  bool security_enabled = 2;
+
+  // Resource limits summary
+  ResourceLimitsSummary resource_limits = 3;
+
+  // Export destinations
+  repeated string export_destinations = 4 [(buf.validate.field).repeated.min_items = 1];
+}

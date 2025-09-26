@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/database/database_info.proto
+// version: 1.0.0
+// guid: 4bce9e15-4221-4e32-97a0-664f1f5fc777
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * DatabaseInfo provides metadata about a database instance.
+ * Used for identifying database capabilities and connection details.
+ */
+message DatabaseInfo {
+  // Database name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Database version information
+  string version = 2;
+
+  // Database type/vendor (e.g., PostgreSQL, MySQL, CockroachDB)
+  string type = 3;
+
+  // Sanitized connection string (credentials removed)
+  string connection_string = 4;
+
+  // List of supported database features
+  repeated string features = 5;
+}

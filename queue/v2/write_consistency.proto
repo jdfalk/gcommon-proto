@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/write_consistency.proto
+// version: 1.0.0
+// guid: 25356885-1f2a-4629-a203-6fd654cb6821
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/write_level.proto";
+import "queue/v1/conflict_detection.proto";
+import "queue/v1/sync_replication.proto";
+import "queue/v1/write_retry_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message WriteConsistency {
+  // Write consistency level
+  common.v1.WriteLevel level = 1;
+
+  // Synchronous replication requirements
+  SyncReplication sync_replication = 2;
+
+  // Write conflict detection
+  ConflictDetection conflict_detection = 3;
+
+  // Timeout for write operations (milliseconds)
+  int32 timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
+
+  // Retry configuration for write failures
+  WriteRetryConfig retry_config = 5;
+}

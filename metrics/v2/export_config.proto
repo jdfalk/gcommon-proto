@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/metrics/export_config.proto
+// version: 1.0.0
+// guid: 498c1fb6-967a-4e05-b62a-fbeaa2214616
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+import "metrics/v1/metrics_retry_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ExportConfig {
+  // Export destination URL or endpoint
+  string destination = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Export format (json, csv, prometheus, etc.)
+  string format = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Export frequency in seconds
+  int32 frequency_seconds = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Whether to compress exported data
+  bool compress = 4;
+
+  // Batch size for exports
+  int32 batch_size = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Timeout for export operations in seconds
+  int32 timeout_seconds = 6 [(buf.validate.field).int32.gt = 0];
+
+  // Custom headers for HTTP exports
+  map<string, string> headers = 7;
+
+  // Authentication configuration
+  map<string, string> auth_config = 8;
+
+  // Retry configuration
+  MetricsRetryConfig retry_config = 9;
+
+  // Filtering rules for what to export
+  repeated string include_patterns = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated string exclude_patterns = 11 [(buf.validate.field).repeated.min_items = 1];
+}

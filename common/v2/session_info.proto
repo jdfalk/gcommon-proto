@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/common/session_info.proto
+// version: 1.0.0
+// guid: 805af1d3-ee56-4be2-9807-baeedd9fc6d3
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Session information for lightweight session tracking.
+ * Contains essential session data without full session details.
+ * Used in responses where full session data is not needed.
+ */
+message SessionInfo {
+  // Session identifier
+  string session_id = 1;
+
+  // User ID associated with session
+  string user_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Session creation time
+  google.protobuf.Timestamp created_at = 3 [ (buf.validate.field).required = true ];
+
+  // Session expiration time
+  google.protobuf.Timestamp expires_at = 4;
+
+  // Last activity time
+  google.protobuf.Timestamp last_activity_at = 5;
+
+  // IP address
+  string ip_address = 6;
+
+  // User agent
+  string user_agent = 7;
+
+  // Session active flag
+  bool active = 8;
+}

@@ -1,0 +1,58 @@
+// file: proto/gcommon/v1/common/session_service.proto
+// version: 1.0.1
+// guid: cdb77963-bfe4-405f-86a2-e3d6ba7fb232
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/create_session_request.proto";
+import "common/v1/create_session_response.proto";
+import "common/v1/delete_session_request.proto";
+import "common/v1/delete_session_response.proto";
+import "common/v1/get_session_request.proto";
+import "common/v1/get_session_response.proto";
+import "common/v1/list_sessions_request.proto";
+import "common/v1/list_sessions_response.proto";
+import "common/v1/list_user_sessions_request.proto";
+import "common/v1/list_user_sessions_response.proto";
+import "common/v1/terminate_session_request.proto";
+import "common/v1/terminate_session_response.proto";
+import "common/v1/update_session_request.proto";
+import "common/v1/update_session_response.proto";
+import "common/v1/validate_session_request.proto";
+import "common/v1/validate_session_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * SessionService manages user sessions and session lifecycle.
+ * Provides session creation, validation, tracking, and termination
+ * for stateful authentication and user activity monitoring.
+ */
+service SessionService {
+  // Create a new session for an authenticated user
+  rpc CreateSession(AuthCreateSessionRequest) returns (AuthCreateSessionResponse);
+
+  // Get detailed information about a specific session
+  rpc GetSession(AuthGetSessionRequest) returns (AuthGetSessionResponse);
+
+  // Update session information (e.g., refresh activity timestamp)
+  rpc UpdateSession(AuthUpdateSessionRequest) returns (AuthUpdateSessionResponse);
+
+  // Validate a session and return session information
+  rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
+
+  // Terminate a session (logout)
+  rpc TerminateSession(TerminateSessionRequest) returns (TerminateSessionResponse);
+
+  // Delete a specific session
+  rpc DeleteSession(AuthDeleteSessionRequest) returns (AuthDeleteSessionResponse);
+
+  // List all active sessions for a user
+  rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
+
+  // List all sessions (admin only)
+  rpc ListSessions(AuthListSessionsRequest) returns (AuthListSessionsResponse);
+}

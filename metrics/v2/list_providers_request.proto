@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/metrics/v1/list_providers_request.proto
+// version: 1.0.1
+// guid: cc2b7794-28e4-442f-88a3-24bcd696fe6a
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/pagination_options.proto";
+import "common/v1/request_metadata.proto";
+import "metrics/v1/provider_filter.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ListProvidersRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Filter options for the list
+  ProviderFilter filter = 2;
+
+  // Pagination options
+  common.v1.PaginationOptions pagination = 3;
+
+  // Whether to include detailed status information
+  bool include_status = 4;
+
+  // Whether to include configuration details
+  bool include_config = 5;
+
+  // Whether to include statistics
+  bool include_stats = 6;
+}

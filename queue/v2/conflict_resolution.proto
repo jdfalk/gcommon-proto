@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/conflict_resolution.proto
+// version: 1.0.1
+// guid: 6757adde-ed50-4ff7-9771-170223aaeca8
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/resolution_strategy.proto";
+import "queue/v1/custom_resolution.proto";
+import "queue/v1/last_writer_wins.proto";
+import "queue/v1/multi_value_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message QueueConflictResolution {
+  // Conflict resolution strategy
+  common.v1.ResolutionStrategy strategy = 1;
+
+  // Custom resolution function settings
+  CustomResolution custom_resolution = 2;
+
+  // Last-writer-wins settings
+  LastWriterWins lww_config = 3;
+
+  // Multi-value conflict handling
+  MultiValueConfig multi_value = 4;
+}

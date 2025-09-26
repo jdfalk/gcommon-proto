@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/get_alerting_rules_request.proto
+// version: 1.0.0
+// guid: eb75f08e-4be4-41e8-8992-f9f95b7962bc
+// file: proto/gcommon/v1/metrics/v1/get_alerting_rules_request.proto
+//
+// Request message for retrieving alerting rules associated with a metric.
+//
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message GetAlertingRulesRequest {
+  // Metric identifier
+  string metric_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

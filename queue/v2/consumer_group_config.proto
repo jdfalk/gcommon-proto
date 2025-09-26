@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/queue/consumer_group_config.proto
+// version: 1.0.0
+// guid: 8f71a5d7-ed37-4020-94fb-4c8960ef1e5d
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/load_balancing_strategy.proto";
+import "common/v1/offset_reset_strategy.proto";
+import "common/v1/rebalance_strategy.proto";
+import "queue/v1/auto_commit_config.proto";
+import "queue/v1/dead_letter_queue_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ConsumerGroupConfig {
+  // Load balancing strategy for partition assignment
+  common.v1.LoadBalancingStrategy load_balancing_strategy = 1;
+
+  // Rebalance strategy when consumers join/leave
+  common.v1.RebalanceStrategy rebalance_strategy = 2;
+
+  // Session timeout for consumer heartbeats (milliseconds)
+  int32 session_timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
+
+  // Heartbeat interval (milliseconds)
+  int32 heartbeat_interval_ms = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum poll interval (milliseconds)
+  int32 max_poll_interval_ms = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Auto-commit configuration
+  AutoCommitConfig auto_commit = 6;
+
+  // Offset reset strategy for new consumers
+  common.v1.OffsetResetStrategy offset_reset_strategy = 7;
+
+  // Maximum number of consumers allowed in the group
+  int32 max_consumers = 8 [(buf.validate.field).int32.gte = 0];
+
+  // Enable exactly-once semantics
+  bool exactly_once_enabled = 9;
+
+  // Dead letter queue configuration
+  DeadLetterQueueConfig dlq_config = 10;
+}

@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/common/list_services_response.proto
+// version: 1.0.0
+// guid: 09285493-9262-4105-aec3-9a02d03db370
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ListServicesResponse {
+  // List of service names
+  repeated string services = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 2;
+}

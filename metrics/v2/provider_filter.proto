@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/metrics/v1/provider_filter.proto
+// version: 1.0.0
+// guid: ccf0f7e8-2de8-458d-b403-22b712773c55
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ProviderFilter {
+  // Filter by provider type
+  repeated string provider_types = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Filter by provider state
+  repeated string states = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Filter by tags
+  map<string, string> tags = 3;
+
+  // Filter by name pattern (regex)
+  string name_pattern = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Filter by health status
+  repeated string health_statuses = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Filter providers created after this time
+  string created_after = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Filter providers created before this time
+  string created_before = 7 [(buf.validate.field).string.min_len = 1];
+}

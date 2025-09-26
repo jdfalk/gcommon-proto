@@ -1,0 +1,55 @@
+// file: proto/gcommon/v1/health/messages/dependency_check.proto
+// version: 1.0.0
+// guid: 607182a3-adb4-2345-9012-678901234567
+
+edition = "2023";
+
+package health.v1;
+
+import "health/v1/health_status.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * DependencyCheck represents a health check for external dependencies.
+ * Monitors the health and availability of services this component depends on.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message DependencyCheck {
+  // Unique identifier for this dependency check
+  string id = 1;
+
+  // Name of the dependency being checked
+  string dependency_name = 2;
+
+  // Type of dependency (database, service, cache, etc.)
+  string dependency_type = 3;
+
+  // Connection string or endpoint
+  string endpoint = 4;
+
+  // Current status of the dependency
+  HealthStatus status = 5;
+
+  // How critical this dependency is (1-10, 10 being most critical)
+  int32 criticality = 6;
+
+  // Check timeout
+  google.protobuf.Duration timeout = 7;
+
+  // Check interval
+  google.protobuf.Duration check_interval = 8;
+
+  // When this dependency was last checked
+  google.protobuf.Timestamp last_checked = 9;
+
+  // When this dependency check was configured
+  google.protobuf.Timestamp configured_at = 10;
+
+  // Additional metadata about the dependency
+  map<string, string> metadata = 11;
+}

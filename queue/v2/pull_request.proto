@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/pull_request.proto
+// version: 1.0.0
+// guid: dae5ea8a-77c7-4b90-ab25-d2981ba423df
+// PullRequest retrieves a single message from the specified queue
+// without establishing a subscription. This file replaces the
+// placeholder generated during migration.
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message PullRequest {
+  // Request metadata for tracing and authentication
+  common.v1.RequestMetadata metadata = 1;
+
+  // Queue to pull from
+  string queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Optional visibility timeout for the pulled message
+  int32 visibility_timeout_seconds = 3;
+}

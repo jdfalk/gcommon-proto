@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/list_subscriptions_response.proto
+// version: 1.0.0
+// guid: c20dc6c8-336b-4626-b709-22be9663d29d
+
+// ListSubscriptionsResponse contains the subscriptions under a
+// specific topic or queue. This file now implements the message
+// rather than acting as a placeholder.
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/response_metadata.proto";
+import "common/v1/subscription_info.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ListSubscriptionsResponse {
+  // Subscriptions returned
+  repeated common.v1.CommonSubscriptionInfo subscriptions = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Token for fetching the next page
+  string next_page_token = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Response metadata common across services
+  common.v1.ResponseMetadata metadata = 3;
+}

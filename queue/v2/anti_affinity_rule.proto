@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/anti_affinity_rule.proto
+// version: 1.0.0
+// guid: a0d26ff8-7127-4e69-b8f3-eec85c695787
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/anti_affinity_scope.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Anti-affinity rule for replica placement.
+ */
+message AntiAffinityRule {
+  // Label key to check for anti-affinity
+  string label_key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Label values that should not be co-located
+  repeated string label_values = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Scope of the anti-affinity rule
+  common.v1.AntiAffinityScope scope = 3;
+}

@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/config/api/decrypt_config_request.proto
+// version: 1.0.0
+// guid: 9601c041-6660-4091-b17d-ca336ebe9e1d
+// file: proto/gcommon/v1/config/decrypt_config_request.proto
+//
+// Request definitions for config module
+// Generated as part of protobuf implementation
+//
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * DecryptConfigRequest requests decryption of a configuration value.
+ */
+message DecryptConfigRequest {
+  // Configuration key containing encrypted value
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Optional namespace/environment
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 3;
+}

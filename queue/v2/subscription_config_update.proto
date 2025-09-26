@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/queue/subscription_config_update.proto
+// version: 1.0.0
+// guid: 4ec44184-d7ed-48cf-af8f-5984c57c687d
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/config_retry_settings.proto";
+import "queue/v1/delivery_settings.proto";
+import "queue/v1/filter_settings.proto";
+import "queue/v1/routing_settings.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message SubscriptionConfigUpdate {
+  // Updated subscription name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Updated delivery settings
+  DeliverySettings delivery_settings = 2;
+
+  // Updated retry configuration
+  common.v1.ConfigRetrySettings retry_settings = 3;
+
+  // Updated filtering rules
+  FilterSettings filter_settings = 4;
+
+  // Updated routing configuration
+  RoutingSettings routing_settings = 5;
+
+  // Maximum inflight messages
+  int32 max_inflight_messages = 6;
+
+  // Acknowledgment timeout (milliseconds)
+  int32 ack_timeout_ms = 7;
+
+  // Priority level for messages
+  int32 priority_level = 8;
+}

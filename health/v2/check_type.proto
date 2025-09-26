@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/health/enums/check_type.proto
+// version: 1.0.0
+// guid: 9b2c3d4e-5f67-8901-bcd2-345678901efa
+
+edition = "2023";
+
+package health.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * Types of health checks that can be performed.
+ * Each type represents a different aspect or method of health verification.
+ */
+enum CheckType {
+  // Default unspecified check type
+  CHECK_TYPE_UNSPECIFIED = 0;
+
+  // Basic health check - simple alive/dead status
+  CHECK_TYPE_HEALTH = 1;
+
+  // Readiness check - service is ready to handle requests
+  CHECK_TYPE_READINESS = 2;
+
+  // Liveness check - service is alive and responsive
+  CHECK_TYPE_LIVENESS = 3;
+
+  // Dependency check - external dependencies are available
+  CHECK_TYPE_DEPENDENCY = 4;
+
+  // Resource check - system resources (CPU, memory, disk)
+  CHECK_TYPE_RESOURCE = 5;
+
+  // Network check - network connectivity and latency
+  CHECK_TYPE_NETWORK = 6;
+
+  // Database check - database connectivity and performance
+  CHECK_TYPE_DATABASE = 7;
+
+  // Custom application-specific check
+  CHECK_TYPE_CUSTOM = 8;
+}

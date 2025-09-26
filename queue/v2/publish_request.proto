@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/publish_request.proto
+// version: 1.1.0
+// guid: 59dc8120-bc2f-4d56-a9f1-f0957cb9bafb
+// PublishRequest publishes a single message to a named topic. It is
+// used for pub/sub style messaging where consumers subscribe to
+// topics rather than specific queues.
+// PublishRequest contains all information required to publish a
+// message to a topic.
+
+edition = "2023";
+
+package queue.v1;
+
+import "buf/validate/validate.proto";
+import "common/v1/request_metadata.proto";
+import "queue/v1/delivery_options.proto";
+import "queue/v1/queue_message.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message QueuePublishRequest {
+  // Name of the topic to publish to - required, alphanumeric with dots/hyphens, 3-255 chars
+  string topic_name = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.pattern = "^[a-zA-Z0-9]([a-zA-Z0-9._-]*[a-zA-Z0-9])?$",
+    (buf.validate.field).string.min_len = 3,
+    (buf.validate.field).string.max_len = 255
+  ];
+
+  // Message to publish - required
+  QueueMessage message = 2 [(buf.validate.field).required = true];
+
+  // Optional delivery parameters controlling retries and delays
+  DeliveryOptions delivery_options = 3;
+
+  // Standard request metadata for tracing and auth - required
+  common.v1.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
+}

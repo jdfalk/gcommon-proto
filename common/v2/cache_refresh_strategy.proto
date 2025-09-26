@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/config/cache_refresh_strategy.proto
+// version: 1.0.1
+// guid: c38dfb62-6d18-4f59-a901-6c4b5e659952
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum CacheRefreshStrategy {
+  CACHE_REFRESH_STRATEGY_UNSPECIFIED = 0;
+  CACHE_REFRESH_STRATEGY_TTL = 1;
+  CACHE_REFRESH_STRATEGY_LAZY = 2;
+  CACHE_REFRESH_STRATEGY_PROACTIVE = 3;
+  CACHE_REFRESH_STRATEGY_BACKGROUND = 4;
+}

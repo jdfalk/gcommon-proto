@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/provider_type.proto
+// version: 1.0.1
+// guid: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f90
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * ProviderType enumerates the supported authentication provider backends.
+ */
+// buf:lint:ignore ENUM_VALUE_PREFIX
+enum AuthProviderType {
+  // Default unspecified provider type
+  AUTH_PROVIDER_TYPE_UNSPECIFIED = 0;
+
+  // Built-in local provider
+  AUTH_PROVIDER_TYPE_LOCAL = 1;
+
+  // LDAP directory provider
+  AUTH_PROVIDER_TYPE_LDAP = 2;
+
+  // Active Directory provider
+  AUTH_PROVIDER_TYPE_ACTIVE_DIRECTORY = 3;
+
+  // OAuth2 provider (generic)
+  AUTH_PROVIDER_TYPE_OAUTH2 = 4;
+
+  // SAML provider
+  AUTH_PROVIDER_TYPE_SAML = 5;
+}

@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/send_websocket_message_request.proto
+// version: 1.0.0
+// guid: 0f379368-5941-4e80-a7c6-3d66aafd5d54
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// SendWebsocketMessageRequest request definition.
+message SendWebsocketMessageRequest {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

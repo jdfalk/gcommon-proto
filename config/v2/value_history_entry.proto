@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/config/value_history_entry.proto
+// version: 1.0.0
+// guid: 842c89c0-e045-4b46-8c03-f19d4383edb0
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/config_change_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ValueHistoryEntry {
+  // Entry ID
+  string entry_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Previous value
+  string previous_value = 2 [(buf.validate.field).string.min_len = 1];
+
+  // New value
+  string new_value = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // User who made the change
+  string changed_by = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Change reason
+  string reason = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Change type (using ChangeType from config_template.proto)
+  common.v1.TemplateChangeType change_type = 7;
+
+  // Change metadata
+  map<string, string> metadata = 8;
+}

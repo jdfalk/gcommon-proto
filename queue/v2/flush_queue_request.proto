@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/queue/flush_queue_request.proto
+// version: 1.1.0
+// guid: 7ddb0fbd-7f80-45ed-9a91-db95b2111a42
+// Request to flush queue messages to persistent storage
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/flush_policy.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// FlushQueueRequest forces queue messages to be flushed to persistent storage
+message FlushQueueRequest {
+  // Queue identifier to flush
+  string queue_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Flush policy to apply
+  common.v1.FlushPolicy flush_policy = 2;
+
+  // Wait for flush completion before returning
+  bool wait_for_completion = 3;
+
+  // Maximum time to wait for flush completion (milliseconds)
+  int32 timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
+
+  // Flush only messages up to this timestamp
+  google.protobuf.Timestamp flush_until = 5;
+
+  // Include specific partitions only (empty = all partitions)
+  repeated int32 partition_ids = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Force flush even if not needed
+  bool force_flush = 7;
+
+  // Optional metadata for the flush operation
+  map<string, string> metadata = 8;
+}

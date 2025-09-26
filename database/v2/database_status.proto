@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/database/database_status.proto
+// version: 1.0.0
+// guid: 67bfa96b-764e-4290-adc8-2387c9b456b4
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/database_status_code.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * DatabaseStatus reports the current connection status for a
+ * database driver or service.
+ */
+message DatabaseStatus {
+  // Code indicates the health state of the database
+  common.v1.DatabaseStatusCode code = 1;
+
+  // Human readable status details
+  string message = 2 [(buf.validate.field).string.min_len = 1];
+}

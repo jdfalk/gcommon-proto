@@ -1,0 +1,89 @@
+// file: proto/gcommon/v1/common/list_user_sessions_request.proto
+// version: 1.0.0
+// guid: 8a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/pagination_options.proto";
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Standard imports
+// Common types
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * ListUserSessionsRequest requests a list of active sessions for a user.
+ * Used by administrators to monitor user sessions and by users to view
+ * their own active sessions across devices.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ListUserSessionsRequest {
+  // Required fields (1-10)
+
+  /**
+   * The ID of the user whose sessions should be listed.
+   * This can be the requesting user's own ID or another user's ID
+   * if the requester has appropriate permissions.
+   */
+  string user_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Optional fields (11-50)
+
+  /**
+   * Standard request metadata including authentication context,
+   * tracing information, and client details.
+   */
+  common.v1.RequestMetadata metadata = 11;
+
+  /**
+   * Pagination options for large result sets.
+   * Defaults to first 50 sessions if not specified.
+   */
+  common.v1.PaginationOptions pagination = 12;
+
+  /**
+   * Filter sessions by status (active, expired, terminated).
+   * If not specified, returns all sessions.
+   */
+  string status_filter = 13;
+
+  /**
+   * Filter sessions by device type (web, mobile, api, etc.).
+   * If not specified, returns sessions from all device types.
+   */
+  string device_type_filter = 14;
+
+  /**
+   * Only return sessions created after this timestamp.
+   * Useful for finding recent sessions.
+   */
+  google.protobuf.Timestamp created_after = 15;
+
+  /**
+   * Only return sessions created before this timestamp.
+   * Useful for historical analysis.
+   */
+  google.protobuf.Timestamp created_before = 16;
+
+  /**
+   * Include detailed session information (IP addresses, user agents, etc.).
+   * May require additional permissions. Defaults to false.
+   */
+  bool include_details = 17;
+
+  /**
+   * Sort order for results. Valid values: "created_asc", "created_desc",
+   * "last_activity_asc", "last_activity_desc". Defaults to "created_desc".
+   */
+  string sort_order = 18;
+}

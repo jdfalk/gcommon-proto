@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/types/reset_health_stats_request.proto
+// version: 1.0.0
+// guid: e8903f7e-5da9-40bf-8b9b-1a6747e1391e
+// file: proto/gcommon/v1/common/reset_health_stats_request.proto
+//
+// Request definitions for health module
+//
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+message ResetHealthStatsRequest {
+  // Service name whose stats should be reset
+  string service = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata for auditing
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

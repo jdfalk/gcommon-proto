@@ -1,0 +1,78 @@
+// file: proto/gcommon/v1/common/auth_admin_service.proto
+// version: 1.0.1
+// guid: 253654c0-690d-48e1-b4fd-24d978958200
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/assign_role_request.proto";
+import "common/v1/create_role_request.proto";
+import "common/v1/create_role_response.proto";
+import "common/v1/create_user_request.proto";
+import "common/v1/create_user_response.proto";
+import "common/v1/delete_role_request.proto";
+import "common/v1/delete_user_request.proto";
+import "common/v1/get_system_stats_request.proto";
+import "common/v1/get_system_stats_response.proto";
+import "common/v1/get_user_request.proto";
+import "common/v1/get_user_response.proto";
+import "common/v1/invalidate_user_sessions_request.proto";
+import "common/v1/list_roles_request.proto";
+import "common/v1/list_roles_response.proto";
+import "common/v1/list_users_request.proto";
+import "common/v1/list_users_response.proto";
+import "common/v1/remove_role_request.proto";
+import "common/v1/update_role_request.proto";
+import "common/v1/update_role_response.proto";
+import "common/v1/update_user_request.proto";
+import "common/v1/update_user_response.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Administrative authentication management operations.
+ * Provides user management, role assignment, and system configuration.
+ */
+service AuthAdminService {
+  // CreateUser creates a new user account
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+
+  // UpdateUser updates an existing user account
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+
+  // DeleteUser removes a user account
+  rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
+
+  // ListUsers returns paginated list of users
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+
+  // GetUserDetails returns detailed user information
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+
+  // AssignRole assigns a role to a user
+  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
+
+  // RemoveRole removes a role from a user
+  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
+
+  // CreateRole creates a new role
+  rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse);
+
+  // UpdateRole updates an existing role
+  rpc UpdateRole(UpdateRoleRequest) returns (UpdateRoleResponse);
+
+  // DeleteRole removes a role
+  rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
+
+  // ListRoles returns all available roles
+  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
+
+  // InvalidateUserSessions invalidates all sessions for a user
+  rpc InvalidateUserSessions(InvalidateUserSessionsRequest) returns (google.protobuf.Empty);
+
+  // GetSystemStats returns authentication system statistics
+  rpc GetSystemStats(GetSystemStatsRequest) returns (GetSystemStatsResponse);
+}

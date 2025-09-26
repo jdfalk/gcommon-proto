@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/config/circuit_breaker_config.proto
+// file: proto/gcommon/v1/queue/circuit_breaker_config.proto
+// version: 1.0.0
+// guid: 6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration for circuit breaker pattern in queue operations.
+ */
+message QueueCircuitBreakerConfig {
+  // Whether circuit breaker is enabled
+  bool enabled = 1;
+
+  // Failure threshold to open circuit
+  uint32 failure_threshold = 2 [(buf.validate.field).uint32.gte = 0];
+
+  // Success threshold to close circuit
+  uint32 success_threshold = 3 [(buf.validate.field).uint32.gte = 0];
+
+  // Timeout before attempting to close circuit
+  google.protobuf.Duration timeout = 4;
+
+  // Maximum number of concurrent requests in half-open state
+  uint32 max_requests = 5 [(buf.validate.field).uint32.gte = 0];
+
+  // Time window for failure counting
+  google.protobuf.Duration interval = 6;
+}

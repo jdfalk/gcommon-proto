@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/organization/delete_team_request.proto
+// version: 1.0.0
+// guid: 9f3757bb-554f-4098-afee-2450a9336a21
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message DeleteTeamRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Identifier of the team to delete
+  string team_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Force delete even if team has members
+  bool force = 3;
+}

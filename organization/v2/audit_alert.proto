@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/organization/audit_alert.proto
+// version: 1.0.0
+// guid: e9593ddf-e9d4-4f3a-b0e5-3d3e5d5ad8f7
+
+edition = "2023";
+
+package organization.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message AuditAlert {
+  // Alert name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Event patterns to match
+  repeated string event_patterns = 2;
+
+  // Alert severity level
+  string severity = 3;
+
+  // Notification channels for this alert
+  repeated string notification_channels = 4;
+
+  // Alert threshold (if applicable)
+  int32 threshold = 5;
+
+  // Time window for threshold evaluation in minutes
+  int32 time_window_minutes = 6;
+}

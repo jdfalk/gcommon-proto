@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/common/notification_service.proto
+// version: 1.0.1
+// guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
+
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/delete_notification_request.proto";
+import "common/v1/delete_notification_response.proto";
+import "common/v1/get_template_request.proto";
+import "common/v1/get_template_response.proto";
+import "common/v1/list_notifications_request.proto";
+import "common/v1/list_notifications_response.proto";
+import "common/v1/mark_as_read_request.proto";
+import "common/v1/mark_as_read_response.proto";
+import "common/v1/send_notification_request.proto";
+import "common/v1/send_notification_response.proto";
+import "common/v1/update_preferences_request.proto";
+import "common/v1/update_preferences_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * NotificationService handles delivery, retrieval, and management of notifications.
+ */
+service NotificationService {
+  // Send delivers a notification through configured channels.
+  rpc Send(SendNotificationRequest) returns (SendNotificationResponse);
+
+  // List returns previously sent notifications.
+  rpc List(ListNotificationsRequest) returns (ListNotificationsResponse);
+
+  // Update subscription preferences for a user
+  rpc UpdatePreferences(UpdatePreferencesRequest) returns (UpdatePreferencesResponse);
+
+  // Retrieve a notification template by ID
+  rpc GetTemplate(GetTemplateRequest) returns (GetTemplateResponse);
+
+  // Mark a notification as read
+  rpc MarkAsRead(MarkAsReadRequest) returns (MarkAsReadResponse);
+
+  // Delete a notification
+  rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
+}

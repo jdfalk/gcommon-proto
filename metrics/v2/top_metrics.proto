@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/metrics/v1/top_metrics.proto
+// version: 1.0.0
+// guid: c4d5e6f7-a8b9-0c1d-2e3f-4a5b6c7d8e9f
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * TopMetrics contains information about top performing/problematic metrics.
+ */
+message TopMetrics {
+  // Most active metrics (by volume)
+  repeated string most_active = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Largest metrics by data volume
+  repeated string largest_by_volume = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Metrics with highest error rates
+  repeated string highest_errors = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Most frequently queried metrics
+  repeated string most_queried = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Slowest performing metrics
+  repeated string slowest_performing = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Most resource-intensive metrics
+  repeated string most_resource_intensive = 6 [(buf.validate.field).repeated.min_items = 1];
+}

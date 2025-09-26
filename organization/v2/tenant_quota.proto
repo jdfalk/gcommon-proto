@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/organization/tenant_quota.proto
+// version: 1.0.0
+// guid: 00b319b2-df4a-4664-9a2e-7eb13cb80bf1
+// Tenant quota message definition
+
+edition = "2023";
+
+package organization.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+/**
+ * TenantQuota defines resource limits and quotas for a tenant.
+ */
+message TenantQuota {
+  // Tenant ID this quota applies to
+  string tenant_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Maximum number of users
+  int32 max_users = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum storage in bytes
+  int64 max_storage_bytes = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Maximum API requests per hour
+  int32 max_api_requests_per_hour = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum number of projects
+  int32 max_projects = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum bandwidth in bytes per month
+  int64 max_bandwidth_bytes_per_month = 6 [(buf.validate.field).int64.gte = 0];
+
+  // Whether the tenant can create sub-tenants
+  bool can_create_sub_tenants = 7;
+
+  // Custom quota attributes
+  map<string, string> custom_quotas = 8;
+}

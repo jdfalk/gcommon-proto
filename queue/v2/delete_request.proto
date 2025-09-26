@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/delete_request.proto
+// version: 1.0.0
+// guid: 6b38ff92-a226-4afc-9a2e-4f1f47ab36a2
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/request_metadata.proto";
+import "queue/v1/delete_criteria.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message QueueDeleteRequest {
+  // Name of the queue containing the message
+  string queue_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Unique identifier of the message to delete
+  string message_id = 2;
+
+  // Acknowledgment token (if message was previously consumed)
+  string ack_token = 3;
+
+  // Whether to force deletion even if message is locked
+  bool force = 4;
+
+  // Reason for deletion
+  string reason = 5;
+
+  // Delete criteria (alternative to message_id)
+  DeleteCriteria criteria = 6;
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 100;
+}

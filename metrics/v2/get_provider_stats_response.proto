@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/metrics/v1/get_provider_stats_response.proto
+// version: 1.0.0
+// guid: 26ba7b19-1782-4137-b19b-f6ee43e59f15
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "common/v1/time_range_metrics.proto";
+import "metrics/v1/provider_statistics.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message GetProviderStatsResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  common.v1.Error error = 2;
+
+  // Provider ID these stats are for
+  string provider_id = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Comprehensive provider statistics
+  ProviderStatistics statistics = 4;
+
+  // When the statistics were generated
+  google.protobuf.Timestamp generated_at = 5;
+
+  // Time range covered by the statistics
+  common.v1.TimeRangeMetrics time_range = 6;
+
+  // Warnings or informational messages
+  repeated string warnings = 7 [(buf.validate.field).repeated.min_items = 1];
+}

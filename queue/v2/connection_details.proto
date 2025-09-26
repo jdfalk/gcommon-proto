@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/connection_details.proto
+// version: 1.0.0
+// guid: e63faacd-909b-487c-9be3-1cba61d1e2c9
+// Connection details for queue message delivery
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// ConnectionDetails contains information for establishing message delivery connections
+message ConnectionDetails {
+  // Delivery endpoint (for push mode)
+  string delivery_endpoint = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Authentication token for delivery
+  string auth_token = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Heartbeat interval (milliseconds)
+  int32 heartbeat_interval_ms = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Keep-alive timeout (milliseconds)
+  int32 keep_alive_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];
+
+  // SSL/TLS configuration
+  bool ssl_enabled = 5;
+
+  // Connection metadata
+  map<string, string> connection_metadata = 6;
+}

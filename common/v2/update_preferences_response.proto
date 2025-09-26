@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/common/update_preferences_response.proto
+// version: 1.0.1
+// guid: 3eb0a369-6ebb-48fb-b5a1-8e7e3d5d7f39
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Response for updating subscription preferences.
+ */
+message UpdatePreferencesResponse {
+  // Whether the update succeeded
+  bool success = 1;
+}

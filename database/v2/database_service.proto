@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/database/database_service.proto
+// version: 1.0.1
+// guid: 29fba4b4-7bdc-4792-b145-968271984ce0
+edition = "2023";
+
+package database.v1;
+
+import "database/v1/execute_batch_request.proto";
+import "database/v1/execute_batch_response.proto";
+import "database/v1/execute_request.proto";
+import "database/v1/execute_response.proto";
+import "database/v1/get_connection_info_request.proto";
+import "database/v1/get_connection_info_response.proto";
+import "database/v1/health_check_request.proto";
+import "database/v1/health_check_response.proto";
+import "database/v1/query_request.proto";
+import "database/v1/query_response.proto";
+import "database/v1/query_row_request.proto";
+import "database/v1/query_row_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * DatabaseService provides comprehensive database operations including
+ * queries, transactions, batch operations, and health monitoring.
+ */
+service DatabaseService {
+  // Execute a read-only query and return results
+  rpc Query(QueryRequest) returns (QueryResponse);
+
+  // Execute a query expected to return at most one row
+  rpc QueryRow(QueryRowRequest) returns (QueryRowResponse);
+
+  // Execute a write operation (INSERT, UPDATE, DELETE)
+  rpc Execute(ExecuteRequest) returns (ExecuteResponse);
+
+  // Execute multiple operations in a single batch
+  rpc ExecuteBatch(ExecuteBatchRequest) returns (ExecuteBatchResponse);
+
+  // Get information about database connection pool
+  rpc GetConnectionInfo(GetConnectionInfoRequest) returns (GetConnectionInfoResponse);
+
+  // Check database connectivity and health
+  rpc HealthCheck(DatabaseHealthCheckRequest) returns (DatabaseHealthCheckResponse);
+}

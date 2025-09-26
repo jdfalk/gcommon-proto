@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/update_role_request.proto
+// version: 1.0.1
+// guid: b5502816-55e0-4610-93d1-c0d0d470d118
+edition = "2023";
+
+package common.v1;
+
+import "common/v1/request_metadata.proto";
+import "common/v1/role.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+/**
+ * Request to update an existing role.
+ * Used for role management and permission modification.
+ * Supports partial updates using field mask.
+ */
+message UpdateRoleRequest {
+  // Role data with updates
+  Role role = 1;
+
+  // Field mask specifying which fields to update
+  google.protobuf.FieldMask update_mask = 2;
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 3;
+}
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the auth module requirements

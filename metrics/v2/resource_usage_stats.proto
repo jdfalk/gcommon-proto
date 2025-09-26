@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/v1/resource_usage_stats.proto
+// version: 1.0.0
+// guid: 18e38b17-8e74-45c9-8f0e-1b1ce6da1c19
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/cpu_usage.proto";
+import "metrics/v1/disk_usage.proto";
+import "metrics/v1/memory_usage.proto";
+import "metrics/v1/network_usage.proto";
+import "metrics/v1/resource_data_point.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ResourceUsageStats {
+  // Current memory usage
+  MemoryUsage memory = 1;
+
+  // Current CPU usage
+  CPUUsage cpu = 2;
+
+  // Current disk usage
+  DiskUsage disk = 3;
+
+  // Network usage
+  NetworkUsage network = 4;
+
+  // Time-series resource usage data
+  repeated ResourceDataPoint resource_timeseries = 5 [(buf.validate.field).repeated.min_items = 1];
+}

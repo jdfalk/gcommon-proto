@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/organization/create_department_response.proto
+// version: 1.0.0
+// guid: 38a42c2a-fd4b-4805-9fd8-6c87d4959f99
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/error.proto";
+import "organization/v1/department.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message CreateDepartmentResponse {
+  // Any errors encountered
+  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Success status
+  bool success = 2;
+
+  // Newly created department information
+  Department department = 3;
+}

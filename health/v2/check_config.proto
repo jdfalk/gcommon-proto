@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/health/messages/check_config.proto
+// version: 1.0.0
+// guid: 7182a3b4-bec5-3456-0123-789012345678
+
+edition = "2023";
+
+package health.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * CheckConfig represents global configuration for health checks.
+ * Defines default behaviors and system-wide health check settings.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message CheckConfig {
+  // Default check interval for new health checks
+  google.protobuf.Duration default_interval = 1;
+
+  // Default timeout for health checks
+  google.protobuf.Duration default_timeout = 2;
+
+  // Default failure threshold before marking unhealthy
+  int32 default_failure_threshold = 3;
+
+  // Default success threshold before marking healthy
+  int32 default_success_threshold = 4;
+
+  // Whether to enable health check metrics collection
+  bool enable_metrics = 5;
+
+  // Whether to enable health check logging
+  bool enable_logging = 6;
+
+  // Maximum number of concurrent health checks
+  int32 max_concurrent_checks = 7;
+
+  // Global tags to apply to all health checks
+  repeated string global_tags = 8;
+
+  // Health check result retention period
+  google.protobuf.Duration retention_period = 9;
+
+  // Whether to automatically retry failed checks
+  bool auto_retry = 10;
+}

@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/config/version_status.proto
+// version: 1.0.1
+// guid: 55704401-46f6-4b87-94a8-11020525cfe4
+
+edition = "2023";
+
+package common.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/common/v1";
+
+enum VersionStatus {
+  VERSION_STATUS_UNSPECIFIED = 0;
+  VERSION_STATUS_DRAFT = 1;
+  VERSION_STATUS_PENDING = 2;
+  VERSION_STATUS_ACTIVE = 3;
+  VERSION_STATUS_DEPRECATED = 4;
+  VERSION_STATUS_ARCHIVED = 5;
+  VERSION_STATUS_DELETED = 6;
+  VERSION_STATUS_FAILED = 7;
+  VERSION_STATUS_CANCELLED = 8;
+}

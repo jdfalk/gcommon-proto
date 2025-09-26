@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/metrics/v1/get_metric_metadata_request.proto
+// version: 1.0.0
+// guid: 4706d64e-ea60-4994-a732-e8377db776b5
+// file: proto/gcommon/v1/metrics/v1/get_metric_metadata_request.proto
+//
+// Request definitions for metrics module
+
+//
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * GetMetricMetadataRequest retrieves metadata for specific metrics.
+ */
+message GetMetricMetadataRequest {
+  // Provider ID to query
+  string provider_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Specific metric names to get metadata for (if empty, get all)
+  repeated string metric_names = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Namespace to filter by (optional)
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Include inactive metrics
+  bool include_inactive = 4;
+
+  // Pagination options
+  int32 page_size = 5 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  string page_token = 6 [(buf.validate.field).string.min_len = 1];
+
+  // Filter by metric type (optional)
+  string metric_type = 7 [(buf.validate.field).string.min_len = 1];
+
+  // Filter by labels (optional)
+  map<string, string> label_filters = 8;
+
+  // Whether to include retention policy information
+  bool include_retention_info = 9;
+
+  // Whether to include usage statistics
+  bool include_usage_stats = 10;
+}
