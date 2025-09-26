@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/database/health_check_response.proto
+// version: 1.0.1
+// guid: e1d2c65f-544c-4adf-b3cd-949e155bed14
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/error.proto";
+import "common/v1/health_status.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * HealthCheckResponse contains the result of a database health check.
+ * Provides connection status, response time, and error details.
+ */
+message DatabaseHealthCheckResponse {
+  // Overall health status of the database
+  common.v1.CommonHealthStatus status = 1;
+
+  // Whether the database connection is operational
+  bool connection_ok = 2;
+
+  // Time taken to perform the health check
+  google.protobuf.Duration response_time = 3 [lazy = true];
+
+  // Error information if the health check failed
+  common.v1.Error error = 4 [lazy = true];
+}

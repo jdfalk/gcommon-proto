@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/database/set_request.proto
+// version: 1.0.0
+// guid: 47c2c3b4-b463-42e9-a479-8e4ac8debd4c
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to store a value in the cache.
+ * Supports flexible expiration policies and namespace isolation.
+ */
+message SetRequest {
+  // Cache key to store
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Value to store (supports any type)
+  google.protobuf.Any value = 2 [lazy = true];
+
+  // Optional namespace for cache isolation
+  string namespace = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Time-to-live for the cache entry (0 for no expiration)
+  google.protobuf.Duration ttl = 4 [lazy = true];
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 5 [lazy = true];
+
+  // Whether to overwrite existing value
+  bool overwrite = 6;
+
+  // Entry metadata for extensibility
+  map<string, string> entry_metadata = 7 [lazy = true];
+}

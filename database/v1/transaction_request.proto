@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/database/transaction_request.proto
+// version: 1.0.1
+// guid: 6f47375b-c8cf-45cb-a270-71538e8ae9fd
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to execute multiple cache operations in a transaction.
+ */
+message TransactionRequest {
+  // Encoded operations in transaction
+  bytes operations = 1;
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

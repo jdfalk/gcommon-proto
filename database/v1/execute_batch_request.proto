@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/database/execute_batch_request.proto
+// version: 1.0.1
+// guid: 2b4354c4-f03a-4317-86b9-57babf767494
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "database/v1/batch_execute_options.proto";
+import "database/v1/batch_operation.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+// Use DB-specific batch operation definitions
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+message ExecuteBatchRequest {
+  // List of operations to execute in the batch
+  repeated DatabaseBatchOperation operations = 1 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+
+  // Database name (optional, uses default if not specified)
+  string database = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Batch execution options and configuration
+  BatchExecuteOptions options = 3 [lazy = true];
+
+  // Request metadata for tracing and authentication
+  common.v1.RequestMetadata metadata = 4 [lazy = true];
+
+  // Transaction ID if this batch is part of a transaction
+  string transaction_id = 5 [(buf.validate.field).string.min_len = 1];
+}

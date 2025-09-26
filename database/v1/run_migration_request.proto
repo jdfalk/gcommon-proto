@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/database/schema/run_migration_request.proto
+// version: 1.0.1
+// guid: 666b0a89-7fc5-48ce-ac8a-9a886d9d039a
+
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "database/v1/migration_script.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+message RunMigrationRequest {
+  // Database name to run migrations against
+  string database = 1 [(buf.validate.field).string.min_len = 1];
+
+  // List of migration scripts to execute
+  repeated MigrationScript scripts = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+
+  // Request metadata for tracing and authentication
+  common.v1.RequestMetadata metadata = 3 [lazy = true];
+}

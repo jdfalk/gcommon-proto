@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/database/optimize_request.proto
+// version: 1.0.0
+// guid: 3dfdfacc-5cc8-48f5-9df4-adb442034b47
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to optimize cache storage layout.
+ */
+message OptimizeRequest {
+  // Optional namespace to optimize
+  string namespace = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 2 [lazy = true];
+}

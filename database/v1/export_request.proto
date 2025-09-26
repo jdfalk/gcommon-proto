@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/export_request.proto
+// version: 1.0.0
+// guid: 7c9c11a2-50f9-4b6d-9165-f060cb136a1a
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to export cache contents to an external system.
+ */
+message ExportRequest {
+  // Destination identifier for export
+  string destination = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Optional namespace filter
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata
+  common.v1.RequestMetadata metadata = 3 [lazy = true];
+}

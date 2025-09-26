@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/database/get_request.proto
+// version: 1.0.0
+// guid: 5277ac94-ab80-4548-a6ca-3a8b98e038c4
+edition = "2023";
+
+package database.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Request to retrieve a cached value by key.
+ * Supports namespace isolation and access time tracking
+ * for LRU cache policies.
+ */
+message GetRequest {
+  // Cache key to retrieve
+  string key = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Optional namespace for cache isolation
+  string namespace = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Request metadata for tracing and correlation
+  common.v1.RequestMetadata metadata = 3 [lazy = true];
+
+  // Whether to update access time (for LRU policies)
+  bool update_access_time = 4;
+}

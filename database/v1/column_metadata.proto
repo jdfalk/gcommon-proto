@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/database/column_metadata.proto
+// version: 1.0.0
+// guid: d06d164a-51bd-4f22-b1db-15171a8dd72d
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * ColumnMetadata describes the structure and properties of a database column.
+ * Used in result sets to provide type information for proper data handling.
+ */
+message ColumnMetadata {
+  // Column name as defined in the database
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Column data type (database-specific)
+  string type = 2;
+
+  // Whether the column allows NULL values
+  bool nullable = 3;
+
+  // Column size/precision for numeric and string types
+  int32 size = 4;
+
+  // Column scale for decimal/numeric types
+  int32 scale = 5;
+
+  // Additional column-specific metadata
+  map<string, string> metadata = 6 [lazy = true];
+}

@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/database/batch_stats.proto
+// version: 1.0.0
+// guid: 0bb234e6-f7a8-4767-ac4a-1c9a0ad6ffa7
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * BatchStats provides execution statistics for batch database operations.
+ * Used for monitoring batch performance and operation success rates.
+ */
+message DatabaseBatchStats {
+  // Total execution time for the entire batch
+  google.protobuf.Duration total_time = 1 [lazy = true];
+
+  // Number of operations that completed successfully
+  int32 successful_operations = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Number of operations that failed
+  int32 failed_operations = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Total number of rows affected across all operations
+  int64 total_affected_rows = 4 [(buf.validate.field).int64.gte = 0];
+}

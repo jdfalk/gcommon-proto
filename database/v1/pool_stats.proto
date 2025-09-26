@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/database/pool_stats.proto
+// version: 1.0.0
+// guid: aa9c4de3-12a9-4aa4-a381-051dab476fa1
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * PoolStats provides detailed statistics about connection pool usage.
+ * Used for monitoring pool efficiency and connection management.
+ */
+message PoolStats {
+  // Total number of connections created since pool initialization
+  int64 total_created = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of connections closed since pool initialization
+  int64 total_closed = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Number of failed attempts to acquire connections
+  int64 acquisition_failures = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Average time to acquire a connection from the pool
+  google.protobuf.Duration avg_acquisition_time = 4 [lazy = true];
+}

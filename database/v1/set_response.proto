@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/set_response.proto
+// version: 1.0.0
+// guid: 2c28ae26-1591-4248-baff-82cf800c5349
+edition = "2023";
+
+package database.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/database/v1";
+
+/**
+ * Response for cache set operation.
+ * Indicates success and provides operation metadata.
+ */
+message SetResponse {
+  // Whether the operation was successful
+  bool success = 1;
+
+  // Whether an existing value was overwritten
+  bool overwritten = 2;
+
+  // Size of the stored value in bytes
+  int64 size_bytes = 3 [(buf.validate.field).int64.gte = 0];
+}
