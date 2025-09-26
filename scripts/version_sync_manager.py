@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # file: scripts/version_sync_manager.py
-# version: 3.0.0
-# guid: version-sync-manager-gcommon-system
+# version: 3.0.1
+# guid: b1b9c1e2-d3e4-5f6a-7b8c-9d0e1f2a3b4c
 
 """
 Enhanced version synchronization manager for gcommon repository ecosystem.
@@ -17,7 +17,24 @@ Features:
 - Buf Schema Registry integration with consolidated multi-label push
 - Cross-repository version validation
 - Automated GitHub release creation
-- Version compatibility matrix
+- Version co            # Step 5: Repository Updates
+            print(f"\n🔄 Step 5: Repository Updates")
+            print("-" * 30)
+
+            related_repos = ['gcommon']  # Only gcommon repository now
+
+            if dry_run:
+                print(f"   Would update {len(related_repos)} related repository:")
+                for repo in related_repos:
+                    print(f"     - {repo}")
+            else:
+                print(f"   Updating {len(related_repos)} related repository...")
+                for repo in related_repos:
+                    success = self.trigger_sync_workflow(repo, new_version)
+                    if success:
+                        print(f"     ✅ {repo}")
+                    else:
+                        print(f"     ❌ {repo} (failed)")
 - Simple 'generate' command for complete automation
 - Automatic floating tag management (preserves patch releases)
 """
