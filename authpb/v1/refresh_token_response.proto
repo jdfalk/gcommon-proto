@@ -1,0 +1,27 @@
+// file: authpb/v1/refresh_token_response.proto
+// version: 1.0.0
+// guid: k1l2m3n4-o5p6-7890-4567-901234567890
+
+edition = "2023";
+
+package auth.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * RefreshTokenResponse represents a token refresh response.
+ * Contains new tokens after successful refresh.
+ */
+message RefreshTokenResponse {
+  // New JWT access token
+  string access_token = 1;
+  
+  // New JWT refresh token
+  string refresh_token = 2;
+  
+  // Token expiration time in seconds from now
+  int64 expires_in = 3;
+}
