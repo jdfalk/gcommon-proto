@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/config/rate_limits.proto
+// version: 1.0.0
+// guid: c2d3e4f5-6a7b-8901-cdef-234567890123
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message RateLimits {
+  // Maximum requests per second
+  int32 requests_per_second = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum burst size
+  int32 burst_size = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Rate limit window in seconds
+  int32 window_seconds = 3 [(buf.validate.field).int32.gte = 0];
+}

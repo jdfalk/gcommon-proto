@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/config/version_dependency.proto
+// version: 1.0.0
+// guid: c6e48e5f-19bf-49eb-ae5b-2360c1e11fe1
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/version_dependency_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message VersionDependency {
+  // Dependency name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Dependency version
+  string version = 2;
+
+  // Dependency type
+  common.v1.VersionDependencyType type = 3;
+
+  // Dependency scope
+  string scope = 4;
+
+  // Dependency bool optional = 5;
+
+  // Dependency constraints
+  repeated string constraints = 6;
+
+  // Dependency metadata
+  map<string, string> metadata = 7;
+}

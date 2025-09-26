@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/config/transformation_step.proto
+// version: 1.0.0
+// guid: 4b3c1c96-82eb-4c1d-84ac-362e461d5793
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/transformation_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message TransformationStep {
+  // Step name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Step type
+  common.v1.TransformationType type = 2;
+
+  // Step expression
+  string expression = 3;
+
+  // Step parameters
+  map<string, string> parameters = 4;
+
+  // Step enabled
+  bool enabled = 5;
+
+  // Step order
+  int32 order = 6;
+}

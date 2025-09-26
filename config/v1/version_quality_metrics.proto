@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/config/version_quality_metrics.proto
+// version: 1.0.0
+// guid: 2326770b-b97a-4a96-93aa-b093931437a7
+
+edition = "2023";
+
+package config.v1;
+
+import "config/v1/version_quality_issue.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message VersionQualityMetrics {
+  // Code quality score
+  double quality_score = 1 [(buf.validate.field).double.gte = 0.0];
+
+  // Test coverage
+  double test_coverage = 2 [(buf.validate.field).double.gte = 0.0];
+
+  // Security score
+  double security_score = 3 [(buf.validate.field).double.gte = 0.0];
+
+  // Performance score
+  double performance_score = 4 [(buf.validate.field).double.gte = 0.0];
+
+  // Complexity score
+  double complexity_score = 5 [(buf.validate.field).double.gte = 0.0];
+
+  // Technical debt score
+  double technical_debt_score = 6 [(buf.validate.field).double.gte = 0.0];
+
+  // Quality gate status
+  bool quality_gate_passed = 7;
+
+  // Quality issues
+  repeated VersionQualityIssue issues = 8 [(buf.validate.field).repeated.min_items = 1];
+
+  // Quality metrics timestamp
+  google.protobuf.Timestamp timestamp = 9;
+}

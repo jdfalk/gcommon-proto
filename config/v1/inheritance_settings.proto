@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/config/v1/inheritance_settings.proto
+// version: 1.0.0
+// guid: f7c6c365-e83d-4ae8-8166-fb86d2e3b6f0
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/inheritance_strategy.proto";
+import "common/v1/merge_strategy.proto";
+import "config/v1/inheritance_filter.proto";
+import "config/v1/inheritance_transformation.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message InheritanceSettings {
+  // Whether inheritance is enabled
+  bool enabled = 1;
+
+  // Inheritance strategy
+  common.v1.InheritanceStrategy strategy = 2;
+
+  // Inheritance sources in order of priority
+  repeated string sources = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Inheritance filters
+  repeated InheritanceFilter filters = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Inheritance transformations
+  repeated InheritanceTransformation transformations = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Whether to merge inherited values
+  bool merge_values = 6;
+
+  // Merge strategy for complex values
+  common.v1.MergeStrategy merge_strategy = 7;
+
+  // Inheritance metadata
+  map<string, string> metadata = 8;
+}

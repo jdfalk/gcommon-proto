@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/config/health_status.proto
+// version: 1.0.0
+// guid: 0be35195-6cee-4fad-b426-eddc99a61e0c
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/health_state.proto";
+import "config/v1/health_check_result.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigHealthStatus {
+  // Overall health
+  common.v1.HealthState overall = 1;
+
+  // Component health
+  map<string, common.v1.HealthState> components = 2;
+
+  // Health checks
+  repeated ConfigHealthCheckResult health_checks = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Last health check
+  google.protobuf.Timestamp last_check = 4;
+
+  // Health metrics
+  map<string, double> metrics = 5;
+}

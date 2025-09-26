@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/config/resource_limits.proto
+// version: 1.0.0
+// guid: 8b09091e-5119-4f60-b274-2cdfe2ce451d
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigResourceLimits {
+  // CPU limit
+  string cpu_limit = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Memory limit
+  string memory_limit = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Storage limit
+  string storage_limit = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Network limit
+  string network_limit = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Request rate limit
+  int32 request_rate_limit = 5 [(buf.validate.field).int32.gte = 0];
+
+  // Concurrent connections limit
+  int32 connection_limit = 6 [(buf.validate.field).int32.gte = 0];
+
+  // Custom limits
+  map<string, string> custom_limits = 7;
+}

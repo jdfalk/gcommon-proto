@@ -1,0 +1,62 @@
+// file: proto/gcommon/v1/config/v1/config_service.proto
+// version: 1.0.1
+// guid: 25a56c3e-a656-4d5c-9dde-10fa021e7db6
+edition = "2023";
+
+package config.v1;
+
+import "config/v1/delete_config_request.proto";
+import "config/v1/get_config_request.proto";
+import "config/v1/get_config_response.proto";
+import "config/v1/get_multiple_config_request.proto";
+import "config/v1/get_multiple_config_response.proto";
+import "config/v1/get_schema_request.proto";
+import "config/v1/get_schema_response.proto";
+import "config/v1/list_config_request.proto";
+import "config/v1/list_config_response.proto";
+import "config/v1/set_config_request.proto";
+import "config/v1/set_config_response.proto";
+import "config/v1/set_multiple_config_request.proto";
+import "config/v1/set_multiple_config_response.proto";
+import "config/v1/validate_config_request.proto";
+import "config/v1/validate_config_response.proto";
+import "config/v1/watch_config_request.proto";
+import "config/v1/watch_config_response.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+/**
+ * ConfigService provides configuration management capabilities.
+ * Supports hierarchical configuration, validation, and real-time updates.
+ */
+service ConfigService {
+  // Get retrieves a configuration value
+  rpc Get(GetConfigRequest) returns (GetConfigResponse);
+
+  // Set stores a configuration value
+  rpc Set(SetConfigRequest) returns (SetConfigResponse);
+
+  // Delete removes a configuration value
+  rpc Delete(DeleteConfigRequest) returns (google.protobuf.Empty);
+
+  // List configuration keys with optional filtering
+  rpc List(ListConfigRequest) returns (ListConfigResponse);
+
+  // Watch for configuration changes
+  rpc Watch(WatchConfigRequest) returns (stream WatchConfigResponse);
+
+  // GetMultiple retrieves multiple configuration values
+  rpc GetMultiple(GetMultipleConfigRequest) returns (GetMultipleConfigResponse);
+
+  // SetMultiple stores multiple configuration values
+  rpc SetMultiple(SetMultipleConfigRequest) returns (SetMultipleConfigResponse);
+
+  // Validate configuration values
+  rpc Validate(ValidateConfigRequest) returns (ValidateConfigResponse);
+
+  // GetSchema retrieves configuration schema
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+}

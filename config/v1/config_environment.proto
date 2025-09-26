@@ -1,0 +1,130 @@
+// file: proto/gcommon/v1/config/v1/config_environment.proto
+// version: 1.0.1
+// guid: 167ed450-2130-48be-8d18-2ad5bd34cf7e
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/environment_status.proto";
+import "common/v1/environment_type.proto";
+import "common/v1/health_status.proto";
+import "common/v1/organization_access_control.proto";
+import "common/v1/organization_compliance_settings.proto";
+import "common/v1/organization_notification_settings.proto";
+import "common/v1/organization_resource_limits.proto";
+import "common/v1/retention_policy.proto";
+import "config/v1/approval_workflow.proto";
+import "config/v1/audit_settings.proto";
+import "config/v1/backup_policy.proto";
+import "config/v1/deployment_info.proto";
+import "config/v1/encryption_settings.proto";
+import "config/v1/monitoring_config.proto";
+import "config/v1/promotion_rule.proto";
+import "config/v1/sync_settings.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+// Config-local types
+
+// Metrics enums referenced by this message
+
+// Organization-scoped settings used by environments
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigEnvironment {
+  // Unique identifier for the environment
+  string environment_id = 1;
+
+  // Environment name
+  string name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Environment description
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Environment type
+  common.v1.EnvironmentType type = 4;
+
+  // Environment status
+  common.v1.EnvironmentStatus status = 5;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 6 [ (buf.validate.field).required = true ];
+
+  // Last modification timestamp
+  google.protobuf.Timestamp updated_at = 7;
+
+  // Environment owner
+  string owner = 8;
+
+  // Environment tags
+  repeated string tags = 9;
+
+  // Environment metadata
+  map<string, string> metadata = 10;
+
+  // Environment configuration
+  map<string, string> config = 11;
+
+  // Environment secrets (encrypted)
+  map<string, string> secrets = 12;
+
+  // Environment variables
+  map<string, string> variables = 13;
+
+  // Parent environment (for inheritance)
+  string parent_environment_id = 14;
+
+  // Child environments
+  repeated string child_environment_ids = 15;
+
+  // Environment promotion rules
+  repeated PromotionRule promotion_rules = 16;
+
+  // Environment access control
+  repeated common.v1.OrganizationAccessControl access_controls = 17;
+
+  // Environment deployment info
+  DeploymentInfo deployment_info = 18;
+
+  // Environment health status
+  common.v1.CommonHealthStatus health_status = 19;
+
+  // Environment resource limits
+  common.v1.OrganizationResourceLimits resource_limits = 20;
+
+  // Environment backup policy
+  BackupPolicy backup_policy = 21;
+
+  // Environment approval workflow
+  ApprovalWorkflow approval_workflow = 22;
+
+  // Environment monitoring config
+  ConfigMonitoringConfig monitoring_config = 23;
+
+  // Environment retention policy
+  common.v1.MetricsRetentionPolicy retention_policy = 24;
+
+  // Environment compliance settings
+  common.v1.OrganizationComplianceSettings compliance_settings = 25;
+
+  // Environment encryption settings
+  EncryptionSettings encryption_settings = 26;
+
+  // Environment audit settings
+  AuditSettings audit_settings = 27;
+
+  // Environment notification settings
+  common.v1.OrganizationNotificationSettings notification_settings = 28;
+
+  // Environment sync settings
+  SyncSettings sync_settings = 29;
+
+  // Environment version
+  string version = 30;
+}

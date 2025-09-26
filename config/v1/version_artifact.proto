@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/config/version_artifact.proto
+// version: 1.0.0
+// guid: 7cbe5a72-963f-4b03-b61e-7cd392e571c8
+
+edition = "2023";
+
+package config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message VersionArtifact {
+  // Artifact name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Artifact type
+  string type = 2;
+
+  // Artifact path
+  string path = 3;
+
+  // Artifact size
+  int64 size = 4;
+
+  // Artifact checksum
+  string checksum = 5;
+
+  // Artifact metadata
+  map<string, string> metadata = 6;
+
+  // Artifact timestamp
+  google.protobuf.Timestamp timestamp = 7;
+}

@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/config/health_check_result.proto
+// version: 1.0.0
+// guid: 5a4b2cbd-08cd-42f3-9fbb-b55de4ffd527
+
+edition = "2023";
+
+package config.v1;
+
+import "common/v1/health_state.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/config/v1";
+
+message ConfigHealthCheckResult {
+  // Health check name
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Health check status
+  common.v1.HealthState status = 2;
+
+  // Health check message
+  string message = 3;
+
+  // Health check timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Health check duration
+  int32 duration_ms = 5;
+
+  // Health check details
+  map<string, string> details = 6;
+}
