@@ -32,24 +32,24 @@ deps:
 
 GCommon provides **9 core modules** with **1,734 protocol buffer definitions**:
 
-| Module | Files | Description |
-|--------|-------|-------------|
-| **common** | 509 | Shared types, errors, pagination, and utility messages |
-| **config** | 114 | Configuration management and settings |
-| **database** | 139 | Database operations, migrations, and connection management |
-| **health** | 36 | Health checks, monitoring, and service status |
-| **media** | 75 | Media processing, subtitles, and content management |
-| **metrics** | 220 | System metrics, alerting, and performance monitoring |
-| **organization** | 117 | Multi-tenant organization and user management |
-| **queue** | 322 | Message queuing, job processing, and task management |
-| **web** | 202 | HTTP services, middleware, and web application utilities |
+| Module           | Files | Description                                                |
+| ---------------- | ----- | ---------------------------------------------------------- |
+| **common**       | 509   | Shared types, errors, pagination, and utility messages     |
+| **config**       | 114   | Configuration management and settings                      |
+| **database**     | 139   | Database operations, migrations, and connection management |
+| **health**       | 36    | Health checks, monitoring, and service status              |
+| **media**        | 75    | Media processing, subtitles, and content management        |
+| **metrics**      | 220   | System metrics, alerting, and performance monitoring       |
+| **organization** | 117   | Multi-tenant organization and user management              |
+| **queue**        | 322   | Message queuing, job processing, and task management       |
+| **web**          | 202   | HTTP services, middleware, and web application utilities   |
 
 ## 🏗️ Repository Structure
 
 ```text
 gcommon/
 ├── common/v1/           # Shared types and utilities
-├── config/v1/           # Configuration management  
+├── config/v1/           # Configuration management
 ├── database/v1/         # Database operations
 ├── health/v1/           # Health monitoring
 ├── media/v1/            # Media processing
