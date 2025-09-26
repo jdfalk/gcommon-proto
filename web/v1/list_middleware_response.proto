@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/web/list_middleware_response.proto
+// version: 1.1.0
+// guid: 340d48d9-09d3-4bef-bafb-c16741471339
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/error.proto";
+import "common/v1/pagination.proto";
+import "web/v1/middleware_info.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// ListMiddlewareResponse response definition.
+message ListMiddlewareResponse {
+  // Middleware information
+  repeated MiddlewareInfo middleware = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Pagination details
+  common.v1.Pagination pagination = 2;
+
+  // Error information if the operation failed
+  common.v1.Error error = 3;
+}

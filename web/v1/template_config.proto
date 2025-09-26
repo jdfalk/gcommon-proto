@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/web/template_config.proto
+// version: 1.1.0
+// guid: 02942f54-029c-468f-85df-cdf3042e8ee6
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// TemplateConfig message definition.
+message TemplateConfig {
+  // Directory containing template files
+  string directory = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Default file extension
+  string extension = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Reload templates on change
+  bool reload = 3;
+
+  // Custom template function names
+  repeated string functions = 4 [(buf.validate.field).repeated.min_items = 1];
+}

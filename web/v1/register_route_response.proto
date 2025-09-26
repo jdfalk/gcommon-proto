@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/register_route_response.proto
+// version: 1.0.0
+// guid: d4348084-2633-450e-b54d-876af3f04908
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// RegisterRouteResponse response definition.
+message RegisterRouteResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

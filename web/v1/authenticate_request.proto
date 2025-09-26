@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/authenticate_request.proto
+// version: 1.0.0
+// guid: 94442c59-c156-4b84-b389-9423724c6635
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// AuthenticateRequest request definition.
+message WebAuthenticateRequest {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

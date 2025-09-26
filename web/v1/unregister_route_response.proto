@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/unregister_route_response.proto
+// version: 1.0.0
+// guid: 701eb2b6-d704-4e56-9ee0-ad1a1e244453
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// UnregisterRouteResponse response definition.
+message UnregisterRouteResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/upload_file_response.proto
+// version: 1.0.0
+// guid: d6f9dad0-3449-4808-b710-f73253ba1b06
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// UploadFileResponse response definition.
+message UploadFileResponse {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/web/route_info.proto
+// version: 1.1.0
+// guid: 8154bd31-51b0-4043-9a14-f0614adcd523
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/route_type.proto";
+import "web/v1/route_config.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// RouteInfo message definition.
+message RouteInfo {
+  // Route configuration
+  RouteConfig config = 1;
+
+  // Type of route
+  common.v1.RouteType route_type = 2;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 3 [ (buf.validate.field).required = true ];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 4;
+}

@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/web/list_files_response.proto
+// version: 1.1.0
+// guid: 0ee5d62d-df69-4b40-a4ea-a36fb6e16147
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/response_metadata.proto";
+import "web/v1/file_info.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+/**
+ * Response containing a list of files from a directory or file system.
+ * Used for file browsing and management operations.
+ */
+message ListFilesResponse {
+  // List of files and directories
+  repeated FileInfo files = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Total number of files (may be larger than returned list if paginated)
+  int64 total_count = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Token for next page (if paginated)
+  string next_page_token = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Whether there are more results
+  bool has_more = 4;
+
+  // Response metadata
+  common.v1.ResponseMetadata metadata = 5;
+}

@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/list_templates_request.proto
+// version: 1.0.0
+// guid: 17a404df-9dc4-4ee0-b848-9acd1d114fac
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// ListTemplatesRequest request definition.
+message ListTemplatesRequest {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

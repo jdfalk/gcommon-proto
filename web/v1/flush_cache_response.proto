@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/web/flush_cache_response.proto
+// version: 1.0.0
+// guid: pqr01234-5678-9abc-def0-123456789012
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+message FlushCacheResponse {
+  // Whether the flush was successful
+  bool success = 1;
+
+  // Number of entries flushed
+  int64 entries_flushed = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 3;
+}

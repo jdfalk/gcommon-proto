@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/web/update_cache_config_request.proto
+// version: 1.0.1
+// guid: ghi12345-6789-0abc-def1-234567890123
+
+edition = "2023";
+
+package web.v1;
+
+import "common/v1/request_metadata.proto";
+import "web/v1/cache_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+message UpdateCacheConfigRequest {
+  // The new cache configuration to apply
+  WebCacheConfig config = 1;
+
+  // Request metadata for tracing
+  common.v1.RequestMetadata metadata = 2;
+}

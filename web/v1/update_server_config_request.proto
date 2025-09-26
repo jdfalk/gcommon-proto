@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/web/update_server_config_request.proto
+// version: 1.0.0
+// guid: 6a2b47b4-af5e-4e51-9807-18898846cb4a
+
+edition = "2023";
+
+package web.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+// UpdateServerConfigRequest request definition.
+message UpdateServerConfigRequest {
+  string placeholder = 1 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/web/web_service.proto
+// version: 1.0.1
+// guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
+
+edition = "2023";
+
+package web.v1;
+
+import "web/v1/handle_request_request.proto";
+import "web/v1/handle_request_response.proto";
+import "web/v1/health_check_request.proto";
+import "web/v1/health_check_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/web/v1";
+
+/**
+ * WebService provides core web server operations for
+ * handling HTTP requests and managing web services.
+ */
+service WebService {
+  // Handle an incoming web request
+  rpc HandleRequest(HandleRequestRequest) returns (HandleRequestResponse);
+
+  // Check health of web service
+  rpc HealthCheck(WebHealthCheckRequest) returns (WebHealthCheckResponse);
+}
