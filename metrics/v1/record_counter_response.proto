@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/metrics/v1/record_counter_response.proto
+// version: 1.0.1
+// guid: 47ec1fef-7557-4265-802c-0988b554f2a3
+// file: proto/gcommon/v1/metrics/v1/record_counter_response.proto
+//
+// Record counter response definitions for metrics module
+//
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "common/v1/request_metadata.proto";
+import "metrics/v1/counter_metric.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message RecordCounterResponse {
+  // Whether the operation was successful
+  bool success = 1;
+
+  // The recorded counter metric with updated value
+  CounterMetric metric = 2;
+
+  // Timestamp when the metric was recorded
+  google.protobuf.Timestamp recorded_at = 3;
+
+  // Error information if operation failed
+  common.v1.Error error = 4;
+
+  // Response metadata for tracing
+  common.v1.RequestMetadata metadata = 5;
+}

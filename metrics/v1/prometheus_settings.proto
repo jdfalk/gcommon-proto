@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/v1/prometheus_settings.proto
+// version: 1.0.0
+// guid: 6ebbab41-b5f1-4b3c-beb2-5625c0756224
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message PrometheusSettings {
+  // Registry to use
+  string registry = 1;
+
+  // Whether to enable push gateway
+  bool enable_push_gateway = 2;
+
+  // Push gateway URL
+  string push_gateway_url = 3 [ (buf.validate.field).string.uri = true ];
+
+  // Job name for push gateway
+  string job_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Instance name
+  string instance = 5;
+
+  // Additional labels
+  map<string, string> labels = 6;
+}

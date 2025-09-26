@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/metric_type_config.proto
+// version: 1.0.1
+// guid: 440003e9-c836-4e1c-8e6f-754798a23832
+
+edition = "2023";
+
+package metrics.v1;
+
+import "metrics/v1/counter_config.proto";
+import "metrics/v1/gauge_config.proto";
+import "metrics/v1/histogram_config.proto";
+import "metrics/v1/summary_config.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricTypeConfig {
+  // Configuration for histogram metrics
+  HistogramConfig histogram = 1;
+
+  // Configuration for summary metrics
+  SummaryConfig summary = 2;
+
+  // Configuration for gauge metrics
+  GaugeConfig gauge = 3;
+
+  // Configuration for counter metrics
+  CounterConfig counter = 4;
+}

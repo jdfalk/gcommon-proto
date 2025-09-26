@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/metrics/v1/update_options.proto
+// version: 1.0.1
+// guid: 5725505d-38a1-4c4b-861e-d159e74202ce
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/update_strategy.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * UpdateOptions configure the update process.
+ */
+message UpdateOptions {
+  // Whether to validate the configuration before updating
+  bool validate_config = 1;
+
+  // Whether to perform a dry run
+  bool dry_run = 2;
+
+  // Whether to restart the provider after update (if needed)
+  bool restart_if_needed = 3;
+
+  // Whether to backup current configuration before update
+  bool backup_config = 4;
+
+  // Update strategy
+  common.v1.UpdateStrategy strategy = 5;
+}

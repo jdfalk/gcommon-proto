@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/metrics/v1/unregister_metric_request.proto
+// version: 1.0.0
+// guid: 4beff2f2-e6cd-44fc-9d0e-58e5dbd3afff
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "metrics/v1/unregistration_options.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message UnregisterMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  common.v1.RequestMetadata metadata = 1;
+
+  // Metric identifier (either name or ID)
+  oneof metric_identifier {
+    // Metric name to unregister
+    string metric_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+    // Metric ID to unregister
+    string metric_id = 3;
+  }
+
+  // Optional provider ID to unregister from
+  string provider_id = 4;
+
+  // Options for the unregistration process
+  UnregistrationOptions options = 5;
+}

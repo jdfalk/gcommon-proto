@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/bucket_info.proto
+// version: 1.0.0
+// guid: 1e2d379b-a3a4-4bc6-9bc8-121a62e7c85b
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message BucketInfo {
+  // Upper bound of the bucket
+  double upper_bound = 1 [(buf.validate.field).double.gte = 0.0];
+
+  // Count in this bucket after the observation
+  uint64 count = 2 [(buf.validate.field).uint64.gte = 0];
+
+  // Bucket index
+  int32 bucket_index = 3 [(buf.validate.field).int32.gte = 0];
+}

@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/metrics/v1/record_gauge_request.proto
+// version: 1.1.0
+// guid: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/gauge_operation.proto";
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * RecordGaugeRequest is used to set or update a gauge metric value.
+ * Gauges can increase, decrease, or be set to specific values.
+ */
+message RecordGaugeRequest {
+  // Metric name (e.g., "memory_usage_bytes", "cpu_usage_percent")
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Value to set the gauge to
+  double value = 2;
+
+  // Labels for metric dimensions
+  map<string, string> labels = 3;
+
+  // Help text describing the metric
+  string help = 4;
+
+  // Metric unit (e.g., "bytes", "percent", "connections")
+  string unit = 5;
+
+  // Optional timestamp when the measurement was taken
+  google.protobuf.Timestamp timestamp = 6;
+
+  // Request metadata for tracing and debugging
+  common.v1.RequestMetadata metadata = 7;
+
+  // Operation type for the gauge
+  common.v1.GaugeOperation operation = 8;
+}

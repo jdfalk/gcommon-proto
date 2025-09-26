@@ -1,0 +1,59 @@
+// file: proto/gcommon/v1/metrics/v1/get_metrics_response.proto
+// version: 1.0.0
+// guid: 55ced9dc-7d12-4f0b-883d-5e7de55a038e
+// file: proto/gcommon/v1/metrics/v1/get_metrics_response.proto
+//
+// Get metrics response definitions for metrics module
+//
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "common/v1/time_range_metrics.proto";
+import "metrics/v1/metric_data.proto";
+import "metrics/v1/metric_metadata.proto";
+import "metrics/v1/pagination_info.proto";
+import "metrics/v1/query_stats.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * GetMetricsResponse contains the retrieved metrics data.
+ */
+message MetricsGetMetricsResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  common.v1.Error error = 2;
+
+  // Retrieved metrics data
+  repeated MetricData metrics = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Metadata for the metrics (if requested)
+  repeated MetricMetadata metadata = 4;
+
+  // Pagination information
+  MetricsPaginationInfo pagination = 5;
+
+  // Query execution statistics
+  MetricsQueryStats stats = 6;
+
+  // When the response was generated
+  google.protobuf.Timestamp generated_at = 7;
+
+  // Time range covered by the response
+  common.v1.TimeRangeMetrics time_range = 8;
+
+  // Warnings or informational messages
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
+
+  // Provider that handled the request
+  string provider_id = 10 [(buf.validate.field).string.min_len = 1];
+}

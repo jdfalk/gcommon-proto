@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/metrics/v1/metrics_summary.proto
+// version: 1.0.0
+// guid: df4c181e-98bb-488d-8052-2238af4f3a5c
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/metrics_error_stats.proto";
+import "common/v1/metrics_retention_info.proto";
+import "metrics/v1/export_status.proto";
+import "metrics/v1/metric_type_counts.proto";
+import "metrics/v1/performance_stats.proto";
+import "metrics/v1/top_metrics.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricsSummary {
+  // Total number of unique metrics
+  int64 total_metrics = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Total number of data points
+  int64 total_data_points = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Total data volume (bytes)
+  int64 total_data_volume_bytes = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Metrics by type
+  MetricTypeCounts type_counts = 4;
+
+  // Performance statistics
+  MetricsPerformanceStats performance = 5;
+
+  // Error statistics
+  common.v1.MetricsErrorStats errors = 6;
+
+  // Top metrics by various criteria
+  TopMetrics top_metrics = 7;
+
+  // Retention information
+  common.v1.MetricsRetentionInfo retention = 8;
+
+  // Export status information
+  ExportStatus export_status = 9;
+}

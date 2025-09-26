@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/stop_scraping_request.proto
+// version: 1.1.0
+// guid: 4fac5447-f3bb-4627-94d7-4d6115c265f1
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message StopScrapingRequest {
+  // Standard request metadata
+  common.v1.RequestMetadata metadata = 1;
+
+  // Identifier of the job to stop
+  string job_id = 2 [(buf.validate.field).string.min_len = 1];
+}

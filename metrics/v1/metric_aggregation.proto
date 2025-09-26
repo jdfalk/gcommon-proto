@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/metrics/v1/metric_aggregation.proto
+// version: 1.0.0
+// guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/aggregation_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+// Configuration for metric aggregation operations
+message MetricAggregation {
+  // Type of aggregation
+  common.v1.AggregationType type = 1;
+
+  // Time window for aggregation
+  int32 window_seconds = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Group by fields
+  repeated string group_by = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Percentiles to calculate (for percentile aggregation)
+  repeated double percentiles = 4 [(buf.validate.field).repeated.min_items = 1];
+
+  // Custom aggregation function (for custom type)
+  string custom_function = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to include null values in aggregation
+  bool include_nulls = 6;
+
+  // Minimum number of samples required
+  int32 min_samples = 7 [(buf.validate.field).int32.gte = 0];
+}

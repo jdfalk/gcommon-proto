@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/metrics_health_info.proto
+// version: 1.0.0
+// guid: e7ab1793-c874-4b03-ad41-59257c2f7cca
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/health_status.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricsHealthInfo {
+  common.v1.CommonHealthStatus overall_status = 1;
+  repeated string health_checks = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated string warnings = 3 [(buf.validate.field).repeated.min_items = 1];
+  google.protobuf.Timestamp last_check = 4;
+}

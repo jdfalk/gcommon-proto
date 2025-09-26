@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/metrics/v1/register_metric_response.proto
+// version: 1.0.0
+// guid: 9cd957ab-069a-4d91-bd48-c466a7a29eb0
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "metrics/v1/registration_result.proto";
+import "metrics/v1/registration_validation.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message RegisterMetricResponse {
+  // Success status of the registration
+  bool success = 1;
+
+  // Error information if registration failed
+  common.v1.Error error = 2;
+
+  // Unique ID assigned to the registered metric
+  string metric_id = 3;
+
+  // Name of the registered metric
+  string metric_name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // When the metric was registered
+  google.protobuf.Timestamp registered_at = 5;
+
+  // Provider that handled the registration
+  string provider_id = 6;
+
+  // Validation results from the registration process
+  RegistrationValidation validation = 7;
+
+  // Information about what was created/updated
+  RegistrationResult result = 8;
+
+  // Warnings or informational messages
+  repeated string warnings = 9;
+
+  // Whether this replaced an existing metric
+  bool replaced_existing = 10;
+}

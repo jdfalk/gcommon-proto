@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/import_metrics_response.proto
+// version: 1.0.0
+// guid: 54556e65-80a3-4d79-b67e-d98ca9bf7b0e
+// file: proto/gcommon/v1/metrics/v1/import_metrics_response.proto
+//
+// Response returned after importing metrics.
+//
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * ImportMetricsResponse reports the result of a batch import.
+ */
+message ImportMetricsResponse {
+  // Number of metrics successfully imported
+  int32 imported_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+
+  // Error information if the import failed
+  common.v1.Error error = 2;
+}

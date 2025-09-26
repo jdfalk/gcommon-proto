@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/provider_status.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174023
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/provider_state.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * Status of a metrics provider.
+ */
+message ProviderStatus {
+  // Current state
+  common.v1.ProviderState state = 1;
+
+  // Status message
+  string message = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Health check status
+  string health = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Last update time
+  google.protobuf.Timestamp last_updated = 4;
+
+  // Provider version
+  string version = 5 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+}

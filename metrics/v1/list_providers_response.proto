@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/metrics/v1/list_providers_response.proto
+// version: 1.0.0
+// guid: ec44b05b-cb74-44b5-b495-4cf1e4c0877d
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "metrics/v1/pagination_info.proto";
+import "metrics/v1/provider_info.proto";
+import "metrics/v1/provider_summary.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ListProvidersResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  common.v1.Error error = 2;
+
+  // List of providers
+  repeated ProviderInfo providers = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Pagination information
+  MetricsPaginationInfo pagination = 4;
+
+  // Summary statistics about the providers
+  ProviderSummary summary = 5;
+
+  // When the response was generated
+  google.protobuf.Timestamp generated_at = 6;
+}

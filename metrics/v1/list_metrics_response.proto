@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/list_metrics_response.proto
+// version: 1.0.0
+// guid: 12b3dcff-48a7-4a05-b427-45a55314dacb
+// file: proto/gcommon/v1/metrics/v1/list_metrics_response.proto
+//
+// Response containing a list of metric metadata.
+//
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/error.proto";
+import "metrics/v1/metric_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+/**
+ * ListMetricsResponse lists available metrics.
+ */
+message ListMetricsResponse {
+  // Available metrics
+  repeated MetricMetadata metrics = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error information
+  common.v1.Error error = 2;
+}

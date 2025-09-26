@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/metrics/v1/resource_limits.proto
+// version: 1.0.0
+// guid: bb6325e2-4ef3-438c-8593-00a3c550b17a
+
+edition = "2023";
+
+package metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message MetricsResourceLimits {
+  // Maximum memory usage (bytes)
+  int64 max_memory_bytes = 1 [(buf.validate.field).int64.gte = 0];
+
+  // Maximum CPU usage (percentage)
+  double max_cpu_percent = 2 [(buf.validate.field).double.gte = 0.0, (buf.validate.field).double.lte = 100.0];
+
+  // Maximum disk usage (bytes)
+  int64 max_disk_bytes = 3 [(buf.validate.field).int64.gte = 0];
+
+  // Maximum number of metrics
+  int64 max_metrics = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Maximum data points per metric
+  int64 max_data_points_per_metric = 5 [(buf.validate.field).int64.gte = 0];
+}

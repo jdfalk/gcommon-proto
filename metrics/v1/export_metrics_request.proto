@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/v1/export_metrics_request.proto
+// version: 1.1.0
+// guid: 2c9c223d-523d-4b0c-aa30-6249240e59d6
+
+edition = "2023";
+
+package metrics.v1;
+
+import "common/v1/metrics_export_format.proto";
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+
+message ExportMetricsRequest {
+  // Standard request metadata
+  common.v1.RequestMetadata metadata = 1;
+
+  // Metrics provider to export from
+  string provider_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Desired export format
+  common.v1.MetricsExportFormat format = 3;
+
+  // Destination URI or path
+  string destination = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Specific metrics to include (optional)
+  repeated string metric_names = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Include metadata such as descriptions and units
+  bool include_metadata = 6;
+}
