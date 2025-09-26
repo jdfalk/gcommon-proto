@@ -1,0 +1,27 @@
+// file: authpb/v2/validate_token_response.proto
+// version: 2.0.0
+// guid: e5f6g7h8-i9j0-1234-ef01-345678901234
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * ValidateTokenResponse represents a token validation response.
+ * Contains validation result and user claims.
+ */
+message ValidateTokenResponse {
+  // Whether the token is valid
+  bool valid = 1;
+
+  // User ID from token claims
+  string user_id = 2;
+
+  // User roles from token claims
+  repeated string roles = 3;
+}

@@ -1,0 +1,49 @@
+// file: authpb/v2/auth_service.proto
+// version: 2.0.0
+// guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/login_request.proto";
+import "authpb/v2/login_response.proto";
+import "authpb/v2/validate_token_request.proto";
+import "authpb/v2/validate_token_response.proto";
+import "authpb/v2/authorize_request.proto";
+import "authpb/v2/authorize_response.proto";
+import "authpb/v2/generate_token_request.proto";
+import "authpb/v2/generate_token_response.proto";
+import "authpb/v2/refresh_token_request.proto";
+import "authpb/v2/refresh_token_response.proto";
+import "authpb/v2/revoke_token_request.proto";
+import "authpb/v2/revoke_token_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * AuthService provides JWT authentication and authorization capabilities.
+ * Supports token generation, validation, refresh, revocation, and role-based access control.
+ * Follows 1-1-1 pattern: one service per file.
+ */
+service AuthService {
+  // Login authenticates a user and returns JWT tokens
+  rpc Login(LoginRequest) returns (LoginResponse);
+
+  // ValidateToken validates a JWT token and returns user claims
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+
+  // AuthorizeAccess checks if a user has permission for a specific action
+  rpc AuthorizeAccess(AuthorizeRequest) returns (AuthorizeResponse);
+
+  // GenerateToken creates new tokens for a user with specific roles
+  rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse);
+
+  // RefreshToken exchanges a refresh token for new access tokens
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+
+  // RevokeToken invalidates a token making it unusable
+  rpc RevokeToken(RevokeTokenRequest) returns (RevokeTokenResponse);
+}

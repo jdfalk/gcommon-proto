@@ -1,0 +1,24 @@
+// file: authpb/v2/revoke_token_request.proto
+// version: 2.0.0
+// guid: l2m3n4o5-p6q7-8901-5678-012345678901
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * RevokeTokenRequest represents a token revocation request.
+ * Contains the token to be revoked.
+ */
+message RevokeTokenRequest {
+  // Token to revoke
+  string token = 1;
+
+  // Type of token being revoked
+  string token_type = 2;
+}

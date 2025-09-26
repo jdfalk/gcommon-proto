@@ -1,0 +1,24 @@
+// file: authpb/v2/revoke_token_response.proto
+// version: 2.0.0
+// guid: m3n4o5p6-q7r8-9012-6789-123456789012
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * RevokeTokenResponse represents a token revocation response.
+ * Contains the result of the revocation operation.
+ */
+message RevokeTokenResponse {
+  // Whether revocation was successful
+  bool success = 1;
+
+  // Message describing the result
+  string message = 2;
+}

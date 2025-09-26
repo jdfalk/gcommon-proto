@@ -1,0 +1,33 @@
+// file: authpb/v2/authorize_request.proto
+// version: 2.0.0
+// guid: f6g7h8i9-j0k1-2345-f012-456789012345
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * AuthorizeRequest represents an authorization request.
+ * Contains token and required permissions for access control.
+ */
+message AuthorizeRequest {
+  // JWT token containing user claims
+  string token = 1;
+
+  // Required role for the action
+  string required_role = 2;
+
+  // Resource being accessed
+  string resource = 3;
+
+  // Action being performed
+  string action = 4;
+
+  // Additional required permissions
+  repeated string permissions = 5;
+}

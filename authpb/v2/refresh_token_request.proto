@@ -1,0 +1,21 @@
+// file: authpb/v2/refresh_token_request.proto
+// version: 2.0.0
+// guid: j0k1l2m3-n4o5-6789-3456-890123456789
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * RefreshTokenRequest represents a token refresh request.
+ * Contains the refresh token to exchange for new tokens.
+ */
+message RefreshTokenRequest {
+  // Refresh token to exchange
+  string refresh_token = 1;
+}

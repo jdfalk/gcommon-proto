@@ -1,0 +1,27 @@
+// file: authpb/v2/authorize_response.proto
+// version: 2.0.0
+// guid: g7h8i9j0-k1l2-3456-0123-567890123456
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * AuthorizeResponse represents an authorization response.
+ * Contains authorization result and user roles.
+ */
+message AuthorizeResponse {
+  // Whether access is authorized
+  bool authorized = 1;
+
+  // Reason for authorization decision
+  string reason = 2;
+
+  // User roles from token
+  repeated string roles = 3;
+}

@@ -1,0 +1,33 @@
+// file: authpb/v2/generate_token_request.proto
+// version: 2.0.0
+// guid: h8i9j0k1-l2m3-4567-1234-678901234567
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+/**
+ * GenerateTokenRequest represents a token generation request.
+ * Contains user information and token configuration.
+ */
+message GenerateTokenRequest {
+  // User ID for the token
+  string user_id = 1;
+
+  // Roles to include in the token
+  repeated string roles = 2;
+
+  // Token expiration in seconds from now
+  int64 expires_in = 3;
+
+  // Type of token to generate (access, refresh, etc.)
+  string token_type = 4;
+
+  // Additional permissions to include
+  repeated string permissions = 5;
+}
