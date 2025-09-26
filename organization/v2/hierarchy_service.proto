@@ -32,7 +32,7 @@ import "organization/v2/update_team_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/v2";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

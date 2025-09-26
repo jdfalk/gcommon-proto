@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
 
 /**
  * GaugeMetric represents a value that can go up and down.

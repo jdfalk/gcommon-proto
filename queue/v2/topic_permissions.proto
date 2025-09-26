@@ -9,7 +9,7 @@ package queue.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/v2";
 
 message TopicPermissions {
   // Can read messages from topic

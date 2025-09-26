@@ -12,7 +12,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/web/v2";
 
 // HealthCheckResponse response definition.
 message WebHealthCheckResponse {

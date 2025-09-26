@@ -21,7 +21,7 @@ import "queue/v1/subscribe_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/";
 
 /**
  * QueueService provides core queue operations for message handling,

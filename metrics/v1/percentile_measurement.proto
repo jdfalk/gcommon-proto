@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/";
 
 message PercentileMeasurement {
   // Percentile value (e.g., 50.0 for median, 95.0 for 95th percentile)

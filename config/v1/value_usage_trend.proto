@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/";
+option go_package = "github.com/jdfalk/gcommon/pkg/config/";
 
 message ValueUsageTrend {
   // Trend period

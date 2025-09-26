@@ -9,7 +9,7 @@ import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
 
 /**
  * CreateDatabaseResponse contains the result of a database creation operation.

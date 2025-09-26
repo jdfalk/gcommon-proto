@@ -10,7 +10,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/";
+option go_package = "github.com/jdfalk/gcommon/pkg/common/";
 
 /**
  * Generic key-value pair for metadata and configuration storage.

@@ -14,7 +14,7 @@ import "buf/validate/validate.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/";
 
 /**
  * DequeueRequest retrieves one or more messages from a queue.

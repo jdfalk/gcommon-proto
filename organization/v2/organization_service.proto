@@ -30,7 +30,7 @@ import "organization/v2/update_organization_settings_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/v2";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

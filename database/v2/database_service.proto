@@ -20,7 +20,7 @@ import "database/v2/query_row_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
 
 /**
  * DatabaseService provides comprehensive database operations including

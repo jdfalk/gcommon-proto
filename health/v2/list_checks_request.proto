@@ -10,7 +10,7 @@ import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/health/v2";
 
 /**
  * ListChecksRequest requests a list of registered health checks.

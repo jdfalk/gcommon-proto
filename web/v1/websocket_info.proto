@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/";
+option go_package = "github.com/jdfalk/gcommon/pkg/web/";
 
 // WebsocketInfo message definition.
 message WebsocketInfo {

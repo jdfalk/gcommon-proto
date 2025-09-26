@@ -10,7 +10,7 @@ import "database/v2/database_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
 
 /**
  * GetConnectionInfoResponse contains database connection and pool information.

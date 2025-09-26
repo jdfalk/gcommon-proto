@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "media/v2/split_point.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/media/v2";
 
 message SplitAudioRequest {
   string audio_file_id = 1;

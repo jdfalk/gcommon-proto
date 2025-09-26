@@ -14,7 +14,7 @@ import "metrics/v2/query_stats.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
 
 /**
  * GetStatsResponse returns statistics for a metric.

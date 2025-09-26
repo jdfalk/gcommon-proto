@@ -9,7 +9,7 @@ package metrics.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
 
 message PerformanceTrend {
   string latency_trend = 1; // "improving", "degrading", "stable"

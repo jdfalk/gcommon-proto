@@ -15,7 +15,7 @@ import "buf/validate/validate.proto";
 // Use DB-specific batch operation definitions
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
 
 message ExecuteBatchRequest {
   // List of operations to execute in the batch

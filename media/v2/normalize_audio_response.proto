@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/media/v2";
 
 // Response from audio normalization.
 message NormalizeAudioResponse {

@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
 
 /**
  * Request to release a previously acquired cache lock.

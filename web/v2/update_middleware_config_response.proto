@@ -10,7 +10,7 @@ import "common/v2/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/web/v2";
 
 // UpdateMiddlewareConfigResponse response definition.
 // UpdateMiddlewareConfigResponse returns the result of updating middleware config.

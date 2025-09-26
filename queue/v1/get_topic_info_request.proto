@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/";
 
 /**
  * Request to get information about a topic.
