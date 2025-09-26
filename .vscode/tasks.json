@@ -518,9 +518,8 @@
     {
       "label": "Version Sync Manager - Generate",
       "type": "shell",
-      "command": "python3",
+      "command": "./scripts/version_sync_manager.py",
       "args": [
-        "scripts/version_sync_manager.py",
         "generate"
       ],
       "options": {
@@ -533,9 +532,8 @@
     {
       "label": "Version Sync Manager - Generate (Dry Run)",
       "type": "shell",
-      "command": "python3",
+      "command": "./scripts/version_sync_manager.py",
       "args": [
-        "scripts/version_sync_manager.py",
         "generate",
         "--dry-run"
       ],
@@ -549,9 +547,8 @@
     {
       "label": "Version Sync Manager - Status",
       "type": "shell",
-      "command": "python3",
+      "command": "./scripts/version_sync_manager.py",
       "args": [
-        "scripts/version_sync_manager.py",
         "status"
       ],
       "options": {
