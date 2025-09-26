@@ -689,14 +689,14 @@ Respond with just one word: major, minor, or patch
             print(f"\n🔄 Step 5: Repository Updates")
             print("-" * 30)
 
-            related_repos = ['gcommon', 'subtitle-manager', 'audiobook-organizer']
+            related_repos = ['gcommon']  # Only gcommon repository now
 
             if dry_run:
-                print(f"   Would update {len(related_repos)} related repositories:")
+                print(f"   Would update {len(related_repos)} related repository:")
                 for repo in related_repos:
                     print(f"     - {repo}")
             else:
-                print(f"   Updating {len(related_repos)} related repositories...")
+                print(f"   Updating {len(related_repos)} related repository...")
                 for repo in related_repos:
                     success = self.trigger_sync_workflow(repo, new_version)
                     if success:
@@ -713,7 +713,7 @@ Respond with just one word: major, minor, or patch
                 print(f"   Mode: DRY RUN (no changes made)")
             else:
                 print(f"   Changes applied successfully!")
-            print(f"   Related repos: {len(related_repos)} repositories")
+            print(f"   Related repos: {len(related_repos)} repository")
 
             return True
 
