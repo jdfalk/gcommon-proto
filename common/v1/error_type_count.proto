@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common";
+option go_package = "github.com/jdfalk/gcommon/pkg/commonpb";
 
 message ErrorTypeCount {
   string error_type = 1 [(buf.validate.field).string.min_len = 1];

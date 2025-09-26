@@ -10,7 +10,7 @@ import "media/v1/merge_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/media";
+option go_package = "github.com/jdfalk/gcommon/pkg/mediapb";
 
 // Request to merge multiple subtitle files.
 message MergeSubtitlesRequest {

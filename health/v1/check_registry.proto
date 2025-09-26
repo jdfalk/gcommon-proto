@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/health";
+option go_package = "github.com/jdfalk/gcommon/pkg/healthpb";
 
 /**
  * CheckRegistry represents a registry of all health checks in the system.

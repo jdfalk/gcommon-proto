@@ -15,7 +15,7 @@ import "metrics/v1/summary_metric.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
+option go_package = "github.com/jdfalk/gcommon/pkg/metricspb";
 
 /**
  * RecordSummaryResponse returns updated summary stats.

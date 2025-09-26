@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/health/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/healthpb/v2";
 
 /**
  * ReadinessResult represents the result of a readiness check execution.

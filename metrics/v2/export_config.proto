@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 import "metrics/v2/metrics_retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
 
 message ExportConfig {
   // Export destination URL or endpoint

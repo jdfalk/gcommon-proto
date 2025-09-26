@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 import "media/v2/subtitle_extraction_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/media/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
 
 message ExtractSubtitlesRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];

@@ -9,7 +9,7 @@ package metrics.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
 
 message RegistrationOptions {
   // Whether to validate the definition before registration

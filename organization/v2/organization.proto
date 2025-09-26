@@ -13,7 +13,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organization/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
 
 /**
  * Organization message representing a complete organizational entity.

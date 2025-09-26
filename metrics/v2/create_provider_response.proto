@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
 
 message CreateProviderResponse {
   // Success status of the creation

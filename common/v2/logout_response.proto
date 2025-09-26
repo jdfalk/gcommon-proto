@@ -10,7 +10,7 @@ import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 
 // LogoutResponse provides the result of a logout request
 message LogoutResponse {

@@ -23,7 +23,7 @@ import "media/v1/upload_media_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/media";
+option go_package = "github.com/jdfalk/gcommon/pkg/mediapb";
 
 /**
  * MediaService provides core media file management operations including

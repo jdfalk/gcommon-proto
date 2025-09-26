@@ -17,7 +17,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config";
+option go_package = "github.com/jdfalk/gcommon/pkg/configpb";
 
 message RollbackConfigRequest {
   // Version identifier to roll back to

@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
 
 // HealthCheckConfig defines parameters for performing HTTP health checks.
 message WebHealthCheckConfig {

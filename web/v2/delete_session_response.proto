@@ -9,7 +9,7 @@ package web.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
 
 // DeleteSessionResponse response definition.
 message WebDeleteSessionResponse {

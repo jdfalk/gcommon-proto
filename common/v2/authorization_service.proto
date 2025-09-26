@@ -14,7 +14,7 @@ import "common/v2/get_user_roles_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 
 /**
  * AuthorizationService provides authorization and permission management.

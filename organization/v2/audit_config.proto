@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organization/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
 
 message AuditConfig {
   // Whether audit logging is enabled

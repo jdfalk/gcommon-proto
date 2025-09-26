@@ -14,7 +14,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue";
+option go_package = "github.com/jdfalk/gcommon/pkg/queuepb";
 
 // MessageId uniquely identifies a message within a queue.
 // It can be referenced by other messages or API calls.

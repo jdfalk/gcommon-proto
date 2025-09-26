@@ -9,7 +9,7 @@ import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/database/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
 
 /**
  * Request to execute multiple cache operations in a transaction.

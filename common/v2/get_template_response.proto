@@ -10,7 +10,7 @@ import "common/v2/template.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 
 /**
  * Response containing a requested notification template.

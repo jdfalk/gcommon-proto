@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
+option go_package = "github.com/jdfalk/gcommon/pkg/metricspb";
 
 message MetricSeries {
   // Metric metadata

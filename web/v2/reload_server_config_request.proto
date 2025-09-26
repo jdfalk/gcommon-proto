@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/v2";
+option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
 
 /**
  * ReloadServerConfigRequest message for web service operations.

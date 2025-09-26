@@ -18,7 +18,7 @@ import "buf/validate/validate.proto";
 // Queue message types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue";
+option go_package = "github.com/jdfalk/gcommon/pkg/queuepb";
 
 /**
  * DequeueResponse returns messages retrieved from a queue.

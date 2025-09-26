@@ -21,7 +21,7 @@ import "common/v1/update_preferences_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common";
+option go_package = "github.com/jdfalk/gcommon/pkg/commonpb";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.
