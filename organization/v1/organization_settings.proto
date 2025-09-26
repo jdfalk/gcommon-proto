@@ -19,7 +19,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organization/";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization";
 
 message OrganizationSettings {
   // Organization identifier

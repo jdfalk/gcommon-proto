@@ -11,7 +11,7 @@ import "web/v1/cache_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/";
+option go_package = "github.com/jdfalk/gcommon/pkg/web";
 
 message UpdateCacheConfigRequest {
   // The new cache configuration to apply

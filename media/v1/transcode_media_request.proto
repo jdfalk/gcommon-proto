@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/media/";
+option go_package = "github.com/jdfalk/gcommon/pkg/media";
 
 // Request to transcode media to different format.
 message TranscodeMediaRequest {

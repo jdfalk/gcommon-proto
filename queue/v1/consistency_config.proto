@@ -17,7 +17,7 @@ import "queue/v1/write_consistency.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message ConsistencyConfig {
   // Durability level for message persistence

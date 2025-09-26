@@ -10,7 +10,7 @@ import "media/v1/media_file.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/media/";
+option go_package = "github.com/jdfalk/gcommon/pkg/media";
 
 // Request to create a media file record.
 message CreateMediaFileRequest {

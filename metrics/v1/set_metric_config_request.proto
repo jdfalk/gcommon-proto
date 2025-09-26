@@ -10,7 +10,7 @@ import "metrics/v1/metric_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics";
 
 /**
  * SetMetricConfigRequest updates configuration for a metric.
