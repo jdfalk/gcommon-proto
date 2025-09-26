@@ -22,10 +22,10 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
  */
 message DeserializationConfig {
   // Supported serialization formats
-  repeated common.v1.SerializationFormat supported_formats = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.SerializationFormat supported_formats = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Default format if not specified
-  common.v1.SerializationFormat default_format = 2;
+  common.v2.SerializationFormat default_format = 2;
 
   // Whether to validate schema during deserialization
   bool validate_schema = 3;

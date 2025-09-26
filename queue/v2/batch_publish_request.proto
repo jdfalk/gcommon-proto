@@ -38,7 +38,7 @@ message BatchPublishRequest {
   bool wait_for_all = 5;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 6;
+  common.v2.RequestMetadata metadata = 6;
 
   // Maximum number of retries for failed messages
   int32 max_retries = 7;

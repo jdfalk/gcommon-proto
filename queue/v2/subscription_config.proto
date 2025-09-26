@@ -24,11 +24,11 @@ message SubscriptionConfig {
       (buf.validate.field).string.max_len = 100
     ];
   // Current state of the subscription.
-  common.v1.SubscriptionState state = 2;
+  common.v2.SubscriptionState state = 2;
   // Message routing strategy for this subscription.
-  common.v1.RoutingStrategy routing_strategy = 3;
+  common.v2.RoutingStrategy routing_strategy = 3;
   // Default priority applied to published messages if unspecified.
-  common.v1.PriorityLevel default_priority = 4;
+  common.v2.PriorityLevel default_priority = 4;
   // Delivery options controlling retries and dead letter handling.
   DeliveryOptions delivery_options = 5;
   // Maximum number of unacknowledged messages allowed.

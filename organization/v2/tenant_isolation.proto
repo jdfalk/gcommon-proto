@@ -27,7 +27,7 @@ message TenantIsolation {
   string tenant_id = 1;
 
   // Isolation level for this tenant
-  common.v1.OrganizationIsolationLevel level = 2;
+  common.v2.OrganizationIsolationLevel level = 2;
 
   // Database isolation configuration
   DatabaseIsolation database = 3;
@@ -45,13 +45,13 @@ message TenantIsolation {
   OrganizationEncryptionConfig encryption = 7;
 
   // Access control configuration
-  common.v1.OrganizationAccessControl access_control = 8;
+  common.v2.OrganizationAccessControl access_control = 8;
 
   // Audit and compliance configuration
   AuditConfig audit = 9;
 
   // Isolation metadata and custom settings
-  repeated common.v1.KeyValue metadata = 10 [lazy = true];
+  repeated common.v2.KeyValue metadata = 10 [lazy = true];
 
   // Isolation configuration creation timestamp
   google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];

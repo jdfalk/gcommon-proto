@@ -45,7 +45,7 @@ message RecordHistogramRequest {
   google.protobuf.Timestamp timestamp = 7;
 
   // Request metadata for tracing and debugging
-  common.v1.RequestMetadata metadata = 8;
+  common.v2.RequestMetadata metadata = 8;
 
   // Optional sample weight (for weighted observations)
   double sample_weight = 9;

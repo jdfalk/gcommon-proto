@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message AuthListSessionsRequest {
   // Pagination parameters
-  common.v1.Pagination pagination = 1;
+  common.v2.Pagination pagination = 1;
 
   // Filter by user ID (optional)
   string user_id = 2 [

@@ -16,5 +16,5 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message SecondarySortField {
   string field = 1 [(buf.validate.field).string.min_len = 1];
-  common.v1.SortDirection direction = 2;
+  common.v2.SortDirection direction = 2;
 }

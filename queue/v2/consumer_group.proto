@@ -36,7 +36,7 @@ message ConsumerGroup {
   ConsumerGroupConfig config = 4;
 
   // Current group state
-  common.v1.ConsumerGroupState state = 5;
+  common.v2.ConsumerGroupState state = 5;
 
   // List of active consumers in the group
   repeated Consumer consumers = 6;

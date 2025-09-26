@@ -23,7 +23,7 @@ message CacheDeleteResponse {
   bool success = 1;
 
   // Error details if deletion failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Number of keys that were actually deleted
   int32 deleted_count = 3 [(buf.validate.field).int32.gte = 0];

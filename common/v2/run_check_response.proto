@@ -28,7 +28,7 @@ message RunCheckResponse {
   string check_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Health status result
-  common.v1.CommonHealthStatus status = 3;
+  common.v2.CommonHealthStatus status = 3;
 
   // Execution timestamp
   google.protobuf.Timestamp executed_at = 4;
@@ -40,5 +40,5 @@ message RunCheckResponse {
   string message = 6 [(buf.validate.field).string.min_len = 1];
 
   // Error information if check failed
-  common.v1.Error error = 7;
+  common.v2.Error error = 7;
 }

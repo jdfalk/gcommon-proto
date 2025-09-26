@@ -27,5 +27,5 @@ message OriginConfig {
   string protocol_policy = 3;
 
   // Custom headers to send to origin
-  repeated common.v1.KeyValue custom_headers = 4;
+  repeated common.v2.KeyValue custom_headers = 4;
 }

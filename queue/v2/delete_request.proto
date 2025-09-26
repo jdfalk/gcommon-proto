@@ -37,5 +37,5 @@ message QueueDeleteRequest {
   DeleteCriteria criteria = 6;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 100;
+  common.v2.RequestMetadata metadata = 100;
 }

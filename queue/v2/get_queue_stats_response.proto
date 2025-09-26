@@ -23,7 +23,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message GetQueueStatsResponse {
   // Standard response metadata
-  common.v1.ResponseMetadata metadata = 1;
+  common.v2.ResponseMetadata metadata = 1;
 
   // Overall statistics summary
   QueueStatsSummary summary = 2;
@@ -38,7 +38,7 @@ message GetQueueStatsResponse {
   HistoricalStats historical_stats = 5;
 
   // Error statistics (if requested)
-  common.v1.MetricsErrorStats error_stats = 6;
+  common.v2.MetricsErrorStats error_stats = 6;
 
   // Performance metrics
   PerformanceMetrics performance_metrics = 7;

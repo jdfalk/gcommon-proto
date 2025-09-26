@@ -45,7 +45,7 @@ message AcknowledgeRequest {
    * Standard request metadata including authentication context,
    * tracing information, and client details.
    */
-  common.v1.RequestMetadata metadata = 11;
+  common.v2.RequestMetadata metadata = 11;
 
   /**
    * Consumer ID that processed these messages.

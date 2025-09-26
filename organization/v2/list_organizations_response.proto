@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message ListOrganizationsResponse {
   // Any errors encountered
-  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Success status
   bool success = 2;
@@ -26,5 +26,5 @@ message ListOrganizationsResponse {
   repeated Organization organizations = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Pagination metadata
-  common.v1.PaginatedResponse pagination = 4;
+  common.v2.PaginatedResponse pagination = 4;
 }

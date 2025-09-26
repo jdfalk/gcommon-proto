@@ -25,7 +25,7 @@ message ReplicationConsistency {
   int32 replication_factor = 3 [(buf.validate.field).int32.gte = 0];
 
   // Consistency level for replication
-  common.v1.ReplicationLevel replication_level = 4;
+  common.v2.ReplicationLevel replication_level = 4;
 
   // Enable anti-entropy repair
   bool anti_entropy_enabled = 5;

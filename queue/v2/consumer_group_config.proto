@@ -20,10 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ConsumerGroupConfig {
   // Load balancing strategy for partition assignment
-  common.v1.LoadBalancingStrategy load_balancing_strategy = 1;
+  common.v2.LoadBalancingStrategy load_balancing_strategy = 1;
 
   // Rebalance strategy when consumers join/leave
-  common.v1.RebalanceStrategy rebalance_strategy = 2;
+  common.v2.RebalanceStrategy rebalance_strategy = 2;
 
   // Session timeout for consumer heartbeats (milliseconds)
   int32 session_timeout_ms = 3 [(buf.validate.field).int32.gt = 0];
@@ -38,7 +38,7 @@ message ConsumerGroupConfig {
   AutoCommitConfig auto_commit = 6;
 
   // Offset reset strategy for new consumers
-  common.v1.OffsetResetStrategy offset_reset_strategy = 7;
+  common.v2.OffsetResetStrategy offset_reset_strategy = 7;
 
   // Maximum number of consumers allowed in the group
   int32 max_consumers = 8 [(buf.validate.field).int32.gte = 0];

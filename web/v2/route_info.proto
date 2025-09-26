@@ -21,7 +21,7 @@ message RouteInfo {
   RouteConfig config = 1;
 
   // Type of route
-  common.v1.RouteType route_type = 2;
+  common.v2.RouteType route_type = 2;
 
   // Creation timestamp
   google.protobuf.Timestamp created_at = 3 [ (buf.validate.field).required = true ];

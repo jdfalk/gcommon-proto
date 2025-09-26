@@ -36,5 +36,5 @@ message QueuePublishRequest {
   DeliveryOptions delivery_options = 3;
 
   // Standard request metadata for tracing and auth - required
-  common.v1.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
+  common.v2.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
 }

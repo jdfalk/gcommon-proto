@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 message WebCompressionConfig {
   // Compression algorithm to use for HTTP responses
   // Compression type to use for responses
-  common.v1.LogCompressionType compression_type = 1;
+  common.v2.LogCompressionType compression_type = 1;
 
   // Minimum content length in bytes before compression is applied
   int32 min_length = 2 [(buf.validate.field).int32.gte = 0];

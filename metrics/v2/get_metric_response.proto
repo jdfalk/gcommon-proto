@@ -24,5 +24,5 @@ message GetMetricResponse {
   MetricData metric = 1;
 
   // Error information if retrieval failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

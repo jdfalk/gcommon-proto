@@ -50,13 +50,13 @@ message ListUserSessionsResponse {
    * Pagination information for navigating through large result sets.
    * Contains next_page_token for retrieving additional results.
    */
-  common.v1.PaginatedResponse pagination = 11;
+  common.v2.PaginatedResponse pagination = 11;
 
   /**
    * Request processing metadata including timing, request ID,
    * and other observability information.
    */
-  common.v1.RequestMetadata request_metadata = 12;
+  common.v2.RequestMetadata request_metadata = 12;
 
   /**
    * Indicates if the current request's session is included
@@ -85,7 +85,7 @@ message ListUserSessionsResponse {
    * Error information if the request failed partially
    * or if there were issues retrieving some session data.
    */
-  common.v1.Error error = 61;
+  common.v2.Error error = 61;
 
   // Timestamps (51-60)
 

@@ -39,8 +39,8 @@ message ListFilesRequest {
   bool include_hidden = 6;
 
   // Sort order for the files
-  common.v1.FileSortOrder sort_order = 7;
+  common.v2.FileSortOrder sort_order = 7;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 8;
+  common.v2.RequestMetadata metadata = 8;
 }

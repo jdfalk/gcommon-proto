@@ -25,5 +25,5 @@ message GetUserPermissionsRequest {
     ];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 }

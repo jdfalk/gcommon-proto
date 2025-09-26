@@ -22,7 +22,7 @@ message TemplateHook {
     ];
 
   // Hook type
-  common.v1.HookType type = 2;
+  common.v2.HookType type = 2;
 
   // Hook command or script
   string command = 3;
@@ -40,5 +40,5 @@ message TemplateHook {
   map<string, string> conditions = 7;
 
   // Hook error handling
-  common.v1.HookErrorHandling error_handling = 8;
+  common.v2.HookErrorHandling error_handling = 8;
 }

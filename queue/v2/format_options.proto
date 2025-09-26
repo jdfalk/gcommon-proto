@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
  */
 message FormatOptions {
   // Serialization format
-  common.v1.SerializationFormat format = 1;
+  common.v2.SerializationFormat format = 1;
 
   // Format-specific configuration
   map<string, string> options = 2;
@@ -29,7 +29,7 @@ message FormatOptions {
   bool enable_compression = 3;
 
   // Compression algorithm
-  common.v1.CompressionAlgorithm compression_algorithm = 4;
+  common.v2.CompressionAlgorithm compression_algorithm = 4;
 
   // Maximum message size for this format
   int64 max_message_size = 5 [(buf.validate.field).int64.gte = 0];

@@ -42,7 +42,7 @@ message ConfigValue {
   }
 
   // Value type for validation and serialization
-  common.v1.ValueType type = 7;
+  common.v2.ValueType type = 7;
 
   // Whether the value is encrypted at rest
   bool encrypted = 8;

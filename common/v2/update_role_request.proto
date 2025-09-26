@@ -26,7 +26,7 @@ message UpdateRoleRequest {
   google.protobuf.FieldMask update_mask = 2;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 }
 // This is a placeholder file created during 1-1-1 migration
 // Implement the actual protobuf definitions according to the auth module requirements

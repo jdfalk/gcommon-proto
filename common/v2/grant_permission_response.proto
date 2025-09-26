@@ -32,5 +32,5 @@ message GrantPermissionResponse {
   string grantee_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Response metadata
-  common.v1.ResponseMetadata metadata = 5;
+  common.v2.ResponseMetadata metadata = 5;
 }

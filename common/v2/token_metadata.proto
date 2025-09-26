@@ -19,7 +19,7 @@ message TokenMetadata {
   string token_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Token type
-  common.v1.TokenType type = 2;
+  common.v2.TokenType type = 2;
 
   // Subject (user ID)
   string subject = 3 [(buf.validate.field).string.min_len = 1];

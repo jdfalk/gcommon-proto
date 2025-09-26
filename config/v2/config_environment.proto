@@ -48,10 +48,10 @@ message ConfigEnvironment {
   string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Environment type
-  common.v1.EnvironmentType type = 4;
+  common.v2.EnvironmentType type = 4;
 
   // Environment status
-  common.v1.EnvironmentStatus status = 5;
+  common.v2.EnvironmentStatus status = 5;
 
   // Creation timestamp
   google.protobuf.Timestamp created_at = 6 [ (buf.validate.field).required = true ];
@@ -87,16 +87,16 @@ message ConfigEnvironment {
   repeated PromotionRule promotion_rules = 16;
 
   // Environment access control
-  repeated common.v1.OrganizationAccessControl access_controls = 17;
+  repeated common.v2.OrganizationAccessControl access_controls = 17;
 
   // Environment deployment info
   DeploymentInfo deployment_info = 18;
 
   // Environment health status
-  common.v1.CommonHealthStatus health_status = 19;
+  common.v2.CommonHealthStatus health_status = 19;
 
   // Environment resource limits
-  common.v1.OrganizationResourceLimits resource_limits = 20;
+  common.v2.OrganizationResourceLimits resource_limits = 20;
 
   // Environment backup policy
   BackupPolicy backup_policy = 21;
@@ -108,10 +108,10 @@ message ConfigEnvironment {
   ConfigMonitoringConfig monitoring_config = 23;
 
   // Environment retention policy
-  common.v1.MetricsRetentionPolicy retention_policy = 24;
+  common.v2.MetricsRetentionPolicy retention_policy = 24;
 
   // Environment compliance settings
-  common.v1.OrganizationComplianceSettings compliance_settings = 25;
+  common.v2.OrganizationComplianceSettings compliance_settings = 25;
 
   // Environment encryption settings
   EncryptionSettings encryption_settings = 26;
@@ -120,7 +120,7 @@ message ConfigEnvironment {
   AuditSettings audit_settings = 27;
 
   // Environment notification settings
-  common.v1.OrganizationNotificationSettings notification_settings = 28;
+  common.v2.OrganizationNotificationSettings notification_settings = 28;
 
   // Environment sync settings
   SyncSettings sync_settings = 29;

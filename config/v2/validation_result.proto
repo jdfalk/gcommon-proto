@@ -22,13 +22,13 @@ message ConfigValidationResult {
     ];
 
   // Validation result
-  common.v1.ValidationResultType result = 2;
+  common.v2.ValidationResultType result = 2;
 
   // Validation message
   string message = 3;
 
   // Severity level
-  common.v1.ValidationSeverity severity = 4;
+  common.v2.ValidationSeverity severity = 4;
 
   // Field that was validated
   string field = 5;

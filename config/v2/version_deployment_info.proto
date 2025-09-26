@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message VersionDeploymentInfo {
   // Deployment status
-  common.v1.VersionDeploymentStatus status = 1;
+  common.v2.VersionDeploymentStatus status = 1;
 
   // Deployment timestamp
   google.protobuf.Timestamp deployed_at = 2;
@@ -39,7 +39,7 @@ message VersionDeploymentInfo {
   repeated string artifacts = 7 [(buf.validate.field).repeated.min_items = 1];
 
   // Deployment health
-  common.v1.VersionHealthStatus health = 8;
+  common.v2.VersionHealthStatus health = 8;
 
   // Deployment metrics
   map<string, double> metrics = 9;

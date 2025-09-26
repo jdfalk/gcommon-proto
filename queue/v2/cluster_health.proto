@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ClusterHealth {
   // Overall health status
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Number of healthy nodes
   int32 healthy_nodes = 2 [(buf.validate.field).int32.gte = 0];

@@ -22,5 +22,5 @@ message GetPermissionRequest {
   string permission_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 }

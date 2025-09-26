@@ -23,7 +23,7 @@ message SetConfigRequest {
   string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Configuration value
-  common.v1.ConfigValue value = 2;
+  common.v2.ConfigValue value = 2;
 
   // Optional namespace/environment
   string namespace = 3 [(buf.validate.field).string.min_len = 1];
@@ -38,5 +38,5 @@ message SetConfigRequest {
   repeated string tags = 6 [(buf.validate.field).repeated.min_items = 1];
 
   // Request metadata
-  common.v1.RequestMetadata request_metadata = 7;
+  common.v2.RequestMetadata request_metadata = 7;
 }

@@ -32,7 +32,7 @@ message ValidationSettings {
   int32 timeout_seconds = 5 [(buf.validate.field).int32.gt = 0];
 
   // Validation retry settings
-  common.v1.ConfigRetrySettings retry = 6;
+  common.v2.ConfigRetrySettings retry = 6;
 
   // Validation metadata
   map<string, string> metadata = 7;

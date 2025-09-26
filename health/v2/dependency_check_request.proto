@@ -26,7 +26,7 @@ message DependencyCheckRequest {
   string dependency_name = 2;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 
   // Maximum time to wait for dependency checks
   google.protobuf.Duration timeout = 4;

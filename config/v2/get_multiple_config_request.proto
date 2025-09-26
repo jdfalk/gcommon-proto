@@ -25,5 +25,5 @@ message GetMultipleConfigRequest {
   bool decrypt = 3;
 
   // Request metadata
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 }

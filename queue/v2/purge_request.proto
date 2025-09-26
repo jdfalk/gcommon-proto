@@ -25,5 +25,5 @@ message PurgeRequest {
   PurgeOptions options = 2;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 100;
+  common.v2.RequestMetadata metadata = 100;
 }

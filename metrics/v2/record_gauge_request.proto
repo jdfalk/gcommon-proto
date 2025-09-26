@@ -42,8 +42,8 @@ message RecordGaugeRequest {
   google.protobuf.Timestamp timestamp = 6;
 
   // Request metadata for tracing and debugging
-  common.v1.RequestMetadata metadata = 7;
+  common.v2.RequestMetadata metadata = 7;
 
   // Operation type for the gauge
-  common.v1.GaugeOperation operation = 8;
+  common.v2.GaugeOperation operation = 8;
 }

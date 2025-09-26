@@ -24,10 +24,10 @@ message ResumeQueueResponse {
   string queue_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Previous queue state before resume
-  common.v1.QueueState previous_state = 3;
+  common.v2.QueueState previous_state = 3;
 
   // Current queue state after resume
-  common.v1.QueueState current_state = 4;
+  common.v2.QueueState current_state = 4;
 
   // Timestamp when resume operation completed
   google.protobuf.Timestamp resumed_at = 5;

@@ -22,7 +22,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
  */
 message MetricsHealthCheckResponse {
   // Health status of the subsystem.
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Time taken to execute the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];
@@ -31,5 +31,5 @@ message MetricsHealthCheckResponse {
   string message = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error details if unhealthy.
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

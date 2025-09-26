@@ -21,7 +21,7 @@ message GetMetricConfigResponse {
   bool success = 1;
 
   // Error details if any
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Retrieved configuration
   MetricConfig config = 3;

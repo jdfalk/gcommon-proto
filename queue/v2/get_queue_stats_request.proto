@@ -22,8 +22,8 @@ message GetQueueStatsRequest {
     ];
 
   // Time range for statistics
-  common.v1.TimeRangeMetrics time_range = 2;
+  common.v2.TimeRangeMetrics time_range = 2;
 
   // Granularity of statistics (hourly, daily, etc.)
-  common.v1.StatsGranularity granularity = 3;
+  common.v2.StatsGranularity granularity = 3;
 }

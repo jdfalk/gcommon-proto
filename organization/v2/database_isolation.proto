@@ -25,7 +25,7 @@ message DatabaseIsolation {
     ];
 
   // Database connection parameters
-  repeated common.v1.KeyValue connection_params = 3 [lazy = true];
+  repeated common.v2.KeyValue connection_params = 3 [lazy = true];
 
   // Whether tenant has dedicated database
   bool dedicated_database = 4;

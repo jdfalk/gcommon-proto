@@ -30,7 +30,7 @@ message NodeInfo {
   int32 port = 3 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Current state of the node
-  common.v1.NodeState state = 4;
+  common.v2.NodeState state = 4;
 
   // Node roles (leader, follower, etc.)
   repeated string roles = 5 [(buf.validate.field).repeated.min_items = 1];

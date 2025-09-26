@@ -34,7 +34,7 @@ message GetOrganizationResponse {
   repeated Tenant tenants = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Any errors encountered during retrieval
-  repeated common.v1.Error errors = 5 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.Error errors = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Success status
   bool success = 6;

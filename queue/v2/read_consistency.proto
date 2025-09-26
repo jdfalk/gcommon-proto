@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ReadConsistency {
   // Read consistency level
-  common.v1.ReadLevel level = 1;
+  common.v2.ReadLevel level = 1;
 
   // Maximum staleness allowed for reads (milliseconds)
   int64 max_staleness_ms = 2 [(buf.validate.field).int64.gte = 0];

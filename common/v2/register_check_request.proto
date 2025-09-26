@@ -27,5 +27,5 @@ message RegisterCheckRequest {
   HealthHealthCheckRequest check = 2;
 
   // Standard request metadata
-  common.v1.RequestMetadata metadata = 3 [lazy = true];
+  common.v2.RequestMetadata metadata = 3 [lazy = true];
 }

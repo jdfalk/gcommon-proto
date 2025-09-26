@@ -24,8 +24,8 @@ message SetHealthRequest {
   string service = 1 [(buf.validate.field).string.min_len = 1];
 
   // Desired health status
-  common.v1.CommonHealthStatus status = 2;
+  common.v2.CommonHealthStatus status = 2;
 
   // Request metadata for auditing
-  common.v1.RequestMetadata metadata = 3 [lazy = true];
+  common.v2.RequestMetadata metadata = 3 [lazy = true];
 }

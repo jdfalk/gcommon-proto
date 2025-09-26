@@ -30,8 +30,8 @@ message RecordCounterResponse {
   google.protobuf.Timestamp recorded_at = 3;
 
   // Error information if operation failed
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 
   // Response metadata for tracing
-  common.v1.RequestMetadata metadata = 5;
+  common.v2.RequestMetadata metadata = 5;
 }

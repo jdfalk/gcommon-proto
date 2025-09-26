@@ -25,7 +25,7 @@ message RecordGaugeResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // The recorded gauge metric with updated value
   GaugeMetric metric = 3;

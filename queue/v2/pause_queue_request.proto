@@ -34,7 +34,7 @@ message PauseQueueRequest {
   int32 timeout_ms = 4;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 5;
+  common.v2.RequestMetadata metadata = 5;
 
   // Whether to pause specific partitions only
   repeated int32 partition_ids = 6;

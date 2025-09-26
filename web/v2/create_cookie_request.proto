@@ -48,8 +48,8 @@ message CreateCookieRequest {
   bool http_only = 8;
 
   // Cookie SameSite attribute
-  common.v1.SameSitePolicy same_site = 9;
+  common.v2.SameSitePolicy same_site = 9;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 10;
+  common.v2.RequestMetadata metadata = 10;
 }

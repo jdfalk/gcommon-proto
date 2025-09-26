@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message WriteConsistency {
   // Write consistency level
-  common.v1.WriteLevel level = 1;
+  common.v2.WriteLevel level = 1;
 
   // Synchronous replication requirements
   SyncReplication sync_replication = 2;

@@ -27,5 +27,5 @@ message GetOffsetResponse {
     ];
 
   // Optional request metadata.
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 }

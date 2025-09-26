@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 message UpdateMiddlewareConfigRequest {
   // Request metadata for tracing and auth
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Updated middleware configuration
   MiddlewareConfig config = 2;

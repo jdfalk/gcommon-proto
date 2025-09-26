@@ -46,7 +46,7 @@ message UpdatePermissionRequest {
   repeated string update_mask = 8;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 9;
+  common.v2.RequestMetadata metadata = 9;
 
   // Reason for the update
   string reason = 10;

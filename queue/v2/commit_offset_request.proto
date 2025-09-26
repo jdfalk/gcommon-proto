@@ -32,5 +32,5 @@ message CommitOffsetRequest {
   int64 offset = 3;
 
   // Optional request metadata for tracing and auth.
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 }

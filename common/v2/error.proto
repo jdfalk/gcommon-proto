@@ -21,7 +21,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message Error {
   // Standardized error code for programmatic handling
-  common.v1.ErrorCode code = 1;
+  common.v2.ErrorCode code = 1;
 
   // Human-readable error message describing what went wrong
   string message = 2 [(buf.validate.field).string.min_len = 1];

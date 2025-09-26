@@ -17,13 +17,13 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ExportMetricsRequest {
   // Standard request metadata
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Metrics provider to export from
   string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Desired export format
-  common.v1.MetricsExportFormat format = 3;
+  common.v2.MetricsExportFormat format = 3;
 
   // Destination URI or path
   string destination = 4 [(buf.validate.field).string.min_len = 1];

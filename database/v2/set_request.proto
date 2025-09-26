@@ -33,7 +33,7 @@ message SetRequest {
   google.protobuf.Duration ttl = 4 [lazy = true];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 5 [lazy = true];
+  common.v2.RequestMetadata metadata = 5 [lazy = true];
 
   // Whether to overwrite existing value
   bool overwrite = 6;

@@ -22,7 +22,7 @@ message FlushQueueRequest {
   string queue_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Flush policy to apply
-  common.v1.FlushPolicy flush_policy = 2;
+  common.v2.FlushPolicy flush_policy = 2;
 
   // Wait for flush completion before returning
   bool wait_for_completion = 3;

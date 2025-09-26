@@ -19,7 +19,7 @@ message BackupSettings {
   bool enabled = 1;
 
   // Backup frequency
-  common.v1.BackupFrequency frequency = 2;
+  common.v2.BackupFrequency frequency = 2;
 
   // Backup retention period in days
   int32 retention_days = 3 [(buf.validate.field).int32.gte = 0];

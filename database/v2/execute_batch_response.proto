@@ -27,5 +27,5 @@ message ExecuteBatchResponse {
   DatabaseBatchStats stats = 2 [lazy = true];
 
   // Error information if the batch failed
-  common.v1.Error error = 3 [lazy = true];
+  common.v2.Error error = 3 [lazy = true];
 }

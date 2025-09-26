@@ -23,7 +23,7 @@ message TokenInfo {
   string token_id = 1;
 
   // Token type
-  common.v1.TokenType type = 2;
+  common.v2.TokenType type = 2;
 
   // User ID associated with token
   string user_id = 3 [

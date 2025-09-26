@@ -50,7 +50,7 @@ message User {
     ];
 
   // User account status
-  common.v1.UserStatus status = 7;
+  common.v2.UserStatus status = 7;
 
   // Account creation timestamp (immutable)
   google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];

@@ -27,5 +27,5 @@ message ScanRequest {
   string namespace = 3 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata
-  common.v1.RequestMetadata metadata = 4 [lazy = true];
+  common.v2.RequestMetadata metadata = 4 [lazy = true];
 }

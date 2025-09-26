@@ -17,10 +17,10 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GetApiKeyResponse {
   // API key details
-  common.v1.APIKey api_key = 1;
+  common.v2.APIKey api_key = 1;
 
   // Usage statistics if requested
-  common.v1.ApiKeyStats stats = 2;
+  common.v2.ApiKeyStats stats = 2;
 
   // Error message if not found
   string error_message = 3 [(buf.validate.field).string.min_len = 1];

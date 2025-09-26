@@ -36,13 +36,13 @@ message MetricsSummary {
   MetricsPerformanceStats performance = 5;
 
   // Error statistics
-  common.v1.MetricsErrorStats errors = 6;
+  common.v2.MetricsErrorStats errors = 6;
 
   // Top metrics by various criteria
   TopMetrics top_metrics = 7;
 
   // Retention information
-  common.v1.MetricsRetentionInfo retention = 8;
+  common.v2.MetricsRetentionInfo retention = 8;
 
   // Export status information
   ExportStatus export_status = 9;

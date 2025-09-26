@@ -31,7 +31,7 @@ message AlertingConfig {
   repeated QueueNotificationChannel channels = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Default alert severity level
-  common.v1.CommonAlertSeverity default_severity = 4;
+  common.v2.CommonAlertSeverity default_severity = 4;
 
   // Alert aggregation window
   google.protobuf.Duration aggregation_window = 5;

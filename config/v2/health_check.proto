@@ -21,7 +21,7 @@ message HealthCheck {
     ];
 
   // Health check type
-  common.v1.HealthCheckType type = 2;
+  common.v2.HealthCheckType type = 2;
 
   // Health check endpoint
   string endpoint = 3;

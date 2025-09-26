@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueListSubscriptionsRequest {
   // Request metadata
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Name of the topic or queue to list subscriptions for
   string parent = 2 [(buf.validate.field).string.min_len = 1];

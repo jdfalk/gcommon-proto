@@ -14,5 +14,5 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 message GetCacheConfigRequest {
   // Request metadata for tracing
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 }

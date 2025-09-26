@@ -27,7 +27,7 @@ message SubscriptionConfigUpdate {
   DeliverySettings delivery_settings = 2;
 
   // Updated retry configuration
-  common.v1.ConfigRetrySettings retry_settings = 3;
+  common.v2.ConfigRetrySettings retry_settings = 3;
 
   // Updated filtering rules
   FilterSettings filter_settings = 4;

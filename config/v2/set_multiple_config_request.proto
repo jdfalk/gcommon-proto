@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
  */
 message SetMultipleConfigRequest {
   // Configuration entries to set
-  map<string, common.v1.ConfigValue> entries = 1;
+  map<string, common.v2.ConfigValue> entries = 1;
 
   // Optional namespace/environment
   string namespace = 2 [(buf.validate.field).string.min_len = 1];
@@ -31,5 +31,5 @@ message SetMultipleConfigRequest {
   bool encrypt = 4;
 
   // Request metadata
-  common.v1.RequestMetadata request_metadata = 5;
+  common.v2.RequestMetadata request_metadata = 5;
 }

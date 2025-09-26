@@ -35,5 +35,5 @@ message DeprecationInfo {
   string migration_guide = 6 [(buf.validate.field).string.min_len = 1];
 
   // Deprecation level
-  common.v1.DeprecationLevel level = 7;
+  common.v2.DeprecationLevel level = 7;
 }

@@ -28,7 +28,7 @@ message ListChecksRequest {
   repeated string tags = 3;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 
   // Include only enabled checks
   bool enabled_only = 5;

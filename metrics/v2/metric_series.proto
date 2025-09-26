@@ -20,7 +20,7 @@ message MetricSeries {
       (buf.validate.field).string.min_len = 1,
       (buf.validate.field).string.max_len = 100
     ];
-  common.v1.MetricsMetricType type = 2;
+  common.v2.MetricsMetricType type = 2;
   map<string, string> labels = 3;
 
   // Time-ordered series of values

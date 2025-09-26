@@ -47,13 +47,13 @@ message Tenant {
   string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Current status of the tenant
-  common.v1.TenantStatus status = 6;
+  common.v2.TenantStatus status = 6;
 
   // Isolation level for this tenant
-  common.v1.OrganizationIsolationLevel isolation_level = 7;
+  common.v2.OrganizationIsolationLevel isolation_level = 7;
 
   // Tenant metadata and custom attributes
-  repeated common.v1.KeyValue metadata = 8 [lazy = true];
+  repeated common.v2.KeyValue metadata = 8 [lazy = true];
 
   // Tenant creation timestamp (immutable)
   google.protobuf.Timestamp created_at = 9 [lazy = true, (buf.validate.field).required = true];

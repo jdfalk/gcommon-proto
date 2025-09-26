@@ -25,7 +25,7 @@ message WatchHealthRequest {
   string check_id = 2;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 
   // Only send updates for status changes
   bool status_changes_only = 4;

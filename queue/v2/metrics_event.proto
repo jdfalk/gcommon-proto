@@ -25,7 +25,7 @@ message MetricsEvent {
     ];
 
   // Type of metric
-  common.v1.MetricsMetricType metric_type = 3;
+  common.v2.MetricsMetricType metric_type = 3;
 
   // Metric value
   double value = 4;

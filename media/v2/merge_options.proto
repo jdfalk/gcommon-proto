@@ -16,6 +16,6 @@ option go_package = "github.com/jdfalk/gcommon/media/v2";
 message MergeOptions {
   string output_format = 1; // Output format (srt, vtt, ass, etc.)
   bool preserve_formatting = 2; // Keep original formatting
-  common.v1.ConflictResolution conflict_resolution = 3; // How to handle overlapping subtitles
+  common.v2.ConflictResolution conflict_resolution = 3; // How to handle overlapping subtitles
   bool sort_by_timestamp = 4; // Sort merged subtitles by timestamp
 }

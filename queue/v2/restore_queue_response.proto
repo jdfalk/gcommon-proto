@@ -56,7 +56,7 @@ message RestoreQueueResponse {
   repeated PartitionRestoreResult partition_results = 11 [(buf.validate.field).repeated.min_items = 1];
 
   // Validation results if validation was requested
-  common.v1.MetricsValidationResult validation_result = 12;
+  common.v2.MetricsValidationResult validation_result = 12;
 
   // Operation metadata
   map<string, string> metadata = 13;

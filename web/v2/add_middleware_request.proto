@@ -31,7 +31,7 @@ message AddMiddlewareRequest {
    * Request processing metadata including timing, request ID,
    * and other observability information.
    */
-  common.v1.RequestMetadata request_metadata = 11;
+  common.v2.RequestMetadata request_metadata = 11;
 
   // Timestamps (51-60)
 

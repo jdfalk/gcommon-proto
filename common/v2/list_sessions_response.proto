@@ -26,5 +26,5 @@ message AuthListSessionsResponse {
   repeated Session sessions = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Pagination information
-  common.v1.PaginatedResponse pagination = 2;
+  common.v2.PaginatedResponse pagination = 2;
 }

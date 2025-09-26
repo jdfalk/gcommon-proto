@@ -19,7 +19,7 @@ message ConflictDetection {
   bool enabled = 1;
 
   // Conflict detection strategy
-  common.v1.ConflictStrategy strategy = 2;
+  common.v2.ConflictStrategy strategy = 2;
 
   // Vector clock configuration
   VectorClockConfig vector_clock = 3;

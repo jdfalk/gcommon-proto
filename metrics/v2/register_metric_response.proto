@@ -21,7 +21,7 @@ message RegisterMetricResponse {
   bool success = 1;
 
   // Error information if registration failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Unique ID assigned to the registered metric
   string metric_id = 3;

@@ -19,11 +19,11 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message GetServiceHealthResponse {
   // Health status
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Last check timestamp
   google.protobuf.Timestamp last_check = 2;
 
   // Error information if unhealthy
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

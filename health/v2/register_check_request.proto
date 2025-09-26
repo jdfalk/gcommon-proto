@@ -23,7 +23,7 @@ message RegisterCheckRequest {
   HealthCheck health_check = 1;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 
   // Whether to replace existing check with same ID
   bool replace_existing = 3;

@@ -16,5 +16,5 @@ option go_package = "github.com/jdfalk/gcommon/database/v2";
  */
 message InfoRequest {
   // Request metadata
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 }

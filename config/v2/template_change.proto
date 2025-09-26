@@ -28,7 +28,7 @@ message TemplateChange {
   google.protobuf.Timestamp timestamp = 4;
 
   // Change type
-  common.v1.TemplateChangeType type = 5;
+  common.v2.TemplateChangeType type = 5;
 
   // Breaking change flag
   bool breaking = 6;

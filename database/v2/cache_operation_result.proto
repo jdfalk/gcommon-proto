@@ -42,7 +42,7 @@ message CacheOperationResult {
   int64 items_affected = 7 [(buf.validate.field).int64.gte = 0];
 
   // Error details if operation failed
-  common.v1.Error error = 8;
+  common.v2.Error error = 8;
 
   // Additional operation metadata
   map<string, string> metadata = 9;

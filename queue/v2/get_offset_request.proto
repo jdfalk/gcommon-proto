@@ -35,8 +35,8 @@ message GetOffsetRequest {
   string consumer_id = 4;
 
   // Type of offset to retrieve
-  common.v1.OffsetType offset_type = 5;
+  common.v2.OffsetType offset_type = 5;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 6;
+  common.v2.RequestMetadata metadata = 6;
 }

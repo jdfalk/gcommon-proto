@@ -17,5 +17,5 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message GetSystemStatsRequest {
   // Request metadata
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 }

@@ -27,8 +27,8 @@ message PublishResponse {
   bool success = 2;
 
   // Error information when success is false.
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 
   // Request metadata echoed back for tracing.
-  common.v1.RequestMetadata request_metadata = 4;
+  common.v2.RequestMetadata request_metadata = 4;
 }

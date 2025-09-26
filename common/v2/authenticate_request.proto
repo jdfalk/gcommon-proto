@@ -23,7 +23,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message AuthAuthenticateRequest {
   // Request metadata for tracing, correlation, and auditing
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 
   // Authentication credentials (oneof ensures only one type is used)
   oneof credentials {
@@ -41,5 +41,5 @@ message AuthAuthenticateRequest {
   repeated string scopes = 6;
 
   // Client information for security and session management
-  common.v1.ClientInfo client_info = 7 [lazy = true];
+  common.v2.ClientInfo client_info = 7 [lazy = true];
 }

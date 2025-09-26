@@ -43,5 +43,5 @@ message AuthAuthenticateResponse {
   Session session = 7 [lazy = true];
 
   // Rate limiting information for client throttling
-  common.v1.RateLimit rate_limit = 8 [lazy = true];
+  common.v2.RateLimit rate_limit = 8 [lazy = true];
 }

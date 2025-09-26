@@ -64,10 +64,10 @@ message Organization {
   string industry = 10 [(buf.validate.field).string.max_len = 100];
 
   // Current operational status of the organization - required
-  common.v1.OrganizationStatus status = 11 [(buf.validate.field).required = true];
+  common.v2.OrganizationStatus status = 11 [(buf.validate.field).required = true];
 
   // Organization metadata and custom attributes - max 50 entries
-  repeated common.v1.KeyValue metadata = 12 [
+  repeated common.v2.KeyValue metadata = 12 [
     lazy = true,
     (buf.validate.field).repeated.max_items = 50
   ];

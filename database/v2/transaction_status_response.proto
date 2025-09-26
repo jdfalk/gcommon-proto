@@ -22,5 +22,5 @@ message TransactionStatusResponse {
   string status = 1 [(buf.validate.field).string.min_len = 1];
 
   // Error information if the transaction encountered an issue
-  common.v1.Error error = 2 [lazy = true];
+  common.v2.Error error = 2 [lazy = true];
 }

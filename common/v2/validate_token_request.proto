@@ -22,7 +22,7 @@ message ValidateTokenRequest {
   string access_token = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 2 [lazy = true];
+  common.v2.RequestMetadata metadata = 2 [lazy = true];
 
   // Whether to include user information in response
   bool include_user_info = 3;

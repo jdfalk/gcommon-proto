@@ -32,7 +32,7 @@ message RestoreOptions {
 
   // Restore messages within time range
   // Time range for restore
-  common.v1.TimeRangeMetrics time_range = 5;
+  common.v2.TimeRangeMetrics time_range = 5;
 
   // Restore specific message priorities
   repeated int32 priority_levels = 6 [(buf.validate.field).repeated.min_items = 1];

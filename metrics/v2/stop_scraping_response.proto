@@ -22,7 +22,7 @@ message StopScrapingResponse {
   bool success = 1;
 
   // Error information if unsuccessful
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Details of the stopped job
   ScrapeJob job = 3;

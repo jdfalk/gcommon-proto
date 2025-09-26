@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // UpdateMiddlewareConfigResponse returns the result of updating middleware config.
 message UpdateMiddlewareConfigResponse {
   // Standard response metadata
-  common.v1.ResponseMetadata metadata = 1;
+  common.v2.ResponseMetadata metadata = 1;
 
   // Whether the middleware was updated
   bool updated = 2;

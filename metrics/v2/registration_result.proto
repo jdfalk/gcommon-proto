@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message RegistrationResult {
   // Whether a new metric was created or existing one updated
-  common.v1.RegistrationAction action = 1;
+  common.v2.RegistrationAction action = 1;
 
   // Indices that were created for the metric
   repeated string created_indices = 2 [(buf.validate.field).repeated.min_items = 1];

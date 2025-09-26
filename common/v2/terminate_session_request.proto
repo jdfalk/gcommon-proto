@@ -48,7 +48,7 @@ message TerminateSessionRequest {
    * Standard request metadata including authentication context,
    * tracing information, and client details.
    */
-  common.v1.RequestMetadata metadata = 11;
+  common.v2.RequestMetadata metadata = 11;
 
   /**
    * Terminate all sessions for this user. When true, ignores

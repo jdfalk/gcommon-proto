@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {
   // Selected cache strategy for responses
-  common.v1.CacheStrategy strategy = 1;
+  common.v2.CacheStrategy strategy = 1;
 
   // Detailed cache policy settings
-  common.v1.CachePolicy policy = 2 [lazy = true];
+  common.v2.CachePolicy policy = 2 [lazy = true];
 
   // Override time to live for web resources
   google.protobuf.Duration ttl = 3;

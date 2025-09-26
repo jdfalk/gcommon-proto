@@ -28,7 +28,7 @@ message ExecuteBatchRequest {
   BatchExecuteOptions options = 3 [lazy = true];
 
   // Request metadata for tracing and authentication
-  common.v1.RequestMetadata metadata = 4 [lazy = true];
+  common.v2.RequestMetadata metadata = 4 [lazy = true];
 
   // Transaction ID if this batch is part of a transaction
   string transaction_id = 5 [(buf.validate.field).string.min_len = 1];

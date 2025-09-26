@@ -34,5 +34,5 @@ message QueryRowResponse {
   DatabaseQueryStats stats = 4 [lazy = true];
 
   // Error information if the query failed
-  common.v1.Error error = 5 [lazy = true];
+  common.v2.Error error = 5 [lazy = true];
 }

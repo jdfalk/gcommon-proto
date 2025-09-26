@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message DeploymentInfo {
   // Deployment status
-  common.v1.DeploymentStatus status = 1;
+  common.v2.DeploymentStatus status = 1;
 
   // Last deployment timestamp
   google.protobuf.Timestamp last_deployed_at = 2;

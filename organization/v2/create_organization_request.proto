@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CreateOrganizationRequest {
   // Request metadata for tracing and context - required
-  common.v1.RequestMetadata metadata = 1 [(buf.validate.field).required = true];
+  common.v2.RequestMetadata metadata = 1 [(buf.validate.field).required = true];
 
   // Organization information to create - required
   Organization organization = 2 [(buf.validate.field).required = true];

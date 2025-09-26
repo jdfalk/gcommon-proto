@@ -35,7 +35,7 @@ message HealthCheckResponse {
   int32 unhealthy_checks = 5;
 
   // Response metadata
-  common.v1.ResponseMetadata metadata = 6;
+  common.v2.ResponseMetadata metadata = 6;
 
   // Whether all requested checks completed successfully
   bool all_checks_completed = 7;

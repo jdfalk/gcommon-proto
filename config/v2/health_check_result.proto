@@ -22,7 +22,7 @@ message ConfigHealthCheckResult {
     ];
 
   // Health check status
-  common.v1.HealthState status = 2;
+  common.v2.HealthState status = 2;
 
   // Health check message
   string message = 3;

@@ -22,7 +22,7 @@ message MiddlewareInfo {
     ];
 
   // Middleware type
-  common.v1.MiddlewareType type = 2;
+  common.v2.MiddlewareType type = 2;
 
   // Execution order priority
   int32 order = 3;

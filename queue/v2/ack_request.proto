@@ -31,5 +31,5 @@ message AckRequest {
   string receipt_handle = 2;
 
   // Standard request metadata including authentication and tracing.
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 }

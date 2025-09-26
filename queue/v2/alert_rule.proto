@@ -35,7 +35,7 @@ message AlertRule {
     ];
 
   // Condition for triggering the alert
-  common.v1.AlertCondition condition = 4;
+  common.v2.AlertCondition condition = 4;
 
   // Threshold value
   double threshold = 5;
@@ -44,7 +44,7 @@ message AlertRule {
   google.protobuf.Duration duration = 6;
 
   // Severity of the alert
-  common.v1.MetricsAlertSeverity severity = 7;
+  common.v2.MetricsAlertSeverity severity = 7;
 
   // Whether the rule is enabled
   bool enabled = 8;

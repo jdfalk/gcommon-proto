@@ -29,5 +29,5 @@ message KeysResponse {
   bool success = 3;
 
   // Error details if keys retrieval failed
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 }

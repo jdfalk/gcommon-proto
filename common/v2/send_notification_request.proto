@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message SendNotificationRequest {
   // Standard request metadata for tracing and auth.
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Notification to be delivered.
   NotificationMessage notification = 2;

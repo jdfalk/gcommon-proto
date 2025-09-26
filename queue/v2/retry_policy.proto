@@ -34,7 +34,7 @@ message QueueRetryPolicy {
   double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
 
   // Retry delay strategy
-  common.v1.RetryDelayStrategy delay_strategy = 5;
+  common.v2.RetryDelayStrategy delay_strategy = 5;
 
   // Whether to enable jitter in retry delays
   bool enable_jitter = 6;

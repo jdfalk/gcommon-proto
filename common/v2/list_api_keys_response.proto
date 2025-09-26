@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ListApiKeysResponse {
   // List of API keys
-  repeated common.v1.APIKey api_keys = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.APIKey api_keys = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Next page token
   string next_page_token = 2 [(buf.validate.field).string.min_len = 1];

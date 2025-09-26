@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message PullRequest {
   // Request metadata for tracing and authentication
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Queue to pull from
   string queue_name = 2 [

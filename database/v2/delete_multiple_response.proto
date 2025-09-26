@@ -29,5 +29,5 @@ message DeleteMultipleResponse {
   repeated string failed_keys = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Error details if any deletions failed
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 }

@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message AggregationSpec {
   // Type of aggregation to perform
-  common.v1.AggregationType aggregation_type = 1;
+  common.v2.AggregationType aggregation_type = 1;
 
   // Field to aggregate on (if applicable)
   string field = 2 [(buf.validate.field).string.min_len = 1];

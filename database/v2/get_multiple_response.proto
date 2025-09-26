@@ -26,5 +26,5 @@ message GetMultipleResponse {
   repeated string missing_keys = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error details if operation failed
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

@@ -23,7 +23,7 @@ message MetricHealth {
   string target_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Health status
-  common.v1.CommonHealthStatus status = 2;
+  common.v2.CommonHealthStatus status = 2;
 
   // When this health status was checked
   google.protobuf.Timestamp checked_at = 3;

@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueConflictResolution {
   // Conflict resolution strategy
-  common.v1.ResolutionStrategy strategy = 1;
+  common.v2.ResolutionStrategy strategy = 1;
 
   // Custom resolution function settings
   CustomResolution custom_resolution = 2;

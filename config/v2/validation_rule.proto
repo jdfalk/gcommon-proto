@@ -30,7 +30,7 @@ message ValidationRule {
   string error_message = 4;
 
   // Rule severity
-  common.v1.ValidationSeverity severity = 5;
+  common.v2.ValidationSeverity severity = 5;
 
   // Parameters this rule applies to
   repeated string parameters = 6;

@@ -43,13 +43,13 @@ message ListUserSessionsRequest {
    * Standard request metadata including authentication context,
    * tracing information, and client details.
    */
-  common.v1.RequestMetadata metadata = 11;
+  common.v2.RequestMetadata metadata = 11;
 
   /**
    * Pagination options for large result sets.
    * Defaults to first 50 sessions if not specified.
    */
-  common.v1.PaginationOptions pagination = 12;
+  common.v2.PaginationOptions pagination = 12;
 
   /**
    * Filter sessions by status (active, expired, terminated).

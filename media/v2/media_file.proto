@@ -26,7 +26,7 @@ message MediaFile {
     ];
   string path = 2;
   string filename = 3;
-  common.v1.MediaType type = 4;
+  common.v2.MediaType type = 4;
   int64 size_bytes = 5;
   google.protobuf.Timestamp created_at = 6 [lazy = true, (buf.validate.field).required = true];
   google.protobuf.Timestamp modified_at = 7 [lazy = true];

@@ -34,7 +34,7 @@ message MetricQuery {
   MetricFilter filter = 4;
 
   // Time range for the query
-  common.v1.TimeRangeMetrics time_filter = 5;
+  common.v2.TimeRangeMetrics time_filter = 5;
 
   // Aggregation operations to apply
   repeated AggregationSpec aggregations = 6;
@@ -43,7 +43,7 @@ message MetricQuery {
   repeated GroupBySpec group_by = 7;
 
   // Sort criteria
-  repeated common.v1.SortOptions sort_criteria = 8;
+  repeated common.v2.SortOptions sort_criteria = 8;
 
   // Maximum number of results to return
   int32 limit = 9;

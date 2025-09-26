@@ -25,5 +25,5 @@ message RunMigrationResponse {
   repeated string applied_versions = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error information if any migration failed
-  common.v1.Error error = 3 [lazy = true];
+  common.v2.Error error = 3 [lazy = true];
 }

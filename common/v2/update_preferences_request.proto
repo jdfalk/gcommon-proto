@@ -18,5 +18,5 @@ message UpdatePreferencesRequest {
   SubscriptionPreferences preferences = 1 [lazy = true];
 
   // Request metadata for auditing
-  common.v1.RequestMetadata metadata = 2 [lazy = true];
+  common.v2.RequestMetadata metadata = 2 [lazy = true];
 }

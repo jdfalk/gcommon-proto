@@ -41,12 +41,12 @@ message SessionMetadata {
   string user_agent = 7;
 
   // Device information
-  common.v1.DeviceInfo device_info = 8;
+  common.v2.DeviceInfo device_info = 8;
 
   // Location information
-  common.v1.LocationInfo location_info = 9;
+  common.v2.LocationInfo location_info = 9;
 
   // Session state
 
-  common.v1.SessionState state = 10;
+  common.v2.SessionState state = 10;
 }

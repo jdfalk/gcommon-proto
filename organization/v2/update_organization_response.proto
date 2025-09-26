@@ -22,7 +22,7 @@ message UpdateOrganizationResponse {
   Organization organization = 1;
 
   // Any errors encountered during update
-  repeated common.v1.Error errors = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.Error errors = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Success status
   bool success = 3;

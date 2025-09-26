@@ -49,7 +49,7 @@ message HttpResponse {
    * Request processing metadata including timing, request ID,
    * and other observability information.
    */
-  common.v1.RequestMetadata request_metadata = 11;
+  common.v2.RequestMetadata request_metadata = 11;
 
   /**
    * HTTP response headers as key-value pairs.
@@ -172,7 +172,7 @@ message HttpResponse {
    * Error information if the response represents an error
    * or if there were issues generating the response.
    */
-  common.v1.Error error = 61;
+  common.v2.Error error = 61;
 
   // Timestamps (51-60)
 

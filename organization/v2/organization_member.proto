@@ -47,10 +47,10 @@ message OrganizationMember {
     ];
 
   // Primary role of the user in this organization
-  common.v1.MemberRole role = 6;
+  common.v2.MemberRole role = 6;
 
   // Additional roles the user may have
-  repeated common.v1.MemberRole additional_roles = 7;
+  repeated common.v2.MemberRole additional_roles = 7;
 
   // Specific permissions granted to this member
   repeated string permissions = 8;
@@ -65,7 +65,7 @@ message OrganizationMember {
   repeated string tenant_ids = 11;
 
   // Member metadata and custom attributes
-  repeated common.v1.KeyValue metadata = 12 [lazy = true];
+  repeated common.v2.KeyValue metadata = 12 [lazy = true];
 
   // Membership creation timestamp (when user joined organization)
   google.protobuf.Timestamp created_at = 13 [lazy = true, (buf.validate.field).required = true];

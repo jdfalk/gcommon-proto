@@ -26,5 +26,5 @@ message DecrementResponse {
   bool success = 2;
 
   // Error details if decrement failed
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

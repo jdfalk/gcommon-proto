@@ -47,7 +47,7 @@ message Group {
   google.protobuf.Timestamp created_at = 7 [lazy = true, (buf.validate.field).required = true];
 
   // Group status
-  common.v1.ResourceStatus status = 8;
+  common.v2.ResourceStatus status = 8;
 
   // Group member count
   int32 member_count = 9;

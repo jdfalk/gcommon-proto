@@ -23,7 +23,7 @@ message LivenessCheckRequest {
   string service_name = 1;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 
   // Maximum time to wait for the liveness check
   google.protobuf.Duration timeout = 3;

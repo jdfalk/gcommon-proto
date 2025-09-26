@@ -22,7 +22,7 @@ message ExportMetricsResponse {
   bool success = 1;
 
   // Error information if the export failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Number of records exported
   int64 exported_records = 3;

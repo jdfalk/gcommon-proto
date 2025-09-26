@@ -25,7 +25,7 @@ message IntegrationSettings {
   repeated WebhookConfig webhooks = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // API keys for external services
-  repeated common.v1.MetricsAPIKeyConfig api_keys = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsAPIKeyConfig api_keys = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // OAuth applications registered for this organization
   repeated OAuthAppConfig oauth_apps = 4 [(buf.validate.field).repeated.min_items = 1];

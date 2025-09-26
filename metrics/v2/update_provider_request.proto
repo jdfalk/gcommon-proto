@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message UpdateProviderRequest {
   // Standard request metadata (tracing, auth, etc.)
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Provider ID to update
   string provider_id = 2;

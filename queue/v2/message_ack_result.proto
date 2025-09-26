@@ -28,7 +28,7 @@ message MessageAckResult {
   /**
    * Error information if acknowledgment failed for this message.
    */
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 
   /**
    * Message ID for correlation (if available).

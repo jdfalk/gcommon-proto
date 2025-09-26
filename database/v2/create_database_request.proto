@@ -24,5 +24,5 @@ message CreateDatabaseRequest {
   map<string, string> options = 2 [lazy = true];
 
   // Request metadata for tracing and authentication
-  common.v1.RequestMetadata metadata = 3 [lazy = true];
+  common.v2.RequestMetadata metadata = 3 [lazy = true];
 }

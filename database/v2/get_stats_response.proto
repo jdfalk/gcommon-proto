@@ -44,5 +44,5 @@ message CacheGetStatsResponse {
   bool success = 8;
 
   // Error details if stats retrieval failed
-  common.v1.Error error = 9;
+  common.v2.Error error = 9;
 }

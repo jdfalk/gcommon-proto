@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CreateTenantRequest {
   // Request metadata for tracing and context
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
   // The tenant to create.
   Tenant tenant = 2;
 

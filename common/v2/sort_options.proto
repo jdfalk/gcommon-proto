@@ -23,5 +23,5 @@ message SortOptions {
   string sort_field = 1 [(buf.validate.field).string.min_len = 1];
 
   // Sort direction
-  common.v1.SortDirection direction = 2;
+  common.v2.SortDirection direction = 2;
 }

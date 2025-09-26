@@ -16,13 +16,13 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ListProvidersRequest {
   // Standard request metadata (tracing, auth, etc.)
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Filter options for the list
   ProviderFilter filter = 2;
 
   // Pagination options
-  common.v1.PaginationOptions pagination = 3;
+  common.v2.PaginationOptions pagination = 3;
 
   // Whether to include detailed status information
   bool include_status = 4;

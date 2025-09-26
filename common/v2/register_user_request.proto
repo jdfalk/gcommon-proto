@@ -58,7 +58,7 @@ message RegisterUserRequest {
   map<string, string> metadata = 10;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata request_metadata = 11;
+  common.v2.RequestMetadata request_metadata = 11;
 
   // Terms of service acceptance timestamp
   int64 tos_accepted_at = 12;

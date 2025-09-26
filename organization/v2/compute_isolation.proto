@@ -34,7 +34,7 @@ message ComputeIsolation {
   bool dedicated_compute = 5;
 
   // Resource limits and quotas
-  common.v1.OrganizationResourceLimits limits = 6;
+  common.v2.OrganizationResourceLimits limits = 6;
 
   // Auto-scaling configuration
   AutoScalingConfig auto_scaling = 7;

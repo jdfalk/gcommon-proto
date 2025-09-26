@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // HandlerConfig message definition.
 message HandlerConfig {
   // Handler type
-  common.v1.HandlerType type = 1;
+  common.v2.HandlerType type = 1;
 
   // Handler-specific configuration
   google.protobuf.Any config = 2;

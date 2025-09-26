@@ -35,7 +35,7 @@ message Permission {
   string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Scope at which this permission applies
-  common.v1.ScopeType scope = 4;
+  common.v2.ScopeType scope = 4;
 
   // Timestamp when the permission was created
   google.protobuf.Timestamp created_at = 5 [lazy = true, (buf.validate.field).required = true];

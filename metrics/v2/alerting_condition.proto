@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
  */
 message AlertingCondition {
   // Operator to use when comparing the metric value to the threshold.
-  common.v1.ComparisonOperator operator = 1;
+  common.v2.ComparisonOperator operator = 1;
 
   // Metric name or query expression being evaluated.
   string metric = 2 [(buf.validate.field).string.min_len = 1];

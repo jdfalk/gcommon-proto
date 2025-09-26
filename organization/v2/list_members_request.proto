@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message ListMembersRequest {
   // Request metadata for tracing and context
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Organization identifier
   string organization_id = 2 [

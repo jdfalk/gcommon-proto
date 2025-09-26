@@ -29,5 +29,5 @@ message BatchOperationResult {
   repeated google.protobuf.Any generated_keys = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 
   // Error information if the operation failed
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

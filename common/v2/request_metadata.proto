@@ -35,7 +35,7 @@ message RequestMetadata {
   map<string, string> headers = 4;
 
   // Client application information
-  common.v1.ClientInfo client = 5;
+  common.v2.ClientInfo client = 5;
 
   // Timestamp when the request was initiated
   google.protobuf.Timestamp timestamp = 6;

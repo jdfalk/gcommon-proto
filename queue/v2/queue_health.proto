@@ -22,7 +22,7 @@ message QueueHealth {
     ];
 
   // Health status
-  common.v1.CommonHealthStatus status = 2;
+  common.v2.CommonHealthStatus status = 2;
 
   // Health score (0-100)
   int32 health_score = 3;

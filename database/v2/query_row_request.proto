@@ -33,5 +33,5 @@ message QueryRowRequest {
   string transaction_id = 5 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 6;
+  common.v2.RequestMetadata metadata = 6;
 }

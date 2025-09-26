@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigHealthStatus {
   // Overall health
-  common.v1.HealthState overall = 1;
+  common.v2.HealthState overall = 1;
 
   // Component health
-  map<string, common.v1.HealthState> components = 2;
+  map<string, common.v2.HealthState> components = 2;
 
   // Health checks
   repeated ConfigHealthCheckResult health_checks = 3 [(buf.validate.field).repeated.min_items = 1];

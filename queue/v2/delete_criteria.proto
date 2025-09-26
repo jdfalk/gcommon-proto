@@ -31,5 +31,5 @@ message DeleteCriteria {
   int32 max_messages = 5 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
 
   // Delete messages in specific state
-  common.v1.MessageState state = 6;
+  common.v2.MessageState state = 6;
 }

@@ -45,7 +45,7 @@ message Session {
   ClientInfo client_info = 6 [lazy = true];
 
   // Current session status
-  common.v1.SessionStatus status = 7;
+  common.v2.SessionStatus status = 7;
 
   // Session metadata for extensibility and tracking
   map<string, string> metadata = 8 [lazy = true];

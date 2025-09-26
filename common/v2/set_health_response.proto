@@ -24,16 +24,16 @@ message SetHealthResponse {
   bool success = 1;
 
   // Previous health status before the change
-  common.v1.CommonHealthStatus previous_status = 2;
+  common.v2.CommonHealthStatus previous_status = 2;
 
   // New health status after the change
-  common.v1.CommonHealthStatus new_status = 3;
+  common.v2.CommonHealthStatus new_status = 3;
 
   // Timestamp when status was changed
   google.protobuf.Timestamp changed_at = 4;
 
   // Error information if setting failed
-  common.v1.Error error = 5;
+  common.v2.Error error = 5;
 
   // Reason for the manual status change
   string reason = 6 [(buf.validate.field).string.min_len = 1];

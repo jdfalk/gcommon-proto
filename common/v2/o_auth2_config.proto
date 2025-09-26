@@ -47,7 +47,7 @@ message OAuth2Config {
   repeated string scopes = 8;
 
   // OAuth2 flow type
-  common.v1.OAuth2FlowType flow_type = 9;
+  common.v2.OAuth2FlowType flow_type = 9;
 
   // Additional provider-specific parameters
   map<string, string> additional_params = 10;

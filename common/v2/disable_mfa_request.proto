@@ -31,5 +31,5 @@ message DisableMfaRequest {
   string verification_code = 3;
 
   // Specific methods to disable (empty = all)
-  repeated common.v1.MfaMethod methods = 4;
+  repeated common.v2.MfaMethod methods = 4;
 }

@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
  */
 message WatchConfigResponse {
   // Type of change
-  common.v1.ConfigChangeType change_type = 1;
+  common.v2.ConfigChangeType change_type = 1;
 
   // Configuration entry
   ConfigEntry entry = 2;

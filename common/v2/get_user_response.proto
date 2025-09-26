@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GetUserResponse {
   // User details
-  common.v1.UserDetails user = 1;
+  common.v2.UserDetails user = 1;
 
   // Whether the user was found
   bool found = 2;

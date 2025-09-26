@@ -31,7 +31,7 @@ message MessageNack {
   string nack_reason = 5 [(buf.validate.field).string.min_len = 1];
 
   // Error category for the nack
-  common.v1.NackErrorCategory error_category = 6;
+  common.v2.NackErrorCategory error_category = 6;
 
   // Specific error code
   string error_code = 7 [(buf.validate.field).string.min_len = 1];

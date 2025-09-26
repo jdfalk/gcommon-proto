@@ -21,7 +21,7 @@ message RotationSettings {
   bool enabled = 1;
 
   // Rotation frequency
-  common.v1.RotationFrequency frequency = 2;
+  common.v2.RotationFrequency frequency = 2;
 
   // Rotation schedule (cron expression)
   string schedule = 3 [(buf.validate.field).string.min_len = 1];
@@ -45,5 +45,5 @@ message RotationSettings {
   google.protobuf.Timestamp next_rotation_at = 9;
 
   // Rotation history
-  repeated config.v1.RotationEvent rotation_history = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.RotationEvent rotation_history = 10 [(buf.validate.field).repeated.min_items = 1];
 }

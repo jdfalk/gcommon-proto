@@ -25,7 +25,7 @@ message EnableCheckResponse {
   string check_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Error information if enabling failed
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 
   // Check status after enabling
   string status = 4 [(buf.validate.field).string.min_len = 1];

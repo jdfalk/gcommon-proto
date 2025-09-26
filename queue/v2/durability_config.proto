@@ -27,13 +27,13 @@ message DurabilityConfig {
   bool persistent = 1;
 
   // Flush policy for writing messages to storage
-  common.v1.FlushPolicy flush_policy = 2;
+  common.v2.FlushPolicy flush_policy = 2;
 
   // Number of replicas for each message
   int32 replication_factor = 3 [(buf.validate.field).int32.gte = 0];
 
   // Acknowledgment level required before considering message durable
-  common.v1.AckLevel ack_level = 4;
+  common.v2.AckLevel ack_level = 4;
 
   // Timeout for durability operations
   google.protobuf.Duration durability_timeout = 5;

@@ -35,7 +35,7 @@ message ValueHistoryEntry {
   string reason = 6 [(buf.validate.field).string.min_len = 1];
 
   // Change type (using ChangeType from config_template.proto)
-  common.v1.TemplateChangeType change_type = 7;
+  common.v2.TemplateChangeType change_type = 7;
 
   // Change metadata
   map<string, string> metadata = 8;

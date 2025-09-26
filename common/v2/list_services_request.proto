@@ -17,5 +17,5 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ListServicesRequest {
   // Request metadata
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 }

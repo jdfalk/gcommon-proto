@@ -25,7 +25,7 @@ message EnableMfaRequest {
     ];
 
   // MFA methods to enable
-  repeated common.v1.MfaMethod methods = 2;
+  repeated common.v2.MfaMethod methods = 2;
 
   // Primary contact method
   string primary_contact = 3;

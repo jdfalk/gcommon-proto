@@ -25,7 +25,7 @@ message Integration {
   bool enabled = 2;
 
   // Integration-specific configuration
-  repeated common.v1.KeyValue config = 3 [lazy = true];
+  repeated common.v2.KeyValue config = 3 [lazy = true];
 
   // Integration creation timestamp
   google.protobuf.Timestamp created_at = 4 [lazy = true, (buf.validate.field).required = true];

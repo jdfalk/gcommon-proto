@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message AccessRestriction {
   // Restriction type
-  common.v1.RestrictionType type = 1;
+  common.v2.RestrictionType type = 1;
 
   // Restriction value
   string value = 2 [(buf.validate.field).string.min_len = 1];

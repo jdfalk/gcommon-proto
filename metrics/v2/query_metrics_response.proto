@@ -22,7 +22,7 @@ message QueryMetricsResponse {
   bool success = 1;
 
   // Error information if query failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Query results organized as metric series
   repeated MetricSeries series = 3 [(buf.validate.field).repeated.min_items = 1];

@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message AuthCreateSessionRequest {
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 
   // User ID for which to create the session
   string user_id = 2 [
@@ -29,7 +29,7 @@ message AuthCreateSessionRequest {
     ];
 
   // Client information for session tracking
-  common.v1.ClientInfo client_info = 3 [lazy = true];
+  common.v2.ClientInfo client_info = 3 [lazy = true];
 
   // Session duration in seconds (0 for system default)
   int32 duration_seconds = 4;

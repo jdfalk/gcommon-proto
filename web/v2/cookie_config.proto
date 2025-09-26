@@ -35,7 +35,7 @@ message CookieConfig {
   bool http_only = 5;
 
   // SameSite policy
-  common.v1.CookieSameSite same_site = 6;
+  common.v2.CookieSameSite same_site = 6;
 
   // Max age of the cookie
   google.protobuf.Duration max_age = 7;

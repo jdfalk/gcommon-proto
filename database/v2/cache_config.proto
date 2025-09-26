@@ -29,7 +29,7 @@ message CacheCacheConfig {
   google.protobuf.Duration default_ttl = 3;
 
   // Eviction policy when cache is full
-  common.v1.EvictionPolicy eviction_policy = 4;
+  common.v2.EvictionPolicy eviction_policy = 4;
 
   // Whether to enable cache statistics
   bool enable_stats = 5;

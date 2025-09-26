@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message CheckPermissionRequest {
   // Metadata for tracing and audit purposes
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 
   // User ID being verified
   string user_id = 2 [

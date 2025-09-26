@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
  */
 message ConfigHealthCheckResponse {
   // Overall health status
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Optional human-readable message
   string message = 2 [(buf.validate.field).string.min_len = 1];

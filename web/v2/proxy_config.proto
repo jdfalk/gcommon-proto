@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // ProxyConfig message definition.
 message ProxyConfig {
   // Type of proxy
-  common.v1.ProxyType proxy_type = 1;
+  common.v2.ProxyType proxy_type = 1;
 
   // Target backend URL
   string target_url = 2 [ (buf.validate.field).string.uri = true ];

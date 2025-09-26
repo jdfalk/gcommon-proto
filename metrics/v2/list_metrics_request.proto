@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
  */
 message ListMetricsRequest {
   // Pagination information
-  common.v1.Pagination pagination = 1;
+  common.v2.Pagination pagination = 1;
 
   // Optional name filter
   string name_filter = 2 [(buf.validate.field).string.min_len = 1];

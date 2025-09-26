@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/database/v2";
  */
 message DatabaseStatus {
   // Code indicates the health state of the database
-  common.v1.DatabaseStatusCode code = 1;
+  common.v2.DatabaseStatusCode code = 1;
 
   // Human readable status details
   string message = 2 [(buf.validate.field).string.min_len = 1];

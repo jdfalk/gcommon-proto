@@ -26,7 +26,7 @@ message WebRateLimitConfig {
   int32 burst_size = 3 [(buf.validate.field).int32.gte = 0];
 
   // Rate limit strategy
-  common.v1.RateLimitStrategy strategy = 4;
+  common.v2.RateLimitStrategy strategy = 4;
 
   // Rate limit key extractor
   string key_extractor = 5 [(buf.validate.field).string.min_len = 1];

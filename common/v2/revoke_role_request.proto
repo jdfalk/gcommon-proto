@@ -35,7 +35,7 @@ message RevokeRoleRequest {
     ];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 
   // Audit information for tracking who made the revocation
   string revoked_by = 5;

@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message ListOrganizationsRequest {
   // Request metadata for tracing and context
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Pagination size
   int32 page_size = 2 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];

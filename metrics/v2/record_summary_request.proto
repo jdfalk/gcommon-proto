@@ -26,5 +26,5 @@ message RecordSummaryRequest {
   google.protobuf.Timestamp observed_at = 2;
 
   // Request metadata
-  common.v1.RequestMetadata metadata = 3 [lazy = true];
+  common.v2.RequestMetadata metadata = 3 [lazy = true];
 }

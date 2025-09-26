@@ -22,7 +22,7 @@ message ConfigEntry {
   string key = 1;
 
   // Configuration value
-  common.v1.ConfigValue value = 2;
+  common.v2.ConfigValue value = 2;
 
   // Namespace/environment
   string namespace = 3;
@@ -43,5 +43,5 @@ message ConfigEntry {
   int64 version = 8;
 
   // Entry status
-  common.v1.ResourceStatus status = 9;
+  common.v2.ResourceStatus status = 9;
 }

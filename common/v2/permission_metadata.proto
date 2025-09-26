@@ -31,7 +31,7 @@ message PermissionMetadata {
   repeated string actions = 4;
 
   // Conditions or constraints
-  repeated common.v1.PermissionCondition conditions = 5;
+  repeated common.v2.PermissionCondition conditions = 5;
 
   // Permission level (system, organization, project, etc.)
 

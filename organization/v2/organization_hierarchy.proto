@@ -30,7 +30,7 @@ message OrganizationHierarchy {
     ];
 
   // Type of hierarchy structure
-  common.v1.HierarchyType hierarchy_type = 3;
+  common.v2.HierarchyType hierarchy_type = 3;
 
   // Name of this hierarchy configuration
   string name = 4 [
@@ -48,7 +48,7 @@ message OrganizationHierarchy {
   bool active = 7;
 
   // Hierarchy metadata and configuration
-  repeated common.v1.KeyValue metadata = 8 [lazy = true];
+  repeated common.v2.KeyValue metadata = 8 [lazy = true];
 
   // Hierarchy creation timestamp
   google.protobuf.Timestamp created_at = 9 [lazy = true, (buf.validate.field).required = true];

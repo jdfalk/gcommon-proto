@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message OffsetConfig {
   // Offset type (earliest, latest, timestamp, specific)
-  common.v1.OffsetType offset_type = 1;
+  common.v2.OffsetType offset_type = 1;
 
   // Specific offset value (when offset_type = specific)
   int64 offset_value = 2 [(buf.validate.field).int64.gte = 0];

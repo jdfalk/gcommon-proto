@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message HealthCheckAllRequest {
   // Optional filter by check types
-  repeated common.v1.CheckType types = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.CheckType types = 1 [(buf.validate.field).repeated.min_items = 1];
   // Whether to include detailed component information
   bool include_details = 2;
   // Timeout for the overall check in seconds

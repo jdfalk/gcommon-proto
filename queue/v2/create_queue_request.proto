@@ -34,7 +34,7 @@ message CreateQueueRequest {
   bool if_not_exists = 3;
 
   // Request metadata for tracing and correlation - required
-  common.v1.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
+  common.v2.RequestMetadata metadata = 4 [(buf.validate.field).required = true];
 
   // Tags to associate with the queue - max 20 tags, each key/value max 100 chars
   map<string, string> tags = 5 [

@@ -22,7 +22,7 @@ message UnregisterCheckRequest {
   string check_id = 1;
 
   // Request metadata for authentication and tracing
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 
   // Whether to force removal even if check is running
   bool force = 3;

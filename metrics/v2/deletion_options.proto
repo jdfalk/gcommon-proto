@@ -43,7 +43,7 @@ message DeletionOptions {
   bool create_backup = 8;
 
   // Cleanup strategy to use
-  common.v1.CleanupStrategy cleanup_strategy = 9;
+  common.v2.CleanupStrategy cleanup_strategy = 9;
 
   // Whether to wait for ongoing operations to complete
   bool wait_for_completion = 10;

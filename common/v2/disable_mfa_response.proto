@@ -23,7 +23,7 @@ message DisableMfaResponse {
   bool success = 1;
 
   // Methods that were disabled
-  repeated common.v1.MfaMethod disabled_methods = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MfaMethod disabled_methods = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Error message if operation failed
   string error_message = 3 [(buf.validate.field).string.min_len = 1];

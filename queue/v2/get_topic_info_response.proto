@@ -63,5 +63,5 @@ message GetTopicInfoResponse {
   OwnerInfo owner = 13;
 
   // Retention policy for messages in this topic
-  common.v1.MetricsRetentionInfo retention = 14;
+  common.v2.MetricsRetentionInfo retention = 14;
 }

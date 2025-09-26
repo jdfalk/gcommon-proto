@@ -25,5 +25,5 @@ message AntiAffinityRule {
   repeated string label_values = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Scope of the anti-affinity rule
-  common.v1.AntiAffinityScope scope = 3;
+  common.v2.AntiAffinityScope scope = 3;
 }

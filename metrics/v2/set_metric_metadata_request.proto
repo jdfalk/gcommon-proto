@@ -22,5 +22,5 @@ message SetMetricMetadataRequest {
   MetricMetadata metadata = 1;
 
   // Request metadata
-  common.v1.RequestMetadata request_meta = 2 [lazy = true];
+  common.v2.RequestMetadata request_meta = 2 [lazy = true];
 }

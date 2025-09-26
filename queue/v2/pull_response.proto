@@ -20,5 +20,5 @@ message PullResponse {
   ReceivedMessage message = 1;
 
   // Response metadata including error details
-  common.v1.ResponseMetadata metadata = 2;
+  common.v2.ResponseMetadata metadata = 2;
 }

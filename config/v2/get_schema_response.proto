@@ -20,5 +20,5 @@ message GetSchemaResponse {
   ConfigSchema schema = 1;
 
   // Error information
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

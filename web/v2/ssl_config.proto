@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // SslConfig message definition.
 message SslConfig {
   // TLS protocol version
-  common.v1.SSLProtocol protocol = 1;
+  common.v2.SSLProtocol protocol = 1;
 
   // Path to certificate file
   string cert_file = 2 [(buf.validate.field).string.min_len = 1];

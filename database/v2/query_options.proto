@@ -32,5 +32,5 @@ message QueryOptions {
   bool include_metadata = 4;
 
   // Read consistency level for the query
-  common.v1.DatabaseConsistencyLevel consistency = 5;
+  common.v2.DatabaseConsistencyLevel consistency = 5;
 }

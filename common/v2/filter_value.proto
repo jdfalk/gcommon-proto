@@ -38,12 +38,12 @@ message FilterValue {
     bool bool_value = 4;
 
     // Array of strings for multi-value filtering
-    common.v1.StringArray string_array = 5 [lazy = true];
+    common.v2.StringArray string_array = 5 [lazy = true];
 
     // Array of integers for multi-value filtering
-    common.v1.Int64Array int_array = 6 [lazy = true];
+    common.v2.Int64Array int_array = 6 [lazy = true];
   }
 
   // Filter operation type (equals, contains, greater than, etc.)
-  common.v1.FilterOperation operation = 7;
+  common.v2.FilterOperation operation = 7;
 }

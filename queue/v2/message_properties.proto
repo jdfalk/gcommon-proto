@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message MessageProperties {
   // Message priority level
-  common.v1.PriorityLevel priority = 1;
+  common.v2.PriorityLevel priority = 1;
 
   // Delivery mode for the message
-  common.v1.DeliveryMode delivery_mode = 2;
+  common.v2.DeliveryMode delivery_mode = 2;
 
   // Message expiration time
   google.protobuf.Timestamp expiration_time = 3;

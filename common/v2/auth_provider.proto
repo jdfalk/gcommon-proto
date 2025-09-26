@@ -31,7 +31,7 @@ message AuthProvider {
     ];
 
   // Provider type (e.g., LDAP, OAUTH2, SAML)
-  common.v1.AuthProviderType type = 3;
+  common.v2.AuthProviderType type = 3;
 
   // Provider-specific configuration reference or JSON blob
   string config = 4;

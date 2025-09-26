@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message LogFormatterConfig {
   // Formatting strategy
-  common.v1.FormatterType type = 1;
+  common.v2.FormatterType type = 1;
 
   // Optional format pattern
   string pattern = 2 [(buf.validate.field).string.min_len = 1];

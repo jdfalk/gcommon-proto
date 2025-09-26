@@ -19,7 +19,7 @@ message ApprovalInfo {
   bool required = 1;
 
   // Approval status
-  common.v1.ApprovalStatus status = 2;
+  common.v2.ApprovalStatus status = 2;
 
   // User who approved
   string approved_by = 3;

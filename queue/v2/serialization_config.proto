@@ -21,19 +21,19 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
  */
 message SerializationConfig {
   // Default serialization format
-  common.v1.SerializationFormat default_format = 1;
+  common.v2.SerializationFormat default_format = 1;
 
   // Supported serialization formats
-  repeated common.v1.SerializationFormat supported_formats = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.SerializationFormat supported_formats = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether to auto-detect format from message headers
   bool auto_detect_format = 3;
 
   // Default compression algorithm
-  common.v1.CompressionAlgorithm default_compression = 4;
+  common.v2.CompressionAlgorithm default_compression = 4;
 
   // Supported compression algorithms
-  repeated common.v1.CompressionAlgorithm supported_compressions = 5 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.CompressionAlgorithm supported_compressions = 5 [(buf.validate.field).repeated.min_items = 1];
 
   // Whether to auto-detect compression from message headers
   bool auto_detect_compression = 6;

@@ -35,5 +35,5 @@ message ListHandlersRequest {
   int32 offset = 5 [(buf.validate.field).int32.gte = 0];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 6;
+  common.v2.RequestMetadata metadata = 6;
 }

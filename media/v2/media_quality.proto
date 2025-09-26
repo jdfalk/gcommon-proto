@@ -17,9 +17,9 @@ option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Media quality assessment.
 message MediaQuality {
-  common.v1.Resolution resolution = 1;
+  common.v2.Resolution resolution = 1;
   string video_codec = 2 [(buf.validate.field).string.min_len = 1];
   int32 bitrate_kbps = 3 [(buf.validate.field).int32.gte = 0];
   float duration_seconds = 4 [(buf.validate.field).float.gte = 0.0];
-  common.v1.QualityScore quality_score = 5;
+  common.v2.QualityScore quality_score = 5;
 }

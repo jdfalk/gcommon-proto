@@ -59,8 +59,8 @@ message UserMetadata {
   map<string, string> custom_fields = 13;
 
   // User preferences
-  common.v1.UserPreferences preferences = 14;
+  common.v2.UserPreferences preferences = 14;
 
   // Account verification status
-  common.v1.VerificationStatus verification = 15;
+  common.v2.VerificationStatus verification = 15;
 }

@@ -23,5 +23,5 @@ message UpdateRoleResponse {
   Role role = 1;
 
   // Error information if update failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

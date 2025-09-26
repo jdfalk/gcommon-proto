@@ -25,5 +25,5 @@ message SendNotificationResponse {
   bool accepted = 2;
 
   // Current delivery status of the notification
-  common.v1.DeliveryStatus status = 3;
+  common.v2.DeliveryStatus status = 3;
 }

@@ -23,13 +23,13 @@ message ValueValidationResult {
     ];
 
   // Validation result
-  common.v1.ValueValidationResultType result = 2;
+  common.v2.ValueValidationResultType result = 2;
 
   // Validation message
   string message = 3;
 
   // Validation severity
-  common.v1.ValueValidationSeverity severity = 4;
+  common.v2.ValueValidationSeverity severity = 4;
 
   // Validation timestamp
   google.protobuf.Timestamp timestamp = 5;

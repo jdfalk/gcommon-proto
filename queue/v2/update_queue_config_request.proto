@@ -33,7 +33,7 @@ message UpdateQueueConfigRequest {
   repeated string update_mask = 3;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 
   // Force update even if it might cause data loss
   bool force = 5;

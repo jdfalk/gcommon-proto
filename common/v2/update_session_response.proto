@@ -30,5 +30,5 @@ message AuthUpdateSessionResponse {
   string error_message = 3 [(buf.validate.field).string.min_len = 1];
 
   // Response metadata
-  common.v1.ResponseMetadata metadata = 4;
+  common.v2.ResponseMetadata metadata = 4;
 }

@@ -19,5 +19,5 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
  */
 message GetConfigHistoryResponse {
   // List of configuration changes
-  repeated common.v1.MetricsConfigChange changes = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsConfigChange changes = 1 [(buf.validate.field).repeated.min_items = 1];
 }

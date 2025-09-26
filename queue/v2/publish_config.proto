@@ -31,7 +31,7 @@ message PublishConfig {
   bool enable_ordering = 5;
 
   // Retry configuration for failed publishes - references existing RetryConfig
-  common.v1.CommonRetryPolicy retry_config = 6;
+  common.v2.CommonRetryPolicy retry_config = 6;
 
   // Persistence level required
   string persistence_level = 7 [(buf.validate.field).string.min_len = 1];

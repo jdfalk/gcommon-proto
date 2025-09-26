@@ -29,5 +29,5 @@ message AuthAuthorizeResponse {
   string denial_reason = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error information if authorization check failed
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

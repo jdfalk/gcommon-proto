@@ -51,7 +51,7 @@ message HierarchyNode {
   string manager_id = 10;
 
   // Node metadata and custom attributes
-  repeated common.v1.KeyValue metadata = 11 [lazy = true];
+  repeated common.v2.KeyValue metadata = 11 [lazy = true];
 
   // Whether this node is currently active
   bool active = 12;

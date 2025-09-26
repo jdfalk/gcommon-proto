@@ -23,5 +23,5 @@ message CreateRoleResponse {
   Role role = 1;
 
   // Error information if creation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

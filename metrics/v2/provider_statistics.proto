@@ -34,7 +34,7 @@ message ProviderStatistics {
   ResourceUsageStats resource_usage = 3;
 
   // Error statistics
-  common.v1.MetricsErrorStats errors = 4;
+  common.v2.MetricsErrorStats errors = 4;
 
   // Data volume statistics
   DataVolumeStats data_volume = 5;

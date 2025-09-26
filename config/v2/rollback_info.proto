@@ -22,7 +22,7 @@ message RollbackInfo {
   string reason = 2 [(buf.validate.field).string.min_len = 1];
 
   // Rollback method
-  common.v1.RollbackMethod method = 3;
+  common.v2.RollbackMethod method = 3;
 
   // Target version for rollback
   string target_version = 4 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];

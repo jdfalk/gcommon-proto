@@ -19,5 +19,5 @@ message DeleteNotificationRequest {
   string notification_id = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for auditing
-  common.v1.RequestMetadata metadata = 2 [lazy = true];
+  common.v2.RequestMetadata metadata = 2 [lazy = true];
 }

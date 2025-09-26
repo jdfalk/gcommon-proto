@@ -56,7 +56,7 @@ message Department {
   string location = 9;
 
   // Department metadata and custom attributes
-  repeated common.v1.KeyValue metadata = 10 [lazy = true];
+  repeated common.v2.KeyValue metadata = 10 [lazy = true];
 
   // Department creation timestamp
   google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];

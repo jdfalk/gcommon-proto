@@ -25,7 +25,7 @@ message ConfigureAlertingResponse {
   string config_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Error information if configuration failed
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 
   // Applied alerting rules
   repeated string applied_rules = 4 [(buf.validate.field).repeated.min_items = 1];

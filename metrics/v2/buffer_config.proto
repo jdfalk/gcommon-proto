@@ -19,7 +19,7 @@ message BufferConfig {
   int32 max_buffer_size = 1 [(buf.validate.field).int32.gte = 0];
 
   // Buffer overflow strategy
-  common.v1.BufferOverflowStrategy overflow_strategy = 2;
+  common.v2.BufferOverflowStrategy overflow_strategy = 2;
 
   // Whether to persist buffer to disk during streaming
   bool persist_buffer = 3;

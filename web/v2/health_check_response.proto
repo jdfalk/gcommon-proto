@@ -17,11 +17,11 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 // HealthCheckResponse response definition.
 message WebHealthCheckResponse {
   // Web server health status.
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Time taken to respond to the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];
 
   // Error details if the server is unhealthy.
-  common.v1.Error error = 3 [lazy = true];
+  common.v2.Error error = 3 [lazy = true];
 }

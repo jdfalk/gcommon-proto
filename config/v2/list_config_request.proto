@@ -28,14 +28,14 @@ message ListConfigRequest {
   string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // Pagination options
-  common.v1.Pagination pagination = 3;
+  common.v2.Pagination pagination = 3;
 
   // Filter options
-  common.v1.FilterOptions filter = 4;
+  common.v2.FilterOptions filter = 4;
 
   // Sort options
-  common.v1.SortOptions sort = 5;
+  common.v2.SortOptions sort = 5;
 
   // Request metadata
-  common.v1.RequestMetadata metadata = 6;
+  common.v2.RequestMetadata metadata = 6;
 }

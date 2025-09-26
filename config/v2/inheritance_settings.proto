@@ -22,7 +22,7 @@ message InheritanceSettings {
   bool enabled = 1;
 
   // Inheritance strategy
-  common.v1.InheritanceStrategy strategy = 2;
+  common.v2.InheritanceStrategy strategy = 2;
 
   // Inheritance sources in order of priority
   repeated string sources = 3 [(buf.validate.field).repeated.min_items = 1];
@@ -37,7 +37,7 @@ message InheritanceSettings {
   bool merge_values = 6;
 
   // Merge strategy for complex values
-  common.v1.MergeStrategy merge_strategy = 7;
+  common.v2.MergeStrategy merge_strategy = 7;
 
   // Inheritance metadata
   map<string, string> metadata = 8;

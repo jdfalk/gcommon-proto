@@ -16,11 +16,11 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message GetTenantUsageResponse {
   // Any errors encountered
-  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Success status
   bool success = 2;
 
   // Usage statistics for the tenant
-  repeated common.v1.KeyValue usage_stats = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.KeyValue usage_stats = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
 }

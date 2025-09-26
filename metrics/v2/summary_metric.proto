@@ -48,5 +48,5 @@ message SummaryMetric {
   google.protobuf.Duration max_age = 9;
 
   // Metadata for request tracing
-  common.v1.RequestMetadata metadata = 10;
+  common.v2.RequestMetadata metadata = 10;
 }

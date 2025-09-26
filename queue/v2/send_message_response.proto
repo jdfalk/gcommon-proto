@@ -26,5 +26,5 @@ message SendMessageResponse {
   int64 queue_position = 3 [(buf.validate.field).int64.gte = 0];
 
   // Error information when `success` is false.
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 }

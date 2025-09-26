@@ -19,7 +19,7 @@ message QueueStreamMetricsRequest {
   repeated string queue_names = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Types of metrics to include
-  repeated common.v1.MetricsMetricType metric_types = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsMetricType metric_types = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Streaming interval in seconds
   int32 interval_seconds = 3 [(buf.validate.field).int32.gte = 0];

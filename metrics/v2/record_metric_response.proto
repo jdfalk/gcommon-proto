@@ -28,7 +28,7 @@ message RecordMetricResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Unique ID assigned to the recorded metric (if applicable)
   string metric_id = 3 [(buf.validate.field).string.min_len = 1];
@@ -40,7 +40,7 @@ message RecordMetricResponse {
   string provider_id = 5 [(buf.validate.field).string.min_len = 1];
 
   // Validation results if validation was requested
-  common.v1.MetricsValidationResult validation = 6;
+  common.v2.MetricsValidationResult validation = 6;
 
   // Performance metrics about the recording operation
   RecordingStats stats = 7;

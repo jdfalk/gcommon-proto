@@ -21,13 +21,13 @@ message SynchronizationSettings {
   bool enabled = 1;
 
   // Synchronization targets
-  repeated config.v1.SynchronizationTarget targets = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.SynchronizationTarget targets = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Synchronization frequency
-  common.v1.SynchronizationFrequency frequency = 3;
+  common.v2.SynchronizationFrequency frequency = 3;
 
   // Synchronization conflict resolution
-  common.v1.ConflictResolution conflict_resolution = 4;
+  common.v2.ConflictResolution conflict_resolution = 4;
 
   // Synchronization metadata
   map<string, string> metadata = 5;

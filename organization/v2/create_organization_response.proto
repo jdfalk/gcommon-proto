@@ -30,7 +30,7 @@ message CreateOrganizationResponse {
   string owner_member_id = 3 [(buf.validate.field).string.min_len = 1];
 
   // Any errors encountered during creation
-  repeated common.v1.Error errors = 4 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.Error errors = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Success status
   bool success = 5;

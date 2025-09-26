@@ -33,5 +33,5 @@ message GenerateAPIKeyRequest {
   int32 expires_in = 3;
 
   // Metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 }

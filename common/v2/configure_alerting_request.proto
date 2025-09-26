@@ -32,5 +32,5 @@ message ConfigureAlertingRequest {
   repeated string channels = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Standard request metadata for tracing and auth
-  common.v1.RequestMetadata metadata = 5;
+  common.v2.RequestMetadata metadata = 5;
 }

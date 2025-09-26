@@ -23,10 +23,10 @@ message CachingSettings {
   int32 ttl_seconds = 2 [(buf.validate.field).int32.gte = 0];
 
   // Cache refresh strategy
-  common.v1.CacheRefreshStrategy refresh_strategy = 3;
+  common.v2.CacheRefreshStrategy refresh_strategy = 3;
 
   // Cache invalidation triggers
-  repeated common.v1.CacheInvalidationTrigger triggers = 4 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.CacheInvalidationTrigger triggers = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Cache metadata
   map<string, string> metadata = 5;

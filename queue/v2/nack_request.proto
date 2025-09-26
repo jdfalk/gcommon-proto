@@ -39,5 +39,5 @@ message NackRequest {
   int32 max_retries = 6 [(buf.validate.field).int32.gte = 0];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 100;
+  common.v2.RequestMetadata metadata = 100;
 }

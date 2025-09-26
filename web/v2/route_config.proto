@@ -21,13 +21,13 @@ message RouteConfig {
   string path = 1 [(buf.validate.field).string.min_len = 1];
 
   // Allowed HTTP methods
-  repeated common.v1.HTTPMethod methods = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.HTTPMethod methods = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Handler name or identifier
   string handler = 3 [(buf.validate.field).string.min_len = 1];
 
   // Handler type implementation
-  common.v1.HandlerType handler_type = 4;
+  common.v2.HandlerType handler_type = 4;
 
   // Middleware IDs applied to this route
   repeated string middleware_ids = 5 [(buf.validate.field).repeated.min_items = 1];

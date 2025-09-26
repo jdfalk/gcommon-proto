@@ -30,7 +30,7 @@ message ExecuteRequest {
   ExecuteOptions options = 4 [lazy = true];
 
   // Request metadata for tracing and authentication
-  common.v1.RequestMetadata metadata = 5 [lazy = true];
+  common.v2.RequestMetadata metadata = 5 [lazy = true];
 
   // Transaction ID if this operation is part of a transaction
   string transaction_id = 6 [(buf.validate.field).string.min_len = 1];

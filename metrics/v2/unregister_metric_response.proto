@@ -21,7 +21,7 @@ message UnregisterMetricResponse {
   bool success = 1;
 
   // Error information if unregistration failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // ID of the metric that was unregistered
   string metric_id = 3;

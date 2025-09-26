@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message DeleteTeamRequest {
   // Request metadata for tracing and context
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Identifier of the team to delete
   string team_id = 2 [(buf.validate.field).string.min_len = 1];

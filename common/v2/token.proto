@@ -30,10 +30,10 @@ message Token {
   string value = 2;
 
   // Token type (access, refresh, etc.)
-  common.v1.TokenType type = 3;
+  common.v2.TokenType type = 3;
 
   // Token status
-  common.v1.TokenStatus status = 4;
+  common.v2.TokenStatus status = 4;
 
   // User ID associated with this token
   string user_id = 5 [

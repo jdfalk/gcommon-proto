@@ -33,10 +33,10 @@ message UpdateProviderResponse {
   ProviderStatus status = 3;
 
   // Validation results from the update operation
-  repeated common.v1.MetricsValidationResult validation_results = 4 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsValidationResult validation_results = 4 [(buf.validate.field).repeated.min_items = 1];
 
   // Error information if update failed
-  common.v1.Error error = 5;
+  common.v2.Error error = 5;
 
   // Timestamp when the update was processed
   google.protobuf.Timestamp updated_at = 6;

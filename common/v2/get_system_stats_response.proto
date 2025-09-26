@@ -34,5 +34,5 @@ message GetSystemStatsResponse {
   int64 uptime_seconds = 5 [(buf.validate.field).int64.gte = 0];
 
   // Error information if stats retrieval failed
-  common.v1.Error error = 6;
+  common.v2.Error error = 6;
 }

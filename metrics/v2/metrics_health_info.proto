@@ -16,7 +16,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message MetricsHealthInfo {
-  common.v1.CommonHealthStatus overall_status = 1;
+  common.v2.CommonHealthStatus overall_status = 1;
   repeated string health_checks = 2 [(buf.validate.field).repeated.min_items = 1];
   repeated string warnings = 3 [(buf.validate.field).repeated.min_items = 1];
   google.protobuf.Timestamp last_check = 4;

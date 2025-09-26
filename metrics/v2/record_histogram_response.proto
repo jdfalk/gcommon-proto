@@ -22,7 +22,7 @@ message RecordHistogramResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // The histogram metric with updated bucket counts
   HistogramMetric metric = 3;

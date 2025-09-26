@@ -18,13 +18,13 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message GetProviderStatsRequest {
   // Standard request metadata (tracing, auth, etc.)
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Provider ID to get stats for
   string provider_id = 2 [(buf.validate.field).string.min_len = 1];
 
   // Time range for statistics
-  common.v1.TimeRangeMetrics time_range = 3;
+  common.v2.TimeRangeMetrics time_range = 3;
 
   // What statistics to include
   StatsOptions options = 4;

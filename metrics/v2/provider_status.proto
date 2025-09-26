@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
  */
 message ProviderStatus {
   // Current state
-  common.v1.ProviderState state = 1;
+  common.v2.ProviderState state = 1;
 
   // Status message
   string message = 2 [(buf.validate.field).string.min_len = 1];

@@ -17,5 +17,5 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message GetTemplateResponse {
   // Template data
-  common.v1.Template template = 1 [lazy = true];
+  common.v2.Template template = 1 [lazy = true];
 }

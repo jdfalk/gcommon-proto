@@ -30,5 +30,5 @@ message ExecuteResponse {
   ExecuteStats stats = 3 [lazy = true];
 
   // Error information if the operation failed
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

@@ -15,5 +15,5 @@ option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 message WebHealthCheckRequest {
   // Request metadata for the HTTP server.
-  common.v1.RequestMetadata metadata = 1 [lazy = true];
+  common.v2.RequestMetadata metadata = 1 [lazy = true];
 }

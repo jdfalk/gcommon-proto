@@ -29,7 +29,7 @@ message ResetHealthStatsResponse {
   google.protobuf.Timestamp reset_at = 3;
 
   // Error information if reset failed
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 
   // Statistics categories that were reset
   repeated string reset_categories = 5 [(buf.validate.field).repeated.min_items = 1];

@@ -19,8 +19,8 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message RetentionPolicyInfo {
   // Predefined policy selection
-  common.v1.MetricsRetentionPolicy policy = 1;
+  common.v2.MetricsRetentionPolicy policy = 1;
 
   // Detailed configuration for custom policies
-  common.v1.MetricsRetentionPolicyConfig config = 2;
+  common.v2.MetricsRetentionPolicyConfig config = 2;
 }

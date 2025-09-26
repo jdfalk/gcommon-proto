@@ -26,5 +26,5 @@ message GetHealthRequest {
   bool include_details = 2;
 
   // Request metadata for tracing
-  common.v1.RequestMetadata metadata = 3 [lazy = true];
+  common.v2.RequestMetadata metadata = 3 [lazy = true];
 }

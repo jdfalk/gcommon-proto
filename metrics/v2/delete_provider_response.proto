@@ -22,7 +22,7 @@ message DeleteProviderResponse {
   bool success = 1;
 
   // Error information if deletion failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Provider ID that was deleted
   string provider_id = 3 [(buf.validate.field).string.min_len = 1];

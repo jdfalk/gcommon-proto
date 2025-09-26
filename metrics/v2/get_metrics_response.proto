@@ -31,7 +31,7 @@ message MetricsGetMetricsResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Retrieved metrics data
   repeated MetricData metrics = 3 [(buf.validate.field).repeated.min_items = 1];
@@ -49,7 +49,7 @@ message MetricsGetMetricsResponse {
   google.protobuf.Timestamp generated_at = 7;
 
   // Time range covered by the response
-  common.v1.TimeRangeMetrics time_range = 8;
+  common.v2.TimeRangeMetrics time_range = 8;
 
   // Warnings or informational messages
   repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];

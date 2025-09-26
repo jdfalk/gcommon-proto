@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 // Configuration for metric aggregation operations
 message MetricAggregation {
   // Type of aggregation
-  common.v1.AggregationType type = 1;
+  common.v2.AggregationType type = 1;
 
   // Time window for aggregation
   int32 window_seconds = 2 [(buf.validate.field).int32.gte = 0];

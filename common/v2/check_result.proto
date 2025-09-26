@@ -28,7 +28,7 @@ message CheckResult {
 
   // Health status of this specific check
   // Overall status of the health check
-  common.v1.CommonHealthStatus status = 2;
+  common.v2.CommonHealthStatus status = 2;
 
   // Check execution timestamp
   google.protobuf.Timestamp timestamp = 3;
@@ -40,7 +40,7 @@ message CheckResult {
   string message = 5;
 
   // Error details if the check failed
-  common.v1.Error error = 6;
+  common.v2.Error error = 6;
 
   // Additional metadata for this check
   map<string, string> metadata = 7;

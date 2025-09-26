@@ -23,5 +23,5 @@ message SetConfigResponse {
   ConfigEntry previous_entry = 2;
 
   // Error information
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

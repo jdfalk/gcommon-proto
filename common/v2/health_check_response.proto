@@ -24,7 +24,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message HealthHealthCheckResponse {
   // Overall health status
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Service name
   string service = 2 [(buf.validate.field).string.min_len = 1];
@@ -42,7 +42,7 @@ message HealthHealthCheckResponse {
   string message = 6 [(buf.validate.field).string.min_len = 1];
 
   // Error information if unhealthy
-  common.v1.Error error = 7;
+  common.v2.Error error = 7;
 
   // Health metrics
   HealthMetrics metrics = 8;

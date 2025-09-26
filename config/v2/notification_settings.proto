@@ -24,7 +24,7 @@ message ConfigNotificationSettings {
   repeated ConfigNotificationChannel channels = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Notification triggers
-  repeated common.v1.NotificationTrigger triggers = 3 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.NotificationTrigger triggers = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Notification template
   string template = 4 [(buf.validate.field).string.min_len = 1];

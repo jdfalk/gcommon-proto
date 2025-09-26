@@ -30,7 +30,7 @@ message SecurityContext {
   repeated string permissions = 4;
 
   // Authentication method used
-  common.v1.AuthAuthMethod auth_method = 5;
+  common.v2.AuthAuthMethod auth_method = 5;
 
   // MFA verified
   bool mfa_verified = 6;

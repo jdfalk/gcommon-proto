@@ -19,13 +19,13 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message GetMetricsSummaryRequest {
   // Standard request metadata (tracing, auth, etc.)
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Optional filter to limit which metrics to include in summary
   MetricFilter filter = 2;
 
   // Time range for the summary
-  common.v1.TimeRangeMetrics time_range = 3;
+  common.v2.TimeRangeMetrics time_range = 3;
 
   // What summary information to include
   SummaryOptions options = 4;

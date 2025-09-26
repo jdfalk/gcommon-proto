@@ -27,7 +27,7 @@ message EvictionResult {
   repeated string evicted_keys = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Eviction policy used
-  common.v1.EvictionPolicy policy_used = 3;
+  common.v2.EvictionPolicy policy_used = 3;
 
   // Reason for eviction
   string eviction_reason = 4 [(buf.validate.field).string.min_len = 1];

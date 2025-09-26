@@ -23,5 +23,5 @@ message ClearRequest {
   string namespace = 1 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for tracing
-  common.v1.RequestMetadata metadata = 2;
+  common.v2.RequestMetadata metadata = 2;
 }

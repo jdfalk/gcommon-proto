@@ -51,7 +51,7 @@ message WatchResponse {
   string message = 6 [(buf.validate.field).string.min_len = 1];
 
   // Error information if unhealthy
-  common.v1.Error error = 7;
+  common.v2.Error error = 7;
 
   // Health metrics
   HealthMetrics metrics = 8;

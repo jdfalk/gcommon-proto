@@ -22,5 +22,5 @@ message RegisterMiddlewareResponse {
   MiddlewareInfo middleware = 2;
 
   // Error information if the operation failed
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

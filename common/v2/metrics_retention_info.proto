@@ -18,5 +18,5 @@ message MetricsRetentionInfo {
   int64 total_retained_bytes = 1 [(buf.validate.field).int64.gte = 0];
   int64 total_purged_bytes = 2 [(buf.validate.field).int64.gte = 0];
   string oldest_data_age = 3 [(buf.validate.field).string.min_len = 1];
-  repeated common.v1.MetricsRetentionPolicyConfig policies = 4 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsRetentionPolicyConfig policies = 4 [(buf.validate.field).repeated.min_items = 1];
 }

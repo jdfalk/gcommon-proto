@@ -38,7 +38,7 @@ message Acknowledgment {
   int64 offset = 5;
 
   // Acknowledgment type
-  common.v1.AckType ack_type = 6;
+  common.v2.AckType ack_type = 6;
 
   // Timestamp when message was acknowledged
   google.protobuf.Timestamp ack_timestamp = 7;

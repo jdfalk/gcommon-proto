@@ -25,7 +25,7 @@ message TemplateParameter {
   string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
 
   // Parameter type
-  common.v1.ParameterType type = 3;
+  common.v2.ParameterType type = 3;
 
   // Whether parameter is required
   bool required = 4;
@@ -37,7 +37,7 @@ message TemplateParameter {
   repeated string allowed_values = 6;
 
   // Parameter constraints
-  common.v1.ParameterConstraints constraints = 7;
+  common.v2.ParameterConstraints constraints = 7;
 
   // Parameter group
   string group = 8;

@@ -26,7 +26,7 @@ message MetricDefinition {
     ];
 
   // Type of metric (counter, gauge, histogram, etc.)
-  common.v1.MetricsMetricType type = 2;
+  common.v2.MetricsMetricType type = 2;
 
   // Human-readable description
   string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
@@ -41,7 +41,7 @@ message MetricDefinition {
   MetricTypeConfig config = 6;
 
   // Retention policy for this metric
-  common.v1.MetricsRetentionPolicyConfig retention = 7;
+  common.v2.MetricsRetentionPolicyConfig retention = 7;
 
   // Export configuration for this metric
   ExportConfig export_config = 8;

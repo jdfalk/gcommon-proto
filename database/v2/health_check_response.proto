@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/database/v2";
  */
 message DatabaseHealthCheckResponse {
   // Overall health status of the database
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Whether the database connection is operational
   bool connection_ok = 2;
@@ -28,5 +28,5 @@ message DatabaseHealthCheckResponse {
   google.protobuf.Duration response_time = 3 [lazy = true];
 
   // Error information if the health check failed
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

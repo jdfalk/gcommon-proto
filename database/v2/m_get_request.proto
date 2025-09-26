@@ -35,5 +35,5 @@ message MGetRequest {
   bool update_access_time = 4;
 
   // Request metadata for tracing and debugging
-  common.v1.RequestMetadata metadata = 5;
+  common.v2.RequestMetadata metadata = 5;
 }

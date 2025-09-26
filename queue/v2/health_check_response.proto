@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
  */
 message QueueHealthCheckResponse {
   // Overall queue service health.
-  common.v1.CommonHealthStatus status = 1;
+  common.v2.CommonHealthStatus status = 1;
 
   // Whether the queue connection is operational.
   bool connection_ok = 2;
@@ -29,5 +29,5 @@ message QueueHealthCheckResponse {
   google.protobuf.Duration response_time = 3 [lazy = true];
 
   // Error information if the check failed.
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

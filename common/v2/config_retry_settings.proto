@@ -25,7 +25,7 @@ message ConfigRetrySettings {
   int32 delay_seconds = 3 [(buf.validate.field).int32.gte = 0];
 
   // Retry backoff strategy
-  common.v1.BackoffStrategy backoff_strategy = 4;
+  common.v2.BackoffStrategy backoff_strategy = 4;
 
   // Retry conditions
   repeated string conditions = 5 [(buf.validate.field).repeated.min_items = 1];

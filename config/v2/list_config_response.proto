@@ -23,8 +23,8 @@ message ListConfigResponse {
   repeated ConfigEntry entries = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Pagination information
-  common.v1.PaginatedResponse pagination = 2;
+  common.v2.PaginatedResponse pagination = 2;
 
   // Error information
-  common.v1.Error error = 3;
+  common.v2.Error error = 3;
 }

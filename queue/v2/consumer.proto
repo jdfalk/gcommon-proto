@@ -26,7 +26,7 @@ message Consumer {
   ConsumerClient client_info = 2;
 
   // Consumer state
-  common.v1.ConsumerState state = 3;
+  common.v2.ConsumerState state = 3;
 
   // Assigned partitions
   repeated int32 assigned_partitions = 4 [(buf.validate.field).repeated.min_items = 1];

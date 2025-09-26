@@ -18,5 +18,5 @@ message LogoutResponse {
   bool success = 1;
 
   // Optional error information if logout failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

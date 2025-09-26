@@ -21,11 +21,11 @@ message StartServerResponse {
   bool success = 1;
 
   // Server status
-  common.v1.ServerStatus status = 2;
+  common.v2.ServerStatus status = 2;
 
   // Listen address
   string listen_address = 3 [(buf.validate.field).string.min_len = 1];
 
   // Error information
-  common.v1.Error error = 4;
+  common.v2.Error error = 4;
 }

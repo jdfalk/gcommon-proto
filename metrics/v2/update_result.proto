@@ -20,10 +20,10 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
  */
 message UpdateResult {
   // What update action was taken
-  common.v1.UpdateAction action = 1;
+  common.v2.UpdateAction action = 1;
 
   // Configuration changes that were applied
-  repeated common.v1.MetricsConfigChange config_changes = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsConfigChange config_changes = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Settings that were updated
   repeated string updated_settings = 3 [(buf.validate.field).repeated.min_items = 1];

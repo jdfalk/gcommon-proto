@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message AuthCreateSessionResponse {
   // Standard response metadata
-  common.v1.ResponseMetadata metadata = 1;
+  common.v2.ResponseMetadata metadata = 1;
 
   // Created session details
   string session_id = 2;

@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/queue/v2";
  */
 message LoadBalancingConfig {
   // Load balancing strategy
-  common.v1.LoadBalancingStrategy strategy = 1;
+  common.v2.LoadBalancingStrategy strategy = 1;
 
   // Weight for this consumer (for weighted strategies)
   int32 weight = 2 [(buf.validate.field).int32.gte = 0];

@@ -25,5 +25,5 @@ message ImportMetricsResponse {
   int32 imported_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
 
   // Error information if the import failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 }

@@ -21,7 +21,7 @@ message TransformationStep {
     ];
 
   // Step type
-  common.v1.TransformationType type = 2;
+  common.v2.TransformationType type = 2;
 
   // Step expression
   string expression = 3;

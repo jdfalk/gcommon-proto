@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message GetTenantIsolationRequest {
   // Request metadata for tracing and context
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Tenant identifier
   string tenant_id = 2 [(buf.validate.field).string.min_len = 1];

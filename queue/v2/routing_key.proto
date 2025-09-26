@@ -23,7 +23,7 @@ message RoutingKey {
   string key = 1 [(buf.validate.field).string.min_len = 1];
 
   // Pattern type for key matching
-  common.v1.RoutingPattern pattern_type = 2;
+  common.v2.RoutingPattern pattern_type = 2;
 
   // Whether the pattern is case sensitive
   bool case_sensitive = 3;

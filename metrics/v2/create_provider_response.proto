@@ -23,7 +23,7 @@ message CreateProviderResponse {
   bool success = 1;
 
   // Error information if creation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // ID of the created provider
   string provider_id = 3;
@@ -35,7 +35,7 @@ message CreateProviderResponse {
   ProviderStatus status = 5;
 
   // Validation results
-  common.v1.MetricsValidationResult validation = 6;
+  common.v2.MetricsValidationResult validation = 6;
 
   // Configuration details that were applied
   AppliedConfig applied_config = 7;

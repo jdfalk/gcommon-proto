@@ -28,7 +28,7 @@ message ProviderConfig {
     ];
 
   // Type of provider (prometheus, opentelemetry, custom, etc.)
-  common.v1.MetricsProviderType type = 3;
+  common.v2.MetricsProviderType type = 3;
 
   // Provider-specific configuration
   ProviderSettings settings = 4;
@@ -37,7 +37,7 @@ message ProviderConfig {
   ExportConfig export_config = 5;
 
   // Resource limits imposed by the organization
-  common.v1.OrganizationResourceLimits resource_limits = 6;
+  common.v2.OrganizationResourceLimits resource_limits = 6;
 
   // Security configuration
   MetricsSecurityConfig security_config = 7;

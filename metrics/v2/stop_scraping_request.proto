@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message StopScrapingRequest {
   // Standard request metadata
-  common.v1.RequestMetadata metadata = 1;
+  common.v2.RequestMetadata metadata = 1;
 
   // Identifier of the job to stop
   string job_id = 2 [(buf.validate.field).string.min_len = 1];

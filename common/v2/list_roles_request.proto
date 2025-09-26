@@ -21,16 +21,16 @@ option go_package = "github.com/jdfalk/gcommon/common/v2";
  */
 message ListRolesRequest {
   // Pagination parameters
-  common.v1.Pagination pagination = 1;
+  common.v2.Pagination pagination = 1;
 
   // Filter options for role selection
-  common.v1.FilterOptions filter = 2;
+  common.v2.FilterOptions filter = 2;
 
   // Sort options for result ordering
-  common.v1.SortOptions sort = 3;
+  common.v2.SortOptions sort = 3;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 }
 // This is a placeholder file created during 1-1-1 migration
 // Implement the actual protobuf definitions according to the auth module requirements

@@ -21,5 +21,5 @@ message GetPreferencesResponse {
   SubscriptionPreferences preferences = 1;
 
   // Response metadata for rate limiting and tracing.
-  common.v1.ResponseMetadata metadata = 2;
+  common.v2.ResponseMetadata metadata = 2;
 }

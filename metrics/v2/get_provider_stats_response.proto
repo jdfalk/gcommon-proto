@@ -22,7 +22,7 @@ message GetProviderStatsResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Provider ID these stats are for
   string provider_id = 3 [(buf.validate.field).string.min_len = 1];
@@ -34,7 +34,7 @@ message GetProviderStatsResponse {
   google.protobuf.Timestamp generated_at = 5;
 
   // Time range covered by the statistics
-  common.v1.TimeRangeMetrics time_range = 6;
+  common.v2.TimeRangeMetrics time_range = 6;
 
   // Warnings or informational messages
   repeated string warnings = 7 [(buf.validate.field).repeated.min_items = 1];

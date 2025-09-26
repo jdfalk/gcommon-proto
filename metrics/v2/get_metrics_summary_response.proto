@@ -24,7 +24,7 @@ message GetMetricsSummaryResponse {
   bool success = 1;
 
   // Error information if the operation failed
-  common.v1.Error error = 2;
+  common.v2.Error error = 2;
 
   // Summary information organized by category
   MetricsSummary summary = 3;
@@ -39,7 +39,7 @@ message GetMetricsSummaryResponse {
   google.protobuf.Timestamp generated_at = 6;
 
   // Time range covered by the summary
-  common.v1.TimeRangeMetrics time_range = 7;
+  common.v2.TimeRangeMetrics time_range = 7;
 
   // Warnings or informational messages
   repeated string warnings = 8 [(buf.validate.field).repeated.min_items = 1];

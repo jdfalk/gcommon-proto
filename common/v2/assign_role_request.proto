@@ -43,7 +43,7 @@ message AssignRoleRequest {
     ];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 4;
+  common.v2.RequestMetadata metadata = 4;
 
   // Audit information for tracking who made the assignment
   string assigned_by = 5;

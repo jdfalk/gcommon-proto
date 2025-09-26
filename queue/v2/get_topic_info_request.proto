@@ -34,5 +34,5 @@ message GetTopicInfoRequest {
   bool include_consumer_groups = 4;
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 5;
+  common.v2.RequestMetadata metadata = 5;
 }

@@ -25,8 +25,8 @@ message KeysRequest {
   string namespace = 2 [(buf.validate.field).string.min_len = 1];
 
   // Pagination options
-  common.v1.Pagination pagination = 3 [lazy = true];
+  common.v2.Pagination pagination = 3 [lazy = true];
 
   // Request metadata
-  common.v1.RequestMetadata metadata = 4 [lazy = true];
+  common.v2.RequestMetadata metadata = 4 [lazy = true];
 }

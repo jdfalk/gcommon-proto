@@ -22,5 +22,5 @@ message CreateMetricRequest {
   MetricData metric = 1;
 
   // Request metadata for tracing
-  common.v1.RequestMetadata metadata = 2 [lazy = true];
+  common.v2.RequestMetadata metadata = 2 [lazy = true];
 }

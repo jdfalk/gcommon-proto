@@ -53,7 +53,7 @@ message OAuthClient {
   google.protobuf.Timestamp created_at = 10 [lazy = true, (buf.validate.field).required = true];
 
   // Client status
-  common.v1.ResourceStatus status = 11;
+  common.v2.ResourceStatus status = 11;
 
   // Client metadata
   map<string, string> metadata = 12 [lazy = true];

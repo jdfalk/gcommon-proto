@@ -26,5 +26,5 @@ message RevokeTokenRequest {
   string token_type_hint = 2 [(buf.validate.field).string.min_len = 1];
 
   // Request metadata for tracing and correlation
-  common.v1.RequestMetadata metadata = 3;
+  common.v2.RequestMetadata metadata = 3;
 }

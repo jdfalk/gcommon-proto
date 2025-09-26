@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message InheritanceTransformation {
   // Transformation type
-  common.v1.TransformationType type = 1;
+  common.v2.TransformationType type = 1;
 
   // Transformation expression
   string expression = 2 [(buf.validate.field).string.min_len = 1];

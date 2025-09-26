@@ -20,7 +20,7 @@ message ComponentHealth {
       (buf.validate.field).string.max_len = 100
     ];
   // Component status
-  common.v1.ServingStatus status = 2;
+  common.v2.ServingStatus status = 2;
   // Component-specific message
   string message = 3;
   // Component check duration in milliseconds

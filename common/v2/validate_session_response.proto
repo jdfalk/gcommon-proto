@@ -29,5 +29,5 @@ message ValidateSessionResponse {
   UserInfo user_info = 3 [lazy = true];
 
   // Error information if validation fails
-  common.v1.Error error = 4 [lazy = true];
+  common.v2.Error error = 4 [lazy = true];
 }

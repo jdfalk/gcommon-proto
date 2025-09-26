@@ -47,7 +47,7 @@ message DequeueResponse {
    * Request processing metadata including timing, request ID,
    * and other observability information.
    */
-  common.v1.RequestMetadata request_metadata = 11;
+  common.v2.RequestMetadata request_metadata = 11;
 
   /**
    * Name of the queue messages were retrieved from.
@@ -99,7 +99,7 @@ message DequeueResponse {
    * Error information if the dequeue operation failed
    * or completed with warnings.
    */
-  common.v1.Error error = 61;
+  common.v2.Error error = 61;
 
   // Timestamps (51-60)
 

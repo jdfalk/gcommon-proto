@@ -37,7 +37,7 @@ message RemoveMiddlewareResponse {
    * Request processing metadata including timing, request ID,
    * and other observability information.
    */
-  common.v1.RequestMetadata request_metadata = 11;
+  common.v2.RequestMetadata request_metadata = 11;
 
   // Status and error fields (61-70)
 
@@ -45,7 +45,7 @@ message RemoveMiddlewareResponse {
    * Error information if the operation failed
    * or completed with warnings.
    */
-  common.v1.Error error = 61;
+  common.v2.Error error = 61;
 
   // Timestamps (51-60)
 
