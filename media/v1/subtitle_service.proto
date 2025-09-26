@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/media/subtitle_service.proto
+// version: 1.0.1
+// guid: 3456789-abcd-ef01-d4e5-f6a7b8c9d0e1
+
+edition = "2023";
+
+package media.v1;
+
+import "media/v1/adjust_subtitle_timing_request.proto";
+import "media/v1/adjust_subtitle_timing_response.proto";
+import "media/v1/convert_subtitle_format_request.proto";
+import "media/v1/convert_subtitle_format_response.proto";
+import "media/v1/merge_subtitles_request.proto";
+import "media/v1/merge_subtitles_response.proto";
+import "media/v1/sync_subtitles_request.proto";
+import "media/v1/sync_subtitles_response.proto";
+import "media/v1/validate_subtitles_request.proto";
+import "media/v1/validate_subtitles_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+/**
+ * SubtitleService provides subtitle management, synchronization,
+ * and processing operations.
+ */
+service SubtitleService {
+  // Merge multiple subtitle files
+  rpc MergeSubtitles(MergeSubtitlesRequest) returns (MergeSubtitlesResponse);
+
+  // Synchronize subtitles with media
+  rpc SyncSubtitles(SyncSubtitlesRequest) returns (SyncSubtitlesResponse);
+
+  // Adjust subtitle timing
+  rpc AdjustSubtitleTiming(AdjustSubtitleTimingRequest) returns (AdjustSubtitleTimingResponse);
+
+  // Convert subtitle format
+  rpc ConvertSubtitleFormat(ConvertSubtitleFormatRequest) returns (ConvertSubtitleFormatResponse);
+
+  // Validate subtitle file
+  rpc ValidateSubtitles(ValidateSubtitlesRequest) returns (ValidateSubtitlesResponse);
+}

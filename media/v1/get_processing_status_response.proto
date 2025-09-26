@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/media/get_processing_status_response.proto
+// version: 1.0.0
+// guid: 2345678-9abc-def0-c3d4-e5f6a7b8c9d0
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+// Response with processing job status.
+message GetProcessingStatusResponse {
+  string job_id = 1;
+  string status = 2; // pending, processing, completed, failed, cancelled
+  string job_type = 3; // transcode, analyze, extract_audio, extract_subtitles
+  int32 progress_percent = 4; // Progress percentage (0-100)
+  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp updated_at = 6;
+  google.protobuf.Timestamp completed_at = 7;
+  string error_message = 8; // Error details if failed
+  repeated string output_file_ids = 9; // IDs of output files (when completed)
+}

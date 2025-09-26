@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/media/media_quality.proto
+// version: 1.0.0
+// guid: 62c527ab-9d69-4c5c-af80-64aa0657f948
+
+edition = "2023";
+
+package media.v1;
+
+import "common/v1/quality_score.proto";
+import "common/v1/resolution.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+// Media quality assessment.
+message MediaQuality {
+  common.v1.Resolution resolution = 1;
+  string video_codec = 2 [(buf.validate.field).string.min_len = 1];
+  int32 bitrate_kbps = 3 [(buf.validate.field).int32.gte = 0];
+  float duration_seconds = 4 [(buf.validate.field).float.gte = 0.0];
+  common.v1.QualityScore quality_score = 5;
+}

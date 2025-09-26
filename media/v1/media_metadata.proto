@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/media/metadata/media_metadata.proto
+// version: 1.0.0
+// guid: e5b804c2-185f-402f-8edb-b3c390406e52
+
+edition = "2023";
+
+package media.v1;
+
+import "media/v1/movie_info.proto";
+import "media/v1/series_info.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+// Metadata information for a media file from external sources.
+message MediaMetadata {
+  string title = 1 [(buf.validate.field).string.min_len = 1];
+  string original_title = 2 [(buf.validate.field).string.min_len = 1];
+  int32 year = 3 [(buf.validate.field).int32.gte = 0];
+  string plot = 4 [(buf.validate.field).string.min_len = 1];
+  repeated string genres = 5 [(buf.validate.field).repeated.min_items = 1];
+  string imdb_id = 6 [(buf.validate.field).string.min_len = 1];
+  string tmdb_id = 7 [(buf.validate.field).string.min_len = 1];
+  float rating = 8 [(buf.validate.field).float.gte = 0.0];
+  repeated string languages = 9 [(buf.validate.field).repeated.min_items = 1];
+  repeated string actors = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated string directors = 11 [(buf.validate.field).repeated.min_items = 1];
+  SeriesInfo series_info = 12;
+  MovieInfo movie_info = 13;
+}

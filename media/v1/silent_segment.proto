@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/media/silent_segment.proto
+// version: 1.0.0
+// guid: e7e77f68-bd83-4543-869b-b990df41ed1d
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message SilentSegment {
+  google.protobuf.Duration start_time = 1;
+  google.protobuf.Duration end_time = 2;
+  double threshold_db = 3; // Silence threshold used
+}

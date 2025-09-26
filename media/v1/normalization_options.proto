@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/media/normalization_options.proto
+// version: 1.0.0
+// guid: 1744e330-4411-49b8-8f30-284985bd747f
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message NormalizationOptions {
+  double target_lufs = 1; // Target loudness in LUFS (-23.0 is broadcast standard)
+  double max_peak_db = 2; // Maximum peak level in dB
+  bool enable_limiter = 3; // Enable limiting to prevent clipping
+}

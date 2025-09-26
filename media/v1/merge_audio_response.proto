@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/media/merge_audio_response.proto
+// version: 1.0.0
+// guid: 9abcdef-0123-4567-b6c7-d8e9f0a1b2c3
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message MergeAudioResponse {
+  string merged_audio_file_id = 1 [(buf.validate.field).string.min_len = 1];
+}

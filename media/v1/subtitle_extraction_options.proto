@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/media/subtitle_extraction_options.proto
+// version: 1.0.0
+// guid: 87163577-1e6b-474b-a532-c9e0978036b7
+
+edition = "2023";
+
+package media.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/media/v1";
+
+message SubtitleExtractionOptions {
+  string output_format = 1; // Output format (srt, vtt, ass, etc.)
+  bool include_hearing_impaired = 2; // Include hearing impaired tracks
+  bool include_forced = 3; // Include forced tracks
+  repeated string languages = 4; // Filter by languages
+}
