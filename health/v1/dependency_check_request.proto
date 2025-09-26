@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/health/requests/dependency_check_request.proto
+// version: 1.0.0
+// guid: b4c5d6e7-f209-7890-4567-123456789012
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * DependencyCheckRequest requests a check of external dependencies.
+ * Verifies connectivity and health of services this component depends on.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message DependencyCheckRequest {
+  // Service name to check dependencies for
+  string service_name = 1;
+
+  // Specific dependency to check (optional, checks all if empty)
+  string dependency_name = 2;
+
+  // Request metadata for authentication and tracing
+  common.v1.RequestMetadata metadata = 3;
+
+  // Maximum time to wait for dependency checks
+  google.protobuf.Duration timeout = 4;
+
+  // Include only critical dependencies
+  bool critical_only = 5;
+
+  // Minimum criticality level to include (1-10)
+  int32 min_criticality = 6;
+}

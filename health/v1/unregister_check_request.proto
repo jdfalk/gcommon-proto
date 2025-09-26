@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/health/requests/unregister_check_request.proto
+// version: 1.0.0
+// guid: d6e7f809-142a-9012-6789-345678901234
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * UnregisterCheckRequest removes a health check from the system.
+ * Allows dynamic removal of health checks at runtime.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message UnregisterCheckRequest {
+  // ID of the health check to unregister
+  string check_id = 1;
+
+  // Request metadata for authentication and tracing
+  common.v1.RequestMetadata metadata = 2;
+
+  // Whether to force removal even if check is running
+  bool force = 3;
+}

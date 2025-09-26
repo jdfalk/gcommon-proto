@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/health/responses/register_check_response.proto
+// version: 1.0.0
+// guid: 3d4e5f60-7a81-9012-6789-345678901234
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * RegisterCheckResponse confirms registration of a health check.
+ * Returns success status and any relevant information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message RegisterCheckResponse {
+  // Whether the registration was successful
+  bool success = 1;
+
+  // The ID assigned to the registered check
+  string check_id = 2;
+
+  // Human-readable message about the registration
+  string message = 3;
+
+  // Response metadata
+  common.v1.ResponseMetadata metadata = 4;
+
+  // Any warnings about the registration
+  repeated string warnings = 5;
+}

@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/health/responses/unregister_check_response.proto
+// version: 1.0.0
+// guid: e7f8091a-253b-0123-7890-456789012345
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * UnregisterCheckResponse confirms removal of a health check.
+ * Returns success status and any relevant information.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message UnregisterCheckResponse {
+  // Whether the unregistration was successful
+  bool success = 1;
+
+  // Human-readable message about the unregistration
+  string message = 2;
+
+  // Response metadata
+  common.v1.ResponseMetadata metadata = 3;
+}

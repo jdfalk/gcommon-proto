@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/health/responses/readiness_check_response.proto
+// version: 1.0.0
+// guid: 7081920a-1425-3456-0123-789012345678
+
+edition = "2023";
+
+package health.v1;
+
+import "health/v1/health_status.proto";
+import "common/v1/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * ReadinessCheckResponse returns the result of a readiness check.
+ * Indicates whether a service is ready to handle requests.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ReadinessCheckResponse {
+  // Overall readiness status
+  HealthStatus status = 1;
+
+  // Whether the service is ready to handle requests
+  bool ready = 2;
+
+  // Reason if not ready
+  string reason = 3;
+
+  // Health score (0-100)
+  int32 health_score = 4;
+
+  // Dependency readiness status
+  map<string, HealthStatus> dependency_status = 5;
+
+  // Response metadata
+  common.v1.ResponseMetadata metadata = 6;
+
+  // Additional readiness details
+  map<string, string> details = 7;
+}

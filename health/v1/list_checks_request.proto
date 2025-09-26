@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/health/requests/list_checks_request.proto
+// version: 1.0.0
+// guid: f809192a-364c-1234-8901-567890123456
+
+edition = "2023";
+
+package health.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/health/v1";
+
+/**
+ * ListChecksRequest requests a list of registered health checks.
+ * Supports filtering and pagination.
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ListChecksRequest {
+  // Filter by service name (optional)
+  string service_name = 1;
+
+  // Filter by check type (optional)
+  string check_type = 2;
+
+  // Filter by tags (optional)
+  repeated string tags = 3;
+
+  // Request metadata for authentication and tracing
+  common.v1.RequestMetadata metadata = 4;
+
+  // Include only enabled checks
+  bool enabled_only = 5;
+
+  // Maximum number of results to return
+  int32 limit = 6;
+
+  // Pagination offset
+  int32 offset = 7;
+}
