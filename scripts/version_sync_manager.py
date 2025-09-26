@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/version_sync_manager.py
-# version: 1.0.0
+# version: 2.0.0
 # guid: version-sync-manager-gcommon-system
 
 """
@@ -38,7 +38,7 @@ class VersionInfo:
 @dataclass
 class VersionSyncConfig:
     """Configuration for version synchronization."""
-    source_repo: str = "gcommon"
+    source_repo: str = "gcommon-proto"
     target_repos: List[str] = None
     version_strategy: str = "semantic"  # semantic, date, manual
     auto_release: bool = True
@@ -46,12 +46,11 @@ class VersionSyncConfig:
 
     def __post_init__(self):
         if self.target_repos is None:
-            self.target_repos = ["gcommon-go", "gcommon-py"]
+            self.target_repos = ["gcommon"]
         if self.compatibility_matrix is None:
             self.compatibility_matrix = {
-                "gcommon": ["gcommon-go", "gcommon-py"],
-                "gcommon-go": ["gcommon"],
-                "gcommon-py": ["gcommon"]
+                "gcommon-proto": ["gcommon"],
+                "gcommon": ["gcommon-proto"]
             }
 
 class VersionSyncManager:
