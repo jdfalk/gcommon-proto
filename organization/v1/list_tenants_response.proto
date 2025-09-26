@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/organization/list_tenants_response.proto
+// version: 1.0.0
+// guid: ea50c027-6fc4-450e-911b-8b34c268b827
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/error.proto";
+import "common/v1/paginated_response.proto";
+import "organization/v1/tenant.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message ListTenantsResponse {
+  // Any errors encountered
+  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Success status
+  bool success = 2;
+
+  // List of tenants returned
+  repeated Tenant tenants = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Pagination metadata
+  common.v1.PaginatedResponse pagination = 4;
+}

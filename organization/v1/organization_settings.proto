@@ -1,0 +1,60 @@
+// file: proto/gcommon/v1/organization/organization_settings.proto
+// version: 1.0.0
+// guid: 16cd3cd6-4780-44b7-96c0-facf112a08bc
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/key_value.proto";
+import "common/v1/organization_compliance_settings.proto";
+import "common/v1/organization_notification_settings.proto";
+import "organization/v1/billing_settings.proto";
+import "organization/v1/feature_flag.proto";
+import "organization/v1/integration_settings.proto";
+import "organization/v1/security_settings.proto";
+import "organization/v1/ui_settings.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message OrganizationSettings {
+  // Organization identifier
+  string organization_id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Security and authentication settings
+  SecuritySettings security = 2;
+
+  // User interface and experience settings
+  UISettings ui = 3;
+
+  // Integration and API settings
+  IntegrationSettings integrations = 4;
+
+  // Notification and communication settings
+  common.v1.OrganizationNotificationSettings notifications = 5;
+
+  // Billing and subscription settings
+  BillingSettings billing = 6;
+
+  // Data retention and compliance settings
+  common.v1.OrganizationComplianceSettings compliance = 7;
+
+  // Feature flags and experimental features
+  repeated FeatureFlag feature_flags = 8;
+
+  // Custom organization-specific settings
+  repeated common.v1.KeyValue custom_settings = 9 [lazy = true];
+
+  // Settings last update timestamp
+  google.protobuf.Timestamp updated_at = 10 [lazy = true];
+
+  // User ID who last updated these settings
+  string updated_by = 11 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+}

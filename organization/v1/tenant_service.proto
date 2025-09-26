@@ -1,0 +1,63 @@
+// file: proto/gcommon/v1/organization/tenant_service.proto
+// version: 1.0.1
+// guid: 56bd37e6-4e4a-4a15-82a6-b392bed64d95
+edition = "2023";
+
+package organization.v1;
+
+import "organization/v1/configure_tenant_isolation_request.proto";
+import "organization/v1/configure_tenant_isolation_response.proto";
+import "organization/v1/create_tenant_request.proto";
+import "organization/v1/create_tenant_response.proto";
+import "organization/v1/delete_tenant_request.proto";
+import "organization/v1/delete_tenant_response.proto";
+import "organization/v1/get_tenant_isolation_request.proto";
+import "organization/v1/get_tenant_isolation_response.proto";
+import "organization/v1/get_tenant_request.proto";
+import "organization/v1/get_tenant_response.proto";
+import "organization/v1/get_tenant_usage_request.proto";
+import "organization/v1/get_tenant_usage_response.proto";
+import "organization/v1/list_tenants_request.proto";
+import "organization/v1/list_tenants_response.proto";
+import "organization/v1/update_tenant_quota_request.proto";
+import "organization/v1/update_tenant_quota_response.proto";
+import "organization/v1/update_tenant_request.proto";
+import "organization/v1/update_tenant_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+/**
+ * TenantService provides comprehensive tenant management capabilities.
+ * Handles tenant CRUD operations, isolation configuration, quota management,
+ * and multi-tenant resource administration.
+ */
+service TenantService {
+  // Create a new tenant within an organization
+  rpc CreateTenant(CreateTenantRequest) returns (CreateTenantResponse);
+
+  // Get a tenant by ID
+  rpc GetTenant(GetTenantRequest) returns (GetTenantResponse);
+
+  // Update an existing tenant
+  rpc UpdateTenant(UpdateTenantRequest) returns (UpdateTenantResponse);
+
+  // Delete a tenant (soft delete)
+  rpc DeleteTenant(DeleteTenantRequest) returns (DeleteTenantResponse);
+
+  // List tenants within an organization (with pagination and filtering)
+  rpc ListTenants(ListTenantsRequest) returns (ListTenantsResponse);
+
+  // Configure tenant isolation settings
+  rpc ConfigureTenantIsolation(ConfigureTenantIsolationRequest) returns (ConfigureTenantIsolationResponse);
+
+  // Get tenant isolation configuration
+  rpc GetTenantIsolation(GetTenantIsolationRequest) returns (GetTenantIsolationResponse);
+
+  // Update tenant resource quotas
+  rpc UpdateTenantQuota(UpdateTenantQuotaRequest) returns (UpdateTenantQuotaResponse);
+
+  // Get tenant resource usage statistics
+  rpc GetTenantUsage(GetTenantUsageRequest) returns (GetTenantUsageResponse);
+}

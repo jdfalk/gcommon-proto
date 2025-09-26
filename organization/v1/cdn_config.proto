@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/organization/cdn_config.proto
+// version: 1.0.0
+// guid: 07ac4644-4b99-4ae2-a2c7-2fb5bcd47e0f
+
+edition = "2023";
+
+package organization.v1;
+
+import "organization/v1/cache_behavior.proto";
+import "organization/v1/origin_config.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message CDNConfig {
+  // CDN provider
+  string provider = 1 [(buf.validate.field).string.min_len = 1];
+
+  // CDN distribution ID
+  string distribution_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Cache behavior settings
+  repeated CacheBehavior cache_behaviors = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Origin configuration
+  OriginConfig origin = 4;
+}

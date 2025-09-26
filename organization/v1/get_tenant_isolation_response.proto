@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/organization/get_tenant_isolation_response.proto
+// version: 1.0.0
+// guid: 75f44d74-ae44-4d4c-ac6b-92a9d1b7d643
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/error.proto";
+import "organization/v1/tenant_isolation.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message GetTenantIsolationResponse {
+  // Any errors encountered
+  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Success status
+  bool success = 2;
+
+  // Current isolation configuration
+  TenantIsolation isolation = 3 [lazy = true];
+}

@@ -1,0 +1,64 @@
+// file: proto/gcommon/v1/organization/organization_hierarchy.proto
+// version: 1.0.0
+// guid: 2f0bea22-4f4d-4ac2-99bf-2b65d15ebebd
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/hierarchy_type.proto";
+import "common/v1/key_value.proto";
+import "organization/v1/hierarchy_node.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message OrganizationHierarchy {
+  // Unique hierarchy identifier
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Organization identifier
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Type of hierarchy structure
+  common.v1.HierarchyType hierarchy_type = 3;
+
+  // Name of this hierarchy configuration
+  string name = 4 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Description of this hierarchy structure
+  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Root node of the hierarchy (typically the organization itself)
+  HierarchyNode root_node = 6;
+
+  // Whether this hierarchy is currently active/primary
+  bool active = 7;
+
+  // Hierarchy metadata and configuration
+  repeated common.v1.KeyValue metadata = 8 [lazy = true];
+
+  // Hierarchy creation timestamp
+  google.protobuf.Timestamp created_at = 9 [lazy = true, (buf.validate.field).required = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 10 [lazy = true];
+
+  // User ID who created this hierarchy
+  string created_by = 11 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+
+  // User ID who last updated this hierarchy
+  string updated_by = 12 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+}

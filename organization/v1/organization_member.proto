@@ -1,0 +1,105 @@
+// file: proto/gcommon/v1/organization/organization_member.proto
+// version: 1.0.0
+// guid: 74375b8f-7a0b-4243-94fe-3c59ed01f5c4
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/key_value.proto";
+import "common/v1/member_role.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+/**
+ * OrganizationMember message representing a user's membership in an organization.
+ * Contains role information, permissions, and membership metadata.
+ */
+message OrganizationMember {
+  // Unique membership identifier
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Organization identifier
+  string organization_id = 2 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // User identifier from the auth system
+  string user_id = 3 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // User's email address (cached for quick access)
+  string email = 4 [ (buf.validate.field).string.email = true ];
+
+  // User's display name (cached for quick access)
+  string display_name = 5 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Primary role of the user in this organization
+  common.v1.MemberRole role = 6;
+
+  // Additional roles the user may have
+  repeated common.v1.MemberRole additional_roles = 7;
+
+  // Specific permissions granted to this member
+  repeated string permissions = 8;
+
+  // Department IDs this member belongs to
+  repeated string department_ids = 9;
+
+  // Team IDs this member belongs to
+  repeated string team_ids = 10;
+
+  // Tenant IDs this member has access to (for multi-tenant organizations)
+  repeated string tenant_ids = 11;
+
+  // Member metadata and custom attributes
+  repeated common.v1.KeyValue metadata = 12 [lazy = true];
+
+  // Membership creation timestamp (when user joined organization)
+  google.protobuf.Timestamp created_at = 13 [lazy = true, (buf.validate.field).required = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 14 [lazy = true];
+
+  // Last activity timestamp (when user was last active in organization)
+  google.protobuf.Timestamp last_active_at = 15 [lazy = true];
+
+  // User ID who added this member to the organization
+  string invited_by = 16;
+
+  // User ID who last updated this member's information
+  string updated_by = 17 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+
+  // Whether this member is currently active
+  bool active = 18;
+
+  // Member's job title within the organization
+  string job_title = 19;
+
+  // Member's manager's user ID (if applicable)
+  string manager_id = 20;
+
+  // Member's direct reports' user IDs
+  repeated string direct_report_ids = 21;
+
+  // Member's avatar/profile picture URL
+  string avatar_url = 22 [ (buf.validate.field).string.uri = true ];
+
+  // Member's phone number (organization context)
+  string phone = 23;
+
+  // Member's office location or workspace
+  string location = 24;
+}

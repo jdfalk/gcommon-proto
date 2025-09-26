@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/organization/network_acl_rule.proto
+// version: 1.0.0
+// guid: 409bba51-1b42-4988-accf-6e848e8862e2
+
+edition = "2023";
+
+package organization.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message NetworkACLRule {
+  // Rule action (allow, deny)
+  string action = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Source IP or CIDR block
+  string source = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Destination IP or CIDR block
+  string destination = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Protocol (TCP, UDP, ICMP)
+  string protocol = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Port range
+  string port_range = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Rule priority
+  int32 priority = 6 [(buf.validate.field).int32.gte = 0];
+}

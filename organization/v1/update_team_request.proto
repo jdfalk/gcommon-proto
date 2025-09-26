@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/organization/update_team_request.proto
+// version: 1.0.0
+// guid: c613ff0c-caef-4ec5-a856-de0a5ee8605c
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "organization/v1/team.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message UpdateTeamRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Team identifier to update
+  string team_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Updated team information
+  Team team = 3;
+
+  // Fields to update in partial mode
+  google.protobuf.FieldMask update_mask = 4;
+
+  // Validate only without persisting if true
+  bool validate_only = 5;
+}

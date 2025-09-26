@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/organization/list_members_response.proto
+// version: 1.0.1
+// guid: b11659ab-afa5-4b48-a417-b3b28ade628a
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/error.proto";
+import "common/v1/paginated_response.proto";
+import "organization/v1/organization_member.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message ListMembersResponse {
+  // Any errors encountered
+  repeated common.v1.Error errors = 1 [(buf.validate.field).repeated.min_items = 1];
+
+  // Success status
+  bool success = 2;
+
+  // List of members returned
+  repeated OrganizationMember members = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+
+  // Pagination metadata
+  common.v1.PaginatedResponse pagination = 4;
+}

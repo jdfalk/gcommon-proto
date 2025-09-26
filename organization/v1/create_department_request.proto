@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/organization/create_department_request.proto
+// version: 1.0.1
+// guid: d34e33ab-0a04-4f46-960f-5d5fd3b7cdcb
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "organization/v1/department.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message CreateDepartmentRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Department information to create
+  Department department = 2;
+
+  // Validate only without persisting if true
+  bool validate_only = 3;
+}

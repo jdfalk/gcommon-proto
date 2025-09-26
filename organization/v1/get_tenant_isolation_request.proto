@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/organization/get_tenant_isolation_request.proto
+// version: 1.0.0
+// guid: 81d19893-5428-407d-8b0d-29ce71a3f67c
+
+edition = "2023";
+
+package organization.v1;
+
+import "common/v1/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/organization/v1";
+
+message GetTenantIsolationRequest {
+  // Request metadata for tracing and context
+  common.v1.RequestMetadata metadata = 1;
+
+  // Tenant identifier
+  string tenant_id = 2 [(buf.validate.field).string.min_len = 1];
+}
