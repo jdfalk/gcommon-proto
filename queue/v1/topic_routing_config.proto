@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/topic_routing_config.proto
+// version: 1.0.0
+// guid: 502467f7-3d79-4329-8e44-4e499071092b
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Topic-based routing configuration.
+ */
+message TopicRoutingConfig {
+  // Topic exchange name
+  string exchange_name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Default routing key
+  string default_routing_key = 2;
+
+  // Whether to use wildcard matching
+  bool wildcard_matching = 3;
+}

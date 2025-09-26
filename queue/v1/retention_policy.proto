@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/retention_policy.proto
+// version: 1.0.0
+// guid: 5a069bb8-66bf-413e-a9e8-a1856f52eb01
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// RetentionPolicy controls how long messages are kept before deletion.
+message QueueRetentionPolicy {
+  // Maximum age of a message before it is removed.
+  google.protobuf.Duration max_age = 1;
+  // Maximum total storage size for the queue in bytes.
+  int64 max_size_bytes = 2 [(buf.validate.field).int64.gte = 0];
+  // If true, older messages are discarded when limits are reached.
+  bool discard_old = 3;
+}

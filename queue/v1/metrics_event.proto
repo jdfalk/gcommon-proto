@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/metrics_event.proto
+// version: 1.0.0
+// guid: 3d754283-08ab-451e-ad1d-c72c8da71fa4
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/metric_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message MetricsEvent {
+  // Timestamp of the event
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Queue name
+  string queue_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Type of metric
+  common.v1.MetricsMetricType metric_type = 3;
+
+  // Metric value
+  double value = 4;
+
+  // Additional metadata
+  map<string, string> labels = 5;
+}

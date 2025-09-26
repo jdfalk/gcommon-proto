@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/queue/config/topic_config.proto
+// file: proto/gcommon/v1/queue/topic_config.proto
+// version: 1.0.0
+// guid: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/partition_config.proto";
+import "queue/v1/retention_policy.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration settings for a topic.
+ */
+message TopicConfig {
+  // Maximum number of messages in the topic
+  uint64 max_messages = 1 [(buf.validate.field).uint64.gte = 0];
+
+  // Maximum size of the topic in bytes
+  uint64 max_size_bytes = 2 [(buf.validate.field).uint64.gte = 0];
+
+  // Message retention policy
+  QueueRetentionPolicy retention_policy = 3;
+
+  // Partitioning configuration
+  PartitionConfig partition_config = 4;
+
+  // Whether messages are persistent
+  bool persistent = 5;
+
+  // Whether topic is replicated
+  bool replicated = 6;
+
+  // Replication factor
+  uint32 replication_factor = 7 [(buf.validate.field).uint32.gte = 0];
+
+  // Whether to compact duplicate messages
+  bool enable_compaction = 8;
+}

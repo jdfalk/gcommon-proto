@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/queue/node_stats.proto
+// version: 1.0.0
+// guid: f64f009b-e23d-4540-9785-817fe7acb9f3
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Statistics for a single node.
+ */
+message NodeStats {
+  // Number of queues hosted on this node
+  int32 queue_count = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Number of messages on this node
+  int64 message_count = 2 [(buf.validate.field).int64.gte = 0];
+
+  // CPU usage percentage
+  double cpu_usage = 3 [(buf.validate.field).double.gte = 0.0];
+
+  // Memory usage in bytes
+  int64 memory_usage = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Disk usage in bytes
+  int64 disk_usage = 5 [(buf.validate.field).int64.gte = 0];
+
+  // Network throughput in bytes per second
+  double network_throughput = 6 [(buf.validate.field).double.gte = 0.0];
+}

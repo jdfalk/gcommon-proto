@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/config/batch_config.proto
+// file: proto/gcommon/v1/queue/batch_config.proto
+// version: 1.0.0
+// guid: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration for batch operations in queue processing.
+ */
+message BatchConfig {
+  // Maximum number of messages per batch
+  uint32 max_batch_size = 1 [(buf.validate.field).uint32.gte = 0];
+
+  // Maximum time to wait before sending partial batch
+  google.protobuf.Duration max_wait_time = 2;
+
+  // Maximum total size of batch in bytes
+  uint64 max_batch_bytes = 3 [(buf.validate.field).uint64.gte = 0];
+
+  // Whether to enable batch compression
+  bool enable_compression = 4;
+
+  // Number of parallel batch workers
+  uint32 worker_count = 5 [(buf.validate.field).uint32.gte = 0];
+
+  // Buffer size for pending batches
+  uint32 buffer_size = 6 [(buf.validate.field).uint32.gte = 0];
+}

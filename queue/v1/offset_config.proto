@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/offset_config.proto
+// version: 1.0.0
+// guid: 4c4657d1-5745-47d4-b9e3-6e685a1d4785
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/offset_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message OffsetConfig {
+  // Offset type (earliest, latest, timestamp, specific)
+  common.v1.OffsetType offset_type = 1;
+
+  // Specific offset value (when offset_type = specific)
+  int64 offset_value = 2 [(buf.validate.field).int64.gte = 0];
+
+  // Timestamp to start from (when offset_type = timestamp)
+  google.protobuf.Timestamp start_timestamp = 3;
+
+  // Reset to beginning if offset not found
+  bool reset_on_not_found = 4;
+}

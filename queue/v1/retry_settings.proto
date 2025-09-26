@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/retry_settings.proto
+// version: 1.0.0
+// guid: dc848673-c62f-4cd2-b373-ed1570d3f5aa
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message QueueRetrySettings {
+  // Maximum retry attempts
+  int32 max_retries = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Initial retry delay (milliseconds)
+  int32 initial_delay_ms = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Maximum retry delay (milliseconds)
+  int32 max_delay_ms = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Backoff multiplier
+  double backoff_multiplier = 4 [(buf.validate.field).double.gte = 0.0];
+
+  // Dead letter queue topic
+  string dead_letter_topic = 5 [(buf.validate.field).string.min_len = 1];
+}

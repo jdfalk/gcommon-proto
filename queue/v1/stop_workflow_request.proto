@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/stop_workflow_request.proto
+// version: 1.0.0
+// guid: 4f5e6d7c-8b9a-0312-4e5f-6a7b8c9d0e1f
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * StopWorkflowRequest defines the request for stopping a workflow.
+ */
+message StopWorkflowRequest {
+  // Workflow execution ID
+  string execution_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Reason for stopping
+  string reason = 2 [(buf.validate.field).string.min_len = 1];
+}

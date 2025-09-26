@@ -1,0 +1,58 @@
+// file: proto/gcommon/v1/queue/resume_queue_response.proto
+// version: 1.0.0
+// guid: 43e76b2f-3350-49a8-b002-e38b946919ad
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/queue_state.proto";
+import "queue/v1/resume_stats.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ResumeQueueResponse {
+  // Success status of the resume operation
+  bool success = 1;
+
+  // Queue identifier that was resumed
+  string queue_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Previous queue state before resume
+  common.v1.QueueState previous_state = 3;
+
+  // Current queue state after resume
+  common.v1.QueueState current_state = 4;
+
+  // Timestamp when resume operation completed
+  google.protobuf.Timestamp resumed_at = 5;
+
+  // Duration the queue was paused (milliseconds)
+  int64 pause_duration_ms = 6 [(buf.validate.field).int64.gt = 0];
+
+  // Messages that were queued during pause
+  int64 messages_queued_during_pause = 7 [(buf.validate.field).int64.gte = 0];
+
+  // Consumer groups affected by resume
+  repeated string affected_consumer_groups = 8 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error message if resume failed
+  string error_message = 9 [(buf.validate.field).string.min_len = 1];
+
+  // Error code for programmatic handling
+  string error_code = 10 [(buf.validate.field).string.min_len = 1];
+
+  // Warning messages about resume operation
+  repeated string warnings = 11 [(buf.validate.field).repeated.min_items = 1];
+
+  // Resume operation statistics
+  ResumeStats resume_stats = 12;
+
+  // Operation metadata
+  map<string, string> metadata = 13;
+}

@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/reset_details.proto
+// version: 1.0.0
+// guid: b0e2cbdc-ca09-41a1-81b3-771cf6e15072
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ResetDetails {
+  // Number of metrics reset
+  int32 metrics_reset_count = 1 [(buf.validate.field).int32.gte = 0];
+
+  // Number of counters reset
+  int32 counters_reset_count = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Number of histograms reset
+  int32 histograms_reset_count = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Number of partitions affected
+  int32 partitions_affected = 4 [(buf.validate.field).int32.gte = 0];
+
+  // Time taken to complete reset (milliseconds)
+  int64 reset_duration_ms = 5 [(buf.validate.field).int64.gt = 0];
+
+  // Whether reset was partial or complete
+  bool partial_reset = 6;
+
+  // Reason for reset operation
+  string reset_reason = 7 [(buf.validate.field).string.min_len = 1];
+
+  // User or system that initiated reset
+  string initiated_by = 8 [(buf.validate.field).string.min_len = 1];
+}

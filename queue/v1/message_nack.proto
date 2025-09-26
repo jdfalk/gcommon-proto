@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/queue/message_nack.proto
+// version: 1.0.0
+// guid: b5bb9e75-3346-4684-9529-764a3cdb3e3d
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/nack_error_category.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message MessageNack {
+  // Message identifier
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Message delivery tag
+  string delivery_tag = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Partition ID containing the message
+  int32 partition_id = 3 [(buf.validate.field).int32.gte = 0];
+
+  // Message offset
+  int64 message_offset = 4 [(buf.validate.field).int64.gte = 0];
+
+  // Reason for negative acknowledgment
+  string nack_reason = 5 [(buf.validate.field).string.min_len = 1];
+
+  // Error category for the nack
+  common.v1.NackErrorCategory error_category = 6;
+
+  // Specific error code
+  string error_code = 7 [(buf.validate.field).string.min_len = 1];
+
+  // Retry this specific message
+  bool retry_message = 8;
+
+  // Custom retry delay for this message (milliseconds)
+  int64 retry_delay_ms = 9 [(buf.validate.field).int64.gte = 0];
+
+  // Message-specific metadata
+  map<string, string> message_metadata = 10;
+}

@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/nack_error.proto
+// version: 1.0.0
+// guid: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/nack_error_category.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Error information for NACK operations.
+ */
+message NackError {
+  // Error code
+  string code = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Error message
+  string message = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Error category
+  common.v1.NackErrorCategory category = 3;
+
+  // Whether the error is retryable
+  bool retryable = 4;
+
+  // Stack trace or additional details
+  string details = 5 [(buf.validate.field).string.min_len = 1];
+}

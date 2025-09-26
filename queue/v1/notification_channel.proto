@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/notification_channel.proto
+// version: 1.0.0
+// guid: 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/metrics_alert_severity.proto";
+import "common/v1/notification_channel_type.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Notification channel for sending alerts.
+ */
+message QueueNotificationChannel {
+  // Unique identifier for the channel
+  string id = 1 [
+      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      (buf.validate.field).required = true
+    ];
+
+  // Type of notification channel
+  common.v1.NotificationChannelType type = 2;
+
+  // Configuration specific to the channel type
+  map<string, string> config = 3;
+
+  // Whether the channel is enabled
+  bool enabled = 4;
+
+  // Minimum severity level for notifications
+  common.v1.MetricsAlertSeverity min_severity = 5;
+}

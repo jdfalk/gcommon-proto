@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/auto_commit_config.proto
+// version: 1.0.0
+// guid: 7f79c66e-a2a7-427d-844c-6010e165135d
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message AutoCommitConfig {
+  // Enable auto-commit of offsets
+  bool enabled = 1;
+
+  // Auto-commit interval (milliseconds)
+  int32 interval_ms = 2 [(buf.validate.field).int32.gte = 0];
+
+  // Commit on message processing completion
+  bool commit_on_completion = 3;
+
+  // Batch size for auto-commit
+  int32 batch_size = 4 [(buf.validate.field).int32.gte = 0];
+}

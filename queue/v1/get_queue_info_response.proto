@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/get_queue_info_response.proto
+// version: 1.0.0
+// guid: 06258d4a-8574-4cd1-977b-59927a7ad597
+// Response with queue information
+
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/queue_info.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// Response with queue information
+message GetQueueInfoResponse {
+  // Queue information
+  QueueInfo queue_info = 1;
+
+  // Whether request was successful
+  bool success = 2;
+
+  // Error message if request failed
+  string error = 3 [(buf.validate.field).string.min_len = 1];
+}

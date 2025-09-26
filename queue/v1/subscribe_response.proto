@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/subscribe_response.proto
+// version: 1.0.0
+// guid: 0d059538-5ecd-4438-9e3e-8aca86b7cf82
+// Response for queue subscription with messages
+
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/connection_details.proto";
+import "queue/v1/partition_offset.proto";
+import "queue/v1/queue_message.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// Response for subscription requests
+message SubscribeResponse {
+  // Message data
+  QueueMessage message = 1;
+
+  // Partition assignment info
+  PartitionOffset partition_offset = 2;
+
+  // Connection details for streaming
+  ConnectionDetails connection_details = 3;
+
+  // Subscription ID
+  string subscription_id = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Error message if any
+  string error = 5 [(buf.validate.field).string.min_len = 1];
+}

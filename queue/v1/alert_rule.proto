@@ -1,0 +1,54 @@
+// file: proto/gcommon/v1/queue/alert_rule.proto
+// version: 1.0.0
+// guid: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/alert_condition.proto";
+import "common/v1/metrics_alert_severity.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * An individual alert rule.
+ */
+message AlertRule {
+  // Unique name for the rule
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Human-readable description
+  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Metric to monitor
+  string metric_name = 3 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Condition for triggering the alert
+  common.v1.AlertCondition condition = 4;
+
+  // Threshold value
+  double threshold = 5;
+
+  // Duration the condition must persist before alerting
+  google.protobuf.Duration duration = 6;
+
+  // Severity of the alert
+  common.v1.MetricsAlertSeverity severity = 7;
+
+  // Whether the rule is enabled
+  bool enabled = 8;
+
+  // Labels to attach to the alert
+  map<string, string> labels = 9;
+}

@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/failed_ack.proto
+// version: 1.0.0
+// guid: 576df787-4718-4249-a439-b368117dec41
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message FailedAck {
+  // Message ID that failed to acknowledge
+  string message_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Reason for acknowledgment failure
+  string error_reason = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Error code
+  string error_code = 3 [(buf.validate.field).string.min_len = 1];
+}

@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/format_options.proto
+// version: 1.0.0
+// guid: be0dbb05-7495-4e4c-b7c7-97774a7e0489
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/compression_algorithm.proto";
+import "common/v1/serialization_format.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Serialization options for a specific format.
+ */
+message FormatOptions {
+  // Serialization format
+  common.v1.SerializationFormat format = 1;
+
+  // Format-specific configuration
+  map<string, string> options = 2;
+
+  // Whether to enable compression for this format
+  bool enable_compression = 3;
+
+  // Compression algorithm
+  common.v1.CompressionAlgorithm compression_algorithm = 4;
+
+  // Maximum message size for this format
+  int64 max_message_size = 5 [(buf.validate.field).int64.gte = 0];
+}

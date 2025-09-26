@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/queue/update_message_response.proto
+// version: 1.0.0
+// guid: f8af2c52-28d1-49c0-9813-a87e5f5a411d
+
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/failed_field_update.proto";
+import "queue/v1/updated_properties.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message UpdateMessageResponse {
+  // Success status of the update operation
+  bool success = 1;
+
+  // Updated message identifier
+  string message_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // New message version/etag after update
+  string new_version = 3 [(buf.validate.field).string.pattern = "^v?\\d+\\.\\d+\\.\\d+"];
+
+  // Timestamp when update was applied
+  google.protobuf.Timestamp updated_at = 4;
+
+  // Fields that were successfully updated
+  repeated string updated_fields = 5 [(buf.validate.field).repeated.min_items = 1];
+
+  // Fields that failed to update
+  repeated FailedFieldUpdate failed_fields = 6 [(buf.validate.field).repeated.min_items = 1];
+
+  // Error message if update failed
+  string error_message = 7 [(buf.validate.field).string.min_len = 1];
+
+  // Error code for programmatic handling
+  string error_code = 8 [(buf.validate.field).string.min_len = 1];
+
+  // Warning messages for partial updates
+  repeated string warnings = 9 [(buf.validate.field).repeated.min_items = 1];
+
+  // Updated message properties summary
+  UpdatedProperties updated_properties = 10;
+
+  // Operation metadata
+  map<string, string> metadata = 11;
+}

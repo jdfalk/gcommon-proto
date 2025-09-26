@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/alerting_config.proto
+// version: 1.1.0
+// guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/alert_severity.proto";
+import "queue/v1/alert_rule.proto";
+import "queue/v1/notification_channel.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+/**
+ * Configuration for queue alerting and notifications.
+ */
+message AlertingConfig {
+  // Whether alerting is enabled
+  bool enabled = 1;
+
+  // List of alert rules
+  repeated AlertRule rules = 2 [(buf.validate.field).repeated.min_items = 1];
+
+  // Notification channels for alerts
+  repeated QueueNotificationChannel channels = 3 [(buf.validate.field).repeated.min_items = 1];
+
+  // Default alert severity level
+  common.v1.CommonAlertSeverity default_severity = 4;
+
+  // Alert aggregation window
+  google.protobuf.Duration aggregation_window = 5;
+}

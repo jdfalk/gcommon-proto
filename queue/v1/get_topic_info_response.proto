@@ -1,0 +1,67 @@
+// file: proto/gcommon/v1/queue/get_topic_info_response.proto
+// version: 1.0.0
+// guid: 1a5f0bc1-5c84-4d82-9730-028810eadf04
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/metrics_retention_info.proto";
+import "queue/v1/owner_info.proto";
+import "queue/v1/partition_info.proto";
+import "queue/v1/topic_configuration.proto";
+import "queue/v1/topic_permissions.proto";
+import "queue/v1/topic_stats.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message GetTopicInfoResponse {
+  // Topic identifier
+  string topic_id = 1;
+
+  // Topic name
+  string topic_name = 2 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+
+  // Topic description
+  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+
+  // Topic creation timestamp
+  google.protobuf.Timestamp created_at = 4 [ (buf.validate.field).required = true ];
+
+  // Last modification timestamp
+  google.protobuf.Timestamp updated_at = 5;
+
+  // Topic statistics
+  TopicStats stats = 6;
+
+  // Partition information
+  repeated PartitionInfo partitions = 7;
+
+  // Topic configuration
+  TopicConfiguration config = 8;
+
+  // Topic state (active, paused, deleted)
+  string state = 9;
+
+  // Access permissions for the requesting user
+  TopicPermissions permissions = 10;
+
+  // Topic metadata
+  map<string, string> metadata = 11;
+
+  // Topic tags for categorization
+  repeated string tags = 12;
+
+  // Owner information
+  OwnerInfo owner = 13;
+
+  // Retention policy for messages in this topic
+  common.v1.MetricsRetentionInfo retention = 14;
+}

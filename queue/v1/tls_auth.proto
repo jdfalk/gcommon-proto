@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/tls_auth.proto
+// version: 1.0.0
+// guid: f7982aad-6216-4a98-ae5a-3e86d058ae84
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message TLSAuth {
+  // Client certificate (PEM format)
+  string cert_pem = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Client private key (PEM format)
+  string key_pem = 2 [(buf.validate.field).string.min_len = 1];
+
+  // CA certificate (PEM format)
+  string ca_pem = 3 [(buf.validate.field).string.min_len = 1];
+
+  // Whether to verify server certificate
+  bool verify_server = 4;
+}

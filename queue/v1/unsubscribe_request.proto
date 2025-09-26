@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/unsubscribe_request.proto
+// version: 1.0.0
+// guid: 69c55038-151d-4d97-a390-6bf4dc28d4aa
+// Request to unsubscribe from a topic
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// Request to unsubscribe from a topic
+message QueueUnsubscribeRequest {
+  // Subscription ID to unsubscribe
+  string subscription_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Consumer group ID
+  string consumer_group_id = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Force unsubscribe even if messages are pending
+  bool force = 3;
+
+  // Close underlying connections
+  bool close_connections = 4;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 5 [(buf.validate.field).int32.gt = 0];
+}

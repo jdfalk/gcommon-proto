@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/queue/queue_admin_service.proto
+// version: 1.0.1
+// guid: b54b440b-f4c1-40fc-a40f-8b4c0626fc32
+// Administrative service for queue management
+
+edition = "2023";
+
+package queue.v1;
+
+import "queue/v1/create_queue_request.proto";
+import "queue/v1/create_queue_response.proto";
+import "queue/v1/delete_topic_request.proto";
+import "queue/v1/delete_topic_response.proto";
+import "queue/v1/pause_queue_request.proto";
+import "queue/v1/pause_queue_response.proto";
+import "queue/v1/purge_request.proto";
+import "queue/v1/purge_response.proto";
+import "queue/v1/reset_queue_stats_request.proto";
+import "queue/v1/reset_queue_stats_response.proto";
+import "queue/v1/resume_queue_request.proto";
+import "queue/v1/resume_queue_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// Administrative service for queue management operations
+service QueueAdminService {
+  // Create a new queue
+  rpc CreateQueue(CreateQueueRequest) returns (CreateQueueResponse);
+
+  // Delete a queue/topic
+  rpc DeleteTopic(DeleteTopicRequest) returns (DeleteTopicResponse);
+
+  // Pause queue operations
+  rpc PauseQueue(PauseQueueRequest) returns (PauseQueueResponse);
+
+  // Resume queue operations
+  rpc ResumeQueue(ResumeQueueRequest) returns (ResumeQueueResponse);
+
+  // Purge queue contents
+  rpc PurgeQueue(PurgeRequest) returns (PurgeResponse);
+
+  // Reset queue statistics
+  rpc ResetQueueStats(ResetQueueStatsRequest) returns (ResetQueueStatsResponse);
+}

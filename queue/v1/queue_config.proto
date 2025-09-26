@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/queue/queue_config.proto
+// version: 1.0.0
+// guid: c64defde-30d1-41e5-bfac-b415cbf929c6
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/priority_level.proto";
+import "common/v1/queue_type.proto";
+import "common/v1/retention_policy.proto";
+import "google/protobuf/go_features.proto";
+import "buf/validate/validate.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+// QueueConfig defines settings for creating a queue instance.
+message QueueConfig {
+  // Name of the queue.
+  string name = 1 [
+      (buf.validate.field).string.min_len = 1,
+      (buf.validate.field).string.max_len = 100
+    ];
+  // Queue implementation type.
+  common.v1.QueueType type = 2;
+  // Number of partitions for the queue.
+  int32 partitions = 3;
+  // Retention policy for stored messages.
+  common.v1.MetricsRetentionPolicy retention = 4;
+  // Default priority applied when publishing.
+  common.v1.PriorityLevel default_priority = 5;
+  // If true, queue persists messages to disk.
+  bool durable = 6;
+  // Whether the queue should be automatically deleted when unused.
+  bool auto_delete = 7;
+}

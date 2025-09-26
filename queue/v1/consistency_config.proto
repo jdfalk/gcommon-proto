@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/queue/consistency_config.proto
+// version: 1.0.1
+// guid: 038986e0-4267-432c-99a3-7271a9427b29
+
+edition = "2023";
+
+package queue.v1;
+
+import "common/v1/ack_level.proto";
+import "common/v1/conflict_resolution.proto";
+import "common/v1/durability_level.proto";
+import "queue/v1/consistency_validation.proto";
+import "queue/v1/ordering_config.proto";
+import "queue/v1/read_consistency.proto";
+import "queue/v1/replication_consistency.proto";
+import "queue/v1/write_consistency.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message ConsistencyConfig {
+  // Durability level for message persistence
+  common.v1.DurabilityLevel durability_level = 1;
+
+  // Acknowledgment level required for message delivery
+  common.v1.AckLevel ack_level = 2;
+
+  // Replication configuration
+  ReplicationConsistency replication = 3;
+
+  // Read consistency settings
+  ReadConsistency read_consistency = 4;
+
+  // Write consistency settings
+  WriteConsistency write_consistency = 5;
+
+  // Ordering guarantees
+  OrderingConfig ordering = 6;
+
+  // Conflict resolution settings
+  common.v1.ConflictResolution conflict_resolution = 7;
+
+  // Consistency validation settings
+  ConsistencyValidation validation = 8;
+}

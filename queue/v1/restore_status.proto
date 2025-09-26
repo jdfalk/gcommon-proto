@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/restore_status.proto
+// version: 1.0.0
+// guid: 49efaefe-393a-43b4-8e5e-af25695292fc
+
+edition = "2023";
+
+package queue.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/queue/v1";
+
+message RestoreStatus {
+  // Status code (pending, in_progress, completed, failed, cancelled)
+  string status_code = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Human-readable status message
+  string status_message = 2 [(buf.validate.field).string.min_len = 1];
+
+  // Progress percentage (0-100)
+  int32 progress_percentage = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+
+  // Current operation phase
+  string current_phase = 4 [(buf.validate.field).string.min_len = 1];
+
+  // Estimated time remaining
+  google.protobuf.Duration estimated_remaining = 5;
+
+  // Last status update timestamp
+  google.protobuf.Timestamp last_update = 6;
+}
