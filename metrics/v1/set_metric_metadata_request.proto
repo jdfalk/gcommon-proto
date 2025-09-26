@@ -15,7 +15,7 @@ import "metrics/v1/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/";
 
 message SetMetricMetadataRequest {
   // Metric metadata to apply

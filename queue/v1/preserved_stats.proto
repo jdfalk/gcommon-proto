@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/";
 
 message PreservedStats {
   // Total message count (lifetime)

@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/";
 
 message AcknowledgeResponse {
   // Required fields (1-10)

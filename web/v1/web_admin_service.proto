@@ -18,7 +18,7 @@ import "web/v1/update_cache_config_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/";
 
 /**
  * WebAdminService provides cache administration endpoints

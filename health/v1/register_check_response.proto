@@ -10,7 +10,7 @@ import "common/v1/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/";
 
 /**
  * RegisterCheckResponse confirms registration of a health check.

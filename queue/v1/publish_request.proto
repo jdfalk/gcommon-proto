@@ -18,7 +18,7 @@ import "queue/v1/queue_message.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/";
 
 message QueuePublishRequest {
   // Name of the topic to publish to - required, alphanumeric with dots/hyphens, 3-255 chars

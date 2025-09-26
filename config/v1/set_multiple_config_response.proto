@@ -9,7 +9,7 @@ import "common/v1/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/";
 
 /**
  * SetMultipleConfigResponse reports the result of a bulk set operation.
