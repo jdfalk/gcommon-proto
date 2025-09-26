@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message RevokeTokenResponse {
   // Whether revocation was successful
   bool success = 1;
-  
+
   // Message describing the result
   string message = 2;
 }

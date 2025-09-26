@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message ValidateTokenResponse {
   // Whether the token is valid
   bool valid = 1;
-  
+
   // User ID from token claims
   string user_id = 2;
-  
+
   // User roles from token claims
   repeated string roles = 3;
 }

@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message LoginResponse {
   // JWT access token for API authentication
   string access_token = 1;
-  
+
   // JWT refresh token for token renewal
   string refresh_token = 2;
-  
+
   // Token expiration time in seconds from now
   int64 expires_in = 3;
 }

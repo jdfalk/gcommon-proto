@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message RevokeTokenRequest {
   // Token to revoke
   string token = 1;
-  
+
   // Type of token being revoked
   string token_type = 2;
 }

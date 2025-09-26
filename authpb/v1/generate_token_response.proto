@@ -18,13 +18,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message GenerateTokenResponse {
   // Generated JWT access token
   string access_token = 1;
-  
+
   // Generated JWT refresh token
   string refresh_token = 2;
-  
+
   // Token expiration time in seconds from now
   int64 expires_in = 3;
-  
+
   // Type of token generated
   string token_type = 4;
 }

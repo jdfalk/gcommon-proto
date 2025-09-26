@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message AuthorizeResponse {
   // Whether access is authorized
   bool authorized = 1;
-  
+
   // Reason for authorization decision
   string reason = 2;
-  
+
   // User roles from token
   repeated string roles = 3;
 }

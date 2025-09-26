@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message LoginRequest {
   // Username for authentication
   string username = 1;
-  
+
   // Password for authentication
   string password = 2;
 }

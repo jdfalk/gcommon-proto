@@ -18,16 +18,16 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 message GenerateTokenRequest {
   // User ID for the token
   string user_id = 1;
-  
+
   // Roles to include in the token
   repeated string roles = 2;
-  
+
   // Token expiration in seconds from now
   int64 expires_in = 3;
-  
+
   // Type of token to generate (access, refresh, etc.)
   string token_type = 4;
-  
+
   // Additional permissions to include
   repeated string permissions = 5;
 }
