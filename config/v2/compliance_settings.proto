@@ -23,10 +23,10 @@ message ConfigComplianceSettings {
   repeated string policies = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Compliance audits
-  repeated config.v1.ComplianceAudit audits = 3 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.ComplianceAudit audits = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Compliance reporting
-  config.v1.ComplianceReporting reporting = 4;
+  config.v2.ComplianceReporting reporting = 4;
 
   // Compliance validation
   bool validation_enabled = 5;

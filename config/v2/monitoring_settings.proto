@@ -19,7 +19,7 @@ message MonitoringSettings {
   bool enabled = 1;
 
   // Monitoring alerts
-  repeated config.v1.MonitoringAlert alerts = 2 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.MonitoringAlert alerts = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // Monitoring metrics
   repeated string metrics = 3 [(buf.validate.field).repeated.min_items = 1];

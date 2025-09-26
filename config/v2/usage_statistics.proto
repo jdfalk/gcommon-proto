@@ -44,5 +44,5 @@ message UsageStatistics {
   int64 peak_access_count = 9 [(buf.validate.field).int64.gte = 0];
 
   // Usage trends
-  repeated config.v1.UsageTrend trends = 10 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.UsageTrend trends = 10 [(buf.validate.field).repeated.min_items = 1];
 }

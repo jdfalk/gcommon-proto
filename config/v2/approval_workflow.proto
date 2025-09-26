@@ -22,7 +22,7 @@ message ApprovalWorkflow {
   string type = 2 [(buf.validate.field).string.min_len = 1];
 
   // Approval stages
-  repeated config.v1.ApprovalStage stages = 3 [(buf.validate.field).repeated.min_items = 1];
+  repeated config.v2.ApprovalStage stages = 3 [(buf.validate.field).repeated.min_items = 1];
 
   // Workflow timeout
   int32 timeout_hours = 4 [(buf.validate.field).int32.gt = 0];
