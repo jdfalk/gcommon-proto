@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/priority_range.proto
+// file: proto/gcommon/v2/queue/priority_range.proto
 // version: 1.0.0
 // guid: 1efceade-7805-4b90-bdd0-2484a86cb6c9
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Priority range for filtering.

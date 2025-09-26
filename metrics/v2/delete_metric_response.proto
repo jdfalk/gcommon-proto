@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/delete_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/delete_metric_response.proto
 // version: 1.0.1
 // guid: 8c8412a9-6dbd-4e4c-9b63-36745a456d41
-// file: proto/gcommon/v1/metrics/v1/delete_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/delete_metric_response.proto
 //
 // Response returned after deleting a metric.
 //
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * DeleteMetricResponse confirms metric deletion.

@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/query_operation.proto
+// file: proto/gcommon/v2/metrics/v2/query_operation.proto
 // version: 1.0.1
 // guid: dcbbcb0c-451b-40d4-a928-ebe7659c8e66
-// file: proto/gcommon/v1/metrics/v1/query_operation.proto
+// file: proto/gcommon/v2/metrics/v2/query_operation.proto
 //
 // Enum definitions for metrics module
 
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * QueryOperation defines the types of operations that can be performed on metrics queries.

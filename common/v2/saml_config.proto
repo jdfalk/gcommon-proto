@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/saml_config.proto
+// file: proto/gcommon/v2/common/saml_config.proto
 // version: 1.0.0
 // guid: b1088674-0c17-45db-8c6d-3022ce0a629b
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Configuration options for SAML authentication.

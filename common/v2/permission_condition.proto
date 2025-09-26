@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/permission_condition.proto
+// file: proto/gcommon/v2/common/permission_condition.proto
 // version: 1.0.0
 // guid: 54038d4d-21ce-4ccb-a735-255fae2bcd86
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message PermissionCondition {
   string key = 1 [(buf.validate.field).string.min_len = 1];

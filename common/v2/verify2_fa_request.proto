@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/verify2_fa_request.proto
+// file: proto/gcommon/v2/common/verify2_fa_request.proto
 // version: 1.0.0
 // guid: fa64bc16-24a7-4b50-ba76-fc8fdd7079de
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/two_fa_type.proto";
+import "common/v2/two_fa_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message Verify2FaRequest {
   // User ID

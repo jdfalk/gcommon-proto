@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/media/get_media_file_request.proto
+// file: proto/gcommon/v2/media/get_media_file_request.proto
 // version: 1.0.0
 // guid: 5c6d7e8f-9012-3456-d7e8-f9a0b1c2d3e4
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Request to get a media file by ID.
 message GetMediaFileRequest {

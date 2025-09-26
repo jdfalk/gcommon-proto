@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/restore_error.proto
+// file: proto/gcommon/v2/queue/restore_error.proto
 // version: 1.0.0
 // guid: 9b5c3655-3a8b-40fa-ab5d-ddcec3f98462
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/offset_range.proto";
+import "queue/v2/offset_range.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message RestoreError {
   // Error code for programmatic handling

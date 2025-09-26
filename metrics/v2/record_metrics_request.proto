@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/record_metrics_request.proto
+// file: proto/gcommon/v2/metrics/v2/record_metrics_request.proto
 // version: 1.0.0
 // guid: a9b8c7d6-e5f4-3210-9876-543210abcdef
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/metric_data.proto";
+import "common/v2/request_metadata.proto";
+import "metrics/v2/metric_data.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * RecordMetricsRequest represents a batch request to record multiple metrics.

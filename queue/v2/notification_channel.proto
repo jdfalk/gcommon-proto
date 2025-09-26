@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/notification_channel.proto
+// file: proto/gcommon/v2/queue/notification_channel.proto
 // version: 1.0.0
 // guid: 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/metrics_alert_severity.proto";
-import "common/v1/notification_channel_type.proto";
+import "common/v2/metrics_alert_severity.proto";
+import "common/v2/notification_channel_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Notification channel for sending alerts.

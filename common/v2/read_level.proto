@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/read_level.proto
+// file: proto/gcommon/v2/queue/read_level.proto
 // version: 1.0.1
 // guid: 955b2f22-8c91-4d05-98f4-0348ba5bf327
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ReadLevel {
   READ_LEVEL_UNSPECIFIED = 0;

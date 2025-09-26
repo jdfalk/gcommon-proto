@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/validation_rule_type.proto
+// file: proto/gcommon/v2/config/validation_rule_type.proto
 // version: 1.0.1
 // guid: 604ea5f1-2b57-45ce-9711-be0f342bde10
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ValidationRuleType {
   VALIDATION_RULE_TYPE_UNSPECIFIED = 0;

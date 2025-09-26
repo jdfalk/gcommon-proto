@@ -1,23 +1,23 @@
-// file: proto/gcommon/v1/database/migration_service.proto
+// file: proto/gcommon/v2/database/migration_service.proto
 // version: 1.0.1
 // guid: e6a810ad-ad41-4afb-9340-84b009cfdd59
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/get_migration_status_request.proto";
-import "database/v1/get_migration_status_response.proto";
-import "database/v1/list_migrations_request.proto";
-import "database/v1/list_migrations_response.proto";
-import "database/v1/revert_migration_request.proto";
-import "database/v1/revert_migration_response.proto";
-import "database/v1/run_migration_request.proto";
-import "database/v1/run_migration_response.proto";
+import "database/v2/get_migration_status_request.proto";
+import "database/v2/get_migration_status_response.proto";
+import "database/v2/list_migrations_request.proto";
+import "database/v2/list_migrations_response.proto";
+import "database/v2/revert_migration_request.proto";
+import "database/v2/revert_migration_response.proto";
+import "database/v2/run_migration_request.proto";
+import "database/v2/run_migration_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * MigrationService manages database schema migrations.

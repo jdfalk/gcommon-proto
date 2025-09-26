@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/organization/organization_hierarchy.proto
+// file: proto/gcommon/v2/organization/organization_hierarchy.proto
 // version: 1.0.0
 // guid: 2f0bea22-4f4d-4ac2-99bf-2b65d15ebebd
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/hierarchy_type.proto";
-import "common/v1/key_value.proto";
-import "organization/v1/hierarchy_node.proto";
+import "common/v2/hierarchy_type.proto";
+import "common/v2/key_value.proto";
+import "organization/v2/hierarchy_node.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message OrganizationHierarchy {
   // Unique hierarchy identifier

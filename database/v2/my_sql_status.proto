@@ -1,9 +1,9 @@
-// file: proto/gcommon/v1/database/my_sql_status.proto
+// file: proto/gcommon/v2/database/my_sql_status.proto
 // version: 1.0.0
 // guid: 41592093-2b89-4742-af88-e1590168c2ee
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * MySQLStatus provides runtime metrics and server version information.

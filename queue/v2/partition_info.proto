@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/partition_info.proto
-// file: proto/gcommon/v1/queue/partition_info.proto
+// file: proto/gcommon/v2/queue/api/partition_info.proto
+// file: proto/gcommon/v2/queue/partition_info.proto
 // version: 1.0.0
 // guid: 5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c
 //
@@ -7,14 +7,14 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Information about a queue partition.

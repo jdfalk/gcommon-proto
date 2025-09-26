@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/export_format.proto
-// file: proto/gcommon/v1/queue/export_format.proto
+// file: proto/gcommon/v2/queue/api/export_format.proto
+// file: proto/gcommon/v2/queue/export_format.proto
 // version: 1.0.1
 // guid: 3a2b1c0d-9e8f-7a6b-5c4d-3e2f1a0b9c8d
 //
@@ -7,12 +7,12 @@
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Export format options.

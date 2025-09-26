@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/metric_config.proto
+// file: proto/gcommon/v2/metrics/v2/metric_config.proto
 // version: 1.0.0
 // guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/export_config.proto";
+import "metrics/v2/export_config.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * MetricConfig contains configuration settings for a specific metric.

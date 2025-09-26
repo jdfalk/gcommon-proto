@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/message_state_counts.proto
+// file: proto/gcommon/v2/queue/message_state_counts.proto
 // version: 1.0.0
 // guid: ed6cdf6e-a32e-4ea4-942c-92e90ea2d061
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message MessageStateCounts {
   int64 pending = 1 [(buf.validate.field).int64.gte = 0];

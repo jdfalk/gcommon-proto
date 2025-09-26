@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/logout_response.proto
+// file: proto/gcommon/v2/common/logout_response.proto
 // version: 1.0.1
 // guid: 96821169-cc26-45e4-a7e3-b81f44ddeb99
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 // LogoutResponse provides the result of a logout request
 message LogoutResponse {

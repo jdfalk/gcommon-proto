@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/migrate_queue_response.proto
+// file: proto/gcommon/v2/queue/migrate_queue_response.proto
 // version: 1.0.0
 // guid: 331ebb05-f30d-46d3-8d6e-ef766fd0cc51
 // Response for queue migration operations
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Response for queue migration operations
 message MigrateQueueResponse {

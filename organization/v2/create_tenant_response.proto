@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/organization/create_tenant_response.proto
+// file: proto/gcommon/v2/organization/create_tenant_response.proto
 // version: 1.0.0
 // guid: 4c1b8703-1137-44ee-b243-49b82281f749
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/error.proto";
-import "organization/v1/tenant.proto";
+import "common/v2/error.proto";
+import "organization/v2/tenant.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CreateTenantResponse {
   // Any errors encountered

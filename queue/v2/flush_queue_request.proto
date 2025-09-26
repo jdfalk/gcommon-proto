@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/flush_queue_request.proto
+// file: proto/gcommon/v2/queue/flush_queue_request.proto
 // version: 1.1.0
 // guid: 7ddb0fbd-7f80-45ed-9a91-db95b2111a42
 // Request to flush queue messages to persistent storage
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/flush_policy.proto";
+import "common/v2/flush_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // FlushQueueRequest forces queue messages to be flushed to persistent storage
 message FlushQueueRequest {

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/schema/revert_migration_request.proto
+// file: proto/gcommon/v2/database/schema/revert_migration_request.proto
 // version: 1.0.0
 // guid: 02d407f4-a362-4009-b8be-dc47f6588d24
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 message RevertMigrationRequest {
   // Database name to apply the reversion to

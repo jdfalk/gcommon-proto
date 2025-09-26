@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/write_level.proto
+// file: proto/gcommon/v2/queue/write_level.proto
 // version: 1.0.1
 // guid: 4d949bc0-a987-4e3f-b104-24538f7ae53e
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum WriteLevel {
   WRITE_LEVEL_UNSPECIFIED = 0;

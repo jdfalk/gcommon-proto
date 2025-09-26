@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/restore_queue_response.proto
+// file: proto/gcommon/v2/queue/restore_queue_response.proto
 // version: 1.0.0
 // guid: 949d5078-96a1-43dd-adb1-5e57d6a82a57
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/metrics_validation_result.proto";
-import "queue/v1/partition_restore_result.proto";
-import "queue/v1/restore_error.proto";
-import "queue/v1/restore_statistics.proto";
-import "queue/v1/restore_status.proto";
-import "queue/v1/restore_warning.proto";
+import "common/v2/metrics_validation_result.proto";
+import "queue/v2/partition_restore_result.proto";
+import "queue/v2/restore_error.proto";
+import "queue/v2/restore_statistics.proto";
+import "queue/v2/restore_status.proto";
+import "queue/v2/restore_warning.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -19,7 +19,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message RestoreQueueResponse {
   // Operation success status

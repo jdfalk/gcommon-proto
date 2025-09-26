@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/nack_request.proto
+// file: proto/gcommon/v2/queue/nack_request.proto
 // version: 1.1.0
 // guid: 5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
-import "queue/v1/nack_error.proto";
+import "common/v2/request_metadata.proto";
+import "queue/v2/nack_error.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to negatively acknowledge (NACK) a message.

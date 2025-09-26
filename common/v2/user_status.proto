@@ -1,14 +1,14 @@
-// file: proto/gcommon/v1/common/user_status.proto
+// file: proto/gcommon/v2/common/user_status.proto
 // version: 1.0.1
 // guid: 8cc7b811-529b-4c10-8615-1593d65d7c0d
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * User account status enumeration defining the state of a user account.

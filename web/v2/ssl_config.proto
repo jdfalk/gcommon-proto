@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/ssl_config.proto
+// file: proto/gcommon/v2/web/ssl_config.proto
 // version: 1.1.0
 // guid: 4d5ec783-ec4b-4ffc-a7e6-28df5382a594
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/ssl_protocol.proto";
+import "common/v2/ssl_protocol.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // SslConfig message definition.
 message SslConfig {

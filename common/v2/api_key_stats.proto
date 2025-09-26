@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/api_key_stats.proto
+// file: proto/gcommon/v2/common/api_key_stats.proto
 // version: 1.0.0
 // guid: 118f177f-69fa-465e-9cc9-88c6aa87643f
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
@@ -13,7 +13,7 @@ import "buf/validate/validate.proto";
 //
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ApiKeyStats {
   int32 total_requests = 1 [(buf.validate.field).int32.gte = 0];

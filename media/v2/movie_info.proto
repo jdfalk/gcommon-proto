@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/media/metadata/movie_info.proto
+// file: proto/gcommon/v2/media/metadata/movie_info.proto
 // version: 1.0.0
 // guid: fc3b809f-03e7-4446-b355-e7482000e343
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Movie specific information.
 message MovieInfo {

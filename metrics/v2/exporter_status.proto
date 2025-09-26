@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/metrics/exporter_status.proto
+// file: proto/gcommon/v2/metrics/exporter_status.proto
 // version: 1.0.0
 // guid: 852f34ef-6a24-4d4c-a324-3cd1192428e9
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ExporterStatus {
   string exporter_id = 1 [(buf.validate.field).string.min_len = 1];

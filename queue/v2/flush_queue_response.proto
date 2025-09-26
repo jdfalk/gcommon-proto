@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/flush_queue_response.proto
+// file: proto/gcommon/v2/queue/flush_queue_response.proto
 // version: 1.0.0
 // guid: b7bddce0-67bc-4158-a9b7-c3e15f1606fe
 // Response for queue flush operations
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Response for queue flush operations
 message FlushQueueResponse {

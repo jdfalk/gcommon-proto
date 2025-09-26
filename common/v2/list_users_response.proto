@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/list_users_response.proto
+// file: proto/gcommon/v2/common/list_users_response.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174005
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/user_info.proto";
+import "common/v2/user_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Response for listing users.

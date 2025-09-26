@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/notification_trigger.proto
+// file: proto/gcommon/v2/config/notification_trigger.proto
 // version: 1.0.1
 // guid: e23c0d82-9395-4a27-840c-5765e4aaffbb
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum NotificationTrigger {
   NOTIFICATION_TRIGGER_UNSPECIFIED = 0;

@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/common/types/enable2_fa_request.proto
+// file: proto/gcommon/v2/common/types/enable2_fa_request.proto
 // version: 1.0.0
 // guid: 2f270251-6e96-4864-9c75-1e9a381549d6
-// file: proto/gcommon/v1/common/enable2_fa_request.proto
+// file: proto/gcommon/v2/common/enable2_fa_request.proto
 //
 // Request definitions for auth module
 
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message Enable2FaRequest {
   // User ID requesting 2FA enablement

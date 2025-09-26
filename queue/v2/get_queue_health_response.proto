@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/get_queue_health_response.proto
+// file: proto/gcommon/v2/queue/get_queue_health_response.proto
 // version: 1.0.0
 // guid: ca800078-3add-48f9-9559-c95d23232cea
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/cluster_health.proto";
-import "queue/v1/queue_health.proto";
+import "queue/v2/cluster_health.proto";
+import "queue/v2/queue_health.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message GetQueueHealthResponse {
   // Health status for each queue

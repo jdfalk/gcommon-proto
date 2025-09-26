@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/error_handling_config.proto
+// file: proto/gcommon/v2/queue/error_handling_config.proto
 // version: 1.0.0
 // guid: 49c9649a-c944-4438-b21f-d3645782576f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/dead_letter_queue_config.proto";
-import "queue/v1/error_action_config.proto";
-import "queue/v1/error_notification_config.proto";
+import "queue/v2/dead_letter_queue_config.proto";
+import "queue/v2/error_action_config.proto";
+import "queue/v2/error_notification_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ErrorHandlingConfig {
   // Dead letter queue configuration

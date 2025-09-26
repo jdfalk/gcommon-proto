@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/encryption_config.proto
+// file: proto/gcommon/v2/organization/encryption_config.proto
 // version: 1.0.0
 // guid: c6adca37-10ae-4aed-9ce2-eb555767c937
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message OrganizationEncryptionConfig {
   // Whether encryption at rest is enabled

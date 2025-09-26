@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/create_subscription_request.proto
+// file: proto/gcommon/v2/queue/create_subscription_request.proto
 // version: 1.0.0
 // guid: 5b7ce7f0-2023-49f1-9801-b105699049ac
 // Request to create a new subscription
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/subscription_config.proto";
+import "queue/v2/subscription_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Request to create a new subscription
 message CreateSubscriptionRequest {

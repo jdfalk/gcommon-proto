@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/update_result.proto
+// file: proto/gcommon/v2/metrics/v2/update_result.proto
 // version: 1.1.0
 // guid: cd6fac61-b122-455b-a74b-34935efa71b0
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/metrics_config_change.proto";
-import "common/v1/update_action.proto";
+import "common/v2/metrics_config_change.proto";
+import "common/v2/update_action.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * UpdateResult contains information about what was changed.

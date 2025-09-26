@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/health/messages/readiness_result.proto
+// file: proto/gcommon/v2/health/messages/readiness_result.proto
 // version: 1.0.0
 // guid: 2a3b4c5d-697f-4567-1234-890123456789
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "health/v1/health_status.proto";
+import "health/v2/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * ReadinessResult represents the result of a readiness check execution.

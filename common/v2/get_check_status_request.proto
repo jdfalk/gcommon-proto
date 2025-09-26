@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/common/get_check_status_request.proto
+// file: proto/gcommon/v2/common/get_check_status_request.proto
 // version: 1.0.0
 // guid: b22eabcb-b556-4dd9-bd5b-4016956b8e69
-// file: proto/gcommon/v1/common/get_check_status_request.proto
+// file: proto/gcommon/v2/common/get_check_status_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GetCheckStatusRequest {
   // Name or ID of the check

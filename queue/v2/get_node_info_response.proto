@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/get_node_info_response.proto
+// file: proto/gcommon/v2/queue/get_node_info_response.proto
 // version: 1.0.0
 // guid: fb3ad530-511f-4fec-9508-7ae00be0ee92
 // Response with node information
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/node_info.proto";
+import "queue/v2/node_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Response with node information
 message GetNodeInfoResponse {

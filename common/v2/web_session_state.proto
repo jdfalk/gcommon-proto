@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/session_state.proto
+// file: proto/gcommon/v2/web/session_state.proto
 // version: 1.0.1
 // guid: a34ac56d-96ba-4c3e-b36b-a60ba1e62d86
 //
 // SessionState describes the lifecycle of a user session.
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum WebSessionState {
   WEB_SESSION_STATE_UNSPECIFIED = 0;

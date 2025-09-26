@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/update_cors_config_response.proto
+// file: proto/gcommon/v2/web/update_cors_config_response.proto
 // version: 1.0.0
 // guid: 44e8600c-ebb5-45be-851d-41f41c810996
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // UpdateCorsConfigResponse response definition.
 message UpdateCorsConfigResponse {

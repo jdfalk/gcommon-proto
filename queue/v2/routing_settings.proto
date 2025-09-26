@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/routing_settings.proto
+// file: proto/gcommon/v2/queue/routing_settings.proto
 // version: 1.0.0
 // guid: f9f28b94-889d-4b4b-859e-dd55251a2aa6
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message RoutingSettings {
   // Routing key pattern

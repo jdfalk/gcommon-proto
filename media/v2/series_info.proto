@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/metadata/series_info.proto
+// file: proto/gcommon/v2/media/metadata/series_info.proto
 // version: 1.0.0
 // guid: 1ff30d9b-8171-4cb2-885c-0ae98bd2ad17
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // TV series specific information.
 message SeriesInfo {

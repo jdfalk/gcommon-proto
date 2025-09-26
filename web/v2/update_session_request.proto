@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/update_session_request.proto
+// file: proto/gcommon/v2/web/update_session_request.proto
 // version: 1.1.0
 // guid: 4c543371-4882-4a5c-9fe2-481de3738e67
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // UpdateSessionRequest request definition.
 message WebUpdateSessionRequest {

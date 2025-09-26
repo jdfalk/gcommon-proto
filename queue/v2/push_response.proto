@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/push_response.proto
-// file: proto/gcommon/v1/queue/push_response.proto
+// file: proto/gcommon/v2/queue/api/push_response.proto
+// file: proto/gcommon/v2/queue/push_response.proto
 // version: 1.0.0
 // guid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 //
@@ -7,7 +7,7 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -15,7 +15,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Response for message publishing operations.

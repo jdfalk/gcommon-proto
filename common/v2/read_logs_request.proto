@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/read_logs_request.proto
+// file: proto/gcommon/v2/common/read_logs_request.proto
 // version: 1.0.0
 // guid: 9f0e1d2c-3b4a-5867-9e0f-1a2b3c4d5e6f
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * ReadLogsRequest defines the request for reading log entries.

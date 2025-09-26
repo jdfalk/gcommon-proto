@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/reference_type.proto
+// file: proto/gcommon/v2/config/reference_type.proto
 // version: 1.0.1
 // guid: f7734726-4137-4441-b14d-c0c5479a50bd
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ReferenceType {
   REFERENCE_TYPE_UNSPECIFIED = 0;

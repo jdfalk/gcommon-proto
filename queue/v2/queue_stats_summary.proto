@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/queue_stats_summary.proto
+// file: proto/gcommon/v2/queue/queue_stats_summary.proto
 // version: 1.0.0
 // guid: beb6cfcc-70db-4a5a-9ec1-2e241e98f71f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueStatsSummary {
   // Total number of queues

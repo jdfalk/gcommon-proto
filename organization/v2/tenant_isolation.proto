@@ -1,26 +1,26 @@
-// file: proto/gcommon/v1/organization/tenant_isolation.proto
+// file: proto/gcommon/v2/organization/tenant_isolation.proto
 // version: 1.0.0
 // guid: 182f08bf-4180-421a-935c-aa065bea181a
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/isolation_level.proto";
-import "common/v1/key_value.proto";
-import "common/v1/organization_access_control.proto";
-import "organization/v1/audit_config.proto";
-import "organization/v1/compute_isolation.proto";
-import "organization/v1/database_isolation.proto";
-import "organization/v1/encryption_config.proto";
-import "organization/v1/network_isolation.proto";
-import "organization/v1/storage_isolation.proto";
+import "common/v2/isolation_level.proto";
+import "common/v2/key_value.proto";
+import "common/v2/organization_access_control.proto";
+import "organization/v2/audit_config.proto";
+import "organization/v2/compute_isolation.proto";
+import "organization/v2/database_isolation.proto";
+import "organization/v2/encryption_config.proto";
+import "organization/v2/network_isolation.proto";
+import "organization/v2/storage_isolation.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message TenantIsolation {
   // Tenant identifier

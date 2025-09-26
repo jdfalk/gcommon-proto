@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/start_workflow_request.proto
+// file: proto/gcommon/v2/queue/start_workflow_request.proto
 // version: 1.0.0
 // guid: 2f3e4d5c-6b7a-8190-2e3f-4a5b6c7d8e9f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * StartWorkflowRequest defines the request for starting a workflow.

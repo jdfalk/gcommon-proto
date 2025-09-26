@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/restore_status.proto
+// file: proto/gcommon/v2/queue/restore_status.proto
 // version: 1.0.0
 // guid: 49efaefe-393a-43b4-8e5e-af25695292fc
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -13,7 +13,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message RestoreStatus {
   // Status code (pending, in_progress, completed, failed, cancelled)

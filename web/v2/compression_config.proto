@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/compression_config.proto
+// file: proto/gcommon/v2/web/compression_config.proto
 // version: 1.1.0
 // guid: e4d9d1fd-7180-432c-a64b-5b6f24858928
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/compression_type.proto";
+import "common/v2/compression_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // CompressionConfig message definition.
 message WebCompressionConfig {

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/health/messages/liveness_check.proto
+// file: proto/gcommon/v2/health/messages/liveness_check.proto
 // version: 1.0.0
 // guid: 5f607182-9ca3-1234-8901-567890123456
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * LivenessCheck represents a liveness check configuration.

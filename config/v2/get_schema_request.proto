@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/config/api/get_schema_request.proto
+// file: proto/gcommon/v2/config/api/get_schema_request.proto
 // version: 1.0.0
 // guid: 418bff8d-7263-433a-84b5-c063a0a393fa
-// file: proto/gcommon/v1/config/get_schema_request.proto
+// file: proto/gcommon/v2/config/get_schema_request.proto
 //
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message GetSchemaRequest {
   // Schema name

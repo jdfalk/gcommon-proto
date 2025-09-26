@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/v1/config_validation_warning.proto
+// file: proto/gcommon/v2/config/v2/config_validation_warning.proto
 // version: 1.0.0
 // guid: 6d77d329-052f-4301-9627-79d2680d5cb4
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * ConfigValidationWarning represents a validation warning for a configuration entry.

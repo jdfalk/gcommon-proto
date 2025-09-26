@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/config/health_status.proto
+// file: proto/gcommon/v2/config/health_status.proto
 // version: 1.0.0
 // guid: 0be35195-6cee-4fad-b426-eddc99a61e0c
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/health_state.proto";
-import "config/v1/health_check_result.proto";
+import "common/v2/health_state.proto";
+import "config/v2/health_check_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigHealthStatus {
   // Overall health

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/update_topic_config_request.proto
+// file: proto/gcommon/v2/queue/update_topic_config_request.proto
 // version: 1.0.0
 // guid: b7623d06-10e5-4b18-9b4f-976ff9116f5c
 // Request to update topic configuration
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/topic_config.proto";
+import "queue/v2/topic_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Request to update topic configuration
 message UpdateTopicConfigRequest {

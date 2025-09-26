@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/unregistration_options.proto
+// file: proto/gcommon/v2/metrics/v2/unregistration_options.proto
 // version: 1.0.0
 // guid: 158ebf54-a2dd-4dae-b8dc-9c9fb19344db
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message UnregistrationOptions {
   // Whether to delete all associated data

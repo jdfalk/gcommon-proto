@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/stop_workflow_response.proto
+// file: proto/gcommon/v2/queue/stop_workflow_response.proto
 // version: 1.0.0
 // guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * StopWorkflowResponse defines the response from stopping a workflow.

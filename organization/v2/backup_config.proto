@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/backup_config.proto
+// file: proto/gcommon/v2/organization/backup_config.proto
 // version: 1.0.0
 // guid: af98b66c-3106-4a09-9b66-b3fd3908267e
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message OrganizationBackupConfig {
   // Whether automated backups are enabled

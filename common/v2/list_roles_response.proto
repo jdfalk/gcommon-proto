@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/list_roles_response.proto
+// file: proto/gcommon/v2/common/list_roles_response.proto
 // version: 1.0.0
 // guid: b0d2291f-7911-45f0-94d1-6dee153b5841
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/paginated_response.proto";
-import "common/v1/role.proto";
+import "common/v2/paginated_response.proto";
+import "common/v2/role.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Response containing a list of roles.

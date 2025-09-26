@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/metrics/v1/create_metric_request.proto
+// file: proto/gcommon/v2/metrics/v2/create_metric_request.proto
 // version: 1.0.1
 // guid: 4fc0fab0-dc1a-42ff-bb58-35b524f790e1
-// file: proto/gcommon/v1/metrics/v1/create_metric_request.proto
+// file: proto/gcommon/v2/metrics/v2/create_metric_request.proto
 //
 // Request definitions for metrics module
 //
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/metric_data.proto";
+import "common/v2/request_metadata.proto";
+import "metrics/v2/metric_data.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message CreateMetricRequest {
   // Metric to create

@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/list_topics_response.proto
+// file: proto/gcommon/v2/queue/list_topics_response.proto
 // version: 1.1.0
 // guid: 64d60266-e2ca-4927-9db1-d3824b83d9a5
 // Response containing list of available topics
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/topic_info.proto";
+import "queue/v2/topic_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ListTopicsResponse {
   // List of topics

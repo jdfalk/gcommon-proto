@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/decrement_request.proto
+// file: proto/gcommon/v2/database/decrement_request.proto
 // version: 1.0.0
 // guid: 288b113d-b76e-4309-9c5b-207cb4061a73
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Request to decrement a cached counter atomically.

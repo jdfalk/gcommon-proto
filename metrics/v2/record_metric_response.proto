@@ -1,24 +1,24 @@
-// file: proto/gcommon/v1/metrics/v1/record_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/record_metric_response.proto
 // version: 1.0.0
 // guid: f6b84950-9977-45e7-a9d6-1b3d9a800f62
-// file: proto/gcommon/v1/metrics/v1/record_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/record_metric_response.proto
 //
 // Record metric response definitions for metrics module
 //
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "common/v1/metrics_validation_result.proto";
-import "metrics/v1/recording_stats.proto";
+import "common/v2/error.proto";
+import "common/v2/metrics_validation_result.proto";
+import "metrics/v2/recording_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * RecordMetricResponse contains the result of recording a metric data point.

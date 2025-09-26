@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/get_queue_stats_request.proto
+// file: proto/gcommon/v2/queue/get_queue_stats_request.proto
 // version: 1.0.0
 // guid: 7dc18176-1123-444f-8040-b7e352b501d6
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/stats_granularity.proto";
-import "common/v1/time_range_metrics.proto";
+import "common/v2/stats_granularity.proto";
+import "common/v2/time_range_metrics.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message GetQueueStatsRequest {
   // Name of the queue

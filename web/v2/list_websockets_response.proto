@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/list_websockets_response.proto
+// file: proto/gcommon/v2/web/list_websockets_response.proto
 // version: 1.0.0
 // guid: 1dd3b983-0837-4026-bca1-57e896d2d1fb
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // ListWebsocketsResponse response definition.
 message ListWebsocketsResponse {

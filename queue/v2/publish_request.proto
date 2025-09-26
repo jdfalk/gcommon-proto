@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/publish_request.proto
+// file: proto/gcommon/v2/queue/publish_request.proto
 // version: 1.1.0
 // guid: 59dc8120-bc2f-4d56-a9f1-f0957cb9bafb
 // PublishRequest publishes a single message to a named topic. It is
@@ -9,16 +9,16 @@
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "buf/validate/validate.proto";
-import "common/v1/request_metadata.proto";
-import "queue/v1/delivery_options.proto";
-import "queue/v1/queue_message.proto";
+import "common/v2/request_metadata.proto";
+import "queue/v2/delivery_options.proto";
+import "queue/v2/queue_message.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueuePublishRequest {
   // Name of the topic to publish to - required, alphanumeric with dots/hyphens, 3-255 chars

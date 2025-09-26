@@ -1,27 +1,27 @@
-// file: proto/gcommon/v1/config/v1/config_environment.proto
+// file: proto/gcommon/v2/config/v2/config_environment.proto
 // version: 1.0.1
 // guid: 167ed450-2130-48be-8d18-2ad5bd34cf7e
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/environment_status.proto";
-import "common/v1/environment_type.proto";
-import "common/v1/health_status.proto";
-import "common/v1/organization_access_control.proto";
-import "common/v1/organization_compliance_settings.proto";
-import "common/v1/organization_notification_settings.proto";
-import "common/v1/organization_resource_limits.proto";
-import "common/v1/retention_policy.proto";
-import "config/v1/approval_workflow.proto";
-import "config/v1/audit_settings.proto";
-import "config/v1/backup_policy.proto";
-import "config/v1/deployment_info.proto";
-import "config/v1/encryption_settings.proto";
-import "config/v1/monitoring_config.proto";
-import "config/v1/promotion_rule.proto";
-import "config/v1/sync_settings.proto";
+import "common/v2/environment_status.proto";
+import "common/v2/environment_type.proto";
+import "common/v2/health_status.proto";
+import "common/v2/organization_access_control.proto";
+import "common/v2/organization_compliance_settings.proto";
+import "common/v2/organization_notification_settings.proto";
+import "common/v2/organization_resource_limits.proto";
+import "common/v2/retention_policy.proto";
+import "config/v2/approval_workflow.proto";
+import "config/v2/audit_settings.proto";
+import "config/v2/backup_policy.proto";
+import "config/v2/deployment_info.proto";
+import "config/v2/encryption_settings.proto";
+import "config/v2/monitoring_config.proto";
+import "config/v2/promotion_rule.proto";
+import "config/v2/sync_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
@@ -32,7 +32,7 @@ import "buf/validate/validate.proto";
 // Organization-scoped settings used by environments
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigEnvironment {
   // Unique identifier for the environment

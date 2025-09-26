@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/health/messages/readiness_check.proto
+// file: proto/gcommon/v2/health/messages/readiness_check.proto
 // version: 1.0.1
 // guid: 4e5f6071-8b92-0123-7890-456789012345
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * ReadinessCheck represents a readiness check configuration.

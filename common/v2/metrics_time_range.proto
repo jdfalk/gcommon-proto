@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/metrics_time_range.proto
+// file: proto/gcommon/v2/common/metrics_time_range.proto
 // version: 1.0.1
 // guid: cdd6726e-7f39-47bb-b9d3-23e7e3a1be64
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Common time range specification for filtering operations.

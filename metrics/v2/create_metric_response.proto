@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/metrics/v1/create_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/create_metric_response.proto
 // version: 1.0.1
 // guid: 83588dec-abb1-410c-8a89-b2d53cdd2eec
-// file: proto/gcommon/v1/metrics/v1/create_metric_response.proto
+// file: proto/gcommon/v2/metrics/v2/create_metric_response.proto
 //
 // Response returned after creating a metric.
 //
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "metrics/v1/metric_metadata.proto";
+import "common/v2/error.proto";
+import "metrics/v2/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * CreateMetricResponse contains the result of a metric creation.

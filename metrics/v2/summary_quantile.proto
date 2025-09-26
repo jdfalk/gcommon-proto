@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/summary_quantile.proto
+// file: proto/gcommon/v2/metrics/v2/summary_quantile.proto
 // version: 1.0.0
 // guid: 4e691373-59b7-411a-a555-70e922bd4b72
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message SummaryQuantile {
   // Quantile value (0.0-1.0, e.g., 0.5 for median, 0.95 for 95th percentile)

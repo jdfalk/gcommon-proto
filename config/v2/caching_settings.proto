@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/config/v1/caching_settings.proto
+// file: proto/gcommon/v2/config/v2/caching_settings.proto
 // version: 1.0.0
 // guid: 2c6f8039-2855-4a31-884a-4d66d71cf897
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/cache_invalidation_trigger.proto";
-import "common/v1/cache_refresh_strategy.proto";
+import "common/v2/cache_invalidation_trigger.proto";
+import "common/v2/cache_refresh_strategy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message CachingSettings {
   // Whether caching is enabled

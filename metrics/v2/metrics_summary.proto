@@ -1,23 +1,23 @@
-// file: proto/gcommon/v1/metrics/v1/metrics_summary.proto
+// file: proto/gcommon/v2/metrics/v2/metrics_summary.proto
 // version: 1.0.0
 // guid: df4c181e-98bb-488d-8052-2238af4f3a5c
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/metrics_error_stats.proto";
-import "common/v1/metrics_retention_info.proto";
-import "metrics/v1/export_status.proto";
-import "metrics/v1/metric_type_counts.proto";
-import "metrics/v1/performance_stats.proto";
-import "metrics/v1/top_metrics.proto";
+import "common/v2/metrics_error_stats.proto";
+import "common/v2/metrics_retention_info.proto";
+import "metrics/v2/export_status.proto";
+import "metrics/v2/metric_type_counts.proto";
+import "metrics/v2/performance_stats.proto";
+import "metrics/v2/top_metrics.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message MetricsSummary {
   // Total number of unique metrics

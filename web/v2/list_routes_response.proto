@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/list_routes_response.proto
+// file: proto/gcommon/v2/web/list_routes_response.proto
 // version: 1.0.0
 // guid: 47f1c54d-cebd-43eb-a358-7c79ccffcbf3
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // ListRoutesResponse response definition.
 message ListRoutesResponse {

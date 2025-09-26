@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/write_log_request.proto
+// file: proto/gcommon/v2/common/write_log_request.proto
 // version: 1.0.0
 // guid: 7f8e9d0c-1b2a-3645-7e8f-9a0b1c2d3e4f
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * WriteLogRequest defines the request for writing a log entry.

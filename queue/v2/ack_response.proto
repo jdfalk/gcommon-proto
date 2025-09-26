@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/ack_response.proto
+// file: proto/gcommon/v2/queue/ack_response.proto
 // version: 1.0.1
 // guid: e0629319-177a-44c0-9ec6-f97c73c03cbc
 
@@ -7,13 +7,13 @@
 // created during the 1-1-1 migration.
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // AckResponse is returned after successfully acknowledging a message.
 // If `success` is false, the `error` field contains additional

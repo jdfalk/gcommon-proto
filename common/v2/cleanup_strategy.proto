@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/metrics/v1/cleanup_strategy.proto
+// file: proto/gcommon/v2/metrics/v2/cleanup_strategy.proto
 // version: 1.0.1
 // guid: 98464e8e-3ad4-475d-8e19-cac3b3d813ca
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * CleanupStrategy defines how cleanup should be performed.

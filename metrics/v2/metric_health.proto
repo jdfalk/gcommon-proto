@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/metric_health.proto
+// file: proto/gcommon/v2/metrics/v2/metric_health.proto
 // version: 1.0.0
 // guid: c0c75431-e37e-4748-8a0d-44a7b15c5e3b
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/health_status.proto";
+import "common/v2/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * MetricHealth captures the health status of a metric source or scrape job.

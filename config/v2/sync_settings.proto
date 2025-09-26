@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/config/v1/sync_settings.proto
+// file: proto/gcommon/v2/config/v2/sync_settings.proto
 // version: 1.0.0
 // guid: 4e62c57b-c2aa-4462-b51c-4077876bfb37
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message SyncSettings {
   // Sync enabled

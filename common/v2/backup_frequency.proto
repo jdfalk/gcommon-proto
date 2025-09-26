@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/backup_frequency.proto
+// file: proto/gcommon/v2/config/backup_frequency.proto
 // version: 1.0.1
 // guid: 4efc5d0f-be87-47e1-8f01-f42fa2926368
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum BackupFrequency {
   BACKUP_FREQUENCY_UNSPECIFIED = 0;

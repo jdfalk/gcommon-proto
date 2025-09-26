@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/open_telemetry_settings_update.proto
+// file: proto/gcommon/v2/metrics/v2/open_telemetry_settings_update.proto
 // version: 1.0.0
 // guid: 191fb873-a4f2-418a-803f-6033ebcd28f4
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * OpenTelemetrySettingsUpdate contains updates to OpenTelemetry settings.

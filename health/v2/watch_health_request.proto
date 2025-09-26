@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/health/requests/watch_health_request.proto
+// file: proto/gcommon/v2/health/requests/watch_health_request.proto
 // version: 1.0.0
 // guid: 7f809192-bec4-9012-6789-345678901234
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * WatchHealthRequest requests a stream of health status updates.

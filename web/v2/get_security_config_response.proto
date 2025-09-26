@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/get_security_config_response.proto
+// file: proto/gcommon/v2/web/get_security_config_response.proto
 // version: 1.0.0
 // guid: ad8fcfc2-e9a0-4a3c-8f15-eddc7235c96f
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // GetSecurityConfigResponse response definition.
 message GetSecurityConfigResponse {

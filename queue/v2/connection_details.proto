@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/connection_details.proto
+// file: proto/gcommon/v2/queue/connection_details.proto
 // version: 1.0.0
 // guid: e63faacd-909b-487c-9be3-1cba61d1e2c9
 // Connection details for queue message delivery
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // ConnectionDetails contains information for establishing message delivery connections
 message ConnectionDetails {

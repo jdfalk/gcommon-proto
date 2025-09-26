@@ -1,7 +1,7 @@
-// file: proto/gcommon/v1/config/api/reload_config_request.proto
+// file: proto/gcommon/v2/config/api/reload_config_request.proto
 // version: 1.0.0
 // guid: 5d1ecbb6-f500-42a2-85a1-ee831ecb1936
-// file: proto/gcommon/v1/config/reload_config_request.proto
+// file: proto/gcommon/v2/config/reload_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation
@@ -9,15 +9,15 @@
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ReloadConfigRequest {
   // Namespace to reload

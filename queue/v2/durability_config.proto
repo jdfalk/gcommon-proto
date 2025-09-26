@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/config/durability_config.proto
-// file: proto/gcommon/v1/queue/durability_config.proto
+// file: proto/gcommon/v2/queue/config/durability_config.proto
+// file: proto/gcommon/v2/queue/durability_config.proto
 // version: 1.0.0
 // guid: 1a0b9c8d-7e6f-5a4b-3c2d-1e0f9a8b7c6d
 //
@@ -7,17 +7,17 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/ack_level.proto";
-import "common/v1/flush_policy.proto";
+import "common/v2/ack_level.proto";
+import "common/v2/flush_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Configuration for message durability and persistence.

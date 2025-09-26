@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/database/query_request.proto
+// file: proto/gcommon/v2/database/query_request.proto
 // version: 1.0.1
 // guid: 7c121670-ec19-444d-8042-91074225644d
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
-import "database/v1/query_options.proto";
-import "database/v1/query_parameter.proto";
+import "common/v2/request_metadata.proto";
+import "database/v2/query_options.proto";
+import "database/v2/query_parameter.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 message QueryRequest {
   // SQL query or NoSQL query string

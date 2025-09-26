@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/prepend_request.proto
+// file: proto/gcommon/v2/database/prepend_request.proto
 // version: 1.0.0
 // guid: 5dff4515-b826-40e9-be87-fcc208e45acc
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Request to prepend data to an existing cache entry.

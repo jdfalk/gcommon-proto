@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/organization/list_teams_response.proto
+// file: proto/gcommon/v2/organization/list_teams_response.proto
 // version: 1.0.1
 // guid: 0707cfbc-2147-4295-9e5f-f42fb515a73c
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/error.proto";
-import "common/v1/paginated_response.proto";
-import "organization/v1/team.proto";
+import "common/v2/error.proto";
+import "common/v2/paginated_response.proto";
+import "organization/v2/team.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message ListTeamsResponse {
   // Any errors encountered

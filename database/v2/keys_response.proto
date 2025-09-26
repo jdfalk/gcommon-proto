@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/keys_response.proto
+// file: proto/gcommon/v2/database/keys_response.proto
 // version: 1.0.0
 // guid: fg6hijkl-78m9-0n1o-2p3q-4r5s6t7u8v9w
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Response for cache keys listing operations.

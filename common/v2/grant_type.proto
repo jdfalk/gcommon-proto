@@ -1,14 +1,14 @@
-// file: proto/gcommon/v1/common/grant_type.proto
+// file: proto/gcommon/v2/common/grant_type.proto
 // version: 1.0.1
 // guid: 75a43fdc-3d73-410d-80b1-00ca7583f150
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * OAuth 2.0 grant types supported by the authentication system.

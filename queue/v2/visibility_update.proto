@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/visibility_update.proto
+// file: proto/gcommon/v2/queue/visibility_update.proto
 // version: 1.0.0
 // guid: 9e5fd0b6-9d67-467e-b8a6-29addbcc72e4
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message VisibilityUpdate {
   // New visibility timeout duration (milliseconds)

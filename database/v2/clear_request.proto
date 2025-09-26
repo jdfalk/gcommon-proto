@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/clear_request.proto
+// file: proto/gcommon/v2/database/clear_request.proto
 // version: 1.0.0
 // guid: de4fghij-56k7-8l9m-0n1o-2p3q4r5s6t7u
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Request to clear all cache entries.

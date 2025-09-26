@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/mime_type.proto
+// file: proto/gcommon/v2/web/mime_type.proto
 // version: 1.0.0
 // guid: b600b818-5782-4f9d-ba1e-e6d3f0f23159
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // MimeType message definition.
 // MimeType represents a content type with optional parameters.

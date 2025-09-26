@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/metrics/v1/stream_start.proto
+// file: proto/gcommon/v2/metrics/v2/stream_start.proto
 // version: 1.0.0
 // guid: 035f2196-05b5-429a-be1c-e7feae4a5b49
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message StreamStart {
   // Start from a specific timestamp

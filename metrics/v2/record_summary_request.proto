@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/metrics/v1/record_summary_request.proto
+// file: proto/gcommon/v2/metrics/v2/record_summary_request.proto
 // version: 1.0.1
 // guid: 5c052e01-88e7-4d02-b154-a1824090213b
-// file: proto/gcommon/v1/metrics/v1/record_summary_request.proto
+// file: proto/gcommon/v2/metrics/v2/record_summary_request.proto
 //
 // Request message for recording a summary metric observation.
 //
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/summary_metric.proto";
+import "common/v2/request_metadata.proto";
+import "metrics/v2/summary_metric.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message RecordSummaryRequest {
   // Summary metric data

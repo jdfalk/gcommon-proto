@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/update_topic_config_response.proto
-// file: proto/gcommon/v1/queue/update_topic_config_response.proto
+// file: proto/gcommon/v2/queue/api/update_topic_config_response.proto
+// file: proto/gcommon/v2/queue/update_topic_config_response.proto
 // version: 1.0.0
 // guid: 2e1f0d9c-8b7a-6e5f-4d3c-2b1a0f9e8d7c
 //
@@ -7,14 +7,14 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Response message for topic configuration update operations.

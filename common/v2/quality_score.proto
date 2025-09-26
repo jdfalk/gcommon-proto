@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/media/quality_score.proto
+// file: proto/gcommon/v2/media/quality_score.proto
 // version: 1.0.1
 // guid: 3d37a954-484a-4beb-acc4-7ec2fd05bf7d
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 // Overall media quality rating.
 enum QualityScore {

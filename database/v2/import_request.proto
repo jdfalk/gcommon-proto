@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/database/import_request.proto
+// file: proto/gcommon/v2/database/import_request.proto
 // version: 1.0.0
 // guid: 97a06666-8fd5-4e65-b830-1f8b94bd2a50
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Request to import cache contents from an external source.

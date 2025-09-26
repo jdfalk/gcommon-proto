@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/metric_quantile.proto
+// file: proto/gcommon/v2/metrics/v2/metric_quantile.proto
 // version: 1.0.0
 // guid: 9ab5b0e2-0228-47d2-9a48-d714ee6f3d6f
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * MetricQuantile represents a quantile value calculated from a

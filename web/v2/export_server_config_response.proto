@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/web/export_server_config_response.proto
+// file: proto/gcommon/v2/web/export_server_config_response.proto
 // version: 1.0.1
 // guid: b7274c09-ff07-4507-8c91-b7bfc995a64b
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/error.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/error.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * ExportServerConfigResponse message for web service operations.

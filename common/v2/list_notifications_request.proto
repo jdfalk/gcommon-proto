@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/common/list_notifications_request.proto
+// file: proto/gcommon/v2/common/list_notifications_request.proto
 // version: 1.0.1
 // guid: 34151d3e-f3cb-4445-a801-c9a44078e3cd
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/pagination.proto";
+import "common/v2/pagination.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Request to list previously sent notifications.

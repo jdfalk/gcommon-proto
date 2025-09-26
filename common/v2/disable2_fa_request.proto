@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/common/types/disable2_fa_request.proto
+// file: proto/gcommon/v2/common/types/disable2_fa_request.proto
 // version: 1.0.0
 // guid: 00c046b6-37b9-4a79-a9a4-05f73d7c0d7f
-// file: proto/gcommon/v1/common/disable2_fa_request.proto
+// file: proto/gcommon/v2/common/disable2_fa_request.proto
 //
 // Request definitions for auth module
 
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message Disable2FaRequest {
   // User ID requesting 2FA disable

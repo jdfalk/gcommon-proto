@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/scene_detection.proto
+// file: proto/gcommon/v2/media/scene_detection.proto
 // version: 1.0.0
 // guid: 616e4f97-9cac-4ab8-933a-d6268596a01a
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message SceneDetection {
   google.protobuf.Duration start_time = 1;

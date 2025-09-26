@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/queue_state.proto
+// file: proto/gcommon/v2/queue/queue_state.proto
 // version: 1.0.1
 // guid: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
 //
@@ -6,12 +6,12 @@
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Represents the operational state of a queue.

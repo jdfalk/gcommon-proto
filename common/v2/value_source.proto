@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/value_source.proto
+// file: proto/gcommon/v2/config/value_source.proto
 // version: 1.0.1
 // guid: a06a0eb7-f579-4539-87e5-4f5bf9181601
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ValueSource {
   VALUE_SOURCE_UNSPECIFIED = 0;

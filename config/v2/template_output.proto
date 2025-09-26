@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/template_output.proto
+// file: proto/gcommon/v2/config/template_output.proto
 // version: 1.0.0
 // guid: 579f8ac6-c06e-4a4f-9e96-232802698bc1
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message TemplateOutput {
   // Output name

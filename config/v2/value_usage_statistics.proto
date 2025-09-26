@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/config/value_usage_statistics.proto
+// file: proto/gcommon/v2/config/value_usage_statistics.proto
 // version: 1.0.0
 // guid: 3e5f0d64-7329-474a-9bd9-17d7f8fdf4b5
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "config/v1/value_usage_trend.proto";
+import "config/v2/value_usage_trend.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ValueUsageStatistics {
   // Total read count

@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/health/services/health_service.proto
+// file: proto/gcommon/v2/health/services/health_service.proto
 // version: 1.0.0
 // guid: 8192031a-2536-4567-1234-890123456789
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "health/v1/health_check_request.proto";
-import "health/v1/readiness_check_request.proto";
-import "health/v1/watch_health_request.proto";
-import "health/v1/health_check_response.proto";
-import "health/v1/readiness_check_response.proto";
-import "health/v1/watch_health_response.proto";
+import "health/v2/health_check_request.proto";
+import "health/v2/readiness_check_request.proto";
+import "health/v2/watch_health_request.proto";
+import "health/v2/health_check_response.proto";
+import "health/v2/readiness_check_response.proto";
+import "health/v2/watch_health_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * HealthService provides health checking capabilities for services and components.

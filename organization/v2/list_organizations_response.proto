@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/organization/list_organizations_response.proto
+// file: proto/gcommon/v2/organization/list_organizations_response.proto
 // version: 1.0.1
 // guid: 3da96ff2-b3f3-479b-86e8-77a5ae8bcd5d
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/error.proto";
-import "common/v1/paginated_response.proto";
-import "organization/v1/organization.proto";
+import "common/v2/error.proto";
+import "common/v2/paginated_response.proto";
+import "organization/v2/organization.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message ListOrganizationsResponse {
   // Any errors encountered

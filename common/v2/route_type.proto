@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/route_type.proto
+// file: proto/gcommon/v2/web/route_type.proto
 // version: 1.0.1
 // guid: a655dd19-273c-4cb4-a5ea-71ce983e16cd
 //
 // RouteType distinguishes different route behaviors.
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum RouteType {
   ROUTE_TYPE_UNSPECIFIED = 0;

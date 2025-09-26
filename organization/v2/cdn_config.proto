@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/organization/cdn_config.proto
+// file: proto/gcommon/v2/organization/cdn_config.proto
 // version: 1.0.0
 // guid: 07ac4644-4b99-4ae2-a2c7-2fb5bcd47e0f
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "organization/v1/cache_behavior.proto";
-import "organization/v1/origin_config.proto";
+import "organization/v2/cache_behavior.proto";
+import "organization/v2/origin_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CDNConfig {
   // CDN provider

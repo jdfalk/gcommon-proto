@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/common/types/configure_alerting_request.proto
+// file: proto/gcommon/v2/common/types/configure_alerting_request.proto
 // version: 1.0.0
 // guid: 760eeee5-189e-489d-b385-42e80f43726f
-// file: proto/gcommon/v1/common/configure_alerting_request.proto
+// file: proto/gcommon/v2/common/configure_alerting_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ConfigureAlertingRequest {
   // Name of the service or check to configure

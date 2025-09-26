@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/start_scraping_response.proto
+// file: proto/gcommon/v2/metrics/v2/start_scraping_response.proto
 // version: 1.1.1
 // guid: 83543cf4-50e7-4161-9c5f-5ddca3a0655f
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "metrics/v1/scrape_job.proto";
+import "common/v2/error.proto";
+import "metrics/v2/scrape_job.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * StartScrapingResponse returns the result of starting a scrape job.

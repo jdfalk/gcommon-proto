@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/media/update_media_file_response.proto
+// file: proto/gcommon/v2/media/update_media_file_response.proto
 // version: 1.0.1
 // guid: 8f901234-5678-9012-a3b4-c5d6e7f8a9b0
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
-import "media/v1/media_file.proto";
+import "media/v2/media_file.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Response from updating a media file.
 message UpdateMediaFileResponse {

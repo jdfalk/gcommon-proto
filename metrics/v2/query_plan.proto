@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/query_plan.proto
+// file: proto/gcommon/v2/metrics/v2/query_plan.proto
 // version: 1.0.0
 // guid: 6acf658c-3ed4-4910-a68b-dc33ce5d816b
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/query_step.proto";
+import "metrics/v2/query_step.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message QueryPlan {
   // Query that this plan is for

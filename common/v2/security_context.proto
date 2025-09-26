@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/security_context.proto
+// file: proto/gcommon/v2/common/security_context.proto
 // version: 1.0.0
 // guid: 80402f15-2486-4290-92b0-77a7f38f1820
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/auth_method.proto";
+import "common/v2/auth_method.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message SecurityContext {
   // User ID

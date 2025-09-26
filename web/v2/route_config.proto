@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/web/route_config.proto
+// file: proto/gcommon/v2/web/route_config.proto
 // version: 1.1.0
 // guid: ce3f0233-7da2-4e81-8460-b1bf3a6fba53
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/handler_type.proto";
-import "common/v1/http_method.proto";
+import "common/v2/handler_type.proto";
+import "common/v2/http_method.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // RouteConfig message definition.
 message RouteConfig {

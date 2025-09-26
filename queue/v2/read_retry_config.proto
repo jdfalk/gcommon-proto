@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/read_retry_config.proto
+// file: proto/gcommon/v2/queue/read_retry_config.proto
 // version: 1.0.0
 // guid: 123c273c-25e2-4af1-85ab-48ac7f8a28d5
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ReadRetryConfig {
   // Maximum retry attempts

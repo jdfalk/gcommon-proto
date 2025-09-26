@@ -1,14 +1,14 @@
-// file: proto/gcommon/v1/queue/peek_response.proto
+// file: proto/gcommon/v2/queue/peek_response.proto
 // version: 1.0.0
 // guid: 2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/error.proto";
-import "common/v1/request_metadata.proto";
-import "queue/v1/queue_message.proto";
+import "common/v2/error.proto";
+import "common/v2/request_metadata.proto";
+import "queue/v2/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
@@ -18,7 +18,7 @@ import "buf/validate/validate.proto";
 // Queue message types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * PeekResponse returns messages viewed from a queue without removing them.

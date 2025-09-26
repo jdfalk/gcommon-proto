@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/common/update_session_response.proto
+// file: proto/gcommon/v2/common/update_session_response.proto
 // version: 1.0.0
 // guid: f9a0b1c2-d3e4-5f6a-7b8c-9d0e1f2a3b4c
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/response_metadata.proto";
-import "common/v1/session_info.proto";
+import "common/v2/response_metadata.proto";
+import "common/v2/session_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Response for session update operations.

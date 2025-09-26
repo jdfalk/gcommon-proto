@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/web/import_server_config_request.proto
+// file: proto/gcommon/v2/web/import_server_config_request.proto
 // version: 1.0.1
 // guid: 60a97ec8-a4f9-4606-844c-774a208ca62a
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * ImportServerConfigRequest message for web service operations.

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/deployment_rollback_info.proto
+// file: proto/gcommon/v2/config/deployment_rollback_info.proto
 // version: 1.0.0
 // guid: a7d7152b-5b23-4a12-aa77-0914b3db2822
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message DeploymentRollbackInfo {
   // Rollback available

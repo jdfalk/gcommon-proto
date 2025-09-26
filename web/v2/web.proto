@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/web.proto
+// file: proto/gcommon/v2/web/web.proto
 // version: 1.0.0
 // guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * Web represents basic web server information and metadata.

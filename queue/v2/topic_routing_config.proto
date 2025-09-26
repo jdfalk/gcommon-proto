@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/queue/topic_routing_config.proto
+// file: proto/gcommon/v2/queue/topic_routing_config.proto
 // version: 1.0.0
 // guid: 502467f7-3d79-4329-8e44-4e499071092b
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Topic-based routing configuration.

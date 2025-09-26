@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/publish_response.proto
+// file: proto/gcommon/v2/queue/publish_response.proto
 // version: 1.0.0
 // guid: 8b12b279-f7c6-40fe-9147-4a663fb0c9c6
 
@@ -6,16 +6,16 @@
 // topic.
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/error.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/error.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // PublishResponse contains the identifier of the published message
 // and success status.

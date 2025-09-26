@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/metrics/v1/timer_metric.proto
+// file: proto/gcommon/v2/metrics/v2/timer_metric.proto
 // version: 1.0.0
 // guid: 13ed2d88-7499-4d64-83cb-9292a1e35065
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/percentile_measurement.proto";
-import "metrics/v1/timer_statistics.proto";
+import "metrics/v2/percentile_measurement.proto";
+import "metrics/v2/timer_statistics.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message TimerMetric {
   // Unique identifier for this timer measurement

@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/subscribe_request.proto
+// file: proto/gcommon/v2/queue/subscribe_request.proto
 // version: 1.0.0
 // guid: 6a573217-0297-4408-bcce-72b9172dd071
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/delivery_configuration.proto";
-import "queue/v1/error_handling_config.proto";
-import "queue/v1/message_filter_config.proto";
-import "queue/v1/subscription_configuration.proto";
+import "queue/v2/delivery_configuration.proto";
+import "queue/v2/error_handling_config.proto";
+import "queue/v2/message_filter_config.proto";
+import "queue/v2/subscription_configuration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueSubscribeRequest {
   // Topic or queue to subscribe to

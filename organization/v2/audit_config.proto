@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/organization/audit_config.proto
+// file: proto/gcommon/v2/organization/audit_config.proto
 // version: 1.0.0
 // guid: 404c83b0-6f95-4a24-8f22-55baffc8e465
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "organization/v1/audit_alert.proto";
+import "organization/v2/audit_alert.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message AuditConfig {
   // Whether audit logging is enabled

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/config/v1/backup_settings.proto
+// file: proto/gcommon/v2/config/v2/backup_settings.proto
 // version: 1.0.0
 // guid: e9a07253-25f8-4306-ad78-31325ce9b271
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/backup_frequency.proto";
+import "common/v2/backup_frequency.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message BackupSettings {
   // Whether backup is enabled

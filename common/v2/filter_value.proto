@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/common/filter_value.proto
+// file: proto/gcommon/v2/common/filter_value.proto
 // version: 1.0.0
 // guid: e873017a-bb7e-4509-bb4b-ba7a2d08bb2b
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/filter_operation.proto";
-import "common/v1/int64_array.proto";
-import "common/v1/string_array.proto";
+import "common/v2/filter_operation.proto";
+import "common/v2/int64_array.proto";
+import "common/v2/string_array.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Filter value with multiple type support and operation specification.

@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/organization/organization.proto
+// file: proto/gcommon/v2/organization/organization.proto
 // version: 1.1.0
 // guid: 67890def-1234-5678-9abc-def012345678
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "buf/validate/validate.proto";
-import "common/v1/key_value.proto";
-import "common/v1/organization_status.proto";
+import "common/v2/key_value.proto";
+import "common/v2/organization_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 /**
  * Organization message representing a complete organizational entity.

@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/database/execute_options.proto
+// file: proto/gcommon/v2/database/execute_options.proto
 // version: 1.0.1
 // guid: 8442b047-87bf-4004-a060-60b8ca1da578
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/database_isolation_level.proto";
+import "common/v2/database_isolation_level.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * ExecuteOptions configures behavior for database execute operations.

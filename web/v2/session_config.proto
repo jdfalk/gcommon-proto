@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/session_config.proto
+// file: proto/gcommon/v2/web/session_config.proto
 // version: 1.1.0
 // guid: 78ffbac0-1dba-4e18-85e1-ecce179da015
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/cookie_same_site.proto";
+import "common/v2/cookie_same_site.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // SessionConfig message definition.
 message WebSessionConfig {

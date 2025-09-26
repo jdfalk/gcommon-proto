@@ -15,7 +15,7 @@ from pathlib import Path
 def check_proto_structure():
     """Check the current proto structure."""
     print("=== GCOMMON PROTO STRUCTURE CHECK ===\n")
-    
+
     # Get all module directories at root level
     root_modules = []
     for item in os.listdir('.'):
@@ -23,33 +23,33 @@ def check_proto_structure():
             v1_path = os.path.join(item, 'v1')
             if os.path.exists(v1_path):
                 root_modules.append(item)
-    
+
     root_modules.sort()
     print(f"Found {len(root_modules)} modules at root level:")
     for module in root_modules:
         print(f"  - {module}/")
-    
+
     print("\n=== MODULE DETAILS ===")
-    
+
     total_files = 0
     for module in root_modules:
         v1_path = os.path.join(module, 'v1')
         proto_files = glob.glob(f"{v1_path}/*.proto")
-        subdirs = [d for d in os.listdir(v1_path) 
+        subdirs = [d for d in os.listdir(v1_path)
                   if os.path.isdir(os.path.join(v1_path, d))]
-        
+
         print(f"\n{module}/v1/:")
         print(f"  Proto files: {len(proto_files)}")
-        
+
         if subdirs:
             print(f"  ⚠️  Subdirectories found (should be flattened): {subdirs}")
             for subdir in subdirs:
                 subdir_path = os.path.join(v1_path, subdir)
                 subdir_protos = glob.glob(f"{subdir_path}/*.proto")
                 print(f"    {subdir}/: {len(subdir_protos)} proto files")
-        
+
         total_files += len(proto_files)
-        
+
         # Show first few proto files as examples
         if proto_files:
             print(f"  Example files:")
@@ -58,17 +58,17 @@ def check_proto_structure():
                 print(f"    - {filename}")
             if len(proto_files) > 3:
                 print(f"    ... and {len(proto_files) - 3} more")
-    
+
     print(f"\n=== SUMMARY ===")
     print(f"Total modules: {len(root_modules)}")
     print(f"Total proto files: {total_files}")
-    
+
     # Check for old proto directory
     if os.path.exists('proto'):
         print("⚠️  Old 'proto/' directory still exists")
     else:
         print("✅ Old 'proto/' directory removed")
-    
+
     # Check buf.yaml
     print(f"\n=== BUF CONFIGURATION ===")
     if os.path.exists('buf.yaml'):
@@ -84,7 +84,7 @@ def check_proto_structure():
 def check_sample_imports():
     """Check import statements in a few sample proto files."""
     print(f"\n=== SAMPLE IMPORT CHECK ===")
-    
+
     # Find a few sample proto files
     sample_files = []
     for root, dirs, files in os.walk('.'):
@@ -95,7 +95,7 @@ def check_sample_imports():
                     break
         if len(sample_files) >= 3:
             break
-    
+
     for proto_file in sample_files:
         print(f"\nChecking {proto_file}:")
         try:

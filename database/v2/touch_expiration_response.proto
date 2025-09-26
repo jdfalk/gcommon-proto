@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/database/touch_expiration_response.proto
+// file: proto/gcommon/v2/database/touch_expiration_response.proto
 // version: 1.0.1
 // guid: kl1mnopq-23r4-5s6t-7u8v-9w0x1y2z3a4b
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Response for cache touch expiration operations.

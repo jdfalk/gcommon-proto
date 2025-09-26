@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/config/stream_config.proto
-// file: proto/gcommon/v1/queue/stream_config.proto
+// file: proto/gcommon/v2/queue/config/stream_config.proto
+// file: proto/gcommon/v2/queue/stream_config.proto
 // version: 1.0.0
 // guid: 7a6b5c4d-3e2f-1a0b-9c8d-7e6f5a4b3c2d
 //
@@ -7,16 +7,16 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/stream_restart_policy.proto";
+import "common/v2/stream_restart_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Configuration for streaming message consumption.

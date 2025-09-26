@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/result_set.proto
+// file: proto/gcommon/v2/database/result_set.proto
 // version: 1.0.1
 // guid: b4dc4847-4e57-46b9-bcf0-f74e86882c0a
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/column_metadata.proto";
-import "database/v1/row.proto";
+import "database/v2/column_metadata.proto";
+import "database/v2/row.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * ResultSet contains the results of a database query operation.

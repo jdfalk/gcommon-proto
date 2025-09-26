@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/health/messages/component_health.proto
+// file: proto/gcommon/v2/health/messages/component_health.proto
 // version: 1.0.0
 // guid: 3c4d5e6f-7081-9012-cdef-345678901234
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "health/v1/health_status.proto";
+import "health/v2/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * ComponentHealth represents the health status of a system component.

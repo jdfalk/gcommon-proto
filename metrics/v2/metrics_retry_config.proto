@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/metrics/metrics_retry_config.proto
+// file: proto/gcommon/v2/metrics/metrics_retry_config.proto
 // version: 1.0.0
 // guid: f77fa8d6-728f-4bd9-9dab-8965dfb38ff8
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message MetricsRetryConfig {
   // Maximum number of retries

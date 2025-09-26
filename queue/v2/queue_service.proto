@@ -1,27 +1,27 @@
-// file: proto/gcommon/v1/queue/queue_service.proto
+// file: proto/gcommon/v2/queue/queue_service.proto
 // version: 1.0.1
 // guid: 1f2e3d4c-5b6a-7980-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/dequeue_request.proto";
-import "queue/v1/dequeue_response.proto";
-import "queue/v1/enqueue_request.proto";
-import "queue/v1/enqueue_response.proto";
-import "queue/v1/get_queue_info_request.proto";
-import "queue/v1/get_queue_info_response.proto";
-import "queue/v1/peek_request.proto";
-import "queue/v1/peek_response.proto";
-import "queue/v1/publish_request.proto";
-import "queue/v1/publish_response.proto";
-import "queue/v1/subscribe_request.proto";
-import "queue/v1/subscribe_response.proto";
+import "queue/v2/dequeue_request.proto";
+import "queue/v2/dequeue_response.proto";
+import "queue/v2/enqueue_request.proto";
+import "queue/v2/enqueue_response.proto";
+import "queue/v2/get_queue_info_request.proto";
+import "queue/v2/get_queue_info_response.proto";
+import "queue/v2/peek_request.proto";
+import "queue/v2/peek_response.proto";
+import "queue/v2/publish_request.proto";
+import "queue/v2/publish_response.proto";
+import "queue/v2/subscribe_request.proto";
+import "queue/v2/subscribe_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * QueueService provides core queue operations for message handling,

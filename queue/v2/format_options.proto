@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/format_options.proto
+// file: proto/gcommon/v2/queue/format_options.proto
 // version: 1.0.0
 // guid: be0dbb05-7495-4e4c-b7c7-97774a7e0489
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/compression_algorithm.proto";
-import "common/v1/serialization_format.proto";
+import "common/v2/compression_algorithm.proto";
+import "common/v2/serialization_format.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Serialization options for a specific format.

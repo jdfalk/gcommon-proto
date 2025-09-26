@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/web/unregister_middleware_request.proto
+// file: proto/gcommon/v2/web/unregister_middleware_request.proto
 // version: 1.1.0
 // guid: 9123fb9b-ced5-4251-adb0-dcb9b453b8b5
 // UnregisterMiddlewareRequest request definition.
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 message UnregisterMiddlewareRequest {
   // Server identifier

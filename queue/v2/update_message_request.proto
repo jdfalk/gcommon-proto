@@ -1,23 +1,23 @@
-// file: proto/gcommon/v1/queue/update_message_request.proto
+// file: proto/gcommon/v2/queue/update_message_request.proto
 // version: 1.0.0
 // guid: 78c4ac61-c4dc-4bfc-bfa1-93a723303fbb
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/content_update.proto";
-import "queue/v1/message_update_properties.proto";
-import "queue/v1/metadata_update.proto";
-import "queue/v1/priority_update.proto";
-import "queue/v1/update_condition.proto";
-import "queue/v1/visibility_update.proto";
+import "queue/v2/content_update.proto";
+import "queue/v2/message_update_properties.proto";
+import "queue/v2/metadata_update.proto";
+import "queue/v2/priority_update.proto";
+import "queue/v2/update_condition.proto";
+import "queue/v2/visibility_update.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message UpdateMessageRequest {
   // Message identifier to update

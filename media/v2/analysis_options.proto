@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/media/analysis_options.proto
+// file: proto/gcommon/v2/media/analysis_options.proto
 // version: 1.0.0
 // guid: 31c491f2-15e1-4433-97ae-89ffb465dd07
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message AnalysisOptions {
   bool extract_metadata = 1; // Extract technical metadata

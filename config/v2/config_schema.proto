@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/v1/config_schema.proto
+// file: proto/gcommon/v2/config/v2/config_schema.proto
 // version: 1.0.0
 // guid: 9e149f8a-076f-4c2b-8e8c-ddaf1b41707a
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * ConfigSchema defines a configuration schema.

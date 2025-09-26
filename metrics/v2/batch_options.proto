@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/batch_options.proto
+// file: proto/gcommon/v2/metrics/v2/batch_options.proto
 // version: 1.0.0
 // guid: cb61183a-3b53-41cd-a131-685b4fd8be75
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/batch_priority.proto";
+import "common/v2/batch_priority.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * BatchOptions configures how batch operations should be processed.

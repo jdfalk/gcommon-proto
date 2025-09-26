@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/config/v1/notification_settings.proto
+// file: proto/gcommon/v2/config/v2/notification_settings.proto
 // version: 1.0.0
 // guid: 4694674c-55fc-4ee7-8874-efe3ad5f1250
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/notification_trigger.proto";
-import "config/v1/batching_settings.proto";
-import "config/v1/notification_channel.proto";
+import "common/v2/notification_trigger.proto";
+import "config/v2/batching_settings.proto";
+import "config/v2/notification_channel.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigNotificationSettings {
   // Whether notifications are enabled

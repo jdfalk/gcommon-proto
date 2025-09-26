@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/authentication_config.proto
+// file: proto/gcommon/v2/queue/authentication_config.proto
 // version: 1.0.1
 // guid: b6fb3968-5534-4c9b-a4bb-55245fb334e3
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/api_key_auth.proto";
-import "queue/v1/o_auth2_auth.proto";
-import "queue/v1/sasl_auth.proto";
-import "queue/v1/tls_auth.proto";
-import "queue/v1/username_password_auth.proto";
+import "queue/v2/api_key_auth.proto";
+import "queue/v2/o_auth2_auth.proto";
+import "queue/v2/sasl_auth.proto";
+import "queue/v2/tls_auth.proto";
+import "queue/v2/username_password_auth.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message AuthenticationConfig {
   // Authentication type

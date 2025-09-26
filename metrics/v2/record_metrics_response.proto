@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/metrics/v1/record_metrics_response.proto
+// file: proto/gcommon/v2/metrics/v2/record_metrics_response.proto
 // version: 1.0.0
 // guid: 14d6d2f6-2386-4f1b-a00f-086e0bfb5653
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "metrics/v1/batch_stats.proto";
-import "metrics/v1/metric_result.proto";
-import "metrics/v1/validation_summary.proto";
+import "common/v2/error.proto";
+import "metrics/v2/batch_stats.proto";
+import "metrics/v2/metric_result.proto";
+import "metrics/v2/validation_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message RecordMetricsResponse {
   // Overall success status of the batch operation

@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/metrics/v1/comparison_operator.proto
+// file: proto/gcommon/v2/metrics/v2/comparison_operator.proto
 // version: 1.0.1
 // guid: a2b3c4d5-6789-012d-6789-234567890123
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ComparisonOperator {
   COMPARISON_OPERATOR_UNSPECIFIED = 0;

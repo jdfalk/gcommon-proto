@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/auth_method.proto
+// file: proto/gcommon/v2/common/auth_method.proto
 // version: 1.0.1
 // guid: 815bb886-5864-44fd-ae07-c6102c110fd7
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * AuthMethod enumerates the supported authentication mechanisms.

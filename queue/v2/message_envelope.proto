@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/types/message_envelope.proto
-// file: proto/gcommon/v1/queue/message_envelope.proto
+// file: proto/gcommon/v2/queue/types/message_envelope.proto
+// file: proto/gcommon/v2/queue/message_envelope.proto
 // version: 1.0.0
 // guid: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
 //
@@ -7,7 +7,7 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Message envelope that wraps the actual message payload with metadata.

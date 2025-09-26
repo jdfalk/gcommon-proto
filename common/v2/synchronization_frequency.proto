@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/synchronization_frequency.proto
+// file: proto/gcommon/v2/config/synchronization_frequency.proto
 // version: 1.0.1
 // guid: 939438cc-2704-4ba7-ab8a-8ed45e882d94
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum SynchronizationFrequency {
   SYNCHRONIZATION_FREQUENCY_UNSPECIFIED = 0;

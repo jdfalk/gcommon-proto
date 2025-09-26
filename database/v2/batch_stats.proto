@@ -1,9 +1,9 @@
-// file: proto/gcommon/v1/database/batch_stats.proto
+// file: proto/gcommon/v2/database/batch_stats.proto
 // version: 1.0.0
 // guid: 0bb234e6-f7a8-4767-ac4a-1c9a0ad6ffa7
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -11,7 +11,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * BatchStats provides execution statistics for batch database operations.

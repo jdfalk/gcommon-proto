@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/database/execute_request.proto
+// file: proto/gcommon/v2/database/execute_request.proto
 // version: 1.0.1
 // guid: c2d8bf6f-1805-4fbe-8c00-77c616083610
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
-import "database/v1/execute_options.proto";
-import "database/v1/query_parameter.proto";
+import "common/v2/request_metadata.proto";
+import "database/v2/execute_options.proto";
+import "database/v2/query_parameter.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 message ExecuteRequest {
   // SQL statement or NoSQL operation

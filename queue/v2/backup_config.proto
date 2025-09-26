@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/backup_config.proto
+// file: proto/gcommon/v2/queue/backup_config.proto
 // version: 1.0.0
 // guid: 2e127d68-6db3-4c2e-a0ff-bb7a2e5542b8
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // BackupConfig defines how queued messages should be backed up
 // for disaster recovery.

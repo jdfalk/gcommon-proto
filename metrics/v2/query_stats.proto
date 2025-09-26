@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/query_stats.proto
+// file: proto/gcommon/v2/metrics/v2/query_stats.proto
 // version: 1.0.0
 // guid: f8a9b0c1-234f-689e-3456-901234567890
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message MetricsQueryStats {
   // Total queries executed

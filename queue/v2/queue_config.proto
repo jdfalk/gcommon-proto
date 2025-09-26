@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/queue_config.proto
+// file: proto/gcommon/v2/queue/queue_config.proto
 // version: 1.0.0
 // guid: c64defde-30d1-41e5-bfac-b415cbf929c6
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/priority_level.proto";
-import "common/v1/queue_type.proto";
-import "common/v1/retention_policy.proto";
+import "common/v2/priority_level.proto";
+import "common/v2/queue_type.proto";
+import "common/v2/retention_policy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // QueueConfig defines settings for creating a queue instance.
 message QueueConfig {

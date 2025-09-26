@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+// file: proto/gcommon/v2/metrics/v2/reset_metrics_response.proto
 // version: 1.0.1
 // guid: 00510bc8-5a91-49a9-b6ef-49d624b3d846
-// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+// file: proto/gcommon/v2/metrics/v2/reset_metrics_response.proto
 //
 // Response after resetting metric data.
 //
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
+import "common/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * ResetMetricsResponse reports reset status.

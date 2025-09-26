@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/config/v1/rotation_settings.proto
+// file: proto/gcommon/v2/config/v2/rotation_settings.proto
 // version: 1.0.0
 // guid: f9ec4d9b-b31b-410a-a6d5-f53e24671b44
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/rotation_frequency.proto";
-import "config/v1/rotation_event.proto";
+import "common/v2/rotation_frequency.proto";
+import "config/v2/rotation_event.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message RotationSettings {
   // Whether rotation is enabled

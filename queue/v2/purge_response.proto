@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/purge_response.proto
+// file: proto/gcommon/v2/queue/purge_response.proto
 // version: 1.0.0
 // guid: 14d5741d-3af8-49b9-8ec4-887527a72cfb
 // Response for queue purge operations
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Response for queue purge operations
 message PurgeResponse {

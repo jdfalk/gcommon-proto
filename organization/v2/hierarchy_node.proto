@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/hierarchy_node.proto
+// file: proto/gcommon/v2/organization/hierarchy_node.proto
 // version: 1.0.0
 // guid: bf24d24c-7e3c-4f4c-b4ea-a8b73c331ed7
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/key_value.proto";
+import "common/v2/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message HierarchyNode {
   // Unique node identifier

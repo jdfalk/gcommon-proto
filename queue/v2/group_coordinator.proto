@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/group_coordinator.proto
+// file: proto/gcommon/v2/queue/group_coordinator.proto
 // version: 1.0.0
 // guid: e3e0d17b-a593-44ec-a32c-8b282cf136fc
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/coordinator_state.proto";
+import "common/v2/coordinator_state.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message GroupCoordinator {
   // Coordinator node ID

@@ -1,23 +1,23 @@
-// file: proto/gcommon/v1/common/types/set_health_request.proto
+// file: proto/gcommon/v2/common/types/set_health_request.proto
 // version: 1.0.0
 // guid: 448c2377-fccd-47a6-bb60-977a92b8eaac
-// file: proto/gcommon/v1/common/set_health_request.proto
+// file: proto/gcommon/v2/common/set_health_request.proto
 //
 // Request definitions for health module
 //
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/health_status.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/health_status.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message SetHealthRequest {
   // Service name to update

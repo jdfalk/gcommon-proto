@@ -1,30 +1,30 @@
-// file: proto/gcommon/v1/common/session_service.proto
+// file: proto/gcommon/v2/common/session_service.proto
 // version: 1.0.1
 // guid: cdb77963-bfe4-405f-86a2-e3d6ba7fb232
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/create_session_request.proto";
-import "common/v1/create_session_response.proto";
-import "common/v1/delete_session_request.proto";
-import "common/v1/delete_session_response.proto";
-import "common/v1/get_session_request.proto";
-import "common/v1/get_session_response.proto";
-import "common/v1/list_sessions_request.proto";
-import "common/v1/list_sessions_response.proto";
-import "common/v1/list_user_sessions_request.proto";
-import "common/v1/list_user_sessions_response.proto";
-import "common/v1/terminate_session_request.proto";
-import "common/v1/terminate_session_response.proto";
-import "common/v1/update_session_request.proto";
-import "common/v1/update_session_response.proto";
-import "common/v1/validate_session_request.proto";
-import "common/v1/validate_session_response.proto";
+import "common/v2/create_session_request.proto";
+import "common/v2/create_session_response.proto";
+import "common/v2/delete_session_request.proto";
+import "common/v2/delete_session_response.proto";
+import "common/v2/get_session_request.proto";
+import "common/v2/get_session_response.proto";
+import "common/v2/list_sessions_request.proto";
+import "common/v2/list_sessions_response.proto";
+import "common/v2/list_user_sessions_request.proto";
+import "common/v2/list_user_sessions_response.proto";
+import "common/v2/terminate_session_request.proto";
+import "common/v2/terminate_session_response.proto";
+import "common/v2/update_session_request.proto";
+import "common/v2/update_session_response.proto";
+import "common/v2/validate_session_request.proto";
+import "common/v2/validate_session_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * SessionService manages user sessions and session lifecycle.

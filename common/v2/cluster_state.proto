@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/cluster_state.proto
+// file: proto/gcommon/v2/queue/cluster_state.proto
 // version: 1.0.1
 // guid: f68fdc5e-d25f-4790-9362-9bf09eb27f4d
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * State of the cluster.

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/organization/add_member_response.proto
+// file: proto/gcommon/v2/organization/add_member_response.proto
 // version: 1.0.0
 // guid: 33d9c949-572d-4466-b0cf-885572c420a1
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/error.proto";
-import "organization/v1/organization_member.proto";
+import "common/v2/error.proto";
+import "organization/v2/organization_member.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message AddMemberResponse {
   // Any errors encountered

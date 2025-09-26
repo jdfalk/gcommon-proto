@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/data_volume_trend.proto
+// file: proto/gcommon/v2/metrics/v2/data_volume_trend.proto
 // version: 1.0.0
 // guid: 069bcf6d-438e-4623-85fa-d0c875cc7370
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message DataVolumeTrend {
   string volume_trend = 1; // "increasing", "decreasing", "stable"

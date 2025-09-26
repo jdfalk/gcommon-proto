@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/update_subscription_config_request.proto
+// file: proto/gcommon/v2/queue/update_subscription_config_request.proto
 // version: 1.0.0
 // guid: 9ffb7149-231c-448f-9678-a8fa3130fe10
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/subscription_config_update.proto";
+import "queue/v2/subscription_config_update.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message UpdateSubscriptionConfigRequest {
   // Subscription identifier

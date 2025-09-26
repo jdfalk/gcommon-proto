@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/flow_control.proto
+// file: proto/gcommon/v2/queue/flow_control.proto
 // version: 1.0.0
 // guid: 40b0fde3-4f0f-4bef-b893-248588fbf4a6
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // FlowControl settings influence how the queue handles
 // bursts of incoming messages.

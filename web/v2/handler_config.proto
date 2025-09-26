@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/web/handler_config.proto
+// file: proto/gcommon/v2/web/handler_config.proto
 // version: 1.1.0
 // guid: 68d30216-8b75-4c02-88ca-9c39d70d4c4c
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/handler_type.proto";
+import "common/v2/handler_type.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // HandlerConfig message definition.
 message HandlerConfig {

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/unsubscribe_request.proto
+// file: proto/gcommon/v2/queue/unsubscribe_request.proto
 // version: 1.0.0
 // guid: 69c55038-151d-4d97-a390-6bf4dc28d4aa
 // Request to unsubscribe from a topic
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // Request to unsubscribe from a topic
 message QueueUnsubscribeRequest {

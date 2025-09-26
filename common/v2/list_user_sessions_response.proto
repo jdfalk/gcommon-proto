@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/list_user_sessions_response.proto
+// file: proto/gcommon/v2/common/list_user_sessions_response.proto
 // version: 1.0.0
 // guid: ac4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/error.proto";
-import "common/v1/paginated_response.proto";
-import "common/v1/request_metadata.proto";
-import "common/v1/session_info.proto";
+import "common/v2/error.proto";
+import "common/v2/paginated_response.proto";
+import "common/v2/request_metadata.proto";
+import "common/v2/session_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
@@ -20,7 +20,7 @@ import "buf/validate/validate.proto";
 // Auth module types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * ListUserSessionsResponse returns a list of user sessions.

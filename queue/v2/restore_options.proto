@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/queue/restore_options.proto
+// file: proto/gcommon/v2/queue/restore_options.proto
 // version: 1.0.0
 // guid: 5747b00e-cec5-49aa-adb9-514b7eefc3c4
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/time_range_metrics.proto";
-import "queue/v1/filter_criteria.proto";
-import "queue/v1/offset_range.proto";
-import "queue/v1/performance_options.proto";
+import "common/v2/time_range_metrics.proto";
+import "queue/v2/filter_criteria.proto";
+import "queue/v2/offset_range.proto";
+import "queue/v2/performance_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message RestoreOptions {
   // Skip message content (restore structure only)

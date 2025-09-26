@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/message_update_properties.proto
+// file: proto/gcommon/v2/queue/message_update_properties.proto
 // version: 1.0.0
 // guid: db9a2627-8ff1-4dc6-b551-e15416cd3bbe
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message MessageUpdateProperties {
   // New expiration time

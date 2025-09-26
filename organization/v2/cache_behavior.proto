@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/organization/cache_behavior.proto
+// file: proto/gcommon/v2/organization/cache_behavior.proto
 // version: 1.0.0
 // guid: e71b878c-7505-4ea2-af2b-59a9f9a155ca
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "organization/v1/cache_key_policy.proto";
+import "organization/v2/cache_key_policy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CacheBehavior {
   // Path pattern for this behavior

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/file_metadata.proto
+// file: proto/gcommon/v2/web/file_metadata.proto
 // version: 1.1.0
 // guid: ac289d4b-2cc8-4cfb-a360-36eef7dba093
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "web/v1/mime_type.proto";
+import "web/v2/mime_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // FileMetadata message definition.
 message FileMetadata {

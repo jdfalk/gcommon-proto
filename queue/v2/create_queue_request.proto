@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/create_queue_request.proto
+// file: proto/gcommon/v2/queue/create_queue_request.proto
 // version: 1.1.0
 // guid: c6d7e8f9-a0b1-2c3d-4e5f-6a7b8c9d0e1f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "buf/validate/validate.proto";
-import "common/v1/request_metadata.proto";
-import "queue/v1/queue_config.proto";
+import "common/v2/request_metadata.proto";
+import "queue/v2/queue_config.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to create a new queue.

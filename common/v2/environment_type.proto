@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/v1/environment_type.proto
+// file: proto/gcommon/v2/config/v2/environment_type.proto
 // version: 1.0.1
 // guid: c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * EnvironmentType represents the type of environment.

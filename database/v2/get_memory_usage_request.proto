@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/database/get_memory_usage_request.proto
+// file: proto/gcommon/v2/database/get_memory_usage_request.proto
 // version: 1.0.0
 // guid: 97d985af-123a-4048-ae7e-bb36a97c9069
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Request to retrieve cache memory usage statistics.

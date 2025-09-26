@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/retry_policy.proto
+// file: proto/gcommon/v2/queue/retry_policy.proto
 // version: 1.1.0
 // guid: 4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/retry_delay_strategy.proto";
+import "common/v2/retry_delay_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Retry policy for failed message processing.

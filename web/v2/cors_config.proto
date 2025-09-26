@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/cors_config.proto
+// file: proto/gcommon/v2/web/cors_config.proto
 // version: 1.0.1
 // guid: a30ac136-585a-4ceb-becf-9ca8beef5e86
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // CorsConfig message definition.
 message CORSConfig {

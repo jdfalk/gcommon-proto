@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/audio_analysis.proto
+// file: proto/gcommon/v2/media/audio_analysis.proto
 // version: 1.0.0
 // guid: 8f3a4990-a647-4e5b-8ff8-c0eafe246567
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "media/v1/silent_segment.proto";
+import "media/v2/silent_segment.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message AudioAnalysis {
   double peak_level = 1; // Peak audio level in dB

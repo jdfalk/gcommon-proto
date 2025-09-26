@@ -1,25 +1,25 @@
-// file: proto/gcommon/v1/queue/get_queue_stats_response.proto
+// file: proto/gcommon/v2/queue/get_queue_stats_response.proto
 // version: 1.0.0
 // guid: 7014296b-b332-416c-9de8-7d0fd264251c
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/metrics_error_stats.proto";
-import "common/v1/response_metadata.proto";
-import "queue/v1/consumer_stats.proto";
-import "queue/v1/historical_stats.proto";
-import "queue/v1/performance_metrics.proto";
-import "queue/v1/queue_stats.proto";
-import "queue/v1/queue_stats_summary.proto";
+import "common/v2/metrics_error_stats.proto";
+import "common/v2/response_metadata.proto";
+import "queue/v2/consumer_stats.proto";
+import "queue/v2/historical_stats.proto";
+import "queue/v2/performance_metrics.proto";
+import "queue/v2/queue_stats.proto";
+import "queue/v2/queue_stats_summary.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message GetQueueStatsResponse {
   // Standard response metadata

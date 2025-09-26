@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/config/list_config_request.proto
+// file: proto/gcommon/v2/config/list_config_request.proto
 // version: 1.0.0
 // guid: f18f6b5b-d699-4e53-a44b-0934ef94b688
 //
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/filter_options.proto";
-import "common/v1/pagination.proto";
-import "common/v1/request_metadata.proto";
-import "common/v1/sort_options.proto";
+import "common/v2/filter_options.proto";
+import "common/v2/pagination.proto";
+import "common/v2/request_metadata.proto";
+import "common/v2/sort_options.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * ListConfigRequest lists configuration entries with optional filtering.

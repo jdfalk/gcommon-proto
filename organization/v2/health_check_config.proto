@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/health_check_config.proto
+// file: proto/gcommon/v2/organization/health_check_config.proto
 // version: 1.0.0
 // guid: 3d161671-ebd9-42de-857a-2aef7ff4b62a
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message OrganizationHealthCheckConfig {
   // Health check path

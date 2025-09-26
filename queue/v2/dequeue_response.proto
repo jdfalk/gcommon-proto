@@ -1,14 +1,14 @@
-// file: proto/gcommon/v1/queue/dequeue_response.proto
+// file: proto/gcommon/v2/queue/dequeue_response.proto
 // version: 1.0.0
 // guid: ea8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/error.proto";
-import "common/v1/request_metadata.proto";
-import "queue/v1/queue_message.proto";
+import "common/v2/error.proto";
+import "common/v2/request_metadata.proto";
+import "queue/v2/queue_message.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
@@ -18,7 +18,7 @@ import "buf/validate/validate.proto";
 // Queue message types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * DequeueResponse returns messages retrieved from a queue.

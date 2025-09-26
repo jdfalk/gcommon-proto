@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/health/responses/list_checks_response.proto
+// file: proto/gcommon/v2/health/responses/list_checks_response.proto
 // version: 1.0.0
 // guid: 09192a3b-475d-2345-9012-678901234567
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "health/v1/health_check.proto";
-import "common/v1/response_metadata.proto";
+import "health/v2/health_check.proto";
+import "common/v2/response_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * ListChecksResponse returns a list of registered health checks.

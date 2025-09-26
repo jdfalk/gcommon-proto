@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/config/access_control.proto
+// file: proto/gcommon/v2/config/access_control.proto
 // version: 1.0.0
 // guid: 5707e31a-b72e-4cc1-b3ba-87269e99e05b
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "config/v1/access_restriction.proto";
-import "config/v1/rate_limits.proto";
+import "config/v2/access_restriction.proto";
+import "config/v2/rate_limits.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigAccessControl {
   // Access policy

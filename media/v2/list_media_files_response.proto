@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/media/list_media_files_response.proto
+// file: proto/gcommon/v2/media/list_media_files_response.proto
 // version: 1.0.0
 // guid: 2345678-9abc-def0-e7f8-a9b0c1d2e3f4
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
-import "media/v1/media_file.proto";
+import "media/v2/media_file.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Response containing a list of media files.
 message ListMediaFilesResponse {

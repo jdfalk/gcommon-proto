@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/database/get_database_info_response.proto
+// file: proto/gcommon/v2/database/get_database_info_response.proto
 // version: 1.0.1
 // guid: 82b01a11-1af8-4919-9361-f49aa8b3f822
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/database_info.proto";
+import "database/v2/database_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * GetDatabaseInfoResponse contains detailed metadata about a database.

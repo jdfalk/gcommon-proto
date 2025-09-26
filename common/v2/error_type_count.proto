@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/error_type_count.proto
+// file: proto/gcommon/v2/common/error_type_count.proto
 // version: 1.0.0
 // guid: 8116a2bc-950e-407c-9db8-2f3985e9394d
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ErrorTypeCount {
   string error_type = 1 [(buf.validate.field).string.min_len = 1];

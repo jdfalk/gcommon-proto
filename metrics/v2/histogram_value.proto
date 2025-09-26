@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/histogram_value.proto
+// file: proto/gcommon/v2/metrics/v2/histogram_value.proto
 // version: 1.0.0
 // guid: eb817cca-e34f-456c-8769-cb7f42cb931c
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/histogram_bucket.proto";
+import "metrics/v2/histogram_bucket.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message HistogramValue {
   // Histogram buckets with their counts

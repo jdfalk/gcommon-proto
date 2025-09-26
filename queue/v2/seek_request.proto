@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/seek_request.proto
-// file: proto/gcommon/v1/queue/seek_request.proto
+// file: proto/gcommon/v2/queue/api/seek_request.proto
+// file: proto/gcommon/v2/queue/seek_request.proto
 // version: 1.0.0
 // guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 //
@@ -7,15 +7,15 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to seek to a specific position in a queue or topic.

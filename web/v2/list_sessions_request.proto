@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/list_sessions_request.proto
+// file: proto/gcommon/v2/web/list_sessions_request.proto
 // version: 1.1.0
 // guid: a6c1c53c-e5dd-4cbc-9a88-357c8c22e179
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // ListSessionsRequest request definition.
 message WebListSessionsRequest {

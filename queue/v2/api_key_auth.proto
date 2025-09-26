@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/api_key_auth.proto
+// file: proto/gcommon/v2/queue/api_key_auth.proto
 // version: 1.0.0
 // guid: 4ac6d133-bd64-491e-8c17-2a716164dd87
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message APIKeyAuth {
   // API key for authentication

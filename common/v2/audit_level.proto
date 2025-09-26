@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/audit_level.proto
+// file: proto/gcommon/v2/config/audit_level.proto
 // version: 1.0.1
 // guid: 8576474b-84f1-4a99-ab88-a865fb4e28ca
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum AuditLevel {
   AUDIT_LEVEL_UNSPECIFIED = 0;

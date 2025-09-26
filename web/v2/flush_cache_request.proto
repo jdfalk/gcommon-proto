@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/flush_cache_request.proto
+// file: proto/gcommon/v2/web/flush_cache_request.proto
 // version: 1.0.0
 // guid: mno78901-2345-6789-abcd-ef1234567890
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 message FlushCacheRequest {
   // Optional namespace to flush (if empty, flushes all)

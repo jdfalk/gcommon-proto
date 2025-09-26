@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/media/media_file.proto
+// file: proto/gcommon/v2/media/media_file.proto
 // version: 1.0.0
 // guid: e3bc9175-1261-4755-9d32-d991586e723f
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
-import "common/v1/media_type.proto";
-import "media/v1/audio_track.proto";
-import "media/v1/media_metadata.proto";
-import "media/v1/media_quality.proto";
-import "media/v1/subtitle_track.proto";
+import "common/v2/media_type.proto";
+import "media/v2/audio_track.proto";
+import "media/v2/media_metadata.proto";
+import "media/v2/media_quality.proto";
+import "media/v2/subtitle_track.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Media file representation with associated metadata and tracks.
 message MediaFile {

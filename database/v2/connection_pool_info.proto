@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/connection_pool_info.proto
+// file: proto/gcommon/v2/database/connection_pool_info.proto
 // version: 1.0.0
 // guid: 96aea9f8-77e8-4342-87af-6a00947ef1b0
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/pool_stats.proto";
+import "database/v2/pool_stats.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * ConnectionPoolInfo provides information about database connection pool status.

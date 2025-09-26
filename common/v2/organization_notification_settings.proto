@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/organization_notification_settings.proto
+// file: proto/gcommon/v2/common/organization_notification_settings.proto
 // version: 1.1.0
 // guid: 5c93685f-3692-4596-bb11-a848cfce9365
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/email_template.proto";
-import "common/v1/notification_frequency.proto";
+import "common/v2/email_template.proto";
+import "common/v2/notification_frequency.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message OrganizationNotificationSettings {
   // Default email sender address for organization notifications

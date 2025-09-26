@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/sasl_auth.proto
+// file: proto/gcommon/v2/queue/sasl_auth.proto
 // version: 1.0.0
 // guid: 24c2c7a1-8dbb-44e3-9d87-bb207c23207d
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message SASLAuth {
   // SASL mechanism (PLAIN, SCRAM-SHA-256, etc.)

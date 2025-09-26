@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/acknowledge_request.proto
+// file: proto/gcommon/v2/queue/acknowledge_request.proto
 // version: 1.0.0
 // guid: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * AcknowledgeRequest confirms successful processing of one or more messages.

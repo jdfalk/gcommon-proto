@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/queue/authorization_config.proto
+// file: proto/gcommon/v2/queue/authorization_config.proto
 // version: 1.0.0
 // guid: 813cabd6-f8af-423b-be9a-0c4d74b35cf2
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/api_key_auth.proto";
-import "queue/v1/external_auth_service.proto";
-import "queue/v1/jwt_auth.proto";
-import "queue/v1/permission_rule.proto";
-import "queue/v1/role_based_access_control.proto";
+import "queue/v2/api_key_auth.proto";
+import "queue/v2/external_auth_service.proto";
+import "queue/v2/jwt_auth.proto";
+import "queue/v2/permission_rule.proto";
+import "queue/v2/role_based_access_control.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message AuthorizationConfig {
   // Enable authorization checking

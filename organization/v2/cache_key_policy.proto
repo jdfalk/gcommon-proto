@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/cache_key_policy.proto
+// file: proto/gcommon/v2/organization/cache_key_policy.proto
 // version: 1.0.0
 // guid: 79bc7887-310b-4ecf-a948-fd2e09760466
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message CacheKeyPolicy {
   // Whether to include query strings in cache key

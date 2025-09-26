@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/audio_track.proto
+// file: proto/gcommon/v2/media/audio_track.proto
 // version: 1.0.0
 // guid: 55a5a263-fb45-49ae-8090-81d826cc0a5f
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Audio track information.
 message AudioTrack {

@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/metrics/v1/get_alerting_rules_response.proto
+// file: proto/gcommon/v2/metrics/v2/get_alerting_rules_response.proto
 // version: 1.0.0
 // guid: e6b7e2fc-4cd1-4e68-8d74-edab03688e54
-// file: proto/gcommon/v1/metrics/v1/get_alerting_rules_response.proto
+// file: proto/gcommon/v2/metrics/v2/get_alerting_rules_response.proto
 //
 // Response message containing alerting rules for a metric.
 //
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "metrics/v1/alerting_rule.proto";
+import "common/v2/error.proto";
+import "metrics/v2/alerting_rule.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * GetAlertingRulesResponse returns configured alerting rules.

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/cache_info.proto
+// file: proto/gcommon/v2/database/cache_info.proto
 // version: 1.0.0
 // guid: no4pqrst-56u7-8v9w-0x1y-2z3a4b5c6d7e
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/health_status.proto";
+import "common/v2/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * General cache information and metadata.

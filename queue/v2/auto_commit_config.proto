@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/auto_commit_config.proto
+// file: proto/gcommon/v2/queue/auto_commit_config.proto
 // version: 1.0.0
 // guid: 7f79c66e-a2a7-427d-844c-6010e165135d
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message AutoCommitConfig {
   // Enable auto-commit of offsets

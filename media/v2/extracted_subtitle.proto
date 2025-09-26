@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/media/extracted_subtitle.proto
+// file: proto/gcommon/v2/media/extracted_subtitle.proto
 // version: 1.0.0
 // guid: 3561baa5-64a1-4881-abbd-8e58a58b6b62
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message ExtractedSubtitle {
   string file_id = 1 [(buf.validate.field).string.min_len = 1];

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/o_auth2_auth.proto
+// file: proto/gcommon/v2/queue/o_auth2_auth.proto
 // version: 1.0.0
 // guid: ed719ecf-6477-4d68-b022-dc57bed659ce
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message OAuth2Auth {
   // OAuth2 token endpoint

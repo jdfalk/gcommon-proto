@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/ssl_protocol.proto
+// file: proto/gcommon/v2/web/ssl_protocol.proto
 // version: 1.0.1
 // guid: 2f6af5d4-4f52-42cd-9ae8-9c6506e0da5e
 //
 // SSLProtocol lists supported TLS protocol versions.
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum SSLProtocol {
   SSL_PROTOCOL_UNSPECIFIED = 0;

@@ -1,27 +1,27 @@
-// file: proto/gcommon/v1/metrics/v1/provider_statistics.proto
+// file: proto/gcommon/v2/metrics/v2/provider_statistics.proto
 // version: 1.0.0
 // guid: 65d32fe6-818b-4b23-a785-3a059bf52535
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/metrics_error_stats.proto";
-import "metrics/v1/configuration_summary.proto";
-import "metrics/v1/data_volume_stats.proto";
-import "metrics/v1/export_stats.proto";
-import "metrics/v1/health_status_entry.proto";
-import "metrics/v1/performance_stats.proto";
-import "metrics/v1/provider_info.proto";
-import "metrics/v1/resource_usage_stats.proto";
-import "metrics/v1/top_metrics.proto";
-import "metrics/v1/trend_analysis.proto";
+import "common/v2/metrics_error_stats.proto";
+import "metrics/v2/configuration_summary.proto";
+import "metrics/v2/data_volume_stats.proto";
+import "metrics/v2/export_stats.proto";
+import "metrics/v2/health_status_entry.proto";
+import "metrics/v2/performance_stats.proto";
+import "metrics/v2/provider_info.proto";
+import "metrics/v2/resource_usage_stats.proto";
+import "metrics/v2/top_metrics.proto";
+import "metrics/v2/trend_analysis.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ProviderStatistics {
   // Basic provider information

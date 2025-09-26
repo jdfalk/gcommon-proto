@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/config/get_config_history_response.proto
+// file: proto/gcommon/v2/config/get_config_history_response.proto
 // version: 1.0.0
 // guid: a0368a84-a298-4ed2-bccf-799e1e11f6ba
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/metrics_config_change.proto";
+import "common/v2/metrics_config_change.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * GetConfigHistoryResponse returns configuration change history.

@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/queue/historical_stats.proto
+// file: proto/gcommon/v2/queue/historical_stats.proto
 // version: 1.0.0
 // guid: 7e6ca4d3-82ff-42f7-9761-fbb25977f58d
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/historical_data_point.proto";
+import "queue/v2/historical_data_point.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message HistoricalStats {
   repeated HistoricalDataPoint data_points = 1 [(buf.validate.field).repeated.min_items = 1];

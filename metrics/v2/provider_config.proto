@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/metrics/v1/provider_config.proto
+// file: proto/gcommon/v2/metrics/v2/provider_config.proto
 // version: 1.0.0
 // guid: 3539da64-8631-416f-8d05-17a4810ed876
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/metrics_provider_type.proto";
-import "common/v1/organization_resource_limits.proto";
-import "metrics/v1/export_config.proto";
-import "metrics/v1/provider_settings.proto";
-import "metrics/v1/security_config.proto";
+import "common/v2/metrics_provider_type.proto";
+import "common/v2/organization_resource_limits.proto";
+import "metrics/v2/export_config.proto";
+import "metrics/v2/provider_settings.proto";
+import "metrics/v2/security_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ProviderConfig {
   // Unique identifier for the provider

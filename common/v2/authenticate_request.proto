@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/common/authenticate_request.proto
+// file: proto/gcommon/v2/common/authenticate_request.proto
 // version: 1.0.1
 // guid: 3662d31f-ad12-4066-be86-6a74f4e4a884
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/api_key_credentials.proto";
-import "common/v1/client_info.proto";
-import "common/v1/jwt_credentials.proto";
-import "common/v1/o_auth2_credentials.proto";
-import "common/v1/password_credentials.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/api_key_credentials.proto";
+import "common/v2/client_info.proto";
+import "common/v2/jwt_credentials.proto";
+import "common/v2/o_auth2_credentials.proto";
+import "common/v2/password_credentials.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Authentication request supporting multiple credential types.

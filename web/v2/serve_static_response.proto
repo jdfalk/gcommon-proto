@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/serve_static_response.proto
+// file: proto/gcommon/v2/web/serve_static_response.proto
 // version: 1.0.0
 // guid: d3354a82-ddd1-48c8-956b-d715c8f9ac83
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // ServeStaticResponse response definition.
 message ServeStaticResponse {

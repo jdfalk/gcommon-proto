@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/delivery_options.proto
+// file: proto/gcommon/v2/queue/delivery_options.proto
 // version: 1.0.0
 // guid: 226d4794-23ca-4b54-9a0d-7c6671093c04
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 // DeliveryOptions control message routing and retries.
 message DeliveryOptions {

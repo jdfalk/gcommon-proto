@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/config/subscription_stats.proto
-// file: proto/gcommon/v1/queue/subscription_stats.proto
+// file: proto/gcommon/v2/queue/config/subscription_stats.proto
+// file: proto/gcommon/v2/queue/subscription_stats.proto
 // version: 1.0.0
 // guid: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
 //
@@ -7,14 +7,14 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Statistics for a subscription.

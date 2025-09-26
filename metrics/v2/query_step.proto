@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/query_step.proto
+// file: proto/gcommon/v2/metrics/v2/query_step.proto
 // version: 1.0.0
 // guid: 93f6a8f4-e54a-4531-86a5-bb96d2bc3bf4
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/query_operation.proto";
+import "common/v2/query_operation.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message QueryStep {
   // Step identifier

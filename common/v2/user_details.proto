@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/user_details.proto
+// file: proto/gcommon/v2/common/user_details.proto
 // version: 1.0.0
 // guid: 3dfa4bc7-c4c7-4c1c-89e9-e3e3d3219d52
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message UserDetails {
   // Unique identifier for the user

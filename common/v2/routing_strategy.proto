@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/routing_strategy.proto
+// file: proto/gcommon/v2/queue/routing_strategy.proto
 // version: 1.0.1
 // guid: c0da3188-9710-4555-bbda-9632f6b3f29b
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Routing strategies.

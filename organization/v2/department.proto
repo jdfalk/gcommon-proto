@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/department.proto
+// file: proto/gcommon/v2/organization/department.proto
 // version: 1.0.0
 // guid: 11b263a9-b479-44a3-89ad-5cc707425f8d
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/key_value.proto";
+import "common/v2/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 /**
  * Department message representing an organizational department.

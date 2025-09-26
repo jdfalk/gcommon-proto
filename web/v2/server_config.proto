@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/server_config.proto
+// file: proto/gcommon/v2/web/server_config.proto
 // version: 1.0.0
 // guid: f4e56c59-17af-4da2-8a92-e1a619fe9fba
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // ServerConfig message definition.
 // ServerConfig defines basic web server settings.

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/tls_config_update.proto
+// file: proto/gcommon/v2/metrics/v2/tls_config_update.proto
 // version: 1.0.0
 // guid: d61cb51c-f2b6-403b-bf24-6b5fe08c3e61
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * TLSConfigUpdate contains updates to TLS configuration.

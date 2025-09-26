@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/import_queue_request.proto
-// file: proto/gcommon/v1/queue/import_queue_request.proto
+// file: proto/gcommon/v2/queue/api/import_queue_request.proto
+// file: proto/gcommon/v2/queue/import_queue_request.proto
 // version: 1.0.0
 // guid: 5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a
 //
@@ -7,14 +7,14 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/queue_export_format.proto";
+import "common/v2/queue_export_format.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to import queue data from external source.

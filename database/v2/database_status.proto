@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/database_status.proto
+// file: proto/gcommon/v2/database/database_status.proto
 // version: 1.0.0
 // guid: 67bfa96b-764e-4290-adc8-2387c9b456b4
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/database_status_code.proto";
+import "common/v2/database_status_code.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * DatabaseStatus reports the current connection status for a

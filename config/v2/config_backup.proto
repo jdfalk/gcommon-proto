@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/v1/config_backup.proto
+// file: proto/gcommon/v2/config/v2/config_backup.proto
 // version: 1.0.0
 // guid: vw2xyz01-34a5-6b7c-8d9e-0f1g2h3i4j5k
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * Represents a configuration backup.

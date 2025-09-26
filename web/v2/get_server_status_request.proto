@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/get_server_status_request.proto
+// file: proto/gcommon/v2/web/get_server_status_request.proto
 // version: 1.0.0
 // guid: 589c81b7-a311-4da5-9604-ece349fc6e55
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // GetServerStatusRequest request definition.
 message GetServerStatusRequest {

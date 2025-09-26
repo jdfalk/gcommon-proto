@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/alert_notification.proto
+// file: proto/gcommon/v2/metrics/v2/alert_notification.proto
 // version: 1.0.0
 // guid: 91304a90-5966-4b20-af06-2668e7d2a958
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/metrics_alert_severity.proto";
+import "common/v2/metrics_alert_severity.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * AlertNotification represents a notification event generated when an

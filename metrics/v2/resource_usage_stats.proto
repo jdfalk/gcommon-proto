@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/metrics/v1/resource_usage_stats.proto
+// file: proto/gcommon/v2/metrics/v2/resource_usage_stats.proto
 // version: 1.0.0
 // guid: 18e38b17-8e74-45c9-8f0e-1b1ce6da1c19
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/cpu_usage.proto";
-import "metrics/v1/disk_usage.proto";
-import "metrics/v1/memory_usage.proto";
-import "metrics/v1/network_usage.proto";
-import "metrics/v1/resource_data_point.proto";
+import "metrics/v2/cpu_usage.proto";
+import "metrics/v2/disk_usage.proto";
+import "metrics/v2/memory_usage.proto";
+import "metrics/v2/network_usage.proto";
+import "metrics/v2/resource_data_point.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ResourceUsageStats {
   // Current memory usage

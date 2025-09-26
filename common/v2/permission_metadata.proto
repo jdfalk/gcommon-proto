@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/permission_metadata.proto
+// file: proto/gcommon/v2/common/permission_metadata.proto
 // version: 1.0.0
 // guid: e953942b-bd06-424a-8c5a-2b2b9f60d4ab
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/permission_condition.proto";
-import "common/v1/permission_level.proto";
+import "common/v2/permission_condition.proto";
+import "common/v2/permission_level.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message PermissionMetadata {
   // Permission ID

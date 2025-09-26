@@ -1,36 +1,36 @@
-// file: proto/gcommon/v1/common/auth_admin_service.proto
+// file: proto/gcommon/v2/common/auth_admin_service.proto
 // version: 1.0.1
 // guid: 253654c0-690d-48e1-b4fd-24d978958200
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/assign_role_request.proto";
-import "common/v1/create_role_request.proto";
-import "common/v1/create_role_response.proto";
-import "common/v1/create_user_request.proto";
-import "common/v1/create_user_response.proto";
-import "common/v1/delete_role_request.proto";
-import "common/v1/delete_user_request.proto";
-import "common/v1/get_system_stats_request.proto";
-import "common/v1/get_system_stats_response.proto";
-import "common/v1/get_user_request.proto";
-import "common/v1/get_user_response.proto";
-import "common/v1/invalidate_user_sessions_request.proto";
-import "common/v1/list_roles_request.proto";
-import "common/v1/list_roles_response.proto";
-import "common/v1/list_users_request.proto";
-import "common/v1/list_users_response.proto";
-import "common/v1/remove_role_request.proto";
-import "common/v1/update_role_request.proto";
-import "common/v1/update_role_response.proto";
-import "common/v1/update_user_request.proto";
-import "common/v1/update_user_response.proto";
+import "common/v2/assign_role_request.proto";
+import "common/v2/create_role_request.proto";
+import "common/v2/create_role_response.proto";
+import "common/v2/create_user_request.proto";
+import "common/v2/create_user_response.proto";
+import "common/v2/delete_role_request.proto";
+import "common/v2/delete_user_request.proto";
+import "common/v2/get_system_stats_request.proto";
+import "common/v2/get_system_stats_response.proto";
+import "common/v2/get_user_request.proto";
+import "common/v2/get_user_response.proto";
+import "common/v2/invalidate_user_sessions_request.proto";
+import "common/v2/list_roles_request.proto";
+import "common/v2/list_roles_response.proto";
+import "common/v2/list_users_request.proto";
+import "common/v2/list_users_response.proto";
+import "common/v2/remove_role_request.proto";
+import "common/v2/update_role_request.proto";
+import "common/v2/update_role_response.proto";
+import "common/v2/update_user_request.proto";
+import "common/v2/update_user_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Administrative authentication management operations.

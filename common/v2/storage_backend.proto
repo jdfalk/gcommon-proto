@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/storage_backend.proto
+// file: proto/gcommon/v2/metrics/v2/storage_backend.proto
 // version: 1.0.1
 // guid: 5ee72796-5fec-4f25-8894-b75050c9f18e
-// file: proto/gcommon/v1/metrics/v1/storage_backend.proto
+// file: proto/gcommon/v2/metrics/v2/storage_backend.proto
 //
 // Enum definitions for metrics module
 
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * StorageBackend defines the types of storage systems available for metrics.

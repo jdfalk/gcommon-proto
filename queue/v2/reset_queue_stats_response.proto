@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/reset_queue_stats_response.proto
+// file: proto/gcommon/v2/queue/reset_queue_stats_response.proto
 // version: 1.0.0
 // guid: 11f82fe8-4d3f-4188-b0c9-4fb2a7d24591
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/preserved_stats.proto";
-import "queue/v1/reset_details.proto";
+import "queue/v2/preserved_stats.proto";
+import "queue/v2/reset_details.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ResetQueueStatsResponse {
   // Success status of the reset operation

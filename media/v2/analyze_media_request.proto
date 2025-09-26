@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/analyze_media_request.proto
+// file: proto/gcommon/v2/media/analyze_media_request.proto
 // version: 1.0.0
 // guid: 63d1eda6-1984-4efe-9c5d-f4e8def1d16d
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "media/v1/analysis_options.proto";
+import "media/v2/analysis_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message AnalyzeMediaRequest {
   string media_file_id = 1 [(buf.validate.field).string.min_len = 1];

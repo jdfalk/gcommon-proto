@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/web/list_handlers_request.proto
+// file: proto/gcommon/v2/web/list_handlers_request.proto
 // version: 1.1.0
 // guid: 5141d082-9a7d-4518-bc9a-3bdf2aca716c
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * Request to list registered HTTP handlers.

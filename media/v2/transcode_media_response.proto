@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/transcode_media_response.proto
+// file: proto/gcommon/v2/media/transcode_media_response.proto
 // version: 1.0.0
 // guid: 9abcdef-0123-4567-f4a5-b6c7d8e9f0a1
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Response from transcoding request.
 message TranscodeMediaResponse {

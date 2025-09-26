@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/media/processing_status.proto
+// file: proto/gcommon/v2/media/processing_status.proto
 // version: 1.0.1
 // guid: ef01234-5678-9abc-c5d6-e7f8a9b0c1d2
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 // Status of media processing jobs.
 enum ProcessingStatus {

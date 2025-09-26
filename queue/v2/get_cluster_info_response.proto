@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/api/get_cluster_info_response.proto
-// file: proto/gcommon/v1/queue/get_cluster_info_response.proto
+// file: proto/gcommon/v2/queue/api/get_cluster_info_response.proto
+// file: proto/gcommon/v2/queue/get_cluster_info_response.proto
 // version: 1.0.0
 // guid: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
 //
@@ -7,16 +7,16 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/cluster_info.proto";
-import "queue/v1/node_info.proto";
+import "queue/v2/cluster_info.proto";
+import "queue/v2/node_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Response containing cluster information.

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/database/cache_stats.proto
+// file: proto/gcommon/v2/database/cache_stats.proto
 // version: 1.0.0
 // guid: mn3opqrs-45t6-7u8v-9w0x-1y2z3a4b5c6d
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Cache statistics and performance metrics.

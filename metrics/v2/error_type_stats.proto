@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/error_type_stats.proto
+// file: proto/gcommon/v2/metrics/error_type_stats.proto
 // version: 1.0.0
 // guid: 93946dec-5ff0-40d4-8fd3-ff3d9c0b3dc4
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message ErrorTypeStats {
   string error_type = 1 [(buf.validate.field).string.min_len = 1];

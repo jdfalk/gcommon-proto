@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/list_subscriptions_request.proto
+// file: proto/gcommon/v2/queue/list_subscriptions_request.proto
 // version: 1.0.0
 // guid: 781a6513-601b-4ef8-87bf-7c881f4b8a79
 // ListSubscriptionsRequest returns subscriptions for a given topic or queue.
@@ -6,15 +6,15 @@
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueListSubscriptionsRequest {
   // Request metadata

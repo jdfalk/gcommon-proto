@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/sync_replication.proto
+// file: proto/gcommon/v2/queue/sync_replication.proto
 // version: 1.0.0
 // guid: fb10fe6a-cf7a-47e7-9be7-c31f4e37b22e
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message SyncReplication {
   // Enable synchronous replication

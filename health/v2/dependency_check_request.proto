@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/health/requests/dependency_check_request.proto
+// file: proto/gcommon/v2/health/requests/dependency_check_request.proto
 // version: 1.0.0
 // guid: b4c5d6e7-f209-7890-4567-123456789012
 
 edition = "2023";
 
-package health.v1;
+package health.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/health/v1";
+option go_package = "github.com/jdfalk/gcommon/health/v2";
 
 /**
  * DependencyCheckRequest requests a check of external dependencies.

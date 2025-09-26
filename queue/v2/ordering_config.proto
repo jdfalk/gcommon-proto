@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/ordering_config.proto
+// file: proto/gcommon/v2/queue/ordering_config.proto
 // version: 1.0.0
 // guid: 38b7cd46-8313-4c25-86de-04401a1cb1ae
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/ordering_level.proto";
+import "common/v2/ordering_level.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message OrderingConfig {
   // Global ordering guarantee level

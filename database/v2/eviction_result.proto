@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/database/eviction_result.proto
+// file: proto/gcommon/v2/database/eviction_result.proto
 // version: 1.0.0
 // guid: op5qrstu-67v8-9w0x-1y2z-3a4b5c6d7e8f
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "common/v1/eviction_policy.proto";
+import "common/v2/eviction_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Result of cache eviction operations.

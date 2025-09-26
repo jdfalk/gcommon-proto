@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/web/websocket_info.proto
+// file: proto/gcommon/v2/web/websocket_info.proto
 // version: 1.1.0
 // guid: 3ebae9bb-41c1-42db-aa71-8ef0660759d4
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // WebsocketInfo message definition.
 message WebsocketInfo {

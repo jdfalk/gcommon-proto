@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/secondary_sort_field.proto
+// file: proto/gcommon/v2/metrics/v2/secondary_sort_field.proto
 // version: 1.0.0
 // guid: 136c5347-b8ae-4bd7-bf04-163e6e550f8a
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/sort_direction.proto";
+import "common/v2/sort_direction.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message SecondarySortField {
   string field = 1 [(buf.validate.field).string.min_len = 1];

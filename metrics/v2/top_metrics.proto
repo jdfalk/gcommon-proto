@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/top_metrics.proto
+// file: proto/gcommon/v2/metrics/v2/top_metrics.proto
 // version: 1.0.0
 // guid: c4d5e6f7-a8b9-0c1d-2e3f-4a5b6c7d8e9f
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * TopMetrics contains information about top performing/problematic metrics.

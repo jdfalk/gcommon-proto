@@ -1,5 +1,5 @@
-// file: proto/gcommon/v1/queue/types/topic_stats.proto
-// file: proto/gcommon/v1/queue/topic_stats.proto
+// file: proto/gcommon/v2/queue/types/topic_stats.proto
+// file: proto/gcommon/v2/queue/topic_stats.proto
 // version: 1.0.0
 // guid: 9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e
 //
@@ -7,13 +7,13 @@
 //
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Statistics information for a topic.

@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/export_config_update.proto
+// file: proto/gcommon/v2/metrics/v2/export_config_update.proto
 // version: 1.0.0
 // guid: fd6ebe54-a1db-4c08-84b4-a91b690e9af6
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/export_destination_update.proto";
+import "metrics/v2/export_destination_update.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * ExportConfigUpdate contains updates to export configuration.

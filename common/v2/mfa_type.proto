@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/common/mfa_type.proto
+// file: proto/gcommon/v2/common/mfa_type.proto
 // version: 1.0.1
 // guid: a5e413ea-00e3-4585-9e9d-30348138c407
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * MFAType enumerates supported multi-factor authentication methods.

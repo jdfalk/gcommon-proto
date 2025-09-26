@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/scope_type.proto
+// file: proto/gcommon/v2/common/scope_type.proto
 // version: 1.0.1
 // guid: f8bce9e5-500a-40e6-aca9-4ce5c58d2d04
-// file: proto/gcommon/v1/common/scope_type.proto
+// file: proto/gcommon/v2/common/scope_type.proto
 //
 // Enum definitions for auth module
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * ScopeType defines the scope at which a permission can be applied

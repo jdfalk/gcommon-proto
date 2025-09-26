@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/database/transaction_service.proto
+// file: proto/gcommon/v2/database/transaction_service.proto
 // version: 1.0.1
 // guid: 48c127b3-f9fa-4a27-bdd8-a41127f3d449
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/begin_transaction_request.proto";
-import "database/v1/begin_transaction_response.proto";
-import "database/v1/commit_transaction_request.proto";
-import "database/v1/rollback_transaction_request.proto";
-import "database/v1/transaction_status_request.proto";
-import "database/v1/transaction_status_response.proto";
+import "database/v2/begin_transaction_request.proto";
+import "database/v2/begin_transaction_response.proto";
+import "database/v2/commit_transaction_request.proto";
+import "database/v2/rollback_transaction_request.proto";
+import "database/v2/transaction_status_request.proto";
+import "database/v2/transaction_status_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * TransactionService manages database transactions.

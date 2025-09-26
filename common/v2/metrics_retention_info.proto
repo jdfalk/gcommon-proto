@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/retention_info.proto
+// file: proto/gcommon/v2/metrics/v2/retention_info.proto
 // version: 1.0.0
 // guid: 1274ff0f-5103-48bf-a7f2-6068f7fbb53e
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/metrics_retention_policy_config.proto";
+import "common/v2/metrics_retention_policy_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message MetricsRetentionInfo {
   int64 total_retained_bytes = 1 [(buf.validate.field).int64.gte = 0];

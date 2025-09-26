@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/batch_operation.proto
+// file: proto/gcommon/v2/common/batch_operation.proto
 // version: 1.0.1
 // guid: 5671d63f-77bd-4415-a7ec-3c22d3557b37
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "buf/validate/validate.proto";
-import "common/v1/batch_options.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/batch_options.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Batch operation wrapper for bulk request processing.

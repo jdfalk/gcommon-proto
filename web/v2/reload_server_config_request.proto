@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/web/reload_server_config_request.proto
+// file: proto/gcommon/v2/web/reload_server_config_request.proto
 // version: 1.0.1
 // guid: abeb1b6f-6a94-4044-b27e-a91c1c9e6042
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * ReloadServerConfigRequest message for web service operations.

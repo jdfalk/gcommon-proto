@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/queue/schema_format.proto
+// file: proto/gcommon/v2/queue/schema_format.proto
 // version: 1.0.1
 // guid: 8dbf53aa-e92d-4de4-84a8-ec3fb37ce521
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Schema format types.

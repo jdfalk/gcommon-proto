@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/web/get_session_response.proto
+// file: proto/gcommon/v2/web/get_session_response.proto
 // version: 1.1.1
 // guid: 97fcede8-5243-4901-b423-41a0723fb0c7
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "web/v1/session_data.proto";
+import "web/v2/session_data.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // GetSessionResponse response definition.
 message WebGetSessionResponse {

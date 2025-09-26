@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/get_template_request.proto
+// file: proto/gcommon/v2/common/get_template_request.proto
 // version: 1.0.0
 // guid: 4b8dae31-438b-4407-8f5e-25e99ebd347b
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GetTemplateRequest {
   // Template identifier to fetch

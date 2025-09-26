@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/batch_context.proto
+// file: proto/gcommon/v2/metrics/v2/batch_context.proto
 // version: 1.0.0
 // guid: f2e4f42e-77e5-4086-89ea-b7d514304089
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message BatchContext {
   // Unique batch ID

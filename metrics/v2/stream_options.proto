@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/stream_options.proto
+// file: proto/gcommon/v2/metrics/v2/stream_options.proto
 // version: 1.0.0
 // guid: dfdf5759-e1b6-489a-9a64-0477334ebb2a
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/stream_compression.proto";
-import "common/v1/stream_qos.proto";
+import "common/v2/stream_compression.proto";
+import "common/v2/stream_qos.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message StreamOptions {
   // Whether to include historical data or only new metrics

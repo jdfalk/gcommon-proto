@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/resume_queue_response.proto
+// file: proto/gcommon/v2/queue/resume_queue_response.proto
 // version: 1.0.0
 // guid: 43e76b2f-3350-49a8-b002-e38b946919ad
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/queue_state.proto";
-import "queue/v1/resume_stats.proto";
+import "common/v2/queue_state.proto";
+import "queue/v2/resume_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ResumeQueueResponse {
   // Success status of the resume operation

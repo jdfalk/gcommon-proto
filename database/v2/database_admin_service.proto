@@ -1,27 +1,27 @@
-// file: proto/gcommon/v1/database/database_admin_service.proto
+// file: proto/gcommon/v2/database/database_admin_service.proto
 // version: 1.0.1
 // guid: 7f0b5d31-549f-466f-ac8e-e1a8339824cc
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/create_database_request.proto";
-import "database/v1/create_database_response.proto";
-import "database/v1/create_schema_request.proto";
-import "database/v1/create_schema_response.proto";
-import "database/v1/drop_database_request.proto";
-import "database/v1/drop_schema_request.proto";
-import "database/v1/get_database_info_request.proto";
-import "database/v1/get_database_info_response.proto";
-import "database/v1/list_databases_request.proto";
-import "database/v1/list_databases_response.proto";
-import "database/v1/list_schemas_request.proto";
-import "database/v1/list_schemas_response.proto";
+import "database/v2/create_database_request.proto";
+import "database/v2/create_database_response.proto";
+import "database/v2/create_schema_request.proto";
+import "database/v2/create_schema_response.proto";
+import "database/v2/drop_database_request.proto";
+import "database/v2/drop_schema_request.proto";
+import "database/v2/get_database_info_request.proto";
+import "database/v2/get_database_info_response.proto";
+import "database/v2/list_databases_request.proto";
+import "database/v2/list_databases_response.proto";
+import "database/v2/list_schemas_request.proto";
+import "database/v2/list_schemas_response.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * DatabaseAdminService provides administrative operations for database

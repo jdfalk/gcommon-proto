@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/web/create_cookie_request.proto
+// file: proto/gcommon/v2/web/create_cookie_request.proto
 // version: 1.2.0
 // guid: 44838568-f1f6-44f1-b4a5-2299a815ccad
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/request_metadata.proto";
-import "common/v1/same_site_policy.proto";
+import "common/v2/request_metadata.proto";
+import "common/v2/same_site_policy.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * Request to create an HTTP cookie.

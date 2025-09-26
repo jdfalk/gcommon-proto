@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/subscription_info.proto
+// file: proto/gcommon/v2/queue/subscription_info.proto
 // version: 1.0.0
 // guid: 9b9d0532-72ff-4a42-b3b2-689a1a26dd9f
 
@@ -7,14 +7,14 @@
 // 1-1-1 migration.
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * SubscriptionInfo describes a subscriber's configuration and status.

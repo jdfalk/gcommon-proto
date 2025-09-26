@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/database/column_metadata.proto
+// file: proto/gcommon/v2/database/column_metadata.proto
 // version: 1.0.0
 // guid: d06d164a-51bd-4f22-b1db-15171a8dd72d
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * ColumnMetadata describes the structure and properties of a database column.

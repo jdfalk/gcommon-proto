@@ -1,4 +1,4 @@
-// file: proto/gcommon/v1/queue/list_queues_request.proto
+// file: proto/gcommon/v2/queue/list_queues_request.proto
 // version: 1.0.0
 // guid: 10aa0104-6a4e-4092-98f4-8eabba61ea69
 // ListQueuesRequest retrieves available queues for the current
@@ -7,15 +7,15 @@
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message ListQueuesRequest {
   // Standard request metadata used across all services

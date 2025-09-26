@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/common/api_key.proto
+// file: proto/gcommon/v2/common/api_key.proto
 // version: 1.1.0
 // guid: a1b2c3d4-e5f6-789a-b0c1-d2e3f4a5b6c7
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto"; // Added for field validation rules
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * APIKey represents a user-issued API key used for authenticating

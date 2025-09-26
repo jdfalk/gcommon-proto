@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/web/file_upload.proto
+// file: proto/gcommon/v2/web/file_upload.proto
 // version: 1.1.0
 // guid: 47f22269-7456-4237-b463-c287580f662d
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "web/v1/mime_type.proto";
+import "web/v2/mime_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 // FileUpload message definition.
 message FileUpload {

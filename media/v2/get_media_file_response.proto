@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/media/get_media_file_response.proto
+// file: proto/gcommon/v2/media/get_media_file_response.proto
 // version: 1.0.1
 // guid: 6d7e8f90-1234-5678-e9f0-a1b2c3d4e5f6
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
-import "media/v1/media_file.proto";
+import "media/v2/media_file.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 // Response containing a media file.
 message GetMediaFileResponse {

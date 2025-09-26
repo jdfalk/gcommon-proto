@@ -1,14 +1,14 @@
-// file: proto/gcommon/v1/common/health_check_response.proto
+// file: proto/gcommon/v2/common/health_check_response.proto
 // version: 1.0.0
 // guid: 2276a26b-e231-4da7-86b6-3cf35110b85f
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/check_result.proto";
-import "common/v1/error.proto";
-import "common/v1/health_metrics.proto";
-import "common/v1/health_status.proto";
+import "common/v2/check_result.proto";
+import "common/v2/error.proto";
+import "common/v2/health_metrics.proto";
+import "common/v2/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -16,7 +16,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Response message for health check operations.

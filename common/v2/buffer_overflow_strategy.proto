@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/metrics/v1/buffer_overflow_strategy.proto
+// file: proto/gcommon/v2/metrics/v2/buffer_overflow_strategy.proto
 // version: 1.0.1
 // guid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * BufferOverflowStrategy defines how to handle buffer overflow.

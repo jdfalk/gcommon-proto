@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/database/get_response.proto
+// file: proto/gcommon/v2/database/get_response.proto
 // version: 1.0.1
 // guid: d92e32a6-96eb-4e6c-a56b-6b9a9c54ba6a
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/cache_entry.proto";
+import "database/v2/cache_entry.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Response containing a cached value and metadata.

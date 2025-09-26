@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/deletion_options.proto
+// file: proto/gcommon/v2/metrics/v2/deletion_options.proto
 // version: 1.0.0
 // guid: 6e247c69-d9f2-452e-bb15-e81da5c53d42
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/cleanup_strategy.proto";
+import "common/v2/cleanup_strategy.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * DeletionOptions configure the deletion process.

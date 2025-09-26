@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/common/types/get_session_response.proto
+// file: proto/gcommon/v2/common/types/get_session_response.proto
 // version: 1.0.1
 // guid: e2dfbf3c-a64b-4e03-8728-bb79288e0998
-// file: proto/gcommon/v1/common/get_session_response.proto
+// file: proto/gcommon/v2/common/get_session_response.proto
 //
 // Response definitions for auth module
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/error.proto";
-import "common/v1/session.proto";
+import "common/v2/error.proto";
+import "common/v2/session.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Response for getting session information.

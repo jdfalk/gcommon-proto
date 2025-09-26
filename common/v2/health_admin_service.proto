@@ -1,30 +1,30 @@
-// file: proto/gcommon/v1/common/health_admin_service.proto
+// file: proto/gcommon/v2/common/health_admin_service.proto
 // version: 1.0.1
 // guid: 852f060f-cb4f-4a6c-9eb5-1a8cbdf34351
-// file: proto/gcommon/v1/common/health_admin_service.proto
+// file: proto/gcommon/v2/common/health_admin_service.proto
 //
 // Administrative service definitions for health module
 //
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/configure_alerting_request.proto";
-import "common/v1/configure_alerting_response.proto";
-import "common/v1/disable_check_request.proto";
-import "common/v1/disable_check_response.proto";
-import "common/v1/enable_check_request.proto";
-import "common/v1/enable_check_response.proto";
-import "common/v1/reset_health_stats_request.proto";
-import "common/v1/reset_health_stats_response.proto";
-import "common/v1/run_check_request.proto";
-import "common/v1/run_check_response.proto";
-import "common/v1/set_health_request.proto";
-import "common/v1/set_health_response.proto";
+import "common/v2/configure_alerting_request.proto";
+import "common/v2/configure_alerting_response.proto";
+import "common/v2/disable_check_request.proto";
+import "common/v2/disable_check_response.proto";
+import "common/v2/enable_check_request.proto";
+import "common/v2/enable_check_response.proto";
+import "common/v2/reset_health_stats_request.proto";
+import "common/v2/reset_health_stats_response.proto";
+import "common/v2/run_check_request.proto";
+import "common/v2/run_check_response.proto";
+import "common/v2/set_health_request.proto";
+import "common/v2/set_health_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * HealthAdminService provides administrative health operations

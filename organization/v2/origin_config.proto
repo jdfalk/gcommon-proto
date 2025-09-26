@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/origin_config.proto
+// file: proto/gcommon/v2/organization/origin_config.proto
 // version: 1.0.0
 // guid: b84e3243-3ef5-4beb-94d1-db2bb8831611
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/key_value.proto";
+import "common/v2/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message OriginConfig {
   // Origin domain name

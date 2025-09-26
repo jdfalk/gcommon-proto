@@ -1,7 +1,7 @@
-// file: proto/gcommon/v1/metrics/v1/record_histogram_request.proto
+// file: proto/gcommon/v2/metrics/v2/record_histogram_request.proto
 // version: 1.0.0
 // guid: 5d38efab-f98b-4ddf-8e50-08395f5e24fc
-// file: proto/gcommon/v1/metrics/v1/record_histogram_request.proto
+// file: proto/gcommon/v2/metrics/v2/record_histogram_request.proto
 //
 // Request definitions for metrics module
 
@@ -9,15 +9,15 @@
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message RecordHistogramRequest {
   // Metric name (e.g., "request_duration_seconds", "response_size_bytes")

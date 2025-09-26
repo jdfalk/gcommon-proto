@@ -1,12 +1,12 @@
-// file: proto/gcommon/v1/queue/queue.proto
+// file: proto/gcommon/v2/queue/queue.proto
 // version: 1.0.1
 // guid: 1f2e3d4c-5b6a-7980-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";

@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/queue/pause_queue_request.proto
+// file: proto/gcommon/v2/queue/pause_queue_request.proto
 // version: 1.0.0
 // guid: a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to pause a queue.

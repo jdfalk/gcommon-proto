@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/metrics/v1/data_volume_stats.proto
+// file: proto/gcommon/v2/metrics/v2/data_volume_stats.proto
 // version: 1.0.0
 // guid: 85a18add-5de2-4de6-9e3a-05e4959520e4
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "metrics/v1/data_volume_data_point.proto";
+import "metrics/v2/data_volume_data_point.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message DataVolumeStats {
   // Total data stored (bytes)

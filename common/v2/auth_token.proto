@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/common/auth_token.proto
+// file: proto/gcommon/v2/common/auth_token.proto
 // version: 1.0.0
 // guid: 61671511-e4c8-4e25-a0a6-5f82f7e45002
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 /**
  * Combined authentication token pair containing access and refresh tokens.

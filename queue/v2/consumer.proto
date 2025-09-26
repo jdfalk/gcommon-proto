@@ -1,22 +1,22 @@
-// file: proto/gcommon/v1/queue/consumer.proto
+// file: proto/gcommon/v2/queue/consumer.proto
 // version: 1.0.0
 // guid: 1bb92667-7d61-4aea-b8df-a372aa46cf8a
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/consumer_state.proto";
-import "queue/v1/consumer_client.proto";
-import "queue/v1/consumer_config.proto";
-import "queue/v1/consumer_stats.proto";
+import "common/v2/consumer_state.proto";
+import "queue/v2/consumer_client.proto";
+import "queue/v2/consumer_config.proto";
+import "queue/v2/consumer_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message Consumer {
   // Unique consumer identifier

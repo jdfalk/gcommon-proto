@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/get_offset_request.proto
+// file: proto/gcommon/v2/queue/get_offset_request.proto
 // version: 1.1.0
 // guid: d7e8f9a0-b1c2-3d4e-5f6a-7b8c9d0e1f2a
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "common/v1/offset_type.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/offset_type.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 /**
  * Request to get the current offset for a consumer or partition.

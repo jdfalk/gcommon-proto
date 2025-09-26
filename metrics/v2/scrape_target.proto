@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/scrape_target.proto
+// file: proto/gcommon/v2/metrics/v2/scrape_target.proto
 // version: 1.0.0
 // guid: bc47b323-f2ec-45a1-9eb1-a02cee44f29d
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 /**
  * ScrapeTarget describes a target endpoint to scrape metrics from.

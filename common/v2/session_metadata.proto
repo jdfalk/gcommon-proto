@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/common/session_metadata.proto
+// file: proto/gcommon/v2/common/session_metadata.proto
 // version: 1.0.0
 // guid: 01cd27dc-f07e-4fe5-805f-ff4fc49ef91b
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/device_info.proto";
-import "common/v1/location_info.proto";
-import "common/v1/session_state.proto";
+import "common/v2/device_info.proto";
+import "common/v2/location_info.proto";
+import "common/v2/session_state.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message SessionMetadata {
   // Session ID

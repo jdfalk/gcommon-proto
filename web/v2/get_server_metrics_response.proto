@@ -1,13 +1,13 @@
-// file: proto/gcommon/v1/web/get_server_metrics_response.proto
+// file: proto/gcommon/v2/web/get_server_metrics_response.proto
 // version: 1.0.1
 // guid: c7d26642-5c77-4ba5-b891-5876066cfaba
 
 edition = "2023";
 
-package web.v1;
+package web.v2;
 
-import "common/v1/error.proto";
-import "common/v1/request_metadata.proto";
+import "common/v2/error.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/web/v1";
+option go_package = "github.com/jdfalk/gcommon/web/v2";
 
 /**
  * GetServerMetricsResponse message for web service operations.

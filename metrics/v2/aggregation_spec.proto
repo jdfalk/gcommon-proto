@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/metrics/v1/aggregation_spec.proto
+// file: proto/gcommon/v2/metrics/v2/aggregation_spec.proto
 // version: 1.0.0
 // guid: 169a9fb5-9a9e-4ba6-beaa-63915a9a9839
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/aggregation_type.proto";
+import "common/v2/aggregation_type.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message AggregationSpec {
   // Type of aggregation to perform

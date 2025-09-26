@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/config/value_dependency.proto
+// file: proto/gcommon/v2/config/value_dependency.proto
 // version: 1.0.0
 // guid: ceefe5a4-8fbf-4555-9535-c57437357bef
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
-import "common/v1/dependency_type.proto";
+import "common/v2/dependency_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ValueDependency {
   // Dependency type

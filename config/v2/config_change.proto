@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/config/v1/config_change.proto
+// file: proto/gcommon/v2/config/v2/config_change.proto
 // version: 1.0.0
 // guid: rs8tuvwx-90y1-2z3a-4b5c-6d7e8f9g0h1i
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
@@ -13,7 +13,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 /**
  * Represents a configuration change event.

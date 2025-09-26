@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/organization/integration_settings.proto
+// file: proto/gcommon/v2/organization/integration_settings.proto
 // version: 1.0.1
 // guid: eb075ee2-2fa4-4809-a4b1-66199758b188
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/metrics_api_key_config.proto";
-import "organization/v1/integration.proto";
-import "organization/v1/o_auth_app_config.proto";
-import "organization/v1/webhook_config.proto";
+import "common/v2/metrics_api_key_config.proto";
+import "organization/v2/integration.proto";
+import "organization/v2/o_auth_app_config.proto";
+import "organization/v2/webhook_config.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message IntegrationSettings {
   // Enabled third-party integrations

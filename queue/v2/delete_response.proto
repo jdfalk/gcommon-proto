@@ -1,20 +1,20 @@
-// file: proto/gcommon/v1/queue/delete_response.proto
+// file: proto/gcommon/v2/queue/delete_response.proto
 // version: 1.0.0
 // guid: 9de9c1b0-9bc8-44a6-af2b-133a1f578373
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/backup_info.proto";
-import "queue/v1/deletion_stats.proto";
+import "queue/v2/backup_info.proto";
+import "queue/v2/deletion_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message QueueDeleteResponse {
   // Success status of the delete operation

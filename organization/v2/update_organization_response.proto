@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/organization/update_organization_response.proto
+// file: proto/gcommon/v2/organization/update_organization_response.proto
 // version: 1.0.0
 // guid: 68d40e74-1416-4e2a-978a-5cca7cc3a71a
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "common/v1/error.proto";
-import "organization/v1/organization.proto";
+import "common/v2/error.proto";
+import "organization/v2/organization.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 /**
  * UpdateOrganizationResponse message returning the result of organization update.

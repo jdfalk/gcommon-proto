@@ -1,23 +1,23 @@
-// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_request.proto
+// file: proto/gcommon/v2/metrics/v2/set_alerting_rules_request.proto
 // version: 1.0.0
 // guid: 797328c8-f7f2-498b-9224-8ef45c3dcba8
-// file: proto/gcommon/v1/metrics/v1/set_alerting_rules_request.proto
+// file: proto/gcommon/v2/metrics/v2/set_alerting_rules_request.proto
 //
 // Request message for configuring alerting rules for a metric.
 //
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/request_metadata.proto";
-import "metrics/v1/alerting_rule.proto";
+import "common/v2/request_metadata.proto";
+import "metrics/v2/alerting_rule.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message SetAlertingRulesRequest {
   // Metric identifier

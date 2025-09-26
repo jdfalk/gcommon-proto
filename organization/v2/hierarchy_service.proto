@@ -1,38 +1,38 @@
-// file: proto/gcommon/v1/organization/hierarchy_service.proto
+// file: proto/gcommon/v2/organization/hierarchy_service.proto
 // version: 1.0.1
 // guid: 93046f12-5400-4c2e-b2c2-d6707242bcdf
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "organization/v1/create_department_request.proto";
-import "organization/v1/create_department_response.proto";
-import "organization/v1/create_team_request.proto";
-import "organization/v1/create_team_response.proto";
-import "organization/v1/delete_department_request.proto";
-import "organization/v1/delete_department_response.proto";
-import "organization/v1/delete_team_request.proto";
-import "organization/v1/delete_team_response.proto";
-import "organization/v1/get_department_request.proto";
-import "organization/v1/get_department_response.proto";
-import "organization/v1/get_hierarchy_request.proto";
-import "organization/v1/get_hierarchy_response.proto";
-import "organization/v1/get_team_request.proto";
-import "organization/v1/get_team_response.proto";
-import "organization/v1/list_departments_request.proto";
-import "organization/v1/list_departments_response.proto";
-import "organization/v1/list_teams_request.proto";
-import "organization/v1/list_teams_response.proto";
-import "organization/v1/update_department_request.proto";
-import "organization/v1/update_department_response.proto";
-import "organization/v1/update_hierarchy_request.proto";
-import "organization/v1/update_hierarchy_response.proto";
-import "organization/v1/update_team_request.proto";
-import "organization/v1/update_team_response.proto";
+import "organization/v2/create_department_request.proto";
+import "organization/v2/create_department_response.proto";
+import "organization/v2/create_team_request.proto";
+import "organization/v2/create_team_response.proto";
+import "organization/v2/delete_department_request.proto";
+import "organization/v2/delete_department_response.proto";
+import "organization/v2/delete_team_request.proto";
+import "organization/v2/delete_team_response.proto";
+import "organization/v2/get_department_request.proto";
+import "organization/v2/get_department_response.proto";
+import "organization/v2/get_hierarchy_request.proto";
+import "organization/v2/get_hierarchy_response.proto";
+import "organization/v2/get_team_request.proto";
+import "organization/v2/get_team_response.proto";
+import "organization/v2/list_departments_request.proto";
+import "organization/v2/list_departments_response.proto";
+import "organization/v2/list_teams_request.proto";
+import "organization/v2/list_teams_response.proto";
+import "organization/v2/update_department_request.proto";
+import "organization/v2/update_department_response.proto";
+import "organization/v2/update_hierarchy_request.proto";
+import "organization/v2/update_hierarchy_response.proto";
+import "organization/v2/update_team_request.proto";
+import "organization/v2/update_team_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

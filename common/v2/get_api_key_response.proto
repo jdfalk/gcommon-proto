@@ -1,19 +1,19 @@
-// file: proto/gcommon/v1/common/get_api_key_response.proto
+// file: proto/gcommon/v2/common/get_api_key_response.proto
 // version: 1.0.0
 // guid: 584574e5-3a49-4346-ada5-78a7454f921e
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/api_key.proto";
-import "common/v1/api_key_stats.proto";
+import "common/v2/api_key.proto";
+import "common/v2/api_key_stats.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GetApiKeyResponse {
   // API key details

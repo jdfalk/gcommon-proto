@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/database/set_response.proto
+// file: proto/gcommon/v2/database/set_response.proto
 // version: 1.0.0
 // guid: 2c28ae26-1591-4248-baff-82cf800c5349
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * Response for cache set operation.

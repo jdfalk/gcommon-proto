@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/list_services_response.proto
+// file: proto/gcommon/v2/common/list_services_response.proto
 // version: 1.0.0
 // guid: 09285493-9262-4105-aec3-9a02d03db370
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/request_metadata.proto";
+import "common/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message ListServicesResponse {
   // List of service names

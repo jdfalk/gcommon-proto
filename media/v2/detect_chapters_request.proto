@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/media/detect_chapters_request.proto
+// file: proto/gcommon/v2/media/detect_chapters_request.proto
 // version: 1.0.0
 // guid: 8c470dda-3a51-47d4-8370-48c7e4347ee4
 
 edition = "2023";
 
-package media.v1;
+package media.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-import "media/v1/chapter_detection_options.proto";
+import "media/v2/chapter_detection_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/media/v1";
+option go_package = "github.com/jdfalk/gcommon/media/v2";
 
 message DetectChaptersRequest {
   string audio_file_id = 1 [(buf.validate.field).string.min_len = 1];

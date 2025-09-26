@@ -1,36 +1,36 @@
-// file: proto/gcommon/v1/organization/organization_service.proto
+// file: proto/gcommon/v2/organization/organization_service.proto
 // version: 1.0.1
 // guid: 7a327e8c-286f-4bf2-9d3d-7917e6de4f86
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
-import "organization/v1/add_member_request.proto";
-import "organization/v1/add_member_response.proto";
-import "organization/v1/create_organization_request.proto";
-import "organization/v1/create_organization_response.proto";
-import "organization/v1/delete_organization_request.proto";
-import "organization/v1/delete_organization_response.proto";
-import "organization/v1/get_organization_request.proto";
-import "organization/v1/get_organization_response.proto";
-import "organization/v1/get_organization_settings_request.proto";
-import "organization/v1/get_organization_settings_response.proto";
-import "organization/v1/list_members_request.proto";
-import "organization/v1/list_members_response.proto";
-import "organization/v1/list_organizations_request.proto";
-import "organization/v1/list_organizations_response.proto";
-import "organization/v1/remove_member_request.proto";
-import "organization/v1/remove_member_response.proto";
-import "organization/v1/update_member_request.proto";
-import "organization/v1/update_member_response.proto";
-import "organization/v1/update_organization_request.proto";
-import "organization/v1/update_organization_response.proto";
-import "organization/v1/update_organization_settings_request.proto";
-import "organization/v1/update_organization_settings_response.proto";
+import "organization/v2/add_member_request.proto";
+import "organization/v2/add_member_response.proto";
+import "organization/v2/create_organization_request.proto";
+import "organization/v2/create_organization_response.proto";
+import "organization/v2/delete_organization_request.proto";
+import "organization/v2/delete_organization_response.proto";
+import "organization/v2/get_organization_request.proto";
+import "organization/v2/get_organization_response.proto";
+import "organization/v2/get_organization_settings_request.proto";
+import "organization/v2/get_organization_settings_response.proto";
+import "organization/v2/list_members_request.proto";
+import "organization/v2/list_members_response.proto";
+import "organization/v2/list_organizations_request.proto";
+import "organization/v2/list_organizations_response.proto";
+import "organization/v2/remove_member_request.proto";
+import "organization/v2/remove_member_response.proto";
+import "organization/v2/update_member_request.proto";
+import "organization/v2/update_member_response.proto";
+import "organization/v2/update_organization_request.proto";
+import "organization/v2/update_organization_response.proto";
+import "organization/v2/update_organization_settings_request.proto";
+import "organization/v2/update_organization_settings_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

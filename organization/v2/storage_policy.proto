@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/organization/storage_policy.proto
+// file: proto/gcommon/v2/organization/storage_policy.proto
 // version: 1.0.0
 // guid: 7a5f99b0-8434-408a-9c22-199f4ea471af
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message StoragePolicy {
   // Policy name

@@ -1,10 +1,10 @@
-// file: proto/gcommon/v1/queue/historical_data_point.proto
+// file: proto/gcommon/v2/queue/historical_data_point.proto
 // version: 1.0.0
 // guid: 8e947e6d-7509-4f8b-931c-cb36d515b5e5
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
@@ -12,7 +12,7 @@ import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message HistoricalDataPoint {
   google.protobuf.Timestamp timestamp = 1;

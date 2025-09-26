@@ -1,15 +1,15 @@
-// file: proto/gcommon/v1/config/value_validation_severity.proto
+// file: proto/gcommon/v2/config/value_validation_severity.proto
 // version: 1.0.1
 // guid: 55cd1c6a-887d-49f5-b248-9025dc9f5084
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 enum ValueValidationSeverity {
   VALUE_VALIDATION_SEVERITY_UNSPECIFIED = 0;

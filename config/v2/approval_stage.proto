@@ -1,16 +1,16 @@
-// file: proto/gcommon/v1/config/approval_stage.proto
+// file: proto/gcommon/v2/config/approval_stage.proto
 // version: 1.0.0
 // guid: 40bf0e9f-ef92-44c7-94fe-0b5f3ac6e653
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ApprovalStage {
   // Stage name

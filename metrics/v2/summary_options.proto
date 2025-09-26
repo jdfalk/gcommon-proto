@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/metrics/v1/summary_options.proto
+// file: proto/gcommon/v2/metrics/v2/summary_options.proto
 // version: 1.0.0
 // guid: c4d787f0-9e09-4c12-a14d-12627a57902d
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message SummaryOptions {
   // Include metric count information

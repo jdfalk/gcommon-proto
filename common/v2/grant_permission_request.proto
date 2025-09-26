@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/common/grant_permission_request.proto
+// file: proto/gcommon/v2/common/grant_permission_request.proto
 // version: 1.0.0
 // guid: f01c2811-f92f-4582-bfca-c77c277c3e12
 
 edition = "2023";
 
-package common.v1;
+package common.v2;
 
-import "common/v1/subject_type.proto";
+import "common/v2/subject_type.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/common/v1";
+option go_package = "github.com/jdfalk/gcommon/common/v2";
 
 message GrantPermissionRequest {
   // Subject ID (user or role)

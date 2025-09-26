@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/organization/hierarchy_path.proto
+// file: proto/gcommon/v2/organization/hierarchy_path.proto
 // version: 1.0.0
 // guid: f805b922-255a-475f-86d7-a4420903d7ad
 
 edition = "2023";
 
-package organization.v1;
+package organization.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/organization/v1";
+option go_package = "github.com/jdfalk/gcommon/organization/v2";
 
 message HierarchyPath {
   // Descendant node ID

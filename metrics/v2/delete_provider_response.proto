@@ -1,21 +1,21 @@
-// file: proto/gcommon/v1/metrics/v1/delete_provider_response.proto
+// file: proto/gcommon/v2/metrics/v2/delete_provider_response.proto
 // version: 1.0.0
 // guid: 0c3bdd9f-3771-4f0b-8c33-24d5a40b6c06
 
 edition = "2023";
 
-package metrics.v1;
+package metrics.v2;
 
-import "common/v1/error.proto";
-import "metrics/v1/backup_info.proto";
-import "metrics/v1/deletion_result.proto";
+import "common/v2/error.proto";
+import "metrics/v2/backup_info.proto";
+import "metrics/v2/deletion_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/metrics/v1";
+option go_package = "github.com/jdfalk/gcommon/metrics/v2";
 
 message DeleteProviderResponse {
   // Success status of the deletion

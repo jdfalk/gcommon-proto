@@ -1,17 +1,17 @@
-// file: proto/gcommon/v1/config/retention_policy.proto
+// file: proto/gcommon/v2/config/retention_policy.proto
 // version: 1.0.0
 // guid: 6144fe44-891b-4c63-818e-572c219e36a7
 
 edition = "2023";
 
-package config.v1;
+package config.v2;
 
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/config/v1";
+option go_package = "github.com/jdfalk/gcommon/config/v2";
 
 message ConfigRetentionPolicy {
   // Retention enabled

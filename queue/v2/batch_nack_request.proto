@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/queue/batch_nack_request.proto
+// file: proto/gcommon/v2/queue/batch_nack_request.proto
 // version: 1.0.0
 // guid: a97a83e4-7bab-4c6e-9770-d11334535e11
 
 edition = "2023";
 
-package queue.v1;
+package queue.v2;
 
-import "queue/v1/message_nack.proto";
+import "queue/v2/message_nack.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/queue/v1";
+option go_package = "github.com/jdfalk/gcommon/queue/v2";
 
 message BatchNackRequest {
   // Consumer group ID performing the nack

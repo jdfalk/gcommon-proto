@@ -1,18 +1,18 @@
-// file: proto/gcommon/v1/database/schema/list_migrations_response.proto
+// file: proto/gcommon/v2/database/schema/list_migrations_response.proto
 // version: 1.0.1
 // guid: 2d1040e2-056b-4264-8f84-d731b345d924
 
 edition = "2023";
 
-package database.v1;
+package database.v2;
 
-import "database/v1/migration_info.proto";
+import "database/v2/migration_info.proto";
 import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
 
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/database/v1";
+option go_package = "github.com/jdfalk/gcommon/database/v2";
 
 /**
  * ListMigrationsResponse returns a list of migrations for a database.
