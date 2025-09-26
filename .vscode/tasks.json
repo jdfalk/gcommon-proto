@@ -5,7 +5,10 @@
       "label": "Buf Generate with Output",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["buf", "generate"],
+      "args": [
+        "buf",
+        "generate"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -17,7 +20,12 @@
       "label": "Buf Generate Module",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["buf", "generate", "--module", "${input:module}"],
+      "args": [
+        "buf",
+        "generate",
+        "--module",
+        "${input:module}"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -29,7 +37,10 @@
       "label": "Buf Lint with Output",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["buf", "lint"],
+      "args": [
+        "buf",
+        "lint"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -41,7 +52,12 @@
       "label": "Buf Lint Module",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["buf", "lint", "--module", "${input:module}"],
+      "args": [
+        "buf",
+        "lint",
+        "--module",
+        "${input:module}"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -53,7 +69,10 @@
       "label": "Git Add All",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "add"],
+      "args": [
+        "git",
+        "add"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -65,7 +84,11 @@
       "label": "Git Add Selective",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "add", "${input:filePattern}"],
+      "args": [
+        "git",
+        "add",
+        "${input:filePattern}"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -77,7 +100,10 @@
       "label": "Git Push",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "push"],
+      "args": [
+        "git",
+        "push"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -89,7 +115,10 @@
       "label": "Git Status",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "status"],
+      "args": [
+        "git",
+        "status"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -101,7 +130,11 @@
       "label": "Git Add All Auto",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "add", "."],
+      "args": [
+        "git",
+        "add",
+        "."
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -113,7 +146,12 @@
       "label": "Git Commit Auto",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["git", "commit", "-m", "fix: systematic protobuf import fixes"],
+      "args": [
+        "git",
+        "commit",
+        "-m",
+        "fix: systematic protobuf import fixes"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -140,7 +178,12 @@
       "label": "Buf Generate with Args File",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "buf", "generate"],
+      "args": [
+        "--args-file",
+        "copilot-util-args",
+        "buf",
+        "generate"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -152,7 +195,12 @@
       "label": "Buf Lint with Args File",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "buf", "lint"],
+      "args": [
+        "--args-file",
+        "copilot-util-args",
+        "buf",
+        "lint"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -164,7 +212,12 @@
       "label": "Git Add All with Args File",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "add"],
+      "args": [
+        "--args-file",
+        "copilot-util-args",
+        "git",
+        "add"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -176,7 +229,12 @@
       "label": "Git Push with Args File",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "push"],
+      "args": [
+        "--args-file",
+        "copilot-util-args",
+        "git",
+        "push"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -188,7 +246,12 @@
       "label": "Git Status with Args File",
       "type": "shell",
       "command": "copilot-agent-util",
-      "args": ["--args-file", "copilot-util-args", "git", "status"],
+      "args": [
+        "--args-file",
+        "copilot-util-args",
+        "git",
+        "status"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -295,7 +358,9 @@
       "label": "Add Protovalidate - All Files",
       "type": "shell",
       "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--all"],
+      "args": [
+        "--all"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -316,7 +381,9 @@
       "label": "Add Protovalidate - Dry Run",
       "type": "shell",
       "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--dry-run"],
+      "args": [
+        "--dry-run"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -337,7 +404,10 @@
       "label": "Add Protovalidate - Compatibility Mode",
       "type": "shell",
       "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--compatibility", "--all"],
+      "args": [
+        "--compatibility",
+        "--all"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -358,7 +428,10 @@
       "label": "Add Protovalidate - Specific File",
       "type": "shell",
       "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--file", "${input:protoFile}"],
+      "args": [
+        "--file",
+        "${input:protoFile}"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -379,7 +452,9 @@
       "label": "Add Protovalidate - Using Wrapper Script",
       "type": "shell",
       "command": "${workspaceFolder}/scripts/add-protovalidate.sh",
-      "args": ["--help"],
+      "args": [
+        "--help"
+      ],
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -439,6 +514,52 @@
         "-m",
         "feat(docs): add automatic prettier formatting to proto docs generation\n\nEnhanced the generate_proto_docs.py script to automatically run prettier on generated markdown files, eliminating the need for manual formatting fixes and ensuring consistent output.\n\nChanges:\n- Added automatic prettier formatting after doc generation\n- Uses copilot-agent-util if available, falls back to direct prettier\n- Enhanced error handling with graceful fallbacks\n- Updated script version to 1.1.0\n- Added comprehensive documentation for new formatting features\n\nFiles changed:\n- scripts/generate_proto_docs.py - Enhanced with prettier integration and better error handling\n\nBenefits:\n- No more manual formatting commits needed\n- Consistent markdown formatting across all generated docs\n- Robust fallback system ensures docs are always generated"
       ]
+    },
+    {
+      "label": "Version Sync Manager - Generate",
+      "type": "shell",
+      "command": "python3",
+      "args": [
+        "scripts/version_sync_manager.py",
+        "generate"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "detail": "Auto-detect version bump and handle everything (tags, releases, buf registry, repo updates)"
+    },
+    {
+      "label": "Version Sync Manager - Generate (Dry Run)",
+      "type": "shell",
+      "command": "python3",
+      "args": [
+        "scripts/version_sync_manager.py",
+        "generate",
+        "--dry-run"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "detail": "Show what would be done without executing changes"
+    },
+    {
+      "label": "Version Sync Manager - Status",
+      "type": "shell",
+      "command": "python3",
+      "args": [
+        "scripts/version_sync_manager.py",
+        "status"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "detail": "Check version status across gcommon ecosystem"
     }
   ],
   "inputs": [

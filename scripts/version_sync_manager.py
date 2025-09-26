@@ -80,10 +80,10 @@ class VersionSyncManager:
         self.base_url = 'https://api.github.com'
         self.config = VersionSyncConfig()
 
-    def run_command(self, cmd: List[str], capture_output: bool = True) -> subprocess.CompletedProcess:
+    def run_command(self, cmd: List[str], capture_output: bool = True, input: Optional[str] = None) -> subprocess.CompletedProcess:
         """Run a command and return the result."""
         try:
-            return subprocess.run(cmd, capture_output=capture_output, text=True, check=True)
+            return subprocess.run(cmd, capture_output=capture_output, text=True, check=True, input=input)
         except subprocess.CalledProcessError as e:
             print(f"❌ Command failed: {' '.join(cmd)}")
             print(f"   Error: {e.stderr if e.stderr else str(e)}")
@@ -181,10 +181,10 @@ class VersionSyncManager:
             clean_version = version
         else:
             clean_version = version[1:]  # Remove 'v' prefix
-        
+
         # Use existing increment_version method
         new_version = self.increment_version(clean_version, bump_type)
-        
+
         # Return with 'v' prefix
         return f"v{new_version}"
 
@@ -194,11 +194,11 @@ class VersionSyncManager:
             result = self.run_command(['git', 'tag', '--list'])
             all_tags = [tag for tag in result.stdout.strip().split('\n') if tag and re.match(r'^v\d+(\.\d+)*$', tag)]
             all_tags.sort(key=lambda x: [int(part) for part in x.lstrip('v').split('.')])
-            
+
             major_tags = [tag for tag in all_tags if re.match(r'^v\d+$', tag)]
             minor_tags = [tag for tag in all_tags if re.match(r'^v\d+\.\d+$', tag)]
             patch_tags = [tag for tag in all_tags if re.match(r'^v\d+\.\d+\.\d+$', tag)]
-            
+
             return major_tags, minor_tags, patch_tags
         except subprocess.CalledProcessError:
             return [], [], []
@@ -209,15 +209,15 @@ class VersionSyncManager:
             # Get commits since the tag
             result = self.run_command(['git', 'log', f'{tag}..HEAD', '--oneline'])
             commits = result.stdout.strip().split('\n') if result.stdout.strip() else []
-            
+
             breaking_changes = []
             features = []
             fixes = []
-            
+
             for commit in commits:
                 if not commit:
                     continue
-                    
+
                 # Look for conventional commit patterns
                 if re.search(r'^[a-f0-9]+\s+.*!:', commit) or 'BREAKING CHANGE' in commit:
                     breaking_changes.append(commit)
@@ -228,7 +228,7 @@ class VersionSyncManager:
                 else:
                     # Default to fix for non-conventional commits
                     fixes.append(commit)
-            
+
             # Determine suggested bump
             if breaking_changes:
                 suggested_bump = "major"
@@ -236,14 +236,14 @@ class VersionSyncManager:
                 suggested_bump = "minor"
             else:
                 suggested_bump = "patch"
-                
+
             return CommitAnalysis(
                 breaking_changes=breaking_changes,
                 features=features,
                 fixes=fixes,
                 suggested_bump=suggested_bump
             )
-            
+
         except subprocess.CalledProcessError:
             return CommitAnalysis([], [], [], "patch")
 
@@ -253,10 +253,10 @@ class VersionSyncManager:
             # Get commit messages since tag
             result = self.run_command(['git', 'log', f'{tag}..HEAD', '--pretty=format:%s'])
             commit_messages = result.stdout.strip()
-            
+
             if not commit_messages:
                 return "patch"
-            
+
             # Try to use GitHub Copilot CLI
             prompt = f"""
 Based on these commit messages, determine if this should be a major, minor, or patch version bump:
@@ -265,29 +265,29 @@ Based on these commit messages, determine if this should be a major, minor, or p
 
 Consider:
 - Breaking changes = major
-- New features = minor  
+- New features = minor
 - Bug fixes = patch
 
 Respond with just one word: major, minor, or patch
 """
-            
+
             try:
                 # Try gh copilot suggest first
                 copilot_result = self.run_command(['gh', 'copilot', 'suggest', '-t', 'shell'], input=prompt)
                 response = copilot_result.stdout.lower()
-                
+
                 if 'major' in response:
                     return 'major'
                 elif 'minor' in response:
                     return 'minor'
                 else:
                     return 'patch'
-                    
+
             except subprocess.CalledProcessError:
                 # Fall back to conventional commit analysis
                 analysis = self.analyze_commits_since_tag(tag)
                 return analysis.suggested_bump
-                
+
         except subprocess.CalledProcessError:
             return "patch"
 
@@ -297,54 +297,67 @@ Respond with just one word: major, minor, or patch
             major, minor, patch = self.parse_semantic_version(new_version)
             major_tag = f"v{major}"
             minor_tag = f"v{major}.{minor}"
-            
+
             # Update major tag
             print(f"   Updating floating tag: {major_tag}")
             self.run_command(['git', 'tag', '-f', major_tag, '-m', f'{major_tag} - floating tag update'])
-            
-            # Update minor tag  
+
+            # Update minor tag
             print(f"   Updating floating tag: {minor_tag}")
             self.run_command(['git', 'tag', '-f', minor_tag, '-m', f'{minor_tag} - floating tag update'])
-            
+
             return True
         except subprocess.CalledProcessError:
             print("❌ Failed to update floating tags")
             return False
 
-    def push_to_buf_registry(self, dry_run: bool = False) -> bool:
-        """Push to Buf Schema Registry with consolidated multi-label command."""
+    def push_to_buf_registry(self, new_version: str = None, dry_run: bool = False) -> bool:
+        """Push to Buf Schema Registry with consolidated multi-label command - only new version + floating labels."""
         try:
-            # Get all tags for labels
-            major_tags, minor_tags, patch_tags = self.get_git_tags()
-            
-            # Build label list
+            # Build label list - only floating tags and new version
             labels = []
-            labels.extend(major_tags)
-            labels.extend(minor_tags) 
-            labels.extend(patch_tags)
-            labels.extend(['main', 'latest', 'stable', 'pb-packages'])
-            
+
+            # Add new version label if provided
+            if new_version:
+                labels.append(new_version)
+                print(f"   📌 Adding NEW version label: {new_version}")
+
+            # Add floating/special labels that should always be updated
+            floating_labels = ['main', 'latest', 'stable', 'pb-packages']
+
+            # Add major/minor floating tags if we have a new version
+            if new_version:
+                try:
+                    major, minor, patch = self.parse_semantic_version(new_version.lstrip('v'))
+                    floating_labels.extend([f"v{major}", f"v{major}.{minor}"])
+                    print(f"   🔄 Adding floating tags: v{major}, v{major}.{minor}")
+                except:
+                    pass
+
+            labels.extend(floating_labels)
+
             if not labels:
                 print("⚠️  No labels found for buf push")
                 return True
-                
+
             # Build consolidated buf push command
             cmd = ['buf', 'push']
             for label in labels:
                 if label:
                     cmd.extend(['--label', label])
-            
+
             print(f"🌐 Pushing to Buf Schema Registry with {len(labels)} labels...")
             print(f"   Labels: {', '.join(labels)}")
-            
+            print("   ✅ SAFE MODE: Only pushing new version + floating labels (preserving old versions)")
+
             if dry_run:
                 print(f"   DRY RUN: Would execute: {' '.join(cmd)}")
                 return True
-                
+
             self.run_command(cmd)
             print("✅ Successfully pushed to Buf Schema Registry")
             return True
-            
+
         except subprocess.CalledProcessError:
             print("❌ Failed to push to Buf Schema Registry")
             return False
@@ -373,19 +386,19 @@ Respond with just one word: major, minor, or patch
                 'draft': False,
                 'prerelease': prerelease
             }
-            
+
             response = requests.post(
                 f"{self.base_url}/repos/{self.org}/gcommon-proto/releases",
                 headers=self.headers,
                 json=release_data
             )
-            
+
             if response.status_code == 201:
                 return response.json()
             else:
                 print(f"❌ Failed to create GitHub release: {response.text}")
                 return None
-                
+
         except Exception as e:
             print(f"❌ Error creating GitHub release: {e}")
             return None
@@ -571,44 +584,44 @@ Respond with just one word: major, minor, or patch
     def generate_everything(self, bump_type: Optional[str] = None, dry_run: bool = False) -> bool:
         """
         Comprehensive 'generate' command that handles everything automatically.
-        
+
         Args:
-            bump_type: Optional version bump type ('major', 'minor', 'patch', 'auto')  
+            bump_type: Optional version bump type ('major', 'minor', 'patch', 'auto')
             dry_run: If True, show what would be done without executing
-            
+
         Returns:
             bool: True if successful, False otherwise
         """
         print("🚀 Starting comprehensive version management and release generation...")
         print("=" * 70)
-        
+
         try:
             # Step 1: Get latest release and determine version bump
             print("\n📋 Step 1: Version Analysis")
             print("-" * 30)
-            
+
             latest_release = self.get_latest_release()
             current_version = latest_release['tag_name'] if latest_release else "v0.0.0"
             print(f"   Current version: {current_version}")
-            
+
             # Determine bump type
             if not bump_type or bump_type == 'auto':
                 print("   Analyzing commits for automatic version bump...")
                 suggested_bump = self.analyze_commits_with_copilot(current_version)
                 print(f"   Suggested bump type: {suggested_bump}")
                 bump_type = suggested_bump
-            
+
             new_version = self.bump_version(current_version, bump_type)
             print(f"   New version: {new_version}")
-            
+
             if dry_run:
                 print("\n🔍 DRY RUN MODE - No changes will be made")
                 print("-" * 40)
-            
+
             # Step 2: Create and push git tag
             print(f"\n🏷️  Step 2: Git Tag Management")
             print("-" * 30)
-            
+
             if dry_run:
                 print(f"   Would create tag: {new_version}")
                 print(f"   Would update floating tags")
@@ -616,51 +629,51 @@ Respond with just one word: major, minor, or patch
             else:
                 print(f"   Creating tag: {new_version}")
                 result = self.run_command(['git', 'tag', new_version, '-m', f'Release {new_version}'])
-                
+
                 # Update floating tags
                 if not self.update_floating_tags(new_version):
                     print("⚠️  Warning: Failed to update floating tags (continuing...)")
-                
+
                 # Push all tags
                 print("   Pushing tags to origin...")
                 self.run_command(['git', 'push', 'origin', '--tags', '--force'])
                 print("✅ Tags created and pushed successfully")
-            
+
             # Step 3: Create GitHub release
             print(f"\n📦 Step 3: GitHub Release Creation")
             print("-" * 30)
-            
+
             if dry_run:
                 print(f"   Would create GitHub release: {new_version}")
             else:
                 commit_analysis = self.analyze_commits_since_tag(current_version)
                 changelog = self.generate_changelog(commit_analysis)
-                
+
                 release = self.create_github_release(
                     tag_name=new_version,
                     name=f"Release {new_version}",
                     body=changelog,
                     prerelease=False
                 )
-                
+
                 if release:
                     print(f"✅ GitHub release created: {release['html_url']}")
                 else:
                     print("⚠️  Warning: Failed to create GitHub release (continuing...)")
-            
+
             # Step 4: Push to Buf Schema Registry
             print(f"\n🌐 Step 4: Buf Schema Registry")
             print("-" * 30)
-            
-            if not self.push_to_buf_registry(dry_run=dry_run):
+
+            if not self.push_to_buf_registry(new_version=new_version, dry_run=dry_run):
                 print("⚠️  Warning: Failed to push to Buf Schema Registry")
-            
+
             # Step 5: Update related repositories
             print(f"\n🔄 Step 5: Repository Updates")
             print("-" * 30)
-            
+
             related_repos = ['gcommon', 'subtitle-manager', 'audiobook-organizer']
-            
+
             if dry_run:
                 print(f"   Would update {len(related_repos)} related repositories:")
                 for repo in related_repos:
@@ -673,7 +686,7 @@ Respond with just one word: major, minor, or patch
                         print(f"     ✅ {repo}")
                     else:
                         print(f"     ❌ {repo} (failed)")
-            
+
             # Summary
             print(f"\n🎉 Summary")
             print("=" * 70)
@@ -684,9 +697,9 @@ Respond with just one word: major, minor, or patch
             else:
                 print(f"   Changes applied successfully!")
             print(f"   Related repos: {len(related_repos)} repositories")
-            
+
             return True
-            
+
         except Exception as e:
             print(f"\n❌ Generation failed: {e}")
             return False
@@ -694,25 +707,25 @@ Respond with just one word: major, minor, or patch
     def generate_changelog(self, commit_analysis: CommitAnalysis) -> str:
         """Generate a changelog from commit analysis."""
         changelog = []
-        
+
         if commit_analysis.breaking_changes:
             changelog.append("## Breaking Changes")
             for commit in commit_analysis.breaking_changes:
                 changelog.append(f"- {commit}")
             changelog.append("")
-        
+
         if commit_analysis.features:
             changelog.append("## Features")
             for commit in commit_analysis.features:
                 changelog.append(f"- {commit}")
             changelog.append("")
-        
+
         if commit_analysis.fixes:
-            changelog.append("## Bug Fixes")  
+            changelog.append("## Bug Fixes")
             for commit in commit_analysis.fixes:
                 changelog.append(f"- {commit}")
             changelog.append("")
-        
+
         return "\n".join(changelog)
 
 def main():
