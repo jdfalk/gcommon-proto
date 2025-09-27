@@ -2,13 +2,15 @@
 // version: 1.0.0
 // guid: t1u2v3w4-x5y6-7890-1234-567890uvwxyz
 
-syntax = "proto3";
+edition = "2023";
 
 package auth.v2;
 
-option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
-
 import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 import "authpb/v2/session_info_response.proto";
 import "authpb/v2/list_api_keys_response.proto";
 

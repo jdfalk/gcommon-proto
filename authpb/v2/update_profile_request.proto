@@ -1,17 +1,65 @@
-// file: authpb/v2/update_profile_request.proto
-// version: 1.0.0
-// guid: w4x5y6z7-a8b9-0123-4567-890123xyzabc
-
-syntax = "proto3";
+edition = "2023";
 
 package auth.v2;
 
-option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// Request to update user profile information
+message UpdateProfileRequest {
+  // User ID to update (if not provided, update current user)
+  string user_id = 1;
+
+  // Profile data to update
+  ProfileData profile_data = 2;
+
+  // Whether to partially update (merge) or replace the entire profile
+  bool partial_update = 3;
+
+  // Whether to send notification of profile changes
+  bool send_notification = 4;
+
+  // Admin bypass flag for admin operations
+  bool admin_bypass = 5;
+}
+
+// Profile data that can be updated
+message ProfileData {
+  // Updated email address
+  string email = 1;
+  // Updated display name
+  string display_name = 2;
+  // Updated first name
+  string first_name = 3;
+  // Updated last name
+  string last_name = 4;
+  // Updated avatar URL
+  string avatar_url = 5;
+
+  // User preferences to update
+  map<string, string> preferences = 6;
+
+  // Whether to clear existing preferences before setting new ones
+  bool clear_preferences = 7;
+}
+// version: 1.0.0
+// guid: w4x5y6z7-a8b9-0123-4567-890123xyzabc
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 
 // UpdateProfileRequest represents a request to update user profile
 message UpdateProfileRequest {
-  // User ID to update (if not specified, use current user)
-  optional string user_id = 1;
+    // User ID to update (if not provided, update current user)
+  string user_id = 1;
 
   // Fields to update (only specified fields will be updated)
   ProfileUpdateFields fields = 2;
@@ -22,20 +70,17 @@ message UpdateProfileRequest {
 
 // Profile fields that can be updated
 message ProfileUpdateFields {
-  // New email address
-  optional string email = 1;
-
-  // New display name
-  optional string display_name = 2;
-
-  // New first name
-  optional string first_name = 3;
-
-  // New last name
-  optional string last_name = 4;
-
-  // New avatar URL
-  optional string avatar_url = 5;
+  message ProfileData {
+  // Updated email address
+  string email = 1;
+  // Updated display name
+  string display_name = 2;
+  // Updated first name
+  string first_name = 3;
+  // Updated last name
+  string last_name = 4;
+  // Updated avatar URL
+  string avatar_url = 5;
 
   // User preferences to update
   map<string, string> preferences = 6;

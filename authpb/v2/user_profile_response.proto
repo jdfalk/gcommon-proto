@@ -2,13 +2,15 @@
 // version: 1.0.0
 // guid: v3w4x5y6-z7a8-9012-3456-789012wxyzab
 
-syntax = "proto3";
+edition = "2023";
 
 package auth.v2;
 
-option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
-
 import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 
 // UserProfileResponse represents the response to a user profile request
 message UserProfileResponse {

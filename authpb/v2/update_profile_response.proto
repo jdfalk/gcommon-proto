@@ -2,13 +2,15 @@
 // version: 1.0.0
 // guid: x5y6z7a8-b9c0-1234-5678-901234yzabcd
 
-syntax = "proto3";
+edition = "2023";
 
 package auth.v2;
 
-option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
-
 import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 import "authpb/v2/user_profile_response.proto";
 
 // UpdateProfileResponse represents the response to a profile update request

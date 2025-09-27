@@ -2,13 +2,15 @@
 // version: 1.0.0
 // guid: r9s0t1u2-v3w4-5678-9012-345678stuvwx
 
-syntax = "proto3";
+edition = "2023";
 
 package auth.v2;
 
-option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
-
 import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 
 // ExtendSessionResponse represents the response to a session extension request
 message ExtendSessionResponse {

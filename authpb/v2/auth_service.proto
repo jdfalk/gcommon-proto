@@ -63,7 +63,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
  * AuthService provides comprehensive authentication and authorization functionality.
  * This service supports multiple authentication methods including username/password,
  * API keys, OAuth2 providers, and session management for subtitle-manager integration.
- * 
+ *
  * Features:
  * - JWT token authentication with refresh capabilities
  * - API key authentication for programmatic access
