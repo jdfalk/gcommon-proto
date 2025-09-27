@@ -1,0 +1,30 @@
+// file: authpb/v2/update_profile_response.proto
+// version: 1.0.0
+// guid: x5y6z7a8-b9c0-1234-5678-901234yzabcd
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+import "authpb/v2/auth_status.proto";
+import "authpb/v2/user_profile_response.proto";
+
+// UpdateProfileResponse represents the response to a profile update request
+message UpdateProfileResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // Updated user profile
+  UserProfile profile = 2;
+
+  // Fields that were actually updated
+  repeated string updated_fields = 3;
+
+  // Success message
+  string message = 4;
+
+  // Error message if update failed
+  string error_message = 5;
+}

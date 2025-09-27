@@ -1,0 +1,65 @@
+// file: authpb/v2/session_info_response.proto
+// version: 1.0.0
+// guid: p7q8r9s0-t1u2-3456-7890-123456qrstuv
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+import "authpb/v2/auth_status.proto";
+
+// SessionInfoResponse represents the response to a session info request
+message SessionInfoResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // Session information
+  SessionInfo session_info = 2;
+
+  // Error message if request failed
+  string error_message = 3;
+}
+
+// Detailed session information
+message SessionInfo {
+  // Session ID
+  string session_id = 1;
+
+  // User ID associated with the session
+  string user_id = 2;
+
+  // Username associated with the session
+  string username = 3;
+
+  // When the session was created
+  int64 created_at = 4;
+
+  // When the session expires
+  int64 expires_at = 5;
+
+  // When the session was last accessed
+  int64 last_accessed_at = 6;
+
+  // Whether the session is active
+  bool is_active = 7;
+
+  // Session type (e.g., "web", "api", "mobile")
+  string session_type = 8;
+
+  // Client IP address
+  string client_ip = 9;
+
+  // User agent information
+  string user_agent = 10;
+
+  // Session metadata
+  map<string, string> metadata = 11;
+
+  // User roles (for authorization)
+  repeated string roles = 12;
+
+  // User permissions (for fine-grained access)
+  repeated string permissions = 13;
+}

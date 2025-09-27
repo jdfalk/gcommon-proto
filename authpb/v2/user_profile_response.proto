@@ -1,0 +1,119 @@
+// file: authpb/v2/user_profile_response.proto
+// version: 1.0.0
+// guid: v3w4x5y6-z7a8-9012-3456-789012wxyzab
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+import "authpb/v2/auth_status.proto";
+
+// UserProfileResponse represents the response to a user profile request
+message UserProfileResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // User profile information
+  UserProfile profile = 2;
+
+  // Error message if request failed
+  string error_message = 3;
+}
+
+// User profile information
+message UserProfile {
+  // User ID
+  string user_id = 1;
+
+  // Username
+  string username = 2;
+
+  // Email address
+  string email = 3;
+
+  // Whether email is verified
+  bool email_verified = 4;
+
+  // Display name
+  string display_name = 5;
+
+  // First name
+  string first_name = 6;
+
+  // Last name
+  string last_name = 7;
+
+  // Avatar URL
+  string avatar_url = 8;
+
+  // User roles
+  repeated string roles = 9;
+
+  // User permissions
+  repeated string permissions = 10;
+
+  // When the account was created
+  int64 created_at = 11;
+
+  // When the account was last updated
+  int64 updated_at = 12;
+
+  // When the user last logged in
+  int64 last_login_at = 13;
+
+  // Whether the account is active
+  bool is_active = 14;
+
+  // Whether the account is verified
+  bool is_verified = 15;
+
+  // User preferences
+  map<string, string> preferences = 16;
+
+  // User statistics (if requested)
+  UserStats stats = 17;
+
+  // Linked OAuth accounts (if requested)
+  repeated LinkedOAuthAccount oauth_accounts = 18;
+}
+
+// User statistics
+message UserStats {
+  // Total number of logins
+  int32 total_logins = 1;
+
+  // Number of active sessions
+  int32 active_sessions = 2;
+
+  // Number of API keys
+  int32 api_keys_count = 3;
+
+  // Last login IP address
+  string last_login_ip = 4;
+
+  // Last login user agent
+  string last_login_user_agent = 5;
+}
+
+// Linked OAuth account information
+message LinkedOAuthAccount {
+  // OAuth provider
+  string provider = 1;
+
+  // Provider user ID
+  string provider_user_id = 2;
+
+  // Provider username
+  string provider_username = 3;
+
+  // Provider email
+  string provider_email = 4;
+
+  // When the account was linked
+  int64 linked_at = 5;
+
+  // Whether the link is active
+  bool is_active = 6;
+}

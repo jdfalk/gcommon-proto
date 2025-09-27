@@ -1,0 +1,28 @@
+// file: authpb/v2/revoke_api_key_response.proto
+// version: 1.0.0
+// guid: f7g8h9i0-j1k2-3456-7890-123456ghijkl
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// RevokeApiKeyResponse represents the response to an API key revocation request
+message RevokeApiKeyResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // Confirmation message
+  string message = 2;
+
+  // Number of tokens that were invalidated (if requested)
+  int32 tokens_invalidated = 3;
+
+  // Error message if revocation failed
+  string error_message = 4;
+}

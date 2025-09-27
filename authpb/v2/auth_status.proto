@@ -1,0 +1,48 @@
+// file: authpb/v2/auth_status.proto
+// version: 1.0.0
+// guid: b3c4d5e6-f7g8-9012-3456-789012cdefgh
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// AuthStatus represents the result of an authentication operation
+enum AuthStatus {
+  // Unknown/unspecified status
+  AUTH_STATUS_UNSPECIFIED = 0;
+
+  // Authentication was successful
+  AUTH_STATUS_SUCCESS = 1;
+
+  // Authentication failed due to invalid credentials
+  AUTH_STATUS_INVALID_CREDENTIALS = 2;
+
+  // Authentication failed due to expired credentials
+  AUTH_STATUS_EXPIRED = 3;
+
+  // Authentication failed due to revoked credentials
+  AUTH_STATUS_REVOKED = 4;
+
+  // Authentication failed due to insufficient permissions
+  AUTH_STATUS_INSUFFICIENT_PERMISSIONS = 5;
+
+  // Authentication failed due to rate limiting
+  AUTH_STATUS_RATE_LIMITED = 6;
+
+  // Authentication failed due to account being locked/disabled
+  AUTH_STATUS_ACCOUNT_LOCKED = 7;
+
+  // Authentication failed due to invalid request format
+  AUTH_STATUS_INVALID_REQUEST = 8;
+
+  // Authentication failed due to internal server error
+  AUTH_STATUS_INTERNAL_ERROR = 9;
+
+  // Authentication failed due to service being unavailable
+  AUTH_STATUS_SERVICE_UNAVAILABLE = 10;
+}

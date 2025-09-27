@@ -1,0 +1,50 @@
+// file: authpb/v2/list_api_keys_response.proto
+// version: 1.0.0
+// guid: h9i0j1k2-l3m4-5678-9012-345678ijklmn
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "authpb/v2/api_key_auth_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// ListApiKeysResponse represents the response to a list API keys request
+message ListApiKeysResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // List of API keys (without the actual key values)
+  repeated ApiKeyInfo api_keys = 2;
+
+  // Pagination information
+  PaginationInfo pagination = 3;
+
+  // Error message if listing failed
+  string error_message = 4;
+}
+
+// Pagination information for API key listing
+message PaginationInfo {
+  // Current page number
+  int32 current_page = 1;
+
+  // Total number of pages
+  int32 total_pages = 2;
+
+  // Total number of items
+  int32 total_items = 3;
+
+  // Number of items per page
+  int32 page_size = 4;
+
+  // Whether there's a next page
+  bool has_next_page = 5;
+
+  // Whether there's a previous page
+  bool has_previous_page = 6;
+}

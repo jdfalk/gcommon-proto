@@ -1,0 +1,33 @@
+// file: authpb/v2/list_api_keys_request.proto
+// version: 1.0.0
+// guid: g8h9i0j1-k2l3-4567-8901-234567hijklm
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// ListApiKeysRequest represents a request to list API keys for a user
+message ListApiKeysRequest {
+  // Page number for pagination (starting from 1)
+  int32 page = 1;
+
+  // Number of items per page
+  int32 page_size = 2;
+
+  // Filter by active/inactive keys
+  bool is_active = 3;
+
+  // Filter by keys that expire before this timestamp
+  int64 expires_before = 4;
+
+  // Filter by keys that expire after this timestamp
+  int64 expires_after = 5;
+
+  // Include expired keys in the results
+  bool include_expired = 6;
+}

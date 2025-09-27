@@ -1,0 +1,36 @@
+// file: authpb/v2/list_sessions_request.proto
+// version: 1.0.0
+// guid: s0t1u2v3-w4x5-6789-0123-456789tuvwxy
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+// ListSessionsRequest represents a request to list user sessions
+message ListSessionsRequest {
+  // Page number for pagination (starting from 1)
+  int32 page = 1;
+
+  // Number of items per page
+  int32 page_size = 2;
+
+  // Filter by active/inactive sessions
+  optional bool is_active = 3;
+
+  // Filter by session type
+  optional string session_type = 4;
+
+  // Filter by sessions created after this timestamp
+  optional int64 created_after = 5;
+
+  // Filter by sessions created before this timestamp
+  optional int64 created_before = 6;
+
+  // Include expired sessions in the results
+  bool include_expired = 7;
+
+  // Sort order (e.g., "created_at", "-last_accessed_at")
+  string sort_by = 8;
+}

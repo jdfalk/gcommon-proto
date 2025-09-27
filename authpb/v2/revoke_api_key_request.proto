@@ -1,0 +1,24 @@
+// file: authpb/v2/revoke_api_key_request.proto
+// version: 1.0.0
+// guid: e6f7g8h9-i0j1-2345-6789-012345fghijk
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// RevokeApiKeyRequest represents a request to revoke an API key
+message RevokeApiKeyRequest {
+  // API key ID to revoke
+  string key_id = 1;
+
+  // Optional reason for revocation
+  string reason = 2;
+
+  // Whether to immediately invalidate all tokens created with this key
+  bool invalidate_tokens = 3;
+}

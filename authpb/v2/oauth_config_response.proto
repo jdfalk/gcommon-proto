@@ -1,0 +1,47 @@
+// file: authpb/v2/oauth_config_response.proto
+// version: 1.0.0
+// guid: n5o6p7q8-r9s0-1234-5678-901234opqrst
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "authpb/v2/oauth_config_request.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthConfigResponse represents the response to an OAuth2 configuration request
+message OAuthConfigResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // OAuth2 provider configuration (for GET operations)
+  OAuthProviderConfig config = 2;
+
+  // List of available providers (for LIST operations)
+  repeated OAuthProviderInfo providers = 3;
+
+  // Success message
+  string message = 4;
+
+  // Error message if operation failed
+  string error_message = 5;
+}
+
+// Information about an OAuth2 provider
+message OAuthProviderInfo {
+  // Provider name/identifier
+  string provider = 1;
+
+  // Whether the provider is enabled
+  bool enabled = 2;
+
+  // Whether the provider is configured
+  bool configured = 3;
+
+  // Default scopes for this provider
+  repeated string default_scopes = 4;
+}

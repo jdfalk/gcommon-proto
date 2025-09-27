@@ -1,0 +1,61 @@
+// file: authpb/v2/api_key_auth_response.proto
+// version: 1.0.0
+// guid: a2b3c4d5-e6f7-8901-2345-678901bcdefg
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// ApiKeyAuthResponse represents the response to an API key authentication request
+message ApiKeyAuthResponse {
+  // Authentication status
+  AuthStatus status = 1;
+
+  // The user ID associated with the API key (if valid)
+  string user_id = 2;
+
+  // The username associated with the API key (if valid)
+  string username = 3;
+
+  // User roles for authorization
+  repeated string roles = 4;
+
+  // User permissions for fine-grained access control
+  repeated string permissions = 5;
+
+  // API key metadata
+  ApiKeyInfo api_key_info = 6;
+
+  // Error message if authentication failed
+  string error_message = 7;
+}
+
+// Information about the API key
+message ApiKeyInfo {
+  // API key ID (not the actual key)
+  string key_id = 1;
+
+  // API key name/description
+  string name = 2;
+
+  // When the key was created
+  int64 created_at = 3;
+
+  // When the key expires (0 for no expiration)
+  int64 expires_at = 4;
+
+  // When the key was last used
+  int64 last_used_at = 5;
+
+  // Scopes/permissions granted to this key
+  repeated string scopes = 6;
+
+  // Whether the key is active
+  bool is_active = 7;
+}

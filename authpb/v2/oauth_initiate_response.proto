@@ -1,0 +1,34 @@
+// file: authpb/v2/oauth_initiate_response.proto
+// version: 1.0.0
+// guid: j1k2l3m4-n5o6-7890-1234-567890klmnop
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthInitiateResponse represents the response to an OAuth2 initiation request
+message OAuthInitiateResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // Authorization URL to redirect the user to
+  string authorization_url = 2;
+
+  // State parameter for CSRF protection
+  string state = 3;
+
+  // Session ID for tracking the OAuth2 flow
+  string session_id = 4;
+
+  // Expiration time for the OAuth2 session
+  int64 expires_at = 5;
+
+  // Error message if initiation failed
+  string error_message = 6;
+}

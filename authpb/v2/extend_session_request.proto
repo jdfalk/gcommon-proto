@@ -1,0 +1,25 @@
+// file: authpb/v2/extend_session_request.proto
+// version: 1.0.0
+// guid: q8r9s0t1-u2v3-4567-8901-234567rstuvw
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+// ExtendSessionRequest represents a request to extend a session
+message ExtendSessionRequest {
+  // Session token or ID to extend
+  string session_token = 1;
+
+  // New expiration time (Unix timestamp)
+  // If 0, use default extension period
+  int64 new_expires_at = 2;
+
+  // Extension duration in seconds (alternative to new_expires_at)
+  int32 extend_by_seconds = 3;
+
+  // Whether to update the last_accessed timestamp
+  bool update_access_time = 4;
+}

@@ -1,0 +1,32 @@
+// file: authpb/v2/create_api_key_response.proto
+// version: 1.0.0
+// guid: d5e6f7g8-h9i0-1234-5678-901234efghij
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "authpb/v2/api_key_auth_response.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// CreateApiKeyResponse represents the response to an API key creation request
+message CreateApiKeyResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // The actual API key (only returned once)
+  string api_key = 2;
+
+  // API key information
+  ApiKeyInfo api_key_info = 3;
+
+  // Error message if creation failed
+  string error_message = 4;
+
+  // Security warning message
+  string warning_message = 5;
+}

@@ -1,0 +1,28 @@
+// file: authpb/v2/api_key_auth_request.proto
+// version: 1.0.0
+// guid: f1e2d3c4-b5a6-7890-1234-567890abcdef
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// ApiKeyAuthRequest represents a request to authenticate using an API key
+// Used for validating API keys sent in X-API-Key header
+message ApiKeyAuthRequest {
+  // The API key to validate
+  string api_key = 1;
+
+  // Optional: The IP address of the client making the request
+  string client_ip = 2;
+
+  // Optional: The user agent of the client
+  string user_agent = 3;
+
+  // Optional: Additional context for the authentication request
+  map<string, string> context = 4;
+}

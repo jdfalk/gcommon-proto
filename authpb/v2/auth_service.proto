@@ -1,11 +1,12 @@
 // file: authpb/v2/auth_service.proto
-// version: 2.0.0
+// version: 2.1.0
 // guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 edition = "2023";
 
 package auth.v2;
 
+// Core authentication imports
 import "authpb/v2/login_request.proto";
 import "authpb/v2/login_response.proto";
 import "authpb/v2/validate_token_request.proto";
@@ -18,18 +19,65 @@ import "authpb/v2/refresh_token_request.proto";
 import "authpb/v2/refresh_token_response.proto";
 import "authpb/v2/revoke_token_request.proto";
 import "authpb/v2/revoke_token_response.proto";
+
+// API key authentication imports
+import "authpb/v2/api_key_auth_request.proto";
+import "authpb/v2/api_key_auth_response.proto";
+import "authpb/v2/create_api_key_request.proto";
+import "authpb/v2/create_api_key_response.proto";
+import "authpb/v2/revoke_api_key_request.proto";
+import "authpb/v2/revoke_api_key_response.proto";
+import "authpb/v2/list_api_keys_request.proto";
+import "authpb/v2/list_api_keys_response.proto";
+
+// OAuth2 authentication imports
+import "authpb/v2/oauth_initiate_request.proto";
+import "authpb/v2/oauth_initiate_response.proto";
+import "authpb/v2/oauth_callback_request.proto";
+import "authpb/v2/oauth_callback_response.proto";
+import "authpb/v2/oauth_config_request.proto";
+import "authpb/v2/oauth_config_response.proto";
+
+// Session management imports
+import "authpb/v2/session_info_request.proto";
+import "authpb/v2/session_info_response.proto";
+import "authpb/v2/extend_session_request.proto";
+import "authpb/v2/extend_session_response.proto";
+import "authpb/v2/list_sessions_request.proto";
+import "authpb/v2/list_sessions_response.proto";
+
+// User management imports
+import "authpb/v2/user_profile_request.proto";
+import "authpb/v2/user_profile_response.proto";
+import "authpb/v2/update_profile_request.proto";
+import "authpb/v2/update_profile_response.proto";
+import "authpb/v2/change_password_request.proto";
+import "authpb/v2/change_password_response.proto";
+
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
 
 /**
- * AuthService provides JWT authentication and authorization capabilities.
- * Supports token generation, validation, refresh, revocation, and role-based access control.
- * Follows 1-1-1 pattern: one service per file.
+ * AuthService provides comprehensive authentication and authorization functionality.
+ * This service supports multiple authentication methods including username/password,
+ * API keys, OAuth2 providers, and session management for subtitle-manager integration.
+ * 
+ * Features:
+ * - JWT token authentication with refresh capabilities
+ * - API key authentication for programmatic access
+ * - OAuth2 integration (GitHub, Google, etc.)
+ * - Session management with extension and monitoring
+ * - User profile management and password changes
+ * - Role-based access control and fine-grained permissions
  */
 service AuthService {
-  // Login authenticates a user and returns JWT tokens
+  // ============================================================================
+  // Core Authentication Methods
+  // ============================================================================
+
+  // Login authenticates a user with username/password and returns JWT tokens
   rpc Login(LoginRequest) returns (LoginResponse);
 
   // ValidateToken validates a JWT token and returns user claims
@@ -46,4 +94,59 @@ service AuthService {
 
   // RevokeToken invalidates a token making it unusable
   rpc RevokeToken(RevokeTokenRequest) returns (RevokeTokenResponse);
+
+  // ============================================================================
+  // API Key Authentication Methods
+  // ============================================================================
+
+  // AuthenticateApiKey validates an API key from X-API-Key header
+  rpc AuthenticateApiKey(ApiKeyAuthRequest) returns (ApiKeyAuthResponse);
+
+  // CreateApiKey generates a new API key for the authenticated user
+  rpc CreateApiKey(CreateApiKeyRequest) returns (CreateApiKeyResponse);
+
+  // RevokeApiKey invalidates an existing API key
+  rpc RevokeApiKey(RevokeApiKeyRequest) returns (RevokeApiKeyResponse);
+
+  // ListApiKeys returns all API keys for the authenticated user
+  rpc ListApiKeys(ListApiKeysRequest) returns (ListApiKeysResponse);
+
+  // ============================================================================
+  // OAuth2 Authentication Methods
+  // ============================================================================
+
+  // InitiateOAuth starts OAuth2 authentication flow with providers like GitHub
+  rpc InitiateOAuth(OAuthInitiateRequest) returns (OAuthInitiateResponse);
+
+  // HandleOAuthCallback processes OAuth2 callback after user authorization
+  rpc HandleOAuthCallback(OAuthCallbackRequest) returns (OAuthCallbackResponse);
+
+  // ConfigureOAuth manages OAuth2 provider configurations (admin operation)
+  rpc ConfigureOAuth(OAuthConfigRequest) returns (OAuthConfigResponse);
+
+  // ============================================================================
+  // Session Management Methods
+  // ============================================================================
+
+  // GetSessionInfo retrieves detailed information about a user session
+  rpc GetSessionInfo(SessionInfoRequest) returns (SessionInfoResponse);
+
+  // ExtendSession prolongs session expiration time
+  rpc ExtendSession(ExtendSessionRequest) returns (ExtendSessionResponse);
+
+  // ListSessions returns all active sessions for the authenticated user
+  rpc ListSessions(ListSessionsRequest) returns (ListSessionsResponse);
+
+  // ============================================================================
+  // User Profile Management Methods
+  // ============================================================================
+
+  // GetUserProfile retrieves user profile information and preferences
+  rpc GetUserProfile(UserProfileRequest) returns (UserProfileResponse);
+
+  // UpdateUserProfile modifies user profile information and preferences
+  rpc UpdateUserProfile(UpdateProfileRequest) returns (UpdateProfileResponse);
+
+  // ChangePassword updates user password with security validation
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
 }

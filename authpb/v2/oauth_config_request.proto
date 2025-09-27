@@ -1,0 +1,63 @@
+// file: authpb/v2/oauth_config_request.proto
+// version: 1.0.0
+// guid: m4n5o6p7-q8r9-0123-4567-890123nopqrs
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthConfigRequest represents a request to configure OAuth2 providers
+message OAuthConfigRequest {
+  // OAuth2 provider to configure
+  string provider = 1;
+
+  // Configuration operation
+  ConfigOperation operation = 2;
+
+  // OAuth2 provider configuration
+  OAuthProviderConfig config = 3;
+}
+
+// Configuration operation type
+enum ConfigOperation {
+  CONFIG_OPERATION_UNSPECIFIED = 0;
+  CONFIG_OPERATION_GET = 1;
+  CONFIG_OPERATION_SET = 2;
+  CONFIG_OPERATION_DELETE = 3;
+  CONFIG_OPERATION_LIST = 4;
+}
+
+// OAuth2 provider configuration
+message OAuthProviderConfig {
+  // Client ID from OAuth2 provider
+  string client_id = 1;
+
+  // Client secret from OAuth2 provider (write-only)
+  string client_secret = 2;
+
+  // Authorization URL
+  string auth_url = 3;
+
+  // Token URL
+  string token_url = 4;
+
+  // User info URL
+  string user_info_url = 5;
+
+  // Default scopes to request
+  repeated string default_scopes = 6;
+
+  // Callback URL
+  string callback_url = 7;
+
+  // Whether this provider is enabled
+  bool enabled = 8;
+
+  // Additional provider-specific configuration
+  map<string, string> extra_config = 9;
+}

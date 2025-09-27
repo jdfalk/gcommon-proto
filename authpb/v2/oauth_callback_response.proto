@@ -1,0 +1,67 @@
+// file: authpb/v2/oauth_callback_response.proto
+// version: 1.0.0
+// guid: l3m4n5o6-p7q8-9012-3456-789012mnopqr
+
+edition = "2023";
+
+package auth.v2;
+
+import "authpb/v2/auth_status.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthCallbackResponse represents the response to an OAuth2 callback
+message OAuthCallbackResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // JWT access token (if authentication successful)
+  string access_token = 2;
+
+  // JWT refresh token (if applicable)
+  string refresh_token = 3;
+
+  // Token expiration time
+  int64 expires_at = 4;
+
+  // User information from OAuth2 provider
+  OAuthUserInfo user_info = 5;
+
+  // Whether this is a new user registration
+  bool is_new_user = 6;
+
+  // Error message if authentication failed
+  string error_message = 7;
+
+  // Redirect URL for the client
+  string redirect_url = 8;
+}
+
+// User information retrieved from OAuth2 provider
+message OAuthUserInfo {
+  // Provider user ID
+  string provider_user_id = 1;
+
+  // Username from provider
+  string username = 2;
+
+  // Display name from provider
+  string display_name = 3;
+
+  // Email address from provider
+  string email = 4;
+
+  // Whether email is verified
+  bool email_verified = 5;
+
+  // Avatar URL from provider
+  string avatar_url = 6;
+
+  // Provider profile URL
+  string profile_url = 7;
+
+  // Additional provider-specific data
+  map<string, string> provider_data = 8;
+}

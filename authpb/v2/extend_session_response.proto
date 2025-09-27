@@ -1,0 +1,29 @@
+// file: authpb/v2/extend_session_response.proto
+// version: 1.0.0
+// guid: r9s0t1u2-v3w4-5678-9012-345678stuvwx
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+import "authpb/v2/auth_status.proto";
+
+// ExtendSessionResponse represents the response to a session extension request
+message ExtendSessionResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // New session expiration time
+  int64 new_expires_at = 2;
+
+  // Number of seconds the session was extended
+  int32 extended_by_seconds = 3;
+
+  // Success message
+  string message = 4;
+
+  // Error message if extension failed
+  string error_message = 5;
+}

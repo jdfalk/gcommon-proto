@@ -1,0 +1,36 @@
+// file: authpb/v2/oauth_initiate_request.proto
+// version: 1.0.0
+// guid: i0j1k2l3-m4n5-6789-0123-456789jklmno
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthInitiateRequest represents a request to initiate OAuth2 flow
+message OAuthInitiateRequest {
+  // OAuth2 provider (e.g., "github", "google", "microsoft")
+  string provider = 1;
+
+  // Redirect URI after OAuth2 completion
+  string redirect_uri = 2;
+
+  // Optional state parameter for CSRF protection
+  string state = 3;
+
+  // Requested scopes/permissions
+  repeated string scopes = 4;
+
+  // Optional metadata to pass through the OAuth2 flow
+  map<string, string> metadata = 5;
+
+  // Optional: The client IP address
+  string client_ip = 6;
+
+  // Optional: The user agent
+  string user_agent = 7;
+}

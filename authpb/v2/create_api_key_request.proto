@@ -1,0 +1,33 @@
+// file: authpb/v2/create_api_key_request.proto
+// version: 1.0.0
+// guid: c4d5e6f7-g8h9-0123-4567-890123defghi
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// CreateApiKeyRequest represents a request to create a new API key
+message CreateApiKeyRequest {
+  // Human-readable name for the API key
+  string name = 1;
+
+  // Optional description of the API key's purpose
+  string description = 2;
+
+  // Expiration time in Unix timestamp (0 for no expiration)
+  int64 expires_at = 3;
+
+  // Scopes/permissions to grant to this API key
+  repeated string scopes = 4;
+
+  // Optional metadata for the API key
+  map<string, string> metadata = 5;
+
+  // Whether the key should be active immediately (default: true)
+  bool is_active = 6;
+}

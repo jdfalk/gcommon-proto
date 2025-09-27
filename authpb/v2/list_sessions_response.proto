@@ -1,0 +1,28 @@
+// file: authpb/v2/list_sessions_response.proto
+// version: 1.0.0
+// guid: t1u2v3w4-x5y6-7890-1234-567890uvwxyz
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+import "authpb/v2/auth_status.proto";
+import "authpb/v2/session_info_response.proto";
+import "authpb/v2/list_api_keys_response.proto";
+
+// ListSessionsResponse represents the response to a list sessions request
+message ListSessionsResponse {
+  // Operation status
+  AuthStatus status = 1;
+
+  // List of user sessions
+  repeated SessionInfo sessions = 2;
+
+  // Pagination information
+  PaginationInfo pagination = 3;
+
+  // Error message if listing failed
+  string error_message = 4;
+}

@@ -1,0 +1,39 @@
+// file: authpb/v2/oauth_callback_request.proto
+// version: 1.0.0
+// guid: k2l3m4n5-o6p7-8901-2345-678901lmnopq
+
+edition = "2023";
+
+package auth.v2;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+
+// OAuthCallbackRequest represents a request to handle OAuth2 callback
+message OAuthCallbackRequest {
+  // OAuth2 provider (e.g., "github")
+  string provider = 1;
+
+  // Authorization code from OAuth2 provider
+  string code = 2;
+
+  // State parameter for CSRF protection
+  string state = 3;
+
+  // Session ID from the initiation request
+  string session_id = 4;
+
+  // Error from OAuth2 provider (if any)
+  string error = 5;
+
+  // Error description from OAuth2 provider (if any)
+  string error_description = 6;
+
+  // Optional: The client IP address
+  string client_ip = 7;
+
+  // Optional: The user agent
+  string user_agent = 8;
+}

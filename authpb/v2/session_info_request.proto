@@ -1,0 +1,21 @@
+// file: authpb/v2/session_info_request.proto
+// version: 1.0.0
+// guid: o6p7q8r9-s0t1-2345-6789-012345pqrstu
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+// SessionInfoRequest represents a request to get session information
+message SessionInfoRequest {
+  // Session token or ID
+  string session_token = 1;
+
+  // Whether to include detailed session information
+  bool include_details = 2;
+
+  // Whether to update last_accessed timestamp
+  bool update_access_time = 3;
+}

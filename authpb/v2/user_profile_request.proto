@@ -1,0 +1,24 @@
+// file: authpb/v2/user_profile_request.proto
+// version: 1.0.0
+// guid: u2v3w4x5-y6z7-8901-2345-678901vwxyza
+
+syntax = "proto3";
+
+package auth.v2;
+
+option go_package = "github.com/jdfalk/gcommon-proto/authpb/v2";
+
+// UserProfileRequest represents a request to get user profile information
+message UserProfileRequest {
+  // User ID to get profile for (if not specified, use current user)
+  optional string user_id = 1;
+
+  // Whether to include sensitive information (requires admin permissions)
+  bool include_sensitive = 2;
+
+  // Whether to include user statistics
+  bool include_stats = 3;
+
+  // Whether to include linked OAuth accounts
+  bool include_oauth_accounts = 4;
+}
