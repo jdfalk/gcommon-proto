@@ -210,7 +210,7 @@ class VersionSyncManager:
         # Parse the attempted version
         clean_version = attempted_version.lstrip('v')
         major, minor, patch = self.parse_semantic_version(clean_version)
-        
+
         # Keep incrementing patch version until we find one that doesn't exist
         while True:
             candidate = f"v{major}.{minor}.{patch}"
@@ -222,7 +222,7 @@ class VersionSyncManager:
             except subprocess.CalledProcessError:
                 # Tag doesn't exist, use this version
                 return candidate
-            
+
             # Increment patch and try again
             patch += 1
             if patch > 50:  # Safety valve to prevent infinite loops
@@ -419,22 +419,22 @@ Respond with just one word: major, minor, or patch
             )
             if response.status_code == 200:
                 return response.json()
-            
+
             # Fallback to git tags if no GitHub release exists
             print("   No GitHub releases found, checking git tags...")
             try:
                 # Get all tags and find the latest semantic version tag
                 result = self.run_command(['git', 'tag', '--list', '--sort=-version:refname'])
                 tags = [tag for tag in result.stdout.strip().split('\n') if tag and re.match(r'^v\d+(\.\d+)*$', tag)]
-                
+
                 if tags:
                     latest_tag = tags[0]  # Already sorted, take the first (latest)
                     print(f"   Using latest git tag: {latest_tag}")
                     return {'tag_name': latest_tag}
-                    
+
             except subprocess.CalledProcessError:
                 pass
-                
+
             return None
         except Exception as e:
             print(f"   Warning: Could not get latest release: {e}")
@@ -699,16 +699,16 @@ Respond with just one word: major, minor, or patch
                     if existing_tags:
                         print(f"   ⚠️  Tag {new_version} already exists, skipping tag creation...")
                         print("   📋 Checking if we need to increment to next version...")
-                        
+
                         # Get next available version
                         next_version = self.get_next_available_version(new_version)
                         print(f"   ✅ Using next available version: {next_version}")
                         new_version = next_version
-                
+
                 except subprocess.CalledProcessError:
                     # Tag doesn't exist, proceed normally
                     pass
-                
+
                 print(f"   Creating tag: {new_version}")
                 result = self.run_command(['git', 'tag', new_version, '-m', f'Release {new_version}'])
 
