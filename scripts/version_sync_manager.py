@@ -205,6 +205,29 @@ class VersionSyncManager:
         # Return with 'v' prefix
         return f"v{new_version}"
 
+    def get_next_available_version(self, attempted_version: str) -> str:
+        """Get the next available version if the attempted version already exists."""
+        # Parse the attempted version
+        clean_version = attempted_version.lstrip('v')
+        major, minor, patch = self.parse_semantic_version(clean_version)
+        
+        # Keep incrementing patch version until we find one that doesn't exist
+        while True:
+            candidate = f"v{major}.{minor}.{patch}"
+            try:
+                result = self.run_command(['git', 'tag', '--list', candidate])
+                if not result.stdout.strip():
+                    # Tag doesn't exist, use this version
+                    return candidate
+            except subprocess.CalledProcessError:
+                # Tag doesn't exist, use this version
+                return candidate
+            
+            # Increment patch and try again
+            patch += 1
+            if patch > 50:  # Safety valve to prevent infinite loops
+                raise Exception(f"Could not find available version after {candidate}")
+
     def get_git_tags(self) -> Tuple[List[str], List[str], List[str]]:
         """Get all git tags categorized by type."""
         try:
@@ -289,20 +312,27 @@ Respond with just one word: major, minor, or patch
 """
 
             try:
-                # Try gh copilot suggest first
+                # Try gh copilot suggest first (but handle crashes gracefully)
+                print("   Trying GitHub Copilot CLI for intelligent analysis...")
                 copilot_result = self.run_command(['gh', 'copilot', 'suggest', '-t', 'shell'], input=prompt)
                 response = copilot_result.stdout.lower()
 
                 if 'major' in response:
+                    print("   ✅ Copilot suggests: major")
                     return 'major'
                 elif 'minor' in response:
+                    print("   ✅ Copilot suggests: minor")
                     return 'minor'
                 else:
+                    print("   ✅ Copilot suggests: patch")
                     return 'patch'
 
-            except subprocess.CalledProcessError:
+            except (subprocess.CalledProcessError, Exception) as e:
+                print(f"   ⚠️  GitHub Copilot CLI failed (error: {str(e)[:100]}...)")
+                print("   📋 Falling back to conventional commit analysis...")
                 # Fall back to conventional commit analysis
                 analysis = self.analyze_commits_since_tag(tag)
+                print(f"   ✅ Conventional analysis suggests: {analysis.suggested_bump}")
                 return analysis.suggested_bump
 
         except subprocess.CalledProcessError:
@@ -380,16 +410,34 @@ Respond with just one word: major, minor, or patch
             return False
 
     def get_latest_release(self) -> Optional[Dict[str, Any]]:
-        """Get the latest release from GitHub."""
+        """Get the latest release from GitHub, or fallback to latest git tag."""
         try:
+            # First try GitHub releases
             response = requests.get(
                 f"{self.base_url}/repos/{self.org}/gcommon-proto/releases/latest",
                 headers=self.headers
             )
             if response.status_code == 200:
                 return response.json()
+            
+            # Fallback to git tags if no GitHub release exists
+            print("   No GitHub releases found, checking git tags...")
+            try:
+                # Get all tags and find the latest semantic version tag
+                result = self.run_command(['git', 'tag', '--list', '--sort=-version:refname'])
+                tags = [tag for tag in result.stdout.strip().split('\n') if tag and re.match(r'^v\d+(\.\d+)*$', tag)]
+                
+                if tags:
+                    latest_tag = tags[0]  # Already sorted, take the first (latest)
+                    print(f"   Using latest git tag: {latest_tag}")
+                    return {'tag_name': latest_tag}
+                    
+            except subprocess.CalledProcessError:
+                pass
+                
             return None
-        except Exception:
+        except Exception as e:
+            print(f"   Warning: Could not get latest release: {e}")
             return None
 
     def create_github_release(self, tag_name: str, name: str, body: str, prerelease: bool = False) -> Optional[Dict[str, Any]]:
@@ -644,6 +692,23 @@ Respond with just one word: major, minor, or patch
                 print(f"   Would update floating tags")
                 print(f"   Would push tags to origin")
             else:
+                # Check if tag already exists
+                try:
+                    self.run_command(['git', 'tag', '--list', new_version])
+                    existing_tags = self.run_command(['git', 'tag', '--list', new_version]).stdout.strip()
+                    if existing_tags:
+                        print(f"   ⚠️  Tag {new_version} already exists, skipping tag creation...")
+                        print("   📋 Checking if we need to increment to next version...")
+                        
+                        # Get next available version
+                        next_version = self.get_next_available_version(new_version)
+                        print(f"   ✅ Using next available version: {next_version}")
+                        new_version = next_version
+                
+                except subprocess.CalledProcessError:
+                    # Tag doesn't exist, proceed normally
+                    pass
+                
                 print(f"   Creating tag: {new_version}")
                 result = self.run_command(['git', 'tag', new_version, '-m', f'Release {new_version}'])
 
