@@ -108,58 +108,58 @@ jobs:
           echo "registry=ghcr.io" >> $GITHUB_OUTPUT
           echo "image-name=${{ github.repository }}" >> $GITHUB_OUTPUT
 
-  # Protobuf generation (if needed, runs first as dependency)
+  # Protobuf generation (always runs first as dependency for libraries)
   generate-protobuf:
     name: Generate Protobuf
     needs: detect-languages
-    if: needs.detect-languages.outputs.protobuf-needed == 'true'
     uses: ./.github/workflows/release-protobuf.yml
     with:
       build_target: ${{ github.event.inputs.build_target || 'all' }}
+      force: ${{ needs.detect-languages.outputs.protobuf-needed != 'true' && 'false' || 'true' }}
     secrets: inherit
 
   # Call Go workflow if Go is detected
   build-go:
     name: Build Go Project
-    needs: [detect-languages]
+    needs: [detect-languages, generate-protobuf]
     if: needs.detect-languages.outputs.has-go == 'true'
     uses: ./.github/workflows/release-go.yml
     with:
       go-matrix: ${{ needs.detect-languages.outputs.go-matrix }}
-      protobuf-artifacts: "false"
+      protobuf-artifacts: ${{ needs.generate-protobuf.outputs.artifacts-available || 'false' }}
     secrets: inherit
 
   # Call Python workflow if Python is detected
   build-python:
     name: Build Python Project
-    needs: [detect-languages]
+    needs: [detect-languages, generate-protobuf]
     if: needs.detect-languages.outputs.has-python == 'true'
     uses: ./.github/workflows/release-python.yml
     with:
       python-matrix: ${{ needs.detect-languages.outputs.python-matrix }}
-      protobuf-artifacts: "false"
+      protobuf-artifacts: ${{ needs.generate-protobuf.outputs.artifacts-available || 'false' }}
     secrets: inherit
 
   # Call Frontend workflow if Frontend is detected
   build-frontend:
     name: Build Frontend Project
-    needs: [detect-languages]
+    needs: [detect-languages, generate-protobuf]
     if: needs.detect-languages.outputs.has-frontend == 'true'
     uses: ./.github/workflows/release-frontend.yml
     with:
       frontend-matrix: ${{ needs.detect-languages.outputs.frontend-matrix }}
-      protobuf-artifacts: "false"
+      protobuf-artifacts: ${{ needs.generate-protobuf.outputs.artifacts-available || 'false' }}
     secrets: inherit
 
   # Call Docker workflow if Docker is detected
   build-docker:
     name: Build Docker Project
-    needs: [detect-languages]
+    needs: [detect-languages, generate-protobuf]
     if: needs.detect-languages.outputs.has-docker == 'true'
     uses: ./.github/workflows/release-docker.yml
     with:
       docker-matrix: ${{ needs.detect-languages.outputs.docker-matrix }}
-      protobuf-artifacts: "false"
+      protobuf-artifacts: ${{ needs.generate-protobuf.outputs.artifacts-available || 'false' }}
       registry: ${{ needs.detect-languages.outputs.registry }}
       image-name: ${{ needs.detect-languages.outputs.image-name }}
     secrets: inherit
@@ -167,11 +167,11 @@ jobs:
   # Call Rust workflow if Rust is detected
   build-rust:
     name: Build Rust Project
-    needs: [detect-languages]
+    needs: [detect-languages, generate-protobuf]
     if: needs.detect-languages.outputs.has-rust == 'true'
     uses: ./.github/workflows/release-rust.yml
     with:
-      protobuf-artifacts: "false"
+      protobuf-artifacts: ${{ needs.generate-protobuf.outputs.artifacts-available || 'false' }}
     secrets: inherit
 
   # Version management and release creation
