@@ -40,27 +40,32 @@ Features:
 """
 
 import os
-import sys
-import subprocess
 import re
-import requests
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
+import subprocess
+import sys
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import requests
+
 
 @dataclass
 class VersionInfo:
     """Version information for a repository."""
+
     repo_name: str
     current_version: str
     latest_tag: str
     commit_hash: str
     updated_at: str
 
+
 @dataclass
 class VersionSyncConfig:
     """Configuration for version synchronization."""
+
     source_repo: str = "gcommon-proto"
     target_repos: List[str] = None
     version_strategy: str = "semantic"  # semantic, date, manual
@@ -73,16 +78,19 @@ class VersionSyncConfig:
         if self.compatibility_matrix is None:
             self.compatibility_matrix = {
                 "gcommon-proto": ["gcommon"],
-                "gcommon": ["gcommon-proto"]
+                "gcommon": ["gcommon-proto"],
             }
+
 
 @dataclass
 class CommitAnalysis:
     """Analysis of commits since last version."""
+
     breaking_changes: List[str]
     features: List[str]
     fixes: List[str]
     suggested_bump: str  # major, minor, patch
+
 
 class VersionSyncManager:
     def __init__(self, github_token: str, org: str = "jdfalk"):
@@ -90,17 +98,21 @@ class VersionSyncManager:
         self.github_token = github_token
         self.org = org
         self.headers = {
-            'Authorization': f'token {github_token}',
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
+            "Authorization": f"token {github_token}",
+            "Accept": "application/vnd.github.v3+json",
+            "Content-Type": "application/json",
         }
-        self.base_url = 'https://api.github.com'
+        self.base_url = "https://api.github.com"
         self.config = VersionSyncConfig()
 
-    def run_command(self, cmd: List[str], capture_output: bool = True, input: Optional[str] = None) -> subprocess.CompletedProcess:
+    def run_command(
+        self, cmd: List[str], capture_output: bool = True, input: Optional[str] = None
+    ) -> subprocess.CompletedProcess:
         """Run a command and return the result."""
         try:
-            return subprocess.run(cmd, capture_output=capture_output, text=True, check=True, input=input)
+            return subprocess.run(
+                cmd, capture_output=capture_output, text=True, check=True, input=input
+            )
         except subprocess.CalledProcessError as e:
             print(f"❌ Command failed: {' '.join(cmd)}")
             print(f"   Error: {e.stderr if e.stderr else str(e)}")
@@ -112,43 +124,43 @@ class VersionSyncManager:
             # Get latest release
             response = requests.get(
                 f"{self.base_url}/repos/{self.org}/{repo_name}/releases/latest",
-                headers=self.headers
+                headers=self.headers,
             )
 
             if response.status_code == 200:
                 release_data = response.json()
-                latest_tag = release_data.get('tag_name', 'v0.0.0')
+                latest_tag = release_data.get("tag_name", "v0.0.0")
             else:
                 # No releases yet, check tags
                 tags_response = requests.get(
                     f"{self.base_url}/repos/{self.org}/{repo_name}/tags",
-                    headers=self.headers
+                    headers=self.headers,
                 )
                 if tags_response.status_code == 200 and tags_response.json():
-                    latest_tag = tags_response.json()[0]['name']
+                    latest_tag = tags_response.json()[0]["name"]
                 else:
-                    latest_tag = 'v0.0.0'
+                    latest_tag = "v0.0.0"
 
             # Get latest commit
             commits_response = requests.get(
                 f"{self.base_url}/repos/{self.org}/{repo_name}/commits/main",
-                headers=self.headers
+                headers=self.headers,
             )
 
             if commits_response.status_code == 200:
                 commit_data = commits_response.json()
-                commit_hash = commit_data['sha'][:8]
-                updated_at = commit_data['commit']['author']['date']
+                commit_hash = commit_data["sha"][:8]
+                updated_at = commit_data["commit"]["author"]["date"]
             else:
-                commit_hash = 'unknown'
+                commit_hash = "unknown"
                 updated_at = datetime.now().isoformat()
 
             return VersionInfo(
                 repo_name=repo_name,
-                current_version=latest_tag.lstrip('v'),
+                current_version=latest_tag.lstrip("v"),
                 latest_tag=latest_tag,
                 commit_hash=commit_hash,
-                updated_at=updated_at
+                updated_at=updated_at,
             )
 
         except Exception as e:
@@ -169,8 +181,8 @@ class VersionSyncManager:
 
     def parse_semantic_version(self, version: str) -> Tuple[int, int, int]:
         """Parse semantic version string into major.minor.patch tuple."""
-        version = version.lstrip('v')
-        parts = version.split('.')
+        version = version.lstrip("v")
+        parts = version.split(".")
 
         try:
             major = int(parts[0]) if len(parts) > 0 else 0
@@ -194,7 +206,7 @@ class VersionSyncManager:
     def bump_version(self, version: str, bump_type: str) -> str:
         """Bump a semantic version string by the specified type."""
         # Ensure version starts with 'v'
-        if not version.startswith('v'):
+        if not version.startswith("v"):
             clean_version = version
         else:
             clean_version = version[1:]  # Remove 'v' prefix
@@ -208,14 +220,14 @@ class VersionSyncManager:
     def get_next_available_version(self, attempted_version: str) -> str:
         """Get the next available version if the attempted version already exists."""
         # Parse the attempted version
-        clean_version = attempted_version.lstrip('v')
+        clean_version = attempted_version.lstrip("v")
         major, minor, patch = self.parse_semantic_version(clean_version)
 
         # Keep incrementing patch version until we find one that doesn't exist
         while True:
             candidate = f"v{major}.{minor}.{patch}"
             try:
-                result = self.run_command(['git', 'tag', '--list', candidate])
+                result = self.run_command(["git", "tag", "--list", candidate])
                 if not result.stdout.strip():
                     # Tag doesn't exist, use this version
                     return candidate
@@ -231,13 +243,19 @@ class VersionSyncManager:
     def get_git_tags(self) -> Tuple[List[str], List[str], List[str]]:
         """Get all git tags categorized by type."""
         try:
-            result = self.run_command(['git', 'tag', '--list'])
-            all_tags = [tag for tag in result.stdout.strip().split('\n') if tag and re.match(r'^v\d+(\.\d+)*$', tag)]
-            all_tags.sort(key=lambda x: [int(part) for part in x.lstrip('v').split('.')])
+            result = self.run_command(["git", "tag", "--list"])
+            all_tags = [
+                tag
+                for tag in result.stdout.strip().split("\n")
+                if tag and re.match(r"^v\d+(\.\d+)*$", tag)
+            ]
+            all_tags.sort(
+                key=lambda x: [int(part) for part in x.lstrip("v").split(".")]
+            )
 
-            major_tags = [tag for tag in all_tags if re.match(r'^v\d+$', tag)]
-            minor_tags = [tag for tag in all_tags if re.match(r'^v\d+\.\d+$', tag)]
-            patch_tags = [tag for tag in all_tags if re.match(r'^v\d+\.\d+\.\d+$', tag)]
+            major_tags = [tag for tag in all_tags if re.match(r"^v\d+$", tag)]
+            minor_tags = [tag for tag in all_tags if re.match(r"^v\d+\.\d+$", tag)]
+            patch_tags = [tag for tag in all_tags if re.match(r"^v\d+\.\d+\.\d+$", tag)]
 
             return major_tags, minor_tags, patch_tags
         except subprocess.CalledProcessError:
@@ -247,8 +265,8 @@ class VersionSyncManager:
         """Analyze commits since the last tag to determine version bump type."""
         try:
             # Get commits since the tag
-            result = self.run_command(['git', 'log', f'{tag}..HEAD', '--oneline'])
-            commits = result.stdout.strip().split('\n') if result.stdout.strip() else []
+            result = self.run_command(["git", "log", f"{tag}..HEAD", "--oneline"])
+            commits = result.stdout.strip().split("\n") if result.stdout.strip() else []
 
             breaking_changes = []
             features = []
@@ -259,11 +277,14 @@ class VersionSyncManager:
                     continue
 
                 # Look for conventional commit patterns
-                if re.search(r'^[a-f0-9]+\s+.*!:', commit) or 'BREAKING CHANGE' in commit:
+                if (
+                    re.search(r"^[a-f0-9]+\s+.*!:", commit)
+                    or "BREAKING CHANGE" in commit
+                ):
                     breaking_changes.append(commit)
-                elif re.search(r'^[a-f0-9]+\s+feat(\([^)]*\))?:', commit):
+                elif re.search(r"^[a-f0-9]+\s+feat(\([^)]*\))?:", commit):
                     features.append(commit)
-                elif re.search(r'^[a-f0-9]+\s+fix(\([^)]*\))?:', commit):
+                elif re.search(r"^[a-f0-9]+\s+fix(\([^)]*\))?:", commit):
                     fixes.append(commit)
                 else:
                     # Default to fix for non-conventional commits
@@ -281,59 +302,31 @@ class VersionSyncManager:
                 breaking_changes=breaking_changes,
                 features=features,
                 fixes=fixes,
-                suggested_bump=suggested_bump
+                suggested_bump=suggested_bump,
             )
 
         except subprocess.CalledProcessError:
             return CommitAnalysis([], [], [], "patch")
 
     def analyze_commits_with_copilot(self, tag: str) -> str:
-        """Use GitHub Copilot CLI to analyze commits and suggest version bump."""
+        """Analyze commits and suggest version bump using conventional commit analysis."""
         try:
             # Get commit messages since tag
-            result = self.run_command(['git', 'log', f'{tag}..HEAD', '--pretty=format:%s'])
+            result = self.run_command(
+                ["git", "log", f"{tag}..HEAD", "--pretty=format:%s"]
+            )
             commit_messages = result.stdout.strip()
 
             if not commit_messages:
                 return "patch"
 
-            # Try to use GitHub Copilot CLI
-            prompt = f"""
-Based on these commit messages, determine if this should be a major, minor, or patch version bump:
-
-{commit_messages}
-
-Consider:
-- Breaking changes = major
-- New features = minor
-- Bug fixes = patch
-
-Respond with just one word: major, minor, or patch
-"""
-
-            try:
-                # Try gh copilot suggest first (but handle crashes gracefully)
-                print("   Trying GitHub Copilot CLI for intelligent analysis...")
-                copilot_result = self.run_command(['gh', 'copilot', 'suggest', '-t', 'shell'], input=prompt)
-                response = copilot_result.stdout.lower()
-
-                if 'major' in response:
-                    print("   ✅ Copilot suggests: major")
-                    return 'major'
-                elif 'minor' in response:
-                    print("   ✅ Copilot suggests: minor")
-                    return 'minor'
-                else:
-                    print("   ✅ Copilot suggests: patch")
-                    return 'patch'
-
-            except (subprocess.CalledProcessError, Exception) as e:
-                print(f"   ⚠️  GitHub Copilot CLI failed (error: {str(e)[:100]}...)")
-                print("   📋 Falling back to conventional commit analysis...")
-                # Fall back to conventional commit analysis
-                analysis = self.analyze_commits_since_tag(tag)
-                print(f"   ✅ Conventional analysis suggests: {analysis.suggested_bump}")
-                return analysis.suggested_bump
+            # Skip GitHub Copilot CLI due to instability issues - use conventional analysis directly
+            print(
+                "   📋 Using conventional commit analysis for version bump detection..."
+            )
+            analysis = self.analyze_commits_since_tag(tag)
+            print(f"   ✅ Conventional analysis suggests: {analysis.suggested_bump}")
+            return analysis.suggested_bump
 
         except subprocess.CalledProcessError:
             return "patch"
@@ -347,18 +340,38 @@ Respond with just one word: major, minor, or patch
 
             # Update major tag
             print(f"   Updating floating tag: {major_tag}")
-            self.run_command(['git', 'tag', '-f', major_tag, '-m', f'{major_tag} - floating tag update'])
+            self.run_command(
+                [
+                    "git",
+                    "tag",
+                    "-f",
+                    major_tag,
+                    "-m",
+                    f"{major_tag} - floating tag update",
+                ]
+            )
 
             # Update minor tag
             print(f"   Updating floating tag: {minor_tag}")
-            self.run_command(['git', 'tag', '-f', minor_tag, '-m', f'{minor_tag} - floating tag update'])
+            self.run_command(
+                [
+                    "git",
+                    "tag",
+                    "-f",
+                    minor_tag,
+                    "-m",
+                    f"{minor_tag} - floating tag update",
+                ]
+            )
 
             return True
         except subprocess.CalledProcessError:
             print("❌ Failed to update floating tags")
             return False
 
-    def push_to_buf_registry(self, new_version: str = None, dry_run: bool = False) -> bool:
+    def push_to_buf_registry(
+        self, new_version: str = None, dry_run: bool = False
+    ) -> bool:
         """Push to Buf Schema Registry with consolidated multi-label command - only new version + floating labels."""
         try:
             # Build label list - only floating tags and new version
@@ -370,12 +383,14 @@ Respond with just one word: major, minor, or patch
                 print(f"   📌 Adding NEW version label: {new_version}")
 
             # Add floating/special labels that should always be updated
-            floating_labels = ['main', 'latest', 'stable', 'pb-packages']
+            floating_labels = ["main", "latest", "stable", "pb-packages"]
 
             # Add major/minor floating tags if we have a new version
             if new_version:
                 try:
-                    major, minor, patch = self.parse_semantic_version(new_version.lstrip('v'))
+                    major, minor, patch = self.parse_semantic_version(
+                        new_version.lstrip("v")
+                    )
                     floating_labels.extend([f"v{major}", f"v{major}.{minor}"])
                     print(f"   🔄 Adding floating tags: v{major}, v{major}.{minor}")
                 except:
@@ -388,14 +403,16 @@ Respond with just one word: major, minor, or patch
                 return True
 
             # Build consolidated buf push command
-            cmd = ['buf', 'push']
+            cmd = ["buf", "push"]
             for label in labels:
                 if label:
-                    cmd.extend(['--label', label])
+                    cmd.extend(["--label", label])
 
             print(f"🌐 Pushing to Buf Schema Registry with {len(labels)} labels...")
             print(f"   Labels: {', '.join(labels)}")
-            print("   ✅ SAFE MODE: Only pushing new version + floating labels (preserving old versions)")
+            print(
+                "   ✅ SAFE MODE: Only pushing new version + floating labels (preserving old versions)"
+            )
 
             if dry_run:
                 print(f"   DRY RUN: Would execute: {' '.join(cmd)}")
@@ -415,7 +432,7 @@ Respond with just one word: major, minor, or patch
             # First try GitHub releases
             response = requests.get(
                 f"{self.base_url}/repos/{self.org}/gcommon-proto/releases/latest",
-                headers=self.headers
+                headers=self.headers,
             )
             if response.status_code == 200:
                 return response.json()
@@ -424,13 +441,19 @@ Respond with just one word: major, minor, or patch
             print("   No GitHub releases found, checking git tags...")
             try:
                 # Get all tags and find the latest semantic version tag
-                result = self.run_command(['git', 'tag', '--list', '--sort=-version:refname'])
-                tags = [tag for tag in result.stdout.strip().split('\n') if tag and re.match(r'^v\d+(\.\d+)*$', tag)]
+                result = self.run_command(
+                    ["git", "tag", "--list", "--sort=-version:refname"]
+                )
+                tags = [
+                    tag
+                    for tag in result.stdout.strip().split("\n")
+                    if tag and re.match(r"^v\d+(\.\d+)*$", tag)
+                ]
 
                 if tags:
                     latest_tag = tags[0]  # Already sorted, take the first (latest)
                     print(f"   Using latest git tag: {latest_tag}")
-                    return {'tag_name': latest_tag}
+                    return {"tag_name": latest_tag}
 
             except subprocess.CalledProcessError:
                 pass
@@ -440,22 +463,24 @@ Respond with just one word: major, minor, or patch
             print(f"   Warning: Could not get latest release: {e}")
             return None
 
-    def create_github_release(self, tag_name: str, name: str, body: str, prerelease: bool = False) -> Optional[Dict[str, Any]]:
+    def create_github_release(
+        self, tag_name: str, name: str, body: str, prerelease: bool = False
+    ) -> Optional[Dict[str, Any]]:
         """Create a GitHub release."""
         try:
             release_data = {
-                'tag_name': tag_name,
-                'target_commitish': 'main',
-                'name': name,
-                'body': body,
-                'draft': False,
-                'prerelease': prerelease
+                "tag_name": tag_name,
+                "target_commitish": "main",
+                "name": name,
+                "body": body,
+                "draft": False,
+                "prerelease": prerelease,
             }
 
             response = requests.post(
                 f"{self.base_url}/repos/{self.org}/gcommon-proto/releases",
                 headers=self.headers,
-                json=release_data
+                json=release_data,
             )
 
             if response.status_code == 201:
@@ -468,7 +493,9 @@ Respond with just one word: major, minor, or patch
             print(f"❌ Error creating GitHub release: {e}")
             return None
 
-    def check_version_compatibility(self, versions: Dict[str, VersionInfo]) -> Dict[str, List[str]]:
+    def check_version_compatibility(
+        self, versions: Dict[str, VersionInfo]
+    ) -> Dict[str, List[str]]:
         """Check version compatibility across repositories."""
         compatibility_issues = {}
 
@@ -487,12 +514,19 @@ Respond with just one word: major, minor, or patch
                 dep_version = self.parse_semantic_version(versions[dep].current_version)
 
                 # Check if major versions are compatible
-                if repo_version[0] != dep_version[0] and max(repo_version[0], dep_version[0]) > 0:
-                    issues.append(f"Major version mismatch with {dep}: {repo_version[0]} vs {dep_version[0]}")
+                if (
+                    repo_version[0] != dep_version[0]
+                    and max(repo_version[0], dep_version[0]) > 0
+                ):
+                    issues.append(
+                        f"Major version mismatch with {dep}: {repo_version[0]} vs {dep_version[0]}"
+                    )
 
                 # Warn about minor version differences
                 if abs(repo_version[1] - dep_version[1]) > 1:
-                    issues.append(f"Minor version gap with {dep}: {repo_version[1]} vs {dep_version[1]}")
+                    issues.append(
+                        f"Minor version gap with {dep}: {repo_version[1]} vs {dep_version[1]}"
+                    )
 
             if issues:
                 compatibility_issues[repo] = issues
@@ -504,18 +538,19 @@ Respond with just one word: major, minor, or patch
         tag_name = f"v{version}"
 
         release_data = {
-            'tag_name': tag_name,
-            'target_commitish': 'main',
-            'name': f"Release {tag_name}",
-            'body': changelog or f"Release {tag_name}\n\nAutomated release created by version sync manager.",
-            'draft': False,
-            'prerelease': False
+            "tag_name": tag_name,
+            "target_commitish": "main",
+            "name": f"Release {tag_name}",
+            "body": changelog
+            or f"Release {tag_name}\n\nAutomated release created by version sync manager.",
+            "draft": False,
+            "prerelease": False,
         }
 
         response = requests.post(
             f"{self.base_url}/repos/{self.org}/{repo_name}/releases",
             headers=self.headers,
-            json=release_data
+            json=release_data,
         )
 
         if response.status_code == 201:
@@ -528,24 +563,23 @@ Respond with just one word: major, minor, or patch
     def trigger_sync_workflow(self, repo_name: str, source_version: str) -> bool:
         """Trigger the proto sync workflow in a target repository."""
         workflow_data = {
-            'ref': 'main',
-            'inputs': {
-                'source_version': source_version,
-                'force_sync': 'true'
-            }
+            "ref": "main",
+            "inputs": {"source_version": source_version, "force_sync": "true"},
         }
 
         response = requests.post(
             f"{self.base_url}/repos/{self.org}/{repo_name}/actions/workflows/sync-protos.yml/dispatches",
             headers=self.headers,
-            json=workflow_data
+            json=workflow_data,
         )
 
         if response.status_code == 204:
             print(f"✅ Triggered sync workflow for {repo_name}")
             return True
         else:
-            print(f"⚠️  Could not trigger sync workflow for {repo_name}: {response.status_code}")
+            print(
+                f"⚠️  Could not trigger sync workflow for {repo_name}: {response.status_code}"
+            )
             return False
 
     def sync_versions(self, bump_type: str = "patch", dry_run: bool = False) -> bool:
@@ -561,7 +595,9 @@ Respond with just one word: major, minor, or patch
         print("\n📊 Current Version Status:")
         print("-" * 60)
         for repo, version_info in versions.items():
-            print(f"{repo:15} | {version_info.current_version:10} | {version_info.commit_hash}")
+            print(
+                f"{repo:15} | {version_info.current_version:10} | {version_info.commit_hash}"
+            )
 
         # Check compatibility
         compatibility_issues = self.check_version_compatibility(versions)
@@ -593,7 +629,11 @@ Respond with just one word: major, minor, or patch
 
         # First, create release for source repository
         if self.config.auto_release:
-            if not self.create_release(source_repo, new_version, f"Protocol buffer definitions update to v{new_version}"):
+            if not self.create_release(
+                source_repo,
+                new_version,
+                f"Protocol buffer definitions update to v{new_version}",
+            ):
                 success = False
 
         # Then trigger sync workflows for target repositories
@@ -646,7 +686,9 @@ Respond with just one word: major, minor, or patch
 
         return report
 
-    def generate_everything(self, bump_type: Optional[str] = None, dry_run: bool = False) -> bool:
+    def generate_everything(
+        self, bump_type: Optional[str] = None, dry_run: bool = False
+    ) -> bool:
         """
         Comprehensive 'generate' command that handles everything automatically.
 
@@ -666,11 +708,11 @@ Respond with just one word: major, minor, or patch
             print("-" * 30)
 
             latest_release = self.get_latest_release()
-            current_version = latest_release['tag_name'] if latest_release else "v0.0.0"
+            current_version = latest_release["tag_name"] if latest_release else "v0.0.0"
             print(f"   Current version: {current_version}")
 
             # Determine bump type
-            if not bump_type or bump_type == 'auto':
+            if not bump_type or bump_type == "auto":
                 print("   Analyzing commits for automatic version bump...")
                 suggested_bump = self.analyze_commits_with_copilot(current_version)
                 print(f"   Suggested bump type: {suggested_bump}")
@@ -694,11 +736,17 @@ Respond with just one word: major, minor, or patch
             else:
                 # Check if tag already exists
                 try:
-                    self.run_command(['git', 'tag', '--list', new_version])
-                    existing_tags = self.run_command(['git', 'tag', '--list', new_version]).stdout.strip()
+                    self.run_command(["git", "tag", "--list", new_version])
+                    existing_tags = self.run_command(
+                        ["git", "tag", "--list", new_version]
+                    ).stdout.strip()
                     if existing_tags:
-                        print(f"   ⚠️  Tag {new_version} already exists, skipping tag creation...")
-                        print("   📋 Checking if we need to increment to next version...")
+                        print(
+                            f"   ⚠️  Tag {new_version} already exists, skipping tag creation..."
+                        )
+                        print(
+                            "   📋 Checking if we need to increment to next version..."
+                        )
 
                         # Get next available version
                         next_version = self.get_next_available_version(new_version)
@@ -710,7 +758,9 @@ Respond with just one word: major, minor, or patch
                     pass
 
                 print(f"   Creating tag: {new_version}")
-                result = self.run_command(['git', 'tag', new_version, '-m', f'Release {new_version}'])
+                result = self.run_command(
+                    ["git", "tag", new_version, "-m", f"Release {new_version}"]
+                )
 
                 # Update floating tags
                 if not self.update_floating_tags(new_version):
@@ -718,7 +768,7 @@ Respond with just one word: major, minor, or patch
 
                 # Push all tags
                 print("   Pushing tags to origin...")
-                self.run_command(['git', 'push', 'origin', '--tags', '--force'])
+                self.run_command(["git", "push", "origin", "--tags", "--force"])
                 print("✅ Tags created and pushed successfully")
 
             # Step 3: Create GitHub release
@@ -735,7 +785,7 @@ Respond with just one word: major, minor, or patch
                     tag_name=new_version,
                     name=f"Release {new_version}",
                     body=changelog,
-                    prerelease=False
+                    prerelease=False,
                 )
 
                 if release:
@@ -754,7 +804,7 @@ Respond with just one word: major, minor, or patch
             print(f"\n🔄 Step 5: Repository Updates")
             print("-" * 30)
 
-            related_repos = ['gcommon']  # Only gcommon repository now
+            related_repos = ["gcommon"]  # Only gcommon repository now
 
             if dry_run:
                 print(f"   Would update {len(related_repos)} related repository:")
@@ -810,6 +860,7 @@ Respond with just one word: major, minor, or patch
 
         return "\n".join(changelog)
 
+
 def main():
     """Main entry point for version sync manager."""
     import argparse
@@ -824,15 +875,31 @@ Examples:
   %(prog)s generate --dry-run         # Show what would be done
   %(prog)s release --version v1.2.3   # Create specific version release
   %(prog)s update-repos --version v1.2.3  # Update related repositories
-        """
+        """,
     )
-    parser.add_argument('--token', help="GitHub token (or use GITHUB_TOKEN env var)")
-    parser.add_argument('--org', default="jdfalk", help="GitHub organization")
-    parser.add_argument('command', choices=['generate', 'status', 'sync', 'matrix'], help="Command to execute")
-    parser.add_argument('--bump', choices=['major', 'minor', 'patch', 'auto'], default='auto',
-                       help="Version bump type (auto will analyze commits)")
-    parser.add_argument('--dry-run', action='store_true', help="Show what would be done without executing")
-    parser.add_argument('--execute', action='store_true', help="Actually perform the sync (default is dry run)")
+    parser.add_argument("--token", help="GitHub token (or use GITHUB_TOKEN env var)")
+    parser.add_argument("--org", default="jdfalk", help="GitHub organization")
+    parser.add_argument(
+        "command",
+        choices=["generate", "status", "sync", "matrix"],
+        help="Command to execute",
+    )
+    parser.add_argument(
+        "--bump",
+        choices=["major", "minor", "patch", "auto"],
+        default="auto",
+        help="Version bump type (auto will analyze commits)",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show what would be done without executing",
+    )
+    parser.add_argument(
+        "--execute",
+        action="store_true",
+        help="Actually perform the sync (default is dry run)",
+    )
 
     args = parser.parse_args()
 
@@ -842,12 +909,15 @@ Examples:
         # Try to get token from gh CLI
         try:
             import subprocess
-            result = subprocess.run(['gh', 'auth', 'token'], capture_output=True, text=True, check=True)
+
+            result = subprocess.run(
+                ["gh", "auth", "token"], capture_output=True, text=True, check=True
+            )
             github_token = result.stdout.strip()
             print("✅ Using GitHub token from gh CLI")
         except (subprocess.CalledProcessError, FileNotFoundError):
             # Fall back to environment variables
-            github_token = os.environ.get('GITHUB_TOKEN') or os.environ.get('GH_TOKEN')
+            github_token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
             if github_token:
                 print("✅ Using GitHub token from environment variable")
 
@@ -863,20 +933,22 @@ Examples:
     manager = VersionSyncManager(github_token, args.org)
 
     try:
-        if args.command == 'generate':
+        if args.command == "generate":
             success = manager.generate_everything(
-                bump_type=args.bump if args.bump != 'auto' else None,
-                dry_run=args.dry_run
+                bump_type=args.bump if args.bump != "auto" else None,
+                dry_run=args.dry_run,
             )
             sys.exit(0 if success else 1)
 
-        elif args.command == 'status':
+        elif args.command == "status":
             versions = manager.get_all_versions()
             if versions:
                 print("\n📊 gcommon Ecosystem Version Status")
                 print("=" * 50)
                 for repo, version_info in versions.items():
-                    print(f"{repo:15} | v{version_info.current_version:10} | {version_info.commit_hash} | {version_info.updated_at[:10]}")
+                    print(
+                        f"{repo:15} | v{version_info.current_version:10} | {version_info.commit_hash} | {version_info.updated_at[:10]}"
+                    )
 
                 compatibility_issues = manager.check_version_compatibility(versions)
                 if compatibility_issues:
@@ -890,19 +962,19 @@ Examples:
                 print("❌ Could not retrieve version information")
                 sys.exit(1)
 
-        elif args.command == 'sync':
+        elif args.command == "sync":
             # Default to dry run unless --execute is specified
             dry_run = not args.execute
             success = manager.sync_versions(args.bump, dry_run)
             sys.exit(0 if success else 1)
 
-        elif args.command == 'matrix':
+        elif args.command == "matrix":
             report = manager.generate_compatibility_matrix()
             print(report)
 
             # Optionally save to file
             output_file = Path("compatibility-matrix.md")
-            with open(output_file, 'w') as f:
+            with open(output_file, "w") as f:
                 f.write(report)
             print(f"\n📄 Report saved to {output_file}")
 
@@ -913,5 +985,6 @@ Examples:
         print(f"❌ Error: {e}")
         sys.exit(1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
