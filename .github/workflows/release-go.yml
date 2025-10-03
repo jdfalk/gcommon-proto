@@ -368,10 +368,12 @@ jobs:
           ls -R artifacts | head -200
           find artifacts -type f -maxdepth 4 -exec cp {} . \;
           ls -l .
-      - name: Create / Update Release
-        uses: softprops/action-gh-release@v2
+
+      - name: Upload Go build artifacts
+        uses: actions/upload-artifact@v4
         with:
-          files: |
+          name: go-release-artifacts
+          path: |
             go-build-all.tar.gz
             go-build-all.zip
             go-build-all.tar.gz.sha256
@@ -385,5 +387,5 @@ jobs:
             go-build-*.zip.sha256
             go-build-*.sbom.spdx.json
             go-build-*.sig
-          draft: false
-          prerelease: false
+          if-no-files-found: ignore
+          retention-days: 7

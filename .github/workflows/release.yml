@@ -1,5 +1,5 @@
 # file: .github/workflows/release.yml
-# version: 3.3.0
+# version: 4.0.0
 # guid: f1a2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c
 
 name: Release Coordinator
@@ -174,11 +174,130 @@ jobs:
       protobuf-artifacts: "false"
     secrets: inherit
 
+  # Version management and release creation
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [detect-languages, build-go, build-python, build-frontend, build-docker, build-rust]
+    if: |
+      always() &&
+      (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch') &&
+      !contains(needs.*.result, 'failure')
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      tag: ${{ steps.version.outputs.tag }}
+      is-prerelease: ${{ steps.version.outputs.is-prerelease }}
+      changelog: ${{ steps.changelog.outputs.changelog }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install requests pyyaml
+
+      - name: Determine version and release type
+        id: version
+        run: |
+          # Use version_sync_manager if available, otherwise fallback to simple versioning
+          if [ -f "scripts/version_sync_manager.py" ]; then
+            echo "Using version_sync_manager.py for version determination"
+            python scripts/version_sync_manager.py status --format=github >> $GITHUB_OUTPUT
+          else
+            echo "Using simple version determination"
+            # Get the latest tag or default to v0.0.0
+            LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+            echo "Latest tag: $LATEST_TAG"
+
+            # Determine if this is a prerelease (main branch push)
+            if [ "${{ github.ref }}" = "refs/heads/main" ] && [ "${{ github.event_name }}" = "push" ]; then
+              # For main branch pushes, create dev prerelease
+              VERSION=$(echo $LATEST_TAG | sed 's/v//' | awk -F. '{print "v" $1 "." $2 "." ($3+1) "-dev"}')
+              echo "version=$VERSION" >> $GITHUB_OUTPUT
+              echo "tag=$VERSION" >> $GITHUB_OUTPUT
+              echo "is-prerelease=true" >> $GITHUB_OUTPUT
+            else
+              # For manual dispatch, increment version properly
+              case "${{ github.event.inputs.release_type }}" in
+                major)
+                  VERSION=$(echo $LATEST_TAG | sed 's/v//' | awk -F. '{print "v" ($1+1) ".0.0"}')
+                  ;;
+                minor)
+                  VERSION=$(echo $LATEST_TAG | sed 's/v//' | awk -F. '{print "v" $1 "." ($2+1) ".0"}')
+                  ;;
+                patch)
+                  VERSION=$(echo $LATEST_TAG | sed 's/v//' | awk -F. '{print "v" $1 "." $2 "." ($3+1)}')
+                  ;;
+                *)
+                  VERSION=$(echo $LATEST_TAG | sed 's/v//' | awk -F. '{print "v" $1 "." $2 "." ($3+1)}')
+                  ;;
+              esac
+              echo "version=$VERSION" >> $GITHUB_OUTPUT
+              echo "tag=$VERSION" >> $GITHUB_OUTPUT
+              echo "is-prerelease=${{ github.event.inputs.prerelease || 'false' }}" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Generate basic changelog from commits since last tag
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -n "$LATEST_TAG" ]; then
+            CHANGELOG=$(git log --pretty=format:"- %s" $LATEST_TAG..HEAD | head -20)
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" --max-count=10)
+          fi
+
+          # Create multiline output
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "changelog<<$EOF" >> $GITHUB_OUTPUT
+          echo "## Changes" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+
+      - name: Create git tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.version }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: ./artifacts
+          merge-multiple: true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.version }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: ${{ github.event.inputs.draft || (github.event_name == 'workflow_dispatch' && 'true') || 'false' }}
+          prerelease: ${{ steps.version.outputs.is-prerelease }}
+          files: |
+            ./artifacts/**/*
+          token: ${{ secrets.GITHUB_TOKEN }}
+
   # Final status check
   build-status:
     name: Build Status Summary
     runs-on: ubuntu-latest
-    needs: [detect-languages, build-go, build-python, build-frontend, build-docker, build-rust]
+    needs: [detect-languages, build-go, build-python, build-frontend, build-docker, build-rust, create-release]
     if: always()
     steps:
       - name: Generate build summary
@@ -187,6 +306,20 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Project Type:** ${{ needs.detect-languages.outputs.primary-language }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Add release information if available
+          if [ "${{ needs.create-release.outputs.version }}" != "" ]; then
+            echo "## 📦 Release Information" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- **Version:** ${{ needs.create-release.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Tag:** ${{ needs.create-release.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Prerelease:** ${{ needs.create-release.outputs.is-prerelease }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Draft:** ${{ github.event.inputs.draft || (github.event_name == 'workflow_dispatch' && 'true') || 'false' }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "## 🔧 Build Components" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Component | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|-----------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Go | ${{ needs.build-go.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
@@ -194,17 +327,23 @@ jobs:
           echo "| Frontend | ${{ needs.build-frontend.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Docker | ${{ needs.build-docker.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Rust | ${{ needs.build-rust.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Release | ${{ needs.create-release.result || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
 
           # Check for any failures
           if [[ "${{ needs.build-go.result }}" == "failure" ||
                 "${{ needs.build-python.result }}" == "failure" ||
                 "${{ needs.build-frontend.result }}" == "failure" ||
                 "${{ needs.build-docker.result }}" == "failure" ||
-                "${{ needs.build-rust.result }}" == "failure" ]]; then
+                "${{ needs.build-rust.result }}" == "failure" ||
+                "${{ needs.create-release.result }}" == "failure" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "❌ **Some builds failed**" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Some builds or release creation failed**" >> $GITHUB_STEP_SUMMARY
             exit 1
           else
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "✅ **All builds completed successfully**" >> $GITHUB_STEP_SUMMARY
+            if [ "${{ needs.create-release.outputs.version }}" != "" ]; then
+              echo "✅ **All builds completed successfully and release ${{ needs.create-release.outputs.version }} created**" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "✅ **All builds completed successfully**" >> $GITHUB_STEP_SUMMARY
+            fi
           fi
