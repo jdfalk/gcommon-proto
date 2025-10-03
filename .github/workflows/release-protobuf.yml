@@ -116,6 +116,58 @@ jobs:
             echo "No proto changes detected and force not enabled; skipping generation"
           fi
 
+      - name: Create protobuf packages
+        if: steps.changes.outputs.proto_changed == 'true' || inputs.force == 'true'
+        run: |
+          # Create SDK packages for distribution
+          echo "📦 Creating SDK packages..."
+
+          # Create Go SDK package
+          if [ -d "sdks/go" ]; then
+            cd sdks/go
+            tar -czf ../../gcommon-go-sdk.tar.gz .
+            zip -r ../../gcommon-go-sdk.zip .
+            cd ../..
+            echo "✅ Go SDK package created"
+          fi
+
+          # Create Python SDK package
+          if [ -d "sdks/python" ]; then
+            cd sdks/python
+            tar -czf ../../gcommon-python-sdk.tar.gz .
+            zip -r ../../gcommon-python-sdk.zip .
+            cd ../..
+            echo "✅ Python SDK package created"
+          fi
+
+          # Create documentation package
+          if [ -d "proto-docs" ]; then
+            tar -czf gcommon-docs.tar.gz proto-docs/
+            zip -r gcommon-docs.zip proto-docs/
+            echo "✅ Documentation package created"
+          fi
+
+          # List created packages
+          ls -la *.tar.gz *.zip 2>/dev/null || echo "No packages created"
+
+      - name: Upload protobuf artifacts
+        if: steps.changes.outputs.proto_changed == 'true' || inputs.force == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: protobuf-sdk-packages
+          path: |
+            gcommon-go-sdk.tar.gz
+            gcommon-go-sdk.zip
+            gcommon-python-sdk.tar.gz
+            gcommon-python-sdk.zip
+            gcommon-docs.tar.gz
+            gcommon-docs.zip
+            sdks/go/**/*.pb.go
+            sdks/python/**/*.py
+            proto-docs/**/*.md
+          if-no-files-found: ignore
+          retention-days: 30
+
       - name: Set artifacts output
         id: set-output
         run: echo "artifacts_available=true" >> $GITHUB_OUTPUT
