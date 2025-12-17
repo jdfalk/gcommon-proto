@@ -1,5 +1,5 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.1.3 -->
+<!-- version: 2.1.4 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
 # Copilot/AI Agent Instructions (gcommon)
@@ -8,7 +8,8 @@ This repo uses a centralized instruction system. Keep this short, actionable, an
 
 ## Required workflow
 - Edit docs directly in their files. Always keep the file header (file path, version, guid) and bump the version on any change.
-- Prefer VS Code Tasks over manual commands. Available tasks include: `Buf Lint with Output`, `Buf Generate with Output`, `Git Add All`, `Git Commit Auto`, `Git Push`, plus module-scoped Buf tasks.
+- Prefer VS Code Tasks over manual commands for non-git operations. Available tasks include: `Buf Lint with Output`, `Buf Generate with Output`, plus module-scoped Buf tasks. For git operations (add/commit/push), prefer: 1) MCP GitHub tools (preferred), 2) safe-ai-util (fallback), 3) native git (last resort).
+- Use specialized subagents when possible: Protobuf Builder, Protobuf Cycle Resolver, Git Hygiene Guardian, Documentation Curator, Test Orchestrator, and others in `.github/prompts/` for targeted expertise.
 - Use Conventional Commits. All source/docs must include the required header (file path, version, guid) and bump version on change.
 
 ## Project shape (what matters)
@@ -36,7 +37,7 @@ This repo uses a centralized instruction system. Keep this short, actionable, an
 - If you add a new proto: follow the 1-1-1 rule, pick the correct module (common, config, queue, metrics, database, web, organization, health, media, etc.), and include clear comments—docs are auto-generated.
 
 ## Tasks and examples
-- Quick path: use VS Code tasks → “Buf Lint with Output” → “Buf Generate with Output” → “Git Add All” → “Git Commit Auto” → “Git Push”.
+- Quick path: use VS Code tasks for Buf → “Buf Lint with Output” → “Buf Generate with Output”. Perform git actions via MCP GitHub tools or safe-ai-util (conventional commits required).
 - Makefile equivalents: `make dev` (lint+format+generate), `make generate`, `make proto-docs`, `make clean`.
 
 ## Canonical instruction sources
