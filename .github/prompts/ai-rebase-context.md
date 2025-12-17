@@ -6,7 +6,8 @@
 
 ## Project Overview
 
-This is the **ghcommon** repository, which contains shared GitHub workflows, automation scripts, and common utilities for managing multiple repositories in the organization. It focuses on:
+This is the **ghcommon** repository, which contains shared GitHub workflows, automation scripts, and
+common utilities for managing multiple repositories in the organization. It focuses on:
 
 - Reusable GitHub Actions workflows
 - Documentation management automation
