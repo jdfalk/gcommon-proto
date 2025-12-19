@@ -1,54 +1,89 @@
 <!-- file: .github/copilot-instructions.md -->
-<!-- version: 2.1.4 -->
+<!-- version: 2.3.2 -->
 <!-- guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a -->
 
-# Copilot/AI Agent Instructions (gcommon)
+# GitHub Common Workflows Repository - AI Agent Instructions
 
-This repo uses a centralized instruction system. Keep this short, actionable, and repo-specific.
+This repository serves as the **central infrastructure hub** for reusable GitHub Actions workflows, scripts, and configurations across multiple repositories. It implements a sophisticated modular instruction system and provides automation tools for multi-repository management.
 
-## Required workflow
-- Edit docs directly in their files. Always keep the file header (file path, version, guid) and bump the version on any change.
-- Prefer VS Code Tasks over manual commands for non-git operations. Available tasks include: `Buf Lint with Output`, `Buf Generate with Output`, plus module-scoped Buf tasks. For git operations (add/commit/push), prefer: 1) MCP GitHub tools (preferred), 2) safe-ai-util (fallback), 3) native git (last resort).
-- Use specialized subagents when possible: Protobuf Builder, Protobuf Cycle Resolver, Git Hygiene Guardian, Documentation Curator, Test Orchestrator, and others in `.github/prompts/` for targeted expertise.
-- Use Conventional Commits. All source/docs must include the required header (file path, version, guid) and bump version on change.
+## 🏗️ Repository Architecture
 
-## Project shape (what matters)
-- Protobuf-first repo. Source protos live under `proto/gcommon/v1/<module>/<area>/<name>.proto` using a strict 1-1-1 pattern (one type/service per file).
-- Generated SDKs: Go in `sdks/go/gcommon/v1/...` and Python in `sdks/python/gcommon/v1/...`. Never hand-edit generated code.
-- Core config: `buf.yaml` (module + lint/breaking rules) and `buf.gen.yaml` (plugins/output).
-- Utility scripts in `scripts/` power generation and post-processing; Makefile provides a developer-friendly wrapper.
+**This is a workflow infrastructure repository**, not a typical application codebase. Key architectural components:
 
-## Build/generation flow
-- Lint protos: run the VS Code task “Buf Lint with Output” (or `make lint`). The repo’s buf rules allow: service suffix `Service`, enum zero value suffix `_UNSPECIFIED`, and google.empty messages.
-- Generate SDKs: run the task “Buf Generate with Output” (or `make generate`). Always prefer `make generate` when updating protobufs because it runs required post-processing scripts. This executes:
-  - buf generate → Go via `protoc-gen-go` and `protoc-gen-go-grpc` to `sdks/go` (module=github.com/jdfalk/gcommon/sdks/go) and Python via built-in `python` and `pyi` to `sdks/python`.
-  - scripts/setup-go-modules.py v2.9.0 (minimal): root `go mod tidy`, remove legacy per-package `go.mod`, ensure Python package markers.
-  - scripts/setup-python-sdk.py: ensures Python package layout and creates `sdks/python/setup.py` if missing.
-  - scripts/generate_proto_docs.py: emits docs to `proto-docs/` (threshold=50).
+- **Reusable Workflows**: `.github/workflows/reusable-*.yml` - Called by other repositories
+- **Script Library**: `scripts/` - Python automation tools for cross-repo operations
+- **Instruction System**: `.github/instructions/` - Modular AI agent rules with language targeting
+- **Workflow Debugging**: `scripts/workflow-debugger.py` - Analyzes failures and generates fix tasks
+- **Multi-Repo Sync**: `scripts/intelligent_sync_to_repos.py` - Propagates changes to target repos
 
-## Conventions and patterns
-- File headers: every source, script, and doc begins with repo-absolute path + semantic version + GUID. Update the version (patch/minor/major) whenever you change content.
-- Protos: do not add disable blocks to `buf.gen.yaml`; plugins are listed explicitly. Keep imports consistent with the 1-1-1 layout; fix by moving shared types to `common` if you see cycles.
-- Go usage: consumers import from `github.com/jdfalk/gcommon/sdks/go/gcommon/v1/<package>`; run `go mod tidy` in the consumer after updates.
-- Python usage: `pip install -e sdks/python` and import from `gcommon.v1.<package>`.
+## 🔧 Critical AI Agent Workflows
 
-## What to touch vs. generate
-- Make changes in `proto/gcommon/v1/**` and rerun generation. Don’t hand-edit anything in `sdks/**`.
-- If you add a new proto: follow the 1-1-1 rule, pick the correct module (common, config, queue, metrics, database, web, organization, health, media, etc.), and include clear comments—docs are auto-generated.
+Use VS Code tasks for non-git operations (build, lint, generate). For git operations, prefer:
+1) MCP GitHub tools (preferred), 2) safe-ai-util (fallback), 3) native git (last resort).
 
-## Tasks and examples
-- Quick path: use VS Code tasks for Buf → “Buf Lint with Output” → “Buf Generate with Output”. Perform git actions via MCP GitHub tools or safe-ai-util (conventional commits required).
-- Makefile equivalents: `make dev` (lint+format+generate), `make generate`, `make proto-docs`, `make clean`.
+Use specialized subagents when possible: CI Workflow Doctor, Dependency Auditor, Documentation Curator, Git Hygiene Guardian, Lint & Format Conductor, Protobuf Builder, Protobuf Cycle Resolver, and others in `.github/prompts/` for targeted expertise.
 
-## Canonical instruction sources
-- General rules: `.github/instructions/general-coding.instructions.md`
-- Language/task-specific: `.github/instructions/*.instructions.md`
-- Agent docs/pointers: `.github/README.md`, `AGENTS.md`, `.github/CLAUDE.md`
+### Protobuf Operations (Core Focus)
+```bash
+# Use tasks, not manual buf commands
+"Buf Generate with Output" - Generates protobuf code with logging
+"Buf Lint with Output" - Lints protobuf files with comprehensive output
+```
+- This repo heavily focuses on protobuf tooling and cross-repo protobuf management
+- Use `tools/protobuf-cycle-fixer.py` for import cycle resolution
+- Protobuf changes trigger the `protobuf-generation.yml` workflow
 
-Tip: When in doubt, start from `make generate` or the Buf tasks and inspect `proto-docs/` for expected changes.
+### Git Operations (Policy)
+- Prefer MCP GitHub tools or safe-ai-util for all git actions (add/commit/push).
+- Avoid VS Code git tasks; keep git automation out of editor tasks.
+- All commits MUST use conventional commit format: `type(scope): description`.
+- See `.github/instructions/commit-messages.instructions.md` for detailed commit message rules.
 
-## Documentation updates (no scripts)
+## 🎯 Multi-Repository Management Patterns
 
-- Do not use any doc-update scripts in this repository.
-- Make edits directly in the target files and bump the version header accordingly.
-- Follow the guidance in `.github/instructions/general-coding.instructions.md` for formatting and workflow.
+**This repository manages configurations for multiple target repositories:**
+
+### Sync Operations
+```bash
+# Primary sync script for propagating changes
+python scripts/intelligent_sync_to_repos.py --target-repos "repo1,repo2" --dry-run
+```
+- Syncs `.github/instructions/`, `.github/prompts/`, and workflows to target repos
+- Creates VS Code Copilot symlinks: `.vscode/copilot/` → `.github/instructions/`
+- Handles repository-specific file exclusions and maintains file headers
+
+### Workflow Debugging & Auto-Fix
+```bash
+python scripts/workflow-debugger.py --org jdfalk --scan-all --fix-tasks
+```
+- Analyzes workflow failures across repositories
+- Generates JSON fix tasks for Copilot agents at `workflow-debug-output/fix-tasks/`
+- Categorizes failures: permissions, dependencies, syntax, infrastructure
+- Outputs actionable remediation steps with code examples
+
+## 📁 File Organization Conventions
+
+**Modular Instruction System** (referenced by general instructions):
+- `general-coding.instructions.md` - Base rules for all languages
+- `{language}.instructions.md` - Language-specific extensions with `applyTo: "**/*.{ext}"` frontmatter
+- Instructions are synced to target repos and symlinked for VS Code Copilot integration
+
+**Repository-Specific Patterns**:
+- All files require versioned headers: `<!-- file: path -->`, `<!-- version: x.y.z -->`, `<!-- guid: uuid -->`
+- Always increment version numbers on file changes (patch/minor/major semantic versioning)
+- Use `copilot-util-args` file for storing command arguments between task executions
+
+## 🔍 Project-Specific Context
+
+**This is an infrastructure repository** - focus on:
+1. **Workflow reliability** - Use workflow debugger to identify and fix cross-repo workflow issues
+2. **Protobuf tooling** - Buf integration, cycle detection, and cross-repo protobuf synchronization
+3. **Configuration propagation** - Ensure changes sync correctly to target repositories
+4. **Agent task generation** - Workflow debugger creates structured tasks for AI agents
+
+**Common Operations**:
+- Analyze workflow failures: `scripts/workflow-debugger.py`
+- Sync to repositories: `scripts/intelligent_sync_to_repos.py`
+- Fix protobuf cycles: `tools/protobuf-cycle-fixer.py`Always check `logs/` directory after running VS Code tasks for execution details and debugging information.
+
+For detailed coding rules, see `.github/instructions/general-coding.instructions.md` and language-specific instruction files.
