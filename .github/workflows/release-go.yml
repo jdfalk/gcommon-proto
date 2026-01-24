@@ -1,5 +1,5 @@
 # file: .github/workflows/release-go.yml
-# version: 1.4.1
+# version: 1.4.3
 # guid: e2f3a4b5-c6d7-8e9f-0a1b-2c3d4e5f6a7b
 
 name: Go Release Build
@@ -31,16 +31,16 @@ jobs:
       matrix: ${{ fromJSON(inputs.go-matrix) }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Download protobuf artifacts
         if: inputs.protobuf-artifacts == 'true'
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: protobuf-generated
 
       - name: Set up Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@7a3fe6cf4cb3a834922a1244abfce67bcef6a0c5 # v6.2.0
         with:
           go-version: ${{ matrix.go-version }}
           cache: true
@@ -56,7 +56,7 @@ jobs:
 
       - name: Upload coverage (primary only)
         if: matrix.primary
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-coverage-${{ matrix.os }}-${{ matrix.go-version }}
           path: coverage.out
@@ -91,7 +91,7 @@ jobs:
           ls -l dist
 
       - name: Upload Go build artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-${{ matrix.os }}-${{ matrix.go-version }}
           path: dist/
@@ -105,7 +105,7 @@ jobs:
         run: mkdir -p combined
 
       - name: Download all build artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           path: combined/raw
 
@@ -216,7 +216,7 @@ jobs:
           fi
 
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v4.0.0
+        uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
         with:
           cosign-release: "v2.4.1"
 
@@ -254,7 +254,7 @@ jobs:
           echo "Artifact signing completed" >&2
 
       - name: Upload signature files
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-signatures
           path: |
@@ -273,13 +273,13 @@ jobs:
           fi
 
       - name: Upload cosign public key
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: cosign-public-key
           path: cosign.pub
 
       - name: Upload checksum artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-all-checksums
           path: |
@@ -288,7 +288,7 @@ jobs:
             per-os/*.sha256
 
       - name: Upload SBOMs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-sboms
           path: |
@@ -296,7 +296,7 @@ jobs:
             per-os/*.sbom.spdx.json
 
       - name: Upload signatures (if any)
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-signatures
           path: |
@@ -305,20 +305,20 @@ jobs:
             per-os/*.sig
 
       - name: Upload combined artifact (tar.gz)
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-all-tar
           path: go-build-all.tar.gz
 
       - name: Upload combined artifact (zip)
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-all-zip
           path: go-build-all.zip
 
       - name: Upload per-OS archives
         if: hashFiles('per-os/*') != ''
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-build-per-os
           path: per-os/
@@ -330,34 +330,34 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Download combined tar
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-all-tar
           path: artifacts
       - name: Download combined zip
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-all-zip
           path: artifacts
       - name: Download checksums
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-all-checksums
           path: artifacts
       - name: Download per-OS archives
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-per-os
           path: artifacts/per-os
         continue-on-error: true
       - name: Download SBOMs
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-sboms
           path: artifacts/sboms
         continue-on-error: true
       - name: Download signatures
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: go-build-signatures
           path: artifacts/signatures
@@ -370,7 +370,7 @@ jobs:
           ls -l .
 
       - name: Upload Go build artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: go-release-artifacts
           path: |

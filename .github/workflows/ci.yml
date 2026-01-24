@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.0.0
+# version: 1.0.1
 # guid: ci-workflow-gcommon
 
 name: CI
@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   ci:
-    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@main
+    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@bc6380dd1cfb1a3b8eb24c27d6cfe4a887562b5b # main
     with:
       skip-protobuf: false
       skip-tests: true # No language-specific tests in gcommon
