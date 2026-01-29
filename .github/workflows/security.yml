@@ -263,7 +263,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run TruffleHog
-        uses: trufflesecurity/trufflehog@913d7a0691febedaacd5c874672bdcbb62c48abe # main
+        uses: trufflesecurity/trufflehog@a9a74163123b3a552e891cbb61c354cfe0e46441 # main
         with:
           path: ./
           base: ${{ github.event.before }}
