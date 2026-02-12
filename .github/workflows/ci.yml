@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   ci:
-    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@2dc7f1114cdbd1094d898a9200a1224732cf64f4 # main
+    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@b06ad4d4a5d38af5a5d974d8af4d7b175317e8ab # main
     with:
       skip-protobuf: false
       skip-tests: true # No language-specific tests in gcommon
