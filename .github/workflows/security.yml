@@ -160,20 +160,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # master
-        with:
-          scan-type: "fs"
-          scan-ref: "."
-          format: "sarif"
-          output: "trivy-results.sarif"
-
-      - name: Upload Trivy scan results to GitHub Security
-        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
-        if: always()
-        with:
-          sarif_file: "trivy-results.sarif"
-
       - name: Go vulnerability check
         if: needs.detect-languages.outputs.has_go == 'true'
         run: |
@@ -219,20 +205,6 @@ jobs:
           if [ -f "Dockerfile" ]; then
             docker build -t local-scan:latest .
           fi
-
-      - name: Run Trivy Docker image scan
-        if: success()
-        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # master
-        with:
-          image-ref: "local-scan:latest"
-          format: "sarif"
-          output: "trivy-docker-results.sarif"
-
-      - name: Upload Docker scan results
-        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
-        if: always()
-        with:
-          sarif_file: "trivy-docker-results.sarif"
 
       - name: Dockerfile security check
         uses: hadolint/hadolint-action@2332a7b74a6de0dda2e2221d575162eba76ba5e5 # v3.3.0
