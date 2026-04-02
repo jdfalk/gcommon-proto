@@ -1,5 +1,5 @@
 # file: .github/workflows/release-docker.yml
-# version: 1.0.3
+# version: 1.0.4
 # guid: a4b5c6d7-e8f9-0a1b-2c3d-4e5f6a7b8c9d
 
 name: Docker Release Build
@@ -143,9 +143,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install security tools
-        run: |
-          # Install syft for SBOM generation
-          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+        uses: anchore/sbom-action/download-syft@e22c389904149dbc22b58101806040fa8d37a610 # v0.24.0
 
       - name: Generate SBOM
         run: |
