@@ -1,5 +1,5 @@
 # file: .github/workflows/release-go.yml
-# version: 1.4.3
+# version: 1.4.4
 # guid: e2f3a4b5-c6d7-8e9f-0a1b-2c3d4e5f6a7b
 
 name: Go Release Build
@@ -200,19 +200,17 @@ jobs:
           cat go-build-all.zip.sha256
 
       - name: Generate SBOM (syft)
+        uses: anchore/sbom-action/download-syft@e22c389904149dbc22b58101806040fa8d37a610 # v0.24.0
+
+      - name: Run SBOM generation
         run: |
           set -euo pipefail
-          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin > /dev/null 2>&1 || echo "Syft install fallback"
-          if command -v syft >/dev/null 2>&1; then
-            syft combined/final -o spdx-json=go-build-all.sbom.spdx.json || echo "Syft scan failed (non-fatal)"
-            if [ -d per-os ]; then
-              for d in per-os/*.tar.gz; do
-                [ -f "$d" ] || continue
-                syft "$d" -o spdx-json="${d}.sbom.spdx.json" || true
-              done
-            fi
-          else
-            echo "Syft not installed; skipping SBOM generation" >&2
+          syft combined/final -o spdx-json=go-build-all.sbom.spdx.json || echo "Syft scan failed (non-fatal)"
+          if [ -d per-os ]; then
+            for d in per-os/*.tar.gz; do
+              [ -f "$d" ] || continue
+              syft "$d" -o spdx-json="${d}.sbom.spdx.json" || true
+            done
           fi
 
       - name: Install Cosign
