@@ -262,3 +262,25 @@ _tmp_template_repo_sync/
 _tmp_template_repo_go_only/
 _tmp_template_repo_python_only/
 _tmp_template_repo_both/
+
+# >>> jdfalk managed ignore block (sync-gitignore.py) >>>
+# AI agent scratch / state (may contain PII, machine paths, secrets)
+.claude/notes/
+.claude/state/
+.claude/worktrees/
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.copilot/
+.aider*
+.cursor/
+.windsurf/
+.remember/
+.superpowers/
+
+# Per-session copilot transcripts
+copilot-session-*.md
+
+# OS junk
+.DS_Store
+Thumbs.db
+# <<< jdfalk managed ignore block (sync-gitignore.py) <<<
