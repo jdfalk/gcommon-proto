@@ -8,4 +8,4 @@
 PyYAML>=6.0.3
 
 # Required for version_sync_manager.py (GitHub API integration)
-requests>=2.33.1
+requests>=2.34.0
