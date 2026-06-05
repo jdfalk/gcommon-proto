@@ -441,8 +441,8 @@ make compile
 
 - Documentation: docs/
 - Examples: examples/
-- Issues: [https://github.com/jdfalk/gcommon/issues](https://github.com/jdfalk/gcommon/issues)
-- Discussions: [https://github.com/jdfalk/gcommon/discussions](https://github.com/jdfalk/gcommon/discussions)
+- Issues: [https://github.com/falkcorp/gcommon/issues](https://github.com/falkcorp/gcommon/issues)
+- Discussions: [https://github.com/falkcorp/gcommon/discussions](https://github.com/falkcorp/gcommon/discussions)
 
 ## License
 

@@ -4,8 +4,8 @@
 
 # GCommon - Protocol Buffer Definitions for Common Services
 
-[![Buf](https://img.shields.io/badge/buf-build%2Fjdfalk%2Fgcommon-blue)](https://buf.build/jdfalk/gcommon)
-[![CI](https://github.com/jdfalk/gcommon/workflows/ci/badge.svg)](https://github.com/jdfalk/gcommon/actions)
+[![Buf](https://img.shields.io/badge/buf-build%2Fjdfalk%2Fgcommon-blue)](https://buf.build/falkcorp/gcommon)
+[![CI](https://github.com/falkcorp/gcommon/workflows/ci/badge.svg)](https://github.com/falkcorp/gcommon/actions)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **GCommon** is a centralized repository of Protocol Buffer definitions for common business services. It provides standardized gRPC service definitions and message types that can be used across multiple applications and languages.
@@ -14,19 +14,19 @@
 
 ### Using the Buf Schema Registry (BSR)
 
-The easiest way to use GCommon is through the [Buf Schema Registry](https://buf.build/jdfalk/gcommon):
+The easiest way to use GCommon is through the [Buf Schema Registry](https://buf.build/falkcorp/gcommon):
 
 ```yaml
 # buf.yaml
 version: v2
 deps:
-  - buf.build/jdfalk/gcommon
+  - buf.build/falkcorp/gcommon
 ```
 
 ### Language-Specific SDKs
 
-- **Go**: [github.com/jdfalk/gcommon-go](https://github.com/jdfalk/gcommon-go)
-- **Python**: [github.com/jdfalk/gcommon-py](https://github.com/jdfalk/gcommon-py)
+- **Go**: [github.com/falkcorp/gcommon-go](https://github.com/falkcorp/gcommon-go)
+- **Python**: [github.com/falkcorp/gcommon-py](https://github.com/falkcorp/gcommon-py)
 
 ## 📦 Module Overview
 
@@ -72,7 +72,7 @@ gcommon/
 
 ```bash
 # Clone the repository
-git clone https://github.com/jdfalk/gcommon.git
+git clone https://github.com/falkcorp/gcommon.git
 cd gcommon
 
 # Lint protocol buffers
@@ -86,14 +86,14 @@ buf generate
 
 1. Add your `.proto` files to the appropriate module directory (`module/v1/`)
 2. Update imports to use the new module structure: `import "common/v1/error.proto";`
-3. Ensure `go_package` options follow the pattern: `option go_package = "github.com/jdfalk/gcommon/module/v1";`
+3. Ensure `go_package` options follow the pattern: `option go_package = "github.com/falkcorp/gcommon/module/v1";`
 4. Run `buf lint` to validate
 5. Submit a pull request
 
 ## 📖 Documentation
 
 - **[API Documentation](proto-docs/)** - Generated from protocol buffers
-- **[Buf Schema Registry](https://buf.build/jdfalk/gcommon)** - Browse definitions online
+- **[Buf Schema Registry](https://buf.build/falkcorp/gcommon)** - Browse definitions online
 - **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
 - **[Changelog](CHANGELOG.md)** - Version history
     - [GitHub Projects](#github-projects)
@@ -158,7 +158,7 @@ message queuing, and web services. This update introduces a security module for 
 ### Installation
 
 ```bash
-go get github.com/jdfalk/gcommon
+go get github.com/falkcorp/gcommon
 ```
 
 ### Build Tools
@@ -210,7 +210,7 @@ import (
     "context"
     "log"
 
-    "github.com/jdfalk/gcommon/pkg/health"
+    "github.com/falkcorp/gcommon/pkg/health"
 )
 
 func main() {
@@ -256,9 +256,9 @@ db.GRPCService().Register(grpcServer)
 package main
 
 import (
-    "github.com/jdfalk/gcommon/pkg/health"
-    "github.com/jdfalk/gcommon/pkg/metrics"
-    "github.com/jdfalk/gcommon/pkg/log"
+    "github.com/falkcorp/gcommon/pkg/health"
+    "github.com/falkcorp/gcommon/pkg/metrics"
+    "github.com/falkcorp/gcommon/pkg/log"
 )
 
 func main() {
@@ -378,7 +378,7 @@ We've completed comprehensive analysis and created a detailed implementation pla
 
 ```bash
 # Clone the repository
-git clone https://github.com/jdfalk/gcommon.git
+git clone https://github.com/falkcorp/gcommon.git
 cd gcommon
 
 # Install dependencies
@@ -522,8 +522,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 - **📖 Documentation**: [docs/](docs/) directory
 - **💡 Examples**: [examples/](examples/) directory
-- **🐛 Issues**: [GitHub Issues](https://github.com/jdfalk/gcommon/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
+- **🐛 Issues**: [GitHub Issues](https://github.com/falkcorp/gcommon/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/falkcorp/gcommon/discussions)
 
 The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
 
