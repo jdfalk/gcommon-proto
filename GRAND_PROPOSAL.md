@@ -27,8 +27,8 @@ Each SDK repo pulls protobufs from gcommon and runs buf generate to commit the o
 - Each SDK becomes a first-class package with a simple import path and independent versioning/release cadence.
 - Reduces confusion on pkg.go.dev and pip/packaging by removing nested modules.
 - Consumer simplicity
-- Go: `go get github.com/jdfalk/gcommon-go@vX.Y.Z` with clear import roots (e.g.,
-	`github.com/jdfalk/gcommon-go/gcommon/v1/...`).
+- Go: `go get github.com/falkcorp/gcommon-go@vX.Y.Z` with clear import roots (e.g.,
+	`github.com/falkcorp/gcommon-go/gcommon/v1/...`).
 - Python: `pip install gcommon` (or `gcommon-proto`) via PyPI publishing from gcommon-py.
 - CI isolation
 - Linting, generation, and tests for each language are isolated and faster.

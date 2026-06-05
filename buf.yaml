@@ -1,7 +1,7 @@
 version: v2
 modules:
   - path: .
-    name: buf.build/jdfalk/gcommon
+    name: buf.build/falkcorp/gcommon
 deps:
   - buf.build/protocolbuffers/wellknowntypes
   - buf.build/bufbuild/protovalidate
