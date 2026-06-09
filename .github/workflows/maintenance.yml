@@ -59,7 +59,7 @@ jobs:
       should_run_cleanup: ${{ steps.schedule.outputs.should_run_cleanup }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Detect project type
         id: detect
@@ -114,7 +114,7 @@ jobs:
     if: needs.detect-project.outputs.should_run_stale == 'true'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Handle stale issues and PRs
         uses: actions/stale@eb5cf3af3ac0a1aa4c9c45633dd1ae542a27a899 # v10.3.0
@@ -180,7 +180,7 @@ jobs:
             condition: ${{ needs.detect-project.outputs.has_rust }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         if: matrix.condition == 'true'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -427,7 +427,7 @@ jobs:
     if: (needs.detect-project.outputs.should_run_dependencies == 'true' || github.event.inputs.tasks == 'security-updates') && github.event.schedule
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
