@@ -60,6 +60,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          submodules: recursive
 
       - name: Detect project type
         id: detect
@@ -115,6 +117,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          submodules: recursive
 
       - name: Handle stale issues and PRs
         uses: actions/stale@eb5cf3af3ac0a1aa4c9c45633dd1ae542a27a899 # v10.3.0
@@ -181,6 +185,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          submodules: recursive
         if: matrix.condition == 'true'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -429,6 +435,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
+          submodules: recursive
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for security advisories
