@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   ci:
-    uses: falkcorp/github-common/.github/workflows/reusable-ci.yml@bfb912c850effd1ae9aded26d14856a538d3e5fc # v1.10.7
+    uses: falkcorp/github-common/.github/workflows/reusable-ci.yml@d0c3326b96557c8ea9117c1c196b628e5e028186 # v1.10.8
     with:
       skip-protobuf: false
       skip-tests: true # No language-specific tests in gcommon
