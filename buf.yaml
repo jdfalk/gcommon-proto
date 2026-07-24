@@ -9,7 +9,7 @@ breaking:
   use:
     - FILE
   except:
-    - FIELD_SAME_LABEL
+    - FIELD_SAME_CARDINALITY # renamed from FIELD_SAME_LABEL in buf v2
     - EXTENSION_NO_DELETE
     - FIELD_SAME_DEFAULT
 lint:
