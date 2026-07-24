@@ -24,7 +24,7 @@ generate:
 # Generate proto docs
 proto-docs:
 	@echo "📚 Generating proto docs..."
-	$(PYTHON) $(SCRIPTS_DIR)/generate_proto_docs.py --proto-dir proto/gcommon/v1 --out proto-docs --threshold 50
+	$(PYTHON) $(SCRIPTS_DIR)/generate_proto_docs.py --proto-dir . --out proto-docs --threshold 50
 	@echo "✅ Proto docs generated"
 
 # Clean generated files (minimal - just docs)
