@@ -61,7 +61,7 @@ buf generate   # against your own buf.gen.yaml with the plugins you want
 
 ## Modules
 
-Ten families, each with a `v1` and a `v2` package (v2 is current):
+Ten families (v2 — the legacy `v1` packages were removed 2026-07-23):
 
 | Family (`*pb`)     | Description                                                     |
 | ------------------ | -------------------------------------------------------------- |
@@ -80,8 +80,7 @@ Ten families, each with a `v1` and a `v2` package (v2 is current):
 
 ```text
 gcommon/
-├── <family>pb/v1/       # v1 definitions (legacy)
-├── <family>pb/v2/       # v2 definitions (current)   e.g. commonpb/v2/, mediapb/v2/
+├── <family>pb/v2/       # protobuf definitions   e.g. commonpb/v2/, mediapb/v2/
 ├── buf.yaml             # buf module config (name: buf.build/falkcorp/gcommon)
 ├── buf.lock             # pinned buf dependencies
 ├── buf.gen.yaml         # validation-only (no language generation here)
