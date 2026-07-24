@@ -1,7 +1,7 @@
 # file: .github/workflows/ci.yml
-# version: 2.0.0
+# version: 2.1.0
 # guid: 5dda3c5d-94a6-4092-8a1d-42f3e0eab56f
-# last-edited: 2026-07-23
+# last-edited: 2026-07-24
 
 name: CI
 
@@ -42,6 +42,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: buf breaking --against "https://github.com/${{ github.repository }}.git#branch=main"
 
-      # NOTE: `buf format --exit-code` is intentionally not gated yet — the existing
-      # protos predate buf formatting. Run a one-time `buf format -w` pass in its own
-      # PR, then add the gate here.
+      # A one-time `buf format -w` pass has been applied to the whole tree, so the
+      # format gate is now enforced: any future proto must be pre-formatted.
+      - name: Format check
+        run: buf format --exit-code
