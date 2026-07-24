@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/template_hook.proto
-// version: 1.0.1
+// file: configpb/v2/template_hook.proto
+// version: 1.0.2
 // guid: 48a58147-b1e9-4c28-ad50-58952adc0ffe
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/filter_criteria.proto
-// version: 1.0.1
+// file: queuepb/v2/filter_criteria.proto
+// version: 1.0.2
 // guid: 202f243e-e814-4448-8117-d5f74fc966a0
 
 edition = "2023";

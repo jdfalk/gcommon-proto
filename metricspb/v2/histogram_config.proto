@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/histogram_config.proto
-// version: 1.0.1
+// file: metricspb/v2/histogram_config.proto
+// version: 1.0.2
 // guid: d859806f-1fdc-4c74-a05d-c8872810e652
 
 edition = "2023";

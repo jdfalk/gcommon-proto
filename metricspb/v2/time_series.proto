@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/time_series.proto
-// version: 1.0.1
+// file: metricspb/v2/time_series.proto
+// version: 1.0.2
 // guid: 0f1e1fe8-f8db-4e8f-8220-628a1b9c02bf
 
 edition = "2023";

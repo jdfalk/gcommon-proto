@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/authorize_response.proto
-// version: 1.0.1
+// file: commonpb/v2/authorize_response.proto
+// version: 1.0.2
 // guid: 698cde09-444b-45ef-abbd-239e622ddc4f
 edition = "2023";
 

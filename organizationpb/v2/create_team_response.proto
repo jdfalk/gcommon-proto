@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/create_team_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/create_team_response.proto
+// version: 1.0.2
 // guid: 58d56337-9058-4fc8-907a-062ae264e556
 edition = "2023";
 

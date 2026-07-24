@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/revoke_api_key_request.proto
-// version: 1.0.1
+// file: commonpb/v2/revoke_api_key_request.proto
+// version: 1.0.2
 // guid: 889f38ad-dde7-41cd-aa20-ec974b0207f1
-// file: proto/gcommon/v2/common/revoke_api_key_request.proto
 //
 // Request definitions for auth module
 

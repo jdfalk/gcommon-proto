@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/delete_queue_request.proto
-// file: proto/gcommon/v2/queue/delete_queue_request.proto
-// version: 1.0.1
+// file: queuepb/v2/delete_queue_request.proto
+// version: 1.0.2
 // guid: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
 //
 // Request definitions for queue module

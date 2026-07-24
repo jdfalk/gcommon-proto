@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/resource_status.proto
-// version: 1.0.3
+// file: commonpb/v2/resource_status.proto
+// version: 1.0.4
 // guid: 789abc12-3456-7890-abcd-ef1234567890
 
 edition = "2023";

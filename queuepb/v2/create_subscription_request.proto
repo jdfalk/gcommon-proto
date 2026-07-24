@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/create_subscription_request.proto
-// version: 1.0.1
+// file: queuepb/v2/create_subscription_request.proto
+// version: 1.0.2
 // guid: 5b7ce7f0-2023-49f1-9801-b105699049ac
 // Request to create a new subscription
 

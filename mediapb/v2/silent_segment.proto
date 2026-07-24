@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/silent_segment.proto
-// version: 1.0.1
+// file: mediapb/v2/silent_segment.proto
+// version: 1.0.2
 // guid: e7e77f68-bd83-4543-869b-b990df41ed1d
 
 edition = "2023";

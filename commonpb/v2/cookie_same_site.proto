@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/cookie_same_site.proto
-// version: 1.0.2
+// file: commonpb/v2/cookie_same_site.proto
+// version: 1.0.3
 // guid: b38945ee-58e0-4d5a-9637-f2c57a5a9b31
 //
 // CookieSameSite defines SameSite settings for cookies.

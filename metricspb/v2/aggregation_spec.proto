@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/aggregation_spec.proto
-// version: 1.0.1
+// file: metricspb/v2/aggregation_spec.proto
+// version: 1.0.2
 // guid: 169a9fb5-9a9e-4ba6-beaa-63915a9a9839
 
 edition = "2023";

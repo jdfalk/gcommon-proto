@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/generate_csrf_token_request.proto
-// version: 1.0.1
+// file: webpb/v2/generate_csrf_token_request.proto
+// version: 1.0.2
 // guid: b05fa822-c009-4975-ac54-ef39dbdcaa7e
 
 edition = "2023";

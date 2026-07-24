@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/storage_backend.proto
-// version: 1.0.2
+// file: commonpb/v2/storage_backend.proto
+// version: 1.0.3
 // guid: 5ee72796-5fec-4f25-8894-b75050c9f18e
-// file: proto/gcommon/v2/metrics/v2/storage_backend.proto
 //
 // Enum definitions for metrics module
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/refresh_token.proto
-// version: 1.0.1
+// file: commonpb/v2/refresh_token.proto
+// version: 1.0.2
 // guid: 19426e54-07ed-40a6-bb1a-739ec97c225f
 
 edition = "2023";

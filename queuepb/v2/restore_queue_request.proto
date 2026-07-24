@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/restore_queue_request.proto
-// version: 1.0.1
+// file: queuepb/v2/restore_queue_request.proto
+// version: 1.0.2
 // guid: 8dbc0f2d-31af-48e8-9785-3d801a7d7e95
 
 edition = "2023";

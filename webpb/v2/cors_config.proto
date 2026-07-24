@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/cors_config.proto
-// version: 1.0.2
+// file: webpb/v2/cors_config.proto
+// version: 1.0.3
 // guid: a30ac136-585a-4ceb-becf-9ca8beef5e86
 
 edition = "2023";

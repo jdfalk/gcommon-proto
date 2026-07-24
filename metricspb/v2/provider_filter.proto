@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/provider_filter.proto
-// version: 1.0.1
+// file: metricspb/v2/provider_filter.proto
+// version: 1.0.2
 // guid: ccf0f7e8-2de8-458d-b403-22b712773c55
 
 edition = "2023";

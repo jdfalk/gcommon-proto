@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/consistency_validation.proto
-// version: 1.0.1
+// file: queuepb/v2/consistency_validation.proto
+// version: 1.0.2
 // guid: ed16a632-9594-4189-90f8-2d0db13c7f9d
 
 edition = "2023";

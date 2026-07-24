@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/version_deployment_status.proto
-// version: 1.0.2
+// file: commonpb/v2/version_deployment_status.proto
+// version: 1.0.3
 // guid: ff99e66b-873a-415d-8f2e-df2a6b1a25c2
 
 edition = "2023";

@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/config/stream_config.proto
-// file: proto/gcommon/v2/queue/stream_config.proto
-// version: 1.0.1
+// file: queuepb/v2/stream_config.proto
+// version: 1.0.2
 // guid: 7a6b5c4d-3e2f-1a0b-9c8d-7e6f5a4b3c2d
 //
 // Message definitions for queue module

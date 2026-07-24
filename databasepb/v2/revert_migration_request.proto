@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/schema/revert_migration_request.proto
-// version: 1.0.1
+// file: databasepb/v2/revert_migration_request.proto
+// version: 1.0.2
 // guid: 02d407f4-a362-4009-b8be-dc47f6588d24
 
 edition = "2023";

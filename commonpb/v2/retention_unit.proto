@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/retention_unit.proto
-// version: 1.0.2
+// file: commonpb/v2/retention_unit.proto
+// version: 1.0.3
 // guid: a5ffd419-c490-4f14-8c87-dd43c36de9ec
-// file: proto/gcommon/v2/metrics/v2/retention_unit.proto
 //
 // Enum definitions for metrics module
 

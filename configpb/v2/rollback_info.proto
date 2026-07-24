@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/rollback_info.proto
-// version: 1.0.1
+// file: configpb/v2/rollback_info.proto
+// version: 1.0.2
 // guid: 20b0233a-770b-4484-a066-948c77afc78e
 
 edition = "2023";

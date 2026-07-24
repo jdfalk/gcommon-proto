@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/messages/dependency_check.proto
-// version: 1.0.1
+// file: healthpb/v2/dependency_check.proto
+// version: 1.0.2
 // guid: 607182a3-adb4-2345-9012-678901234567
 
 edition = "2023";

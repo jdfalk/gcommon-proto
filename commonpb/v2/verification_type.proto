@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/verification_type.proto
-// version: 1.0.2
+// file: commonpb/v2/verification_type.proto
+// version: 1.0.3
 // guid: 0875b6fd-5225-43a7-a52d-fa98beee769d
 
 edition = "2023";

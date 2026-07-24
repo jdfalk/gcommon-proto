@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/event_notification.proto
-// version: 1.2.1
+// file: commonpb/v2/event_notification.proto
+// version: 1.2.2
 // guid: d1e2f3g4-h5i6-7890-j1k2-l3m4n5o6p7q8
 
 edition = "2023";

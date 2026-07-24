@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/register_check_response.proto
-// version: 1.0.1
+// file: commonpb/v2/register_check_response.proto
+// version: 1.0.2
 // guid: c52bced5-89bc-4021-81d6-491a104872a8
 edition = "2023";
 

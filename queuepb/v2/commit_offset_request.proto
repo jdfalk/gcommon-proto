@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/commit_offset_request.proto
-// version: 1.0.1
+// file: queuepb/v2/commit_offset_request.proto
+// version: 1.0.2
 // guid: dd17ade2-5399-4fe8-83ba-ffe1227da728
 // CommitOffsetRequest records the latest processed offset for a
 // consumer group. This allows the queue provider to resume message

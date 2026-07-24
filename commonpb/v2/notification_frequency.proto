@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/notification_frequency.proto
-// version: 1.0.1
+// file: commonpb/v2/notification_frequency.proto
+// version: 1.0.2
 // guid: 49798a1d-bd35-44a3-bcdc-4e5d2bfaa330
 
 edition = "2023";

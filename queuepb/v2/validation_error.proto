@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/validation_error.proto
-// version: 1.0.1
+// file: queuepb/v2/validation_error.proto
+// version: 1.0.2
 // guid: c3c484a5-cc5a-41e5-926d-91ba8263600e
 
 edition = "2023";

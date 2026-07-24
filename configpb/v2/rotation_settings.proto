@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/rotation_settings.proto
-// version: 1.0.1
+// file: configpb/v2/rotation_settings.proto
+// version: 1.0.2
 // guid: f9ec4d9b-b31b-410a-a6d5-f53e24671b44
 
 edition = "2023";

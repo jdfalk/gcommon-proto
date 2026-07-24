@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/create_metric_request.proto
-// version: 1.0.2
+// file: metricspb/v2/create_metric_request.proto
+// version: 1.0.3
 // guid: 4fc0fab0-dc1a-42ff-bb58-35b524f790e1
-// file: proto/gcommon/v2/metrics/v2/create_metric_request.proto
 //
 // Request definitions for metrics module
 //

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/queue_consumer_stats.proto
-// version: 1.0.1
+// file: queuepb/v2/queue_consumer_stats.proto
+// version: 1.0.2
 // guid: b0ed0505-1d76-4961-8937-36fcad7a7185
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/dns_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/dns_config.proto
+// version: 1.0.2
 // guid: 4ce13993-ded9-4ed1-852c-8e73989b5baa
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/disable2_fa_request.proto
-// version: 1.0.1
+// file: commonpb/v2/disable2_fa_request.proto
+// version: 1.0.2
 // guid: 00c046b6-37b9-4a79-a9a4-05f73d7c0d7f
-// file: proto/gcommon/v2/common/disable2_fa_request.proto
 //
 // Request definitions for auth module
 

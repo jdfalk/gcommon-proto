@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/health_check_response.proto
-// version: 1.0.2
+// file: databasepb/v2/health_check_response.proto
+// version: 1.0.3
 // guid: e1d2c65f-544c-4adf-b3cd-949e155bed14
 edition = "2023";
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/age_bucket.proto
-// version: 1.0.1
+// file: queuepb/v2/age_bucket.proto
+// version: 1.0.2
 // guid: b9e2ab5f-72b7-4a4b-bade-21762099184a
 
 edition = "2023";

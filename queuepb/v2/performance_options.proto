@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/performance_options.proto
-// version: 1.0.1
+// file: queuepb/v2/performance_options.proto
+// version: 1.0.2
 // guid: da533c28-4c1d-47aa-af5b-b6f7ec77d916
 
 edition = "2023";

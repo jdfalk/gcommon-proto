@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/coordinator_state.proto
-// version: 1.0.2
+// file: commonpb/v2/coordinator_state.proto
+// version: 1.0.3
 // guid: 834ccf4a-176f-479d-87af-833f052ccf71
 
 edition = "2023";

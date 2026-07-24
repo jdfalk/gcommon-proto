@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/set_metric_metadata_response.proto
-// version: 1.0.2
+// file: metricspb/v2/set_metric_metadata_response.proto
+// version: 1.0.3
 // guid: 2594ce5a-5795-4689-b2f9-433919c5cc67
-// file: proto/gcommon/v2/metrics/v2/set_metric_metadata_response.proto
 //
 // Response after updating metric metadata.
 //

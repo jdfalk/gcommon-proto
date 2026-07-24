@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/audit_alert.proto
-// version: 1.0.1
+// file: organizationpb/v2/audit_alert.proto
+// version: 1.0.2
 // guid: e9593ddf-e9d4-4f3a-b0e5-3d3e5d5ad8f7
 
 edition = "2023";

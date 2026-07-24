@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/pipeline_request.proto
-// version: 1.0.1
+// file: databasepb/v2/pipeline_request.proto
+// version: 1.0.2
 // guid: c4ed1ac6-29fd-4359-851f-e9f73d6926c5
 edition = "2023";
 

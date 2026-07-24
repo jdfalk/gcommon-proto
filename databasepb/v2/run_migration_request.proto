@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/schema/run_migration_request.proto
-// version: 1.0.2
+// file: databasepb/v2/run_migration_request.proto
+// version: 1.0.3
 // guid: 666b0a89-7fc5-48ce-ac8a-9a886d9d039a
 
 edition = "2023";

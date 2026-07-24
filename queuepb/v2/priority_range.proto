@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/priority_range.proto
-// version: 1.0.1
+// file: queuepb/v2/priority_range.proto
+// version: 1.0.2
 // guid: 1efceade-7805-4b90-bdd0-2484a86cb6c9
 
 edition = "2023";

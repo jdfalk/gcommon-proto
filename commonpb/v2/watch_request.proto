@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/watch_request.proto
-// version: 1.0.1
+// file: commonpb/v2/watch_request.proto
+// version: 1.0.2
 // guid: dc2cc626-d629-4419-8765-3f7cd4010a51
 //
 // Watch request message definition for streaming health updates

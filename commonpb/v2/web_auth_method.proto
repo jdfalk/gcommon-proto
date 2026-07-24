@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/auth_method.proto
-// version: 1.0.2
+// file: commonpb/v2/web_auth_method.proto
+// version: 1.0.3
 // guid: f8f4a7c2-b0ea-4b6f-8c70-8bd37e0615f9
 //
 // AuthMethod defines supported authentication mechanisms for the web module.

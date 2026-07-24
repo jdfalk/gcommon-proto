@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/batch_priority.proto
-// version: 1.0.2
+// file: commonpb/v2/batch_priority.proto
+// version: 1.0.3
 // guid: f9429991-ff0a-4c70-a6e5-7d639281f030
 
 edition = "2023";

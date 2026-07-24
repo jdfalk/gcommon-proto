@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/device_info.proto
-// version: 1.0.1
+// file: commonpb/v2/device_info.proto
+// version: 1.0.2
 // guid: 3c9b9c62-c45a-4919-bbf2-88ae536fc5e6
 
 edition = "2023";

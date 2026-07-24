@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/route_info.proto
-// version: 1.1.1
+// file: webpb/v2/route_info.proto
+// version: 1.1.2
 // guid: 8154bd31-51b0-4043-9a14-f0614adcd523
 
 edition = "2023";

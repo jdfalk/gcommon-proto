@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/add_member_request.proto
-// version: 1.0.1
+// file: organizationpb/v2/add_member_request.proto
+// version: 1.0.2
 // guid: a3f32353-366f-45a4-ae2f-7c8493c5dfca
 
 edition = "2023";

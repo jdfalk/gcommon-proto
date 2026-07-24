@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/alert_state.proto
-// version: 1.0.2
+// file: commonpb/v2/alert_state.proto
+// version: 1.0.3
 // guid: a1dd0c23-a3f3-4e37-a662-d61897f80c3a
-// file: proto/gcommon/v2/metrics/v2/alert_state.proto
 //
 // Enum definitions for metrics module
 

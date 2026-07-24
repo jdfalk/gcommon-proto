@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/enable_mfa_request.proto
-// version: 1.0.1
+// file: commonpb/v2/enable_mfa_request.proto
+// version: 1.0.2
 // guid: 1277fc9b-bcd3-49c3-9c5d-2596a743c594
-// file: proto/gcommon/v2/common/enable_mfa_request.proto
 //
 // Request definitions for auth module
 

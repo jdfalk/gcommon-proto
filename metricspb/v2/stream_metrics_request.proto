@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/stream_metrics_request.proto
-// version: 1.0.1
+// file: metricspb/v2/stream_metrics_request.proto
+// version: 1.0.2
 // guid: e3a862c4-9279-4574-baf6-5eb6c9317d19
 
 edition = "2023";

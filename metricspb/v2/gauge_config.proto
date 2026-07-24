@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/gauge_config.proto
-// version: 1.0.1
+// file: metricspb/v2/gauge_config.proto
+// version: 1.0.2
 // guid: 9f7c124b-e567-4c31-ad6b-19c05836a84b
 
 edition = "2023";

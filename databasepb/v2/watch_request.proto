@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/watch_request.proto
-// version: 1.0.1
+// file: databasepb/v2/watch_request.proto
+// version: 1.0.2
 // guid: ec773ec9-0060-4165-a6a0-7d33894d0f75
 edition = "2023";
 

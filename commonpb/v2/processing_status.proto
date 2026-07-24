@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/processing_status.proto
-// version: 1.0.2
+// file: commonpb/v2/processing_status.proto
+// version: 1.0.3
 // guid: ef01234-5678-9abc-c5d6-e7f8a9b0c1d2
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/batch_delivery_config.proto
-// version: 1.0.1
+// file: queuepb/v2/batch_delivery_config.proto
+// version: 1.0.2
 // guid: 2f43a02c-2696-4c1f-820c-b97ddd38fe31
 
 edition = "2023";

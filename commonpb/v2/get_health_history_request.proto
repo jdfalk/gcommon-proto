@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/get_health_history_request.proto
-// version: 1.0.1
+// file: commonpb/v2/get_health_history_request.proto
+// version: 1.0.2
 // guid: b0eb3b6a-e7f2-454f-addf-e8c9a9d2313a
-// file: proto/gcommon/v2/common/get_health_history_request.proto
 //
 // Request definitions for health module
 //

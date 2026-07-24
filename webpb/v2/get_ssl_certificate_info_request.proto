@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/get_ssl_certificate_info_request.proto
-// version: 1.0.2
+// file: webpb/v2/get_ssl_certificate_info_request.proto
+// version: 1.0.3
 // guid: dc573011-0a3c-48ac-9de4-3a7718171101
 
 edition = "2023";

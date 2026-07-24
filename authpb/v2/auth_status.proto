@@ -1,5 +1,5 @@
 // file: authpb/v2/auth_status.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: b3c4d5e6-f7g8-9012-3456-789012cdefgh
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb/v2";
 
 // AuthStatus represents the result of an authentication operation
 enum AuthStatus {

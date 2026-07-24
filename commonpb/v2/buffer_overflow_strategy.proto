@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/buffer_overflow_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/buffer_overflow_strategy.proto
+// version: 1.0.3
 // guid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";

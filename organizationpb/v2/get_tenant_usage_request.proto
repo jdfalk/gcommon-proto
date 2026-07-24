@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/get_tenant_usage_request.proto
-// version: 1.0.1
+// file: organizationpb/v2/get_tenant_usage_request.proto
+// version: 1.0.2
 // guid: 84976640-c11e-47c5-a862-5afb5bca2480
 
 edition = "2023";

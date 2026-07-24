@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/role_scope.proto
-// version: 1.0.2
+// file: commonpb/v2/role_scope.proto
+// version: 1.0.3
 // guid: d731d279-8c61-4854-ae41-17da08e62494
 edition = "2023";
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/batch_operation.proto
-// version: 1.0.2
+// file: commonpb/v2/batch_operation.proto
+// version: 1.0.3
 // guid: 5671d63f-77bd-4415-a7ec-3c22d3557b37
 edition = "2023";
 

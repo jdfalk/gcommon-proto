@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/content_type.proto
-// version: 1.0.2
+// file: commonpb/v2/content_type.proto
+// version: 1.0.3
 // guid: 8bb9871c-690b-4fb4-83e1-735d6815a620
 //
 // ContentType enumerates common MIME types.

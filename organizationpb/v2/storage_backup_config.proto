@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/storage_backup_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/storage_backup_config.proto
+// version: 1.0.2
 // guid: 374d573f-8428-4748-8c1a-65ccfb6995ad
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/permission_condition.proto
-// version: 1.0.1
+// file: commonpb/v2/permission_condition.proto
+// version: 1.0.2
 // guid: 54038d4d-21ce-4ccb-a735-255fae2bcd86
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_state_counts.proto
-// version: 1.0.1
+// file: queuepb/v2/message_state_counts.proto
+// version: 1.0.2
 // guid: ed6cdf6e-a32e-4ea4-942c-92e90ea2d061
 
 edition = "2023";

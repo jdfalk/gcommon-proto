@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/restore_request.proto
-// version: 1.0.1
+// file: databasepb/v2/restore_request.proto
+// version: 1.0.2
 // guid: cd942141-18b5-4a0d-88b2-9c5fdf4f3cb0
 edition = "2023";
 

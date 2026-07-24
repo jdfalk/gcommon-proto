@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/messages/check_registry.proto
-// version: 1.0.1
+// file: healthpb/v2/check_registry.proto
+// version: 1.0.2
 // guid: 5d6e7f80-9ca2-7890-4567-123456789012
 
 edition = "2023";

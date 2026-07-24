@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/security_policy.proto
-// version: 1.0.1
+// file: commonpb/v2/security_policy.proto
+// version: 1.0.2
 // guid: 1d12dbb5-c796-48b9-beab-f89a58a4d115
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/health_admin_service.proto
-// version: 1.0.2
+// file: commonpb/v2/health_admin_service.proto
+// version: 1.0.3
 // guid: 852f060f-cb4f-4a6c-9eb5-1a8cbdf34351
-// file: proto/gcommon/v2/common/health_admin_service.proto
 //
 // Administrative service definitions for health module
 //

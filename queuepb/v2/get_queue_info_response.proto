@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/get_queue_info_response.proto
-// version: 1.0.1
+// file: queuepb/v2/get_queue_info_response.proto
+// version: 1.0.2
 // guid: 06258d4a-8574-4cd1-977b-59927a7ad597
 // Response with queue information
 

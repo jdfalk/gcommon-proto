@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/anti_affinity_scope.proto
-// version: 1.0.2
+// file: commonpb/v2/anti_affinity_scope.proto
+// version: 1.0.3
 // guid: 719f1256-5001-4957-aa05-7b676cc4b90b
 
 edition = "2023";

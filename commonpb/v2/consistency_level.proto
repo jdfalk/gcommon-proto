@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/consistency_level.proto
-// version: 1.0.2
+// file: commonpb/v2/consistency_level.proto
+// version: 1.0.3
 // guid: 5eaa6727-c2ff-40f4-b746-6782b5b18b05
 edition = "2023";
 

@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/stream_restart_policy.proto
-// file: proto/gcommon/v2/queue/stream_restart_policy.proto
-// version: 1.0.2
+// file: commonpb/v2/stream_restart_policy.proto
+// version: 1.0.3
 // guid: 6a5b4c3d-2e1f-0a9b-8c7d-6e5f4a3b2c1d
 //
 // Enum definitions for queue module

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/partition_restore_result.proto
-// version: 1.0.1
+// file: queuepb/v2/partition_restore_result.proto
+// version: 1.0.2
 // guid: b39d8964-9b75-4f60-9e91-1c838aa2546e
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/send_websocket_message_request.proto
-// version: 1.0.1
+// file: webpb/v2/send_websocket_message_request.proto
+// version: 1.0.2
 // guid: 0f379368-5941-4e80-a7c6-3d66aafd5d54
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/add_middleware_request.proto
-// version: 1.0.2
+// file: webpb/v2/add_middleware_request.proto
+// version: 1.0.3
 // guid: f3eee777-6416-43d6-9c51-7d0857359e6b
 
 edition = "2023";

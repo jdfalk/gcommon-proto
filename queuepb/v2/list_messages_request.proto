@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/list_messages_request.proto
-// version: 1.0.1
+// file: queuepb/v2/list_messages_request.proto
+// version: 1.0.2
 // guid: 176dd26f-bea8-4823-aa6a-eda00afdfeb6
 // Request to list messages in a queue
 

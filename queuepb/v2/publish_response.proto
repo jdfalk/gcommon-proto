@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/publish_response.proto
-// version: 1.0.1
+// file: queuepb/v2/publish_response.proto
+// version: 1.0.2
 // guid: 8b12b279-f7c6-40fe-9147-4a663fb0c9c6
 
 // PublishResponse reports the outcome of publishing a message to a

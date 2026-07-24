@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/subscription_config_update.proto
-// version: 1.0.1
+// file: queuepb/v2/subscription_config_update.proto
+// version: 1.0.2
 // guid: 4ec44184-d7ed-48cf-af8f-5984c57c687d
 
 edition = "2023";

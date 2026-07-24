@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/connection_details.proto
-// version: 1.0.1
+// file: queuepb/v2/connection_details.proto
+// version: 1.0.2
 // guid: e63faacd-909b-487c-9be3-1cba61d1e2c9
 // Connection details for queue message delivery
 

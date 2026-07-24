@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/stream_messages_response.proto
-// file: proto/gcommon/v2/queue/stream_messages_response.proto
-// version: 1.0.1
+// file: queuepb/v2/stream_messages_response.proto
+// version: 1.0.2
 // guid: 4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f
 //
 // Response definitions for queue module

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/services/health_service.proto
-// version: 1.0.1
+// file: healthpb/v2/health_service.proto
+// version: 1.0.2
 // guid: 8192031a-2536-4567-1234-890123456789
 
 edition = "2023";

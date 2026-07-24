@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/cleanup_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/cleanup_strategy.proto
+// version: 1.0.3
 // guid: 98464e8e-3ad4-475d-8e19-cac3b3d813ca
 
 edition = "2023";

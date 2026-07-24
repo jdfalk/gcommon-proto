@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/authorize_request.proto
-// version: 1.0.1
+// file: commonpb/v2/authorize_request.proto
+// version: 1.0.2
 // guid: 06edf238-40f2-4d28-a7dc-0b6a972bf7b2
 edition = "2023";
 

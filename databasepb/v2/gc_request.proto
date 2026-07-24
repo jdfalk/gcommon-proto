@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/gc_request.proto
-// version: 1.0.1
+// file: databasepb/v2/gc_request.proto
+// version: 1.0.2
 // guid: cf3c56d0-e033-482e-9c7e-2c72782267b7
 edition = "2023";
 

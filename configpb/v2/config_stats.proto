@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/config_stats.proto
-// version: 1.0.1
+// file: configpb/v2/config_stats.proto
+// version: 1.0.2
 // guid: f5a6b7c8-9d0e-1234-f012-567890123456
 
 edition = "2023";

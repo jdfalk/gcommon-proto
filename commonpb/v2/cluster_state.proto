@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/cluster_state.proto
-// version: 1.0.2
+// file: commonpb/v2/cluster_state.proto
+// version: 1.0.3
 // guid: f68fdc5e-d25f-4790-9362-9bf09eb27f4d
 
 edition = "2023";

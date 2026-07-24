@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/approval_requirement.proto
-// version: 1.0.1
+// file: configpb/v2/approval_requirement.proto
+// version: 1.0.2
 // guid: 54ae6b55-a574-4ad5-89ea-9cadf541517a
 
 edition = "2023";

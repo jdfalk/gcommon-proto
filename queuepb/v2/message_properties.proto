@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_properties.proto
-// version: 1.0.1
+// file: queuepb/v2/message_properties.proto
+// version: 1.0.2
 // guid: 57ef0850-feeb-42b0-b724-f14b542cfd08
 
 edition = "2023";

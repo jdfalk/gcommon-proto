@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/hook_error_handling.proto
-// version: 1.0.2
+// file: commonpb/v2/hook_error_handling.proto
+// version: 1.0.3
 // guid: f5c075fd-6a9f-4072-bea8-ee82bb35c1b5
 
 edition = "2023";

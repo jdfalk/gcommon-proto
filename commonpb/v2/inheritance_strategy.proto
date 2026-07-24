@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/inheritance_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/inheritance_strategy.proto
+// version: 1.0.3
 // guid: 8dc7386b-afe2-4d9d-804d-2286b8ae6cf7
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/schema_format.proto
-// version: 1.0.2
+// file: commonpb/v2/schema_format.proto
+// version: 1.0.3
 // guid: 8dbf53aa-e92d-4de4-84a8-ec3fb37ce521
 
 edition = "2023";

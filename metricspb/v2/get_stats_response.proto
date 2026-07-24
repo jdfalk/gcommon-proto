@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/get_stats_response.proto
-// version: 1.0.2
+// file: metricspb/v2/get_stats_response.proto
+// version: 1.0.3
 // guid: d4229356-6c26-4e69-8437-475e88a0bdc6
-// file: proto/gcommon/v2/metrics/v2/get_stats_response.proto
 //
 // Response containing metric statistics over a time range.
 //

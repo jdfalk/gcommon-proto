@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/restore_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/restore_config_request.proto
+// version: 1.0.2
 // guid: 02590a49-63a8-4dc3-8ad9-2604a2244f0c
-// file: proto/gcommon/v2/config/restore_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

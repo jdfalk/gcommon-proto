@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/update_hierarchy_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/update_hierarchy_response.proto
+// version: 1.0.2
 // guid: 3452f3c8-811a-405b-9429-bc43e5b5e66d
 edition = "2023";
 

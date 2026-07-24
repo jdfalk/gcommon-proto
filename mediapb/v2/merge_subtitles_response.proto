@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/merge_subtitles_response.proto
-// version: 1.0.1
+// file: mediapb/v2/merge_subtitles_response.proto
+// version: 1.0.2
 // guid: 567890ab-cdef-0123-f6a7-b8c9d0e1f234
 
 edition = "2023";

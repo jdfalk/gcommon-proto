@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/handler_type.proto
-// version: 1.0.2
+// file: commonpb/v2/handler_type.proto
+// version: 1.0.3
 // guid: 38fcdb5d-d9f0-4109-b909-c1da72c74948
 //
 // HandlerType categorizes incoming request handlers.

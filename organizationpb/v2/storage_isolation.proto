@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/storage_isolation.proto
-// version: 1.0.1
+// file: organizationpb/v2/storage_isolation.proto
+// version: 1.0.2
 // guid: 45bc9c83-d152-457b-b9d4-f5ea0a861fc0
 
 edition = "2023";

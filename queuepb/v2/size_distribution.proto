@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/size_distribution.proto
-// version: 1.0.1
+// file: queuepb/v2/size_distribution.proto
+// version: 1.0.2
 // guid: 6a630c77-ef52-498c-b0c7-0be5177f3a90
 
 edition = "2023";

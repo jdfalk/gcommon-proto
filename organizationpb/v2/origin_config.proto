@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/origin_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/origin_config.proto
+// version: 1.0.2
 // guid: b84e3243-3ef5-4beb-94d1-db2bb8831611
 
 edition = "2023";

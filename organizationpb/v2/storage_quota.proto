@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/storage_quota.proto
-// version: 1.0.1
+// file: organizationpb/v2/storage_quota.proto
+// version: 1.0.2
 // guid: d87a1435-3bce-4513-adf6-2be8c493d5f1
 
 edition = "2023";

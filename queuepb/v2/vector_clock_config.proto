@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/vector_clock_config.proto
-// version: 1.0.1
+// file: queuepb/v2/vector_clock_config.proto
+// version: 1.0.2
 // guid: 3374bcbe-3bf2-4e5f-b46a-03e4131fcd98
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/normalize_audio_response.proto
-// version: 1.0.1
+// file: mediapb/v2/normalize_audio_response.proto
+// version: 1.0.2
 // guid: 56789ab-cdef-0123-d2e3-f4a5b6c7d8e9
 
 edition = "2023";

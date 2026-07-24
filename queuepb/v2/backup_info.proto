@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/backup_info.proto
-// version: 1.0.1
+// file: queuepb/v2/backup_info.proto
+// version: 1.0.2
 // guid: 7e0f3e6b-8c36-4f63-9aa6-06ee60e83a15
 
 edition = "2023";

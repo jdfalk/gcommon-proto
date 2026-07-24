@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/transformation_settings.proto
-// version: 1.0.1
+// file: configpb/v2/transformation_settings.proto
+// version: 1.0.2
 // guid: aadcd103-6f7c-4b6c-a58a-5c4ee2500cbf
 
 edition = "2023";

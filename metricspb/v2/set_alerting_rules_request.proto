@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/set_alerting_rules_request.proto
-// version: 1.0.1
+// file: metricspb/v2/set_alerting_rules_request.proto
+// version: 1.0.2
 // guid: 797328c8-f7f2-498b-9224-8ef45c3dcba8
-// file: proto/gcommon/v2/metrics/v2/set_alerting_rules_request.proto
 //
 // Request message for configuring alerting rules for a metric.
 //

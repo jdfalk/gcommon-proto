@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/expiration_policy.proto
-// version: 1.0.2
+// file: commonpb/v2/expiration_policy.proto
+// version: 1.0.3
 // guid: 788be552-a444-4860-9db6-1004f1f1fabf
 edition = "2023";
 

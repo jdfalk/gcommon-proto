@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/health_check_request.proto
-// version: 1.0.1
+// file: metricspb/v2/health_check_request.proto
+// version: 1.0.2
 // guid: ffa1c922-b413-4b2d-a7fd-0d58fcd0b048
 //
 // HealthCheckRequest for the metrics module

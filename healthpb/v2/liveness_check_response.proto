@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/responses/liveness_check_response.proto
-// version: 1.0.1
+// file: healthpb/v2/liveness_check_response.proto
+// version: 1.0.2
 // guid: 0a1b2c3d-4758-6789-3456-012345678901
 
 edition = "2023";

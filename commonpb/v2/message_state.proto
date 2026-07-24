@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_state.proto
-// version: 1.0.2
+// file: commonpb/v2/message_state.proto
+// version: 1.0.3
 // guid: 4eba7921-816c-420b-8880-172c0631fa22
 
 edition = "2023";

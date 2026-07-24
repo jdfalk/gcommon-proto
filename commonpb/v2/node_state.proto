@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/node_state.proto
-// version: 1.0.2
+// file: commonpb/v2/node_state.proto
+// version: 1.0.3
 // guid: 9ee731f7-a1ea-4298-8579-c001d3b09060
 
 edition = "2023";

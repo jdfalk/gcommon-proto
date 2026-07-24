@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/get_alerting_rules_response.proto
-// version: 1.0.1
+// file: metricspb/v2/get_alerting_rules_response.proto
+// version: 1.0.2
 // guid: e6b7e2fc-4cd1-4e68-8d74-edab03688e54
-// file: proto/gcommon/v2/metrics/v2/get_alerting_rules_response.proto
 //
 // Response message containing alerting rules for a metric.
 //

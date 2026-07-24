@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/backup_frequency.proto
-// version: 1.0.2
+// file: commonpb/v2/backup_frequency.proto
+// version: 1.0.3
 // guid: 4efc5d0f-be87-47e1-8f01-f42fa2926368
 
 edition = "2023";

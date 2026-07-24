@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/backup_queue_request.proto
-// version: 1.0.1
+// file: queuepb/v2/backup_queue_request.proto
+// version: 1.0.2
 // guid: 0f505896-49b9-4ca3-8a27-d0f9a79ad1ac
 // Request to backup a queue
 

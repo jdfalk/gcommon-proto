@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/expire_request.proto
-// version: 1.0.1
+// file: databasepb/v2/expire_request.proto
+// version: 1.0.2
 // guid: 1ae9e0b1-c430-4d0b-9abd-f6d12cb342bb
 edition = "2023";
 

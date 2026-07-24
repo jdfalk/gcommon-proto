@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/get_scrape_config_response.proto
-// version: 1.0.2
+// file: metricspb/v2/get_scrape_config_response.proto
+// version: 1.0.3
 // guid: fa33c699-3eb3-4466-82b0-f7983815994e
-// file: proto/gcommon/v2/metrics/v2/get_scrape_config_response.proto
 //
 // Response containing scraping configuration for a provider.
 //

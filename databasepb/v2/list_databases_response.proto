@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/list_databases_response.proto
-// version: 1.0.1
+// file: databasepb/v2/list_databases_response.proto
+// version: 1.0.2
 // guid: 36e09c07-048c-463e-bd22-902a4dbed6a9
 edition = "2023";
 

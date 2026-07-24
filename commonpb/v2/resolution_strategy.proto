@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/resolution_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/resolution_strategy.proto
+// version: 1.0.3
 // guid: 2c802dfc-d9ae-4cc2-81ea-ebbb90394cff
 
 edition = "2023";

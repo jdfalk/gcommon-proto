@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_nack.proto
-// version: 1.0.1
+// file: queuepb/v2/message_nack.proto
+// version: 1.0.2
 // guid: b5bb9e75-3346-4684-9529-764a3cdb3e3d
 
 edition = "2023";

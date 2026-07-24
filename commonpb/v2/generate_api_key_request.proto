@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/generate_api_key_request.proto
-// version: 1.0.1
+// file: commonpb/v2/generate_api_key_request.proto
+// version: 1.0.2
 // guid: 5590365e-02f0-4a3d-96eb-15bc615c14ef
 
 edition = "2023";

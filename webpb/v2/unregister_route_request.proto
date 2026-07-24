@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/unregister_route_request.proto
-// version: 1.0.1
+// file: webpb/v2/unregister_route_request.proto
+// version: 1.0.2
 // guid: 6bd8df0c-0003-4464-b76f-837bb1a72af6
 
 edition = "2023";

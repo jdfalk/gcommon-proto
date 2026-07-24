@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/rotation_frequency.proto
-// version: 1.0.2
+// file: commonpb/v2/rotation_frequency.proto
+// version: 1.0.3
 // guid: 4bb020d8-2763-4ac1-96fc-6210bade7050
 
 edition = "2023";

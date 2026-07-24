@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/promotion_rule.proto
-// version: 1.0.1
+// file: configpb/v2/promotion_rule.proto
+// version: 1.0.2
 // guid: 6333713c-4522-4225-aa2f-46423912d1ec
 
 edition = "2023";

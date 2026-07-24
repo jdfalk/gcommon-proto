@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/channel_type.proto
-// version: 1.0.2
+// file: commonpb/v2/channel_type.proto
+// version: 1.0.3
 // guid: 6f6a3985-1560-40b0-b6d5-b2985349b649
 
 edition = "2023";

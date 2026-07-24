@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/unwatch_request.proto
-// version: 1.0.1
+// file: databasepb/v2/unwatch_request.proto
+// version: 1.0.2
 // guid: d369ada8-e4ff-4d62-98c8-97e1d767763e
 edition = "2023";
 

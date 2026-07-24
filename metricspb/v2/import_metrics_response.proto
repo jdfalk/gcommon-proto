@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/import_metrics_response.proto
-// version: 1.0.1
+// file: metricspb/v2/import_metrics_response.proto
+// version: 1.0.2
 // guid: 54556e65-80a3-4d79-b67e-d98ca9bf7b0e
-// file: proto/gcommon/v2/metrics/v2/import_metrics_response.proto
 //
 // Response returned after importing metrics.
 //

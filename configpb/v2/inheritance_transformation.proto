@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/inheritance_transformation.proto
-// version: 1.0.1
+// file: configpb/v2/inheritance_transformation.proto
+// version: 1.0.2
 // guid: 9983db27-ce0c-4ed1-9433-20495b86b257
 
 edition = "2023";

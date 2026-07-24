@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/monitoring_config.proto
-// version: 1.0.1
+// file: queuepb/v2/monitoring_config.proto
+// version: 1.0.2
 // guid: 81f93ee4-708c-478c-9c19-1baf15830c08
 
 edition = "2023";

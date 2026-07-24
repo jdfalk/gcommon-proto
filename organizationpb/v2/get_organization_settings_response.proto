@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/get_organization_settings_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/get_organization_settings_response.proto
+// version: 1.0.2
 // guid: cb31e0a3-f5db-43e7-8e24-3a0669bf515c
 edition = "2023";
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/version_artifact.proto
-// version: 1.0.1
+// file: configpb/v2/version_artifact.proto
+// version: 1.0.2
 // guid: 7cbe5a72-963f-4b03-b61e-7cd392e571c8
 
 edition = "2023";

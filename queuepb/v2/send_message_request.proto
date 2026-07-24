@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/send_message_request.proto
-// version: 1.0.1
+// file: queuepb/v2/send_message_request.proto
+// version: 1.0.2
 // guid: 0acd1eb1-8464-4f9c-8fd2-0562acde190f
 // SendMessageRequest sends a single message to a queue.
 

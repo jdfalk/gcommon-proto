@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/alert_severity.proto
-// version: 1.0.2
+// file: commonpb/v2/metrics_alert_severity.proto
+// version: 1.0.3
 // guid: f1a2b3c4-5678-901c-5678-123456789012
 
 edition = "2023";

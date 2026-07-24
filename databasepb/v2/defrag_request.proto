@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/defrag_request.proto
-// version: 1.0.1
+// file: databasepb/v2/defrag_request.proto
+// version: 1.0.2
 // guid: 6a8126b1-18c6-4308-ac2b-07653d79d506
 edition = "2023";
 

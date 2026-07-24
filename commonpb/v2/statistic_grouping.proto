@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/statistic_grouping.proto
-// version: 1.0.2
+// file: commonpb/v2/statistic_grouping.proto
+// version: 1.0.3
 // guid: a8a72b1a-cc3a-46d1-a1ab-87af3535faac
 
 edition = "2023";

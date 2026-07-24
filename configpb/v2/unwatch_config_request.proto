@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/unwatch_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/unwatch_config_request.proto
+// version: 1.0.2
 // guid: 4fb39ff9-1c85-43d6-9246-d2cc5683ce22
-// file: proto/gcommon/v2/config/unwatch_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

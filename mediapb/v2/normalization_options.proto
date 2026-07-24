@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/normalization_options.proto
-// version: 1.0.1
+// file: mediapb/v2/normalization_options.proto
+// version: 1.0.2
 // guid: 1744e330-4411-49b8-8f30-284985bd747f
 
 edition = "2023";

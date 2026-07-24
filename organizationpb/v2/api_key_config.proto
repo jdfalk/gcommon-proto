@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/api_key_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/api_key_config.proto
+// version: 1.0.2
 // guid: 28bb1e15-1e3c-4ae1-bb4f-9daa15fcdf1b
 
 edition = "2023";

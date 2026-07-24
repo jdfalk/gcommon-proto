@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/import_queue_response.proto
-// file: proto/gcommon/v2/queue/import_queue_response.proto
-// version: 1.0.1
+// file: queuepb/v2/import_queue_response.proto
+// version: 1.0.2
 // guid: 5d4c3b2a-1f0e-9d8c-7b6a-5e4f3a2b1c0d
 //
 // Response definitions for queue module

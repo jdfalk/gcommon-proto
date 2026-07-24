@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/row.proto
-// version: 1.0.2
+// file: databasepb/v2/row.proto
+// version: 1.0.3
 // guid: b3495bf9-4671-40b0-8d44-3fe8f9aac6ca
 edition = "2023";
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/requests/unregister_check_request.proto
-// version: 1.0.1
+// file: healthpb/v2/unregister_check_request.proto
+// version: 1.0.2
 // guid: d6e7f809-142a-9012-6789-345678901234
 
 edition = "2023";

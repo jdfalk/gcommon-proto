@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/unsubscribe_request.proto
-// version: 1.0.1
+// file: databasepb/v2/unsubscribe_request.proto
+// version: 1.0.2
 // guid: ab8ca5f1-cb63-41bc-88d5-0aef5bd4f76a
 edition = "2023";
 

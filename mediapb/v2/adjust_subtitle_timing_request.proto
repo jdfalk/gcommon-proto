@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/adjust_subtitle_timing_request.proto
-// version: 1.0.1
+// file: mediapb/v2/adjust_subtitle_timing_request.proto
+// version: 1.0.2
 // guid: 678901bc-def0-1234-a7b8-c9d0e1f23456
 
 edition = "2023";

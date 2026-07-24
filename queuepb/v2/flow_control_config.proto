@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/flow_control_config.proto
-// version: 1.0.1
+// file: queuepb/v2/flow_control_config.proto
+// version: 1.0.2
 // guid: e0dba279-5bac-45a2-8bd5-b341fa734230
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/disk_usage.proto
-// version: 1.0.1
+// file: metricspb/v2/disk_usage.proto
+// version: 1.0.2
 // guid: 1c6c18b3-8797-41ff-ba40-b31de4bb0e6d
 
 edition = "2023";

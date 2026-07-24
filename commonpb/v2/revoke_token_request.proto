@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/revoke_token_request.proto
-// version: 1.0.1
+// file: commonpb/v2/revoke_token_request.proto
+// version: 1.0.2
 // guid: 0fc4421f-09e3-4cf7-8e64-d11797c80088
 edition = "2023";
 

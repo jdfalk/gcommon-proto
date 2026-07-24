@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/get_memory_usage_response.proto
-// version: 1.0.1
+// file: databasepb/v2/get_memory_usage_response.proto
+// version: 1.0.2
 // guid: 4bd2a1f2-5469-4fc5-9bdb-e0691a1bbaa9
 edition = "2023";
 

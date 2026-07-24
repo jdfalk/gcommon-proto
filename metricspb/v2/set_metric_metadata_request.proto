@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/set_metric_metadata_request.proto
-// version: 1.0.2
+// file: metricspb/v2/set_metric_metadata_request.proto
+// version: 1.0.3
 // guid: d5a7a998-dd17-44a3-97d5-89144b904ee3
-// file: proto/gcommon/v2/metrics/v2/set_metric_metadata_request.proto
 //
 // Request message for updating metric metadata.
 //

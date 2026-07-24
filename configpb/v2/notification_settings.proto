@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/notification_settings.proto
-// version: 1.0.1
+// file: configpb/v2/notification_settings.proto
+// version: 1.0.2
 // guid: 4694674c-55fc-4ee7-8874-efe3ad5f1250
 
 edition = "2023";

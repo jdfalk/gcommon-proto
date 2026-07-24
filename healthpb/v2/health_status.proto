@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/enums/health_status.proto
-// version: 1.0.1
+// file: healthpb/v2/health_status.proto
+// version: 1.0.2
 // guid: 8a1b2c3d-4e5f-6789-abc1-234567890def
 
 edition = "2023";

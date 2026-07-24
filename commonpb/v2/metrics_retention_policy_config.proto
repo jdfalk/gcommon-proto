@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/retention_policy_config.proto
-// version: 1.0.1
+// file: commonpb/v2/metrics_retention_policy_config.proto
+// version: 1.0.2
 // guid: 123e4567-e89b-12d3-a456-426614174024
 
 edition = "2023";

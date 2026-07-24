@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/route_type.proto
-// version: 1.0.2
+// file: commonpb/v2/route_type.proto
+// version: 1.0.3
 // guid: a655dd19-273c-4cb4-a5ea-71ce983e16cd
 //
 // RouteType distinguishes different route behaviors.

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/label_definition.proto
-// version: 1.0.1
+// file: metricspb/v2/label_definition.proto
+// version: 1.0.2
 // guid: 56dd3a22-ceda-4620-bfb2-c279efc6fab3
 
 edition = "2023";

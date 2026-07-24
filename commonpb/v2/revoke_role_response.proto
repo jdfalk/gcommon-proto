@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/revoke_role_response.proto
-// version: 1.0.1
+// file: commonpb/v2/revoke_role_response.proto
+// version: 1.0.2
 // guid: acfab4c3-a30b-45ba-9590-745f492f55bd
-// file: proto/gcommon/v2/common/revoke_role_response.proto
 //
 // Response definitions for auth module
 

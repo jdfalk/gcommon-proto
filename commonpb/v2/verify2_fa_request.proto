@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/verify2_fa_request.proto
-// version: 1.0.1
+// file: commonpb/v2/verify2_fa_request.proto
+// version: 1.0.2
 // guid: fa64bc16-24a7-4b50-ba76-fc8fdd7079de
 
 edition = "2023";

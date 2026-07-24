@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/publish_result.proto
-// version: 1.0.1
+// file: queuepb/v2/publish_result.proto
+// version: 1.0.2
 // guid: aabfd67d-e9a2-40c7-99b8-464c242bc864
 // Result information for individual message publish operations
 

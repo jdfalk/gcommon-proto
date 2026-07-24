@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/audio_extraction_options.proto
-// version: 1.0.1
+// file: mediapb/v2/audio_extraction_options.proto
+// version: 1.0.2
 // guid: 8ffe013f-f2d7-499d-a661-008adba5ee33
 
 edition = "2023";

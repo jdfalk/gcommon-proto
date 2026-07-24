@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/timestamp_config.proto
-// version: 1.0.1
+// file: queuepb/v2/timestamp_config.proto
+// version: 1.0.2
 // guid: 5767f48a-e0df-4536-9127-4fcbd0ed4e1e
 
 edition = "2023";

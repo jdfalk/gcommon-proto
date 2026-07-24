@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/external_auth_service.proto
-// version: 1.0.1
+// file: queuepb/v2/external_auth_service.proto
+// version: 1.0.2
 // guid: 888d52ef-a351-4fe1-a31e-6d7085e83b26
 
 edition = "2023";

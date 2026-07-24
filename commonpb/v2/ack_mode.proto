@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/ack_mode.proto
-// version: 1.0.2
+// file: commonpb/v2/ack_mode.proto
+// version: 1.0.3
 // guid: 1ea916c3-cb02-4ad8-9ff0-03396568398a
 edition = "2023";
 

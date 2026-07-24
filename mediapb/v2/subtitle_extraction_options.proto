@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/subtitle_extraction_options.proto
-// version: 1.0.1
+// file: mediapb/v2/subtitle_extraction_options.proto
+// version: 1.0.2
 // guid: 87163577-1e6b-474b-a532-c9e0978036b7
 
 edition = "2023";

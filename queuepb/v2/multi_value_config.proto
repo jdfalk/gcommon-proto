@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/multi_value_config.proto
-// version: 1.0.1
+// file: queuepb/v2/multi_value_config.proto
+// version: 1.0.2
 // guid: 9ed9dcb6-f12f-4eea-92c1-7ee4a199f462
 
 edition = "2023";

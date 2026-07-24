@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/mfa_method.proto
-// version: 1.0.2
+// file: commonpb/v2/mfa_method.proto
+// version: 1.0.3
 // guid: 123e4567-e89b-12d3-a456-426614174123
 
 edition = "2023";

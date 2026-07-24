@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/percentile_measurement.proto
-// version: 1.0.1
+// file: metricspb/v2/percentile_measurement.proto
+// version: 1.0.2
 // guid: 48293be8-c475-44ee-b41d-c428b059063a
 
 edition = "2023";

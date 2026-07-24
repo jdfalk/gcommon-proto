@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/list_topics_response.proto
-// version: 1.1.1
+// file: queuepb/v2/list_topics_response.proto
+// version: 1.1.2
 // guid: 64d60266-e2ca-4927-9db1-d3824b83d9a5
 // Response containing list of available topics
 

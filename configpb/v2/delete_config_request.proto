@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/delete_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/delete_config_request.proto
+// version: 1.0.2
 // guid: 6d17b97b-a8c2-4e72-83fb-0ca1ecb75daf
-// file: proto/gcommon/v2/config/delete_config_request.proto
 //
 edition = "2023";
 

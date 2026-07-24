@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/compression_algorithm.proto
-// version: 1.0.2
+// file: commonpb/v2/compression_algorithm.proto
+// version: 1.0.3
 // guid: 46070a52-0998-4b61-b36f-05b4861f8f6c
 
 edition = "2023";

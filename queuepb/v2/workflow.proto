@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/workflow.proto
-// version: 1.0.1
+// file: queuepb/v2/workflow.proto
+// version: 1.0.2
 // guid: 6f7e8d9c-0b1a-2534-6e7f-8a9b0c1d2e3f
 
 edition = "2023";

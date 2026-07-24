@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/routing_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/routing_strategy.proto
+// version: 1.0.3
 // guid: c0da3188-9710-4555-bbda-9632f6b3f29b
 
 edition = "2023";

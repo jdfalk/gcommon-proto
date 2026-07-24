@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/thumbnail_info.proto
-// version: 1.0.1
+// file: mediapb/v2/thumbnail_info.proto
+// version: 1.0.2
 // guid: ca1ea094-130d-467b-a559-246d9a60646f
 
 edition = "2023";

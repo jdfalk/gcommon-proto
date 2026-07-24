@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/value_dependency.proto
-// version: 1.0.1
+// file: configpb/v2/value_dependency.proto
+// version: 1.0.2
 // guid: ceefe5a4-8fbf-4555-9535-c57437357bef
 
 edition = "2023";

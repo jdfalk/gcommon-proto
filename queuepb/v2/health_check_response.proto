@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/health_check_response.proto
-// version: 1.0.2
+// file: queuepb/v2/health_check_response.proto
+// version: 1.0.3
 // guid: 24f4fcb1-f84d-4f02-845d-01b9759bfb6a
 //
 // HealthCheckResponse for the queue module

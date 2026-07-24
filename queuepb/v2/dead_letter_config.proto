@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/config/dead_letter_config.proto
-// file: proto/gcommon/v2/queue/dead_letter_config.proto
-// version: 1.0.1
+// file: queuepb/v2/dead_letter_config.proto
+// version: 1.0.2
 // guid: 8a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
 //
 // Message definitions for queue module

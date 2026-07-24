@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/external_role_provider.proto
-// version: 1.0.1
+// file: queuepb/v2/external_role_provider.proto
+// version: 1.0.2
 // guid: 890e55e1-8627-452f-95dc-f799e0316fec
 
 edition = "2023";

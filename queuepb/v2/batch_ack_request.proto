@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/batch_ack_request.proto
-// version: 1.0.1
+// file: queuepb/v2/batch_ack_request.proto
+// version: 1.0.2
 // guid: 73ed83fb-3706-45cc-895d-fec71d0a2184
 // Request for batch acknowledgment operations
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/update_department_request.proto
-// version: 1.0.1
+// file: organizationpb/v2/update_department_request.proto
+// version: 1.0.2
 // guid: a8012f3b-6cf3-4b2d-ba62-d9b6a56fed3a
 
 edition = "2023";

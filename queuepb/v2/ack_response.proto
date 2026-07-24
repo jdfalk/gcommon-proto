@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/ack_response.proto
-// version: 1.0.2
+// file: queuepb/v2/ack_response.proto
+// version: 1.0.3
 // guid: e0629319-177a-44c0-9ec6-f97c73c03cbc
 
 // AckResponse indicates whether a message acknowledgment was

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/get_connection_info_request.proto
-// version: 1.0.2
+// file: databasepb/v2/get_connection_info_request.proto
+// version: 1.0.3
 // guid: 32ff391a-940f-4051-84f4-22936a48e124
 
 edition = "2023";

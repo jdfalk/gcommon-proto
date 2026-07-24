@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/throughput_metrics.proto
-// version: 1.0.1
+// file: queuepb/v2/throughput_metrics.proto
+// version: 1.0.2
 // guid: 238519f5-1808-4bcc-9cd5-e5700aca75e4
 
 edition = "2023";

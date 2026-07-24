@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/check_permission_response.proto
-// version: 1.0.2
+// file: commonpb/v2/check_permission_response.proto
+// version: 1.0.3
 // guid: 909a647b-cd2d-44d1-b612-5ea1e54bda39
 
 edition = "2023";

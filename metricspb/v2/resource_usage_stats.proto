@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/resource_usage_stats.proto
-// version: 1.0.1
+// file: metricspb/v2/resource_usage_stats.proto
+// version: 1.0.2
 // guid: 18e38b17-8e74-45c9-8f0e-1b1ce6da1c19
 
 edition = "2023";

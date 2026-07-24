@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/reset_health_stats_request.proto
-// version: 1.0.1
+// file: commonpb/v2/reset_health_stats_request.proto
+// version: 1.0.2
 // guid: e8903f7e-5da9-40bf-8b9b-1a6747e1391e
-// file: proto/gcommon/v2/common/reset_health_stats_request.proto
 //
 // Request definitions for health module
 //

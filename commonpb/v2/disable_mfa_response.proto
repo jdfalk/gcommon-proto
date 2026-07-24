@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/disable_mfa_response.proto
-// version: 1.0.1
+// file: commonpb/v2/disable_mfa_response.proto
+// version: 1.0.2
 // guid: 8fa6daf5-aee9-414d-95a0-ed59c3c11334
-// file: proto/gcommon/v2/common/disable_mfa_response.proto
 //
 // Response definitions for auth module
 

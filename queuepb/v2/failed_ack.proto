@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/failed_ack.proto
-// version: 1.0.1
+// file: queuepb/v2/failed_ack.proto
+// version: 1.0.2
 // guid: 576df787-4718-4249-a439-b368117dec41
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/isolation_level.proto
-// version: 1.0.2
+// file: commonpb/v2/database_isolation_level.proto
+// version: 1.0.3
 // guid: 004cde4c-f6bc-40ff-b341-1408e58e37b6
 edition = "2023";
 

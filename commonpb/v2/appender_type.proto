@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/appender_type.proto
-// version: 1.0.2
+// file: commonpb/v2/appender_type.proto
+// version: 1.0.3
 // guid: 5e2f63bf-35c4-4a2a-b35a-54017c979940
 
 edition = "2023";

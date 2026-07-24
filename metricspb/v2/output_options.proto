@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/output_options.proto
-// version: 1.0.1
+// file: metricspb/v2/output_options.proto
+// version: 1.0.2
 // guid: 8f7b7904-aab3-4d73-a893-b9ea03d7b75a
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/sync_replication.proto
-// version: 1.0.1
+// file: queuepb/v2/sync_replication.proto
+// version: 1.0.2
 // guid: fb10fe6a-cf7a-47e7-9be7-c31f4e37b22e
 
 edition = "2023";

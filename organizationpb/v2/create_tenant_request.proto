@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/create_tenant_request.proto
-// version: 1.0.2
+// file: organizationpb/v2/create_tenant_request.proto
+// version: 1.0.3
 // guid: bff082b5-49b8-4b48-808c-5d8a7af3463b
 
 edition = "2023";

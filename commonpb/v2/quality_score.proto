@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/quality_score.proto
-// version: 1.0.2
+// file: commonpb/v2/quality_score.proto
+// version: 1.0.3
 // guid: 3d37a954-484a-4beb-acc4-7ec2fd05bf7d
 
 edition = "2023";

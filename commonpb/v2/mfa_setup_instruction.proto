@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/mfa_setup_instruction.proto
-// version: 1.0.1
+// file: commonpb/v2/mfa_setup_instruction.proto
+// version: 1.0.2
 // guid: bf15a5c9-23b0-4e2d-9583-24ed000c4656
 
 edition = "2023";

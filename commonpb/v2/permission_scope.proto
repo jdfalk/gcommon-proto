@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/permission_scope.proto
-// version: 1.0.2
+// file: commonpb/v2/permission_scope.proto
+// version: 1.0.3
 // guid: 223f7d62-a27f-4724-8f07-6c99d1afaa17
 edition = "2023";
 

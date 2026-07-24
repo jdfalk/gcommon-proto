@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/binding_info.proto
-// file: proto/gcommon/v2/queue/binding_info.proto
-// version: 1.0.1
+// file: queuepb/v2/binding_info.proto
+// version: 1.0.2
 // guid: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
 //
 // Message definitions for queue module

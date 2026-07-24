@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/delete_provider_response.proto
-// version: 1.0.1
+// file: metricspb/v2/delete_provider_response.proto
+// version: 1.0.2
 // guid: 0c3bdd9f-3771-4f0b-8c33-24d5a40b6c06
 
 edition = "2023";

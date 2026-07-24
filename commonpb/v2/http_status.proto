@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/http_status.proto
-// version: 1.0.2
+// file: commonpb/v2/http_status.proto
+// version: 1.0.3
 // guid: 8e7253f5-0453-42e2-b55a-336dd5c9b589
 //
 // HTTPStatus enumerates common response status codes.

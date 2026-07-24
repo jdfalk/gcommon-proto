@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/environment_status.proto
-// version: 1.0.2
+// file: commonpb/v2/environment_status.proto
+// version: 1.0.3
 // guid: d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a
 
 edition = "2023";

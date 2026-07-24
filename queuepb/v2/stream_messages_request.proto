@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/stream_messages_request.proto
-// version: 1.0.1
+// file: queuepb/v2/stream_messages_request.proto
+// version: 1.0.2
 // guid: 8571acf9-5131-45f6-b0ad-b227ce7f2980
 
 edition = "2023";

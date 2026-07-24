@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/create_metric_response.proto
-// version: 1.0.2
+// file: metricspb/v2/create_metric_response.proto
+// version: 1.0.3
 // guid: 83588dec-abb1-410c-8a89-b2d53cdd2eec
-// file: proto/gcommon/v2/metrics/v2/create_metric_response.proto
 //
 // Response returned after creating a metric.
 //

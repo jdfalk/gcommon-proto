@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/rollback_transaction_request.proto
-// version: 1.0.1
+// file: databasepb/v2/rollback_transaction_request.proto
+// version: 1.0.2
 // guid: 922f9d84-62b4-4428-b44b-443dfd8d3693
 
 edition = "2023";

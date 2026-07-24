@@ -1,5 +1,5 @@
 // file: authpb/v2/list_sessions_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: t1u2v3w4-x5y6-7890-1234-567890uvwxyz
 
 edition = "2023";
@@ -12,7 +12,7 @@ import "authpb/v2/session_info_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb/v2";
 
 // ListSessionsResponse represents the response to a list sessions request
 message ListSessionsResponse {

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/cpu_usage.proto
-// version: 1.0.1
+// file: metricspb/v2/cpu_usage.proto
+// version: 1.0.2
 // guid: cda5276c-5b68-4519-b1f6-c245a74b2d66
 
 edition = "2023";

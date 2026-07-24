@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/retry_settings.proto
-// version: 1.0.1
+// file: commonpb/v2/config_retry_settings.proto
+// version: 1.0.2
 // guid: 97d15dc6-ddeb-4e88-a455-16bb8fb5c292
 
 edition = "2023";

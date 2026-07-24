@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/update_cache_config_response.proto
-// version: 1.0.2
+// file: webpb/v2/update_cache_config_response.proto
+// version: 1.0.3
 // guid: jkl45678-90ab-cdef-1234-567890abcdef
 
 edition = "2023";

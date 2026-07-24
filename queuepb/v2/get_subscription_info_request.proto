@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/get_subscription_info_request.proto
-// version: 1.0.1
+// file: queuepb/v2/get_subscription_info_request.proto
+// version: 1.0.2
 // guid: 560f1d95-f68d-41e7-821f-fbb741872dc8
 // Request to get subscription information
 

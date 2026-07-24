@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/time_range_filter.proto
-// version: 1.0.1
+// file: queuepb/v2/time_range_filter.proto
+// version: 1.0.2
 // guid: a130528f-ed39-48b7-8dbf-b82f4db21916
 
 edition = "2023";

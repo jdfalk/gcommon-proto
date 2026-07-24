@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/organization_access_control.proto
-// version: 1.1.1
+// file: commonpb/v2/organization_access_control.proto
+// version: 1.1.2
 // guid: 0327cd1d-766b-46e4-b980-f039bbde89ef
 
 edition = "2023";

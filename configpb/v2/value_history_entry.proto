@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/value_history_entry.proto
-// version: 1.0.1
+// file: configpb/v2/value_history_entry.proto
+// version: 1.0.2
 // guid: 842c89c0-e045-4b46-8c03-f19d4383edb0
 
 edition = "2023";

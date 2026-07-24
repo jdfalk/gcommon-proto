@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/backoff_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/backoff_strategy.proto
+// version: 1.0.3
 // guid: 5aec3abd-38af-4436-a59a-c4140f44a461
 
 edition = "2023";

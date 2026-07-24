@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/unregistration_result.proto
-// version: 1.0.1
+// file: metricspb/v2/unregistration_result.proto
+// version: 1.0.2
 // guid: ada4f63c-d9d5-496b-a0f9-a70062740177
 
 edition = "2023";

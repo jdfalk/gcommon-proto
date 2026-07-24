@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/scrape_target.proto
-// version: 1.0.1
+// file: metricspb/v2/scrape_target.proto
+// version: 1.0.2
 // guid: bc47b323-f2ec-45a1-9eb1-a02cee44f29d
 
 edition = "2023";

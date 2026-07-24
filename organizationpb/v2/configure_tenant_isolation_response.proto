@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/configure_tenant_isolation_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/configure_tenant_isolation_response.proto
+// version: 1.0.2
 // guid: 8bfb868a-9352-4ca3-9e89-57d201252ebc
 edition = "2023";
 

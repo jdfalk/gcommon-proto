@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/close_websocket_request.proto
-// version: 1.0.1
+// file: webpb/v2/close_websocket_request.proto
+// version: 1.0.2
 // guid: 43005508-aedc-4d2d-9b42-6fce6bd32ad9
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/webhook_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/webhook_config.proto
+// version: 1.0.2
 // guid: 831d7bab-450b-45fb-b41f-63cde7f89926
 
 edition = "2023";

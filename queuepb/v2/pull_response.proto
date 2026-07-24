@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/pull_response.proto
-// version: 1.0.2
+// file: queuepb/v2/pull_response.proto
+// version: 1.0.3
 // guid: 5c55b3fd-beda-4758-90c9-2084f2d6ea8f
 
 // PullResponse returns a message pulled from the queue. This file

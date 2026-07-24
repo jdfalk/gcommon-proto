@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/batching_settings.proto
-// version: 1.0.1
+// file: configpb/v2/batching_settings.proto
+// version: 1.0.2
 // guid: 2814da2b-956d-4e34-b87c-7bf8c1bceb5e
 
 edition = "2023";

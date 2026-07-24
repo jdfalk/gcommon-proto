@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/update_session_request.proto
-// version: 1.0.1
+// file: commonpb/v2/update_session_request.proto
+// version: 1.0.2
 // guid: 7e7565ed-c945-498a-8b56-705b4e113e51
-// file: proto/gcommon/v2/common/update_session_request.proto
 //
 // Request definitions for auth module
 edition = "2023";

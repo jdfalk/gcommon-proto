@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/tls_config.proto
-// version: 1.0.1
+// file: webpb/v2/tls_config.proto
+// version: 1.0.2
 // guid: 9f8e7d6c-5b4a-3928-1706-f5e4d3c2b1a0
 
 edition = "2023";

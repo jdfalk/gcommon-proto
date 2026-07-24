@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/purge_options.proto
-// version: 1.0.1
+// file: queuepb/v2/purge_options.proto
+// version: 1.0.2
 // guid: 05f20447-a209-4b0a-bbe3-d46d178c07c6
 
 edition = "2023";

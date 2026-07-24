@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/register_middleware_request.proto
-// version: 1.1.1
+// file: webpb/v2/register_middleware_request.proto
+// version: 1.1.2
 // guid: c136f229-3eee-476f-87b9-6417ec8bb8b0
 // RegisterMiddlewareRequest request definition.
 

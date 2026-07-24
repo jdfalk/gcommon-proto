@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/cache_behavior.proto
-// version: 1.0.1
+// file: organizationpb/v2/cache_behavior.proto
+// version: 1.0.2
 // guid: e71b878c-7505-4ea2-af2b-59a9f9a155ca
 
 edition = "2023";

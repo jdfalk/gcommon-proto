@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/stats_d_settings.proto
-// version: 1.0.1
+// file: metricspb/v2/stats_d_settings.proto
+// version: 1.0.2
 // guid: 195c250a-8ebe-4d7d-9948-acc9c69848f5
 
 edition = "2023";

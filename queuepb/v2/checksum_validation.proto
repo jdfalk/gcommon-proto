@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/checksum_validation.proto
-// version: 1.0.1
+// file: queuepb/v2/checksum_validation.proto
+// version: 1.0.2
 // guid: 34bd9a2b-54d5-4c3e-aa17-382d38a98306
 
 edition = "2023";

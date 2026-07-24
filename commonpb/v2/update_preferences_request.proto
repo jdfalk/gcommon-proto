@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/update_preferences_request.proto
-// version: 1.0.2
+// file: commonpb/v2/update_preferences_request.proto
+// version: 1.0.3
 // guid: c74c733f-1a03-4b74-b5f1-cfa062e66475
 
 edition = "2023";

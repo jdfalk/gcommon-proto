@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/restore_point_status.proto
-// version: 1.0.2
+// file: commonpb/v2/restore_point_status.proto
+// version: 1.0.3
 // guid: 83838713-4e8f-494e-93ec-7bdf0b406982
 
 edition = "2023";

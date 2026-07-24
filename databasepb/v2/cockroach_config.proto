@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/cockroach_config.proto
-// version: 1.0.1
+// file: databasepb/v2/cockroach_config.proto
+// version: 1.0.2
 // guid: a505881e-946a-4a19-9fd5-1e81405e1f73
 
 edition = "2023";

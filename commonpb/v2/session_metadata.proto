@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/session_metadata.proto
-// version: 1.0.1
+// file: commonpb/v2/session_metadata.proto
+// version: 1.0.2
 // guid: 01cd27dc-f07e-4fe5-805f-ff4fc49ef91b
 
 edition = "2023";

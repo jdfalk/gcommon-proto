@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/config/performance_config.proto
-// file: proto/gcommon/v2/queue/performance_config.proto
-// version: 1.0.1
+// file: queuepb/v2/performance_config.proto
+// version: 1.0.2
 // guid: 2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b
 //
 // Message definitions for queue module

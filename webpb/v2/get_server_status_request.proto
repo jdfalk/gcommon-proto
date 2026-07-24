@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/get_server_status_request.proto
-// version: 1.0.1
+// file: webpb/v2/get_server_status_request.proto
+// version: 1.0.2
 // guid: 589c81b7-a311-4da5-9604-ece349fc6e55
 
 edition = "2023";

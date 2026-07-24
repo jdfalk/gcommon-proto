@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/ssl_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/ssl_config.proto
+// version: 1.0.2
 // guid: 9945eeeb-d22e-4d57-a7f8-7e7220e847ce
 
 edition = "2023";

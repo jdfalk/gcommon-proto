@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/get_template_request.proto
-// version: 1.0.1
+// file: commonpb/v2/get_template_request.proto
+// version: 1.0.2
 // guid: 4b8dae31-438b-4407-8f5e-25e99ebd347b
 
 edition = "2023";

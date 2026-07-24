@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/ack_request.proto
-// version: 1.0.1
+// file: queuepb/v2/ack_request.proto
+// version: 1.0.2
 // guid: 3a91b3b5-86fd-443c-876b-5b7b4da2fa73
 // AckRequest acknowledges successful processing of a message and
 // removes it from the queue. This file was previously a placeholder

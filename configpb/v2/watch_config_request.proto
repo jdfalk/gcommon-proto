@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/watch_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/watch_config_request.proto
+// version: 1.0.2
 // guid: c9ab6390-55d9-4d48-91c2-69b36288f4d2
-// file: proto/gcommon/v2/config/watch_config_request.proto
 //
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/disable_check_response.proto
-// version: 1.0.1
+// file: commonpb/v2/disable_check_response.proto
+// version: 1.0.2
 // guid: 0cba0a9a-f486-48cc-b449-1245a11558c4
 edition = "2023";
 

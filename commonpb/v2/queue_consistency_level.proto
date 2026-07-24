@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/consistency_level.proto
-// file: proto/gcommon/v2/queue/consistency_level.proto
-// version: 1.0.2
+// file: commonpb/v2/queue_consistency_level.proto
+// version: 1.0.3
 // guid: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
 //
 // Enum definitions for queue module

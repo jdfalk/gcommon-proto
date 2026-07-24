@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/get_queue_health_response.proto
-// version: 1.0.1
+// file: queuepb/v2/get_queue_health_response.proto
+// version: 1.0.2
 // guid: ca800078-3add-48f9-9559-c95d23232cea
 
 edition = "2023";

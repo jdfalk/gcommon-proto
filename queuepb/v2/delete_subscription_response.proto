@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/delete_subscription_response.proto
-// version: 1.0.1
+// file: queuepb/v2/delete_subscription_response.proto
+// version: 1.0.2
 // guid: f0abf288-da03-42ac-8fb3-9640ebce6528
 // Response for delete subscription operations
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/oauth2_flow_type.proto
-// version: 1.1.2
+// file: commonpb/v2/oauth2_flow_type.proto
+// version: 1.1.3
 // guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
 
 edition = "2023";
