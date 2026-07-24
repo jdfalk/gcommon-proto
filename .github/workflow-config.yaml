@@ -84,7 +84,6 @@ sync:
     - ".github/workflows/pr-automation.yml"
     - ".github/workflows/commit-override-handler.yml"
     - ".github/workflows/unified-automation.yml"
-    - ".github/workflows/security.yml"
     - ".github/instructions/"
     - ".github/prompts/"
     - ".github/linters/"
@@ -93,7 +92,6 @@ sync:
     - ".pre-commit-config.yaml"
     - "labels.json"
     - "labels.md"
-    - "COSIGN_VERIFICATION.md"
 
   # Files to explicitly exclude from sync (repo-specific configs)
   exclude_files:

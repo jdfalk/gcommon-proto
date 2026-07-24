@@ -1,8 +1,14 @@
 # file: .github/workflows/ci.yml
-# version: 1.0.1
-# guid: ci-workflow-gcommon
+# version: 2.0.0
+# guid: 5dda3c5d-94a6-4092-8a1d-42f3e0eab56f
+# last-edited: 2026-07-23
 
 name: CI
+
+# Protos-only repository: CI validates the protobuf definitions with buf
+# (lint + format + breaking-change check). Consumers pull generated SDKs from
+# BSR (buf.build/falkcorp/gcommon) for Go/Python/Rust — this repo does not build
+# or commit language SDKs. See archive/README.md for the retired multi-language CI.
 
 on:
   push:
@@ -13,12 +19,29 @@ on:
 
 permissions:
   contents: read
-  security-events: write
 
 jobs:
-  ci:
-    uses: falkcorp/github-common/.github/workflows/reusable-ci.yml@bfb912c850effd1ae9aded26d14856a538d3e5fc # v1.10.7
-    with:
-      skip-protobuf: false
-      skip-tests: true # No language-specific tests in gcommon
-      skip-linting: false
+  buf:
+    name: Buf lint / format / breaking
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0 # full history for the breaking-change comparison
+
+      - name: Set up buf
+        uses: bufbuild/buf-setup-action@a47c93e0b1648d5651a065437926377d060baa99 # v1.50.0
+        with:
+          github_token: ${{ github.token }}
+
+      - name: Lint protobuf
+        run: buf lint
+
+      - name: Breaking-change check (vs main)
+        if: github.event_name == 'pull_request'
+        run: buf breaking --against "https://github.com/${{ github.repository }}.git#branch=main"
+
+      # NOTE: `buf format --exit-code` is intentionally not gated yet — the existing
+      # protos predate buf formatting. Run a one-time `buf format -w` pass in its own
+      # PR, then add the gate here.

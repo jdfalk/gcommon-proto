@@ -1,5 +1,5 @@
 # file: .github/workflows/pr-automation.yml
-# version: 4.3.5
+# version: 4.4.0
 # guid: a7b8c9d0-e1f2-3456-a789-0123456789bc
 # NOTE: This file should be updated in ghcommon repository first, then copied to other repositories.
 # To update: Edit in https://github.com/falkcorp/github-common/.github/workflows/pr-automation.yml then copy to other repos
@@ -34,159 +34,6 @@ env:
   # Super-Linter variables are sourced from .github/linters/super-linter-pr.env
 
 jobs:
-  # Primary code quality check - runs on all PRs
-  code-quality:
-    name: Code Quality Check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          submodules: recursive
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
-        with:
-          python-version: "3.13"
-
-      - name: Load Super Linter PR configuration
-        shell: bash
-        run: |
-          set -euo pipefail
-          CONFIG_FILE=".github/linters/super-linter-pr.env"
-          echo "Loading Super Linter configuration from $CONFIG_FILE"
-          if [ ! -f "$CONFIG_FILE" ]; then
-            echo "::warning::Config file not found; falling back to minimal defaults"
-            echo "VALIDATE_ALL_CODEBASE=false" >> "$GITHUB_ENV"
-            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> "$GITHUB_ENV"
-          else
-            # Robust parse: only KEY=VALUE lines; trim leading/trailing spaces; skip comments & empties
-            while IFS= read -r raw_line; do
-              # Remove leading/trailing whitespace and comments
-              line="$(echo "$raw_line" | sed -e 's/[[:space:]]*$//' -e 's/^[[:space:]]*//' )"
-              [[ -z "$line" || "$line" =~ ^# ]] && continue
-              # Strip inline comments (space # or tab #)
-              line_no_comment="${line%%#*}"
-              line_no_comment="$(echo "$line_no_comment" | sed -e 's/[[:space:]]*$//')"
-              [[ -z "$line_no_comment" ]] && continue
-              if [[ "$line_no_comment" == *=* ]]; then
-                key="${line_no_comment%%=*}"; value="${line_no_comment#*=}"
-                # Guard against empty key
-                [[ -z "$key" ]] && continue
-                # Skip if already present
-                if grep -qE "^${key}=" "$GITHUB_ENV" 2>/dev/null; then
-                  continue
-                fi
-                echo "$key=$value" >> "$GITHUB_ENV"
-              fi
-            done < "$CONFIG_FILE"
-          fi
-
-          # Ensure DEFAULT_BRANCH reflects repository default (override if different)
-          if [ "${{ github.event.repository.default_branch }}" != "${DEFAULT_BRANCH:-}" ]; then
-            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> "$GITHUB_ENV"
-          fi
-
-          echo "Loaded Super Linter environment variables:" && grep -E '^(FIX_|VALIDATE_|DEFAULT_BRANCH|FILTER_REGEX_EXCLUDE)=|^LOG_LEVEL=' "$GITHUB_ENV" | head -40 | sed 's/^/- /'
-
-          # Minimal sanity check: confirm a few expected vars exist so we know parsing worked
-          for req in VALIDATE_ALL_CODEBASE FIX_PYTHON_BLACK FIX_RUST_2021 FILTER_REGEX_EXCLUDE; do
-            if ! grep -q "^$req=" "$GITHUB_ENV"; then
-              echo "::error::Required variable $req not loaded correctly"; exit 1;
-            fi
-          done
-
-      - name: Run Super Linter
-        id: run-super-linter
-        uses: super-linter/super-linter@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8.7.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Environment variables are now injected from super-linter-pr.env
-          # (They are already in $GITHUB_ENV so no need to duplicate unless overrides are required.)
-
-      - name: Check for auto-fixes
-        id: check-fixes
-        run: |
-          if ! git diff --quiet; then
-            echo "has_fixes=true" >> $GITHUB_OUTPUT
-            echo "Auto-fixes were applied by Super Linter"
-          else
-            echo "has_fixes=false" >> $GITHUB_OUTPUT
-            echo "No auto-fixes were applied"
-          fi
-
-      - name: Commit and push auto-fixes
-        if: steps.check-fixes.outputs.has_fixes == 'true'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          echo "Staging auto-fixes..."
-          git add -A
-
-          # Create detailed commit message
-          FIXED_FILES=$(git diff --cached --name-only | head -10)
-          TOTAL_FILES=$(git diff --cached --name-only | wc -l)
-
-          echo "style: auto-fix linting issues [skip ci]" > commit_msg.txt
-          echo "" >> commit_msg.txt
-          echo "Auto-formatting and fixes applied by Super Linter." >> commit_msg.txt
-          echo "" >> commit_msg.txt
-          echo "Files changed:" >> commit_msg.txt
-
-          echo "$FIXED_FILES" | while IFS= read -r file; do
-            echo "- $file - Auto-formatting applied" >> commit_msg.txt
-          done
-
-          if [ "$TOTAL_FILES" -gt 10 ]; then
-            echo "- ... and $((TOTAL_FILES - 10)) more files" >> commit_msg.txt
-          fi
-
-          git commit -F commit_msg.txt
-          rm commit_msg.txt
-
-          echo "Pushing auto-fixes..."
-          git push
-          echo "✅ Auto-fixes committed and pushed successfully"
-
-      - name: Create Job Summary
-        if: always()
-        run: |
-          echo "# 🔍 Super Linter Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          if [ "${{ steps.run-super-linter.outcome }}" = "success" ]; then
-            echo "✅ **All code quality checks passed!**" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ steps.run-super-linter.outcome }}" = "failure" ]; then
-            echo "❌ **Issues found that need attention**" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "⚠️ **Linter status unknown** - check workflow logs" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          # Show auto-fixes if applied
-          if [ "${{ steps.check-fixes.outputs.has_fixes }}" = "true" ]; then
-            echo "## 🔧 Auto-fixes Applied" >> $GITHUB_STEP_SUMMARY
-            echo "Auto-formatting fixes were applied and committed." >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          echo "## Configuration" >> $GITHUB_STEP_SUMMARY
-          echo "- **Mode**: Changed files only" >> $GITHUB_STEP_SUMMARY
-          echo "- **Auto-fix**: true" >> $GITHUB_STEP_SUMMARY
-          echo "- **Auto-commit**: true" >> $GITHUB_STEP_SUMMARY
-
-      - name: Upload Super Linter results
-        if: always() && hashFiles('super-linter-output/**/*') != ''
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: super-linter-output-${{ github.run_id }}-${{ github.run_attempt }}
-          path: super-linter-output/
-          retention-days: 7
-
   # File-pattern based auto-labeling
   auto-labeling:
     name: Auto Label PR
@@ -499,19 +346,13 @@ jobs:
   pr-summary:
     name: PR Automation Summary
     runs-on: ubuntu-latest
-    needs: [code-quality, auto-labeling, intelligent-labeling, pr-analysis, ai-rebase]
+    needs: [auto-labeling, intelligent-labeling, pr-analysis, ai-rebase]
     if: always()
     steps:
       - name: Generate summary
         run: |
           echo "# 🤖 PR Automation Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-
-          if [[ "${{ needs.code-quality.result }}" == "success" ]]; then
-            echo "✅ **Code Quality**: Passed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Code Quality**: Failed" >> $GITHUB_STEP_SUMMARY
-          fi
 
           if [[ "${{ needs.auto-labeling.result }}" == "success" ]]; then
             echo "✅ **Auto Labeling**: Applied" >> $GITHUB_STEP_SUMMARY

@@ -29,6 +29,11 @@ kept for reference and history, not run.
 | `docs/COSIGN_VERIFICATION.md`, `tooling/cosign.pub` | signing of released SDK artifacts | No released artifacts from this repo. |
 | `docs/README_old.md`, `docs/REPOSITORY_AUTOMATION.md` | old readme / sync-automation guide | Describe the retired model. |
 | `tooling/buf` (44 MB), `tooling/protoc-32.1-linux-x86_64.zip` (3.4 MB), `tooling/alltags` | committed build binaries + tag dump | "Not in the buf-building business" — tools come from PATH/CI, not the repo. |
+| `workflows/security.yml` | multi-language security (CodeQL Go/Node/Python, dependency + docker scan, license-gated gitleaks) | Protos have no compiled code to scan; the public repo uses GitHub-native secret scanning + Dependabot. |
+
+> CI was also slimmed to a single buf-native workflow (`ci.yml`: `buf lint` +
+> `buf format --diff` + `buf breaking` vs main). The super-linter "Code Quality"
+> job was removed from `pr-automation.yml` — `buf lint` is the proto linter.
 
 ## The current model (for reference)
 
