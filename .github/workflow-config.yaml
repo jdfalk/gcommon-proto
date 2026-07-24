@@ -1,6 +1,7 @@
 # file: .github/workflow-config.yaml
-# version: 2.0.1
+# version: 2.0.2
 # guid: e5f6a7b8-c9d0-1234-ef56-789012345678
+# last-edited: 2026-07-23
 
 # Modern Workflow Configuration
 # This file configures the modernized workflow system for cross-repository automation
@@ -78,13 +79,8 @@ sync:
   # Paths to sync across repositories
   sync_paths:
     - ".github/workflows/ci.yml"
-    - ".github/workflows/release-go.yml"
-    - ".github/workflows/release-rust.yml"
-    - ".github/workflows/release-python.yml"
-    - ".github/workflows/release-javascript.yml"
-    - ".github/workflows/release-typescript.yml"
-    - ".github/workflows/release-docker.yml"
-    - ".github/workflows/release.yml"
+    # SDK-building / language-release workflows archived under archive/workflows/
+    # (protos-only repo — consumers pull generated SDKs from BSR, we don't build them).
     - ".github/workflows/pr-automation.yml"
     - ".github/workflows/commit-override-handler.yml"
     - ".github/workflows/unified-automation.yml"
