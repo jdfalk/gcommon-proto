@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/health/messages/service_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a3b4c5d6-e1f8-6789-3456-012345678901
 
 edition = "2023";
 
 package health.v2;
 
-import "healthpb/v2/health_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "healthpb/v2/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/healthpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/healthpb/v2";
 
 /**
  * ServiceInfo represents information about a monitored service.

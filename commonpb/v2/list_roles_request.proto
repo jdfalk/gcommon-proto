@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/list_roles_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 10d4a32a-06da-4751-965f-97c0d522d456
 edition = "2023";
 
@@ -12,7 +12,7 @@ import "commonpb/v2/sort_options.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to list roles with filtering and pagination.

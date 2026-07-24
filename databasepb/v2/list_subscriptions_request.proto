@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/database/list_subscriptions_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: c49e8f0c-687d-4f5f-8261-7550969111d9
 edition = "2023";
 
@@ -9,7 +9,7 @@ import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to list active cache subscriptions.

@@ -1,24 +1,24 @@
 // file: proto/gcommon/v2/queue/validation_error.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c3c484a5-cc5a-41e5-926d-91ba8263600e
 
 edition = "2023";
 
 package queue.v2;
 
-import "queuepb/v2/offset_range.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
+import "queuepb/v2/offset_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ValidationError {
   // Error type
   string error_type = 1;
 
   // Error description
-  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 2 [(buf.validate.field).string.max_len = 1000];
 
   // Affected partition
   int32 partition_id = 3;

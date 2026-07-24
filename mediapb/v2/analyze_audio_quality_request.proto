@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/media/analyze_audio_quality_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: abcdef0-1234-5678-c7d8-e9f0a1b2c3d4
 
 edition = "2023";
 
 package media.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 message AnalyzeAudioQualityRequest {
   string audio_file_id = 1 [(buf.validate.field).string.min_len = 1];

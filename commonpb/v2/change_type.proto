@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/change_type.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 43b77608-77cc-40ad-97ae-4055d556fe1f
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * ChangeType defines the type of configuration change.

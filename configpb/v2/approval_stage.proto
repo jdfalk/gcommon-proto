@@ -1,23 +1,23 @@
 // file: proto/gcommon/v2/config/approval_stage.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 40bf0e9f-ef92-44c7-94fe-0b5f3ac6e653
 
 edition = "2023";
 
 package config.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message ApprovalStage {
   // Stage name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Required approvers
   repeated string approvers = 2;

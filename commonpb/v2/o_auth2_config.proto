@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/common/o_auth2_config.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/jwt_config.proto";
 import "commonpb/v2/oauth2_flow_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * OAuth2 configuration for authentication providers.
@@ -21,9 +21,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message OAuth2Config {
   // OAuth2 provider name
   string provider_name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Client ID for OAuth2 application
   string client_id = 2;
@@ -41,7 +41,7 @@ message OAuth2Config {
   string userinfo_endpoint = 6;
 
   // Redirect URI after authorization
-  string redirect_uri = 7 [ (buf.validate.field).string.uri = true ];
+  string redirect_uri = 7 [(buf.validate.field).string.uri = true];
 
   // Requested scopes
   repeated string scopes = 8;

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/api/delete_config_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 6d17b97b-a8c2-4e72-83fb-0ca1ecb75daf
 // file: proto/gcommon/v2/config/delete_config_request.proto
 //
@@ -7,13 +7,12 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * DeleteConfigRequest removes a configuration value.

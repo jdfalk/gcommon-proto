@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/load_balance_strategy.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d147b3b5-5e20-4bf9-9cfe-467e528f59a7
 //
 // LoadBalanceStrategy lists supported balancing algorithms.
@@ -10,7 +10,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum LoadBalanceStrategy {
   LOAD_BALANCE_STRATEGY_UNSPECIFIED = 0;

@@ -1,35 +1,35 @@
 // file: proto/gcommon/v2/metrics/v2/metric_definition.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4368bdba-c3ff-4d80-bfa1-886b807d497b
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metric_type.proto";
 import "commonpb/v2/metrics_retention_policy_config.proto";
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/export_config.proto";
 import "metricspb/v2/label_definition.proto";
 import "metricspb/v2/metric_type_config.proto";
 import "metricspb/v2/validation_rules.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message MetricDefinition {
   // Unique name for the metric
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Type of metric (counter, gauge, histogram, etc.)
   common.v2.MetricsMetricType type = 2;
 
   // Human-readable description
-  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 3 [(buf.validate.field).string.max_len = 1000];
 
   // Unit of measurement (e.g., "bytes", "requests", "seconds")
   string unit = 4;

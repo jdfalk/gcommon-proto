@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/queue/publish_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 684eaa80-e0bc-4fa2-876a-8d97d9865ae8
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/retry_policy.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message PublishConfig {
   // Wait for acknowledgment before returning

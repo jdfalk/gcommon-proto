@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/watch_config_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 88670dcd-4cd2-4a07-be66-f2d4db54a4a4
 edition = "2023";
 
@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * WatchConfigResponse describes a configuration change event.

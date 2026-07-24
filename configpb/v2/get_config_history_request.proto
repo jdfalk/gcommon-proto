@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/api/get_config_history_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3e7b6154-2e0b-4f37-b278-51bc35fd7fe1
 // file: proto/gcommon/v2/config/get_config_history_request.proto
 //
@@ -10,14 +10,13 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * GetConfigHistoryRequest retrieves change history for a configuration key.

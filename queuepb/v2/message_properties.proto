@@ -1,20 +1,19 @@
 // file: proto/gcommon/v2/queue/message_properties.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 57ef0850-feeb-42b0-b724-f14b542cfd08
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/delivery_mode.proto";
 import "commonpb/v2/priority_level.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message MessageProperties {
   // Message priority level

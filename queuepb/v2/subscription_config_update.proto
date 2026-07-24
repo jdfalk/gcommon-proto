@@ -1,27 +1,27 @@
 // file: proto/gcommon/v2/queue/subscription_config_update.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4ec44184-d7ed-48cf-af8f-5984c57c687d
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/config_retry_settings.proto";
+import "google/protobuf/go_features.proto";
 import "queuepb/v2/delivery_settings.proto";
 import "queuepb/v2/filter_settings.proto";
 import "queuepb/v2/routing_settings.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message SubscriptionConfigUpdate {
   // Updated subscription name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Updated delivery settings
   DeliverySettings delivery_settings = 2;

@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/media/transcode_media_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 89abcde-f012-3456-e3f4-a5b6c7d8e9f0
 
 edition = "2023";
 
 package media.v2;
 
-import "mediapb/v2/transcode_options.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "mediapb/v2/transcode_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Request to transcode media to different format.
 message TranscodeMediaRequest {

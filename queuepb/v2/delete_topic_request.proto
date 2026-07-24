@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/delete_topic_request.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 2f1d966a-514b-46ca-b291-17db26ec7f72
 // Request to delete a topic
 
@@ -7,12 +7,11 @@ edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message DeleteTopicRequest {
   // Topic ID or name to delete

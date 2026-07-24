@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/metrics/v2/delete_provider_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0c3bdd9f-3771-4f0b-8c33-24d5a40b6c06
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
-import "metricspb/v2/backup_info.proto";
-import "metricspb/v2/deletion_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "metricspb/v2/backup_info.proto";
+import "metricspb/v2/deletion_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message DeleteProviderResponse {
   // Success status of the deletion

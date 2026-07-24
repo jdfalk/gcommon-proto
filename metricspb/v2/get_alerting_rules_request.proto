@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/get_alerting_rules_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: eb75f08e-4be4-41e8-8992-f9f95b7962bc
 // file: proto/gcommon/v2/metrics/v2/get_alerting_rules_request.proto
 //
@@ -10,13 +10,12 @@ edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message GetAlertingRulesRequest {
   // Metric identifier

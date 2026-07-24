@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/database/keys_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 52aedf5e-c6a7-42f0-8d7c-8ebc4d679a3b
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/pagination.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to list cache keys matching a pattern.

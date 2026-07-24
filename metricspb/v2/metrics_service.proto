@@ -1,11 +1,12 @@
 // file: proto/gcommon/v2/metrics/v2/metrics_service.proto
-// version: 1.1.1
+// version: 1.1.2
 // guid: f1g2h3i4-j5k6-7890-l1m2-n3o4p5q6r7s8
 
 edition = "2023";
 
 package metrics.v2;
 
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/get_metric_metadata_request.proto";
 import "metricspb/v2/get_metric_metadata_response.proto";
 import "metricspb/v2/get_metrics_request.proto";
@@ -24,12 +25,11 @@ import "metricspb/v2/register_metric_response.proto";
 import "metricspb/v2/stream_metrics_request.proto";
 import "metricspb/v2/unregister_metric_request.proto";
 import "metricspb/v2/unregister_metric_response.proto";
-import "google/protobuf/go_features.proto";
 
 // Import response messages
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * MetricsService provides comprehensive metrics collection and querying capabilities.

@@ -1,5 +1,5 @@
 // file: authpb/v2/api_key_auth_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f1e2d3c4-b5a6-7890-1234-567890abcdef
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // ApiKeyAuthRequest represents a request to authenticate using an API key
 // Used for validating API keys sent in X-API-Key header

@@ -1,29 +1,29 @@
 // file: proto/gcommon/v2/common/saml_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: b1088674-0c17-45db-8c6d-3022ce0a629b
 
 edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Configuration options for SAML authentication.
  */
 message SamlConfig {
   // URL for the identity provider metadata.
-  string idp_metadata_url = 1 [ (buf.validate.field).string.uri = true ];
+  string idp_metadata_url = 1 [(buf.validate.field).string.uri = true];
 
   // Service provider entity ID.
   string sp_entity_id = 2;
 
   // Service provider assertion consumer service URL.
-  string sp_acs_url = 3 [ (buf.validate.field).string.uri = true ];
+  string sp_acs_url = 3 [(buf.validate.field).string.uri = true];
 
   // X.509 certificate for the service provider.
   string certificate = 4;

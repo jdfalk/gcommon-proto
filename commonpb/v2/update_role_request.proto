@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/update_role_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: b5502816-55e0-4610-93d1-c0d0d470d118
 edition = "2023";
 
@@ -11,7 +11,7 @@ import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to update an existing role.

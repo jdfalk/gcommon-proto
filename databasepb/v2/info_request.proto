@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/database/info_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: ab9ee789-34ee-4b13-9a9e-ab0fbed3f5f2
 edition = "2023";
 
@@ -9,7 +9,7 @@ import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to retrieve cache server information.

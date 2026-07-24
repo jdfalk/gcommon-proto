@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/common/get_user_info_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 43e29c52-26b2-4a16-899e-5eb46029783d
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to get user information from a valid token.

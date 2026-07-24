@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/metrics/v2/config_change.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 29bbb593-9903-43ef-a25e-1c3c7c0a4e64
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/change_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * ConfigChange describes a configuration change that was made.
@@ -30,5 +30,5 @@ message MetricsConfigChange {
   string new_value = 4;
 
   // Description of the change
-  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 5 [(buf.validate.field).string.max_len = 1000];
 }

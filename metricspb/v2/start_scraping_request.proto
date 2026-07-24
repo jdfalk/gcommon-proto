@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/start_scraping_request.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 3bf09215-7dbf-4f23-97b5-911aeb40f125
 
 edition = "2023";
 
 package metrics.v2;
 
-import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/scrape_config.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "commonpb/v2/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/scrape_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message StartScrapingRequest {
   // Standard request metadata

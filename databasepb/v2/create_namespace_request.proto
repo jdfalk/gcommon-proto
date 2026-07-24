@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/database/create_namespace_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 123e4567-e89b-12d3-a456-426614174012
 
 edition = "2023";
 
 package database.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to create a new cache namespace.
@@ -18,12 +18,12 @@ option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
 message CreateNamespaceRequest {
   // Name of the namespace to create
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Description of the namespace
-  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 2 [(buf.validate.field).string.max_len = 1000];
 
   // Maximum number of keys allowed in this namespace
   int64 max_keys = 3;

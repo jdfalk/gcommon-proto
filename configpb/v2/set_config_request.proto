@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/set_config_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 93685ade-6d8d-4400-b36f-c436cc41282a
 //
 // Request definitions for config module
@@ -8,14 +8,13 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/config_value.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 // Set configuration request
 message SetConfigRequest {

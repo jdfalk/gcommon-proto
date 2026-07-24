@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/v2/config_admin_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 115f65c3-94f2-4c4d-892d-27eb6c9fcece
 
 edition = "2023";
@@ -26,7 +26,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * ConfigAdminService provides administrative configuration operations.

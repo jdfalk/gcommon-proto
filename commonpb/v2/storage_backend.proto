@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/storage_backend.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 5ee72796-5fec-4f25-8894-b75050c9f18e
 // file: proto/gcommon/v2/metrics/v2/storage_backend.proto
 //
@@ -13,7 +13,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * StorageBackend defines the types of storage systems available for metrics.

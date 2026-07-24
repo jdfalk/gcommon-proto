@@ -1,5 +1,5 @@
 // file: authpb/v2/session_info_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: o6p7q8r9-s0t1-2345-6789-012345pqrstu
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // SessionInfoRequest represents a request to get session information
 message SessionInfoRequest {

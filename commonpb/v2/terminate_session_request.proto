@@ -1,20 +1,21 @@
 // file: proto/gcommon/v2/common/terminate_session_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+
 // Standard imports
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * TerminateSessionRequest terminates one or more user sessions.
@@ -32,9 +33,9 @@ message TerminateSessionRequest {
    * if the requester has appropriate permissions.
    */
   string user_id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   /**
    * Specific session IDs to terminate. If empty, the termination

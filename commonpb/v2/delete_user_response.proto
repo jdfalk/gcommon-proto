@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/types/delete_user_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 1c98d374-f744-4078-bb80-826832a42620
 // file: proto/gcommon/v2/common/delete_user_response.proto
 //
@@ -10,12 +10,11 @@ edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message DeleteUserResponse {
   // Deletion success

@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/common/enable_mfa_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 7fe3c97f-1a88-419f-b2f9-9f699a13b78c
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/mfa_setup_instruction.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message EnableMfaResponse {
   // Success status

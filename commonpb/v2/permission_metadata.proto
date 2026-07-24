@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/common/permission_metadata.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e953942b-bd06-424a-8c5a-2b2b9f60d4ab
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/permission_condition.proto";
 import "commonpb/v2/permission_level.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message PermissionMetadata {
   // Permission ID
@@ -20,9 +20,9 @@ message PermissionMetadata {
 
   // Permission name
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Resource types this permission applies to
   repeated string resource_types = 3;
@@ -39,5 +39,5 @@ message PermissionMetadata {
 
   // Creation metadata
   int64 created_at = 7;
-  string created_by = 8 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string created_by = 8 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 }

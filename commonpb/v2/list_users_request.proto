@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/common/list_users_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 123e4567-e89b-12d3-a456-426614174004
 
 edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to list users with pagination and filtering.
@@ -26,7 +26,7 @@ message ListUsersRequest {
   string username_filter = 3;
 
   // Filter by email (partial match)
-  string email_filter = 4 [ (buf.validate.field).string.email = true ];
+  string email_filter = 4 [(buf.validate.field).string.email = true];
 
   // Filter by enabled status
   bool enabled_filter = 5;

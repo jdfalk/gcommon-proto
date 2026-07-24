@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/config/inheritance_transformation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9983db27-ce0c-4ed1-9433-20495b86b257
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/transformation_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message InheritanceTransformation {
   // Transformation type

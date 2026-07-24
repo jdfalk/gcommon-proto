@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/common/authorize_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 06edf238-40f2-4d28-a7dc-0b6a972bf7b2
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to check if a user is authorized for a specific action.

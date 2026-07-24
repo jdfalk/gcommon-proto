@@ -1,21 +1,23 @@
 // file: proto/gcommon/v2/queue/flow_control_settings.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 072cab5f-9831-4a0e-8727-f69e8354fe4a
 
 edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message FlowControlSettings {
   // Maximum outstanding messages
-  int32 max_outstanding_messages = 1 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 max_outstanding_messages = 1 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Maximum outstanding bytes
   int64 max_outstanding_bytes = 2 [(buf.validate.field).int64.gte = 0];

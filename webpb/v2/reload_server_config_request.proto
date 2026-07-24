@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/reload_server_config_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: abeb1b6f-6a94-4044-b27e-a91c1c9e6042
 
 edition = "2023";
@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 /**
  * ReloadServerConfigRequest message for web service operations.

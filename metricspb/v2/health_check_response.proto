@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/health_check_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 2d9c7ce3-2e5b-42d7-9473-70bef7518cdd
 //
 // HealthCheckResponse for the metrics module
@@ -7,15 +7,14 @@ edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
 import "commonpb/v2/health_status.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * HealthCheckResponse contains the result of a metrics subsystem health check.

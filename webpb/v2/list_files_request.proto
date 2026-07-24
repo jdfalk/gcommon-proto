@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/web/list_files_request.proto
-// version: 1.2.0
+// version: 1.2.1
 // guid: 69d44c54-6e03-4313-a56c-2df3041206f8
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/file_sort_order.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 /**
  * Request to list files in a directory.

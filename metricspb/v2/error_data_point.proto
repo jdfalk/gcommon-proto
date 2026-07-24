@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/metrics/v2/error_data_point.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: fc39a17b-849c-4ff7-ba0d-2d1afb9ff84c
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ErrorDataPoint {
   google.protobuf.Timestamp timestamp = 1;

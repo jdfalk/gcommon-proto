@@ -1,17 +1,17 @@
 // file: authpb/v2/list_api_keys_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: h9i0j1k2-l3m4-5678-9012-345678ijklmn
 
 edition = "2023";
 
 package auth.v2;
 
-import "authpb/v2/auth_status.proto";
 import "authpb/v2/api_key_auth_response.proto";
+import "authpb/v2/auth_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // ListApiKeysResponse represents the response to a list API keys request
 message ListApiKeysResponse {

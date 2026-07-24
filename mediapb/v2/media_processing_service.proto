@@ -1,11 +1,12 @@
 // file: proto/gcommon/v2/media/media_processing_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 789abcd-ef01-2345-d2e3-f4a5b6c7d8e9
 
 edition = "2023";
 
 package media.v2;
 
+import "google/protobuf/go_features.proto";
 import "mediapb/v2/analyze_media_request.proto";
 import "mediapb/v2/analyze_media_response.proto";
 import "mediapb/v2/extract_audio_request.proto";
@@ -16,10 +17,9 @@ import "mediapb/v2/get_processing_status_request.proto";
 import "mediapb/v2/get_processing_status_response.proto";
 import "mediapb/v2/transcode_media_request.proto";
 import "mediapb/v2/transcode_media_response.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 /**
  * MediaProcessingService provides media transcoding, analysis, and

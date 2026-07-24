@@ -1,23 +1,23 @@
 // file: proto/gcommon/v2/organization/o_auth_app_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3db5888f-b55c-4810-82a3-0690f6604cf9
 
 edition = "2023";
 
 package organization.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message OAuthAppConfig {
   // OAuth application name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // OAuth client ID
   string client_id = 2;

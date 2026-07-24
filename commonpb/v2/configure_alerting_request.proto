@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/types/configure_alerting_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 760eeee5-189e-489d-b385-42e80f43726f
 // file: proto/gcommon/v2/common/configure_alerting_request.proto
 //
@@ -10,13 +10,12 @@ edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message ConfigureAlertingRequest {
   // Name of the service or check to configure

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/get_schema_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 814082ea-43bd-4fe6-9f69-3e587af7e038
 edition = "2023";
 
@@ -10,7 +10,7 @@ import "configpb/v2/config_schema.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * GetSchemaResponse returns a configuration schema.

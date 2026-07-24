@@ -1,17 +1,17 @@
 // file: authpb/v2/create_api_key_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d5e6f7g8-h9i0-1234-5678-901234efghij
 
 edition = "2023";
 
 package auth.v2;
 
-import "authpb/v2/auth_status.proto";
 import "authpb/v2/api_key_auth_response.proto";
+import "authpb/v2/auth_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // CreateApiKeyResponse represents the response to an API key creation request
 message CreateApiKeyResponse {

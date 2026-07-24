@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/update_middleware_config_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 30e082c9-2bd6-4472-ae4a-f71e481f04a3
 // UpdateMiddlewareConfigRequest request definition.
 // UpdateMiddlewareConfigRequest updates an existing middleware configuration.
@@ -9,11 +9,11 @@ edition = "2023";
 package web.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "webpb/v2/middleware_config.proto";
 import "google/protobuf/go_features.proto";
+import "webpb/v2/middleware_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 message UpdateMiddlewareConfigRequest {
   // Request metadata for tracing and auth

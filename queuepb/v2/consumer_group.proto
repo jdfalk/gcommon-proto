@@ -1,23 +1,23 @@
 // file: proto/gcommon/v2/queue/consumer_group.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 04a92687-cec2-4eac-a15d-f6f0c884eab3
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/consumer_group_state.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "queuepb/v2/consumer.proto";
 import "queuepb/v2/consumer_group_config.proto";
 import "queuepb/v2/consumer_group_stats.proto";
 import "queuepb/v2/group_coordinator.proto";
 import "queuepb/v2/partition_assignment.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ConsumerGroup {
   // Unique identifier for the consumer group
@@ -25,9 +25,9 @@ message ConsumerGroup {
 
   // Group name (human-readable)
   string group_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Topic or queue this group is consuming from
   string topic = 3;
@@ -54,7 +54,7 @@ message ConsumerGroup {
   map<string, string> metadata = 10;
 
   // Creation timestamp
-  google.protobuf.Timestamp created_at = 11 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 11 [(buf.validate.field).required = true];
 
   // Last updated timestamp
   google.protobuf.Timestamp updated_at = 12;

@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/config/approval_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 28dbf45a-ffed-40b5-8bad-30879b48ddcd
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/approval_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message ApprovalInfo {
   // Whether approval was required
@@ -35,7 +35,7 @@ message ApprovalInfo {
 
   // Approval policy applied
   string policy_name = 7 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 }

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/types/list_sessions_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a07e1500-4f58-4fb0-9741-29e10c17d095
 // file: proto/gcommon/v2/common/list_sessions_response.proto
 //
@@ -8,14 +8,13 @@ edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/paginated_response.proto";
 import "commonpb/v2/session.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response containing a list of sessions.

@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/organization/update_organization_settings_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3710df70-cb31-43a6-bd37-7443736307f4
 edition = "2023";
 
 package organization.v2;
 
-import "commonpb/v2/error.proto";
-import "organizationpb/v2/organization_settings.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "commonpb/v2/error.proto";
+import "google/protobuf/go_features.proto";
+import "organizationpb/v2/organization_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message UpdateOrganizationSettingsResponse {
   // Any errors encountered

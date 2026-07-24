@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/provider_settings_update.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d2e3f4a5-678d-023c-7890-345678901234
 
 edition = "2023";
 
 package metrics.v2;
 
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/open_telemetry_settings_update.proto";
 import "metricspb/v2/prometheus_settings_update.proto";
 import "metricspb/v2/stats_d_settings_update.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderSettingsUpdate {
   // Prometheus settings update

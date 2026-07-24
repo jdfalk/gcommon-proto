@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/common/metric_point.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 33062748-1b9e-47b6-9fbe-be60f9f3fb7d
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Common metrics data point for standardized metric collection.
@@ -20,9 +20,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message MetricPoint {
   // Metric name identifier (e.g., "request_count", "response_time")
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Numeric value of the metric
   double value = 2;

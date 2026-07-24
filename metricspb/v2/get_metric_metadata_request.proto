@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/get_metric_metadata_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4706d64e-ea60-4994-a732-e8377db776b5
 // file: proto/gcommon/v2/metrics/v2/get_metric_metadata_request.proto
 //
@@ -10,12 +10,11 @@ edition = "2023";
 
 package metrics.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * GetMetricMetadataRequest retrieves metadata for specific metrics.
@@ -34,7 +33,10 @@ message GetMetricMetadataRequest {
   bool include_inactive = 4;
 
   // Pagination options
-  int32 page_size = 5 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 page_size = 5 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
   string page_token = 6 [(buf.validate.field).string.min_len = 1];
 
   // Filter by metric type (optional)

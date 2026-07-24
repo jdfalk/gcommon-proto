@@ -1,20 +1,20 @@
 // file: proto/gcommon/v2/queue/acknowledge_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 69fb5b85-226c-407d-9aaf-dd8810a3b662
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
 import "commonpb/v2/request_metadata.proto";
-import "queuepb/v2/message_ack_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "queuepb/v2/message_ack_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message AcknowledgeResponse {
   // Required fields (1-10)
@@ -48,9 +48,9 @@ message AcknowledgeResponse {
    * Echoed from the request for verification.
    */
   string queue_name = 12 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   /**
    * Detailed results for each message acknowledgment.

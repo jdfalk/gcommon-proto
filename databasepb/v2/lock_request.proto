@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/database/lock_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 53613615-702b-470a-b522-8173cb458d12
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to acquire a cache lock.

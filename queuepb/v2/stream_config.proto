@@ -1,6 +1,6 @@
 // file: proto/gcommon/v2/queue/config/stream_config.proto
 // file: proto/gcommon/v2/queue/stream_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 7a6b5c4d-3e2f-1a0b-9c8d-7e6f5a4b3c2d
 //
 // Message definitions for queue module
@@ -9,14 +9,13 @@ edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/stream_restart_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Configuration for streaming message consumption.
@@ -32,7 +31,10 @@ message StreamConfig {
   bool flow_control_enabled = 3;
 
   // Maximum outstanding messages before flow control kicks in
-  int32 max_outstanding_messages = 4 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 max_outstanding_messages = 4 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Maximum outstanding bytes before flow control kicks in
   int64 max_outstanding_bytes = 5 [(buf.validate.field).int64.gte = 0];

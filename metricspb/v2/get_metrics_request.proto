@@ -1,23 +1,22 @@
 // file: proto/gcommon/v2/metrics/v2/get_metrics_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: ec242bb6-5817-45b8-88de-7245b2536b35
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/pagination_options.proto";
 import "commonpb/v2/request_metadata.proto";
 import "commonpb/v2/time_range_metrics.proto";
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/metric_aggregation.proto";
 import "metricspb/v2/metric_filter.proto";
 import "metricspb/v2/output_options.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message MetricsGetMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)

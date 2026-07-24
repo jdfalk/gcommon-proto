@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/types/notification_type.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: c1381807-afc6-4139-8737-8691569a66f9
 // file: proto/gcommon/v2/metrics/notification_type.proto
 //
@@ -13,7 +13,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * NotificationType defines the types of notifications for metric alerts.

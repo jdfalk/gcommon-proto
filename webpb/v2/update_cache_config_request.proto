@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/update_cache_config_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: ghi12345-6789-0abc-def1-234567890123
 
 edition = "2023";
@@ -7,11 +7,11 @@ edition = "2023";
 package web.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "webpb/v2/cache_config.proto";
 import "google/protobuf/go_features.proto";
+import "webpb/v2/cache_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 message UpdateCacheConfigRequest {
   // The new cache configuration to apply

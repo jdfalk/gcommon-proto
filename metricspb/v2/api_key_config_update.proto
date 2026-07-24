@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/metrics/v2/api_key_config_update.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f04936d2-7273-4746-bc4b-9a2c0794658f
 
 edition = "2023";
 
 package metrics.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * APIKeyConfigUpdate contains updates to API key configuration.
@@ -18,9 +18,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
 message APIKeyConfigUpdate {
   // Updated header name
   string header_name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Updated required setting
   bool required = 2;

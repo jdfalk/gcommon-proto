@@ -1,23 +1,23 @@
 // file: proto/gcommon/v2/organization/storage_policy.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 7a5f99b0-8434-408a-9c22-199f4ea471af
 
 edition = "2023";
 
 package organization.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message StoragePolicy {
   // Policy name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Policy statement (JSON)
   string statement = 2;

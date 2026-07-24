@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/database/namespace_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 99ca4ced-3db8-4b4d-a745-b9f6a699357d
 
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 message NamespaceInfo {
   // ID of the namespace
@@ -19,15 +19,15 @@ message NamespaceInfo {
 
   // Name of the namespace
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Description
-  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 3 [(buf.validate.field).string.max_len = 1000];
 
   // When created
-  google.protobuf.Timestamp created_at = 4 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 4 [(buf.validate.field).required = true];
 
   // Current key count
   int64 current_keys = 5;

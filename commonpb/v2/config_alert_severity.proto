@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/alert_severity.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e4538794-5759-4c3f-a3ed-b3794a014e86
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum ConfigAlertSeverity {
   CONFIG_ALERT_SEVERITY_UNSPECIFIED = 0;

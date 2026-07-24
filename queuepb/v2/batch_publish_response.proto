@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/batch_publish_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c8485218-1d5d-459f-89f3-5389ae0c4aab
 // Response for batch publish operations
 
@@ -7,13 +7,12 @@ edition = "2023";
 
 package queue.v2;
 
-import "queuepb/v2/publish_result.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "queuepb/v2/publish_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 // Response for batch publish operations
 message BatchPublishResponse {

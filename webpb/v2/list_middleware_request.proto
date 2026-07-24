@@ -1,20 +1,19 @@
 // file: proto/gcommon/v2/web/list_middleware_request.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 0717a6fd-6194-47c2-a17e-4cb18eac5bba
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/middleware_type.proto";
 import "commonpb/v2/pagination.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // ListMiddlewareRequest request definition.
 message ListMiddlewareRequest {

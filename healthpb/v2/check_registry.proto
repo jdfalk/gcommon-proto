@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/health/messages/check_registry.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5d6e7f80-9ca2-7890-4567-123456789012
 
 edition = "2023";
 
 package health.v2;
 
-import "healthpb/v2/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "healthpb/v2/health_check.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/healthpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/healthpb/v2";
 
 /**
  * CheckRegistry represents a registry of all health checks in the system.

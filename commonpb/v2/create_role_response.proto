@@ -1,6 +1,6 @@
 // file: proto/gcommon/v2/common/types/create_role_response.proto
 // file: proto/gcommon/v2/common/create_role_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 345e6789-a1b2-3c4d-5e6f-7a8b9c0d1e2f
 
 edition = "2023";
@@ -12,7 +12,7 @@ import "commonpb/v2/role.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response for creating a new role.

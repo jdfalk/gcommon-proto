@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/config/v2/inheritance_settings.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f7c6c365-e83d-4ae8-8166-fb86d2e3b6f0
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/inheritance_strategy.proto";
 import "commonpb/v2/merge_strategy.proto";
 import "configpb/v2/inheritance_filter.proto";
 import "configpb/v2/inheritance_transformation.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message InheritanceSettings {
   // Whether inheritance is enabled

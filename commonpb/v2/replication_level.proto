@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/replication_level.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 3cf5a48e-2f5f-48ed-a2a9-6322f6010c4c
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum ReplicationLevel {
   REPLICATION_LEVEL_UNSPECIFIED = 0;

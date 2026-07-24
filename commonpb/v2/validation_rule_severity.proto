@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/validation_rule_severity.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 49607ba0-0d79-4402-a891-1a5d80c4286f
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum ValidationRuleSeverity {
   VALIDATION_RULE_SEVERITY_UNSPECIFIED = 0;

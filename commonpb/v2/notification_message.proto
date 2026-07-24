@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/notification_message.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 145b3e1e-f6ae-4bbf-9efb-78ebe3c659c8
 // file: proto/gcommon/v2/common/notification_message.proto
 //
@@ -8,15 +8,15 @@ edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/delivery_channel.proto";
 import "commonpb/v2/delivery_status.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Notification message containing content and delivery details.
@@ -25,9 +25,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message NotificationMessage {
   // Unique notification identifier
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Subject or title of the notification
   string subject = 2;
@@ -48,5 +48,8 @@ message NotificationMessage {
   DeliveryStatus status = 7;
 
   // Creation timestamp
-  google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 8 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 }

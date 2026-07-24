@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/middleware_type.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e6a7b5cb-240b-4636-bb49-9615874e9f9d
 //
 // MiddlewareType represents categories of HTTP middleware.
@@ -10,7 +10,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum MiddlewareType {
   MIDDLEWARE_TYPE_UNSPECIFIED = 0;

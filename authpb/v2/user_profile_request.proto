@@ -1,5 +1,5 @@
 // file: authpb/v2/user_profile_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: u2v3w4x5-y6z7-8901-2345-678901vwxyza
 
 edition = "2023";
@@ -9,11 +9,11 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // UserProfileRequest represents a request to get user profile information
 message UserProfileRequest {
-    // User ID to get profile for (if not provided, get current user)
+  // User ID to get profile for (if not provided, get current user)
   string user_id = 1;
 
   // Whether to include sensitive information (requires admin permissions)

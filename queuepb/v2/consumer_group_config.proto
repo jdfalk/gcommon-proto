@@ -1,22 +1,21 @@
 // file: proto/gcommon/v2/queue/consumer_group_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 8f71a5d7-ed37-4020-94fb-4c8960ef1e5d
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/load_balancing_strategy.proto";
 import "commonpb/v2/offset_reset_strategy.proto";
 import "commonpb/v2/rebalance_strategy.proto";
+import "google/protobuf/go_features.proto";
 import "queuepb/v2/auto_commit_config.proto";
 import "queuepb/v2/dead_letter_queue_config.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ConsumerGroupConfig {
   // Load balancing strategy for partition assignment

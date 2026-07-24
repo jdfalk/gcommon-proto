@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/metrics/v2/prometheus_settings.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 6ebbab41-b5f1-4b3c-beb2-5625c0756224
 
 edition = "2023";
 
 package metrics.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message PrometheusSettings {
   // Registry to use
@@ -20,13 +20,13 @@ message PrometheusSettings {
   bool enable_push_gateway = 2;
 
   // Push gateway URL
-  string push_gateway_url = 3 [ (buf.validate.field).string.uri = true ];
+  string push_gateway_url = 3 [(buf.validate.field).string.uri = true];
 
   // Job name for push gateway
   string job_name = 4 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Instance name
   string instance = 5;

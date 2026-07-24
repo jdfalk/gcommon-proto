@@ -1,25 +1,25 @@
 // file: proto/gcommon/v2/metrics/v2/metric_series.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 642e0c7a-6461-4167-b3e3-746ed9f6e413
 
 edition = "2023";
 
 package metrics.v2;
 
-import "commonpb/v2/metric_type.proto";
-import "metricspb/v2/metric_value.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "commonpb/v2/metric_type.proto";
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message MetricSeries {
   // Metric metadata
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
   common.v2.MetricsMetricType type = 2;
   map<string, string> labels = 3;
 

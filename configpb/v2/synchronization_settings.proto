@@ -1,20 +1,19 @@
 // file: proto/gcommon/v2/config/v2/synchronization_settings.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e3f41f73-ecdc-4499-9a1a-8adc64cb1ed1
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/conflict_resolution.proto";
 import "commonpb/v2/synchronization_frequency.proto";
 import "configpb/v2/synchronization_target.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message SynchronizationSettings {
   // Whether synchronization is enabled

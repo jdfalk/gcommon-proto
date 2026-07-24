@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/metrics/v2/error_stats.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: ba56b09c-77ad-41e9-80ae-0a95c96c8394
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error_type_count.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message MetricsErrorStats {
   // Total number of errors

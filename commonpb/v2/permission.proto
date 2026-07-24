@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/common/permission.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 38e2195b-8510-48b4-9c7c-2f87ab8e9a1a
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/scope_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Permission represents a specific action that can be granted
@@ -21,22 +21,25 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message Permission {
   // Unique identifier for the permission
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Short machine friendly permission name
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Human readable description of what the permission allows
-  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 3 [(buf.validate.field).string.max_len = 1000];
 
   // Scope at which this permission applies
   common.v2.ScopeType scope = 4;
 
   // Timestamp when the permission was created
-  google.protobuf.Timestamp created_at = 5 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 5 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 }

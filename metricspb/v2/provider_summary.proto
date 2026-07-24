@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/provider_summary.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d5e6f7a8-b9c0-1d2e-3f4a-5b6c7d8e9f0a
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/provider_status.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "metricspb/v2/provider_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * ProviderSummary contains summary information about a metrics provider.
@@ -23,9 +23,9 @@ message ProviderSummary {
 
   // Human-readable name of the provider
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Provider type (e.g., "prometheus", "datadog", "custom")
   string provider_type = 3;
@@ -61,5 +61,5 @@ message ProviderSummary {
   repeated string tags = 13;
 
   // Brief description of the provider
-  string description = 14 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 14 [(buf.validate.field).string.max_len = 1000];
 }

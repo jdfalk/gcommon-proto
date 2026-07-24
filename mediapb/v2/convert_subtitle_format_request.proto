@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/media/convert_subtitle_format_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 890123de-f012-3456-c9d0-e1f234567890
 
 edition = "2023";
 
 package media.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Request to convert subtitle format.
 message ConvertSubtitleFormatRequest {

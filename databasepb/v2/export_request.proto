@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/database/export_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 7c9c11a2-50f9-4b6d-9165-f060cb136a1a
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to export cache contents to an external system.

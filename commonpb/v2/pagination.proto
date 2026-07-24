@@ -1,16 +1,15 @@
 // file: proto/gcommon/v2/common/pagination.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 362a2da2-f93c-4652-9287-11938d1af4c3
 edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Common pagination parameters for list operations.
@@ -19,11 +18,17 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
  */
 message Pagination {
   // Maximum number of items to return in a single page (0 means use server default)
-  int32 page_size = 1 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 page_size = 1 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Opaque token for retrieving the next page (empty for first page)
   string page_token = 2 [(buf.validate.field).string.min_len = 1];
 
   // Optional: specific page number (alternative to page_token for simple pagination)
-  int32 page_number = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 page_number = 3 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 }

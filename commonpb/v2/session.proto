@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/common/session.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9f1dffb9-b42d-48ad-a0df-25008ed44303
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/client_info.proto";
 import "commonpb/v2/session_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Session information representing an authenticated user session.
@@ -22,18 +22,21 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message Session {
   // Unique session identifier (immutable)
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // User ID associated with this session
   string user_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Session creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 3 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 3 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Last activity timestamp (updated on each request)
   google.protobuf.Timestamp last_activity_at = 4 [lazy = true];

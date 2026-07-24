@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/queue/consistency_validation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: ed16a632-9594-4189-90f8-2d0db13c7f9d
 
 edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ConsistencyValidation {
   // Enable consistency validation

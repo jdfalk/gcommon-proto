@@ -1,10 +1,11 @@
 // file: proto/gcommon/v2/organization/hierarchy_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 93046f12-5400-4c2e-b2c2-d6707242bcdf
 edition = "2023";
 
 package organization.v2;
 
+import "google/protobuf/go_features.proto";
 import "organizationpb/v2/create_department_request.proto";
 import "organizationpb/v2/create_department_response.proto";
 import "organizationpb/v2/create_team_request.proto";
@@ -29,10 +30,9 @@ import "organizationpb/v2/update_hierarchy_request.proto";
 import "organizationpb/v2/update_hierarchy_response.proto";
 import "organizationpb/v2/update_team_request.proto";
 import "organizationpb/v2/update_team_response.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

@@ -1,20 +1,20 @@
 // file: proto/gcommon/v2/organization/tenant.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 560b99c3-131a-4c92-bcaf-034974f1561a
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/isolation_level.proto";
 import "commonpb/v2/key_value.proto";
 import "commonpb/v2/tenant_status.proto";
-import "organizationpb/v2/tenant_quota.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "organizationpb/v2/tenant_quota.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * Tenant message representing a tenant within an organization.
@@ -24,27 +24,27 @@ option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
 message Tenant {
   // Unique tenant identifier (immutable)
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Parent organization identifier
   string organization_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Tenant name (human-readable identifier)
   string name = 3 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // URL-friendly slug for the tenant (e.g., for subdomains)
   string slug = 4;
 
   // Tenant description
-  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 5 [(buf.validate.field).string.max_len = 1000];
 
   // Current status of the tenant
   common.v2.TenantStatus status = 6;
@@ -56,16 +56,19 @@ message Tenant {
   repeated common.v2.KeyValue metadata = 8 [lazy = true];
 
   // Tenant creation timestamp (immutable)
-  google.protobuf.Timestamp created_at = 9 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 9 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 10 [lazy = true];
 
   // User ID who created this tenant
-  string created_by = 11 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string created_by = 11 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // User ID who last updated this tenant
-  string updated_by = 12 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string updated_by = 12 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // Database connection string or identifier (for DATABASE isolation)
   string database_config = 13;

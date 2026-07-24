@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/health_check_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: bb4a27ef-7b1e-4a20-937c-7366e3be5b6f
 //
 // Request definitions for config module
@@ -10,13 +10,12 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message ConfigHealthCheckRequest {
   // Target namespace to check

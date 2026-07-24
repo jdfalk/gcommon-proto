@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/web/session_config.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 78ffbac0-1dba-4e18-85e1-ecce179da015
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/cookie_same_site.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // SessionConfig message definition.
 message WebSessionConfig {
@@ -24,9 +24,9 @@ message WebSessionConfig {
 
   // Name of the session cookie
   string cookie_name = 3 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Use secure cookies (HTTPS only)
   bool secure_cookies = 4;

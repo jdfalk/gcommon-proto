@@ -1,5 +1,5 @@
 // file: authpb/v2/api_key_auth_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a2b3c4d5-e6f7-8901-2345-678901bcdefg
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "authpb/v2/auth_status.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // ApiKeyAuthResponse represents the response to an API key authentication request
 message ApiKeyAuthResponse {

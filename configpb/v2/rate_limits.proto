@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/config/rate_limits.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c2d3e4f5-6a7b-8901-cdef-234567890123
 
 edition = "2023";
 
 package config.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message RateLimits {
   // Maximum requests per second

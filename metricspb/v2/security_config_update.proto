@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/security_config_update.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 94abaf44-d603-4b65-8bd3-d98ca462c20e
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/api_key_config_update.proto";
 import "metricspb/v2/tls_config_update.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * SecurityConfigUpdate contains updates to security configuration.

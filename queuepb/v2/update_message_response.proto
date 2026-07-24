@@ -1,20 +1,19 @@
 // file: proto/gcommon/v2/queue/update_message_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f8af2c52-28d1-49c0-9813-a87e5f5a411d
 
 edition = "2023";
 
 package queue.v2;
 
-import "queuepb/v2/failed_field_update.proto";
-import "queuepb/v2/updated_properties.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "queuepb/v2/failed_field_update.proto";
+import "queuepb/v2/updated_properties.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message UpdateMessageResponse {
   // Success status of the update operation

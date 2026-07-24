@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/queue/topic_routing_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 502467f7-3d79-4329-8e44-4e499071092b
 
 edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Topic-based routing configuration.
@@ -18,9 +18,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
 message TopicRoutingConfig {
   // Topic exchange name
   string exchange_name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Default routing key
   string default_routing_key = 2;

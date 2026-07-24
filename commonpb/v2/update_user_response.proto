@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/common/update_user_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 123e4567-e89b-12d3-a456-426614174007
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response for updating a user account.
@@ -19,21 +19,21 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message UpdateUserResponse {
   // Unique identifier for the updated user
   string user_id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Updated username
   string username = 2;
 
   // Updated email address
-  string email = 3 [ (buf.validate.field).string.email = true ];
+  string email = 3 [(buf.validate.field).string.email = true];
 
   // Updated full name
   string full_name = 4 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Whether the account is enabled
   bool enabled = 5;

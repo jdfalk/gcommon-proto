@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/pull_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: dae5ea8a-77c7-4b90-ab25-d2981ba423df
 // PullRequest retrieves a single message from the specified queue
 // without establishing a subscription. This file replaces the
@@ -9,12 +9,12 @@ edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message PullRequest {
   // Request metadata for tracing and authentication
@@ -22,9 +22,9 @@ message PullRequest {
 
   // Queue to pull from
   string queue_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Optional visibility timeout for the pulled message
   int32 visibility_timeout_seconds = 3;

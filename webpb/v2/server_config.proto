@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/web/server_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f4e56c59-17af-4da2-8a92-e1a619fe9fba
 
 edition = "2023";
 
 package web.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // ServerConfig message definition.
 // ServerConfig defines basic web server settings.
@@ -20,7 +19,10 @@ message ServerConfig {
   string host = 1 [(buf.validate.field).string.min_len = 1];
 
   // Listening port number
-  int32 port = 2 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+  int32 port = 2 [
+    (buf.validate.field).int32.gte = 1,
+    (buf.validate.field).int32.lte = 65535
+  ];
 
   // Enable TLS for secure communication
   bool enable_tls = 3;

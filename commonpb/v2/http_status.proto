@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/http_status.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 8e7253f5-0453-42e2-b55a-336dd5c9b589
 //
 // HTTPStatus enumerates common response status codes.
@@ -10,7 +10,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum HTTPStatus {
   HTTP_STATUS_UNSPECIFIED = 0;
