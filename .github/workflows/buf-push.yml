@@ -1,7 +1,7 @@
 # file: .github/workflows/buf-push.yml
-# version: 1.0.0
+# version: 1.0.1
 # guid: 7ba226fe-fc92-41da-97b9-e14078244f4f
-# last-edited: 2026-07-23
+# last-edited: 2026-07-24
 
 name: Buf Push
 
@@ -49,4 +49,4 @@ jobs:
             echo "::error::BUF_TOKEN secret is not set — add a BSR API token to push. See this workflow's header."
             exit 1
           fi
-          buf push --create-visibility public --git-metadata
+          buf push --create --create-visibility public --git-metadata
