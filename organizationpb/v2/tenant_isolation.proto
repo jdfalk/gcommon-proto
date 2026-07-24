@@ -1,26 +1,26 @@
 // file: proto/gcommon/v2/organization/tenant_isolation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 182f08bf-4180-421a-935c-aa065bea181a
 
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/isolation_level.proto";
 import "commonpb/v2/key_value.proto";
 import "commonpb/v2/organization_access_control.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "organizationpb/v2/audit_config.proto";
 import "organizationpb/v2/compute_isolation.proto";
 import "organizationpb/v2/database_isolation.proto";
 import "organizationpb/v2/encryption_config.proto";
 import "organizationpb/v2/network_isolation.proto";
 import "organizationpb/v2/storage_isolation.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message TenantIsolation {
   // Tenant identifier
@@ -54,7 +54,10 @@ message TenantIsolation {
   repeated common.v2.KeyValue metadata = 10 [lazy = true];
 
   // Isolation configuration creation timestamp
-  google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 11 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 12 [lazy = true];

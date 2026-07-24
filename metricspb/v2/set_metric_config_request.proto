@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/metrics/v2/set_metric_config_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d1b98b0c-98f7-47fc-9bb5-f18ebfbbe1d3
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/metric_config.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * SetMetricConfigRequest updates configuration for a metric.

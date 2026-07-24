@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/unregistration_result.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: ada4f63c-d9d5-496b-a0f9-a70062740177
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/dry_run_result.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "metricspb/v2/dry_run_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message UnregistrationResult {
   // Whether the metric definition was deleted

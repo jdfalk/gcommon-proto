@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/update_metric_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 552e73bb-8b74-4132-a524-46d64cf01d78
 // file: proto/gcommon/v2/metrics/v2/update_metric_request.proto
 //
@@ -11,11 +11,11 @@ edition = "2023";
 package metrics.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/metric_data.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message UpdateMetricRequest {
   // Updated metric data

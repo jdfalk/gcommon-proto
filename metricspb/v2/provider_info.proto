@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/provider_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/provider_status.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "metricspb/v2/provider_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * ProviderInfo contains information about a metrics provider.
@@ -23,9 +23,9 @@ message ProviderInfo {
 
   // Human-readable name of the provider
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Provider type (e.g., "prometheus", "datadog", "custom")
   string type = 3;
@@ -43,7 +43,7 @@ message ProviderInfo {
   string version = 7;
 
   // When this provider was created
-  google.protobuf.Timestamp created_at = 8 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 8 [(buf.validate.field).required = true];
 
   // When this provider was last updated
   google.protobuf.Timestamp last_updated = 9;
@@ -55,5 +55,5 @@ message ProviderInfo {
   repeated string tags = 11;
 
   // Description of the provider
-  string description = 12 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 12 [(buf.validate.field).string.max_len = 1000];
 }

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/ordering_level.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e1d35748-c24e-4dd1-91e8-edd9e4b62959
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum OrderingLevel {
   ORDERING_LEVEL_UNSPECIFIED = 0;

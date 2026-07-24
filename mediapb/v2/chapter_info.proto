@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/media/chapter_info.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 3456789-abcd-ef01-b0c1-d2e3f4a5b6c7
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Information about a chapter or segment.
 message ChapterInfo {

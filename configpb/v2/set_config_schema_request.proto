@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/api/set_config_schema_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5031e4d6-2d21-40cf-b382-0a95e6ba91c7
 // file: proto/gcommon/v2/config/set_config_schema_request.proto
 //
@@ -11,14 +11,13 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "configpb/v2/config_schema.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message SetConfigSchemaRequest {
   // Namespace the schema applies to

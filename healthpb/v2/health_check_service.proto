@@ -1,23 +1,23 @@
 // file: proto/gcommon/v2/health/services/health_check_service.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 192a3b4c-586e-3456-0123-789012345678
 
 edition = "2023";
 
 package health.v2;
 
-import "healthpb/v2/dependency_check_request.proto";
-import "healthpb/v2/list_checks_request.proto";
-import "healthpb/v2/register_check_request.proto";
-import "healthpb/v2/unregister_check_request.proto";
-import "healthpb/v2/dependency_check_response.proto";
-import "healthpb/v2/list_checks_response.proto";
-import "healthpb/v2/register_check_response.proto";
-import "healthpb/v2/unregister_check_response.proto";
 import "google/protobuf/go_features.proto";
+import "healthpb/v2/dependency_check_request.proto";
+import "healthpb/v2/dependency_check_response.proto";
+import "healthpb/v2/list_checks_request.proto";
+import "healthpb/v2/list_checks_response.proto";
+import "healthpb/v2/register_check_request.proto";
+import "healthpb/v2/register_check_response.proto";
+import "healthpb/v2/unregister_check_request.proto";
+import "healthpb/v2/unregister_check_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/healthpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/healthpb/v2";
 
 /**
  * HealthCheckService provides health check management capabilities.

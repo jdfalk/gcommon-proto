@@ -1,25 +1,25 @@
 // file: proto/gcommon/v2/organization/integration.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 6090f563-98ae-4180-8e95-a161c4e6b658
 
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message Integration {
   // Integration name (e.g., "slack", "github", "jira")
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Whether this integration is currently enabled
   bool enabled = 2;
@@ -28,7 +28,10 @@ message Integration {
   repeated common.v2.KeyValue config = 3 [lazy = true];
 
   // Integration creation timestamp
-  google.protobuf.Timestamp created_at = 4 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 4 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // User ID who configured this integration
   string configured_by = 5;

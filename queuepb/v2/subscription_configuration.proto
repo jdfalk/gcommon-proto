@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/queue/subscription_configuration.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: c1883113-aa7a-4cba-b38a-4d695cefecf3
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/ack_level.proto";
 import "commonpb/v2/delivery_mode.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message SubscriptionConfiguration {
   // Acknowledgment level required
@@ -23,7 +22,10 @@ message SubscriptionConfiguration {
   common.v2.DeliveryMode delivery_mode = 2;
 
   // Maximum number of unacknowledged messages
-  int32 max_unacked_messages = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 max_unacked_messages = 3 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Acknowledgment timeout (milliseconds)
   int32 ack_timeout_ms = 4 [(buf.validate.field).int32.gt = 0];

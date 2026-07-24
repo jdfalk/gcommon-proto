@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/health/messages/health_metrics.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9a3b4c5d-d0e7-5678-2345-901234567890
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/healthpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/healthpb/v2";
 
 /**
  * HealthMetrics represents aggregated health metrics and statistics.

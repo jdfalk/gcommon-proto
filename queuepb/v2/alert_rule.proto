@@ -1,19 +1,19 @@
 // file: proto/gcommon/v2/queue/alert_rule.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/alert_condition.proto";
 import "commonpb/v2/metrics_alert_severity.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * An individual alert rule.
@@ -21,18 +21,18 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
 message AlertRule {
   // Unique name for the rule
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Human-readable description
-  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 2 [(buf.validate.field).string.max_len = 1000];
 
   // Metric to monitor
   string metric_name = 3 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Condition for triggering the alert
   common.v2.AlertCondition condition = 4;

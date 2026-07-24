@@ -1,15 +1,15 @@
 // file: proto/gcommon/v2/database/schema/migration_script.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 29854789-0235-4d1e-9031-989570ae161d
 edition = "2023";
 
 package database.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * MigrationScript represents a database migration script with version control.
@@ -23,5 +23,5 @@ message MigrationScript {
   string script = 2;
 
   // Human-readable description of the migration
-  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 3 [(buf.validate.field).string.max_len = 1000];
 }

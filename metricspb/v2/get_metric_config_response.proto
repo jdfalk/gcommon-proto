@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/get_metric_config_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 1d1401a7-7986-407f-9b51-d77ceae3b42b
 
 edition = "2023";
@@ -7,11 +7,11 @@ edition = "2023";
 package metrics.v2;
 
 import "commonpb/v2/error.proto";
-import "metricspb/v2/metric_config.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * GetMetricConfigResponse contains metric configuration information.

@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/metrics/v2/record_metric_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 8e0ace8f-cfd2-45c0-9e30-47eefe47b60f
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/batch_context.proto";
-import "metricspb/v2/metric_data.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "metricspb/v2/batch_context.proto";
+import "metricspb/v2/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message RecordMetricRequest {
   // Standard request metadata (tracing, auth, etc.)

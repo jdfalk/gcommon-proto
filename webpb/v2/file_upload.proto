@@ -1,25 +1,25 @@
 // file: proto/gcommon/v2/web/file_upload.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 47f22269-7456-4237-b463-c287580f662d
 
 edition = "2023";
 
 package web.v2;
 
-import "webpb/v2/mime_type.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
+import "webpb/v2/mime_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // FileUpload message definition.
 message FileUpload {
   // Name of the uploaded file
   string file_name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Content type validation
   MimeType content_type = 2;

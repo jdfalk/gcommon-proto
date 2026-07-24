@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/organization/database_isolation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3719d310-ed72-4d75-8760-a91686438853
 
 edition = "2023";
 
 package organization.v2;
 
-import "commonpb/v2/key_value.proto";
-import "organizationpb/v2/backup_config.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "commonpb/v2/key_value.proto";
+import "google/protobuf/go_features.proto";
+import "organizationpb/v2/backup_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message DatabaseIsolation {
   // Database instance identifier (for INFRASTRUCTURE isolation)
@@ -20,9 +20,9 @@ message DatabaseIsolation {
 
   // Schema or database name for this tenant
   string schema_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Database connection parameters
   repeated common.v2.KeyValue connection_params = 3 [lazy = true];

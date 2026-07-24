@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/batch_ack_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 73ed83fb-3706-45cc-895d-fec71d0a2184
 // Request for batch acknowledgment operations
 
@@ -7,12 +7,11 @@ edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 // Request for batch acknowledgment operations
 message BatchAckRequest {

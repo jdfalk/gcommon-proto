@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/queue/notification_channel.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metrics_alert_severity.proto";
 import "commonpb/v2/notification_channel_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Notification channel for sending alerts.
@@ -20,9 +20,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
 message QueueNotificationChannel {
   // Unique identifier for the channel
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Type of notification channel
   common.v2.NotificationChannelType type = 2;

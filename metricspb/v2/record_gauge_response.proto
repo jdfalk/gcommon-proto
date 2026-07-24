@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/metrics/v2/record_gauge_response.proto
-// version: 1.2.0
+// version: 1.2.1
 // guid: c1d2e3f4-g5h6-7890-i1j2-k3l4m5n6o7p8
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
-import "metricspb/v2/gauge_metric.proto";
-import "metricspb/v2/recording_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "metricspb/v2/gauge_metric.proto";
+import "metricspb/v2/recording_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * RecordGaugeResponse is returned after recording a gauge metric.

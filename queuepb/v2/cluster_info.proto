@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/queue/cluster_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Cluster information for queue management.
@@ -23,9 +23,9 @@ message ClusterInfo {
 
   // Cluster name
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Cluster version
   string version = 3;

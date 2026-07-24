@@ -1,15 +1,15 @@
 // file: proto/gcommon/v2/common/client_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d1b1396a-9610-4eb4-b5ea-bc7218024dee
 edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Client information for request identification and monitoring.
@@ -19,9 +19,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message ClientInfo {
   // Client application name (e.g., "mobile-app", "web-frontend")
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Client version using semantic versioning (e.g., "1.2.3")
   string version = 2;

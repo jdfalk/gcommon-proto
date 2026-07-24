@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/common/user_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * UserInfo contains information about a user.
@@ -19,21 +19,21 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message UserInfo {
   // Unique user identifier
   string user_id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Username
   string username = 2;
 
   // User's email address
-  string email = 3 [ (buf.validate.field).string.email = true ];
+  string email = 3 [(buf.validate.field).string.email = true];
 
   // User's display name
   string display_name = 4 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // User roles
   repeated string roles = 5;
@@ -48,7 +48,7 @@ message UserInfo {
   map<string, string> metadata = 8;
 
   // When the user was created
-  google.protobuf.Timestamp created_at = 9 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 9 [(buf.validate.field).required = true];
 
   // When the user was last updated
   google.protobuf.Timestamp updated_at = 10;
@@ -63,5 +63,5 @@ message UserInfo {
   bool email_verified = 13;
 
   // User's profile picture URL
-  string avatar_url = 14 [ (buf.validate.field).string.uri = true ];
+  string avatar_url = 14 [(buf.validate.field).string.uri = true];
 }

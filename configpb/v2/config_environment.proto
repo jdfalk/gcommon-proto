@@ -1,11 +1,12 @@
 // file: proto/gcommon/v2/config/v2/config_environment.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 167ed450-2130-48be-8d18-2ad5bd34cf7e
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/environment_status.proto";
 import "commonpb/v2/environment_type.proto";
 import "commonpb/v2/health_status.proto";
@@ -24,7 +25,7 @@ import "configpb/v2/promotion_rule.proto";
 import "configpb/v2/sync_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+
 // Config-local types
 
 // Metrics enums referenced by this message
@@ -32,7 +33,7 @@ import "buf/validate/validate.proto";
 // Organization-scoped settings used by environments
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message ConfigEnvironment {
   // Unique identifier for the environment
@@ -40,12 +41,12 @@ message ConfigEnvironment {
 
   // Environment name
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Environment description
-  string description = 3 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 3 [(buf.validate.field).string.max_len = 1000];
 
   // Environment type
   common.v2.EnvironmentType type = 4;
@@ -54,7 +55,7 @@ message ConfigEnvironment {
   common.v2.EnvironmentStatus status = 5;
 
   // Creation timestamp
-  google.protobuf.Timestamp created_at = 6 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 6 [(buf.validate.field).required = true];
 
   // Last modification timestamp
   google.protobuf.Timestamp updated_at = 7;

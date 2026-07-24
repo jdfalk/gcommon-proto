@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/queue/restore_queue_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 8dbc0f2d-31af-48e8-9785-3d801a7d7e95
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "queuepb/v2/backup_source.proto";
 import "queuepb/v2/restore_config.proto";
 import "queuepb/v2/restore_options.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message RestoreQueueRequest {
   // Target queue identifier for restoration

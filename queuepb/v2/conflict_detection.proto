@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/conflict_detection.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 49cc6bab-66b1-4e09-9337-76d6644a2b81
 
 edition = "2023";
@@ -7,12 +7,12 @@ edition = "2023";
 package queue.v2;
 
 import "commonpb/v2/conflict_strategy.proto";
+import "google/protobuf/go_features.proto";
 import "queuepb/v2/timestamp_config.proto";
 import "queuepb/v2/vector_clock_config.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ConflictDetection {
   // Enable conflict detection

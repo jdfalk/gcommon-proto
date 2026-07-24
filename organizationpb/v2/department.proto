@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/organization/department.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 11b263a9-b479-44a3-89ad-5cc707425f8d
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/key_value.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * Department message representing an organizational department.
@@ -21,27 +21,27 @@ option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
 message Department {
   // Unique department identifier
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Organization identifier
   string organization_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Department name
   string name = 3 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // URL-friendly slug for the department
   string slug = 4;
 
   // Department description or purpose
-  string description = 5 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 5 [(buf.validate.field).string.max_len = 1000];
 
   // Parent department ID (for nested departments)
   string parent_department_id = 6;
@@ -59,22 +59,25 @@ message Department {
   repeated common.v2.KeyValue metadata = 10 [lazy = true];
 
   // Department creation timestamp
-  google.protobuf.Timestamp created_at = 11 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 11 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 12 [lazy = true];
 
   // User ID who created this department
-  string created_by = 13 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string created_by = 13 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // User ID who last updated this department
-  string updated_by = 14 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string updated_by = 14 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // Whether this department is currently active
   bool active = 15;
 
   // Department's email address for external communications
-  string contact_email = 16 [ (buf.validate.field).string.email = true ];
+  string contact_email = 16 [(buf.validate.field).string.email = true];
 
   // Department's phone number
   string phone = 17;

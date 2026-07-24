@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/update_ssl_certificate_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: f2ee4b98-5830-4ea9-a968-5cf5c6216d5d
 
 edition = "2023";
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 /**
  * UpdateSSLCertificateResponse message for web service operations.

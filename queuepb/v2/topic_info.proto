@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/queue/topic_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Topic information for queue management.
@@ -20,15 +20,18 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
 message TopicInfo {
   // Topic name/identifier
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Topic description
-  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 2 [(buf.validate.field).string.max_len = 1000];
 
   // Topic creation timestamp
-  google.protobuf.Timestamp created_at = 3 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 3 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Topic last update timestamp
   google.protobuf.Timestamp updated_at = 4 [lazy = true];

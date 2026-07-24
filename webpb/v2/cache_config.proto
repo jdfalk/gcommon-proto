@@ -1,19 +1,19 @@
 // file: proto/gcommon/v2/web/cache_config.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 21e9abdf-bf09-4c22-b45b-eb9c092d9664
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/cache_policy.proto";
 import "commonpb/v2/cache_strategy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {
@@ -31,7 +31,7 @@ message WebCacheConfig {
 
   // Optional namespace or cache name
   string cache_name = 5 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 }

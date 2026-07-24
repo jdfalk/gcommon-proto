@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/list_subscriptions_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 781a6513-601b-4ef8-87bf-7c881f4b8a79
 // ListSubscriptionsRequest returns subscriptions for a given topic or queue.
 // Previously a placeholder, this file now contains the full request definition.
@@ -8,13 +8,12 @@ edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message QueueListSubscriptionsRequest {
   // Request metadata
@@ -24,7 +23,10 @@ message QueueListSubscriptionsRequest {
   string parent = 2 [(buf.validate.field).string.min_len = 1];
 
   // Optional page size
-  int32 page_size = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 page_size = 3 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Optional page token
   string page_token = 4 [(buf.validate.field).string.min_len = 1];

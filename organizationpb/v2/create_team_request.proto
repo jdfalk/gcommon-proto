@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/organization/create_team_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 21cf9d30-d222-4d27-95dc-6dc71cf4a89f
 
 edition = "2023";
@@ -7,11 +7,11 @@ edition = "2023";
 package organization.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "organizationpb/v2/team.proto";
 import "google/protobuf/go_features.proto";
+import "organizationpb/v2/team.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message CreateTeamRequest {
   // Request metadata for tracing and context

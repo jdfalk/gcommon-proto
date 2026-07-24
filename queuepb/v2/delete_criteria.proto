@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/queue/delete_criteria.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 351be276-91ef-4408-9e3d-1931faddc070
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/message_state.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message DeleteCriteria {
   // Delete messages older than this timestamp
@@ -28,7 +27,10 @@ message DeleteCriteria {
   string correlation_id = 4 [(buf.validate.field).string.min_len = 1];
 
   // Maximum number of messages to delete
-  int32 max_messages = 5 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 max_messages = 5 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
 
   // Delete messages in specific state
   common.v2.MessageState state = 6;

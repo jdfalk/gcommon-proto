@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/organization/create_organization_request.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 56789abc-def0-1234-5678-9abcdef01234
 
 edition = "2023";
@@ -8,11 +8,11 @@ package organization.v2;
 
 import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
-import "organizationpb/v2/organization.proto";
 import "google/protobuf/go_features.proto";
+import "organizationpb/v2/organization.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message CreateOrganizationRequest {
   // Request metadata for tracing and context - required

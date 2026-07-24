@@ -1,21 +1,22 @@
 // file: proto/gcommon/v2/queue/enqueue_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: df7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+
 // Standard imports
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * EnqueueResponse confirms successful message enqueuing.
@@ -52,9 +53,9 @@ message EnqueueResponse {
    * Echoed from the request for verification.
    */
   string queue_name = 12 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   /**
    * MD5 hash of the message payload for integrity verification.

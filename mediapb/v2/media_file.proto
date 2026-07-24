@@ -1,34 +1,37 @@
 // file: proto/gcommon/v2/media/media_file.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: e3bc9175-1261-4755-9d32-d991586e723f
 
 edition = "2023";
 
 package media.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/media_type.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "mediapb/v2/audio_track.proto";
 import "mediapb/v2/media_metadata.proto";
 import "mediapb/v2/media_quality.proto";
 import "mediapb/v2/subtitle_track.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Media file representation with associated metadata and tracks.
 message MediaFile {
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
   string path = 2;
   string filename = 3;
   common.v2.MediaType type = 4;
   int64 size_bytes = 5;
-  google.protobuf.Timestamp created_at = 6 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 6 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
   google.protobuf.Timestamp modified_at = 7 [lazy = true];
   MediaMetadata metadata = 8;
   repeated SubtitleTrack subtitle_tracks = 9;

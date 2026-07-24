@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/subscription_info.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 9b9d0532-72ff-4a42-b3b2-689a1a26dd9f
 
 // SubscriptionInfo provides metadata about a subscription to a topic
@@ -9,12 +9,12 @@ edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * SubscriptionInfo describes a subscriber's configuration and status.
@@ -22,9 +22,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
 message QueueSubscriptionInfo {
   // Name of the subscription
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Topic or queue this subscription belongs to
   string topic = 2;
@@ -36,7 +36,7 @@ message QueueSubscriptionInfo {
   int64 pending_message_count = 4;
 
   // Time when the subscription was created
-  google.protobuf.Timestamp created_at = 5 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 5 [(buf.validate.field).required = true];
 
   // Arbitrary labels associated with the subscription
   map<string, string> labels = 6;

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/get_system_stats_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 789eabcd-e1f2-3a4b-5c6d-7e8f9a0b1c2d
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Request to get authentication system statistics.

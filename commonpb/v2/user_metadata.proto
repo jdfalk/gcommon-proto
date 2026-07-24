@@ -1,29 +1,29 @@
 // file: proto/gcommon/v2/common/user_metadata.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 18290eba-bd6e-4e3a-8aea-ffb79b9fa0f9
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/user_preferences.proto";
 import "commonpb/v2/verification_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message UserMetadata {
   // User's preferred display name
   string display_name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // User's profile picture URL
-  string avatar_url = 2 [ (buf.validate.field).string.uri = true ];
+  string avatar_url = 2 [(buf.validate.field).string.uri = true];
 
   // User's timezone
   string timezone = 3;

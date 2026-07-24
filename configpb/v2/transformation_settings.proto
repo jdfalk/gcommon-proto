@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/config/v2/transformation_settings.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: aadcd103-6f7c-4b6c-a58a-5c4ee2500cbf
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "configpb/v2/transformation_step.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message TransformationSettings {
   // Whether transformation is enabled

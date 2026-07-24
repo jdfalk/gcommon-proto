@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/config/get_multiple_config_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 40dcbc9d-69ee-4f5e-896b-c9d8bca277b7
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message GetMultipleConfigRequest {
   // Configuration keys to retrieve

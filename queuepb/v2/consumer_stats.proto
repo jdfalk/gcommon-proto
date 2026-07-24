@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/queue/consumer_stats.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f4a5b6c7-890d-234e-5678-890123456789
 
 edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message ConsumerStats {
   // Consumer ID

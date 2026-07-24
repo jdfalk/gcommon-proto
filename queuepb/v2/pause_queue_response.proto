@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/pause_queue_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 8d32dd33-5b24-4d1f-b32c-fc9e172e7b9a
 // Response for queue pause operations
 
@@ -7,11 +7,11 @@ edition = "2023";
 
 package queue.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 // Response for queue pause operations
 message PauseQueueResponse {
@@ -20,9 +20,9 @@ message PauseQueueResponse {
 
   // Queue name that was paused
   string queue_name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Current pause status
   string pause_status = 3;

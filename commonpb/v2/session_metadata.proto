@@ -1,19 +1,19 @@
 // file: proto/gcommon/v2/common/session_metadata.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 01cd27dc-f07e-4fe5-805f-ff4fc49ef91b
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/device_info.proto";
 import "commonpb/v2/location_info.proto";
 import "commonpb/v2/session_state.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message SessionMetadata {
   // Session ID
@@ -21,9 +21,9 @@ message SessionMetadata {
 
   // User ID
   string user_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Session start time
   int64 started_at = 3;

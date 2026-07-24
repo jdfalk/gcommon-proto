@@ -1,20 +1,20 @@
 // file: proto/gcommon/v2/metrics/v2/timer_metric.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 13ed2d88-7499-4d64-83cb-9292a1e35065
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/percentile_measurement.proto";
-import "metricspb/v2/timer_statistics.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "metricspb/v2/percentile_measurement.proto";
+import "metricspb/v2/timer_statistics.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message TimerMetric {
   // Unique identifier for this timer measurement
@@ -22,9 +22,9 @@ message TimerMetric {
 
   // Name or label for this timer (e.g., "api_request_duration")
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Start time of the measured operation
   google.protobuf.Timestamp start_time = 3;

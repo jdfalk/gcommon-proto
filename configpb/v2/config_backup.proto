@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/config/v2/config_backup.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: vw2xyz01-34a5-6b7c-8d9e-0f1g2h3i4j5k
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * Represents a configuration backup.
@@ -23,7 +23,7 @@ message ConfigBackup {
   string backup_id = 1;
 
   // Timestamp when backup was created
-  google.protobuf.Timestamp created_at = 2 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 2 [(buf.validate.field).required = true];
 
   // Configuration values at backup time
   map<string, google.protobuf.Any> config_values = 3;
@@ -35,10 +35,10 @@ message ConfigBackup {
   string environment = 5;
 
   // User or service that created the backup
-  string created_by = 6 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string created_by = 6 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // Description or reason for the backup
-  string description = 7 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 7 [(buf.validate.field).string.max_len = 1000];
 
   // Backup type (MANUAL, SCHEDULED, AUTOMATIC)
   string backup_type = 8;

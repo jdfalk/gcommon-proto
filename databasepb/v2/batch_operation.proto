@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/database/batch_operation.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 5d1d11c4-d351-47d7-afeb-48167f63e928
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "databasepb/v2/query_parameter.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * BatchOperation represents a single operation within a batch execution.
@@ -22,5 +21,8 @@ message DatabaseBatchOperation {
   string statement = 1 [(buf.validate.field).string.min_len = 1];
 
   // Parameters for the statement
-  repeated QueryParameter parameters = 2 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+  repeated QueryParameter parameters = 2 [
+    lazy = true,
+    (buf.validate.field).repeated.min_items = 1
+  ];
 }

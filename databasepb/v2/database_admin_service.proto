@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/database/database_admin_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 7f0b5d31-549f-466f-ac8e-e1a8339824cc
 edition = "2023";
 
@@ -21,7 +21,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * DatabaseAdminService provides administrative operations for database

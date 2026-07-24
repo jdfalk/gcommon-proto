@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/security_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 61377102-cbd1-4223-8342-a2f11b1c4d47
 
 edition = "2023";
 
 package metrics.v2;
 
-import "commonpb/v2/metrics_api_key_config.proto";
-import "metricspb/v2/tls_config.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "commonpb/v2/metrics_api_key_config.proto";
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/tls_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message MetricsSecurityConfig {
   // Whether authentication is required

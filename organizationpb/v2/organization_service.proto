@@ -1,10 +1,11 @@
 // file: proto/gcommon/v2/organization/organization_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 7a327e8c-286f-4bf2-9d3d-7917e6de4f86
 edition = "2023";
 
 package organization.v2;
 
+import "google/protobuf/go_features.proto";
 import "organizationpb/v2/add_member_request.proto";
 import "organizationpb/v2/add_member_response.proto";
 import "organizationpb/v2/create_organization_request.proto";
@@ -27,10 +28,9 @@ import "organizationpb/v2/update_organization_request.proto";
 import "organizationpb/v2/update_organization_response.proto";
 import "organizationpb/v2/update_organization_settings_request.proto";
 import "organizationpb/v2/update_organization_settings_response.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

@@ -1,26 +1,26 @@
 // file: proto/gcommon/v2/web/file_metadata.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: ac289d4b-2cc8-4cfb-a360-36eef7dba093
 
 edition = "2023";
 
 package web.v2;
 
-import "webpb/v2/mime_type.proto";
+import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "webpb/v2/mime_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // FileMetadata message definition.
 message FileMetadata {
   // File name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // File size in bytes
   int64 size_bytes = 2;

@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/organization/dns_record.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: a84713b6-c765-4b50-99a0-e129f9325dcd
 
 edition = "2023";
 
 package organization.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message DNSRecord {
   // Record type (A, CNAME, TXT, etc.)
@@ -18,9 +18,9 @@ message DNSRecord {
 
   // Record name
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Record value
   string value = 3;

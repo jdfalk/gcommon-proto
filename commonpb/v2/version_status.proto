@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/version_status.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 55704401-46f6-4b87-94a8-11020525cfe4
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum VersionStatus {
   VERSION_STATUS_UNSPECIFIED = 0;

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/types/register_user_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 5bda08f2-024d-4dfb-8ba4-45b84fe8d4ef
 // file: proto/gcommon/v2/common/register_user_response.proto
 //
@@ -10,11 +10,11 @@ edition = "2023";
 
 package common.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message RegisterUserResponse {
   // Registration success
@@ -22,9 +22,9 @@ message RegisterUserResponse {
 
   // User ID of created user
   string user_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Whether email verification is required
   bool email_verification_required = 3;

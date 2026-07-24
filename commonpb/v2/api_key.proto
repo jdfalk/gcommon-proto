@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/common/api_key.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: a1b2c3d4-e5f6-789a-b0c1-d2e3f4a5b6c7
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto"; // Added for field validation rules
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto"; // Added for field validation rules
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * APIKey represents a user-issued API key used for authenticating
@@ -38,7 +38,10 @@ message APIKey {
   string key_hash = 4 [(buf.validate.field).string.min_len = 1];
 
   // Creation timestamp (must be present)
-  google.protobuf.Timestamp created_at = 5 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 5 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Optional expiration timestamp
   google.protobuf.Timestamp expires_at = 6 [lazy = true];
@@ -46,4 +49,3 @@ message APIKey {
   // Whether the key is currently active
   bool active = 7;
 }
-

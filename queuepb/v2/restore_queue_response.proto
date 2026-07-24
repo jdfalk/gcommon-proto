@@ -1,25 +1,24 @@
 // file: proto/gcommon/v2/queue/restore_queue_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 949d5078-96a1-43dd-adb1-5e57d6a82a57
 
 edition = "2023";
 
 package queue.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metrics_validation_result.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "queuepb/v2/partition_restore_result.proto";
 import "queuepb/v2/restore_error.proto";
 import "queuepb/v2/restore_statistics.proto";
 import "queuepb/v2/restore_status.proto";
 import "queuepb/v2/restore_warning.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message RestoreQueueResponse {
   // Operation success status

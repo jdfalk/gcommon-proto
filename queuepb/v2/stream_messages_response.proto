@@ -1,6 +1,6 @@
 // file: proto/gcommon/v2/queue/api/stream_messages_response.proto
 // file: proto/gcommon/v2/queue/stream_messages_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f
 //
 // Response definitions for queue module
@@ -9,13 +9,12 @@ edition = "2023";
 
 package queue.v2;
 
-import "queuepb/v2/queue_message.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "queuepb/v2/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * Response for streaming messages from a queue.

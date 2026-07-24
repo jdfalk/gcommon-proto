@@ -1,26 +1,26 @@
 // file: proto/gcommon/v2/metrics/v2/label_definition.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 56dd3a22-ceda-4620-bfb2-c279efc6fab3
 
 edition = "2023";
 
 package metrics.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message LabelDefinition {
   // Name of the label
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Description of what this label represents
-  string description = 2 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 2 [(buf.validate.field).string.max_len = 1000];
 
   // Whether this label is required
   bool required = 3;

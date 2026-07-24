@@ -1,27 +1,27 @@
 // file: proto/gcommon/v2/metrics/v2/summary_metric.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: b33d2c5c-ecf6-44ee-9472-340b3362d75d
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/summary_quantile.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "metricspb/v2/summary_quantile.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message SummaryMetric {
   // Metric name (e.g., "http_request_duration_seconds")
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Total count of observations
   uint64 sample_count = 2;

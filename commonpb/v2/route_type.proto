@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/route_type.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: a655dd19-273c-4cb4-a5ea-71ce983e16cd
 //
 // RouteType distinguishes different route behaviors.
@@ -10,7 +10,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum RouteType {
   ROUTE_TYPE_UNSPECIFIED = 0;

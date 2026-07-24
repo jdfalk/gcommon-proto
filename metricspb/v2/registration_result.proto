@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/metrics/v2/registration_result.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: ed484bf7-ea0c-42a0-8479-e2c6a9d205eb
 
 edition = "2023";
 
 package metrics.v2;
 
-import "commonpb/v2/registration_action.proto";
-import "metricspb/v2/schema_change.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "commonpb/v2/registration_action.proto";
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/schema_change.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message RegistrationResult {
   // Whether a new metric was created or existing one updated

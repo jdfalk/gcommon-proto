@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/metrics/v2/provider_endpoints.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f15d26e3-bb0f-47d8-a4f2-20cbebab5f75
 
 edition = "2023";
 
 package metrics.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderEndpoints {
   // Main service endpoint

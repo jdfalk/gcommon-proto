@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/types/get_session_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e2dfbf3c-a64b-4e03-8728-bb79288e0998
 // file: proto/gcommon/v2/common/get_session_response.proto
 //
@@ -13,7 +13,7 @@ import "commonpb/v2/session.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response for getting session information.

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/organization/tenant_quota.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 00b319b2-df4a-4664-9a2e-7eb13cb80bf1
 // Tenant quota message definition
 
@@ -7,12 +7,11 @@ edition = "2023";
 
 package organization.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * TenantQuota defines resource limits and quotas for a tenant.

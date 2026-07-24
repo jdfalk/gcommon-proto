@@ -1,63 +1,58 @@
 // file: authpb/v2/auth_service.proto
-// version: 2.1.0
+// version: 2.1.1
 // guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 edition = "2023";
 
 package auth.v2;
 
-// Core authentication imports
-import "authpb/v2/login_request.proto";
-import "authpb/v2/login_response.proto";
-import "authpb/v2/validate_token_request.proto";
-import "authpb/v2/validate_token_response.proto";
-import "authpb/v2/authorize_request.proto";
-import "authpb/v2/authorize_response.proto";
-import "authpb/v2/generate_token_request.proto";
-import "authpb/v2/generate_token_response.proto";
-import "authpb/v2/refresh_token_request.proto";
-import "authpb/v2/refresh_token_response.proto";
-import "authpb/v2/revoke_token_request.proto";
-import "authpb/v2/revoke_token_response.proto";
-
 // API key authentication imports
 import "authpb/v2/api_key_auth_request.proto";
 import "authpb/v2/api_key_auth_response.proto";
+import "authpb/v2/authorize_request.proto";
+import "authpb/v2/authorize_response.proto";
+import "authpb/v2/change_password_request.proto";
+import "authpb/v2/change_password_response.proto";
 import "authpb/v2/create_api_key_request.proto";
 import "authpb/v2/create_api_key_response.proto";
-import "authpb/v2/revoke_api_key_request.proto";
-import "authpb/v2/revoke_api_key_response.proto";
+import "authpb/v2/extend_session_request.proto";
+import "authpb/v2/extend_session_response.proto";
+import "authpb/v2/generate_token_request.proto";
+import "authpb/v2/generate_token_response.proto";
 import "authpb/v2/list_api_keys_request.proto";
 import "authpb/v2/list_api_keys_response.proto";
-
-// OAuth2 authentication imports
-import "authpb/v2/oauth_initiate_request.proto";
-import "authpb/v2/oauth_initiate_response.proto";
+import "authpb/v2/list_sessions_request.proto";
+import "authpb/v2/list_sessions_response.proto";
+// Core authentication imports
+import "authpb/v2/login_request.proto";
+import "authpb/v2/login_response.proto";
 import "authpb/v2/oauth_callback_request.proto";
 import "authpb/v2/oauth_callback_response.proto";
 import "authpb/v2/oauth_config_request.proto";
 import "authpb/v2/oauth_config_response.proto";
-
+// OAuth2 authentication imports
+import "authpb/v2/oauth_initiate_request.proto";
+import "authpb/v2/oauth_initiate_response.proto";
+import "authpb/v2/refresh_token_request.proto";
+import "authpb/v2/refresh_token_response.proto";
+import "authpb/v2/revoke_api_key_request.proto";
+import "authpb/v2/revoke_api_key_response.proto";
+import "authpb/v2/revoke_token_request.proto";
+import "authpb/v2/revoke_token_response.proto";
 // Session management imports
 import "authpb/v2/session_info_request.proto";
 import "authpb/v2/session_info_response.proto";
-import "authpb/v2/extend_session_request.proto";
-import "authpb/v2/extend_session_response.proto";
-import "authpb/v2/list_sessions_request.proto";
-import "authpb/v2/list_sessions_response.proto";
-
+import "authpb/v2/update_profile_request.proto";
+import "authpb/v2/update_profile_response.proto";
 // User management imports
 import "authpb/v2/user_profile_request.proto";
 import "authpb/v2/user_profile_response.proto";
-import "authpb/v2/update_profile_request.proto";
-import "authpb/v2/update_profile_response.proto";
-import "authpb/v2/change_password_request.proto";
-import "authpb/v2/change_password_response.proto";
-
+import "authpb/v2/validate_token_request.proto";
+import "authpb/v2/validate_token_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 /**
  * AuthService provides comprehensive authentication and authorization functionality.

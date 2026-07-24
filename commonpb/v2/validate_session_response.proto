@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/validate_session_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 53da0a29-4520-4990-9822-6b18b3dedc2a
 edition = "2023";
 
@@ -11,7 +11,7 @@ import "commonpb/v2/user_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response to session validation request.

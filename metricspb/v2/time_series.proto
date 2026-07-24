@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/metrics/v2/time_series.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0f1e1fe8-f8db-4e8f-8220-628a1b9c02bf
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/metric_sample.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_sample.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * TimeSeries represents a collection of metric samples over time.

@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/delete_notification_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d7f015d6-70a1-4fcd-82b3-560a134d7a45
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response after deleting a notification.

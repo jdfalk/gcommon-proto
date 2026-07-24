@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/database/touch_expiration_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: bb0056c3-6eb4-4476-a508-c6789653b1f5
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Request to update the TTL of an existing cache key.

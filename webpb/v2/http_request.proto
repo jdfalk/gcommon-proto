@@ -1,21 +1,22 @@
 // file: proto/gcommon/v2/web/http_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: fb9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+
 // Standard imports
 // Common types
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 /**
  * HttpRequest represents an HTTP request for processing by web services.
@@ -171,5 +172,5 @@ message HttpRequest {
   /**
    * When the request was created/initiated by the client.
    */
-  google.protobuf.Timestamp created_at = 52 [ (buf.validate.field).required = true ];
+  google.protobuf.Timestamp created_at = 52 [(buf.validate.field).required = true];
 }

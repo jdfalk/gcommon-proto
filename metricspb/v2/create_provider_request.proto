@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/create_provider_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 1bbe7bf6-5552-43f2-a429-d72f7fb4385f
 
 edition = "2023";
@@ -7,11 +7,11 @@ edition = "2023";
 package metrics.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/provider_config.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/provider_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message CreateProviderRequest {
   // Standard request metadata (tracing, auth, etc.)

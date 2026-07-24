@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/update_cache_config_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: jkl45678-90ab-cdef-1234-567890abcdef
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 message UpdateCacheConfigResponse {
   // Whether the update was successful

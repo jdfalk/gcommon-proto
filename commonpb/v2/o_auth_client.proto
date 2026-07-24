@@ -1,17 +1,17 @@
 // file: proto/gcommon/v2/common/o_auth_client.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 436333b4-e6f3-4a6d-ad0c-a4b0cb8975f8
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/resource_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * OAuth2 client configuration for third-party integrations.
@@ -27,12 +27,12 @@ message OAuthClient {
 
   // Client name
   string name = 3 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Client description
-  string description = 4 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 4 [(buf.validate.field).string.max_len = 1000];
 
   // Client type ("public" or "confidential")
   string client_type = 5;
@@ -50,7 +50,10 @@ message OAuthClient {
   repeated string scopes = 9;
 
   // Client creation timestamp
-  google.protobuf.Timestamp created_at = 10 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 10 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Client status
   common.v2.ResourceStatus status = 11;
@@ -59,10 +62,10 @@ message OAuthClient {
   map<string, string> metadata = 12 [lazy = true];
 
   // Client logo URL
-  string logo_url = 13 [ (buf.validate.field).string.uri = true ];
+  string logo_url = 13 [(buf.validate.field).string.uri = true];
 
   // Client website URL
-  string website_url = 14 [ (buf.validate.field).string.uri = true ];
+  string website_url = 14 [(buf.validate.field).string.uri = true];
 
   // Client owner user ID
   string owner_user_id = 15;

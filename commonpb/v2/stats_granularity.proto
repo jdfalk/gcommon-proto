@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/stats_granularity.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * StatsGranularity represents the granularity for statistics.

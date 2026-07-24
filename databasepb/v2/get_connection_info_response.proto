@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/database/get_connection_info_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: aeb84786-b800-4de9-bf70-e9e9eda20820
 edition = "2023";
 
@@ -10,7 +10,7 @@ import "databasepb/v2/database_info.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * GetConnectionInfoResponse contains database connection and pool information.

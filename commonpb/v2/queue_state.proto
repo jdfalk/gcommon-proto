@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/queue_state.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c
 //
 // Enum definitions for queue module
@@ -11,7 +11,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Represents the operational state of a queue.

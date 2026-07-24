@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/provider_state.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 123e4567-e89b-12d3-a456-426614174024
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * ProviderState defines the possible states of a provider.

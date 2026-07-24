@@ -1,20 +1,20 @@
 // file: proto/gcommon/v2/metrics/v2/unregister_metric_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 28148796-f454-44f3-bb31-6352cfaf3755
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
-import "metricspb/v2/backup_info.proto";
-import "metricspb/v2/unregistration_result.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
+import "metricspb/v2/backup_info.proto";
+import "metricspb/v2/unregistration_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message UnregisterMetricResponse {
   // Success status of the unregistration
@@ -28,9 +28,9 @@ message UnregisterMetricResponse {
 
   // Name of the metric that was unregistered
   string metric_name = 4 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // When the metric was unregistered
   google.protobuf.Timestamp unregistered_at = 5;

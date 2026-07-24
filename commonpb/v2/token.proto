@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/common/token.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: caf60cc1-beab-4119-bb01-f426fbb8b680
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/token_status.proto";
 import "commonpb/v2/token_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Token entity representing authentication and authorization tokens.
@@ -22,9 +22,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
 message Token {
   // Unique token identifier
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Token value (may be JWT or opaque)
   string value = 2;
@@ -37,9 +37,9 @@ message Token {
 
   // User ID associated with this token
   string user_id = 5 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Client ID that requested this token
   string client_id = 6;
@@ -48,7 +48,10 @@ message Token {
   repeated string scopes = 7;
 
   // Token creation timestamp
-  google.protobuf.Timestamp created_at = 8 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 8 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Token expiration timestamp
   google.protobuf.Timestamp expires_at = 9 [lazy = true];

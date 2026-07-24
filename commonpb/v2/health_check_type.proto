@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/health_check_type.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: f4a5b6c7-d8e9-0f1a-2b3c-4d5e6f7a8b9c
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * HealthCheckType represents the type of health check.

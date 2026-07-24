@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/record_counter_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: af165336-0041-4c47-a00d-5f0470240fda
 // file: proto/gcommon/v2/metrics/v2/record_counter_request.proto
 //
@@ -9,12 +9,12 @@ edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * RecordCounterRequest is used to record or increment a counter metric.
@@ -22,9 +22,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
 message RecordCounterRequest {
   // Metric name (e.g., "http_requests_total")
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Value to add to the counter (default: 1.0)
   double value = 2;

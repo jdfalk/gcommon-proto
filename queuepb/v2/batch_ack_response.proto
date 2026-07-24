@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/queue/batch_ack_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: f9db0dcc-9ce1-4f92-87fd-2ed15dd3fefb
 
 edition = "2023";
 
 package queue.v2;
 
-import "commonpb/v2/response_metadata.proto";
-import "queuepb/v2/failed_ack.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "commonpb/v2/response_metadata.proto";
+import "google/protobuf/go_features.proto";
+import "queuepb/v2/failed_ack.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message BatchAckResponse {
   // Overall success status

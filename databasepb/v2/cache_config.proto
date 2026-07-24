@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/database/cache_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: lm2nopqr-34s5-6t7u-8v9w-0x1y2z3a4b5c
 
 edition = "2023";
 
 package database.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/eviction_policy.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/databasepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/databasepb/v2";
 
 /**
  * Configuration settings for cache behavior.
@@ -42,7 +42,7 @@ message CacheCacheConfig {
 
   // Cache name/identifier
   string name = 8 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 }

@@ -1,22 +1,24 @@
 // file: proto/gcommon/v2/metrics/v2/provider_config_summary.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 394dfc33-7acb-4583-bd49-44bdcb86e5ba
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/resource_limits_summary.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/resource_limits_summary.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderConfigSummary {
   // Number of configured exporters
-  int32 exporter_count = 1 [(buf.validate.field).int32.gte = 1, (buf.validate.field).int32.lte = 65535];
+  int32 exporter_count = 1 [
+    (buf.validate.field).int32.gte = 1,
+    (buf.validate.field).int32.lte = 65535
+  ];
 
   // Whether security is enabled
   bool security_enabled = 2;

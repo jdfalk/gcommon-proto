@@ -1,5 +1,5 @@
 // file: authpb/v2/generate_token_response.proto
-// version: 2.0.0
+// version: 2.0.1
 // guid: i9j0k1l2-m3n4-5678-2345-789012345678
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 /**
  * GenerateTokenResponse represents a token generation response.

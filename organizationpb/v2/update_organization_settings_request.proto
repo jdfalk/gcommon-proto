@@ -1,19 +1,19 @@
 // file: proto/gcommon/v2/organization/update_organization_settings_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 1a45386c-fda8-459c-b1bb-60c097f611ba
 
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
-import "organizationpb/v2/organization_settings.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
+import "organizationpb/v2/organization_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message UpdateOrganizationSettingsRequest {
   // Request metadata for tracing and context
@@ -21,9 +21,9 @@ message UpdateOrganizationSettingsRequest {
 
   // Organization identifier
   string organization_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Updated settings
   OrganizationSettings settings = 3;

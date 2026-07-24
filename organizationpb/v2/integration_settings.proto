@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/organization/integration_settings.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: eb075ee2-2fa4-4809-a4b1-66199758b188
 
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metrics_api_key_config.proto";
+import "google/protobuf/go_features.proto";
 import "organizationpb/v2/integration.proto";
 import "organizationpb/v2/o_auth_app_config.proto";
 import "organizationpb/v2/webhook_config.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message IntegrationSettings {
   // Enabled third-party integrations
@@ -25,7 +24,10 @@ message IntegrationSettings {
   repeated WebhookConfig webhooks = 2 [(buf.validate.field).repeated.min_items = 1];
 
   // API keys for external services
-  repeated common.v2.MetricsAPIKeyConfig api_keys = 3 [lazy = true, (buf.validate.field).repeated.min_items = 1];
+  repeated common.v2.MetricsAPIKeyConfig api_keys = 3 [
+    lazy = true,
+    (buf.validate.field).repeated.min_items = 1
+  ];
 
   // OAuth applications registered for this organization
   repeated OAuthAppConfig oauth_apps = 4 [(buf.validate.field).repeated.min_items = 1];

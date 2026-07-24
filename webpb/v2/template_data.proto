@@ -1,26 +1,26 @@
 // file: proto/gcommon/v2/web/template_data.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 31c5d8ac-caa3-4a45-816d-b831995e1757
 
 edition = "2023";
 
 package web.v2;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/webpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/webpb/v2";
 
 // TemplateData message definition.
 message TemplateData {
   // Template name
   string name = 1 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Arbitrary context data
   google.protobuf.Any context = 2;

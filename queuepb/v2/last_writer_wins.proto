@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/queue/last_writer_wins.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 39e817ba-1ee6-4093-97a2-d4fda4de5312
 
 edition = "2023";
@@ -9,7 +9,7 @@ package queue.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queuepb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 message LastWriterWins {
   // Use server timestamp instead of client timestamp

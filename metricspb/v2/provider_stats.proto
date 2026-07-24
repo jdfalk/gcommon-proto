@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/metrics/v2/provider_stats.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 50e90cb9-edcb-4e84-b110-1e41adfa7b50
 
 edition = "2023";
 
 package metrics.v2;
 
-import "metricspb/v2/resource_usage.proto";
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
+import "metricspb/v2/resource_usage.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderStats {
   // Number of metrics managed

@@ -1,18 +1,18 @@
 // file: proto/gcommon/v2/organization/organization_member.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 74375b8f-7a0b-4243-94fe-3c59ed01f5c4
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/key_value.proto";
 import "commonpb/v2/member_role.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 /**
  * OrganizationMember message representing a user's membership in an organization.
@@ -21,30 +21,30 @@ option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
 message OrganizationMember {
   // Unique membership identifier
   string id = 1 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // Organization identifier
   string organization_id = 2 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // User identifier from the auth system
   string user_id = 3 [
-      (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-      (buf.validate.field).required = true
-    ];
+    (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+    (buf.validate.field).required = true
+  ];
 
   // User's email address (cached for quick access)
-  string email = 4 [ (buf.validate.field).string.email = true ];
+  string email = 4 [(buf.validate.field).string.email = true];
 
   // User's display name (cached for quick access)
   string display_name = 5 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Primary role of the user in this organization
   common.v2.MemberRole role = 6;
@@ -68,7 +68,10 @@ message OrganizationMember {
   repeated common.v2.KeyValue metadata = 12 [lazy = true];
 
   // Membership creation timestamp (when user joined organization)
-  google.protobuf.Timestamp created_at = 13 [lazy = true, (buf.validate.field).required = true];
+  google.protobuf.Timestamp created_at = 13 [
+    lazy = true,
+    (buf.validate.field).required = true
+  ];
 
   // Last update timestamp
   google.protobuf.Timestamp updated_at = 14 [lazy = true];
@@ -80,7 +83,7 @@ message OrganizationMember {
   string invited_by = 16;
 
   // User ID who last updated this member's information
-  string updated_by = 17 [ (buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$" ];
+  string updated_by = 17 [(buf.validate.field).string.pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"];
 
   // Whether this member is currently active
   bool active = 18;
@@ -95,7 +98,7 @@ message OrganizationMember {
   repeated string direct_report_ids = 21;
 
   // Member's avatar/profile picture URL
-  string avatar_url = 22 [ (buf.validate.field).string.uri = true ];
+  string avatar_url = 22 [(buf.validate.field).string.uri = true];
 
   // Member's phone number (organization context)
   string phone = 23;

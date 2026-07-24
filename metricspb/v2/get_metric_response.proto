@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/get_metric_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: dc01ceeb-c2dd-4f50-9e0b-424293f1f529
 // file: proto/gcommon/v2/metrics/v2/get_metric_response.proto
 //
@@ -10,11 +10,11 @@ edition = "2023";
 package metrics.v2;
 
 import "commonpb/v2/error.proto";
-import "metricspb/v2/metric_data.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * GetMetricResponse returns metric data.

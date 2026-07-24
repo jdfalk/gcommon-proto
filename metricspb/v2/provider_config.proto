@@ -1,21 +1,21 @@
 // file: proto/gcommon/v2/metrics/v2/provider_config.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 3539da64-8631-416f-8d05-17a4810ed876
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metrics_provider_type.proto";
 import "commonpb/v2/organization_resource_limits.proto";
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/export_config.proto";
 import "metricspb/v2/provider_settings.proto";
 import "metricspb/v2/security_config.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderConfig {
   // Unique identifier for the provider
@@ -23,9 +23,9 @@ message ProviderConfig {
 
   // Human-readable name for the provider
   string name = 2 [
-      (buf.validate.field).string.min_len = 1,
-      (buf.validate.field).string.max_len = 100
-    ];
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 100
+  ];
 
   // Type of provider (prometheus, opentelemetry, custom, etc.)
   common.v2.MetricsProviderType type = 3;
@@ -46,5 +46,5 @@ message ProviderConfig {
   map<string, string> tags = 8;
 
   // Description of the provider
-  string description = 9 [ (buf.validate.field).string.max_len = 1000 ];
+  string description = 9 [(buf.validate.field).string.max_len = 1000];
 }

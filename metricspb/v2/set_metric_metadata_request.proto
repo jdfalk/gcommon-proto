@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/set_metric_metadata_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: d5a7a998-dd17-44a3-97d5-89144b904ee3
 // file: proto/gcommon/v2/metrics/v2/set_metric_metadata_request.proto
 //
@@ -11,11 +11,11 @@ edition = "2023";
 package metrics.v2;
 
 import "commonpb/v2/request_metadata.proto";
-import "metricspb/v2/metric_metadata.proto";
 import "google/protobuf/go_features.proto";
+import "metricspb/v2/metric_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message SetMetricMetadataRequest {
   // Metric metadata to apply

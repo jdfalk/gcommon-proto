@@ -1,12 +1,14 @@
 // file: proto/gcommon/v2/metrics/v2/provider_statistics.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 65d32fe6-818b-4b23-a785-3a059bf52535
 
 edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/metrics_error_stats.proto";
+import "google/protobuf/go_features.proto";
 import "metricspb/v2/configuration_summary.proto";
 import "metricspb/v2/data_volume_stats.proto";
 import "metricspb/v2/export_stats.proto";
@@ -16,12 +18,9 @@ import "metricspb/v2/provider_info.proto";
 import "metricspb/v2/resource_usage_stats.proto";
 import "metricspb/v2/top_metrics.proto";
 import "metricspb/v2/trend_analysis.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 message ProviderStatistics {
   // Basic provider information

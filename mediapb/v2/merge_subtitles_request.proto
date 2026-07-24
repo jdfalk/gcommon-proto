@@ -1,16 +1,16 @@
 // file: proto/gcommon/v2/media/merge_subtitles_request.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 123456ab-cdef-0123-f6a7-b8c9d0e1f234
 
 edition = "2023";
 
 package media.v2;
 
-import "mediapb/v2/merge_options.proto";
 import "google/protobuf/go_features.proto";
+import "mediapb/v2/merge_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Request to merge multiple subtitle files.
 message MergeSubtitlesRequest {

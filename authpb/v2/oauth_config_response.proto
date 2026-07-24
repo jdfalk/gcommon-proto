@@ -1,5 +1,5 @@
 // file: authpb/v2/oauth_config_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: n5o6p7q8-r9s0-1234-5678-901234opqrst
 
 edition = "2023";
@@ -11,7 +11,7 @@ import "authpb/v2/oauth_config_request.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // OAuthConfigResponse represents the response to an OAuth2 configuration request
 message OAuthConfigResponse {

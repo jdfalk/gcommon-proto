@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/get_template_response.proto
-// version: 1.2.1
+// version: 1.2.2
 // guid: 525e0a4f-3e9f-4b1a-8d33-fa9c295964a0
 
 edition = "2023";
@@ -10,7 +10,7 @@ import "commonpb/v2/template.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Response containing a requested notification template.

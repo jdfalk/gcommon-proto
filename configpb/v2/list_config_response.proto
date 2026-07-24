@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/config/list_config_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 38867866-6d7f-4022-a74d-b2c09cdca946
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
 import "commonpb/v2/paginated_response.proto";
 import "configpb/v2/config_entry.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * ListConfigResponse returns configuration entries for a list operation.

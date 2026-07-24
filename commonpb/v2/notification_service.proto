@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/notification_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
 
 edition = "2023";
@@ -21,7 +21,7 @@ import "commonpb/v2/update_preferences_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.

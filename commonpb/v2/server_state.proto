@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/web/server_state.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: edc8f45d-5db0-4b28-b04a-c6eedc98b19b
 //
 // ServerState represents lifecycle states of the server.
@@ -10,7 +10,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum ServerState {
   SERVER_STATE_UNSPECIFIED = 0;

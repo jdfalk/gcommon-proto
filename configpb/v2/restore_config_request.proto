@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/api/restore_config_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 02590a49-63a8-4dc3-8ad9-2604a2244f0c
 // file: proto/gcommon/v2/config/restore_config_request.proto
 //
@@ -11,13 +11,12 @@ edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/request_metadata.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message RestoreConfigRequest {
   // Restore point identifier

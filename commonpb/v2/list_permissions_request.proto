@@ -1,18 +1,17 @@
 // file: proto/gcommon/v2/common/list_permissions_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: b28e318d-b0e8-41bb-9c90-d6b98f138e4f
 
 edition = "2023";
 
 package common.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/subject_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 message ListPermissionsRequest {
   // User or role ID to list permissions for
@@ -23,6 +22,9 @@ message ListPermissionsRequest {
   AuthSubjectType subject_type = 2;
 
   // Pagination
-  int32 page_size = 3 [(buf.validate.field).int32.gte = 0, (buf.validate.field).int32.lte = 150];
+  int32 page_size = 3 [
+    (buf.validate.field).int32.gte = 0,
+    (buf.validate.field).int32.lte = 150
+  ];
   string page_token = 4 [(buf.validate.field).string.min_len = 1];
 }

@@ -1,5 +1,5 @@
 // file: authpb/v2/list_sessions_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: s0t1u2v3-w4x5-6789-0123-456789tuvwxy
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
 
 // ListSessionsRequest represents a request to list user sessions
 message ListSessionsRequest {

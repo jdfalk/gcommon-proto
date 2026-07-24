@@ -1,6 +1,6 @@
 // file: proto/gcommon/v2/queue/api/flush_policy.proto
 // file: proto/gcommon/v2/queue/flush_policy.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 0a9b8c7d-6e5f-4a3b-2c1d-0e9f8a7b6c5d
 //
 // Enum definitions for queue module
@@ -12,7 +12,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * Policy for when to flush messages to persistent storage.

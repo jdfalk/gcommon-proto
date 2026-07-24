@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/get_metric_metadata_response.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 118692f7-fe67-4e13-8a1f-416220925369
 // file: proto/gcommon/v2/metrics/v2/get_metric_metadata_response.proto
 //
@@ -10,16 +10,15 @@ edition = "2023";
 
 package metrics.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/error.proto";
-import "metricspb/v2/metric_metadata.proto";
-import "metricspb/v2/pagination_info.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "buf/validate/validate.proto";
-
+import "metricspb/v2/metric_metadata.proto";
+import "metricspb/v2/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metricspb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/metricspb/v2";
 
 /**
  * GetMetricMetadataResponse contains metadata for requested metrics.

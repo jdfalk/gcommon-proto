@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/config/set_multiple_config_response.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: e0520017-355f-4584-a5c7-d2bff7d21b3c
 edition = "2023";
 
@@ -9,7 +9,7 @@ import "commonpb/v2/error.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 /**
  * SetMultipleConfigResponse reports the result of a bulk set operation.

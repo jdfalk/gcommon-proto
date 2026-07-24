@@ -1,17 +1,16 @@
 // file: proto/gcommon/v2/media/sync_subtitles_request.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 012345f0-1234-5678-e1f2-345678901234
 
 edition = "2023";
 
 package media.v2;
 
-import "google/protobuf/go_features.proto";
 import "buf/validate/validate.proto";
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/mediapb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/mediapb/v2";
 
 // Request to synchronize subtitles with media.
 message SyncSubtitlesRequest {

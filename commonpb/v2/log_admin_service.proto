@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/common/log_admin_service.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: 4f5e6d7c-8b9a-0312-4e5f-6a7b8c9d0e1f
 
 edition = "2023";
@@ -11,7 +11,7 @@ import "commonpb/v2/configure_logger_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 /**
  * LogAdminService provides log administration operations for

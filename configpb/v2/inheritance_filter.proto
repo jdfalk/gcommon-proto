@@ -1,19 +1,18 @@
 // file: proto/gcommon/v2/config/inheritance_filter.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: 0cda004b-8fb1-47de-a58b-fb17ec38d92f
 
 edition = "2023";
 
 package config.v2;
 
+import "buf/validate/validate.proto";
 import "commonpb/v2/filter_action.proto";
 import "commonpb/v2/filter_type.proto";
 import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/configpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/configpb/v2";
 
 message InheritanceFilter {
   // Filter type

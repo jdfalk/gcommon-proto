@@ -1,5 +1,5 @@
 // file: proto/gcommon/v2/metrics/v2/alert_severity.proto
-// version: 1.0.1
+// version: 1.0.2
 // guid: f1a2b3c4-5678-901c-5678-123456789012
 
 edition = "2023";
@@ -9,7 +9,7 @@ package common.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/commonpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/commonpb/v2";
 
 enum MetricsAlertSeverity {
   METRICS_ALERT_SEVERITY_UNSPECIFIED = 0;

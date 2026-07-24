@@ -1,21 +1,20 @@
 // file: proto/gcommon/v2/organization/network_isolation.proto
-// version: 1.0.0
+// version: 1.0.1
 // guid: d005d972-e2a8-443e-ae8a-dcc1d5be7bd6
 
 edition = "2023";
 
 package organization.v2;
 
+import "buf/validate/validate.proto";
+import "google/protobuf/go_features.proto";
 import "organizationpb/v2/cdn_config.proto";
 import "organizationpb/v2/domain_config.proto";
 import "organizationpb/v2/load_balancer_config.proto";
 import "organizationpb/v2/network_acl_rule.proto";
-import "google/protobuf/go_features.proto";
-import "buf/validate/validate.proto";
-
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/organizationpb/v2";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/organizationpb/v2";
 
 message NetworkIsolation {
   // Virtual private cloud (VPC) identifier
