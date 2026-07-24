@@ -12,6 +12,10 @@ breaking:
     - FIELD_SAME_CARDINALITY # renamed from FIELD_SAME_LABEL in buf v2
     - EXTENSION_NO_DELETE
     - FIELD_SAME_DEFAULT
+    # go_package is vestigial in this protos-only + BSR-managed repo: BSR manages the
+    # generated-SDK import path, so a go_package change is not a wire/distribution
+    # break. (The whole tree was repointed jdfalk -> falkcorp/gcommon/v2 in one pass.)
+    - FILE_SAME_GO_PACKAGE
 lint:
   use:
     - STANDARD
