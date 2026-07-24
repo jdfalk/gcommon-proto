@@ -1,0 +1,52 @@
+# file: .github/workflows/buf-push.yml
+# version: 1.0.0
+# guid: 7ba226fe-fc92-41da-97b9-e14078244f4f
+# last-edited: 2026-07-23
+
+name: Buf Push
+
+# Publishes the protobuf definitions to the Buf Schema Registry
+# (buf.build/falkcorp/gcommon). Consumers pull generated SDKs for Go/Python/Rust
+# from BSR — this repo does not build or commit language SDKs.
+#
+# Triggers on version tags and manual dispatch ONLY (not every main merge), so the
+# registry is (re)established from a deliberate, finalized release rather than
+# republishing work-in-progress. The module is auto-created public on first push.
+#
+# REQUIRES a repository secret named BUF_TOKEN — a BSR API token with write access
+# to buf.build/falkcorp (create at https://buf.build/settings/user, then add via
+#   gh secret set BUF_TOKEN --repo falkcorp/gcommon
+# ).
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    name: Push to BSR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0 # full history so --git-metadata can attach source-control labels
+
+      - name: Set up buf
+        uses: bufbuild/buf-setup-action@a47c93e0b1648d5651a065437926377d060baa99 # v1.50.0
+        with:
+          github_token: ${{ github.token }}
+
+      - name: Push to BSR
+        env:
+          BUF_TOKEN: ${{ secrets.BUF_TOKEN }}
+        run: |
+          if [ -z "${BUF_TOKEN}" ]; then
+            echo "::error::BUF_TOKEN secret is not set — add a BSR API token to push. See this workflow's header."
+            exit 1
+          fi
+          buf push --create-visibility public --git-metadata
