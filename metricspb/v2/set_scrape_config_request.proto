@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/set_scrape_config_request.proto
-// version: 1.0.1
+// file: metricspb/v2/set_scrape_config_request.proto
+// version: 1.0.2
 // guid: 239855c3-0df1-42c3-a9dd-c6d7709f048f
-// file: proto/gcommon/v2/metrics/v2/set_scrape_config_request.proto
 //
 // Request message to set scraping configuration for a provider.
 //

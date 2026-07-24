@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/group_coordinator.proto
-// version: 1.0.1
+// file: queuepb/v2/group_coordinator.proto
+// version: 1.0.2
 // guid: e3e0d17b-a593-44ec-a32c-8b282cf136fc
 
 edition = "2023";

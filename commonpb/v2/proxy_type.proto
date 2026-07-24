@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/proxy_type.proto
-// version: 1.0.2
+// file: commonpb/v2/proxy_type.proto
+// version: 1.0.3
 // guid: 9b6f5494-a0d0-4832-a3f3-9d91dbf2c200
 //
 // ProxyType lists supported proxy configurations.

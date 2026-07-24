@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/update_metric_request.proto
-// version: 1.0.2
+// file: metricspb/v2/update_metric_request.proto
+// version: 1.0.3
 // guid: 552e73bb-8b74-4132-a524-46d64cf01d78
-// file: proto/gcommon/v2/metrics/v2/update_metric_request.proto
 //
 // Request message to update an existing metric definition.
 //

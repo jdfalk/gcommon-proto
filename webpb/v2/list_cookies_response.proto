@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/list_cookies_response.proto
-// version: 1.0.1
+// file: webpb/v2/list_cookies_response.proto
+// version: 1.0.2
 // guid: af6c455c-4937-4d9b-a355-2124c8e24b91
 
 edition = "2023";

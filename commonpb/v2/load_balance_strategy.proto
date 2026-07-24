@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/load_balance_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/load_balance_strategy.proto
+// version: 1.0.3
 // guid: d147b3b5-5e20-4bf9-9cfe-467e528f59a7
 //
 // LoadBalanceStrategy lists supported balancing algorithms.

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/file_upload.proto
-// version: 1.1.1
+// file: webpb/v2/file_upload.proto
+// version: 1.1.2
 // guid: 47f22269-7456-4237-b463-c287580f662d
 
 edition = "2023";

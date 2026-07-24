@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/commit_offset_response.proto
-// version: 1.0.1
+// file: queuepb/v2/commit_offset_response.proto
+// version: 1.0.2
 // guid: 748d3d88-f8aa-4f39-9a7a-5feb16d005d9
 
 edition = "2023";

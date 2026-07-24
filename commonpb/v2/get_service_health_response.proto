@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/get_service_health_response.proto
-// version: 1.0.2
+// file: commonpb/v2/get_service_health_response.proto
+// version: 1.0.3
 // guid: eb2e3f53-909e-4bd0-a9e8-3162f317a1ae
 edition = "2023";
 

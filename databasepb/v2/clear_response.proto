@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/clear_response.proto
-// version: 1.0.1
+// file: databasepb/v2/clear_response.proto
+// version: 1.0.2
 // guid: ef5ghijk-67l8-9m0n-1o2p-3q4r5s6t7u8v
 
 edition = "2023";

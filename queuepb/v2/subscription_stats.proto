@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/config/subscription_stats.proto
-// file: proto/gcommon/v2/queue/subscription_stats.proto
-// version: 1.0.1
+// file: queuepb/v2/subscription_stats.proto
+// version: 1.0.2
 // guid: 7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e
 //
 // Message definitions for queue module

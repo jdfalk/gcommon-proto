@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/timestamp_range.proto
-// version: 1.0.2
+// file: metricspb/v2/timestamp_range.proto
+// version: 1.0.3
 // guid: e7f8a9b0-123e-578d-2345-890123456789
 
 edition = "2023";

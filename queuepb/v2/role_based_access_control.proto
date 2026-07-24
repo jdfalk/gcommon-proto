@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/role_based_access_control.proto
-// version: 1.0.1
+// file: queuepb/v2/role_based_access_control.proto
+// version: 1.0.2
 // guid: 090db6f2-ad16-49c5-aa6c-ef8f279279e2
 
 edition = "2023";

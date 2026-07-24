@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/time_range.proto
-// file: proto/gcommon/v2/queue/time_range.proto
-// version: 1.0.2
+// file: queuepb/v2/time_range.proto
+// version: 1.0.3
 // guid: 2a1b0c9d-8e7f-6a5b-4c3d-2e1f0a9b8c7d
 //
 // Message definitions for queue module

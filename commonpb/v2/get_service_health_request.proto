@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/get_service_health_request.proto
-// version: 1.0.1
+// file: commonpb/v2/get_service_health_request.proto
+// version: 1.0.2
 // guid: 46ca267d-39dc-40ba-a77d-238f56c0f282
 //
 // Get service health request message definition

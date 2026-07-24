@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/template.proto
-// version: 1.0.1
+// file: commonpb/v2/template.proto
+// version: 1.0.2
 // guid: b40be0b3-2832-4999-be82-78423c52b4d3
-// file: proto/gcommon/v2/common/template.proto
 //
 // Notification template definition for reusable messages.
 edition = "2023";

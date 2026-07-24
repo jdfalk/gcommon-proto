@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/durability_level.proto
-// file: proto/gcommon/v2/queue/durability_level.proto
-// version: 1.0.2
+// file: commonpb/v2/durability_level.proto
+// version: 1.0.3
 // guid: 5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e
 //
 // Enum definitions for queue module

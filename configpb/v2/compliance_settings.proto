@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/compliance_settings.proto
-// version: 1.0.1
+// file: configpb/v2/compliance_settings.proto
+// version: 1.0.2
 // guid: 55ae9eb4-4811-4e34-89e6-b2c7f128297e
 
 edition = "2023";

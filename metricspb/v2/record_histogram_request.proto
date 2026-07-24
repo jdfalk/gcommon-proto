@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/record_histogram_request.proto
-// version: 1.0.1
+// file: metricspb/v2/record_histogram_request.proto
+// version: 1.0.2
 // guid: 5d38efab-f98b-4ddf-8e50-08395f5e24fc
-// file: proto/gcommon/v2/metrics/v2/record_histogram_request.proto
 //
 // Request definitions for metrics module
 

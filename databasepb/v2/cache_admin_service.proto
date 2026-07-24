@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/cache_admin_service.proto
-// version: 1.0.3
+// file: databasepb/v2/cache_admin_service.proto
+// version: 1.0.4
 // guid: d7b6285b-2286-46f8-a2aa-5ef8715919f9
 edition = "2023";
 

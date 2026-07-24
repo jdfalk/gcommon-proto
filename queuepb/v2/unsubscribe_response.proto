@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/unsubscribe_response.proto
-// file: proto/gcommon/v2/queue/unsubscribe_response.proto
-// version: 1.0.1
+// file: queuepb/v2/unsubscribe_response.proto
+// version: 1.0.2
 // guid: 5a4b3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d
 //
 // Response definitions for queue module

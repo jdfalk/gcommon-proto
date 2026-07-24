@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/namespace_info.proto
-// version: 1.0.1
+// file: databasepb/v2/namespace_info.proto
+// version: 1.0.2
 // guid: 99ca4ced-3db8-4b4d-a745-b9f6a699357d
 
 edition = "2023";

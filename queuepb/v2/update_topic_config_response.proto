@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/update_topic_config_response.proto
-// file: proto/gcommon/v2/queue/update_topic_config_response.proto
-// version: 1.0.1
+// file: queuepb/v2/update_topic_config_response.proto
+// version: 1.0.2
 // guid: 2e1f0d9c-8b7a-6e5f-4d3c-2b1a0f9e8d7c
 //
 // Response definitions for queue module

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/load_balancer_config.proto
-// version: 1.1.1
+// file: webpb/v2/load_balancer_config.proto
+// version: 1.1.2
 // guid: 773a3c4c-d370-4416-b0d8-bf270ea7d2de
 
 edition = "2023";

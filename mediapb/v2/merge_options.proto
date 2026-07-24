@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/merge_options.proto
-// version: 1.0.2
+// file: mediapb/v2/merge_options.proto
+// version: 1.0.3
 // guid: 789abcde-f012-3456-7890-abcdef123456
 
 edition = "2023";

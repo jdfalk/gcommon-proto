@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/encrypt_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/encrypt_config_request.proto
+// version: 1.0.2
 // guid: dabeec2c-e6f7-49fa-9750-adfc41fca9ca
-// file: proto/gcommon/v2/config/encrypt_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

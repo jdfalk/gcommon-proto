@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/network_usage.proto
-// version: 1.0.1
+// file: metricspb/v2/network_usage.proto
+// version: 1.0.2
 // guid: b8df322e-99e1-49d7-97b0-fead8deb1998
 
 edition = "2023";

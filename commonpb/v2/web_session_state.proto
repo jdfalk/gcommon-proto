@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/session_state.proto
-// version: 1.0.2
+// file: commonpb/v2/web_session_state.proto
+// version: 1.0.3
 // guid: a34ac56d-96ba-4c3e-b36b-a60ba1e62d86
 //
 // SessionState describes the lifecycle of a user session.

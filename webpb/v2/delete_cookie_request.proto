@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/delete_cookie_request.proto
-// version: 1.0.1
+// file: webpb/v2/delete_cookie_request.proto
+// version: 1.0.2
 // guid: 704e1ea8-b8a8-4c45-9a2f-3571aa92021e
 
 edition = "2023";

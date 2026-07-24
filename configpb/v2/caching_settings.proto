@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/caching_settings.proto
-// version: 1.0.1
+// file: configpb/v2/caching_settings.proto
+// version: 1.0.2
 // guid: 2c6f8039-2855-4a31-884a-4d66d71cf897
 
 edition = "2023";

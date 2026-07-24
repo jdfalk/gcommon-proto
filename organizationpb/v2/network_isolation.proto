@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/network_isolation.proto
-// version: 1.0.1
+// file: organizationpb/v2/network_isolation.proto
+// version: 1.0.2
 // guid: d005d972-e2a8-443e-ae8a-dcc1d5be7bd6
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/trend_analysis.proto
-// version: 1.0.2
+// file: metricspb/v2/trend_analysis.proto
+// version: 1.0.3
 // guid: cb796e78-7aa6-47b8-8545-402a70e2c9e0
 
 edition = "2023";

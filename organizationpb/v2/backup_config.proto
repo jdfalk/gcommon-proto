@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/backup_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/backup_config.proto
+// version: 1.0.2
 // guid: af98b66c-3106-4a09-9b66-b3fd3908267e
 
 edition = "2023";

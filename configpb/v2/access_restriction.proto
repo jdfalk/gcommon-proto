@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/access_restriction.proto
-// version: 1.0.1
+// file: configpb/v2/access_restriction.proto
+// version: 1.0.2
 // guid: cfdd7cdc-6bb3-4b8f-b3a9-fa8a84cc84ad
 
 edition = "2023";

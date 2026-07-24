@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_filter_config.proto
-// version: 1.0.1
+// file: queuepb/v2/message_filter_config.proto
+// version: 1.0.2
 // guid: e63e4778-4555-4c0c-a835-7f83564e8513
 
 edition = "2023";

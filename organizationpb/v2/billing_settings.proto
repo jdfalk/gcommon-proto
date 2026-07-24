@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/billing_settings.proto
-// version: 1.0.1
+// file: organizationpb/v2/billing_settings.proto
+// version: 1.0.2
 // guid: 839c1259-f26c-4f40-8970-daf8fdead8e3
 
 edition = "2023";

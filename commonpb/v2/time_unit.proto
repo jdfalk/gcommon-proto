@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/time_unit.proto
-// version: 1.0.2
+// file: commonpb/v2/time_unit.proto
+// version: 1.0.3
 // guid: a2bc1886-34e7-4229-93b2-c279f6d89b7a
-// file: proto/gcommon/v2/metrics/v2/time_unit.proto
 //
 // Enum definitions for metrics module
 

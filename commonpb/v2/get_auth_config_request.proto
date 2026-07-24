@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/get_auth_config_request.proto
-// version: 1.0.1
+// file: commonpb/v2/get_auth_config_request.proto
+// version: 1.0.2
 // guid: 8931da09-15df-4c40-a4c1-6be6ad1806f5
-// file: proto/gcommon/v2/common/get_auth_config_request.proto
 //
 // Request definitions for auth module
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/download_file_response.proto
-// version: 1.0.1
+// file: webpb/v2/download_file_response.proto
+// version: 1.0.2
 // guid: ad823437-e5e1-4b0c-afb4-9eea7f74a97f
 
 edition = "2023";

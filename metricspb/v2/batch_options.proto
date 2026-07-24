@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/batch_options.proto
-// version: 1.0.1
+// file: metricspb/v2/batch_options.proto
+// version: 1.0.2
 // guid: cb61183a-3b53-41cd-a131-685b4fd8be75
 
 edition = "2023";

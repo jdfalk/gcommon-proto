@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/get_user_roles_response.proto
-// version: 1.0.1
+// file: commonpb/v2/get_user_roles_response.proto
+// version: 1.0.2
 // guid: c8a7e641-1fb8-46ee-9491-d3612c2c2400
 edition = "2023";
 

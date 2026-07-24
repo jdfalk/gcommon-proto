@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/delete_tenant_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/delete_tenant_response.proto
+// version: 1.0.2
 // guid: 4c300220-de58-467e-b7b7-cf2c88ba7bf2
 edition = "2023";
 

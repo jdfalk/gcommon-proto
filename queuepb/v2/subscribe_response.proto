@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/subscribe_response.proto
-// version: 1.0.1
+// file: queuepb/v2/subscribe_response.proto
+// version: 1.0.2
 // guid: 0d059538-5ecd-4438-9e3e-8aca86b7cf82
 // Response for queue subscription with messages
 

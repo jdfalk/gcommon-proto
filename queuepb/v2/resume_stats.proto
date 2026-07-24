@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/resume_stats.proto
-// version: 1.0.1
+// file: queuepb/v2/resume_stats.proto
+// version: 1.0.2
 // guid: dd734c97-7ac1-4b56-8ea6-dbd08cac6e27
 
 edition = "2023";

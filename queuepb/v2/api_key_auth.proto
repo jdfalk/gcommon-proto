@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/api_key_auth.proto
-// version: 1.0.1
+// file: queuepb/v2/api_key_auth.proto
+// version: 1.0.2
 // guid: 4ac6d133-bd64-491e-8c17-2a716164dd87
 
 edition = "2023";

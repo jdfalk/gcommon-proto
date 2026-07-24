@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/notification_channel.proto
-// version: 1.0.1
+// file: configpb/v2/notification_channel.proto
+// version: 1.0.2
 // guid: 81ed59c5-4e0f-499a-97c8-57a2a375fd75
 
 edition = "2023";

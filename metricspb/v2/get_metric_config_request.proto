@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/get_metric_config_request.proto
-// version: 1.0.1
+// file: metricspb/v2/get_metric_config_request.proto
+// version: 1.0.2
 // guid: 82add51b-b9ac-4042-be4d-4acada2ae127
-// file: proto/gcommon/v2/metrics/v2/get_metric_config_request.proto
 //
 // Request message to retrieve metric configuration.
 //

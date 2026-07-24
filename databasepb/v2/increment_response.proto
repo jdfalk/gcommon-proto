@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/increment_response.proto
-// version: 1.0.1
+// file: databasepb/v2/increment_response.proto
+// version: 1.0.2
 // guid: bc2defgh-34i5-6j7k-8l9m-0n1o2p3q4r5s
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/metric_metadata.proto
-// version: 1.0.1
+// file: metricspb/v2/metric_metadata.proto
+// version: 1.0.2
 // guid: 2f161084-caee-424c-a121-9b4907586446
-// file: proto/gcommon/v2/metrics/v2/metric_metadata.proto
 //
 // Message definitions for metrics module
 

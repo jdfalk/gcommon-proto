@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/tls_config.proto
-// version: 1.0.1
+// file: metricspb/v2/tls_config.proto
+// version: 1.0.2
 // guid: 7da056fd-4d1f-48fa-8ee0-fbad667fa085
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/execute_batch_request.proto
-// version: 1.0.2
+// file: databasepb/v2/execute_batch_request.proto
+// version: 1.0.3
 // guid: 2b4354c4-f03a-4317-86b9-57babf767494
 
 edition = "2023";

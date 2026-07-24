@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/metric_type_counts.proto
-// version: 1.0.1
+// file: metricspb/v2/metric_type_counts.proto
+// version: 1.0.2
 // guid: 85755727-af90-4676-b807-fa6c65517840
 
 edition = "2023";

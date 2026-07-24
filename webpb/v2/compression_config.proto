@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/compression_config.proto
-// version: 1.1.1
+// file: webpb/v2/compression_config.proto
+// version: 1.1.2
 // guid: e4d9d1fd-7180-432c-a64b-5b6f24858928
 
 edition = "2023";

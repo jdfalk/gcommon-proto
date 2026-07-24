@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/scene_detection.proto
-// version: 1.0.1
+// file: mediapb/v2/scene_detection.proto
+// version: 1.0.2
 // guid: 616e4f97-9cac-4ab8-933a-d6268596a01a
 
 edition = "2023";

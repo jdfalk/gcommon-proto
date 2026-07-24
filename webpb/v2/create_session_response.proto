@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/create_session_response.proto
-// version: 1.1.2
+// file: webpb/v2/create_session_response.proto
+// version: 1.1.3
 // guid: 5b7bc14e-bb7d-4d0d-bd5b-c35bc5fb7bda
 
 edition = "2023";

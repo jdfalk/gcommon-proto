@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/common/types/update_role_response.proto
-// file: proto/gcommon/v2/common/update_role_response.proto
-// version: 1.0.2
+// file: commonpb/v2/update_role_response.proto
+// version: 1.0.3
 // guid: 567e89ab-c1d2-3e4f-5a6b-7c8d9e0f1a2b
 
 edition = "2023";

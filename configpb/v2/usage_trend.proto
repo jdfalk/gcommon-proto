@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/usage_trend.proto
-// version: 1.0.1
+// file: configpb/v2/usage_trend.proto
+// version: 1.0.2
 // guid: d9e0f1a2-3456-789a-3456-901234567890
 
 edition = "2023";

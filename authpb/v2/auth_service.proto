@@ -1,5 +1,5 @@
 // file: authpb/v2/auth_service.proto
-// version: 2.1.1
+// version: 2.1.2
 // guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 edition = "2023";
@@ -52,7 +52,7 @@ import "authpb/v2/validate_token_response.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb/v2";
 
 /**
  * AuthService provides comprehensive authentication and authorization functionality.

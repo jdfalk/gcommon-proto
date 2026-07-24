@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/auth_context.proto
-// version: 1.0.1
+// file: commonpb/v2/auth_context.proto
+// version: 1.0.2
 // guid: 70848c6a-eeb6-46ee-b108-9159435b2475
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/requests/list_checks_request.proto
-// version: 1.0.1
+// file: healthpb/v2/list_checks_request.proto
+// version: 1.0.2
 // guid: f809192a-364c-1234-8901-567890123456
 
 edition = "2023";

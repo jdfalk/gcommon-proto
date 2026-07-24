@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/messages/readiness_result.proto
-// version: 1.0.1
+// file: healthpb/v2/readiness_result.proto
+// version: 1.0.2
 // guid: 2a3b4c5d-697f-4567-1234-890123456789
 
 edition = "2023";

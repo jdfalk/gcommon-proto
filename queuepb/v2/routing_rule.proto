@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/routing_rule.proto
-// version: 1.0.1
+// file: queuepb/v2/routing_rule.proto
+// version: 1.0.2
 // guid: 6ce2389f-a9b6-4850-bdf9-6b5225cd61d4
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/batch_publish_response.proto
-// version: 1.0.1
+// file: queuepb/v2/batch_publish_response.proto
+// version: 1.0.2
 // guid: c8485218-1d5d-459f-89f3-5389ae0c4aab
 // Response for batch publish operations
 

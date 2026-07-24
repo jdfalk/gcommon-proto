@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/metadata/movie_info.proto
-// version: 1.0.1
+// file: mediapb/v2/movie_info.proto
+// version: 1.0.2
 // guid: fc3b809f-03e7-4446-b355-e7482000e343
 
 edition = "2023";

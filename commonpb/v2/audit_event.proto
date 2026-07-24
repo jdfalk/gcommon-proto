@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/audit_event.proto
-// version: 1.0.1
+// file: commonpb/v2/audit_event.proto
+// version: 1.0.2
 // guid: 07442bc2-38fe-42b3-aecd-0ffda724fa86
 
 edition = "2023";

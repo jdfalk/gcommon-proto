@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/sasl_auth.proto
-// version: 1.0.1
+// file: queuepb/v2/sasl_auth.proto
+// version: 1.0.2
 // guid: 24c2c7a1-8dbb-44e3-9d87-bb207c23207d
 
 edition = "2023";

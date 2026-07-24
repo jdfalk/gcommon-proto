@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/update_route_config_request.proto
-// version: 1.0.1
+// file: webpb/v2/update_route_config_request.proto
+// version: 1.0.2
 // guid: 65c64e7e-be8d-4fa3-9bd1-e0c9b752fef9
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/health_check_request.proto
-// version: 1.0.1
+// file: commonpb/v2/health_check_request.proto
+// version: 1.0.2
 // guid: f260a75e-1b70-48df-a829-d4d53e277a16
 //
 // Health check request message definition

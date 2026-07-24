@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/rate_limit_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/rate_limit_strategy.proto
+// version: 1.0.3
 // guid: dcc25ed5-f313-4ae4-8be6-bfbc050afb57
 
 edition = "2023";

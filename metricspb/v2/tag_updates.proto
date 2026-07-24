@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/tag_updates.proto
-// version: 1.0.1
+// file: metricspb/v2/tag_updates.proto
+// version: 1.0.2
 // guid: 3f881144-83c6-471b-9db4-227cb066b468
 
 edition = "2023";

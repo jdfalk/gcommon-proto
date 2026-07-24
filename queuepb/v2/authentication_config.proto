@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/authentication_config.proto
-// version: 1.0.2
+// file: queuepb/v2/authentication_config.proto
+// version: 1.0.3
 // guid: b6fb3968-5534-4c9b-a4bb-55245fb334e3
 
 edition = "2023";

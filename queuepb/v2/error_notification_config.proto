@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/error_notification_config.proto
-// version: 1.0.1
+// file: queuepb/v2/error_notification_config.proto
+// version: 1.0.2
 // guid: 0fffcb32-c66a-4876-acb0-c7d756601f4d
 
 edition = "2023";

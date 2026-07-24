@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/counter_metric.proto
-// version: 1.0.1
+// file: metricspb/v2/counter_metric.proto
+// version: 1.0.2
 // guid: 22048541-e8e6-4cf5-b476-cf12764abfb4
 edition = "2023";
 

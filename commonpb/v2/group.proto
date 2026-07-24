@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/group.proto
-// version: 1.0.1
+// file: commonpb/v2/group.proto
+// version: 1.0.2
 // guid: 3d1addaa-66d2-4768-9214-6f57d3dea222
 edition = "2023";
 

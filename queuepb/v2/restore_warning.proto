@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/restore_warning.proto
-// version: 1.0.1
+// file: queuepb/v2/restore_warning.proto
+// version: 1.0.2
 // guid: 97e72ea7-3c16-4e40-8dba-5845c294bf28
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/encryption_info.proto
-// version: 1.0.1
+// file: queuepb/v2/encryption_info.proto
+// version: 1.0.2
 // guid: 79dc45f4-d25b-40cb-8380-45f54e170aa7
 
 edition = "2023";

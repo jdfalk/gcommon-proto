@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/timestamp_range.proto
-// version: 1.0.2
+// file: queuepb/v2/timestamp_range.proto
+// version: 1.0.3
 // guid: 4fdb7c93-4616-4db9-a2d6-50f41676b4b6
 
 // TimestampRange defines a start and end time for filtering or

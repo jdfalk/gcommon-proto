@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/import_metrics_request.proto
-// version: 1.0.1
+// file: metricspb/v2/import_metrics_request.proto
+// version: 1.0.2
 // guid: 761d0d0a-fb74-41bb-a5aa-e446fa8300bb
-// file: proto/gcommon/v2/metrics/v2/import_metrics_request.proto
 //
 // Request message for importing multiple metrics.
 //

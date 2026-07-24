@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/export_queue_response.proto
-// version: 1.0.1
+// file: queuepb/v2/export_queue_response.proto
+// version: 1.0.2
 // guid: 16445ad6-52b3-4890-bf35-31e17a689135
 // Response for queue export operations
 

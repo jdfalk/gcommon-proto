@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/deletion_stats.proto
-// version: 1.0.1
+// file: queuepb/v2/deletion_stats.proto
+// version: 1.0.2
 // guid: 671eaddd-dddd-48e2-8910-428b3f80a7d1
 
 edition = "2023";

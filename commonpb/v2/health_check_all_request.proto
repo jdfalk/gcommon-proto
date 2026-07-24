@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/health_check_all_request.proto
-// version: 1.0.1
+// file: commonpb/v2/health_check_all_request.proto
+// version: 1.0.2
 // guid: 6e150288-20ca-4892-9582-6ca93070073b
 edition = "2023";
 

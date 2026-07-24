@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/delete_topic_request.proto
-// version: 1.1.1
+// file: queuepb/v2/delete_topic_request.proto
+// version: 1.1.2
 // guid: 2f1d966a-514b-46ca-b291-17db26ec7f72
 // Request to delete a topic
 

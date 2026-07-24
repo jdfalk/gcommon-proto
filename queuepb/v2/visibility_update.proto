@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/visibility_update.proto
-// version: 1.0.1
+// file: queuepb/v2/visibility_update.proto
+// version: 1.0.2
 // guid: 9e5fd0b6-9d67-467e-b8a6-29addbcc72e4
 
 edition = "2023";

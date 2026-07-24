@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/column_metadata.proto
-// version: 1.0.1
+// file: databasepb/v2/column_metadata.proto
+// version: 1.0.2
 // guid: d06d164a-51bd-4f22-b1db-15171a8dd72d
 edition = "2023";
 

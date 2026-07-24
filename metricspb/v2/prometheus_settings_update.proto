@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/prometheus_settings_update.proto
-// version: 1.0.1
+// file: metricspb/v2/prometheus_settings_update.proto
+// version: 1.0.2
 // guid: 438c00d1-b391-4ced-b9d0-4ddbd6202b8d
 
 edition = "2023";

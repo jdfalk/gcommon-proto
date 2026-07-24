@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/enable_mfa_response.proto
-// version: 1.0.1
+// file: commonpb/v2/enable_mfa_response.proto
+// version: 1.0.2
 // guid: 7fe3c97f-1a88-419f-b2f9-9f699a13b78c
 
 edition = "2023";

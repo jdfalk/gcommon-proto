@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/consumer_state.proto
-// file: proto/gcommon/v2/queue/consumer_state.proto
-// version: 1.0.2
+// file: commonpb/v2/consumer_state.proto
+// version: 1.0.3
 // guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
 //
 // Enum definitions for queue module

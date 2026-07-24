@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/priority_level.proto
-// version: 1.0.2
+// file: commonpb/v2/priority_level.proto
+// version: 1.0.3
 // guid: e13c77fc-1bf7-42ed-947a-6e1ed4914bb2
 
 edition = "2023";

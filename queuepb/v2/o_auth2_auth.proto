@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/o_auth2_auth.proto
-// version: 1.0.1
+// file: queuepb/v2/o_auth2_auth.proto
+// version: 1.0.2
 // guid: ed719ecf-6477-4d68-b022-dc57bed659ce
 
 edition = "2023";

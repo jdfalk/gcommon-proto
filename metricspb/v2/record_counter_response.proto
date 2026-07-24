@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/record_counter_response.proto
-// version: 1.0.2
+// file: metricspb/v2/record_counter_response.proto
+// version: 1.0.3
 // guid: 47ec1fef-7557-4265-802c-0988b554f2a3
-// file: proto/gcommon/v2/metrics/v2/record_counter_response.proto
 //
 // Record counter response definitions for metrics module
 //

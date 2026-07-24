@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/decrypt_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/decrypt_config_request.proto
+// version: 1.0.2
 // guid: 9601c041-6660-4091-b17d-ca336ebe9e1d
-// file: proto/gcommon/v2/config/decrypt_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

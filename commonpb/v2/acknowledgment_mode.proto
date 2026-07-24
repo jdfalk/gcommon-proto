@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/acknowledgment_mode.proto
-// version: 1.0.2
+// file: commonpb/v2/acknowledgment_mode.proto
+// version: 1.0.3
 // guid: 6f4b2414-998e-4fc3-bc68-188dff6d2f25
 
 // Enumeration describing how message acknowledgments are handled by a

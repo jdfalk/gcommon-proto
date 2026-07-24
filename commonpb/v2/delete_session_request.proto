@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/delete_session_request.proto
-// version: 1.0.1
+// file: commonpb/v2/delete_session_request.proto
+// version: 1.0.2
 // guid: 81f54c30-c375-4c15-a847-2a7296c9741c
-// file: proto/gcommon/v2/common/delete_session_request.proto
 //
 // Request definitions for auth module
 edition = "2023";

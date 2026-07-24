@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/query_operation.proto
-// version: 1.0.2
+// file: commonpb/v2/query_operation.proto
+// version: 1.0.3
 // guid: dcbbcb0c-451b-40d4-a928-ebe7659c8e66
-// file: proto/gcommon/v2/metrics/v2/query_operation.proto
 //
 // Enum definitions for metrics module
 

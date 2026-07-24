@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/register_check_request.proto
-// version: 1.0.1
+// file: commonpb/v2/register_check_request.proto
+// version: 1.0.2
 // guid: d0def031-b6c4-482c-8e68-7d395ac76697
-// file: proto/gcommon/v2/common/register_check_request.proto
 //
 // Request definitions for health module
 //

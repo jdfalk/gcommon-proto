@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/health/responses/watch_health_response.proto
-// version: 1.0.1
+// file: healthpb/v2/watch_health_response.proto
+// version: 1.0.2
 // guid: 80919203-cfd5-0123-7890-456789012345
 
 edition = "2023";

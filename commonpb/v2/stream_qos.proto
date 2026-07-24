@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/stream_qos.proto
-// version: 1.0.2
+// file: commonpb/v2/stream_qos.proto
+// version: 1.0.3
 // guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
 
 edition = "2023";

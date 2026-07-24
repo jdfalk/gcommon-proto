@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/proxy_config.proto
-// version: 1.1.1
+// file: webpb/v2/proxy_config.proto
+// version: 1.1.2
 // guid: 44849c54-6bf7-4211-a8c0-0be1e0c98add
 
 edition = "2023";

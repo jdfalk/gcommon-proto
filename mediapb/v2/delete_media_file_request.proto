@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/delete_media_file_request.proto
-// version: 1.0.1
+// file: mediapb/v2/delete_media_file_request.proto
+// version: 1.0.2
 // guid: 9012345-6789-0123-b4c5-d6e7f8a9b0c1
 
 edition = "2023";

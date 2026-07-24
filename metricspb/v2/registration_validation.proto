@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/registration_validation.proto
-// version: 1.0.1
+// file: metricspb/v2/registration_validation.proto
+// version: 1.0.2
 // guid: eb100fbc-634b-48da-8ca6-51f2695247d3
 
 edition = "2023";

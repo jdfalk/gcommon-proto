@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/subscription_info.proto
-// version: 1.0.1
+// file: commonpb/v2/subscription_info.proto
+// version: 1.0.2
 // guid: 890b3e39-196c-4fe4-8153-4f73bdf677e6
 edition = "2023";
 

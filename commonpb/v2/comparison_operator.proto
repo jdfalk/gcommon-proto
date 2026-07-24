@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/comparison_operator.proto
-// version: 1.0.2
+// file: commonpb/v2/comparison_operator.proto
+// version: 1.0.3
 // guid: a2b3c4d5-6789-012d-6789-234567890123
 
 edition = "2023";

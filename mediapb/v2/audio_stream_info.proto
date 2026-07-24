@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/audio_stream_info.proto
-// version: 1.0.1
+// file: mediapb/v2/audio_stream_info.proto
+// version: 1.0.2
 // guid: e02d9f85-4f30-46c2-a59c-e54162c9502c
 
 edition = "2023";

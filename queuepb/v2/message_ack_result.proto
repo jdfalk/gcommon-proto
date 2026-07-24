@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_ack_result.proto
-// version: 1.0.1
+// file: queuepb/v2/message_ack_result.proto
+// version: 1.0.2
 // guid: d7c68f75-1f4d-4758-ba66-a6aaa0dcf1a4
 
 edition = "2023";

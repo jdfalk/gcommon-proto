@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/configure_alerting_response.proto
-// version: 1.0.1
+// file: commonpb/v2/configure_alerting_response.proto
+// version: 1.0.2
 // guid: f996c2ec-cfc9-45c8-8d78-97eef22d2df4
 edition = "2023";
 

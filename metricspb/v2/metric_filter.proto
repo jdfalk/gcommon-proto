@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/metric_filter.proto
-// version: 1.0.1
+// file: metricspb/v2/metric_filter.proto
+// version: 1.0.2
 // guid: 0608db8b-1fd3-4b4b-96f4-0635b55980e8
 // Filter for metrics queries
 

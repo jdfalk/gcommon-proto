@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/eviction_result.proto
-// version: 1.0.1
+// file: databasepb/v2/eviction_result.proto
+// version: 1.0.2
 // guid: op5qrstu-67v8-9w0x-1y2z-3a4b5c6d7e8f
 
 edition = "2023";

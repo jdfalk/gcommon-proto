@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/conflict_resolution.proto
-// version: 1.0.2
+// file: commonpb/v2/conflict_resolution.proto
+// version: 1.0.3
 // guid: 8535d30e-d232-4d73-9362-10e717955b66
 
 edition = "2023";

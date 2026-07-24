@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/cache_key_policy.proto
-// version: 1.0.1
+// file: organizationpb/v2/cache_key_policy.proto
+// version: 1.0.2
 // guid: 79bc7887-310b-4ecf-a948-fd2e09760466
 
 edition = "2023";

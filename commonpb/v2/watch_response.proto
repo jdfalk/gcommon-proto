@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/watch_response.proto
-// version: 1.0.1
+// file: commonpb/v2/watch_response.proto
+// version: 1.0.2
 // guid: 63859080-ce23-4630-b180-012a9c86ae1f
 //
 // Watch response message definition for streaming health updates

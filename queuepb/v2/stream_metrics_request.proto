@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/stream_metrics_request.proto
-// version: 1.0.1
+// file: queuepb/v2/stream_metrics_request.proto
+// version: 1.0.2
 // guid: 7ec20686-7f14-4488-9222-e6d189b494fe
 
 edition = "2023";

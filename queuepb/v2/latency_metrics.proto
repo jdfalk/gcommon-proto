@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/latency_metrics.proto
-// version: 1.0.1
+// file: queuepb/v2/latency_metrics.proto
+// version: 1.0.2
 // guid: 3e90b50a-4d0c-440a-911c-75bf6da02e43
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/record_summary_request.proto
-// version: 1.0.2
+// file: metricspb/v2/record_summary_request.proto
+// version: 1.0.3
 // guid: 5c052e01-88e7-4d02-b154-a1824090213b
-// file: proto/gcommon/v2/metrics/v2/record_summary_request.proto
 //
 // Request message for recording a summary metric observation.
 //

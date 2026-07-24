@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/time_range.proto
-// version: 1.0.1
+// file: commonpb/v2/time_range_metrics.proto
+// version: 1.0.2
 // guid: d6e7f8a9-012d-467c-1234-789012345678
 
 edition = "2023";

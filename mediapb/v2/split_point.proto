@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/split_point.proto
-// version: 1.0.1
+// file: mediapb/v2/split_point.proto
+// version: 1.0.2
 // guid: 5fa2ee55-db74-4d91-9eba-481bda251207
 
 edition = "2023";

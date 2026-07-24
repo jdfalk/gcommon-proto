@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/organization_resource_limits.proto
-// version: 1.0.1
+// file: commonpb/v2/organization_resource_limits.proto
+// version: 1.0.2
 // guid: 53f1daa8-81b3-439e-a815-562120cd11a8
 
 edition = "2023";

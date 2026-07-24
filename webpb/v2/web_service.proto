@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/web_service.proto
-// version: 1.0.2
+// file: webpb/v2/web_service.proto
+// version: 1.0.3
 // guid: 5f6e7d8c-9b0a-1423-5e6f-7a8b9c0d1e2f
 
 edition = "2023";

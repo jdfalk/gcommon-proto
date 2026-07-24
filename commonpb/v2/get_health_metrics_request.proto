@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/get_health_metrics_request.proto
-// version: 1.0.1
+// file: commonpb/v2/get_health_metrics_request.proto
+// version: 1.0.2
 // guid: 85ebb0e8-dd6f-4a2d-9e83-386b9d84d776
-// file: proto/gcommon/v2/common/get_health_metrics_request.proto
 //
 // Request definitions for health module
 //

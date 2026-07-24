@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/hierarchy_path.proto
-// version: 1.0.1
+// file: organizationpb/v2/hierarchy_path.proto
+// version: 1.0.2
 // guid: f805b922-255a-475f-86d7-a4420903d7ad
 
 edition = "2023";

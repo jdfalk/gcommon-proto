@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/applied_config.proto
-// version: 1.0.1
+// file: metricspb/v2/applied_config.proto
+// version: 1.0.2
 // guid: d569fe55-1ee6-4cbb-94c5-f4bd79df578d
 
 edition = "2023";

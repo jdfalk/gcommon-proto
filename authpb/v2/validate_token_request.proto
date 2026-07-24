@@ -1,5 +1,5 @@
 // file: authpb/v2/validate_token_request.proto
-// version: 2.0.1
+// version: 2.0.2
 // guid: d4e5f6g7-h8i9-0123-def0-234567890123
 
 edition = "2023";
@@ -9,7 +9,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb/v2";
 
 /**
  * ValidateTokenRequest represents a token validation request.

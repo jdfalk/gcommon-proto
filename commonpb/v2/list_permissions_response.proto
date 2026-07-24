@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/list_permissions_response.proto
-// version: 1.0.1
+// file: commonpb/v2/list_permissions_response.proto
+// version: 1.0.2
 // guid: 4aecc4bd-409d-4724-a679-a189e3390d5d
-// file: proto/gcommon/v2/common/list_permissions_response.proto
 //
 // Response definitions for auth module
 

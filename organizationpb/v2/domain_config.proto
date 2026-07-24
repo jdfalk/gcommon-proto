@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/domain_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/domain_config.proto
+// version: 1.0.2
 // guid: ee8bb6b4-f822-496b-8109-9bd6ffdbdf7b
 
 edition = "2023";

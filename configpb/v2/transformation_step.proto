@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/transformation_step.proto
-// version: 1.0.1
+// file: configpb/v2/transformation_step.proto
+// version: 1.0.2
 // guid: 4b3c1c96-82eb-4c1d-84ac-362e461d5793
 
 edition = "2023";

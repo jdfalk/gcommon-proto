@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/alerting_rule.proto
-// version: 1.0.1
+// file: metricspb/v2/alerting_rule.proto
+// version: 1.0.2
 // guid: c5d6e7f8-901c-356b-0123-678901234567
 
 edition = "2023";

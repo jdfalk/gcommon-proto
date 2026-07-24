@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/schema_evolution_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/schema_evolution_strategy.proto
+// version: 1.0.3
 // guid: ef5f0572-3b2c-44c1-8e1c-247b8fad9c9c
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/stop_workflow_request.proto
-// version: 1.0.1
+// file: queuepb/v2/stop_workflow_request.proto
+// version: 1.0.2
 // guid: 4f5e6d7c-8b9a-0312-4e5f-6a7b8c9d0e1f
 
 edition = "2023";

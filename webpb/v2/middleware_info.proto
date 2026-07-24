@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/middleware_info.proto
-// version: 1.1.1
+// file: webpb/v2/middleware_info.proto
+// version: 1.1.2
 // guid: ddae7421-009f-4275-806a-9ff6d3270232
 
 edition = "2023";

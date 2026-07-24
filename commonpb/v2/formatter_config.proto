@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/formatter_config.proto
-// version: 1.0.1
+// file: commonpb/v2/formatter_config.proto
+// version: 1.0.2
 // guid: d4e8088a-7b07-48cf-b572-0d850b7218e4
 
 edition = "2023";

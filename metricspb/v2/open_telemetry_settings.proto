@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/open_telemetry_settings.proto
-// version: 1.0.1
+// file: metricspb/v2/open_telemetry_settings.proto
+// version: 1.0.2
 // guid: bc525cde-e766-4d2a-9ba9-d6383bdf2f6f
 
 edition = "2023";

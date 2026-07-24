@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/bucket_info.proto
-// version: 1.0.1
+// file: metricspb/v2/bucket_info.proto
+// version: 1.0.2
 // guid: 1e2d379b-a3a4-4bc6-9bc8-121a62e7c85b
 
 edition = "2023";

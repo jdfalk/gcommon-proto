@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/serialization_format.proto
-// file: proto/gcommon/v2/queue/serialization_format.proto
-// version: 1.0.2
+// file: commonpb/v2/serialization_format.proto
+// version: 1.0.3
 // guid: 7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b
 //
 // Enum definitions for queue module

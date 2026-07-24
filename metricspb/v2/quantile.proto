@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/quantile.proto
-// version: 1.0.1
+// file: metricspb/v2/quantile.proto
+// version: 1.0.2
 // guid: 9aa0660a-bf89-48a8-856e-cbc136a634b9
 
 edition = "2023";

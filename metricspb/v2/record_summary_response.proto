@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/record_summary_response.proto
-// version: 1.0.2
+// file: metricspb/v2/record_summary_response.proto
+// version: 1.0.3
 // guid: d23c6f17-2028-4070-ad58-01c921f8f75d
-// file: proto/gcommon/v2/metrics/v2/record_summary_response.proto
 //
 // Response after recording a summary metric.
 //

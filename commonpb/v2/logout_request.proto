@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/logout_request.proto
-// version: 1.0.1
+// file: commonpb/v2/logout_request.proto
+// version: 1.0.2
 // guid: b22adc38-523e-4fbf-8fae-d3f890525589
 
 edition = "2023";

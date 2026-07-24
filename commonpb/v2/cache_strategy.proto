@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/cache_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/cache_strategy.proto
+// version: 1.0.3
 // guid: a2c186e6-9e1e-402b-802f-39fc7b4dfc0d
 //
 // CacheStrategy defines caching policies for HTTP handlers.

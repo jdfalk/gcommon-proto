@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/approval_stage.proto
-// version: 1.0.1
+// file: configpb/v2/approval_stage.proto
+// version: 1.0.2
 // guid: 40bf0e9f-ef92-44c7-94fe-0b5f3ac6e653
 
 edition = "2023";

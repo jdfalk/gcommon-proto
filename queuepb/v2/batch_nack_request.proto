@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/batch_nack_request.proto
-// version: 1.0.1
+// file: queuepb/v2/batch_nack_request.proto
+// version: 1.0.2
 // guid: a97a83e4-7bab-4c6e-9770-d11334535e11
 
 edition = "2023";

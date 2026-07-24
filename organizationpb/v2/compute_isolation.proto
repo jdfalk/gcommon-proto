@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/compute_isolation.proto
-// version: 1.0.1
+// file: organizationpb/v2/compute_isolation.proto
+// version: 1.0.2
 // guid: 4d8711b4-c65d-43b7-a0ae-8453f4ffa71f
 
 edition = "2023";

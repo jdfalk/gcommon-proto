@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/failed_field_update.proto
-// version: 1.0.1
+// file: queuepb/v2/failed_field_update.proto
+// version: 1.0.2
 // guid: 3fbfa5f5-c2fc-4c93-9fec-823125628ddb
 
 edition = "2023";

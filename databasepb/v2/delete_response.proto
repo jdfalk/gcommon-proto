@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/delete_response.proto
-// version: 1.0.1
+// file: databasepb/v2/delete_response.proto
+// version: 1.0.2
 // guid: 9a0bcdef-12a3-4b5c-6d7e-8f9a0b1c2d3e
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/reload_config_request.proto
-// version: 1.0.1
+// file: configpb/v2/reload_config_request.proto
+// version: 1.0.2
 // guid: 5d1ecbb6-f500-42a2-85a1-ee831ecb1936
-// file: proto/gcommon/v2/config/reload_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

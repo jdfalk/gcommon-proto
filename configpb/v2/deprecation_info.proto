@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/deprecation_info.proto
-// version: 1.0.1
+// file: configpb/v2/deprecation_info.proto
+// version: 1.0.2
 // guid: 8431c848-ce8a-41cf-9848-ee052647463a
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/synchronization_frequency.proto
-// version: 1.0.2
+// file: commonpb/v2/synchronization_frequency.proto
+// version: 1.0.3
 // guid: 939438cc-2704-4ba7-ab8a-8ed45e882d94
 
 edition = "2023";

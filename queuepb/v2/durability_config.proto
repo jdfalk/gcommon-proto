@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/config/durability_config.proto
-// file: proto/gcommon/v2/queue/durability_config.proto
-// version: 1.0.1
+// file: queuepb/v2/durability_config.proto
+// version: 1.0.2
 // guid: 1a0b9c8d-7e6f-5a4b-3c2d-1e0f9a8b7c6d
 //
 // Message definitions for queue module

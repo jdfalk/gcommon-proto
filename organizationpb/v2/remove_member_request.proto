@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/remove_member_request.proto
-// version: 1.0.1
+// file: organizationpb/v2/remove_member_request.proto
+// version: 1.0.2
 // guid: 872a8e4b-2348-48e1-b9f0-24da3693fce2
 
 edition = "2023";

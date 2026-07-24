@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/decrement_response.proto
-// version: 1.0.1
+// file: databasepb/v2/decrement_response.proto
+// version: 1.0.2
 // guid: cd3efghi-45j6-7k8l-9m0n-1o2p3q4r5s6t
 
 edition = "2023";

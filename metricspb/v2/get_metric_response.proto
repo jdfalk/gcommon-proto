@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/get_metric_response.proto
-// version: 1.0.2
+// file: metricspb/v2/get_metric_response.proto
+// version: 1.0.3
 // guid: dc01ceeb-c2dd-4f50-9e0b-424293f1f529
-// file: proto/gcommon/v2/metrics/v2/get_metric_response.proto
 //
 // Response containing a metric definition and data.
 //

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/mark_as_read_request.proto
-// version: 1.0.1
+// file: commonpb/v2/mark_as_read_request.proto
+// version: 1.0.2
 // guid: 106b287f-61f9-4551-8526-53a606fbd0d1
 
 edition = "2023";

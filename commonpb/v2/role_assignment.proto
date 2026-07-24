@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/role_assignment.proto
-// version: 1.0.1
+// file: commonpb/v2/role_assignment.proto
+// version: 1.0.2
 // guid: 91143e0d-5e46-40b4-bf89-ab8d51c7be38
 edition = "2023";
 

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/web/web_admin_service.proto
-// version: 1.0.2
+// file: webpb/v2/web_admin_service.proto
+// version: 1.0.3
 // guid: 1419b30a-cf4d-4cd5-80ab-8bdd18381d02
-// file: proto/gcommon/v2/web/web_admin_service.proto
 //
 // Administrative service for managing web server cache settings.
 //

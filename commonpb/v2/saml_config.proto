@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/saml_config.proto
-// version: 1.0.1
+// file: commonpb/v2/saml_config.proto
+// version: 1.0.2
 // guid: b1088674-0c17-45db-8c6d-3022ce0a629b
 
 edition = "2023";

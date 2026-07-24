@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/convert_subtitle_format_request.proto
-// version: 1.0.1
+// file: mediapb/v2/convert_subtitle_format_request.proto
+// version: 1.0.2
 // guid: 890123de-f012-3456-c9d0-e1f234567890
 
 edition = "2023";

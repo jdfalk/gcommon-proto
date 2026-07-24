@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/server_state.proto
-// version: 1.0.2
+// file: commonpb/v2/server_state.proto
+// version: 1.0.3
 // guid: edc8f45d-5db0-4b28-b04a-c6eedc98b19b
 //
 // ServerState represents lifecycle states of the server.

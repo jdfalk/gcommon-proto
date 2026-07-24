@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/cluster_health.proto
-// version: 1.0.1
+// file: queuepb/v2/cluster_health.proto
+// version: 1.0.2
 // guid: a0aa1fd8-9db2-427a-b5d5-359c620f271a
 
 edition = "2023";

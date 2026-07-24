@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/retention_policy.proto
-// version: 1.0.1
+// file: configpb/v2/retention_policy.proto
+// version: 1.0.2
 // guid: 6144fe44-891b-4c63-818e-572c219e36a7
 
 edition = "2023";

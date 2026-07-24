@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/configure_alerting_request.proto
-// version: 1.0.1
+// file: commonpb/v2/configure_alerting_request.proto
+// version: 1.0.2
 // guid: 760eeee5-189e-489d-b385-42e80f43726f
-// file: proto/gcommon/v2/common/configure_alerting_request.proto
 //
 // Request definitions for health module
 //

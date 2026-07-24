@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/resource_data_point.proto
-// version: 1.0.1
+// file: metricspb/v2/resource_data_point.proto
+// version: 1.0.2
 // guid: aada674f-48f3-4943-b35d-4866b7b17399
 
 edition = "2023";

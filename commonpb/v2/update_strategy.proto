@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/update_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/update_strategy.proto
+// version: 1.0.3
 // guid: 33aabd04-d32c-4267-94a4-dca8e8c580ad
 
 edition = "2023";

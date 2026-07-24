@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/send_message_response.proto
-// version: 1.0.1
+// file: queuepb/v2/send_message_response.proto
+// version: 1.0.2
 // guid: 2bbac133-fc81-4653-a03a-e5227ae81d4e
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/stream_server_events_request.proto
-// version: 1.0.2
+// file: webpb/v2/stream_server_events_request.proto
+// version: 1.0.3
 // guid: 0316e0ad-e7e2-4a26-82d6-0a4b3d92c9ec
 
 edition = "2023";

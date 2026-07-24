@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/delete_metric_request.proto
-// version: 1.0.1
+// file: metricspb/v2/delete_metric_request.proto
+// version: 1.0.2
 // guid: a9c3b698-cd8d-4405-b2f8-913d63eb25b4
-// file: proto/gcommon/v2/metrics/v2/delete_metric_request.proto
 //
 // Request to delete an existing metric definition.
 //

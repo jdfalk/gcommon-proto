@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/storage_policy.proto
-// version: 1.0.1
+// file: organizationpb/v2/storage_policy.proto
+// version: 1.0.2
 // guid: 7a5f99b0-8434-408a-9c22-199f4ea471af
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/rebalance_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/rebalance_strategy.proto
+// version: 1.0.3
 // guid: def27fd7-f689-4591-b5ed-452ee9ca34ea
 
 edition = "2023";

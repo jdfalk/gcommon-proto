@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/metric_health.proto
-// version: 1.0.1
+// file: metricspb/v2/metric_health.proto
+// version: 1.0.2
 // guid: c0c75431-e37e-4748-8a0d-44a7b15c5e3b
 
 edition = "2023";

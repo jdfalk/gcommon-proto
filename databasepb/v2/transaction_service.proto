@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/transaction_service.proto
-// version: 1.0.2
+// file: databasepb/v2/transaction_service.proto
+// version: 1.0.3
 // guid: 48c127b3-f9fa-4a27-bdd8-a41127f3d449
 
 edition = "2023";

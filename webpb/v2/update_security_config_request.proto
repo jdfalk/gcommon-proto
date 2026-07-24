@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/update_security_config_request.proto
-// version: 1.0.1
+// file: webpb/v2/update_security_config_request.proto
+// version: 1.0.2
 // guid: 69e8edc6-5475-4f71-9753-26c412daab0e
 
 edition = "2023";

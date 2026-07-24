@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/resolution.proto
-// version: 1.0.2
+// file: commonpb/v2/resolution.proto
+// version: 1.0.3
 // guid: 2901b257-89ea-43db-8650-a3b6b48acfdb
 
 edition = "2023";

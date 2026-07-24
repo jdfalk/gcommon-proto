@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/list_messages_response.proto
-// version: 1.0.1
+// file: queuepb/v2/list_messages_response.proto
+// version: 1.0.2
 // guid: 2a7aef43-6b98-462f-a3bd-9f06cb6636de
 // Response for listing messages
 

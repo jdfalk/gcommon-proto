@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/health_check_request.proto
-// version: 1.0.1
+// file: configpb/v2/health_check_request.proto
+// version: 1.0.2
 // guid: bb4a27ef-7b1e-4a20-937c-7366e3be5b6f
 //
 // Request definitions for config module

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/create_permission_request.proto
-// version: 1.0.1
+// file: commonpb/v2/create_permission_request.proto
+// version: 1.0.2
 // guid: dee162c4-dfc6-4ebf-94f8-7f7871349e23
-// file: proto/gcommon/v2/common/create_permission_request.proto
 //
 // Request definitions for auth module
 

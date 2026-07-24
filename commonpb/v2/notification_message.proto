@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/notification_message.proto
-// version: 1.0.1
+// file: commonpb/v2/notification_message.proto
+// version: 1.0.2
 // guid: 145b3e1e-f6ae-4bbf-9efb-78ebe3c659c8
-// file: proto/gcommon/v2/common/notification_message.proto
 //
 // Message definitions for notification module
 edition = "2023";

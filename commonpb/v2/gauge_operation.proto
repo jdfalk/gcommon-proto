@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/gauge_operation.proto
-// version: 1.0.2
+// file: commonpb/v2/gauge_operation.proto
+// version: 1.0.3
 // guid: c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f
 
 edition = "2023";

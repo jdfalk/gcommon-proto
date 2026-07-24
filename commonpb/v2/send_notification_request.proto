@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/send_notification_request.proto
-// version: 1.0.2
+// file: commonpb/v2/send_notification_request.proto
+// version: 1.0.3
 // guid: 42b9620e-9388-4ee6-be25-e4a3a0928211
 
 edition = "2023";

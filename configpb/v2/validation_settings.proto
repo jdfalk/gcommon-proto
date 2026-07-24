@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/validation_settings.proto
-// version: 1.0.1
+// file: configpb/v2/validation_settings.proto
+// version: 1.0.2
 // guid: b6a8294f-3f5c-4bcc-95ad-9369bd1addd5
 
 edition = "2023";

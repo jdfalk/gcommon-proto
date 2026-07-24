@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/memory_allocation.proto
-// version: 1.0.1
+// file: organizationpb/v2/memory_allocation.proto
+// version: 1.0.2
 // guid: b8114ab9-1c29-4549-ab06-3cad6a44ccf1
 
 edition = "2023";

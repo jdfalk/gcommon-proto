@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/delete_team_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/delete_team_response.proto
+// version: 1.0.2
 // guid: 69568dc0-2615-41c3-9244-1665554ae4ea
 edition = "2023";
 

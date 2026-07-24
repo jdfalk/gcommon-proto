@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/historical_data_point.proto
-// version: 1.0.1
+// file: queuepb/v2/historical_data_point.proto
+// version: 1.0.2
 // guid: 8e947e6d-7509-4f8b-931c-cb36d515b5e5
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/batch_ack_response.proto
-// version: 1.0.1
+// file: queuepb/v2/batch_ack_response.proto
+// version: 1.0.2
 // guid: f9db0dcc-9ce1-4f92-87fd-2ed15dd3fefb
 
 edition = "2023";

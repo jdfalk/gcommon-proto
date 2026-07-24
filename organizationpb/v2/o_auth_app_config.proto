@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/o_auth_app_config.proto
-// version: 1.0.1
+// file: organizationpb/v2/o_auth_app_config.proto
+// version: 1.0.2
 // guid: 3db5888f-b55c-4810-82a3-0690f6604cf9
 
 edition = "2023";

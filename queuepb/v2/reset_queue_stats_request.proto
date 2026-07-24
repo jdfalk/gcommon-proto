@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/reset_queue_stats_request.proto
-// version: 1.0.1
+// file: queuepb/v2/reset_queue_stats_request.proto
+// version: 1.0.2
 // guid: d2059a85-daa1-4c7e-85c1-e55409000e9d
 // Request to reset queue statistics
 

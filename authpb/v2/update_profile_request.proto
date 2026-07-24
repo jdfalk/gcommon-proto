@@ -1,3 +1,6 @@
+// file: authpb/v2/update_profile_request.proto
+// version: 1.0.0
+// guid: fcc61ed2-9d5d-4e72-ae75-9c8fc30b85a2
 edition = "2023";
 
 package auth.v2;
@@ -5,7 +8,7 @@ package auth.v2;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb";
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/authpb/v2";
 
 // Request to update user profile information
 message UpdateProfileRequest {

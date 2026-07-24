@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/unregister_check_request.proto
-// version: 1.0.1
+// file: commonpb/v2/unregister_check_request.proto
+// version: 1.0.2
 // guid: 97f6ba81-dd35-4406-a842-01af8b19471b
-// file: proto/gcommon/v2/common/unregister_check_request.proto
 //
 // Request definitions for health module
 //

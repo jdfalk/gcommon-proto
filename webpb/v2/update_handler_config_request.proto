@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/update_handler_config_request.proto
-// version: 1.0.1
+// file: webpb/v2/update_handler_config_request.proto
+// version: 1.0.2
 // guid: 6241c28b-b274-4d3e-afb4-2c2a65fa5e96
 
 edition = "2023";

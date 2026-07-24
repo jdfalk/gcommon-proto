@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/pagination_info.proto
-// version: 1.0.1
+// file: commonpb/v2/pagination_info.proto
+// version: 1.0.2
 // guid: 085f52cb-b1d9-4c82-ada7-9783f2807a33
 
 edition = "2023";

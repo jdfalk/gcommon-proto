@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/record_metric_response.proto
-// version: 1.0.1
+// file: metricspb/v2/record_metric_response.proto
+// version: 1.0.2
 // guid: f6b84950-9977-45e7-a9d6-1b3d9a800f62
-// file: proto/gcommon/v2/metrics/v2/record_metric_response.proto
 //
 // Record metric response definitions for metrics module
 //

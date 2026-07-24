@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/update_tenant_quota_request.proto
-// version: 1.0.1
+// file: organizationpb/v2/update_tenant_quota_request.proto
+// version: 1.0.2
 // guid: 3b0b2b76-0e29-4471-8cce-e2f7b4c4f3cf
 
 edition = "2023";

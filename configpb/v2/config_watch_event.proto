@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/config_watch_event.proto
-// version: 1.0.1
+// file: configpb/v2/config_watch_event.proto
+// version: 1.0.2
 // guid: 218de9f4-02fd-4c68-acb9-0f549a1cfd06
 
 edition = "2023";

@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/delete_metric_response.proto
-// version: 1.0.2
+// file: metricspb/v2/delete_metric_response.proto
+// version: 1.0.3
 // guid: 8c8412a9-6dbd-4e4c-9b63-36745a456d41
-// file: proto/gcommon/v2/metrics/v2/delete_metric_response.proto
 //
 // Response returned after deleting a metric.
 //

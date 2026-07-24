@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/list_subscriptions_response.proto
-// version: 1.0.1
+// file: queuepb/v2/list_subscriptions_response.proto
+// version: 1.0.2
 // guid: c20dc6c8-336b-4626-b709-22be9663d29d
 
 // ListSubscriptionsResponse contains the subscriptions under a

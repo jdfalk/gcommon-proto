@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/config/api/set_config_schema_request.proto
-// version: 1.0.1
+// file: configpb/v2/set_config_schema_request.proto
+// version: 1.0.2
 // guid: 5031e4d6-2d21-40cf-b382-0a95e6ba91c7
-// file: proto/gcommon/v2/config/set_config_schema_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation

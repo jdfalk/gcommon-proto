@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/scope_type.proto
-// version: 1.0.2
+// file: commonpb/v2/scope_type.proto
+// version: 1.0.3
 // guid: f8bce9e5-500a-40e6-aca9-4ce5c58d2d04
-// file: proto/gcommon/v2/common/scope_type.proto
 //
 // Enum definitions for auth module
 //

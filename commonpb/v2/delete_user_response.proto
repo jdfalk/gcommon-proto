@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/delete_user_response.proto
-// version: 1.0.1
+// file: commonpb/v2/delete_user_response.proto
+// version: 1.0.2
 // guid: 1c98d374-f744-4078-bb80-826832a42620
-// file: proto/gcommon/v2/common/delete_user_response.proto
 //
 // Response definitions for auth module
 

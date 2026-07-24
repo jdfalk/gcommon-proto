@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/rate_limit_config.proto
-// version: 1.0.2
+// file: webpb/v2/rate_limit_config.proto
+// version: 1.0.3
 // guid: 180cb5f4-1064-4b88-bbe6-dbc6934ec21e
 
 edition = "2023";

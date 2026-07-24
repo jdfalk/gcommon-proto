@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/web_socket_state.proto
-// version: 1.0.2
+// file: commonpb/v2/web_socket_state.proto
+// version: 1.0.3
 // guid: 0d71bf70-328b-459b-8bc7-674138f22f92
 //
 // WebSocketState tracks connection lifecycle stages.

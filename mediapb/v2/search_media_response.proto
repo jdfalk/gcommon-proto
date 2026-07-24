@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/search_media_response.proto
-// version: 1.0.1
+// file: mediapb/v2/search_media_response.proto
+// version: 1.0.2
 // guid: 456789a-bcde-f012-a9b0-c1d2e3f4a5b6
 
 edition = "2023";

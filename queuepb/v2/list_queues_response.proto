@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/list_queues_response.proto
-// version: 1.0.1
+// file: queuepb/v2/list_queues_response.proto
+// version: 1.0.2
 // guid: c2ffc959-d7b5-451f-94f4-a9334e02725f
 
 // ListQueuesResponse returns a list of queues visible to the

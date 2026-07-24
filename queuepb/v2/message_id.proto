@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/message_id.proto
-// version: 1.0.1
+// file: queuepb/v2/message_id.proto
+// version: 1.0.2
 // guid: 9bd8b62d-3655-4ff5-9f3a-4d5da241dc77
 
 // MessageId is a simple wrapper type used for referencing messages

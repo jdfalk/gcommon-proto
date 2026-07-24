@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/secondary_sort_field.proto
-// version: 1.0.1
+// file: metricspb/v2/secondary_sort_field.proto
+// version: 1.0.2
 // guid: 136c5347-b8ae-4bd7-bf04-163e6e550f8a
 
 edition = "2023";

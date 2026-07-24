@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/get_cluster_info_request.proto
-// version: 1.0.1
+// file: queuepb/v2/get_cluster_info_request.proto
+// version: 1.0.2
 // guid: 796bd8f4-f731-447d-9cf7-e1b29047192f
 // Request to get cluster information
 

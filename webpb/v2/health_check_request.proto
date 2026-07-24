@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/health_check_request.proto
-// version: 1.0.2
+// file: webpb/v2/health_check_request.proto
+// version: 1.0.3
 // guid: 08748b61-ccf0-4bfe-bfc6-ad2778f3959c
 // HealthCheckRequest request definition.
 

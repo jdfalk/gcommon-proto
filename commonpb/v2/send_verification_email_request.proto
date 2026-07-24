@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/common/types/send_verification_email_request.proto
-// version: 1.0.1
+// file: commonpb/v2/send_verification_email_request.proto
+// version: 1.0.2
 // guid: 0e006386-d269-49b5-b99f-3794275714db
-// file: proto/gcommon/v2/common/send_verification_email_request.proto
 //
 // Request definitions for auth module
 

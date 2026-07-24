@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/cache_config.proto
-// version: 1.1.1
+// file: webpb/v2/cache_config.proto
+// version: 1.1.2
 // guid: 21e9abdf-bf09-4c22-b45b-eb9c092d9664
 
 edition = "2023";

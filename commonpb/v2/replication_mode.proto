@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/replication_mode.proto
-// file: proto/gcommon/v2/queue/replication_mode.proto
-// version: 1.0.2
+// file: commonpb/v2/replication_mode.proto
+// version: 1.0.3
 // guid: 6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a
 //
 // Enum definitions for queue module

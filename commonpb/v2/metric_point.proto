@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/metric_point.proto
-// version: 1.0.1
+// file: commonpb/v2/metric_point.proto
+// version: 1.0.2
 // guid: 33062748-1b9e-47b6-9fbe-be60f9f3fb7d
 edition = "2023";
 

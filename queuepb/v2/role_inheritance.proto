@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/role_inheritance.proto
-// version: 1.0.1
+// file: queuepb/v2/role_inheritance.proto
+// version: 1.0.2
 // guid: 85442141-e1a3-4392-94b8-44d4f53e79fb
 
 edition = "2023";

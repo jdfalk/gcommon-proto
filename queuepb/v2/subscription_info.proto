@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/subscription_info.proto
-// version: 1.0.1
+// file: queuepb/v2/subscription_info.proto
+// version: 1.0.2
 // guid: 9b9d0532-72ff-4a42-b3b2-689a1a26dd9f
 
 // SubscriptionInfo provides metadata about a subscription to a topic

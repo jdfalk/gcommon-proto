@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/metrics_event.proto
-// version: 1.0.1
+// file: queuepb/v2/metrics_event.proto
+// version: 1.0.2
 // guid: 3d754283-08ab-451e-ad1d-c72c8da71fa4
 
 edition = "2023";

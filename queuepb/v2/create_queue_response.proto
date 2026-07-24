@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/create_queue_response.proto
-// version: 1.0.1
+// file: queuepb/v2/create_queue_response.proto
+// version: 1.0.2
 // guid: 20edcd60-9765-404c-9193-f8b419e9af03
 // Response for queue creation operations
 

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/email_template.proto
-// version: 1.0.1
+// file: commonpb/v2/email_template.proto
+// version: 1.0.2
 // guid: 03debb46-12b4-4099-9c8f-99523c435029
 
 edition = "2023";

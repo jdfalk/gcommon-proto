@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/alert_type.proto
-// version: 1.0.2
+// file: commonpb/v2/alert_type.proto
+// version: 1.0.3
 // guid: 54407766-3304-4e90-90d6-973ac6ff0fc3
 
 edition = "2023";

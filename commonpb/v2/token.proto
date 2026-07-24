@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/token.proto
-// version: 1.0.1
+// file: commonpb/v2/token.proto
+// version: 1.0.2
 // guid: caf60cc1-beab-4119-bb01-f426fbb8b680
 edition = "2023";
 

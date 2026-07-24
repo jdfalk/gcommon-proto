@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/pull_request.proto
-// version: 1.0.1
+// file: queuepb/v2/pull_request.proto
+// version: 1.0.2
 // guid: dae5ea8a-77c7-4b90-ab25-d2981ba423df
 // PullRequest retrieves a single message from the specified queue
 // without establishing a subscription. This file replaces the

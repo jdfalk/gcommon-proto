@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/config/v2/encryption_settings.proto
-// version: 1.0.1
+// file: configpb/v2/encryption_settings.proto
+// version: 1.0.2
 // guid: 60653f55-24f4-4171-936f-a6c0643044de
 
 edition = "2023";

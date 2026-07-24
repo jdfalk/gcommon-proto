@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/resource_limits_update.proto
-// version: 1.0.1
+// file: metricspb/v2/resource_limits_update.proto
+// version: 1.0.2
 // guid: cc6398cf-50af-461a-a6de-d00d8a2e61d9
 
 edition = "2023";

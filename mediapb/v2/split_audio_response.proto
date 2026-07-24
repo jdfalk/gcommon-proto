@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/split_audio_response.proto
-// version: 1.0.1
+// file: mediapb/v2/split_audio_response.proto
+// version: 1.0.2
 // guid: 789abcd-ef01-2345-f4a5-b6c7d8e9f0a1
 
 edition = "2023";

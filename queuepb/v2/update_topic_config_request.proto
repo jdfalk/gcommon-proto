@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/update_topic_config_request.proto
-// version: 1.0.1
+// file: queuepb/v2/update_topic_config_request.proto
+// version: 1.0.2
 // guid: b7623d06-10e5-4b18-9b4f-976ff9116f5c
 // Request to update topic configuration
 

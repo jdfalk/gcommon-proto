@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/delivery_mode.proto
-// file: proto/gcommon/v2/queue/delivery_mode.proto
-// version: 1.0.2
+// file: commonpb/v2/delivery_mode.proto
+// version: 1.0.3
 // guid: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
 //
 // Enum definitions for queue module

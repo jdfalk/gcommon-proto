@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/web/middleware_type.proto
-// version: 1.0.2
+// file: commonpb/v2/middleware_type.proto
+// version: 1.0.3
 // guid: e6a7b5cb-240b-4636-bb49-9615874e9f9d
 //
 // MiddlewareType represents categories of HTTP middleware.

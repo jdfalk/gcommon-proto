@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/media/merge_audio_response.proto
-// version: 1.0.1
+// file: mediapb/v2/merge_audio_response.proto
+// version: 1.0.2
 // guid: 9abcdef-0123-4567-b6c7-d8e9f0a1b2c3
 
 edition = "2023";

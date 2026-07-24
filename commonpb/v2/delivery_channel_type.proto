@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/delivery_channel_type.proto
-// version: 1.0.2
+// file: commonpb/v2/delivery_channel_type.proto
+// version: 1.0.3
 // guid: c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f
 
 edition = "2023";

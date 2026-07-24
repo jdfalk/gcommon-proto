@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/database/configure_policy_request.proto
-// version: 1.0.1
+// file: databasepb/v2/configure_policy_request.proto
+// version: 1.0.2
 // guid: 123e4567-e89b-12d3-a456-426614174019
 
 edition = "2023";

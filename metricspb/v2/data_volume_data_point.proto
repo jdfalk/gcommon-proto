@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/metrics/v2/data_volume_data_point.proto
-// version: 1.0.1
+// file: metricspb/v2/data_volume_data_point.proto
+// version: 1.0.2
 // guid: c039b372-c314-4b88-82b6-3838745f0299
 
 edition = "2023";

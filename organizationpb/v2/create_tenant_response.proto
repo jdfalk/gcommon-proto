@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/organization/create_tenant_response.proto
-// version: 1.0.1
+// file: organizationpb/v2/create_tenant_response.proto
+// version: 1.0.2
 // guid: 4c1b8703-1137-44ee-b243-49b82281f749
 edition = "2023";
 

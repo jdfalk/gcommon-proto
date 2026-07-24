@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/offset_type.proto
-// version: 1.0.2
+// file: commonpb/v2/offset_type.proto
+// version: 1.0.3
 // guid: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
 
 edition = "2023";

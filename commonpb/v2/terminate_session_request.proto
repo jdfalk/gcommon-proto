@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/common/terminate_session_request.proto
-// version: 1.0.1
+// file: commonpb/v2/terminate_session_request.proto
+// version: 1.0.2
 // guid: 9b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
 
 edition = "2023";

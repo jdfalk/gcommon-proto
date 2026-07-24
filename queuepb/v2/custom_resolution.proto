@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/custom_resolution.proto
-// version: 1.0.1
+// file: queuepb/v2/custom_resolution.proto
+// version: 1.0.2
 // guid: 94eb8c9d-f368-4910-9841-128a9ceee9c8
 
 edition = "2023";

@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/get_partition_info_response.proto
-// version: 1.0.1
+// file: queuepb/v2/get_partition_info_response.proto
+// version: 1.0.2
 // guid: 414613a0-0192-43b0-9f7f-347bd35d0bfc
 // Response with partition information
 

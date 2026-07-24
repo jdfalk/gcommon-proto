@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/permission_rule.proto
-// version: 1.0.1
+// file: queuepb/v2/permission_rule.proto
+// version: 1.0.2
 // guid: a9f45dd7-43a2-47cd-812c-8a08ee0100e2
 
 edition = "2023";

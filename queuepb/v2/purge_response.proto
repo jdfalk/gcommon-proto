@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/purge_response.proto
-// version: 1.0.1
+// file: queuepb/v2/purge_response.proto
+// version: 1.0.2
 // guid: 14d5741d-3af8-49b9-8ec4-887527a72cfb
 // Response for queue purge operations
 

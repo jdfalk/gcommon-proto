@@ -1,7 +1,6 @@
-// file: proto/gcommon/v2/metrics/v2/reset_metrics_request.proto
-// version: 1.0.1
+// file: metricspb/v2/reset_metrics_request.proto
+// version: 1.0.2
 // guid: 16c1ba58-926f-4a1a-adbe-fe25ec131ea9
-// file: proto/gcommon/v2/metrics/v2/reset_metrics_request.proto
 //
 // Request message for resetting stored metric data.
 //

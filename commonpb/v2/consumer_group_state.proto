@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/consumer_group_state.proto
-// version: 1.0.2
+// file: commonpb/v2/consumer_group_state.proto
+// version: 1.0.3
 // guid: 3c66ccb4-a4d4-43f9-952e-510a7b8086c9
 
 edition = "2023";

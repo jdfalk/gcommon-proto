@@ -1,5 +1,5 @@
-// file: proto/gcommon/v2/queue/conflict_strategy.proto
-// version: 1.0.2
+// file: commonpb/v2/conflict_strategy.proto
+// version: 1.0.3
 // guid: 1f8fb98d-0197-472d-9b17-681ebc9772bf
 
 edition = "2023";

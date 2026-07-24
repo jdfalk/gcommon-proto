@@ -1,6 +1,5 @@
-// file: proto/gcommon/v2/queue/api/ack_level.proto
-// file: proto/gcommon/v2/queue/ack_level.proto
-// version: 1.0.2
+// file: commonpb/v2/ack_level.proto
+// version: 1.0.3
 // guid: 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
 //
 // Enum definitions for queue module
