@@ -1,112 +1,145 @@
 <!-- file: README.md -->
-<!-- version: 2.0.0 -->
+<!-- version: 3.0.0 -->
 <!-- guid: 1a2b3c4d-e5f6-7a8b-9c0d-1e2f3a4b5c6d -->
+<!-- last-edited: 2026-07-23 -->
 
-# GCommon - Protocol Buffer Definitions for Common Services
+# gcommon — Protocol Buffer definitions
 
-[![Buf](https://img.shields.io/badge/buf-build%2Fjdfalk%2Fgcommon-blue)](https://buf.build/falkcorp/gcommon)
-[![CI](https://github.com/falkcorp/gcommon/workflows/ci/badge.svg)](https://github.com/falkcorp/gcommon/actions)
+[![BSR](https://img.shields.io/badge/buf.build-falkcorp%2Fgcommon-blue)](https://buf.build/falkcorp/gcommon)
+[![CI](https://github.com/falkcorp/gcommon/actions/workflows/ci.yml/badge.svg)](https://github.com/falkcorp/gcommon/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**GCommon** is a centralized repository of Protocol Buffer definitions for common business services. It provides standardized gRPC service definitions and message types that can be used across multiple applications and languages.
+**gcommon is a protobuf-definitions-only repository.** The `.proto` files here are
+the single source of truth for a set of common gRPC services and message types.
+They are published to the **[Buf Schema Registry](https://buf.build/falkcorp/gcommon)**,
+and **consumers pull generated SDKs from BSR** for Go, Python, Rust, and any other
+language buf supports.
 
-## 🚀 Quick Start
+> This repo does **not** build, commit, or release language SDKs, and there are no
+> per-language SDK repositories. That machinery was retired — see [`archive/`](archive/README.md).
+> "We're not in the buf-building business; we just pull it."
 
-### Using the Buf Schema Registry (BSR)
+## Consuming these protos
 
-The easiest way to use GCommon is through the [Buf Schema Registry](https://buf.build/falkcorp/gcommon):
+### Go — pull the generated SDK from BSR
+
+```bash
+go get buf.build/gen/go/falkcorp/gcommon/protocolbuffers/go   # message types
+go get buf.build/gen/go/falkcorp/gcommon/grpc/go              # gRPC service stubs
+```
+
+```go
+import commonv2 "buf.build/gen/go/falkcorp/gcommon/protocolbuffers/go/common/v2"
+```
+
+BSR runs a Go module proxy, so `go get` resolves the generated code directly — no
+`gcommon-go` repo, no committed generated code.
+
+### Python — pull from the BSR Python index
+
+```bash
+pip install falkcorp-gcommon-protocolbuffers-python --extra-index-url https://buf.build/gen/python
+```
+
+### Rust / other languages
+
+Add gcommon as a buf dependency and generate locally, or pull the BSR-generated SDK:
 
 ```yaml
-# buf.yaml
+# your project's buf.yaml
 version: v2
 deps:
   - buf.build/falkcorp/gcommon
 ```
 
-### Language-Specific SDKs
+```bash
+buf generate   # against your own buf.gen.yaml with the plugins you want
+```
 
-- **Go**: [github.com/falkcorp/gcommon-go](https://github.com/falkcorp/gcommon-go)
-- **Python**: [github.com/falkcorp/gcommon-py](https://github.com/falkcorp/gcommon-py)
+> Exact BSR SDK package names resolve once the module is published and its
+> per-language plugins are configured on BSR (see **Publishing** below).
 
-## 📦 Module Overview
+## Modules
 
-GCommon provides **9 core modules** with **1,734 protocol buffer definitions**:
+Ten families, each with a `v1` and a `v2` package (v2 is current):
 
-| Module           | Files | Description                                                |
-| ---------------- | ----- | ---------------------------------------------------------- |
-| **common**       | 509   | Shared types, errors, pagination, and utility messages     |
-| **config**       | 114   | Configuration management and settings                      |
-| **database**     | 139   | Database operations, migrations, and connection management |
-| **health**       | 36    | Health checks, monitoring, and service status              |
-| **media**        | 75    | Media processing, subtitles, and content management        |
-| **metrics**      | 220   | System metrics, alerting, and performance monitoring       |
-| **organization** | 117   | Multi-tenant organization and user management              |
-| **queue**        | 322   | Message queuing, job processing, and task management       |
-| **web**          | 202   | HTTP services, middleware, and web application utilities   |
+| Family (`*pb`)     | Description                                                     |
+| ------------------ | -------------------------------------------------------------- |
+| **authpb**         | Authentication: login, tokens, API keys, OAuth, sessions       |
+| **commonpb**       | Shared types, errors, pagination, auth/log/notification/health |
+| **configpb**       | Configuration management and settings                          |
+| **databasepb**     | Database ops, cache, migrations, transactions                  |
+| **healthpb**       | Health checks, monitoring, service status                      |
+| **mediapb**        | Media processing, audio, subtitles, content management         |
+| **metricspb**      | System metrics, alerting, performance monitoring               |
+| **organizationpb** | Multi-tenant organization, hierarchy, tenant management        |
+| **queuepb**        | Message queuing, job processing, workflow                      |
+| **webpb**          | HTTP services and web application utilities                    |
 
-## 🏗️ Repository Structure
+## Repository structure
 
 ```text
 gcommon/
-├── common/v1/           # Shared types and utilities
-├── config/v1/           # Configuration management
-├── database/v1/         # Database operations
-├── health/v1/           # Health monitoring
-├── media/v1/            # Media processing
-├── metrics/v1/          # System metrics
-├── organization/v1/     # Organization management
-├── queue/v1/            # Message queuing
-├── web/v1/              # Web services
-├── buf.yaml             # Buf configuration
-└── proto-docs/          # Generated documentation
+├── <family>pb/v1/       # v1 definitions (legacy)
+├── <family>pb/v2/       # v2 definitions (current)   e.g. commonpb/v2/, mediapb/v2/
+├── buf.yaml             # buf module config (name: buf.build/falkcorp/gcommon)
+├── buf.lock             # pinned buf dependencies
+├── buf.gen.yaml         # validation-only (no language generation here)
+├── proto-docs/          # generated protobuf documentation
+└── archive/             # retired SDK-building machinery (reference only)
 ```
 
-## 🔧 Development
+## Development
 
 ### Prerequisites
 
-- [Buf CLI](https://buf.build/docs/installation) v1.28.0+
-- [Protocol Buffers](https://protobuf.dev/downloads/) v25.0+
+- [Buf CLI](https://buf.build/docs/installation) v1.50+
 
-### Local Development
+### Working on protos
 
 ```bash
-# Clone the repository
 git clone https://github.com/falkcorp/gcommon.git
 cd gcommon
 
-# Lint protocol buffers
-buf lint
-
-# Generate documentation
-buf generate
+buf lint                                     # lint all definitions
+buf format -w                                # auto-format
+buf breaking --against '.git#branch=main'    # check for breaking changes vs main
 ```
 
-### Adding New Definitions
+### Adding or changing definitions
 
-1. Add your `.proto` files to the appropriate module directory (`module/v1/`)
-2. Update imports to use the new module structure: `import "common/v1/error.proto";`
-3. Ensure `go_package` options follow the pattern: `option go_package = "github.com/falkcorp/gcommon/module/v1";`
-4. Run `buf lint` to validate
-5. Submit a pull request
+1. Add/edit `.proto` files under the appropriate `<family>pb/v2/` directory.
+2. Keep imports pointed at the real paths, e.g. `import "commonpb/v2/error.proto";`.
+3. Run `buf lint` (and `buf breaking` for changes to existing messages — this repo
+   treats consumer wire-compatibility as a hard constraint).
+4. Open a PR. CI runs `buf lint` + `buf breaking`.
 
-## 📖 Documentation
+## Publishing (to BSR)
 
-- **[API Documentation](proto-docs/)** - Generated from protocol buffers
-- **[Buf Schema Registry](https://buf.build/falkcorp/gcommon)** - Browse definitions online
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
-- **[Changelog](CHANGELOG.md)** - Version history
+Publishing is **automated on version tags** via
+[`.github/workflows/buf-push.yml`](.github/workflows/buf-push.yml): tagging `vX.Y.Z`
+(or a manual `workflow_dispatch`) runs `buf push` to `buf.build/falkcorp/gcommon`.
+The module is created public on first push.
 
-## 🤝 Contributing
+Requires a repository secret `BUF_TOKEN` (a BSR API token with write access):
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+```bash
+gh secret set BUF_TOKEN --repo falkcorp/gcommon
+```
 
-## 📄 License
+## CI
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **`ci.yml`** — `buf lint` + `buf breaking` (vs `main`) on every PR. Protos-only;
+  no language builds.
+- Security: the repo is public, so GitHub-native secret scanning + Dependabot apply.
 
-## 🆘 Need Help?
+## Documentation
 
-- **Issues**: [GitHub Issues](https://github.com/falkcorp/gcommon/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/falkcorp/gcommon/discussions)
-- **Documentation**: [proto-docs/](proto-docs/)
+- **[Buf Schema Registry](https://buf.build/falkcorp/gcommon)** — browse definitions
+- **[proto-docs/](proto-docs/)** — generated API documentation
+- **[Contributing Guide](CONTRIBUTING.md)**
+- **[archive/README.md](archive/README.md)** — the retired SDK-building model and why
+
+## License
+
+MIT — see [LICENSE](LICENSE).
