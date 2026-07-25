@@ -1,0 +1,40 @@
+// file: queuepb/v2/workflow_step.proto
+// version: 1.0.0
+// guid: f8b9d644-2aa5-43d4-a355-93b47dde33d6
+
+edition = "2023";
+
+package queue.v2;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
+
+/**
+ * WorkflowStep is a single node in a workflow's execution DAG.
+ *
+ * Steps form a directed acyclic graph via `depends_on`: a step becomes eligible
+ * to run once every step it depends on has completed. Steps with no dependencies
+ * are the entry points. The concrete work a step performs is carried in `config`
+ * as a task-specific message, so the workflow definition stays generic.
+ */
+message WorkflowStep {
+  // Unique identifier for this step within its workflow.
+  string step_id = 1 [(buf.validate.field).string.min_len = 1];
+
+  // Human-readable step name.
+  string name = 2 [(buf.validate.field).string.max_len = 100];
+
+  // step_ids of the steps that must complete before this step runs.
+  // Empty means this step is an entry point. Must reference steps in the same
+  // workflow; a cycle makes the workflow invalid.
+  repeated string depends_on = 3;
+
+  // Task-specific payload describing the work this step performs (e.g. a publish,
+  // an HTTP call, a sub-workflow). Left as Any so the workflow model does not need
+  // to know every task type.
+  google.protobuf.Any config = 4;
+}

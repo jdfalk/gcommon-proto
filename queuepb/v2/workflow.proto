@@ -1,5 +1,5 @@
 // file: queuepb/v2/workflow.proto
-// version: 1.0.2
+// version: 1.1.0
 // guid: 6f7e8d9c-0b1a-2534-6e7f-8a9b0c1d2e3f
 
 edition = "2023";
@@ -8,6 +8,7 @@ package queue.v2;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
+import "queuepb/v2/workflow_step.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
@@ -34,4 +35,9 @@ message QueueWorkflow {
 
   // Whether the workflow is active
   bool enabled = 5;
+
+  // The workflow's execution graph. Each step declares its dependencies via
+  // WorkflowStep.depends_on, forming a DAG. Empty means the workflow has no
+  // steps defined yet.
+  repeated WorkflowStep steps = 6;
 }
