@@ -1,9 +1,13 @@
 <!-- file: README.md -->
-<!-- version: 3.0.0 -->
+<!-- version: 3.1.0 -->
 <!-- guid: 1a2b3c4d-e5f6-7a8b-9c0d-1e2f3a4b5c6d -->
-<!-- last-edited: 2026-07-23 -->
+<!-- last-edited: 2026-07-25 -->
 
 # gcommon — Protocol Buffer definitions
+
+> **Picking this up after a break?** Start with
+> [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) — the single source of truth for
+> current state, distribution model, what's deferred, and how to resume.
 
 [![BSR](https://img.shields.io/badge/buf.build-falkcorp%2Fgcommon-blue)](https://buf.build/falkcorp/gcommon)
 [![CI](https://github.com/falkcorp/gcommon/actions/workflows/ci.yml/badge.svg)](https://github.com/falkcorp/gcommon/actions/workflows/ci.yml)
@@ -29,11 +33,15 @@ go get buf.build/gen/go/falkcorp/gcommon/grpc/go              # gRPC service stu
 ```
 
 ```go
-import commonv2 "buf.build/gen/go/falkcorp/gcommon/protocolbuffers/go/common/v2"
+// message types (package name: commonv2)
+import commonv2 "buf.build/gen/go/falkcorp/gcommon/protocolbuffers/go/commonpb/v2"
+// gRPC service stubs live in a SEPARATE module/package (package name: commonv2grpc)
+import commonv2grpc "buf.build/gen/go/falkcorp/gcommon/grpc/go/commonpb/v2/commonv2grpc"
 ```
 
 BSR runs a Go module proxy, so `go get` resolves the generated code directly — no
-`gcommon-go` repo, no committed generated code.
+`gcommon-go` repo, no committed generated code. The generated modules verify against
+the public Go checksum DB, so no `GOSUMDB` configuration is required.
 
 ### Python — pull from the BSR Python index
 
