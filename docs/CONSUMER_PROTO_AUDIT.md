@@ -1,7 +1,7 @@
 <!-- file: docs/CONSUMER_PROTO_AUDIT.md -->
-<!-- version: 1.0.0 -->
+<!-- version: 1.1.0 -->
 <!-- guid: 9c2f4a71-6d38-4b0e-9f21-1a7c5e83d4b6 -->
-<!-- last-edited: 2026-07-24 -->
+<!-- last-edited: 2026-07-25 -->
 
 # gcommon Phase C — Consumer-Driven Proto Audit
 
@@ -66,33 +66,41 @@ construction more verbose for consumers. Not required work — the opaque API is
 deliberate, defensible choice — but it is the one place a consumer hit friction the
 proto repo owns, worth noting for future ergonomics discussion.
 
-## Real quality gaps found (NOT consumer-demanded — defer under consumer-driven scope)
+## Real quality gaps found (NOT consumer-demanded) — status 2026-07-25
 
-- **webpb is hollow:** 94 files contain `string placeholder = 1` stub bodies
-  (`webpb/v2/handle_request.proto` etc.). No consumer imports webpb, so this is out
-  of consumer-driven scope — but the package is not usable as-is.
-- **queuepb workflow is opaque:** `StartWorkflowRequest.workflow_definition` is a
-  bare `string`; `QueueWorkflow` has no step/DAG structure. No consumer uses
-  WorkflowService, so not blocking.
+- **queuepb workflow — FIXED (PR #1138 + #1139, merged).** `QueueWorkflow` now carries
+  a typed `repeated WorkflowStep steps` DAG (`WorkflowStep` = step_id + name +
+  `depends_on` edges + `Any config`), and `StartWorkflowRequest` takes a typed
+  `QueueWorkflow definition`; the opaque `workflow_definition` string is deprecated. No
+  workflow engine was modeled (no retries/conditionals/timeouts) — just a typed graph.
+- **webpb is hollow — DEFERRED to the multi-language-implementations ultracode session.**
+  94 files are `string placeholder = 1` stub bodies, and they are not merely missing
+  fields: they are ~46 orphaned request/response pairs (only 5 of the ~46 implied
+  operations are wired as RPCs across `web_service.proto` / `web_admin_service.proto`).
+  So "filling webpb" means designing AND wiring a whole 46-operation web-framework API
+  (routing, handlers, middleware, static files, templates, websockets, cookies, CSRF,
+  CORS, security, server lifecycle, auth, metrics) with **zero consumers and no
+  implementation to validate it**. Per owner decision (2026-07-25), webpb is left
+  intentionally unbuilt and will be designed in the dedicated implementations ultracode
+  session, where the API can be co-designed against a real implementation instead of
+  guessed.
 
-## Cross-cutting finding: stale `go_package` in every proto
+## Cross-cutting finding: stale `go_package` — FIXED (PR #1136)
 
-**All 1774 protos declare `option go_package = "github.com/jdfalk/gcommon/..."`** —
-the retired `jdfalk` path; **zero** use `falkcorp`. Because the pivot distributes via
-BSR (`buf.build/gen/go/falkcorp/gcommon/...`), BSR-generated SDK import paths are
-*expected* to be unaffected — **if** managed mode is enabled in the BSR module's
-generation config (not yet confirmed) — so this is **low severity** for the chosen
-model. It
-would mislead / break anyone running local `buf generate` with a Go plugin. Cleanest
-fix is buf managed-mode override rather than editing 1774 files; or a one-time sed if
-the `go_package` option is to be kept accurate.
+Originally all 1774 protos declared `option go_package = "github.com/jdfalk/gcommon/..."`
+(the retired `jdfalk` path; zero used `falkcorp`). Repointed to
+`github.com/falkcorp/gcommon/v2/pkg/<pkg>/v2` in PR #1136 — the path consumers actually
+import — so the source metadata is honest. `FILE_SAME_GO_PACKAGE` was added to the
+buf.yaml breaking `except` (go_package is vestigial under BSR-managed distribution).
 
-## Actionable remaining work to close Phase C (residuals, not audit-driven)
+## Phase C close-out — all residuals DONE
 
-1. Add `BUF_TOKEN` repo secret, then tag `vX.Y.Z` → `buf-push.yml` re-establishes the
-   deleted BSR module `buf.build/falkcorp/gcommon`.
-2. One-time `buf format -w` pass, then enable the format gate in `ci.yml`.
-3. Decide on `go_package` (managed-mode override vs. leave for BSR to fix).
-4. (Optional, non-blocking) migrate subtitle-manager off the `github.com/falkcorp/gcommon/v2`
-   Go-SDK module onto BSR-generated Go SDK — the actual point of the pivot; do when the
-   Go-SDK repo (`gcommon-go`) is retired.
+1. ✅ `BUF_TOKEN` set (falkcorp **org** secret, selected→gcommon); `v2.3.0` tagged →
+   `buf-push.yml` re-established `buf.build/falkcorp/gcommon` (public, live).
+2. ✅ One-time `buf format -w` applied tree-wide; the format gate is enforced in `ci.yml`.
+3. ✅ `go_package` repointed to `falkcorp` (PR #1136), see above.
+4. ✅ subtitle-manager migrated onto the BSR-generated Go SDK (PR #2203); the old
+   `gcommon-go` Go-SDK repo is archived.
+5. ✅ Proto-metadata debt fixed (PR #1137): `// file:` headers normalized, authpb
+   go_package `/v2` suffix.
+6. ✅ queuepb workflow typed (PR #1138/#1139). webpb deferred (see above).
