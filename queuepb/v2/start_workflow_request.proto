@@ -1,5 +1,5 @@
 // file: queuepb/v2/start_workflow_request.proto
-// version: 1.0.2
+// version: 1.1.0
 // guid: 2f3e4d5c-6b7a-8190-2e3f-4a5b6c7d8e9f
 
 edition = "2023";
@@ -8,20 +8,30 @@ package queue.v2;
 
 import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
+import "queuepb/v2/workflow.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/falkcorp/gcommon/v2/pkg/queuepb/v2";
 
 /**
  * StartWorkflowRequest defines the request for starting a workflow.
+ *
+ * Provide the workflow to run as a typed `definition` (preferred). Alternatively
+ * reference a previously registered workflow by `workflow_id`.
  */
 message StartWorkflowRequest {
-  // Workflow identifier
-  string workflow_id = 1 [(buf.validate.field).string.min_len = 1];
+  // Identifier of a registered workflow to start. Optional when `definition` is
+  // supplied inline.
+  string workflow_id = 1;
 
-  // Workflow definition or template
-  string workflow_definition = 2 [(buf.validate.field).string.min_len = 1];
+  // DEPRECATED: use `definition` for a typed workflow. Previously an opaque
+  // template/definition string with no schema.
+  string workflow_definition = 2 [deprecated = true];
 
-  // Input parameters for the workflow
+  // Input parameters passed to the workflow execution.
   map<string, string> parameters = 3;
+
+  // Typed workflow definition to run, including its step DAG. Preferred over the
+  // deprecated `workflow_definition` string.
+  QueueWorkflow definition = 4;
 }
