@@ -1,12 +1,11 @@
 // file: queuepb/v2/start_workflow_request.proto
-// version: 1.1.0
+// version: 1.1.1
 // guid: 2f3e4d5c-6b7a-8190-2e3f-4a5b6c7d8e9f
 
 edition = "2023";
 
 package queue.v2;
 
-import "buf/validate/validate.proto";
 import "google/protobuf/go_features.proto";
 import "queuepb/v2/workflow.proto";
 
